@@ -28,6 +28,10 @@
 
 package me.adaptive.arp.api;
 
+import java.io.Serializable;
 
-public interface IAdaptive {
+/**
+ * Created by clozano on 04/08/14.
+ */
+public interface IMap extends IBaseUI, Serializable {
 }
