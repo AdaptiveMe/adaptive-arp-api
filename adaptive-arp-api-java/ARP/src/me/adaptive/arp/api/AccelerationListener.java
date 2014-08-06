@@ -28,39 +28,32 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * @author Carlos Lozano Diez
  * @see me.adaptive.arp.api.Acceleration
- * @see me.adaptive.arp.api.AccelerationListener
+ * @see me.adaptive.arp.api.IAccelerometer
  * @since ARP1.0
  */
-public interface IAccelerometer extends IBaseSensor, Serializable {
-    /**
-     * Success = Correct reading. Unauthorized = No reading. User has not
-     * authorized a reading. NeedsCalibration = No reading. Device needs to be
-     * calibrated. Unavailable = No reading. Not supported or temporarily
-     * disabled.
-     */
-    enum Status {
-        Success, Unauthorized, NeedsCalibration, Unavailable
-    }
-    /**
-     * Register a new listener that will receive acceleration events.
-     *
-     * @param listener to be registered.
-     */
-    void addAccelerationListener(AccelerationListener listener);
-    /**
-     * De-registers an existing listener from receiving acceleration events.
-     *
-     * @param listener
-     */
-    void removeAccelerationListener(AccelerationListener listener);
-    /**
-     * Removed all existing listeners from receiving acceleration events.
-     */
-    void removeAccelerationListeners();
+public interface AccelerationListener {
 
+    /**
+     * Correct data received.
+     *
+     * @param acceleration
+     */
+    public void receivedData(Acceleration acceleration);
+
+    /**
+     * Data received with warning - ie. Needs calibration.
+     *
+     * @param acceleration
+     */
+    public void receivedWarning(Acceleration acceleration);
+
+    /**
+     * No data received - error condition, not authorized or hardware not available.
+     *
+     * @param acceleration
+     */
+    public void receivedError(Acceleration acceleration);
 }
