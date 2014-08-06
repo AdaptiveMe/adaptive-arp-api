@@ -6,6 +6,7 @@ JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home
 
 ADAPTIVEWARE_JAVA_GIT_REPO = https://github.com/Adaptiveware/adaptiveware-core-interfaces-java.git
 ADAPTIVEWARE_JAVA_DIR = tmp
+ADAPTIVEWARE_JAVA_DIR_IN = tmp.in
 ADAPTIVEWARE_JAVA_SOURCE = $(ADAPTIVEWARE_JAVA_DIR)/README
 ADAPTIVEWARE_JAVA_GIT = @cd $(ADAPTIVEWARE_JAVA_DIR) && git
 ADAPTIVEWARE_JAVA_BRANCH = master
@@ -21,6 +22,7 @@ clean:
 	@echo "$(SB)Cleaning.$(EB)"
 	@rm -rf $(ADAPTIVEWARE_NET_DIR)
 	@rm -rf $(ADAPTIVEWARE_JAVA_DIR)
+	@rm -rf $(ADAPTIVEWARE_JAVA_DIR_IN)
 	@rm -rf $(ADAPTIVEWARE_CLASSES)
 	@rm -rf $(ADAPTIVEWARE_JAVA_FILELIST)
 	@echo "$(SB)Cleaning done.$(EB)"
@@ -33,8 +35,10 @@ cleanall: clean
 $(ADAPTIVEWARE_JAVA_SOURCE):
 	@echo -e "$(SB)Getting Java sources from GIT.$(EB)"
 	@mkdir -p $(ADAPTIVEWARE_JAVA_DIR)
+	@mkdir -p $(ADAPTIVEWARE_JAVA_DIR_IN)
 	git clone $(ADAPTIVEWARE_JAVA_GIT_REPO) $(ADAPTIVEWARE_JAVA_DIR)
 	@echo -e "$(SB)Getting Java sources from GIT -> OK.$(EB)"
+
 
 fetch: $(ADAPTIVEWARE_JAVA_SOURCE)
 	@echo -e "$(SB)Changing branch to $(ADAPTIVEWARE_JAVA_BRANCH).$(EB)"
@@ -55,6 +59,7 @@ generate: clean fetch
 	$(SHARPEN) $(ADAPTIVEWARE_JAVA_DIR)/src/main/ Project java sharpen-options $(ADAPTIVEWARE_NET_DIR) adaptiveware.header
 	@rm -rf $(ADAPTIVEWARE_CLASSES)
 	@rm -rf $(ADAPTIVEWARE_JAVA_DIR)
+	@rm -rf $(ADAPTIVEWARE_JAVA_DIR_IN)
 	@rm -rf $(ADAPTIVEWARE_JAVA_FILELIST)
 	@echo "$(SB)Translating Java sources to C# sources -> OK.$(EB)"
 
