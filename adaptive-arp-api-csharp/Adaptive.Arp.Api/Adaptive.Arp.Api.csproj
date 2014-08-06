@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{22EFB2FD-8E7C-4880-BAAE-780C3C055305}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Adaptive.Arp.Api</RootNamespace>
+    <AssemblyName>Adaptive.Arp.Api</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <ReleaseVersion>1.0</ReleaseVersion>
+    <CodePage>65001</CodePage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DocumentationFile>bin\Debug\Adaptive.Arp.Api.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Adaptive\Arp\Api\Acceleration.cs" />
+    <Compile Include="Adaptive\Arp\Api\AccelerationListener.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAccelerometer.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAdaptiveRP.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAds.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAlarm.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAmbientLight.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAnalytics.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAudio.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBarcode.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBarometer.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseApplication.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseCommerce.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseCommunication.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseData.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseMedia.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseNotification.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBasePIM.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseReader.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseSecurity.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseSensor.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseSocial.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseSystem.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseUI.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBaseUtil.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBluetooth.cs" />
+    <Compile Include="Adaptive\Arp\Api\IBrowser.cs" />
+    <Compile Include="Adaptive\Arp\Api\ICalendar.cs" />
+    <Compile Include="Adaptive\Arp\Api\ICamera.cs" />
+    <Compile Include="Adaptive\Arp\Api\ICapabilities.cs" />
+    <Compile Include="Adaptive\Arp\Api\ICloud.cs" />
+    <Compile Include="Adaptive\Arp\Api\ICompression.cs" />
+    <Compile Include="Adaptive\Arp\Api\IConcurrent.cs" />
+    <Compile Include="Adaptive\Arp\Api\IContact.cs" />
+    <Compile Include="Adaptive\Arp\Api\ICrypto.cs" />
+    <Compile Include="Adaptive\Arp\Api\IDataStream.cs" />
+    <Compile Include="Adaptive\Arp\Api\IDatabase.cs" />
+    <Compile Include="Adaptive\Arp\Api\IDesktop.cs" />
+    <Compile Include="Adaptive\Arp\Api\IDevice.cs" />
+    <Compile Include="Adaptive\Arp\Api\IDisplay.cs" />
+    <Compile Include="Adaptive\Arp\Api\IFacebook.cs" />
+    <Compile Include="Adaptive\Arp\Api\IFile.cs" />
+    <Compile Include="Adaptive\Arp\Api\IGeolocation.cs" />
+    <Compile Include="Adaptive\Arp\Api\IGlobalization.cs" />
+    <Compile Include="Adaptive\Arp\Api\IGooglePlus.cs" />
+    <Compile Include="Adaptive\Arp\Api\IGyroscope.cs" />
+    <Compile Include="Adaptive\Arp\Api\IImaging.cs" />
+    <Compile Include="Adaptive\Arp\Api\ILifecycle.cs" />
+    <Compile Include="Adaptive\Arp\Api\ILinkedIn.cs" />
+    <Compile Include="Adaptive\Arp\Api\ILogging.cs" />
+    <Compile Include="Adaptive\Arp\Api\IMagnetometer.cs" />
+    <Compile Include="Adaptive\Arp\Api\IMail.cs" />
+    <Compile Include="Adaptive\Arp\Api\IManagement.cs" />
+    <Compile Include="Adaptive\Arp\Api\IMap.cs" />
+    <Compile Include="Adaptive\Arp\Api\IMessaging.cs" />
+    <Compile Include="Adaptive\Arp\Api\INFC.cs" />
+    <Compile Include="Adaptive\Arp\Api\INetworkInfo.cs" />
+    <Compile Include="Adaptive\Arp\Api\INetworkNaming.cs" />
+    <Compile Include="Adaptive\Arp\Api\INetworkReachability.cs" />
+    <Compile Include="Adaptive\Arp\Api\INetworkStatus.cs" />
+    <Compile Include="Adaptive\Arp\Api\INotification.cs" />
+    <Compile Include="Adaptive\Arp\Api\INotificationLocal.cs" />
+    <Compile Include="Adaptive\Arp\Api\IOAuth.cs" />
+    <Compile Include="Adaptive\Arp\Api\IOCR.cs" />
+    <Compile Include="Adaptive\Arp\Api\IOS.cs" />
+    <Compile Include="Adaptive\Arp\Api\IOpenId.cs" />
+    <Compile Include="Adaptive\Arp\Api\IPrinting.cs" />
+    <Compile Include="Adaptive\Arp\Api\IProximity.cs" />
+    <Compile Include="Adaptive\Arp\Api\IQRCode.cs" />
+    <Compile Include="Adaptive\Arp\Api\IRSS.cs" />
+    <Compile Include="Adaptive\Arp\Api\IRuntime.cs" />
+    <Compile Include="Adaptive\Arp\Api\ISecurity.cs" />
+    <Compile Include="Adaptive\Arp\Api\IServices.cs" />
+    <Compile Include="Adaptive\Arp\Api\ISettings.cs" />
+    <Compile Include="Adaptive\Arp\Api\ISocket.cs" />
+    <Compile Include="Adaptive\Arp\Api\IStore.cs" />
+    <Compile Include="Adaptive\Arp\Api\ITelephony.cs" />
+    <Compile Include="Adaptive\Arp\Api\ITimer.cs" />
+    <Compile Include="Adaptive\Arp\Api\ITwitter.cs" />
+    <Compile Include="Adaptive\Arp\Api\IUI.cs" />
+    <Compile Include="Adaptive\Arp\Api\IUpdate.cs" />
+    <Compile Include="Adaptive\Arp\Api\IVibration.cs" />
+    <Compile Include="Adaptive\Arp\Api\IVideo.cs" />
+    <Compile Include="Adaptive\Arp\Api\IWallet.cs" />
+    <Compile Include="Adaptive\Arp\Api\IXML.cs" />
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Main.cs">
+      <Link>SharpZipLib\Main.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\SharpZipBaseException.cs">
+      <Link>SharpZipLib\SharpZipBaseException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2.cs">
+      <Link>SharpZipLib\BZip2\BZip2.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2Constants.cs">
+      <Link>SharpZipLib\BZip2\BZip2Constants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2Exception.cs">
+      <Link>SharpZipLib\BZip2\BZip2Exception.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2InputStream.cs">
+      <Link>SharpZipLib\BZip2\BZip2InputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2OutputStream.cs">
+      <Link>SharpZipLib\BZip2\BZip2OutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\Adler32.cs">
+      <Link>SharpZipLib\Checksums\Adler32.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\CRC32.cs">
+      <Link>SharpZipLib\Checksums\CRC32.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\IChecksum.cs">
+      <Link>SharpZipLib\Checksums\IChecksum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\StrangeCRC.cs">
+      <Link>SharpZipLib\Checksums\StrangeCRC.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\FileSystemScanner.cs">
+      <Link>SharpZipLib\Core\FileSystemScanner.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\INameTransform.cs">
+      <Link>SharpZipLib\Core\INameTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\IScanFilter.cs">
+      <Link>SharpZipLib\Core\IScanFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\NameFilter.cs">
+      <Link>SharpZipLib\Core\NameFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\PathFilter.cs">
+      <Link>SharpZipLib\Core\PathFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\StreamUtils.cs">
+      <Link>SharpZipLib\Core\StreamUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\WindowsPathUtils.cs">
+      <Link>SharpZipLib\Core\WindowsPathUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Encryption\PkzipClassic.cs">
+      <Link>SharpZipLib\Encryption\PkzipClassic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Encryption\ZipAESStream.cs">
+      <Link>SharpZipLib\Encryption\ZipAESStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Encryption\ZipAESTransform.cs">
+      <Link>SharpZipLib\Encryption\ZipAESTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GZIPConstants.cs">
+      <Link>SharpZipLib\GZip\GZIPConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GZipException.cs">
+      <Link>SharpZipLib\GZip\GZipException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GzipInputStream.cs">
+      <Link>SharpZipLib\GZip\GzipInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GzipOutputStream.cs">
+      <Link>SharpZipLib\GZip\GzipOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Lzw\LzwConstants.cs">
+      <Link>SharpZipLib\Lzw\LzwConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Lzw\LzwException.cs">
+      <Link>SharpZipLib\Lzw\LzwException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Lzw\LzwInputStream.cs">
+      <Link>SharpZipLib\Lzw\LzwInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\InvalidHeaderException.cs">
+      <Link>SharpZipLib\Tar\InvalidHeaderException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarArchive.cs">
+      <Link>SharpZipLib\Tar\TarArchive.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarBuffer.cs">
+      <Link>SharpZipLib\Tar\TarBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarEntry.cs">
+      <Link>SharpZipLib\Tar\TarEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarException.cs">
+      <Link>SharpZipLib\Tar\TarException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarHeader.cs">
+      <Link>SharpZipLib\Tar\TarHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarInputStream.cs">
+      <Link>SharpZipLib\Tar\TarInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarOutputStream.cs">
+      <Link>SharpZipLib\Tar\TarOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\FastZip.cs">
+      <Link>SharpZipLib\Zip\FastZip.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\IEntryFactory.cs">
+      <Link>SharpZipLib\Zip\IEntryFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\WindowsNameTransform.cs">
+      <Link>SharpZipLib\Zip\WindowsNameTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipConstants.cs">
+      <Link>SharpZipLib\Zip\ZipConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipEntry.cs">
+      <Link>SharpZipLib\Zip\ZipEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipEntryFactory.cs">
+      <Link>SharpZipLib\Zip\ZipEntryFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipException.cs">
+      <Link>SharpZipLib\Zip\ZipException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipExtraData.cs">
+      <Link>SharpZipLib\Zip\ZipExtraData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipFile.cs">
+      <Link>SharpZipLib\Zip\ZipFile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipHelperStream.cs">
+      <Link>SharpZipLib\Zip\ZipHelperStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipInputStream.cs">
+      <Link>SharpZipLib\Zip\ZipInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipNameTransform.cs">
+      <Link>SharpZipLib\Zip\ZipNameTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipOutputStream.cs">
+      <Link>SharpZipLib\Zip\ZipOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Deflater.cs">
+      <Link>SharpZipLib\Zip\Compression\Deflater.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterConstants.cs">
+      <Link>SharpZipLib\Zip\Compression\DeflaterConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterEngine.cs">
+      <Link>SharpZipLib\Zip\Compression\DeflaterEngine.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterHuffman.cs">
+      <Link>SharpZipLib\Zip\Compression\DeflaterHuffman.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterPending.cs">
+      <Link>SharpZipLib\Zip\Compression\DeflaterPending.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Inflater.cs">
+      <Link>SharpZipLib\Zip\Compression\Inflater.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\InflaterDynHeader.cs">
+      <Link>SharpZipLib\Zip\Compression\InflaterDynHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\InflaterHuffmanTree.cs">
+      <Link>SharpZipLib\Zip\Compression\InflaterHuffmanTree.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\PendingBuffer.cs">
+      <Link>SharpZipLib\Zip\Compression\PendingBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\DeflaterOutputStream.cs">
+      <Link>SharpZipLib\Zip\Compression\Streams\DeflaterOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\InflaterInputStream.cs">
+      <Link>SharpZipLib\Zip\Compression\Streams\InflaterInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\OutputWindow.cs">
+      <Link>SharpZipLib\Zip\Compression\Streams\OutputWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\StreamManipulator.cs">
+      <Link>SharpZipLib\Zip\Compression\Streams\StreamManipulator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AList.cs">
+      <Link>Sharpen\AList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AbstractCollection.cs">
+      <Link>Sharpen\AbstractCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AbstractList.cs">
+      <Link>Sharpen\AbstractList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AbstractMap.cs">
+      <Link>Sharpen\AbstractMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AbstractSet.cs">
+      <Link>Sharpen\AbstractSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AccessController.cs">
+      <Link>Sharpen\AccessController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Arrays.cs">
+      <Link>Sharpen\Arrays.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AtomicBoolean.cs">
+      <Link>Sharpen\AtomicBoolean.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AtomicInteger.cs">
+      <Link>Sharpen\AtomicInteger.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AtomicLong.cs">
+      <Link>Sharpen\AtomicLong.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AtomicReference.cs">
+      <Link>Sharpen\AtomicReference.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AtomicReferenceArray.cs">
+      <Link>Sharpen\AtomicReferenceArray.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Authenticator.cs">
+      <Link>Sharpen\Authenticator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\BitSet.cs">
+      <Link>Sharpen\BitSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\BufferedInputStream.cs">
+      <Link>Sharpen\BufferedInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\BufferedOutputStream.cs">
+      <Link>Sharpen\BufferedOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\BufferedReader.cs">
+      <Link>Sharpen\BufferedReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\BufferedWriter.cs">
+      <Link>Sharpen\BufferedWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ByteArrayInputStream.cs">
+      <Link>Sharpen\ByteArrayInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ByteArrayOutputStream.cs">
+      <Link>Sharpen\ByteArrayOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ByteBuffer.cs">
+      <Link>Sharpen\ByteBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ByteOrder.cs">
+      <Link>Sharpen\ByteOrder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\CRC32.cs">
+      <Link>Sharpen\CRC32.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Callable.cs">
+      <Link>Sharpen\Callable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Channels.cs">
+      <Link>Sharpen\Channels.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\CharBuffer.cs">
+      <Link>Sharpen\CharBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\CharSequence.cs">
+      <Link>Sharpen\CharSequence.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\CharsetDecoder.cs">
+      <Link>Sharpen\CharsetDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\CharsetEncoder.cs">
+      <Link>Sharpen\CharsetEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\CodingErrorAction.cs">
+      <Link>Sharpen\CodingErrorAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Collections.cs">
+      <Link>Sharpen\Collections.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ConcurrentHashMap.cs">
+      <Link>Sharpen\ConcurrentHashMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ConcurrentMap.cs">
+      <Link>Sharpen\ConcurrentMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\CopyOnWriteArrayList.cs">
+      <Link>Sharpen\CopyOnWriteArrayList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\CountDownLatch.cs">
+      <Link>Sharpen\CountDownLatch.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\CyclicBarrier.cs">
+      <Link>Sharpen\CyclicBarrier.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\DataConverter.cs">
+      <Link>Sharpen\DataConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\DateFormat.cs">
+      <Link>Sharpen\DateFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\DeflaterOutputStream.cs">
+      <Link>Sharpen\DeflaterOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\DigestInputStream.cs">
+      <Link>Sharpen\DigestInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\DigestOutputStream.cs">
+      <Link>Sharpen\DigestOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\EnumSet.cs">
+      <Link>Sharpen\EnumSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\EnumerableWrapper.cs">
+      <Link>Sharpen\EnumerableWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\EnumeratorWrapper.cs">
+      <Link>Sharpen\EnumeratorWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Exceptions.cs">
+      <Link>Sharpen\Exceptions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Executor.cs">
+      <Link>Sharpen\Executor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ExecutorService.cs">
+      <Link>Sharpen\ExecutorService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Executors.cs">
+      <Link>Sharpen\Executors.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Extensions.cs">
+      <Link>Sharpen\Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\FileChannel.cs">
+      <Link>Sharpen\FileChannel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\FileHelper.cs">
+      <Link>Sharpen\FileHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\FileInputStream.cs">
+      <Link>Sharpen\FileInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\FileLock.cs">
+      <Link>Sharpen\FileLock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\FileOutputStream.cs">
+      <Link>Sharpen\FileOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\FilePath.cs">
+      <Link>Sharpen\FilePath.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\FileReader.cs">
+      <Link>Sharpen\FileReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\FileWriter.cs">
+      <Link>Sharpen\FileWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\FilenameFilter.cs">
+      <Link>Sharpen\FilenameFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\FilterInputStream.cs">
+      <Link>Sharpen\FilterInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\FilterOutputStream.cs">
+      <Link>Sharpen\FilterOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Future.cs">
+      <Link>Sharpen\Future.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\GZIPInputStream.cs">
+      <Link>Sharpen\GZIPInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\GZIPOutputStream.cs">
+      <Link>Sharpen\GZIPOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\HttpURLConnection.cs">
+      <Link>Sharpen\HttpURLConnection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\InflaterInputStream.cs">
+      <Link>Sharpen\InflaterInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\InheritableThreadLocal.cs">
+      <Link>Sharpen\InheritableThreadLocal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\InputStream.cs">
+      <Link>Sharpen\InputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\InputStreamReader.cs">
+      <Link>Sharpen\InputStreamReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Iterable.cs">
+      <Link>Sharpen\Iterable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Iterator.cs">
+      <Link>Sharpen\Iterator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\JavaCalendar.cs">
+      <Link>Sharpen\JavaCalendar.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\LinkageError.cs">
+      <Link>Sharpen\LinkageError.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\LinkedHashMap.cs">
+      <Link>Sharpen\LinkedHashMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\LinkedHashSet.cs">
+      <Link>Sharpen\LinkedHashSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ListIterator.cs">
+      <Link>Sharpen\ListIterator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\MappedByteBuffer.cs">
+      <Link>Sharpen\MappedByteBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Matcher.cs">
+      <Link>Sharpen\Matcher.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\MessageDigest.cs">
+      <Link>Sharpen\MessageDigest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\MessageFormat.cs">
+      <Link>Sharpen\MessageFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ObjectInputStream.cs">
+      <Link>Sharpen\ObjectInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ObjectOutputStream.cs">
+      <Link>Sharpen\ObjectOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\OutputStream.cs">
+      <Link>Sharpen\OutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\OutputStreamWriter.cs">
+      <Link>Sharpen\OutputStreamWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\PasswordAuthentication.cs">
+      <Link>Sharpen\PasswordAuthentication.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Pattern.cs">
+      <Link>Sharpen\Pattern.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\PipedInputStream.cs">
+      <Link>Sharpen\PipedInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\PipedOutputStream.cs">
+      <Link>Sharpen\PipedOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\PrintWriter.cs">
+      <Link>Sharpen\PrintWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\PrivilegedAction.cs">
+      <Link>Sharpen\PrivilegedAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Process.cs">
+      <Link>Sharpen\Process.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Proxy.cs">
+      <Link>Sharpen\Proxy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ProxySelector.cs">
+      <Link>Sharpen\ProxySelector.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\RandomAccessFile.cs">
+      <Link>Sharpen\RandomAccessFile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ReentrantLock.cs">
+      <Link>Sharpen\ReentrantLock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Reference.cs">
+      <Link>Sharpen\Reference.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ReferenceQueue.cs">
+      <Link>Sharpen\ReferenceQueue.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ResourceBundle.cs">
+      <Link>Sharpen\ResourceBundle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Runnable.cs">
+      <Link>Sharpen\Runnable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Runtime.cs">
+      <Link>Sharpen\Runtime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\SSLContext.cs">
+      <Link>Sharpen\SSLContext.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ScheduledThreadPoolExecutor.cs">
+      <Link>Sharpen\ScheduledThreadPoolExecutor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\SimpleDateFormat.cs">
+      <Link>Sharpen\SimpleDateFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\SingletonList.cs">
+      <Link>Sharpen\SingletonList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\SoftReference.cs">
+      <Link>Sharpen\SoftReference.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\StackOverflowError.cs">
+      <Link>Sharpen\StackOverflowError.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\SynchronizedList.cs">
+      <Link>Sharpen\SynchronizedList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\Thread.cs">
+      <Link>Sharpen\Thread.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ThreadFactory.cs">
+      <Link>Sharpen\ThreadFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\ThreadPoolExecutor.cs">
+      <Link>Sharpen\ThreadPoolExecutor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\TimeUnit.cs">
+      <Link>Sharpen\TimeUnit.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\TreeSet.cs">
+      <Link>Sharpen\TreeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\TrustManager.cs">
+      <Link>Sharpen\TrustManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\URLEncoder.cs">
+      <Link>Sharpen\URLEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\WeakReference.cs">
+      <Link>Sharpen\WeakReference.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\WrappedSystemStream.cs">
+      <Link>Sharpen\WrappedSystemStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\X509Certificate.cs">
+      <Link>Sharpen\X509Certificate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\X509TrustManager.cs">
+      <Link>Sharpen\X509TrustManager.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Adaptive\" />
+    <Folder Include="SharpZipLib\" />
+    <Folder Include="Sharpen\" />
+  </ItemGroup>
+</Project>
