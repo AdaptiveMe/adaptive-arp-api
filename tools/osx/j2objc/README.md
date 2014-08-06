@@ -1,6 +1,6 @@
 # Adaptive Platform Runtime (Objective-C)
 
-##### This repository contains the Adaptive Core Interfaces for the Objective-C (Darwin) language. 
+##### This repository contains the Adaptive Core Interfaces for the Objective-C (OSX/iOS) language. 
 
 The code in this repository is sourced and generated semi-automatically. These interfaces and implementation are staging code for device specific implementations.
 
@@ -21,7 +21,7 @@ The code generation from Java to Objective-C is done using [j2objc](https://code
 2. Ensure you have ```jdk1.7.0_51``` installed. It should be here: ```/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk```. If not, download and install it.
 3. And no, this is not supported on Windows (before you ask).
 
-Steps to generate and compile the code:
+### Generation
 
 1. If you're not on a Mac OSX, stop here. Otherwise, goto 2.
 2. Run './configure.sh'.
