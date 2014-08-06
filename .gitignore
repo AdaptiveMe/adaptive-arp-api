@@ -5,3 +5,11 @@ tools/osx/j2objc/lastlogmessage
 tools/osx/j2objc/tmp.out
 
 tools/osx/j2objc/filelist.j
+
+tools/osx/sharpen/lastlogmessage
+
+tools/osx/sharpen/config.make
+
+tools/osx/sharpen/sharpen-options
+
+tools/osx/sharpen/tmp.out
