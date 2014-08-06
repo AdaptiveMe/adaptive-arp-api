@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		33A961EF4667B1CA895E05D7 /* adaptive_arp_api_objc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 33A96DC21C6B3F39492D642C /* adaptive_arp_api_objc.h */; };
+		33A966ABE805FCDC3D0E3301 /* libadaptive-arp-api-objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A96C6855397DC1697CA724 /* libadaptive-arp-api-objc.a */; };
+		33A96C7B6AA6395BF6C17A5B /* adaptive_arp_api_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A96C7E3A850D78DC3B1A20 /* adaptive_arp_api_objc.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33A96F71678E101ABBE30E53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33A96F4E4EF70CDFC8FD7230 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33A9675158FE426E1018782F;
+			remoteInfo = "adaptive-arp-api-objc";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		33A96705AB2C6522C2E88E75 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				33A961EF4667B1CA895E05D7 /* adaptive_arp_api_objc.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		33A960296A3ACF585615A282 /* adaptive-arp-api-objcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "adaptive-arp-api-objcTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33A965EA875614BD66AFF147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		33A96C6855397DC1697CA724 /* libadaptive-arp-api-objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libadaptive-arp-api-objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33A96C7E3A850D78DC3B1A20 /* adaptive_arp_api_objc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = adaptive_arp_api_objc.m; sourceTree = "<group>"; };
+		33A96DC21C6B3F39492D642C /* adaptive_arp_api_objc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = adaptive_arp_api_objc.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33A96720EAAD17E5EFCB2037 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33A966ABE805FCDC3D0E3301 /* libadaptive-arp-api-objc.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33A96E6355A8E09B637E5213 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33A961ECC68578E3CB58F25D /* adaptive-arp-api-objc */ = {
+			isa = PBXGroup;
+			children = (
+				33A96DC21C6B3F39492D642C /* adaptive_arp_api_objc.h */,
+				33A96C7E3A850D78DC3B1A20 /* adaptive_arp_api_objc.m */,
+			);
+			path = "adaptive-arp-api-objc";
+			sourceTree = "<group>";
+		};
+		33A962113258253A29F12169 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33A96C6855397DC1697CA724 /* libadaptive-arp-api-objc.a */,
+				33A960296A3ACF585615A282 /* adaptive-arp-api-objcTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33A9624051AEADE3FE212F2D = {
+			isa = PBXGroup;
+			children = (
+				33A962113258253A29F12169 /* Products */,
+				33A961ECC68578E3CB58F25D /* adaptive-arp-api-objc */,
+				33A96E5D3E4181B876494DBD /* adaptive-arp-api-objcTests */,
+			);
+			sourceTree = "<group>";
+		};
+		33A9692A95FA26C3B1493BC6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33A965EA875614BD66AFF147 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33A96E5D3E4181B876494DBD /* adaptive-arp-api-objcTests */ = {
+			isa = PBXGroup;
+			children = (
+				33A9692A95FA26C3B1493BC6 /* Supporting Files */,
+			);
+			path = "adaptive-arp-api-objcTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33A964C20DC4FECA1AAC5454 /* adaptive-arp-api-objcTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33A96A2F8C6110C85CDCF2FD /* Build configuration list for PBXNativeTarget "adaptive-arp-api-objcTests" */;
+			buildPhases = (
+				33A960EDA79929A464109D3F /* Sources */,
+				33A96720EAAD17E5EFCB2037 /* Frameworks */,
+				33A96802CCDA5D1E257478FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33A9670FE2C82EA77E477C9F /* PBXTargetDependency */,
+			);
+			name = "adaptive-arp-api-objcTests";
+			productName = "adaptive-arp-api-objcTests";
+			productReference = 33A960296A3ACF585615A282 /* adaptive-arp-api-objcTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		33A9675158FE426E1018782F /* adaptive-arp-api-objc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33A96E58E98EDDA85240B3E4 /* Build configuration list for PBXNativeTarget "adaptive-arp-api-objc" */;
+			buildPhases = (
+				33A966CB293BED4C09E89AB6 /* Sources */,
+				33A96E6355A8E09B637E5213 /* Frameworks */,
+				33A96705AB2C6522C2E88E75 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "adaptive-arp-api-objc";
+			productName = "adaptive-arp-api-objc";
+			productReference = 33A96C6855397DC1697CA724 /* libadaptive-arp-api-objc.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33A96F4E4EF70CDFC8FD7230 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = Adaptive;
+			};
+			buildConfigurationList = 33A96DB245C8BAFFCA68EA77 /* Build configuration list for PBXProject "adaptive-arp-api-objc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 33A9624051AEADE3FE212F2D;
+			productRefGroup = 33A962113258253A29F12169 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33A9675158FE426E1018782F /* adaptive-arp-api-objc */,
+				33A964C20DC4FECA1AAC5454 /* adaptive-arp-api-objcTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33A96802CCDA5D1E257478FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33A960EDA79929A464109D3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33A966CB293BED4C09E89AB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33A96C7B6AA6395BF6C17A5B /* adaptive_arp_api_objc.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33A9670FE2C82EA77E477C9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33A9675158FE426E1018782F /* adaptive-arp-api-objc */;
+			targetProxy = 33A96F71678E101ABBE30E53 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		33A962EA779021A4D5C0CFEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "adaptive-arp-api-objcTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		33A963C757A61AAEBCF33B6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		33A963CB3451D12909F70839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "adaptive-arp-api-objcTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		33A966183DDAC6BD33DB0966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33A96A80D7981423B89880F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		33A96B0EE4FD432E914C4ADD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33A96A2F8C6110C85CDCF2FD /* Build configuration list for PBXNativeTarget "adaptive-arp-api-objcTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33A962EA779021A4D5C0CFEF /* Debug */,
+				33A963CB3451D12909F70839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		33A96DB245C8BAFFCA68EA77 /* Build configuration list for PBXProject "adaptive-arp-api-objc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33A963C757A61AAEBCF33B6D /* Debug */,
+				33A966183DDAC6BD33DB0966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33A96E58E98EDDA85240B3E4 /* Build configuration list for PBXNativeTarget "adaptive-arp-api-objc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33A96A80D7981423B89880F5 /* Debug */,
+				33A96B0EE4FD432E914C4ADD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33A96F4E4EF70CDFC8FD7230 /* Project object */;
+}
