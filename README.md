@@ -11,8 +11,25 @@ Please refer to the [project site](http://adaptiveme.github.io) for more informa
 
 #### adaptive-arp-api-java
 
+* **IDE**
+	* JetBrains [Intellij IDEA 13.1](http://www.jetbrains.com/idea/download/) or higher.
+* **Dependencies**
+	* Java [JDK 1.7.0_51](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html?ssSourceSiteId=otnes) or higher. 
 
 #### adaptive-arp-api-objc
+
+* **IDE** 
+	* JetBrains [AppCode 3.0.2](http://www.jetbrains.com/objc/) or higher.
+	* Apple [Xcode 6.0 beta 4](https://developer.apple.com/xcode/) or higher.
+* **Dependencies**
+	* Java [JDK 1.7.0_51](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html?ssSourceSiteId=otnes) or higher. 
+
+#### adaptive-arp-api-csharp
+
+* **IDE**
+	* [MonoDevelop 5.0.1](http://monodevelop.com/Download) or higher / [Xamarin Studio 5.0.1](http://monodevelop.com/Download) or higher.
+* **Dependencies**
+	* [Mono MDK 3.4.0](http://www.go-mono.com/mono-downloads/download.html) or higher.
 
 
 ## Contributing
