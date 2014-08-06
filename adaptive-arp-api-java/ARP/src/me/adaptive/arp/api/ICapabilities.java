@@ -31,7 +31,152 @@ package me.adaptive.arp.api;
 import java.io.Serializable;
 
 /**
- * Created by clozano on 04/08/14.
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
  */
 public interface ICapabilities extends IBaseSystem, Serializable {
+    /**
+     * Sensor type enumeration.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    enum Sensor {
+        Accelerometer, AmbientLight, Barometer, Geolocation, Gyroscope, Magnetometer, Proximity
+    }
+
+    ;
+
+    /**
+     * Determines whether a specific Sensor capability is supported by the
+     * device.
+     *
+     * @param type Type of feature to check.
+     * @return true if supported, false otherwise.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    boolean hasSensorSupport(Sensor type);
+
+    /**
+     * PIM functionality support enumeration.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    enum Communication {
+        Calendar, Contact, Mail, Messaging, Telephony
+    }
+
+    ;
+
+    /**
+     * Determines whether a specific Communication capability is supported by
+     * the device.
+     *
+     * @param type Type of feature to check.
+     * @return true if supported, false otherwise.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    boolean hasCommunicationSupport(Communication type);
+
+    /**
+     * Storage functionality support enumeration.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    enum Data {
+        Database, File, Cloud
+    }
+
+    /**
+     * Determines whether a specific Data capability is supported by the device.
+     *
+     * @param type Type of feature to check.
+     * @return true if supported, false otherwise.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    boolean hasDataSupport(Data type);
+
+    /**
+     * Media functionality support enumeration.
+     */
+    enum Media {
+        Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording
+    }
+
+    /**
+     * Determines whether a specific Media capability is supported by the
+     * device.
+     *
+     * @param type Type of feature to check.
+     * @return true if supported, false otherwise.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    boolean hasMediaSupport(Media type);
+
+    /**
+     * Connectivity support enumeration.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    enum Net {
+        GSM, GPRS, HSDPA, LTE, WIFI, Ethernet
+    }
+
+    /**
+     * Determines whether a specific Net capability is supported by the device.
+     *
+     * @param type Type of feature to check.
+     * @return true if supported, false otherwise.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    boolean hasNetSupport(Net type);
+
+    /**
+     * Notification support enumeration.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    enum Notification {
+        Alarm, LocalNotification, RemoteNotification, Vibration
+    }
+
+    /**
+     * Determines whether a specific Notification capability is supported by the
+     * device.
+     *
+     * @param type Type of feature to check.
+     * @return true if supported, false otherwise.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    boolean hasNotificationSupport(Notification type);
+
+    /**
+     * Hardware button support (only those that can interact with the application).
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    enum Button {
+        HomeButton, BackButton, OptionButton
+    }
+
+    /**
+     * Determines whether a specific hardware button is supported for interaction.
+     *
+     * @param type Type of feature to check.
+     * @return true is supported, false otherwise.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    boolean hasButtonSupport(Button type);
 }
