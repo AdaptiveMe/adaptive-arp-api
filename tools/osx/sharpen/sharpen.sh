@@ -1,6 +1,6 @@
 . `pwd`/config.make
 
-JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
 DIRECTORY=$1
 PROJECT=$2
 SOURCES=$3

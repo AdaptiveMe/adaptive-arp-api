@@ -2,7 +2,7 @@ include config.make
 
 SHARPEN=$(prefix)/sharpen.sh
 
-JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
 
 ADAPTIVEWARE_JAVA_GIT_REPO = https://github.com/Adaptiveware/adaptiveware-core-interfaces-java.git
 ADAPTIVEWARE_JAVA_DIR = tmp
