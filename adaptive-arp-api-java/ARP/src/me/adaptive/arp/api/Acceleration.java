@@ -45,6 +45,13 @@ public class Acceleration {
     IAccelerometer.Status status;
     long timeStamp;
 
+    /**
+     * @param x
+     * @param y
+     * @param z
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
     public Acceleration(double x, double y, double z) {
         this.x = x;
         this.y = y;
@@ -53,6 +60,11 @@ public class Acceleration {
         this.timeStamp = System.currentTimeMillis();
     }
 
+    /**
+     * @param status
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
     public Acceleration(IAccelerometer.Status status) {
         this.status = status;
         this.timeStamp = System.currentTimeMillis();
@@ -60,6 +72,8 @@ public class Acceleration {
 
     /**
      * @return X-axis component of the acceleration.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
      */
     public double getX() {
         return x;
@@ -67,6 +81,8 @@ public class Acceleration {
 
     /**
      * @return Y-axis component of the acceleration.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
      */
     public double getY() {
         return y;
@@ -74,6 +90,8 @@ public class Acceleration {
 
     /**
      * @return Z-axis component of the acceleration.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
      */
     public double getZ() {
         return z;
@@ -85,6 +103,8 @@ public class Acceleration {
      * managed.
      *
      * @return status of the orientation data.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
      */
     public IAccelerometer.Status getStatus() {
         return status;

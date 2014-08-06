@@ -42,24 +42,37 @@ public interface IAccelerometer extends IBaseSensor, Serializable {
      * authorized a reading. NeedsCalibration = No reading. Device needs to be
      * calibrated. Unavailable = No reading. Not supported or temporarily
      * disabled.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
      */
     enum Status {
         Success, Unauthorized, NeedsCalibration, Unavailable
     }
+
     /**
      * Register a new listener that will receive acceleration events.
      *
      * @param listener to be registered.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
      */
     void addAccelerationListener(AccelerationListener listener);
+
     /**
      * De-registers an existing listener from receiving acceleration events.
      *
      * @param listener
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
      */
     void removeAccelerationListener(AccelerationListener listener);
+
     /**
      * Removed all existing listeners from receiving acceleration events.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
      */
     void removeAccelerationListeners();
 

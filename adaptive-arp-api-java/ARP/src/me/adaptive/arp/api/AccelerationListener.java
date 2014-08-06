@@ -40,6 +40,8 @@ public interface AccelerationListener {
      * Correct data received.
      *
      * @param acceleration
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
      */
     public void receivedData(Acceleration acceleration);
 
@@ -47,6 +49,8 @@ public interface AccelerationListener {
      * Data received with warning - ie. Needs calibration.
      *
      * @param acceleration
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
      */
     public void receivedWarning(Acceleration acceleration);
 
@@ -54,6 +58,8 @@ public interface AccelerationListener {
      * No data received - error condition, not authorized or hardware not available.
      *
      * @param acceleration
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
      */
     public void receivedError(Acceleration acceleration);
 }
