@@ -63,5 +63,6 @@ generate: clean fetch
 	@rm -rf $(ADAPTIVEWARE_JAVA_DIR_IN)
 	@rm -rf $(ADAPTIVEWARE_JAVA_FILELIST)
 	@echo "$(SB)Translating Java sources to C# sources -> OK.$(EB)"
+	@cp -r $(ADAPTIVEWARE_NET_DIR)/Adaptive $(prefix)/../../../adaptive-arp-api-csharp/Adaptive.Arp.Api
 
 

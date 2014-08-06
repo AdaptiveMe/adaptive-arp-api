@@ -68,6 +68,7 @@ generate: clean fetch $(BUILD_DIR)
 	@find $(BUILD_DIR) -name *.m -exec ./header.sh {} \;
 	@find $(BUILD_DIR) -name *.h -exec ./header.sh {} \;
 	@echo "$(SB)Applying license headers -> OK.$(EB)"
+	@cp -f $(BUILD_DIR)/* $(prefix)/../../../adaptive-arp-api-objc/adaptive-arp-api-objc/ARP
 
 $(BUILD_DIR):
 	@echo "$(SB)Creating build directory.$(EB)"
