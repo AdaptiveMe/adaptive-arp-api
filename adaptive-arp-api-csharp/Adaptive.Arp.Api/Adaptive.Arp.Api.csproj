@@ -3,28 +3,22 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{22EFB2FD-8E7C-4880-BAAE-780C3C055305}</ProjectGuid>
+    <ProjectGuid>{48C7B72D-FA53-4A65-B710-DB27C4586DE4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Adaptive.Arp.Api</RootNamespace>
     <AssemblyName>Adaptive.Arp.Api</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
     <ReleaseVersion>1.0</ReleaseVersion>
-    <CodePage>65001</CodePage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-    <DocumentationFile>bin\Debug\Adaptive.Arp.Api.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -36,7 +30,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Adaptive\Arp\Api\Acceleration.cs" />
     <Compile Include="Adaptive\Arp\Api\AccelerationListener.cs" />
     <Compile Include="Adaptive\Arp\Api\IAccelerometer.cs" />
@@ -122,192 +118,6 @@
     <Compile Include="Adaptive\Arp\Api\IVideo.cs" />
     <Compile Include="Adaptive\Arp\Api\IWallet.cs" />
     <Compile Include="Adaptive\Arp\Api\IXML.cs" />
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Main.cs">
-      <Link>SharpZipLib\Main.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\SharpZipBaseException.cs">
-      <Link>SharpZipLib\SharpZipBaseException.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2.cs">
-      <Link>SharpZipLib\BZip2\BZip2.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2Constants.cs">
-      <Link>SharpZipLib\BZip2\BZip2Constants.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2Exception.cs">
-      <Link>SharpZipLib\BZip2\BZip2Exception.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2InputStream.cs">
-      <Link>SharpZipLib\BZip2\BZip2InputStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2OutputStream.cs">
-      <Link>SharpZipLib\BZip2\BZip2OutputStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\Adler32.cs">
-      <Link>SharpZipLib\Checksums\Adler32.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\CRC32.cs">
-      <Link>SharpZipLib\Checksums\CRC32.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\IChecksum.cs">
-      <Link>SharpZipLib\Checksums\IChecksum.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\StrangeCRC.cs">
-      <Link>SharpZipLib\Checksums\StrangeCRC.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\FileSystemScanner.cs">
-      <Link>SharpZipLib\Core\FileSystemScanner.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\INameTransform.cs">
-      <Link>SharpZipLib\Core\INameTransform.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\IScanFilter.cs">
-      <Link>SharpZipLib\Core\IScanFilter.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\NameFilter.cs">
-      <Link>SharpZipLib\Core\NameFilter.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\PathFilter.cs">
-      <Link>SharpZipLib\Core\PathFilter.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\StreamUtils.cs">
-      <Link>SharpZipLib\Core\StreamUtils.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\WindowsPathUtils.cs">
-      <Link>SharpZipLib\Core\WindowsPathUtils.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Encryption\PkzipClassic.cs">
-      <Link>SharpZipLib\Encryption\PkzipClassic.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Encryption\ZipAESStream.cs">
-      <Link>SharpZipLib\Encryption\ZipAESStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Encryption\ZipAESTransform.cs">
-      <Link>SharpZipLib\Encryption\ZipAESTransform.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GZIPConstants.cs">
-      <Link>SharpZipLib\GZip\GZIPConstants.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GZipException.cs">
-      <Link>SharpZipLib\GZip\GZipException.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GzipInputStream.cs">
-      <Link>SharpZipLib\GZip\GzipInputStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GzipOutputStream.cs">
-      <Link>SharpZipLib\GZip\GzipOutputStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Lzw\LzwConstants.cs">
-      <Link>SharpZipLib\Lzw\LzwConstants.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Lzw\LzwException.cs">
-      <Link>SharpZipLib\Lzw\LzwException.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Lzw\LzwInputStream.cs">
-      <Link>SharpZipLib\Lzw\LzwInputStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\InvalidHeaderException.cs">
-      <Link>SharpZipLib\Tar\InvalidHeaderException.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarArchive.cs">
-      <Link>SharpZipLib\Tar\TarArchive.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarBuffer.cs">
-      <Link>SharpZipLib\Tar\TarBuffer.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarEntry.cs">
-      <Link>SharpZipLib\Tar\TarEntry.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarException.cs">
-      <Link>SharpZipLib\Tar\TarException.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarHeader.cs">
-      <Link>SharpZipLib\Tar\TarHeader.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarInputStream.cs">
-      <Link>SharpZipLib\Tar\TarInputStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarOutputStream.cs">
-      <Link>SharpZipLib\Tar\TarOutputStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\FastZip.cs">
-      <Link>SharpZipLib\Zip\FastZip.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\IEntryFactory.cs">
-      <Link>SharpZipLib\Zip\IEntryFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\WindowsNameTransform.cs">
-      <Link>SharpZipLib\Zip\WindowsNameTransform.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipConstants.cs">
-      <Link>SharpZipLib\Zip\ZipConstants.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipEntry.cs">
-      <Link>SharpZipLib\Zip\ZipEntry.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipEntryFactory.cs">
-      <Link>SharpZipLib\Zip\ZipEntryFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipException.cs">
-      <Link>SharpZipLib\Zip\ZipException.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipExtraData.cs">
-      <Link>SharpZipLib\Zip\ZipExtraData.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipFile.cs">
-      <Link>SharpZipLib\Zip\ZipFile.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipHelperStream.cs">
-      <Link>SharpZipLib\Zip\ZipHelperStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipInputStream.cs">
-      <Link>SharpZipLib\Zip\ZipInputStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipNameTransform.cs">
-      <Link>SharpZipLib\Zip\ZipNameTransform.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipOutputStream.cs">
-      <Link>SharpZipLib\Zip\ZipOutputStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Deflater.cs">
-      <Link>SharpZipLib\Zip\Compression\Deflater.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterConstants.cs">
-      <Link>SharpZipLib\Zip\Compression\DeflaterConstants.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterEngine.cs">
-      <Link>SharpZipLib\Zip\Compression\DeflaterEngine.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterHuffman.cs">
-      <Link>SharpZipLib\Zip\Compression\DeflaterHuffman.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterPending.cs">
-      <Link>SharpZipLib\Zip\Compression\DeflaterPending.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Inflater.cs">
-      <Link>SharpZipLib\Zip\Compression\Inflater.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\InflaterDynHeader.cs">
-      <Link>SharpZipLib\Zip\Compression\InflaterDynHeader.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\InflaterHuffmanTree.cs">
-      <Link>SharpZipLib\Zip\Compression\InflaterHuffmanTree.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\PendingBuffer.cs">
-      <Link>SharpZipLib\Zip\Compression\PendingBuffer.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\DeflaterOutputStream.cs">
-      <Link>SharpZipLib\Zip\Compression\Streams\DeflaterOutputStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\InflaterInputStream.cs">
-      <Link>SharpZipLib\Zip\Compression\Streams\InflaterInputStream.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\OutputWindow.cs">
-      <Link>SharpZipLib\Zip\Compression\Streams\OutputWindow.cs</Link>
-    </Compile>
-    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\StreamManipulator.cs">
-      <Link>SharpZipLib\Zip\Compression\Streams\StreamManipulator.cs</Link>
-    </Compile>
     <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\AList.cs">
       <Link>Sharpen\AList.cs</Link>
     </Compile>
@@ -659,11 +469,199 @@
     <Compile Include="..\..\tools\osx\sharpen\dependencies\Sharpen\X509TrustManager.cs">
       <Link>Sharpen\X509TrustManager.cs</Link>
     </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Main.cs">
+      <Link>SharpZipLib\Main.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\SharpZipBaseException.cs">
+      <Link>SharpZipLib\SharpZipBaseException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2.cs">
+      <Link>SharpZipLib\BZip2\BZip2.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2Constants.cs">
+      <Link>SharpZipLib\BZip2\BZip2Constants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2Exception.cs">
+      <Link>SharpZipLib\BZip2\BZip2Exception.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2InputStream.cs">
+      <Link>SharpZipLib\BZip2\BZip2InputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\BZip2\BZip2OutputStream.cs">
+      <Link>SharpZipLib\BZip2\BZip2OutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\Adler32.cs">
+      <Link>SharpZipLib\Checksums\Adler32.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\CRC32.cs">
+      <Link>SharpZipLib\Checksums\CRC32.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\IChecksum.cs">
+      <Link>SharpZipLib\Checksums\IChecksum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Checksums\StrangeCRC.cs">
+      <Link>SharpZipLib\Checksums\StrangeCRC.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\FileSystemScanner.cs">
+      <Link>SharpZipLib\Core\FileSystemScanner.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\INameTransform.cs">
+      <Link>SharpZipLib\Core\INameTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\IScanFilter.cs">
+      <Link>SharpZipLib\Core\IScanFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\NameFilter.cs">
+      <Link>SharpZipLib\Core\NameFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\PathFilter.cs">
+      <Link>SharpZipLib\Core\PathFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\StreamUtils.cs">
+      <Link>SharpZipLib\Core\StreamUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Core\WindowsPathUtils.cs">
+      <Link>SharpZipLib\Core\WindowsPathUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Encryption\PkzipClassic.cs">
+      <Link>SharpZipLib\Encryption\PkzipClassic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Encryption\ZipAESStream.cs">
+      <Link>SharpZipLib\Encryption\ZipAESStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Encryption\ZipAESTransform.cs">
+      <Link>SharpZipLib\Encryption\ZipAESTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GZIPConstants.cs">
+      <Link>SharpZipLib\GZip\GZIPConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GZipException.cs">
+      <Link>SharpZipLib\GZip\GZipException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GzipInputStream.cs">
+      <Link>SharpZipLib\GZip\GzipInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\GZip\GzipOutputStream.cs">
+      <Link>SharpZipLib\GZip\GzipOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Lzw\LzwConstants.cs">
+      <Link>SharpZipLib\Lzw\LzwConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Lzw\LzwException.cs">
+      <Link>SharpZipLib\Lzw\LzwException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Lzw\LzwInputStream.cs">
+      <Link>SharpZipLib\Lzw\LzwInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\InvalidHeaderException.cs">
+      <Link>SharpZipLib\Tar\InvalidHeaderException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarArchive.cs">
+      <Link>SharpZipLib\Tar\TarArchive.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarBuffer.cs">
+      <Link>SharpZipLib\Tar\TarBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarEntry.cs">
+      <Link>SharpZipLib\Tar\TarEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarException.cs">
+      <Link>SharpZipLib\Tar\TarException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarHeader.cs">
+      <Link>SharpZipLib\Tar\TarHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarInputStream.cs">
+      <Link>SharpZipLib\Tar\TarInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Tar\TarOutputStream.cs">
+      <Link>SharpZipLib\Tar\TarOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\FastZip.cs">
+      <Link>SharpZipLib\Zip\FastZip.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\IEntryFactory.cs">
+      <Link>SharpZipLib\Zip\IEntryFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\WindowsNameTransform.cs">
+      <Link>SharpZipLib\Zip\WindowsNameTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipConstants.cs">
+      <Link>SharpZipLib\Zip\ZipConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipEntry.cs">
+      <Link>SharpZipLib\Zip\ZipEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipEntryFactory.cs">
+      <Link>SharpZipLib\Zip\ZipEntryFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipException.cs">
+      <Link>SharpZipLib\Zip\ZipException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipExtraData.cs">
+      <Link>SharpZipLib\Zip\ZipExtraData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipFile.cs">
+      <Link>SharpZipLib\Zip\ZipFile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipHelperStream.cs">
+      <Link>SharpZipLib\Zip\ZipHelperStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipInputStream.cs">
+      <Link>SharpZipLib\Zip\ZipInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipNameTransform.cs">
+      <Link>SharpZipLib\Zip\ZipNameTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\ZipOutputStream.cs">
+      <Link>SharpZipLib\Zip\ZipOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Deflater.cs">
+      <Link>SharpZipLib\Zip\Compression\Deflater.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterConstants.cs">
+      <Link>SharpZipLib\Zip\Compression\DeflaterConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterEngine.cs">
+      <Link>SharpZipLib\Zip\Compression\DeflaterEngine.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterHuffman.cs">
+      <Link>SharpZipLib\Zip\Compression\DeflaterHuffman.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\DeflaterPending.cs">
+      <Link>SharpZipLib\Zip\Compression\DeflaterPending.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Inflater.cs">
+      <Link>SharpZipLib\Zip\Compression\Inflater.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\InflaterDynHeader.cs">
+      <Link>SharpZipLib\Zip\Compression\InflaterDynHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\InflaterHuffmanTree.cs">
+      <Link>SharpZipLib\Zip\Compression\InflaterHuffmanTree.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\PendingBuffer.cs">
+      <Link>SharpZipLib\Zip\Compression\PendingBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\DeflaterOutputStream.cs">
+      <Link>SharpZipLib\Zip\Compression\Streams\DeflaterOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\InflaterInputStream.cs">
+      <Link>SharpZipLib\Zip\Compression\Streams\InflaterInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\OutputWindow.cs">
+      <Link>SharpZipLib\Zip\Compression\Streams\OutputWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\..\tools\osx\sharpen\dependencies\SharpZipLib\Zip\Compression\Streams\StreamManipulator.cs">
+      <Link>SharpZipLib\Zip\Compression\Streams\StreamManipulator.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Adaptive\" />
-    <Folder Include="SharpZipLib\" />
     <Folder Include="Sharpen\" />
+    <Folder Include="SharpZipLib\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 </Project>

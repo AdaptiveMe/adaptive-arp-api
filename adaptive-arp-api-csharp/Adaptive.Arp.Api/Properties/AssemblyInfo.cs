@@ -5,11 +5,11 @@ using System.Runtime.CompilerServices;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle ("Adaptive.Arp.Api")]
-[assembly: AssemblyDescription ("Adaptive Runtime Platform .NET")]
+[assembly: AssemblyDescription ("Adaptive Runtime Platform for .NET")]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Adaptive.me")]
-[assembly: AssemblyProduct ("Adaptive Runtime Platform")]
-[assembly: AssemblyCopyright ("Carlos Lozano Diez t/a Adaptive.me")]
+[assembly: AssemblyProduct ("Adaptive Runtime Platform (ARP)")]
+[assembly: AssemblyCopyright ("(c) 2014 Carlos Lozano Diez t/a Adaptive.me")]
 [assembly: AssemblyTrademark ("Adaptive.me ARP")]
 [assembly: AssemblyCulture ("")]
 
