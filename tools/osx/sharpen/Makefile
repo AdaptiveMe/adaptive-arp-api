@@ -4,7 +4,7 @@ SHARPEN=$(prefix)/sharpen.sh
 
 JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
 
-ADAPTIVEWARE_JAVA_GIT_REPO = https://github.com/Adaptiveware/adaptiveware-core-interfaces-java.git
+ADAPTIVEWARE_JAVA_GIT_REPO = https://github.com/AdaptiveMe/adaptive-arp-api.git
 ADAPTIVEWARE_JAVA_DIR = tmp
 ADAPTIVEWARE_JAVA_DIR_IN = tmp.in
 ADAPTIVEWARE_JAVA_SOURCE = $(ADAPTIVEWARE_JAVA_DIR)/README
@@ -35,9 +35,10 @@ cleanall: clean
 $(ADAPTIVEWARE_JAVA_SOURCE):
 	@echo -e "$(SB)Getting Java sources from GIT.$(EB)"
 	@mkdir -p $(ADAPTIVEWARE_JAVA_DIR)
-	@mkdir -p $(ADAPTIVEWARE_JAVA_DIR_IN)
+	@mkdir -p $(ADAPTIVEWARE_JAVA_DIR_IN)/src/main/java
 	git clone $(ADAPTIVEWARE_JAVA_GIT_REPO) $(ADAPTIVEWARE_JAVA_DIR)
 	@echo -e "$(SB)Getting Java sources from GIT -> OK.$(EB)"
+	@cp -R $(ADAPTIVEWARE_JAVA_DIR)/adaptive-arp-api-java/ARP/src/me $(ADAPTIVEWARE_JAVA_DIR_IN)/src/main/java
 
 
 fetch: $(ADAPTIVEWARE_JAVA_SOURCE)
@@ -53,10 +54,10 @@ generate: clean fetch
 	@echo "$(SB)Translating Java sources to C# sources.$(EB)"
 	@rm -rf $(ADAPTIVEWARE_NET_DIR)
 	@mkdir -p $(ADAPTIVEWARE_CLASSES)
-	@find $(ADAPTIVEWARE_JAVA_DIR)/src/main/java -name *.java > $(ADAPTIVEWARE_JAVA_FILELIST)
+	@find $(ADAPTIVEWARE_JAVA_DIR_IN)/src/main/java -name *.java > $(ADAPTIVEWARE_JAVA_FILELIST)
 	$(JAVA_HOME)/bin/javac @$(ADAPTIVEWARE_JAVA_FILELIST) -d $(ADAPTIVEWARE_CLASSES) -cp $(ADAPTIVEWARE_CLASSES)
 	@echo -e "$(SB)Generating code for adaptiveware-core-interfaces-java (previous revision)$(EB)"
-	$(SHARPEN) $(ADAPTIVEWARE_JAVA_DIR)/src/main/ Project java sharpen-options $(ADAPTIVEWARE_NET_DIR) adaptiveware.header
+	$(SHARPEN) $(ADAPTIVEWARE_JAVA_DIR_IN)/src/main/ Project java sharpen-options $(ADAPTIVEWARE_NET_DIR) standard.header
 	@rm -rf $(ADAPTIVEWARE_CLASSES)
 	@rm -rf $(ADAPTIVEWARE_JAVA_DIR)
 	@rm -rf $(ADAPTIVEWARE_JAVA_DIR_IN)

@@ -7,7 +7,7 @@
 -cp @NUNIT_JAR@
 -cp @BIN_PATH@
 
--namespaceMapping org.adaptiveware.api Adaptiveware.Api
+-namespaceMapping me.adaptive.arp.api Adaptive.Arp.Api
 -fullyQualify CommitBuilder
 -fullyQualify CheckoutConflictException
 
