@@ -279,4 +279,4 @@ Apache License
    limitations under the License.
 ```
 
-#### Forged with ♥ in Barcelona · © 2013 - 2014 [adaptive.me](http://adaptive.me) / [Carlos Lozano Diez](http://google.com/+CarlosLozano).
+##### Forged with ♥ in Barcelona · © 2013 - 2014 [adaptive.me](http://adaptive.me) / [Carlos Lozano Diez](http://google.com/+CarlosLozano).
