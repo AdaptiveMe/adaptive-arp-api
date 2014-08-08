@@ -28,19 +28,63 @@
 
 package me.adaptive.arp.api;
 
+
 import java.io.Serializable;
 
-/**
- * Created by clozano on 04/08/14.
- */
-public interface IOS extends IBaseSystem, Serializable {
+public class OSInfo implements Serializable {
+    /**
+     * The name of the operating system.
+     */
+    private String name;
 
     /**
-     * Returns the OSInfo for the current operating system.
-     *
-     * @return OSInfo with name, version and vendor of the OS.
+     * The version/identifier of the operating system.
      */
-    OSInfo getOSInfo();
+    private String version;
 
+    /**
+     * The vendor of the operating system.
+     */
+    private String vendor;
+
+    /**
+     * Constructor used by implementation to set the OS information.
+     *
+     * @param name    of the OS.
+     * @param version of the OS.
+     * @param vendor  of the OS.
+     */
+    public OSInfo(String name, String version, String vendor) {
+        this.name = name;
+        this.version = version;
+        this.vendor = vendor;
+    }
+
+    /**
+     * Returns the name of the operating system.
+     *
+     * @return OS name.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Returns the version of the operating system.
+     *
+     * @return OS version.
+     */
+    public String getVersion() {
+        return version;
+    }
+
+    /**
+     * Returns the vendor of the operating system.
+     *
+     * @return OS vendor.
+     */
+    public String getVendor() {
+        return vendor;
+    }
 
 }
