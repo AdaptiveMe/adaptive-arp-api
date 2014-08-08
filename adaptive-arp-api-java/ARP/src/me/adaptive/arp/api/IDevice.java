@@ -34,4 +34,11 @@ import java.io.Serializable;
  * Created by clozano on 04/08/14.
  */
 public interface IDevice extends IBaseSystem, Serializable {
+
+    /**
+     * Returns the device information for the current device executing the runtime.
+     *
+     * @return DeviceInfo for the current device.
+     */
+    DeviceInfo getDeviceInfo();
 }
