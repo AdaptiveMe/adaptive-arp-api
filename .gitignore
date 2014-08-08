@@ -6,6 +6,8 @@ tools/osx/j2objc/tmp.out
 
 tools/osx/j2objc/filelist.j
 
+tools/osx/j2objc/config.make
+
 tools/osx/sharpen/lastlogmessage
 
 tools/osx/sharpen/config.make
@@ -17,3 +19,5 @@ tools/osx/sharpen/tmp.out
 adaptive-arp-api-csharp/Adaptive.Arp.Api/obj
 
 adaptive-arp-api-csharp/Adaptive.Arp.Api/bin
+
+
