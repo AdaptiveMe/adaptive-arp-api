@@ -31,28 +31,45 @@ package me.adaptive.arp.api;
 import java.io.Serializable;
 
 /**
- * Created by clozano on 04/08/14.
+ * Created by clozano on 08/08/14.
  */
-public interface IContact extends IBasePIM, Serializable {
+public class ContactEmail implements Serializable {
 
-    enum Filter {HAS_PHONE, HAS_EMAIL, HAS_ADDRESS}
+    enum EmailType {Personal, Work, Other}
 
-    enum FieldGroup {PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS}
+    private EmailType type;
 
-    void searchContacts(String term, ContactResultCallback callback);
+    private boolean primary;
 
-    void searchContacts(String term, ContactResultCallback callback, Filter... filter);
+    private String email;
 
-    void getContact(ContactUid contact, ContactResultCallback callback);
+    public ContactEmail(EmailType type, boolean primary, String email) {
+        this.type = type;
+        this.primary = primary;
+        this.email = email;
+    }
 
-    void getContactPhoto(ContactUid contact, ContactResultCallback callback);
+    public EmailType getType() {
+        return type;
+    }
 
-    boolean setContactPhoto(ContactUid contact, byte[] pngImage);
+    public void setType(EmailType type) {
+        this.type = type;
+    }
 
-    void getContacts(ContactResultCallback callback);
+    public boolean isPrimary() {
+        return primary;
+    }
 
-    void getContacts(ContactResultCallback callback, FieldGroup... fields);
+    public void setPrimary(boolean primary) {
+        this.primary = primary;
+    }
 
-    void getContacts(ContactResultCallback callback, FieldGroup[] fields, Filter... filter);
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

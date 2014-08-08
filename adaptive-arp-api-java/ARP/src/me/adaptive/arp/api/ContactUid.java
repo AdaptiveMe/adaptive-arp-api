@@ -31,28 +31,21 @@ package me.adaptive.arp.api;
 import java.io.Serializable;
 
 /**
- * Created by clozano on 04/08/14.
+ * Created by clozano on 08/08/14.
  */
-public interface IContact extends IBasePIM, Serializable {
+public class ContactUid implements Serializable {
 
-    enum Filter {HAS_PHONE, HAS_EMAIL, HAS_ADDRESS}
+    private String contactId;
 
-    enum FieldGroup {PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS}
+    public ContactUid(String contactId) {
+        this.contactId = contactId;
+    }
 
-    void searchContacts(String term, ContactResultCallback callback);
+    public String getContactId() {
+        return contactId;
+    }
 
-    void searchContacts(String term, ContactResultCallback callback, Filter... filter);
-
-    void getContact(ContactUid contact, ContactResultCallback callback);
-
-    void getContactPhoto(ContactUid contact, ContactResultCallback callback);
-
-    boolean setContactPhoto(ContactUid contact, byte[] pngImage);
-
-    void getContacts(ContactResultCallback callback);
-
-    void getContacts(ContactResultCallback callback, FieldGroup... fields);
-
-    void getContacts(ContactResultCallback callback, FieldGroup[] fields, Filter... filter);
-
+    public void setContactId(String contactId) {
+        this.contactId = contactId;
+    }
 }
