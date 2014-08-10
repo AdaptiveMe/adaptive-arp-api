@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -34,4 +36,61 @@ import java.io.Serializable;
  * Created by clozano on 08/08/14.
  */
 public class ContactSocial implements Serializable {
+
+    /**
+     * The social network
+     * @since ARP1.0
+     */
+    private string socialNetwork;
+    /**
+     * The profileUrl
+     * @since ARP1.0
+     */
+    private string profileUrl;
+
+    /**
+     * Constructor used by the implementation
+     * @param socialNetwork of the profile
+     * @param profileUrl of the user
+     * @since ARP1.0
+     */
+    public ContactSocial(string socialNetwork, string profileUrl) {
+        this.socialNetwork = socialNetwork;
+        this.profileUrl = profileUrl;
+    }
+
+    /**
+     * Returns the social network
+     * @return socialNetwork of the profile
+     * @since ARP1.0
+     */
+    public string getSocialNetwork() {
+        return socialNetwork;
+    }
+
+    /**
+     * Set the social network
+     * @param socialNetwork of the profile
+     * @since ARP1.0
+     */
+    public void setSocialNetwork(string socialNetwork) {
+        this.socialNetwork = socialNetwork;
+    }
+
+    /**
+     * Returns the profile url of the user
+     * @return profileUrl of the user
+     * @since ARP1.0
+     */
+    public string getProfileUrl() {
+        return profileUrl;
+    }
+
+    /**
+     * Set the profile url of the iser
+     * @param profileUrl of the user
+     */
+    public void setProfileUrl(string profileUrl) {
+        this.profileUrl = profileUrl;
+    }
 }
