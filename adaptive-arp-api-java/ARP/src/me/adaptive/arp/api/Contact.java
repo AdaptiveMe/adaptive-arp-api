@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -35,79 +37,197 @@ import java.io.Serializable;
  */
 public class Contact extends ContactUid implements Serializable {
 
+    /**
+     * The personal info from the contact
+     * @since ARP1.0
+     */
     private ContactPersonalInfo personalInfo;
+    /**
+     * The professional info from the contact
+     * @since ARP1.0
+     */
     private ContactProfessionalInfo professionalInfo;
+    /**
+     * The adresses from the contact
+     * @since ARP1.0
+     */
     private ContactAddress[] contactAddresses;
+    /**
+     * The phones from the contact
+     * @since ARP1.0
+     */
     private ContactPhone[] contactPhones;
+    /**
+     * The emails from the contact
+     * @since ARP1.0
+     */
     private ContactEmail[] contactEmails;
+    /**
+     * The websites from the contact
+     * @since ARP1.0
+     */
     private ContactWebsite[] contactWebsites;
+    /**
+     * The social network info from the contact
+     * @since ARP1.0
+     */
     private ContactSocial[] contactSocials;
+    /**
+     * The aditional tags from the contact
+     * @since ARP1.0
+     */
     private ContactTag[] contactTags;
 
+
+    /**
+     * Constructor used by implementation to set the Contact.
+     * @param contactId of the Contact
+     * @since ARP1.0
+     */
     public Contact(String contactId) {
         super(contactId);
     }
 
+    /**
+     * Returns the personal info of the Contact
+     * @return ContactPersonalInfo of the Contact
+     * @since ARP1.0
+     */
     public ContactPersonalInfo getPersonalInfo() {
         return personalInfo;
     }
 
+    /**
+     * Set the personal info of the Contact
+     * @param personalInfo of the Contact
+     * @since ARP1.0
+     */
     public void setPersonalInfo(ContactPersonalInfo personalInfo) {
         this.personalInfo = personalInfo;
     }
 
+    /**
+     * Returns the professional info of the Contact
+     * @return ContactProfessionalInfo of the Contact
+     * @since ARP1.0
+     */
     public ContactProfessionalInfo getProfessionalInfo() {
         return professionalInfo;
     }
 
+    /**
+     * Set the professional info of the Contact
+     * @param professionalInfo of the Contact
+     * @since ARP1.0
+     */
     public void setProfessionalInfo(ContactProfessionalInfo professionalInfo) {
         this.professionalInfo = professionalInfo;
     }
 
+    /**
+     * Returns all the addresses of the Contact
+     * @return ContactAddress[] of the Contact
+     * @since ARP1.0
+     */
     public ContactAddress[] getContactAddresses() {
         return contactAddresses;
     }
 
+    /**
+     * Set the addresses of the Contact
+     * @param contactAddresses[] of the Contact
+     * @since ARP1.0
+     */
     public void setContactAddresses(ContactAddress[] contactAddresses) {
         this.contactAddresses = contactAddresses;
     }
 
+    /**
+     * Returns all the phones of the Contact
+     * @return ContactPhone[] of the Contact
+     * @since ARP1.0
+     */
     public ContactPhone[] getContactPhones() {
         return contactPhones;
     }
 
+    /**
+     * Set the phones of the Contact
+     * @param contactPhones[] of the Contact
+     * @since ARP1.0
+     */
     public void setContactPhones(ContactPhone[] contactPhones) {
         this.contactPhones = contactPhones;
     }
 
+    /**
+     * Returns all the emails of the Contact
+     * @return ContactEmail[] of the Contact
+     * @since ARP1.0
+     */
     public ContactEmail[] getContactEmails() {
         return contactEmails;
     }
 
+    /**
+     * Set the emails of the Contact
+     * @param contactEmails[] of the Contact
+     * @since ARP1.0
+     */
     public void setContactEmails(ContactEmail[] contactEmails) {
         this.contactEmails = contactEmails;
     }
 
+    /**
+     * Returns all the websites of the Contact
+     * @return ContactWebsite[] of the Contact
+     * @since ARP1.0
+     */
     public ContactWebsite[] getContactWebsites() {
         return contactWebsites;
     }
 
+    /**
+     * Set the websites of the Contact
+     * @param contactWebsites[] of the Contact
+     * @since ARP1.0
+     */
     public void setContactWebsites(ContactWebsite[] contactWebsites) {
         this.contactWebsites = contactWebsites;
     }
 
+    /**
+     * Returns all the social network info of the Contact
+     * @return ContactSocial[] of the Contact
+     * @since ARP1.0
+     */
     public ContactSocial[] getContactSocials() {
         return contactSocials;
     }
 
+    /**
+     * Set the social network info of the Contact
+     * @param contactSocials[] of the Contact
+     * @since ARP1.0
+     */
     public void setContactSocials(ContactSocial[] contactSocials) {
         this.contactSocials = contactSocials;
     }
 
+    /**
+     * Returns the additional tags of the Contact
+     * @return ContactTag[] of the Contact
+     * @since ARP1.0
+     */
     public ContactTag[] getContactTags() {
         return contactTags;
     }
 
+    /**
+     * Set the additional tags of the Contact
+     * @param contactTags[] of the Contact
+     * @since ARP1.0
+     */
     public void setContactTags(ContactTag[] contactTags) {
         this.contactTags = contactTags;
     }
