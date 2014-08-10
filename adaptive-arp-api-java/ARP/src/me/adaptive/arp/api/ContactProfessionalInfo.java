@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -34,4 +36,88 @@ import java.io.Serializable;
  * Created by clozano on 08/08/14.
  */
 public class ContactProfessionalInfo implements Serializable {
+
+    /**
+     * The company of the job
+     * @since ARP1.0
+     */
+    private string company;
+    /**
+     * The job title
+     * @since ARP1.0
+     */
+    private string jobTitle;
+    /**
+     * The job description
+     * @since ARP1.0
+     */
+    private string jobDescription;
+
+    /**
+     * Constructor used by implementation to set the ContactProfessionalInfo.
+     * @param jobTitle of the job
+     * @param jobDescription of the job
+     * @param company of the job
+     * @since ARP1.0
+     */
+    public ContactProfessionalInfo(string jobTitle, string jobDescription, string company) {
+        this.company = company;
+        this.jobTitle = jobTitle;
+        this.jobDescription = jobDescription;
+    }
+
+    /**
+     * Returns the company of the job
+     * @return company of the job
+     * @since ARP1.0
+     */
+    public string getCompany() {
+        return company;
+    }
+
+    /**
+     * Set the company of the job
+     * @param company of the job
+     * @since ARP1.0
+     */
+    public void setCompany(string company) {
+        this.company = company;
+    }
+
+    /**
+     * Returns the title of the job
+     * @return title of the job
+     * @since ARP1.0
+     */
+    public string getJobTitle() {
+        return jobTitle;
+    }
+
+    /**
+     * Set the title of the job
+     * @param title of the job
+     * @since ARP1.0
+     */
+    public void setJobTitle(string jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    /**
+     * Returns the description of the job
+     * @return description of the job
+     * @since ARP1.0
+     */
+    public string getJobDescription() {
+        return jobDescription;
+    }
+
+    /**
+     * Set the description of the job
+     * @param description of the job
+     * @since ARP1.0
+     */
+    public void setJobDescription(string jobDescription) {
+        this.jobDescription = jobDescription;
+    }
+
 }
