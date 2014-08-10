@@ -40,7 +40,7 @@ public class ContactPhone implements Serializable {
      * The destination of the phone
      * @since ARP1.0
      */
-    enum Description {
+    enum PhoneType {
         Mobile, Work, Home, Main, HomeFax, WorkFax, Other
     }
 
@@ -51,20 +51,20 @@ public class ContactPhone implements Serializable {
     private string phone;
 
     /**
-     * The phone number description
+     * The phone number phoneType
      * @since ARP1.0
      */
-    private Description description;
+    private PhoneType phoneType;
 
     /**
      * Constructor used by implementation to set the contact Phone
      * @param phone number
-     * @param description of the phone number
+     * @param phoneType of the phone number
      * @since ARP1.0
      */
-    public ContactPhone(string phone, Description description) {
+    public ContactPhone(string phone, PhoneType phoneType) {
         this.phone = phone;
-        this.description = description;
+        this.phoneType = phoneType;
     }
 
     /**
@@ -86,20 +86,20 @@ public class ContactPhone implements Serializable {
     }
 
     /**
-     * Returns the phone description
-     * @return description of the phone number
+     * Returns the phone phoneType
+     * @return phoneType of the phone number
      * @since ARP1.0
      */
-    public me.adaptive.arp.api.ContactPhone.Description getDescription() {
-        return description;
+    public me.adaptive.arp.api.ContactPhone.PhoneType getPhoneType() {
+        return phoneType;
     }
 
     /**
-     * Set the description of the phone number
-     * @param description of the phone number
+     * Set the phoneType of the phone number
+     * @param phoneType of the phone number
      * @since ARP1.0
      */
-    public void setDescription(me.adaptive.arp.api.ContactPhone.Description description) {
-        this.description = description;
+    public void setPhoneType(me.adaptive.arp.api.ContactPhone.PhoneType phoneType) {
+        this.phoneType = phoneType;
     }
 }
