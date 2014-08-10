@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -35,16 +37,35 @@ import java.io.Serializable;
  */
 public class ContactUid implements Serializable {
 
+    /**
+     * The id of the Contact
+     * @since ARP1.0
+     */
     private String contactId;
 
+    /**
+     * Constructor used by implementation to set the Contact id.
+     * @param contactId
+     * @since ARP1.0
+     */
     public ContactUid(String contactId) {
         this.contactId = contactId;
     }
 
+    /**
+     * Returns the contact id
+     * @return Contactid
+     * @since ARP1.0
+     */
     public String getContactId() {
         return contactId;
     }
 
+    /**
+     * Set the id of the Contact
+     * @param contactId of the Contact
+     * @since ARP1.0
+     */
     public void setContactId(String contactId) {
         this.contactId = contactId;
     }
