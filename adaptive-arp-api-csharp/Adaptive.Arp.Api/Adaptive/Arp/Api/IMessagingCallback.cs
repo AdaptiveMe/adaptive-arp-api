@@ -33,7 +33,6 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by FRMI on 11/08/2014.</summary>
 	/// <remarks>Created by FRMI on 11/08/2014.</remarks>
-	[System.Serializable]
 	public abstract class IMessagingCallback
 	{
 		/// <summary>Warnings that can be used</summary>

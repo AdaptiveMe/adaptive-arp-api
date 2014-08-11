@@ -35,7 +35,6 @@ namespace Adaptive.Arp.Api
 	/// <seealso cref="Acceleration">Acceleration</seealso>
 	/// <seealso cref="IAccelerationListener">IAccelerationListener</seealso>
 	/// <since>ARP1.0</since>
-	[System.Serializable]
 	public abstract class IAccelerometer : IBaseSensor
 	{
 		/// <summary>Success = Correct reading.</summary>

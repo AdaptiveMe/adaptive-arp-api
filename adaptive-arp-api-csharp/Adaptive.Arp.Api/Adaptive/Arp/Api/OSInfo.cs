@@ -30,7 +30,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	[System.Serializable]
 	public class OSInfo
 	{
 		/// <summary>The name of the operating system.</summary>

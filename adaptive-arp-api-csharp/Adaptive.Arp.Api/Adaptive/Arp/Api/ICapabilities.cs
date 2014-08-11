@@ -33,7 +33,6 @@ namespace Adaptive.Arp.Api
 {
 	/// <author>Carlos Lozano Diez</author>
 	/// <since>ARP1.0</since>
-	[System.Serializable]
 	public abstract class ICapabilities : IBaseSystem
 	{
 		/// <summary>Sensor type enumeration.</summary>

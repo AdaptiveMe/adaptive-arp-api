@@ -33,7 +33,6 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 04/08/14.</summary>
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	[System.Serializable]
 	public abstract class IContact : IBasePIM
 	{
 		/// <summary>Filter that can be used</summary>

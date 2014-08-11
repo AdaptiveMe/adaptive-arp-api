@@ -30,7 +30,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	[System.Serializable]
+	
 	public class DeviceInfo
 	{
 		/// <summary>Name of device - equivalent to brand.</summary>

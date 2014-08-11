@@ -33,7 +33,7 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 08/08/14.</summary>
 	/// <remarks>Created by clozano on 08/08/14.</remarks>
-	[System.Serializable]
+	
 	public class ContactPhone
 	{
 		/// <summary>Types that can be used</summary>

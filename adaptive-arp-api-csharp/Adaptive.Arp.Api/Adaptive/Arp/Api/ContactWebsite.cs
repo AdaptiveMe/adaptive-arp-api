@@ -32,7 +32,7 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 08/08/14.</summary>
 	/// <remarks>Created by clozano on 08/08/14.</remarks>
-	[System.Serializable]
+	
 	public class ContactWebsite
 	{
 		/// <summary>The url of the website</summary>
