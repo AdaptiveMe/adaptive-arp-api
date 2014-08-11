@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -29,37 +31,42 @@
 package me.adaptive.arp.api;
 
 /**
- * @author Carlos Lozano Diez
- * @see me.adaptive.arp.api.Acceleration
- * @see me.adaptive.arp.api.IAccelerometer
- * @since ARP1.0
+ * Created by FRMI on 11/08/2014.
  */
-public interface AccelerationListener {
-
+public class EmailAddress {
     /**
-     * Correct data received.
-     *
-     * @param acceleration
-     * @author Carlos Lozano Diez
+     * The Email address
      * @since ARP1.0
      */
-    public void onResult(Acceleration acceleration);
+    private String address;
 
     /**
-     * Data received with warning - ie. Needs calibration.
-     *
-     * @param acceleration
-     * @author Carlos Lozano Diez
+     * Constructor used by implementation
+     * @param address
      * @since ARP1.0
      */
-    public void onWarning(Acceleration acceleration);
+    public EmailAddress(String address) {
+        this.address = address;
+    }
 
     /**
-     * No data received - error condition, not authorized or hardware not available.
-     *
-     * @param acceleration
-     * @author Carlos Lozano Diez
+     * Returns the email address
+     * @return address of the Email
      * @since ARP1.0
      */
-    public void onError(Acceleration acceleration);
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * Set the Email address
+     * @param address of the Email
+     * @since ARP1.0
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
 }
+

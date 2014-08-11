@@ -21,11 +21,12 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
-
 package me.adaptive.arp.api;
 
 import java.io.Serializable;
@@ -35,24 +36,82 @@ import java.io.Serializable;
  */
 public interface IContact extends IBasePIM, Serializable {
 
+    /**
+     * Filter that can be used
+     * @since ARP1.0
+     */
     enum Filter {HAS_PHONE, HAS_EMAIL, HAS_ADDRESS}
 
+    /**
+     * Group that can be retrieved
+     * @since ARP1.0
+     */
     enum FieldGroup {PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS}
 
+    /**
+     * Search contacts according to a term and send it to the callback
+     * @param term string to search
+     * @param callback called for return
+     * @since ARP1.0
+     */
     void searchContacts(String term, ContactResultCallback callback);
 
+    /**
+     * Search contacts according to a term with a filter and send it to the callback
+     * @param term string to search
+     * @param callback called for return
+     * @param filter to search for
+     * @since ARP1.0
+     */
     void searchContacts(String term, ContactResultCallback callback, Filter... filter);
 
+    /**
+     * Get all the details of a contact according to its id
+     * @param contact id to search for
+     * @param callback called for return
+     * @since ARP1.0
+     */
     void getContact(ContactUid contact, ContactResultCallback callback);
 
+    /**
+     * Get the contact photo
+     * @param contact id to search for
+     * @param callback called for return
+     * @since ARP1.0
+     */
     void getContactPhoto(ContactUid contact, ContactResultCallback callback);
 
+    /**
+     * Set the contact photo
+     * @param contact id to assign the photo
+     * @param pngImage photo as byte array
+     * @return true if set is successful;false otherwise
+     * @since ARP1.0
+     */
     boolean setContactPhoto(ContactUid contact, byte[] pngImage);
 
+    /**
+     * Get all contacts
+     * @param callback called for return
+     * @since ARP1.0
+     */
     void getContacts(ContactResultCallback callback);
 
+    /**
+     * Get marked fields of all contacts
+     * @param callback called for return
+     * @param fields to get for each Contact
+     * @since ARP1.0
+     */
     void getContacts(ContactResultCallback callback, FieldGroup... fields);
 
+    /**
+     * Get marked fields of all contacts according to a filter
+     * @param callback called for return
+     * @param fields to get for each Contact
+     * @param filter to search for
+     * @since ARP1.0
+     */
     void getContacts(ContactResultCallback callback, FieldGroup[] fields, Filter... filter);
 
 }

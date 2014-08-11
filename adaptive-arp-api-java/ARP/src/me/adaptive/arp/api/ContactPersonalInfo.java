@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -34,4 +36,123 @@ import java.io.Serializable;
  * Created by clozano on 08/08/14.
  */
 public class ContactPersonalInfo implements Serializable {
+
+    /**
+     * Titles that can be used
+     * @since ARP1.0
+     */
+    enum Title {
+        Mister,Miss, Mistress
+    }
+
+    /**
+     * The name of the Contact
+     * @since ARP1.0
+     */
+    private String name;
+
+    /**
+     *  The middle name of the Contact if it proceeds
+     * @since ARP1.0
+     */
+    private String middleName;
+
+    /**
+     * The last name of the Contact
+     * @since ARP1.0
+     */
+    private String lastName;
+
+    /**
+     * The title of the Contact
+     * @since ARP1.0
+     */
+    private Title title;
+
+    /**
+     * The Constructor used by the implementation
+     * @param name of the Contact
+     * @param middleName of the Contact
+     * @param lastName of the Contact
+     * @param title of the Contact
+     * @since ARP1.0
+     */
+    public ContactPersonalInfo(String name, String middleName, String lastName, Title title) {
+        this.name = name;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.title = title;
+    }
+
+    /**
+     * Returns the name of the Contact
+     * @return name
+     * @since ARP1.0
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Set the name of the Contact
+     * @param name
+     * @since ARP1.0
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Returns the middle name of the Contact
+     * @return middelName
+     * @since ARP1.0
+     */
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    /**
+     * Set the middle name of the Contact
+     * @param middleName
+     * @since ARP1.0
+     */
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    /**
+     * Returns the last name of the Contact
+     * @return lastName
+     * @since ARP1.0
+     */
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     * Set the last name of the Contact
+     * @param lastName
+     * @since ARP1.0
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    /**
+     * Returns the title of the Contact
+     * @return Title
+     * @since ARP1.0
+     */
+    public Title getTitle() {
+        return title;
+    }
+
+    /**
+     * Set the Title of the Contact
+     * @param title
+     * @since ARP1.0
+     */
+    public void setTitle(Title title) {
+        this.title = title;
+    }
 }

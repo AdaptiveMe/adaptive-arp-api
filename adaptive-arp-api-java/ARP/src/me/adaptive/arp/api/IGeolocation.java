@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -34,4 +36,38 @@ import java.io.Serializable;
  * Created by clozano on 04/08/14.
  */
 public interface IGeolocation extends IBaseSensor, Serializable {
+
+    /**
+    * Success = Correct reading. Unauthorized = No reading. User has not
+    * authorized a reading. HighDoP = No reliable measure. Unavailable = No reading. Not supported or temporarily
+    * disabled.
+    *
+    * @since ARP1.0
+    */
+    enum Status {
+        Success, Unauthorized, HighDoP, Unavailable
+    }
+
+    /**
+     * Register a new listener that will receive geolocation events.
+     *
+     * @param listener to be registered.
+     * @since ARP1.0
+     */
+    void addAccelerationListener(IGeolocationListener listener);
+
+    /**
+     * De-registers an existing listener from receiving geolocation events.
+     *
+     * @param listener
+     * @since ARP1.0
+     */
+    void removeAccelerationListener(IGeolocationListener listener);
+
+    /**
+     * Removed all existing listeners from receiving geolocation events.
+     *
+     * @since ARP1.0
+     */
+    void removeGeolocationListeners();
 }

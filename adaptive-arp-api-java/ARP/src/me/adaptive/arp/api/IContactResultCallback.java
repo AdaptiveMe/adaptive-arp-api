@@ -35,37 +35,39 @@ import java.io.Serializable;
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactWebsite implements Serializable {
-    /**
-     * The url of the website
-     * @since ARP1.0
-     */
-    private String url;
+public interface IContactResultCallback extends Serializable{
 
     /**
-     * Constructor used by the implementation
-     * @param url
+     * Warnings that can be used
      * @since ARP1.0
      */
-    public ContactWebsite(String url) {
-        this.url = url;
-    }
+    enum Warning {LimitExceeded}
 
     /**
-     * Returns the url of the website
-     * @return website url
+     * Errors that can be used
      * @since ARP1.0
      */
-    public String getUrl() {
-        return url;
-    }
+    enum Error {NoPermission}
 
     /**
-     * Set the url of the website
-     * @param url
+     * This method is called on Result
+     * @param contacts returned by the platform
      * @since ARP1.0
      */
-    public void setUrl(String url) {
-        this.url = url;
-    }
+    void onResult(Contact[] contacts);
+
+    /**
+     * This method is called on Warning
+     * @param contacts returned by the platform
+     * @param warning returned by the platform
+     * @since ARP1.0
+     */
+    void onWarning(Contact[] contacts, Warning warning);
+
+    /**
+     * This method is called on Error
+     * @param error returned by the platform
+     * @since ARP1.0
+     */
+    void onError(Error error);
 }

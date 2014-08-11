@@ -33,39 +33,43 @@ package me.adaptive.arp.api;
 import java.io.Serializable;
 
 /**
- * Created by clozano on 08/08/14.
+ * Created by FRMI on 11/08/2014.
  */
-public class ContactWebsite implements Serializable {
-    /**
-     * The url of the website
-     * @since ARP1.0
-     */
-    private String url;
+public interface IMessagingCallback extends Serializable {
+
 
     /**
-     * Constructor used by the implementation
-     * @param url
+     * Warnings that can be used
      * @since ARP1.0
      */
-    public ContactWebsite(String url) {
-        this.url = url;
-    }
+    enum Warning {Unable_To_Sent_All,Unable_to_fetch_attachment}
 
     /**
-     * Returns the url of the website
-     * @return website url
+     * Errors that can be used
      * @since ARP1.0
      */
-    public String getUrl() {
-        return url;
-    }
+    enum Error {SIM_Not_Present,Email_Account_Not_Found,Not_Sent}
 
     /**
-     * Set the url of the website
-     * @param url
+     * This method is called on Result
+     * @param success true if sent;false otherwise
      * @since ARP1.0
      */
-    public void setUrl(String url) {
-        this.url = url;
-    }
+    void onResult(boolean success);
+
+    /**
+     * This method is called on Warning
+     * @param success true if sent;false otherwise
+     * @param warning returned by the platform
+     * @since ARP1.0
+     */
+    void onWarning(boolean success, Warning warning);
+
+    /**
+     * This method is called on Error
+     * @param error returned by the platform
+     * @since ARP1.0
+     */
+    void onError(Error error);
+
 }

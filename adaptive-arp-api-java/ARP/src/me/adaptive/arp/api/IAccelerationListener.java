@@ -21,51 +21,45 @@
  *
  * Contributors:
  *
- *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *     *
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
- * Created by clozano on 08/08/14.
+ * @author Carlos Lozano Diez
+ * @see me.adaptive.arp.api.Acceleration
+ * @see me.adaptive.arp.api.IAccelerometer
+ * @since ARP1.0
  */
-public class ContactWebsite implements Serializable {
-    /**
-     * The url of the website
-     * @since ARP1.0
-     */
-    private String url;
+public interface IAccelerationListener {
 
     /**
-     * Constructor used by the implementation
-     * @param url
+     * Correct data received.
+     *
+     * @param acceleration
+     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    public ContactWebsite(String url) {
-        this.url = url;
-    }
+    public void onResult(Acceleration acceleration);
 
     /**
-     * Returns the url of the website
-     * @return website url
+     * Data received with warning - ie. Needs calibration.
+     *
+     * @param acceleration
+     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    public String getUrl() {
-        return url;
-    }
+    public void onWarning(Acceleration acceleration);
 
     /**
-     * Set the url of the website
-     * @param url
+     * No data received - error condition, not authorized or hardware not available.
+     *
+     * @param acceleration
+     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    public void setUrl(String url) {
-        this.url = url;
-    }
+    public void onError(Acceleration acceleration);
 }

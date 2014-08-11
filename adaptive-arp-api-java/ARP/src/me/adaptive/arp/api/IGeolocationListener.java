@@ -21,27 +21,41 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
- * Created by clozano on 08/08/14.
+ * Created by FRMI on 11/08/2014.
  */
-public interface ContactResultCallback extends Serializable{
+public interface IGeolocationListener {
 
-    enum Warning {LimitExceeded}
+    /**
+     * Correct data received.
+     *
+     * @param geolocation
+     * @since ARP1.0
+     */
+    public void onResult(Geolocation geolocation);
 
-    enum Error {NoPermission}
+    /**
+     * Data received with warning - ie. HighDoP
+     *
+     * @param geolocation
+     * @since ARP1.0
+     */
+    public void onWarning(Geolocation geolocation);
 
-    void onResult(Contact[] contacts);
-
-    void onWarning(Contact[] contacts, Warning warning);
-
-    void onError(Error error);
+    /**
+     * No data received - error condition, not authorized or hardware not available.
+     *
+     * @param geolocation
+     * @since ARP1.0
+     */
+    public void onError(Geolocation geolocation);
 }
