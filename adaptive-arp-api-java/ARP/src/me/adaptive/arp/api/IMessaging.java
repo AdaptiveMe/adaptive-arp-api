@@ -27,6 +27,7 @@
  *
  * =====================================================================================================================
  */
+
 package me.adaptive.arp.api;
 
 import java.io.Serializable;
@@ -43,7 +44,7 @@ public interface IMessaging extends IBasePIM, Serializable {
      * @param callback with the result
      * @since ARP1.0
      */
-    void sendSMS(String number,String text,MessagingCallback callback);
+    void sendSMS(String number,String text,IMessagingCallback callback);
 
     /**
      * Send an Email
@@ -51,5 +52,5 @@ public interface IMessaging extends IBasePIM, Serializable {
      * @param callback with the result
      * @since ARP1.0
      */
-    void sendEmail(Email data,MessagingCallback callback);
+    void sendEmail(Email data,IMessagingCallback callback);
 }
