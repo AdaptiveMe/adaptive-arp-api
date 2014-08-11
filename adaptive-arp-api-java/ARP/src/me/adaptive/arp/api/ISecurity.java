@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -34,4 +36,10 @@ import java.io.Serializable;
  * Created by clozano on 04/08/14.
  */
 public interface ISecurity extends IBaseSecurity, Serializable {
+    /**
+     * Returns if the device has been modified in anyhow
+     * @return true if the device has been modified; false otherwise
+     * @since ARP1.0
+     */
+    boolean isDeviceModified();
 }
