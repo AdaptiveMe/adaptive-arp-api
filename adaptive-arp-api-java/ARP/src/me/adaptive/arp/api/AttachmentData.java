@@ -82,7 +82,7 @@ public class AttachmentData {
 
     /**
      * Returns the raw data in byte[]
-     * @return  byte[] data of the attachment file
+     * @return  data
      * @since ARP1.0
      */
     public byte[] getData() {
@@ -90,8 +90,8 @@ public class AttachmentData {
     }
 
     /**
-     * Set the data of the attachment
-     * @param data byte[] with the raw data of the attachment
+     * Set the data of the attachment as a byte[]
+     * @param data
      * @since ARP1.0
      */
     public void setData(byte[] data) {
@@ -99,8 +99,8 @@ public class AttachmentData {
     }
 
     /**
-     * Returns the size of the attachment
-     * @return the size of the attachment as a long
+     * Returns the size of the attachment as a long
+     * @return dataSize
      * @since ARP1.0
      */
     public long getDataSize() {
@@ -108,8 +108,8 @@ public class AttachmentData {
     }
 
     /**
-     * Set the size of the attachment
-     * @param dataSize size of the file attachment as a long
+     * Set the size of the attachment as a long
+     * @param dataSize
      * @since ARP1.0
      */
     public void setDataSize(long dataSize) {
@@ -118,7 +118,7 @@ public class AttachmentData {
 
     /**
      * Returns the filename of the attachment
-     * @return name of the attachment
+     * @return fileName
      * @since ARP1.0
      */
     public String getFileName() {
@@ -127,7 +127,7 @@ public class AttachmentData {
 
     /**
      * Set the name of the file attachment
-     * @param fileName name of the file attachment
+     * @param fileName
      * @since ARP1.0
      */
     public void setFileName(String fileName) {
@@ -136,7 +136,7 @@ public class AttachmentData {
 
     /**
      * Returns the mime type of the attachment
-     * @return the mime type of the attachment
+     * @return mimeType
      * @since ARP1.0
      */
     public String getMimeType() {
@@ -145,7 +145,7 @@ public class AttachmentData {
 
     /**
      * Set the mime type of the attachment
-     * @param mimeType mime type of the attachment
+     * @param mimeType
      * @since ARP1.0
      */
     public void setMimeType(String mimeType) {
@@ -154,7 +154,7 @@ public class AttachmentData {
 
     /**
      * Returns the relative url of the file attachment
-     * @return the relative url of the file attachment
+     * @return referenceUrl
      * @since ARP1.0
      */
     public String getReferenceUrl() {
@@ -163,7 +163,7 @@ public class AttachmentData {
 
     /**
      * Set the relative url of the attachment
-     * @param referenceUrl url of the attachment
+     * @param referenceUrl
      * @since ARP1.0
      */
     public void setReferenceUrl(String referenceUrl) {

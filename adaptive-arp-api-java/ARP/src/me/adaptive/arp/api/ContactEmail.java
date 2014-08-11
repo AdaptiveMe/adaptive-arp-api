@@ -63,9 +63,9 @@ public class ContactEmail implements Serializable {
 
     /**
      * Constructor used by the implementation
-     * @param type of the email
-     * @param primary marked as primary email
-     * @param email of the Contact
+     * @param type
+     * @param primary
+     * @param email
      * @since ARP1.0
      */
     public ContactEmail(EmailType type, boolean primary, String email) {
@@ -76,7 +76,7 @@ public class ContactEmail implements Serializable {
 
     /**
      * Returns the type of the email
-     * @return EmailType of the email
+     * @return EmailType
      * @since ARP1.0
      */
     public EmailType getType() {
@@ -85,7 +85,7 @@ public class ContactEmail implements Serializable {
 
     /**
      * Set the type of the email
-     * @param type of the email
+     * @param type
      * @since ARP1.0
      */
     public void setType(EmailType type) {
@@ -112,7 +112,7 @@ public class ContactEmail implements Serializable {
 
     /**
      * Returns the email of the Contact
-     * @return email of the Contact
+     * @return email
      * @since ARP1.0
      */
     public String getEmail() {
@@ -121,7 +121,7 @@ public class ContactEmail implements Serializable {
 
     /**
      * Set the email of the Contact
-     * @param email of the Contact
+     * @param email
      * @since ARP1.0
      */
     public void setEmail(String email) {

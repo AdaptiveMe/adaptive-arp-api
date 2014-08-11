@@ -55,9 +55,9 @@ public class ContactProfessionalInfo implements Serializable {
 
     /**
      * Constructor used by implementation to set the ContactProfessionalInfo.
-     * @param jobTitle of the job
-     * @param jobDescription of the job
-     * @param company of the job
+     * @param jobTitle
+     * @param jobDescription
+     * @param company
      * @since ARP1.0
      */
     public ContactProfessionalInfo(String jobTitle, String jobDescription, String company) {
@@ -68,7 +68,7 @@ public class ContactProfessionalInfo implements Serializable {
 
     /**
      * Returns the company of the job
-     * @return company of the job
+     * @return company
      * @since ARP1.0
      */
     public String getCompany() {
@@ -77,7 +77,7 @@ public class ContactProfessionalInfo implements Serializable {
 
     /**
      * Set the company of the job
-     * @param company of the job
+     * @param company
      * @since ARP1.0
      */
     public void setCompany(String company) {
@@ -86,7 +86,7 @@ public class ContactProfessionalInfo implements Serializable {
 
     /**
      * Returns the title of the job
-     * @return title of the job
+     * @return title
      * @since ARP1.0
      */
     public String getJobTitle() {
@@ -95,7 +95,7 @@ public class ContactProfessionalInfo implements Serializable {
 
     /**
      * Set the title of the job
-     * @param title of the job
+     * @param title
      * @since ARP1.0
      */
     public void setJobTitle(String jobTitle) {
@@ -104,7 +104,7 @@ public class ContactProfessionalInfo implements Serializable {
 
     /**
      * Returns the description of the job
-     * @return description of the job
+     * @return description
      * @since ARP1.0
      */
     public String getJobDescription() {
@@ -113,7 +113,7 @@ public class ContactProfessionalInfo implements Serializable {
 
     /**
      * Set the description of the job
-     * @param description of the job
+     * @param description
      * @since ARP1.0
      */
     public void setJobDescription(String jobDescription) {

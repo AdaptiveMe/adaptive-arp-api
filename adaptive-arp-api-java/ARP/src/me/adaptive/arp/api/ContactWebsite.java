@@ -53,7 +53,7 @@ public class ContactWebsite implements Serializable {
 
     /**
      * Returns the url of the website
-     * @return url of the website
+     * @return website url
      * @since ARP1.0
      */
     public String getUrl() {
@@ -62,7 +62,7 @@ public class ContactWebsite implements Serializable {
 
     /**
      * Set the url of the website
-     * @param url of the website
+     * @param url
      * @since ARP1.0
      */
     public void setUrl(String url) {

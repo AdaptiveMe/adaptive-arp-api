@@ -86,7 +86,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Returns the name of the Contact
-     * @return name of the Contact
+     * @return name
      * @since ARP1.0
      */
     public String getName() {
@@ -95,7 +95,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Set the name of the Contact
-     * @param name of the Contact
+     * @param name
      * @since ARP1.0
      */
     public void setName(String name) {
@@ -104,7 +104,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Returns the middle name of the Contact
-     * @return middelName of the Contact
+     * @return middelName
      * @since ARP1.0
      */
     public String getMiddleName() {
@@ -113,7 +113,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Set the middle name of the Contact
-     * @param middleName of the Contact
+     * @param middleName
      * @since ARP1.0
      */
     public void setMiddleName(String middleName) {
@@ -122,7 +122,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Returns the last name of the Contact
-     * @return lastName of the Contact
+     * @return lastName
      * @since ARP1.0
      */
     public String getLastName() {
@@ -131,7 +131,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Set the last name of the Contact
-     * @param lastName of the Contact
+     * @param lastName
      * @since ARP1.0
      */
     public void setLastName(String lastName) {
@@ -140,7 +140,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Returns the title of the Contact
-     * @return Title of the Contact
+     * @return Title
      * @since ARP1.0
      */
     public Title getTitle() {
@@ -149,7 +149,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Set the Title of the Contact
-     * @param title of the Contact
+     * @param title
      * @since ARP1.0
      */
     public void setTitle(Title title) {

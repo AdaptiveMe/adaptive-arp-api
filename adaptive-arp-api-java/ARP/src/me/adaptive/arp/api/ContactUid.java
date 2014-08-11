@@ -63,7 +63,7 @@ public class ContactUid implements Serializable {
 
     /**
      * Set the id of the Contact
-     * @param contactId of the Contact
+     * @param contactId
      * @since ARP1.0
      */
     public void setContactId(String contactId) {

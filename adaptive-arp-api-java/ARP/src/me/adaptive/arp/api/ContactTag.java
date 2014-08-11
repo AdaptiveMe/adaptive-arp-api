@@ -51,8 +51,8 @@ public class ContactTag implements Serializable {
 
     /**
      * Constructor used by the implementation
-     * @param value of the Tag
-     * @param name of the Tag
+     * @param value
+     * @param name
      * @since ARP1.0
      */
     public ContactTag(String name, String value) {
@@ -62,7 +62,7 @@ public class ContactTag implements Serializable {
 
     /**
      * Returns the name of the Tag
-     * @return name of the Tag
+     * @return name
      * @since ARP1.0
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class ContactTag implements Serializable {
 
     /**
      * Set the name of the Tag
-     * @param name of the Tag
+     * @param name
      * @since ARP1.0
      */
     public void setName(String name) {
@@ -80,7 +80,7 @@ public class ContactTag implements Serializable {
 
     /**
      * Returns the value of the Tag
-     * @return value of the Tag
+     * @return value
      * @since ARP1.0
      */
     public String getValue() {
@@ -89,7 +89,7 @@ public class ContactTag implements Serializable {
 
     /**
      * Set the value of the Tag
-     * @param value of the Tag
+     * @param value
      * @since ARP1.0
      */
     public void setValue(String value) {

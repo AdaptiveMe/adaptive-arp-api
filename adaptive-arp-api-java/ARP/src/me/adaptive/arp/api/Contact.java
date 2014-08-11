@@ -99,7 +99,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Set the personal info of the Contact
-     * @param personalInfo of the Contact
+     * @param personalInfo[]
      * @since ARP1.0
      */
     public void setPersonalInfo(ContactPersonalInfo personalInfo) {
@@ -108,7 +108,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Returns the professional info of the Contact
-     * @return ContactProfessionalInfo of the Contact
+     * @return ContactProfessionalInfo[]
      * @since ARP1.0
      */
     public ContactProfessionalInfo getProfessionalInfo() {
@@ -117,7 +117,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Set the professional info of the Contact
-     * @param professionalInfo of the Contact
+     * @param professionalInfo[]
      * @since ARP1.0
      */
     public void setProfessionalInfo(ContactProfessionalInfo professionalInfo) {
@@ -126,7 +126,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Returns all the addresses of the Contact
-     * @return ContactAddress[] of the Contact
+     * @return ContactAddress[]
      * @since ARP1.0
      */
     public ContactAddress[] getContactAddresses() {
@@ -135,7 +135,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Set the addresses of the Contact
-     * @param contactAddresses[] of the Contact
+     * @param contactAddresses[]
      * @since ARP1.0
      */
     public void setContactAddresses(ContactAddress[] contactAddresses) {
@@ -144,7 +144,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Returns all the phones of the Contact
-     * @return ContactPhone[] of the Contact
+     * @return ContactPhone[]
      * @since ARP1.0
      */
     public ContactPhone[] getContactPhones() {
@@ -153,7 +153,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Set the phones of the Contact
-     * @param contactPhones[] of the Contact
+     * @param contactPhones[]
      * @since ARP1.0
      */
     public void setContactPhones(ContactPhone[] contactPhones) {
@@ -162,7 +162,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Returns all the emails of the Contact
-     * @return ContactEmail[] of the Contact
+     * @return ContactEmail[]
      * @since ARP1.0
      */
     public ContactEmail[] getContactEmails() {
@@ -171,7 +171,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Set the emails of the Contact
-     * @param contactEmails[] of the Contact
+     * @param contactEmails[]
      * @since ARP1.0
      */
     public void setContactEmails(ContactEmail[] contactEmails) {
@@ -180,7 +180,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Returns all the websites of the Contact
-     * @return ContactWebsite[] of the Contact
+     * @return ContactWebsite[]
      * @since ARP1.0
      */
     public ContactWebsite[] getContactWebsites() {
@@ -189,7 +189,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Set the websites of the Contact
-     * @param contactWebsites[] of the Contact
+     * @param contactWebsites[]
      * @since ARP1.0
      */
     public void setContactWebsites(ContactWebsite[] contactWebsites) {
@@ -198,7 +198,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Returns all the social network info of the Contact
-     * @return ContactSocial[] of the Contact
+     * @return ContactSocial[]
      * @since ARP1.0
      */
     public ContactSocial[] getContactSocials() {
@@ -207,7 +207,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Set the social network info of the Contact
-     * @param contactSocials[] of the Contact
+     * @param contactSocials[]
      * @since ARP1.0
      */
     public void setContactSocials(ContactSocial[] contactSocials) {
@@ -216,7 +216,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Returns the additional tags of the Contact
-     * @return ContactTag[] of the Contact
+     * @return ContactTag[]
      * @since ARP1.0
      */
     public ContactTag[] getContactTags() {
@@ -225,7 +225,7 @@ public class Contact extends ContactUid implements Serializable {
 
     /**
      * Set the additional tags of the Contact
-     * @param contactTags[] of the Contact
+     * @param contactTags[]
      * @since ARP1.0
      */
     public void setContactTags(ContactTag[] contactTags) {

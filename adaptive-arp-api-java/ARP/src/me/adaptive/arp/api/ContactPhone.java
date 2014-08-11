@@ -58,8 +58,8 @@ public class ContactPhone implements Serializable {
 
     /**
      * Constructor used by implementation to set the contact Phone
-     * @param phone number
-     * @param phoneType of the phone number
+     * @param phone
+     * @param phoneType
      * @since ARP1.0
      */
     public ContactPhone(String phone, PhoneType phoneType) {
@@ -87,7 +87,7 @@ public class ContactPhone implements Serializable {
 
     /**
      * Returns the phone phoneType
-     * @return phoneType of the phone number
+     * @return phoneType
      * @since ARP1.0
      */
     public me.adaptive.arp.api.ContactPhone.PhoneType getPhoneType() {
@@ -96,7 +96,7 @@ public class ContactPhone implements Serializable {
 
     /**
      * Set the phoneType of the phone number
-     * @param phoneType of the phone number
+     * @param phoneType
      * @since ARP1.0
      */
     public void setPhoneType(me.adaptive.arp.api.ContactPhone.PhoneType phoneType) {

@@ -58,8 +58,8 @@ public class ContactAddress implements Serializable {
 
     /**
      * Constructor used by the implementation
-     * @param address of the Contact
-     * @param type of the Contact
+     * @param address
+     * @param type
      * @since ARP1.0
      */
     public ContactAddress(String address, AddressType type) {
@@ -69,7 +69,7 @@ public class ContactAddress implements Serializable {
 
     /**
      * Returns the Contact address
-     * @return address of the Contact
+     * @return address
      * @since ARP1.0
      */
     public String getAddress() {
@@ -78,7 +78,7 @@ public class ContactAddress implements Serializable {
 
     /**
      * Set the address of the Contact
-     * @param address of the Contact
+     * @param address
      * @since ARP1.0
      */
     public void setAddress(String address) {
@@ -87,7 +87,7 @@ public class ContactAddress implements Serializable {
 
     /**
      * Returns the type of the address
-     * @return AddressType of the address
+     * @return AddressType
      * @since ARP1.0
      */
     public AddressType getType() {
@@ -96,7 +96,7 @@ public class ContactAddress implements Serializable {
 
     /**
      * Set the address type
-     * @param type of the address
+     * @param type
      * @since ARP1.0
      */
     public void setType(AddressType type) {
