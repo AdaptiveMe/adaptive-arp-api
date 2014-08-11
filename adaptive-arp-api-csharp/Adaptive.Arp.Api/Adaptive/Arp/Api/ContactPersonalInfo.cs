@@ -40,9 +40,10 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public enum Title
 		{
-			Mister,
-			Miss,
-			Mistress
+			Mr,
+			Mrs,
+			Ms,
+			Dr
 		}
 
 		/// <summary>The name of the Contact</summary>

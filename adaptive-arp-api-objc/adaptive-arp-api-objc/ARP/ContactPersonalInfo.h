@@ -83,9 +83,10 @@ J2OBJC_FIELD_SETTER(ARPContactPersonalInfo, title_, ARPContactPersonalInfo_Title
 typedef ARPContactPersonalInfo MeAdaptiveArpApiContactPersonalInfo;
 
 typedef enum {
-  ARPContactPersonalInfo_Title_Mister = 0,
-  ARPContactPersonalInfo_Title_Miss = 1,
-  ARPContactPersonalInfo_Title_Mistress = 2,
+  ARPContactPersonalInfo_Title_Mr = 0,
+  ARPContactPersonalInfo_Title_Mrs = 1,
+  ARPContactPersonalInfo_Title_Ms = 2,
+  ARPContactPersonalInfo_Title_Dr = 3,
 } ARPContactPersonalInfo_Title;
 
 @interface ARPContactPersonalInfo_TitleEnum : JavaLangEnum < NSCopying > {
@@ -102,13 +103,16 @@ J2OBJC_STATIC_INIT(ARPContactPersonalInfo_TitleEnum)
 
 FOUNDATION_EXPORT ARPContactPersonalInfo_TitleEnum *ARPContactPersonalInfo_TitleEnum_values[];
 
-#define ARPContactPersonalInfo_TitleEnum_Mister ARPContactPersonalInfo_TitleEnum_values[ARPContactPersonalInfo_Title_Mister]
-J2OBJC_STATIC_FIELD_GETTER(ARPContactPersonalInfo_TitleEnum, Mister, ARPContactPersonalInfo_TitleEnum *)
+#define ARPContactPersonalInfo_TitleEnum_Mr ARPContactPersonalInfo_TitleEnum_values[ARPContactPersonalInfo_Title_Mr]
+J2OBJC_STATIC_FIELD_GETTER(ARPContactPersonalInfo_TitleEnum, Mr, ARPContactPersonalInfo_TitleEnum *)
 
-#define ARPContactPersonalInfo_TitleEnum_Miss ARPContactPersonalInfo_TitleEnum_values[ARPContactPersonalInfo_Title_Miss]
-J2OBJC_STATIC_FIELD_GETTER(ARPContactPersonalInfo_TitleEnum, Miss, ARPContactPersonalInfo_TitleEnum *)
+#define ARPContactPersonalInfo_TitleEnum_Mrs ARPContactPersonalInfo_TitleEnum_values[ARPContactPersonalInfo_Title_Mrs]
+J2OBJC_STATIC_FIELD_GETTER(ARPContactPersonalInfo_TitleEnum, Mrs, ARPContactPersonalInfo_TitleEnum *)
 
-#define ARPContactPersonalInfo_TitleEnum_Mistress ARPContactPersonalInfo_TitleEnum_values[ARPContactPersonalInfo_Title_Mistress]
-J2OBJC_STATIC_FIELD_GETTER(ARPContactPersonalInfo_TitleEnum, Mistress, ARPContactPersonalInfo_TitleEnum *)
+#define ARPContactPersonalInfo_TitleEnum_Ms ARPContactPersonalInfo_TitleEnum_values[ARPContactPersonalInfo_Title_Ms]
+J2OBJC_STATIC_FIELD_GETTER(ARPContactPersonalInfo_TitleEnum, Ms, ARPContactPersonalInfo_TitleEnum *)
+
+#define ARPContactPersonalInfo_TitleEnum_Dr ARPContactPersonalInfo_TitleEnum_values[ARPContactPersonalInfo_Title_Dr]
+J2OBJC_STATIC_FIELD_GETTER(ARPContactPersonalInfo_TitleEnum, Dr, ARPContactPersonalInfo_TitleEnum *)
 
 #endif // _ARPContactPersonalInfo_H_

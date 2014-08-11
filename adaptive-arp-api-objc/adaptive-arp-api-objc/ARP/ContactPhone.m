@@ -130,7 +130,7 @@ ARPContactPhone_PhoneTypeEnum *ARPContactPhone_PhoneTypeEnum_values[7];
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "init", NULL, NULL, 0x0, NULL },
+    { "init", NULL, NULL, 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "Mobile", "Mobile", 0x4019, "Lme.adaptive.arp.api.ContactPhone$PhoneType;", &ARPContactPhone_PhoneTypeEnum_Mobile,  },
@@ -142,7 +142,7 @@ ARPContactPhone_PhoneTypeEnum *ARPContactPhone_PhoneTypeEnum_values[7];
     { "Other", "Other", 0x4019, "Lme.adaptive.arp.api.ContactPhone$PhoneType;", &ARPContactPhone_PhoneTypeEnum_Other,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ContactPhone$PhoneType;"};
-  static J2ObjcClassInfo _ARPContactPhone_PhoneTypeEnum = { "PhoneType", "me.adaptive.arp.api", "ContactPhone", 0x4018, 1, methods, 7, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPContactPhone_PhoneTypeEnum = { "PhoneType", "me.adaptive.arp.api", "ContactPhone", 0x4019, 1, methods, 7, fields, 1, superclass_type_args};
   return &_ARPContactPhone_PhoneTypeEnum;
 }
 

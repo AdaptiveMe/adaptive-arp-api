@@ -140,7 +140,7 @@ ARPContactEmail_EmailTypeEnum *ARPContactEmail_EmailTypeEnum_values[3];
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "init", NULL, NULL, 0x0, NULL },
+    { "init", NULL, NULL, 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "Personal", "Personal", 0x4019, "Lme.adaptive.arp.api.ContactEmail$EmailType;", &ARPContactEmail_EmailTypeEnum_Personal,  },
@@ -148,7 +148,7 @@ ARPContactEmail_EmailTypeEnum *ARPContactEmail_EmailTypeEnum_values[3];
     { "Other", "Other", 0x4019, "Lme.adaptive.arp.api.ContactEmail$EmailType;", &ARPContactEmail_EmailTypeEnum_Other,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ContactEmail$EmailType;"};
-  static J2ObjcClassInfo _ARPContactEmail_EmailTypeEnum = { "EmailType", "me.adaptive.arp.api", "ContactEmail", 0x4018, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPContactEmail_EmailTypeEnum = { "EmailType", "me.adaptive.arp.api", "ContactEmail", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPContactEmail_EmailTypeEnum;
 }
 

@@ -126,7 +126,7 @@ ARPContactAddress_AddressTypeEnum *ARPContactAddress_AddressTypeEnum_values[3];
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "init", NULL, NULL, 0x0, NULL },
+    { "init", NULL, NULL, 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "Home", "Home", 0x4019, "Lme.adaptive.arp.api.ContactAddress$AddressType;", &ARPContactAddress_AddressTypeEnum_Home,  },
@@ -134,7 +134,7 @@ ARPContactAddress_AddressTypeEnum *ARPContactAddress_AddressTypeEnum_values[3];
     { "Other", "Other", 0x4019, "Lme.adaptive.arp.api.ContactAddress$AddressType;", &ARPContactAddress_AddressTypeEnum_Other,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ContactAddress$AddressType;"};
-  static J2ObjcClassInfo _ARPContactAddress_AddressTypeEnum = { "AddressType", "me.adaptive.arp.api", "ContactAddress", 0x4018, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPContactAddress_AddressTypeEnum = { "AddressType", "me.adaptive.arp.api", "ContactAddress", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPContactAddress_AddressTypeEnum;
 }
 
