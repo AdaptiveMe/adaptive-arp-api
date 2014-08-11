@@ -27,29 +27,46 @@
  *
  * =====================================================================================================================
  */
+
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
- * Created by clozano on 04/08/14.
+ * Created by FRMI on 11/08/2014.
  */
-public interface IMessaging extends IBasePIM, Serializable {
-
+public class EmailAddress {
     /**
-     * Send text SMS
-     * @param number to send
-     * @param text to send
-     * @param callback with the result
+     * The Email address
      * @since ARP1.0
      */
-    void sendSMS(String number,String text,MessagingCallback callback);
+    private String address;
 
     /**
-     * Send an Email
-     * @param data the email data
-     * @param callback with the result
+     * Constructor used by implementation
+     * @param address
      * @since ARP1.0
      */
-    void sendEmail(Email data,MessagingCallback callback);
+    public EmailAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * Returns the email address
+     * @return address of the Email
+     * @since ARP1.0
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * Set the Email address
+     * @param address of the Email
+     * @since ARP1.0
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
 }
+

@@ -27,29 +27,49 @@
  *
  * =====================================================================================================================
  */
+
 package me.adaptive.arp.api;
 
 import java.io.Serializable;
 
 /**
- * Created by clozano on 04/08/14.
+ * Created by FRMI on 11/08/2014.
  */
-public interface IMessaging extends IBasePIM, Serializable {
+public interface MessagingCallback extends Serializable {
+
 
     /**
-     * Send text SMS
-     * @param number to send
-     * @param text to send
-     * @param callback with the result
+     * Warnings that can be used
      * @since ARP1.0
      */
-    void sendSMS(String number,String text,MessagingCallback callback);
+    enum Warning {Unable_To_Sent_All,Unable_to_fetch_attachment}
 
     /**
-     * Send an Email
-     * @param data the email data
-     * @param callback with the result
+     * Errors that can be used
      * @since ARP1.0
      */
-    void sendEmail(Email data,MessagingCallback callback);
+    enum Error {SIM_Not_Present,Email_Account_Not_Found,Not_Sent}
+
+    /**
+     * This method is called on Result
+     * @param success true if sent;false otherwise
+     * @since ARP1.0
+     */
+    void onResult(boolean success);
+
+    /**
+     * This method is called on Warning
+     * @param success true if sent;false otherwise
+     * @param warning returned by the platform
+     * @since ARP1.0
+     */
+    void onWarning(boolean success, Warning warning);
+
+    /**
+     * This method is called on Error
+     * @param error returned by the platform
+     * @since ARP1.0
+     */
+    void onError(Error error);
+
 }
