@@ -35,7 +35,7 @@ import java.io.Serializable;
 /**
  * Created by clozano on 08/08/14.
  */
-public interface ContactResultCallback extends Serializable{
+public interface IContactResultCallback extends Serializable{
 
     /**
      * Warnings that can be used

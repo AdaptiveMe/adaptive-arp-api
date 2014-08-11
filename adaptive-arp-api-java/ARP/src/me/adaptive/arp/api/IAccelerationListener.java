@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
  * @see me.adaptive.arp.api.IAccelerometer
  * @since ARP1.0
  */
-public interface AccelerationListener {
+public interface IAccelerationListener {
 
     /**
      * Correct data received.
