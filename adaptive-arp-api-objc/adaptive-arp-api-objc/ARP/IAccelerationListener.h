@@ -27,24 +27,29 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ISecurity.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/IAccelerationListener.java
 //
 //
 
-#ifndef _ARPISecurity_H_
-#define _ARPISecurity_H_
+#ifndef _ARPIAccelerationListener_H_
+#define _ARPIAccelerationListener_H_
+
+@class ARPAcceleration;
 
 #import "JreEmulation.h"
-#include "IBaseSecurity.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
-- (BOOL)isDeviceModified;
+@protocol ARPIAccelerationListener < NSObject, JavaObject >
+
+- (void)onResultWithARPAcceleration:(ARPAcceleration *)acceleration;
+
+- (void)onWarningWithARPAcceleration:(ARPAcceleration *)acceleration;
+
+- (void)onErrorWithARPAcceleration:(ARPAcceleration *)acceleration;
 
 @end
 
-__attribute__((always_inline)) inline void ARPISecurity_init() {}
+__attribute__((always_inline)) inline void ARPIAccelerationListener_init() {}
 
-#define MeAdaptiveArpApiISecurity ARPISecurity
+#define MeAdaptiveArpApiIAccelerationListener ARPIAccelerationListener
 
-#endif // _ARPISecurity_H_
+#endif // _ARPIAccelerationListener_H_

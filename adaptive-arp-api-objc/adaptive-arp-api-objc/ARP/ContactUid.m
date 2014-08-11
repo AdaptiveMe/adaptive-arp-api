@@ -27,24 +27,45 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ISecurity.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ContactUid.java
 //
 //
 
-#ifndef _ARPISecurity_H_
-#define _ARPISecurity_H_
+#include "ContactUid.h"
 
-#import "JreEmulation.h"
-#include "IBaseSecurity.h"
-#include "java/io/Serializable.h"
+@implementation ARPContactUid
 
-@protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
-- (BOOL)isDeviceModified;
+- (id)initWithNSString:(NSString *)contactId {
+  if (self = [super init]) {
+    self->contactId_ = contactId;
+  }
+  return self;
+}
+
+- (NSString *)getContactId {
+  return contactId_;
+}
+
+- (void)setContactIdWithNSString:(NSString *)contactId {
+  self->contactId_ = contactId;
+}
+
+- (void)copyAllFieldsTo:(ARPContactUid *)other {
+  [super copyAllFieldsTo:other];
+  other->contactId_ = contactId_;
+}
+
++ (J2ObjcClassInfo *)__metadata {
+  static J2ObjcMethodInfo methods[] = {
+    { "initWithNSString:", "ContactUid", NULL, 0x1, NULL },
+    { "getContactId", NULL, "Ljava.lang.String;", 0x1, NULL },
+    { "setContactIdWithNSString:", "setContactId", "V", 0x1, NULL },
+  };
+  static J2ObjcFieldInfo fields[] = {
+    { "contactId_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
+  };
+  static J2ObjcClassInfo _ARPContactUid = { "ContactUid", "me.adaptive.arp.api", NULL, 0x1, 3, methods, 1, fields, 0, NULL};
+  return &_ARPContactUid;
+}
 
 @end
-
-__attribute__((always_inline)) inline void ARPISecurity_init() {}
-
-#define MeAdaptiveArpApiISecurity ARPISecurity
-
-#endif // _ARPISecurity_H_

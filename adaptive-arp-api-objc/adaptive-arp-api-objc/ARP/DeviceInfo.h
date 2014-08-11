@@ -27,24 +27,48 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ISecurity.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/DeviceInfo.java
 //
 //
 
-#ifndef _ARPISecurity_H_
-#define _ARPISecurity_H_
+#ifndef _ARPDeviceInfo_H_
+#define _ARPDeviceInfo_H_
 
 #import "JreEmulation.h"
-#include "IBaseSecurity.h"
 #include "java/io/Serializable.h"
 
-@protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
-- (BOOL)isDeviceModified;
+@interface ARPDeviceInfo : NSObject < JavaIoSerializable > {
+ @public
+  NSString *name_;
+  NSString *model_;
+  NSString *vendor_;
+  NSString *uuid_;
+}
+
+- (id)initWithNSString:(NSString *)name
+          withNSString:(NSString *)model
+          withNSString:(NSString *)vendor
+          withNSString:(NSString *)uuid;
+
+- (NSString *)getName;
+
+- (NSString *)getModel;
+
+- (NSString *)getVendor;
+
+- (NSString *)getUuid;
+
+- (void)copyAllFieldsTo:(ARPDeviceInfo *)other;
 
 @end
 
-__attribute__((always_inline)) inline void ARPISecurity_init() {}
+__attribute__((always_inline)) inline void ARPDeviceInfo_init() {}
 
-#define MeAdaptiveArpApiISecurity ARPISecurity
+J2OBJC_FIELD_SETTER(ARPDeviceInfo, name_, NSString *)
+J2OBJC_FIELD_SETTER(ARPDeviceInfo, model_, NSString *)
+J2OBJC_FIELD_SETTER(ARPDeviceInfo, vendor_, NSString *)
+J2OBJC_FIELD_SETTER(ARPDeviceInfo, uuid_, NSString *)
 
-#endif // _ARPISecurity_H_
+typedef ARPDeviceInfo MeAdaptiveArpApiDeviceInfo;
+
+#endif // _ARPDeviceInfo_H_

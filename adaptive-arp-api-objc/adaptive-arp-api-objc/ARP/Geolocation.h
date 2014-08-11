@@ -27,24 +27,52 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ISecurity.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/Geolocation.java
 //
 //
 
-#ifndef _ARPISecurity_H_
-#define _ARPISecurity_H_
+#ifndef _ARPGeolocation_H_
+#define _ARPGeolocation_H_
 
 #import "JreEmulation.h"
-#include "IBaseSecurity.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
-- (BOOL)isDeviceModified;
+@interface ARPGeolocation : NSObject {
+ @public
+  double latitude_;
+  double longitude_;
+  double altitude_;
+  float XDoP_;
+  float YDoP_;
+}
+
+- (id)initWithDouble:(double)latitude
+          withDouble:(double)longitude
+          withDouble:(double)altitude
+           withFloat:(float)XDoP
+           withFloat:(float)YDoP;
+
+- (double)getLatitude;
+
+- (void)setLatitudeWithDouble:(double)latitude;
+
+- (double)getLongitude;
+
+- (void)setLongitudeWithDouble:(double)longitude;
+
+- (double)getAltitude;
+
+- (void)setAltitudeWithDouble:(double)altitude;
+
+- (float)getXDoP;
+
+- (float)getYDoP;
+
+- (void)copyAllFieldsTo:(ARPGeolocation *)other;
 
 @end
 
-__attribute__((always_inline)) inline void ARPISecurity_init() {}
+__attribute__((always_inline)) inline void ARPGeolocation_init() {}
 
-#define MeAdaptiveArpApiISecurity ARPISecurity
+typedef ARPGeolocation MeAdaptiveArpApiGeolocation;
 
-#endif // _ARPISecurity_H_
+#endif // _ARPGeolocation_H_

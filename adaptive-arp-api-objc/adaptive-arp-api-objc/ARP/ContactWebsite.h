@@ -27,24 +27,35 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ISecurity.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ContactWebsite.java
 //
 //
 
-#ifndef _ARPISecurity_H_
-#define _ARPISecurity_H_
+#ifndef _ARPContactWebsite_H_
+#define _ARPContactWebsite_H_
 
 #import "JreEmulation.h"
-#include "IBaseSecurity.h"
 #include "java/io/Serializable.h"
 
-@protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
-- (BOOL)isDeviceModified;
+@interface ARPContactWebsite : NSObject < JavaIoSerializable > {
+ @public
+  NSString *url_;
+}
+
+- (id)initWithNSString:(NSString *)url;
+
+- (NSString *)getUrl;
+
+- (void)setUrlWithNSString:(NSString *)url;
+
+- (void)copyAllFieldsTo:(ARPContactWebsite *)other;
 
 @end
 
-__attribute__((always_inline)) inline void ARPISecurity_init() {}
+__attribute__((always_inline)) inline void ARPContactWebsite_init() {}
 
-#define MeAdaptiveArpApiISecurity ARPISecurity
+J2OBJC_FIELD_SETTER(ARPContactWebsite, url_, NSString *)
 
-#endif // _ARPISecurity_H_
+typedef ARPContactWebsite MeAdaptiveArpApiContactWebsite;
+
+#endif // _ARPContactWebsite_H_

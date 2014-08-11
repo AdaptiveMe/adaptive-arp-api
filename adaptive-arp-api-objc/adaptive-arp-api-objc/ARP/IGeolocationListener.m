@@ -27,24 +27,26 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ISecurity.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/IGeolocationListener.java
 //
 //
 
-#ifndef _ARPISecurity_H_
-#define _ARPISecurity_H_
+#include "Geolocation.h"
+#include "IGeolocationListener.h"
 
-#import "JreEmulation.h"
-#include "IBaseSecurity.h"
-#include "java/io/Serializable.h"
-
-@protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
-- (BOOL)isDeviceModified;
-
+@interface ARPIGeolocationListener : NSObject
 @end
 
-__attribute__((always_inline)) inline void ARPISecurity_init() {}
+@implementation ARPIGeolocationListener
 
-#define MeAdaptiveArpApiISecurity ARPISecurity
++ (J2ObjcClassInfo *)__metadata {
+  static J2ObjcMethodInfo methods[] = {
+    { "onResultWithARPGeolocation:", "onResult", "V", 0x401, NULL },
+    { "onWarningWithARPGeolocation:", "onWarning", "V", 0x401, NULL },
+    { "onErrorWithARPGeolocation:", "onError", "V", 0x401, NULL },
+  };
+  static J2ObjcClassInfo _ARPIGeolocationListener = { "IGeolocationListener", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
+  return &_ARPIGeolocationListener;
+}
 
-#endif // _ARPISecurity_H_
+@end

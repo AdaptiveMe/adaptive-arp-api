@@ -27,24 +27,35 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ISecurity.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ContactUid.java
 //
 //
 
-#ifndef _ARPISecurity_H_
-#define _ARPISecurity_H_
+#ifndef _ARPContactUid_H_
+#define _ARPContactUid_H_
 
 #import "JreEmulation.h"
-#include "IBaseSecurity.h"
 #include "java/io/Serializable.h"
 
-@protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
-- (BOOL)isDeviceModified;
+@interface ARPContactUid : NSObject < JavaIoSerializable > {
+ @public
+  NSString *contactId_;
+}
+
+- (id)initWithNSString:(NSString *)contactId;
+
+- (NSString *)getContactId;
+
+- (void)setContactIdWithNSString:(NSString *)contactId;
+
+- (void)copyAllFieldsTo:(ARPContactUid *)other;
 
 @end
 
-__attribute__((always_inline)) inline void ARPISecurity_init() {}
+__attribute__((always_inline)) inline void ARPContactUid_init() {}
 
-#define MeAdaptiveArpApiISecurity ARPISecurity
+J2OBJC_FIELD_SETTER(ARPContactUid, contactId_, NSString *)
 
-#endif // _ARPISecurity_H_
+typedef ARPContactUid MeAdaptiveArpApiContactUid;
+
+#endif // _ARPContactUid_H_

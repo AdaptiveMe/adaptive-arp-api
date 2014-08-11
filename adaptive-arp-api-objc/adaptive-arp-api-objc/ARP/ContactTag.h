@@ -27,24 +27,42 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ISecurity.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ContactTag.java
 //
 //
 
-#ifndef _ARPISecurity_H_
-#define _ARPISecurity_H_
+#ifndef _ARPContactTag_H_
+#define _ARPContactTag_H_
 
 #import "JreEmulation.h"
-#include "IBaseSecurity.h"
 #include "java/io/Serializable.h"
 
-@protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
-- (BOOL)isDeviceModified;
+@interface ARPContactTag : NSObject < JavaIoSerializable > {
+ @public
+  NSString *name_;
+  NSString *value_;
+}
+
+- (id)initWithNSString:(NSString *)name
+          withNSString:(NSString *)value;
+
+- (NSString *)getName;
+
+- (void)setNameWithNSString:(NSString *)name;
+
+- (NSString *)getValue;
+
+- (void)setValueWithNSString:(NSString *)value;
+
+- (void)copyAllFieldsTo:(ARPContactTag *)other;
 
 @end
 
-__attribute__((always_inline)) inline void ARPISecurity_init() {}
+__attribute__((always_inline)) inline void ARPContactTag_init() {}
 
-#define MeAdaptiveArpApiISecurity ARPISecurity
+J2OBJC_FIELD_SETTER(ARPContactTag, name_, NSString *)
+J2OBJC_FIELD_SETTER(ARPContactTag, value_, NSString *)
 
-#endif // _ARPISecurity_H_
+typedef ARPContactTag MeAdaptiveArpApiContactTag;
+
+#endif // _ARPContactTag_H_

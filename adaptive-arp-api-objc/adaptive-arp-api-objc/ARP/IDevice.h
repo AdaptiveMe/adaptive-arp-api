@@ -34,11 +34,15 @@
 #ifndef _ARPIDevice_H_
 #define _ARPIDevice_H_
 
+@class ARPDeviceInfo;
+
 #import "JreEmulation.h"
 #include "IBaseSystem.h"
 #include "java/io/Serializable.h"
 
 @protocol ARPIDevice < ARPIBaseSystem, JavaIoSerializable, NSObject, JavaObject >
+- (ARPDeviceInfo *)getDeviceInfo;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIDevice_init() {}

@@ -27,24 +27,34 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ISecurity.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/EmailAddress.java
 //
 //
 
-#ifndef _ARPISecurity_H_
-#define _ARPISecurity_H_
+#ifndef _ARPEmailAddress_H_
+#define _ARPEmailAddress_H_
 
 #import "JreEmulation.h"
-#include "IBaseSecurity.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
-- (BOOL)isDeviceModified;
+@interface ARPEmailAddress : NSObject {
+ @public
+  NSString *address_;
+}
+
+- (id)initWithNSString:(NSString *)address;
+
+- (NSString *)getAddress;
+
+- (void)setAddressWithNSString:(NSString *)address;
+
+- (void)copyAllFieldsTo:(ARPEmailAddress *)other;
 
 @end
 
-__attribute__((always_inline)) inline void ARPISecurity_init() {}
+__attribute__((always_inline)) inline void ARPEmailAddress_init() {}
 
-#define MeAdaptiveArpApiISecurity ARPISecurity
+J2OBJC_FIELD_SETTER(ARPEmailAddress, address_, NSString *)
 
-#endif // _ARPISecurity_H_
+typedef ARPEmailAddress MeAdaptiveArpApiEmailAddress;
+
+#endif // _ARPEmailAddress_H_

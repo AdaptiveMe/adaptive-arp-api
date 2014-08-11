@@ -34,7 +34,7 @@
 #ifndef _ARPIAccelerometer_H_
 #define _ARPIAccelerometer_H_
 
-@protocol ARPAccelerationListener;
+@protocol ARPIAccelerationListener;
 
 #import "JreEmulation.h"
 #include "IBaseSensor.h"
@@ -42,9 +42,9 @@
 #include "java/lang/Enum.h"
 
 @protocol ARPIAccelerometer < ARPIBaseSensor, JavaIoSerializable, NSObject, JavaObject >
-- (void)addAccelerationListenerWithARPAccelerationListener:(id<ARPAccelerationListener>)listener;
+- (void)addAccelerationListenerWithARPIAccelerationListener:(id<ARPIAccelerationListener>)listener;
 
-- (void)removeAccelerationListenerWithARPAccelerationListener:(id<ARPAccelerationListener>)listener;
+- (void)removeAccelerationListenerWithARPIAccelerationListener:(id<ARPIAccelerationListener>)listener;
 
 - (void)removeAccelerationListeners;
 
@@ -58,7 +58,8 @@ typedef enum {
   ARPIAccelerometer_Status_Success = 0,
   ARPIAccelerometer_Status_Unauthorized = 1,
   ARPIAccelerometer_Status_NeedsCalibration = 2,
-  ARPIAccelerometer_Status_Unavailable = 3,
+  ARPIAccelerometer_Status_Stale = 3,
+  ARPIAccelerometer_Status_Unavailable = 4,
 } ARPIAccelerometer_Status;
 
 @interface ARPIAccelerometer_StatusEnum : JavaLangEnum < NSCopying > {
@@ -83,6 +84,9 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerometer_StatusEnum, Unauthorized, ARPIAccel
 
 #define ARPIAccelerometer_StatusEnum_NeedsCalibration ARPIAccelerometer_StatusEnum_values[ARPIAccelerometer_Status_NeedsCalibration]
 J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerometer_StatusEnum, NeedsCalibration, ARPIAccelerometer_StatusEnum *)
+
+#define ARPIAccelerometer_StatusEnum_Stale ARPIAccelerometer_StatusEnum_values[ARPIAccelerometer_Status_Stale]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerometer_StatusEnum, Stale, ARPIAccelerometer_StatusEnum *)
 
 #define ARPIAccelerometer_StatusEnum_Unavailable ARPIAccelerometer_StatusEnum_values[ARPIAccelerometer_Status_Unavailable]
 J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerometer_StatusEnum, Unavailable, ARPIAccelerometer_StatusEnum *)

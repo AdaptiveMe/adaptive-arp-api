@@ -27,24 +27,42 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ISecurity.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ContactSocial.java
 //
 //
 
-#ifndef _ARPISecurity_H_
-#define _ARPISecurity_H_
+#ifndef _ARPContactSocial_H_
+#define _ARPContactSocial_H_
 
 #import "JreEmulation.h"
-#include "IBaseSecurity.h"
 #include "java/io/Serializable.h"
 
-@protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
-- (BOOL)isDeviceModified;
+@interface ARPContactSocial : NSObject < JavaIoSerializable > {
+ @public
+  NSString *socialNetwork_;
+  NSString *profileUrl_;
+}
+
+- (id)initWithNSString:(NSString *)socialNetwork
+          withNSString:(NSString *)profileUrl;
+
+- (NSString *)getSocialNetwork;
+
+- (void)setSocialNetworkWithNSString:(NSString *)socialNetwork;
+
+- (NSString *)getProfileUrl;
+
+- (void)setProfileUrlWithNSString:(NSString *)profileUrl;
+
+- (void)copyAllFieldsTo:(ARPContactSocial *)other;
 
 @end
 
-__attribute__((always_inline)) inline void ARPISecurity_init() {}
+__attribute__((always_inline)) inline void ARPContactSocial_init() {}
 
-#define MeAdaptiveArpApiISecurity ARPISecurity
+J2OBJC_FIELD_SETTER(ARPContactSocial, socialNetwork_, NSString *)
+J2OBJC_FIELD_SETTER(ARPContactSocial, profileUrl_, NSString *)
 
-#endif // _ARPISecurity_H_
+typedef ARPContactSocial MeAdaptiveArpApiContactSocial;
+
+#endif // _ARPContactSocial_H_
