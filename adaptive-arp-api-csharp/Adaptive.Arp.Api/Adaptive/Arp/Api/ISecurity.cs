@@ -35,5 +35,9 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface ISecurity : IBaseSecurity
 	{
+		/// <summary>Returns if the device has been modified in anyhow</summary>
+		/// <returns>true if the device has been modified; false otherwise</returns>
+		/// <since>ARP1.0</since>
+		bool IsDeviceModified();
 	}
 }

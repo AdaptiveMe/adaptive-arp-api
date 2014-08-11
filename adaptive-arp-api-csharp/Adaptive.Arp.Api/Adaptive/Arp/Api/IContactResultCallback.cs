@@ -31,13 +31,40 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	public interface IOS : IBaseSystem
+	/// <summary>Created by clozano on 08/08/14.</summary>
+	/// <remarks>Created by clozano on 08/08/14.</remarks>
+	[System.Serializable]
+	public abstract class IContactResultCallback
 	{
-		/// <summary>Returns the OSInfo for the current operating system.</summary>
-		/// <remarks>Returns the OSInfo for the current operating system.</remarks>
-		/// <returns>OSInfo with name, version and vendor of the OS.</returns>
-		OSInfo GetOSInfo();
+		/// <summary>Warnings that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum Warning
+		{
+			LimitExceeded
+		}
+
+		/// <summary>Errors that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum Error
+		{
+			NoPermission
+		}
+
+		/// <summary>This method is called on Result</summary>
+		/// <param name="contacts">returned by the platform</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnResult(Contact[] contacts);
+
+		/// <summary>This method is called on Warning</summary>
+		/// <param name="contacts">returned by the platform</param>
+		/// <param name="warning">returned by the platform</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnWarning(Contact[] contacts, IContactResultCallback.Warning
+			 warning);
+
+		/// <summary>This method is called on Error</summary>
+		/// <param name="error">returned by the platform</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnError(IContactResultCallback.Error error);
 	}
 }

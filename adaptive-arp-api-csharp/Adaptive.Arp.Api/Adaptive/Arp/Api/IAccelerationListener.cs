@@ -31,13 +31,33 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	public interface IOS : IBaseSystem
+	/// <author>Carlos Lozano Diez</author>
+	/// <seealso cref="Acceleration">Acceleration</seealso>
+	/// <seealso cref="IAccelerometer">IAccelerometer</seealso>
+	/// <since>ARP1.0</since>
+	public interface IAccelerationListener
 	{
-		/// <summary>Returns the OSInfo for the current operating system.</summary>
-		/// <remarks>Returns the OSInfo for the current operating system.</remarks>
-		/// <returns>OSInfo with name, version and vendor of the OS.</returns>
-		OSInfo GetOSInfo();
+		/// <summary>Correct data received.</summary>
+		/// <remarks>Correct data received.</remarks>
+		/// <param name="acceleration"></param>
+		/// <author>Carlos Lozano Diez</author>
+		/// <since>ARP1.0</since>
+		void OnResult(Acceleration acceleration);
+
+		/// <summary>Data received with warning - ie.</summary>
+		/// <remarks>Data received with warning - ie. Needs calibration.</remarks>
+		/// <param name="acceleration"></param>
+		/// <author>Carlos Lozano Diez</author>
+		/// <since>ARP1.0</since>
+		void OnWarning(Acceleration acceleration);
+
+		/// <summary>No data received - error condition, not authorized or hardware not available.
+		/// 	</summary>
+		/// <remarks>No data received - error condition, not authorized or hardware not available.
+		/// 	</remarks>
+		/// <param name="acceleration"></param>
+		/// <author>Carlos Lozano Diez</author>
+		/// <since>ARP1.0</since>
+		void OnError(Acceleration acceleration);
 	}
 }

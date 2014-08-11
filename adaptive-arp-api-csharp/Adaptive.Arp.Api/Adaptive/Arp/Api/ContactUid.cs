@@ -26,18 +26,42 @@
  * =====================================================================================================================
  */
 
-using Adaptive.Arp.Api;
 using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	public interface IOS : IBaseSystem
+	/// <summary>Created by clozano on 08/08/14.</summary>
+	/// <remarks>Created by clozano on 08/08/14.</remarks>
+	[System.Serializable]
+	public class ContactUid
 	{
-		/// <summary>Returns the OSInfo for the current operating system.</summary>
-		/// <remarks>Returns the OSInfo for the current operating system.</remarks>
-		/// <returns>OSInfo with name, version and vendor of the OS.</returns>
-		OSInfo GetOSInfo();
+		/// <summary>The id of the Contact</summary>
+		/// <since>ARP1.0</since>
+		private string contactId;
+
+		/// <summary>Constructor used by implementation to set the Contact id.</summary>
+		/// <remarks>Constructor used by implementation to set the Contact id.</remarks>
+		/// <param name="contactId"></param>
+		/// <since>ARP1.0</since>
+		public ContactUid(string contactId)
+		{
+			this.contactId = contactId;
+		}
+
+		/// <summary>Returns the contact id</summary>
+		/// <returns>Contactid</returns>
+		/// <since>ARP1.0</since>
+		public virtual string GetContactId()
+		{
+			return contactId;
+		}
+
+		/// <summary>Set the id of the Contact</summary>
+		/// <param name="contactId"></param>
+		/// <since>ARP1.0</since>
+		public virtual void SetContactId(string contactId)
+		{
+			this.contactId = contactId;
+		}
 	}
 }

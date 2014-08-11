@@ -33,7 +33,39 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 04/08/14.</summary>
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	public interface IGeolocation : IBaseSensor
+	[System.Serializable]
+	public abstract class IGeolocation : IBaseSensor
 	{
+		/// <summary>Success = Correct reading.</summary>
+		/// <remarks>
+		/// Success = Correct reading. Unauthorized = No reading. User has not
+		/// authorized a reading. HighDoP = No reliable measure. Unavailable = No reading. Not supported or temporarily
+		/// disabled.
+		/// </remarks>
+		/// <since>ARP1.0</since>
+		public enum Status
+		{
+			Success,
+			Unauthorized,
+			HighDoP,
+			Unavailable
+		}
+
+		/// <summary>Register a new listener that will receive geolocation events.</summary>
+		/// <remarks>Register a new listener that will receive geolocation events.</remarks>
+		/// <param name="listener">to be registered.</param>
+		/// <since>ARP1.0</since>
+		public abstract void AddAccelerationListener(IGeolocationListener listener);
+
+		/// <summary>De-registers an existing listener from receiving geolocation events.</summary>
+		/// <remarks>De-registers an existing listener from receiving geolocation events.</remarks>
+		/// <param name="listener"></param>
+		/// <since>ARP1.0</since>
+		public abstract void RemoveAccelerationListener(IGeolocationListener listener);
+
+		/// <summary>Removed all existing listeners from receiving geolocation events.</summary>
+		/// <remarks>Removed all existing listeners from receiving geolocation events.</remarks>
+		/// <since>ARP1.0</since>
+		public abstract void RemoveGeolocationListeners();
 	}
 }

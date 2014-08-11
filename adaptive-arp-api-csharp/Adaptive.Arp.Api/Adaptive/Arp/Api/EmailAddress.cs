@@ -26,18 +26,40 @@
  * =====================================================================================================================
  */
 
-using Adaptive.Arp.Api;
 using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	public interface IOS : IBaseSystem
+	/// <summary>Created by FRMI on 11/08/2014.</summary>
+	/// <remarks>Created by FRMI on 11/08/2014.</remarks>
+	public class EmailAddress
 	{
-		/// <summary>Returns the OSInfo for the current operating system.</summary>
-		/// <remarks>Returns the OSInfo for the current operating system.</remarks>
-		/// <returns>OSInfo with name, version and vendor of the OS.</returns>
-		OSInfo GetOSInfo();
+		/// <summary>The Email address</summary>
+		/// <since>ARP1.0</since>
+		private string address;
+
+		/// <summary>Constructor used by implementation</summary>
+		/// <param name="address"></param>
+		/// <since>ARP1.0</since>
+		public EmailAddress(string address)
+		{
+			this.address = address;
+		}
+
+		/// <summary>Returns the email address</summary>
+		/// <returns>address of the Email</returns>
+		/// <since>ARP1.0</since>
+		public virtual string GetAddress()
+		{
+			return address;
+		}
+
+		/// <summary>Set the Email address</summary>
+		/// <param name="address">of the Email</param>
+		/// <since>ARP1.0</since>
+		public virtual void SetAddress(string address)
+		{
+			this.address = address;
+		}
 	}
 }

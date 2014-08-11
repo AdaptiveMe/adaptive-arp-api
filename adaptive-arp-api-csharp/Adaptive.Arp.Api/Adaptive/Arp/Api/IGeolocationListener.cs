@@ -31,13 +31,28 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	public interface IOS : IBaseSystem
+	/// <summary>Created by FRMI on 11/08/2014.</summary>
+	/// <remarks>Created by FRMI on 11/08/2014.</remarks>
+	public interface IGeolocationListener
 	{
-		/// <summary>Returns the OSInfo for the current operating system.</summary>
-		/// <remarks>Returns the OSInfo for the current operating system.</remarks>
-		/// <returns>OSInfo with name, version and vendor of the OS.</returns>
-		OSInfo GetOSInfo();
+		/// <summary>Correct data received.</summary>
+		/// <remarks>Correct data received.</remarks>
+		/// <param name="geolocation"></param>
+		/// <since>ARP1.0</since>
+		void OnResult(Geolocation geolocation);
+
+		/// <summary>Data received with warning - ie.</summary>
+		/// <remarks>Data received with warning - ie. HighDoP</remarks>
+		/// <param name="geolocation"></param>
+		/// <since>ARP1.0</since>
+		void OnWarning(Geolocation geolocation);
+
+		/// <summary>No data received - error condition, not authorized or hardware not available.
+		/// 	</summary>
+		/// <remarks>No data received - error condition, not authorized or hardware not available.
+		/// 	</remarks>
+		/// <param name="geolocation"></param>
+		/// <since>ARP1.0</since>
+		void OnError(Geolocation geolocation);
 	}
 }

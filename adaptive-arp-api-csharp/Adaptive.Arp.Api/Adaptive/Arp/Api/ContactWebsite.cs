@@ -26,18 +26,41 @@
  * =====================================================================================================================
  */
 
-using Adaptive.Arp.Api;
 using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	public interface IOS : IBaseSystem
+	/// <summary>Created by clozano on 08/08/14.</summary>
+	/// <remarks>Created by clozano on 08/08/14.</remarks>
+	[System.Serializable]
+	public class ContactWebsite
 	{
-		/// <summary>Returns the OSInfo for the current operating system.</summary>
-		/// <remarks>Returns the OSInfo for the current operating system.</remarks>
-		/// <returns>OSInfo with name, version and vendor of the OS.</returns>
-		OSInfo GetOSInfo();
+		/// <summary>The url of the website</summary>
+		/// <since>ARP1.0</since>
+		private string url;
+
+		/// <summary>Constructor used by the implementation</summary>
+		/// <param name="url"></param>
+		/// <since>ARP1.0</since>
+		public ContactWebsite(string url)
+		{
+			this.url = url;
+		}
+
+		/// <summary>Returns the url of the website</summary>
+		/// <returns>website url</returns>
+		/// <since>ARP1.0</since>
+		public virtual string GetUrl()
+		{
+			return url;
+		}
+
+		/// <summary>Set the url of the website</summary>
+		/// <param name="url"></param>
+		/// <since>ARP1.0</since>
+		public virtual void SetUrl(string url)
+		{
+			this.url = url;
+		}
 	}
 }
