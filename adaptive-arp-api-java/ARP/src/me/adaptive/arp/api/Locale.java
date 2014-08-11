@@ -30,35 +30,66 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-import java.util.HashMap;
-
 /**
- * Created by clozano on 04/08/14.
+ * Created by FRMI on 11/08/2014.
  */
-public interface IGlobalization extends IBaseApplication, Serializable {
+public class Locale {
 
     /**
-     * List of supported locales for the application
-     * @return List of locales (only locale descriptor string, such as "en-US").
+     * A valid ISO Country Code.
      * @since ARP1.0
      */
-    String[] getLocaleSupportedDescriptors();
+    private String country;
+    /**
+     * A valid ISO Language Code.
+     * @since ARP1.0
+     */
+    private String language;
 
     /**
-     * Gets the text/message corresponding to the given key and locale.
-     * @param key to match text
-     * @param The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-     * @return Localized text.
+     * Constructor used by the implementation
+     * @param country
+     * @param language
      * @since ARP1.0
      */
-    String getResourceLiteral(String key, Locale locale);
+    public Locale(String country, String language) {
+        this.country = country;
+        this.language = language;
+    }
 
     /**
-     * Gets the full application configured literals (key/message pairs) corresponding to the given locale.
-     * @param The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-     * @return Localized texts in the form of an object (you could get the value of a keyed literal using resourceLiteralDictionary.MY_KEY or resourceLiteralDictionary["MY_KEY"]).
+     * Returns the country code
+     * @return country code
      * @since ARP1.0
      */
-    HashMap<String,String> getResourceLiterals(Locale locale);
+    public String getCountry() {
+        return country;
+    }
+
+    /**
+     * Set the country code
+     * @param country code
+     * @since ARP1.0
+     */
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    /**
+     * Returns the language code
+     * @return language code
+     * @since ARP1.0
+     */
+    public String getLanguage() {
+        return language;
+    }
+
+    /**
+     * Set the language code
+     * @param language code
+     * @since ARP1.0
+     */
+    public void setLanguage(String language) {
+        this.language = language;
+    }
 }
