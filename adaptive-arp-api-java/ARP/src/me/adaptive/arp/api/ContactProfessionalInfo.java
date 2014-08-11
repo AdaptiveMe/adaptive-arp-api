@@ -41,17 +41,17 @@ public class ContactProfessionalInfo implements Serializable {
      * The company of the job
      * @since ARP1.0
      */
-    private string company;
+    private String company;
     /**
      * The job title
      * @since ARP1.0
      */
-    private string jobTitle;
+    private String jobTitle;
     /**
      * The job description
      * @since ARP1.0
      */
-    private string jobDescription;
+    private String jobDescription;
 
     /**
      * Constructor used by implementation to set the ContactProfessionalInfo.
@@ -60,7 +60,7 @@ public class ContactProfessionalInfo implements Serializable {
      * @param company of the job
      * @since ARP1.0
      */
-    public ContactProfessionalInfo(string jobTitle, string jobDescription, string company) {
+    public ContactProfessionalInfo(String jobTitle, String jobDescription, String company) {
         this.company = company;
         this.jobTitle = jobTitle;
         this.jobDescription = jobDescription;
@@ -71,7 +71,7 @@ public class ContactProfessionalInfo implements Serializable {
      * @return company of the job
      * @since ARP1.0
      */
-    public string getCompany() {
+    public String getCompany() {
         return company;
     }
 
@@ -80,7 +80,7 @@ public class ContactProfessionalInfo implements Serializable {
      * @param company of the job
      * @since ARP1.0
      */
-    public void setCompany(string company) {
+    public void setCompany(String company) {
         this.company = company;
     }
 
@@ -89,7 +89,7 @@ public class ContactProfessionalInfo implements Serializable {
      * @return title of the job
      * @since ARP1.0
      */
-    public string getJobTitle() {
+    public String getJobTitle() {
         return jobTitle;
     }
 
@@ -98,7 +98,7 @@ public class ContactProfessionalInfo implements Serializable {
      * @param title of the job
      * @since ARP1.0
      */
-    public void setJobTitle(string jobTitle) {
+    public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
     }
 
@@ -107,7 +107,7 @@ public class ContactProfessionalInfo implements Serializable {
      * @return description of the job
      * @since ARP1.0
      */
-    public string getJobDescription() {
+    public String getJobDescription() {
         return jobDescription;
     }
 
@@ -116,7 +116,7 @@ public class ContactProfessionalInfo implements Serializable {
      * @param description of the job
      * @since ARP1.0
      */
-    public void setJobDescription(string jobDescription) {
+    public void setJobDescription(String jobDescription) {
         this.jobDescription = jobDescription;
     }
 

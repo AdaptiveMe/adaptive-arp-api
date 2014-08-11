@@ -21,10 +21,13 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
+
 
 package me.adaptive.arp.api;
 
@@ -34,4 +37,63 @@ import java.io.Serializable;
  * Created by clozano on 08/08/14.
  */
 public class ContactTag implements Serializable {
+
+    /**
+     * The name of the Tag
+     * @since ARP1.0
+     */
+    private String name;
+    /**
+     * The value of the Tag
+     * @since ARP1.0
+     */
+    private String value;
+
+    /**
+     * Constructor used by the implementation
+     * @param value of the Tag
+     * @param name of the Tag
+     * @since ARP1.0
+     */
+    public ContactTag(String name, String value) {
+        this.value = value;
+        this.name = name;
+    }
+
+    /**
+     * Returns the name of the Tag
+     * @return name of the Tag
+     * @since ARP1.0
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Set the name of the Tag
+     * @param name of the Tag
+     * @since ARP1.0
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Returns the value of the Tag
+     * @return value of the Tag
+     * @since ARP1.0
+     */
+    public String getValue() {
+        return value;
+    }
+
+    /**
+     * Set the value of the Tag
+     * @param value of the Tag
+     * @since ARP1.0
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
 }
+

@@ -41,12 +41,12 @@ public class ContactSocial implements Serializable {
      * The social network
      * @since ARP1.0
      */
-    private string socialNetwork;
+    private String socialNetwork;
     /**
      * The profileUrl
      * @since ARP1.0
      */
-    private string profileUrl;
+    private String profileUrl;
 
     /**
      * Constructor used by the implementation
@@ -54,7 +54,7 @@ public class ContactSocial implements Serializable {
      * @param profileUrl of the user
      * @since ARP1.0
      */
-    public ContactSocial(string socialNetwork, string profileUrl) {
+    public ContactSocial(String socialNetwork, String profileUrl) {
         this.socialNetwork = socialNetwork;
         this.profileUrl = profileUrl;
     }
@@ -64,7 +64,7 @@ public class ContactSocial implements Serializable {
      * @return socialNetwork of the profile
      * @since ARP1.0
      */
-    public string getSocialNetwork() {
+    public String getSocialNetwork() {
         return socialNetwork;
     }
 
@@ -73,7 +73,7 @@ public class ContactSocial implements Serializable {
      * @param socialNetwork of the profile
      * @since ARP1.0
      */
-    public void setSocialNetwork(string socialNetwork) {
+    public void setSocialNetwork(String socialNetwork) {
         this.socialNetwork = socialNetwork;
     }
 
@@ -82,15 +82,16 @@ public class ContactSocial implements Serializable {
      * @return profileUrl of the user
      * @since ARP1.0
      */
-    public string getProfileUrl() {
+    public String getProfileUrl() {
         return profileUrl;
     }
 
     /**
      * Set the profile url of the iser
      * @param profileUrl of the user
+     * @since ARP1.0
      */
-    public void setProfileUrl(string profileUrl) {
+    public void setProfileUrl(String profileUrl) {
         this.profileUrl = profileUrl;
     }
 }

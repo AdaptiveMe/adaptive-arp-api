@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -35,13 +37,37 @@ import java.io.Serializable;
  */
 public interface ContactResultCallback extends Serializable{
 
+    /**
+     * Warnings that can be used
+     * @since ARP1.0
+     */
     enum Warning {LimitExceeded}
 
+    /**
+     * Errors that can be used
+     * @since ARP1.0
+     */
     enum Error {NoPermission}
 
+    /**
+     * This method is called on Result
+     * @param contacts returned by the platform
+     * @since ARP1.0
+     */
     void onResult(Contact[] contacts);
 
+    /**
+     * This method is called on Warning
+     * @param contacts returned by the platform
+     * @param warning returned by the platform
+     * @since ARP1.0
+     */
     void onWarning(Contact[] contacts, Warning warning);
 
+    /**
+     * This method is called on Error
+     * @param error returned by the platform
+     * @since ARP1.0
+     */
     void onError(Error error);
 }

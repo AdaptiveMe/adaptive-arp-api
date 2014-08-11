@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -35,40 +37,93 @@ import java.io.Serializable;
  */
 public class ContactEmail implements Serializable {
 
+    /**
+     * Types that can be used
+     * @since ARP1.0
+     */
     enum EmailType {Personal, Work, Other}
 
+    /**
+     * The type of the email
+     * @since ARP1.0
+     */
     private EmailType type;
 
+    /**
+     * Whether the email is the primary one or not
+     * @since ARP1.0
+     */
     private boolean primary;
 
+    /**
+     * Email of the Contact
+     * @since ARP1.0
+     */
     private String email;
 
+    /**
+     * Constructor used by the implementation
+     * @param type of the email
+     * @param primary marked as primary email
+     * @param email of the Contact
+     * @since ARP1.0
+     */
     public ContactEmail(EmailType type, boolean primary, String email) {
         this.type = type;
         this.primary = primary;
         this.email = email;
     }
 
+    /**
+     * Returns the type of the email
+     * @return EmailType of the email
+     * @since ARP1.0
+     */
     public EmailType getType() {
         return type;
     }
 
+    /**
+     * Set the type of the email
+     * @param type of the email
+     * @since ARP1.0
+     */
     public void setType(EmailType type) {
         this.type = type;
     }
 
+    /**
+     * Returns if the email is primary
+     * @return true if the email is primary; false otherwise
+     * @since ARP1.0
+     */
     public boolean isPrimary() {
         return primary;
     }
 
+    /**
+     * Set if the email
+     * @param true if the email is primary; false otherwise
+     * @since ARP1.0
+     */
     public void setPrimary(boolean primary) {
         this.primary = primary;
     }
 
+    /**
+     * Returns the email of the Contact
+     * @return email of the Contact
+     * @since ARP1.0
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Set the email of the Contact
+     * @param email of the Contact
+     * @since ARP1.0
+     */
     public void setEmail(String email) {
         this.email = email;
     }

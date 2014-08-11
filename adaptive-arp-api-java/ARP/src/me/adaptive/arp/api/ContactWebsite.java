@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -34,4 +36,36 @@ import java.io.Serializable;
  * Created by clozano on 08/08/14.
  */
 public class ContactWebsite implements Serializable {
+    /**
+     * The url of the website
+     * @since ARP1.0
+     */
+    private String url;
+
+    /**
+     * Constructor used by the implementation
+     * @param url
+     * @since ARP1.0
+     */
+    public ContactWebsite(String url) {
+        this.url = url;
+    }
+
+    /**
+     * Returns the url of the website
+     * @return url of the website
+     * @since ARP1.0
+     */
+    public String getUrl() {
+        return url;
+    }
+
+    /**
+     * Set the url of the website
+     * @param url of the website
+     * @since ARP1.0
+     */
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

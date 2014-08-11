@@ -37,7 +37,7 @@ import java.io.Serializable;
  */
 public class ContactPhone implements Serializable {
     /**
-     * The destination of the phone
+     * Types that can be used
      * @since ARP1.0
      */
     enum PhoneType {
@@ -48,7 +48,7 @@ public class ContactPhone implements Serializable {
      * The phone number
      * @since ARP1.0
      */
-    private string phone;
+    private String phone;
 
     /**
      * The phone number phoneType
@@ -62,7 +62,7 @@ public class ContactPhone implements Serializable {
      * @param phoneType of the phone number
      * @since ARP1.0
      */
-    public ContactPhone(string phone, PhoneType phoneType) {
+    public ContactPhone(String phone, PhoneType phoneType) {
         this.phone = phone;
         this.phoneType = phoneType;
     }
@@ -72,7 +72,7 @@ public class ContactPhone implements Serializable {
      * @return phone number
      * @since ARP1.0
      */
-    public string getPhone() {
+    public String getPhone() {
         return phone;
     }
 
@@ -81,7 +81,7 @@ public class ContactPhone implements Serializable {
      * @param phone number
      * @since ARP1.0
      */
-    public void setPhone(string phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
