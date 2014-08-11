@@ -41,7 +41,7 @@ public class ContactEmail implements Serializable {
      * Types that can be used
      * @since ARP1.0
      */
-    enum EmailType {Personal, Work, Other}
+    public enum EmailType {Personal, Work, Other}
 
     /**
      * The type of the email

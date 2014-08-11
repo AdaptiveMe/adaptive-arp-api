@@ -41,8 +41,8 @@ public class ContactPersonalInfo implements Serializable {
      * Titles that can be used
      * @since ARP1.0
      */
-    enum Title {
-        Mister,Miss, Mistress
+    public enum Title {
+        Mr,Mrs, Ms, Dr
     }
 
     /**

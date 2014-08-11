@@ -40,7 +40,7 @@ public class ContactPhone implements Serializable {
      * Types that can be used
      * @since ARP1.0
      */
-    enum PhoneType {
+    public enum PhoneType {
         Mobile, Work, Home, Main, HomeFax, WorkFax, Other
     }
 
