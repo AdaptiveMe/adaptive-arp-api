@@ -21,7 +21,7 @@
  *
  * Contributors:
  *
- *     * Aryslan
+ *     * DBarranco
  *                 <http://github.com/Aryslan>
  *                 <http://twitter.com/Aryslan>
  *                 <mailto:ddbc@gft.com>
@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
 import java.io.Serializable;
 
 /**
- * Created by Aryslan on 11/08/14.
+ * Created by DBarranco on 11/08/14.
  */
 public class InternalStorageKeyPair implements Serializable{
 

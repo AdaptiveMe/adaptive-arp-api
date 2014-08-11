@@ -21,7 +21,7 @@
  *
  * Contributors:
  *
- *     * Aryslan
+ *     * DBarranco
  *                 <http://github.com/Aryslan>
  *                 <http://twitter.com/Aryslan>
  *                 <mailto:ddbc@gft.com>
@@ -33,6 +33,9 @@ package me.adaptive.arp.api;
 
 import java.io.Serializable;
 
+/**
+ * Created by DBarranco on 11/08/14.
+ */
 public interface IInternalStorageResultCallback extends Serializable {
 
     enum Warning {EntryOverride}

@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
 import java.io.Serializable;
 
 /**
- * Created by Aryslan on 11/08/14.
+ * Created by DBarranco on 11/08/14.
  */
 public interface IInternalStorage extends IStore, Serializable {
 
@@ -42,6 +42,7 @@ public interface IInternalStorage extends IStore, Serializable {
      * Stores in the device internal storage the specified item/s.
      *
      * @param keyValues Array containing the items to store on the device internal memory.
+     * @param publicAccessName The name of the shared internal storage object (if needed).
      * @param callback callback to be executed upon function result.
      * @since ARP 1.0
      */
@@ -51,6 +52,7 @@ public interface IInternalStorage extends IStore, Serializable {
      * Retrieves from the device internal storage the entry/entries containing the specified key names.
      *
      * @param keys Array with the key names to retrieve.
+     * @param publicAccessName The name of the shared internal storage object (if needed).
      * @param callback callback to be executed upon function result.
      * @since ARP 1.0
      */
@@ -60,6 +62,7 @@ public interface IInternalStorage extends IStore, Serializable {
      * Deletes from the device internal storage the entry/entries containing the specified key names.
      *
      * @param keys Array with the key names to delete.
+     * @param publicAccessName The name of the shared internal storage object (if needed).
      * @param callback callback to be executed upon function result.
      * @since ARP 1.0
      */
