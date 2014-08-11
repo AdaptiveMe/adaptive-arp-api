@@ -54,7 +54,7 @@ public interface IContact extends IBasePIM, Serializable {
      * @param callback called for return
      * @since ARP1.0
      */
-    void searchContacts(String term, ContactResultCallback callback);
+    void searchContacts(String term, IContactResultCallback callback);
 
     /**
      * Search contacts according to a term with a filter and send it to the callback
@@ -63,7 +63,7 @@ public interface IContact extends IBasePIM, Serializable {
      * @param filter to search for
      * @since ARP1.0
      */
-    void searchContacts(String term, ContactResultCallback callback, Filter... filter);
+    void searchContacts(String term, IContactResultCallback callback, Filter... filter);
 
     /**
      * Get all the details of a contact according to its id
@@ -71,7 +71,7 @@ public interface IContact extends IBasePIM, Serializable {
      * @param callback called for return
      * @since ARP1.0
      */
-    void getContact(ContactUid contact, ContactResultCallback callback);
+    void getContact(ContactUid contact, IContactResultCallback callback);
 
     /**
      * Get the contact photo
@@ -79,7 +79,7 @@ public interface IContact extends IBasePIM, Serializable {
      * @param callback called for return
      * @since ARP1.0
      */
-    void getContactPhoto(ContactUid contact, ContactResultCallback callback);
+    void getContactPhoto(ContactUid contact, IContactResultCallback callback);
 
     /**
      * Set the contact photo
@@ -95,7 +95,7 @@ public interface IContact extends IBasePIM, Serializable {
      * @param callback called for return
      * @since ARP1.0
      */
-    void getContacts(ContactResultCallback callback);
+    void getContacts(IContactResultCallback callback);
 
     /**
      * Get marked fields of all contacts
@@ -103,7 +103,7 @@ public interface IContact extends IBasePIM, Serializable {
      * @param fields to get for each Contact
      * @since ARP1.0
      */
-    void getContacts(ContactResultCallback callback, FieldGroup... fields);
+    void getContacts(IContactResultCallback callback, FieldGroup... fields);
 
     /**
      * Get marked fields of all contacts according to a filter
@@ -112,6 +112,6 @@ public interface IContact extends IBasePIM, Serializable {
      * @param filter to search for
      * @since ARP1.0
      */
-    void getContacts(ContactResultCallback callback, FieldGroup[] fields, Filter... filter);
+    void getContacts(IContactResultCallback callback, FieldGroup[] fields, Filter... filter);
 
 }

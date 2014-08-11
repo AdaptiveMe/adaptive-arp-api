@@ -30,7 +30,7 @@ package me.adaptive.arp.api;
 
 /**
  * @author Carlos Lozano Diez
- * @see me.adaptive.arp.api.AccelerationListener
+ * @see IAccelerationListener
  * @see me.adaptive.arp.api.IAccelerometer
  * @since ARP1.0
  */
