@@ -50,7 +50,7 @@ import java.lang.String;
 public class Request {
 
     /**
-     *
+     * Protocol version supported
      * @since ARP1.0
      */
     public enum ProtocolVersion {
@@ -58,48 +58,48 @@ public class Request {
     }
 
     /**
-     *
+     * Request/Response data content (plain text).
      * @since ARP1.0
      */
     private String content;
     /**
-     *
+     * The request/response content type (MIME TYPE).
      * @since ARP1.0
      */
     private String contentType;
     /**
-     *
+     * The length in bytes for the Content field.
      * @since ARP1.0
      */
-    private String contentLength;
+    private int contentLength;
     /**
-     *
+     * The byte[] representing the Content field.
      * @since ARP1.0
      */
     private byte[] rawContent;
     /**
-     *
+     * The headers array (name,value pairs) to be included on the I/O service request.
      * @since ARP1.0
      */
     private Header[] headers;
     /**
-     *
+     * The request method
      * @since ARP1.0
      */
     private String method;
     /**
-     *
+     * The HTTP procotol version to be used for this request.
      * @since ARP1.0
      */
     private ProtocolVersion protocolVersion;
     /**
-     *
+     * The session context for the Request/Response.
      * @since ARP1.0
      */
     private Session session;
 
     /**
-     *
+     * Contructor used by the implementation
      * @param content
      * @param contentType
      * @param contentLength
@@ -110,7 +110,7 @@ public class Request {
      * @param session
      * @since ARP1.0
      */
-    public Request(String content, String contentType, String contentLength, byte[] rawContent, Headers[] headers, String method, me.adaptive.arp.api.Request.ProtocolVersion protocolVersion, Session session) {
+    public Request(String content, String contentType, int contentLength, byte[] rawContent, Header[] headers, String method, me.adaptive.arp.api.Request.ProtocolVersion protocolVersion, Session session) {
         this.content = content;
         this.contentType = contentType;
         this.contentLength = contentLength;
@@ -122,8 +122,8 @@ public class Request {
     }
 
     /**
-     *
-     * @return
+     * Returns the protocol version
+     * @return protocolVersion enum
      * @since ARP1.0
      */
     public me.adaptive.arp.api.Request.ProtocolVersion getProtocolVersion() {
@@ -131,7 +131,7 @@ public class Request {
     }
 
     /**
-     *
+     * Set the protocol version
      * @param protocolVersion
      * @since ARP1.0
      */
@@ -140,8 +140,8 @@ public class Request {
     }
 
     /**
-     *
-     * @return
+     * Returns the content
+     * @return content
      * @since ARP1.0
      */
     public String getContent() {
@@ -149,7 +149,7 @@ public class Request {
     }
 
     /**
-     *
+     * Set the content
      * @param content
      * @since ARP1.0
      */
@@ -158,8 +158,8 @@ public class Request {
     }
 
     /**
-     *
-     * @return
+     * Returns the content type
+     * @return contentType
      * @since ARP1.0
      */
     public String getContentType() {
@@ -167,7 +167,7 @@ public class Request {
     }
 
     /**
-     *
+     * Set the content type
      * @param contentType
      * @since ARP1.0
      */
@@ -176,26 +176,26 @@ public class Request {
     }
 
     /**
-     *
-     * @return
+     * Returns the content length
+     * @return contentLength
      * @since ARP1.0
      */
-    public String getContentLength() {
+    public int getContentLength() {
         return contentLength;
     }
 
     /**
-     *
+     * Set the content length
      * @param contentLength
      * @since ARP1.0
      */
-    public void setContentLength(String contentLength) {
+    public void setContentLength(int contentLength) {
         this.contentLength = contentLength;
     }
 
     /**
-     *
-     * @return
+     * Returns the byte[] of the content
+     * @return rawContent
      * @since ARP1.0
      */
     public byte[] getRawContent() {
@@ -203,7 +203,7 @@ public class Request {
     }
 
     /**
-     *
+     * Set the byte[] of the content
      * @param rawContent
      * @since ARP1.0
      */
@@ -212,8 +212,8 @@ public class Request {
     }
 
     /**
-     *
-     * @return
+     * Returns the array of Header
+     * @return headers
      * @since ARP1.0
      */
     public Header[] getHeaders() {
@@ -221,7 +221,7 @@ public class Request {
     }
 
     /**
-     *
+     * Set the array of Header
      * @param headers
      * @since ARP1.0
      */
@@ -230,8 +230,8 @@ public class Request {
     }
 
     /**
-     *
-     * @return
+     * Returns the method
+     * @return method
      * @since ARP1.0
      */
     public String getMethod() {
@@ -239,7 +239,7 @@ public class Request {
     }
 
     /**
-     *
+     * Set the method
      * @param method
      * @since ARP1.0
      */
@@ -248,8 +248,8 @@ public class Request {
     }
 
     /**
-     *
-     * @return
+     * Returns the session object
+     * @return session
      * @since ARP1.0
      */
     public Session getSession() {
@@ -257,7 +257,7 @@ public class Request {
     }
 
     /**
-     *
+     * Set the session object
      * @param session
      * @since ARP1.0
      */
