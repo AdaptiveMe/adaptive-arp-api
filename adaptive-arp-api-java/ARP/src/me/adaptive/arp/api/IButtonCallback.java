@@ -43,7 +43,7 @@ public interface IButtonCallback extends Serializable{
      * Error posibilities
      * @since ARP1.0
      */
-    enum Error{
+    public enum Error{
         Not_Present
     }
 
@@ -51,7 +51,7 @@ public interface IButtonCallback extends Serializable{
      * Warn posibilities
      * @since ARP1.0
      */
-    enum Warning{
+    public enum Warning{
         Not_Implemented
     }
 

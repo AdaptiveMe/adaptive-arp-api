@@ -42,13 +42,13 @@ public interface IMessagingCallback extends Serializable {
      * Warnings that can be used
      * @since ARP1.0
      */
-    enum Warning {Unable_To_Sent_All,Unable_to_fetch_attachment}
+    public enum Warning {Unable_To_Sent_All,Unable_to_fetch_attachment}
 
     /**
      * Errors that can be used
      * @since ARP1.0
      */
-    enum Error {SIM_Not_Present,Email_Account_Not_Found,Not_Sent}
+    public enum Error {SIM_Not_Present,Email_Account_Not_Found,Not_Sent}
 
     /**
      * This method is called on Result

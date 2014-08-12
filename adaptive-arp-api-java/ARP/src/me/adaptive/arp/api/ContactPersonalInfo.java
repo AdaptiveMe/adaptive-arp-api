@@ -40,7 +40,7 @@ public class ContactPersonalInfo {
      * Titles that can be used
      * @since ARP1.0
      */
-    enum Title {
+    public enum Title {
         Mister,Miss, Mistress
     }
 

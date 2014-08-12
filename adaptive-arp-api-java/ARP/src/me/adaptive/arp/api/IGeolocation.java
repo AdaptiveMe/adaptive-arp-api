@@ -44,7 +44,7 @@ public interface IGeolocation extends IBaseSensor, Serializable {
     *
     * @since ARP1.0
     */
-    enum Status {
+    public enum Status {
         Success, Unauthorized, HighDoP, Unavailable, GPS_Not_Enabled
     }
 

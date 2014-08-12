@@ -46,7 +46,7 @@ public interface IAccelerometer extends IBaseSensor, Serializable {
      * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    enum Status {
+    public enum Status {
         Success, Unauthorized, NeedsCalibration, Stale, Unavailable
     }
 

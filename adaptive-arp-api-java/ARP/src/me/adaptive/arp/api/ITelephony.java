@@ -41,7 +41,7 @@ public interface ITelephony extends IBasePIM, Serializable {
      * Statuses of the call
      * @since ARP1.0
      */
-    enum Status{
+    public enum Status{
         Dialing, Failed
     }
 

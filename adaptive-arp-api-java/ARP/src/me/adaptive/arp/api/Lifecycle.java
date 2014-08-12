@@ -44,7 +44,7 @@ public class Lifecycle {
      * End = app closes
      * @since ARP1.0
      */
-    enum State{
+    public enum State{
         Start,Pause,Resume,End
     }
 

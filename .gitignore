@@ -23,3 +23,8 @@ adaptive-arp-api-csharp/Adaptive.Arp.Api/bin
 adaptive-arp-api-java/out
 *.iws
 *.ipr
+*.ipr
+*.iws
+*.iws
+adaptive-arp-api-java/adaptive-arp-api-java.ipr
+adaptive-arp-api-java/adaptive-arp-api-java.iws

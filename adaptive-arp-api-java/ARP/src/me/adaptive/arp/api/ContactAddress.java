@@ -38,7 +38,7 @@ public class ContactAddress {
      * Types that can be used
      * @since ARP1.0
      */
-    enum AddressType {
+    public enum AddressType {
         Home, Work, Other
     }
 
