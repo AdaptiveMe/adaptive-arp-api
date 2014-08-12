@@ -40,7 +40,7 @@ import java.io.Serializable;
  * @see me.adaptive.arp.api.WalletUbiTimNfcPaymentListener
  * @since ARP1.0
  */
-public class WalletUbiTimNfcPaymentResponse implements Serializable {
+public class WalletUbiTimNfcPaymentResponse {
 
     /**
      * The final amount of the executed payment.

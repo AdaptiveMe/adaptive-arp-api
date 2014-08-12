@@ -38,7 +38,7 @@ import java.io.Serializable;
  * @see me.adaptive.arp.api.IWalletUbiTimNfc
  * @since ARP1.0
  */
-public class WalletUbiTimNfcTag implements Serializable {
+public class WalletUbiTimNfcTag {
 
     /**
      * Key name of the property.
