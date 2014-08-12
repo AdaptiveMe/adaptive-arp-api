@@ -30,12 +30,10 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactEmail implements Serializable {
+public class ContactEmail {
 
     /**
      * Types that can be used

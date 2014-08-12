@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -34,4 +36,10 @@ import java.io.Serializable;
  * Created by clozano on 04/08/14.
  */
 public interface ILifecycle extends IBaseApplication, Serializable {
+
+    /**
+     *
+     * @param listener
+     */
+    void addForegroundListener(IForegroundListener listener);
 }

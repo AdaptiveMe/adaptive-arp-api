@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -34,4 +36,23 @@ import java.io.Serializable;
  * Created by clozano on 04/08/14.
  */
 public interface IRuntime extends IBaseSystem, Serializable {
+
+    /**
+     * Dismiss the current Application
+     */
+    void DismissApplication();
+
+    /**
+     * Whether the application is in background or not
+     * @return true if the application is in background;false otherwise
+     */
+    boolean isBackground();
+
+    /**
+     * Whether the application dismiss the splash screen successfully or not
+     * @return true if the application has dismissed the splash screen;false otherwise
+     */
+    boolean DismissSplashScreen();
+
+
 }

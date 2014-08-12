@@ -30,8 +30,6 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by FRMI on 11/08/2014.
  */

@@ -30,12 +30,10 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 08/08/14.
  */
-public class Contact extends ContactUid implements Serializable {
+public class Contact extends ContactUid {
 
     /**
      * The personal info from the contact

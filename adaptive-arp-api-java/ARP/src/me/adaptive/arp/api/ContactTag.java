@@ -31,12 +31,10 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactTag implements Serializable {
+public class ContactTag {
 
     /**
      * The name of the Tag
