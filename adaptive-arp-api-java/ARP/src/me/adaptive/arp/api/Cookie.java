@@ -47,91 +47,32 @@ import java.lang.String;
 /**
  * Created by FRMI on 12/08/2014.
  */
-public class Service {
-
+public class Cookie {
     /**
-     *
-     * @since ARP1.0
-     */
-    public enum ServiceType {
-        SERVICETYPE_AMF_SERIALIZATION,
-        SERVICETYPE_GWT_RPC,
-        SERVICETYPE_OCTET_BINARY,
-        SERVICETYPE_REMOTING_SERIALIZATION,
-        SERVICETYPE_REST_JSON,
-        SERVICETYPE_REST_XML,
-        SERVICETYPE_SOAP_JSON,
-        SERVICETYPE_SOAP_XML,
-        SERVICETYPE_XMLRPC_JSON,
-        SERVICETYPE_XMLRPC_XML
-    }
-
-
-    /**
-     *
-     * @since ARP1.0
-     */
-    public enum ServiceMethod {
-        POST,GET
-    }
-
-    /**
-     *
-     * @since ARP1.0
-     */
-    private Endpoint endpoint;
-    /**
-     *
+     * Name ot the cookie
      * @since ARP1.0
      */
     private String name;
     /**
-     *
+     * Value of the Cookie
      * @since ARP1.0
      */
-    private ServiceMethod method;
-    /**
-     *
-     * @since ARP1.0
-     */
-    private ServiceType type;
+    private String value;
 
     /**
-     *
-     * @param endpoint
+     * Constructor used by the implementation
      * @param name
-     * @param method
-     * @param type
+     * @param value
      * @since ARP1.0
      */
-    public Service(Endpoint endpoint, String name, me.adaptive.arp.api.Service.ServiceMethod method, me.adaptive.arp.api.Service.ServiceType type) {
-        this.endpoint = endpoint;
+    public Cookie(String name, String value) {
         this.name = name;
-        this.method = method;
-        this.type = type;
+        this.value = value;
     }
 
     /**
-     *
-     * @return
-     * @since ARP1.0
-     */
-    public Endpoint getEndpoint() {
-        return endpoint;
-    }
-
-    /**
-     *
-     * @param endpoint
-     * @since ARP1.0
-     */
-    public void setEndpoint(Endpoint endpoint) {
-        this.endpoint = endpoint;
-    }
-
-    /**
-     *
-     * @return
+     * Returns the cookie name
+     * @return name
      * @since ARP1.0
      */
     public String getName() {
@@ -139,7 +80,7 @@ public class Service {
     }
 
     /**
-     *
+     * Set the cookie name
      * @param name
      * @since ARP1.0
      */
@@ -148,38 +89,20 @@ public class Service {
     }
 
     /**
-     *
+     * Returns the cookie value
      * @return
      * @since ARP1.0
      */
-    public me.adaptive.arp.api.Service.ServiceMethod getMethod() {
-        return method;
+    public String getValue() {
+        return value;
     }
 
     /**
-     *
-     * @param method
+     * Set the cookie value
+     * @param value
      * @since ARP1.0
      */
-    public void setMethod(me.adaptive.arp.api.Service.ServiceMethod method) {
-        this.method = method;
-    }
-
-    /**
-     *
-     * @return
-     * @since ARP1.0
-     */
-    public me.adaptive.arp.api.Service.ServiceType getType() {
-        return type;
-    }
-
-    /**
-     *
-     * @param type
-     * @since ARP1.0
-     */
-    public void setType(me.adaptive.arp.api.Service.ServiceType type) {
-        this.type = type;
+    public void setValue(String value) {
+        this.value = value;
     }
 }

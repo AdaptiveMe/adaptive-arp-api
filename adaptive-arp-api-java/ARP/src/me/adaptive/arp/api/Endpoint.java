@@ -47,63 +47,49 @@ import java.lang.String;
 /**
  * Created by FRMI on 12/08/2014.
  */
-public class IOResponse {
+public class Endpoint {
 
     /**
      *
      * @since ARP1.0
      */
-    private String content;
+    private String host;
     /**
      *
      * @since ARP1.0
      */
-    private String contentType;
+    private String path;
     /**
      *
      * @since ARP1.0
      */
-    private String contentLength;
+    private int port;
     /**
      *
      * @since ARP1.0
      */
-    private byte[] contentBinary;
+    private String proxy;
     /**
      *
      * @since ARP1.0
      */
-    private int contentBinaryLength;
-    /**
-     *
-     * @since ARP1.0
-     */
-    private Header[] headers;
-    /**
-     *
-     * @since ARP1.0
-     */
-    private Session session;
+    private String Scheme;
 
     /**
      *
-     * @param content
-     * @param contentType
-     * @param contentLength
-     * @param contentBinary
-     * @param contentBinaryLength
-     * @param headers
-     * @param session
+     * @param host
+     * @param path
+     * @param port
+     * @param proxy
+     * @param scheme
      * @since ARP1.0
      */
-    public IOResponse(String content, String contentType, String contentLength, byte[] contentBinary, int contentBinaryLength, Header[] headers, Session session) {
-        this.content = content;
-        this.contentType = contentType;
-        this.contentLength = contentLength;
-        this.contentBinary = contentBinary;
-        this.contentBinaryLength = contentBinaryLength;
-        this.headers = headers;
-        this.session = session;
+    public Endpoint(String host, String path, int port, String proxy, String scheme) {
+        this.host = host;
+        this.path = path;
+        this.port = port;
+        this.proxy = proxy;
+        Scheme = scheme;
     }
 
     /**
@@ -111,35 +97,17 @@ public class IOResponse {
      * @return
      * @since ARP1.0
      */
-    public String getContent() {
-        return content;
+    public String getHost() {
+        return host;
     }
 
     /**
      *
-     * @param content
+     * @param host
      * @since ARP1.0
      */
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    /**
-     *
-     * @return
-     * @since ARP1.0
-     */
-    public String getContentType() {
-        return contentType;
-    }
-
-    /**
-     *
-     * @param contentType
-     * @since ARP1.0
-     */
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
+    public void setHost(String host) {
+        this.host = host;
     }
 
     /**
@@ -147,35 +115,17 @@ public class IOResponse {
      * @return
      * @since ARP1.0
      */
-    public String getContentLength() {
-        return contentLength;
+    public String getPath() {
+        return path;
     }
 
     /**
      *
-     * @param contentLength
+     * @param path
      * @since ARP1.0
      */
-    public void setContentLength(String contentLength) {
-        this.contentLength = contentLength;
-    }
-
-    /**
-     *
-     * @return
-     * @since ARP1.0
-     */
-    public byte[] getContentBinary() {
-        return contentBinary;
-    }
-
-    /**
-     *
-     * @param contentBinary
-     * @since ARP1.0
-     */
-    public void setContentBinary(byte[] contentBinary) {
-        this.contentBinary = contentBinary;
+    public void setPath(String path) {
+        this.path = path;
     }
 
     /**
@@ -183,35 +133,17 @@ public class IOResponse {
      * @return
      * @since ARP1.0
      */
-    public int getContentBinaryLength() {
-        return contentBinaryLength;
+    public int getPort() {
+        return port;
     }
 
     /**
      *
-     * @param contentBinaryLength
+     * @param port
      * @since ARP1.0
      */
-    public void setContentBinaryLength(int contentBinaryLength) {
-        this.contentBinaryLength = contentBinaryLength;
-    }
-
-    /**
-     *
-     * @return
-     * @since ARP1.0
-     */
-    public Header[] getHeaders() {
-        return headers;
-    }
-
-    /**
-     *
-     * @param headers
-     * @since ARP1.0
-     */
-    public void setHeaders(Header[] headers) {
-        this.headers = headers;
+    public void setPort(int port) {
+        this.port = port;
     }
 
     /**
@@ -219,16 +151,35 @@ public class IOResponse {
      * @return
      * @since ARP1.0
      */
-    public Session getSession() {
-        return session;
+    public String getProxy() {
+        return proxy;
     }
 
     /**
      *
-     * @param session
+     * @param proxy
      * @since ARP1.0
      */
-    public void setSession(Session session) {
-        this.session = session;
+    public void setProxy(String proxy) {
+        this.proxy = proxy;
+    }
+
+    /**
+     *
+     * @return
+     * @since ARP1.0
+     */
+    public String getScheme() {
+        return Scheme;
+    }
+
+    /**
+     *
+     * @param scheme
+     * @since ARP1.0
+     */
+    public void setScheme(String scheme) {
+        Scheme = scheme;
     }
 }
+
