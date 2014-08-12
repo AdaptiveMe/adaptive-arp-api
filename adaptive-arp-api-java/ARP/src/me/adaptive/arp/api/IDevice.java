@@ -47,4 +47,10 @@ public interface IDevice extends IBaseSystem, Serializable {
      * @return The current Locale information.
      */
     Locale getLocaleCurrent();
+
+    /**
+     * Send the device the info from hardware button pressed
+     * @param button
+     */
+    void buttonPressed(IButtonCallback button);
 }

@@ -38,7 +38,7 @@ import java.io.Serializable;
 public interface ILifecycle extends IBaseApplication, Serializable {
 
     /**
-     *
+     * Add the listener for the lifecycle of the app
      * @param listener
      */
     void addLifecycleListener(ILifecycleListener listener);
