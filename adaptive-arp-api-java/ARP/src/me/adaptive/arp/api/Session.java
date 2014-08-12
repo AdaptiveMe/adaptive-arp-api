@@ -42,20 +42,20 @@
 
 package me.adaptive.arp.api;
 
-import java.lang.String;
-
 /**
  * Created by FRMI on 12/08/2014.
  */
 public class Session {
     /**
      * Cookie array to keep the session
+     *
      * @since ARP1.0
      */
     private Cookie[] cookie;
 
     /**
      * constructor used by implementation
+     *
      * @param cookie
      * @since ARP1.0
      */
@@ -65,6 +65,7 @@ public class Session {
 
     /**
      * Returns the cookie array
+     *
      * @return cookie array
      * @since ARP1.0
      */
@@ -74,6 +75,7 @@ public class Session {
 
     /**
      * Set the cookie array
+     *
      * @param cookie array
      * @since ARP1.0
      */

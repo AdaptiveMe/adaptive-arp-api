@@ -35,5 +35,8 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface ILifecycle : IBaseApplication
 	{
+		/// <summary>Add the listener for the lifecycle of the app</summary>
+		/// <param name="listener"></param>
+		void AddLifecycleListener(ILifecycleListener listener);
 	}
 }

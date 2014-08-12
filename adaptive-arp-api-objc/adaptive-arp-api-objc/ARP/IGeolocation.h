@@ -42,9 +42,9 @@
 #include "java/lang/Enum.h"
 
 @protocol ARPIGeolocation < ARPIBaseSensor, JavaIoSerializable, NSObject, JavaObject >
-- (void)addAccelerationListenerWithARPIGeolocationListener:(id<ARPIGeolocationListener>)listener;
+- (void)addGeolocationListenerWithARPIGeolocationListener:(id<ARPIGeolocationListener>)listener;
 
-- (void)removeAccelerationListenerWithARPIGeolocationListener:(id<ARPIGeolocationListener>)listener;
+- (void)removeGeolocationListenerWithARPIGeolocationListener:(id<ARPIGeolocationListener>)listener;
 
 - (void)removeGeolocationListeners;
 
@@ -59,6 +59,7 @@ typedef enum {
   ARPIGeolocation_Status_Unauthorized = 1,
   ARPIGeolocation_Status_HighDoP = 2,
   ARPIGeolocation_Status_Unavailable = 3,
+  ARPIGeolocation_Status_GPS_Not_Enabled = 4,
 } ARPIGeolocation_Status;
 
 @interface ARPIGeolocation_StatusEnum : JavaLangEnum < NSCopying > {
@@ -86,5 +87,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocation_StatusEnum, HighDoP, ARPIGeolocation_
 
 #define ARPIGeolocation_StatusEnum_Unavailable ARPIGeolocation_StatusEnum_values[ARPIGeolocation_Status_Unavailable]
 J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocation_StatusEnum, Unavailable, ARPIGeolocation_StatusEnum *)
+
+#define ARPIGeolocation_StatusEnum_GPS_Not_Enabled ARPIGeolocation_StatusEnum_values[ARPIGeolocation_Status_GPS_Not_Enabled]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocation_StatusEnum, GPS_Not_Enabled, ARPIGeolocation_StatusEnum *)
 
 #endif // _ARPIGeolocation_H_

@@ -35,27 +35,21 @@ package me.adaptive.arp.api;
  */
 public class ContactPhone {
     /**
-     * Types that can be used
-     * @since ARP1.0
-     */
-    public enum PhoneType {
-        Mobile, Work, Home, Main, HomeFax, WorkFax, Other
-    }
-
-    /**
      * The phone number
+     *
      * @since ARP1.0
      */
     private String phone;
-
     /**
      * The phone number phoneType
+     *
      * @since ARP1.0
      */
     private PhoneType phoneType;
 
     /**
      * Constructor used by implementation to set the contact Phone
+     *
      * @param phone
      * @param phoneType
      * @since ARP1.0
@@ -67,6 +61,7 @@ public class ContactPhone {
 
     /**
      * Returns the phone number
+     *
      * @return phone number
      * @since ARP1.0
      */
@@ -76,6 +71,7 @@ public class ContactPhone {
 
     /**
      * Set the phone number
+     *
      * @param phone number
      * @since ARP1.0
      */
@@ -85,6 +81,7 @@ public class ContactPhone {
 
     /**
      * Returns the phone phoneType
+     *
      * @return phoneType
      * @since ARP1.0
      */
@@ -94,10 +91,20 @@ public class ContactPhone {
 
     /**
      * Set the phoneType of the phone number
+     *
      * @param phoneType
      * @since ARP1.0
      */
     public void setPhoneType(me.adaptive.arp.api.ContactPhone.PhoneType phoneType) {
         this.phoneType = phoneType;
+    }
+
+    /**
+     * Types that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum PhoneType {
+        Mobile, Work, Home, Main, HomeFax, WorkFax, Other
     }
 }

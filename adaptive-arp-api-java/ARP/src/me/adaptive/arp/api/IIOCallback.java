@@ -42,27 +42,15 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by FRMI on 12/08/2014.
  */
-public interface IIOCallback extends Serializable{
-
-    /**
-     * Warnings that can be used
-     * @since ARP1.0
-     */
-    public enum Warning {Internal_Error, Not_Implemented, TIMEDOUT}
-
-    /**
-     * Errors that can be used
-     * @since ARP1.0
-     */
-    public enum Error {Forbidden, Not_Found, Method_Not_Allowed, Not_Allowed}
+public interface IIOCallback {
 
     /**
      * This method is called on Result
+     *
      * @param response data
      * @since ARP1.0
      */
@@ -70,16 +58,36 @@ public interface IIOCallback extends Serializable{
 
     /**
      * This method is called on Warning
+     *
      * @param response data
-     * @param warning returned by the platform
+     * @param warning  returned by the platform
      * @since ARP1.0
      */
     void onWarning(IOResponse response, Warning warning);
 
     /**
      * This method is called on Error
+     *
      * @param error returned by the platform
      * @since ARP1.0
      */
     void onError(Error error);
+
+    /**
+     * Warnings that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum Warning {
+        Internal_Error, Not_Implemented, TIMEDOUT
+    }
+
+    /**
+     * Errors that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum Error {
+        Forbidden, Not_Found, Method_Not_Allowed, Not_Allowed
+    }
 }

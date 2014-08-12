@@ -32,31 +32,15 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by FRMI on 12/08/2014.
  */
-public interface IButtonCallback extends Serializable{
-
-    /**
-     * Error posibilities
-     * @since ARP1.0
-     */
-    public enum Error{
-        Not_Present
-    }
-
-    /**
-     * Warn posibilities
-     * @since ARP1.0
-     */
-    public enum Warning{
-        Not_Implemented
-    }
+public interface IButtonCallback {
 
     /**
      * Called on button pressed
+     *
      * @param button pressed
      * @since ARP1.0
      */
@@ -65,7 +49,8 @@ public interface IButtonCallback extends Serializable{
 
     /**
      * Data received with warning
-     * @param button pressed
+     *
+     * @param button  pressed
      * @param warning happened
      * @since ARP1.0
      */
@@ -73,8 +58,27 @@ public interface IButtonCallback extends Serializable{
 
     /**
      * No data received
+     *
      * @param error occurred
      * @since ARP1.0
      */
     public void onError(Error error);
+
+    /**
+     * Error posibilities
+     *
+     * @since ARP1.0
+     */
+    public enum Error {
+        Not_Present
+    }
+
+    /**
+     * Warn posibilities
+     *
+     * @since ARP1.0
+     */
+    public enum Warning {
+        Not_Implemented
+    }
 }

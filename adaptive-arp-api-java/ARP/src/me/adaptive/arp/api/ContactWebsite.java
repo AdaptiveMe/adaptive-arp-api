@@ -33,15 +33,17 @@ package me.adaptive.arp.api;
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactWebsite{
+public class ContactWebsite {
     /**
      * The url of the website
+     *
      * @since ARP1.0
      */
     private String url;
 
     /**
      * Constructor used by the implementation
+     *
      * @param url
      * @since ARP1.0
      */
@@ -51,6 +53,7 @@ public class ContactWebsite{
 
     /**
      * Returns the url of the website
+     *
      * @return website url
      * @since ARP1.0
      */
@@ -60,6 +63,7 @@ public class ContactWebsite{
 
     /**
      * Set the url of the website
+     *
      * @param url
      * @since ARP1.0
      */

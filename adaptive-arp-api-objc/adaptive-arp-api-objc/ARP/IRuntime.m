@@ -39,7 +39,12 @@
 @implementation ARPIRuntime
 
 + (J2ObjcClassInfo *)__metadata {
-  static J2ObjcClassInfo _ARPIRuntime = { "IRuntime", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
+  static J2ObjcMethodInfo methods[] = {
+    { "DismissApplication", NULL, "V", 0x401, NULL },
+    { "isBackground", NULL, "Z", 0x401, NULL },
+    { "DismissSplashScreen", NULL, "Z", 0x401, NULL },
+  };
+  static J2ObjcClassInfo _ARPIRuntime = { "IRuntime", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
   return &_ARPIRuntime;
 }
 

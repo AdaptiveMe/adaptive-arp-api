@@ -35,9 +35,8 @@
 #define _ARPContactProfessionalInfo_H_
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 
-@interface ARPContactProfessionalInfo : NSObject < JavaIoSerializable > {
+@interface ARPContactProfessionalInfo : NSObject {
  @public
   NSString *company_;
   NSString *jobTitle_;

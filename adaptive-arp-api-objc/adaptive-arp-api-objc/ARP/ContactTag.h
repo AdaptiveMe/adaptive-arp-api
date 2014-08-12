@@ -35,9 +35,8 @@
 #define _ARPContactTag_H_
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 
-@interface ARPContactTag : NSObject < JavaIoSerializable > {
+@interface ARPContactTag : NSObject {
  @public
   NSString *name_;
   NSString *value_;

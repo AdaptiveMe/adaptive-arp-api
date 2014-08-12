@@ -38,19 +38,22 @@ public class ContactSocial {
 
     /**
      * The social network
+     *
      * @since ARP1.0
      */
     private String socialNetwork;
     /**
      * The profileUrl
+     *
      * @since ARP1.0
      */
     private String profileUrl;
 
     /**
      * Constructor used by the implementation
+     *
      * @param socialNetwork of the profile
-     * @param profileUrl of the user
+     * @param profileUrl    of the user
      * @since ARP1.0
      */
     public ContactSocial(String socialNetwork, String profileUrl) {
@@ -60,6 +63,7 @@ public class ContactSocial {
 
     /**
      * Returns the social network
+     *
      * @return socialNetwork
      * @since ARP1.0
      */
@@ -69,6 +73,7 @@ public class ContactSocial {
 
     /**
      * Set the social network
+     *
      * @param socialNetwork
      * @since ARP1.0
      */
@@ -78,6 +83,7 @@ public class ContactSocial {
 
     /**
      * Returns the profile url of the user
+     *
      * @return profileUrl
      * @since ARP1.0
      */
@@ -87,6 +93,7 @@ public class ContactSocial {
 
     /**
      * Set the profile url of the iser
+     *
      * @param profileUrl
      * @since ARP1.0
      */

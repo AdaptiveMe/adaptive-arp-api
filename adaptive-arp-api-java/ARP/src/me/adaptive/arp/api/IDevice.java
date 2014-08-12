@@ -28,12 +28,11 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IDevice extends IBaseSystem, Serializable {
+public interface IDevice extends IBaseSystem {
 
     /**
      * Returns the device information for the current device executing the runtime.
@@ -44,12 +43,14 @@ public interface IDevice extends IBaseSystem, Serializable {
 
     /**
      * Gets the current Locale for the device.
+     *
      * @return The current Locale information.
      */
     Locale getLocaleCurrent();
 
     /**
      * Send the device the info from hardware button pressed
+     *
      * @param button
      */
     void buttonPressed(IButtonCallback button);

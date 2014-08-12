@@ -43,8 +43,8 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "addAccelerationListenerWithARPIGeolocationListener:", "addAccelerationListener", "V", 0x401, NULL },
-    { "removeAccelerationListenerWithARPIGeolocationListener:", "removeAccelerationListener", "V", 0x401, NULL },
+    { "addGeolocationListenerWithARPIGeolocationListener:", "addGeolocationListener", "V", 0x401, NULL },
+    { "removeGeolocationListenerWithARPIGeolocationListener:", "removeGeolocationListener", "V", 0x401, NULL },
     { "removeGeolocationListeners", NULL, "V", 0x401, NULL },
   };
   static J2ObjcClassInfo _ARPIGeolocation = { "IGeolocation", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
@@ -55,7 +55,7 @@
 
 BOOL ARPIGeolocation_StatusEnum_initialized = NO;
 
-ARPIGeolocation_StatusEnum *ARPIGeolocation_StatusEnum_values[4];
+ARPIGeolocation_StatusEnum *ARPIGeolocation_StatusEnum_values[5];
 
 @implementation ARPIGeolocation_StatusEnum
 
@@ -73,16 +73,17 @@ ARPIGeolocation_StatusEnum *ARPIGeolocation_StatusEnum_values[4];
     ARPIGeolocation_StatusEnum_Unauthorized = [[ARPIGeolocation_StatusEnum alloc] initWithNSString:@"Unauthorized" withInt:1];
     ARPIGeolocation_StatusEnum_HighDoP = [[ARPIGeolocation_StatusEnum alloc] initWithNSString:@"HighDoP" withInt:2];
     ARPIGeolocation_StatusEnum_Unavailable = [[ARPIGeolocation_StatusEnum alloc] initWithNSString:@"Unavailable" withInt:3];
+    ARPIGeolocation_StatusEnum_GPS_Not_Enabled = [[ARPIGeolocation_StatusEnum alloc] initWithNSString:@"GPS_Not_Enabled" withInt:4];
     ARPIGeolocation_StatusEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIGeolocation_StatusEnum_values count:4 type:[IOSClass classWithClass:[ARPIGeolocation_StatusEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIGeolocation_StatusEnum_values count:5 type:[IOSClass classWithClass:[ARPIGeolocation_StatusEnum class]]];
 }
 
 + (ARPIGeolocation_StatusEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 5; i++) {
     ARPIGeolocation_StatusEnum *e = ARPIGeolocation_StatusEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -101,9 +102,10 @@ ARPIGeolocation_StatusEnum *ARPIGeolocation_StatusEnum_values[4];
     { "Unauthorized", "Unauthorized", 0x4019, "Lme.adaptive.arp.api.IGeolocation$Status;", &ARPIGeolocation_StatusEnum_Unauthorized,  },
     { "HighDoP", "HighDoP", 0x4019, "Lme.adaptive.arp.api.IGeolocation$Status;", &ARPIGeolocation_StatusEnum_HighDoP,  },
     { "Unavailable", "Unavailable", 0x4019, "Lme.adaptive.arp.api.IGeolocation$Status;", &ARPIGeolocation_StatusEnum_Unavailable,  },
+    { "GPS_Not_Enabled", "GPS_Not_Enabled", 0x4019, "Lme.adaptive.arp.api.IGeolocation$Status;", &ARPIGeolocation_StatusEnum_GPS_Not_Enabled,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IGeolocation$Status;"};
-  static J2ObjcClassInfo _ARPIGeolocation_StatusEnum = { "Status", "me.adaptive.arp.api", "IGeolocation", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIGeolocation_StatusEnum = { "Status", "me.adaptive.arp.api", "IGeolocation", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
   return &_ARPIGeolocation_StatusEnum;
 }
 

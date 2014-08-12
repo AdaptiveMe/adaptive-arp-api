@@ -32,7 +32,9 @@
 //
 
 #include "DeviceInfo.h"
+#include "IButtonCallback.h"
 #include "IDevice.h"
+#include "Locale.h"
 
 @interface ARPIDevice : NSObject
 @end
@@ -42,8 +44,10 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "getDeviceInfo", NULL, "Lme.adaptive.arp.api.DeviceInfo;", 0x401, NULL },
+    { "getLocaleCurrent", NULL, "Lme.adaptive.arp.api.Locale;", 0x401, NULL },
+    { "buttonPressedWithARPIButtonCallback:", "buttonPressed", "V", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPIDevice = { "IDevice", "me.adaptive.arp.api", NULL, 0x201, 1, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPIDevice = { "IDevice", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
   return &_ARPIDevice;
 }
 

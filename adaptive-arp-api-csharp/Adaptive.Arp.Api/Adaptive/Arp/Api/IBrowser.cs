@@ -35,5 +35,12 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface IBrowser : IBaseUI
 	{
+		/// <summary>Open a new window showing the url webpage with a title and a close button displaying the desired text
+		/// 	</summary>
+		/// <param name="url">to open</param>
+		/// <param name="title">of the new window</param>
+		/// <param name="buttonText">text of the close button</param>
+		/// <returns>true if the new window opens;false otherwise</returns>
+		bool OpenBrowser(string url, string title, string buttonText);
 	}
 }

@@ -33,36 +33,42 @@ package me.adaptive.arp.api;
 /**
  * Created by FRMI on 11/08/2014.
  */
-public class Geolocation{
+public class Geolocation {
 
     /**
      * The Y coordinate (or latitude). Measured in degrees.
+     *
      * @since ARP1.0
      */
     private double latitude;
     /**
      * The X coordinate (or longitude). Measured in degrees.
+     *
      * @since ARP1.0
      */
     private double longitude;
     /**
      * The current device altitude (or Z coordinate). Measured in meters.
+     *
      * @since ARP1.0
      */
     private double altitude;
     /**
      * Dilution of precision on the X measurement. Measured in meters.
+     *
      * @since ARP1.0
      */
     private float XDoP;
     /**
      * Dilution of precision on the Y measurement. Measured in meters.
+     *
      * @since ARP1.0
      */
     private float YDoP;
 
     /**
      * Constructor used by the implementation
+     *
      * @param latitude
      * @param longitude
      * @param altitude
@@ -80,6 +86,7 @@ public class Geolocation{
 
     /**
      * Returns the latitude in degrees
+     *
      * @return latitude
      * @since ARP1.0
      */
@@ -89,6 +96,7 @@ public class Geolocation{
 
     /**
      * Set the latitude in degrees
+     *
      * @param latitude
      * @since ARP1.0
      */
@@ -98,6 +106,7 @@ public class Geolocation{
 
     /**
      * Returns the longitude in degrees
+     *
      * @return longitude
      * @since ARP1.0
      */
@@ -107,6 +116,7 @@ public class Geolocation{
 
     /**
      * Returns the latitude in degrees
+     *
      * @param longitude
      * @since ARP1.0
      */
@@ -116,6 +126,7 @@ public class Geolocation{
 
     /**
      * Returns altitude in meters
+     *
      * @return altitude
      * @since ARP1.0
      */
@@ -125,6 +136,7 @@ public class Geolocation{
 
     /**
      * Set altitude in meters
+     *
      * @param altitude
      * @since ARP1.0
      */
@@ -134,6 +146,7 @@ public class Geolocation{
 
     /**
      * Returns the Dilution of Position in the X axis (longitude)
+     *
      * @return XDoP
      * @since ARP1.0
      */
@@ -143,6 +156,7 @@ public class Geolocation{
 
     /**
      * Returns the Dilution of Position in the Y axis (latitude)
+     *
      * @return YDoP
      * @since ARP1.0
      */

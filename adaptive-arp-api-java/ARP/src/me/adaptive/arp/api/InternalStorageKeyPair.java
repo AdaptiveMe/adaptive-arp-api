@@ -31,12 +31,11 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by DBarranco on 11/08/14.
  */
-public class InternalStorageKeyPair{
+public class InternalStorageKeyPair {
 
     private String key;
 
@@ -48,7 +47,9 @@ public class InternalStorageKeyPair{
      * @return Key name.
      * @since ARP 1.0
      */
-    public String getKey() {return key;}
+    public String getKey() {
+        return key;
+    }
 
     /**
      * Sets the key name for this object.
@@ -56,7 +57,9 @@ public class InternalStorageKeyPair{
      * @param key Key name.
      * @since ARP 1.0
      */
-    public void setKey(String key) { this.key = key; }
+    public void setKey(String key) {
+        this.key = key;
+    }
 
     /**
      * Returns the object value
@@ -64,7 +67,9 @@ public class InternalStorageKeyPair{
      * @return Value.
      * @since ARP 1.0
      */
-    public String getValue() { return value; }
+    public String getValue() {
+        return value;
+    }
 
     /**
      * Sets the value for this object
@@ -72,6 +77,8 @@ public class InternalStorageKeyPair{
      * @param value value to set.
      * @since ARP 1.0
      */
-    public void setValue(String value) { this.value = value; }
+    public void setValue(String value) {
+        this.value = value;
+    }
 
 }

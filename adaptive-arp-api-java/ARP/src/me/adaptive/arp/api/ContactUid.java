@@ -30,8 +30,6 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 08/08/14.
  */
@@ -39,12 +37,14 @@ public class ContactUid {
 
     /**
      * The id of the Contact
+     *
      * @since ARP1.0
      */
     private String contactId;
 
     /**
      * Constructor used by implementation to set the Contact id.
+     *
      * @param contactId
      * @since ARP1.0
      */
@@ -54,6 +54,7 @@ public class ContactUid {
 
     /**
      * Returns the contact id
+     *
      * @return Contactid
      * @since ARP1.0
      */
@@ -63,6 +64,7 @@ public class ContactUid {
 
     /**
      * Set the id of the Contact
+     *
      * @param contactId
      * @since ARP1.0
      */

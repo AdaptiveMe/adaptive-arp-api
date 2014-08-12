@@ -36,31 +36,27 @@ package me.adaptive.arp.api;
 public class ContactEmail {
 
     /**
-     * Types that can be used
-     * @since ARP1.0
-     */
-    public enum EmailType {Personal, Work, Other}
-
-    /**
      * The type of the email
+     *
      * @since ARP1.0
      */
     private EmailType type;
-
     /**
      * Whether the email is the primary one or not
+     *
      * @since ARP1.0
      */
     private boolean primary;
-
     /**
      * Email of the Contact
+     *
      * @since ARP1.0
      */
     private String email;
 
     /**
      * Constructor used by the implementation
+     *
      * @param type
      * @param primary
      * @param email
@@ -74,6 +70,7 @@ public class ContactEmail {
 
     /**
      * Returns the type of the email
+     *
      * @return EmailType
      * @since ARP1.0
      */
@@ -83,6 +80,7 @@ public class ContactEmail {
 
     /**
      * Set the type of the email
+     *
      * @param type
      * @since ARP1.0
      */
@@ -92,6 +90,7 @@ public class ContactEmail {
 
     /**
      * Returns if the email is primary
+     *
      * @return true if the email is primary; false otherwise
      * @since ARP1.0
      */
@@ -101,6 +100,7 @@ public class ContactEmail {
 
     /**
      * Set if the email
+     *
      * @param true if the email is primary; false otherwise
      * @since ARP1.0
      */
@@ -110,6 +110,7 @@ public class ContactEmail {
 
     /**
      * Returns the email of the Contact
+     *
      * @return email
      * @since ARP1.0
      */
@@ -119,10 +120,20 @@ public class ContactEmail {
 
     /**
      * Set the email of the Contact
+     *
      * @param email
      * @since ARP1.0
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * Types that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum EmailType {
+        Personal, Work, Other
     }
 }

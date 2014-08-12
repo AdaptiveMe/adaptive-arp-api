@@ -30,28 +30,16 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by FRMI on 11/08/2014.
  */
-public interface IMessagingCallback extends Serializable {
+public interface IMessagingCallback {
 
-
-    /**
-     * Warnings that can be used
-     * @since ARP1.0
-     */
-    public enum Warning {Unable_To_Sent_All,Unable_to_fetch_attachment}
-
-    /**
-     * Errors that can be used
-     * @since ARP1.0
-     */
-    public enum Error {SIM_Not_Present,Email_Account_Not_Found,Not_Sent}
 
     /**
      * This method is called on Result
+     *
      * @param success true if sent;false otherwise
      * @since ARP1.0
      */
@@ -59,6 +47,7 @@ public interface IMessagingCallback extends Serializable {
 
     /**
      * This method is called on Warning
+     *
      * @param success true if sent;false otherwise
      * @param warning returned by the platform
      * @since ARP1.0
@@ -67,9 +56,28 @@ public interface IMessagingCallback extends Serializable {
 
     /**
      * This method is called on Error
+     *
      * @param error returned by the platform
      * @since ARP1.0
      */
     void onError(Error error);
+
+    /**
+     * Warnings that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum Warning {
+        Unable_To_Sent_All, Unable_to_fetch_attachment
+    }
+
+    /**
+     * Errors that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum Error {
+        SIM_Not_Present, Email_Account_Not_Found, Not_Sent
+    }
 
 }

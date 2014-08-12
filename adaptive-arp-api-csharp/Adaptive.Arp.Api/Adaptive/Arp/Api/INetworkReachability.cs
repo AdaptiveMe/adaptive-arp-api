@@ -35,5 +35,10 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface INetworkReachability : IBaseCommunication
 	{
+		/// <summary>Whether there is connectivity to an url or not.</summary>
+		/// <remarks>Whether there is connectivity to an url or not.</remarks>
+		/// <param name="url"></param>
+		/// <returns>true if there is network connectivity to the given url; false otherwise</returns>
+		bool IsNetworkReachable(string url);
 	}
 }

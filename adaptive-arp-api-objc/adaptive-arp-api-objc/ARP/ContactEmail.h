@@ -37,10 +37,9 @@
 @class ARPContactEmail_EmailTypeEnum;
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@interface ARPContactEmail : NSObject < JavaIoSerializable > {
+@interface ARPContactEmail : NSObject {
  @public
   ARPContactEmail_EmailTypeEnum *type_;
   BOOL primary_;

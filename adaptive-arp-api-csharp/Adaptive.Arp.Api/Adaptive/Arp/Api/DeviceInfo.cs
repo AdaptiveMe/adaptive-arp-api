@@ -30,7 +30,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	
 	public class DeviceInfo
 	{
 		/// <summary>Name of device - equivalent to brand.</summary>

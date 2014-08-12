@@ -37,9 +37,9 @@
 @class ARPGeolocation;
 
 #import "JreEmulation.h"
+#include "java/io/Serializable.h"
 
-@protocol ARPIGeolocationListener < NSObject, JavaObject >
-
+@protocol ARPIGeolocationListener < JavaIoSerializable, NSObject, JavaObject >
 - (void)onResultWithARPGeolocation:(ARPGeolocation *)geolocation;
 
 - (void)onWarningWithARPGeolocation:(ARPGeolocation *)geolocation;

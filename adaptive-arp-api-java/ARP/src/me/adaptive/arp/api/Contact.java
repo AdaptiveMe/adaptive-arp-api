@@ -37,41 +37,49 @@ public class Contact extends ContactUid {
 
     /**
      * The personal info from the contact
+     *
      * @since ARP1.0
      */
     private ContactPersonalInfo personalInfo;
     /**
      * The professional info from the contact
+     *
      * @since ARP1.0
      */
     private ContactProfessionalInfo professionalInfo;
     /**
      * The adresses from the contact
+     *
      * @since ARP1.0
      */
     private ContactAddress[] contactAddresses;
     /**
      * The phones from the contact
+     *
      * @since ARP1.0
      */
     private ContactPhone[] contactPhones;
     /**
      * The emails from the contact
+     *
      * @since ARP1.0
      */
     private ContactEmail[] contactEmails;
     /**
      * The websites from the contact
+     *
      * @since ARP1.0
      */
     private ContactWebsite[] contactWebsites;
     /**
      * The social network info from the contact
+     *
      * @since ARP1.0
      */
     private ContactSocial[] contactSocials;
     /**
      * The aditional tags from the contact
+     *
      * @since ARP1.0
      */
     private ContactTag[] contactTags;
@@ -79,6 +87,7 @@ public class Contact extends ContactUid {
 
     /**
      * Constructor used by implementation to set the Contact.
+     *
      * @param contactId of the Contact
      * @since ARP1.0
      */
@@ -88,6 +97,7 @@ public class Contact extends ContactUid {
 
     /**
      * Returns the personal info of the Contact
+     *
      * @return ContactPersonalInfo of the Contact
      * @since ARP1.0
      */
@@ -97,6 +107,7 @@ public class Contact extends ContactUid {
 
     /**
      * Set the personal info of the Contact
+     *
      * @param personalInfo[]
      * @since ARP1.0
      */
@@ -106,6 +117,7 @@ public class Contact extends ContactUid {
 
     /**
      * Returns the professional info of the Contact
+     *
      * @return ContactProfessionalInfo[]
      * @since ARP1.0
      */
@@ -115,6 +127,7 @@ public class Contact extends ContactUid {
 
     /**
      * Set the professional info of the Contact
+     *
      * @param professionalInfo[]
      * @since ARP1.0
      */
@@ -124,6 +137,7 @@ public class Contact extends ContactUid {
 
     /**
      * Returns all the addresses of the Contact
+     *
      * @return ContactAddress[]
      * @since ARP1.0
      */
@@ -133,6 +147,7 @@ public class Contact extends ContactUid {
 
     /**
      * Set the addresses of the Contact
+     *
      * @param contactAddresses[]
      * @since ARP1.0
      */
@@ -142,6 +157,7 @@ public class Contact extends ContactUid {
 
     /**
      * Returns all the phones of the Contact
+     *
      * @return ContactPhone[]
      * @since ARP1.0
      */
@@ -151,6 +167,7 @@ public class Contact extends ContactUid {
 
     /**
      * Set the phones of the Contact
+     *
      * @param contactPhones[]
      * @since ARP1.0
      */
@@ -160,6 +177,7 @@ public class Contact extends ContactUid {
 
     /**
      * Returns all the emails of the Contact
+     *
      * @return ContactEmail[]
      * @since ARP1.0
      */
@@ -169,6 +187,7 @@ public class Contact extends ContactUid {
 
     /**
      * Set the emails of the Contact
+     *
      * @param contactEmails[]
      * @since ARP1.0
      */
@@ -178,6 +197,7 @@ public class Contact extends ContactUid {
 
     /**
      * Returns all the websites of the Contact
+     *
      * @return ContactWebsite[]
      * @since ARP1.0
      */
@@ -187,6 +207,7 @@ public class Contact extends ContactUid {
 
     /**
      * Set the websites of the Contact
+     *
      * @param contactWebsites[]
      * @since ARP1.0
      */
@@ -196,6 +217,7 @@ public class Contact extends ContactUid {
 
     /**
      * Returns all the social network info of the Contact
+     *
      * @return ContactSocial[]
      * @since ARP1.0
      */
@@ -205,6 +227,7 @@ public class Contact extends ContactUid {
 
     /**
      * Set the social network info of the Contact
+     *
      * @param contactSocials[]
      * @since ARP1.0
      */
@@ -214,6 +237,7 @@ public class Contact extends ContactUid {
 
     /**
      * Returns the additional tags of the Contact
+     *
      * @return ContactTag[]
      * @since ARP1.0
      */
@@ -223,6 +247,7 @@ public class Contact extends ContactUid {
 
     /**
      * Set the additional tags of the Contact
+     *
      * @param contactTags[]
      * @since ARP1.0
      */

@@ -42,8 +42,6 @@
 
 package me.adaptive.arp.api;
 
-import java.lang.String;
-
 /**
  * Created by FRMI on 12/08/2014.
  */
@@ -51,32 +49,38 @@ public class Endpoint {
 
     /**
      * The remote serice host (alias or IP).
+     *
      * @since ARP1.0
      */
     private String host;
     /**
      * The remote service path (to be added to the host and port url).
+     *
      * @since ARP1.0
      */
     private String path;
     /**
      * The remote service accesible port.
+     *
      * @since ARP1.0
      */
     private int port;
     /**
      * The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
+     *
      * @since ARP1.0
      */
     private String proxy;
     /**
      * The remote service scheme.
+     *
      * @since ARP1.0
      */
     private String Scheme;
 
     /**
      * Constructor used by the implementation
+     *
      * @param host
      * @param path
      * @param port
@@ -94,6 +98,7 @@ public class Endpoint {
 
     /**
      * Returns the host
+     *
      * @return host
      * @since ARP1.0
      */
@@ -103,6 +108,7 @@ public class Endpoint {
 
     /**
      * Set the host
+     *
      * @param host
      * @since ARP1.0
      */
@@ -112,6 +118,7 @@ public class Endpoint {
 
     /**
      * Returns the path
+     *
      * @return path
      * @since ARP1.0
      */
@@ -121,6 +128,7 @@ public class Endpoint {
 
     /**
      * Set the path
+     *
      * @param path
      * @since ARP1.0
      */
@@ -130,6 +138,7 @@ public class Endpoint {
 
     /**
      * Returns the port
+     *
      * @return port
      * @since ARP1.0
      */
@@ -139,6 +148,7 @@ public class Endpoint {
 
     /**
      * Set the port
+     *
      * @param port
      * @since ARP1.0
      */
@@ -148,6 +158,7 @@ public class Endpoint {
 
     /**
      * Return the proxy
+     *
      * @return proxy
      * @since ARP1.0
      */
@@ -157,6 +168,7 @@ public class Endpoint {
 
     /**
      * Set the proxy
+     *
      * @param proxy
      * @since ARP1.0
      */
@@ -166,6 +178,7 @@ public class Endpoint {
 
     /**
      * Returns the scheme
+     *
      * @return scheme
      * @since ARP1.0
      */
@@ -175,6 +188,7 @@ public class Endpoint {
 
     /**
      * Set the scheme
+     *
      * @param scheme
      * @since ARP1.0
      */

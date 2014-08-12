@@ -32,18 +32,17 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by FRMI on 12/08/2014.
  */
-public interface ILifecycleListener extends Serializable{
-
+public interface ILifecycleListener {
 
 
     /**
      * Called when lifecycle changes somehow.
-     * @param lifecicle
+     *
+     * @param lifecycle
      * @since ARP1.0
      */
     public void onResult(Lifecycle lifecycle);

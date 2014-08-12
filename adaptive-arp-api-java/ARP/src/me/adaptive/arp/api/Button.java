@@ -38,12 +38,14 @@ package me.adaptive.arp.api;
 public class Button {
     /**
      * Button type
+     *
      * @since ARP1.0
      */
     private ICapabilities.Button type;
 
     /**
      * Constructor used by the implementation
+     *
      * @param type
      * @since ARP1.0
      */
@@ -53,6 +55,7 @@ public class Button {
 
     /**
      * Returns the button type
+     *
      * @return type
      * @since ARP1.0
      */

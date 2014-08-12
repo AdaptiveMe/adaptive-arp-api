@@ -30,23 +30,11 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IGeolocation extends IBaseSensor, Serializable {
-
-    /**
-    * Success = Correct reading. Unauthorized = No reading. User has not
-    * authorized a reading. HighDoP = No reliable measure. Unavailable = No reading. Not supported or temporarily
-    * disabled.
-    *
-    * @since ARP1.0
-    */
-    public enum Status {
-        Success, Unauthorized, HighDoP, Unavailable, GPS_Not_Enabled
-    }
+public interface IGeolocation extends IBaseSensor {
 
     /**
      * Register a new listener that will receive geolocation events.
@@ -70,4 +58,15 @@ public interface IGeolocation extends IBaseSensor, Serializable {
      * @since ARP1.0
      */
     void removeGeolocationListeners();
+
+    /**
+     * Success = Correct reading. Unauthorized = No reading. User has not
+     * authorized a reading. HighDoP = No reliable measure. Unavailable = No reading. Not supported or temporarily
+     * disabled.
+     *
+     * @since ARP1.0
+     */
+    public enum Status {
+        Success, Unauthorized, HighDoP, Unavailable, GPS_Not_Enabled
+    }
 }

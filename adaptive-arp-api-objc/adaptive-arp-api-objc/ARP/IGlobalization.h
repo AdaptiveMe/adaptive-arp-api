@@ -34,11 +34,22 @@
 #ifndef _ARPIGlobalization_H_
 #define _ARPIGlobalization_H_
 
+@class ARPLocale;
+@class IOSObjectArray;
+@class JavaUtilHashMap;
+
 #import "JreEmulation.h"
 #include "IBaseApplication.h"
 #include "java/io/Serializable.h"
 
 @protocol ARPIGlobalization < ARPIBaseApplication, JavaIoSerializable, NSObject, JavaObject >
+- (IOSObjectArray *)getLocaleSupportedDescriptors;
+
+- (NSString *)getResourceLiteralWithNSString:(NSString *)key
+                               withARPLocale:(ARPLocale *)locale;
+
+- (JavaUtilHashMap *)getResourceLiteralsWithARPLocale:(ARPLocale *)locale;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIGlobalization_init() {}

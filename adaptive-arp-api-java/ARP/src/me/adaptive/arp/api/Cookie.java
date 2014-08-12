@@ -42,25 +42,26 @@
 
 package me.adaptive.arp.api;
 
-import java.lang.String;
-
 /**
  * Created by FRMI on 12/08/2014.
  */
 public class Cookie {
     /**
      * Name ot the cookie
+     *
      * @since ARP1.0
      */
     private String name;
     /**
      * Value of the Cookie
+     *
      * @since ARP1.0
      */
     private String value;
 
     /**
      * Constructor used by the implementation
+     *
      * @param name
      * @param value
      * @since ARP1.0
@@ -72,6 +73,7 @@ public class Cookie {
 
     /**
      * Returns the cookie name
+     *
      * @return name
      * @since ARP1.0
      */
@@ -81,6 +83,7 @@ public class Cookie {
 
     /**
      * Set the cookie name
+     *
      * @param name
      * @since ARP1.0
      */
@@ -90,6 +93,7 @@ public class Cookie {
 
     /**
      * Returns the cookie value
+     *
      * @return
      * @since ARP1.0
      */
@@ -99,6 +103,7 @@ public class Cookie {
 
     /**
      * Set the cookie value
+     *
      * @param value
      * @since ARP1.0
      */

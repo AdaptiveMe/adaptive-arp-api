@@ -40,9 +40,8 @@
 
 #import "JreEmulation.h"
 #include "ContactUid.h"
-#include "java/io/Serializable.h"
 
-@interface ARPContact : ARPContactUid < JavaIoSerializable > {
+@interface ARPContact : ARPContactUid {
  @public
   ARPContactPersonalInfo *personalInfo_;
   ARPContactProfessionalInfo *professionalInfo_;

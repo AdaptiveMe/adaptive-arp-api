@@ -28,25 +28,12 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * @author Carlos Lozano Diez
  * @since ARP1.0
  */
-public interface ICapabilities extends IBaseSystem, Serializable {
-    /**
-     * Sensor type enumeration.
-     *
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    public enum Sensor {
-        Accelerometer, AmbientLight, Barometer, Geolocation, Gyroscope, Magnetometer, Proximity
-    }
-
-    ;
-
+public interface ICapabilities extends IBaseSystem {
     /**
      * Determines whether a specific Sensor capability is supported by the
      * device.
@@ -57,16 +44,6 @@ public interface ICapabilities extends IBaseSystem, Serializable {
      * @since ARP1.0
      */
     boolean hasSensorSupport(Sensor type);
-
-    /**
-     * PIM functionality support enumeration.
-     *
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    public enum Communication {
-        Calendar, Contact, Mail, Messaging, Telephony
-    }
 
     ;
 
@@ -82,16 +59,6 @@ public interface ICapabilities extends IBaseSystem, Serializable {
     boolean hasCommunicationSupport(Communication type);
 
     /**
-     * Storage functionality support enumeration.
-     *
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    public enum Data {
-        Database, File, Cloud
-    }
-
-    /**
      * Determines whether a specific Data capability is supported by the device.
      *
      * @param type Type of feature to check.
@@ -101,12 +68,7 @@ public interface ICapabilities extends IBaseSystem, Serializable {
      */
     boolean hasDataSupport(Data type);
 
-    /**
-     * Media functionality support enumeration.
-     */
-    public enum Media {
-        Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording
-    }
+    ;
 
     /**
      * Determines whether a specific Media capability is supported by the
@@ -120,16 +82,6 @@ public interface ICapabilities extends IBaseSystem, Serializable {
     boolean hasMediaSupport(Media type);
 
     /**
-     * Connectivity support enumeration.
-     *
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    public enum Net {
-        GSM, GPRS, HSDPA, LTE, WIFI, Ethernet
-    }
-
-    /**
      * Determines whether a specific Net capability is supported by the device.
      *
      * @param type Type of feature to check.
@@ -138,16 +90,6 @@ public interface ICapabilities extends IBaseSystem, Serializable {
      * @since ARP1.0
      */
     boolean hasNetSupport(Net type);
-
-    /**
-     * Notification support enumeration.
-     *
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    public enum Notification {
-        Alarm, LocalNotification, RemoteNotification, Vibration
-    }
 
     /**
      * Determines whether a specific Notification capability is supported by the
@@ -161,16 +103,6 @@ public interface ICapabilities extends IBaseSystem, Serializable {
     boolean hasNotificationSupport(Notification type);
 
     /**
-     * Hardware button support (only those that can interact with the application).
-     *
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    public enum Button {
-        HomeButton, BackButton, OptionButton
-    }
-
-    /**
      * Determines whether a specific hardware button is supported for interaction.
      *
      * @param type Type of feature to check.
@@ -179,4 +111,71 @@ public interface ICapabilities extends IBaseSystem, Serializable {
      * @since ARP1.0
      */
     boolean hasButtonSupport(Button type);
+
+    /**
+     * Sensor type enumeration.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    public enum Sensor {
+        Accelerometer, AmbientLight, Barometer, Geolocation, Gyroscope, Magnetometer, Proximity
+    }
+
+    /**
+     * PIM functionality support enumeration.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    public enum Communication {
+        Calendar, Contact, Mail, Messaging, Telephony
+    }
+
+    /**
+     * Storage functionality support enumeration.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    public enum Data {
+        Database, File, Cloud
+    }
+
+    /**
+     * Media functionality support enumeration.
+     */
+    public enum Media {
+        Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording
+    }
+
+    /**
+     * Connectivity support enumeration.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    public enum Net {
+        GSM, GPRS, HSDPA, LTE, WIFI, Ethernet
+    }
+
+    /**
+     * Notification support enumeration.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    public enum Notification {
+        Alarm, LocalNotification, RemoteNotification, Vibration
+    }
+
+    /**
+     * Hardware button support (only those that can interact with the application).
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    public enum Button {
+        HomeButton, BackButton, OptionButton
+    }
 }

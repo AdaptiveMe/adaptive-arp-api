@@ -35,5 +35,20 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface IServices : IBaseData
 	{
+		/// <summary>Register a new service</summary>
+		/// <param name="service">to register</param>
+		/// <returns>true if successfully register;false otherwise</returns>
+		bool RegisterService(Service service);
+
+		/// <summary>Unregister a service</summary>
+		/// <param name="service">to unregister</param>
+		/// <returns>true if successfully unregister;false otherwise</returns>
+		bool UnregisterService(Service service);
+
+		/// <summary>Request async a service for an Url</summary>
+		/// <param name="request"></param>
+		/// <param name="service"></param>
+		/// <param name="callback"></param>
+		void InvokeService(Request request, Service service, IIOCallback callback);
 	}
 }

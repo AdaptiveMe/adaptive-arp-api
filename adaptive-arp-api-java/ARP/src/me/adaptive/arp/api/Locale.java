@@ -37,17 +37,20 @@ public class Locale {
 
     /**
      * A valid ISO Country Code.
+     *
      * @since ARP1.0
      */
     private String country;
     /**
      * A valid ISO Language Code.
+     *
      * @since ARP1.0
      */
     private String language;
 
     /**
      * Constructor used by the implementation
+     *
      * @param country
      * @param language
      * @since ARP1.0
@@ -59,6 +62,7 @@ public class Locale {
 
     /**
      * Returns the country code
+     *
      * @return country code
      * @since ARP1.0
      */
@@ -68,6 +72,7 @@ public class Locale {
 
     /**
      * Set the country code
+     *
      * @param country code
      * @since ARP1.0
      */
@@ -77,6 +82,7 @@ public class Locale {
 
     /**
      * Returns the language code
+     *
      * @return language code
      * @since ARP1.0
      */
@@ -86,6 +92,7 @@ public class Locale {
 
     /**
      * Set the language code
+     *
      * @param language code
      * @since ARP1.0
      */

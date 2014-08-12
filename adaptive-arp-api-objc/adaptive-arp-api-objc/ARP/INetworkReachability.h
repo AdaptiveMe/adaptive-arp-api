@@ -39,6 +39,8 @@
 #include "java/io/Serializable.h"
 
 @protocol ARPINetworkReachability < ARPIBaseCommunication, JavaIoSerializable, NSObject, JavaObject >
+- (BOOL)isNetworkReachableWithNSString:(NSString *)url;
+
 @end
 
 __attribute__((always_inline)) inline void ARPINetworkReachability_init() {}

@@ -35,6 +35,8 @@
 #define _ARPIDevice_H_
 
 @class ARPDeviceInfo;
+@class ARPLocale;
+@protocol ARPIButtonCallback;
 
 #import "JreEmulation.h"
 #include "IBaseSystem.h"
@@ -42,6 +44,10 @@
 
 @protocol ARPIDevice < ARPIBaseSystem, JavaIoSerializable, NSObject, JavaObject >
 - (ARPDeviceInfo *)getDeviceInfo;
+
+- (ARPLocale *)getLocaleCurrent;
+
+- (void)buttonPressedWithARPIButtonCallback:(id<ARPIButtonCallback>)button;
 
 @end
 

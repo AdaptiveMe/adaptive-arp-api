@@ -30,51 +30,43 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactPersonalInfo implements Serializable {
-
-    /**
-     * Titles that can be used
-     * @since ARP1.0
-     */
-    public enum Title {
-        Mr,Mrs, Ms, Dr
-    }
+public class ContactPersonalInfo {
 
     /**
      * The name of the Contact
+     *
      * @since ARP1.0
      */
     private String name;
-
     /**
-     *  The middle name of the Contact if it proceeds
+     * The middle name of the Contact if it proceeds
+     *
      * @since ARP1.0
      */
     private String middleName;
-
     /**
      * The last name of the Contact
+     *
      * @since ARP1.0
      */
     private String lastName;
-
     /**
      * The title of the Contact
+     *
      * @since ARP1.0
      */
     private Title title;
 
     /**
      * The Constructor used by the implementation
-     * @param name of the Contact
+     *
+     * @param name       of the Contact
      * @param middleName of the Contact
-     * @param lastName of the Contact
-     * @param title of the Contact
+     * @param lastName   of the Contact
+     * @param title      of the Contact
      * @since ARP1.0
      */
     public ContactPersonalInfo(String name, String middleName, String lastName, Title title) {
@@ -86,6 +78,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Returns the name of the Contact
+     *
      * @return name
      * @since ARP1.0
      */
@@ -95,6 +88,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Set the name of the Contact
+     *
      * @param name
      * @since ARP1.0
      */
@@ -104,6 +98,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Returns the middle name of the Contact
+     *
      * @return middelName
      * @since ARP1.0
      */
@@ -113,6 +108,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Set the middle name of the Contact
+     *
      * @param middleName
      * @since ARP1.0
      */
@@ -122,6 +118,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Returns the last name of the Contact
+     *
      * @return lastName
      * @since ARP1.0
      */
@@ -131,6 +128,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Set the last name of the Contact
+     *
      * @param lastName
      * @since ARP1.0
      */
@@ -140,6 +138,7 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Returns the title of the Contact
+     *
      * @return Title
      * @since ARP1.0
      */
@@ -149,10 +148,20 @@ public class ContactPersonalInfo implements Serializable {
 
     /**
      * Set the Title of the Contact
+     *
      * @param title
      * @since ARP1.0
      */
     public void setTitle(Title title) {
         this.title = title;
+    }
+
+    /**
+     * Titles that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum Title {
+        Mr, Mrs, Ms, Dr
     }
 }

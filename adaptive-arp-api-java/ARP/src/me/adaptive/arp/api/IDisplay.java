@@ -28,10 +28,9 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IDisplay extends IBaseSystem, Serializable {
+public interface IDisplay extends IBaseSystem {
 }

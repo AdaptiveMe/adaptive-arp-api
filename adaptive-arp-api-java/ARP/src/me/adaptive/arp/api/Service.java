@@ -42,62 +42,38 @@
 
 package me.adaptive.arp.api;
 
-import java.lang.String;
-
 /**
  * Created by FRMI on 12/08/2014.
  */
 public class Service {
 
     /**
-     * Type of available services
-     * @since ARP1.0
-     */
-    public enum ServiceType {
-        SERVICETYPE_AMF_SERIALIZATION,
-        SERVICETYPE_GWT_RPC,
-        SERVICETYPE_OCTET_BINARY,
-        SERVICETYPE_REMOTING_SERIALIZATION,
-        SERVICETYPE_REST_JSON,
-        SERVICETYPE_REST_XML,
-        SERVICETYPE_SOAP_JSON,
-        SERVICETYPE_SOAP_XML,
-        SERVICETYPE_XMLRPC_JSON,
-        SERVICETYPE_XMLRPC_XML
-    }
-
-
-    /**
-     * Available methods
-     * @since ARP1.0
-     */
-    public enum ServiceMethod {
-        POST,GET
-    }
-
-    /**
      * Enpoint of the service
+     *
      * @since ARP1.0
      */
     private Endpoint endpoint;
     /**
      * The service name
+     *
      * @since ARP1.0
      */
     private String name;
     /**
      * The method used
+     *
      * @since ARP1.0
      */
     private ServiceMethod method;
     /**
      * The type of the service
+     *
      * @since ARP1.0
      */
     private ServiceType type;
-
     /**
      * Constructor used by the implementation
+     *
      * @param endpoint
      * @param name
      * @param method
@@ -113,6 +89,7 @@ public class Service {
 
     /**
      * Returns the endpoint
+     *
      * @return endpoint
      * @since ARP1.0
      */
@@ -122,6 +99,7 @@ public class Service {
 
     /**
      * Set the endpoint
+     *
      * @param endpoint
      * @since ARP1.0
      */
@@ -131,6 +109,7 @@ public class Service {
 
     /**
      * Returns the name
+     *
      * @return name
      * @since ARP1.0
      */
@@ -140,6 +119,7 @@ public class Service {
 
     /**
      * Set the name
+     *
      * @param name
      * @since ARP1.0
      */
@@ -149,6 +129,7 @@ public class Service {
 
     /**
      * Returns the method
+     *
      * @return method
      * @since ARP1.0
      */
@@ -158,6 +139,7 @@ public class Service {
 
     /**
      * Set the method
+     *
      * @param method
      * @since ARP1.0
      */
@@ -167,6 +149,7 @@ public class Service {
 
     /**
      * Returns the type
+     *
      * @return type
      * @since ARP1.0
      */
@@ -176,10 +159,38 @@ public class Service {
 
     /**
      * Set the type
+     *
      * @param type
      * @since ARP1.0
      */
     public void setType(me.adaptive.arp.api.Service.ServiceType type) {
         this.type = type;
+    }
+
+    /**
+     * Type of available services
+     *
+     * @since ARP1.0
+     */
+    public enum ServiceType {
+        SERVICETYPE_AMF_SERIALIZATION,
+        SERVICETYPE_GWT_RPC,
+        SERVICETYPE_OCTET_BINARY,
+        SERVICETYPE_REMOTING_SERIALIZATION,
+        SERVICETYPE_REST_JSON,
+        SERVICETYPE_REST_XML,
+        SERVICETYPE_SOAP_JSON,
+        SERVICETYPE_SOAP_XML,
+        SERVICETYPE_XMLRPC_JSON,
+        SERVICETYPE_XMLRPC_XML
+    }
+
+    /**
+     * Available methods
+     *
+     * @since ARP1.0
+     */
+    public enum ServiceMethod {
+        POST, GET
     }
 }

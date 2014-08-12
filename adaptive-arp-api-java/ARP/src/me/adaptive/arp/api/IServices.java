@@ -42,15 +42,15 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IServices extends IBaseData, Serializable {
+public interface IServices extends IBaseData {
 
     /**
      * Register a new service
+     *
      * @param service to register
      * @return true if successfully register;false otherwise
      */
@@ -58,6 +58,7 @@ public interface IServices extends IBaseData, Serializable {
 
     /**
      * Unregister a service
+     *
      * @param service to unregister
      * @return true if successfully unregister;false otherwise
      */
@@ -65,6 +66,7 @@ public interface IServices extends IBaseData, Serializable {
 
     /**
      * Request async a service for an Url
+     *
      * @param request
      * @param service
      * @param callback

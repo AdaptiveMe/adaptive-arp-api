@@ -35,9 +35,8 @@
 #define _ARPOSInfo_H_
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 
-@interface ARPOSInfo : NSObject < JavaIoSerializable > {
+@interface ARPOSInfo : NSObject {
  @public
   NSString *name_;
   NSString *version__;

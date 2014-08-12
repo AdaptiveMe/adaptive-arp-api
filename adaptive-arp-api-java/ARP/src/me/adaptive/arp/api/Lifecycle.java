@@ -37,25 +37,15 @@ package me.adaptive.arp.api;
  */
 public class Lifecycle {
     /**
-     * Possible lifecycle States
-     * Start = when app starts
-     * Pause = ToBackground
-     * Resume = ToForeground
-     * End = app closes
-     * @since ARP1.0
-     */
-    public enum State{
-        Start,Pause,Resume,End
-    }
-
-    /**
      * Represent the state of the app
+     *
      * @since ARP1.0
      */
     private State state;
 
     /**
      * Constructor used by the implementation
+     *
      * @param state
      * @since ARP1.0
      */
@@ -65,6 +55,7 @@ public class Lifecycle {
 
     /**
      * Returns the state of the application
+     *
      * @return state of the app
      * @since ARP1.0
      */
@@ -74,10 +65,24 @@ public class Lifecycle {
 
     /**
      * Set the State of the application
+     *
      * @param state of the app
      * @since ARP1.0
      */
     public void setState(State state) {
         this.state = state;
+    }
+
+    /**
+     * Possible lifecycle States
+     * Start = when app starts
+     * Pause = ToBackground
+     * Resume = ToForeground
+     * End = app closes
+     *
+     * @since ARP1.0
+     */
+    public enum State {
+        Start, Pause, Resume, End
     }
 }

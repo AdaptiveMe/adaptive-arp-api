@@ -35,9 +35,8 @@
 #define _ARPContactUid_H_
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 
-@interface ARPContactUid : NSObject < JavaIoSerializable > {
+@interface ARPContactUid : NSObject {
  @public
   NSString *contactId_;
 }

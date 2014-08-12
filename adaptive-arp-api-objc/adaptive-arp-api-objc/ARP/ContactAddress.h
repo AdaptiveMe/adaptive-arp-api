@@ -37,10 +37,9 @@
 @class ARPContactAddress_AddressTypeEnum;
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@interface ARPContactAddress : NSObject < JavaIoSerializable > {
+@interface ARPContactAddress : NSObject {
  @public
   NSString *address_;
   ARPContactAddress_AddressTypeEnum *type_;

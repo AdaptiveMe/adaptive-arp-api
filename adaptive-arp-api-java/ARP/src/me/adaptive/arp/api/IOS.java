@@ -28,12 +28,11 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IOS extends IBaseSystem, Serializable {
+public interface IOS extends IBaseSystem {
 
     /**
      * Returns the OSInfo for the current operating system.

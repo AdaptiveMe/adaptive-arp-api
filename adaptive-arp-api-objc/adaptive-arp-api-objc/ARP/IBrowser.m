@@ -39,7 +39,10 @@
 @implementation ARPIBrowser
 
 + (J2ObjcClassInfo *)__metadata {
-  static J2ObjcClassInfo _ARPIBrowser = { "IBrowser", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
+  static J2ObjcMethodInfo methods[] = {
+    { "openBrowserWithNSString:withNSString:withNSString:", "openBrowser", "Z", 0x401, NULL },
+  };
+  static J2ObjcClassInfo _ARPIBrowser = { "IBrowser", "me.adaptive.arp.api", NULL, 0x201, 1, methods, 0, NULL, 0, NULL};
   return &_ARPIBrowser;
 }
 

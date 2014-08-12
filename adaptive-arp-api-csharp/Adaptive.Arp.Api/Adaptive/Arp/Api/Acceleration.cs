@@ -32,8 +32,7 @@ using Sharpen;
 namespace Adaptive.Arp.Api
 {
 	/// <author>Carlos Lozano Diez</author>
-	/// <seealso cref="me.adaptive.arp.api.AccelerationListener">me.adaptive.arp.api.AccelerationListener
-	/// 	</seealso>
+	/// <seealso cref="IAccelerationListener">IAccelerationListener</seealso>
 	/// <seealso cref="IAccelerometer">IAccelerometer</seealso>
 	/// <since>ARP1.0</since>
 	public class Acceleration

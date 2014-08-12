@@ -36,12 +36,14 @@ package me.adaptive.arp.api;
 public class EmailAddress {
     /**
      * The Email address
+     *
      * @since ARP1.0
      */
     private String address;
 
     /**
      * Constructor used by implementation
+     *
      * @param address
      * @since ARP1.0
      */
@@ -51,6 +53,7 @@ public class EmailAddress {
 
     /**
      * Returns the email address
+     *
      * @return address of the Email
      * @since ARP1.0
      */
@@ -60,6 +63,7 @@ public class EmailAddress {
 
     /**
      * Set the Email address
+     *
      * @param address of the Email
      * @since ARP1.0
      */

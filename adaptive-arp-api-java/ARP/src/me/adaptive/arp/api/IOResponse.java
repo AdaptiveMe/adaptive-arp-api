@@ -42,8 +42,6 @@
 
 package me.adaptive.arp.api;
 
-import java.lang.String;
-
 /**
  * Created by FRMI on 12/08/2014.
  */
@@ -51,42 +49,50 @@ public class IOResponse {
 
     /**
      * Request/Response data content (plain text).
+     *
      * @since ARP1.0
      */
     private String content;
     /**
      * The request/response content type (MIME TYPE).
+     *
      * @since ARP1.0
      */
     private String contentType;
     /**
      * The length in bytes for the Content field.
+     *
      * @since ARP1.0
      */
     private String contentLength;
     /**
      * The byte[] representing the binary Content.
+     *
      * @since ARP1.0
      */
     private byte[] contentBinary;
     /**
      * The length in bytes for the binary Content.
+     *
      * @since ARP1.0
      */
     private int contentBinaryLength;
     /**
      * The headers array (name,value pairs) to be included on the I/O service request.
+     *
      * @since ARP1.0
      */
     private Header[] headers;
     /**
      * The session context for the Request/Response.
+     *
      * @since ARP1.0
      */
     private Session session;
 
     /**
      * Constructor used by the implementation
+     *
      * @param content
      * @param contentType
      * @param contentLength
@@ -108,6 +114,7 @@ public class IOResponse {
 
     /**
      * Returns the content
+     *
      * @return content
      * @since ARP1.0
      */
@@ -117,6 +124,7 @@ public class IOResponse {
 
     /**
      * Set the content
+     *
      * @param content
      * @since ARP1.0
      */
@@ -125,16 +133,18 @@ public class IOResponse {
     }
 
     /**
-    * Returns the content type
-    * @return contentType
-    * @since ARP1.0
-    */
+     * Returns the content type
+     *
+     * @return contentType
+     * @since ARP1.0
+     */
     public String getContentType() {
         return contentType;
     }
 
     /**
      * Set the content type
+     *
      * @param contentType
      * @since ARP1.0
      */
@@ -144,6 +154,7 @@ public class IOResponse {
 
     /**
      * Returns the content length
+     *
      * @return contentLength
      * @since ARP1.0
      */
@@ -153,6 +164,7 @@ public class IOResponse {
 
     /**
      * Set the content length
+     *
      * @param contentLength
      * @since ARP1.0
      */
@@ -162,6 +174,7 @@ public class IOResponse {
 
     /**
      * Returns the binary content
+     *
      * @return contentBinary
      * @since ARP1.0
      */
@@ -171,6 +184,7 @@ public class IOResponse {
 
     /**
      * Set the binary content
+     *
      * @param contentBinary
      * @since ARP1.0
      */
@@ -180,6 +194,7 @@ public class IOResponse {
 
     /**
      * Retrusn the binary content length
+     *
      * @return contentBinaryLength
      * @since ARP1.0
      */
@@ -189,6 +204,7 @@ public class IOResponse {
 
     /**
      * Set the binary content length
+     *
      * @param contentBinaryLength
      * @since ARP1.0
      */
@@ -198,6 +214,7 @@ public class IOResponse {
 
     /**
      * Returns the array of Header
+     *
      * @return headers
      * @since ARP1.0
      */
@@ -207,6 +224,7 @@ public class IOResponse {
 
     /**
      * Set the array of Header
+     *
      * @param headers
      * @since ARP1.0
      */
@@ -216,6 +234,7 @@ public class IOResponse {
 
     /**
      * Returns the method
+     *
      * @return method
      * @since ARP1.0
      */
@@ -225,6 +244,7 @@ public class IOResponse {
 
     /**
      * Set the method
+     *
      * @param method
      * @since ARP1.0
      */

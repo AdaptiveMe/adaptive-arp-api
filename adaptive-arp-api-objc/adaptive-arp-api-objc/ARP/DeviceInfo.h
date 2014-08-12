@@ -35,9 +35,8 @@
 #define _ARPDeviceInfo_H_
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 
-@interface ARPDeviceInfo : NSObject < JavaIoSerializable > {
+@interface ARPDeviceInfo : NSObject {
  @public
   NSString *name_;
   NSString *model_;

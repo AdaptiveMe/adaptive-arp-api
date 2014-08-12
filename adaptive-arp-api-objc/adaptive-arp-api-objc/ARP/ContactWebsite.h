@@ -35,9 +35,8 @@
 #define _ARPContactWebsite_H_
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 
-@interface ARPContactWebsite : NSObject < JavaIoSerializable > {
+@interface ARPContactWebsite : NSObject {
  @public
   NSString *url_;
 }

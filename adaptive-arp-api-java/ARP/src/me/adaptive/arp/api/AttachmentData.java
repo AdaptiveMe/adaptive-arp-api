@@ -37,38 +37,44 @@ public class AttachmentData {
 
     /**
      * The raw data for the current file attachment (byte array)
+     *
      * @since ARP1.0
      */
     private byte[] data;
     /**
      * The data size (in bytes) of the current file attachment
+     *
      * @since ARP1.0
      */
     private long dataSize;
     /**
      * The name of the current file attachment
+     *
      * @since ARP1.0
      */
     private String fileName;
 
     /**
      * The mime type of the current attachment
+     *
      * @since ARP1.0
      */
     private String mimeType;
 
     /**
      * The relative path where the contents for the attachment file could be located.
+     *
      * @since ARP1.0
      */
     private String referenceUrl;
 
     /**
      * Constructor used by the implementation
-     * @param data raw data of the file attachment
-     * @param dataSize size of the file attachment
-     * @param fileName name of the file attachment
-     * @param mimeType mime type of the file attachment
+     *
+     * @param data         raw data of the file attachment
+     * @param dataSize     size of the file attachment
+     * @param fileName     name of the file attachment
+     * @param mimeType     mime type of the file attachment
      * @param referenceUrl relative url of the file attachment
      * @since ARP1.0
      */
@@ -82,7 +88,8 @@ public class AttachmentData {
 
     /**
      * Returns the raw data in byte[]
-     * @return  data
+     *
+     * @return data
      * @since ARP1.0
      */
     public byte[] getData() {
@@ -91,6 +98,7 @@ public class AttachmentData {
 
     /**
      * Set the data of the attachment as a byte[]
+     *
      * @param data
      * @since ARP1.0
      */
@@ -100,6 +108,7 @@ public class AttachmentData {
 
     /**
      * Returns the size of the attachment as a long
+     *
      * @return dataSize
      * @since ARP1.0
      */
@@ -109,6 +118,7 @@ public class AttachmentData {
 
     /**
      * Set the size of the attachment as a long
+     *
      * @param dataSize
      * @since ARP1.0
      */
@@ -118,6 +128,7 @@ public class AttachmentData {
 
     /**
      * Returns the filename of the attachment
+     *
      * @return fileName
      * @since ARP1.0
      */
@@ -127,6 +138,7 @@ public class AttachmentData {
 
     /**
      * Set the name of the file attachment
+     *
      * @param fileName
      * @since ARP1.0
      */
@@ -136,6 +148,7 @@ public class AttachmentData {
 
     /**
      * Returns the mime type of the attachment
+     *
      * @return mimeType
      * @since ARP1.0
      */
@@ -145,6 +158,7 @@ public class AttachmentData {
 
     /**
      * Set the mime type of the attachment
+     *
      * @param mimeType
      * @since ARP1.0
      */
@@ -154,6 +168,7 @@ public class AttachmentData {
 
     /**
      * Returns the relative url of the file attachment
+     *
      * @return referenceUrl
      * @since ARP1.0
      */
@@ -163,6 +178,7 @@ public class AttachmentData {
 
     /**
      * Set the relative url of the attachment
+     *
      * @param referenceUrl
      * @since ARP1.0
      */

@@ -35,9 +35,8 @@
 #define _ARPContactSocial_H_
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 
-@interface ARPContactSocial : NSObject < JavaIoSerializable > {
+@interface ARPContactSocial : NSObject {
  @public
   NSString *socialNetwork_;
   NSString *profileUrl_;

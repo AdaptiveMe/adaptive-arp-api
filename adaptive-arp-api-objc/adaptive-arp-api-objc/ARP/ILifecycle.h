@@ -34,11 +34,15 @@
 #ifndef _ARPILifecycle_H_
 #define _ARPILifecycle_H_
 
+@protocol ARPILifecycleListener;
+
 #import "JreEmulation.h"
 #include "IBaseApplication.h"
 #include "java/io/Serializable.h"
 
 @protocol ARPILifecycle < ARPIBaseApplication, JavaIoSerializable, NSObject, JavaObject >
+- (void)addLifecycleListenerWithARPILifecycleListener:(id<ARPILifecycleListener>)listener;
+
 @end
 
 __attribute__((always_inline)) inline void ARPILifecycle_init() {}

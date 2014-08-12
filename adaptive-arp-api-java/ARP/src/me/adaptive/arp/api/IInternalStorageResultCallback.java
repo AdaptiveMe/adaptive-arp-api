@@ -31,16 +31,11 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by DBarranco on 11/08/14.
  */
-public interface IInternalStorageResultCallback extends Serializable {
-
-    enum Warning {EntryOverride}
-
-    enum Error {NoPermission, NoMatchesFound}
+public interface IInternalStorageResultCallback {
 
     /**
      * Correct data received.
@@ -66,5 +61,9 @@ public interface IInternalStorageResultCallback extends Serializable {
      * @since ARP1.0
      */
     void onError(Error error);
+
+    enum Warning {EntryOverride}
+
+    enum Error {NoPermission, NoMatchesFound}
 }
 

@@ -30,12 +30,11 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by FRMI on 11/08/2014.
  */
-public interface IGeolocationListener extends Serializable{
+public interface IGeolocationListener {
 
     /**
      * Correct data received.

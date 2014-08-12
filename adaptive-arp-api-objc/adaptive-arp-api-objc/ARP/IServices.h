@@ -34,11 +34,23 @@
 #ifndef _ARPIServices_H_
 #define _ARPIServices_H_
 
+@class ARPRequest;
+@class ARPService;
+@protocol ARPIIOCallback;
+
 #import "JreEmulation.h"
 #include "IBaseData.h"
 #include "java/io/Serializable.h"
 
 @protocol ARPIServices < ARPIBaseData, JavaIoSerializable, NSObject, JavaObject >
+- (BOOL)registerServiceWithARPService:(ARPService *)service;
+
+- (BOOL)unregisterServiceWithARPService:(ARPService *)service;
+
+- (void)InvokeServiceWithARPRequest:(ARPRequest *)request
+                     withARPService:(ARPService *)service
+                 withARPIIOCallback:(id<ARPIIOCallback>)callback;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIServices_init() {}

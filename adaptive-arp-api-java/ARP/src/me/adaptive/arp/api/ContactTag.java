@@ -38,17 +38,20 @@ public class ContactTag {
 
     /**
      * The name of the Tag
+     *
      * @since ARP1.0
      */
     private String name;
     /**
      * The value of the Tag
+     *
      * @since ARP1.0
      */
     private String value;
 
     /**
      * Constructor used by the implementation
+     *
      * @param value
      * @param name
      * @since ARP1.0
@@ -60,6 +63,7 @@ public class ContactTag {
 
     /**
      * Returns the name of the Tag
+     *
      * @return name
      * @since ARP1.0
      */
@@ -69,6 +73,7 @@ public class ContactTag {
 
     /**
      * Set the name of the Tag
+     *
      * @param name
      * @since ARP1.0
      */
@@ -78,6 +83,7 @@ public class ContactTag {
 
     /**
      * Returns the value of the Tag
+     *
      * @return value
      * @since ARP1.0
      */
@@ -87,6 +93,7 @@ public class ContactTag {
 
     /**
      * Set the value of the Tag
+     *
      * @param value
      * @since ARP1.0
      */

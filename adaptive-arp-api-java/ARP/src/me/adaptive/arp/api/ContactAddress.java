@@ -35,27 +35,21 @@ package me.adaptive.arp.api;
  */
 public class ContactAddress {
     /**
-     * Types that can be used
-     * @since ARP1.0
-     */
-    public enum AddressType {
-        Home, Work, Other
-    }
-
-    /**
      * The Contact address
+     *
      * @since ARP1.0
      */
     private String address;
-
     /**
      * The address type
+     *
      * @since ARP1.0
      */
     private AddressType type;
 
     /**
      * Constructor used by the implementation
+     *
      * @param address
      * @param type
      * @since ARP1.0
@@ -67,6 +61,7 @@ public class ContactAddress {
 
     /**
      * Returns the Contact address
+     *
      * @return address
      * @since ARP1.0
      */
@@ -76,6 +71,7 @@ public class ContactAddress {
 
     /**
      * Set the address of the Contact
+     *
      * @param address
      * @since ARP1.0
      */
@@ -85,6 +81,7 @@ public class ContactAddress {
 
     /**
      * Returns the type of the address
+     *
      * @return AddressType
      * @since ARP1.0
      */
@@ -94,10 +91,20 @@ public class ContactAddress {
 
     /**
      * Set the address type
+     *
      * @param type
      * @since ARP1.0
      */
     public void setType(AddressType type) {
         this.type = type;
+    }
+
+    /**
+     * Types that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum AddressType {
+        Home, Work, Other
     }
 }

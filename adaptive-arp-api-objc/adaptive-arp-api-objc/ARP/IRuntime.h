@@ -39,6 +39,12 @@
 #include "java/io/Serializable.h"
 
 @protocol ARPIRuntime < ARPIBaseSystem, JavaIoSerializable, NSObject, JavaObject >
+- (void)DismissApplication;
+
+- (BOOL)isBackground;
+
+- (BOOL)DismissSplashScreen;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIRuntime_init() {}

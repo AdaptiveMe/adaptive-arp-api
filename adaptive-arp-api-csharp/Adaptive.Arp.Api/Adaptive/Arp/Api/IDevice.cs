@@ -41,5 +41,14 @@ namespace Adaptive.Arp.Api
 		/// 	</remarks>
 		/// <returns>DeviceInfo for the current device.</returns>
 		DeviceInfo GetDeviceInfo();
+
+		/// <summary>Gets the current Locale for the device.</summary>
+		/// <remarks>Gets the current Locale for the device.</remarks>
+		/// <returns>The current Locale information.</returns>
+		Locale GetLocaleCurrent();
+
+		/// <summary>Send the device the info from hardware button pressed</summary>
+		/// <param name="button"></param>
+		void ButtonPressed(IButtonCallback button);
 	}
 }

@@ -37,49 +37,57 @@ public class Email {
 
     /**
      * Array of Email recipients
+     *
      * @since ARP1.0
      */
     private EmailAddress[] toRecipients;
     /**
      * Array of Email Carbon Copy recipients
+     *
      * @since ARP1.0
      */
     private EmailAddress[] ccRecipients;
     /**
      * Array of Email Blind Carbon Copy recipients
+     *
      * @since ARP1.0
      */
     private EmailAddress[] bccRecipients;
     /**
      * Array of attatchments
+     *
      * @since ARP1.0
      */
     private AttachmentData[] attachmentData;
     /**
      * Message body
+     *
      * @since ARP1.0
      */
     private String messageBody;
     /**
      * Message body mime type
+     *
      * @since ARP1.0
      */
     private String messageBodyMimeType;
     /**
      * Subject of the email
+     *
      * @since ARP1.0
      */
     private String subject;
 
     /**
      * Constructor used by the implementation
-     * @param toRecipients array of recipients
-     * @param ccRecipients array of cc recipients
-     * @param bccRecipients array of bcc recipients
-     * @param attachmentData array of attatchments
-     * @param messageBody body of the email
+     *
+     * @param toRecipients        array of recipients
+     * @param ccRecipients        array of cc recipients
+     * @param bccRecipients       array of bcc recipients
+     * @param attachmentData      array of attatchments
+     * @param messageBody         body of the email
      * @param messageBodyMimeType mime type of the body
-     * @param subject of the email
+     * @param subject             of the email
      * @since ARP1.0
      */
     public Email(EmailAddress[] toRecipients, EmailAddress[] ccRecipients, EmailAddress[] bccRecipients, AttachmentData[] attachmentData, String messageBody, String messageBodyMimeType, String subject) {
@@ -94,9 +102,10 @@ public class Email {
 
     /**
      * Constructor used by the implementation
+     *
      * @param toRecipients array of recipients
-     * @param subject of the email
-     * @param messageBody body of the email
+     * @param subject      of the email
+     * @param messageBody  body of the email
      * @since ARP1.0
      */
     public Email(EmailAddress[] toRecipients, String subject, String messageBody) {
@@ -107,6 +116,7 @@ public class Email {
 
     /**
      * Returns the array of recipients
+     *
      * @return toRecipients array of recipients
      * @since ARP1.0
      */
@@ -116,6 +126,7 @@ public class Email {
 
     /**
      * Set the array of recipients
+     *
      * @param toRecipients array of recipients
      * @since ARP1.0
      */
@@ -125,6 +136,7 @@ public class Email {
 
     /**
      * Returns the array of recipients
+     *
      * @return ccRecipients array of cc recipients
      * @since ARP1.0
      */
@@ -134,6 +146,7 @@ public class Email {
 
     /**
      * Set the array of recipients
+     *
      * @param ccRecipients array of cc recipients
      * @since ARP1.0
      */
@@ -143,6 +156,7 @@ public class Email {
 
     /**
      * Returns the array of recipients
+     *
      * @return bccRecipients array of bcc recipients
      * @since ARP1.0
      */
@@ -152,6 +166,7 @@ public class Email {
 
     /**
      * Set the array of recipients
+     *
      * @param bccRecipients array of bcc recipients
      * @since ARP1.0
      */
@@ -161,6 +176,7 @@ public class Email {
 
     /**
      * Returns an array of attachments
+     *
      * @return attachmentData array with the email attachments
      * @since ARP1.0
      */
@@ -170,6 +186,7 @@ public class Email {
 
     /**
      * Set the email attachment data array
+     *
      * @param attachmentData array of email attatchments
      * @since ARP1.0
      */
@@ -179,6 +196,7 @@ public class Email {
 
     /**
      * Returns the message body of the email
+     *
      * @return message Body string of the email
      */
     public String getMessageBody() {
@@ -187,6 +205,7 @@ public class Email {
 
     /**
      * Set the message body of the email
+     *
      * @param messageBody message body of the email
      * @since ARP1.0
      */
@@ -196,6 +215,7 @@ public class Email {
 
     /**
      * Returns the myme type of the message body
+     *
      * @return mime type string of the message boddy
      * @since ARP1.0
      */
@@ -205,6 +225,7 @@ public class Email {
 
     /**
      * Set the mime type for the message body
+     *
      * @param mime type of the body message
      * @since ARP1.0
      */
@@ -214,6 +235,7 @@ public class Email {
 
     /**
      * Returns the subject of the email
+     *
      * @return subject string of the email
      * @since ARP1.0
      */
@@ -223,6 +245,7 @@ public class Email {
 
     /**
      * Set the subject of the email
+     *
      * @param subject of the email
      * @since ARP1.0
      */

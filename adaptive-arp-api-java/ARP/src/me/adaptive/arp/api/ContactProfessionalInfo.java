@@ -37,22 +37,26 @@ public class ContactProfessionalInfo {
 
     /**
      * The company of the job
+     *
      * @since ARP1.0
      */
     private String company;
     /**
      * The job title
+     *
      * @since ARP1.0
      */
     private String jobTitle;
     /**
      * The job description
+     *
      * @since ARP1.0
      */
     private String jobDescription;
 
     /**
      * Constructor used by implementation to set the ContactProfessionalInfo.
+     *
      * @param jobTitle
      * @param jobDescription
      * @param company
@@ -66,6 +70,7 @@ public class ContactProfessionalInfo {
 
     /**
      * Returns the company of the job
+     *
      * @return company
      * @since ARP1.0
      */
@@ -75,6 +80,7 @@ public class ContactProfessionalInfo {
 
     /**
      * Set the company of the job
+     *
      * @param company
      * @since ARP1.0
      */
@@ -84,6 +90,7 @@ public class ContactProfessionalInfo {
 
     /**
      * Returns the title of the job
+     *
      * @return title
      * @since ARP1.0
      */
@@ -93,6 +100,7 @@ public class ContactProfessionalInfo {
 
     /**
      * Set the title of the job
+     *
      * @param title
      * @since ARP1.0
      */
@@ -102,6 +110,7 @@ public class ContactProfessionalInfo {
 
     /**
      * Returns the description of the job
+     *
      * @return description
      * @since ARP1.0
      */
@@ -111,6 +120,7 @@ public class ContactProfessionalInfo {
 
     /**
      * Set the description of the job
+     *
      * @param description
      * @since ARP1.0
      */

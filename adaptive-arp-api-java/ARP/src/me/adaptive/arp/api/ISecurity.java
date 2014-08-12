@@ -30,14 +30,14 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface ISecurity extends IBaseSecurity, Serializable {
+public interface ISecurity extends IBaseSecurity {
     /**
      * Returns if the device has been modified in anyhow
+     *
      * @return true if the device has been modified; false otherwise
      * @since ARP1.0
      */
