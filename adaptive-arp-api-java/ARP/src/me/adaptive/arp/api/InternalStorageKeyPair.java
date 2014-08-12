@@ -36,7 +36,7 @@ import java.io.Serializable;
 /**
  * Created by DBarranco on 11/08/14.
  */
-public class InternalStorageKeyPair implements Serializable{
+public class InternalStorageKeyPair{
 
     private String key;
 
