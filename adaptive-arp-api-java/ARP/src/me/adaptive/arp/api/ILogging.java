@@ -21,7 +21,10 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *              <http://github.com/fnva>
+ *              <http://twitter.com/ferran_vila>
+ *              <mailto:ferran.vila.conesa@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -31,7 +34,26 @@ package me.adaptive.arp.api;
 import java.io.Serializable;
 
 /**
- * Created by clozano on 04/08/14.
+ * @author Ferran Vila Conesa
+ * @since ARP1.0
  */
 public interface ILogging extends IBaseUtil, Serializable {
+
+    /**
+     * Enumeration for log level platform normalization. Every platform has
+     * to match their log levels into these ones.
+     */
+    public enum LogLevel {
+        DEBUG, WARN, ERROR
+    }
+
+    /**
+     * Logs the given message, with the given log level if specified, to the standard platform/environment.
+     *
+     * @param level   Log level
+     * @param message Message to be logged
+     * @author Ferran Vila Conesa
+     * @since ARP1.0
+     */
+    void log(LogLevel level, String message);
 }
