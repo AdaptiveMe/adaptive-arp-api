@@ -34,26 +34,51 @@ package me.adaptive.arp.api;
 import java.io.Serializable;
 
 /**
+ * @see me.adaptive.arp.api.IDatabase
  * @author Ferran Vila Conesa
  * @since ARP1.0
  */
-public interface ILogging extends IBaseUtil, Serializable {
+public interface DatabaseCallback extends Serializable {
 
     /**
-     * Enumeration for log level platform normalization. Every platform has
-     * to match their log levels into these ones.
+     * Enumeration for warnings related to database manipulation.
      */
-    public enum LogLevel {
-        DEBUG, WARN, ERROR
+    public enum Warning {
+        DatabaseExists
     }
 
     /**
-     * Logs the given message, with the given log level if specified, to the standard platform/environment.
+     * Enumeration for errors related to database manipulation.
+     */
+    public enum Error {
+        NoSpace, SqlException
+    }
+
+    /**
+     * Result callback for correct responses
      *
-     * @param level   Log level
-     * @param message Message to be logged
+     * @param database Returns the database
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    void log(LogLevel level, String message);
+    public void onResult(Database database);
+
+    /**
+     * Result callback for warning responses
+     *
+     * @param database Returns the database
+     * @param warning  Returned Warning
+     * @author Ferran Vila Conesa
+     * @since ARP1.0
+     */
+    public void onWarning(Database database, Warning warning);
+
+    /**
+     * Result callback for error responses
+     *
+     * @param error Returned error
+     * @author Ferran Vila Conesa
+     * @since ARP1.0
+     */
+    public void onError(Error error);
 }

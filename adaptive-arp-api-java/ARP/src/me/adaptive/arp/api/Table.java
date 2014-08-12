@@ -31,29 +31,35 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
+ * @see me.adaptive.arp.api.IDatabase
+ * @see me.adaptive.arp.api.Database
  * @author Ferran Vila Conesa
  * @since ARP1.0
  */
-public interface ILogging extends IBaseUtil, Serializable {
+public class Table {
 
     /**
-     * Enumeration for log level platform normalization. Every platform has
-     * to match their log levels into these ones.
+     * Name of the table.
      */
-    public enum LogLevel {
-        DEBUG, WARN, ERROR
-    }
+    private String name;
+    /**
+     * Number of columns.
+     */
+    private int columnCount;
 
     /**
-     * Logs the given message, with the given log level if specified, to the standard platform/environment.
-     *
-     * @param level   Log level
-     * @param message Message to be logged
-     * @author Ferran Vila Conesa
-     * @since ARP1.0
+     * Number of rows.
      */
-    void log(LogLevel level, String message);
+    private int rowCount;
+
+    /**
+     * Definition of columns.
+     */
+    private Column[] columns;
+
+    /**
+     * Rows of the table containing the data.
+     */
+    private Row[] rows;
 }

@@ -21,10 +21,7 @@
  *
  * Contributors:
  *
- *     * Ferran Vila Conesa
- *              <http://github.com/fnva>
- *              <http://twitter.com/ferran_vila>
- *              <mailto:ferran.vila.conesa@gmail.com>
+ *     *
  *
  * =====================================================================================================================
  */
@@ -34,26 +31,51 @@ package me.adaptive.arp.api;
 import java.io.Serializable;
 
 /**
+ * @see me.adaptive.arp.api.IDatabase
  * @author Ferran Vila Conesa
  * @since ARP1.0
  */
-public interface ILogging extends IBaseUtil, Serializable {
+public interface TableCallback extends Serializable {
 
     /**
-     * Enumeration for log level platform normalization. Every platform has
-     * to match their log levels into these ones.
+     * Enumeration for warnings related to database manipulation.
      */
-    public enum LogLevel {
-        DEBUG, WARN, ERROR
+    public enum Warning {
+        TableExists, TableLocked, NoResults
     }
 
     /**
-     * Logs the given message, with the given log level if specified, to the standard platform/environment.
+     * Enumeration for errors related to database manipulation.
+     */
+    public enum Error {
+        NoSpace, ReadOnlyTable, SqlException
+    }
+
+    /**
+     * Result callback for correct responses
      *
-     * @param level   Log level
-     * @param message Message to be logged
+     * @param table Returns the table
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    void log(LogLevel level, String message);
+    public void onResult(Table table);
+
+    /**
+     * Result callback for warning responses
+     *
+     * @param table Returns the table
+     * @param warning  Returned Warning
+     * @author Ferran Vila Conesa
+     * @since ARP1.0
+     */
+    public void onWarning(Table table, Warning warning);
+
+    /**
+     * Result callback for error responses
+     *
+     * @param error Returned error
+     * @author Ferran Vila Conesa
+     * @since ARP1.0
+     */
+    public void onError(Error error);
 }
