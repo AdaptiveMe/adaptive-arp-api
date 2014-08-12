@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseReader.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIOCR < ARPIBaseReader, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIOCR < ARPIBaseReader, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIOCR_init() {}

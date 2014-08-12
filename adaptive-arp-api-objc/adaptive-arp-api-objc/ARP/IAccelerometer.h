@@ -38,10 +38,9 @@
 
 #import "JreEmulation.h"
 #include "IBaseSensor.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIAccelerometer < ARPIBaseSensor, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIAccelerometer < ARPIBaseSensor, NSObject, JavaObject >
 - (void)addAccelerationListenerWithARPIAccelerationListener:(id<ARPIAccelerationListener>)listener;
 
 - (void)removeAccelerationListenerWithARPIAccelerationListener:(id<ARPIAccelerationListener>)listener;

@@ -40,9 +40,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSystem.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIDevice < ARPIBaseSystem, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIDevice < ARPIBaseSystem, NSObject, JavaObject >
 - (ARPDeviceInfo *)getDeviceInfo;
 
 - (ARPLocale *)getLocaleCurrent;

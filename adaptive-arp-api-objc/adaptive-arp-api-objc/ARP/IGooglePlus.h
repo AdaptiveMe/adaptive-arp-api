@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSocial.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIGooglePlus < ARPIBaseSocial, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIGooglePlus < ARPIBaseSocial, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIGooglePlus_init() {}

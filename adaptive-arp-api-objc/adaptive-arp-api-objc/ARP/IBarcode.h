@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseReader.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIBarcode < ARPIBaseReader, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIBarcode < ARPIBaseReader, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIBarcode_init() {}

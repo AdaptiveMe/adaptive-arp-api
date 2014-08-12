@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSecurity.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIOpenId < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIOpenId < ARPIBaseSecurity, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIOpenId_init() {}

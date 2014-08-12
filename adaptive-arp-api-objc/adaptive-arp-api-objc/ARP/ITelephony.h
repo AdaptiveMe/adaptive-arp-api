@@ -38,10 +38,9 @@
 
 #import "JreEmulation.h"
 #include "IBasePIM.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPITelephony < ARPIBasePIM, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPITelephony < ARPIBasePIM, NSObject, JavaObject >
 - (ARPITelephony_StatusEnum *)callWithNSString:(NSString *)number;
 
 @end

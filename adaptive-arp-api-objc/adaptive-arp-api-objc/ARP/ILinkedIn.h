@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSocial.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPILinkedIn < ARPIBaseSocial, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPILinkedIn < ARPIBaseSocial, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPILinkedIn_init() {}

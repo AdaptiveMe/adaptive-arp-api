@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseReader.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPINFC < ARPIBaseReader, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPINFC < ARPIBaseReader, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPINFC_init() {}

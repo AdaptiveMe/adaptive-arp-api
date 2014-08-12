@@ -39,9 +39,8 @@
 
 #import "JreEmulation.h"
 #include "IBasePIM.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIMessaging < ARPIBasePIM, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIMessaging < ARPIBasePIM, NSObject, JavaObject >
 - (void)sendSMSWithNSString:(NSString *)number
                withNSString:(NSString *)text
   withARPIMessagingCallback:(id<ARPIMessagingCallback>)callback;

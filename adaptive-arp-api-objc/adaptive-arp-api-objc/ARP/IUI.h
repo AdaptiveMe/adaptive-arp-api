@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseUI.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIUI < ARPIBaseUI, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIUI < ARPIBaseUI, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIUI_init() {}

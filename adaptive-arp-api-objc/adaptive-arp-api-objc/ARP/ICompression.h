@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseUtil.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPICompression < ARPIBaseUtil, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPICompression < ARPIBaseUtil, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPICompression_init() {}

@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseMedia.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIAudio < ARPIBaseMedia, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIAudio < ARPIBaseMedia, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIAudio_init() {}

@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSensor.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIGyroscope < ARPIBaseSensor, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIGyroscope < ARPIBaseSensor, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIGyroscope_init() {}

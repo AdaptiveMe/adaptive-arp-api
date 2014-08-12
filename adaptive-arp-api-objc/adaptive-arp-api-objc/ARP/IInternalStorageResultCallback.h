@@ -39,10 +39,10 @@
 @class IOSObjectArray;
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIInternalStorageResultCallback < JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIInternalStorageResultCallback < NSObject, JavaObject >
+
 - (void)onResultWithARPInternalStorageKeyPairArray:(IOSObjectArray *)keyValues;
 
 - (void)onWarningWithARPInternalStorageKeyPairArray:(IOSObjectArray *)keyValues

@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseCommunication.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIBluetooth < ARPIBaseCommunication, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIBluetooth < ARPIBaseCommunication, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIBluetooth_init() {}

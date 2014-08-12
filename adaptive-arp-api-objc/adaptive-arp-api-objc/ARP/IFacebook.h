@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSocial.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIFacebook < ARPIBaseSocial, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIFacebook < ARPIBaseSocial, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIFacebook_init() {}

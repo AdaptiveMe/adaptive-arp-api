@@ -38,9 +38,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSystem.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIOS < ARPIBaseSystem, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIOS < ARPIBaseSystem, NSObject, JavaObject >
 - (ARPOSInfo *)getOSInfo;
 
 @end

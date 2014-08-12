@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseUtil.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPILogging < ARPIBaseUtil, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPILogging < ARPIBaseUtil, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPILogging_init() {}

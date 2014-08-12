@@ -39,9 +39,8 @@
 
 #import "JreEmulation.h"
 #include "IStore.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIInternalStorage < ARPIStore, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIInternalStorage < ARPIStore, NSObject, JavaObject >
 - (void)SetKeyValuePairsWithARPInternalStorageKeyPairArray:(IOSObjectArray *)keyValues
                                               withNSString:(NSString *)publicAccessName
                      withARPIInternalStorageResultCallback:(id<ARPIInternalStorageResultCallback>)callback;

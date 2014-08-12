@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSystem.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIRuntime < ARPIBaseSystem, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIRuntime < ARPIBaseSystem, NSObject, JavaObject >
 - (void)DismissApplication;
 
 - (BOOL)isBackground;

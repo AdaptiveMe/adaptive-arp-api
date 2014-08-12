@@ -40,9 +40,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseApplication.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIGlobalization < ARPIBaseApplication, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIGlobalization < ARPIBaseApplication, NSObject, JavaObject >
 - (IOSObjectArray *)getLocaleSupportedDescriptors;
 
 - (NSString *)getResourceLiteralWithNSString:(NSString *)key

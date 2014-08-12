@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSocial.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIRSS < ARPIBaseSocial, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIRSS < ARPIBaseSocial, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIRSS_init() {}

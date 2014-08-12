@@ -44,10 +44,9 @@
 
 #import "JreEmulation.h"
 #include "IBaseSystem.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPICapabilities < ARPIBaseSystem, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPICapabilities < ARPIBaseSystem, NSObject, JavaObject >
 - (BOOL)hasSensorSupportWithARPICapabilities_SensorEnum:(ARPICapabilities_SensorEnum *)type;
 
 - (BOOL)hasCommunicationSupportWithARPICapabilities_CommunicationEnum:(ARPICapabilities_CommunicationEnum *)type;

@@ -39,10 +39,10 @@
 @class ARPIOResponse;
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIIOCallback < JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIIOCallback < NSObject, JavaObject >
+
 - (void)onResultWithARPIOResponse:(ARPIOResponse *)response;
 
 - (void)onWarningWithARPIOResponse:(ARPIOResponse *)response

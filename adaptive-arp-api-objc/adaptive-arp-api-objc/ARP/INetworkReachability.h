@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseCommunication.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPINetworkReachability < ARPIBaseCommunication, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPINetworkReachability < ARPIBaseCommunication, NSObject, JavaObject >
 - (BOOL)isNetworkReachableWithNSString:(NSString *)url;
 
 @end

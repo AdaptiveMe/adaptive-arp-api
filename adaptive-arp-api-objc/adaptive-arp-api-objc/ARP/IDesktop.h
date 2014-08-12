@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseUI.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIDesktop < ARPIBaseUI, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIDesktop < ARPIBaseUI, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIDesktop_init() {}

@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSensor.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIBarometer < ARPIBaseSensor, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIBarometer < ARPIBaseSensor, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIBarometer_init() {}

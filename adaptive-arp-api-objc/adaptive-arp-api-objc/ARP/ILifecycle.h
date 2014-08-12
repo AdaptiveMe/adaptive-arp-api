@@ -38,9 +38,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseApplication.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPILifecycle < ARPIBaseApplication, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPILifecycle < ARPIBaseApplication, NSObject, JavaObject >
 - (void)addLifecycleListenerWithARPILifecycleListener:(id<ARPILifecycleListener>)listener;
 
 @end

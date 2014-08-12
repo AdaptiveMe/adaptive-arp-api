@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseCommerce.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIStore < ARPIBaseCommerce, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIStore < ARPIBaseCommerce, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIStore_init() {}

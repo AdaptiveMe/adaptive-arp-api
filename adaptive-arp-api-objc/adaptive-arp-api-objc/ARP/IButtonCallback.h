@@ -39,10 +39,10 @@
 @class ARPIButtonCallback_WarningEnum;
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIButtonCallback < JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIButtonCallback < NSObject, JavaObject >
+
 - (void)onResultWithARPButton:(ARPButton *)button;
 
 - (void)onWarningWithARPButton:(ARPButton *)button

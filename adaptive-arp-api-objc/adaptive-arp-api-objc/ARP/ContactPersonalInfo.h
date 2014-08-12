@@ -37,10 +37,9 @@
 @class ARPContactPersonalInfo_TitleEnum;
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@interface ARPContactPersonalInfo : NSObject < JavaIoSerializable > {
+@interface ARPContactPersonalInfo : NSObject {
  @public
   NSString *name_;
   NSString *middleName_;

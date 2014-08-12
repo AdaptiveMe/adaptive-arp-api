@@ -41,10 +41,9 @@
 
 #import "JreEmulation.h"
 #include "IBasePIM.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIContact < ARPIBasePIM, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIContact < ARPIBasePIM, NSObject, JavaObject >
 - (void)searchContactsWithNSString:(NSString *)term
      withARPIContactResultCallback:(id<ARPIContactResultCallback>)callback;
 

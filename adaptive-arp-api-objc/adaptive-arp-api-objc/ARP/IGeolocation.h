@@ -38,10 +38,9 @@
 
 #import "JreEmulation.h"
 #include "IBaseSensor.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIGeolocation < ARPIBaseSensor, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIGeolocation < ARPIBaseSensor, NSObject, JavaObject >
 - (void)addGeolocationListenerWithARPIGeolocationListener:(id<ARPIGeolocationListener>)listener;
 
 - (void)removeGeolocationListenerWithARPIGeolocationListener:(id<ARPIGeolocationListener>)listener;

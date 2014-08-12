@@ -40,9 +40,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseData.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIServices < ARPIBaseData, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIServices < ARPIBaseData, NSObject, JavaObject >
 - (BOOL)registerServiceWithARPService:(ARPService *)service;
 
 - (BOOL)unregisterServiceWithARPService:(ARPService *)service;
