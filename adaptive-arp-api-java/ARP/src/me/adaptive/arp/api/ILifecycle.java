@@ -41,5 +41,5 @@ public interface ILifecycle extends IBaseApplication, Serializable {
      *
      * @param listener
      */
-    void addForegroundListener(IForegroundListener listener);
+    void addLifecycleListener(ILifecycleListener listener);
 }

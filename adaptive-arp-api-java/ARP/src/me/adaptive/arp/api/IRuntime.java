@@ -39,18 +39,21 @@ public interface IRuntime extends IBaseSystem, Serializable {
 
     /**
      * Dismiss the current Application
+     * @since ARP1.0
      */
     void DismissApplication();
 
     /**
      * Whether the application is in background or not
      * @return true if the application is in background;false otherwise
+     * @since ARP1.0
      */
     boolean isBackground();
 
     /**
      * Whether the application dismiss the splash screen successfully or not
      * @return true if the application has dismissed the splash screen;false otherwise
+     * @since ARP1.0
      */
     boolean DismissSplashScreen();
 
