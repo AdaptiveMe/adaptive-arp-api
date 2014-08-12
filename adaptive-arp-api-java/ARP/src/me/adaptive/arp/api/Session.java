@@ -1,4 +1,5 @@
 /*
+ *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -21,35 +22,62 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
+ *
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
+import java.lang.String;
 
 /**
- * Created by clozano on 04/08/14.
+ * Created by FRMI on 12/08/2014.
  */
-public interface ITelephony extends IBasePIM, Serializable {
-
+public class Session {
     /**
-     * Statuses of the call
+     * Cookie array to keep the session
      * @since ARP1.0
      */
-    public enum Status{
-        Dialing, Failed
+    private Cookie[] cookie;
+
+    /**
+     * constructor used by implementation
+     * @param cookie
+     * @since ARP1.0
+     */
+    public Session(Cookie[] cookie) {
+        this.cookie = cookie;
     }
 
     /**
-     * Invoke a phone call
-     * @param number to call
-     * @return Status of the call
+     * Returns the cookie array
+     * @return cookie array
      * @since ARP1.0
      */
-    Status call(String number);
+    public Cookie[] getCookie() {
+        return cookie;
+    }
+
+    /**
+     * Set the cookie array
+     * @param cookie array
+     * @since ARP1.0
+     */
+    public void setCookie(Cookie[] cookie) {
+        this.cookie = cookie;
+    }
 }

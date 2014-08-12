@@ -35,7 +35,7 @@ import java.io.Serializable;
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactUid implements Serializable {
+public class ContactUid {
 
     /**
      * The id of the Contact

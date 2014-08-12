@@ -21,7 +21,9 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -29,9 +31,34 @@
 package me.adaptive.arp.api;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 /**
  * Created by clozano on 04/08/14.
  */
 public interface IGlobalization extends IBaseApplication, Serializable {
+
+    /**
+     * List of supported locales for the application
+     * @return List of locales (only locale descriptor string, such as "en-US").
+     * @since ARP1.0
+     */
+    String[] getLocaleSupportedDescriptors();
+
+    /**
+     * Gets the text/message corresponding to the given key and locale.
+     * @param key to match text
+     * @param The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+     * @return Localized text.
+     * @since ARP1.0
+     */
+    String getResourceLiteral(String key, Locale locale);
+
+    /**
+     * Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+     * @param The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+     * @return Localized texts in the form of an object (you could get the value of a keyed literal using resourceLiteralDictionary.MY_KEY or resourceLiteralDictionary["MY_KEY"]).
+     * @since ARP1.0
+     */
+    HashMap<String,String> getResourceLiterals(Locale locale);
 }

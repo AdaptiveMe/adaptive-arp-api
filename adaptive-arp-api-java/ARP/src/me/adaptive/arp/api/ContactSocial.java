@@ -30,12 +30,11 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactSocial implements Serializable {
+public class ContactSocial {
 
     /**
      * The social network

@@ -40,13 +40,13 @@ public interface IContact extends IBasePIM, Serializable {
      * Filter that can be used
      * @since ARP1.0
      */
-    enum Filter {HAS_PHONE, HAS_EMAIL, HAS_ADDRESS}
+    public enum Filter {HAS_PHONE, HAS_EMAIL, HAS_ADDRESS}
 
     /**
      * Group that can be retrieved
      * @since ARP1.0
      */
-    enum FieldGroup {PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS}
+    public enum FieldGroup {PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS}
 
     /**
      * Search contacts according to a term and send it to the callback

@@ -30,12 +30,10 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactWebsite implements Serializable {
+public class ContactWebsite{
     /**
      * The url of the website
      * @since ARP1.0

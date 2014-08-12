@@ -41,13 +41,13 @@ public interface IContactResultCallback extends Serializable{
      * Warnings that can be used
      * @since ARP1.0
      */
-    enum Warning {LimitExceeded}
+    public enum Warning {LimitExceeded}
 
     /**
      * Errors that can be used
      * @since ARP1.0
      */
-    enum Error {NoPermission}
+    public enum Error {NoPermission}
 
     /**
      * This method is called on Result

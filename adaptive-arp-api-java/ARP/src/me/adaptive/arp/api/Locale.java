@@ -30,26 +30,66 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
- * Created by clozano on 04/08/14.
+ * Created by FRMI on 11/08/2014.
  */
-public interface ITelephony extends IBasePIM, Serializable {
+public class Locale {
 
     /**
-     * Statuses of the call
+     * A valid ISO Country Code.
      * @since ARP1.0
      */
-    public enum Status{
-        Dialing, Failed
+    private String country;
+    /**
+     * A valid ISO Language Code.
+     * @since ARP1.0
+     */
+    private String language;
+
+    /**
+     * Constructor used by the implementation
+     * @param country
+     * @param language
+     * @since ARP1.0
+     */
+    public Locale(String country, String language) {
+        this.country = country;
+        this.language = language;
     }
 
     /**
-     * Invoke a phone call
-     * @param number to call
-     * @return Status of the call
+     * Returns the country code
+     * @return country code
      * @since ARP1.0
      */
-    Status call(String number);
+    public String getCountry() {
+        return country;
+    }
+
+    /**
+     * Set the country code
+     * @param country code
+     * @since ARP1.0
+     */
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    /**
+     * Returns the language code
+     * @return language code
+     * @since ARP1.0
+     */
+    public String getLanguage() {
+        return language;
+    }
+
+    /**
+     * Set the language code
+     * @param language code
+     * @since ARP1.0
+     */
+    public void setLanguage(String language) {
+        this.language = language;
+    }
 }

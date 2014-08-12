@@ -41,7 +41,7 @@ public interface ICapabilities extends IBaseSystem, Serializable {
      * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    enum Sensor {
+    public enum Sensor {
         Accelerometer, AmbientLight, Barometer, Geolocation, Gyroscope, Magnetometer, Proximity
     }
 
@@ -64,7 +64,7 @@ public interface ICapabilities extends IBaseSystem, Serializable {
      * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    enum Communication {
+    public enum Communication {
         Calendar, Contact, Mail, Messaging, Telephony
     }
 
@@ -87,7 +87,7 @@ public interface ICapabilities extends IBaseSystem, Serializable {
      * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    enum Data {
+    public enum Data {
         Database, File, Cloud
     }
 
@@ -104,7 +104,7 @@ public interface ICapabilities extends IBaseSystem, Serializable {
     /**
      * Media functionality support enumeration.
      */
-    enum Media {
+    public enum Media {
         Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording
     }
 
@@ -125,7 +125,7 @@ public interface ICapabilities extends IBaseSystem, Serializable {
      * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    enum Net {
+    public enum Net {
         GSM, GPRS, HSDPA, LTE, WIFI, Ethernet
     }
 
@@ -145,7 +145,7 @@ public interface ICapabilities extends IBaseSystem, Serializable {
      * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    enum Notification {
+    public enum Notification {
         Alarm, LocalNotification, RemoteNotification, Vibration
     }
 
@@ -166,7 +166,7 @@ public interface ICapabilities extends IBaseSystem, Serializable {
      * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    enum Button {
+    public enum Button {
         HomeButton, BackButton, OptionButton
     }
 

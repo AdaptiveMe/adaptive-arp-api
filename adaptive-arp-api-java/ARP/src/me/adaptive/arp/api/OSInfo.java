@@ -28,10 +28,7 @@
 
 package me.adaptive.arp.api;
 
-
-import java.io.Serializable;
-
-public class OSInfo implements Serializable {
+public class OSInfo {
     /**
      * The name of the operating system.
      */

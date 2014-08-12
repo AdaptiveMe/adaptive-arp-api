@@ -44,8 +44,8 @@ public interface IGeolocation extends IBaseSensor, Serializable {
     *
     * @since ARP1.0
     */
-    enum Status {
-        Success, Unauthorized, HighDoP, Unavailable
+    public enum Status {
+        Success, Unauthorized, HighDoP, Unavailable, GPS_Not_Enabled
     }
 
     /**
@@ -54,7 +54,7 @@ public interface IGeolocation extends IBaseSensor, Serializable {
      * @param listener to be registered.
      * @since ARP1.0
      */
-    void addAccelerationListener(IGeolocationListener listener);
+    void addGeolocationListener(IGeolocationListener listener);
 
     /**
      * De-registers an existing listener from receiving geolocation events.
@@ -62,7 +62,7 @@ public interface IGeolocation extends IBaseSensor, Serializable {
      * @param listener
      * @since ARP1.0
      */
-    void removeAccelerationListener(IGeolocationListener listener);
+    void removeGeolocationListener(IGeolocationListener listener);
 
     /**
      * Removed all existing listeners from receiving geolocation events.

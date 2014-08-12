@@ -1,4 +1,5 @@
 /*
+ *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -21,83 +22,87 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
+ *
  */
 
 package me.adaptive.arp.api;
 
+import java.lang.String;
+
 /**
- * Created by clozano on 08/08/14.
+ * Created by FRMI on 12/08/2014.
  */
-public class ContactAddress {
+public class Cookie {
     /**
-     * Types that can be used
+     * Name ot the cookie
      * @since ARP1.0
      */
-    public enum AddressType {
-        Home, Work, Other
-    }
-
+    private String name;
     /**
-     * The Contact address
+     * Value of the Cookie
      * @since ARP1.0
      */
-    private String address;
-
-    /**
-     * The address type
-     * @since ARP1.0
-     */
-    private AddressType type;
+    private String value;
 
     /**
      * Constructor used by the implementation
-     * @param address
-     * @param type
+     * @param name
+     * @param value
      * @since ARP1.0
      */
-    public ContactAddress(String address, AddressType type) {
-        this.address = address;
-        this.type = type;
+    public Cookie(String name, String value) {
+        this.name = name;
+        this.value = value;
     }
 
     /**
-     * Returns the Contact address
-     * @return address
+     * Returns the cookie name
+     * @return name
      * @since ARP1.0
      */
-    public String getAddress() {
-        return address;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Set the address of the Contact
-     * @param address
+     * Set the cookie name
+     * @param name
      * @since ARP1.0
      */
-    public void setAddress(String address) {
-        this.address = address;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
-     * Returns the type of the address
-     * @return AddressType
+     * Returns the cookie value
+     * @return
      * @since ARP1.0
      */
-    public AddressType getType() {
-        return type;
+    public String getValue() {
+        return value;
     }
 
     /**
-     * Set the address type
-     * @param type
+     * Set the cookie value
+     * @param value
      * @since ARP1.0
      */
-    public void setType(AddressType type) {
-        this.type = type;
+    public void setValue(String value) {
+        this.value = value;
     }
 }

@@ -1,4 +1,5 @@
 /*
+ *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -21,11 +22,22 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
+ *
  */
 
 package me.adaptive.arp.api;
@@ -33,23 +45,41 @@ package me.adaptive.arp.api;
 import java.io.Serializable;
 
 /**
- * Created by clozano on 04/08/14.
+ * Created by FRMI on 12/08/2014.
  */
-public interface ITelephony extends IBasePIM, Serializable {
+public interface IIOCallback extends Serializable{
 
     /**
-     * Statuses of the call
+     * Warnings that can be used
      * @since ARP1.0
      */
-    public enum Status{
-        Dialing, Failed
-    }
+    public enum Warning {Internal_Error, Not_Implemented, TIMEDOUT}
 
     /**
-     * Invoke a phone call
-     * @param number to call
-     * @return Status of the call
+     * Errors that can be used
      * @since ARP1.0
      */
-    Status call(String number);
+    public enum Error {Forbidden, Not_Found, Method_Not_Allowed, Not_Allowed}
+
+    /**
+     * This method is called on Result
+     * @param response data
+     * @since ARP1.0
+     */
+    void onResult(IOResponse response);
+
+    /**
+     * This method is called on Warning
+     * @param response data
+     * @param warning returned by the platform
+     * @since ARP1.0
+     */
+    void onWarning(IOResponse response, Warning warning);
+
+    /**
+     * This method is called on Error
+     * @param error returned by the platform
+     * @since ARP1.0
+     */
+    void onError(Error error);
 }

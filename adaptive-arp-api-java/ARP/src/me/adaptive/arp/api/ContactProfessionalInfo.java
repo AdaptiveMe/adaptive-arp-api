@@ -30,12 +30,10 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactProfessionalInfo implements Serializable {
+public class ContactProfessionalInfo {
 
     /**
      * The company of the job

@@ -21,3 +21,20 @@ adaptive-arp-api-csharp/Adaptive.Arp.Api/obj
 adaptive-arp-api-csharp/Adaptive.Arp.Api/bin
 
 adaptive-arp-api-java/out
+*.iws
+*.ipr
+*.ipr
+*.iws
+*.iws
+adaptive-arp-api-java/adaptive-arp-api-java.ipr
+adaptive-arp-api-java/adaptive-arp-api-java.iws
+.idea/.name
+.idea/adaptive-arp-api.iml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/compiler.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/misc.xml
