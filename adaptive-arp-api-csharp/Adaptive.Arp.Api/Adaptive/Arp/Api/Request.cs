@@ -35,14 +35,6 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
 	public class Request
 	{
-		/// <summary>Protocol version supported</summary>
-		/// <since>ARP1.0</since>
-		public enum ProtocolVersion
-		{
-			HttpProtocolVersion10,
-			HttpProtocolVersion11
-		}
-
 		/// <summary>Request/Response data content (plain text).</summary>
 		/// <remarks>Request/Response data content (plain text).</remarks>
 		/// <since>ARP1.0</since>
@@ -234,6 +226,14 @@ namespace Adaptive.Arp.Api
 		public virtual void SetSession(Session session)
 		{
 			this.session = session;
+		}
+
+		/// <summary>Protocol version supported</summary>
+		/// <since>ARP1.0</since>
+		public enum ProtocolVersion
+		{
+			HttpProtocolVersion10,
+			HttpProtocolVersion11
 		}
 	}
 }

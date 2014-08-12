@@ -35,22 +35,6 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
 	public class Lifecycle
 	{
-		/// <summary>
-		/// Possible lifecycle States
-		/// Start = when app starts
-		/// Pause = ToBackground
-		/// Resume = ToForeground
-		/// End = app closes
-		/// </summary>
-		/// <since>ARP1.0</since>
-		public enum State
-		{
-			Start,
-			Pause,
-			Resume,
-			End
-		}
-
 		/// <summary>Represent the state of the app</summary>
 		/// <since>ARP1.0</since>
 		private Lifecycle.State state;
@@ -77,6 +61,22 @@ namespace Adaptive.Arp.Api
 		public virtual void SetState(Lifecycle.State state)
 		{
 			this.state = state;
+		}
+
+		/// <summary>
+		/// Possible lifecycle States
+		/// Start = when app starts
+		/// Pause = ToBackground
+		/// Resume = ToForeground
+		/// End = app closes
+		/// </summary>
+		/// <since>ARP1.0</since>
+		public enum State
+		{
+			Start,
+			Pause,
+			Resume,
+			End
 		}
 	}
 }

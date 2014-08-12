@@ -35,19 +35,6 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 08/08/14.</remarks>
 	public class ContactPhone
 	{
-		/// <summary>Types that can be used</summary>
-		/// <since>ARP1.0</since>
-		public enum PhoneType
-		{
-			Mobile,
-			Work,
-			Home,
-			Main,
-			HomeFax,
-			WorkFax,
-			Other
-		}
-
 		/// <summary>The phone number</summary>
 		/// <since>ARP1.0</since>
 		private string phone;
@@ -96,6 +83,19 @@ namespace Adaptive.Arp.Api
 		public virtual void SetPhoneType(ContactPhone.PhoneType phoneType)
 		{
 			this.phoneType = phoneType;
+		}
+
+		/// <summary>Types that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum PhoneType
+		{
+			Mobile,
+			Work,
+			Home,
+			Main,
+			HomeFax,
+			WorkFax,
+			Other
 		}
 	}
 }

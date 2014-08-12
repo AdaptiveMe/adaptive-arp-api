@@ -35,15 +35,6 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 08/08/14.</remarks>
 	public class ContactEmail
 	{
-		/// <summary>Types that can be used</summary>
-		/// <since>ARP1.0</since>
-		public enum EmailType
-		{
-			Personal,
-			Work,
-			Other
-		}
-
 		/// <summary>The type of the email</summary>
 		/// <since>ARP1.0</since>
 		private ContactEmail.EmailType type;
@@ -114,6 +105,15 @@ namespace Adaptive.Arp.Api
 		public virtual void SetEmail(string email)
 		{
 			this.email = email;
+		}
+
+		/// <summary>Types that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum EmailType
+		{
+			Personal,
+			Work,
+			Other
 		}
 	}
 }

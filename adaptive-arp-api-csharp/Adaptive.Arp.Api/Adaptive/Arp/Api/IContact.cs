@@ -33,32 +33,8 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 04/08/14.</summary>
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	[System.Serializable]
 	public abstract class IContact : IBasePIM
 	{
-		/// <summary>Filter that can be used</summary>
-		/// <since>ARP1.0</since>
-		public enum Filter
-		{
-			HasPhone,
-			HasEmail,
-			HasAddress
-		}
-
-		/// <summary>Group that can be retrieved</summary>
-		/// <since>ARP1.0</since>
-		public enum FieldGroup
-		{
-			PersonalInfo,
-			ProfessionalInfo,
-			Addresses,
-			Phones,
-			Emails,
-			Websites,
-			Socials,
-			Tags
-		}
-
 		/// <summary>Search contacts according to a term and send it to the callback</summary>
 		/// <param name="term">string to search</param>
 		/// <param name="callback">called for return</param>
@@ -114,5 +90,28 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public abstract void GetContacts(IContactResultCallback callback, IContact.FieldGroup
 			[] fields, params IContact.Filter[] filter);
+
+		/// <summary>Filter that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum Filter
+		{
+			HasPhone,
+			HasEmail,
+			HasAddress
+		}
+
+		/// <summary>Group that can be retrieved</summary>
+		/// <since>ARP1.0</since>
+		public enum FieldGroup
+		{
+			PersonalInfo,
+			ProfessionalInfo,
+			Addresses,
+			Phones,
+			Emails,
+			Websites,
+			Socials,
+			Tags
+		}
 	}
 }

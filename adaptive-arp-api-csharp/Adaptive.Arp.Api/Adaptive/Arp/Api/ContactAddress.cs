@@ -35,15 +35,6 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 08/08/14.</remarks>
 	public class ContactAddress
 	{
-		/// <summary>Types that can be used</summary>
-		/// <since>ARP1.0</since>
-		public enum AddressType
-		{
-			Home,
-			Work,
-			Other
-		}
-
 		/// <summary>The Contact address</summary>
 		/// <since>ARP1.0</since>
 		private string address;
@@ -92,6 +83,15 @@ namespace Adaptive.Arp.Api
 		public virtual void SetType(ContactAddress.AddressType type)
 		{
 			this.type = type;
+		}
+
+		/// <summary>Types that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum AddressType
+		{
+			Home,
+			Work,
+			Other
 		}
 	}
 }

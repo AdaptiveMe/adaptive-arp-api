@@ -33,23 +33,8 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 08/08/14.</summary>
 	/// <remarks>Created by clozano on 08/08/14.</remarks>
-	[System.Serializable]
 	public abstract class IContactResultCallback
 	{
-		/// <summary>Warnings that can be used</summary>
-		/// <since>ARP1.0</since>
-		public enum Warning
-		{
-			LimitExceeded
-		}
-
-		/// <summary>Errors that can be used</summary>
-		/// <since>ARP1.0</since>
-		public enum Error
-		{
-			NoPermission
-		}
-
 		/// <summary>This method is called on Result</summary>
 		/// <param name="contacts">returned by the platform</param>
 		/// <since>ARP1.0</since>
@@ -66,5 +51,19 @@ namespace Adaptive.Arp.Api
 		/// <param name="error">returned by the platform</param>
 		/// <since>ARP1.0</since>
 		public abstract void OnError(IContactResultCallback.Error error);
+
+		/// <summary>Warnings that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum Warning
+		{
+			LimitExceeded
+		}
+
+		/// <summary>Errors that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum Error
+		{
+			NoPermission
+		}
 	}
 }

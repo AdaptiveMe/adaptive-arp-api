@@ -33,9 +33,24 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by FRMI on 11/08/2014.</summary>
 	/// <remarks>Created by FRMI on 11/08/2014.</remarks>
-	[System.Serializable]
 	public abstract class IMessagingCallback
 	{
+		/// <summary>This method is called on Result</summary>
+		/// <param name="success">true if sent;false otherwise</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnResult(bool success);
+
+		/// <summary>This method is called on Warning</summary>
+		/// <param name="success">true if sent;false otherwise</param>
+		/// <param name="warning">returned by the platform</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnWarning(bool success, IMessagingCallback.Warning warning);
+
+		/// <summary>This method is called on Error</summary>
+		/// <param name="error">returned by the platform</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnError(IMessagingCallback.Error error);
+
 		/// <summary>Warnings that can be used</summary>
 		/// <since>ARP1.0</since>
 		public enum Warning
@@ -52,21 +67,5 @@ namespace Adaptive.Arp.Api
 			Email_Account_Not_Found,
 			Not_Sent
 		}
-
-		/// <summary>This method is called on Result</summary>
-		/// <param name="success">true if sent;false otherwise</param>
-		/// <since>ARP1.0</since>
-		public abstract void OnResult(bool success);
-
-		/// <summary>This method is called on Warning</summary>
-		/// <param name="success">true if sent;false otherwise</param>
-		/// <param name="warning">returned by the platform</param>
-		/// <since>ARP1.0</since>
-		public abstract void OnWarning(bool success, IMessagingCallback.Warning warning);
-
-		/// <summary>This method is called on Error</summary>
-		/// <param name="error">returned by the platform</param>
-		/// <since>ARP1.0</since>
-		public abstract void OnError(IMessagingCallback.Error error);
 	}
 }

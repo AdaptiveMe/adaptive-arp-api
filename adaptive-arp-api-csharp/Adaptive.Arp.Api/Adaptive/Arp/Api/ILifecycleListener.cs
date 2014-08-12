@@ -37,7 +37,7 @@ namespace Adaptive.Arp.Api
 	{
 		/// <summary>Called when lifecycle changes somehow.</summary>
 		/// <remarks>Called when lifecycle changes somehow.</remarks>
-		/// <param name="lifecicle"></param>
+		/// <param name="lifecycle"></param>
 		/// <since>ARP1.0</since>
 		void OnResult(Lifecycle lifecycle);
 

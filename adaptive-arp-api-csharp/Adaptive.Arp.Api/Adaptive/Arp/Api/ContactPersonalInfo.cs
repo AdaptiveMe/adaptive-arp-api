@@ -33,19 +33,8 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 08/08/14.</summary>
 	/// <remarks>Created by clozano on 08/08/14.</remarks>
-	[System.Serializable]
 	public class ContactPersonalInfo
 	{
-		/// <summary>Titles that can be used</summary>
-		/// <since>ARP1.0</since>
-		public enum Title
-		{
-			Mr,
-			Mrs,
-			Ms,
-			Dr
-		}
-
 		/// <summary>The name of the Contact</summary>
 		/// <since>ARP1.0</since>
 		private string name;
@@ -139,6 +128,16 @@ namespace Adaptive.Arp.Api
 		public virtual void SetTitle(ContactPersonalInfo.Title title)
 		{
 			this.title = title;
+		}
+
+		/// <summary>Titles that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum Title
+		{
+			Mr,
+			Mrs,
+			Ms,
+			Dr
 		}
 	}
 }

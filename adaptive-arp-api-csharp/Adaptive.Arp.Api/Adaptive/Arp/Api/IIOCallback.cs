@@ -33,9 +33,24 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by FRMI on 12/08/2014.</summary>
 	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
-	[System.Serializable]
 	public abstract class IIOCallback
 	{
+		/// <summary>This method is called on Result</summary>
+		/// <param name="response">data</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnResult(IOResponse response);
+
+		/// <summary>This method is called on Warning</summary>
+		/// <param name="response">data</param>
+		/// <param name="warning">returned by the platform</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnWarning(IOResponse response, IIOCallback.Warning warning);
+
+		/// <summary>This method is called on Error</summary>
+		/// <param name="error">returned by the platform</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnError(IIOCallback.Error error);
+
 		/// <summary>Warnings that can be used</summary>
 		/// <since>ARP1.0</since>
 		public enum Warning
@@ -54,21 +69,5 @@ namespace Adaptive.Arp.Api
 			Method_Not_Allowed,
 			Not_Allowed
 		}
-
-		/// <summary>This method is called on Result</summary>
-		/// <param name="response">data</param>
-		/// <since>ARP1.0</since>
-		public abstract void OnResult(IOResponse response);
-
-		/// <summary>This method is called on Warning</summary>
-		/// <param name="response">data</param>
-		/// <param name="warning">returned by the platform</param>
-		/// <since>ARP1.0</since>
-		public abstract void OnWarning(IOResponse response, IIOCallback.Warning warning);
-
-		/// <summary>This method is called on Error</summary>
-		/// <param name="error">returned by the platform</param>
-		/// <since>ARP1.0</since>
-		public abstract void OnError(IIOCallback.Error error);
 	}
 }

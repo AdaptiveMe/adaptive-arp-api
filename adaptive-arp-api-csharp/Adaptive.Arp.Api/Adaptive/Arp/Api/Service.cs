@@ -35,30 +35,6 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
 	public class Service
 	{
-		/// <summary>Type of available services</summary>
-		/// <since>ARP1.0</since>
-		public enum ServiceType
-		{
-			ServicetypeAmfSerialization,
-			ServicetypeGwtRpc,
-			ServicetypeOctetBinary,
-			ServicetypeRemotingSerialization,
-			ServicetypeRestJson,
-			ServicetypeRestXml,
-			ServicetypeSoapJson,
-			ServicetypeSoapXml,
-			ServicetypeXmlrpcJson,
-			ServicetypeXmlrpcXml
-		}
-
-		/// <summary>Available methods</summary>
-		/// <since>ARP1.0</since>
-		public enum ServiceMethod
-		{
-			Post,
-			Get
-		}
-
 		/// <summary>Enpoint of the service</summary>
 		/// <since>ARP1.0</since>
 		private Endpoint endpoint;
@@ -152,6 +128,30 @@ namespace Adaptive.Arp.Api
 		public virtual void SetType(Service.ServiceType type)
 		{
 			this.type = type;
+		}
+
+		/// <summary>Type of available services</summary>
+		/// <since>ARP1.0</since>
+		public enum ServiceType
+		{
+			ServicetypeAmfSerialization,
+			ServicetypeGwtRpc,
+			ServicetypeOctetBinary,
+			ServicetypeRemotingSerialization,
+			ServicetypeRestJson,
+			ServicetypeRestXml,
+			ServicetypeSoapJson,
+			ServicetypeSoapXml,
+			ServicetypeXmlrpcJson,
+			ServicetypeXmlrpcXml
+		}
+
+		/// <summary>Available methods</summary>
+		/// <since>ARP1.0</since>
+		public enum ServiceMethod
+		{
+			Post,
+			Get
 		}
 	}
 }

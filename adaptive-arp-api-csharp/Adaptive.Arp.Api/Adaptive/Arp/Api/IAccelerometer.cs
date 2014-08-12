@@ -35,27 +35,8 @@ namespace Adaptive.Arp.Api
 	/// <seealso cref="Acceleration">Acceleration</seealso>
 	/// <seealso cref="IAccelerationListener">IAccelerationListener</seealso>
 	/// <since>ARP1.0</since>
-	[System.Serializable]
 	public abstract class IAccelerometer : IBaseSensor
 	{
-		/// <summary>Success = Correct reading.</summary>
-		/// <remarks>
-		/// Success = Correct reading. Unauthorized = No reading. User has not
-		/// authorized a reading. NeedsCalibration = No reading. Device needs to be
-		/// calibrated. Unavailable = No reading. Not supported or temporarily
-		/// disabled.
-		/// </remarks>
-		/// <author>Carlos Lozano Diez</author>
-		/// <since>ARP1.0</since>
-		public enum Status
-		{
-			Success,
-			Unauthorized,
-			NeedsCalibration,
-			Stale,
-			Unavailable
-		}
-
 		/// <summary>Register a new listener that will receive acceleration events.</summary>
 		/// <remarks>Register a new listener that will receive acceleration events.</remarks>
 		/// <param name="listener">to be registered.</param>
@@ -75,5 +56,23 @@ namespace Adaptive.Arp.Api
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
 		public abstract void RemoveAccelerationListeners();
+
+		/// <summary>Success = Correct reading.</summary>
+		/// <remarks>
+		/// Success = Correct reading. Unauthorized = No reading. User has not
+		/// authorized a reading. NeedsCalibration = No reading. Device needs to be
+		/// calibrated. Unavailable = No reading. Not supported or temporarily
+		/// disabled.
+		/// </remarks>
+		/// <author>Carlos Lozano Diez</author>
+		/// <since>ARP1.0</since>
+		public enum Status
+		{
+			Success,
+			Unauthorized,
+			NeedsCalibration,
+			Stale,
+			Unavailable
+		}
 	}
 }

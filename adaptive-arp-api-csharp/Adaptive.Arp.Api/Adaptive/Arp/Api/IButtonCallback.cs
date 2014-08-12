@@ -33,23 +33,8 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by FRMI on 12/08/2014.</summary>
 	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
-	[System.Serializable]
 	public abstract class IButtonCallback
 	{
-		/// <summary>Error posibilities</summary>
-		/// <since>ARP1.0</since>
-		public enum Error
-		{
-			Not_Present
-		}
-
-		/// <summary>Warn posibilities</summary>
-		/// <since>ARP1.0</since>
-		public enum Warning
-		{
-			Not_Implemented
-		}
-
 		/// <summary>Called on button pressed</summary>
 		/// <param name="button">pressed</param>
 		/// <since>ARP1.0</since>
@@ -65,5 +50,19 @@ namespace Adaptive.Arp.Api
 		/// <param name="error">occurred</param>
 		/// <since>ARP1.0</since>
 		public abstract void OnError(IButtonCallback.Error error);
+
+		/// <summary>Error posibilities</summary>
+		/// <since>ARP1.0</since>
+		public enum Error
+		{
+			Not_Present
+		}
+
+		/// <summary>Warn posibilities</summary>
+		/// <since>ARP1.0</since>
+		public enum Warning
+		{
+			Not_Implemented
+		}
 	}
 }

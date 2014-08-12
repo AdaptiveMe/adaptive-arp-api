@@ -33,20 +33,8 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by DBarranco on 11/08/14.</summary>
 	/// <remarks>Created by DBarranco on 11/08/14.</remarks>
-	[System.Serializable]
 	public abstract class IInternalStorageResultCallback
 	{
-		public enum Warning
-		{
-			EntryOverride
-		}
-
-		public enum Error
-		{
-			NoPermission,
-			NoMatchesFound
-		}
-
 		/// <summary>Correct data received.</summary>
 		/// <remarks>Correct data received.</remarks>
 		/// <param name="keyValues"></param>
@@ -66,5 +54,16 @@ namespace Adaptive.Arp.Api
 		/// <param name="error"></param>
 		/// <since>ARP1.0</since>
 		public abstract void OnError(IInternalStorageResultCallback.Error error);
+
+		public enum Warning
+		{
+			EntryOverride
+		}
+
+		public enum Error
+		{
+			NoPermission,
+			NoMatchesFound
+		}
 	}
 }
