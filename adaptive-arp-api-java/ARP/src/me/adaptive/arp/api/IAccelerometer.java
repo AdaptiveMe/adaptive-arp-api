@@ -33,7 +33,7 @@ import java.io.Serializable;
 /**
  * @author Carlos Lozano Diez
  * @see me.adaptive.arp.api.Acceleration
- * @see IAccelerationListener
+ * @see me.adaptive.arp.api.IAccelerationListener
  * @since ARP1.0
  */
 public interface IAccelerometer extends IBaseSensor, Serializable {
@@ -46,7 +46,7 @@ public interface IAccelerometer extends IBaseSensor, Serializable {
      * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    public enum Status {
+    enum Status {
         Success, Unauthorized, NeedsCalibration, Stale, Unavailable
     }
 
