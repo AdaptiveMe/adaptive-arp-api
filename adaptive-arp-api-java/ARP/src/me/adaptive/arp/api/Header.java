@@ -65,7 +65,7 @@ public class Header {
      * @param value
      * @since ARP1.0
      */
-    public Cookie(String name, String value) {
+    public Header(String name, String value) {
         this.name = name;
         this.value = value;
     }
