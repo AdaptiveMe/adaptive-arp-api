@@ -34,15 +34,57 @@
 #ifndef _ARPIGeolocation_H_
 #define _ARPIGeolocation_H_
 
+@protocol ARPIGeolocationListener;
+
 #import "JreEmulation.h"
 #include "IBaseSensor.h"
 #include "java/io/Serializable.h"
+#include "java/lang/Enum.h"
 
 @protocol ARPIGeolocation < ARPIBaseSensor, JavaIoSerializable, NSObject, JavaObject >
+- (void)addAccelerationListenerWithARPIGeolocationListener:(id<ARPIGeolocationListener>)listener;
+
+- (void)removeAccelerationListenerWithARPIGeolocationListener:(id<ARPIGeolocationListener>)listener;
+
+- (void)removeGeolocationListeners;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIGeolocation_init() {}
 
 #define MeAdaptiveArpApiIGeolocation ARPIGeolocation
+
+typedef enum {
+  ARPIGeolocation_Status_Success = 0,
+  ARPIGeolocation_Status_Unauthorized = 1,
+  ARPIGeolocation_Status_HighDoP = 2,
+  ARPIGeolocation_Status_Unavailable = 3,
+} ARPIGeolocation_Status;
+
+@interface ARPIGeolocation_StatusEnum : JavaLangEnum < NSCopying > {
+}
++ (IOSObjectArray *)values;
++ (ARPIGeolocation_StatusEnum *)valueOfWithNSString:(NSString *)name;
+- (id)copyWithZone:(NSZone *)zone;
+
+- (id)initWithNSString:(NSString *)__name withInt:(int)__ordinal;
+@end
+
+FOUNDATION_EXPORT BOOL ARPIGeolocation_StatusEnum_initialized;
+J2OBJC_STATIC_INIT(ARPIGeolocation_StatusEnum)
+
+FOUNDATION_EXPORT ARPIGeolocation_StatusEnum *ARPIGeolocation_StatusEnum_values[];
+
+#define ARPIGeolocation_StatusEnum_Success ARPIGeolocation_StatusEnum_values[ARPIGeolocation_Status_Success]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocation_StatusEnum, Success, ARPIGeolocation_StatusEnum *)
+
+#define ARPIGeolocation_StatusEnum_Unauthorized ARPIGeolocation_StatusEnum_values[ARPIGeolocation_Status_Unauthorized]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocation_StatusEnum, Unauthorized, ARPIGeolocation_StatusEnum *)
+
+#define ARPIGeolocation_StatusEnum_HighDoP ARPIGeolocation_StatusEnum_values[ARPIGeolocation_Status_HighDoP]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocation_StatusEnum, HighDoP, ARPIGeolocation_StatusEnum *)
+
+#define ARPIGeolocation_StatusEnum_Unavailable ARPIGeolocation_StatusEnum_values[ARPIGeolocation_Status_Unavailable]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocation_StatusEnum, Unavailable, ARPIGeolocation_StatusEnum *)
 
 #endif // _ARPIGeolocation_H_

@@ -35,5 +35,11 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface IDevice : IBaseSystem
 	{
+		/// <summary>Returns the device information for the current device executing the runtime.
+		/// 	</summary>
+		/// <remarks>Returns the device information for the current device executing the runtime.
+		/// 	</remarks>
+		/// <returns>DeviceInfo for the current device.</returns>
+		DeviceInfo GetDeviceInfo();
 	}
 }

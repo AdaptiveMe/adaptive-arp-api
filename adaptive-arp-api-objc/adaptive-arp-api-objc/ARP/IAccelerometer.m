@@ -31,7 +31,7 @@
 //
 //
 
-#include "AccelerationListener.h"
+#include "IAccelerationListener.h"
 #include "IAccelerometer.h"
 #include "IOSClass.h"
 #include "java/lang/IllegalArgumentException.h"
@@ -43,8 +43,8 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "addAccelerationListenerWithARPAccelerationListener:", "addAccelerationListener", "V", 0x401, NULL },
-    { "removeAccelerationListenerWithARPAccelerationListener:", "removeAccelerationListener", "V", 0x401, NULL },
+    { "addAccelerationListenerWithARPIAccelerationListener:", "addAccelerationListener", "V", 0x401, NULL },
+    { "removeAccelerationListenerWithARPIAccelerationListener:", "removeAccelerationListener", "V", 0x401, NULL },
     { "removeAccelerationListeners", NULL, "V", 0x401, NULL },
   };
   static J2ObjcClassInfo _ARPIAccelerometer = { "IAccelerometer", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
@@ -55,7 +55,7 @@
 
 BOOL ARPIAccelerometer_StatusEnum_initialized = NO;
 
-ARPIAccelerometer_StatusEnum *ARPIAccelerometer_StatusEnum_values[4];
+ARPIAccelerometer_StatusEnum *ARPIAccelerometer_StatusEnum_values[5];
 
 @implementation ARPIAccelerometer_StatusEnum
 
@@ -72,17 +72,18 @@ ARPIAccelerometer_StatusEnum *ARPIAccelerometer_StatusEnum_values[4];
     ARPIAccelerometer_StatusEnum_Success = [[ARPIAccelerometer_StatusEnum alloc] initWithNSString:@"Success" withInt:0];
     ARPIAccelerometer_StatusEnum_Unauthorized = [[ARPIAccelerometer_StatusEnum alloc] initWithNSString:@"Unauthorized" withInt:1];
     ARPIAccelerometer_StatusEnum_NeedsCalibration = [[ARPIAccelerometer_StatusEnum alloc] initWithNSString:@"NeedsCalibration" withInt:2];
-    ARPIAccelerometer_StatusEnum_Unavailable = [[ARPIAccelerometer_StatusEnum alloc] initWithNSString:@"Unavailable" withInt:3];
+    ARPIAccelerometer_StatusEnum_Stale = [[ARPIAccelerometer_StatusEnum alloc] initWithNSString:@"Stale" withInt:3];
+    ARPIAccelerometer_StatusEnum_Unavailable = [[ARPIAccelerometer_StatusEnum alloc] initWithNSString:@"Unavailable" withInt:4];
     ARPIAccelerometer_StatusEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIAccelerometer_StatusEnum_values count:4 type:[IOSClass classWithClass:[ARPIAccelerometer_StatusEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIAccelerometer_StatusEnum_values count:5 type:[IOSClass classWithClass:[ARPIAccelerometer_StatusEnum class]]];
 }
 
 + (ARPIAccelerometer_StatusEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 5; i++) {
     ARPIAccelerometer_StatusEnum *e = ARPIAccelerometer_StatusEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -100,10 +101,11 @@ ARPIAccelerometer_StatusEnum *ARPIAccelerometer_StatusEnum_values[4];
     { "Success", "Success", 0x4019, "Lme.adaptive.arp.api.IAccelerometer$Status;", &ARPIAccelerometer_StatusEnum_Success,  },
     { "Unauthorized", "Unauthorized", 0x4019, "Lme.adaptive.arp.api.IAccelerometer$Status;", &ARPIAccelerometer_StatusEnum_Unauthorized,  },
     { "NeedsCalibration", "NeedsCalibration", 0x4019, "Lme.adaptive.arp.api.IAccelerometer$Status;", &ARPIAccelerometer_StatusEnum_NeedsCalibration,  },
+    { "Stale", "Stale", 0x4019, "Lme.adaptive.arp.api.IAccelerometer$Status;", &ARPIAccelerometer_StatusEnum_Stale,  },
     { "Unavailable", "Unavailable", 0x4019, "Lme.adaptive.arp.api.IAccelerometer$Status;", &ARPIAccelerometer_StatusEnum_Unavailable,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IAccelerometer$Status;"};
-  static J2ObjcClassInfo _ARPIAccelerometer_StatusEnum = { "Status", "me.adaptive.arp.api", "IAccelerometer", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIAccelerometer_StatusEnum = { "Status", "me.adaptive.arp.api", "IAccelerometer", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
   return &_ARPIAccelerometer_StatusEnum;
 }
 

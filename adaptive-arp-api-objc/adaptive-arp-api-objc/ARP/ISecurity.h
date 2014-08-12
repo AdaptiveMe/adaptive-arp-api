@@ -39,6 +39,8 @@
 #include "java/io/Serializable.h"
 
 @protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
+- (BOOL)isDeviceModified;
+
 @end
 
 __attribute__((always_inline)) inline void ARPISecurity_init() {}

@@ -31,6 +31,7 @@
 //
 //
 
+#include "DeviceInfo.h"
 #include "IDevice.h"
 
 @interface ARPIDevice : NSObject
@@ -39,7 +40,10 @@
 @implementation ARPIDevice
 
 + (J2ObjcClassInfo *)__metadata {
-  static J2ObjcClassInfo _ARPIDevice = { "IDevice", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
+  static J2ObjcMethodInfo methods[] = {
+    { "getDeviceInfo", NULL, "Lme.adaptive.arp.api.DeviceInfo;", 0x401, NULL },
+  };
+  static J2ObjcClassInfo _ARPIDevice = { "IDevice", "me.adaptive.arp.api", NULL, 0x201, 1, methods, 0, NULL, 0, NULL};
   return &_ARPIDevice;
 }
 

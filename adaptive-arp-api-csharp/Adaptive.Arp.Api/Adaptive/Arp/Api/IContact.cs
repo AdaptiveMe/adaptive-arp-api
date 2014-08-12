@@ -33,7 +33,85 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 04/08/14.</summary>
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	public interface IContact : IBasePIM
+	public abstract class IContact : IBasePIM
 	{
+		/// <summary>Filter that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum Filter
+		{
+			HasPhone,
+			HasEmail,
+			HasAddress
+		}
+
+		/// <summary>Group that can be retrieved</summary>
+		/// <since>ARP1.0</since>
+		public enum FieldGroup
+		{
+			PersonalInfo,
+			ProfessionalInfo,
+			Addresses,
+			Phones,
+			Emails,
+			Websites,
+			Socials,
+			Tags
+		}
+
+		/// <summary>Search contacts according to a term and send it to the callback</summary>
+		/// <param name="term">string to search</param>
+		/// <param name="callback">called for return</param>
+		/// <since>ARP1.0</since>
+		public abstract void SearchContacts(string term, IContactResultCallback callback);
+
+		/// <summary>Search contacts according to a term with a filter and send it to the callback
+		/// 	</summary>
+		/// <param name="term">string to search</param>
+		/// <param name="callback">called for return</param>
+		/// <param name="filter">to search for</param>
+		/// <since>ARP1.0</since>
+		public abstract void SearchContacts(string term, IContactResultCallback callback, 
+			params IContact.Filter[] filter);
+
+		/// <summary>Get all the details of a contact according to its id</summary>
+		/// <param name="contact">id to search for</param>
+		/// <param name="callback">called for return</param>
+		/// <since>ARP1.0</since>
+		public abstract void GetContact(ContactUid contact, IContactResultCallback callback
+			);
+
+		/// <summary>Get the contact photo</summary>
+		/// <param name="contact">id to search for</param>
+		/// <param name="callback">called for return</param>
+		/// <since>ARP1.0</since>
+		public abstract void GetContactPhoto(ContactUid contact, IContactResultCallback callback
+			);
+
+		/// <summary>Set the contact photo</summary>
+		/// <param name="contact">id to assign the photo</param>
+		/// <param name="pngImage">photo as byte array</param>
+		/// <returns>true if set is successful;false otherwise</returns>
+		/// <since>ARP1.0</since>
+		public abstract bool SetContactPhoto(ContactUid contact, byte[] pngImage);
+
+		/// <summary>Get all contacts</summary>
+		/// <param name="callback">called for return</param>
+		/// <since>ARP1.0</since>
+		public abstract void GetContacts(IContactResultCallback callback);
+
+		/// <summary>Get marked fields of all contacts</summary>
+		/// <param name="callback">called for return</param>
+		/// <param name="fields">to get for each Contact</param>
+		/// <since>ARP1.0</since>
+		public abstract void GetContacts(IContactResultCallback callback, params IContact.FieldGroup
+			[] fields);
+
+		/// <summary>Get marked fields of all contacts according to a filter</summary>
+		/// <param name="callback">called for return</param>
+		/// <param name="fields">to get for each Contact</param>
+		/// <param name="filter">to search for</param>
+		/// <since>ARP1.0</since>
+		public abstract void GetContacts(IContactResultCallback callback, IContact.FieldGroup
+			[] fields, params IContact.Filter[] filter);
 	}
 }

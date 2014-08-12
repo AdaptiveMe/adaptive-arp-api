@@ -656,6 +656,26 @@
       <Link>SharpZipLib\Zip\Compression\Streams\StreamManipulator.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Adaptive\Arp\Api\AttachmentData.cs" />
+    <Compile Include="Adaptive\Arp\Api\Contact.cs" />
+    <Compile Include="Adaptive\Arp\Api\ContactAddress.cs" />
+    <Compile Include="Adaptive\Arp\Api\ContactEmail.cs" />
+    <Compile Include="Adaptive\Arp\Api\ContactPersonalInfo.cs" />
+    <Compile Include="Adaptive\Arp\Api\ContactPhone.cs" />
+    <Compile Include="Adaptive\Arp\Api\ContactProfessionalInfo.cs" />
+    <Compile Include="Adaptive\Arp\Api\ContactSocial.cs" />
+    <Compile Include="Adaptive\Arp\Api\ContactTag.cs" />
+    <Compile Include="Adaptive\Arp\Api\ContactUid.cs" />
+    <Compile Include="Adaptive\Arp\Api\ContactWebsite.cs" />
+    <Compile Include="Adaptive\Arp\Api\DeviceInfo.cs" />
+    <Compile Include="Adaptive\Arp\Api\Email.cs" />
+    <Compile Include="Adaptive\Arp\Api\EmailAddress.cs" />
+    <Compile Include="Adaptive\Arp\Api\Geolocation.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAccelerationListener.cs" />
+    <Compile Include="Adaptive\Arp\Api\IContactResultCallback.cs" />
+    <Compile Include="Adaptive\Arp\Api\IGeolocationListener.cs" />
+    <Compile Include="Adaptive\Arp\Api\IMessagingCallback.cs" />
+    <Compile Include="Adaptive\Arp\Api\OSInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

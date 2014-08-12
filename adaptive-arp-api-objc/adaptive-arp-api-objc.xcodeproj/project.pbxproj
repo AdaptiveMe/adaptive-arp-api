@@ -93,6 +93,26 @@
 		4E1E2BBF1992A9E500345D7C /* IVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1E2B681992A9E500345D7C /* IVideo.m */; };
 		4E1E2BC01992A9E500345D7C /* IWallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1E2B6A1992A9E500345D7C /* IWallet.m */; };
 		4E1E2BC11992A9E500345D7C /* IXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1E2B6C1992A9E500345D7C /* IXML.m */; };
+		4EECB81D1999807400821B9D /* AttachmentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB7F61999807400821B9D /* AttachmentData.m */; };
+		4EECB81E1999807400821B9D /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB7F81999807400821B9D /* Contact.m */; };
+		4EECB81F1999807400821B9D /* ContactAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB7FA1999807400821B9D /* ContactAddress.m */; };
+		4EECB8201999807400821B9D /* ContactEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB7FC1999807400821B9D /* ContactEmail.m */; };
+		4EECB8211999807400821B9D /* ContactPersonalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB7FE1999807400821B9D /* ContactPersonalInfo.m */; };
+		4EECB8221999807400821B9D /* ContactPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB8001999807400821B9D /* ContactPhone.m */; };
+		4EECB8231999807400821B9D /* ContactProfessionalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB8021999807400821B9D /* ContactProfessionalInfo.m */; };
+		4EECB8241999807400821B9D /* ContactSocial.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB8041999807400821B9D /* ContactSocial.m */; };
+		4EECB8251999807400821B9D /* ContactTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB8061999807400821B9D /* ContactTag.m */; };
+		4EECB8261999807400821B9D /* ContactUid.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB8081999807400821B9D /* ContactUid.m */; };
+		4EECB8271999807400821B9D /* ContactWebsite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB80A1999807400821B9D /* ContactWebsite.m */; };
+		4EECB8281999807400821B9D /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB80C1999807400821B9D /* DeviceInfo.m */; };
+		4EECB8291999807400821B9D /* Email.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB80E1999807400821B9D /* Email.m */; };
+		4EECB82A1999807400821B9D /* EmailAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB8101999807400821B9D /* EmailAddress.m */; };
+		4EECB82B1999807400821B9D /* Geolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB8121999807400821B9D /* Geolocation.m */; };
+		4EECB82C1999807400821B9D /* IAccelerationListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB8141999807400821B9D /* IAccelerationListener.m */; };
+		4EECB82D1999807400821B9D /* IContactResultCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB8161999807400821B9D /* IContactResultCallback.m */; };
+		4EECB82E1999807400821B9D /* IGeolocationListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB8181999807400821B9D /* IGeolocationListener.m */; };
+		4EECB82F1999807400821B9D /* IMessagingCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB81A1999807400821B9D /* IMessagingCallback.m */; };
+		4EECB8301999807400821B9D /* OSInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EECB81C1999807400821B9D /* OSInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -291,6 +311,46 @@
 		4E1E2B6A1992A9E500345D7C /* IWallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IWallet.m; path = ARP/IWallet.m; sourceTree = "<group>"; };
 		4E1E2B6B1992A9E500345D7C /* IXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IXML.h; path = ARP/IXML.h; sourceTree = "<group>"; };
 		4E1E2B6C1992A9E500345D7C /* IXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IXML.m; path = ARP/IXML.m; sourceTree = "<group>"; };
+		4EECB7F51999807400821B9D /* AttachmentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentData.h; path = ARP/AttachmentData.h; sourceTree = "<group>"; };
+		4EECB7F61999807400821B9D /* AttachmentData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentData.m; path = ARP/AttachmentData.m; sourceTree = "<group>"; };
+		4EECB7F71999807400821B9D /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = ARP/Contact.h; sourceTree = "<group>"; };
+		4EECB7F81999807400821B9D /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = ARP/Contact.m; sourceTree = "<group>"; };
+		4EECB7F91999807400821B9D /* ContactAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactAddress.h; path = ARP/ContactAddress.h; sourceTree = "<group>"; };
+		4EECB7FA1999807400821B9D /* ContactAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactAddress.m; path = ARP/ContactAddress.m; sourceTree = "<group>"; };
+		4EECB7FB1999807400821B9D /* ContactEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactEmail.h; path = ARP/ContactEmail.h; sourceTree = "<group>"; };
+		4EECB7FC1999807400821B9D /* ContactEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactEmail.m; path = ARP/ContactEmail.m; sourceTree = "<group>"; };
+		4EECB7FD1999807400821B9D /* ContactPersonalInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactPersonalInfo.h; path = ARP/ContactPersonalInfo.h; sourceTree = "<group>"; };
+		4EECB7FE1999807400821B9D /* ContactPersonalInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactPersonalInfo.m; path = ARP/ContactPersonalInfo.m; sourceTree = "<group>"; };
+		4EECB7FF1999807400821B9D /* ContactPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactPhone.h; path = ARP/ContactPhone.h; sourceTree = "<group>"; };
+		4EECB8001999807400821B9D /* ContactPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactPhone.m; path = ARP/ContactPhone.m; sourceTree = "<group>"; };
+		4EECB8011999807400821B9D /* ContactProfessionalInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactProfessionalInfo.h; path = ARP/ContactProfessionalInfo.h; sourceTree = "<group>"; };
+		4EECB8021999807400821B9D /* ContactProfessionalInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactProfessionalInfo.m; path = ARP/ContactProfessionalInfo.m; sourceTree = "<group>"; };
+		4EECB8031999807400821B9D /* ContactSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactSocial.h; path = ARP/ContactSocial.h; sourceTree = "<group>"; };
+		4EECB8041999807400821B9D /* ContactSocial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactSocial.m; path = ARP/ContactSocial.m; sourceTree = "<group>"; };
+		4EECB8051999807400821B9D /* ContactTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactTag.h; path = ARP/ContactTag.h; sourceTree = "<group>"; };
+		4EECB8061999807400821B9D /* ContactTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactTag.m; path = ARP/ContactTag.m; sourceTree = "<group>"; };
+		4EECB8071999807400821B9D /* ContactUid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactUid.h; path = ARP/ContactUid.h; sourceTree = "<group>"; };
+		4EECB8081999807400821B9D /* ContactUid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactUid.m; path = ARP/ContactUid.m; sourceTree = "<group>"; };
+		4EECB8091999807400821B9D /* ContactWebsite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactWebsite.h; path = ARP/ContactWebsite.h; sourceTree = "<group>"; };
+		4EECB80A1999807400821B9D /* ContactWebsite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactWebsite.m; path = ARP/ContactWebsite.m; sourceTree = "<group>"; };
+		4EECB80B1999807400821B9D /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceInfo.h; path = ARP/DeviceInfo.h; sourceTree = "<group>"; };
+		4EECB80C1999807400821B9D /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceInfo.m; path = ARP/DeviceInfo.m; sourceTree = "<group>"; };
+		4EECB80D1999807400821B9D /* Email.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Email.h; path = ARP/Email.h; sourceTree = "<group>"; };
+		4EECB80E1999807400821B9D /* Email.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Email.m; path = ARP/Email.m; sourceTree = "<group>"; };
+		4EECB80F1999807400821B9D /* EmailAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmailAddress.h; path = ARP/EmailAddress.h; sourceTree = "<group>"; };
+		4EECB8101999807400821B9D /* EmailAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmailAddress.m; path = ARP/EmailAddress.m; sourceTree = "<group>"; };
+		4EECB8111999807400821B9D /* Geolocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Geolocation.h; path = ARP/Geolocation.h; sourceTree = "<group>"; };
+		4EECB8121999807400821B9D /* Geolocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Geolocation.m; path = ARP/Geolocation.m; sourceTree = "<group>"; };
+		4EECB8131999807400821B9D /* IAccelerationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IAccelerationListener.h; path = ARP/IAccelerationListener.h; sourceTree = "<group>"; };
+		4EECB8141999807400821B9D /* IAccelerationListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IAccelerationListener.m; path = ARP/IAccelerationListener.m; sourceTree = "<group>"; };
+		4EECB8151999807400821B9D /* IContactResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IContactResultCallback.h; path = ARP/IContactResultCallback.h; sourceTree = "<group>"; };
+		4EECB8161999807400821B9D /* IContactResultCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IContactResultCallback.m; path = ARP/IContactResultCallback.m; sourceTree = "<group>"; };
+		4EECB8171999807400821B9D /* IGeolocationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGeolocationListener.h; path = ARP/IGeolocationListener.h; sourceTree = "<group>"; };
+		4EECB8181999807400821B9D /* IGeolocationListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGeolocationListener.m; path = ARP/IGeolocationListener.m; sourceTree = "<group>"; };
+		4EECB8191999807400821B9D /* IMessagingCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMessagingCallback.h; path = ARP/IMessagingCallback.h; sourceTree = "<group>"; };
+		4EECB81A1999807400821B9D /* IMessagingCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMessagingCallback.m; path = ARP/IMessagingCallback.m; sourceTree = "<group>"; };
+		4EECB81B1999807400821B9D /* OSInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSInfo.h; path = ARP/OSInfo.h; sourceTree = "<group>"; };
+		4EECB81C1999807400821B9D /* OSInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OSInfo.m; path = ARP/OSInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +417,46 @@
 		4E1E2AC21992A9C200345D7C /* ARP */ = {
 			isa = PBXGroup;
 			children = (
+				4EECB7F51999807400821B9D /* AttachmentData.h */,
+				4EECB7F61999807400821B9D /* AttachmentData.m */,
+				4EECB7F71999807400821B9D /* Contact.h */,
+				4EECB7F81999807400821B9D /* Contact.m */,
+				4EECB7F91999807400821B9D /* ContactAddress.h */,
+				4EECB7FA1999807400821B9D /* ContactAddress.m */,
+				4EECB7FB1999807400821B9D /* ContactEmail.h */,
+				4EECB7FC1999807400821B9D /* ContactEmail.m */,
+				4EECB7FD1999807400821B9D /* ContactPersonalInfo.h */,
+				4EECB7FE1999807400821B9D /* ContactPersonalInfo.m */,
+				4EECB7FF1999807400821B9D /* ContactPhone.h */,
+				4EECB8001999807400821B9D /* ContactPhone.m */,
+				4EECB8011999807400821B9D /* ContactProfessionalInfo.h */,
+				4EECB8021999807400821B9D /* ContactProfessionalInfo.m */,
+				4EECB8031999807400821B9D /* ContactSocial.h */,
+				4EECB8041999807400821B9D /* ContactSocial.m */,
+				4EECB8051999807400821B9D /* ContactTag.h */,
+				4EECB8061999807400821B9D /* ContactTag.m */,
+				4EECB8071999807400821B9D /* ContactUid.h */,
+				4EECB8081999807400821B9D /* ContactUid.m */,
+				4EECB8091999807400821B9D /* ContactWebsite.h */,
+				4EECB80A1999807400821B9D /* ContactWebsite.m */,
+				4EECB80B1999807400821B9D /* DeviceInfo.h */,
+				4EECB80C1999807400821B9D /* DeviceInfo.m */,
+				4EECB80D1999807400821B9D /* Email.h */,
+				4EECB80E1999807400821B9D /* Email.m */,
+				4EECB80F1999807400821B9D /* EmailAddress.h */,
+				4EECB8101999807400821B9D /* EmailAddress.m */,
+				4EECB8111999807400821B9D /* Geolocation.h */,
+				4EECB8121999807400821B9D /* Geolocation.m */,
+				4EECB8131999807400821B9D /* IAccelerationListener.h */,
+				4EECB8141999807400821B9D /* IAccelerationListener.m */,
+				4EECB8151999807400821B9D /* IContactResultCallback.h */,
+				4EECB8161999807400821B9D /* IContactResultCallback.m */,
+				4EECB8171999807400821B9D /* IGeolocationListener.h */,
+				4EECB8181999807400821B9D /* IGeolocationListener.m */,
+				4EECB8191999807400821B9D /* IMessagingCallback.h */,
+				4EECB81A1999807400821B9D /* IMessagingCallback.m */,
+				4EECB81B1999807400821B9D /* OSInfo.h */,
+				4EECB81C1999807400821B9D /* OSInfo.m */,
 				4E1E2AC31992A9E500345D7C /* Acceleration.h */,
 				4E1E2AC41992A9E500345D7C /* Acceleration.m */,
 				4E1E2AC51992A9E500345D7C /* AccelerationListener.h */,
@@ -619,17 +719,23 @@
 			files = (
 				4E1E2B911992A9E500345D7C /* IDataStream.m in Sources */,
 				4E1E2B9D1992A9E500345D7C /* ILinkedIn.m in Sources */,
+				4EECB8281999807400821B9D /* DeviceInfo.m in Sources */,
+				4EECB8211999807400821B9D /* ContactPersonalInfo.m in Sources */,
 				4E1E2B931992A9E500345D7C /* IDevice.m in Sources */,
 				4E1E2B8E1992A9E500345D7C /* IContact.m in Sources */,
 				4E1E2BBD1992A9E500345D7C /* IUpdate.m in Sources */,
+				4EECB82E1999807400821B9D /* IGeolocationListener.m in Sources */,
 				4E1E2BA31992A9E500345D7C /* IMessaging.m in Sources */,
 				4E1E2B961992A9E500345D7C /* IFile.m in Sources */,
 				4E1E2B991992A9E500345D7C /* IGooglePlus.m in Sources */,
 				4E1E2B741992A9E500345D7C /* IAnalytics.m in Sources */,
+				4EECB8271999807400821B9D /* ContactWebsite.m in Sources */,
+				4EECB82D1999807400821B9D /* IContactResultCallback.m in Sources */,
 				4E1E2B971992A9E500345D7C /* IGeolocation.m in Sources */,
 				4E1E2BA21992A9E500345D7C /* IMap.m in Sources */,
 				4E1E2B711992A9E500345D7C /* IAds.m in Sources */,
 				4E1E2B921992A9E500345D7C /* IDesktop.m in Sources */,
+				4EECB81E1999807400821B9D /* Contact.m in Sources */,
 				4E1E2BAD1992A9E500345D7C /* IOpenId.m in Sources */,
 				4E1E2BBA1992A9E500345D7C /* ITimer.m in Sources */,
 				4E1E2B8D1992A9E500345D7C /* IConcurrent.m in Sources */,
@@ -637,11 +743,13 @@
 				4E1E2B721992A9E500345D7C /* IAlarm.m in Sources */,
 				4E1E2BAC1992A9E500345D7C /* IOCR.m in Sources */,
 				4E1E2B7F1992A9E500345D7C /* IBaseReader.m in Sources */,
+				4EECB81F1999807400821B9D /* ContactAddress.m in Sources */,
 				4E1E2B8C1992A9E500345D7C /* ICompression.m in Sources */,
 				4E1E2BBB1992A9E500345D7C /* ITwitter.m in Sources */,
 				4E1E2B891992A9E500345D7C /* ICamera.m in Sources */,
 				4E1E2B851992A9E500345D7C /* IBaseUtil.m in Sources */,
 				4E1E2B7B1992A9E500345D7C /* IBaseData.m in Sources */,
+				4EECB8261999807400821B9D /* ContactUid.m in Sources */,
 				4E1E2BBC1992A9E500345D7C /* IUI.m in Sources */,
 				4E1E2B9C1992A9E500345D7C /* ILifecycle.m in Sources */,
 				4E1E2BB61992A9E500345D7C /* ISettings.m in Sources */,
@@ -650,20 +758,27 @@
 				4E1E2BB41992A9E500345D7C /* ISecurity.m in Sources */,
 				4E1E2B9E1992A9E500345D7C /* ILogging.m in Sources */,
 				4E1E2B801992A9E500345D7C /* IBaseSecurity.m in Sources */,
+				4EECB82C1999807400821B9D /* IAccelerationListener.m in Sources */,
 				4E1E2B811992A9E500345D7C /* IBaseSensor.m in Sources */,
+				4EECB82B1999807400821B9D /* Geolocation.m in Sources */,
 				4E1E2BA91992A9E500345D7C /* INotification.m in Sources */,
 				4E1E2BA41992A9E500345D7C /* INetworkInfo.m in Sources */,
 				4E1E2BA81992A9E500345D7C /* INFC.m in Sources */,
 				4E1E2BB01992A9E500345D7C /* IProximity.m in Sources */,
+				4EECB8291999807400821B9D /* Email.m in Sources */,
 				4E1E2BAF1992A9E500345D7C /* IPrinting.m in Sources */,
 				4E1E2BB11992A9E500345D7C /* IQRCode.m in Sources */,
 				4E1E2B771992A9E500345D7C /* IBarometer.m in Sources */,
 				4E1E2B791992A9E500345D7C /* IBaseCommerce.m in Sources */,
+				4EECB82A1999807400821B9D /* EmailAddress.m in Sources */,
+				4EECB8251999807400821B9D /* ContactTag.m in Sources */,
 				4E1E2B9A1992A9E500345D7C /* IGyroscope.m in Sources */,
+				4EECB8301999807400821B9D /* OSInfo.m in Sources */,
 				4E1E2B871992A9E500345D7C /* IBrowser.m in Sources */,
 				4E1E2BAE1992A9E500345D7C /* IOS.m in Sources */,
 				4E1E2B701992A9E500345D7C /* IAdaptiveRP.m in Sources */,
 				4E1E2BC01992A9E500345D7C /* IWallet.m in Sources */,
+				4EECB8201999807400821B9D /* ContactEmail.m in Sources */,
 				4E1E2B941992A9E500345D7C /* IDisplay.m in Sources */,
 				4E1E2B981992A9E500345D7C /* IGlobalization.m in Sources */,
 				4E1E2BB21992A9E500345D7C /* IRSS.m in Sources */,
@@ -671,12 +786,14 @@
 				4E1E2B8F1992A9E500345D7C /* ICrypto.m in Sources */,
 				4E1E2B861992A9E500345D7C /* IBluetooth.m in Sources */,
 				4E1E2BB81992A9E500345D7C /* IStore.m in Sources */,
+				4EECB81D1999807400821B9D /* AttachmentData.m in Sources */,
 				4E1E2B9F1992A9E500345D7C /* IMagnetometer.m in Sources */,
 				4E1E2BBF1992A9E500345D7C /* IVideo.m in Sources */,
 				4E1E2BA71992A9E500345D7C /* INetworkStatus.m in Sources */,
 				4E1E2B6F1992A9E500345D7C /* IAccelerometer.m in Sources */,
 				4E1E2B7D1992A9E500345D7C /* IBaseNotification.m in Sources */,
 				4E1E2BA01992A9E500345D7C /* IMail.m in Sources */,
+				4EECB8241999807400821B9D /* ContactSocial.m in Sources */,
 				4E1E2B8B1992A9E500345D7C /* ICloud.m in Sources */,
 				4E1E2BAA1992A9E500345D7C /* INotificationLocal.m in Sources */,
 				4E1E2B731992A9E500345D7C /* IAmbientLight.m in Sources */,
@@ -684,6 +801,7 @@
 				4E1E2B901992A9E500345D7C /* IDatabase.m in Sources */,
 				4E1E2B7E1992A9E500345D7C /* IBasePIM.m in Sources */,
 				4E1E2B6E1992A9E500345D7C /* AccelerationListener.m in Sources */,
+				4EECB82F1999807400821B9D /* IMessagingCallback.m in Sources */,
 				4E1E2BA11992A9E500345D7C /* IManagement.m in Sources */,
 				4E1E2B7C1992A9E500345D7C /* IBaseMedia.m in Sources */,
 				4E1E2B951992A9E500345D7C /* IFacebook.m in Sources */,
@@ -693,12 +811,14 @@
 				4E1E2BB31992A9E500345D7C /* IRuntime.m in Sources */,
 				4E1E2B9B1992A9E500345D7C /* IImaging.m in Sources */,
 				4E1E2B781992A9E500345D7C /* IBaseApplication.m in Sources */,
+				4EECB8231999807400821B9D /* ContactProfessionalInfo.m in Sources */,
 				4E1E2B8A1992A9E500345D7C /* ICapabilities.m in Sources */,
 				4E1E2BB71992A9E500345D7C /* ISocket.m in Sources */,
 				4E1E2BA61992A9E500345D7C /* INetworkReachability.m in Sources */,
 				4E1E2B761992A9E500345D7C /* IBarcode.m in Sources */,
 				4E1E2BAB1992A9E500345D7C /* IOAuth.m in Sources */,
 				4E1E2B751992A9E500345D7C /* IAudio.m in Sources */,
+				4EECB8221999807400821B9D /* ContactPhone.m in Sources */,
 				4E1E2B841992A9E500345D7C /* IBaseUI.m in Sources */,
 				4E1E2BB51992A9E500345D7C /* IServices.m in Sources */,
 				4E1E2B7A1992A9E500345D7C /* IBaseCommunication.m in Sources */,
@@ -762,13 +882,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					../tools/osx/j2objc/j2objc/include,
-				);
+				HEADER_SEARCH_PATHS = ../tools/osx/j2objc/j2objc/include;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = (
-					../tools/osx/j2objc/j2objc/lib,
-				);
+				LIBRARY_SEARCH_PATHS = ../tools/osx/j2objc/j2objc/lib;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -815,13 +931,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					../tools/osx/j2objc/j2objc/include,
-				);
+				HEADER_SEARCH_PATHS = ../tools/osx/j2objc/j2objc/include;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = (
-					../tools/osx/j2objc/j2objc/lib,
-				);
+				LIBRARY_SEARCH_PATHS = ../tools/osx/j2objc/j2objc/lib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
