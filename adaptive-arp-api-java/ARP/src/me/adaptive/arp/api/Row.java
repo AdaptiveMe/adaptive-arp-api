@@ -21,16 +21,54 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *              <http://github.com/fnva>
+ *              <http://twitter.com/ferran_vila>
+ *              <mailto:ferran.vila.conesa@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
 /**
- * Created by clozano on 04/08/14.
+ * @see me.adaptive.arp.api.IDatabase
+ * @see me.adaptive.arp.api.Database
+ * @see me.adaptive.arp.api.Table
+ * @author Ferran Vila Conesa
+ * @since ARP1.0
  */
-public interface IDatabase extends IBaseData {
+public class Row {
+
+    /**
+     * The values of the row.
+     */
+    private Object[] values;
+
+    /**
+     * Constructor for implementation using.
+     *
+     * @param values The values of the row
+     */
+    public Row(Object[] values) {
+        this.values = values;
+    }
+
+    /**
+     * Returns the values of the row.
+     *
+     * @return The values of the row.
+     */
+    public Object[] getValues() {
+        return values;
+    }
+
+    /**
+     * Sets the values of the row.
+     *
+     * @param values The values of the row.
+     */
+    public void setValues(Object[] values) {
+        this.values = values;
+    }
 }
