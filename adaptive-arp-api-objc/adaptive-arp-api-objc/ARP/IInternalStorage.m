@@ -32,8 +32,6 @@
 //
 
 #include "IInternalStorage.h"
-#include "IInternalStorageResultCallback.h"
-#include "IOSObjectArray.h"
 
 @interface ARPIInternalStorage : NSObject
 @end
@@ -41,12 +39,7 @@
 @implementation ARPIInternalStorage
 
 + (J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { "SetKeyValuePairsWithARPInternalStorageKeyPairArray:withNSString:withARPIInternalStorageResultCallback:", "SetKeyValuePairs", "V", 0x401, NULL },
-    { "GetKeyValuePairsWithNSStringArray:withNSString:withARPIInternalStorageResultCallback:", "GetKeyValuePairs", "V", 0x401, NULL },
-    { "DeleteKeyValuePairsWithNSStringArray:withNSString:withARPIInternalStorageResultCallback:", "DeleteKeyValuePairs", "V", 0x401, NULL },
-  };
-  static J2ObjcClassInfo _ARPIInternalStorage = { "IInternalStorage", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPIInternalStorage = { "IInternalStorage", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
   return &_ARPIInternalStorage;
 }
 

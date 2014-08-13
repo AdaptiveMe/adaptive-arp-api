@@ -35,39 +35,5 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by DBarranco on 11/08/14.</remarks>
 	public interface IInternalStorage : IStore
 	{
-		/// <summary>Stores in the device internal storage the specified item/s.</summary>
-		/// <remarks>Stores in the device internal storage the specified item/s.</remarks>
-		/// <param name="keyValues">Array containing the items to store on the device internal memory.
-		/// 	</param>
-		/// <param name="publicAccessName">The name of the shared internal storage object (if needed).
-		/// 	</param>
-		/// <param name="callback">callback to be executed upon function result.</param>
-		/// <since>ARP 1.0</since>
-		void SetKeyValuePairs(InternalStorageKeyPair[] keyValues, string publicAccessName
-			, IInternalStorageResultCallback callback);
-
-		/// <summary>Retrieves from the device internal storage the entry/entries containing the specified key names.
-		/// 	</summary>
-		/// <remarks>Retrieves from the device internal storage the entry/entries containing the specified key names.
-		/// 	</remarks>
-		/// <param name="keys">Array with the key names to retrieve.</param>
-		/// <param name="publicAccessName">The name of the shared internal storage object (if needed).
-		/// 	</param>
-		/// <param name="callback">callback to be executed upon function result.</param>
-		/// <since>ARP 1.0</since>
-		void GetKeyValuePairs(string[] keys, string publicAccessName, IInternalStorageResultCallback
-			 callback);
-
-		/// <summary>Deletes from the device internal storage the entry/entries containing the specified key names.
-		/// 	</summary>
-		/// <remarks>Deletes from the device internal storage the entry/entries containing the specified key names.
-		/// 	</remarks>
-		/// <param name="keys">Array with the key names to delete.</param>
-		/// <param name="publicAccessName">The name of the shared internal storage object (if needed).
-		/// 	</param>
-		/// <param name="callback">callback to be executed upon function result.</param>
-		/// <since>ARP 1.0</since>
-		void DeleteKeyValuePairs(string[] keys, string publicAccessName, IInternalStorageResultCallback
-			 callback);
 	}
 }

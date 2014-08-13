@@ -34,25 +34,10 @@
 #ifndef _ARPIInternalStorage_H_
 #define _ARPIInternalStorage_H_
 
-@class IOSObjectArray;
-@protocol ARPIInternalStorageResultCallback;
-
 #import "JreEmulation.h"
 #include "IStore.h"
 
 @protocol ARPIInternalStorage < ARPIStore, NSObject, JavaObject >
-- (void)SetKeyValuePairsWithARPInternalStorageKeyPairArray:(IOSObjectArray *)keyValues
-                                              withNSString:(NSString *)publicAccessName
-                     withARPIInternalStorageResultCallback:(id<ARPIInternalStorageResultCallback>)callback;
-
-- (void)GetKeyValuePairsWithNSStringArray:(IOSObjectArray *)keys
-                             withNSString:(NSString *)publicAccessName
-    withARPIInternalStorageResultCallback:(id<ARPIInternalStorageResultCallback>)callback;
-
-- (void)DeleteKeyValuePairsWithNSStringArray:(IOSObjectArray *)keys
-                                withNSString:(NSString *)publicAccessName
-       withARPIInternalStorageResultCallback:(id<ARPIInternalStorageResultCallback>)callback;
-
 @end
 
 __attribute__((always_inline)) inline void ARPIInternalStorage_init() {}

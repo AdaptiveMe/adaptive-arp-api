@@ -31,6 +31,8 @@
 //
 //
 
+#include "IOSObjectArray.h"
+#include "ISecureKVResultCallback.h"
 #include "ISecurity.h"
 
 @interface ARPISecurity : NSObject
@@ -41,8 +43,11 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "isDeviceModified", NULL, "Z", 0x401, NULL },
+    { "setSecureKeyValuePairsWithARPInternalStorageKeyPairArray:withNSString:withARPISecureKVResultCallback:", "setSecureKeyValuePairs", "V", 0x401, NULL },
+    { "getSecureKeyValuePairsWithNSStringArray:withNSString:withARPISecureKVResultCallback:", "getSecureKeyValuePairs", "V", 0x401, NULL },
+    { "deleteSecureKeyValuePairsWithNSStringArray:withNSString:withARPISecureKVResultCallback:", "deleteSecureKeyValuePairs", "V", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPISecurity = { "ISecurity", "me.adaptive.arp.api", NULL, 0x201, 1, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPISecurity = { "ISecurity", "me.adaptive.arp.api", NULL, 0x201, 4, methods, 0, NULL, 0, NULL};
   return &_ARPISecurity;
 }
 

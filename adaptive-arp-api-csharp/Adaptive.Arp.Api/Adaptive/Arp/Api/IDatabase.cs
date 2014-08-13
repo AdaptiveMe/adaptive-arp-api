@@ -31,9 +31,115 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
+	/// <author>Ferran Vila Conesa</author>
+	/// <since>ARP1.0</since>
 	public interface IDatabase : IBaseData
 	{
+		/// <summary>Creates a database on default path for every platform.</summary>
+		/// <remarks>Creates a database on default path for every platform.</remarks>
+		/// <param name="callback">Asynchronous callback</param>
+		/// <param name="database">Database object to create</param>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		void CreateDatabase(Database database, IDatabaseResultCallback callback);
+
+		/// <summary>Deletes a database on default path for every platform.</summary>
+		/// <remarks>Deletes a database on default path for every platform.</remarks>
+		/// <param name="database">Database object to delete</param>
+		/// <param name="callback">Asynchronous callback</param>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		void DeleteDatabase(Database database, IDatabaseResultCallback callback);
+
+		/// <summary>Checks if database exists by given database name.</summary>
+		/// <remarks>Checks if database exists by given database name.</remarks>
+		/// <param name="database">Database Object to check if exists</param>
+		/// <returns>True if exists, false otherwise</returns>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		bool ExistsDatabase(Database database);
+
+		/// <summary>
+		/// Returns a Database if exists by a given name encapsulated inside a
+		/// Database Object.
+		/// </summary>
+		/// <remarks>
+		/// Returns a Database if exists by a given name encapsulated inside a
+		/// Database Object.
+		/// </remarks>
+		/// <param name="database">Database object to find</param>
+		/// <param name="callback">Asynchronous callback</param>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		void GetDatabase(Database database, IDatabaseResultCallback callback);
+
+		/// <summary>Creates a table inside a database for every platform.</summary>
+		/// <remarks>Creates a table inside a database for every platform.</remarks>
+		/// <param name="database">Database for table creating.</param>
+		/// <param name="table">Table object with the name of the table inside.</param>
+		/// <param name="callback">Table callback with the response</param>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		void CreateTable(Database database, Table table, ITableResultCallback callback);
+
+		/// <summary>Deletes a table inside a database for every platform.</summary>
+		/// <remarks>Deletes a table inside a database for every platform.</remarks>
+		/// <param name="database">Database for table removal.</param>
+		/// <param name="table">Table object with the name of the table inside.</param>
+		/// <param name="callback">Table callback with the response</param>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		void DeleteTable(Database database, Table table, ITableResultCallback callback);
+
+		/// <summary>Checks if table exists by given database name.</summary>
+		/// <remarks>Checks if table exists by given database name.</remarks>
+		/// <param name="database">Database for table consulting.</param>
+		/// <param name="table">Table object with the name of the table inside.</param>
+		/// <returns>True if exists, false otherwise</returns>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		bool ExistsTable(Database database, Table table);
+
+		/// <summary>Executes SQL query against given database.</summary>
+		/// <remarks>
+		/// Executes SQL query against given database. The replacements should be
+		/// passed as a parameter
+		/// </remarks>
+		/// <param name="database">The database object reference.</param>
+		/// <param name="query">SQL query</param>
+		/// <param name="replacements">List of SQL query replacements.</param>
+		/// <param name="callback">Table callback with the response.</param>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		void ExecuteSqlQuery(Database database, string query, string[] replacements, ITableResultCallback
+			 callback);
+
+		/// <summary>Executes SQL statement into the given database.</summary>
+		/// <remarks>
+		/// Executes SQL statement into the given database. The replacements
+		/// should be passed as a parameter
+		/// </remarks>
+		/// <param name="database">The database object reference.</param>
+		/// <param name="statement">SQL statement.</param>
+		/// <param name="replacements">List of SQL statement replacements.</param>
+		/// <param name="callback">Table callback with the response.</param>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		void ExecuteSqlStatement(Database database, string statement, string[] replacements
+			, ITableResultCallback callback);
+
+		/// <summary>Executes SQL transaction (some statements chain) inside given database.</summary>
+		/// <remarks>Executes SQL transaction (some statements chain) inside given database.</remarks>
+		/// <param name="database">The database object reference.</param>
+		/// <param name="statements">The statements to be executed during transaction.</param>
+		/// <param name="rollbackFlag">
+		/// Indicates if rollback should be performed when any
+		/// statement execution fails.
+		/// </param>
+		/// <param name="callback">Table callback with the response.</param>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		void ExecuteSqlTransactions(Database database, string[] statements, bool rollbackFlag
+			, ITableResultCallback callback);
 	}
 }
