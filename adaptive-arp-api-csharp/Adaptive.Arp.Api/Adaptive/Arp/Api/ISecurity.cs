@@ -48,8 +48,8 @@ namespace Adaptive.Arp.Api
 		/// 	</param>
 		/// <param name="callback">callback to be executed upon function result.</param>
 		/// <since>ARP 1.0</since>
-		void SetSecureKeyValuePairs(InternalStorageKeyPair[] keyValues, string publicAccessName
-			, ISecureKVResultCallback callback);
+		void SetSecureKeyValuePairs(SecureKeyPair[] keyValues, string publicAccessName, ISecureKVResultCallback
+			 callback);
 
 		/// <summary>Retrieves from the device internal storage the entry/entries containing the specified key names.
 		/// 	</summary>
