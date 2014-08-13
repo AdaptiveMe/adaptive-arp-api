@@ -38,7 +38,7 @@ import java.io.Serializable;
  * @author Ferran Vila Conesa
  * @since ARP1.0
  */
-public interface TableCallback extends Serializable {
+public interface ITableResultCallback extends Serializable {
 
     /**
      * Enumeration for warnings related to database manipulation.

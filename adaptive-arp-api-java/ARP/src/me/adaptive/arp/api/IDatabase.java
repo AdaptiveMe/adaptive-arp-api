@@ -40,12 +40,12 @@ public interface IDatabase extends IBaseData {
     /**
      * Creates a database on default path for every platform.
      *
+     * @param callback Asynchronous callback
      * @param database Database object to create
-     * @return Database callback with the response
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public DatabaseCallback createDatabase(Database database);
+    public void createDatabase(Database database, IDatabaseResultCallback callback);
 
     /**
      * Deletes a database on default path for every platform.
@@ -55,7 +55,7 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public void deleteDatabase(Database database, DatabaseCallback callback);
+    public void deleteDatabase(Database database, IDatabaseResultCallback callback);
 
     /**
      * Checks if database exists by given database name.
@@ -72,22 +72,22 @@ public interface IDatabase extends IBaseData {
      * Database Object.
      *
      * @param database Database object to find
-     * @return Database callback with the response
+     * @param callback Asynchronous callback
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public DatabaseCallback getDatabase(Database database);
+    public void getDatabase(Database database, IDatabaseResultCallback callback);
 
     /**
      * Creates a table inside a database for every platform.
      *
      * @param database Database for table creating.
      * @param table    Table object with the name of the table inside.
-     * @return Table callback with the response
+     * @param callback Table callback with the response
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public TableCallback createTable(Database database, Table table);
+    public void createTable(Database database, Table table, ITableResultCallback callback);
 
     /**
      * Deletes a table inside a database for every platform.
@@ -98,7 +98,7 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public void deleteTable(Database database, Table table, TableCallback callback);
+    public void deleteTable(Database database, Table table, ITableResultCallback callback);
 
     /**
      * Checks if table exists by given database name.
@@ -123,7 +123,7 @@ public interface IDatabase extends IBaseData {
      * @since ARP1.0
      */
     public void executeSqlQuery(Database database, String query,
-                                String[] replacements, TableCallback callback);
+                                String[] replacements, ITableResultCallback callback);
 
     /**
      * Executes SQL statement into the given database. The replacements
@@ -137,7 +137,7 @@ public interface IDatabase extends IBaseData {
      * @since ARP1.0
      */
     public void executeSqlStatement(Database database, String statement,
-                                    String[] replacements, TableCallback callback);
+                                    String[] replacements, ITableResultCallback callback);
 
     /**
      * Executes SQL transaction (some statements chain) inside given database.
@@ -152,7 +152,7 @@ public interface IDatabase extends IBaseData {
      */
     public void executeSqlTransactions(Database database,
                                        String[] statements, boolean rollbackFlag,
-                                       TableCallback callback);
+                                       ITableResultCallback callback);
 
 
 }
