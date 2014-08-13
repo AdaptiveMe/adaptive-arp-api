@@ -28,9 +28,58 @@
 
 package me.adaptive.arp.api;
 
-
 /**
- * Created by clozano on 04/08/14.
+ * Created by clozano on 13/08/14.
  */
-public interface IFile extends IBaseData {
+public interface IFile {
+
+    boolean isDirectory();
+
+    boolean exists();
+
+    boolean delete();
+
+    void create(String name, IFileResultCallback callback);
+
+    void create(String path, String name, IFileResultCallback callback);
+
+    boolean mkDir();
+
+    boolean mkDir(boolean recursive);
+
+    void listFiles(IFileListResultCallback callback);
+
+    void listFiles(String regex, IFileListResultCallback callback);
+
+    long getSize();
+
+    String getName();
+
+    String getPath();
+
+    long getDateCreated();
+
+    long getDateModified();
+
+    void getContent(IFileDataResultCallback callback);
+
+    void setContent(byte[] content, IFileDataResultCallback callback);
+
+    boolean canWrite();
+
+    boolean canRead();
+
+    void move(IFile newFile, IFileResultCallback callback);
+
+    void move(IFile newFile, IFileResultCallback callback, boolean overwrite);
+
+    void move(IFile newFile, boolean createPath, IFileResultCallback callback);
+
+    void move(IFile newFile, boolean createPath, IFileResultCallback callback, boolean overwrite);
+
+    public enum StorageType {Internal, Remote, Isolated, External}
+
+    public enum FileType {Directory, File}
+
+    public enum FileSecurity {Default, Encrypted}
 }

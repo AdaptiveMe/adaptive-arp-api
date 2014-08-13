@@ -45,7 +45,7 @@ package me.adaptive.arp.api;
 /**
  * Created by FRMI on 12/08/2014.
  */
-public class IOResponse {
+public class ServiceResponse {
 
     /**
      * Request/Response data content (plain text).
@@ -88,7 +88,12 @@ public class IOResponse {
      *
      * @since ARP1.0
      */
-    private Session session;
+    private ISession session;
+
+    /**
+     * Encoding of the binary payload - by default assumed to be UTF8.
+     */
+    private String contentEncoding;
 
     /**
      * Constructor used by the implementation
@@ -102,7 +107,7 @@ public class IOResponse {
      * @param session
      * @since ARP1.0
      */
-    public IOResponse(String content, String contentType, String contentLength, byte[] contentBinary, int contentBinaryLength, Header[] headers, Session session) {
+    public ServiceResponse(String content, String contentType, String contentLength, byte[] contentBinary, int contentBinaryLength, Header[] headers, ISession session) {
         this.content = content;
         this.contentType = contentType;
         this.contentLength = contentLength;
@@ -238,7 +243,7 @@ public class IOResponse {
      * @return method
      * @since ARP1.0
      */
-    public Session getSession() {
+    public ISession getSession() {
         return session;
     }
 
@@ -248,7 +253,16 @@ public class IOResponse {
      * @param method
      * @since ARP1.0
      */
-    public void setSession(Session session) {
+    public void setSession(ISession session) {
         this.session = session;
+    }
+
+
+    public String getContentEncoding() {
+        return contentEncoding;
+    }
+
+    public void setContentEncoding(String contentEncoding) {
+        this.contentEncoding = contentEncoding;
     }
 }

@@ -42,34 +42,37 @@
 
 package me.adaptive.arp.api;
 
-
 /**
- * Created by clozano on 04/08/14.
+ * Created by FRMI on 12/08/2014.
  */
-public interface IServices extends IBaseData {
+public interface ISession {
+
 
     /**
-     * Register a new service
-     *
-     * @param service to register
-     * @return true if successfully register;false otherwise
+     * Cookies
      */
-    boolean registerService(Service service);
+    Cookie[] getCookies();
+
+    void setCookies(Cookie[] cookie);
+
+    void setCookie(Cookie cookie);
+
+    void removeCookies(Cookie[] cookie);
+
+    void removeCookie(Cookie cookie);
 
     /**
-     * Unregister a service
-     *
-     * @param service to unregister
-     * @return true if successfully unregister;false otherwise
+     * Session Attributes
      */
-    boolean unregisterService(Service service);
+    Object[] getAttributes();
 
-    /**
-     * Request async a service for an Url
-     *
-     * @param request
-     * @param service
-     * @param callback
-     */
-    void InvokeService(Request request, Service service, IIOCallback callback);
+    Object getAttribute(String name);
+
+    void setAttribute(String name, Object value);
+
+    String[] listAttributeNames();
+
+    void removeAttribute(String name);
+
+    void removeAttributes();
 }

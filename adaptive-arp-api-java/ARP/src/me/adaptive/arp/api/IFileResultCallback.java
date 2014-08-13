@@ -21,20 +21,25 @@
  *
  * Contributors:
  *
- *     * Aryslan
- *                 <http://github.com/Aryslan>
- *                 <http://twitter.com/Aryslan>
- *                 <mailto:ddbc@gft.com>
+ *     *
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
 /**
- * Created by DBarranco on 11/08/14.
+ * Created by clozano on 13/08/14.
  */
-public interface IInternalStorage extends IStore {
+public interface IFileResultCallback {
 
+    public enum Warning {SourceNotDeleted, RootDirectory}
+
+    public enum Error {FileExists, InsufficientSpace, Unauthorized}
+
+    void onResult(IFile storageFile);
+
+    void onWarning(IFile sourceFile, IFile destinationFile, Warning warning);
+
+    void onError(Error error);
 }

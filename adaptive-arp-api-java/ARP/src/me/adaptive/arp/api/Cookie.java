@@ -58,6 +58,34 @@ public class Cookie {
      * @since ARP1.0
      */
     private String value;
+    /**
+     * Domain for which the cookie is valid.
+     */
+    private String domain;
+
+    /**
+     * URI path for which the cookie is valid.
+     */
+    private String path;
+    /**
+     * Scheme of the domain - http/https - for which the cookie is valid.
+     */
+    private String scheme;
+
+    /**
+     * Cookie is secure (https only)
+     */
+    private boolean secure;
+
+    /**
+     * Cookie expiry in milliseconds or -1 for session only.
+     */
+    private long expiry;
+
+    /**
+     * Cookie creation timestamp in milliseconds.
+     */
+    private long creation;
 
     /**
      * Constructor used by the implementation
@@ -69,6 +97,46 @@ public class Cookie {
     public Cookie(String name, String value) {
         this.name = name;
         this.value = value;
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getScheme() {
+        return scheme;
+    }
+
+    public void setScheme(String scheme) {
+        this.scheme = scheme;
+    }
+
+    public boolean isSecure() {
+        return secure;
+    }
+
+    public void setSecure(boolean secure) {
+        this.secure = secure;
+    }
+
+    public long getExpiry() {
+        return expiry;
+    }
+
+    public void setExpiry(long expiry) {
+        this.expiry = expiry;
     }
 
     /**
@@ -109,5 +177,9 @@ public class Cookie {
      */
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public long getCreation() {
+        return creation;
     }
 }
