@@ -43,9 +43,9 @@
 @protocol ARPISecurity < ARPIBaseSecurity, NSObject, JavaObject >
 - (BOOL)isDeviceModified;
 
-- (void)setSecureKeyValuePairsWithARPInternalStorageKeyPairArray:(IOSObjectArray *)keyValues
-                                                    withNSString:(NSString *)publicAccessName
-                                  withARPISecureKVResultCallback:(id<ARPISecureKVResultCallback>)callback;
+- (void)setSecureKeyValuePairsWithARPSecureKeyPairArray:(IOSObjectArray *)keyValues
+                                           withNSString:(NSString *)publicAccessName
+                         withARPISecureKVResultCallback:(id<ARPISecureKVResultCallback>)callback;
 
 - (void)getSecureKeyValuePairsWithNSStringArray:(IOSObjectArray *)keys
                                    withNSString:(NSString *)publicAccessName
