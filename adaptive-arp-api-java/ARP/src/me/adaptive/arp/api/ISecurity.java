@@ -51,7 +51,7 @@ public interface ISecurity extends IBaseSecurity {
      * @param callback         callback to be executed upon function result.
      * @since ARP 1.0
      */
-    public void setSecureKeyValuePairs(InternalStorageKeyPair[] keyValues, String publicAccessName, ISecureKVResultCallback callback);
+    public void setSecureKeyValuePairs(SecureKeyPair[] keyValues, String publicAccessName, ISecureKVResultCallback callback);
 
     /**
      * Retrieves from the device internal storage the entry/entries containing the specified key names.
