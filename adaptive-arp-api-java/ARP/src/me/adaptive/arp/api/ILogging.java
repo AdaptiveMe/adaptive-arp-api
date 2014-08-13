@@ -43,7 +43,7 @@ public interface ILogging extends IBaseUtil {
      * to match their log levels into these ones.
      */
     public enum LogLevel {
-        DEBUG, WARN, ERROR
+        DEBUG, WARN, ERROR, INFO
     }
 
     /**
@@ -55,4 +55,15 @@ public interface ILogging extends IBaseUtil {
      * @since ARP1.0
      */
     void log(LogLevel level, String message);
+
+    /**
+     * Logs the given message, with the given log level if specified, to the standard platform/environment.
+     *
+     * @param level   Log level
+     * @param category Category/tag name to identify/filter the log.
+     * @param message Message to be logged
+     * @author Ferran Vila Conesa
+     * @since ARP1.0
+     */
+    void log(LogLevel level, String category, String message);
 }
