@@ -250,7 +250,7 @@ public class ServiceResponse {
     /**
      * Set the method
      *
-     * @param method
+     * @param session
      * @since ARP1.0
      */
     public void setSession(ISession session) {

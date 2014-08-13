@@ -34,10 +34,53 @@
 #ifndef _ARPIDatabase_H_
 #define _ARPIDatabase_H_
 
+@class ARPDatabase;
+@class ARPTable;
+@class IOSObjectArray;
+@protocol ARPIDatabaseResultCallback;
+@protocol ARPITableResultCallback;
+
 #import "JreEmulation.h"
 #include "IBaseData.h"
 
 @protocol ARPIDatabase < ARPIBaseData, NSObject, JavaObject >
+- (void)createDatabaseWithARPDatabase:(ARPDatabase *)database
+       withARPIDatabaseResultCallback:(id<ARPIDatabaseResultCallback>)callback;
+
+- (void)deleteDatabaseWithARPDatabase:(ARPDatabase *)database
+       withARPIDatabaseResultCallback:(id<ARPIDatabaseResultCallback>)callback;
+
+- (BOOL)existsDatabaseWithARPDatabase:(ARPDatabase *)database;
+
+- (void)getDatabaseWithARPDatabase:(ARPDatabase *)database
+    withARPIDatabaseResultCallback:(id<ARPIDatabaseResultCallback>)callback;
+
+- (void)createTableWithARPDatabase:(ARPDatabase *)database
+                      withARPTable:(ARPTable *)table
+       withARPITableResultCallback:(id<ARPITableResultCallback>)callback;
+
+- (void)deleteTableWithARPDatabase:(ARPDatabase *)database
+                      withARPTable:(ARPTable *)table
+       withARPITableResultCallback:(id<ARPITableResultCallback>)callback;
+
+- (BOOL)existsTableWithARPDatabase:(ARPDatabase *)database
+                      withARPTable:(ARPTable *)table;
+
+- (void)executeSqlQueryWithARPDatabase:(ARPDatabase *)database
+                          withNSString:(NSString *)query
+                     withNSStringArray:(IOSObjectArray *)replacements
+           withARPITableResultCallback:(id<ARPITableResultCallback>)callback;
+
+- (void)executeSqlStatementWithARPDatabase:(ARPDatabase *)database
+                              withNSString:(NSString *)statement
+                         withNSStringArray:(IOSObjectArray *)replacements
+               withARPITableResultCallback:(id<ARPITableResultCallback>)callback;
+
+- (void)executeSqlTransactionsWithARPDatabase:(ARPDatabase *)database
+                            withNSStringArray:(IOSObjectArray *)statements
+                                  withBoolean:(BOOL)rollbackFlag
+                  withARPITableResultCallback:(id<ARPITableResultCallback>)callback;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIDatabase_init() {}

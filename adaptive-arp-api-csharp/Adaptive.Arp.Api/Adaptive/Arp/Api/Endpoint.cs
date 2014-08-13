@@ -44,8 +44,8 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		private string path;
 
-		/// <summary>The remote service accesible port.</summary>
-		/// <remarks>The remote service accesible port.</remarks>
+		/// <summary>The remote service accessible port.</summary>
+		/// <remarks>The remote service accessible port.</remarks>
 		/// <since>ARP1.0</since>
 		private int port;
 

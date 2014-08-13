@@ -31,9 +31,43 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	public interface ILogging : IBaseUtil
+	/// <author>Ferran Vila Conesa</author>
+	/// <since>ARP1.0</since>
+	public abstract class ILogging : IBaseUtil
 	{
+		/// <summary>Enumeration for log level platform normalization.</summary>
+		/// <remarks>
+		/// Enumeration for log level platform normalization. Every platform has
+		/// to match their log levels into these ones.
+		/// </remarks>
+		public enum LogLevel
+		{
+			Debug,
+			Warn,
+			Error,
+			Info
+		}
+
+		/// <summary>Logs the given message, with the given log level if specified, to the standard platform/environment.
+		/// 	</summary>
+		/// <remarks>Logs the given message, with the given log level if specified, to the standard platform/environment.
+		/// 	</remarks>
+		/// <param name="level">Log level</param>
+		/// <param name="message">Message to be logged</param>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		public abstract void Log(ILogging.LogLevel level, string message);
+
+		/// <summary>Logs the given message, with the given log level if specified, to the standard platform/environment.
+		/// 	</summary>
+		/// <remarks>Logs the given message, with the given log level if specified, to the standard platform/environment.
+		/// 	</remarks>
+		/// <param name="level">Log level</param>
+		/// <param name="category">Category/tag name to identify/filter the log.</param>
+		/// <param name="message">Message to be logged</param>
+		/// <author>Ferran Vila Conesa</author>
+		/// <since>ARP1.0</since>
+		public abstract void Log(ILogging.LogLevel level, string category, string message
+			);
 	}
 }

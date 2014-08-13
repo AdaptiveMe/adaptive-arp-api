@@ -42,6 +42,29 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		private string value;
 
+		/// <summary>Domain for which the cookie is valid.</summary>
+		/// <remarks>Domain for which the cookie is valid.</remarks>
+		private string domain;
+
+		/// <summary>URI path for which the cookie is valid.</summary>
+		/// <remarks>URI path for which the cookie is valid.</remarks>
+		private string path;
+
+		/// <summary>Scheme of the domain - http/https - for which the cookie is valid.</summary>
+		/// <remarks>Scheme of the domain - http/https - for which the cookie is valid.</remarks>
+		private string scheme;
+
+		/// <summary>Cookie is secure (https only)</summary>
+		private bool secure;
+
+		/// <summary>Cookie expiry in milliseconds or -1 for session only.</summary>
+		/// <remarks>Cookie expiry in milliseconds or -1 for session only.</remarks>
+		private long expiry;
+
+		/// <summary>Cookie creation timestamp in milliseconds.</summary>
+		/// <remarks>Cookie creation timestamp in milliseconds.</remarks>
+		private long creation;
+
 		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="name"></param>
 		/// <param name="value"></param>
@@ -50,6 +73,56 @@ namespace Adaptive.Arp.Api
 		{
 			this.name = name;
 			this.value = value;
+		}
+
+		public virtual string GetDomain()
+		{
+			return domain;
+		}
+
+		public virtual void SetDomain(string domain)
+		{
+			this.domain = domain;
+		}
+
+		public virtual string GetPath()
+		{
+			return path;
+		}
+
+		public virtual void SetPath(string path)
+		{
+			this.path = path;
+		}
+
+		public virtual string GetScheme()
+		{
+			return scheme;
+		}
+
+		public virtual void SetScheme(string scheme)
+		{
+			this.scheme = scheme;
+		}
+
+		public virtual bool IsSecure()
+		{
+			return secure;
+		}
+
+		public virtual void SetSecure(bool secure)
+		{
+			this.secure = secure;
+		}
+
+		public virtual long GetExpiry()
+		{
+			return expiry;
+		}
+
+		public virtual void SetExpiry(long expiry)
+		{
+			this.expiry = expiry;
 		}
 
 		/// <summary>Returns the cookie name</summary>
@@ -82,6 +155,11 @@ namespace Adaptive.Arp.Api
 		public virtual void SetValue(string value)
 		{
 			this.value = value;
+		}
+
+		public virtual long GetCreation()
+		{
+			return creation;
 		}
 	}
 }

@@ -40,10 +40,36 @@
  @public
   NSString *name_;
   NSString *value_;
+  NSString *domain_;
+  NSString *path_;
+  NSString *scheme_;
+  BOOL secure_;
+  long long int expiry_;
+  long long int creation_;
 }
 
 - (id)initWithNSString:(NSString *)name
           withNSString:(NSString *)value;
+
+- (NSString *)getDomain;
+
+- (void)setDomainWithNSString:(NSString *)domain;
+
+- (NSString *)getPath;
+
+- (void)setPathWithNSString:(NSString *)path;
+
+- (NSString *)getScheme;
+
+- (void)setSchemeWithNSString:(NSString *)scheme;
+
+- (BOOL)isSecure;
+
+- (void)setSecureWithBoolean:(BOOL)secure;
+
+- (long long int)getExpiry;
+
+- (void)setExpiryWithLong:(long long int)expiry;
 
 - (NSString *)getName;
 
@@ -53,6 +79,8 @@
 
 - (void)setValueWithNSString:(NSString *)value;
 
+- (long long int)getCreation;
+
 - (void)copyAllFieldsTo:(ARPCookie *)other;
 
 @end
@@ -61,6 +89,9 @@ __attribute__((always_inline)) inline void ARPCookie_init() {}
 
 J2OBJC_FIELD_SETTER(ARPCookie, name_, NSString *)
 J2OBJC_FIELD_SETTER(ARPCookie, value_, NSString *)
+J2OBJC_FIELD_SETTER(ARPCookie, domain_, NSString *)
+J2OBJC_FIELD_SETTER(ARPCookie, path_, NSString *)
+J2OBJC_FIELD_SETTER(ARPCookie, scheme_, NSString *)
 
 typedef ARPCookie MeAdaptiveArpApiCookie;
 

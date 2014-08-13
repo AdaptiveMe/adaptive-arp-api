@@ -45,11 +45,11 @@ namespace Adaptive.Arp.Api
 
 		/// <summary>The method used</summary>
 		/// <since>ARP1.0</since>
-		private Service.ServiceMethod method;
+		private IService.ServiceMethod method;
 
 		/// <summary>The type of the service</summary>
 		/// <since>ARP1.0</since>
-		private Service.ServiceType type;
+		private IService.ServiceType type;
 
 		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="endpoint"></param>
@@ -57,7 +57,7 @@ namespace Adaptive.Arp.Api
 		/// <param name="method"></param>
 		/// <param name="type"></param>
 		/// <since>ARP1.0</since>
-		public Service(Endpoint endpoint, string name, Service.ServiceMethod method, Service.ServiceType
+		public Service(Endpoint endpoint, string name, IService.ServiceMethod method, IService.ServiceType
 			 type)
 		{
 			this.endpoint = endpoint;
@@ -101,7 +101,7 @@ namespace Adaptive.Arp.Api
 		/// <summary>Returns the method</summary>
 		/// <returns>method</returns>
 		/// <since>ARP1.0</since>
-		public virtual Service.ServiceMethod GetMethod()
+		public virtual IService.ServiceMethod GetMethod()
 		{
 			return method;
 		}
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
 		/// <summary>Set the method</summary>
 		/// <param name="method"></param>
 		/// <since>ARP1.0</since>
-		public virtual void SetMethod(Service.ServiceMethod method)
+		public virtual void SetMethod(IService.ServiceMethod method)
 		{
 			this.method = method;
 		}
@@ -117,7 +117,7 @@ namespace Adaptive.Arp.Api
 		/// <summary>Returns the type</summary>
 		/// <returns>type</returns>
 		/// <since>ARP1.0</since>
-		public virtual Service.ServiceType GetType()
+		public virtual IService.ServiceType GetType()
 		{
 			return type;
 		}
@@ -125,33 +125,9 @@ namespace Adaptive.Arp.Api
 		/// <summary>Set the type</summary>
 		/// <param name="type"></param>
 		/// <since>ARP1.0</since>
-		public virtual void SetType(Service.ServiceType type)
+		public virtual void SetType(IService.ServiceType type)
 		{
 			this.type = type;
-		}
-
-		/// <summary>Type of available services</summary>
-		/// <since>ARP1.0</since>
-		public enum ServiceType
-		{
-			ServicetypeAmfSerialization,
-			ServicetypeGwtRpc,
-			ServicetypeOctetBinary,
-			ServicetypeRemotingSerialization,
-			ServicetypeRestJson,
-			ServicetypeRestXml,
-			ServicetypeSoapJson,
-			ServicetypeSoapXml,
-			ServicetypeXmlrpcJson,
-			ServicetypeXmlrpcXml
-		}
-
-		/// <summary>Available methods</summary>
-		/// <since>ARP1.0</since>
-		public enum ServiceMethod
-		{
-			Post,
-			Get
 		}
 	}
 }

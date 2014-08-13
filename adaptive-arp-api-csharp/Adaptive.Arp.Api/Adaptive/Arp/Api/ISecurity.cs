@@ -39,5 +39,40 @@ namespace Adaptive.Arp.Api
 		/// <returns>true if the device has been modified; false otherwise</returns>
 		/// <since>ARP1.0</since>
 		bool IsDeviceModified();
+
+		/// <summary>Stores in the device internal storage the specified item/s.</summary>
+		/// <remarks>Stores in the device internal storage the specified item/s.</remarks>
+		/// <param name="keyValues">Array containing the items to store on the device internal memory.
+		/// 	</param>
+		/// <param name="publicAccessName">The name of the shared internal storage object (if needed).
+		/// 	</param>
+		/// <param name="callback">callback to be executed upon function result.</param>
+		/// <since>ARP 1.0</since>
+		void SetSecureKeyValuePairs(InternalStorageKeyPair[] keyValues, string publicAccessName
+			, ISecureKVResultCallback callback);
+
+		/// <summary>Retrieves from the device internal storage the entry/entries containing the specified key names.
+		/// 	</summary>
+		/// <remarks>Retrieves from the device internal storage the entry/entries containing the specified key names.
+		/// 	</remarks>
+		/// <param name="keys">Array with the key names to retrieve.</param>
+		/// <param name="publicAccessName">The name of the shared internal storage object (if needed).
+		/// 	</param>
+		/// <param name="callback">callback to be executed upon function result.</param>
+		/// <since>ARP 1.0</since>
+		void GetSecureKeyValuePairs(string[] keys, string publicAccessName, ISecureKVResultCallback
+			 callback);
+
+		/// <summary>Deletes from the device internal storage the entry/entries containing the specified key names.
+		/// 	</summary>
+		/// <remarks>Deletes from the device internal storage the entry/entries containing the specified key names.
+		/// 	</remarks>
+		/// <param name="keys">Array with the key names to delete.</param>
+		/// <param name="publicAccessName">The name of the shared internal storage object (if needed).
+		/// 	</param>
+		/// <param name="callback">callback to be executed upon function result.</param>
+		/// <since>ARP 1.0</since>
+		void DeleteSecureKeyValuePairs(string[] keys, string publicAccessName, ISecureKVResultCallback
+			 callback);
 	}
 }

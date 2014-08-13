@@ -34,11 +34,26 @@
 #ifndef _ARPISecurity_H_
 #define _ARPISecurity_H_
 
+@class IOSObjectArray;
+@protocol ARPISecureKVResultCallback;
+
 #import "JreEmulation.h"
 #include "IBaseSecurity.h"
 
 @protocol ARPISecurity < ARPIBaseSecurity, NSObject, JavaObject >
 - (BOOL)isDeviceModified;
+
+- (void)setSecureKeyValuePairsWithARPInternalStorageKeyPairArray:(IOSObjectArray *)keyValues
+                                                    withNSString:(NSString *)publicAccessName
+                                  withARPISecureKVResultCallback:(id<ARPISecureKVResultCallback>)callback;
+
+- (void)getSecureKeyValuePairsWithNSStringArray:(IOSObjectArray *)keys
+                                   withNSString:(NSString *)publicAccessName
+                 withARPISecureKVResultCallback:(id<ARPISecureKVResultCallback>)callback;
+
+- (void)deleteSecureKeyValuePairsWithNSStringArray:(IOSObjectArray *)keys
+                                      withNSString:(NSString *)publicAccessName
+                    withARPISecureKVResultCallback:(id<ARPISecureKVResultCallback>)callback;
 
 @end
 

@@ -27,20 +27,45 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/ILogging.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/Column.java
 //
 //
 
-#include "ILogging.h"
+#include "Column.h"
 
-@interface ARPILogging : NSObject
-@end
+@implementation ARPColumn
 
-@implementation ARPILogging
+- (id)initWithNSString:(NSString *)name {
+  if (self = [super init]) {
+    self->name_ = name;
+  }
+  return self;
+}
+
+- (NSString *)getName {
+  return name_;
+}
+
+- (void)setNameWithNSString:(NSString *)name {
+  self->name_ = name;
+}
+
+- (void)copyAllFieldsTo:(ARPColumn *)other {
+  [super copyAllFieldsTo:other];
+  other->name_ = name_;
+}
 
 + (J2ObjcClassInfo *)__metadata {
-  static J2ObjcClassInfo _ARPILogging = { "ILogging", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
-  return &_ARPILogging;
+  static J2ObjcMethodInfo methods[] = {
+    { "initWithNSString:", "Column", NULL, 0x1, NULL },
+    { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
+    { "setNameWithNSString:", "setName", "V", 0x1, NULL },
+  };
+  static J2ObjcFieldInfo fields[] = {
+    { "name_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
+  };
+  static J2ObjcClassInfo _ARPColumn = { "Column", "me.adaptive.arp.api", NULL, 0x1, 3, methods, 1, fields, 0, NULL};
+  return &_ARPColumn;
 }
 
 @end
