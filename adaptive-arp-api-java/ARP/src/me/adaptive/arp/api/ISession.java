@@ -49,30 +49,69 @@ public interface ISession {
 
 
     /**
-     * Cookies
+     * Returns the cookie array
+     * @return cookie array
+     * @since ARP1.0
      */
     Cookie[] getCookies();
 
+    /**
+     * Set the cookies array
+     * @param cookie
+     */
     void setCookies(Cookie[] cookie);
 
+    /**
+     * Set a cookie object
+     * @param cookie
+     */
     void setCookie(Cookie cookie);
 
+    /**
+     * Remove a cookies array
+     * @param cookie
+     */
     void removeCookies(Cookie[] cookie);
 
+    /**
+     * Remove a cookie
+     * @param cookie
+     */
     void removeCookie(Cookie cookie);
 
     /**
-     * Session Attributes
+     * Returns all Session Attributes
      */
     Object[] getAttributes();
 
+    /**
+     * Returns an attribute object
+     * @return object attribute
+     * @since ARP1.0
+     */
     Object getAttribute(String name);
 
+    /**
+     * Set an attribute
+     * @param name
+     * @param value
+     */
     void setAttribute(String name, Object value);
 
+    /**
+     * Returns all attibute names
+     * @return array with all attribute names
+     */
     String[] listAttributeNames();
 
+    /**
+     * Remove an attribute by its name
+     * @param name
+     */
     void removeAttribute(String name);
 
+    /**
+     * Remove all attributes
+     */
     void removeAttributes();
 }

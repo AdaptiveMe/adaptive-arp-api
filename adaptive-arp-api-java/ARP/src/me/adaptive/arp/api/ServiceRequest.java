@@ -285,10 +285,20 @@ public class ServiceRequest {
         this.session = session;
     }
 
+    /**
+     * Returns the content encoding
+     * @return contentEncoding
+     * @since ARP1.0
+     */
     public String getContentEncoding() {
         return contentEncoding;
     }
 
+    /**
+     * Set the content encoding
+     * @param contentEncoding
+     * @since ARP1.0
+     */
     public void setContentEncoding(String contentEncoding) {
         this.contentEncoding = contentEncoding;
     }
