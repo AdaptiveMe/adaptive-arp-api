@@ -21,30 +21,53 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactUid implements Serializable {
+public class ContactUid {
 
+    /**
+     * The id of the Contact
+     *
+     * @since ARP1.0
+     */
     private String contactId;
 
+    /**
+     * Constructor used by implementation to set the Contact id.
+     *
+     * @param contactId
+     * @since ARP1.0
+     */
     public ContactUid(String contactId) {
         this.contactId = contactId;
     }
 
+    /**
+     * Returns the contact id
+     *
+     * @return Contactid
+     * @since ARP1.0
+     */
     public String getContactId() {
         return contactId;
     }
 
+    /**
+     * Set the id of the Contact
+     *
+     * @param contactId
+     * @since ARP1.0
+     */
     public void setContactId(String contactId) {
         this.contactId = contactId;
     }

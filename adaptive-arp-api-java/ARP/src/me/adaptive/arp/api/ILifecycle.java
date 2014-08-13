@@ -21,17 +21,25 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface ILifecycle extends IBaseApplication, Serializable {
+public interface ILifecycle extends IBaseApplication {
+
+    /**
+     * Add the listener for the lifecycle of the app
+     *
+     * @param listener
+     */
+    void addLifecycleListener(ILifecycleListener listener);
 }

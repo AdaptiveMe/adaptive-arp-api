@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseMedia.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIVideo < ARPIBaseMedia, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIVideo < ARPIBaseMedia, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIVideo_init() {}

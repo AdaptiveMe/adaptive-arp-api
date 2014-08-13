@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseNotification.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPINotification < ARPIBaseNotification, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPINotification < ARPIBaseNotification, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPINotification_init() {}

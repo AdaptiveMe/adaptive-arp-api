@@ -35,5 +35,18 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface IRuntime : IBaseSystem
 	{
+		/// <summary>Dismiss the current Application</summary>
+		/// <since>ARP1.0</since>
+		void DismissApplication();
+
+		/// <summary>Whether the application is in background or not</summary>
+		/// <returns>true if the application is in background;false otherwise</returns>
+		/// <since>ARP1.0</since>
+		bool IsBackground();
+
+		/// <summary>Whether the application dismiss the splash screen successfully or not</summary>
+		/// <returns>true if the application has dismissed the splash screen;false otherwise</returns>
+		/// <since>ARP1.0</since>
+		bool DismissSplashScreen();
 	}
 }

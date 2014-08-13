@@ -26,40 +26,33 @@
  * =====================================================================================================================
  */
 
-package me.adaptive.arp.api;
+using Adaptive.Arp.Api;
+using Sharpen;
 
-/**
- * @author Carlos Lozano Diez
- * @see me.adaptive.arp.api.Acceleration
- * @see me.adaptive.arp.api.IAccelerometer
- * @since ARP1.0
- */
-public interface AccelerationListener {
+namespace Adaptive.Arp.Api
+{
+	/// <summary>Created by FRMI on 12/08/2014.</summary>
+	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
+	public class Button
+	{
+		/// <summary>Button type</summary>
+		/// <since>ARP1.0</since>
+		private ICapabilities.Button type;
 
-    /**
-     * Correct data received.
-     *
-     * @param acceleration
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    public void onResult(Acceleration acceleration);
+		/// <summary>Constructor used by the implementation</summary>
+		/// <param name="type"></param>
+		/// <since>ARP1.0</since>
+		public Button(ICapabilities.Button type)
+		{
+			this.type = type;
+		}
 
-    /**
-     * Data received with warning - ie. Needs calibration.
-     *
-     * @param acceleration
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    public void onWarning(Acceleration acceleration);
-
-    /**
-     * No data received - error condition, not authorized or hardware not available.
-     *
-     * @param acceleration
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    public void onError(Acceleration acceleration);
+		/// <summary>Returns the button type</summary>
+		/// <returns>type</returns>
+		/// <since>ARP1.0</since>
+		public virtual ICapabilities.Button GetType()
+		{
+			return type;
+		}
+	}
 }

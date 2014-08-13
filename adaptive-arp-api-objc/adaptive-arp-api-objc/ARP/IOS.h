@@ -34,11 +34,14 @@
 #ifndef _ARPIOS_H_
 #define _ARPIOS_H_
 
+@class ARPOSInfo;
+
 #import "JreEmulation.h"
 #include "IBaseSystem.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIOS < ARPIBaseSystem, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIOS < ARPIBaseSystem, NSObject, JavaObject >
+- (ARPOSInfo *)getOSInfo;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIOS_init() {}

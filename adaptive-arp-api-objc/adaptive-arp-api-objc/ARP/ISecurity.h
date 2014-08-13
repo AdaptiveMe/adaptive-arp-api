@@ -36,9 +36,10 @@
 
 #import "JreEmulation.h"
 #include "IBaseSecurity.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPISecurity < ARPIBaseSecurity, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPISecurity < ARPIBaseSecurity, NSObject, JavaObject >
+- (BOOL)isDeviceModified;
+
 @end
 
 __attribute__((always_inline)) inline void ARPISecurity_init() {}

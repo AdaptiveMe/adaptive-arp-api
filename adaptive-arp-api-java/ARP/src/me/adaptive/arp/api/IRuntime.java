@@ -21,17 +21,43 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IRuntime extends IBaseSystem, Serializable {
+public interface IRuntime extends IBaseSystem {
+
+    /**
+     * Dismiss the current Application
+     *
+     * @since ARP1.0
+     */
+    void DismissApplication();
+
+    /**
+     * Whether the application is in background or not
+     *
+     * @return true if the application is in background;false otherwise
+     * @since ARP1.0
+     */
+    boolean isBackground();
+
+    /**
+     * Whether the application dismiss the splash screen successfully or not
+     *
+     * @return true if the application has dismissed the splash screen;false otherwise
+     * @since ARP1.0
+     */
+    boolean DismissSplashScreen();
+
+
 }

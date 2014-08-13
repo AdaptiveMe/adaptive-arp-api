@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBasePIM.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPICalendar < ARPIBasePIM, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPICalendar < ARPIBasePIM, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPICalendar_init() {}

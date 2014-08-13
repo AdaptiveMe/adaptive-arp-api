@@ -28,10 +28,8 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IUI extends IBaseUI, Serializable {
+public interface IUI extends IBaseUI {
 }

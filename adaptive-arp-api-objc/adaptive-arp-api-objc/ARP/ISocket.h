@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseCommunication.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPISocket < ARPIBaseCommunication, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPISocket < ARPIBaseCommunication, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPISocket_init() {}

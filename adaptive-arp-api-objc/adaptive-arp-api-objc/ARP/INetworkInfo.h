@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseCommunication.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPINetworkInfo < ARPIBaseCommunication, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPINetworkInfo < ARPIBaseCommunication, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPINetworkInfo_init() {}

@@ -35,5 +35,17 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface IMessaging : IBasePIM
 	{
+		/// <summary>Send text SMS</summary>
+		/// <param name="number">to send</param>
+		/// <param name="text">to send</param>
+		/// <param name="callback">with the result</param>
+		/// <since>ARP1.0</since>
+		void SendSMS(string number, string text, IMessagingCallback callback);
+
+		/// <summary>Send an Email</summary>
+		/// <param name="data">the email data</param>
+		/// <param name="callback">with the result</param>
+		/// <since>ARP1.0</since>
+		void SendEmail(Email data, IMessagingCallback callback);
 	}
 }

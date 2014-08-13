@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSensor.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIProximity < ARPIBaseSensor, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIProximity < ARPIBaseSensor, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIProximity_init() {}

@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBasePIM.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIMail < ARPIBasePIM, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIMail < ARPIBasePIM, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIMail_init() {}

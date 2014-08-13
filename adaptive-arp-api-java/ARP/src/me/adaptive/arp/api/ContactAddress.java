@@ -21,17 +21,90 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactAddress implements Serializable {
+public class ContactAddress {
+    /**
+     * The Contact address
+     *
+     * @since ARP1.0
+     */
+    private String address;
+    /**
+     * The address type
+     *
+     * @since ARP1.0
+     */
+    private AddressType type;
+
+    /**
+     * Constructor used by the implementation
+     *
+     * @param address
+     * @param type
+     * @since ARP1.0
+     */
+    public ContactAddress(String address, AddressType type) {
+        this.address = address;
+        this.type = type;
+    }
+
+    /**
+     * Returns the Contact address
+     *
+     * @return address
+     * @since ARP1.0
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * Set the address of the Contact
+     *
+     * @param address
+     * @since ARP1.0
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * Returns the type of the address
+     *
+     * @return AddressType
+     * @since ARP1.0
+     */
+    public AddressType getType() {
+        return type;
+    }
+
+    /**
+     * Set the address type
+     *
+     * @param type
+     * @since ARP1.0
+     */
+    public void setType(AddressType type) {
+        this.type = type;
+    }
+
+    /**
+     * Types that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum AddressType {
+        Home, Work, Other
+    }
 }

@@ -28,15 +28,39 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * @author Carlos Lozano Diez
  * @see me.adaptive.arp.api.Acceleration
- * @see me.adaptive.arp.api.AccelerationListener
+ * @see me.adaptive.arp.api.IAccelerationListener
  * @since ARP1.0
  */
-public interface IAccelerometer extends IBaseSensor, Serializable {
+public interface IAccelerometer extends IBaseSensor {
+    /**
+     * Register a new listener that will receive acceleration events.
+     *
+     * @param listener to be registered.
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    void addAccelerationListener(IAccelerationListener listener);
+
+    /**
+     * De-registers an existing listener from receiving acceleration events.
+     *
+     * @param listener
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    void removeAccelerationListener(IAccelerationListener listener);
+
+    /**
+     * Removed all existing listeners from receiving acceleration events.
+     *
+     * @author Carlos Lozano Diez
+     * @since ARP1.0
+     */
+    void removeAccelerationListeners();
+
     /**
      * Success = Correct reading. Unauthorized = No reading. User has not
      * authorized a reading. NeedsCalibration = No reading. Device needs to be
@@ -49,31 +73,5 @@ public interface IAccelerometer extends IBaseSensor, Serializable {
     enum Status {
         Success, Unauthorized, NeedsCalibration, Stale, Unavailable
     }
-
-    /**
-     * Register a new listener that will receive acceleration events.
-     *
-     * @param listener to be registered.
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    void addAccelerationListener(AccelerationListener listener);
-
-    /**
-     * De-registers an existing listener from receiving acceleration events.
-     *
-     * @param listener
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    void removeAccelerationListener(AccelerationListener listener);
-
-    /**
-     * Removed all existing listeners from receiving acceleration events.
-     *
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    void removeAccelerationListeners();
 
 }

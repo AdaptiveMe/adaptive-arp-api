@@ -28,10 +28,9 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IOCR extends IBaseReader, Serializable {
+public interface IOCR extends IBaseReader {
 }

@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseCommerce.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIAds < ARPIBaseCommerce, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIAds < ARPIBaseCommerce, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIAds_init() {}

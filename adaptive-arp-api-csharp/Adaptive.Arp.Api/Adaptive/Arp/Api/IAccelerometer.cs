@@ -33,11 +33,30 @@ namespace Adaptive.Arp.Api
 {
 	/// <author>Carlos Lozano Diez</author>
 	/// <seealso cref="Acceleration">Acceleration</seealso>
-	/// <seealso cref="AccelerationListener">AccelerationListener</seealso>
+	/// <seealso cref="IAccelerationListener">IAccelerationListener</seealso>
 	/// <since>ARP1.0</since>
-	[System.Serializable]
 	public abstract class IAccelerometer : IBaseSensor
 	{
+		/// <summary>Register a new listener that will receive acceleration events.</summary>
+		/// <remarks>Register a new listener that will receive acceleration events.</remarks>
+		/// <param name="listener">to be registered.</param>
+		/// <author>Carlos Lozano Diez</author>
+		/// <since>ARP1.0</since>
+		public abstract void AddAccelerationListener(IAccelerationListener listener);
+
+		/// <summary>De-registers an existing listener from receiving acceleration events.</summary>
+		/// <remarks>De-registers an existing listener from receiving acceleration events.</remarks>
+		/// <param name="listener"></param>
+		/// <author>Carlos Lozano Diez</author>
+		/// <since>ARP1.0</since>
+		public abstract void RemoveAccelerationListener(IAccelerationListener listener);
+
+		/// <summary>Removed all existing listeners from receiving acceleration events.</summary>
+		/// <remarks>Removed all existing listeners from receiving acceleration events.</remarks>
+		/// <author>Carlos Lozano Diez</author>
+		/// <since>ARP1.0</since>
+		public abstract void RemoveAccelerationListeners();
+
 		/// <summary>Success = Correct reading.</summary>
 		/// <remarks>
 		/// Success = Correct reading. Unauthorized = No reading. User has not
@@ -52,27 +71,8 @@ namespace Adaptive.Arp.Api
 			Success,
 			Unauthorized,
 			NeedsCalibration,
+			Stale,
 			Unavailable
 		}
-
-		/// <summary>Register a new listener that will receive acceleration events.</summary>
-		/// <remarks>Register a new listener that will receive acceleration events.</remarks>
-		/// <param name="listener">to be registered.</param>
-		/// <author>Carlos Lozano Diez</author>
-		/// <since>ARP1.0</since>
-		public abstract void AddAccelerationListener(AccelerationListener listener);
-
-		/// <summary>De-registers an existing listener from receiving acceleration events.</summary>
-		/// <remarks>De-registers an existing listener from receiving acceleration events.</remarks>
-		/// <param name="listener"></param>
-		/// <author>Carlos Lozano Diez</author>
-		/// <since>ARP1.0</since>
-		public abstract void RemoveAccelerationListener(AccelerationListener listener);
-
-		/// <summary>Removed all existing listeners from receiving acceleration events.</summary>
-		/// <remarks>Removed all existing listeners from receiving acceleration events.</remarks>
-		/// <author>Carlos Lozano Diez</author>
-		/// <since>ARP1.0</since>
-		public abstract void RemoveAccelerationListeners();
 	}
 }

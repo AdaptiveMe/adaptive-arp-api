@@ -1,4 +1,5 @@
 /*
+ *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -21,17 +22,54 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
+ *
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IServices extends IBaseData, Serializable {
+public interface IServices extends IBaseData {
+
+    /**
+     * Register a new service
+     *
+     * @param service to register
+     * @return true if successfully register;false otherwise
+     */
+    boolean registerService(Service service);
+
+    /**
+     * Unregister a service
+     *
+     * @param service to unregister
+     * @return true if successfully unregister;false otherwise
+     */
+    boolean unregisterService(Service service);
+
+    /**
+     * Request async a service for an Url
+     *
+     * @param request
+     * @param service
+     * @param callback
+     */
+    void InvokeService(Request request, Service service, IIOCallback callback);
 }

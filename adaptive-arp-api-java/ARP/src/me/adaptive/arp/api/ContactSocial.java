@@ -21,17 +21,83 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactSocial implements Serializable {
+public class ContactSocial {
+
+    /**
+     * The social network
+     *
+     * @since ARP1.0
+     */
+    private String socialNetwork;
+    /**
+     * The profileUrl
+     *
+     * @since ARP1.0
+     */
+    private String profileUrl;
+
+    /**
+     * Constructor used by the implementation
+     *
+     * @param socialNetwork of the profile
+     * @param profileUrl    of the user
+     * @since ARP1.0
+     */
+    public ContactSocial(String socialNetwork, String profileUrl) {
+        this.socialNetwork = socialNetwork;
+        this.profileUrl = profileUrl;
+    }
+
+    /**
+     * Returns the social network
+     *
+     * @return socialNetwork
+     * @since ARP1.0
+     */
+    public String getSocialNetwork() {
+        return socialNetwork;
+    }
+
+    /**
+     * Set the social network
+     *
+     * @param socialNetwork
+     * @since ARP1.0
+     */
+    public void setSocialNetwork(String socialNetwork) {
+        this.socialNetwork = socialNetwork;
+    }
+
+    /**
+     * Returns the profile url of the user
+     *
+     * @return profileUrl
+     * @since ARP1.0
+     */
+    public String getProfileUrl() {
+        return profileUrl;
+    }
+
+    /**
+     * Set the profile url of the iser
+     *
+     * @param profileUrl
+     * @since ARP1.0
+     */
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
+    }
 }

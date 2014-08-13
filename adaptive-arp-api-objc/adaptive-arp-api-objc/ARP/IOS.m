@@ -32,6 +32,7 @@
 //
 
 #include "IOS.h"
+#include "OSInfo.h"
 
 @interface ARPIOS : NSObject
 @end
@@ -39,7 +40,10 @@
 @implementation ARPIOS
 
 + (J2ObjcClassInfo *)__metadata {
-  static J2ObjcClassInfo _ARPIOS = { "IOS", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
+  static J2ObjcMethodInfo methods[] = {
+    { "getOSInfo", NULL, "Lme.adaptive.arp.api.OSInfo;", 0x401, NULL },
+  };
+  static J2ObjcClassInfo _ARPIOS = { "IOS", "me.adaptive.arp.api", NULL, 0x201, 1, methods, 0, NULL, 0, NULL};
   return &_ARPIOS;
 }
 

@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseUtil.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPITimer < ARPIBaseUtil, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPITimer < ARPIBaseUtil, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPITimer_init() {}

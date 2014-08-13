@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseApplication.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIPrinting < ARPIBaseApplication, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIPrinting < ARPIBaseApplication, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIPrinting_init() {}

@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseData.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPICloud < ARPIBaseData, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPICloud < ARPIBaseData, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPICloud_init() {}

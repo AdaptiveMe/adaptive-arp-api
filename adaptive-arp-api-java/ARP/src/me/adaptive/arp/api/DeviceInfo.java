@@ -28,9 +28,7 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
-public class DeviceInfo implements Serializable {
+public class DeviceInfo {
 
     /**
      * Name of device - equivalent to brand.

@@ -21,17 +21,90 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 08/08/14.
  */
-public class ContactPhone implements Serializable {
+public class ContactPhone {
+    /**
+     * The phone number
+     *
+     * @since ARP1.0
+     */
+    private String phone;
+    /**
+     * The phone number phoneType
+     *
+     * @since ARP1.0
+     */
+    private PhoneType phoneType;
+
+    /**
+     * Constructor used by implementation to set the contact Phone
+     *
+     * @param phone
+     * @param phoneType
+     * @since ARP1.0
+     */
+    public ContactPhone(String phone, PhoneType phoneType) {
+        this.phone = phone;
+        this.phoneType = phoneType;
+    }
+
+    /**
+     * Returns the phone number
+     *
+     * @return phone number
+     * @since ARP1.0
+     */
+    public String getPhone() {
+        return phone;
+    }
+
+    /**
+     * Set the phone number
+     *
+     * @param phone number
+     * @since ARP1.0
+     */
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    /**
+     * Returns the phone phoneType
+     *
+     * @return phoneType
+     * @since ARP1.0
+     */
+    public me.adaptive.arp.api.ContactPhone.PhoneType getPhoneType() {
+        return phoneType;
+    }
+
+    /**
+     * Set the phoneType of the phone number
+     *
+     * @param phoneType
+     * @since ARP1.0
+     */
+    public void setPhoneType(me.adaptive.arp.api.ContactPhone.PhoneType phoneType) {
+        this.phoneType = phoneType;
+    }
+
+    /**
+     * Types that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum PhoneType {
+        Mobile, Work, Home, Main, HomeFax, WorkFax, Other
+    }
 }

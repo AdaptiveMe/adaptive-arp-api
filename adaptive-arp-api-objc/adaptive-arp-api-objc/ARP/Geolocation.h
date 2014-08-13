@@ -26,22 +26,53 @@
  * =====================================================================================================================
  */
 
-package me.adaptive.arp.api;
+//
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/Geolocation.java
+//
+//
 
-import java.io.Serializable;
+#ifndef _ARPGeolocation_H_
+#define _ARPGeolocation_H_
 
-/**
- * Created by clozano on 08/08/14.
- */
-public interface ContactResultCallback extends Serializable{
+#import "JreEmulation.h"
 
-    enum Warning {LimitExceeded}
-
-    enum Error {NoPermission}
-
-    void onResult(Contact[] contacts);
-
-    void onWarning(Contact[] contacts, Warning warning);
-
-    void onError(Error error);
+@interface ARPGeolocation : NSObject {
+ @public
+  double latitude_;
+  double longitude_;
+  double altitude_;
+  float XDoP_;
+  float YDoP_;
 }
+
+- (id)initWithDouble:(double)latitude
+          withDouble:(double)longitude
+          withDouble:(double)altitude
+           withFloat:(float)XDoP
+           withFloat:(float)YDoP;
+
+- (double)getLatitude;
+
+- (void)setLatitudeWithDouble:(double)latitude;
+
+- (double)getLongitude;
+
+- (void)setLongitudeWithDouble:(double)longitude;
+
+- (double)getAltitude;
+
+- (void)setAltitudeWithDouble:(double)altitude;
+
+- (float)getXDoP;
+
+- (float)getYDoP;
+
+- (void)copyAllFieldsTo:(ARPGeolocation *)other;
+
+@end
+
+__attribute__((always_inline)) inline void ARPGeolocation_init() {}
+
+typedef ARPGeolocation MeAdaptiveArpApiGeolocation;
+
+#endif // _ARPGeolocation_H_

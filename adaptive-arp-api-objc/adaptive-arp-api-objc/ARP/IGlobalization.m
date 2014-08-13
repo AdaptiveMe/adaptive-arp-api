@@ -32,6 +32,9 @@
 //
 
 #include "IGlobalization.h"
+#include "IOSObjectArray.h"
+#include "Locale.h"
+#include "java/util/HashMap.h"
 
 @interface ARPIGlobalization : NSObject
 @end
@@ -39,7 +42,12 @@
 @implementation ARPIGlobalization
 
 + (J2ObjcClassInfo *)__metadata {
-  static J2ObjcClassInfo _ARPIGlobalization = { "IGlobalization", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
+  static J2ObjcMethodInfo methods[] = {
+    { "getLocaleSupportedDescriptors", NULL, "[Ljava.lang.String;", 0x401, NULL },
+    { "getResourceLiteralWithNSString:withARPLocale:", "getResourceLiteral", "Ljava.lang.String;", 0x401, NULL },
+    { "getResourceLiteralsWithARPLocale:", "getResourceLiterals", "Ljava.util.HashMap;", 0x401, NULL },
+  };
+  static J2ObjcClassInfo _ARPIGlobalization = { "IGlobalization", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
   return &_ARPIGlobalization;
 }
 

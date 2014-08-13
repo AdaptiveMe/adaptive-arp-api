@@ -21,17 +21,36 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface ITelephony extends IBasePIM, Serializable {
+public interface ITelephony extends IBasePIM {
+
+    /**
+     * Invoke a phone call
+     *
+     * @param number to call
+     * @return Status of the call
+     * @since ARP1.0
+     */
+    Status call(String number);
+
+    /**
+     * Statuses of the call
+     *
+     * @since ARP1.0
+     */
+    public enum Status {
+        Dialing, Failed
+    }
 }

@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseData.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIXML < ARPIBaseData, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIXML < ARPIBaseData, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIXML_init() {}

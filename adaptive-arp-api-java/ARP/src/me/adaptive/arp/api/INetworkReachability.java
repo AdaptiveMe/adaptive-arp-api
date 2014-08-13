@@ -21,17 +21,27 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface INetworkReachability extends IBaseCommunication, Serializable {
+public interface INetworkReachability extends IBaseCommunication {
+
+    /**
+     * Whether there is connectivity to an url or not.
+     *
+     * @param url
+     * @return true if there is network connectivity to the given url; false otherwise
+     */
+    boolean isNetworkReachable(String url);
+
 }

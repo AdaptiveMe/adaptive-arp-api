@@ -28,10 +28,18 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IBrowser extends IBaseUI, Serializable {
+public interface IBrowser extends IBaseUI {
+    /**
+     * Open a new window showing the url webpage with a title and a close button displaying the desired text
+     *
+     * @param url        to open
+     * @param title      of the new window
+     * @param buttonText text of the close button
+     * @return true if the new window opens;false otherwise
+     */
+    boolean openBrowser(String url, String title, String buttonText);
 }

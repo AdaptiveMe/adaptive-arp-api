@@ -28,10 +28,8 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IAudio extends IBaseMedia, Serializable {
+public interface IAudio extends IBaseMedia {
 }

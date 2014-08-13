@@ -35,5 +35,9 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface IOS : IBaseSystem
 	{
+		/// <summary>Returns the OSInfo for the current operating system.</summary>
+		/// <remarks>Returns the OSInfo for the current operating system.</remarks>
+		/// <returns>OSInfo with name, version and vendor of the OS.</returns>
+		OSInfo GetOSInfo();
 	}
 }

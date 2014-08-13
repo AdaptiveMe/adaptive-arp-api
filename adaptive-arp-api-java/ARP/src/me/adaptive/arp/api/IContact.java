@@ -21,38 +21,110 @@
  *
  * Contributors:
  *
- *     *
+ *     * Francisco Javier Martin Bueno
+ *             <https://github.com/kechis>
+ *             <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
-
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
 
 /**
  * Created by clozano on 04/08/14.
  */
-public interface IContact extends IBasePIM, Serializable {
+public interface IContact extends IBasePIM {
 
-    enum Filter {HAS_PHONE, HAS_EMAIL, HAS_ADDRESS}
+    /**
+     * Search contacts according to a term and send it to the callback
+     *
+     * @param term     string to search
+     * @param callback called for return
+     * @since ARP1.0
+     */
+    void searchContacts(String term, IContactResultCallback callback);
 
-    enum FieldGroup {PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS}
+    /**
+     * Search contacts according to a term with a filter and send it to the callback
+     *
+     * @param term     string to search
+     * @param callback called for return
+     * @param filter   to search for
+     * @since ARP1.0
+     */
+    void searchContacts(String term, IContactResultCallback callback, Filter... filter);
 
-    void searchContacts(String term, ContactResultCallback callback);
+    /**
+     * Get all the details of a contact according to its id
+     *
+     * @param contact  id to search for
+     * @param callback called for return
+     * @since ARP1.0
+     */
+    void getContact(ContactUid contact, IContactResultCallback callback);
 
-    void searchContacts(String term, ContactResultCallback callback, Filter... filter);
+    /**
+     * Get the contact photo
+     *
+     * @param contact  id to search for
+     * @param callback called for return
+     * @since ARP1.0
+     */
+    void getContactPhoto(ContactUid contact, IContactResultCallback callback);
 
-    void getContact(ContactUid contact, ContactResultCallback callback);
-
-    void getContactPhoto(ContactUid contact, ContactResultCallback callback);
-
+    /**
+     * Set the contact photo
+     *
+     * @param contact  id to assign the photo
+     * @param pngImage photo as byte array
+     * @return true if set is successful;false otherwise
+     * @since ARP1.0
+     */
     boolean setContactPhoto(ContactUid contact, byte[] pngImage);
 
-    void getContacts(ContactResultCallback callback);
+    /**
+     * Get all contacts
+     *
+     * @param callback called for return
+     * @since ARP1.0
+     */
+    void getContacts(IContactResultCallback callback);
 
-    void getContacts(ContactResultCallback callback, FieldGroup... fields);
+    /**
+     * Get marked fields of all contacts
+     *
+     * @param callback called for return
+     * @param fields   to get for each Contact
+     * @since ARP1.0
+     */
+    void getContacts(IContactResultCallback callback, FieldGroup... fields);
 
-    void getContacts(ContactResultCallback callback, FieldGroup[] fields, Filter... filter);
+    /**
+     * Get marked fields of all contacts according to a filter
+     *
+     * @param callback called for return
+     * @param fields   to get for each Contact
+     * @param filter   to search for
+     * @since ARP1.0
+     */
+    void getContacts(IContactResultCallback callback, FieldGroup[] fields, Filter... filter);
+
+    /**
+     * Filter that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum Filter {
+        HAS_PHONE, HAS_EMAIL, HAS_ADDRESS
+    }
+
+    /**
+     * Group that can be retrieved
+     *
+     * @since ARP1.0
+     */
+    public enum FieldGroup {
+        PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS
+    }
 
 }

@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseUtil.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIConcurrent < ARPIBaseUtil, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIConcurrent < ARPIBaseUtil, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIConcurrent_init() {}

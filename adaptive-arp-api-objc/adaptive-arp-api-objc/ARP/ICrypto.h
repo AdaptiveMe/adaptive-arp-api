@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseUtil.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPICrypto < ARPIBaseUtil, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPICrypto < ARPIBaseUtil, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPICrypto_init() {}

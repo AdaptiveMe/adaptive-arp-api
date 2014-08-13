@@ -31,7 +31,10 @@
 //
 //
 
+#include "IIOCallback.h"
 #include "IServices.h"
+#include "Request.h"
+#include "Service.h"
 
 @interface ARPIServices : NSObject
 @end
@@ -39,7 +42,12 @@
 @implementation ARPIServices
 
 + (J2ObjcClassInfo *)__metadata {
-  static J2ObjcClassInfo _ARPIServices = { "IServices", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
+  static J2ObjcMethodInfo methods[] = {
+    { "registerServiceWithARPService:", "registerService", "Z", 0x401, NULL },
+    { "unregisterServiceWithARPService:", "unregisterService", "Z", 0x401, NULL },
+    { "InvokeServiceWithARPRequest:withARPService:withARPIIOCallback:", "InvokeService", "V", 0x401, NULL },
+  };
+  static J2ObjcClassInfo _ARPIServices = { "IServices", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
   return &_ARPIServices;
 }
 

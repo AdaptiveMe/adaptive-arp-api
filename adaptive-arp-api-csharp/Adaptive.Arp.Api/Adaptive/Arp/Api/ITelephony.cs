@@ -33,7 +33,20 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 04/08/14.</summary>
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	public interface ITelephony : IBasePIM
+	public abstract class ITelephony : IBasePIM
 	{
+		/// <summary>Invoke a phone call</summary>
+		/// <param name="number">to call</param>
+		/// <returns>Status of the call</returns>
+		/// <since>ARP1.0</since>
+		public abstract ITelephony.Status Call(string number);
+
+		/// <summary>Statuses of the call</summary>
+		/// <since>ARP1.0</since>
+		public enum Status
+		{
+			Dialing,
+			Failed
+		}
 	}
 }

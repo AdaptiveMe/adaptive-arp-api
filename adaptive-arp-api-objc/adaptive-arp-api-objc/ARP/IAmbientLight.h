@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSensor.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIAmbientLight < ARPIBaseSensor, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIAmbientLight < ARPIBaseSensor, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIAmbientLight_init() {}

@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseSystem.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIDisplay < ARPIBaseSystem, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIDisplay < ARPIBaseSystem, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIDisplay_init() {}

@@ -35,5 +35,20 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface IDevice : IBaseSystem
 	{
+		/// <summary>Returns the device information for the current device executing the runtime.
+		/// 	</summary>
+		/// <remarks>Returns the device information for the current device executing the runtime.
+		/// 	</remarks>
+		/// <returns>DeviceInfo for the current device.</returns>
+		DeviceInfo GetDeviceInfo();
+
+		/// <summary>Gets the current Locale for the device.</summary>
+		/// <remarks>Gets the current Locale for the device.</remarks>
+		/// <returns>The current Locale information.</returns>
+		Locale GetLocaleCurrent();
+
+		/// <summary>Send the device the info from hardware button pressed</summary>
+		/// <param name="button"></param>
+		void ButtonPressed(IButtonCallback button);
 	}
 }

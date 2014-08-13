@@ -26,6 +26,7 @@
  * =====================================================================================================================
  */
 
+using System.Collections.Generic;
 using Adaptive.Arp.Api;
 using Sharpen;
 
@@ -35,5 +36,29 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface IGlobalization : IBaseApplication
 	{
+		/// <summary>List of supported locales for the application</summary>
+		/// <returns>List of locales (only locale descriptor string, such as "en-US").</returns>
+		/// <since>ARP1.0</since>
+		string[] GetLocaleSupportedDescriptors();
+
+		/// <summary>Gets the text/message corresponding to the given key and locale.</summary>
+		/// <remarks>Gets the text/message corresponding to the given key and locale.</remarks>
+		/// <param name="key">to match text</param>
+		/// <param name="The">locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+		/// 	</param>
+		/// <returns>Localized text.</returns>
+		/// <since>ARP1.0</since>
+		string GetResourceLiteral(string key, Locale locale);
+
+		/// <summary>Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+		/// 	</summary>
+		/// <remarks>Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+		/// 	</remarks>
+		/// <param name="The">locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+		/// 	</param>
+		/// <returns>Localized texts in the form of an object (you could get the value of a keyed literal using resourceLiteralDictionary.MY_KEY or resourceLiteralDictionary["MY_KEY"]).
+		/// 	</returns>
+		/// <since>ARP1.0</since>
+		Dictionary<string, string> GetResourceLiterals(Locale locale);
 	}
 }

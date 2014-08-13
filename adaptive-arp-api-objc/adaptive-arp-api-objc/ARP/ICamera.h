@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseMedia.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPICamera < ARPIBaseMedia, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPICamera < ARPIBaseMedia, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPICamera_init() {}

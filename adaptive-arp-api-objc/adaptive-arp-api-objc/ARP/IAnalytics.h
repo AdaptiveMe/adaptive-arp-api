@@ -36,9 +36,8 @@
 
 #import "JreEmulation.h"
 #include "IBaseApplication.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIAnalytics < ARPIBaseApplication, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIAnalytics < ARPIBaseApplication, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIAnalytics_init() {}

@@ -36,9 +36,12 @@
 
 #import "JreEmulation.h"
 #include "IBaseUI.h"
-#include "java/io/Serializable.h"
 
-@protocol ARPIBrowser < ARPIBaseUI, JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPIBrowser < ARPIBaseUI, NSObject, JavaObject >
+- (BOOL)openBrowserWithNSString:(NSString *)url
+                   withNSString:(NSString *)title
+                   withNSString:(NSString *)buttonText;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIBrowser_init() {}
