@@ -21,16 +21,45 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *              <http://github.com/fnva>
+ *              <http://twitter.com/ferran_vila>
+ *              <mailto:ferran.vila.conesa@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
 /**
- * Created by clozano on 04/08/14.
+ * @see me.adaptive.arp.api.IDatabase
+ * @see me.adaptive.arp.api.Database
+ * @author Ferran Vila Conesa
+ * @since ARP1.0
  */
-public interface ILogging extends IBaseUtil {
+public class Table {
+
+    /**
+     * Name of the table.
+     */
+    private String name;
+    /**
+     * Number of columns.
+     */
+    private int columnCount;
+
+    /**
+     * Number of rows.
+     */
+    private int rowCount;
+
+    /**
+     * Definition of columns.
+     */
+    private Column[] columns;
+
+    /**
+     * Rows of the table containing the data.
+     */
+    private Row[] rows;
 }
