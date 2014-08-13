@@ -32,8 +32,8 @@
 package me.adaptive.arp.api;
 
 /**
- * @see me.adaptive.arp.api.IDatabase
  * @author Ferran Vila Conesa
+ * @see me.adaptive.arp.api.IDatabase
  * @since ARP1.0
  */
 public class Database {
