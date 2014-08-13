@@ -27,26 +27,54 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/AccelerationListener.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/SecureKeyPair.java
 //
 //
 
-#include "Acceleration.h"
-#include "AccelerationListener.h"
+#include "SecureKeyPair.h"
 
-@interface ARPAccelerationListener : NSObject
-@end
+@implementation ARPSecureKeyPair
 
-@implementation ARPAccelerationListener
+- (NSString *)getKey {
+  return key_;
+}
+
+- (void)setKeyWithNSString:(NSString *)key {
+  self->key_ = key;
+}
+
+- (NSString *)getValue {
+  return value_;
+}
+
+- (void)setValueWithNSString:(NSString *)value {
+  self->value_ = value;
+}
+
+- (id)init {
+  return [super init];
+}
+
+- (void)copyAllFieldsTo:(ARPSecureKeyPair *)other {
+  [super copyAllFieldsTo:other];
+  other->key_ = key_;
+  other->value_ = value_;
+}
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "receivedDataWithARPAcceleration:", "receivedData", "V", 0x401, NULL },
-    { "receivedWarningWithARPAcceleration:", "receivedWarning", "V", 0x401, NULL },
-    { "receivedErrorWithARPAcceleration:", "receivedError", "V", 0x401, NULL },
+    { "getKey", NULL, "Ljava.lang.String;", 0x1, NULL },
+    { "setKeyWithNSString:", "setKey", "V", 0x1, NULL },
+    { "getValue", NULL, "Ljava.lang.String;", 0x1, NULL },
+    { "setValueWithNSString:", "setValue", "V", 0x1, NULL },
+    { "init", NULL, NULL, 0x1, NULL },
   };
-  static J2ObjcClassInfo _ARPAccelerationListener = { "AccelerationListener", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
-  return &_ARPAccelerationListener;
+  static J2ObjcFieldInfo fields[] = {
+    { "key_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
+    { "value_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
+  };
+  static J2ObjcClassInfo _ARPSecureKeyPair = { "SecureKeyPair", "me.adaptive.arp.api", NULL, 0x1, 5, methods, 2, fields, 0, NULL};
+  return &_ARPSecureKeyPair;
 }
 
 @end

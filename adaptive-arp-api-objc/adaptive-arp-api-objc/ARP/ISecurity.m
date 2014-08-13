@@ -43,7 +43,7 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "isDeviceModified", NULL, "Z", 0x401, NULL },
-    { "setSecureKeyValuePairsWithARPInternalStorageKeyPairArray:withNSString:withARPISecureKVResultCallback:", "setSecureKeyValuePairs", "V", 0x401, NULL },
+    { "setSecureKeyValuePairsWithARPSecureKeyPairArray:withNSString:withARPISecureKVResultCallback:", "setSecureKeyValuePairs", "V", 0x401, NULL },
     { "getSecureKeyValuePairsWithNSStringArray:withNSString:withARPISecureKVResultCallback:", "getSecureKeyValuePairs", "V", 0x401, NULL },
     { "deleteSecureKeyValuePairsWithNSStringArray:withNSString:withARPISecureKVResultCallback:", "deleteSecureKeyValuePairs", "V", 0x401, NULL },
   };

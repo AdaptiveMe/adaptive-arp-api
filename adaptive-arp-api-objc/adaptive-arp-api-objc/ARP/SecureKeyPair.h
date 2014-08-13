@@ -27,28 +27,40 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/IServices.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/SecureKeyPair.java
 //
 //
 
-#include "IIOCallback.h"
-#include "IServices.h"
-#include "Request.h"
-#include "Service.h"
+#ifndef _ARPSecureKeyPair_H_
+#define _ARPSecureKeyPair_H_
 
-@interface ARPIServices : NSObject
-@end
+#import "JreEmulation.h"
 
-@implementation ARPIServices
-
-+ (J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { "registerServiceWithARPService:", "registerService", "Z", 0x401, NULL },
-    { "unregisterServiceWithARPService:", "unregisterService", "Z", 0x401, NULL },
-    { "InvokeServiceWithARPRequest:withARPService:withARPIIOCallback:", "InvokeService", "V", 0x401, NULL },
-  };
-  static J2ObjcClassInfo _ARPIServices = { "IServices", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
-  return &_ARPIServices;
+@interface ARPSecureKeyPair : NSObject {
+ @public
+  NSString *key_;
+  NSString *value_;
 }
 
+- (NSString *)getKey;
+
+- (void)setKeyWithNSString:(NSString *)key;
+
+- (NSString *)getValue;
+
+- (void)setValueWithNSString:(NSString *)value;
+
+- (id)init;
+
+- (void)copyAllFieldsTo:(ARPSecureKeyPair *)other;
+
 @end
+
+__attribute__((always_inline)) inline void ARPSecureKeyPair_init() {}
+
+J2OBJC_FIELD_SETTER(ARPSecureKeyPair, key_, NSString *)
+J2OBJC_FIELD_SETTER(ARPSecureKeyPair, value_, NSString *)
+
+typedef ARPSecureKeyPair MeAdaptiveArpApiSecureKeyPair;
+
+#endif // _ARPSecureKeyPair_H_

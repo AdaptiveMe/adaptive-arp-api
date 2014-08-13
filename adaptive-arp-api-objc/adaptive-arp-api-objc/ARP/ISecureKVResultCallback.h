@@ -43,10 +43,10 @@
 
 @protocol ARPISecureKVResultCallback < NSObject, JavaObject >
 
-- (void)onResultWithARPInternalStorageKeyPairArray:(IOSObjectArray *)keyValues;
+- (void)onResultWithARPSecureKeyPairArray:(IOSObjectArray *)keyValues;
 
-- (void)onWarningWithARPInternalStorageKeyPairArray:(IOSObjectArray *)keyValues
-         withARPISecureKVResultCallback_WarningEnum:(ARPISecureKVResultCallback_WarningEnum *)warning;
+- (void)onWarningWithARPSecureKeyPairArray:(IOSObjectArray *)keyValues
+withARPISecureKVResultCallback_WarningEnum:(ARPISecureKVResultCallback_WarningEnum *)warning;
 
 - (void)onErrorWithARPISecureKVResultCallback_ErrorEnum:(ARPISecureKVResultCallback_ErrorEnum *)error;
 

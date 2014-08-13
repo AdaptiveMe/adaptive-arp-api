@@ -43,8 +43,8 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "onResultWithARPInternalStorageKeyPairArray:", "onResult", "V", 0x401, NULL },
-    { "onWarningWithARPInternalStorageKeyPairArray:withARPISecureKVResultCallback_WarningEnum:", "onWarning", "V", 0x401, NULL },
+    { "onResultWithARPSecureKeyPairArray:", "onResult", "V", 0x401, NULL },
+    { "onWarningWithARPSecureKeyPairArray:withARPISecureKVResultCallback_WarningEnum:", "onWarning", "V", 0x401, NULL },
     { "onErrorWithARPISecureKVResultCallback_ErrorEnum:", "onError", "V", 0x401, NULL },
   };
   static J2ObjcClassInfo _ARPISecureKVResultCallback = { "ISecureKVResultCallback", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
