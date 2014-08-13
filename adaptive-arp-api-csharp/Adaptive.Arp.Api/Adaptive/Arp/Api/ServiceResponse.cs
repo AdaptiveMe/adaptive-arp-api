@@ -203,7 +203,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the method</summary>
-		/// <param name="method"></param>
+		/// <param name="session"></param>
 		/// <since>ARP1.0</since>
 		public virtual void SetSession(ISession session)
 		{
