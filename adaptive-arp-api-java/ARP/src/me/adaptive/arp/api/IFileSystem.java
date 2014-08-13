@@ -21,10 +21,7 @@
  *
  * Contributors:
  *
- *     * Aryslan
- *                 <http://github.com/Aryslan>
- *                 <http://twitter.com/Aryslan>
- *                 <mailto:ddbc@gft.com>
+ *     *
  *
  * =====================================================================================================================
  */
@@ -33,8 +30,13 @@ package me.adaptive.arp.api;
 
 
 /**
- * Created by DBarranco on 11/08/14.
+ * Created by clozano on 04/08/14.
  */
-public interface IInternalStorage extends IStore {
+public interface IFileSystem extends IBaseData {
 
+    public IFile getApplicationFolder();
+
+    public IFile getApplicationCacheFolder();
+
+    public IFile getApplicationDocumentsFolder();
 }

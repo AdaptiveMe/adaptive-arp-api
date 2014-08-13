@@ -42,128 +42,97 @@
 
 package me.adaptive.arp.api;
 
+
 /**
- * Created by FRMI on 12/08/2014.
+ * Created by clozano on 04/08/14.
  */
-public class Service {
+public interface IService extends IBaseData {
 
     /**
-     * Enpoint of the service
+     * Register a new service
      *
-     * @since ARP1.0
+     * @param service to register
      */
-    private Endpoint endpoint;
+    void registerService(Service service);
+
     /**
-     * The service name
+     * Unregister a service
      *
-     * @since ARP1.0
+     * @param service to unregister
      */
-    private String name;
+    void unregisterService(Service service);
+
     /**
-     * The method used
-     *
-     * @since ARP1.0
+     * Unregister all services.
      */
-    private IService.ServiceMethod method;
+    void unregisterServices();
+
     /**
-     * The type of the service
+     * Check whether a service by the given service is already registered.
      *
-     * @since ARP1.0
+     * @param service
+     * @return True if the service is registered, false otherwise.
      */
-    private IService.ServiceType type;
+    boolean isRegistered(Service service);
+
     /**
-     * Constructor used by the implementation
+     * Check whether a service by the given name is registered.
      *
-     * @param endpoint
-     * @param name
-     * @param method
-     * @param type
+     * @param serviceName
+     * @return True if the service is registered, false otherwise.
+     */
+    boolean isRegistered(String serviceName);
+
+    /**
+     * Get a reference to a registered service by name.
+     *
+     * @param serviceName Name of service.
+     * @return A service, if registered, or null of the service does not exist.
+     */
+    Service getService(String serviceName);
+
+    /**
+     * Request async a service for an Url
+     *
+     * @param serviceRequest
+     * @param service
+     * @param callback
+     */
+    void InvokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback);
+
+    /**
+     * Type of available services
+     *
      * @since ARP1.0
      */
-    public Service(Endpoint endpoint, String name, IService.ServiceMethod method, IService.ServiceType type) {
-        this.endpoint = endpoint;
-        this.name = name;
-        this.method = method;
-        this.type = type;
+    public enum ServiceType {
+        SERVICETYPE_AMF_SERIALIZATION,
+        SERVICETYPE_GWT_RPC,
+        SERVICETYPE_OCTET_BINARY,
+        SERVICETYPE_REMOTING_SERIALIZATION,
+        SERVICETYPE_REST_JSON,
+        SERVICETYPE_REST_XML,
+        SERVICETYPE_SOAP_JSON,
+        SERVICETYPE_SOAP_XML,
+        SERVICETYPE_XMLRPC_JSON,
+        SERVICETYPE_XMLRPC_XML
     }
 
     /**
-     * Returns the endpoint
+     * Protocol version supported
      *
-     * @return endpoint
      * @since ARP1.0
      */
-    public Endpoint getEndpoint() {
-        return endpoint;
+    public enum ProtocolVersion {
+        HTTP_PROTOCOL_VERSION_1_0, HTTP_PROTOCOL_VERSION_1_1
     }
 
     /**
-     * Set the endpoint
+     * Available methods
      *
-     * @param endpoint
      * @since ARP1.0
      */
-    public void setEndpoint(Endpoint endpoint) {
-        this.endpoint = endpoint;
-    }
-
-    /**
-     * Returns the name
-     *
-     * @return name
-     * @since ARP1.0
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Set the name
-     *
-     * @param name
-     * @since ARP1.0
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Returns the method
-     *
-     * @return method
-     * @since ARP1.0
-     */
-    public IService.ServiceMethod getMethod() {
-        return method;
-    }
-
-    /**
-     * Set the method
-     *
-     * @param method
-     * @since ARP1.0
-     */
-    public void setMethod(IService.ServiceMethod method) {
-        this.method = method;
-    }
-
-    /**
-     * Returns the type
-     *
-     * @return type
-     * @since ARP1.0
-     */
-    public IService.ServiceType getType() {
-        return type;
-    }
-
-    /**
-     * Set the type
-     *
-     * @param type
-     * @since ARP1.0
-     */
-    public void setType(IService.ServiceType type) {
-        this.type = type;
+    public enum ServiceMethod {
+        POST, GET
     }
 }

@@ -60,7 +60,7 @@ public class Endpoint {
      */
     private String path;
     /**
-     * The remote service accesible port.
+     * The remote service accessible port.
      *
      * @since ARP1.0
      */

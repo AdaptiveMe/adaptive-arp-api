@@ -45,7 +45,7 @@ package me.adaptive.arp.api;
 /**
  * Created by FRMI on 12/08/2014.
  */
-public class Request {
+public class ServiceRequest {
 
     /**
      * Request/Response data content (plain text).
@@ -88,13 +88,19 @@ public class Request {
      *
      * @since ARP1.0
      */
-    private ProtocolVersion protocolVersion;
+    private IService.ProtocolVersion protocolVersion;
     /**
      * The session context for the Request/Response.
      *
      * @since ARP1.0
      */
-    private Session session;
+    private ISession session;
+
+    /**
+     * Encoding of the binary payload - by default assumed to be UTF8.
+     */
+    private String contentEncoding;
+
     /**
      * Contructor used by the implementation
      *
@@ -108,7 +114,7 @@ public class Request {
      * @param session
      * @since ARP1.0
      */
-    public Request(String content, String contentType, int contentLength, byte[] rawContent, Header[] headers, String method, me.adaptive.arp.api.Request.ProtocolVersion protocolVersion, Session session) {
+    public ServiceRequest(String content, String contentType, int contentLength, byte[] rawContent, Header[] headers, String method, IService.ProtocolVersion protocolVersion, ISession session) {
         this.content = content;
         this.contentType = contentType;
         this.contentLength = contentLength;
@@ -125,7 +131,7 @@ public class Request {
      * @return protocolVersion enum
      * @since ARP1.0
      */
-    public me.adaptive.arp.api.Request.ProtocolVersion getProtocolVersion() {
+    public IService.ProtocolVersion getProtocolVersion() {
         return protocolVersion;
     }
 
@@ -135,7 +141,7 @@ public class Request {
      * @param protocolVersion
      * @since ARP1.0
      */
-    public void setProtocolVersion(me.adaptive.arp.api.Request.ProtocolVersion protocolVersion) {
+    public void setProtocolVersion(IService.ProtocolVersion protocolVersion) {
         this.protocolVersion = protocolVersion;
     }
 
@@ -265,7 +271,7 @@ public class Request {
      * @return session
      * @since ARP1.0
      */
-    public Session getSession() {
+    public ISession getSession() {
         return session;
     }
 
@@ -275,16 +281,15 @@ public class Request {
      * @param session
      * @since ARP1.0
      */
-    public void setSession(Session session) {
+    public void setSession(ISession session) {
         this.session = session;
     }
 
-    /**
-     * Protocol version supported
-     *
-     * @since ARP1.0
-     */
-    public enum ProtocolVersion {
-        HTTP_PROTOCOL_VERSION_1_0, HTTP_PROTOCOL_VERSION_1_1
+    public String getContentEncoding() {
+        return contentEncoding;
+    }
+
+    public void setContentEncoding(String contentEncoding) {
+        this.contentEncoding = contentEncoding;
     }
 }

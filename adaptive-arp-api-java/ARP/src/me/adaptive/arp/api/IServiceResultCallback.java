@@ -46,7 +46,7 @@ package me.adaptive.arp.api;
 /**
  * Created by FRMI on 12/08/2014.
  */
-public interface IIOCallback {
+public interface IServiceResultCallback {
 
     /**
      * This method is called on Result
@@ -54,7 +54,7 @@ public interface IIOCallback {
      * @param response data
      * @since ARP1.0
      */
-    void onResult(IOResponse response);
+    void onResult(ServiceResponse response);
 
     /**
      * This method is called on Warning
@@ -63,7 +63,7 @@ public interface IIOCallback {
      * @param warning  returned by the platform
      * @since ARP1.0
      */
-    void onWarning(IOResponse response, Warning warning);
+    void onWarning(ServiceResponse response, Warning warning);
 
     /**
      * This method is called on Error
@@ -79,7 +79,7 @@ public interface IIOCallback {
      * @since ARP1.0
      */
     public enum Warning {
-        Internal_Error, Not_Implemented, TIMEDOUT
+        NotSecure, NotTrusted, Redirected;
     }
 
     /**
@@ -88,6 +88,6 @@ public interface IIOCallback {
      * @since ARP1.0
      */
     public enum Error {
-        Forbidden, Not_Found, Method_Not_Allowed, Not_Allowed
+        Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, Unknown
     }
 }
