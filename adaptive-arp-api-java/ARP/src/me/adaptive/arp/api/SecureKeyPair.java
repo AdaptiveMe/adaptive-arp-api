@@ -35,7 +35,7 @@ package me.adaptive.arp.api;
 /**
  * Created by DBarranco on 11/08/14.
  */
-public class InternalStorageKeyPair {
+public class SecureKeyPair {
 
     private String key;
 

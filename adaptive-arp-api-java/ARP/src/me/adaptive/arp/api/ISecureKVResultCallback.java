@@ -43,7 +43,7 @@ public interface ISecureKVResultCallback {
      * @param keyValues
      * @since ARP1.0
      */
-    void onResult(InternalStorageKeyPair[] keyValues);
+    void onResult(SecureKeyPair[] keyValues);
 
     /**
      * Data received with warning - ie Found entries with existing key and values have been overriden
@@ -52,7 +52,7 @@ public interface ISecureKVResultCallback {
      * @param warning
      * @since ARP1.0
      */
-    void onWarning(InternalStorageKeyPair[] keyValues, Warning warning);
+    void onWarning(SecureKeyPair[] keyValues, Warning warning);
 
     /**
      * No data received - error condition, not authorized .
