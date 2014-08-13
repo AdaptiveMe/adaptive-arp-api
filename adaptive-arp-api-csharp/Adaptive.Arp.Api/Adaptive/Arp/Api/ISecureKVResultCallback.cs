@@ -39,14 +39,14 @@ namespace Adaptive.Arp.Api
 		/// <remarks>Correct data received.</remarks>
 		/// <param name="keyValues"></param>
 		/// <since>ARP1.0</since>
-		public abstract void OnResult(InternalStorageKeyPair[] keyValues);
+		public abstract void OnResult(SecureKeyPair[] keyValues);
 
 		/// <summary>Data received with warning - ie Found entries with existing key and values have been overriden
 		/// 	</summary>
 		/// <param name="keyValues"></param>
 		/// <param name="warning"></param>
 		/// <since>ARP1.0</since>
-		public abstract void OnWarning(InternalStorageKeyPair[] keyValues, ISecureKVResultCallback.Warning
+		public abstract void OnWarning(SecureKeyPair[] keyValues, ISecureKVResultCallback.Warning
 			 warning);
 
 		/// <summary>No data received - error condition, not authorized .</summary>

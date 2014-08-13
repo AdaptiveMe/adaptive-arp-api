@@ -31,43 +31,46 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by FRMI on 12/08/2014.</summary>
-	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
-	public abstract class IIOCallback
+	/// <summary>Created by DBarranco on 11/08/14.</summary>
+	/// <remarks>Created by DBarranco on 11/08/14.</remarks>
+	public class SecureKeyPair
 	{
-		/// <summary>This method is called on Result</summary>
-		/// <param name="response">data</param>
-		/// <since>ARP1.0</since>
-		public abstract void OnResult(IOResponse response);
+		private string key;
 
-		/// <summary>This method is called on Warning</summary>
-		/// <param name="response">data</param>
-		/// <param name="warning">returned by the platform</param>
-		/// <since>ARP1.0</since>
-		public abstract void OnWarning(IOResponse response, IIOCallback.Warning warning);
+		private string value;
 
-		/// <summary>This method is called on Error</summary>
-		/// <param name="error">returned by the platform</param>
-		/// <since>ARP1.0</since>
-		public abstract void OnError(IIOCallback.Error error);
-
-		/// <summary>Warnings that can be used</summary>
-		/// <since>ARP1.0</since>
-		public enum Warning
+		/// <summary>Returns the object key name.</summary>
+		/// <remarks>Returns the object key name.</remarks>
+		/// <returns>Key name.</returns>
+		/// <since>ARP 1.0</since>
+		public virtual string GetKey()
 		{
-			Internal_Error,
-			Not_Implemented,
-			Timedout
+			return key;
 		}
 
-		/// <summary>Errors that can be used</summary>
-		/// <since>ARP1.0</since>
-		public enum Error
+		/// <summary>Sets the key name for this object.</summary>
+		/// <remarks>Sets the key name for this object.</remarks>
+		/// <param name="key">Key name.</param>
+		/// <since>ARP 1.0</since>
+		public virtual void SetKey(string key)
 		{
-			Forbidden,
-			Not_Found,
-			Method_Not_Allowed,
-			Not_Allowed
+			this.key = key;
+		}
+
+		/// <summary>Returns the object value</summary>
+		/// <returns>Value.</returns>
+		/// <since>ARP 1.0</since>
+		public virtual string GetValue()
+		{
+			return value;
+		}
+
+		/// <summary>Sets the value for this object</summary>
+		/// <param name="value">value to set.</param>
+		/// <since>ARP 1.0</since>
+		public virtual void SetValue(string value)
+		{
+			this.value = value;
 		}
 	}
 }
