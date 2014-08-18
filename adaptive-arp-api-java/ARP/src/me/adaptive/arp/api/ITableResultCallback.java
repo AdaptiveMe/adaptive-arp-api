@@ -31,14 +31,40 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
- * @see me.adaptive.arp.api.IDatabase
  * @author Ferran Vila Conesa
+ * @see me.adaptive.arp.api.IDatabase
  * @since ARP1.0
  */
-public interface ITableResultCallback extends Serializable {
+public interface ITableResultCallback {
+
+    /**
+     * Result callback for correct responses
+     *
+     * @param table Returns the table
+     * @author Ferran Vila Conesa
+     * @since ARP1.0
+     */
+    public void onResult(Table table);
+
+    /**
+     * Result callback for warning responses
+     *
+     * @param table   Returns the table
+     * @param warning Returned Warning
+     * @author Ferran Vila Conesa
+     * @since ARP1.0
+     */
+    public void onWarning(Table table, Warning warning);
+
+    /**
+     * Result callback for error responses
+     *
+     * @param error Returned error
+     * @author Ferran Vila Conesa
+     * @since ARP1.0
+     */
+    public void onError(Error error);
 
     /**
      * Enumeration for warnings related to database manipulation.
@@ -53,32 +79,4 @@ public interface ITableResultCallback extends Serializable {
     public enum Error {
         NoSpace, ReadOnlyTable, SqlException
     }
-
-    /**
-     * Result callback for correct responses
-     *
-     * @param table Returns the table
-     * @author Ferran Vila Conesa
-     * @since ARP1.0
-     */
-    public void onResult(Table table);
-
-    /**
-     * Result callback for warning responses
-     *
-     * @param table Returns the table
-     * @param warning  Returned Warning
-     * @author Ferran Vila Conesa
-     * @since ARP1.0
-     */
-    public void onWarning(Table table, Warning warning);
-
-    /**
-     * Result callback for error responses
-     *
-     * @param error Returned error
-     * @author Ferran Vila Conesa
-     * @since ARP1.0
-     */
-    public void onError(Error error);
 }

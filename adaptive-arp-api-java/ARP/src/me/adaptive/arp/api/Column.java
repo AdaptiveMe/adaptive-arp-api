@@ -32,10 +32,10 @@
 package me.adaptive.arp.api;
 
 /**
+ * @author Ferran Vila Conesa
  * @see me.adaptive.arp.api.IDatabase
  * @see me.adaptive.arp.api.Database
  * @see me.adaptive.arp.api.Table
- * @author Ferran Vila Conesa
  * @since ARP1.0
  */
 public class Column {

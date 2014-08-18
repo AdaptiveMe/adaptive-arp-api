@@ -31,28 +31,12 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
- * @see me.adaptive.arp.api.IDatabase
  * @author Ferran Vila Conesa
+ * @see me.adaptive.arp.api.IDatabase
  * @since ARP1.0
  */
-public interface IDatabaseResultCallback extends Serializable {
-
-    /**
-     * Enumeration for warnings related to database manipulation.
-     */
-    public enum Warning {
-        DatabaseExists
-    }
-
-    /**
-     * Enumeration for errors related to database manipulation.
-     */
-    public enum Error {
-        NoSpace, SqlException
-    }
+public interface IDatabaseResultCallback {
 
     /**
      * Result callback for correct responses
@@ -81,4 +65,18 @@ public interface IDatabaseResultCallback extends Serializable {
      * @since ARP1.0
      */
     public void onError(Error error);
+
+    /**
+     * Enumeration for warnings related to database manipulation.
+     */
+    public enum Warning {
+        DatabaseExists
+    }
+
+    /**
+     * Enumeration for errors related to database manipulation.
+     */
+    public enum Error {
+        NoSpace, SqlException
+    }
 }
