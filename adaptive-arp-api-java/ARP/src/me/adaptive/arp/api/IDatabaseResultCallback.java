@@ -31,14 +31,12 @@
 
 package me.adaptive.arp.api;
 
-import java.io.Serializable;
-
 /**
  * @see me.adaptive.arp.api.IDatabase
  * @author Ferran Vila Conesa
  * @since ARP1.0
  */
-public interface IDatabaseResultCallback extends Serializable {
+public interface IDatabaseResultCallback {
 
     /**
      * Enumeration for warnings related to database manipulation.
