@@ -33,13 +33,56 @@ package me.adaptive.arp.api;
  */
 public interface IFileResultCallback {
 
-    public enum Warning {SourceNotDeleted, RootDirectory}
-
-    public enum Error {FileExists, InsufficientSpace, Unauthorized}
-
+    /**
+     * On correct result of a file operation.
+     *
+     * @param storageFile Reference to the resulting file.
+     * @since ARP1.0
+     */
     void onResult(IFile storageFile);
 
+    /**
+     * On partial result of a file operation, containing a warning.
+     *
+     * @param sourceFile      Reference to the source file.
+     * @param destinationFile Reference to the destination file (or null, if not available).
+     * @param warning         Warning processing the request.
+     * @since ARP1.0
+     */
     void onWarning(IFile sourceFile, IFile destinationFile, Warning warning);
 
+    /**
+     * On error result of a file operation.
+     *
+     * @param error Error processing the request.
+     * @since ARP1.0
+     */
     void onError(Error error);
+
+    /**
+     * Error processing data retrieval/storage operation.
+     *
+     * @param file  File referenced during error.
+     * @param error Error condition encountered.
+     * @since ARP1.0
+     */
+    void onError(IFile file, Error error);
+
+    /**
+     * List of warnings.
+     *
+     * @since ARP1.0
+     */
+    public enum Warning {
+        SourceNotDeleted, RootDirectory
+    }
+
+    /**
+     * List of errors.
+     *
+     * @since ARP1.0
+     */
+    public enum Error {
+        FileExists, InsufficientSpace, Unauthorized
+    }
 }

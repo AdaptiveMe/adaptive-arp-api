@@ -33,13 +33,54 @@ package me.adaptive.arp.api;
  */
 public interface IFileListResultCallback {
 
+    /**
+     * On correct result of a file operation.
+     *
+     * @param files Array of resulting files/folders.
+     * @since ARP1.0
+     */
     void onResult(IFile[] files);
 
+    /**
+     * On partial result of a file operation, containing a warning.
+     *
+     * @param files   Array of resulting files/folders.
+     * @param warning Warning condition encountered.
+     * @since ARP1.0
+     */
     void onWarning(IFile[] files, Warning warning);
 
+    /**
+     * On error result of a file operation.
+     *
+     * @param error Error processing the request.
+     * @since ARP1.0
+     */
     void onError(Error error);
 
-    public enum Warning {PartialResult}
+    /**
+     * Error processing data retrieval/storage operation.
+     * @param file File referenced during error.
+     * @param error Error condition encountered.
+     * @since ARP1.0
+     */
+    void onError(IFile file, Error error);
 
-    public enum Error {InexistentFile, Unauthorized}
+    /**
+     * List of warnings.
+     *
+     * @since ARP1.0
+     */
+    public enum Warning {
+        PartialResult
+    }
+
+    /**
+     * List of errors.
+     *
+     * @since ARP1.0
+     */
+    public enum Error {
+        InexistentFile, Unauthorized
+    }
 }

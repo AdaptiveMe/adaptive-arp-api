@@ -33,13 +33,46 @@ package me.adaptive.arp.api;
  */
 public interface IFileDataResultCallback {
 
+    /**
+     * Result of data retrieval/storage operation.
+     * @param file File being loaded/stored.
+     * @param data Data being loaded/stored.
+     * @since ARP1.0
+     */
     void onResult(IFile file, byte[] data);
 
+    /**
+     * Result with warning of data retrieval/storage operation.
+     * @param file File being loaded/stored.
+     * @param warning Warning condition encountered.
+     * @since ARP1.0
+     */
     void onWarning(IFile file, Warning warning);
 
+    /**
+     * Error processing data retrieval/storage operation.
+     * @param error Error condition encountered.
+     * @since ARP1.0
+     */
     void onError(Error error);
 
+    /**
+     * Error processing data retrieval/storage operation.
+     * @param file File referenced during error.
+     * @param error Error condition encountered.
+     * @since ARP1.0
+     */
+    void onError(IFile file, Error error);
+
+    /**
+     *
+     * @since ARP1.0
+     */
     public enum Warning {ExceedMaximumSize}
 
+    /**
+     *
+     * @since ARP1.0
+     */
     public enum Error {InexistentFile, InsufficientSpace, Unauthorized}
 }
