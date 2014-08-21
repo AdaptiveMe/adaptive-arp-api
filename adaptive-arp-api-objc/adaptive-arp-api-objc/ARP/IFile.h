@@ -40,15 +40,17 @@
 @protocol ARPIFileResultCallback;
 
 #import "JreEmulation.h"
+#include "IFilePath.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIFile < NSObject, JavaObject >
-
+@protocol ARPIFile < ARPIFilePath, NSObject, JavaObject >
 - (BOOL)isDirectory;
 
 - (BOOL)exists;
 
 - (BOOL)delete__;
+
+- (BOOL)delete__WithBoolean:(BOOL)cascade;
 
 - (void)createWithNSString:(NSString *)name
 withARPIFileResultCallback:(id<ARPIFileResultCallback>)callback;
@@ -100,6 +102,8 @@ withARPIFileResultCallback:(id<ARPIFileResultCallback>)callback;
              withBoolean:(BOOL)createPath
 withARPIFileResultCallback:(id<ARPIFileResultCallback>)callback
              withBoolean:(BOOL)overwrite;
+
+- (id<ARPIFilePath>)toPath;
 
 @end
 

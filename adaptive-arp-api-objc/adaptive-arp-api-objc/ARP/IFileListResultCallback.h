@@ -37,6 +37,7 @@
 @class ARPIFileListResultCallback_ErrorEnum;
 @class ARPIFileListResultCallback_WarningEnum;
 @class IOSObjectArray;
+@protocol ARPIFile;
 
 #import "JreEmulation.h"
 #include "java/lang/Enum.h"
@@ -49,6 +50,9 @@
 withARPIFileListResultCallback_WarningEnum:(ARPIFileListResultCallback_WarningEnum *)warning;
 
 - (void)onErrorWithARPIFileListResultCallback_ErrorEnum:(ARPIFileListResultCallback_ErrorEnum *)error;
+
+- (void)onErrorWithARPIFile:(id<ARPIFile>)file
+withARPIFileListResultCallback_ErrorEnum:(ARPIFileListResultCallback_ErrorEnum *)error;
 
 @end
 

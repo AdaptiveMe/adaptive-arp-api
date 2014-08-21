@@ -32,6 +32,8 @@
 //
 
 #include "IFile.h"
+#include "IFilePath.h"
+#include "IFileResultCallback.h"
 #include "IFileSystem.h"
 
 @interface ARPIFileSystem : NSObject
@@ -41,11 +43,20 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "getApplicationFolder", NULL, "Lme.adaptive.arp.api.IFile;", 0x401, NULL },
-    { "getApplicationCacheFolder", NULL, "Lme.adaptive.arp.api.IFile;", 0x401, NULL },
-    { "getApplicationDocumentsFolder", NULL, "Lme.adaptive.arp.api.IFile;", 0x401, NULL },
+    { "getSeparator", NULL, "C", 0x401, NULL },
+    { "getPathWithARPIFilePath:", "getPath", "Ljava.lang.String;", 0x401, NULL },
+    { "getPathWithARPIFile:", "getPath", "Ljava.lang.String;", 0x401, NULL },
+    { "isSameFileWithARPIFile:withARPIFile:", "isSameFile", "Z", 0x401, NULL },
+    { "isSamePathWithARPIFilePath:withARPIFilePath:", "isSamePath", "Z", 0x401, NULL },
+    { "createWithNSString:withARPIFileResultCallback:", "create", "V", 0x401, NULL },
+    { "createWithNSString:withNSString:withARPIFileResultCallback:", "create", "V", 0x401, NULL },
+    { "createWithARPIFilePath:withNSString:withARPIFileResultCallback:", "create", "V", 0x401, NULL },
+    { "toPathWithARPIFile:", "toPath", "Lme.adaptive.arp.api.IFilePath;", 0x401, NULL },
+    { "getApplicationFolder", NULL, "Lme.adaptive.arp.api.IFilePath;", 0x401, NULL },
+    { "getApplicationCacheFolder", NULL, "Lme.adaptive.arp.api.IFilePath;", 0x401, NULL },
+    { "getApplicationDocumentsFolder", NULL, "Lme.adaptive.arp.api.IFilePath;", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPIFileSystem = { "IFileSystem", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPIFileSystem = { "IFileSystem", "me.adaptive.arp.api", NULL, 0x201, 12, methods, 0, NULL, 0, NULL};
   return &_ARPIFileSystem;
 }
 

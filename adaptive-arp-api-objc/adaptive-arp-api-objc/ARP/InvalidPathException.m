@@ -27,35 +27,24 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/IDevice.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/InvalidPathException.java
 //
 //
 
-#ifndef _ARPIDevice_H_
-#define _ARPIDevice_H_
+#include "InvalidPathException.h"
 
-@class ARPDeviceInfo;
-@class ARPLocale;
-@protocol ARPIButtonListener;
+@implementation ARPInvalidPathException
 
-#import "JreEmulation.h"
-#include "IBaseSystem.h"
+- (id)init {
+  return [super init];
+}
 
-@protocol ARPIDevice < ARPIBaseSystem, NSObject, JavaObject >
-- (ARPDeviceInfo *)getDeviceInfo;
-
-- (ARPLocale *)getLocaleCurrent;
-
-- (void)addButtonListenerWithARPIButtonListener:(id<ARPIButtonListener>)listener;
-
-- (void)removeButtonListenerWithARPIButtonListener:(id<ARPIButtonListener>)listener;
-
-- (void)removeButtonListeners;
++ (J2ObjcClassInfo *)__metadata {
+  static J2ObjcMethodInfo methods[] = {
+    { "init", NULL, NULL, 0x1, NULL },
+  };
+  static J2ObjcClassInfo _ARPInvalidPathException = { "InvalidPathException", "me.adaptive.arp.api", NULL, 0x1, 1, methods, 0, NULL, 0, NULL};
+  return &_ARPInvalidPathException;
+}
 
 @end
-
-__attribute__((always_inline)) inline void ARPIDevice_init() {}
-
-#define MeAdaptiveArpApiIDevice ARPIDevice
-
-#endif // _ARPIDevice_H_

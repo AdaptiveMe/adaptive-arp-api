@@ -31,6 +31,7 @@
 //
 //
 
+#include "IFile.h"
 #include "IFileListResultCallback.h"
 #include "IOSClass.h"
 #include "IOSObjectArray.h"
@@ -46,8 +47,9 @@
     { "onResultWithARPIFileArray:", "onResult", "V", 0x401, NULL },
     { "onWarningWithARPIFileArray:withARPIFileListResultCallback_WarningEnum:", "onWarning", "V", 0x401, NULL },
     { "onErrorWithARPIFileListResultCallback_ErrorEnum:", "onError", "V", 0x401, NULL },
+    { "onErrorWithARPIFile:withARPIFileListResultCallback_ErrorEnum:", "onError", "V", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPIFileListResultCallback = { "IFileListResultCallback", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPIFileListResultCallback = { "IFileListResultCallback", "me.adaptive.arp.api", NULL, 0x201, 4, methods, 0, NULL, 0, NULL};
   return &_ARPIFileListResultCallback;
 }
 

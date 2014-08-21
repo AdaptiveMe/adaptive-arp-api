@@ -46,8 +46,9 @@
     { "onResultWithARPIFile:", "onResult", "V", 0x401, NULL },
     { "onWarningWithARPIFile:withARPIFile:withARPIFileResultCallback_WarningEnum:", "onWarning", "V", 0x401, NULL },
     { "onErrorWithARPIFileResultCallback_ErrorEnum:", "onError", "V", 0x401, NULL },
+    { "onErrorWithARPIFile:withARPIFileResultCallback_ErrorEnum:", "onError", "V", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPIFileResultCallback = { "IFileResultCallback", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPIFileResultCallback = { "IFileResultCallback", "me.adaptive.arp.api", NULL, 0x201, 4, methods, 0, NULL, 0, NULL};
   return &_ARPIFileResultCallback;
 }
 

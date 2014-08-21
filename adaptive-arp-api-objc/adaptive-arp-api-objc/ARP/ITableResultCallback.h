@@ -39,10 +39,10 @@
 @class ARPTable;
 
 #import "JreEmulation.h"
-#include "java/io/Serializable.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPITableResultCallback < JavaIoSerializable, NSObject, JavaObject >
+@protocol ARPITableResultCallback < NSObject, JavaObject >
+
 - (void)onResultWithARPTable:(ARPTable *)table;
 
 - (void)onWarningWithARPTable:(ARPTable *)table

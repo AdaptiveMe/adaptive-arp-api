@@ -27,35 +27,25 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/IDevice.java
+//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/InvalidPathException.java
 //
 //
 
-#ifndef _ARPIDevice_H_
-#define _ARPIDevice_H_
-
-@class ARPDeviceInfo;
-@class ARPLocale;
-@protocol ARPIButtonListener;
+#ifndef _ARPInvalidPathException_H_
+#define _ARPInvalidPathException_H_
 
 #import "JreEmulation.h"
-#include "IBaseSystem.h"
+#include "java/lang/Exception.h"
 
-@protocol ARPIDevice < ARPIBaseSystem, NSObject, JavaObject >
-- (ARPDeviceInfo *)getDeviceInfo;
+@interface ARPInvalidPathException : JavaLangException {
+}
 
-- (ARPLocale *)getLocaleCurrent;
-
-- (void)addButtonListenerWithARPIButtonListener:(id<ARPIButtonListener>)listener;
-
-- (void)removeButtonListenerWithARPIButtonListener:(id<ARPIButtonListener>)listener;
-
-- (void)removeButtonListeners;
+- (id)init;
 
 @end
 
-__attribute__((always_inline)) inline void ARPIDevice_init() {}
+__attribute__((always_inline)) inline void ARPInvalidPathException_init() {}
 
-#define MeAdaptiveArpApiIDevice ARPIDevice
+typedef ARPInvalidPathException MeAdaptiveArpApiInvalidPathException;
 
-#endif // _ARPIDevice_H_
+#endif // _ARPInvalidPathException_H_

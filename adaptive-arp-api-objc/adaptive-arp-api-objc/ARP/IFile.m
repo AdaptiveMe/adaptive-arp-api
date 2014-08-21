@@ -34,6 +34,7 @@
 #include "IFile.h"
 #include "IFileDataResultCallback.h"
 #include "IFileListResultCallback.h"
+#include "IFilePath.h"
 #include "IFileResultCallback.h"
 #include "IOSClass.h"
 #include "IOSPrimitiveArray.h"
@@ -49,6 +50,7 @@
     { "isDirectory", NULL, "Z", 0x401, NULL },
     { "exists", NULL, "Z", 0x401, NULL },
     { "delete__", "delete", "Z", 0x401, NULL },
+    { "delete__WithBoolean:", "delete", "Z", 0x401, NULL },
     { "createWithNSString:withARPIFileResultCallback:", "create", "V", 0x401, NULL },
     { "createWithNSString:withNSString:withARPIFileResultCallback:", "create", "V", 0x401, NULL },
     { "mkDir", NULL, "Z", 0x401, NULL },
@@ -68,8 +70,9 @@
     { "moveWithARPIFile:withARPIFileResultCallback:withBoolean:", "move", "V", 0x401, NULL },
     { "moveWithARPIFile:withBoolean:withARPIFileResultCallback:", "move", "V", 0x401, NULL },
     { "moveWithARPIFile:withBoolean:withARPIFileResultCallback:withBoolean:", "move", "V", 0x401, NULL },
+    { "toPath", NULL, "Lme.adaptive.arp.api.IFilePath;", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPIFile = { "IFile", "me.adaptive.arp.api", NULL, 0x201, 22, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPIFile = { "IFile", "me.adaptive.arp.api", NULL, 0x201, 24, methods, 0, NULL, 0, NULL};
   return &_ARPIFile;
 }
 

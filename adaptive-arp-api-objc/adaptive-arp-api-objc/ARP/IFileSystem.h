@@ -35,16 +35,43 @@
 #define _ARPIFileSystem_H_
 
 @protocol ARPIFile;
+@protocol ARPIFilePath;
+@protocol ARPIFileResultCallback;
 
 #import "JreEmulation.h"
 #include "IBaseData.h"
 
 @protocol ARPIFileSystem < ARPIBaseData, NSObject, JavaObject >
-- (id<ARPIFile>)getApplicationFolder;
+- (unichar)getSeparator;
 
-- (id<ARPIFile>)getApplicationCacheFolder;
+- (NSString *)getPathWithARPIFilePath:(id<ARPIFilePath>)path;
 
-- (id<ARPIFile>)getApplicationDocumentsFolder;
+- (NSString *)getPathWithARPIFile:(id<ARPIFile>)file;
+
+- (BOOL)isSameFileWithARPIFile:(id<ARPIFile>)source
+                  withARPIFile:(id<ARPIFile>)dest;
+
+- (BOOL)isSamePathWithARPIFilePath:(id<ARPIFilePath>)source
+                  withARPIFilePath:(id<ARPIFilePath>)dest;
+
+- (void)createWithNSString:(NSString *)name
+withARPIFileResultCallback:(id<ARPIFileResultCallback>)callback;
+
+- (void)createWithNSString:(NSString *)path
+              withNSString:(NSString *)name
+withARPIFileResultCallback:(id<ARPIFileResultCallback>)callback;
+
+- (void)createWithARPIFilePath:(id<ARPIFilePath>)path
+                  withNSString:(NSString *)name
+    withARPIFileResultCallback:(id<ARPIFileResultCallback>)callback;
+
+- (id<ARPIFilePath>)toPathWithARPIFile:(id<ARPIFile>)path;
+
+- (id<ARPIFilePath>)getApplicationFolder;
+
+- (id<ARPIFilePath>)getApplicationCacheFolder;
+
+- (id<ARPIFilePath>)getApplicationDocumentsFolder;
 
 @end
 

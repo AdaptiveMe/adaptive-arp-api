@@ -51,6 +51,9 @@ withARPIFileResultCallback_WarningEnum:(ARPIFileResultCallback_WarningEnum *)war
 
 - (void)onErrorWithARPIFileResultCallback_ErrorEnum:(ARPIFileResultCallback_ErrorEnum *)error;
 
+- (void)onErrorWithARPIFile:(id<ARPIFile>)file
+withARPIFileResultCallback_ErrorEnum:(ARPIFileResultCallback_ErrorEnum *)error;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIFileResultCallback_init() {}
