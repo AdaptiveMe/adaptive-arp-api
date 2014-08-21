@@ -111,12 +111,12 @@ namespace Adaptive.Arp.Api
 	/// multiple concurrent threads.
 	/// </remarks>
 	/// <since>ARP1.0</since>
-	public interface IFilePath
+	public abstract class IFilePath
 	{
 		/// <summary>Returns the file system that created this object.</summary>
 		/// <remarks>Returns the file system that created this object.</remarks>
 		/// <returns>the file system that created this object</returns>
-		IFileSystem GetFileSystem();
+		public abstract IFileSystem GetFileSystem();
 
 		/// <summary>Tells whether or not this path is absolute.</summary>
 		/// <remarks>
@@ -130,7 +130,7 @@ namespace Adaptive.Arp.Api
 		/// <code>true</code>
 		/// if, and only if, this path is absolute
 		/// </returns>
-		bool IsAbsolute();
+		public abstract bool IsAbsolute();
 
 		/// <summary>
 		/// Returns the root component of this path as a
@@ -145,7 +145,7 @@ namespace Adaptive.Arp.Api
 		/// or
 		/// <code>null</code>
 		/// </returns>
-		IFilePath GetRoot();
+		public abstract IFilePath GetRoot();
 
 		/// <summary>
 		/// Returns the name of the file or directory denoted by this path as a
@@ -158,7 +158,7 @@ namespace Adaptive.Arp.Api
 		/// <code>null</code>
 		/// if this path has zero elements
 		/// </returns>
-		IFilePath GetFileName();
+		public abstract IFilePath GetFileName();
 
 		/// <summary>
 		/// Returns the <em>parent path</em>, or
@@ -192,7 +192,7 @@ namespace Adaptive.Arp.Api
 		/// </pre></blockquote>
 		/// </summary>
 		/// <returns>a path representing the path's parent</returns>
-		IFilePath GetParent();
+		public abstract IFilePath GetParent();
 
 		/// <summary>Returns the number of name elements in the path.</summary>
 		/// <remarks>Returns the number of name elements in the path.</remarks>
@@ -202,7 +202,7 @@ namespace Adaptive.Arp.Api
 		/// if this path
 		/// only represents a root component
 		/// </returns>
-		int GetNameCount();
+		public abstract int GetNameCount();
 
 		/// <summary>
 		/// Returns a name element of this path as a
@@ -232,7 +232,7 @@ namespace Adaptive.Arp.Api
 		/// equal to the number of elements, or this path has zero name
 		/// elements
 		/// </exception>
-		IFilePath GetName(int index);
+		public abstract IFilePath GetName(int index);
 
 		/// <summary>Tests if this path starts with the given path.</summary>
 		/// <remarks>
@@ -263,7 +263,7 @@ namespace Adaptive.Arp.Api
 		/// if this path starts with the given path; otherwise
 		/// <code>false</code>
 		/// </returns>
-		bool StartsWith(IFilePath other);
+		public abstract bool StartsWith(IFilePath other);
 
 		/// <summary>
 		/// Tests if this path starts with a
@@ -294,7 +294,7 @@ namespace Adaptive.Arp.Api
 		/// </returns>
 		/// <exception cref="InvalidPathException">If the path string cannot be converted to a Path.
 		/// 	</exception>
-		bool StartsWith(string other);
+		public abstract bool StartsWith(string other);
 
 		/// <summary>Tests if this path ends with the given path.</summary>
 		/// <remarks>
@@ -326,7 +326,7 @@ namespace Adaptive.Arp.Api
 		/// if this path ends with the given path; otherwise
 		/// <code>false</code>
 		/// </returns>
-		bool EndsWith(IFilePath other);
+		public abstract bool EndsWith(IFilePath other);
 
 		/// <summary>
 		/// Tests if this path ends with a
@@ -368,7 +368,7 @@ namespace Adaptive.Arp.Api
 		/// </returns>
 		/// <exception cref="InvalidPathException">If the path string cannot be converted to a Path.
 		/// 	</exception>
-		bool EndsWith(string other);
+		public abstract bool EndsWith(string other);
 
 		/// <summary>Returns a path that is this path with redundant name elements eliminated.
 		/// 	</summary>
@@ -408,7 +408,7 @@ namespace Adaptive.Arp.Api
 		/// does have a root component and all name elements are redundant
 		/// </returns>
 		/// <seealso cref="GetParent()">GetParent()</seealso>
-		IFilePath Normalize();
+		public abstract IFilePath Normalize();
 
 		// -- resolution and relativization --
 		/// <summary>Resolve the given path against this path.</summary>
@@ -439,7 +439,7 @@ namespace Adaptive.Arp.Api
 		/// <param name="other">the path to resolve against this path</param>
 		/// <returns>the resulting path</returns>
 		/// <seealso cref="Relativize(IFilePath)">Relativize(IFilePath)</seealso>
-		IFilePath Resolve(IFilePath other);
+		public abstract IFilePath Resolve(IFilePath other);
 
 		/// <summary>
 		/// Converts a given path string to a
@@ -468,7 +468,7 @@ namespace Adaptive.Arp.Api
 		/// <returns>the resulting path</returns>
 		/// <exception cref="InvalidPathException">if the path string cannot be converted to a Path.
 		/// 	</exception>
-		IFilePath Resolve(string other);
+		public abstract IFilePath Resolve(string other);
 
 		/// <summary>
 		/// Resolves the given path against this path's
@@ -505,7 +505,7 @@ namespace Adaptive.Arp.Api
 		/// <param name="other">the path to resolve against this path's parent</param>
 		/// <returns>the resulting path</returns>
 		/// <seealso cref="Resolve(IFilePath)">Resolve(IFilePath)</seealso>
-		IFilePath ResolveSibling(IFilePath other);
+		public abstract IFilePath ResolveSibling(IFilePath other);
 
 		/// <summary>
 		/// Converts a given path string to a
@@ -522,7 +522,7 @@ namespace Adaptive.Arp.Api
 		/// <returns>the resulting path</returns>
 		/// <exception cref="InvalidPathException">if the path string cannot be converted to a Path.
 		/// 	</exception>
-		IFilePath ResolveSibling(string other);
+		public abstract IFilePath ResolveSibling(string other);
 
 		/// <summary>Constructs a relative path between this path and a given path.</summary>
 		/// <remarks>
@@ -597,7 +597,7 @@ namespace Adaptive.Arp.Api
 		/// that can be relativized
 		/// against this path
 		/// </exception>
-		IFilePath Relativize(IFilePath other);
+		public abstract IFilePath Relativize(IFilePath other);
 
 		/// <summary>
 		/// Returns a
@@ -629,7 +629,7 @@ namespace Adaptive.Arp.Api
 		/// system property
 		/// <code>user.dir</code>
 		/// </exception>
-		IFilePath ToAbsolutePath();
+		public abstract IFilePath ToAbsolutePath();
 
 		/// <summary>
 		/// Returns a
@@ -666,7 +666,7 @@ namespace Adaptive.Arp.Api
 		/// <code>Path</code>
 		/// is not associated with the default provider
 		/// </exception>
-		IFile ToFile();
+		public abstract IFile ToFile();
 
 		/// <summary>Tests this path for equality with the given object.</summary>
 		/// <remarks>
@@ -700,7 +700,7 @@ namespace Adaptive.Arp.Api
 		/// that is identical to this
 		/// <code>Path</code>
 		/// </returns>
-		bool EqualPath(IFilePath other);
+		public abstract bool EqualPath(IFilePath other);
 
 		/// <summary>Returns the string representation of this path.</summary>
 		/// <remarks>
@@ -716,6 +716,26 @@ namespace Adaptive.Arp.Api
 		/// to separate names in the path.
 		/// </remarks>
 		/// <returns>the string representation of this path</returns>
-		string ToString();
+		public abstract string ToString();
+
+		/// <summary>Location of the file storage.</summary>
+		/// <remarks>Location of the file storage.</remarks>
+		/// <since>ARP1.0</since>
+		public enum StorageType
+		{
+			Internal,
+			Remote,
+			Isolated,
+			External
+		}
+
+		/// <summary>Type of file - directory/folder or file.</summary>
+		/// <remarks>Type of file - directory/folder or file.</remarks>
+		/// <since>ARP1.0</since>
+		public enum FileType
+		{
+			Directory,
+			File
+		}
 	}
 }

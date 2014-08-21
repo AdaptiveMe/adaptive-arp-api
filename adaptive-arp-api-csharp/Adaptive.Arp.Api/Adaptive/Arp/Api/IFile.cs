@@ -237,26 +237,6 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public abstract IFilePath ToPath();
 
-		/// <summary>Location of the file storage.</summary>
-		/// <remarks>Location of the file storage.</remarks>
-		/// <since>ARP1.0</since>
-		public enum StorageType
-		{
-			Internal,
-			Remote,
-			Isolated,
-			External
-		}
-
-		/// <summary>Type of file - directory/folder or file.</summary>
-		/// <remarks>Type of file - directory/folder or file.</remarks>
-		/// <since>ARP1.0</since>
-		public enum FileType
-		{
-			Directory,
-			File
-		}
-
 		/// <summary>Security attributes of file, if any.</summary>
 		/// <remarks>Security attributes of file, if any.</remarks>
 		/// <since>ARP1.0</since>
