@@ -36,7 +36,7 @@ package me.adaptive.arp.api;
 /**
  * Created by FRMI on 12/08/2014.
  */
-public interface IButtonCallback {
+public interface IButtonListener {
 
     /**
      * Called on button pressed

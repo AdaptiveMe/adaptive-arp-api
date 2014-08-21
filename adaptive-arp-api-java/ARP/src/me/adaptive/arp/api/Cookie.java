@@ -99,42 +99,86 @@ public class Cookie {
         this.value = value;
     }
 
+    /**
+     * Returns the domain
+     * @return domain
+     * @since ARP1.0
+     */
     public String getDomain() {
         return domain;
     }
 
+    /**
+     * Set the domain
+     * @param domain
+     */
     public void setDomain(String domain) {
         this.domain = domain;
     }
 
+    /**
+     * Returns the path
+     * @return path
+     * @since ARP1.0
+     */
     public String getPath() {
         return path;
     }
 
+    /**
+     * Set the path
+     * @param path
+     */
     public void setPath(String path) {
         this.path = path;
     }
 
+    /**
+     * Returns the scheme
+     * @return scheme
+     * @since ARP1.0
+     */
     public String getScheme() {
         return scheme;
     }
 
+    /**
+     * Set the scheme
+     * @param scheme
+     */
     public void setScheme(String scheme) {
         this.scheme = scheme;
     }
 
+    /**
+     * Returns whether the cookie is secure or not
+     * @return true if the cookie is secure; false otherwise
+     * @since ARP1.0
+     */
     public boolean isSecure() {
         return secure;
     }
 
+    /**
+     * Set whether the cookie is secure or not
+     * @param secure
+     */
     public void setSecure(boolean secure) {
         this.secure = secure;
     }
 
-    public long getExpiry() {
+    /**
+     * Returns the expiration date in milis
+     * @return expiry
+     * @since ARP1.0
+     */public long getExpiry() {
         return expiry;
     }
 
+    /**
+     * Set the expiration date in milis
+     * @param expiry
+     */
     public void setExpiry(long expiry) {
         this.expiry = expiry;
     }
@@ -179,6 +223,11 @@ public class Cookie {
         this.value = value;
     }
 
+    /**
+     *
+     * @return
+     * @since ARP1.0
+     */
     public long getCreation() {
         return creation;
     }

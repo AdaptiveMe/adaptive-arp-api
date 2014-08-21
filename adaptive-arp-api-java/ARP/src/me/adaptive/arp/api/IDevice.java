@@ -49,9 +49,25 @@ public interface IDevice extends IBaseSystem {
     Locale getLocaleCurrent();
 
     /**
-     * Send the device the info from hardware button pressed
+     * Register a new listener that will receive button events.
      *
-     * @param button
+     * @param listener to be registered.
+     * @since ARP1.0
      */
-    void buttonPressed(IButtonCallback button);
+    void addButtonListener(IButtonListener listener);
+
+    /**
+     * De-registers an existing listener from receiving button events.
+     *
+     * @param listener
+     * @since ARP1.0
+     */
+    void removeButtonListener(IButtonListener listener);
+
+    /**
+     * Removed all existing listeners from receiving button events.
+     *
+     * @since ARP1.0
+     */
+    void removeButtonListeners();
 }
