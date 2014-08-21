@@ -76,7 +76,7 @@ package me.adaptive.arp.api;
  * @since ARP1.0
  */
 
-public interface IFilePath  {
+public interface IFilePath {
     /**
      * Returns the file system that created this object.
      *
@@ -440,4 +440,22 @@ public interface IFilePath  {
      * @return the string representation of this path
      */
     public String toString();
+
+    /**
+     * Location of the file storage.
+     *
+     * @since ARP1.0
+     */
+    public enum StorageType {
+        Internal, Remote, Isolated, External
+    }
+
+    /**
+     * Type of file - directory/folder or file.
+     *
+     * @since ARP1.0
+     */
+    public enum FileType {
+        Directory, File
+    }
 }

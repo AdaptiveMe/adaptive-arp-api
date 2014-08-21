@@ -246,24 +246,6 @@ public interface IFile extends IFilePath {
     public IFilePath toPath();
 
     /**
-     * Location of the file storage.
-     *
-     * @since ARP1.0
-     */
-    public enum StorageType {
-        Internal, Remote, Isolated, External
-    }
-
-    /**
-     * Type of file - directory/folder or file.
-     *
-     * @since ARP1.0
-     */
-    public enum FileType {
-        Directory, File
-    }
-
-    /**
      * Security attributes of file, if any.
      *
      * @since ARP1.0
