@@ -76,7 +76,7 @@ package me.adaptive.arp.api;
  * @since ARP1.0
  */
 
-public interface IFilePath extends IBaseData {
+public interface IFilePath  {
     /**
      * Returns the file system that created this object.
      *
