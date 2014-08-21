@@ -33,51 +33,36 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by FRMI on 12/08/2014.</summary>
 	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
-	public interface ISession
+	public abstract class IButtonListener
 	{
-		/// <summary>Returns the cookie array</summary>
-		/// <returns>cookie array</returns>
+		/// <summary>Called on button pressed</summary>
+		/// <param name="button">pressed</param>
 		/// <since>ARP1.0</since>
-		Cookie[] GetCookies();
+		public abstract void OnResult(Button button);
 
-		/// <summary>Set the cookies array</summary>
-		/// <param name="cookie"></param>
-		void SetCookies(Cookie[] cookie);
-
-		/// <summary>Set a cookie object</summary>
-		/// <param name="cookie"></param>
-		void SetCookie(Cookie cookie);
-
-		/// <summary>Remove a cookies array</summary>
-		/// <param name="cookie"></param>
-		void RemoveCookies(Cookie[] cookie);
-
-		/// <summary>Remove a cookie</summary>
-		/// <param name="cookie"></param>
-		void RemoveCookie(Cookie cookie);
-
-		/// <summary>Returns all Session Attributes</summary>
-		object[] GetAttributes();
-
-		/// <summary>Returns an attribute object</summary>
-		/// <returns>object attribute</returns>
+		/// <summary>Data received with warning</summary>
+		/// <param name="button">pressed</param>
+		/// <param name="warning">happened</param>
 		/// <since>ARP1.0</since>
-		object GetAttribute(string name);
+		public abstract void OnWarning(Button button, IButtonListener.Warning warning);
 
-		/// <summary>Set an attribute</summary>
-		/// <param name="name"></param>
-		/// <param name="value"></param>
-		void SetAttribute(string name, object value);
+		/// <summary>No data received</summary>
+		/// <param name="error">occurred</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnError(IButtonListener.Error error);
 
-		/// <summary>Returns all attibute names</summary>
-		/// <returns>array with all attribute names</returns>
-		string[] ListAttributeNames();
+		/// <summary>Error posibilities</summary>
+		/// <since>ARP1.0</since>
+		public enum Error
+		{
+			Not_Present
+		}
 
-		/// <summary>Remove an attribute by its name</summary>
-		/// <param name="name"></param>
-		void RemoveAttribute(string name);
-
-		/// <summary>Remove all attributes</summary>
-		void RemoveAttributes();
+		/// <summary>Warn posibilities</summary>
+		/// <since>ARP1.0</since>
+		public enum Warning
+		{
+			Not_Implemented
+		}
 	}
 }

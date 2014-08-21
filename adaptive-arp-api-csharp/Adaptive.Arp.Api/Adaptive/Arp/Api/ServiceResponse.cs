@@ -210,11 +210,17 @@ namespace Adaptive.Arp.Api
 			this.session = session;
 		}
 
+		/// <summary>Returns the content encoding</summary>
+		/// <returns>contentEncoding</returns>
+		/// <since>ARP1.0</since>
 		public virtual string GetContentEncoding()
 		{
 			return contentEncoding;
 		}
 
+		/// <summary>Set the content encoding</summary>
+		/// <param name="contentEncoding"></param>
+		/// <since>ARP1.0</since>
 		public virtual void SetContentEncoding(string contentEncoding)
 		{
 			this.contentEncoding = contentEncoding;

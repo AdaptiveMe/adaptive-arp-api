@@ -47,8 +47,21 @@ namespace Adaptive.Arp.Api
 		/// <returns>The current Locale information.</returns>
 		Locale GetLocaleCurrent();
 
-		/// <summary>Send the device the info from hardware button pressed</summary>
-		/// <param name="button"></param>
-		void ButtonPressed(IButtonCallback button);
+		/// <summary>Register a new listener that will receive button events.</summary>
+		/// <remarks>Register a new listener that will receive button events.</remarks>
+		/// <param name="listener">to be registered.</param>
+		/// <since>ARP1.0</since>
+		void AddButtonListener(IButtonListener listener);
+
+		/// <summary>De-registers an existing listener from receiving button events.</summary>
+		/// <remarks>De-registers an existing listener from receiving button events.</remarks>
+		/// <param name="listener"></param>
+		/// <since>ARP1.0</since>
+		void RemoveButtonListener(IButtonListener listener);
+
+		/// <summary>Removed all existing listeners from receiving button events.</summary>
+		/// <remarks>Removed all existing listeners from receiving button events.</remarks>
+		/// <since>ARP1.0</since>
+		void RemoveButtonListeners();
 	}
 }

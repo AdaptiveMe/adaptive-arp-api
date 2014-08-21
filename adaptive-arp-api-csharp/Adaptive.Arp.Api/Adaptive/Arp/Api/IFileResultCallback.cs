@@ -35,24 +35,52 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 13/08/14.</remarks>
 	public abstract class IFileResultCallback
 	{
+		/// <summary>On correct result of a file operation.</summary>
+		/// <remarks>On correct result of a file operation.</remarks>
+		/// <param name="storageFile">Reference to the resulting file.</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnResult(IFile storageFile);
+
+		/// <summary>On partial result of a file operation, containing a warning.</summary>
+		/// <remarks>On partial result of a file operation, containing a warning.</remarks>
+		/// <param name="sourceFile">Reference to the source file.</param>
+		/// <param name="destinationFile">Reference to the destination file (or null, if not available).
+		/// 	</param>
+		/// <param name="warning">Warning processing the request.</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnWarning(IFile sourceFile, IFile destinationFile, IFileResultCallback.Warning
+			 warning);
+
+		/// <summary>On error result of a file operation.</summary>
+		/// <remarks>On error result of a file operation.</remarks>
+		/// <param name="error">Error processing the request.</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnError(IFileResultCallback.Error error);
+
+		/// <summary>Error processing data retrieval/storage operation.</summary>
+		/// <remarks>Error processing data retrieval/storage operation.</remarks>
+		/// <param name="file">File referenced during error.</param>
+		/// <param name="error">Error condition encountered.</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnError(IFile file, IFileResultCallback.Error error);
+
+		/// <summary>List of warnings.</summary>
+		/// <remarks>List of warnings.</remarks>
+		/// <since>ARP1.0</since>
 		public enum Warning
 		{
 			SourceNotDeleted,
 			RootDirectory
 		}
 
+		/// <summary>List of errors.</summary>
+		/// <remarks>List of errors.</remarks>
+		/// <since>ARP1.0</since>
 		public enum Error
 		{
 			FileExists,
 			InsufficientSpace,
 			Unauthorized
 		}
-
-		public abstract void OnResult(IFile storageFile);
-
-		public abstract void OnWarning(IFile sourceFile, IFile destinationFile, IFileResultCallback.Warning
-			 warning);
-
-		public abstract void OnError(IFileResultCallback.Error error);
 	}
 }

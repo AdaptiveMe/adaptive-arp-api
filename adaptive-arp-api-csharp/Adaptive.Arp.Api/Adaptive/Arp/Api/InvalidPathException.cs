@@ -26,19 +26,16 @@
  * =====================================================================================================================
  */
 
+using System;
 using Adaptive.Arp.Api;
 using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
-	public interface IFileSystem : IBaseData
+	/// <summary>Created by clozano on 21/08/14.</summary>
+	/// <remarks>Created by clozano on 21/08/14.</remarks>
+	[System.Serializable]
+	public class InvalidPathException : Exception
 	{
-		IFile GetApplicationFolder();
-
-		IFile GetApplicationCacheFolder();
-
-		IFile GetApplicationDocumentsFolder();
 	}
 }

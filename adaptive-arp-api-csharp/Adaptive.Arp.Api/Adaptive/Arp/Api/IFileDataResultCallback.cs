@@ -35,18 +35,41 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 13/08/14.</remarks>
 	public abstract class IFileDataResultCallback
 	{
+		/// <summary>Result of data retrieval/storage operation.</summary>
+		/// <remarks>Result of data retrieval/storage operation.</remarks>
+		/// <param name="file">File being loaded/stored.</param>
+		/// <param name="data">Data being loaded/stored.</param>
+		/// <since>ARP1.0</since>
 		public abstract void OnResult(IFile file, byte[] data);
 
+		/// <summary>Result with warning of data retrieval/storage operation.</summary>
+		/// <remarks>Result with warning of data retrieval/storage operation.</remarks>
+		/// <param name="file">File being loaded/stored.</param>
+		/// <param name="warning">Warning condition encountered.</param>
+		/// <since>ARP1.0</since>
 		public abstract void OnWarning(IFile file, IFileDataResultCallback.Warning warning
 			);
 
+		/// <summary>Error processing data retrieval/storage operation.</summary>
+		/// <remarks>Error processing data retrieval/storage operation.</remarks>
+		/// <param name="error">Error condition encountered.</param>
+		/// <since>ARP1.0</since>
 		public abstract void OnError(IFileDataResultCallback.Error error);
 
+		/// <summary>Error processing data retrieval/storage operation.</summary>
+		/// <remarks>Error processing data retrieval/storage operation.</remarks>
+		/// <param name="file">File referenced during error.</param>
+		/// <param name="error">Error condition encountered.</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnError(IFile file, IFileDataResultCallback.Error error);
+
+		/// <since>ARP1.0</since>
 		public enum Warning
 		{
 			ExceedMaximumSize
 		}
 
+		/// <since>ARP1.0</since>
 		public enum Error
 		{
 			InexistentFile,

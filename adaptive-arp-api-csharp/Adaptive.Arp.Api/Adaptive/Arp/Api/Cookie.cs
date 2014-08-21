@@ -75,51 +75,76 @@ namespace Adaptive.Arp.Api
 			this.value = value;
 		}
 
+		/// <summary>Returns the domain</summary>
+		/// <returns>domain</returns>
+		/// <since>ARP1.0</since>
 		public virtual string GetDomain()
 		{
 			return domain;
 		}
 
+		/// <summary>Set the domain</summary>
+		/// <param name="domain"></param>
 		public virtual void SetDomain(string domain)
 		{
 			this.domain = domain;
 		}
 
+		/// <summary>Returns the path</summary>
+		/// <returns>path</returns>
+		/// <since>ARP1.0</since>
 		public virtual string GetPath()
 		{
 			return path;
 		}
 
+		/// <summary>Set the path</summary>
+		/// <param name="path"></param>
 		public virtual void SetPath(string path)
 		{
 			this.path = path;
 		}
 
+		/// <summary>Returns the scheme</summary>
+		/// <returns>scheme</returns>
+		/// <since>ARP1.0</since>
 		public virtual string GetScheme()
 		{
 			return scheme;
 		}
 
+		/// <summary>Set the scheme</summary>
+		/// <param name="scheme"></param>
 		public virtual void SetScheme(string scheme)
 		{
 			this.scheme = scheme;
 		}
 
+		/// <summary>Returns whether the cookie is secure or not</summary>
+		/// <returns>true if the cookie is secure; false otherwise</returns>
+		/// <since>ARP1.0</since>
 		public virtual bool IsSecure()
 		{
 			return secure;
 		}
 
+		/// <summary>Set whether the cookie is secure or not</summary>
+		/// <param name="secure"></param>
 		public virtual void SetSecure(bool secure)
 		{
 			this.secure = secure;
 		}
 
+		/// <summary>Returns the expiration date in milis</summary>
+		/// <returns>expiry</returns>
+		/// <since>ARP1.0</since>
 		public virtual long GetExpiry()
 		{
 			return expiry;
 		}
 
+		/// <summary>Set the expiration date in milis</summary>
+		/// <param name="expiry"></param>
 		public virtual void SetExpiry(long expiry)
 		{
 			this.expiry = expiry;
@@ -157,6 +182,8 @@ namespace Adaptive.Arp.Api
 			this.value = value;
 		}
 
+		/// <returns></returns>
+		/// <since>ARP1.0</since>
 		public virtual long GetCreation()
 		{
 			return creation;

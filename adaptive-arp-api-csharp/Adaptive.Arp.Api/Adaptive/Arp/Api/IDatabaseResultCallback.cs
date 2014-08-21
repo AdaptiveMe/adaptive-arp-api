@@ -34,7 +34,6 @@ namespace Adaptive.Arp.Api
 	/// <seealso cref="IDatabase">IDatabase</seealso>
 	/// <author>Ferran Vila Conesa</author>
 	/// <since>ARP1.0</since>
-	[System.Serializable]
 	public abstract class IDatabaseResultCallback
 	{
 		/// <summary>Enumeration for warnings related to database manipulation.</summary>

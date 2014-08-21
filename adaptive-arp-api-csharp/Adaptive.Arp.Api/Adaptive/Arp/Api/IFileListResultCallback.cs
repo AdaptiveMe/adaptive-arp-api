@@ -35,18 +35,44 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 13/08/14.</remarks>
 	public abstract class IFileListResultCallback
 	{
+		/// <summary>On correct result of a file operation.</summary>
+		/// <remarks>On correct result of a file operation.</remarks>
+		/// <param name="files">Array of resulting files/folders.</param>
+		/// <since>ARP1.0</since>
 		public abstract void OnResult(IFile[] files);
 
+		/// <summary>On partial result of a file operation, containing a warning.</summary>
+		/// <remarks>On partial result of a file operation, containing a warning.</remarks>
+		/// <param name="files">Array of resulting files/folders.</param>
+		/// <param name="warning">Warning condition encountered.</param>
+		/// <since>ARP1.0</since>
 		public abstract void OnWarning(IFile[] files, IFileListResultCallback.Warning warning
 			);
 
+		/// <summary>On error result of a file operation.</summary>
+		/// <remarks>On error result of a file operation.</remarks>
+		/// <param name="error">Error processing the request.</param>
+		/// <since>ARP1.0</since>
 		public abstract void OnError(IFileListResultCallback.Error error);
 
+		/// <summary>Error processing data retrieval/storage operation.</summary>
+		/// <remarks>Error processing data retrieval/storage operation.</remarks>
+		/// <param name="file">File referenced during error.</param>
+		/// <param name="error">Error condition encountered.</param>
+		/// <since>ARP1.0</since>
+		public abstract void OnError(IFile file, IFileListResultCallback.Error error);
+
+		/// <summary>List of warnings.</summary>
+		/// <remarks>List of warnings.</remarks>
+		/// <since>ARP1.0</since>
 		public enum Warning
 		{
 			PartialResult
 		}
 
+		/// <summary>List of errors.</summary>
+		/// <remarks>List of errors.</remarks>
+		/// <since>ARP1.0</since>
 		public enum Error
 		{
 			InexistentFile,
