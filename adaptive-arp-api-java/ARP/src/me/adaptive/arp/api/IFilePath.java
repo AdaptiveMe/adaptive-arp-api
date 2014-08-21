@@ -76,13 +76,13 @@ package me.adaptive.arp.api;
  * @since ARP1.0
  */
 
-public interface IFilePath {
+public interface IFilePath extends IBaseData {
     /**
      * Returns the file system that created this object.
      *
      * @return the file system that created this object
      */
-    IFileSystem getFileSystem();
+    public IFileSystem getFileSystem();
 
     /**
      * Tells whether or not this path is absolute.
@@ -92,7 +92,7 @@ public interface IFilePath {
      *
      * @return {@code true} if, and only if, this path is absolute
      */
-    boolean isAbsolute();
+    public boolean isAbsolute();
 
     /**
      * Returns the root component of this path as a {@code Path} object,
@@ -101,7 +101,7 @@ public interface IFilePath {
      * @return a path representing the root component of this path,
      * or {@code null}
      */
-    IFilePath getRoot();
+    public IFilePath getRoot();
 
     /**
      * Returns the name of the file or directory denoted by this path as a
@@ -111,7 +111,7 @@ public interface IFilePath {
      * @return a path representing the name of the file or directory, or
      * {@code null} if this path has zero elements
      */
-    IFilePath getFileName();
+    public IFilePath getFileName();
 
     /**
      * Returns the <em>parent path</em>, or {@code null} if this path does not
@@ -136,7 +136,7 @@ public interface IFilePath {
      *
      * @return a path representing the path's parent
      */
-    IFilePath getParent();
+    public IFilePath getParent();
 
     /**
      * Returns the number of name elements in the path.
@@ -144,7 +144,7 @@ public interface IFilePath {
      * @return the number of elements in the path, or {@code 0} if this path
      * only represents a root component
      */
-    int getNameCount();
+    public int getNameCount();
 
     /**
      * Returns a name element of this path as a {@code Path} object.
@@ -160,7 +160,7 @@ public interface IFilePath {
      *                   equal to the number of elements, or this path has zero name
      *                   elements
      */
-    IFilePath getName(int index);
+    public IFilePath getName(int index);
 
     /**
      * Tests if this path starts with the given path.
@@ -183,7 +183,7 @@ public interface IFilePath {
      * @return {@code true} if this path starts with the given path; otherwise
      * {@code false}
      */
-    boolean startsWith(IFilePath other);
+    public boolean startsWith(IFilePath other);
 
     /**
      * Tests if this path starts with a {@code Path}, constructed by converting
@@ -197,7 +197,7 @@ public interface IFilePath {
      * {@code false}
      * @throws InvalidPathException If the path string cannot be converted to a Path.
      */
-    boolean startsWith(String other);
+    public boolean startsWith(String other);
 
     /**
      * Tests if this path ends with the given path.
@@ -222,7 +222,7 @@ public interface IFilePath {
      * @return {@code true} if this path ends with the given path; otherwise
      * {@code false}
      */
-    boolean endsWith(IFilePath other);
+    public boolean endsWith(IFilePath other);
 
     /**
      * Tests if this path ends with a {@code Path}, constructed by converting
@@ -239,7 +239,7 @@ public interface IFilePath {
      * {@code false}
      * @throws InvalidPathException If the path string cannot be converted to a Path.
      */
-    boolean endsWith(String other);
+    public boolean endsWith(String other);
 
     /**
      * Returns a path that is this path with redundant name elements eliminated.
@@ -264,7 +264,7 @@ public interface IFilePath {
      * does have a root component and all name elements are redundant
      * @see #getParent
      */
-    IFilePath normalize();
+    public IFilePath normalize();
 
     // -- resolution and relativization --
 
@@ -286,7 +286,7 @@ public interface IFilePath {
      * @return the resulting path
      * @see #relativize
      */
-    IFilePath resolve(IFilePath other);
+    public IFilePath resolve(IFilePath other);
 
     /**
      * Converts a given path string to a {@code Path} and resolves it against
@@ -300,7 +300,7 @@ public interface IFilePath {
      * @return the resulting path
      * @throws InvalidPathException if the path string cannot be converted to a Path.
      */
-    IFilePath resolve(String other);
+    public IFilePath resolve(String other);
 
     /**
      * Resolves the given path against this path's {@link #getParent parent}
@@ -318,7 +318,7 @@ public interface IFilePath {
      * @return the resulting path
      * @see #resolve(IFilePath)
      */
-    IFilePath resolveSibling(IFilePath other);
+    public IFilePath resolveSibling(IFilePath other);
 
     /**
      * Converts a given path string to a {@code Path} and resolves it against
@@ -329,7 +329,7 @@ public interface IFilePath {
      * @return the resulting path
      * @throws InvalidPathException if the path string cannot be converted to a Path.
      */
-    IFilePath resolveSibling(String other);
+    public IFilePath resolveSibling(String other);
 
     /**
      * Constructs a relative path between this path and a given path.
@@ -367,7 +367,7 @@ public interface IFilePath {
      * @throws IllegalArgumentException if {@code other} is not a {@code Path} that can be relativized
      *                                  against this path
      */
-    IFilePath relativize(IFilePath other);
+    public IFilePath relativize(IFilePath other);
 
     /**
      * Returns a {@code Path} object representing the absolute path of this
@@ -387,7 +387,7 @@ public interface IFilePath {
      *                           checkPropertyAccess} method is invoked to check access to the
      *                           system property {@code user.dir}
      */
-    IFilePath toAbsolutePath();
+    public IFilePath toAbsolutePath();
 
     /**
      * Returns a {@link IFile} object representing this path. Where this {@code
@@ -403,7 +403,7 @@ public interface IFilePath {
      * @return a {@code File} object representing this path
      * @throws UnsupportedOperationException if this {@code Path} is not associated with the default provider
      */
-    IFile toFile();
+    public IFile toFile();
 
     /**
      * Tests this path for equality with the given object.
@@ -425,7 +425,7 @@ public interface IFilePath {
      * @return {@code true} if, and only if, the given object is a {@code Path}
      * that is identical to this {@code Path}
      */
-    boolean equalPath(IFilePath other);
+    public boolean equalPath(IFilePath other);
 
     /**
      * Returns the string representation of this path.
@@ -439,5 +439,5 @@ public interface IFilePath {
      *
      * @return the string representation of this path
      */
-    String toString();
+    public String toString();
 }
