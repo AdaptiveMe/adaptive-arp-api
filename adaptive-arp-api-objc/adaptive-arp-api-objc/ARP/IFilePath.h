@@ -38,6 +38,7 @@
 @protocol ARPIFileSystem;
 
 #import "JreEmulation.h"
+#include "java/lang/Enum.h"
 
 @protocol ARPIFilePath < NSObject, JavaObject >
 
@@ -88,5 +89,63 @@
 __attribute__((always_inline)) inline void ARPIFilePath_init() {}
 
 #define MeAdaptiveArpApiIFilePath ARPIFilePath
+
+typedef enum {
+  ARPIFilePath_StorageType_Internal = 0,
+  ARPIFilePath_StorageType_Remote = 1,
+  ARPIFilePath_StorageType_Isolated = 2,
+  ARPIFilePath_StorageType_External = 3,
+} ARPIFilePath_StorageType;
+
+@interface ARPIFilePath_StorageTypeEnum : JavaLangEnum < NSCopying > {
+}
++ (IOSObjectArray *)values;
++ (ARPIFilePath_StorageTypeEnum *)valueOfWithNSString:(NSString *)name;
+- (id)copyWithZone:(NSZone *)zone;
+
+- (id)initWithNSString:(NSString *)__name withInt:(int)__ordinal;
+@end
+
+FOUNDATION_EXPORT BOOL ARPIFilePath_StorageTypeEnum_initialized;
+J2OBJC_STATIC_INIT(ARPIFilePath_StorageTypeEnum)
+
+FOUNDATION_EXPORT ARPIFilePath_StorageTypeEnum *ARPIFilePath_StorageTypeEnum_values[];
+
+#define ARPIFilePath_StorageTypeEnum_Internal ARPIFilePath_StorageTypeEnum_values[ARPIFilePath_StorageType_Internal]
+J2OBJC_STATIC_FIELD_GETTER(ARPIFilePath_StorageTypeEnum, Internal, ARPIFilePath_StorageTypeEnum *)
+
+#define ARPIFilePath_StorageTypeEnum_Remote ARPIFilePath_StorageTypeEnum_values[ARPIFilePath_StorageType_Remote]
+J2OBJC_STATIC_FIELD_GETTER(ARPIFilePath_StorageTypeEnum, Remote, ARPIFilePath_StorageTypeEnum *)
+
+#define ARPIFilePath_StorageTypeEnum_Isolated ARPIFilePath_StorageTypeEnum_values[ARPIFilePath_StorageType_Isolated]
+J2OBJC_STATIC_FIELD_GETTER(ARPIFilePath_StorageTypeEnum, Isolated, ARPIFilePath_StorageTypeEnum *)
+
+#define ARPIFilePath_StorageTypeEnum_External ARPIFilePath_StorageTypeEnum_values[ARPIFilePath_StorageType_External]
+J2OBJC_STATIC_FIELD_GETTER(ARPIFilePath_StorageTypeEnum, External, ARPIFilePath_StorageTypeEnum *)
+
+typedef enum {
+  ARPIFilePath_FileType_Directory = 0,
+  ARPIFilePath_FileType_File = 1,
+} ARPIFilePath_FileType;
+
+@interface ARPIFilePath_FileTypeEnum : JavaLangEnum < NSCopying > {
+}
++ (IOSObjectArray *)values;
++ (ARPIFilePath_FileTypeEnum *)valueOfWithNSString:(NSString *)name;
+- (id)copyWithZone:(NSZone *)zone;
+
+- (id)initWithNSString:(NSString *)__name withInt:(int)__ordinal;
+@end
+
+FOUNDATION_EXPORT BOOL ARPIFilePath_FileTypeEnum_initialized;
+J2OBJC_STATIC_INIT(ARPIFilePath_FileTypeEnum)
+
+FOUNDATION_EXPORT ARPIFilePath_FileTypeEnum *ARPIFilePath_FileTypeEnum_values[];
+
+#define ARPIFilePath_FileTypeEnum_Directory ARPIFilePath_FileTypeEnum_values[ARPIFilePath_FileType_Directory]
+J2OBJC_STATIC_FIELD_GETTER(ARPIFilePath_FileTypeEnum, Directory, ARPIFilePath_FileTypeEnum *)
+
+#define ARPIFilePath_FileTypeEnum_File ARPIFilePath_FileTypeEnum_values[ARPIFilePath_FileType_File]
+J2OBJC_STATIC_FIELD_GETTER(ARPIFilePath_FileTypeEnum, File, ARPIFilePath_FileTypeEnum *)
 
 #endif // _ARPIFilePath_H_

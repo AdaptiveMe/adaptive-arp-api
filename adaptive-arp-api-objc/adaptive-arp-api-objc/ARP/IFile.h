@@ -112,64 +112,6 @@ __attribute__((always_inline)) inline void ARPIFile_init() {}
 #define MeAdaptiveArpApiIFile ARPIFile
 
 typedef enum {
-  ARPIFile_StorageType_Internal = 0,
-  ARPIFile_StorageType_Remote = 1,
-  ARPIFile_StorageType_Isolated = 2,
-  ARPIFile_StorageType_External = 3,
-} ARPIFile_StorageType;
-
-@interface ARPIFile_StorageTypeEnum : JavaLangEnum < NSCopying > {
-}
-+ (IOSObjectArray *)values;
-+ (ARPIFile_StorageTypeEnum *)valueOfWithNSString:(NSString *)name;
-- (id)copyWithZone:(NSZone *)zone;
-
-- (id)initWithNSString:(NSString *)__name withInt:(int)__ordinal;
-@end
-
-FOUNDATION_EXPORT BOOL ARPIFile_StorageTypeEnum_initialized;
-J2OBJC_STATIC_INIT(ARPIFile_StorageTypeEnum)
-
-FOUNDATION_EXPORT ARPIFile_StorageTypeEnum *ARPIFile_StorageTypeEnum_values[];
-
-#define ARPIFile_StorageTypeEnum_Internal ARPIFile_StorageTypeEnum_values[ARPIFile_StorageType_Internal]
-J2OBJC_STATIC_FIELD_GETTER(ARPIFile_StorageTypeEnum, Internal, ARPIFile_StorageTypeEnum *)
-
-#define ARPIFile_StorageTypeEnum_Remote ARPIFile_StorageTypeEnum_values[ARPIFile_StorageType_Remote]
-J2OBJC_STATIC_FIELD_GETTER(ARPIFile_StorageTypeEnum, Remote, ARPIFile_StorageTypeEnum *)
-
-#define ARPIFile_StorageTypeEnum_Isolated ARPIFile_StorageTypeEnum_values[ARPIFile_StorageType_Isolated]
-J2OBJC_STATIC_FIELD_GETTER(ARPIFile_StorageTypeEnum, Isolated, ARPIFile_StorageTypeEnum *)
-
-#define ARPIFile_StorageTypeEnum_External ARPIFile_StorageTypeEnum_values[ARPIFile_StorageType_External]
-J2OBJC_STATIC_FIELD_GETTER(ARPIFile_StorageTypeEnum, External, ARPIFile_StorageTypeEnum *)
-
-typedef enum {
-  ARPIFile_FileType_Directory = 0,
-  ARPIFile_FileType_File = 1,
-} ARPIFile_FileType;
-
-@interface ARPIFile_FileTypeEnum : JavaLangEnum < NSCopying > {
-}
-+ (IOSObjectArray *)values;
-+ (ARPIFile_FileTypeEnum *)valueOfWithNSString:(NSString *)name;
-- (id)copyWithZone:(NSZone *)zone;
-
-- (id)initWithNSString:(NSString *)__name withInt:(int)__ordinal;
-@end
-
-FOUNDATION_EXPORT BOOL ARPIFile_FileTypeEnum_initialized;
-J2OBJC_STATIC_INIT(ARPIFile_FileTypeEnum)
-
-FOUNDATION_EXPORT ARPIFile_FileTypeEnum *ARPIFile_FileTypeEnum_values[];
-
-#define ARPIFile_FileTypeEnum_Directory ARPIFile_FileTypeEnum_values[ARPIFile_FileType_Directory]
-J2OBJC_STATIC_FIELD_GETTER(ARPIFile_FileTypeEnum, Directory, ARPIFile_FileTypeEnum *)
-
-#define ARPIFile_FileTypeEnum_File ARPIFile_FileTypeEnum_values[ARPIFile_FileType_File]
-J2OBJC_STATIC_FIELD_GETTER(ARPIFile_FileTypeEnum, File, ARPIFile_FileTypeEnum *)
-
-typedef enum {
   ARPIFile_FileSecurity_Default = 0,
   ARPIFile_FileSecurity_Encrypted = 1,
 } ARPIFile_FileSecurity;
