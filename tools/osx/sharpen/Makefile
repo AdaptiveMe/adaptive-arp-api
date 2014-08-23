@@ -15,6 +15,7 @@ ADAPTIVEWARE_NET_DIR = tmp.out
 ADAPTIVEWARE_NET_GIT = @cd $(ADAPTIVEWARE_NET_DIR) && git
 ADAPTIVEWARE_CLASSES=$(prefix)/bin
 ADAPTIVEWARE_JAVA_FILELIST = filelist.j
+SOURCE_DIR = ../../../adaptive-arp-api-java/arp-api-specs/src/main/java
 SB=\033[1m
 EB=\033[m
 
@@ -33,19 +34,12 @@ cleanall: clean
 	@echo "$(SB)Squeaky clean!$(EB)"
 
 $(ADAPTIVEWARE_JAVA_SOURCE):
-	@echo -e "$(SB)Getting Java sources from GIT.$(EB)"
 	@mkdir -p $(ADAPTIVEWARE_JAVA_DIR)
 	@mkdir -p $(ADAPTIVEWARE_JAVA_DIR_IN)/src/main/java
-	git clone $(ADAPTIVEWARE_JAVA_GIT_REPO) $(ADAPTIVEWARE_JAVA_DIR)
-	@echo -e "$(SB)Getting Java sources from GIT -> OK.$(EB)"
-	@cp -R $(ADAPTIVEWARE_JAVA_DIR)/adaptive-arp-api-java/ARP/src/me $(ADAPTIVEWARE_JAVA_DIR_IN)/src/main/java
-
+	@cp -R $(SOURCE_DIR)/me $(ADAPTIVEWARE_JAVA_DIR_IN)/src/main/java
 
 fetch: $(ADAPTIVEWARE_JAVA_SOURCE)
 	@echo -e "$(SB)Changing branch to $(ADAPTIVEWARE_JAVA_BRANCH).$(EB)"
-	$(ADAPTIVEWARE_JAVA_GIT) reset --hard
-	$(ADAPTIVEWARE_JAVA_GIT) checkout ${ADAPTIVEWARE_JAVA_BRANCH}
-	$(ADAPTIVEWARE_JAVA_GIT) pull origin
 	@rm -rf $(ADAPTIVEWARE_LASTLOG)
 	$(ADAPTIVEWARE_JAVA_GIT) log -1 --pretty=%B >> $(ADAPTIVEWARE_LASTLOG)
 	@echo -e "$(SB)Changing branch to $(ADAPTIVEWARE_JAVA_BRANCH) -> OK.$(EB)"
