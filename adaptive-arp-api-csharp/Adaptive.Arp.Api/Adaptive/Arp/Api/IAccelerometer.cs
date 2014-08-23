@@ -31,10 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <author>Carlos Lozano Diez</author>
-	/// <seealso cref="Acceleration">Acceleration</seealso>
-	/// <seealso cref="IAccelerationListener">IAccelerationListener</seealso>
-	/// <since>ARP1.0</since>
 	public abstract class IAccelerometer : IBaseSensor
 	{
 		/// <summary>Register a new listener that will receive acceleration events.</summary>

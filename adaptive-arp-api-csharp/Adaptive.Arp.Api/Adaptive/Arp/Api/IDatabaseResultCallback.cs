@@ -31,26 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <seealso cref="IDatabase">IDatabase</seealso>
-	/// <author>Ferran Vila Conesa</author>
-	/// <since>ARP1.0</since>
 	public abstract class IDatabaseResultCallback
 	{
-		/// <summary>Enumeration for warnings related to database manipulation.</summary>
-		/// <remarks>Enumeration for warnings related to database manipulation.</remarks>
-		public enum Warning
-		{
-			DatabaseExists
-		}
-
-		/// <summary>Enumeration for errors related to database manipulation.</summary>
-		/// <remarks>Enumeration for errors related to database manipulation.</remarks>
-		public enum Error
-		{
-			NoSpace,
-			SqlException
-		}
-
 		/// <summary>Result callback for correct responses</summary>
 		/// <param name="database">Returns the database</param>
 		/// <author>Ferran Vila Conesa</author>
@@ -70,5 +52,20 @@ namespace Adaptive.Arp.Api
 		/// <author>Ferran Vila Conesa</author>
 		/// <since>ARP1.0</since>
 		public abstract void OnError(IDatabaseResultCallback.Error error);
+
+		/// <summary>Enumeration for warnings related to database manipulation.</summary>
+		/// <remarks>Enumeration for warnings related to database manipulation.</remarks>
+		public enum Warning
+		{
+			DatabaseExists
+		}
+
+		/// <summary>Enumeration for errors related to database manipulation.</summary>
+		/// <remarks>Enumeration for errors related to database manipulation.</remarks>
+		public enum Error
+		{
+			NoSpace,
+			SqlException
+		}
 	}
 }

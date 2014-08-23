@@ -31,8 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface IOS : IBaseSystem
 	{
 		/// <summary>Returns the OSInfo for the current operating system.</summary>

@@ -31,8 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by FRMI on 12/08/2014.</summary>
-	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
+	/// <summary>Represents an instance of a service.</summary>
+	/// <remarks>Represents an instance of a service.</remarks>
 	public class Service
 	{
 		/// <summary>Enpoint of the service</summary>

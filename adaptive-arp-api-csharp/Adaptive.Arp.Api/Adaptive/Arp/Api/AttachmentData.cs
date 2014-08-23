@@ -30,8 +30,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by FRMI on 11/08/2014.</summary>
-	/// <remarks>Created by FRMI on 11/08/2014.</remarks>
+	/// <summary>Structure representing the binary attachment data.</summary>
+	/// <remarks>Structure representing the binary attachment data.</remarks>
 	public class AttachmentData
 	{
 		/// <summary>The raw data for the current file attachment (byte array)</summary>
@@ -75,7 +75,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Returns the raw data in byte[]</summary>
-		/// <returns>data</returns>
+		/// <returns>data Octet-binary content of the attachment payload.</returns>
 		/// <since>ARP1.0</since>
 		public virtual byte[] GetData()
 		{
@@ -83,7 +83,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the data of the attachment as a byte[]</summary>
-		/// <param name="data"></param>
+		/// <param name="data">Sets the octet-binary content of the attachment.</param>
 		/// <since>ARP1.0</since>
 		public virtual void SetData(byte[] data)
 		{
@@ -91,7 +91,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Returns the size of the attachment as a long</summary>
-		/// <returns>dataSize</returns>
+		/// <returns>dataSize Length in bytes of the octet-binary content.</returns>
 		/// <since>ARP1.0</since>
 		public virtual long GetDataSize()
 		{
@@ -99,7 +99,8 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the size of the attachment as a long</summary>
-		/// <param name="dataSize"></param>
+		/// <param name="dataSize">Length in bytes of the octet-binary content ( should be same as data array length.)
+		/// 	</param>
 		/// <since>ARP1.0</since>
 		public virtual void SetDataSize(long dataSize)
 		{
@@ -107,7 +108,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Returns the filename of the attachment</summary>
-		/// <returns>fileName</returns>
+		/// <returns>fileName Name of the attachment.</returns>
 		/// <since>ARP1.0</since>
 		public virtual string GetFileName()
 		{
@@ -115,7 +116,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the name of the file attachment</summary>
-		/// <param name="fileName"></param>
+		/// <param name="fileName">Name of the attachment.</param>
 		/// <since>ARP1.0</since>
 		public virtual void SetFileName(string fileName)
 		{
@@ -131,23 +132,25 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the mime type of the attachment</summary>
-		/// <param name="mimeType"></param>
+		/// <param name="mimeType">Mime-type of the attachment.</param>
 		/// <since>ARP1.0</since>
 		public virtual void SetMimeType(string mimeType)
 		{
 			this.mimeType = mimeType;
 		}
 
-		/// <summary>Returns the relative url of the file attachment</summary>
-		/// <returns>referenceUrl</returns>
+		/// <summary>Returns the absolute url of the file attachment</summary>
+		/// <returns>referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+		/// 	</returns>
 		/// <since>ARP1.0</since>
 		public virtual string GetReferenceUrl()
 		{
 			return referenceUrl;
 		}
 
-		/// <summary>Set the relative url of the attachment</summary>
-		/// <param name="referenceUrl"></param>
+		/// <summary>Set the absolute url of the attachment</summary>
+		/// <param name="referenceUrl">Absolute URL of the file attachment for either file:// or http:// access.
+		/// 	</param>
 		/// <since>ARP1.0</since>
 		public virtual void SetReferenceUrl(string referenceUrl)
 		{

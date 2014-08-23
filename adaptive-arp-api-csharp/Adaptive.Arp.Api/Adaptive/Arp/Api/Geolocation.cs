@@ -30,8 +30,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by FRMI on 11/08/2014.</summary>
-	/// <remarks>Created by FRMI on 11/08/2014.</remarks>
+	/// <summary>Structure representing the data a single geolocation reading.</summary>
+	/// <remarks>Structure representing the data a single geolocation reading.</remarks>
 	public class Geolocation
 	{
 		/// <summary>The Y coordinate (or latitude).</summary>

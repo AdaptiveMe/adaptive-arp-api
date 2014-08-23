@@ -31,8 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface ILifecycle : IBaseApplication
 	{
 		/// <summary>Add the listener for the lifecycle of the app</summary>

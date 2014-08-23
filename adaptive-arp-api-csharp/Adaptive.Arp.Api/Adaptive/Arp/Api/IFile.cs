@@ -31,8 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 13/08/14.</summary>
-	/// <remarks>Created by clozano on 13/08/14.</remarks>
 	public abstract class IFile : IFilePath
 	{
 		/// <summary>Check whether this is a path of a file.</summary>

@@ -31,10 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <author>Ferran Vila Conesa</author>
-	/// <seealso cref="IDatabase">IDatabase</seealso>
-	/// <seealso cref="Database">Database</seealso>
-	/// <since>ARP1.0</since>
+	/// <summary>Represents a data table composed of columns and rows.</summary>
+	/// <remarks>Represents a data table composed of columns and rows.</remarks>
 	public class Table
 	{
 		/// <summary>Name of the table.</summary>

@@ -31,10 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <author>Carlos Lozano Diez</author>
-	/// <seealso cref="IAccelerationListener">IAccelerationListener</seealso>
-	/// <seealso cref="IAccelerometer">IAccelerometer</seealso>
-	/// <since>ARP1.0</since>
+	/// <summary>Structure representing the data of a single acceleration reading.</summary>
+	/// <remarks>Structure representing the data of a single acceleration reading.</remarks>
 	public class Acceleration
 	{
 		internal double x;
@@ -47,9 +45,9 @@ namespace Adaptive.Arp.Api
 
 		internal long timeStamp;
 
-		/// <param name="x"></param>
-		/// <param name="y"></param>
-		/// <param name="z"></param>
+		/// <param name="x">X Coordinate</param>
+		/// <param name="y">Y Coordinate</param>
+		/// <param name="z">Z Coordinate</param>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
 		public Acceleration(double x, double y, double z)
@@ -65,7 +63,7 @@ namespace Adaptive.Arp.Api
 			this.timeStamp = Runtime.CurrentTimeMillis();
 		}
 
-		/// <param name="status"></param>
+		/// <param name="status">Status of the data.</param>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
 		public Acceleration(IAccelerometer.Status status)

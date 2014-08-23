@@ -31,23 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <author>Ferran Vila Conesa</author>
-	/// <since>ARP1.0</since>
 	public abstract class ILogging : IBaseUtil
 	{
-		/// <summary>Enumeration for log level platform normalization.</summary>
-		/// <remarks>
-		/// Enumeration for log level platform normalization. Every platform has
-		/// to match their log levels into these ones.
-		/// </remarks>
-		public enum LogLevel
-		{
-			Debug,
-			Warn,
-			Error,
-			Info
-		}
-
 		/// <summary>Logs the given message, with the given log level if specified, to the standard platform/environment.
 		/// 	</summary>
 		/// <remarks>Logs the given message, with the given log level if specified, to the standard platform/environment.
@@ -69,5 +54,18 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public abstract void Log(ILogging.LogLevel level, string category, string message
 			);
+
+		/// <summary>Enumeration for log level platform normalization.</summary>
+		/// <remarks>
+		/// Enumeration for log level platform normalization. Every platform has
+		/// to match their log levels into these ones.
+		/// </remarks>
+		public enum LogLevel
+		{
+			Debug,
+			Warn,
+			Error,
+			Info
+		}
 	}
 }

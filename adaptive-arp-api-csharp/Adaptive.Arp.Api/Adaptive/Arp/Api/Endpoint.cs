@@ -30,8 +30,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by FRMI on 12/08/2014.</summary>
-	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
+	/// <summary>Structure representing a remote or local service access end-point.</summary>
+	/// <remarks>Structure representing a remote or local service access end-point.</remarks>
 	public class Endpoint
 	{
 		/// <summary>The remote serice host (alias or IP).</summary>

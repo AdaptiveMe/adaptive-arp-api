@@ -32,8 +32,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 21/08/14.</summary>
-	/// <remarks>Created by clozano on 21/08/14.</remarks>
 	[System.Serializable]
 	public class InvalidPathException : Exception
 	{

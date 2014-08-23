@@ -30,9 +30,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <author>Ferran Vila Conesa</author>
-	/// <seealso cref="IDatabase">IDatabase</seealso>
-	/// <since>ARP1.0</since>
+	/// <summary>Structure representing a database reference.</summary>
+	/// <remarks>Structure representing a database reference.</remarks>
 	public class Database
 	{
 		/// <summary>Database Name (name of the .db local file).</summary>

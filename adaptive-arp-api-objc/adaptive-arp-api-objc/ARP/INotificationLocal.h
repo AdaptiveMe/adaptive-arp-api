@@ -27,7 +27,7 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/INotificationLocal.java
+//  source: ../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/INotificationLocal.java
 //
 //
 

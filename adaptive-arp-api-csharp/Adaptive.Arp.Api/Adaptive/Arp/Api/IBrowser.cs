@@ -31,8 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface IBrowser : IBaseUI
 	{
 		/// <summary>Open a new window showing the url webpage with a title and a close button displaying the desired text

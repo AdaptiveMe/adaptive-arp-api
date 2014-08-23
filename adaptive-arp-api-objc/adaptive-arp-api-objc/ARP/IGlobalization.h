@@ -27,7 +27,7 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/IGlobalization.java
+//  source: ../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IGlobalization.java
 //
 //
 
@@ -36,7 +36,7 @@
 
 @class ARPLocale;
 @class IOSObjectArray;
-@class JavaUtilHashMap;
+@protocol JavaUtilMap;
 
 #import "JreEmulation.h"
 #include "IBaseApplication.h"
@@ -47,7 +47,7 @@
 - (NSString *)getResourceLiteralWithNSString:(NSString *)key
                                withARPLocale:(ARPLocale *)locale;
 
-- (JavaUtilHashMap *)getResourceLiteralsWithARPLocale:(ARPLocale *)locale;
+- (id<JavaUtilMap>)getResourceLiteralsWithARPLocale:(ARPLocale *)locale;
 
 @end
 

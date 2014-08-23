@@ -31,8 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <author>Ferran Vila Conesa</author>
-	/// <since>ARP1.0</since>
 	public interface IDatabase : IBaseData
 	{
 		/// <summary>Creates a database on default path for every platform.</summary>

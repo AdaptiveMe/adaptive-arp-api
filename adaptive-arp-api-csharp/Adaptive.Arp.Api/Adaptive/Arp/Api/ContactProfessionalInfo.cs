@@ -30,8 +30,10 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 08/08/14.</summary>
-	/// <remarks>Created by clozano on 08/08/14.</remarks>
+	/// <summary>Structure representing the professional info data elements of a contact.
+	/// 	</summary>
+	/// <remarks>Structure representing the professional info data elements of a contact.
+	/// 	</remarks>
 	public class ContactProfessionalInfo
 	{
 		/// <summary>The company of the job</summary>
@@ -85,7 +87,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the title of the job</summary>
-		/// <param name="title"></param>
+		/// <param name="jobTitle"></param>
 		/// <since>ARP1.0</since>
 		public virtual void SetJobTitle(string jobTitle)
 		{
@@ -101,7 +103,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the description of the job</summary>
-		/// <param name="description"></param>
+		/// <param name="jobDescription"></param>
 		/// <since>ARP1.0</since>
 		public virtual void SetJobDescription(string jobDescription)
 		{

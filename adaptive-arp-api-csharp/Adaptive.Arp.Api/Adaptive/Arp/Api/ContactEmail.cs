@@ -31,8 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 08/08/14.</summary>
-	/// <remarks>Created by clozano on 08/08/14.</remarks>
+	/// <summary>Structure representing the email data elements of a contact.</summary>
+	/// <remarks>Structure representing the email data elements of a contact.</remarks>
 	public class ContactEmail
 	{
 		/// <summary>The type of the email</summary>
@@ -84,7 +84,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set if the email</summary>
-		/// <?></?>
+		/// <param name="primary">true if the email is primary; false otherwise</param>
 		/// <since>ARP1.0</since>
 		public virtual void SetPrimary(bool primary)
 		{

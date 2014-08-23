@@ -31,8 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public interface INetworkReachability : IBaseCommunication
 	{
 		/// <summary>Whether there is connectivity to an url or not.</summary>

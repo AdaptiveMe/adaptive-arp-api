@@ -31,8 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by FRMI on 11/08/2014.</summary>
-	/// <remarks>Created by FRMI on 11/08/2014.</remarks>
+	/// <summary>Structure representing the data elements of an email.</summary>
+	/// <remarks>Structure representing the data elements of an email.</remarks>
 	public class Email
 	{
 		/// <summary>Array of Email recipients</summary>
@@ -185,7 +185,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the mime type for the message body</summary>
-		/// <param name="mime">type of the body message</param>
+		/// <param name="messageBodyMimeType">type of the body message</param>
 		/// <since>ARP1.0</since>
 		public virtual void SetMessageBodyMimeType(string messageBodyMimeType)
 		{

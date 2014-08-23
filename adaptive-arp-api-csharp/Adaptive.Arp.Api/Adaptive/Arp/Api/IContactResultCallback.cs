@@ -31,8 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 08/08/14.</summary>
-	/// <remarks>Created by clozano on 08/08/14.</remarks>
 	public abstract class IContactResultCallback
 	{
 		/// <summary>This method is called on Result</summary>

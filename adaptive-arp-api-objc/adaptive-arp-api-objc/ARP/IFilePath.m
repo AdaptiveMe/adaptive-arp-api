@@ -27,7 +27,7 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/IFilePath.java
+//  source: ../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IFilePath.java
 //
 //
 
@@ -35,6 +35,7 @@
 #include "IFilePath.h"
 #include "IFileSystem.h"
 #include "IOSClass.h"
+#include "java/lang/Exception.h"
 #include "java/lang/IllegalArgumentException.h"
 
 @interface ARPIFilePath : NSObject
@@ -50,11 +51,12 @@
     { "getFileName", NULL, "Lme.adaptive.arp.api.IFilePath;", 0x401, NULL },
     { "getParent", NULL, "Lme.adaptive.arp.api.IFilePath;", 0x401, NULL },
     { "getNameCount", NULL, "I", 0x401, NULL },
-    { "getNameWithInt:", "getName", "Lme.adaptive.arp.api.IFilePath;", 0x401, NULL },
+    { "getNameWithInt:", "getName", "Lme.adaptive.arp.api.IFilePath;", 0x401, "Ljava.lang.Exception;" },
     { "startsWithWithARPIFilePath:", "startsWith", "Z", 0x401, NULL },
     { "startsWithWithNSString:", "startsWith", "Z", 0x401, NULL },
     { "endsWithWithARPIFilePath:", "endsWith", "Z", 0x401, NULL },
     { "endsWithWithNSString:", "endsWith", "Z", 0x401, NULL },
+    { "equalsWithNSString:", "equals", "Z", 0x401, NULL },
     { "normalize", NULL, "Lme.adaptive.arp.api.IFilePath;", 0x401, NULL },
     { "resolveWithARPIFilePath:", "resolve", "Lme.adaptive.arp.api.IFilePath;", 0x401, NULL },
     { "resolveWithNSString:", "resolve", "Lme.adaptive.arp.api.IFilePath;", 0x401, NULL },
@@ -66,7 +68,7 @@
     { "equalPathWithARPIFilePath:", "equalPath", "Z", 0x401, NULL },
     { "description", "toString", "Ljava.lang.String;", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPIFilePath = { "IFilePath", "me.adaptive.arp.api", NULL, 0x201, 21, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPIFilePath = { "IFilePath", "me.adaptive.arp.api", NULL, 0x201, 22, methods, 0, NULL, 0, NULL};
   return &_ARPIFilePath;
 }
 

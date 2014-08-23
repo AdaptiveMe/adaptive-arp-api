@@ -27,7 +27,7 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/IFilePath.java
+//  source: ../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IFilePath.java
 //
 //
 
@@ -63,6 +63,8 @@
 - (BOOL)endsWithWithARPIFilePath:(id<ARPIFilePath>)other;
 
 - (BOOL)endsWithWithNSString:(NSString *)other;
+
+- (BOOL)equalsWithNSString:(NSString *)other;
 
 - (id<ARPIFilePath>)normalize;
 

@@ -31,8 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by DBarranco on 11/08/14.</summary>
-	/// <remarks>Created by DBarranco on 11/08/14.</remarks>
+	/// <summary>Represents a single key-value pair.</summary>
+	/// <remarks>Represents a single key-value pair.</remarks>
 	public class SecureKeyPair
 	{
 		private string key;

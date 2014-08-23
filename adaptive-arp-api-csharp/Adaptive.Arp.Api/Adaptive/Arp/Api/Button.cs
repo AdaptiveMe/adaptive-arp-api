@@ -31,8 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by FRMI on 12/08/2014.</summary>
-	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
+	/// <summary>Structure representing the a physical or logical button on a device.</summary>
+	/// <remarks>Structure representing the a physical or logical button on a device.</remarks>
 	public class Button
 	{
 		/// <summary>Button type</summary>
@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
 		private ICapabilities.Button type;
 
 		/// <summary>Constructor used by the implementation</summary>
-		/// <param name="type"></param>
+		/// <param name="type">Button type.</param>
 		/// <since>ARP1.0</since>
 		public Button(ICapabilities.Button type)
 		{
@@ -48,7 +48,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Returns the button type</summary>
-		/// <returns>type</returns>
+		/// <returns>type Button type.</returns>
 		/// <since>ARP1.0</since>
 		public virtual ICapabilities.Button GetType()
 		{

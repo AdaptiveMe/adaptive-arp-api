@@ -35,7 +35,6 @@ namespace Adaptive.Arp.Api
 	/// <remarks>
 	/// An object that may be used to locate a file in a file system. It will
 	/// typically represent a system dependent file path.
-	/// <p/>
 	/// <p> A
 	/// <code>Path</code>
 	/// represents a path that is hierarchical and composed of a
@@ -60,11 +59,8 @@ namespace Adaptive.Arp.Api
 	/// <see cref="GetParent()">getParent</see>
 	/// ,
 	/// <see cref="GetRoot()">getRoot</see>
-	/// , and
-	/// <see cref="#subpath">subpath</see>
-	/// methods to access the path components or a subsequence of its name
-	/// elements.
-	/// <p/>
+	/// , and  methods to access
+	/// the path components or a subsequence of its name elements.
 	/// <p> In addition to accessing the components of a path, a
 	/// <code>Path</code>
 	/// also
@@ -75,19 +71,15 @@ namespace Adaptive.Arp.Api
 	/// methods to combine paths. The
 	/// <see cref="Relativize(IFilePath)">relativize</see>
 	/// method that can be used to construct a relative path between two paths.
-	/// Paths can be
-	/// <see cref="#compareTo">compared</see>
-	/// , and tested against each other using
+	/// Paths can be, and tested against each other using
 	/// the
 	/// <see cref="StartsWith(IFilePath)">startsWith</see>
 	/// and
 	/// <see cref="EndsWith(IFilePath)">endsWith</see>
 	/// methods.
-	/// <p/>
 	/// <p> <b>WARNING:</b> This interface is only intended to be implemented by
 	/// those developing custom file system implementations. Methods may be added to
 	/// this interface in future releases. </p>
-	/// <p/>
 	/// <h2>Accessing Files</h2>
 	/// <p> Paths may be used with the
 	/// <see cref="IFile">IFile</see>
@@ -105,7 +97,6 @@ namespace Adaptive.Arp.Api
 	/// Path path = FileSystems.getDefault().getPath("logs", "access.log");
 	/// BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8);
 	/// </pre>
-	/// <p/>
 	/// <h2>Concurrency</h2>
 	/// <p> Implementations of this interface are immutable and safe for use by
 	/// multiple concurrent threads.
@@ -121,8 +112,7 @@ namespace Adaptive.Arp.Api
 		/// <summary>Tells whether or not this path is absolute.</summary>
 		/// <remarks>
 		/// Tells whether or not this path is absolute.
-		/// <p/>
-		/// <p> An absolute path is complete in that it doesn't need to be combined
+		/// An absolute path is complete in that it doesn't need to be combined
 		/// with other path information in order to locate a file.
 		/// </remarks>
 		/// <returns>
@@ -165,7 +155,6 @@ namespace Adaptive.Arp.Api
 		/// <code>null</code>
 		/// if this path does not
 		/// have a parent.
-		/// <p/>
 		/// <p> The parent of this path object consists of this path's root
 		/// component, if any, and each element in the path except for the
 		/// <em>farthest</em> from the root in the directory hierarchy. This method
@@ -184,7 +173,7 @@ namespace Adaptive.Arp.Api
 		/// <see cref="Normalize()">normalize</see>
 		/// method, to eliminate redundant names, for cases where
 		/// <em>shell-like</em> navigation is required.
-		/// <p/>
+		/// </p>
 		/// <p> If this path has one or more elements, and no root component, then
 		/// this method is equivalent to evaluating the expression:
 		/// <blockquote><pre>
@@ -208,7 +197,6 @@ namespace Adaptive.Arp.Api
 		/// Returns a name element of this path as a
 		/// <code>Path</code>
 		/// object.
-		/// <p/>
 		/// <p> The
 		/// <code>index</code>
 		/// parameter is the index of the name element to return.
@@ -237,19 +225,16 @@ namespace Adaptive.Arp.Api
 		/// <summary>Tests if this path starts with the given path.</summary>
 		/// <remarks>
 		/// Tests if this path starts with the given path.
-		/// <p/>
 		/// <p> This path <em>starts</em> with the given path if this path's root
 		/// component <em>starts</em> with the root component of the given path,
 		/// and this path starts with the same name elements as the given path.
 		/// If the given path has more name elements than this path then
 		/// <code>false</code>
 		/// is returned.
-		/// <p/>
 		/// <p> Whether or not the root component of this path starts with the root
 		/// component of the given path is file system specific. If this path does
 		/// not have a root component and the given path has a root component then
 		/// this path does not start with the given path.
-		/// <p/>
 		/// <p> If the given path is associated with a different
 		/// <code>FileSystem</code>
 		/// to this path then
@@ -292,19 +277,15 @@ namespace Adaptive.Arp.Api
 		/// if this path starts with the given path; otherwise
 		/// <code>false</code>
 		/// </returns>
-		/// <exception cref="InvalidPathException">If the path string cannot be converted to a Path.
-		/// 	</exception>
 		public abstract bool StartsWith(string other);
 
 		/// <summary>Tests if this path ends with the given path.</summary>
 		/// <remarks>
 		/// Tests if this path ends with the given path.
-		/// <p/>
 		/// <p> If the given path has <em>N</em> elements, and no root component,
 		/// and this path has <em>N</em> or more elements, then this path ends with
 		/// the given path if the last <em>N</em> elements of each path, starting at
 		/// the element farthest from the root, are equal.
-		/// <p/>
 		/// <p> If the given path has a root component then this path ends with the
 		/// given path if the root component of this path <em>ends with</em> the root
 		/// component of the given path, and the corresponding elements of both paths
@@ -312,7 +293,6 @@ namespace Adaptive.Arp.Api
 		/// root component of the given path is file system specific. If this path
 		/// does not have a root component and the given path has a root component
 		/// then this path does not end with the given path.
-		/// <p/>
 		/// <p> If the given path is associated with a different
 		/// <code>FileSystem</code>
 		/// to this path then
@@ -366,15 +346,18 @@ namespace Adaptive.Arp.Api
 		/// if this path ends with the given path; otherwise
 		/// <code>false</code>
 		/// </returns>
-		/// <exception cref="InvalidPathException">If the path string cannot be converted to a Path.
-		/// 	</exception>
 		public abstract bool EndsWith(string other);
+
+		/// <summary>Wether the current file is equal to the specified path.</summary>
+		/// <remarks>Wether the current file is equal to the specified path.</remarks>
+		/// <param name="other">Path.</param>
+		/// <returns>true if equal, false otherwise.</returns>
+		public abstract bool Equals(string other);
 
 		/// <summary>Returns a path that is this path with redundant name elements eliminated.
 		/// 	</summary>
 		/// <remarks>
 		/// Returns a path that is this path with redundant name elements eliminated.
-		/// <p/>
 		/// <p> The precise definition of this method is implementation dependent but
 		/// in general it derives from this path, a path that does not contain
 		/// <em>redundant</em> name elements. In many file systems, the "
@@ -394,7 +377,6 @@ namespace Adaptive.Arp.Api
 		/// " name then both names are considered redundant (the
 		/// process to identify such names is repeated until it is no longer
 		/// applicable).
-		/// <p/>
 		/// <p> This method does not access the file system; the path may not locate
 		/// a file that exists. Eliminating "
 		/// <code>..</code>
@@ -414,7 +396,6 @@ namespace Adaptive.Arp.Api
 		/// <summary>Resolve the given path against this path.</summary>
 		/// <remarks>
 		/// Resolve the given path against this path.
-		/// <p/>
 		/// <p> If the
 		/// <code>other</code>
 		/// parameter is an
@@ -466,8 +447,6 @@ namespace Adaptive.Arp.Api
 		/// </summary>
 		/// <param name="other">the path string to resolve against this path</param>
 		/// <returns>the resulting path</returns>
-		/// <exception cref="InvalidPathException">if the path string cannot be converted to a Path.
-		/// 	</exception>
 		public abstract IFilePath Resolve(string other);
 
 		/// <summary>
@@ -520,14 +499,11 @@ namespace Adaptive.Arp.Api
 		/// </summary>
 		/// <param name="other">the path string to resolve against this path's parent</param>
 		/// <returns>the resulting path</returns>
-		/// <exception cref="InvalidPathException">if the path string cannot be converted to a Path.
-		/// 	</exception>
 		public abstract IFilePath ResolveSibling(string other);
 
 		/// <summary>Constructs a relative path between this path and a given path.</summary>
 		/// <remarks>
 		/// Constructs a relative path between this path and a given path.
-		/// <p/>
 		/// <p> Relativization is the inverse of
 		/// <see cref="Resolve(IFilePath)">resolution</see>
 		/// .
@@ -552,9 +528,8 @@ namespace Adaptive.Arp.Api
 		/// constructed if only one of the paths have a root component. Where both
 		/// paths have a root component then it is implementation dependent if a
 		/// relative path can be constructed. If this path and the given path are
-		/// <see cref="object.Equals(object)">equal</see>
+		/// <see cref="Equals(string)">equal</see>
 		/// then an <i>empty path</i> is returned.
-		/// <p/>
 		/// <p> For any two
 		/// <see cref="Normalize()">normalized</see>
 		/// paths <i>p</i> and
@@ -562,7 +537,6 @@ namespace Adaptive.Arp.Api
 		/// <blockquote>
 		/// <i>p</i><tt>.relativize(</tt><i>p</i><tt>.resolve(</tt><i>q</i><tt>)).equals(</tt><i>q</i><tt>)</tt>
 		/// </blockquote>
-		/// <p/>
 		/// <p> When symbolic links are supported, then whether the resulting path,
 		/// when resolved against this path, yields a path that can be used to locate
 		/// the file as
@@ -589,14 +563,6 @@ namespace Adaptive.Arp.Api
 		/// the resulting relative path, or an empty path if both paths are
 		/// equal
 		/// </returns>
-		/// <exception cref="System.ArgumentException">
-		/// if
-		/// <code>other</code>
-		/// is not a
-		/// <code>Path</code>
-		/// that can be relativized
-		/// against this path
-		/// </exception>
 		public abstract IFilePath Relativize(IFilePath other);
 
 		/// <summary>
@@ -604,7 +570,6 @@ namespace Adaptive.Arp.Api
 		/// <code>Path</code>
 		/// object representing the absolute path of this
 		/// path.
-		/// <p/>
 		/// <p> If this path is already
 		/// <see cref="IsAbsolute()">absolute</see>
 		/// then this
@@ -619,16 +584,6 @@ namespace Adaptive.Arp.Api
 		/// object representing the absolute path
 		/// </returns>
 		/// <exception cref="Sharpen.IOError">if an I/O error occurs</exception>
-		/// <exception cref="System.Security.SecurityException">
-		/// In the case of the default provider, a security manager
-		/// is installed, and this path is not absolute, then the security
-		/// manager's
-		/// <see cref="Sharpen.SecurityManager.CheckPropertyAccess(string)">checkPropertyAccess
-		/// 	</see>
-		/// method is invoked to check access to the
-		/// system property
-		/// <code>user.dir</code>
-		/// </exception>
 		public abstract IFilePath ToAbsolutePath();
 
 		/// <summary>
@@ -642,7 +597,6 @@ namespace Adaptive.Arp.Api
 		/// object constructed with the
 		/// <code>String</code>
 		/// representation of this path.
-		/// <p/>
 		/// <p> If this path was created by invoking the
 		/// <code>File</code>
 		/// 
@@ -650,7 +604,7 @@ namespace Adaptive.Arp.Api
 		/// method then there is no guarantee that the
 		/// <code>File</code>
 		/// object returned by this method is
-		/// <see cref="object.Equals(object)">equal</see>
+		/// <see cref="Equals(string)">equal</see>
 		/// to the
 		/// original
 		/// <code>File</code>
@@ -661,24 +615,17 @@ namespace Adaptive.Arp.Api
 		/// <code>File</code>
 		/// object representing this path
 		/// </returns>
-		/// <exception cref="System.NotSupportedException">
-		/// if this
-		/// <code>Path</code>
-		/// is not associated with the default provider
-		/// </exception>
 		public abstract IFile ToFile();
 
 		/// <summary>Tests this path for equality with the given object.</summary>
 		/// <remarks>
 		/// Tests this path for equality with the given object.
-		/// <p/>
 		/// <p> If the given object is not a Path, or is a Path associated with a
 		/// different
 		/// <code>FileSystem</code>
 		/// , then this method returns
 		/// <code>false</code>
 		/// .
-		/// <p/>
 		/// <p> Whether or not two path are equal depends on the file system
 		/// implementation. In some cases the paths are compared without regard
 		/// to case, and others are case sensitive. This method does not access the
@@ -686,7 +633,6 @@ namespace Adaptive.Arp.Api
 		/// <see cref="IFileSystem.IsSameFile(IFile, IFile)">isSameFile</see>
 		/// method may be used to check if two
 		/// paths locate the same file.
-		/// <p/>
 		/// <p> This method satisfies the general contract of the
 		/// <see cref="object.Equals(object)">Object.equals</see>
 		/// method. </p>
@@ -705,12 +651,10 @@ namespace Adaptive.Arp.Api
 		/// <summary>Returns the string representation of this path.</summary>
 		/// <remarks>
 		/// Returns the string representation of this path.
-		/// <p/>
 		/// <p> If this path was created by converting a path string using the
 		/// <see cref="IFileSystem.GetPath(IFilePath)">getPath</see>
 		/// method then the path string returned
 		/// by this method may differ from the original String used to create the path.
-		/// <p/>
 		/// <p> The returned path string uses the default name
 		/// <see cref="IFileSystem.GetSeparator()">separator</see>
 		/// to separate names in the path.

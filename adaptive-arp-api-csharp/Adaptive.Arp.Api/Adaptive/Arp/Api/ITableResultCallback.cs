@@ -31,29 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <seealso cref="IDatabase">IDatabase</seealso>
-	/// <author>Ferran Vila Conesa</author>
-	/// <since>ARP1.0</since>
 	public abstract class ITableResultCallback
 	{
-		/// <summary>Enumeration for warnings related to database manipulation.</summary>
-		/// <remarks>Enumeration for warnings related to database manipulation.</remarks>
-		public enum Warning
-		{
-			TableExists,
-			TableLocked,
-			NoResults
-		}
-
-		/// <summary>Enumeration for errors related to database manipulation.</summary>
-		/// <remarks>Enumeration for errors related to database manipulation.</remarks>
-		public enum Error
-		{
-			NoSpace,
-			ReadOnlyTable,
-			SqlException
-		}
-
 		/// <summary>Result callback for correct responses</summary>
 		/// <param name="table">Returns the table</param>
 		/// <author>Ferran Vila Conesa</author>
@@ -72,5 +51,23 @@ namespace Adaptive.Arp.Api
 		/// <author>Ferran Vila Conesa</author>
 		/// <since>ARP1.0</since>
 		public abstract void OnError(ITableResultCallback.Error error);
+
+		/// <summary>Enumeration for warnings related to database manipulation.</summary>
+		/// <remarks>Enumeration for warnings related to database manipulation.</remarks>
+		public enum Warning
+		{
+			TableExists,
+			TableLocked,
+			NoResults
+		}
+
+		/// <summary>Enumeration for errors related to database manipulation.</summary>
+		/// <remarks>Enumeration for errors related to database manipulation.</remarks>
+		public enum Error
+		{
+			NoSpace,
+			ReadOnlyTable,
+			SqlException
+		}
 	}
 }

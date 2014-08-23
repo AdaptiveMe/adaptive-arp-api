@@ -31,8 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <author>Carlos Lozano Diez</author>
-	/// <since>ARP1.0</since>
 	public abstract class ICapabilities : IBaseSystem
 	{
 		/// <summary>

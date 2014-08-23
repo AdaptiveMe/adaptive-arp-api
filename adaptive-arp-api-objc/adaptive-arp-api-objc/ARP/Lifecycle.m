@@ -27,7 +27,7 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/Lifecycle.java
+//  source: ../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/Lifecycle.java
 //
 //
 
@@ -74,7 +74,7 @@
 
 BOOL ARPLifecycle_StateEnum_initialized = NO;
 
-ARPLifecycle_StateEnum *ARPLifecycle_StateEnum_values[4];
+ARPLifecycle_StateEnum *ARPLifecycle_StateEnum_values[8];
 
 @implementation ARPLifecycle_StateEnum
 
@@ -88,20 +88,24 @@ ARPLifecycle_StateEnum *ARPLifecycle_StateEnum_values[4];
 
 + (void)initialize {
   if (self == [ARPLifecycle_StateEnum class]) {
-    ARPLifecycle_StateEnum_Start = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Start" withInt:0];
-    ARPLifecycle_StateEnum_Pause = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Pause" withInt:1];
-    ARPLifecycle_StateEnum_Resume = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Resume" withInt:2];
-    ARPLifecycle_StateEnum_End = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"End" withInt:3];
+    ARPLifecycle_StateEnum_Starting = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Starting" withInt:0];
+    ARPLifecycle_StateEnum_Started = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Started" withInt:1];
+    ARPLifecycle_StateEnum_Running = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Running" withInt:2];
+    ARPLifecycle_StateEnum_Paused = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Paused" withInt:3];
+    ARPLifecycle_StateEnum_PausedIdle = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"PausedIdle" withInt:4];
+    ARPLifecycle_StateEnum_PausedRun = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"PausedRun" withInt:5];
+    ARPLifecycle_StateEnum_Resuming = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Resuming" withInt:6];
+    ARPLifecycle_StateEnum_Stopping = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Stopping" withInt:7];
     ARPLifecycle_StateEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPLifecycle_StateEnum_values count:4 type:[IOSClass classWithClass:[ARPLifecycle_StateEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPLifecycle_StateEnum_values count:8 type:[IOSClass classWithClass:[ARPLifecycle_StateEnum class]]];
 }
 
 + (ARPLifecycle_StateEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 8; i++) {
     ARPLifecycle_StateEnum *e = ARPLifecycle_StateEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -116,13 +120,17 @@ ARPLifecycle_StateEnum *ARPLifecycle_StateEnum_values[4];
     { "init", NULL, NULL, 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
-    { "Start", "Start", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Start,  },
-    { "Pause", "Pause", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Pause,  },
-    { "Resume", "Resume", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Resume,  },
-    { "End", "End", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_End,  },
+    { "Starting", "Starting", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Starting,  },
+    { "Started", "Started", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Started,  },
+    { "Running", "Running", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Running,  },
+    { "Paused", "Paused", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Paused,  },
+    { "PausedIdle", "PausedIdle", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_PausedIdle,  },
+    { "PausedRun", "PausedRun", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_PausedRun,  },
+    { "Resuming", "Resuming", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Resuming,  },
+    { "Stopping", "Stopping", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Stopping,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.Lifecycle$State;"};
-  static J2ObjcClassInfo _ARPLifecycle_StateEnum = { "State", "me.adaptive.arp.api", "Lifecycle", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPLifecycle_StateEnum = { "State", "me.adaptive.arp.api", "Lifecycle", 0x4019, 1, methods, 8, fields, 1, superclass_type_args};
   return &_ARPLifecycle_StateEnum;
 }
 

@@ -31,8 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 13/08/14.</summary>
-	/// <remarks>Created by clozano on 13/08/14.</remarks>
 	public abstract class IFileListResultCallback
 	{
 		/// <summary>On correct result of a file operation.</summary>

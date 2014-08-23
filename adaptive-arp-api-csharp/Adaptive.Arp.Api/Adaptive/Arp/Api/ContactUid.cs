@@ -30,8 +30,10 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 08/08/14.</summary>
-	/// <remarks>Created by clozano on 08/08/14.</remarks>
+	/// <summary>Structure representing the internal unique identifier data elements of a contact.
+	/// 	</summary>
+	/// <remarks>Structure representing the internal unique identifier data elements of a contact.
+	/// 	</remarks>
 	public class ContactUid
 	{
 		/// <summary>The id of the Contact</summary>
@@ -40,7 +42,7 @@ namespace Adaptive.Arp.Api
 
 		/// <summary>Constructor used by implementation to set the Contact id.</summary>
 		/// <remarks>Constructor used by implementation to set the Contact id.</remarks>
-		/// <param name="contactId"></param>
+		/// <param name="contactId">Internal unique contact id.</param>
 		/// <since>ARP1.0</since>
 		public ContactUid(string contactId)
 		{
@@ -48,7 +50,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Returns the contact id</summary>
-		/// <returns>Contactid</returns>
+		/// <returns>Contactid Internal unique contact id.</returns>
 		/// <since>ARP1.0</since>
 		public virtual string GetContactId()
 		{
@@ -56,7 +58,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the id of the Contact</summary>
-		/// <param name="contactId"></param>
+		/// <param name="contactId">Internal unique contact id.</param>
 		/// <since>ARP1.0</since>
 		public virtual void SetContactId(string contactId)
 		{

@@ -31,8 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by DBarranco on 11/08/14.</summary>
-	/// <remarks>Created by DBarranco on 11/08/14.</remarks>
 	public interface IInternalStorage : IStore
 	{
 	}

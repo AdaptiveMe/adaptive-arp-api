@@ -31,8 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 08/08/14.</summary>
-	/// <remarks>Created by clozano on 08/08/14.</remarks>
+	/// <summary>Structure representing the data elements of a contact.</summary>
+	/// <remarks>Structure representing the data elements of a contact.</remarks>
 	public class Contact : ContactUid
 	{
 		/// <summary>The personal info from the contact</summary>

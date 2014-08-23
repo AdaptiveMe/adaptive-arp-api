@@ -31,8 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by FRMI on 12/08/2014.</summary>
-	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
+	/// <summary>Represents a specific application life-cycle stage.</summary>
+	/// <remarks>Represents a specific application life-cycle stage.</remarks>
 	public class Lifecycle
 	{
 		/// <summary>Represent the state of the app</summary>
@@ -64,19 +64,31 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>
-		/// Possible lifecycle States
-		/// Start = when app starts
-		/// Pause = ToBackground
-		/// Resume = ToForeground
-		/// End = app closes
+		/// Possible lifecycle States:
+		/// 1.
 		/// </summary>
+		/// <remarks>
+		/// Possible lifecycle States:
+		/// 1. Starting    - Before starting.
+		/// 2. Started     - Start concluded.
+		/// 3. Running     - Accepts user interaction - running in foreground.
+		/// 4. Pausing     - Before going to background.
+		/// 4.1 PausedIdle - In background, no scheduled background activity (passive).
+		/// 4.2 PausedRun  - In background, scheduled background activity (periodic network access, gps access, etc.)
+		/// 5. Resuming    - Before going to foreground, followed by Running state.
+		/// 6. Stopping    - Before stopping.
+		/// </remarks>
 		/// <since>ARP1.0</since>
 		public enum State
 		{
-			Start,
-			Pause,
-			Resume,
-			End
+			Starting,
+			Started,
+			Running,
+			Paused,
+			PausedIdle,
+			PausedRun,
+			Resuming,
+			Stopping
 		}
 	}
 }

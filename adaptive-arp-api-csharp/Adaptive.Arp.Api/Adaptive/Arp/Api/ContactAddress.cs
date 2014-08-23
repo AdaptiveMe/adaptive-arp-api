@@ -31,8 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 08/08/14.</summary>
-	/// <remarks>Created by clozano on 08/08/14.</remarks>
+	/// <summary>Structure representing the address data elements of a contact.</summary>
+	/// <remarks>Structure representing the address data elements of a contact.</remarks>
 	public class ContactAddress
 	{
 		/// <summary>The Contact address</summary>
@@ -44,8 +44,8 @@ namespace Adaptive.Arp.Api
 		private ContactAddress.AddressType type;
 
 		/// <summary>Constructor used by the implementation</summary>
-		/// <param name="address"></param>
-		/// <param name="type"></param>
+		/// <param name="address">Address data.</param>
+		/// <param name="type">Address type.</param>
 		/// <since>ARP1.0</since>
 		public ContactAddress(string address, ContactAddress.AddressType type)
 		{
@@ -54,7 +54,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Returns the Contact address</summary>
-		/// <returns>address</returns>
+		/// <returns>address Address data.</returns>
 		/// <since>ARP1.0</since>
 		public virtual string GetAddress()
 		{
@@ -62,7 +62,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the address of the Contact</summary>
-		/// <param name="address"></param>
+		/// <param name="address">Address data.</param>
 		/// <since>ARP1.0</since>
 		public virtual void SetAddress(string address)
 		{
@@ -70,7 +70,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Returns the type of the address</summary>
-		/// <returns>AddressType</returns>
+		/// <returns>AddressType Address type.</returns>
 		/// <since>ARP1.0</since>
 		public virtual ContactAddress.AddressType GetType()
 		{
@@ -78,7 +78,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the address type</summary>
-		/// <param name="type"></param>
+		/// <param name="type">Address type.</param>
 		/// <since>ARP1.0</since>
 		public virtual void SetType(ContactAddress.AddressType type)
 		{

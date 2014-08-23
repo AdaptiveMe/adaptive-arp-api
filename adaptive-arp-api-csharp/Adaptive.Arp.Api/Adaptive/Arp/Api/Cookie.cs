@@ -30,8 +30,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by FRMI on 12/08/2014.</summary>
-	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
+	/// <summary>Structure representing the data of a http cookie.</summary>
+	/// <remarks>Structure representing the data of a http cookie.</remarks>
 	public class Cookie
 	{
 		/// <summary>Name ot the cookie</summary>

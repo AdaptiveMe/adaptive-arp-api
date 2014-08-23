@@ -30,8 +30,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 08/08/14.</summary>
-	/// <remarks>Created by clozano on 08/08/14.</remarks>
+	/// <summary>Structure representing the website data elements of a contact.</summary>
+	/// <remarks>Structure representing the website data elements of a contact.</remarks>
 	public class ContactWebsite
 	{
 		/// <summary>The url of the website</summary>

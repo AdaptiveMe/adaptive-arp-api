@@ -31,8 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 08/08/14.</summary>
-	/// <remarks>Created by clozano on 08/08/14.</remarks>
+	/// <summary>Structure representing the phone data elements of a contact.</summary>
+	/// <remarks>Structure representing the phone data elements of a contact.</remarks>
 	public class ContactPhone
 	{
 		/// <summary>The phone number</summary>

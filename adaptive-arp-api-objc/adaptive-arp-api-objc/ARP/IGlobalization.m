@@ -27,14 +27,14 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/IGlobalization.java
+//  source: ../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IGlobalization.java
 //
 //
 
 #include "IGlobalization.h"
 #include "IOSObjectArray.h"
 #include "Locale.h"
-#include "java/util/HashMap.h"
+#include "java/util/Map.h"
 
 @interface ARPIGlobalization : NSObject
 @end
@@ -45,7 +45,7 @@
   static J2ObjcMethodInfo methods[] = {
     { "getLocaleSupportedDescriptors", NULL, "[Ljava.lang.String;", 0x401, NULL },
     { "getResourceLiteralWithNSString:withARPLocale:", "getResourceLiteral", "Ljava.lang.String;", 0x401, NULL },
-    { "getResourceLiteralsWithARPLocale:", "getResourceLiterals", "Ljava.util.HashMap;", 0x401, NULL },
+    { "getResourceLiteralsWithARPLocale:", "getResourceLiterals", "Ljava.util.Map;", 0x401, NULL },
   };
   static J2ObjcClassInfo _ARPIGlobalization = { "IGlobalization", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
   return &_ARPIGlobalization;

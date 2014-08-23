@@ -31,8 +31,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by FRMI on 12/08/2014.</summary>
-	/// <remarks>Created by FRMI on 12/08/2014.</remarks>
+	/// <summary>Represents a local or remote service request.</summary>
+	/// <remarks>Represents a local or remote service request.</remarks>
 	public class ServiceRequest
 	{
 		/// <summary>Request/Response data content (plain text).</summary>

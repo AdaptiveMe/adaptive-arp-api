@@ -27,7 +27,7 @@
  */
 
 //
-//  source: tmp/adaptive-arp-api-java/ARP/src/me/adaptive/arp/api/Lifecycle.java
+//  source: ../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/Lifecycle.java
 //
 //
 
@@ -61,10 +61,14 @@ J2OBJC_FIELD_SETTER(ARPLifecycle, state_, ARPLifecycle_StateEnum *)
 typedef ARPLifecycle MeAdaptiveArpApiLifecycle;
 
 typedef enum {
-  ARPLifecycle_State_Start = 0,
-  ARPLifecycle_State_Pause = 1,
-  ARPLifecycle_State_Resume = 2,
-  ARPLifecycle_State_End = 3,
+  ARPLifecycle_State_Starting = 0,
+  ARPLifecycle_State_Started = 1,
+  ARPLifecycle_State_Running = 2,
+  ARPLifecycle_State_Paused = 3,
+  ARPLifecycle_State_PausedIdle = 4,
+  ARPLifecycle_State_PausedRun = 5,
+  ARPLifecycle_State_Resuming = 6,
+  ARPLifecycle_State_Stopping = 7,
 } ARPLifecycle_State;
 
 @interface ARPLifecycle_StateEnum : JavaLangEnum < NSCopying > {
@@ -81,16 +85,28 @@ J2OBJC_STATIC_INIT(ARPLifecycle_StateEnum)
 
 FOUNDATION_EXPORT ARPLifecycle_StateEnum *ARPLifecycle_StateEnum_values[];
 
-#define ARPLifecycle_StateEnum_Start ARPLifecycle_StateEnum_values[ARPLifecycle_State_Start]
-J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Start, ARPLifecycle_StateEnum *)
+#define ARPLifecycle_StateEnum_Starting ARPLifecycle_StateEnum_values[ARPLifecycle_State_Starting]
+J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Starting, ARPLifecycle_StateEnum *)
 
-#define ARPLifecycle_StateEnum_Pause ARPLifecycle_StateEnum_values[ARPLifecycle_State_Pause]
-J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Pause, ARPLifecycle_StateEnum *)
+#define ARPLifecycle_StateEnum_Started ARPLifecycle_StateEnum_values[ARPLifecycle_State_Started]
+J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Started, ARPLifecycle_StateEnum *)
 
-#define ARPLifecycle_StateEnum_Resume ARPLifecycle_StateEnum_values[ARPLifecycle_State_Resume]
-J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Resume, ARPLifecycle_StateEnum *)
+#define ARPLifecycle_StateEnum_Running ARPLifecycle_StateEnum_values[ARPLifecycle_State_Running]
+J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Running, ARPLifecycle_StateEnum *)
 
-#define ARPLifecycle_StateEnum_End ARPLifecycle_StateEnum_values[ARPLifecycle_State_End]
-J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, End, ARPLifecycle_StateEnum *)
+#define ARPLifecycle_StateEnum_Paused ARPLifecycle_StateEnum_values[ARPLifecycle_State_Paused]
+J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Paused, ARPLifecycle_StateEnum *)
+
+#define ARPLifecycle_StateEnum_PausedIdle ARPLifecycle_StateEnum_values[ARPLifecycle_State_PausedIdle]
+J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, PausedIdle, ARPLifecycle_StateEnum *)
+
+#define ARPLifecycle_StateEnum_PausedRun ARPLifecycle_StateEnum_values[ARPLifecycle_State_PausedRun]
+J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, PausedRun, ARPLifecycle_StateEnum *)
+
+#define ARPLifecycle_StateEnum_Resuming ARPLifecycle_StateEnum_values[ARPLifecycle_State_Resuming]
+J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Resuming, ARPLifecycle_StateEnum *)
+
+#define ARPLifecycle_StateEnum_Stopping ARPLifecycle_StateEnum_values[ARPLifecycle_State_Stopping]
+J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Stopping, ARPLifecycle_StateEnum *)
 
 #endif // _ARPLifecycle_H_

@@ -30,8 +30,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by FRMI on 11/08/2014.</summary>
-	/// <remarks>Created by FRMI on 11/08/2014.</remarks>
+	/// <summary>Represents a specific user or system locate.</summary>
+	/// <remarks>Represents a specific user or system locate.</remarks>
 	public class Locale
 	{
 		/// <summary>A valid ISO Country Code.</summary>

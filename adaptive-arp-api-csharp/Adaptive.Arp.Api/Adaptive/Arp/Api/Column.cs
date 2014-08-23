@@ -30,11 +30,8 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <seealso cref="IDatabase">IDatabase</seealso>
-	/// <seealso cref="Database">Database</seealso>
-	/// <seealso cref="Table">Table</seealso>
-	/// <author>Ferran Vila Conesa</author>
-	/// <since>ARP1.0</since>
+	/// <summary>Structure representing the column specification of a data table.</summary>
+	/// <remarks>Structure representing the column specification of a data table.</remarks>
 	public class Column
 	{
 		/// <summary>Name of the column</summary>

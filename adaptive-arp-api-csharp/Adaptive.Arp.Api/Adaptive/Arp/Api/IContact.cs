@@ -31,8 +31,6 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Created by clozano on 04/08/14.</summary>
-	/// <remarks>Created by clozano on 04/08/14.</remarks>
 	public abstract class IContact : IBasePIM
 	{
 		/// <summary>Search contacts according to a term and send it to the callback</summary>
