@@ -38,3 +38,11 @@ adaptive-arp-api-java/adaptive-arp-api-java.iws
 .idea/workspace.xml
 .idea/vcs.xml
 .idea/misc.xml
+
+.gradle
+/local.properties
+/.idea/workspace.xml
+.DS_Store
+/build
+
+adaptive-arp-api-java/arp-api-specs/build/
