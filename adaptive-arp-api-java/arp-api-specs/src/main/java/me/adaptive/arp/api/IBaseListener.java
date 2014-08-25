@@ -21,58 +21,12 @@
  *
  * Contributors:
  *
- *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *     *
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
-public interface IContactResultCallback  extends IBaseCallback {
-
-    /**
-     * This method is called on Result
-     *
-     * @param contacts returned by the platform
-     * @since ARP1.0
-     */
-    void onResult(Contact[] contacts);
-
-    /**
-     * This method is called on Warning
-     *
-     * @param contacts returned by the platform
-     * @param warning  returned by the platform
-     * @since ARP1.0
-     */
-    void onWarning(Contact[] contacts, Warning warning);
-
-    /**
-     * This method is called on Error
-     *
-     * @param error returned by the platform
-     * @since ARP1.0
-     */
-    void onError(Error error);
-
-    /**
-     * Warnings that can be used
-     *
-     * @since ARP1.0
-     */
-    public enum Warning {
-        LimitExceeded
-    }
-
-    /**
-     * Errors that can be used
-     *
-     * @since ARP1.0
-     */
-    public enum Error {
-        NoPermission
-    }
+public interface IBaseListener extends IAdaptiveRP {
 }

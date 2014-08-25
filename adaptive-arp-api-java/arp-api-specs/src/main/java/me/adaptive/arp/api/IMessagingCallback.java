@@ -31,7 +31,7 @@
 package me.adaptive.arp.api;
 
 
-public interface IMessagingCallback {
+public interface IMessagingCallback extends IBaseCallback {
 
 
     /**

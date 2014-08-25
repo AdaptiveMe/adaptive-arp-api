@@ -29,7 +29,7 @@
 package me.adaptive.arp.api;
 
 
-public interface IAccelerationListener {
+public interface IAccelerationListener extends IBaseListener {
 
     /**
      * Correct data received.

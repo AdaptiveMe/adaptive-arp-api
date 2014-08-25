@@ -33,7 +33,7 @@
 package me.adaptive.arp.api;
 
 
-public interface IButtonListener {
+public interface IButtonListener extends IBaseListener {
 
     /**
      * Called on button pressed

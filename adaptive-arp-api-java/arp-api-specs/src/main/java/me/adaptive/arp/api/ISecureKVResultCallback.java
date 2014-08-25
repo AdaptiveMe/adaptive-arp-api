@@ -31,7 +31,7 @@
 
 package me.adaptive.arp.api;
 
-public interface ISecureKVResultCallback {
+public interface ISecureKVResultCallback extends IBaseCallback {
 
     /**
      * Correct data received.
