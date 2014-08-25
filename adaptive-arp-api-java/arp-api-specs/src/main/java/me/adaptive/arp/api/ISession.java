@@ -42,7 +42,7 @@
 
 package me.adaptive.arp.api;
 
-public interface ISession {
+public interface ISession extends IBaseCommunication {
 
 
     /**

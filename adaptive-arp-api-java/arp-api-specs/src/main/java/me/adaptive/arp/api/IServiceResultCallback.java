@@ -42,7 +42,7 @@
 
 package me.adaptive.arp.api;
 
-public interface IServiceResultCallback {
+public interface IServiceResultCallback extends IBaseCallback {
 
     /**
      * This method is called on Result

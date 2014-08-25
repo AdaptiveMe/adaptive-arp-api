@@ -21,30 +21,12 @@
  *
  * Contributors:
  *
- *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *     *
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
-public interface ILifecycle extends IBaseApplication {
-
-    /**
-     * Add the listener for the lifecycle of the app
-     *
-     * @param listener
-     */
-    void addLifecycleListener(ILifecycleListener listener);
-
-    /**
-     * Whether the application is in background or not
-     *
-     * @return true if the application is in background;false otherwise
-     * @since ARP1.0
-     */
-    boolean isBackground();
+public interface IBaseCallback extends IAdaptiveRP {
 }

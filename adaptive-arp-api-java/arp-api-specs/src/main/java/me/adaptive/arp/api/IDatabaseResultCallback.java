@@ -31,7 +31,7 @@
 
 package me.adaptive.arp.api;
 
-public interface IDatabaseResultCallback {
+public interface IDatabaseResultCallback extends IBaseCallback {
 
     /**
      * Result callback for correct responses

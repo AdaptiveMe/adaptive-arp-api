@@ -67,7 +67,7 @@ public interface IContact extends IBasePIM {
      * @param callback called for return
      * @since ARP1.0
      */
-    void getContactPhoto(ContactUid contact, IContactResultCallback callback);
+    void getContactPhoto(ContactUid contact, IContactPhotoResultCallback callback);
 
     /**
      * Set the contact photo

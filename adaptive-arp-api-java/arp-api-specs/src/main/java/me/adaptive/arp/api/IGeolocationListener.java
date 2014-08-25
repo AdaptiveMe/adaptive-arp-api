@@ -31,9 +31,9 @@
 package me.adaptive.arp.api;
 
 
-public interface IGeolocationListener {
+public interface IGeolocationListener extends IBaseListener {
 
-    /**
+        /**
      * Correct data received.
      *
      * @param geolocation

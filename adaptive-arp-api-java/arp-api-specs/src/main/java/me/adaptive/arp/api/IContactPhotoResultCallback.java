@@ -21,30 +21,57 @@
  *
  * Contributors:
  *
- *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *     *
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
-public interface ILifecycle extends IBaseApplication {
-
+/**
+ * Created by FRMI on 25/08/2014.
+ */
+public interface IContactPhotoResultCallback extends IBaseCallback {
     /**
-     * Add the listener for the lifecycle of the app
+     * This method is called on Result
      *
-     * @param listener
-     */
-    void addLifecycleListener(ILifecycleListener listener);
-
-    /**
-     * Whether the application is in background or not
-     *
-     * @return true if the application is in background;false otherwise
+     * @param contactPhoto returned by the platform
      * @since ARP1.0
      */
-    boolean isBackground();
+    void onResult(byte[] contactPhoto);
+
+    /**
+     * This method is called on Warning
+     *
+     * @param contactPhoto returned by the platform
+     * @param warning  returned by the platform
+     * @since ARP1.0
+     */
+    void onWarning(byte[] contactPhoto, Warning warning);
+
+    /**
+     * This method is called on Error
+     *
+     * @param error returned by the platform
+     * @since ARP1.0
+     */
+    void onError(Error error);
+
+    /**
+     * Warnings that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum Warning {
+        LimitExceeded
+    }
+
+    /**
+     * Errors that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum Error {
+        NoPermission
+    }
 }

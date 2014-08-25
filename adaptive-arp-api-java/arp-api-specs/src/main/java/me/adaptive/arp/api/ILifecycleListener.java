@@ -33,7 +33,7 @@
 package me.adaptive.arp.api;
 
 
-public interface ILifecycleListener {
+public interface ILifecycleListener extends IBaseListener {
 
 
     /**

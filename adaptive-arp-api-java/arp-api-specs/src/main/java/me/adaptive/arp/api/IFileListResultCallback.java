@@ -28,7 +28,7 @@
 
 package me.adaptive.arp.api;
 
-public interface IFileListResultCallback {
+public interface IFileListResultCallback extends IBaseCallback {
 
     /**
      * On correct result of a file operation.
