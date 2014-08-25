@@ -52,6 +52,11 @@ namespace Adaptive.Arp.Api
 			this.profileUrl = profileUrl;
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public ContactSocial()
+		{
+		}
+
 		/// <summary>Returns the social network</summary>
 		/// <returns>socialNetwork</returns>
 		/// <since>ARP1.0</since>

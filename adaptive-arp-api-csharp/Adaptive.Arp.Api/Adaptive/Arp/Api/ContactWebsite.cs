@@ -46,6 +46,11 @@ namespace Adaptive.Arp.Api
 			this.url = url;
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public ContactWebsite()
+		{
+		}
+
 		/// <summary>Returns the url of the website</summary>
 		/// <returns>website url</returns>
 		/// <since>ARP1.0</since>

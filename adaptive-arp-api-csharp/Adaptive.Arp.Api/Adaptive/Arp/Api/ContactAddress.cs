@@ -53,6 +53,11 @@ namespace Adaptive.Arp.Api
 			this.type = type;
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public ContactAddress()
+		{
+		}
+
 		/// <summary>Returns the Contact address</summary>
 		/// <returns>address Address data.</returns>
 		/// <since>ARP1.0</since>

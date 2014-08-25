@@ -52,6 +52,11 @@ namespace Adaptive.Arp.Api
 			this.name = name;
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public ContactTag()
+		{
+		}
+
 		/// <summary>Returns the name of the Tag</summary>
 		/// <returns>name</returns>
 		/// <since>ARP1.0</since>

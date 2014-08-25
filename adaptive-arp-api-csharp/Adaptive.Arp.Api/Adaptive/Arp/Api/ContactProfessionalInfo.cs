@@ -62,6 +62,11 @@ namespace Adaptive.Arp.Api
 			this.jobDescription = jobDescription;
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public ContactProfessionalInfo()
+		{
+		}
+
 		/// <summary>Returns the company of the job</summary>
 		/// <returns>company</returns>
 		/// <since>ARP1.0</since>

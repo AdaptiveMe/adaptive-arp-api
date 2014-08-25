@@ -40,6 +40,11 @@ namespace Adaptive.Arp.Api
 		private Lifecycle.State state;
 
 		/// <summary>Constructor used by the implementation</summary>
+		public Lifecycle()
+		{
+		}
+
+		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="state"></param>
 		/// <since>ARP1.0</since>
 		public Lifecycle(Lifecycle.State state)

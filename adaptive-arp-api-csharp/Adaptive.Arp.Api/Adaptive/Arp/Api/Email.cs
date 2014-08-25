@@ -64,6 +64,11 @@ namespace Adaptive.Arp.Api
 		private string subject;
 
 		/// <summary>Constructor used by the implementation</summary>
+		public Email()
+		{
+		}
+
+		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="toRecipients">array of recipients</param>
 		/// <param name="ccRecipients">array of cc recipients</param>
 		/// <param name="bccRecipients">array of bcc recipients</param>

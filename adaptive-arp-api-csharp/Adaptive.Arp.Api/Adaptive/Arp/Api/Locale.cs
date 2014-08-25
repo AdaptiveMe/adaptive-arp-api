@@ -45,6 +45,11 @@ namespace Adaptive.Arp.Api
 		private string language;
 
 		/// <summary>Constructor used by the implementation</summary>
+		public Locale()
+		{
+		}
+
+		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="country"></param>
 		/// <param name="language"></param>
 		/// <since>ARP1.0</since>

@@ -60,6 +60,11 @@ namespace Adaptive.Arp.Api
 		private float YDoP;
 
 		/// <summary>Constructor used by the implementation</summary>
+		public Geolocation()
+		{
+		}
+
+		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="latitude"></param>
 		/// <param name="longitude"></param>
 		/// <param name="altitude"></param>

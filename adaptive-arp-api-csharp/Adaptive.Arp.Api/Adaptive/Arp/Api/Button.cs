@@ -47,6 +47,11 @@ namespace Adaptive.Arp.Api
 			this.type = type;
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public Button()
+		{
+		}
+
 		/// <summary>Returns the button type</summary>
 		/// <returns>type Button type.</returns>
 		/// <since>ARP1.0</since>

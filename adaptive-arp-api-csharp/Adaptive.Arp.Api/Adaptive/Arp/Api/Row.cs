@@ -38,6 +38,11 @@ namespace Adaptive.Arp.Api
 		/// <remarks>The values of the row.</remarks>
 		private object[] values;
 
+		/// <summary>Constructor used by the implementation</summary>
+		public Row()
+		{
+		}
+
 		/// <summary>Constructor for implementation using.</summary>
 		/// <remarks>Constructor for implementation using.</remarks>
 		/// <param name="values">The values of the row</param>

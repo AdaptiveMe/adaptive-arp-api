@@ -26,7 +26,6 @@
  * =====================================================================================================================
  */
 
-using Adaptive.Arp.Api;
 using Sharpen;
 
 namespace Adaptive.Arp.Api
@@ -38,6 +37,11 @@ namespace Adaptive.Arp.Api
 		private string key;
 
 		private string value;
+
+		/// <summary>Constructor used by the implementation</summary>
+		public SecureKeyPair()
+		{
+		}
 
 		/// <summary>Returns the object key name.</summary>
 		/// <remarks>Returns the object key name.</remarks>

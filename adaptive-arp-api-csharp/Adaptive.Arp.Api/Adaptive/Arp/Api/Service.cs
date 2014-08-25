@@ -52,6 +52,11 @@ namespace Adaptive.Arp.Api
 		private IService.ServiceType type;
 
 		/// <summary>Constructor used by the implementation</summary>
+		public Service()
+		{
+		}
+
+		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="endpoint"></param>
 		/// <param name="name"></param>
 		/// <param name="method"></param>

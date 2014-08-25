@@ -38,6 +38,11 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		private string address;
 
+		/// <summary>Constructor used by the implementation</summary>
+		public EmailAddress()
+		{
+		}
+
 		/// <summary>Constructor used by implementation</summary>
 		/// <param name="address"></param>
 		/// <since>ARP1.0</since>

@@ -43,6 +43,11 @@ namespace Adaptive.Arp.Api
 		private string value;
 
 		/// <summary>Constructor used by the implementation</summary>
+		public Header()
+		{
+		}
+
+		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="name"></param>
 		/// <param name="value"></param>
 		/// <since>ARP1.0</since>

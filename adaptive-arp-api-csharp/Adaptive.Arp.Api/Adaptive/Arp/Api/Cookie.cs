@@ -75,6 +75,11 @@ namespace Adaptive.Arp.Api
 			this.value = value;
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public Cookie()
+		{
+		}
+
 		/// <summary>Returns the domain</summary>
 		/// <returns>domain</returns>
 		/// <since>ARP1.0</since>

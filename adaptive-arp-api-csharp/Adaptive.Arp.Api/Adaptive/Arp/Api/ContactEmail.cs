@@ -59,6 +59,11 @@ namespace Adaptive.Arp.Api
 			this.email = email;
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public ContactEmail()
+		{
+		}
+
 		/// <summary>Returns the type of the email</summary>
 		/// <returns>EmailType</returns>
 		/// <since>ARP1.0</since>

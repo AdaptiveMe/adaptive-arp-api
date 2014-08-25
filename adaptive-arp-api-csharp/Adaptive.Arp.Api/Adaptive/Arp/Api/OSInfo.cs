@@ -46,6 +46,11 @@ namespace Adaptive.Arp.Api
 		/// <remarks>The vendor of the operating system.</remarks>
 		private string vendor;
 
+		/// <summary>Constructor used by the implementation</summary>
+		public OSInfo()
+		{
+		}
+
 		/// <summary>Constructor used by implementation to set the OS information.</summary>
 		/// <remarks>Constructor used by implementation to set the OS information.</remarks>
 		/// <param name="name">of the OS.</param>

@@ -60,6 +60,11 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		private Row[] rows;
 
+		/// <summary>Constructor used by the implementation</summary>
+		public Table()
+		{
+		}
+
 		/// <summary>Constructor by default</summary>
 		/// <param name="name">The name of the table</param>
 		public Table(string name)

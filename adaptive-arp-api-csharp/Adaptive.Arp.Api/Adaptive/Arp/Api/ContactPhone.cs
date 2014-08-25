@@ -53,6 +53,11 @@ namespace Adaptive.Arp.Api
 			this.phoneType = phoneType;
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public ContactPhone()
+		{
+		}
+
 		/// <summary>Returns the phone number</summary>
 		/// <returns>phone number</returns>
 		/// <since>ARP1.0</since>

@@ -42,6 +42,11 @@ namespace Adaptive.Arp.Api
 		/// <remarks>Indicates if database was created or needs to be created as Compressed.</remarks>
 		private bool compress;
 
+		/// <summary>Constructor used by the implementation</summary>
+		public Database()
+		{
+		}
+
 		/// <summary>Default constructor.</summary>
 		/// <remarks>Default constructor. The compress param is setted to false.</remarks>
 		/// <param name="name">Name of the table.</param>

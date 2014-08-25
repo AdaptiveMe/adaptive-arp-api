@@ -80,6 +80,11 @@ namespace Adaptive.Arp.Api
 		/// <remarks>Encoding of the binary payload - by default assumed to be UTF8.</remarks>
 		private string contentEncoding;
 
+		/// <summary>Constructor used by the implementation</summary>
+		public ServiceRequest()
+		{
+		}
+
 		/// <summary>Contructor used by the implementation</summary>
 		/// <param name="content"></param>
 		/// <param name="contentType"></param>

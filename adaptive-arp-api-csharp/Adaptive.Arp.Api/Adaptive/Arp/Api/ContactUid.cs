@@ -49,6 +49,11 @@ namespace Adaptive.Arp.Api
 			this.contactId = contactId;
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public ContactUid()
+		{
+		}
+
 		/// <summary>Returns the contact id</summary>
 		/// <returns>Contactid Internal unique contact id.</returns>
 		/// <since>ARP1.0</since>

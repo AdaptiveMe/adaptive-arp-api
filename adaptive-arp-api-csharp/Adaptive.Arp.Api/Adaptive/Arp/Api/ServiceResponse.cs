@@ -77,6 +77,11 @@ namespace Adaptive.Arp.Api
 		private string contentEncoding;
 
 		/// <summary>Constructor used by the implementation</summary>
+		public ServiceResponse()
+		{
+		}
+
+		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="content"></param>
 		/// <param name="contentType"></param>
 		/// <param name="contentLength"></param>

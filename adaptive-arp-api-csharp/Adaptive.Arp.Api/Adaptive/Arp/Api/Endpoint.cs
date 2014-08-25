@@ -61,6 +61,11 @@ namespace Adaptive.Arp.Api
 		private string Scheme;
 
 		/// <summary>Constructor used by the implementation</summary>
+		public Endpoint()
+		{
+		}
+
+		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="host"></param>
 		/// <param name="path"></param>
 		/// <param name="port"></param>

@@ -72,6 +72,11 @@ namespace Adaptive.Arp.Api
 			this.timeStamp = Runtime.CurrentTimeMillis();
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public Acceleration()
+		{
+		}
+
 		/// <returns>X-axis component of the acceleration.</returns>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>

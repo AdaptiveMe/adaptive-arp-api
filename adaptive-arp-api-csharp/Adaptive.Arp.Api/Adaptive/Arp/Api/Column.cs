@@ -45,6 +45,11 @@ namespace Adaptive.Arp.Api
 			this.name = name;
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public Column()
+		{
+		}
+
 		/// <summary>Returns the name of the column.</summary>
 		/// <remarks>Returns the name of the column.</remarks>
 		/// <returns>The name of the column.</returns>

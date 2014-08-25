@@ -53,6 +53,11 @@ namespace Adaptive.Arp.Api
 		/// </remarks>
 		private string uuid;
 
+		/// <summary>Constructor used by the implementation</summary>
+		public DeviceInfo()
+		{
+		}
+
 		/// <summary>Constructor for the implementation of the platform.</summary>
 		/// <remarks>Constructor for the implementation of the platform.</remarks>
 		/// <param name="name">or brand of the device.</param>
