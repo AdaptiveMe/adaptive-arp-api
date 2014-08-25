@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public abstract class IDatabaseResultCallback
+	public abstract class IDatabaseResultCallback : IBaseCallback
 	{
 		/// <summary>Result callback for correct responses</summary>
 		/// <param name="database">Returns the database</param>

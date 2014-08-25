@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public interface ISession
+	public interface ISession : IBaseCommunication
 	{
 		/// <summary>Returns the cookie array</summary>
 		/// <returns>cookie array</returns>

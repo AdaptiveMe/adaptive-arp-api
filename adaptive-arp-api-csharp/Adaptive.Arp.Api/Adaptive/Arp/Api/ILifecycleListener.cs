@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public interface ILifecycleListener
+	public interface ILifecycleListener : IBaseListener
 	{
 		/// <summary>Called when lifecycle changes somehow.</summary>
 		/// <remarks>Called when lifecycle changes somehow.</remarks>

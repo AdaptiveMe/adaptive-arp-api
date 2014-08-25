@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public abstract class IFileDataResultCallback
+	public abstract class IFileDataResultCallback : IBaseCallback
 	{
 		/// <summary>Result of data retrieval/storage operation.</summary>
 		/// <remarks>Result of data retrieval/storage operation.</remarks>

@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public interface IAccelerationListener
+	public interface IAccelerationListener : IBaseListener
 	{
 		/// <summary>Correct data received.</summary>
 		/// <remarks>Correct data received.</remarks>

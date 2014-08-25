@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public abstract class ITelephony : IBasePIM
+	public abstract class ITelephony : IBaseCommunication
 	{
 		/// <summary>Invoke a phone call</summary>
 		/// <param name="number">to call</param>

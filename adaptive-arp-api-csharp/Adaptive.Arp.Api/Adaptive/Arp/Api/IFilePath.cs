@@ -102,7 +102,7 @@ namespace Adaptive.Arp.Api
 	/// multiple concurrent threads.
 	/// </remarks>
 	/// <since>ARP1.0</since>
-	public abstract class IFilePath
+	public abstract class IFilePath : IBaseData
 	{
 		/// <summary>Returns the file system that created this object.</summary>
 		/// <remarks>Returns the file system that created this object.</remarks>

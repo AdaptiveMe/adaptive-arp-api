@@ -59,8 +59,8 @@ namespace Adaptive.Arp.Api
 		/// <param name="contact">id to search for</param>
 		/// <param name="callback">called for return</param>
 		/// <since>ARP1.0</since>
-		public abstract void GetContactPhoto(ContactUid contact, IContactResultCallback callback
-			);
+		public abstract void GetContactPhoto(ContactUid contact, IContactPhotoResultCallback
+			 callback);
 
 		/// <summary>Set the contact photo</summary>
 		/// <param name="contact">id to assign the photo</param>

@@ -36,5 +36,10 @@ namespace Adaptive.Arp.Api
 		/// <summary>Add the listener for the lifecycle of the app</summary>
 		/// <param name="listener"></param>
 		void AddLifecycleListener(ILifecycleListener listener);
+
+		/// <summary>Whether the application is in background or not</summary>
+		/// <returns>true if the application is in background;false otherwise</returns>
+		/// <since>ARP1.0</since>
+		bool IsBackground();
 	}
 }

@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public abstract class IContactResultCallback
+	public abstract class IContactResultCallback : IBaseCallback
 	{
 		/// <summary>This method is called on Result</summary>
 		/// <param name="contacts">returned by the platform</param>

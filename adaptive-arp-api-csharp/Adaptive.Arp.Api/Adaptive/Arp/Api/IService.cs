@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public abstract class IService : IBaseData
+	public abstract class IService : IBaseCommunication
 	{
 		/// <summary>Register a new service</summary>
 		/// <param name="service">to register</param>

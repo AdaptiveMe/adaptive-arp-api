@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public abstract class IButtonListener
+	public abstract class IButtonListener : IBaseListener
 	{
 		/// <summary>Called on button pressed</summary>
 		/// <param name="button">pressed</param>

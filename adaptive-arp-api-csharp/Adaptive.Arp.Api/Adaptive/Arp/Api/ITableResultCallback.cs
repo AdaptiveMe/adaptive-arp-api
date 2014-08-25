@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public abstract class ITableResultCallback
+	public abstract class ITableResultCallback : IBaseCallback
 	{
 		/// <summary>Result callback for correct responses</summary>
 		/// <param name="table">Returns the table</param>

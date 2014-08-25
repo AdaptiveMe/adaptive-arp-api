@@ -31,48 +31,39 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public abstract class IServiceResultCallback : IBaseCallback
+	/// <summary>Created by FRMI on 25/08/2014.</summary>
+	/// <remarks>Created by FRMI on 25/08/2014.</remarks>
+	public abstract class IContactPhotoResultCallback : IBaseCallback
 	{
 		/// <summary>This method is called on Result</summary>
-		/// <param name="response">data</param>
+		/// <param name="contactPhoto">returned by the platform</param>
 		/// <since>ARP1.0</since>
-		public abstract void OnResult(ServiceResponse response);
+		public abstract void OnResult(byte[] contactPhoto);
 
 		/// <summary>This method is called on Warning</summary>
-		/// <param name="response">data</param>
+		/// <param name="contactPhoto">returned by the platform</param>
 		/// <param name="warning">returned by the platform</param>
 		/// <since>ARP1.0</since>
-		public abstract void OnWarning(ServiceResponse response, IServiceResultCallback.Warning
+		public abstract void OnWarning(byte[] contactPhoto, IContactPhotoResultCallback.Warning
 			 warning);
 
 		/// <summary>This method is called on Error</summary>
 		/// <param name="error">returned by the platform</param>
 		/// <since>ARP1.0</since>
-		public abstract void OnError(IServiceResultCallback.Error error);
+		public abstract void OnError(IContactPhotoResultCallback.Error error);
 
 		/// <summary>Warnings that can be used</summary>
 		/// <since>ARP1.0</since>
 		public enum Warning
 		{
-			NotSecure,
-			NotTrusted,
-			Redirected
+			LimitExceeded
 		}
 
 		/// <summary>Errors that can be used</summary>
 		/// <since>ARP1.0</since>
 		public enum Error
 		{
-			Forbidden,
-			NotFound,
-			MethodNotAllowed,
-			NotAllowed,
-			NotAuthenticated,
-			TimeOut,
-			NoResponse,
-			ServerError,
-			Unreachable,
-			Unknown
+			NoPermission
 		}
 	}
 }

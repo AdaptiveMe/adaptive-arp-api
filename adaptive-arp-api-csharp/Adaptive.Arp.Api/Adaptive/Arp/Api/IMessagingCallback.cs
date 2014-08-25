@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public abstract class IMessagingCallback
+	public abstract class IMessagingCallback : IBaseCallback
 	{
 		/// <summary>This method is called on Result</summary>
 		/// <param name="success">true if sent;false otherwise</param>
