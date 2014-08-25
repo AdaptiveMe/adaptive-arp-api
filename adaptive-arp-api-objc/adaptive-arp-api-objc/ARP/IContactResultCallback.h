@@ -39,10 +39,10 @@
 @class IOSObjectArray;
 
 #import "JreEmulation.h"
+#include "IBaseCallback.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIContactResultCallback < NSObject, JavaObject >
-
+@protocol ARPIContactResultCallback < ARPIBaseCallback, NSObject, JavaObject >
 - (void)onResultWithARPContactArray:(IOSObjectArray *)contacts;
 
 - (void)onWarningWithARPContactArray:(IOSObjectArray *)contacts

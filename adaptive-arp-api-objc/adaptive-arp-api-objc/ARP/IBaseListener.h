@@ -27,47 +27,21 @@
  */
 
 //
-//  source: ../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/ISession.java
+//  source: ../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IBaseListener.java
 //
 //
 
-#ifndef _ARPISession_H_
-#define _ARPISession_H_
-
-@class ARPCookie;
-@class IOSObjectArray;
+#ifndef _ARPIBaseListener_H_
+#define _ARPIBaseListener_H_
 
 #import "JreEmulation.h"
-#include "IBaseCommunication.h"
+#include "IAdaptiveRP.h"
 
-@protocol ARPISession < ARPIBaseCommunication, NSObject, JavaObject >
-- (IOSObjectArray *)getCookies;
-
-- (void)setCookiesWithARPCookieArray:(IOSObjectArray *)cookie;
-
-- (void)setCookieWithARPCookie:(ARPCookie *)cookie;
-
-- (void)removeCookiesWithARPCookieArray:(IOSObjectArray *)cookie;
-
-- (void)removeCookieWithARPCookie:(ARPCookie *)cookie;
-
-- (IOSObjectArray *)getAttributes;
-
-- (id)getAttributeWithNSString:(NSString *)name;
-
-- (void)setAttributeWithNSString:(NSString *)name
-                          withId:(id)value;
-
-- (IOSObjectArray *)listAttributeNames;
-
-- (void)removeAttributeWithNSString:(NSString *)name;
-
-- (void)removeAttributes;
-
+@protocol ARPIBaseListener < ARPIAdaptiveRP, NSObject, JavaObject >
 @end
 
-__attribute__((always_inline)) inline void ARPISession_init() {}
+__attribute__((always_inline)) inline void ARPIBaseListener_init() {}
 
-#define MeAdaptiveArpApiISession ARPISession
+#define MeAdaptiveArpApiIBaseListener ARPIBaseListener
 
-#endif // _ARPISession_H_
+#endif // _ARPIBaseListener_H_

@@ -39,10 +39,10 @@
 @class ARPServiceResponse;
 
 #import "JreEmulation.h"
+#include "IBaseCallback.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIServiceResultCallback < NSObject, JavaObject >
-
+@protocol ARPIServiceResultCallback < ARPIBaseCallback, NSObject, JavaObject >
 - (void)onResultWithARPServiceResponse:(ARPServiceResponse *)response;
 
 - (void)onWarningWithARPServiceResponse:(ARPServiceResponse *)response

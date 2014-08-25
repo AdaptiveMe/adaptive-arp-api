@@ -37,9 +37,9 @@
 @class ARPAcceleration;
 
 #import "JreEmulation.h"
+#include "IBaseListener.h"
 
-@protocol ARPIAccelerationListener < NSObject, JavaObject >
-
+@protocol ARPIAccelerationListener < ARPIBaseListener, NSObject, JavaObject >
 - (void)onResultWithARPAcceleration:(ARPAcceleration *)acceleration;
 
 - (void)onWarningWithARPAcceleration:(ARPAcceleration *)acceleration;

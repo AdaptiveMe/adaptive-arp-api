@@ -37,10 +37,10 @@
 @class ARPITelephony_StatusEnum;
 
 #import "JreEmulation.h"
-#include "IBasePIM.h"
+#include "IBaseCommunication.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPITelephony < ARPIBasePIM, NSObject, JavaObject >
+@protocol ARPITelephony < ARPIBaseCommunication, NSObject, JavaObject >
 - (ARPITelephony_StatusEnum *)callWithNSString:(NSString *)number;
 
 @end

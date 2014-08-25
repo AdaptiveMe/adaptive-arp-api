@@ -40,10 +40,10 @@
 @protocol ARPIFile;
 
 #import "JreEmulation.h"
+#include "IBaseCallback.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIFileDataResultCallback < NSObject, JavaObject >
-
+@protocol ARPIFileDataResultCallback < ARPIBaseCallback, NSObject, JavaObject >
 - (void)onResultWithARPIFile:(id<ARPIFile>)file
                withByteArray:(IOSByteArray *)data;
 

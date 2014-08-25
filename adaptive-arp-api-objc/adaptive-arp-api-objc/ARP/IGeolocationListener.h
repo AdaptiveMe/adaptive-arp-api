@@ -37,9 +37,9 @@
 @class ARPGeolocation;
 
 #import "JreEmulation.h"
+#include "IBaseListener.h"
 
-@protocol ARPIGeolocationListener < NSObject, JavaObject >
-
+@protocol ARPIGeolocationListener < ARPIBaseListener, NSObject, JavaObject >
 - (void)onResultWithARPGeolocation:(ARPGeolocation *)geolocation;
 
 - (void)onWarningWithARPGeolocation:(ARPGeolocation *)geolocation;

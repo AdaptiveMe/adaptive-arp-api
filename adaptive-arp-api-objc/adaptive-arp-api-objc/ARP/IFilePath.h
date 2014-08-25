@@ -38,10 +38,10 @@
 @protocol ARPIFileSystem;
 
 #import "JreEmulation.h"
+#include "IBaseData.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIFilePath < NSObject, JavaObject >
-
+@protocol ARPIFilePath < ARPIBaseData, NSObject, JavaObject >
 - (id<ARPIFileSystem>)getFileSystem;
 
 - (BOOL)isAbsolute;

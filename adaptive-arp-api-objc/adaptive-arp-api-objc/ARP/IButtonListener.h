@@ -39,10 +39,10 @@
 @class ARPIButtonListener_WarningEnum;
 
 #import "JreEmulation.h"
+#include "IBaseListener.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIButtonListener < NSObject, JavaObject >
-
+@protocol ARPIButtonListener < ARPIBaseListener, NSObject, JavaObject >
 - (void)onResultWithARPButton:(ARPButton *)button;
 
 - (void)onWarningWithARPButton:(ARPButton *)button

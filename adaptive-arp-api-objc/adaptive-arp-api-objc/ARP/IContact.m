@@ -33,6 +33,7 @@
 
 #include "ContactUid.h"
 #include "IContact.h"
+#include "IContactPhotoResultCallback.h"
 #include "IContactResultCallback.h"
 #include "IOSClass.h"
 #include "IOSObjectArray.h"
@@ -49,7 +50,7 @@
     { "searchContactsWithNSString:withARPIContactResultCallback:", "searchContacts", "V", 0x401, NULL },
     { "searchContactsWithNSString:withARPIContactResultCallback:withARPIContact_FilterEnumArray:", "searchContacts", "V", 0x481, NULL },
     { "getContactWithARPContactUid:withARPIContactResultCallback:", "getContact", "V", 0x401, NULL },
-    { "getContactPhotoWithARPContactUid:withARPIContactResultCallback:", "getContactPhoto", "V", 0x401, NULL },
+    { "getContactPhotoWithARPContactUid:withARPIContactPhotoResultCallback:", "getContactPhoto", "V", 0x401, NULL },
     { "setContactPhotoWithARPContactUid:withByteArray:", "setContactPhoto", "Z", 0x401, NULL },
     { "getContactsWithARPIContactResultCallback:", "getContacts", "V", 0x401, NULL },
     { "getContactsWithARPIContactResultCallback:withARPIContact_FieldGroupEnumArray:", "getContacts", "V", 0x481, NULL },

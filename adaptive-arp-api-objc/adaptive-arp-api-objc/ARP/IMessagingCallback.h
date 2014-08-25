@@ -38,10 +38,10 @@
 @class ARPIMessagingCallback_WarningEnum;
 
 #import "JreEmulation.h"
+#include "IBaseCallback.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIMessagingCallback < NSObject, JavaObject >
-
+@protocol ARPIMessagingCallback < ARPIBaseCallback, NSObject, JavaObject >
 - (void)onResultWithBoolean:(BOOL)success;
 
 - (void)onWarningWithBoolean:(BOOL)success

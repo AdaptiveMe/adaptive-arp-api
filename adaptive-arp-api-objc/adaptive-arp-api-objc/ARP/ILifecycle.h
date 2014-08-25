@@ -42,6 +42,8 @@
 @protocol ARPILifecycle < ARPIBaseApplication, NSObject, JavaObject >
 - (void)addLifecycleListenerWithARPILifecycleListener:(id<ARPILifecycleListener>)listener;
 
+- (BOOL)isBackground;
+
 @end
 
 __attribute__((always_inline)) inline void ARPILifecycle_init() {}

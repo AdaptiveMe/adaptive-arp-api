@@ -27,47 +27,20 @@
  */
 
 //
-//  source: ../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/ISession.java
+//  source: ../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IBaseCallback.java
 //
 //
 
-#ifndef _ARPISession_H_
-#define _ARPISession_H_
+#include "IBaseCallback.h"
 
-@class ARPCookie;
-@class IOSObjectArray;
-
-#import "JreEmulation.h"
-#include "IBaseCommunication.h"
-
-@protocol ARPISession < ARPIBaseCommunication, NSObject, JavaObject >
-- (IOSObjectArray *)getCookies;
-
-- (void)setCookiesWithARPCookieArray:(IOSObjectArray *)cookie;
-
-- (void)setCookieWithARPCookie:(ARPCookie *)cookie;
-
-- (void)removeCookiesWithARPCookieArray:(IOSObjectArray *)cookie;
-
-- (void)removeCookieWithARPCookie:(ARPCookie *)cookie;
-
-- (IOSObjectArray *)getAttributes;
-
-- (id)getAttributeWithNSString:(NSString *)name;
-
-- (void)setAttributeWithNSString:(NSString *)name
-                          withId:(id)value;
-
-- (IOSObjectArray *)listAttributeNames;
-
-- (void)removeAttributeWithNSString:(NSString *)name;
-
-- (void)removeAttributes;
-
+@interface ARPIBaseCallback : NSObject
 @end
 
-__attribute__((always_inline)) inline void ARPISession_init() {}
+@implementation ARPIBaseCallback
 
-#define MeAdaptiveArpApiISession ARPISession
++ (J2ObjcClassInfo *)__metadata {
+  static J2ObjcClassInfo _ARPIBaseCallback = { "IBaseCallback", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
+  return &_ARPIBaseCallback;
+}
 
-#endif // _ARPISession_H_
+@end

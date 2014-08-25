@@ -39,10 +39,10 @@
 @protocol ARPIFile;
 
 #import "JreEmulation.h"
+#include "IBaseCallback.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIFileResultCallback < NSObject, JavaObject >
-
+@protocol ARPIFileResultCallback < ARPIBaseCallback, NSObject, JavaObject >
 - (void)onResultWithARPIFile:(id<ARPIFile>)storageFile;
 
 - (void)onWarningWithARPIFile:(id<ARPIFile>)sourceFile

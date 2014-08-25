@@ -37,6 +37,7 @@
 @class ARPContactUid;
 @class IOSByteArray;
 @class IOSObjectArray;
+@protocol ARPIContactPhotoResultCallback;
 @protocol ARPIContactResultCallback;
 
 #import "JreEmulation.h"
@@ -55,7 +56,7 @@
       withARPIContactResultCallback:(id<ARPIContactResultCallback>)callback;
 
 - (void)getContactPhotoWithARPContactUid:(ARPContactUid *)contact
-           withARPIContactResultCallback:(id<ARPIContactResultCallback>)callback;
+      withARPIContactPhotoResultCallback:(id<ARPIContactPhotoResultCallback>)callback;
 
 - (BOOL)setContactPhotoWithARPContactUid:(ARPContactUid *)contact
                            withByteArray:(IOSByteArray *)pngImage;

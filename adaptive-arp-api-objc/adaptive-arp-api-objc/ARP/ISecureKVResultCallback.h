@@ -39,10 +39,10 @@
 @class IOSObjectArray;
 
 #import "JreEmulation.h"
+#include "IBaseCallback.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPISecureKVResultCallback < NSObject, JavaObject >
-
+@protocol ARPISecureKVResultCallback < ARPIBaseCallback, NSObject, JavaObject >
 - (void)onResultWithARPSecureKeyPairArray:(IOSObjectArray *)keyValues;
 
 - (void)onWarningWithARPSecureKeyPairArray:(IOSObjectArray *)keyValues

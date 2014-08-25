@@ -40,8 +40,6 @@
 @protocol ARPIRuntime < ARPIBaseSystem, NSObject, JavaObject >
 - (void)DismissApplication;
 
-- (BOOL)isBackground;
-
 - (BOOL)DismissSplashScreen;
 
 @end

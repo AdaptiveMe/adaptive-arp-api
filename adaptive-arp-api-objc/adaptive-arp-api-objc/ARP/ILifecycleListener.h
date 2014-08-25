@@ -37,9 +37,9 @@
 @class ARPLifecycle;
 
 #import "JreEmulation.h"
+#include "IBaseListener.h"
 
-@protocol ARPILifecycleListener < NSObject, JavaObject >
-
+@protocol ARPILifecycleListener < ARPIBaseListener, NSObject, JavaObject >
 - (void)onResultWithARPLifecycle:(ARPLifecycle *)lifecycle;
 
 - (void)onWarningWithARPLifecycle:(ARPLifecycle *)lifecycle;

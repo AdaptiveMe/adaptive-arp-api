@@ -39,10 +39,10 @@
 @class ARPIDatabaseResultCallback_WarningEnum;
 
 #import "JreEmulation.h"
+#include "IBaseCallback.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIDatabaseResultCallback < NSObject, JavaObject >
-
+@protocol ARPIDatabaseResultCallback < ARPIBaseCallback, NSObject, JavaObject >
 - (void)onResultWithARPDatabase:(ARPDatabase *)database;
 
 - (void)onWarningWithARPDatabase:(ARPDatabase *)database

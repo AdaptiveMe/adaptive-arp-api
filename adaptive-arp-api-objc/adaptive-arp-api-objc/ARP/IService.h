@@ -39,10 +39,10 @@
 @protocol ARPIServiceResultCallback;
 
 #import "JreEmulation.h"
-#include "IBaseData.h"
+#include "IBaseCommunication.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIService < ARPIBaseData, NSObject, JavaObject >
+@protocol ARPIService < ARPIBaseCommunication, NSObject, JavaObject >
 - (void)registerServiceWithARPService:(ARPService *)service;
 
 - (void)unregisterServiceWithARPService:(ARPService *)service;
