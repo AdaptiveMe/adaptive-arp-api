@@ -42,6 +42,12 @@ public class SecureKeyPair {
     private String value;
 
     /**
+     * Constructor used by the implementation
+     */
+    public SecureKeyPair() {
+    }
+
+    /**
      * Returns the object key name.
      *
      * @return Key name.

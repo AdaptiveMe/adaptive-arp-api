@@ -62,6 +62,12 @@ public class ContactTag {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public ContactTag() {
+    }
+
+    /**
      * Returns the name of the Tag
      *
      * @return name

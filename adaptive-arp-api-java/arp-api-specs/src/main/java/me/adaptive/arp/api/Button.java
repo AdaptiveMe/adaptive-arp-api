@@ -54,6 +54,12 @@ public class Button {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public Button() {
+    }
+
+    /**
      * Returns the button type
      *
      * @return type Button type.
@@ -62,5 +68,4 @@ public class Button {
     public ICapabilities.Button getType() {
         return type;
     }
-
 }

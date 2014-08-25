@@ -68,6 +68,12 @@ public class Geolocation {
 
     /**
      * Constructor used by the implementation
+     */
+    public Geolocation() {
+    }
+
+    /**
+     * Constructor used by the implementation
      *
      * @param latitude
      * @param longitude

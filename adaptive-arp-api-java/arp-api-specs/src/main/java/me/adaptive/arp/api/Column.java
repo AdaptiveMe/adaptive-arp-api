@@ -51,6 +51,12 @@ public class Column {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public Column() {
+    }
+
+    /**
      * Returns the name of the column.
      *
      * @return The name of the column.

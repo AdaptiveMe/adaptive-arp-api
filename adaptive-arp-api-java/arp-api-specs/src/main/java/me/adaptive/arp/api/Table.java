@@ -71,6 +71,12 @@ public class Table {
     private Row[] rows;
 
     /**
+     * Constructor used by the implementation
+     */
+    public Table() {
+    }
+
+    /**
      * Constructor by default
      *
      * @param name The name of the table

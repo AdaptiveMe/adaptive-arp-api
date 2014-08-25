@@ -31,7 +31,7 @@
 package me.adaptive.arp.api;
 
 
-public interface IContactResultCallback  extends IBaseCallback {
+public interface IContactResultCallback extends IBaseCallback {
 
     /**
      * This method is called on Result

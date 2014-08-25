@@ -69,6 +69,12 @@ public class ContactProfessionalInfo {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public ContactProfessionalInfo() {
+    }
+
+    /**
      * Returns the company of the job
      *
      * @return company

@@ -62,6 +62,12 @@ public class ContactSocial {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public ContactSocial() {
+    }
+
+    /**
      * Returns the social network
      *
      * @return socialNetwork

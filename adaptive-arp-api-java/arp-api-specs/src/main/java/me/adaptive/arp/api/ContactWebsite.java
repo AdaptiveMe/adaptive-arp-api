@@ -52,6 +52,12 @@ public class ContactWebsite {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public ContactWebsite() {
+    }
+
+    /**
      * Returns the url of the website
      *
      * @return website url

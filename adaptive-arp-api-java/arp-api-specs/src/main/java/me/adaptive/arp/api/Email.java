@@ -80,6 +80,12 @@ public class Email {
 
     /**
      * Constructor used by the implementation
+     */
+    public Email() {
+    }
+
+    /**
+     * Constructor used by the implementation
      *
      * @param toRecipients        array of recipients
      * @param ccRecipients        array of cc recipients

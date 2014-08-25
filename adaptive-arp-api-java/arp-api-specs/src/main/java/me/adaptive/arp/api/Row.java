@@ -42,6 +42,12 @@ public class Row {
     private Object[] values;
 
     /**
+     * Constructor used by the implementation
+     */
+    public Row() {
+    }
+
+    /**
      * Constructor for implementation using.
      *
      * @param values The values of the row

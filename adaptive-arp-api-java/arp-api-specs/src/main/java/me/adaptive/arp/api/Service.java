@@ -74,6 +74,12 @@ public class Service {
 
     /**
      * Constructor used by the implementation
+     */
+    public Service() {
+    }
+
+    /**
+     * Constructor used by the implementation
      *
      * @param endpoint
      * @param name

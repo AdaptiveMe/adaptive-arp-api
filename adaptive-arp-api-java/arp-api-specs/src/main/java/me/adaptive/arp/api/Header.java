@@ -61,6 +61,12 @@ public class Header {
 
     /**
      * Constructor used by the implementation
+     */
+    public Header() {
+    }
+
+    /**
+     * Constructor used by the implementation
      *
      * @param name
      * @param value

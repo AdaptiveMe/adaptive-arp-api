@@ -44,7 +44,7 @@ public interface IContactPhotoResultCallback extends IBaseCallback {
      * This method is called on Warning
      *
      * @param contactPhoto returned by the platform
-     * @param warning  returned by the platform
+     * @param warning      returned by the platform
      * @since ARP1.0
      */
     void onWarning(byte[] contactPhoto, Warning warning);

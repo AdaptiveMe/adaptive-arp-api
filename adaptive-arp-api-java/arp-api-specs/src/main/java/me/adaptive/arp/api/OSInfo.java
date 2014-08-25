@@ -48,6 +48,12 @@ public class OSInfo {
     private String vendor;
 
     /**
+     * Constructor used by the implementation
+     */
+    public OSInfo() {
+    }
+
+    /**
      * Constructor used by implementation to set the OS information.
      *
      * @param name    of the OS.

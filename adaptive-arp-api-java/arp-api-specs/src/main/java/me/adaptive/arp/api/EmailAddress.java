@@ -42,6 +42,12 @@ public class EmailAddress {
     private String address;
 
     /**
+     * Constructor used by the implementation
+     */
+    public EmailAddress() {
+    }
+
+    /**
      * Constructor used by implementation
      *
      * @param address

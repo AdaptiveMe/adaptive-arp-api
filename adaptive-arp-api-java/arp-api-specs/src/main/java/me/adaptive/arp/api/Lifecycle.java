@@ -45,6 +45,12 @@ public class Lifecycle {
 
     /**
      * Constructor used by the implementation
+     */
+    public Lifecycle() {
+    }
+
+    /**
+     * Constructor used by the implementation
      *
      * @param state
      * @since ARP1.0
