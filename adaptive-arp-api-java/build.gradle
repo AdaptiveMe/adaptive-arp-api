@@ -34,10 +34,10 @@ buildscript {
 }
 
 allprojects {
-
+    apply plugin: 'java'
     sourceCompatibility = 1.7
     targetCompatibility = 1.7
-    version = '1.0.7'
+    version = '1.0.8'
 
     repositories {
         jcenter()
