@@ -43,6 +43,8 @@
 
 - (id)initWithNSString:(NSString *)name;
 
+- (id)init;
+
 - (NSString *)getName;
 
 - (void)setNameWithNSString:(NSString *)name;

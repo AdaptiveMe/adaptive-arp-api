@@ -43,6 +43,8 @@
   NSString *vendor_;
 }
 
+- (id)init;
+
 - (id)initWithNSString:(NSString *)name
           withNSString:(NSString *)version_
           withNSString:(NSString *)vendor;

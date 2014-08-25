@@ -35,6 +35,10 @@
 
 @implementation ARPDeviceInfo
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithNSString:(NSString *)name
           withNSString:(NSString *)model
           withNSString:(NSString *)vendor
@@ -74,6 +78,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "DeviceInfo", NULL, 0x1, NULL },
     { "initWithNSString:withNSString:withNSString:withNSString:", "DeviceInfo", NULL, 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "getModel", NULL, "Ljava.lang.String;", 0x1, NULL },
@@ -86,7 +91,7 @@
     { "vendor_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "uuid_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPDeviceInfo = { "DeviceInfo", "me.adaptive.arp.api", NULL, 0x1, 5, methods, 4, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPDeviceInfo = { "DeviceInfo", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 4, fields, 0, NULL};
   return &_ARPDeviceInfo;
 }
 

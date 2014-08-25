@@ -35,6 +35,10 @@
 
 @implementation ARPEndpoint
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithNSString:(NSString *)host
           withNSString:(NSString *)path
                withInt:(int)port
@@ -101,6 +105,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "Endpoint", NULL, 0x1, NULL },
     { "initWithNSString:withNSString:withInt:withNSString:withNSString:", "Endpoint", NULL, 0x1, NULL },
     { "getHost", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setHostWithNSString:", "setHost", "V", 0x1, NULL },
@@ -120,7 +125,7 @@
     { "proxy_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "Scheme_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPEndpoint = { "Endpoint", "me.adaptive.arp.api", NULL, 0x1, 11, methods, 5, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPEndpoint = { "Endpoint", "me.adaptive.arp.api", NULL, 0x1, 12, methods, 5, fields, 0, NULL};
   return &_ARPEndpoint;
 }
 

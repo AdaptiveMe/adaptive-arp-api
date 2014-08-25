@@ -35,6 +35,10 @@
 
 @implementation ARPEmailAddress
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithNSString:(NSString *)address {
   if (self = [super init]) {
     self->address_ = address;
@@ -57,6 +61,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "EmailAddress", NULL, 0x1, NULL },
     { "initWithNSString:", "EmailAddress", NULL, 0x1, NULL },
     { "getAddress", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setAddressWithNSString:", "setAddress", "V", 0x1, NULL },
@@ -64,7 +69,7 @@
   static J2ObjcFieldInfo fields[] = {
     { "address_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPEmailAddress = { "EmailAddress", "me.adaptive.arp.api", NULL, 0x1, 3, methods, 1, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPEmailAddress = { "EmailAddress", "me.adaptive.arp.api", NULL, 0x1, 4, methods, 1, fields, 0, NULL};
   return &_ARPEmailAddress;
 }
 

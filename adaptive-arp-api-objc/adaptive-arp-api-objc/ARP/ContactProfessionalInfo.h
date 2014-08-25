@@ -47,6 +47,8 @@
           withNSString:(NSString *)jobDescription
           withNSString:(NSString *)company;
 
+- (id)init;
+
 - (NSString *)getCompany;
 
 - (void)setCompanyWithNSString:(NSString *)company;

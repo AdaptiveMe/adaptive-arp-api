@@ -35,6 +35,10 @@
 
 @implementation ARPGeolocation
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithDouble:(double)latitude
           withDouble:(double)longitude
           withDouble:(double)altitude
@@ -93,6 +97,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "Geolocation", NULL, 0x1, NULL },
     { "initWithDouble:withDouble:withDouble:withFloat:withFloat:", "Geolocation", NULL, 0x1, NULL },
     { "getLatitude", NULL, "D", 0x1, NULL },
     { "setLatitudeWithDouble:", "setLatitude", "V", 0x1, NULL },
@@ -110,7 +115,7 @@
     { "XDoP_", NULL, 0x2, "F", NULL,  },
     { "YDoP_", NULL, 0x2, "F", NULL,  },
   };
-  static J2ObjcClassInfo _ARPGeolocation = { "Geolocation", "me.adaptive.arp.api", NULL, 0x1, 9, methods, 5, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPGeolocation = { "Geolocation", "me.adaptive.arp.api", NULL, 0x1, 10, methods, 5, fields, 0, NULL};
   return &_ARPGeolocation;
 }
 

@@ -42,6 +42,8 @@
   NSString *value_;
 }
 
+- (id)init;
+
 - (NSString *)getKey;
 
 - (void)setKeyWithNSString:(NSString *)key;
@@ -49,8 +51,6 @@
 - (NSString *)getValue;
 
 - (void)setValueWithNSString:(NSString *)value;
-
-- (id)init;
 
 - (void)copyAllFieldsTo:(ARPSecureKeyPair *)other;
 

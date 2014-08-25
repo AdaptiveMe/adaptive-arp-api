@@ -35,6 +35,10 @@
 
 @implementation ARPDatabase
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithNSString:(NSString *)name {
   if (self = [super init]) {
     self->name_ = name;
@@ -76,6 +80,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "Database", NULL, 0x1, NULL },
     { "initWithNSString:", "Database", NULL, 0x1, NULL },
     { "initWithNSString:withBoolean:", "Database", NULL, 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
@@ -87,7 +92,7 @@
     { "name_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "compress_", NULL, 0x2, "Z", NULL,  },
   };
-  static J2ObjcClassInfo _ARPDatabase = { "Database", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 2, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPDatabase = { "Database", "me.adaptive.arp.api", NULL, 0x1, 7, methods, 2, fields, 0, NULL};
   return &_ARPDatabase;
 }
 

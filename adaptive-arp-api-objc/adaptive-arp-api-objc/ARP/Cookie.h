@@ -51,6 +51,8 @@
 - (id)initWithNSString:(NSString *)name
           withNSString:(NSString *)value;
 
+- (id)init;
+
 - (NSString *)getDomain;
 
 - (void)setDomainWithNSString:(NSString *)domain;

@@ -44,6 +44,10 @@
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (NSString *)getName {
   return name_;
 }
@@ -69,6 +73,7 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithNSString:withNSString:", "ContactTag", NULL, 0x1, NULL },
+    { "init", "ContactTag", NULL, 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setNameWithNSString:", "setName", "V", 0x1, NULL },
     { "getValue", NULL, "Ljava.lang.String;", 0x1, NULL },
@@ -78,7 +83,7 @@
     { "name_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "value_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPContactTag = { "ContactTag", "me.adaptive.arp.api", NULL, 0x1, 5, methods, 2, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPContactTag = { "ContactTag", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 2, fields, 0, NULL};
   return &_ARPContactTag;
 }
 

@@ -43,6 +43,8 @@
 
 - (id)initWithNSString:(NSString *)url;
 
+- (id)init;
+
 - (NSString *)getUrl;
 
 - (void)setUrlWithNSString:(NSString *)url;

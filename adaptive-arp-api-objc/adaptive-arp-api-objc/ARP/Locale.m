@@ -35,6 +35,10 @@
 
 @implementation ARPLocale
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithNSString:(NSString *)country
           withNSString:(NSString *)language {
   if (self = [super init]) {
@@ -68,6 +72,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "Locale", NULL, 0x1, NULL },
     { "initWithNSString:withNSString:", "Locale", NULL, 0x1, NULL },
     { "getCountry", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setCountryWithNSString:", "setCountry", "V", 0x1, NULL },
@@ -78,7 +83,7 @@
     { "country_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "language_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPLocale = { "Locale", "me.adaptive.arp.api", NULL, 0x1, 5, methods, 2, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPLocale = { "Locale", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 2, fields, 0, NULL};
   return &_ARPLocale;
 }
 

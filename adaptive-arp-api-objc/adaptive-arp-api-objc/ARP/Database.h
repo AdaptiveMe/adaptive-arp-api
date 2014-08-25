@@ -42,6 +42,8 @@
   BOOL compress_;
 }
 
+- (id)init;
+
 - (id)initWithNSString:(NSString *)name;
 
 - (id)initWithNSString:(NSString *)name

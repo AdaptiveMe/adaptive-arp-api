@@ -50,6 +50,8 @@
                                 withBoolean:(BOOL)primary
                                withNSString:(NSString *)email;
 
+- (id)init;
+
 - (ARPContactEmail_EmailTypeEnum *)getType;
 
 - (void)setTypeWithARPContactEmail_EmailTypeEnum:(ARPContactEmail_EmailTypeEnum *)type;

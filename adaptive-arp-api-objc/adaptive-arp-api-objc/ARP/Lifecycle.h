@@ -44,6 +44,8 @@
   ARPLifecycle_StateEnum *state_;
 }
 
+- (id)init;
+
 - (id)initWithARPLifecycle_StateEnum:(ARPLifecycle_StateEnum *)state;
 
 - (ARPLifecycle_StateEnum *)getState;

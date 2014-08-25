@@ -43,6 +43,10 @@
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (ARPICapabilities_ButtonEnum *)getType {
   return type_;
 }
@@ -55,12 +59,13 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithARPICapabilities_ButtonEnum:", "Button", NULL, 0x1, NULL },
+    { "init", "Button", NULL, 0x1, NULL },
     { "getType", NULL, "Lme.adaptive.arp.api.ICapabilities$Button;", 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "type_", NULL, 0x2, "Lme.adaptive.arp.api.ICapabilities$Button;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPButton = { "Button", "me.adaptive.arp.api", NULL, 0x1, 2, methods, 1, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPButton = { "Button", "me.adaptive.arp.api", NULL, 0x1, 3, methods, 1, fields, 0, NULL};
   return &_ARPButton;
 }
 

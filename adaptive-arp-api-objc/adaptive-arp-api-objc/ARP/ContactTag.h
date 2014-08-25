@@ -45,6 +45,8 @@
 - (id)initWithNSString:(NSString *)name
           withNSString:(NSString *)value;
 
+- (id)init;
+
 - (NSString *)getName;
 
 - (void)setNameWithNSString:(NSString *)name;

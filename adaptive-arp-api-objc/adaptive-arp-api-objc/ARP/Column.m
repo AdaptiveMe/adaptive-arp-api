@@ -42,6 +42,10 @@
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (NSString *)getName {
   return name_;
 }
@@ -58,13 +62,14 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithNSString:", "Column", NULL, 0x1, NULL },
+    { "init", "Column", NULL, 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setNameWithNSString:", "setName", "V", 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "name_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPColumn = { "Column", "me.adaptive.arp.api", NULL, 0x1, 3, methods, 1, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPColumn = { "Column", "me.adaptive.arp.api", NULL, 0x1, 4, methods, 1, fields, 0, NULL};
   return &_ARPColumn;
 }
 

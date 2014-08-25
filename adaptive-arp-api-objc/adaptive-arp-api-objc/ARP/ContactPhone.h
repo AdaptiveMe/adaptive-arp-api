@@ -48,6 +48,8 @@
 - (id)initWithNSString:(NSString *)phone
 withARPContactPhone_PhoneTypeEnum:(ARPContactPhone_PhoneTypeEnum *)phoneType;
 
+- (id)init;
+
 - (NSString *)getPhone;
 
 - (void)setPhoneWithNSString:(NSString *)phone;

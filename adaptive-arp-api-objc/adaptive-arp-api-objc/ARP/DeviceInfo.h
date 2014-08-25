@@ -44,6 +44,8 @@
   NSString *uuid_;
 }
 
+- (id)init;
+
 - (id)initWithNSString:(NSString *)name
           withNSString:(NSString *)model
           withNSString:(NSString *)vendor

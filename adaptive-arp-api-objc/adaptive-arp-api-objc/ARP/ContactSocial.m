@@ -44,6 +44,10 @@
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (NSString *)getSocialNetwork {
   return socialNetwork_;
 }
@@ -69,6 +73,7 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithNSString:withNSString:", "ContactSocial", NULL, 0x1, NULL },
+    { "init", "ContactSocial", NULL, 0x1, NULL },
     { "getSocialNetwork", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setSocialNetworkWithNSString:", "setSocialNetwork", "V", 0x1, NULL },
     { "getProfileUrl", NULL, "Ljava.lang.String;", 0x1, NULL },
@@ -78,7 +83,7 @@
     { "socialNetwork_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "profileUrl_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPContactSocial = { "ContactSocial", "me.adaptive.arp.api", NULL, 0x1, 5, methods, 2, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPContactSocial = { "ContactSocial", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 2, fields, 0, NULL};
   return &_ARPContactSocial;
 }
 

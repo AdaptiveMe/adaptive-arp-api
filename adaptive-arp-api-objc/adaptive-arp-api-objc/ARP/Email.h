@@ -49,6 +49,8 @@
   NSString *subject_;
 }
 
+- (id)init;
+
 - (id)initWithARPEmailAddressArray:(IOSObjectArray *)toRecipients
           withARPEmailAddressArray:(IOSObjectArray *)ccRecipients
           withARPEmailAddressArray:(IOSObjectArray *)bccRecipients

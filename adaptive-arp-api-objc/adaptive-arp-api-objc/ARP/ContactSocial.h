@@ -45,6 +45,8 @@
 - (id)initWithNSString:(NSString *)socialNetwork
           withNSString:(NSString *)profileUrl;
 
+- (id)init;
+
 - (NSString *)getSocialNetwork;
 
 - (void)setSocialNetworkWithNSString:(NSString *)socialNetwork;

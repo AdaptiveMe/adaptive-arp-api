@@ -42,6 +42,10 @@
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (NSString *)getUrl {
   return url_;
 }
@@ -58,13 +62,14 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithNSString:", "ContactWebsite", NULL, 0x1, NULL },
+    { "init", "ContactWebsite", NULL, 0x1, NULL },
     { "getUrl", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setUrlWithNSString:", "setUrl", "V", 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "url_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPContactWebsite = { "ContactWebsite", "me.adaptive.arp.api", NULL, 0x1, 3, methods, 1, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPContactWebsite = { "ContactWebsite", "me.adaptive.arp.api", NULL, 0x1, 4, methods, 1, fields, 0, NULL};
   return &_ARPContactWebsite;
 }
 

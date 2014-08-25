@@ -41,6 +41,8 @@
   NSString *address_;
 }
 
+- (id)init;
+
 - (id)initWithNSString:(NSString *)address;
 
 - (NSString *)getAddress;

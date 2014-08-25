@@ -36,6 +36,10 @@
 
 @implementation ARPRow
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithNSObjectArray:(IOSObjectArray *)values {
   if (self = [super init]) {
     self->values_ = values;
@@ -58,6 +62,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "Row", NULL, 0x1, NULL },
     { "initWithNSObjectArray:", "Row", NULL, 0x1, NULL },
     { "getValues", NULL, "[Ljava.lang.Object;", 0x1, NULL },
     { "setValuesWithNSObjectArray:", "setValues", "V", 0x1, NULL },
@@ -65,7 +70,7 @@
   static J2ObjcFieldInfo fields[] = {
     { "values_", NULL, 0x2, "[Ljava.lang.Object;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPRow = { "Row", "me.adaptive.arp.api", NULL, 0x1, 3, methods, 1, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPRow = { "Row", "me.adaptive.arp.api", NULL, 0x1, 4, methods, 1, fields, 0, NULL};
   return &_ARPRow;
 }
 

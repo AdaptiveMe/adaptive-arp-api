@@ -37,6 +37,10 @@
 
 @implementation ARPService
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithARPEndpoint:(ARPEndpoint *)endpoint
              withNSString:(NSString *)name
 withARPIService_ServiceMethodEnum:(ARPIService_ServiceMethodEnum *)method
@@ -92,6 +96,7 @@ withARPIService_ServiceTypeEnum:(ARPIService_ServiceTypeEnum *)type {
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "Service", NULL, 0x1, NULL },
     { "initWithARPEndpoint:withNSString:withARPIService_ServiceMethodEnum:withARPIService_ServiceTypeEnum:", "Service", NULL, 0x1, NULL },
     { "getEndpoint", NULL, "Lme.adaptive.arp.api.Endpoint;", 0x1, NULL },
     { "setEndpointWithARPEndpoint:", "setEndpoint", "V", 0x1, NULL },
@@ -108,7 +113,7 @@ withARPIService_ServiceTypeEnum:(ARPIService_ServiceTypeEnum *)type {
     { "method_", NULL, 0x2, "Lme.adaptive.arp.api.IService$ServiceMethod;", NULL,  },
     { "type_", NULL, 0x2, "Lme.adaptive.arp.api.IService$ServiceType;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPService = { "Service", "me.adaptive.arp.api", NULL, 0x1, 9, methods, 4, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPService = { "Service", "me.adaptive.arp.api", NULL, 0x1, 10, methods, 4, fields, 0, NULL};
   return &_ARPService;
 }
 

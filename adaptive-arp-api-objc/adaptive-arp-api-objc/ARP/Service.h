@@ -48,6 +48,8 @@
   ARPIService_ServiceTypeEnum *type_;
 }
 
+- (id)init;
+
 - (id)initWithARPEndpoint:(ARPEndpoint *)endpoint
              withNSString:(NSString *)name
 withARPIService_ServiceMethodEnum:(ARPIService_ServiceMethodEnum *)method

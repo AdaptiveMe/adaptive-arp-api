@@ -46,6 +46,10 @@ withARPContactPhone_PhoneTypeEnum:(ARPContactPhone_PhoneTypeEnum *)phoneType {
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (NSString *)getPhone {
   return phone_;
 }
@@ -71,6 +75,7 @@ withARPContactPhone_PhoneTypeEnum:(ARPContactPhone_PhoneTypeEnum *)phoneType {
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithNSString:withARPContactPhone_PhoneTypeEnum:", "ContactPhone", NULL, 0x1, NULL },
+    { "init", "ContactPhone", NULL, 0x1, NULL },
     { "getPhone", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setPhoneWithNSString:", "setPhone", "V", 0x1, NULL },
     { "getPhoneType", NULL, "Lme.adaptive.arp.api.ContactPhone$PhoneType;", 0x1, NULL },
@@ -80,7 +85,7 @@ withARPContactPhone_PhoneTypeEnum:(ARPContactPhone_PhoneTypeEnum *)phoneType {
     { "phone_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "phoneType_", NULL, 0x2, "Lme.adaptive.arp.api.ContactPhone$PhoneType;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPContactPhone = { "ContactPhone", "me.adaptive.arp.api", NULL, 0x1, 5, methods, 2, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPContactPhone = { "ContactPhone", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 2, fields, 0, NULL};
   return &_ARPContactPhone;
 }
 

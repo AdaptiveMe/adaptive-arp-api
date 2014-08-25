@@ -38,6 +38,10 @@
 
 @implementation ARPServiceResponse
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithNSString:(NSString *)content
           withNSString:(NSString *)contentType
           withNSString:(NSString *)contentLength
@@ -135,6 +139,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "ServiceResponse", NULL, 0x1, NULL },
     { "initWithNSString:withNSString:withNSString:withByteArray:withInt:withARPHeaderArray:withARPISession:", "ServiceResponse", NULL, 0x1, NULL },
     { "getContent", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setContentWithNSString:", "setContent", "V", 0x1, NULL },
@@ -163,7 +168,7 @@
     { "session_", NULL, 0x2, "Lme.adaptive.arp.api.ISession;", NULL,  },
     { "contentEncoding_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPServiceResponse = { "ServiceResponse", "me.adaptive.arp.api", NULL, 0x1, 17, methods, 8, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPServiceResponse = { "ServiceResponse", "me.adaptive.arp.api", NULL, 0x1, 18, methods, 8, fields, 0, NULL};
   return &_ARPServiceResponse;
 }
 

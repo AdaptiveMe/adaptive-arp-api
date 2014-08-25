@@ -58,6 +58,10 @@
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (double)getX {
   return x_;
 }
@@ -87,6 +91,7 @@
   static J2ObjcMethodInfo methods[] = {
     { "initWithDouble:withDouble:withDouble:", "Acceleration", NULL, 0x1, NULL },
     { "initWithARPIAccelerometer_StatusEnum:", "Acceleration", NULL, 0x1, NULL },
+    { "init", "Acceleration", NULL, 0x1, NULL },
     { "getX", NULL, "D", 0x1, NULL },
     { "getY", NULL, "D", 0x1, NULL },
     { "getZ", NULL, "D", 0x1, NULL },
@@ -99,7 +104,7 @@
     { "status_", NULL, 0x0, "Lme.adaptive.arp.api.IAccelerometer$Status;", NULL,  },
     { "timeStamp_", NULL, 0x0, "J", NULL,  },
   };
-  static J2ObjcClassInfo _ARPAcceleration = { "Acceleration", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 5, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPAcceleration = { "Acceleration", "me.adaptive.arp.api", NULL, 0x1, 7, methods, 5, fields, 0, NULL};
   return &_ARPAcceleration;
 }
 

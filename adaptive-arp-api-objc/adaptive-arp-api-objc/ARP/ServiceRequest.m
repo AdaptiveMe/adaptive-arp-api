@@ -39,6 +39,10 @@
 
 @implementation ARPServiceRequest
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithNSString:(NSString *)content
           withNSString:(NSString *)contentType
                withInt:(int)contentLength
@@ -147,6 +151,7 @@ withARPIService_ProtocolVersionEnum:(ARPIService_ProtocolVersionEnum *)protocolV
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "ServiceRequest", NULL, 0x1, NULL },
     { "initWithNSString:withNSString:withInt:withByteArray:withARPHeaderArray:withNSString:withARPIService_ProtocolVersionEnum:withARPISession:", "ServiceRequest", NULL, 0x1, NULL },
     { "getProtocolVersion", NULL, "Lme.adaptive.arp.api.IService$ProtocolVersion;", 0x1, NULL },
     { "setProtocolVersionWithARPIService_ProtocolVersionEnum:", "setProtocolVersion", "V", 0x1, NULL },
@@ -178,7 +183,7 @@ withARPIService_ProtocolVersionEnum:(ARPIService_ProtocolVersionEnum *)protocolV
     { "session_", NULL, 0x2, "Lme.adaptive.arp.api.ISession;", NULL,  },
     { "contentEncoding_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPServiceRequest = { "ServiceRequest", "me.adaptive.arp.api", NULL, 0x1, 19, methods, 9, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPServiceRequest = { "ServiceRequest", "me.adaptive.arp.api", NULL, 0x1, 20, methods, 9, fields, 0, NULL};
   return &_ARPServiceRequest;
 }
 

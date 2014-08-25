@@ -35,6 +35,10 @@
 
 @implementation ARPSecureKeyPair
 
+- (id)init {
+  return [super init];
+}
+
 - (NSString *)getKey {
   return key_;
 }
@@ -51,10 +55,6 @@
   self->value_ = value;
 }
 
-- (id)init {
-  return [super init];
-}
-
 - (void)copyAllFieldsTo:(ARPSecureKeyPair *)other {
   [super copyAllFieldsTo:other];
   other->key_ = key_;
@@ -63,11 +63,11 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "SecureKeyPair", NULL, 0x1, NULL },
     { "getKey", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setKeyWithNSString:", "setKey", "V", 0x1, NULL },
     { "getValue", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setValueWithNSString:", "setValue", "V", 0x1, NULL },
-    { "init", NULL, NULL, 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "key_", NULL, 0x2, "Ljava.lang.String;", NULL,  },

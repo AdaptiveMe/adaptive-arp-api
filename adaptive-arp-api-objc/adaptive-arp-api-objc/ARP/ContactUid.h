@@ -43,6 +43,8 @@
 
 - (id)initWithNSString:(NSString *)contactId;
 
+- (id)init;
+
 - (NSString *)getContactId;
 
 - (void)setContactIdWithNSString:(NSString *)contactId;

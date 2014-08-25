@@ -50,6 +50,10 @@ withARPContactPersonalInfo_TitleEnum:(ARPContactPersonalInfo_TitleEnum *)title {
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (NSString *)getName {
   return name_;
 }
@@ -93,6 +97,7 @@ withARPContactPersonalInfo_TitleEnum:(ARPContactPersonalInfo_TitleEnum *)title {
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithNSString:withNSString:withNSString:withARPContactPersonalInfo_TitleEnum:", "ContactPersonalInfo", NULL, 0x1, NULL },
+    { "init", "ContactPersonalInfo", NULL, 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setNameWithNSString:", "setName", "V", 0x1, NULL },
     { "getMiddleName", NULL, "Ljava.lang.String;", 0x1, NULL },
@@ -108,7 +113,7 @@ withARPContactPersonalInfo_TitleEnum:(ARPContactPersonalInfo_TitleEnum *)title {
     { "lastName_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "title_", NULL, 0x2, "Lme.adaptive.arp.api.ContactPersonalInfo$Title;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPContactPersonalInfo = { "ContactPersonalInfo", "me.adaptive.arp.api", NULL, 0x1, 9, methods, 4, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPContactPersonalInfo = { "ContactPersonalInfo", "me.adaptive.arp.api", NULL, 0x1, 10, methods, 4, fields, 0, NULL};
   return &_ARPContactPersonalInfo;
 }
 

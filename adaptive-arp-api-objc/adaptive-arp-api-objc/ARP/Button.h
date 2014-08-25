@@ -45,6 +45,8 @@
 
 - (id)initWithARPICapabilities_ButtonEnum:(ARPICapabilities_ButtonEnum *)type;
 
+- (id)init;
+
 - (ARPICapabilities_ButtonEnum *)getType;
 
 - (void)copyAllFieldsTo:(ARPButton *)other;

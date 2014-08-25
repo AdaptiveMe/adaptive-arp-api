@@ -42,6 +42,8 @@
   NSString *language_;
 }
 
+- (id)init;
+
 - (id)initWithNSString:(NSString *)country
           withNSString:(NSString *)language;
 

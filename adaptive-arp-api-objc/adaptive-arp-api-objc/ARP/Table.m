@@ -36,6 +36,10 @@
 
 @implementation ARPTable
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithNSString:(NSString *)name {
   if (self = [super init]) {
     self->name_ = name;
@@ -94,6 +98,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "Table", NULL, 0x1, NULL },
     { "initWithNSString:", "Table", NULL, 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setNameWithNSString:", "setName", "V", 0x1, NULL },
@@ -113,7 +118,7 @@
     { "columns_", NULL, 0x2, "[Lme.adaptive.arp.api.Column;", NULL,  },
     { "rows_", NULL, 0x2, "[Lme.adaptive.arp.api.Row;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPTable = { "Table", "me.adaptive.arp.api", NULL, 0x1, 11, methods, 5, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPTable = { "Table", "me.adaptive.arp.api", NULL, 0x1, 12, methods, 5, fields, 0, NULL};
   return &_ARPTable;
 }
 

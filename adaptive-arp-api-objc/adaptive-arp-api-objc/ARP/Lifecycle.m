@@ -37,6 +37,10 @@
 
 @implementation ARPLifecycle
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithARPLifecycle_StateEnum:(ARPLifecycle_StateEnum *)state {
   if (self = [super init]) {
     self->state_ = state;
@@ -59,6 +63,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "Lifecycle", NULL, 0x1, NULL },
     { "initWithARPLifecycle_StateEnum:", "Lifecycle", NULL, 0x1, NULL },
     { "getState", NULL, "Lme.adaptive.arp.api.Lifecycle$State;", 0x1, NULL },
     { "setStateWithARPLifecycle_StateEnum:", "setState", "V", 0x1, NULL },
@@ -66,7 +71,7 @@
   static J2ObjcFieldInfo fields[] = {
     { "state_", NULL, 0x2, "Lme.adaptive.arp.api.Lifecycle$State;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPLifecycle = { "Lifecycle", "me.adaptive.arp.api", NULL, 0x1, 3, methods, 1, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPLifecycle = { "Lifecycle", "me.adaptive.arp.api", NULL, 0x1, 4, methods, 1, fields, 0, NULL};
   return &_ARPLifecycle;
 }
 

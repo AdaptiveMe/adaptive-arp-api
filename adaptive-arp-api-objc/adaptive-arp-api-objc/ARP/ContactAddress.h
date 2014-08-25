@@ -48,6 +48,8 @@
 - (id)initWithNSString:(NSString *)address
 withARPContactAddress_AddressTypeEnum:(ARPContactAddress_AddressTypeEnum *)type;
 
+- (id)init;
+
 - (NSString *)getAddress;
 
 - (void)setAddressWithNSString:(NSString *)address;

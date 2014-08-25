@@ -43,6 +43,8 @@
   IOSObjectArray *values_;
 }
 
+- (id)init;
+
 - (id)initWithNSObjectArray:(IOSObjectArray *)values;
 
 - (IOSObjectArray *)getValues;

@@ -53,6 +53,8 @@
 
 - (id)initWithARPIAccelerometer_StatusEnum:(ARPIAccelerometer_StatusEnum *)status;
 
+- (id)init;
+
 - (double)getX;
 
 - (double)getY;

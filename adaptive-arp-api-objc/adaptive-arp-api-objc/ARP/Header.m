@@ -35,6 +35,10 @@
 
 @implementation ARPHeader
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithNSString:(NSString *)name
           withNSString:(NSString *)value {
   if (self = [super init]) {
@@ -68,6 +72,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "Header", NULL, 0x1, NULL },
     { "initWithNSString:withNSString:", "Header", NULL, 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setNameWithNSString:", "setName", "V", 0x1, NULL },
@@ -78,7 +83,7 @@
     { "name_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "value_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPHeader = { "Header", "me.adaptive.arp.api", NULL, 0x1, 5, methods, 2, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPHeader = { "Header", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 2, fields, 0, NULL};
   return &_ARPHeader;
 }
 

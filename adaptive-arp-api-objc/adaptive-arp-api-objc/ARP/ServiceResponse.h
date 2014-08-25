@@ -52,6 +52,8 @@
   NSString *contentEncoding_;
 }
 
+- (id)init;
+
 - (id)initWithNSString:(NSString *)content
           withNSString:(NSString *)contentType
           withNSString:(NSString *)contentLength

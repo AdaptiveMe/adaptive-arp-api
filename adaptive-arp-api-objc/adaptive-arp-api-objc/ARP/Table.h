@@ -47,6 +47,8 @@
   IOSObjectArray *rows_;
 }
 
+- (id)init;
+
 - (id)initWithNSString:(NSString *)name;
 
 - (NSString *)getName;

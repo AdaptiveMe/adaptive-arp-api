@@ -46,6 +46,10 @@ withARPContactAddress_AddressTypeEnum:(ARPContactAddress_AddressTypeEnum *)type 
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (NSString *)getAddress {
   return address_;
 }
@@ -71,6 +75,7 @@ withARPContactAddress_AddressTypeEnum:(ARPContactAddress_AddressTypeEnum *)type 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithNSString:withARPContactAddress_AddressTypeEnum:", "ContactAddress", NULL, 0x1, NULL },
+    { "init", "ContactAddress", NULL, 0x1, NULL },
     { "getAddress", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setAddressWithNSString:", "setAddress", "V", 0x1, NULL },
     { "getType", NULL, "Lme.adaptive.arp.api.ContactAddress$AddressType;", 0x1, NULL },
@@ -80,7 +85,7 @@ withARPContactAddress_AddressTypeEnum:(ARPContactAddress_AddressTypeEnum *)type 
     { "address_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "type_", NULL, 0x2, "Lme.adaptive.arp.api.ContactAddress$AddressType;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPContactAddress = { "ContactAddress", "me.adaptive.arp.api", NULL, 0x1, 5, methods, 2, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPContactAddress = { "ContactAddress", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 2, fields, 0, NULL};
   return &_ARPContactAddress;
 }
 

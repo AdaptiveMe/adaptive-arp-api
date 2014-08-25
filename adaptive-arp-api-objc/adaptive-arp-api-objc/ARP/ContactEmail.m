@@ -48,6 +48,10 @@
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (ARPContactEmail_EmailTypeEnum *)getType {
   return type_;
 }
@@ -82,6 +86,7 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithARPContactEmail_EmailTypeEnum:withBoolean:withNSString:", "ContactEmail", NULL, 0x1, NULL },
+    { "init", "ContactEmail", NULL, 0x1, NULL },
     { "getType", NULL, "Lme.adaptive.arp.api.ContactEmail$EmailType;", 0x1, NULL },
     { "setTypeWithARPContactEmail_EmailTypeEnum:", "setType", "V", 0x1, NULL },
     { "isPrimary", NULL, "Z", 0x1, NULL },
@@ -94,7 +99,7 @@
     { "primary_", NULL, 0x2, "Z", NULL,  },
     { "email_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPContactEmail = { "ContactEmail", "me.adaptive.arp.api", NULL, 0x1, 7, methods, 3, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPContactEmail = { "ContactEmail", "me.adaptive.arp.api", NULL, 0x1, 8, methods, 3, fields, 0, NULL};
   return &_ARPContactEmail;
 }
 

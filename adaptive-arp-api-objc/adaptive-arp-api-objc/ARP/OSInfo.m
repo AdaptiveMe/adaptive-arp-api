@@ -35,6 +35,10 @@
 
 @implementation ARPOSInfo
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithNSString:(NSString *)name
           withNSString:(NSString *)version_
           withNSString:(NSString *)vendor {
@@ -67,6 +71,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "OSInfo", NULL, 0x1, NULL },
     { "initWithNSString:withNSString:withNSString:", "OSInfo", NULL, 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "getVersion", NULL, "Ljava.lang.String;", 0x1, NULL },
@@ -77,7 +82,7 @@
     { "version__", "version", 0x2, "Ljava.lang.String;", NULL,  },
     { "vendor_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPOSInfo = { "OSInfo", "me.adaptive.arp.api", NULL, 0x1, 4, methods, 3, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPOSInfo = { "OSInfo", "me.adaptive.arp.api", NULL, 0x1, 5, methods, 3, fields, 0, NULL};
   return &_ARPOSInfo;
 }
 

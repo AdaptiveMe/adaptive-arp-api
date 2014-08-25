@@ -45,6 +45,8 @@
   float YDoP_;
 }
 
+- (id)init;
+
 - (id)initWithDouble:(double)latitude
           withDouble:(double)longitude
           withDouble:(double)altitude

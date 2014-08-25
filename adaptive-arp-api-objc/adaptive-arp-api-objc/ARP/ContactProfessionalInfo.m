@@ -46,6 +46,10 @@
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (NSString *)getCompany {
   return company_;
 }
@@ -80,6 +84,7 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithNSString:withNSString:withNSString:", "ContactProfessionalInfo", NULL, 0x1, NULL },
+    { "init", "ContactProfessionalInfo", NULL, 0x1, NULL },
     { "getCompany", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setCompanyWithNSString:", "setCompany", "V", 0x1, NULL },
     { "getJobTitle", NULL, "Ljava.lang.String;", 0x1, NULL },
@@ -92,7 +97,7 @@
     { "jobTitle_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "jobDescription_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPContactProfessionalInfo = { "ContactProfessionalInfo", "me.adaptive.arp.api", NULL, 0x1, 7, methods, 3, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPContactProfessionalInfo = { "ContactProfessionalInfo", "me.adaptive.arp.api", NULL, 0x1, 8, methods, 3, fields, 0, NULL};
   return &_ARPContactProfessionalInfo;
 }
 

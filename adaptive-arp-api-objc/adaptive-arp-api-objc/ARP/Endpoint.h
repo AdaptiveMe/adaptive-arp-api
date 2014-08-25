@@ -45,6 +45,8 @@
   NSString *Scheme_;
 }
 
+- (id)init;
+
 - (id)initWithNSString:(NSString *)host
           withNSString:(NSString *)path
                withInt:(int)port

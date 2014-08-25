@@ -42,6 +42,8 @@
   NSString *value_;
 }
 
+- (id)init;
+
 - (id)initWithNSString:(NSString *)name
           withNSString:(NSString *)value;
 

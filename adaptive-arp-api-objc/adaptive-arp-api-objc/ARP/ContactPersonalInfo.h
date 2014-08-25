@@ -52,6 +52,8 @@
           withNSString:(NSString *)lastName
 withARPContactPersonalInfo_TitleEnum:(ARPContactPersonalInfo_TitleEnum *)title;
 
+- (id)init;
+
 - (NSString *)getName;
 
 - (void)setNameWithNSString:(NSString *)name;

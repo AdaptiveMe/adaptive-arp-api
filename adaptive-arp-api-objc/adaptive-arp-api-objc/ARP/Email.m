@@ -36,6 +36,10 @@
 
 @implementation ARPEmail
 
+- (id)init {
+  return [super init];
+}
+
 - (id)initWithARPEmailAddressArray:(IOSObjectArray *)toRecipients
           withARPEmailAddressArray:(IOSObjectArray *)ccRecipients
           withARPEmailAddressArray:(IOSObjectArray *)bccRecipients
@@ -135,6 +139,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "Email", NULL, 0x1, NULL },
     { "initWithARPEmailAddressArray:withARPEmailAddressArray:withARPEmailAddressArray:withARPAttachmentDataArray:withNSString:withNSString:withNSString:", "Email", NULL, 0x1, NULL },
     { "initWithARPEmailAddressArray:withNSString:withNSString:", "Email", NULL, 0x1, NULL },
     { "getToRecipients", NULL, "[Lme.adaptive.arp.api.EmailAddress;", 0x1, NULL },
@@ -161,7 +166,7 @@
     { "messageBodyMimeType_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "subject_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPEmail = { "Email", "me.adaptive.arp.api", NULL, 0x1, 16, methods, 7, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPEmail = { "Email", "me.adaptive.arp.api", NULL, 0x1, 17, methods, 7, fields, 0, NULL};
   return &_ARPEmail;
 }
 

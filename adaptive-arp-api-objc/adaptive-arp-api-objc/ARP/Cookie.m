@@ -44,6 +44,10 @@
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (NSString *)getDomain {
   return domain_;
 }
@@ -119,6 +123,7 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithNSString:withNSString:", "Cookie", NULL, 0x1, NULL },
+    { "init", "Cookie", NULL, 0x1, NULL },
     { "getDomain", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setDomainWithNSString:", "setDomain", "V", 0x1, NULL },
     { "getPath", NULL, "Ljava.lang.String;", 0x1, NULL },
@@ -145,7 +150,7 @@
     { "expiry_", NULL, 0x2, "J", NULL,  },
     { "creation_", NULL, 0x2, "J", NULL,  },
   };
-  static J2ObjcClassInfo _ARPCookie = { "Cookie", "me.adaptive.arp.api", NULL, 0x1, 16, methods, 8, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPCookie = { "Cookie", "me.adaptive.arp.api", NULL, 0x1, 17, methods, 8, fields, 0, NULL};
   return &_ARPCookie;
 }
 
