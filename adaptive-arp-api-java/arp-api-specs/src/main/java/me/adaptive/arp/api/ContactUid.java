@@ -53,6 +53,12 @@ public class ContactUid {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public ContactUid() {
+    }
+
+    /**
      * Returns the contact id
      *
      * @return Contactid Internal unique contact id.

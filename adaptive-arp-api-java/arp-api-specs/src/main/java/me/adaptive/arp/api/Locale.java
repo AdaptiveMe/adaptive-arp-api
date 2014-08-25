@@ -50,6 +50,12 @@ public class Locale {
 
     /**
      * Constructor used by the implementation
+     */
+    public Locale() {
+    }
+
+    /**
+     * Constructor used by the implementation
      *
      * @param country
      * @param language

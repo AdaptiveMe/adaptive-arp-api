@@ -60,6 +60,12 @@ public class ContactPhone {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public ContactPhone() {
+    }
+
+    /**
      * Returns the phone number
      *
      * @return phone number

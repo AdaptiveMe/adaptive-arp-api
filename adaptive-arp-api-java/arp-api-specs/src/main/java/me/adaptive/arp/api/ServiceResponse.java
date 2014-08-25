@@ -97,6 +97,12 @@ public class ServiceResponse {
 
     /**
      * Constructor used by the implementation
+     */
+    public ServiceResponse() {
+    }
+
+    /**
+     * Constructor used by the implementation
      *
      * @param content
      * @param contentType

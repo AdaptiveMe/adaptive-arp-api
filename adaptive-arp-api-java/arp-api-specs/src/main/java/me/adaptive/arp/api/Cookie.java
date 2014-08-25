@@ -100,6 +100,12 @@ public class Cookie {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public Cookie() {
+    }
+
+    /**
      * Returns the domain
      *
      * @return domain

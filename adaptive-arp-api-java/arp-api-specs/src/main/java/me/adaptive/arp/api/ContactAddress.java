@@ -60,6 +60,12 @@ public class ContactAddress {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public ContactAddress() {
+    }
+
+    /**
      * Returns the Contact address
      *
      * @return address Address data.

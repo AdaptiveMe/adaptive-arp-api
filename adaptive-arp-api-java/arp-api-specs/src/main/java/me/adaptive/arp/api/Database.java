@@ -47,6 +47,12 @@ public class Database {
     private boolean compress;
 
     /**
+     * Constructor used by the implementation
+     */
+    public Database() {
+    }
+
+    /**
      * Default constructor. The compress param is setted to false.
      *
      * @param name Name of the table.

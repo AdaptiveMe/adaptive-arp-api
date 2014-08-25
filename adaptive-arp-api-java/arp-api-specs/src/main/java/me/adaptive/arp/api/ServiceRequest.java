@@ -102,6 +102,12 @@ public class ServiceRequest {
     private String contentEncoding;
 
     /**
+     * Constructor used by the implementation
+     */
+    public ServiceRequest() {
+    }
+
+    /**
      * Contructor used by the implementation
      *
      * @param content

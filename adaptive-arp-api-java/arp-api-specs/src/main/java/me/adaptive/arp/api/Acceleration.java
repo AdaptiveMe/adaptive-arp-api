@@ -68,6 +68,12 @@ public class Acceleration {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public Acceleration() {
+    }
+
+    /**
      * @return X-axis component of the acceleration.
      * @author Carlos Lozano Diez
      * @since ARP1.0

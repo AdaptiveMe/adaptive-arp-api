@@ -80,6 +80,12 @@ public class Endpoint {
 
     /**
      * Constructor used by the implementation
+     */
+    public Endpoint() {
+    }
+
+    /**
+     * Constructor used by the implementation
      *
      * @param host
      * @param path

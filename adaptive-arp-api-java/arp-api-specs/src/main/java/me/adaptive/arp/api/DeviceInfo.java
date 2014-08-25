@@ -54,6 +54,12 @@ public class DeviceInfo {
     private String uuid;
 
     /**
+     * Constructor used by the implementation
+     */
+    public DeviceInfo() {
+    }
+
+    /**
      * Constructor for the implementation of the platform.
      *
      * @param name   or brand of the device.

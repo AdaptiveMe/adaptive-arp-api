@@ -69,6 +69,12 @@ public class ContactEmail {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public ContactEmail() {
+    }
+
+    /**
      * Returns the type of the email
      *
      * @return EmailType

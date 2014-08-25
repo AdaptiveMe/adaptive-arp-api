@@ -77,6 +77,12 @@ public class ContactPersonalInfo {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public ContactPersonalInfo() {
+    }
+
+    /**
      * Returns the name of the Contact
      *
      * @return name
