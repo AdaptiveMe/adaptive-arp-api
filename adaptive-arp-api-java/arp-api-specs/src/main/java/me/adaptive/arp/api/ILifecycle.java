@@ -39,4 +39,12 @@ public interface ILifecycle extends IBaseApplication {
      * @param listener
      */
     void addLifecycleListener(ILifecycleListener listener);
+
+    /**
+     * Whether the application is in background or not
+     *
+     * @return true if the application is in background;false otherwise
+     * @since ARP1.0
+     */
+    boolean isBackground();
 }

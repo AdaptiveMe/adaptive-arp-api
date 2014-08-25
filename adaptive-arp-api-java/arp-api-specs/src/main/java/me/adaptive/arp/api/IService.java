@@ -43,7 +43,7 @@
 package me.adaptive.arp.api;
 
 
-public interface IService extends IBaseData {
+public interface IService extends IBaseCommunication {
 
     /**
      * Register a new service

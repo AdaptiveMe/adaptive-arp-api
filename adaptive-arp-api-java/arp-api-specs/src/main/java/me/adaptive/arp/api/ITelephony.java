@@ -31,7 +31,7 @@
 package me.adaptive.arp.api;
 
 
-public interface ITelephony extends IBasePIM {
+public interface ITelephony extends IBaseCommunication {
 
     /**
      * Invoke a phone call

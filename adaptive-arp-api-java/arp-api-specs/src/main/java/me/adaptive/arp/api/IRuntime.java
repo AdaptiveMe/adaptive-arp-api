@@ -41,14 +41,6 @@ public interface IRuntime extends IBaseSystem {
     void DismissApplication();
 
     /**
-     * Whether the application is in background or not
-     *
-     * @return true if the application is in background;false otherwise
-     * @since ARP1.0
-     */
-    boolean isBackground();
-
-    /**
      * Whether the application dismiss the splash screen successfully or not
      *
      * @return true if the application has dismissed the splash screen;false otherwise
