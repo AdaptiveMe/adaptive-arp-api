@@ -16,9 +16,7 @@ tools/osx/sharpen/sharpen-options
 
 tools/osx/sharpen/tmp.out
 
-adaptive-arp-api-csharp/Adaptive.Arp.Api/obj
 
-adaptive-arp-api-csharp/Adaptive.Arp.Api/bin
 
 adaptive-arp-api-java/out
 *.iws
@@ -47,3 +45,9 @@ adaptive-arp-api-java/adaptive-arp-api-java.iws
 
 adaptive-arp-api-java/arp-api-specs/build/
 adaptive-arp-api-java/build/
+
+adaptive-arp-api-csharp/packages/
+adaptive-arp-api-csharp/Adaptive.Arp.Api/obj
+adaptive-arp-api-csharp/Adaptive.Arp.Api/bin
+adaptive-arp-api-csharp/Adaptive.Arp.Api/Adaptive.Arp.Api.csproj.user
+adaptive-arp-api-csharp/adaptive-arp-api-csharp.v12.suo
