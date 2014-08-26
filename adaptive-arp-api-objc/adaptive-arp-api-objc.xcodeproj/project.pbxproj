@@ -547,10 +547,6 @@
 		4ECC94F719AD2A1B0084AA56 /* ServiceRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ECC92D819AD296F0084AA56 /* ServiceRequest.h */; };
 		4ECC94F819AD2A1B0084AA56 /* ServiceResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ECC92DA19AD296F0084AA56 /* ServiceResponse.h */; };
 		4ECC94F919AD2A1B0084AA56 /* Table.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ECC92DC19AD296F0084AA56 /* Table.h */; };
-		4ECC94FC19AD2BDF0084AA56 /* libj2objc_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECC94FA19AD2BDF0084AA56 /* libj2objc_main.a */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4ECC94FD19AD2BDF0084AA56 /* libjre_emul.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECC94FB19AD2BDF0084AA56 /* libjre_emul.a */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4ECC94FE19AD2C360084AA56 /* libj2objc_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECC94FA19AD2BDF0084AA56 /* libj2objc_main.a */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4ECC94FF19AD2C360084AA56 /* libjre_emul.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECC94FB19AD2BDF0084AA56 /* libjre_emul.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -977,8 +973,6 @@
 		4ECC92DB19AD296F0084AA56 /* ServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceResponse.m; sourceTree = "<group>"; };
 		4ECC92DC19AD296F0084AA56 /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		4ECC92DD19AD296F0084AA56 /* Table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Table.m; sourceTree = "<group>"; };
-		4ECC94FA19AD2BDF0084AA56 /* libj2objc_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libj2objc_main.a; path = ../tools/osx/j2objc/j2objc/lib/libj2objc_main.a; sourceTree = "<group>"; };
-		4ECC94FB19AD2BDF0084AA56 /* libjre_emul.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjre_emul.a; path = ../tools/osx/j2objc/j2objc/lib/libjre_emul.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -986,8 +980,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ECC94FC19AD2BDF0084AA56 /* libj2objc_main.a in Frameworks */,
-				4ECC94FD19AD2BDF0084AA56 /* libjre_emul.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1002,8 +994,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ECC94FE19AD2C360084AA56 /* libj2objc_main.a in Frameworks */,
-				4ECC94FF19AD2C360084AA56 /* libjre_emul.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,8 +1021,6 @@
 		33A9624051AEADE3FE212F2D = {
 			isa = PBXGroup;
 			children = (
-				4ECC94FA19AD2BDF0084AA56 /* libj2objc_main.a */,
-				4ECC94FB19AD2BDF0084AA56 /* libjre_emul.a */,
 				4ECC91CF19AD296E0084AA56 /* ARP */,
 				4E7F20E719AD03C400378DCA /* adaptive-api-ios */,
 				4E7F20F119AD03C400378DCA /* adaptive-api-iosTests */,
@@ -1590,6 +1578,7 @@
 		33A96F4E4EF70CDFC8FD7230 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Adaptive;
 				TargetAttributes = {
 					4E7F20E519AD03C400378DCA = {
@@ -2108,6 +2097,7 @@
 		4ECC88CB19AD1D8B0084AA56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				EXECUTABLE_PREFIX = lib;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2128,6 +2118,7 @@
 		4ECC88CC19AD1D8B0084AA56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EXECUTABLE_PREFIX = lib;
 				LIBRARY_SEARCH_PATHS = (
@@ -2216,6 +2207,7 @@
 				4ECC88CC19AD1D8B0084AA56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ECC88D019AD1D8B0084AA56 /* Build configuration list for PBXNativeTarget "adaptive-api-osxTests" */ = {
 			isa = XCConfigurationList;
@@ -2224,6 +2216,7 @@
 				4ECC88CE19AD1D8B0084AA56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
