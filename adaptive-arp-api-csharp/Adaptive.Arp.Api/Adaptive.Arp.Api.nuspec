@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/AdaptiveMe/adaptive-arp-api/tree/master/adaptive-arp-api-csharp</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/adaptive-arp-api-csharp/Adaptive.Arp.Api/AdaptiveLogo.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>Adaptive.me Adaptive Runtime Platform Windows 8.1 and Windows Phone 8.1 Portable API Specification.</description>
+    <description>Adaptive Runtime Platform PCL API.</description>
     <releaseNotes>Initial Release Candidate.</releaseNotes>
     <copyright>Copyright 2014 Carlos Lozano Diez ta Adaptive.me</copyright>
     <tags>Adaptive.me Adaptive Runtime Platform ARP PCL API</tags>
