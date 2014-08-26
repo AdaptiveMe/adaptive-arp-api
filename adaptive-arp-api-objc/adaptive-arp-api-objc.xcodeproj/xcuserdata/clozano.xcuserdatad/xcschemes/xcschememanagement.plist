@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>adaptive-api-osx.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>adaptive-api-osxTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>adaptive-arp-api-objc.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -53,6 +63,16 @@
 			<true/>
 		</dict>
 		<key>4E7F20EF19AD03C400378DCA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4ECC88BC19AD1D8B0084AA56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4ECC88C619AD1D8B0084AA56</key>
 		<dict>
 			<key>primary</key>
 			<true/>

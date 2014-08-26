@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4E7F20E519AD03C400378DCA"
-               BuildableName = "libadaptive-api-ios.a"
-               BlueprintName = "adaptive-api-ios"
+               BlueprintIdentifier = "4ECC88BC19AD1D8B0084AA56"
+               BuildableName = "libadaptive-api-osx.a"
+               BlueprintName = "adaptive-api-osx"
                ReferencedContainer = "container:adaptive-arp-api-objc.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4E7F20E519AD03C400378DCA"
-            BuildableName = "libadaptive-api-ios.a"
-            BlueprintName = "adaptive-api-ios"
+            BlueprintIdentifier = "4ECC88BC19AD1D8B0084AA56"
+            BuildableName = "libadaptive-api-osx.a"
+            BlueprintName = "adaptive-api-osx"
             ReferencedContainer = "container:adaptive-arp-api-objc.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4E7F20E519AD03C400378DCA"
-            BuildableName = "libadaptive-api-ios.a"
-            BlueprintName = "adaptive-api-ios"
+            BlueprintIdentifier = "4ECC88BC19AD1D8B0084AA56"
+            BuildableName = "libadaptive-api-osx.a"
+            BlueprintName = "adaptive-api-osx"
             ReferencedContainer = "container:adaptive-arp-api-objc.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
