@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Adaptive Runtime Platform")]
-[assembly: AssemblyDescription("Adaptive Runtime Platform API Portable Specification")]
+[assembly: AssemblyDescription("Adaptive Runtime Platform ARP PCL API Specification")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Adaptive.me")]
 [assembly: AssemblyProduct("Adaptive.Arp.Api")]
