@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>1.0.10</version>
+    <title>Adaptive Runtime Platform API PCL</title>
+    <authors>Carlos Lozano Diez</authors>
+    <owners>Carlos Lozano Diez</owners>
+    <licenseUrl>https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/AdaptiveMe/adaptive-arp-api/tree/master/adaptive-arp-api-csharp</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/adaptive-arp-api-csharp/Adaptive.Arp.Api/AdaptiveLogo.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Adaptive.me Adaptive Runtime Platform Windows 8.1 and Windows Phone 8.1 Portable API Specification.</description>
+    <releaseNotes>Initial Release Candidate.</releaseNotes>
+    <copyright>Copyright 2014 Carlos Lozano Diez ta Adaptive.me</copyright>
+    <tags>Adaptive.me Adaptive Runtime Platform ARP</tags>
+  </metadata>
+</package>
