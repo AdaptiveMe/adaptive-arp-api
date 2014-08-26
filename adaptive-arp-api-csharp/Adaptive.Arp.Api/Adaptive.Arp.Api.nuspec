@@ -13,6 +13,6 @@
     <description>Adaptive.me Adaptive Runtime Platform Windows 8.1 and Windows Phone 8.1 Portable API Specification.</description>
     <releaseNotes>Initial Release Candidate.</releaseNotes>
     <copyright>Copyright 2014 Carlos Lozano Diez ta Adaptive.me</copyright>
-    <tags>Adaptive.me Adaptive Runtime Platform ARP PCL API.</tags>
+    <tags>Adaptive.me Adaptive Runtime Platform ARP PCL API</tags>
   </metadata>
 </package>
