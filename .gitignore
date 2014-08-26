@@ -52,3 +52,6 @@ adaptive-arp-api-csharp/Adaptive.Arp.Api/bin
 adaptive-arp-api-csharp/Adaptive.Arp.Api/Adaptive.Arp.Api.csproj.user
 adaptive-arp-api-csharp/adaptive-arp-api-csharp.v12.suo
 *.nupkg
+
+adaptive-arp-api-objc/adaptive-arp-api-objc.xcodeproj/project.xcworkspace/xcuserdata/
+adaptive-arp-api-objc/adaptive-arp-api-objc.xcodeproj/xcuserdata/
