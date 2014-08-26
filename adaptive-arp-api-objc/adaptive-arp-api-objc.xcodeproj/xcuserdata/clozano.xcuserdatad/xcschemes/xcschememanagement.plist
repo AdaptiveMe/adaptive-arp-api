@@ -14,6 +14,16 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>libadaptive-api-ios.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>libadaptive-api-iosTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +33,26 @@
 			<true/>
 		</dict>
 		<key>33A9675158FE426E1018782F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E7F20A119ACFA8D00378DCA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E7F20A519ACFB0000378DCA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E7F20E519AD03C400378DCA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E7F20EF19AD03C400378DCA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
