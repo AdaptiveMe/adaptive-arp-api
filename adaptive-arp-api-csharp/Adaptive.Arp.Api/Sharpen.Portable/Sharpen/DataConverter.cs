@@ -48,14 +48,14 @@ namespace Sharpen {
 #if MONO_DATACONVERTER_PUBLIC
 	unsafe public abstract class DataConverter {
 #else
-	unsafe internal abstract class DataConverter {
+	 internal abstract class DataConverter {
 
 // Disables the warning: CLS compliance checking will not be performed on
 //  `XXXX' because it is not visible from outside this assembly
 #pragma warning disable  3019
 #endif
-		static DataConverter SwapConv = new SwapConverter ();
-		static DataConverter CopyConv = new CopyConverter ();
+		static DataConverter SwapConv = null; //new SwapConverter ();
+		static DataConverter CopyConv = null; //new CopyConverter ();
 
 		public static readonly bool IsLittleEndian = BitConverter.IsLittleEndian;
 			
@@ -748,7 +748,7 @@ namespace Sharpen {
 			if (destIdx < 0 || destIdx > dest.Length - size)
 				throw new ArgumentException ("destIdx");
 		}
-		
+		/*
 		class CopyConverter : DataConverter {
 			public override double GetDouble (byte [] data, int index)
 			{
@@ -759,7 +759,7 @@ namespace Sharpen {
 				if (index < 0)
 					throw new ArgumentException ("index");
 				double ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 8; i++)
 					b [i] = data [index+i];
@@ -777,7 +777,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				ulong ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 8; i++)
 					b [i] = data [index+i];
@@ -795,7 +795,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				long ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 8; i++)
 					b [i] = data [index+i];
@@ -813,7 +813,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				float ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 4; i++)
 					b [i] = data [index+i];
@@ -831,7 +831,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				int ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 4; i++)
 					b [i] = data [index+i];
@@ -849,7 +849,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				uint ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 4; i++)
 					b [i] = data [index+i];
@@ -867,7 +867,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				short ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 2; i++)
 					b [i] = data [index+i];
@@ -885,7 +885,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				ushort ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 2; i++)
 					b [i] = data [index+i];
@@ -896,8 +896,8 @@ namespace Sharpen {
 			public override void PutBytes (byte [] dest, int destIdx, double value)
 			{
 				Check (dest, destIdx, 8);
-				fixed (byte *target = &dest [destIdx]){
-					long *source = (long *) &value;
+				fixed (byte target = dest [destIdx]){
+					long *source = (long *) value;
 
 					*((long *)target) = *source;
 				}
@@ -906,8 +906,8 @@ namespace Sharpen {
 			public override void PutBytes (byte [] dest, int destIdx, float value)
 			{
 				Check (dest, destIdx, 4);
-				fixed (byte *target = &dest [destIdx]){
-					uint *source = (uint *) &value;
+				fixed (byte target = dest [destIdx]){
+					uint *source = (uint *) value;
 
 					*((uint *)target) = *source;
 				}
@@ -916,8 +916,8 @@ namespace Sharpen {
 			public override void PutBytes (byte [] dest, int destIdx, int value)
 			{
 				Check (dest, destIdx, 4);
-				fixed (byte *target = &dest [destIdx]){
-					uint *source = (uint *) &value;
+				fixed (byte target = dest [destIdx]){
+					uint *source = (uint *) value;
 
 					*((uint *)target) = *source;
 				}
@@ -926,8 +926,8 @@ namespace Sharpen {
 			public override void PutBytes (byte [] dest, int destIdx, uint value)
 			{
 				Check (dest, destIdx, 4);
-				fixed (byte *target = &dest [destIdx]){
-					uint *source = (uint *) &value;
+				fixed (byte target = dest [destIdx]){
+					uint *source = (uint *) value;
 
 					*((uint *)target) = *source;
 				}
@@ -936,8 +936,8 @@ namespace Sharpen {
 			public override void PutBytes (byte [] dest, int destIdx, long value)
 			{
 				Check (dest, destIdx, 8);
-				fixed (byte *target = &dest [destIdx]){
-					long *source = (long *) &value;
+				fixed (byte target = dest [destIdx]){
+					long *source = (long *) value;
 
 					*((long*)target) = *source;
 				}
@@ -946,8 +946,8 @@ namespace Sharpen {
 			public override void PutBytes (byte [] dest, int destIdx, ulong value)
 			{
 				Check (dest, destIdx, 8);
-				fixed (byte *target = &dest [destIdx]){
-					ulong *source = (ulong *) &value;
+				fixed (byte target = dest [destIdx]){
+					ulong *source = (ulong *) value;
 
 					*((ulong *) target) = *source;
 				}
@@ -956,8 +956,8 @@ namespace Sharpen {
 			public override void PutBytes (byte [] dest, int destIdx, short value)
 			{
 				Check (dest, destIdx, 2);
-				fixed (byte *target = &dest [destIdx]){
-					ushort *source = (ushort *) &value;
+				fixed (byte target = dest [destIdx]){
+					ushort *source = (ushort *) value;
 
 					*((ushort *)target) = *source;
 				}
@@ -966,8 +966,8 @@ namespace Sharpen {
 			public override void PutBytes (byte [] dest, int destIdx, ushort value)
 			{
 				Check (dest, destIdx, 2);
-				fixed (byte *target = &dest [destIdx]){
-					ushort *source = (ushort *) &value;
+				fixed (byte target = dest [destIdx]){
+					ushort *source = (ushort *) value;
 
 					*((ushort *)target) = *source;
 				}
@@ -985,7 +985,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				double ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 8; i++)
 					b [7-i] = data [index+i];
@@ -1003,7 +1003,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				ulong ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 8; i++)
 					b [7-i] = data [index+i];
@@ -1021,7 +1021,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				long ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 8; i++)
 					b [7-i] = data [index+i];
@@ -1039,7 +1039,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				float ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 4; i++)
 					b [3-i] = data [index+i];
@@ -1057,7 +1057,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				int ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 4; i++)
 					b [3-i] = data [index+i];
@@ -1075,7 +1075,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				uint ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 4; i++)
 					b [3-i] = data [index+i];
@@ -1093,7 +1093,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				short ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 2; i++)
 					b [1-i] = data [index+i];
@@ -1111,7 +1111,7 @@ namespace Sharpen {
 					throw new ArgumentException ("index");
 
 				ushort ret;
-				byte *b = (byte *)&ret;
+				byte b = (byte )&ret;
 
 				for (int i = 0; i < 2; i++)
 					b [1-i] = data [index+i];
@@ -1123,8 +1123,8 @@ namespace Sharpen {
 			{
 				Check (dest, destIdx, 8);
 
-				fixed (byte *target = &dest [destIdx]){
-					byte *source = (byte *) &value;
+				fixed (byte target = dest [destIdx]){
+					byte source = (byte ) value;
 
 					for (int i = 0; i < 8; i++)
 						target [i] = source [7-i];
@@ -1135,8 +1135,8 @@ namespace Sharpen {
 			{
 				Check (dest, destIdx, 4);
 
-				fixed (byte *target = &dest [destIdx]){
-					byte *source = (byte *) &value;
+				fixed (byte target = (byte) dest [destIdx]){
+					byte source = (byte ) value;
 
 					for (int i = 0; i < 4; i++)
 						target [i] = source [3-i];
@@ -1147,8 +1147,8 @@ namespace Sharpen {
 			{
 				Check (dest, destIdx, 4);
 
-				fixed (byte *target = &dest [destIdx]){
-					byte *source = (byte *) &value;
+				fixed (byte target = dest [destIdx]){
+					byte source = (byte ) value;
 
 					for (int i = 0; i < 4; i++)
 						target [i] = source [3-i];
@@ -1159,8 +1159,8 @@ namespace Sharpen {
 			{
 				Check (dest, destIdx, 4);
 
-				fixed (byte *target = &dest [destIdx]){
-					byte *source = (byte *) &value;
+				fixed (byte target = dest [destIdx]){
+					byte source = (byte ) value;
 
 					for (int i = 0; i < 4; i++)
 						target [i] = source [3-i];
@@ -1171,8 +1171,8 @@ namespace Sharpen {
 			{
 				Check (dest, destIdx, 8);
 
-				fixed (byte *target = &dest [destIdx]){
-					byte *source = (byte *) &value;
+				fixed (byte target = dest [destIdx]){
+					byte source = (byte ) value;
 
 					for (int i = 0; i < 8; i++)
 						target [i] = source [7-i];
@@ -1183,8 +1183,8 @@ namespace Sharpen {
 			{
 				Check (dest, destIdx, 8);
 
-				fixed (byte *target = &dest [destIdx]){
-					byte *source = (byte *) &value;
+				fixed (byte target = dest [destIdx]){
+					byte source = (byte ) value;
 
 					for (int i = 0; i < 4; i++)
 						target [i] = source [7-i];
@@ -1195,8 +1195,8 @@ namespace Sharpen {
 			{
 				Check (dest, destIdx, 2);
 
-				fixed (byte *target = &dest [destIdx]){
-					byte *source = (byte *) &value;
+				fixed (byte target = dest [destIdx]){
+					byte source = (byte ) value;
 
 					for (int i = 0; i < 2; i++)
 						target [i] = source [1-i];
@@ -1207,8 +1207,8 @@ namespace Sharpen {
 			{
 				Check (dest, destIdx, 2);
 
-				fixed (byte *target = &dest [destIdx]){
-					byte *source = (byte *) &value;
+				fixed (byte target = dest [destIdx]){
+					byte source = (byte ) value;
 
 					for (int i = 0; i < 2; i++)
 						target [i] = source [1-i];
@@ -1217,7 +1217,7 @@ namespace Sharpen {
 		}
 		
 #if MONO_DATACONVERTER_STATIC_METHODS
-		static unsafe void PutBytesLE (byte *dest, byte *src, int count)
+		static unsafe void PutBytesLE (byte dest, byte src, int count)
 		{
 			int i = 0;
 			
@@ -1231,7 +1231,7 @@ namespace Sharpen {
 			}
 		}
 
-		static unsafe void PutBytesBE (byte *dest, byte *src, int count)
+		static unsafe void PutBytesBE (byte dest, byte src, int count)
 		{
 			int i = 0;
 			
@@ -1245,7 +1245,7 @@ namespace Sharpen {
 			}
 		}
 
-		static unsafe void PutBytesNative (byte *dest, byte *src, int count)
+		static unsafe void PutBytesNative (byte dest, byte src, int count)
 		{
 			int i = 0;
 			
@@ -1263,8 +1263,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			double ret;
-			fixed (byte *src = &data[index]){
-				PutBytesLE ((byte *) &ret, src, 8);
+			fixed (byte src = &data[index]){
+				PutBytesLE ((byte ) &ret, src, 8);
 			}
 			return ret;
 		}
@@ -1279,8 +1279,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			float ret;
-			fixed (byte *src = &data[index]){
-				PutBytesLE ((byte *) &ret, src, 4);
+			fixed (byte src = &data[index]){
+				PutBytesLE ((byte ) &ret, src, 4);
 			}
 			return ret;
 		}
@@ -1295,8 +1295,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			long ret;
-			fixed (byte *src = &data[index]){
-				PutBytesLE ((byte *) &ret, src, 8);
+			fixed (byte src = &data[index]){
+				PutBytesLE ((byte ) &ret, src, 8);
 			}
 			return ret;
 		}
@@ -1311,8 +1311,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			ulong ret;
-			fixed (byte *src = &data[index]){
-				PutBytesLE ((byte *) &ret, src, 8);
+			fixed (byte src = &data[index]){
+				PutBytesLE ((byte ) &ret, src, 8);
 			}
 			return ret;
 		}
@@ -1327,8 +1327,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			int ret;
-			fixed (byte *src = &data[index]){
-				PutBytesLE ((byte *) &ret, src, 4);
+			fixed (byte src = &data[index]){
+				PutBytesLE ((byte ) &ret, src, 4);
 			}
 			return ret;
 		}
@@ -1343,8 +1343,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			uint ret;
-			fixed (byte *src = &data[index]){
-				PutBytesLE ((byte *) &ret, src, 4);
+			fixed (byte src = &data[index]){
+				PutBytesLE ((byte ) &ret, src, 4);
 			}
 			return ret;
 		}
@@ -1359,8 +1359,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 
 			short ret;
-			fixed (byte *src = &data[index]){
-				PutBytesLE ((byte *) &ret, src, 2);
+			fixed (byte src = &data[index]){
+				PutBytesLE ((byte ) &ret, src, 2);
 			}
 			return ret;
 		}
@@ -1375,8 +1375,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			ushort ret;
-			fixed (byte *src = &data[index]){
-				PutBytesLE ((byte *) &ret, src, 2);
+			fixed (byte src = &data[index]){
+				PutBytesLE ((byte ) &ret, src, 2);
 			}
 			return ret;
 		}
@@ -1391,8 +1391,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			double ret;
-			fixed (byte *src = &data[index]){
-				PutBytesBE ((byte *) &ret, src, 8);
+			fixed (byte src = &data[index]){
+				PutBytesBE ((byte ) &ret, src, 8);
 			}
 			return ret;
 		}
@@ -1407,8 +1407,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			float ret;
-			fixed (byte *src = &data[index]){
-				PutBytesBE ((byte *) &ret, src, 4);
+			fixed (byte src = &data[index]){
+				PutBytesBE ((byte ) &ret, src, 4);
 			}
 			return ret;
 		}
@@ -1423,8 +1423,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			long ret;
-			fixed (byte *src = &data[index]){
-				PutBytesBE ((byte *) &ret, src, 8);
+			fixed (byte src = &data[index]){
+				PutBytesBE ((byte ) &ret, src, 8);
 			}
 			return ret;
 		}
@@ -1439,8 +1439,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			ulong ret;
-			fixed (byte *src = &data[index]){
-				PutBytesBE ((byte *) &ret, src, 8);
+			fixed (byte src = &data[index]){
+				PutBytesBE ((byte ) &ret, src, 8);
 			}
 			return ret;
 		}
@@ -1455,8 +1455,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			int ret;
-			fixed (byte *src = &data[index]){
-				PutBytesBE ((byte *) &ret, src, 4);
+			fixed (byte src = &data[index]){
+				PutBytesBE ((byte ) &ret, src, 4);
 			}
 			return ret;
 		}
@@ -1471,8 +1471,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			uint ret;
-			fixed (byte *src = &data[index]){
-				PutBytesBE ((byte *) &ret, src, 4);
+			fixed (byte src = &data[index]){
+				PutBytesBE ((byte ) &ret, src, 4);
 			}
 			return ret;
 		}
@@ -1487,8 +1487,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 
 			short ret;
-			fixed (byte *src = &data[index]){
-				PutBytesBE ((byte *) &ret, src, 2);
+			fixed (byte src = &data[index]){
+				PutBytesBE ((byte ) &ret, src, 2);
 			}
 			return ret;
 		}
@@ -1503,8 +1503,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			ushort ret;
-			fixed (byte *src = &data[index]){
-				PutBytesBE ((byte *) &ret, src, 2);
+			fixed (byte src = &data[index]){
+				PutBytesBE ((byte ) &ret, src, 2);
 			}
 			return ret;
 		}
@@ -1519,8 +1519,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			double ret;
-			fixed (byte *src = &data[index]){
-				PutBytesNative ((byte *) &ret, src, 8);
+			fixed (byte src = &data[index]){
+				PutBytesNative ((byte ) &ret, src, 8);
 			}
 			return ret;
 		}
@@ -1535,8 +1535,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			float ret;
-			fixed (byte *src = &data[index]){
-				PutBytesNative ((byte *) &ret, src, 4);
+			fixed (byte src = &data[index]){
+				PutBytesNative ((byte ) &ret, src, 4);
 			}
 			return ret;
 		}
@@ -1551,8 +1551,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			long ret;
-			fixed (byte *src = &data[index]){
-				PutBytesNative ((byte *) &ret, src, 8);
+			fixed (byte src = &data[index]){
+				PutBytesNative ((byte ) &ret, src, 8);
 			}
 			return ret;
 		}
@@ -1567,8 +1567,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			ulong ret;
-			fixed (byte *src = &data[index]){
-				PutBytesNative ((byte *) &ret, src, 8);
+			fixed (byte src = &data[index]){
+				PutBytesNative ((byte ) &ret, src, 8);
 			}
 			return ret;
 		}
@@ -1583,8 +1583,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			int ret;
-			fixed (byte *src = &data[index]){
-				PutBytesNative ((byte *) &ret, src, 4);
+			fixed (byte src = &data[index]){
+				PutBytesNative ((byte ) &ret, src, 4);
 			}
 			return ret;
 		}
@@ -1599,8 +1599,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			uint ret;
-			fixed (byte *src = &data[index]){
-				PutBytesNative ((byte *) &ret, src, 4);
+			fixed (byte src = &data[index]){
+				PutBytesNative ((byte ) &ret, src, 4);
 			}
 			return ret;
 		}
@@ -1615,8 +1615,8 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 
 			short ret;
-			fixed (byte *src = &data[index]){
-				PutBytesNative ((byte *) &ret, src, 2);
+			fixed (byte src = &data[index]){
+				PutBytesNative ((byte ) &ret, src, 2);
 			}
 			return ret;
 		}
@@ -1631,13 +1631,13 @@ namespace Sharpen {
 				throw new ArgumentException ("index");
 			
 			ushort ret;
-			fixed (byte *src = &data[index]){
-				PutBytesNative ((byte *) &ret, src, 2);
+			fixed (byte src = &data[index]){
+				PutBytesNative ((byte ) &ret, src, 2);
 			}
 			return ret;
 		}
 
-                unsafe static byte[] GetBytesPtr (byte *ptr, int count)
+                unsafe static byte[] GetBytesPtr (byte ptr, int count)
                 {
                         byte [] ret = new byte [count];
 
@@ -1648,7 +1648,7 @@ namespace Sharpen {
                         return ret;
                 }
 
-                unsafe static byte[] GetBytesSwap (bool swap, byte *ptr, int count)
+                unsafe static byte[] GetBytesSwap (bool swap, byte ptr, int count)
                 {
                         byte [] ret = new byte [count];
 
@@ -1667,163 +1667,163 @@ namespace Sharpen {
 		
                 unsafe public static byte[] GetBytesNative (bool value)
                 {
-                        return GetBytesPtr ((byte *) &value, 1);
+                        return GetBytesPtr ((byte ) value, 1);
                 }
 
                 unsafe public static byte[] GetBytesNative (char value)
                 {
-                        return GetBytesPtr ((byte *) &value, 2);
+                        return GetBytesPtr ((byte ) value, 2);
                 }
 
                 unsafe public static byte[] GetBytesNative (short value)
                 {
-                        return GetBytesPtr ((byte *) &value, 2);
+                        return GetBytesPtr ((byte ) value, 2);
                 }
 
                 unsafe public static byte[] GetBytesNative (int value)
                 {
-                        return GetBytesPtr ((byte *) &value, 4);
+                        return GetBytesPtr ((byte ) value, 4);
                 }
 
                 unsafe public static byte[] GetBytesNative (long value)
                 {
-                        return GetBytesPtr ((byte *) &value, 8);
+                        return GetBytesPtr ((byte ) value, 8);
                 }
 
                 [CLSCompliant (false)]
                 unsafe public static byte[] GetBytesNative (ushort value)
                 {
-                        return GetBytesPtr ((byte *) &value, 2);
+                        return GetBytesPtr ((byte ) value, 2);
                 }
 
                 [CLSCompliant (false)]
                 unsafe public static byte[] GetBytesNative (uint value)
                 {
-                        return GetBytesPtr ((byte *) &value, 4);
+                        return GetBytesPtr ((byte ) value, 4);
                 }
 
                 [CLSCompliant (false)]
                 unsafe public static byte[] GetBytesNative (ulong value)
                 {
-                        return GetBytesPtr ((byte *) &value, 8);
+                        return GetBytesPtr ((byte ) value, 8);
                 }
 
                 unsafe public static byte[] GetBytesNative (float value)
                 {
-                        return GetBytesPtr ((byte *) &value, 4);
+                        return GetBytesPtr ((byte ) value, 4);
                 }
 
                 unsafe public static byte[] GetBytesNative (double value)
                 {
-			return GetBytesPtr ((byte *) &value, 8);
+			return GetBytesPtr ((byte ) value, 8);
                 }
 
                 unsafe public static byte[] GetBytesLE (bool value)
                 {
-                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte *) &value, 1);
+                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte ) value, 1);
                 }
 
                 unsafe public static byte[] GetBytesLE (char value)
                 {
-                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte *) &value, 2);
+                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte ) value, 2);
                 }
 
                 unsafe public static byte[] GetBytesLE (short value)
                 {
-                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte *) &value, 2);
+                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte ) value, 2);
                 }
 
                 unsafe public static byte[] GetBytesLE (int value)
                 {
-                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte *) &value, 4);
+                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte ) value, 4);
                 }
 
                 unsafe public static byte[] GetBytesLE (long value)
                 {
-                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte *) &value, 8);
+                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte ) value, 8);
                 }
 
                 [CLSCompliant (false)]
                 unsafe public static byte[] GetBytesLE (ushort value)
                 {
-                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte *) &value, 2);
+                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte ) value, 2);
                 }
 
                 [CLSCompliant (false)]
                 unsafe public static byte[] GetBytesLE (uint value)
                 {
-                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte *) &value, 4);
+                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte ) value, 4);
                 }
 
                 [CLSCompliant (false)]
                 unsafe public static byte[] GetBytesLE (ulong value)
                 {
-                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte *) &value, 8);
+                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte ) value, 8);
                 }
 
                 unsafe public static byte[] GetBytesLE (float value)
                 {
-                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte *) &value, 4);
+                        return GetBytesSwap (!BitConverter.IsLittleEndian, (byte ) value, 4);
                 }
 
                 unsafe public static byte[] GetBytesLE (double value)
                 {
-			return GetBytesSwap (!BitConverter.IsLittleEndian, (byte *) &value, 8);
+			return GetBytesSwap (!BitConverter.IsLittleEndian, (byte ) value, 8);
                 }
 		
                 unsafe public static byte[] GetBytesBE (bool value)
                 {
-                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte *) &value, 1);
+                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte ) value, 1);
                 }
 
                 unsafe public static byte[] GetBytesBE (char value)
                 {
-                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte *) &value, 2);
+                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte ) value, 2);
                 }
 
                 unsafe public static byte[] GetBytesBE (short value)
                 {
-                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte *) &value, 2);
+                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte ) value, 2);
                 }
 
                 unsafe public static byte[] GetBytesBE (int value)
                 {
-                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte *) &value, 4);
+                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte ) value, 4);
                 }
 
                 unsafe public static byte[] GetBytesBE (long value)
                 {
-                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte *) &value, 8);
+                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte ) value, 8);
                 }
 
                 [CLSCompliant (false)]
                 unsafe public static byte[] GetBytesBE (ushort value)
                 {
-                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte *) &value, 2);
+                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte ) value, 2);
                 }
 
                 [CLSCompliant (false)]
                 unsafe public static byte[] GetBytesBE (uint value)
                 {
-                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte *) &value, 4);
+                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte ) value, 4);
                 }
 
                 [CLSCompliant (false)]
                 unsafe public static byte[] GetBytesBE (ulong value)
                 {
-                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte *) &value, 8);
+                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte ) value, 8);
                 }
 
                 unsafe public static byte[] GetBytesBE (float value)
                 {
-                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte *) &value, 4);
+                        return GetBytesSwap (BitConverter.IsLittleEndian, (byte ) value, 4);
                 }
 
                 unsafe public static byte[] GetBytesBE (double value)
                 {
-			return GetBytesSwap (BitConverter.IsLittleEndian, (byte *) &value, 8);
+			return GetBytesSwap (BitConverter.IsLittleEndian, (byte ) value, 8);
                 }
 #endif
-		
+		*/
 	}
 }

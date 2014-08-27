@@ -1,7 +1,7 @@
 namespace Sharpen
 {
 	using System;
-    using System.IO.Compression;
+    //using System.IO.Compression;
 
 	internal class InflaterInputStream : InputStream
 	{
@@ -10,7 +10,7 @@ namespace Sharpen
 		public InflaterInputStream (InputStream s)
 		{
 			this.@in = s;
-            base.Wrapped = new DeflateStream(s.GetWrappedStream(), CompressionMode.Decompress);
+            base.Wrapped = null; // new DeflateStream(s.GetWrappedStream(), CompressionMode.Decompress);
 		}
 	}
 }

@@ -1,7 +1,7 @@
 namespace Sharpen
 {
 	using System;
-	using System.IO.Compression;
+	//using System.IO.Compression;
 
 	internal class GZIPInputStream : InputStream
 	{
@@ -9,7 +9,7 @@ namespace Sharpen
 
 		public GZIPInputStream (InputStream s)
 		{
-			Wrapped = new GZipStream (s, CompressionMode.Decompress);
+            Wrapped = null; // new GZipStream(s, CompressionMode.Decompress);
 		}
 	}
 }
