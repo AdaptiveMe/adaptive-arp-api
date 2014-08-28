@@ -111,9 +111,10 @@ public class ServiceResponse {
      * @param contentBinaryLength
      * @param headers
      * @param session
+     * @param contentEncoding
      * @since ARP1.0
      */
-    public ServiceResponse(String content, String contentType, String contentLength, byte[] contentBinary, int contentBinaryLength, Header[] headers, ISession session) {
+    public ServiceResponse(String content, String contentType, String contentLength, byte[] contentBinary, int contentBinaryLength, Header[] headers, ISession session, String contentEncoding) {
         this.content = content;
         this.contentType = contentType;
         this.contentLength = contentLength;
@@ -121,6 +122,7 @@ public class ServiceResponse {
         this.contentBinaryLength = contentBinaryLength;
         this.headers = headers;
         this.session = session;
+        this.contentEncoding = contentEncoding;
     }
 
     /**

@@ -118,9 +118,10 @@ public class ServiceRequest {
      * @param method
      * @param protocolVersion
      * @param session
+     * @param contentEncoding
      * @since ARP1.0
      */
-    public ServiceRequest(String content, String contentType, int contentLength, byte[] rawContent, Header[] headers, String method, IService.ProtocolVersion protocolVersion, ISession session) {
+    public ServiceRequest(String content, String contentType, int contentLength, byte[] rawContent, Header[] headers, String method, IService.ProtocolVersion protocolVersion, ISession session, String contentEncoding) {
         this.content = content;
         this.contentType = contentType;
         this.contentLength = contentLength;
@@ -129,6 +130,7 @@ public class ServiceRequest {
         this.method = method;
         this.protocolVersion = protocolVersion;
         this.session = session;
+        this.contentEncoding = contentEncoding;
     }
 
     /**
