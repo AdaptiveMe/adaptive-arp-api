@@ -86,6 +86,9 @@ public class AttachmentData {
         this.referenceUrl = referenceUrl;
     }
 
+    public AttachmentData() {
+    }
+
     /**
      * Returns the raw data in byte[]
      *
