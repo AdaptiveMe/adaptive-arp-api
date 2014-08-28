@@ -3,10 +3,8 @@
 //
 //  IFileListResultCallback.swift
 //
-//  Created by Carlos Lozano Diez on 27 Aug 2014 22:34:50 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:55 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
-//
-//  *** WORK IN PROGRESS ***
 //
 
 import Foundation
@@ -14,4 +12,24 @@ import Foundation
 public protocol IFileListResultCallback : IBaseCallback {
 
 
+     /**
+      * Function Declarations
+      */
+     func onResult(files : [IFile])
+     func onError(file : IFile, error : IFileListResultCallbackError)
+     func onError(error : IFileListResultCallbackError)
+     func onWarning(files : [IFile], warning : IFileListResultCallbackWarning)
+
 }
+
+/**
+ * Enumeration Declarations
+ */
+public enum IFileListResultCallbackError {
+     case InexistentFile, Unauthorized
+}
+
+public enum IFileListResultCallbackWarning {
+     case PartialResult
+}
+

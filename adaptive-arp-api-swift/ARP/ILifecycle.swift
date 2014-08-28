@@ -3,15 +3,19 @@
 //
 //  ILifecycle.swift
 //
-//  Created by Carlos Lozano Diez on 27 Aug 2014 22:34:50 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:55 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
-//
-//  *** WORK IN PROGRESS ***
 //
 
 import Foundation
 
 public protocol ILifecycle : IBaseApplication {
 
+
+     /**
+      * Function Declarations
+      */
+     func addLifecycleListener(listener : ILifecycleListener)
+     func isBackground() -> Bool
 
 }
