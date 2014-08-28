@@ -3,7 +3,7 @@
 //
 //  ServiceRequest.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:56 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
 //
 
@@ -107,10 +107,6 @@ public class ServiceRequest {
           self.rawContent = rawContent
      }
 
-     public func setMethod(method : String) {
-          self.method = method
-     }
-
      public func getContentLength() -> Int {
           return self.contentLength
      }
@@ -133,6 +129,10 @@ public class ServiceRequest {
 
      public func getHeaders() -> [Header] {
           return self.headers!
+     }
+
+     public func setMethod(method : String) {
+          self.method = method
      }
 
 

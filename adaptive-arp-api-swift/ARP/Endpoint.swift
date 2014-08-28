@@ -3,7 +3,7 @@
 //
 //  Endpoint.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:55 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
 //
 
@@ -60,10 +60,6 @@ public class Endpoint {
           return self.port
      }
 
-     public func setPath(path : String) {
-          self.path = path
-     }
-
      public func getProxy() -> String {
           return self.proxy
      }
@@ -78,6 +74,10 @@ public class Endpoint {
 
      public func setHost(host : String) {
           self.host = host
+     }
+
+     public func setPath(path : String) {
+          self.path = path
      }
 
      public func setPort(port : Int) {

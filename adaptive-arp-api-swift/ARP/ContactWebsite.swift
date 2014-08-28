@@ -3,7 +3,7 @@
 //
 //  ContactWebsite.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:56 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
 //
 
@@ -32,12 +32,12 @@ public class ContactWebsite {
      /**
       * Function Declarations
       */
-     public func getUrl() -> String {
-          return self.url
-     }
-
      public func setUrl(url : String) {
           self.url = url
+     }
+
+     public func getUrl() -> String {
+          return self.url
      }
 
 

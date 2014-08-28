@@ -3,7 +3,7 @@
 //
 //  ISecureKVResultCallback.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:55 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
 //
 
@@ -16,19 +16,19 @@ public protocol ISecureKVResultCallback : IBaseCallback {
       * Function Declarations
       */
      func onResult(keyValues : [SecureKeyPair])
-     func onError(error : ISecureKVResultCallbackError)
      func onWarning(keyValues : [SecureKeyPair], warning : ISecureKVResultCallbackWarning)
+     func onError(error : ISecureKVResultCallbackError)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum ISecureKVResultCallbackError {
-     case NoPermission, NoMatchesFound
-}
-
 public enum ISecureKVResultCallbackWarning {
      case EntryOverride
+}
+
+public enum ISecureKVResultCallbackError {
+     case NoPermission, NoMatchesFound
 }
 

@@ -3,7 +3,7 @@
 //
 //  IButtonListener.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:56 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
 //
 
@@ -16,19 +16,19 @@ public protocol IButtonListener : IBaseListener {
       * Function Declarations
       */
      func onResult(button : Button)
-     func onError(error : IButtonListenerError)
      func onWarning(button : Button, warning : IButtonListenerWarning)
+     func onError(error : IButtonListenerError)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum IButtonListenerError {
-     case Not_Present
-}
-
 public enum IButtonListenerWarning {
      case Not_Implemented
+}
+
+public enum IButtonListenerError {
+     case Not_Present
 }
 

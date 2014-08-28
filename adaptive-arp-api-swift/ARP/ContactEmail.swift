@@ -3,7 +3,7 @@
 //
 //  ContactEmail.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:56 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
 //
 
@@ -53,20 +53,20 @@ public class ContactEmail {
           self.type = type
      }
 
-     public func isPrimary() -> Bool {
-          return self.primary
+     public func setEmail(email : String) {
+          self.email = email
      }
 
      public func getEmail() -> String {
           return self.email
      }
 
-     public func setPrimary(primary : Bool) {
-          self.primary = primary
+     public func isPrimary() -> Bool {
+          return self.primary
      }
 
-     public func setEmail(email : String) {
-          self.email = email
+     public func setPrimary(primary : Bool) {
+          self.primary = primary
      }
 
 

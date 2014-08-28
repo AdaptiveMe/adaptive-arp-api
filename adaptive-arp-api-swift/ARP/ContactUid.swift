@@ -3,7 +3,7 @@
 //
 //  ContactUid.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:56 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
 //
 
@@ -32,12 +32,12 @@ public class ContactUid {
      /**
       * Function Declarations
       */
-     public func setContactId(contactId : String) {
-          self.contactId = contactId
-     }
-
      public func getContactId() -> String {
           return self.contactId
+     }
+
+     public func setContactId(contactId : String) {
+          self.contactId = contactId
      }
 
 

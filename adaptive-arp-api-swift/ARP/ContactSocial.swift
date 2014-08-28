@@ -3,7 +3,7 @@
 //
 //  ContactSocial.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:55 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
 //
 
@@ -35,10 +35,6 @@ public class ContactSocial {
      /**
       * Function Declarations
       */
-     public func getSocialNetwork() -> String {
-          return self.socialNetwork
-     }
-
      public func setSocialNetwork(socialNetwork : String) {
           self.socialNetwork = socialNetwork
      }
@@ -49,6 +45,10 @@ public class ContactSocial {
 
      public func setProfileUrl(profileUrl : String) {
           self.profileUrl = profileUrl
+     }
+
+     public func getSocialNetwork() -> String {
+          return self.socialNetwork
      }
 
 

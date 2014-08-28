@@ -3,7 +3,7 @@
 //
 //  Acceleration.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:56 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
 //
 
@@ -54,16 +54,16 @@ public class Acceleration {
      /**
       * Function Declarations
       */
-     public func getX() -> Double {
-          return self.x
+     public func getZ() -> Double {
+          return self.z
      }
 
      public func getY() -> Double {
           return self.y
      }
 
-     public func getZ() -> Double {
-          return self.z
+     public func getX() -> Double {
+          return self.x
      }
 
      public func getStatus() -> Status {

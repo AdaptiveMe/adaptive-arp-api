@@ -3,7 +3,7 @@
 //
 //  Table.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:55 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
 //
 
@@ -48,20 +48,12 @@ public class Table {
           self.name = name
      }
 
-     public func setRows(rows : [Row]) {
-          self.rows = rows
-     }
-
      public func getColumnCount() -> Int {
           return self.columnCount
      }
 
      public func setColumnCount(columnCount : Int) {
           self.columnCount = columnCount
-     }
-
-     public func getRows() -> [Row] {
-          return self.rows!
      }
 
      public func getRowCount() -> Int {
@@ -78,6 +70,14 @@ public class Table {
 
      public func setColumns(columns : [Column]) {
           self.columns = columns
+     }
+
+     public func getRows() -> [Row] {
+          return self.rows!
+     }
+
+     public func setRows(rows : [Row]) {
+          self.rows = rows
      }
 
 

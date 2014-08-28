@@ -3,7 +3,7 @@
 //
 //  DeviceInfo.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:22:56 GMT.
+//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
 //  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
 //
 
@@ -45,16 +45,16 @@ public class DeviceInfo {
           return self.name
      }
 
-     public func getVendor() -> String {
-          return self.vendor
-     }
-
      public func getUuid() -> String {
           return self.uuid
      }
 
      public func getModel() -> String {
           return self.model
+     }
+
+     public func getVendor() -> String {
+          return self.vendor
      }
 
 
