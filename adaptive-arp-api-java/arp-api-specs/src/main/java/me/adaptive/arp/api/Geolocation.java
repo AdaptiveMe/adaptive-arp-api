@@ -58,13 +58,13 @@ public class Geolocation {
      *
      * @since ARP1.0
      */
-    private float XDoP;
+    private float xDoP;
     /**
      * Dilution of precision on the Y measurement. Measured in meters.
      *
      * @since ARP1.0
      */
-    private float YDoP;
+    private float yDoP;
 
     /**
      * Constructor used by the implementation
@@ -78,16 +78,16 @@ public class Geolocation {
      * @param latitude
      * @param longitude
      * @param altitude
-     * @param XDoP
-     * @param YDoP
+     * @param xDoP
+     * @param yDoP
      * @since ARP1.0
      */
-    public Geolocation(double latitude, double longitude, double altitude, float XDoP, float YDoP) {
+    public Geolocation(double latitude, double longitude, double altitude, float xDoP, float yDoP) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.altitude = altitude;
-        this.XDoP = XDoP;
-        this.YDoP = YDoP;
+        this.xDoP = xDoP;
+        this.yDoP = yDoP;
     }
 
     /**
@@ -153,20 +153,20 @@ public class Geolocation {
     /**
      * Returns the Dilution of Position in the X axis (longitude)
      *
-     * @return XDoP
+     * @return xDoP
      * @since ARP1.0
      */
     public float getXDoP() {
-        return XDoP;
+        return xDoP;
     }
 
     /**
      * Returns the Dilution of Position in the Y axis (latitude)
      *
-     * @return YDoP
+     * @return yDoP
      * @since ARP1.0
      */
     public float getYDoP() {
-        return YDoP;
+        return yDoP;
     }
 }

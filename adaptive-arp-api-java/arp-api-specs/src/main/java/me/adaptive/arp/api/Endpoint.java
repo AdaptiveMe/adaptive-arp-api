@@ -76,7 +76,7 @@ public class Endpoint {
      *
      * @since ARP1.0
      */
-    private String Scheme;
+    private String scheme;
 
     /**
      * Constructor used by the implementation
@@ -99,7 +99,7 @@ public class Endpoint {
         this.path = path;
         this.port = port;
         this.proxy = proxy;
-        Scheme = scheme;
+        this.scheme = scheme;
     }
 
     /**
@@ -189,7 +189,7 @@ public class Endpoint {
      * @since ARP1.0
      */
     public String getScheme() {
-        return Scheme;
+        return scheme;
     }
 
     /**
@@ -199,7 +199,7 @@ public class Endpoint {
      * @since ARP1.0
      */
     public void setScheme(String scheme) {
-        Scheme = scheme;
+        this.scheme = scheme;
     }
 }
 
