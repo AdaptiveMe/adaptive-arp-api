@@ -57,3 +57,5 @@ adaptive-arp-api-objc/adaptive-arp-api-objc.xcodeproj/project.xcworkspace/xcuser
 adaptive-arp-api-objc/adaptive-arp-api-objc.xcodeproj/xcuserdata/
 adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj/xcuserdata/
 adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj/project.xcworkspace/xcuserdata/
+tools/osx/j2any/j2swift/build/
+tools/osx/j2any/j2swift/out/artifacts/
