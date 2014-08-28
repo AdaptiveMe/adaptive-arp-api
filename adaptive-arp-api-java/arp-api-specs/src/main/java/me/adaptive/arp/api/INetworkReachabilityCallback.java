@@ -21,34 +21,33 @@
  *
  * Contributors:
  *
- *     * DBarranco
- *                 <http://github.com/Aryslan>
- *                 <http://twitter.com/Aryslan>
- *                 <mailto:ddbc@gft.com>
+ *     *
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-public interface ISecureKVResultCallback extends IBaseCallback {
-
+/**
+ * Created by FRMI on 28/08/2014.
+ */
+public interface INetworkReachabilityCallback {
     /**
-            * Correct data received.
-    *
-            * @param keyValues
-    * @since ARP1.0
-            */
-    void onResult(SecureKeyPair[] keyValues);
+     * Correct data received.
+     *
+     * @param result
+     * @since ARP1.0
+     */
+    void onResult(boolean result);
 
     /**
      * Data received with warning - ie Found entries with existing key and values have been overriden
      *
-     * @param keyValues
+     * @param result
      * @param warning
      * @since ARP1.0
      */
-    void onWarning(SecureKeyPair[] keyValues, Warning warning);
+    void onWarning(boolean result, Warning warning);
 
     /**
      * No data received - error condition, not authorized .
@@ -58,8 +57,7 @@ public interface ISecureKVResultCallback extends IBaseCallback {
      */
     void onError(Error error);
 
-    enum Warning {EntryOverride}
+    enum Warning {IncorrectScheme}
 
-    enum Error {NoPermission, NoMatchesFound}
+    enum Error {NoPermission, NetworkOnMainThreadException}
 }
-

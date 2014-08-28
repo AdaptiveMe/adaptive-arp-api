@@ -39,6 +39,12 @@ public interface INetworkReachability extends IBaseCommunication {
      * @param url
      * @return true if there is network connectivity to the given url; false otherwise
      */
-    boolean isNetworkReachable(String url);
+    /**
+     * Whether there is connectivity to an url or not.
+     *
+     * @param url to look for
+     * @param callback Callback called at the end
+     */
+    void isNetworkReachable(String url, INetworkReachabilityCallback callback);
 
 }

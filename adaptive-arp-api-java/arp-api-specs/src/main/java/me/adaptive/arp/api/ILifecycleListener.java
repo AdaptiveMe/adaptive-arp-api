@@ -45,12 +45,12 @@ public interface ILifecycleListener extends IBaseListener {
     public void onResult(Lifecycle lifecycle);
 
     /**
-     * Data received with warning - ie. HighDoP
+     * Data received with warning
      *
      * @param lifecycle
      * @since ARP1.0
      */
-    public void onWarning(Lifecycle lifecycle);
+    public void onWarning(Lifecycle lifecycle, Warning warning);
 
     /**
      * No data received - error condition, not authorized or hardware not available.
@@ -58,5 +58,15 @@ public interface ILifecycleListener extends IBaseListener {
      * @param lifecycle
      * @since ARP1.0
      */
-    public void onError(Lifecycle lifecycle);
+    public void onError(Error error);
+
+    /**
+     * Errors
+     */
+    public enum Error{}
+
+    /**
+     * Warnings
+     */
+    public enum Warning{}
 }
