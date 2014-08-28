@@ -96,6 +96,12 @@ public class Contact extends ContactUid {
     }
 
     /**
+     * Constructor used by the implementation
+     */
+    public Contact() {
+    }
+
+    /**
      * Returns the personal info of the Contact
      *
      * @return ContactPersonalInfo of the Contact
