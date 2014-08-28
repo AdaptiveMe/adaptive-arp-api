@@ -47,7 +47,7 @@ public interface IGeolocationListener extends IBaseListener {
      * @param geolocation
      * @since ARP1.0
      */
-    public void onWarning(Geolocation geolocation);
+    public void onWarning(Geolocation geolocation, Warning warning);
 
     /**
      * No data received - error condition, not authorized or hardware not available.
@@ -55,5 +55,9 @@ public interface IGeolocationListener extends IBaseListener {
      * @param geolocation
      * @since ARP1.0
      */
-    public void onError(Geolocation geolocation);
+    public void onError(Error error);
+
+    public enum Error{}
+
+    public enum Warning{HighDoP}
 }
