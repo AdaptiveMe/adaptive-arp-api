@@ -75,6 +75,11 @@ namespace Adaptive.Arp.Api
 		{
 		}
 
+		/// <summary>Constructor used by the implementation</summary>
+		public Contact()
+		{
+		}
+
 		/// <summary>Returns the personal info of the Contact</summary>
 		/// <returns>ContactPersonalInfo of the Contact</returns>
 		/// <since>ARP1.0</since>

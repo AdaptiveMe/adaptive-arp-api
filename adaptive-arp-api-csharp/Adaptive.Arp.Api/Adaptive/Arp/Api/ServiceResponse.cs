@@ -89,10 +89,11 @@ namespace Adaptive.Arp.Api
 		/// <param name="contentBinaryLength"></param>
 		/// <param name="headers"></param>
 		/// <param name="session"></param>
+		/// <param name="contentEncoding"></param>
 		/// <since>ARP1.0</since>
 		public ServiceResponse(string content, string contentType, string contentLength, 
 			byte[] contentBinary, int contentBinaryLength, Header[] headers, ISession session
-			)
+			, string contentEncoding)
 		{
 			this.content = content;
 			this.contentType = contentType;
@@ -101,6 +102,7 @@ namespace Adaptive.Arp.Api
 			this.contentBinaryLength = contentBinaryLength;
 			this.headers = headers;
 			this.session = session;
+			this.contentEncoding = contentEncoding;
 		}
 
 		/// <summary>Returns the content</summary>

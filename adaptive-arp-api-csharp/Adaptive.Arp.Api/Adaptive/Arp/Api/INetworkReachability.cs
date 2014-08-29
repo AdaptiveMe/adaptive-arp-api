@@ -35,8 +35,8 @@ namespace Adaptive.Arp.Api
 	{
 		/// <summary>Whether there is connectivity to an url or not.</summary>
 		/// <remarks>Whether there is connectivity to an url or not.</remarks>
-		/// <param name="url"></param>
-		/// <returns>true if there is network connectivity to the given url; false otherwise</returns>
-		bool IsNetworkReachable(string url);
+		/// <param name="url">to look for</param>
+		/// <param name="callback">Callback called at the end</param>
+		void IsNetworkReachable(string url, INetworkReachabilityCallback callback);
 	}
 }

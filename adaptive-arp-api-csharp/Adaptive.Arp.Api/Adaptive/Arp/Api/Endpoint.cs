@@ -58,7 +58,7 @@ namespace Adaptive.Arp.Api
 		/// <summary>The remote service scheme.</summary>
 		/// <remarks>The remote service scheme.</remarks>
 		/// <since>ARP1.0</since>
-		private string Scheme;
+		private string scheme;
 
 		/// <summary>Constructor used by the implementation</summary>
 		public Endpoint()
@@ -78,7 +78,7 @@ namespace Adaptive.Arp.Api
 			this.path = path;
 			this.port = port;
 			this.proxy = proxy;
-			Scheme = scheme;
+			this.scheme = scheme;
 		}
 
 		/// <summary>Returns the host</summary>
@@ -150,7 +150,7 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public virtual string GetScheme()
 		{
-			return Scheme;
+			return scheme;
 		}
 
 		/// <summary>Set the scheme</summary>
@@ -158,7 +158,7 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public virtual void SetScheme(string scheme)
 		{
-			Scheme = scheme;
+			this.scheme = scheme;
 		}
 	}
 }

@@ -74,6 +74,10 @@ namespace Adaptive.Arp.Api
 			this.referenceUrl = referenceUrl;
 		}
 
+		public AttachmentData()
+		{
+		}
+
 		/// <summary>Returns the raw data in byte[]</summary>
 		/// <returns>data Octet-binary content of the attachment payload.</returns>
 		/// <since>ARP1.0</since>

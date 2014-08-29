@@ -52,12 +52,12 @@ namespace Adaptive.Arp.Api
 		/// <summary>Dilution of precision on the X measurement.</summary>
 		/// <remarks>Dilution of precision on the X measurement. Measured in meters.</remarks>
 		/// <since>ARP1.0</since>
-		private float XDoP;
+		private float xDoP;
 
 		/// <summary>Dilution of precision on the Y measurement.</summary>
 		/// <remarks>Dilution of precision on the Y measurement. Measured in meters.</remarks>
 		/// <since>ARP1.0</since>
-		private float YDoP;
+		private float yDoP;
 
 		/// <summary>Constructor used by the implementation</summary>
 		public Geolocation()
@@ -68,17 +68,17 @@ namespace Adaptive.Arp.Api
 		/// <param name="latitude"></param>
 		/// <param name="longitude"></param>
 		/// <param name="altitude"></param>
-		/// <param name="XDoP"></param>
-		/// <param name="YDoP"></param>
+		/// <param name="xDoP"></param>
+		/// <param name="yDoP"></param>
 		/// <since>ARP1.0</since>
-		public Geolocation(double latitude, double longitude, double altitude, float XDoP
-			, float YDoP)
+		public Geolocation(double latitude, double longitude, double altitude, float xDoP
+			, float yDoP)
 		{
 			this.latitude = latitude;
 			this.longitude = longitude;
 			this.altitude = altitude;
-			this.XDoP = XDoP;
-			this.YDoP = YDoP;
+			this.xDoP = xDoP;
+			this.yDoP = yDoP;
 		}
 
 		/// <summary>Returns the latitude in degrees</summary>
@@ -130,19 +130,19 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Returns the Dilution of Position in the X axis (longitude)</summary>
-		/// <returns>XDoP</returns>
+		/// <returns>xDoP</returns>
 		/// <since>ARP1.0</since>
 		public virtual float GetXDoP()
 		{
-			return XDoP;
+			return xDoP;
 		}
 
 		/// <summary>Returns the Dilution of Position in the Y axis (latitude)</summary>
-		/// <returns>YDoP</returns>
+		/// <returns>yDoP</returns>
 		/// <since>ARP1.0</since>
 		public virtual float GetYDoP()
 		{
-			return YDoP;
+			return yDoP;
 		}
 	}
 }

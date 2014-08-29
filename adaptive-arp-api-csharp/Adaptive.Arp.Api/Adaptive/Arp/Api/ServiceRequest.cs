@@ -94,10 +94,11 @@ namespace Adaptive.Arp.Api
 		/// <param name="method"></param>
 		/// <param name="protocolVersion"></param>
 		/// <param name="session"></param>
+		/// <param name="contentEncoding"></param>
 		/// <since>ARP1.0</since>
 		public ServiceRequest(string content, string contentType, int contentLength, byte
 			[] rawContent, Header[] headers, string method, IService.ProtocolVersion protocolVersion
-			, ISession session)
+			, ISession session, string contentEncoding)
 		{
 			this.content = content;
 			this.contentType = contentType;
@@ -107,6 +108,7 @@ namespace Adaptive.Arp.Api
 			this.method = method;
 			this.protocolVersion = protocolVersion;
 			this.session = session;
+			this.contentEncoding = contentEncoding;
 		}
 
 		/// <summary>Returns the protocol version</summary>

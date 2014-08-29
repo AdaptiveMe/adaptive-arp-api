@@ -31,19 +31,19 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public interface ILifecycleListener : IBaseListener
+	public abstract class ILifecycleListener : IBaseListener
 	{
 		/// <summary>Called when lifecycle changes somehow.</summary>
 		/// <remarks>Called when lifecycle changes somehow.</remarks>
 		/// <param name="lifecycle"></param>
 		/// <since>ARP1.0</since>
-		void OnResult(Lifecycle lifecycle);
+		public abstract void OnResult(Lifecycle lifecycle);
 
-		/// <summary>Data received with warning - ie.</summary>
-		/// <remarks>Data received with warning - ie. HighDoP</remarks>
+		/// <summary>Data received with warning</summary>
 		/// <param name="lifecycle"></param>
 		/// <since>ARP1.0</since>
-		void OnWarning(Lifecycle lifecycle);
+		public abstract void OnWarning(Lifecycle lifecycle, ILifecycleListener.Warning warning
+			);
 
 		/// <summary>No data received - error condition, not authorized or hardware not available.
 		/// 	</summary>
@@ -51,6 +51,18 @@ namespace Adaptive.Arp.Api
 		/// 	</remarks>
 		/// <param name="lifecycle"></param>
 		/// <since>ARP1.0</since>
-		void OnError(Lifecycle lifecycle);
+		public abstract void OnError(ILifecycleListener.Error error);
+
+		/// <summary>Errors</summary>
+		public enum Error
+		{
+
+		}
+
+		/// <summary>Warnings</summary>
+		public enum Warning
+		{
+
+		}
 	}
 }

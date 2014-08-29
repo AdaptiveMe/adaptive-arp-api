@@ -31,36 +31,39 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public abstract class IGeolocationListener : IBaseListener
+	/// <summary>Created by FRMI on 28/08/2014.</summary>
+	/// <remarks>Created by FRMI on 28/08/2014.</remarks>
+	public abstract class INetworkReachabilityCallback
 	{
 		/// <summary>Correct data received.</summary>
 		/// <remarks>Correct data received.</remarks>
-		/// <param name="geolocation"></param>
+		/// <param name="result"></param>
 		/// <since>ARP1.0</since>
-		public abstract void OnResult(Geolocation geolocation);
+		public abstract void OnResult(bool result);
 
-		/// <summary>Data received with warning - ie.</summary>
-		/// <remarks>Data received with warning - ie. HighDoP</remarks>
-		/// <param name="geolocation"></param>
-		/// <since>ARP1.0</since>
-		public abstract void OnWarning(Geolocation geolocation, IGeolocationListener.Warning
-			 warning);
-
-		/// <summary>No data received - error condition, not authorized or hardware not available.
+		/// <summary>Data received with warning - ie Found entries with existing key and values have been overriden
 		/// 	</summary>
-		/// <remarks>No data received - error condition, not authorized or hardware not available.
-		/// 	</remarks>
+		/// <param name="result"></param>
+		/// <param name="warning"></param>
 		/// <since>ARP1.0</since>
-		public abstract void OnError(IGeolocationListener.Error error);
+		public abstract void OnWarning(bool result, INetworkReachabilityCallback.Warning 
+			warning);
 
-		public enum Error
-		{
-
-		}
+		/// <summary>No data received - error condition, not authorized .</summary>
+		/// <remarks>No data received - error condition, not authorized .</remarks>
+		/// <param name="error"></param>
+		/// <since>ARP1.0</since>
+		public abstract void OnError(INetworkReachabilityCallback.Error error);
 
 		public enum Warning
 		{
-			HighDoP
+			IncorrectScheme
+		}
+
+		public enum Error
+		{
+			NoPermission,
+			NetworkOnMainThreadException
 		}
 	}
 }
