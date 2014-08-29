@@ -78,10 +78,69 @@ public class J2SwiftConverter {
         return true;
     }
 
+    private static void processClassEnum(Class clazz, Class type, File targetDir) throws IOException {
+        File targetFile = new File(targetDir, clazz.getSimpleName() + type.getSimpleName() + ".swift");
+        if (targetFile.exists()) {
+            targetFile.delete();
+        }
+        IndentPrintStream ps = null;
+        try {
+            ps = new IndentPrintStream(new FileOutputStream(targetFile));
+        } catch (FileNotFoundException e) {
+            throw new IOException("Unable to write to stream.");
+        }
+
+        /**
+         * Header Section
+         */
+        ps.println(0, "//");
+        ps.println(0, "//  Auto-generated from: " + clazz.getName());
+        ps.println(0, "//");
+        ps.println(0, "//  " + targetFile.getName());
+        ps.println(0, "//");
+        ps.println(0, "//  Released under Apache Public License v2.0");
+        ps.println(0, "//");
+        ps.println(0, "//  -----------| aut viam inveniam aut faciam |-----------");
+        ps.println(0, "//   Copyright (c) 2014 Carlos Lozano Diez ta Adaptive.me");
+        ps.println(0, "//   All rights reserved.                 www.adaptive.me");
+        ps.println(0, "//  ------------------------------------------------------");
+        ps.println();
+        ps.println(0, "import Foundation");
+        ps.println();
+
+        ps.println(0, "public enum " + clazz.getSimpleName() + type.getSimpleName() + " {");
+        Object[] enumConstants = type.getEnumConstants();
+        if (enumConstants.length > 0) {
+            ps.print(5, "case ");
+        }
+        for (int i = 0; i < enumConstants.length; i++) {
+            ps.print(enumConstants[i]);
+            if ((enumConstants.length - 1) > i) {
+                ps.print(", ");
+            }
+        }
+        ps.println();
+        ps.println(0, "}");
+        ps.println();
+
+        ps.close();
+    }
+
+
     private static void processClass(Class clazz, File targetDir) throws IOException {
         File targetFile = new File(targetDir, clazz.getSimpleName() + ".swift");
         if (targetFile.exists()) {
             targetFile.delete();
+        }
+        if (clazz.isInterface()) {
+            if (clazz.getSimpleName().equals("ISession")
+                    || clazz.getSimpleName().equals("IBaseCommunication")
+                    || clazz.getSimpleName().equals("IAdaptiveRP")
+                    || clazz.getSimpleName().startsWith("IBase")) {
+
+            }else{
+                //return;
+            }
         }
 
         IndentPrintStream ps = null;
@@ -250,7 +309,12 @@ public class J2SwiftConverter {
                             if (componentType.getSimpleName().equals("Object")) {
                                 ps.print("[Any" + componentType.getSimpleName() + "]");
                             } else {
-                                ps.print("[" + componentType.getSimpleName() + "]");
+                                if (componentType.isEnum()) {
+                                    processClassEnum(clazz,componentType,targetDir);
+                                    ps.print("[" + clazz.getSimpleName()+componentType.getSimpleName() + "]");
+                                } else {
+                                    ps.print("[" + componentType.getSimpleName() + "]");
+                                }
                             }
                         }
                     } else if (parameterType.isPrimitive()) {
@@ -343,7 +407,12 @@ public class J2SwiftConverter {
                             if (componentType.getSimpleName().equals("Object")) {
                                 ps.print("[Any" + componentType.getSimpleName() + "]");
                             } else {
-                                ps.print("[" + componentType.getSimpleName() + "]");
+                                if (componentType.isEnum()) {
+                                    processClassEnum(clazz,componentType,targetDir);
+                                    ps.print("[" + clazz.getSimpleName()+componentType.getSimpleName() + "]");
+                                } else {
+                                    ps.print("[" + componentType.getSimpleName() + "]");
+                                }
                             }
                         }
                     } else if (parameterType.isPrimitive()) {
@@ -387,7 +456,12 @@ public class J2SwiftConverter {
                             if (returnType.getSimpleName().equals("Map")) {
                                 ps.print("Dictionary<String,String>");
                             } else {
-                                ps.print(returnType.getSimpleName());
+                                if (returnType.isEnum()) {
+                                    processClassEnum(clazz, returnType, targetDir);
+                                    ps.print(clazz.getSimpleName()+returnType.getSimpleName());
+                                } else {
+                                    ps.print(returnType.getSimpleName());
+                                }
                             }
                         }
                     }
@@ -474,15 +548,18 @@ public class J2SwiftConverter {
         /**
          * Interface Enumeration Section
          */
+
         if (interfaceEnumList.size() > 0) {
             ps.println();
             ps.println("}");
-            ps.println();
-            ps.println(0, "/**");
-            ps.println(0, " * Enumeration Declarations");
-            ps.println(0, " */");
+        //    ps.println();
+        //    ps.println(0, "/**");
+        //    ps.println(0, " * Enumeration Declarations");
+        //    ps.println(0, " */");
         }
         for (Class<?> enumClass : interfaceEnumList) {
+            processClassEnum(clazz, enumClass, targetDir);
+            /*
             ps.println(0, "public enum " + clazz.getSimpleName() + enumClass.getSimpleName() + " {");
             Object[] enumConstants = enumClass.getEnumConstants();
             if (enumConstants.length > 0) {
@@ -497,6 +574,7 @@ public class J2SwiftConverter {
             ps.println();
             ps.println(0, "}");
             ps.println();
+            */
         }
         /**
          * Footer Section
