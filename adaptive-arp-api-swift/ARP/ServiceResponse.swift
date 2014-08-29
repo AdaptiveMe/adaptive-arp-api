@@ -60,10 +60,6 @@ public class ServiceResponse {
           return self.content
      }
 
-     public func setContent(content : String) {
-          self.content = content
-     }
-
      public func getContentBinary() -> [Byte] {
           return self.contentBinary!
      }
@@ -94,6 +90,10 @@ public class ServiceResponse {
 
      public func setContentEncoding(contentEncoding : String) {
           self.contentEncoding = contentEncoding
+     }
+
+     public func setContent(content : String) {
+          self.content = content
      }
 
      public func getContentLength() -> String {

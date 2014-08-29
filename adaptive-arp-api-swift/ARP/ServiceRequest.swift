@@ -74,14 +74,6 @@ public class ServiceRequest {
           return self.content
      }
 
-     public func setContent(content : String) {
-          self.content = content
-     }
-
-     public func setMethod(method : String) {
-          self.method = method
-     }
-
      public func setHeaders(headers : [Header]) {
           self.headers = headers
      }
@@ -112,6 +104,14 @@ public class ServiceRequest {
 
      public func setRawContent(rawContent : [Byte]) {
           self.rawContent = rawContent
+     }
+
+     public func setContent(content : String) {
+          self.content = content
+     }
+
+     public func setMethod(method : String) {
+          self.method = method
      }
 
      public func getContentLength() -> Int {

@@ -52,16 +52,12 @@ public class ContactEmail {
           return self.type!
      }
 
-     public func setType(type : EmailType) {
-          self.type = type
+     public func setEmail(email : String) {
+          self.email = email
      }
 
      public func getEmail() -> String {
           return self.email
-     }
-
-     public func setEmail(email : String) {
-          self.email = email
      }
 
      public func isPrimary() -> Bool {
@@ -70,6 +66,10 @@ public class ContactEmail {
 
      public func setPrimary(primary : Bool) {
           self.primary = primary
+     }
+
+     public func setType(type : EmailType) {
+          self.type = type
      }
 
 

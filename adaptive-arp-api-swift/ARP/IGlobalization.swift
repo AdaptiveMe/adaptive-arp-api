@@ -20,6 +20,6 @@ public protocol IGlobalization : IBaseApplication {
       */
      func getLocaleSupportedDescriptors() -> [String]
      func getResourceLiteral(key : String, locale : Locale) -> String
-     func getResourceLiterals(locale : Locale) -> Dictionary<String,String>
+     func getResourceLiterals(locale : Locale) -> Dictionary
 
 }

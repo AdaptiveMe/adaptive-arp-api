@@ -18,15 +18,15 @@ public protocol IDatabase : IBaseData {
      /**
       * Function Declarations
       */
+     func createTable(database : Database, table : Table, callback : ITableResultCallback)
+     func deleteDatabase(database : Database, callback : IDatabaseResultCallback)
+     func existsDatabase(database : Database) -> Bool
+     func getDatabase(database : Database, callback : IDatabaseResultCallback)
      func deleteTable(database : Database, table : Table, callback : ITableResultCallback)
+     func createDatabase(database : Database, callback : IDatabaseResultCallback)
      func existsTable(database : Database, table : Table) -> Bool
      func executeSqlQuery(database : Database, query : String, replacements : [String], callback : ITableResultCallback)
      func executeSqlStatement(database : Database, statement : String, replacements : [String], callback : ITableResultCallback)
      func executeSqlTransactions(database : Database, statements : [String], rollbackFlag : Bool, callback : ITableResultCallback)
-     func getDatabase(database : Database, callback : IDatabaseResultCallback)
-     func createDatabase(database : Database, callback : IDatabaseResultCallback)
-     func deleteDatabase(database : Database, callback : IDatabaseResultCallback)
-     func existsDatabase(database : Database) -> Bool
-     func createTable(database : Database, table : Table, callback : ITableResultCallback)
 
 }

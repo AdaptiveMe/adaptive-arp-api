@@ -18,20 +18,20 @@ public protocol ISecureKVResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
-     func onError(error : ISecureKVResultCallbackError)
      func onResult(keyValues : [SecureKeyPair])
      func onWarning(keyValues : [SecureKeyPair], warning : ISecureKVResultCallbackWarning)
+     func onError(error : ISecureKVResultCallbackError)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum ISecureKVResultCallbackError {
-     case NoPermission, NoMatchesFound
-}
-
 public enum ISecureKVResultCallbackWarning {
      case EntryOverride
+}
+
+public enum ISecureKVResultCallbackError {
+     case NoPermission, NoMatchesFound
 }
 

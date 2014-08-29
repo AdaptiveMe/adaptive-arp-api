@@ -74,20 +74,12 @@ public class Cookie {
           return self.scheme
      }
 
-     public func setPath(path : String) {
-          self.path = path
-     }
-
-     public func setScheme(scheme : String) {
-          self.scheme = scheme
+     public func getDomain() -> String {
+          return self.domain
      }
 
      public func isSecure() -> Bool {
           return self.secure
-     }
-
-     public func getDomain() -> String {
-          return self.domain
      }
 
      public func setDomain(domain : String) {
@@ -108,6 +100,14 @@ public class Cookie {
 
      public func getCreation() -> Int64 {
           return self.creation
+     }
+
+     public func setPath(path : String) {
+          self.path = path
+     }
+
+     public func setScheme(scheme : String) {
+          self.scheme = scheme
      }
 
 

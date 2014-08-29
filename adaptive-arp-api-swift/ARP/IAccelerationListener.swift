@@ -18,8 +18,8 @@ public protocol IAccelerationListener : IBaseListener {
      /**
       * Function Declarations
       */
-     func onError(acceleration : Acceleration)
      func onResult(acceleration : Acceleration)
      func onWarning(acceleration : Acceleration)
+     func onError(acceleration : Acceleration)
 
 }

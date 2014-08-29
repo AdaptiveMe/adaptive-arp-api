@@ -51,6 +51,10 @@ public class Table {
           self.name = name
      }
 
+     public func getRows() -> [Row] {
+          return self.rows!
+     }
+
      public func getColumnCount() -> Int {
           return self.columnCount
      }
@@ -61,10 +65,6 @@ public class Table {
 
      public func getRowCount() -> Int {
           return self.rowCount
-     }
-
-     public func getRows() -> [Row] {
-          return self.rows!
      }
 
      public func setRowCount(rowCount : Int) {

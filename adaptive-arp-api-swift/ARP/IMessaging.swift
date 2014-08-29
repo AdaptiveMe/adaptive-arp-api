@@ -18,7 +18,7 @@ public protocol IMessaging : IBasePIM {
      /**
       * Function Declarations
       */
-     func sendEmail(data : Email, callback : IMessagingCallback)
      func sendSMS(number : String, text : String, callback : IMessagingCallback)
+     func sendEmail(data : Email, callback : IMessagingCallback)
 
 }

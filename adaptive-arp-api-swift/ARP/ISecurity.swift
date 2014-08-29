@@ -18,9 +18,9 @@ public protocol ISecurity : IBaseSecurity {
      /**
       * Function Declarations
       */
+     func setSecureKeyValuePairs(keyValues : [SecureKeyPair], publicAccessName : String, callback : ISecureKVResultCallback)
      func isDeviceModified() -> Bool
      func getSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecureKVResultCallback)
      func deleteSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecureKVResultCallback)
-     func setSecureKeyValuePairs(keyValues : [SecureKeyPair], publicAccessName : String, callback : ISecureKVResultCallback)
 
 }

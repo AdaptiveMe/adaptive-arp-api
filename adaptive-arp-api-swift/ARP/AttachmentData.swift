@@ -51,6 +51,10 @@ public class AttachmentData {
           return self.fileName
      }
 
+     public func setData(data : [Byte]) {
+          self.data = data
+     }
+
      public func getDataSize() -> Int64 {
           return self.dataSize
      }
@@ -77,10 +81,6 @@ public class AttachmentData {
 
      public func setReferenceUrl(referenceUrl : String) {
           self.referenceUrl = referenceUrl
-     }
-
-     public func setData(data : [Byte]) {
-          self.data = data
      }
 
      public func getData() -> [Byte] {
