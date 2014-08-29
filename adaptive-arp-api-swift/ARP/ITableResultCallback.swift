@@ -18,20 +18,20 @@ public protocol ITableResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
-     func onWarning(table : Table, warning : ITableResultCallbackWarning)
      func onError(error : ITableResultCallbackError)
      func onResult(table : Table)
+     func onWarning(table : Table, warning : ITableResultCallbackWarning)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum ITableResultCallbackWarning {
-     case TableExists, TableLocked, NoResults
-}
-
 public enum ITableResultCallbackError {
      case NoSpace, ReadOnlyTable, SqlException
+}
+
+public enum ITableResultCallbackWarning {
+     case TableExists, TableLocked, NoResults
 }
 

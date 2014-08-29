@@ -60,16 +60,16 @@ public class ContactEmail {
           return self.email
      }
 
+     public func setEmail(email : String) {
+          self.email = email
+     }
+
      public func isPrimary() -> Bool {
           return self.primary
      }
 
      public func setPrimary(primary : Bool) {
           self.primary = primary
-     }
-
-     public func setEmail(email : String) {
-          self.email = email
      }
 
 

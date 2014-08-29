@@ -55,20 +55,16 @@ public class Table {
           return self.columnCount
      }
 
-     public func getRows() -> [Row] {
-          return self.rows!
-     }
-
-     public func setRows(rows : [Row]) {
-          self.rows = rows
-     }
-
      public func setColumnCount(columnCount : Int) {
           self.columnCount = columnCount
      }
 
      public func getRowCount() -> Int {
           return self.rowCount
+     }
+
+     public func getRows() -> [Row] {
+          return self.rows!
      }
 
      public func setRowCount(rowCount : Int) {
@@ -81,6 +77,10 @@ public class Table {
 
      public func setColumns(columns : [Column]) {
           self.columns = columns
+     }
+
+     public func setRows(rows : [Row]) {
+          self.rows = rows
      }
 
 

@@ -47,6 +47,14 @@ public class Geolocation {
      /**
       * Function Declarations
       */
+     public func getYDoP() -> Float {
+          return self.yDoP
+     }
+
+     public func getXDoP() -> Float {
+          return self.xDoP
+     }
+
      public func getLatitude() -> Double {
           return self.latitude
      }
@@ -69,14 +77,6 @@ public class Geolocation {
 
      public func setAltitude(altitude : Double) {
           self.altitude = altitude
-     }
-
-     public func getXDoP() -> Float {
-          return self.xDoP
-     }
-
-     public func getYDoP() -> Float {
-          return self.yDoP
      }
 
 

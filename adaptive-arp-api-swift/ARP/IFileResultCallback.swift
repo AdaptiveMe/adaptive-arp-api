@@ -18,21 +18,21 @@ public protocol IFileResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
-     func onWarning(sourceFile : IFile, destinationFile : IFile, warning : IFileResultCallbackWarning)
      func onError(file : IFile, error : IFileResultCallbackError)
      func onError(error : IFileResultCallbackError)
      func onResult(storageFile : IFile)
+     func onWarning(sourceFile : IFile, destinationFile : IFile, warning : IFileResultCallbackWarning)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum IFileResultCallbackWarning {
-     case SourceNotDeleted, RootDirectory
-}
-
 public enum IFileResultCallbackError {
      case FileExists, InsufficientSpace, Unauthorized
+}
+
+public enum IFileResultCallbackWarning {
+     case SourceNotDeleted, RootDirectory
 }
 

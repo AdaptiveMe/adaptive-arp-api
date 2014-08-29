@@ -18,20 +18,20 @@ public protocol ILifecycleListener : IBaseListener {
      /**
       * Function Declarations
       */
-     func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning)
      func onError(error : ILifecycleListenerError)
      func onResult(lifecycle : Lifecycle)
+     func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum ILifecycleListenerWarning {
+public enum ILifecycleListenerError {
 
 }
 
-public enum ILifecycleListenerError {
+public enum ILifecycleListenerWarning {
 
 }
 

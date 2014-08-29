@@ -35,11 +35,11 @@ public protocol IFile : IFilePath {
      func getContent(callback : IFileDataResultCallback)
      func mkDir(recursive : Bool) -> Bool
      func mkDir() -> Bool
+     func getDateCreated() -> Int64
      func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback)
      func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
      func move(newFile : IFile, callback : IFileResultCallback)
      func move(newFile : IFile, callback : IFileResultCallback, overwrite : Bool)
-     func getDateCreated() -> Int64
      func getDateModified() -> Int64
      func setContent(content : [Byte], callback : IFileDataResultCallback)
 

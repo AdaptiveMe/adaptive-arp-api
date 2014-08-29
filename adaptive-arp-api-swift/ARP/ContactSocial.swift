@@ -38,10 +38,6 @@ public class ContactSocial {
      /**
       * Function Declarations
       */
-     public func setProfileUrl(profileUrl : String) {
-          self.profileUrl = profileUrl
-     }
-
      public func getSocialNetwork() -> String {
           return self.socialNetwork
      }
@@ -52,6 +48,10 @@ public class ContactSocial {
 
      public func getProfileUrl() -> String {
           return self.profileUrl
+     }
+
+     public func setProfileUrl(profileUrl : String) {
+          self.profileUrl = profileUrl
      }
 
 

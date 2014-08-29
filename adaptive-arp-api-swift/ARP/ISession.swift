@@ -20,14 +20,14 @@ public protocol ISession : IBaseCommunication {
       */
      func getAttributes() -> [AnyObject]
      func setAttribute(name : String, value : AnyObject)
-     func getAttribute(name : String) -> AnyObject
-     func getCookies() -> [Cookie]
-     func setCookie(cookie : Cookie)
      func setCookies(cookie : [Cookie])
+     func setCookie(cookie : Cookie)
      func removeCookies(cookie : [Cookie])
+     func getCookies() -> [Cookie]
      func removeCookie(cookie : Cookie)
      func listAttributeNames() -> [String]
      func removeAttribute(name : String)
      func removeAttributes()
+     func getAttribute(name : String) -> AnyObject
 
 }

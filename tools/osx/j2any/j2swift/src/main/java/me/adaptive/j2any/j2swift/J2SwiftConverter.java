@@ -384,7 +384,11 @@ public class J2SwiftConverter {
                         if (returnType.getSimpleName().equals("Object")) {
                             ps.print("Any" + returnType.getSimpleName());
                         } else {
-                            ps.print(returnType.getSimpleName());
+                            if (returnType.getSimpleName().equals("Map")) {
+                                ps.print("Dictionary<String,String>");
+                            } else {
+                                ps.print(returnType.getSimpleName());
+                            }
                         }
                     }
 

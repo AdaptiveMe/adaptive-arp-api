@@ -18,8 +18,8 @@ public protocol IGlobalization : IBaseApplication {
      /**
       * Function Declarations
       */
-     func getResourceLiterals(locale : Locale) -> Map
      func getLocaleSupportedDescriptors() -> [String]
      func getResourceLiteral(key : String, locale : Locale) -> String
+     func getResourceLiterals(locale : Locale) -> Dictionary<String,String>
 
 }

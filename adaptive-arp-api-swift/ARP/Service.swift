@@ -70,6 +70,10 @@ public class Service {
           return self.type!
      }
 
+     public func setMethod(method : ServiceMethod) {
+          self.method = method
+     }
+
      public func setType(type : ServiceType) {
           self.type = type
      }
@@ -80,10 +84,6 @@ public class Service {
 
      public func setEndpoint(endpoint : Endpoint) {
           self.endpoint = endpoint
-     }
-
-     public func setMethod(method : ServiceMethod) {
-          self.method = method
      }
 
 

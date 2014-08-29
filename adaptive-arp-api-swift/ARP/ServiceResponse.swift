@@ -64,30 +64,6 @@ public class ServiceResponse {
           self.content = content
      }
 
-     public func getContentLength() -> String {
-          return self.contentLength
-     }
-
-     public func getContentType() -> String {
-          return self.contentType
-     }
-
-     public func setContentType(contentType : String) {
-          self.contentType = contentType
-     }
-
-     public func setContentLength(contentLength : String) {
-          self.contentLength = contentLength
-     }
-
-     public func getContentEncoding() -> String {
-          return self.contentEncoding
-     }
-
-     public func getHeaders() -> [Header] {
-          return self.headers!
-     }
-
      public func getContentBinary() -> [Byte] {
           return self.contentBinary!
      }
@@ -118,6 +94,30 @@ public class ServiceResponse {
 
      public func setContentEncoding(contentEncoding : String) {
           self.contentEncoding = contentEncoding
+     }
+
+     public func getContentLength() -> String {
+          return self.contentLength
+     }
+
+     public func getContentType() -> String {
+          return self.contentType
+     }
+
+     public func setContentType(contentType : String) {
+          self.contentType = contentType
+     }
+
+     public func setContentLength(contentLength : String) {
+          self.contentLength = contentLength
+     }
+
+     public func getContentEncoding() -> String {
+          return self.contentEncoding
+     }
+
+     public func getHeaders() -> [Header] {
+          return self.headers!
      }
 
 

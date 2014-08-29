@@ -82,12 +82,12 @@ public class Cookie {
           self.scheme = scheme
      }
 
-     public func getDomain() -> String {
-          return self.domain
-     }
-
      public func isSecure() -> Bool {
           return self.secure
+     }
+
+     public func getDomain() -> String {
+          return self.domain
      }
 
      public func setDomain(domain : String) {

@@ -59,12 +59,12 @@ public class ContactPersonalInfo {
           self.name = name
      }
 
-     public func getTitle() -> Title {
-          return self.title!
-     }
-
      public func setTitle(title : Title) {
           self.title = title
+     }
+
+     public func getTitle() -> Title {
+          return self.title!
      }
 
      public func getMiddleName() -> String {
