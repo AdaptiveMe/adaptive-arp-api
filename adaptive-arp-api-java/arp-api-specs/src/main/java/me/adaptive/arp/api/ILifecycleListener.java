@@ -55,7 +55,6 @@ public interface ILifecycleListener extends IBaseListener {
     /**
      * No data received - error condition, not authorized or hardware not available.
      *
-     * @param lifecycle
      * @since ARP1.0
      */
     public void onError(Error error);

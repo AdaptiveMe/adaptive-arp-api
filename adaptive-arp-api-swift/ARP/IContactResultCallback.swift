@@ -18,20 +18,20 @@ public protocol IContactResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+     func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning)
      func onError(error : IContactResultCallbackError)
      func onResult(contacts : [Contact])
-     func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum IContactResultCallbackError {
-     case NoPermission
-}
-
 public enum IContactResultCallbackWarning {
      case LimitExceeded
+}
+
+public enum IContactResultCallbackError {
+     case NoPermission
 }
 

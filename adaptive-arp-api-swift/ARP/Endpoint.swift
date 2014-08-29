@@ -67,16 +67,8 @@ public class Endpoint {
           self.path = path
      }
 
-     public func setPort(port : Int) {
-          self.port = port
-     }
-
      public func getProxy() -> String {
           return self.proxy
-     }
-
-     public func setHost(host : String) {
-          self.host = host
      }
 
      public func setProxy(proxy : String) {
@@ -85,6 +77,14 @@ public class Endpoint {
 
      public func setScheme(scheme : String) {
           self.scheme = scheme
+     }
+
+     public func setHost(host : String) {
+          self.host = host
+     }
+
+     public func setPort(port : Int) {
+          self.port = port
      }
 
 

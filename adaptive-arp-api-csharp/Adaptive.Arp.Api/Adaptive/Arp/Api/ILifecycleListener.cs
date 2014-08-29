@@ -49,7 +49,6 @@ namespace Adaptive.Arp.Api
 		/// 	</summary>
 		/// <remarks>No data received - error condition, not authorized or hardware not available.
 		/// 	</remarks>
-		/// <param name="lifecycle"></param>
 		/// <since>ARP1.0</since>
 		public abstract void OnError(ILifecycleListener.Error error);
 

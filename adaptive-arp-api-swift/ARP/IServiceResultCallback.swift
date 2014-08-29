@@ -18,20 +18,20 @@ public protocol IServiceResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+     func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning)
      func onError(error : IServiceResultCallbackError)
      func onResult(response : ServiceResponse)
-     func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum IServiceResultCallbackError {
-     case Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, Unknown
-}
-
 public enum IServiceResultCallbackWarning {
      case NotSecure, NotTrusted, Redirected
+}
+
+public enum IServiceResultCallbackError {
+     case Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, Unknown
 }
 

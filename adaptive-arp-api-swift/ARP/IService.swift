@@ -18,12 +18,12 @@ public protocol IService : IBaseCommunication {
      /**
       * Function Declarations
       */
-     func isRegistered(service : Service) -> Bool
      func isRegistered(serviceName : String) -> Bool
+     func isRegistered(service : Service) -> Bool
+     func getService(serviceName : String) -> Service
      func registerService(service : Service)
      func unregisterService(service : Service)
      func unregisterServices()
      func InvokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback)
-     func getService(serviceName : String) -> Service
 
 }

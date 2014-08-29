@@ -70,16 +70,16 @@ public class Service {
           return self.type!
      }
 
-     public func setEndpoint(endpoint : Endpoint) {
-          self.endpoint = endpoint
+     public func setType(type : ServiceType) {
+          self.type = type
      }
 
      public func getEndpoint() -> Endpoint {
           return self.endpoint!
      }
 
-     public func setType(type : ServiceType) {
-          self.type = type
+     public func setEndpoint(endpoint : Endpoint) {
+          self.endpoint = endpoint
      }
 
      public func setMethod(method : ServiceMethod) {

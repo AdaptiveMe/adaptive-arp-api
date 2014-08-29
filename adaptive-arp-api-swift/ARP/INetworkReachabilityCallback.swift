@@ -18,20 +18,20 @@ public protocol INetworkReachabilityCallback {
      /**
       * Function Declarations
       */
+     func onWarning(result : Bool, warning : INetworkReachabilityCallbackWarning)
      func onError(error : INetworkReachabilityCallbackError)
      func onResult(result : Bool)
-     func onWarning(result : Bool, warning : INetworkReachabilityCallbackWarning)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum INetworkReachabilityCallbackError {
-     case NoPermission, NetworkOnMainThreadException
-}
-
 public enum INetworkReachabilityCallbackWarning {
      case IncorrectScheme
+}
+
+public enum INetworkReachabilityCallbackError {
+     case NoPermission, NetworkOnMainThreadException
 }
 

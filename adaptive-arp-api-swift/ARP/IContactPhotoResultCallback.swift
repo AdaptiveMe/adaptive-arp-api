@@ -18,20 +18,20 @@ public protocol IContactPhotoResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+     func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning)
      func onError(error : IContactPhotoResultCallbackError)
      func onResult(contactPhoto : [Byte])
-     func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum IContactPhotoResultCallbackError {
-     case NoPermission
-}
-
 public enum IContactPhotoResultCallbackWarning {
      case LimitExceeded
+}
+
+public enum IContactPhotoResultCallbackError {
+     case NoPermission
 }
 

@@ -18,21 +18,21 @@ public protocol IFileListResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+     func onWarning(files : [IFile], warning : IFileListResultCallbackWarning)
      func onError(file : IFile, error : IFileListResultCallbackError)
      func onError(error : IFileListResultCallbackError)
      func onResult(files : [IFile])
-     func onWarning(files : [IFile], warning : IFileListResultCallbackWarning)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum IFileListResultCallbackError {
-     case InexistentFile, Unauthorized
-}
-
 public enum IFileListResultCallbackWarning {
      case PartialResult
+}
+
+public enum IFileListResultCallbackError {
+     case InexistentFile, Unauthorized
 }
 

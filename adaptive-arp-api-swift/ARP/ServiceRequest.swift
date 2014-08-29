@@ -78,6 +78,34 @@ public class ServiceRequest {
           self.content = content
      }
 
+     public func getContentLength() -> Int {
+          return self.contentLength
+     }
+
+     public func getContentType() -> String {
+          return self.contentType
+     }
+
+     public func setContentType(contentType : String) {
+          self.contentType = contentType
+     }
+
+     public func setContentLength(contentLength : Int) {
+          self.contentLength = contentLength
+     }
+
+     public func getContentEncoding() -> String {
+          return self.contentEncoding
+     }
+
+     public func getHeaders() -> [Header] {
+          return self.headers!
+     }
+
+     public func setMethod(method : String) {
+          self.method = method
+     }
+
      public func setHeaders(headers : [Header]) {
           self.headers = headers
      }
@@ -108,34 +136,6 @@ public class ServiceRequest {
 
      public func setRawContent(rawContent : [Byte]) {
           self.rawContent = rawContent
-     }
-
-     public func getContentLength() -> Int {
-          return self.contentLength
-     }
-
-     public func getContentType() -> String {
-          return self.contentType
-     }
-
-     public func setContentType(contentType : String) {
-          self.contentType = contentType
-     }
-
-     public func setContentLength(contentLength : Int) {
-          self.contentLength = contentLength
-     }
-
-     public func getContentEncoding() -> String {
-          return self.contentEncoding
-     }
-
-     public func getHeaders() -> [Header] {
-          return self.headers!
-     }
-
-     public func setMethod(method : String) {
-          self.method = method
      }
 
 

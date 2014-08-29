@@ -18,20 +18,20 @@ public protocol IGeolocationListener : IBaseListener {
      /**
       * Function Declarations
       */
+     func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning)
      func onError(error : IGeolocationListenerError)
      func onResult(geolocation : Geolocation)
-     func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum IGeolocationListenerError {
-
-}
-
 public enum IGeolocationListenerWarning {
      case HighDoP
+}
+
+public enum IGeolocationListenerError {
+
 }
 

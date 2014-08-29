@@ -18,20 +18,20 @@ public protocol IButtonListener : IBaseListener {
      /**
       * Function Declarations
       */
+     func onWarning(button : Button, warning : IButtonListenerWarning)
      func onError(error : IButtonListenerError)
      func onResult(button : Button)
-     func onWarning(button : Button, warning : IButtonListenerWarning)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum IButtonListenerError {
-     case Not_Present
-}
-
 public enum IButtonListenerWarning {
      case Not_Implemented
+}
+
+public enum IButtonListenerError {
+     case Not_Present
 }
 

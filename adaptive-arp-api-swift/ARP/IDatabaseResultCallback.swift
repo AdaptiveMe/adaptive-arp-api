@@ -18,20 +18,20 @@ public protocol IDatabaseResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+     func onWarning(database : Database, warning : IDatabaseResultCallbackWarning)
      func onError(error : IDatabaseResultCallbackError)
      func onResult(database : Database)
-     func onWarning(database : Database, warning : IDatabaseResultCallbackWarning)
 
 }
 
 /**
  * Enumeration Declarations
  */
-public enum IDatabaseResultCallbackError {
-     case NoSpace, SqlException
-}
-
 public enum IDatabaseResultCallbackWarning {
      case DatabaseExists
+}
+
+public enum IDatabaseResultCallbackError {
+     case NoSpace, SqlException
 }
 
