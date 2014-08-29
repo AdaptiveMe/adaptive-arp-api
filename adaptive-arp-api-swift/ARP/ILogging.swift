@@ -22,11 +22,3 @@ public protocol ILogging : IBaseUtil {
      func log(level : ILoggingLogLevel, category : String, message : String)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum ILoggingLogLevel {
-     case DEBUG, WARN, ERROR, INFO
-}
-

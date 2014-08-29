@@ -23,15 +23,3 @@ public protocol IButtonListener : IBaseListener {
      func onError(error : IButtonListenerError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum IButtonListenerWarning {
-     case Not_Implemented
-}
-
-public enum IButtonListenerError {
-     case Not_Present
-}
-

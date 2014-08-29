@@ -24,15 +24,3 @@ public protocol IFileDataResultCallback : IBaseCallback {
      func onError(error : IFileDataResultCallbackError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum IFileDataResultCallbackWarning {
-     case ExceedMaximumSize
-}
-
-public enum IFileDataResultCallbackError {
-     case InexistentFile, InsufficientSpace, Unauthorized
-}
-

@@ -45,12 +45,12 @@ public class ContactPhone {
      /**
       * Function Declarations
       */
-     public func setPhone(phone : String) {
-          self.phone = phone
-     }
-
      public func getPhone() -> String {
           return self.phone
+     }
+
+     public func setPhone(phone : String) {
+          self.phone = phone
      }
 
      public func getPhoneType() -> PhoneType {

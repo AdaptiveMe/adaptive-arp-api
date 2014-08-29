@@ -23,15 +23,3 @@ public protocol ILifecycleListener : IBaseListener {
      func onError(error : ILifecycleListenerError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum ILifecycleListenerWarning {
-
-}
-
-public enum ILifecycleListenerError {
-
-}
-

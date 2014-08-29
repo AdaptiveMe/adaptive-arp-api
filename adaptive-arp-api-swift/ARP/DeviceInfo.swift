@@ -48,16 +48,16 @@ public class DeviceInfo {
           return self.name
      }
 
-     public func getModel() -> String {
-          return self.model
+     public func getVendor() -> String {
+          return self.vendor
      }
 
      public func getUuid() -> String {
           return self.uuid
      }
 
-     public func getVendor() -> String {
-          return self.vendor
+     public func getModel() -> String {
+          return self.model
      }
 
 

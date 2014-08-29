@@ -24,15 +24,3 @@ public protocol IFileListResultCallback : IBaseCallback {
      func onError(error : IFileListResultCallbackError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum IFileListResultCallbackWarning {
-     case PartialResult
-}
-
-public enum IFileListResultCallbackError {
-     case InexistentFile, Unauthorized
-}
-

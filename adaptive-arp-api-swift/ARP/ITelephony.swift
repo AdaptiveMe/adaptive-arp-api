@@ -18,6 +18,6 @@ public protocol ITelephony : IBaseCommunication {
      /**
       * Function Declarations
       */
-     func call(number : String) -> Status
+     func call(number : String) -> ITelephonyStatus
 
 }

@@ -24,15 +24,3 @@ public protocol IFileResultCallback : IBaseCallback {
      func onError(error : IFileResultCallbackError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum IFileResultCallbackWarning {
-     case SourceNotDeleted, RootDirectory
-}
-
-public enum IFileResultCallbackError {
-     case FileExists, InsufficientSpace, Unauthorized
-}
-

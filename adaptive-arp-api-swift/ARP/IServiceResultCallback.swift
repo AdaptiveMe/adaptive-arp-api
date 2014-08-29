@@ -23,15 +23,3 @@ public protocol IServiceResultCallback : IBaseCallback {
      func onError(error : IServiceResultCallbackError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum IServiceResultCallbackWarning {
-     case NotSecure, NotTrusted, Redirected
-}
-
-public enum IServiceResultCallbackError {
-     case Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, Unknown
-}
-

@@ -23,15 +23,3 @@ public protocol IContactResultCallback : IBaseCallback {
      func onError(error : IContactResultCallbackError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum IContactResultCallbackWarning {
-     case LimitExceeded
-}
-
-public enum IContactResultCallbackError {
-     case NoPermission
-}
-

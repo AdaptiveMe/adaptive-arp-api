@@ -19,12 +19,12 @@ public protocol IContact : IBasePIM {
       * Function Declarations
       */
      func searchContacts(term : String, callback : IContactResultCallback)
-     func searchContacts(term : String, callback : IContactResultCallback, filter : [Filter])
+     func searchContacts(term : String, callback : IContactResultCallback, filter : [IContactFilter])
      func getContact(contact : ContactUid, callback : IContactResultCallback)
      func getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback)
      func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool
      func getContacts(callback : IContactResultCallback)
-     func getContacts(callback : IContactResultCallback, fields : [FieldGroup])
-     func getContacts(callback : IContactResultCallback, fields : [FieldGroup], filter : [Filter])
+     func getContacts(callback : IContactResultCallback, fields : [IContactFieldGroup])
+     func getContacts(callback : IContactResultCallback, fields : [IContactFieldGroup], filter : [IContactFilter])
 
 }

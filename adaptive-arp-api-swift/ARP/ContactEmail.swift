@@ -52,8 +52,8 @@ public class ContactEmail {
           return self.type!
      }
 
-     public func setEmail(email : String) {
-          self.email = email
+     public func setType(type : EmailType) {
+          self.type = type
      }
 
      public func getEmail() -> String {
@@ -68,8 +68,8 @@ public class ContactEmail {
           self.primary = primary
      }
 
-     public func setType(type : EmailType) {
-          self.type = type
+     public func setEmail(email : String) {
+          self.email = email
      }
 
 

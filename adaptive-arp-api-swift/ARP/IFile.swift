@@ -30,17 +30,17 @@ public protocol IFile : IFilePath {
      func listFiles(regex : String, callback : IFileListResultCallback)
      func listFiles(callback : IFileListResultCallback)
      func toPath() -> IFilePath
-     func create(path : String, name : String, callback : IFileResultCallback)
      func create(name : String, callback : IFileResultCallback)
+     func create(path : String, name : String, callback : IFileResultCallback)
      func getContent(callback : IFileDataResultCallback)
-     func getDateCreated() -> Int64
-     func mkDir() -> Bool
-     func mkDir(recursive : Bool) -> Bool
-     func getDateModified() -> Int64
-     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback)
+     func move(newFile : IFile, callback : IFileResultCallback)
      func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
      func move(newFile : IFile, callback : IFileResultCallback, overwrite : Bool)
-     func move(newFile : IFile, callback : IFileResultCallback)
+     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback)
+     func mkDir() -> Bool
+     func mkDir(recursive : Bool) -> Bool
+     func getDateCreated() -> Int64
+     func getDateModified() -> Int64
      func setContent(content : [Byte], callback : IFileDataResultCallback)
 
 }

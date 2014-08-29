@@ -45,12 +45,12 @@ public class OSInfo {
           return self.name
      }
 
-     public func getVersion() -> String {
-          return self.version
-     }
-
      public func getVendor() -> String {
           return self.vendor
+     }
+
+     public func getVersion() -> String {
+          return self.version
      }
 
 

@@ -18,8 +18,8 @@ public protocol IGeolocation : IBaseSensor {
      /**
       * Function Declarations
       */
+     func addGeolocationListener(listener : IGeolocationListener)
      func removeGeolocationListener(listener : IGeolocationListener)
      func removeGeolocationListeners()
-     func addGeolocationListener(listener : IGeolocationListener)
 
 }

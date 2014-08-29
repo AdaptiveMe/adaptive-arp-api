@@ -23,15 +23,3 @@ public protocol INetworkReachabilityCallback {
      func onError(error : INetworkReachabilityCallbackError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum INetworkReachabilityCallbackWarning {
-     case IncorrectScheme
-}
-
-public enum INetworkReachabilityCallbackError {
-     case NoPermission, NetworkOnMainThreadException
-}
-

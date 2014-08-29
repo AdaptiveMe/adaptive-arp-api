@@ -57,16 +57,16 @@ public class Acceleration {
      /**
       * Function Declarations
       */
+     public func getZ() -> Double {
+          return self.z
+     }
+
      public func getX() -> Double {
           return self.x
      }
 
      public func getY() -> Double {
           return self.y
-     }
-
-     public func getZ() -> Double {
-          return self.z
      }
 
      public func getStatus() -> Status {

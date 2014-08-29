@@ -23,15 +23,3 @@ public protocol ITableResultCallback : IBaseCallback {
      func onError(error : ITableResultCallbackError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum ITableResultCallbackWarning {
-     case TableExists, TableLocked, NoResults
-}
-
-public enum ITableResultCallbackError {
-     case NoSpace, ReadOnlyTable, SqlException
-}
-

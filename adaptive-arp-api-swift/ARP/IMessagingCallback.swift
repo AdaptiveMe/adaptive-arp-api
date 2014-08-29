@@ -23,15 +23,3 @@ public protocol IMessagingCallback : IBaseCallback {
      func onError(error : IMessagingCallbackError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum IMessagingCallbackWarning {
-     case Unable_To_Sent_All, Unable_to_fetch_attachment
-}
-
-public enum IMessagingCallbackError {
-     case SIM_Not_Present, Email_Account_Not_Found, Not_Sent
-}
-

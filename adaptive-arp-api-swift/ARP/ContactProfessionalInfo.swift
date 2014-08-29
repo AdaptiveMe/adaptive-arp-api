@@ -41,16 +41,16 @@ public class ContactProfessionalInfo {
      /**
       * Function Declarations
       */
-     public func getCompany() -> String {
-          return self.company
-     }
-
      public func setCompany(company : String) {
           self.company = company
      }
 
      public func getJobTitle() -> String {
           return self.jobTitle
+     }
+
+     public func getCompany() -> String {
+          return self.company
      }
 
      public func setJobTitle(jobTitle : String) {

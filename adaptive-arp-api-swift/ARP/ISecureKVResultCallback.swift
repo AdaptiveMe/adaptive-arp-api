@@ -23,15 +23,3 @@ public protocol ISecureKVResultCallback : IBaseCallback {
      func onError(error : ISecureKVResultCallbackError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum ISecureKVResultCallbackWarning {
-     case EntryOverride
-}
-
-public enum ISecureKVResultCallbackError {
-     case NoPermission, NoMatchesFound
-}
-

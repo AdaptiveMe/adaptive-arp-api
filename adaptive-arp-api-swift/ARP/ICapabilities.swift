@@ -27,35 +27,3 @@ public protocol ICapabilities : IBaseSystem {
      func hasButtonSupport(type : ICapabilitiesButton) -> Bool
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum ICapabilitiesSensor {
-     case Accelerometer, AmbientLight, Barometer, Geolocation, Gyroscope, Magnetometer, Proximity
-}
-
-public enum ICapabilitiesCommunication {
-     case Calendar, Contact, Mail, Messaging, Telephony
-}
-
-public enum ICapabilitiesData {
-     case Database, File, Cloud
-}
-
-public enum ICapabilitiesMedia {
-     case Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording
-}
-
-public enum ICapabilitiesNet {
-     case GSM, GPRS, HSDPA, LTE, WIFI, Ethernet
-}
-
-public enum ICapabilitiesNotification {
-     case Alarm, LocalNotification, RemoteNotification, Vibration
-}
-
-public enum ICapabilitiesButton {
-     case HomeButton, BackButton, OptionButton
-}
-

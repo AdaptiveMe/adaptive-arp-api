@@ -23,15 +23,3 @@ public protocol IDatabaseResultCallback : IBaseCallback {
      func onError(error : IDatabaseResultCallbackError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum IDatabaseResultCallbackWarning {
-     case DatabaseExists
-}
-
-public enum IDatabaseResultCallbackError {
-     case NoSpace, SqlException
-}
-

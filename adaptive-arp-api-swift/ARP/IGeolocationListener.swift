@@ -23,15 +23,3 @@ public protocol IGeolocationListener : IBaseListener {
      func onError(error : IGeolocationListenerError)
 
 }
-
-/**
- * Enumeration Declarations
- */
-public enum IGeolocationListenerWarning {
-     case HighDoP
-}
-
-public enum IGeolocationListenerError {
-
-}
-
