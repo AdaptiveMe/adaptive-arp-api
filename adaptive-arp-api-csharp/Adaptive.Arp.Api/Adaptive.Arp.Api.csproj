@@ -135,6 +135,7 @@
     <Compile Include="Adaptive\Arp\Api\INetworkInfo.cs" />
     <Compile Include="Adaptive\Arp\Api\INetworkNaming.cs" />
     <Compile Include="Adaptive\Arp\Api\INetworkReachability.cs" />
+    <Compile Include="Adaptive\Arp\Api\INetworkReachabilityCallback.cs" />
     <Compile Include="Adaptive\Arp\Api\INetworkStatus.cs" />
     <Compile Include="Adaptive\Arp\Api\INFC.cs" />
     <Compile Include="Adaptive\Arp\Api\INotification.cs" />
@@ -311,6 +312,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Adaptive.Arp.Api.nuspec" />
+    <None Include="nuget-push.cmd" />
     <None Include="nuget.cmd" />
     <None Include="packages.config" />
   </ItemGroup>
