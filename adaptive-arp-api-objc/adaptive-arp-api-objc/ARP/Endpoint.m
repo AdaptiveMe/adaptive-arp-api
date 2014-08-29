@@ -49,7 +49,7 @@
     self->path_ = path;
     self->port_ = port;
     self->proxy_ = proxy;
-    Scheme_ = scheme;
+    self->scheme_ = scheme;
   }
   return self;
 }
@@ -87,20 +87,20 @@
 }
 
 - (NSString *)getScheme {
-  return Scheme_;
+  return scheme_;
 }
 
 - (void)setSchemeWithNSString:(NSString *)scheme {
-  Scheme_ = scheme;
+  self->scheme_ = scheme;
 }
 
 - (void)copyAllFieldsTo:(ARPEndpoint *)other {
   [super copyAllFieldsTo:other];
-  other->Scheme_ = Scheme_;
   other->host_ = host_;
   other->path_ = path_;
   other->port_ = port_;
   other->proxy_ = proxy_;
+  other->scheme_ = scheme_;
 }
 
 + (J2ObjcClassInfo *)__metadata {
@@ -123,7 +123,7 @@
     { "path_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "port_", NULL, 0x2, "I", NULL,  },
     { "proxy_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
-    { "Scheme_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
+    { "scheme_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
   static J2ObjcClassInfo _ARPEndpoint = { "Endpoint", "me.adaptive.arp.api", NULL, 0x1, 12, methods, 5, fields, 0, NULL};
   return &_ARPEndpoint;

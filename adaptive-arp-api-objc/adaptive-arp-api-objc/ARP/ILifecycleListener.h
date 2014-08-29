@@ -34,22 +34,54 @@
 #ifndef _ARPILifecycleListener_H_
 #define _ARPILifecycleListener_H_
 
+@class ARPILifecycleListener_ErrorEnum;
+@class ARPILifecycleListener_WarningEnum;
 @class ARPLifecycle;
 
 #import "JreEmulation.h"
 #include "IBaseListener.h"
+#include "java/lang/Enum.h"
 
 @protocol ARPILifecycleListener < ARPIBaseListener, NSObject, JavaObject >
 - (void)onResultWithARPLifecycle:(ARPLifecycle *)lifecycle;
 
-- (void)onWarningWithARPLifecycle:(ARPLifecycle *)lifecycle;
+- (void)onWarningWithARPLifecycle:(ARPLifecycle *)lifecycle
+withARPILifecycleListener_WarningEnum:(ARPILifecycleListener_WarningEnum *)warning;
 
-- (void)onErrorWithARPLifecycle:(ARPLifecycle *)lifecycle;
+- (void)onErrorWithARPILifecycleListener_ErrorEnum:(ARPILifecycleListener_ErrorEnum *)error;
 
 @end
 
 __attribute__((always_inline)) inline void ARPILifecycleListener_init() {}
 
 #define MeAdaptiveArpApiILifecycleListener ARPILifecycleListener
+
+@interface ARPILifecycleListener_ErrorEnum : JavaLangEnum < NSCopying > {
+}
++ (IOSObjectArray *)values;
++ (ARPILifecycleListener_ErrorEnum *)valueOfWithNSString:(NSString *)name;
+- (id)copyWithZone:(NSZone *)zone;
+
+- (id)initWithNSString:(NSString *)__name withInt:(int)__ordinal;
+@end
+
+FOUNDATION_EXPORT BOOL ARPILifecycleListener_ErrorEnum_initialized;
+J2OBJC_STATIC_INIT(ARPILifecycleListener_ErrorEnum)
+
+FOUNDATION_EXPORT ARPILifecycleListener_ErrorEnum *ARPILifecycleListener_ErrorEnum_values[];
+
+@interface ARPILifecycleListener_WarningEnum : JavaLangEnum < NSCopying > {
+}
++ (IOSObjectArray *)values;
++ (ARPILifecycleListener_WarningEnum *)valueOfWithNSString:(NSString *)name;
+- (id)copyWithZone:(NSZone *)zone;
+
+- (id)initWithNSString:(NSString *)__name withInt:(int)__ordinal;
+@end
+
+FOUNDATION_EXPORT BOOL ARPILifecycleListener_WarningEnum_initialized;
+J2OBJC_STATIC_INIT(ARPILifecycleListener_WarningEnum)
+
+FOUNDATION_EXPORT ARPILifecycleListener_WarningEnum *ARPILifecycleListener_WarningEnum_values[];
 
 #endif // _ARPILifecycleListener_H_

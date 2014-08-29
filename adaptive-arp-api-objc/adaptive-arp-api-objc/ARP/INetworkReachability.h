@@ -34,11 +34,14 @@
 #ifndef _ARPINetworkReachability_H_
 #define _ARPINetworkReachability_H_
 
+@protocol ARPINetworkReachabilityCallback;
+
 #import "JreEmulation.h"
 #include "IBaseCommunication.h"
 
 @protocol ARPINetworkReachability < ARPIBaseCommunication, NSObject, JavaObject >
-- (BOOL)isNetworkReachableWithNSString:(NSString *)url;
+- (void)isNetworkReachableWithNSString:(NSString *)url
+   withARPINetworkReachabilityCallback:(id<ARPINetworkReachabilityCallback>)callback;
 
 @end
 

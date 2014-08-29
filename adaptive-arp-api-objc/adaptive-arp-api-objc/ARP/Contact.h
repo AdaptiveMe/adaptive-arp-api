@@ -55,6 +55,8 @@
 
 - (id)initWithNSString:(NSString *)contactId;
 
+- (id)init;
+
 - (ARPContactPersonalInfo *)getPersonalInfo;
 
 - (void)setPersonalInfoWithARPContactPersonalInfo:(ARPContactPersonalInfo *)personalInfo;

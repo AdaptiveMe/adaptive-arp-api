@@ -51,6 +51,10 @@
   return self;
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (IOSByteArray *)getData {
   return data_;
 }
@@ -103,6 +107,7 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithByteArray:withLong:withNSString:withNSString:withNSString:", "AttachmentData", NULL, 0x1, NULL },
+    { "init", "AttachmentData", NULL, 0x1, NULL },
     { "getData", NULL, "[B", 0x1, NULL },
     { "setDataWithByteArray:", "setData", "V", 0x1, NULL },
     { "getDataSize", NULL, "J", 0x1, NULL },
@@ -121,7 +126,7 @@
     { "mimeType_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "referenceUrl_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPAttachmentData = { "AttachmentData", "me.adaptive.arp.api", NULL, 0x1, 11, methods, 5, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPAttachmentData = { "AttachmentData", "me.adaptive.arp.api", NULL, 0x1, 12, methods, 5, fields, 0, NULL};
   return &_ARPAttachmentData;
 }
 

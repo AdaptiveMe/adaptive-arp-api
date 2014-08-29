@@ -42,14 +42,14 @@
 - (id)initWithDouble:(double)latitude
           withDouble:(double)longitude
           withDouble:(double)altitude
-           withFloat:(float)XDoP
-           withFloat:(float)YDoP {
+           withFloat:(float)xDoP
+           withFloat:(float)yDoP {
   if (self = [super init]) {
     self->latitude_ = latitude;
     self->longitude_ = longitude;
     self->altitude_ = altitude;
-    self->XDoP_ = XDoP;
-    self->YDoP_ = YDoP;
+    self->xDoP_ = xDoP;
+    self->yDoP_ = yDoP;
   }
   return self;
 }
@@ -79,20 +79,20 @@
 }
 
 - (float)getXDoP {
-  return XDoP_;
+  return xDoP_;
 }
 
 - (float)getYDoP {
-  return YDoP_;
+  return yDoP_;
 }
 
 - (void)copyAllFieldsTo:(ARPGeolocation *)other {
   [super copyAllFieldsTo:other];
-  other->XDoP_ = XDoP_;
-  other->YDoP_ = YDoP_;
   other->altitude_ = altitude_;
   other->latitude_ = latitude_;
   other->longitude_ = longitude_;
+  other->xDoP_ = xDoP_;
+  other->yDoP_ = yDoP_;
 }
 
 + (J2ObjcClassInfo *)__metadata {
@@ -112,8 +112,8 @@
     { "latitude_", NULL, 0x2, "D", NULL,  },
     { "longitude_", NULL, 0x2, "D", NULL,  },
     { "altitude_", NULL, 0x2, "D", NULL,  },
-    { "XDoP_", NULL, 0x2, "F", NULL,  },
-    { "YDoP_", NULL, 0x2, "F", NULL,  },
+    { "xDoP_", NULL, 0x2, "F", NULL,  },
+    { "yDoP_", NULL, 0x2, "F", NULL,  },
   };
   static J2ObjcClassInfo _ARPGeolocation = { "Geolocation", "me.adaptive.arp.api", NULL, 0x1, 10, methods, 5, fields, 0, NULL};
   return &_ARPGeolocation;

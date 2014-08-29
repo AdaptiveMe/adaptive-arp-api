@@ -42,6 +42,10 @@
   return [super initWithNSString:contactId];
 }
 
+- (id)init {
+  return [super init];
+}
+
 - (ARPContactPersonalInfo *)getPersonalInfo {
   return personalInfo_;
 }
@@ -121,6 +125,7 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithNSString:", "Contact", NULL, 0x1, NULL },
+    { "init", "Contact", NULL, 0x1, NULL },
     { "getPersonalInfo", NULL, "Lme.adaptive.arp.api.ContactPersonalInfo;", 0x1, NULL },
     { "setPersonalInfoWithARPContactPersonalInfo:", "setPersonalInfo", "V", 0x1, NULL },
     { "getProfessionalInfo", NULL, "Lme.adaptive.arp.api.ContactProfessionalInfo;", 0x1, NULL },
@@ -148,7 +153,7 @@
     { "contactSocials_", NULL, 0x2, "[Lme.adaptive.arp.api.ContactSocial;", NULL,  },
     { "contactTags_", NULL, 0x2, "[Lme.adaptive.arp.api.ContactTag;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPContact = { "Contact", "me.adaptive.arp.api", NULL, 0x1, 17, methods, 8, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPContact = { "Contact", "me.adaptive.arp.api", NULL, 0x1, 18, methods, 8, fields, 0, NULL};
   return &_ARPContact;
 }
 

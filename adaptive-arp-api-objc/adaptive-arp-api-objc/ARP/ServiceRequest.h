@@ -63,7 +63,8 @@
     withARPHeaderArray:(IOSObjectArray *)headers
           withNSString:(NSString *)method
 withARPIService_ProtocolVersionEnum:(ARPIService_ProtocolVersionEnum *)protocolVersion
-       withARPISession:(id<ARPISession>)session;
+       withARPISession:(id<ARPISession>)session
+          withNSString:(NSString *)contentEncoding;
 
 - (ARPIService_ProtocolVersionEnum *)getProtocolVersion;
 

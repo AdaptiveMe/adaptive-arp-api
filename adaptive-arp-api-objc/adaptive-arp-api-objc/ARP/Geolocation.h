@@ -41,8 +41,8 @@
   double latitude_;
   double longitude_;
   double altitude_;
-  float XDoP_;
-  float YDoP_;
+  float xDoP_;
+  float yDoP_;
 }
 
 - (id)init;
@@ -50,8 +50,8 @@
 - (id)initWithDouble:(double)latitude
           withDouble:(double)longitude
           withDouble:(double)altitude
-           withFloat:(float)XDoP
-           withFloat:(float)YDoP;
+           withFloat:(float)xDoP
+           withFloat:(float)yDoP;
 
 - (double)getLatitude;
 

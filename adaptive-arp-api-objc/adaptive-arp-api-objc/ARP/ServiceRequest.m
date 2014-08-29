@@ -50,7 +50,8 @@
     withARPHeaderArray:(IOSObjectArray *)headers
           withNSString:(NSString *)method
 withARPIService_ProtocolVersionEnum:(ARPIService_ProtocolVersionEnum *)protocolVersion
-       withARPISession:(id<ARPISession>)session {
+       withARPISession:(id<ARPISession>)session
+          withNSString:(NSString *)contentEncoding {
   if (self = [super init]) {
     self->content_ = content;
     self->contentType_ = contentType;
@@ -60,6 +61,7 @@ withARPIService_ProtocolVersionEnum:(ARPIService_ProtocolVersionEnum *)protocolV
     self->method_ = method;
     self->protocolVersion_ = protocolVersion;
     self->session_ = session;
+    self->contentEncoding_ = contentEncoding;
   }
   return self;
 }
@@ -152,7 +154,7 @@ withARPIService_ProtocolVersionEnum:(ARPIService_ProtocolVersionEnum *)protocolV
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "init", "ServiceRequest", NULL, 0x1, NULL },
-    { "initWithNSString:withNSString:withInt:withByteArray:withARPHeaderArray:withNSString:withARPIService_ProtocolVersionEnum:withARPISession:", "ServiceRequest", NULL, 0x1, NULL },
+    { "initWithNSString:withNSString:withInt:withByteArray:withARPHeaderArray:withNSString:withARPIService_ProtocolVersionEnum:withARPISession:withNSString:", "ServiceRequest", NULL, 0x1, NULL },
     { "getProtocolVersion", NULL, "Lme.adaptive.arp.api.IService$ProtocolVersion;", 0x1, NULL },
     { "setProtocolVersionWithARPIService_ProtocolVersionEnum:", "setProtocolVersion", "V", 0x1, NULL },
     { "getContent", NULL, "Ljava.lang.String;", 0x1, NULL },

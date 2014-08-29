@@ -48,7 +48,8 @@
          withByteArray:(IOSByteArray *)contentBinary
                withInt:(int)contentBinaryLength
     withARPHeaderArray:(IOSObjectArray *)headers
-       withARPISession:(id<ARPISession>)session {
+       withARPISession:(id<ARPISession>)session
+          withNSString:(NSString *)contentEncoding {
   if (self = [super init]) {
     self->content_ = content;
     self->contentType_ = contentType;
@@ -57,6 +58,7 @@
     self->contentBinaryLength_ = contentBinaryLength;
     self->headers_ = headers;
     self->session_ = session;
+    self->contentEncoding_ = contentEncoding;
   }
   return self;
 }
@@ -140,7 +142,7 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "init", "ServiceResponse", NULL, 0x1, NULL },
-    { "initWithNSString:withNSString:withNSString:withByteArray:withInt:withARPHeaderArray:withARPISession:", "ServiceResponse", NULL, 0x1, NULL },
+    { "initWithNSString:withNSString:withNSString:withByteArray:withInt:withARPHeaderArray:withARPISession:withNSString:", "ServiceResponse", NULL, 0x1, NULL },
     { "getContent", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setContentWithNSString:", "setContent", "V", 0x1, NULL },
     { "getContentType", NULL, "Ljava.lang.String;", 0x1, NULL },

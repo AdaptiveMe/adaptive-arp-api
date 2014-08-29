@@ -60,7 +60,8 @@
          withByteArray:(IOSByteArray *)contentBinary
                withInt:(int)contentBinaryLength
     withARPHeaderArray:(IOSObjectArray *)headers
-       withARPISession:(id<ARPISession>)session;
+       withARPISession:(id<ARPISession>)session
+          withNSString:(NSString *)contentEncoding;
 
 - (NSString *)getContent;
 

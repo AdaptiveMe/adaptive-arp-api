@@ -53,6 +53,8 @@
            withNSString:(NSString *)mimeType
            withNSString:(NSString *)referenceUrl;
 
+- (id)init;
+
 - (IOSByteArray *)getData;
 
 - (void)setDataWithByteArray:(IOSByteArray *)data;

@@ -42,7 +42,7 @@
   NSString *path_;
   int port_;
   NSString *proxy_;
-  NSString *Scheme_;
+  NSString *scheme_;
 }
 
 - (id)init;
@@ -82,7 +82,7 @@ __attribute__((always_inline)) inline void ARPEndpoint_init() {}
 J2OBJC_FIELD_SETTER(ARPEndpoint, host_, NSString *)
 J2OBJC_FIELD_SETTER(ARPEndpoint, path_, NSString *)
 J2OBJC_FIELD_SETTER(ARPEndpoint, proxy_, NSString *)
-J2OBJC_FIELD_SETTER(ARPEndpoint, Scheme_, NSString *)
+J2OBJC_FIELD_SETTER(ARPEndpoint, scheme_, NSString *)
 
 typedef ARPEndpoint MeAdaptiveArpApiEndpoint;
 
