@@ -3,9 +3,12 @@
 //
 //  Service.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
-//  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
+//  Released under Apache Public License v2.0
 //
+//  -----------| aut viam inveniam aut faciam |-----------
+//   Copyright (c) 2014 Carlos Lozano Diez ta Adaptive.me
+//   All rights reserved.                 www.adaptive.me
+//  ------------------------------------------------------
 
 import Foundation
 
@@ -67,16 +70,16 @@ public class Service {
           return self.type!
      }
 
-     public func setType(type : ServiceType) {
-          self.type = type
+     public func setEndpoint(endpoint : Endpoint) {
+          self.endpoint = endpoint
      }
 
      public func getEndpoint() -> Endpoint {
           return self.endpoint!
      }
 
-     public func setEndpoint(endpoint : Endpoint) {
-          self.endpoint = endpoint
+     public func setType(type : ServiceType) {
+          self.type = type
      }
 
      public func setMethod(method : ServiceMethod) {

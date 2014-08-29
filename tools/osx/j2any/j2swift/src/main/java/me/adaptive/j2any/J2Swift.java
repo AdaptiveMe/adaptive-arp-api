@@ -13,7 +13,7 @@ public class J2Swift {
         String sourcePath = "/Users/clozano/Github/Runtimes/adaptive-arp-api/adaptive-arp-api-java/arp-api-specs/src/main/java";
         String targetPath = "/Users/clozano/Github/Runtimes/adaptive-arp-api/adaptive-arp-api-swift/ARP";
         String[] packages = {"me.adaptive.arp.api"};
-        if (J2SwiftConverter.convert(sourcePath,targetPath, packages)) {
+        if (J2SwiftConverter.convert(sourcePath, targetPath, packages)) {
             System.exit(0);
         } else {
             System.exit(-1);

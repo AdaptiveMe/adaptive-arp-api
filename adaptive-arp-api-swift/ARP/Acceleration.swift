@@ -3,9 +3,12 @@
 //
 //  Acceleration.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
-//  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
+//  Released under Apache Public License v2.0
 //
+//  -----------| aut viam inveniam aut faciam |-----------
+//   Copyright (c) 2014 Carlos Lozano Diez ta Adaptive.me
+//   All rights reserved.                 www.adaptive.me
+//  ------------------------------------------------------
 
 import Foundation
 
@@ -54,12 +57,12 @@ public class Acceleration {
      /**
       * Function Declarations
       */
-     public func getZ() -> Double {
-          return self.z
-     }
-
      public func getY() -> Double {
           return self.y
+     }
+
+     public func getZ() -> Double {
+          return self.z
      }
 
      public func getX() -> Double {

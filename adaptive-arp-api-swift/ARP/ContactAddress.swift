@@ -3,9 +3,12 @@
 //
 //  ContactAddress.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
-//  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
+//  Released under Apache Public License v2.0
 //
+//  -----------| aut viam inveniam aut faciam |-----------
+//   Copyright (c) 2014 Carlos Lozano Diez ta Adaptive.me
+//   All rights reserved.                 www.adaptive.me
+//  ------------------------------------------------------
 
 import Foundation
 
@@ -50,12 +53,12 @@ public class ContactAddress {
           return self.type!
      }
 
-     public func setType(type : AddressType) {
-          self.type = type
-     }
-
      public func setAddress(address : String) {
           self.address = address
+     }
+
+     public func setType(type : AddressType) {
+          self.type = type
      }
 
 

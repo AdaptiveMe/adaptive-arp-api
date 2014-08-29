@@ -3,9 +3,12 @@
 //
 //  Table.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
-//  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
+//  Released under Apache Public License v2.0
 //
+//  -----------| aut viam inveniam aut faciam |-----------
+//   Copyright (c) 2014 Carlos Lozano Diez ta Adaptive.me
+//   All rights reserved.                 www.adaptive.me
+//  ------------------------------------------------------
 
 import Foundation
 
@@ -52,6 +55,14 @@ public class Table {
           return self.columnCount
      }
 
+     public func getRows() -> [Row] {
+          return self.rows!
+     }
+
+     public func setRows(rows : [Row]) {
+          self.rows = rows
+     }
+
      public func setColumnCount(columnCount : Int) {
           self.columnCount = columnCount
      }
@@ -70,14 +81,6 @@ public class Table {
 
      public func setColumns(columns : [Column]) {
           self.columns = columns
-     }
-
-     public func getRows() -> [Row] {
-          return self.rows!
-     }
-
-     public func setRows(rows : [Row]) {
-          self.rows = rows
      }
 
 

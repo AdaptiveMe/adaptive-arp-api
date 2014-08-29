@@ -3,9 +3,12 @@
 //
 //  Endpoint.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
-//  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
+//  Released under Apache Public License v2.0
 //
+//  -----------| aut viam inveniam aut faciam |-----------
+//   Copyright (c) 2014 Carlos Lozano Diez ta Adaptive.me
+//   All rights reserved.                 www.adaptive.me
+//  ------------------------------------------------------
 
 import Foundation
 
@@ -60,8 +63,20 @@ public class Endpoint {
           return self.port
      }
 
+     public func setPath(path : String) {
+          self.path = path
+     }
+
+     public func setPort(port : Int) {
+          self.port = port
+     }
+
      public func getProxy() -> String {
           return self.proxy
+     }
+
+     public func setHost(host : String) {
+          self.host = host
      }
 
      public func setProxy(proxy : String) {
@@ -70,18 +85,6 @@ public class Endpoint {
 
      public func setScheme(scheme : String) {
           self.scheme = scheme
-     }
-
-     public func setHost(host : String) {
-          self.host = host
-     }
-
-     public func setPath(path : String) {
-          self.path = path
-     }
-
-     public func setPort(port : Int) {
-          self.port = port
      }
 
 

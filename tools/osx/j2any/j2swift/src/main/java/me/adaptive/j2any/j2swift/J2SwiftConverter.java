@@ -17,7 +17,10 @@ import java.lang.reflect.*;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by clozano on 27/08/2014.
@@ -95,9 +98,12 @@ public class J2SwiftConverter {
         ps.println(0, "//");
         ps.println(0, "//  " + targetFile.getName());
         ps.println(0, "//");
-        ps.println(0, "//  Created by Carlos Lozano Diez on " + new Date().toGMTString() + ".");
-        ps.println(0, "//  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.");
+        ps.println(0, "//  Released under Apache Public License v2.0");
         ps.println(0, "//");
+        ps.println(0, "//  -----------| aut viam inveniam aut faciam |-----------");
+        ps.println(0, "//   Copyright (c) 2014 Carlos Lozano Diez ta Adaptive.me");
+        ps.println(0, "//   All rights reserved.                 www.adaptive.me");
+        ps.println(0, "//  ------------------------------------------------------");
         ps.println();
         ps.println(0, "import Foundation");
         ps.println();
@@ -346,7 +352,7 @@ public class J2SwiftConverter {
                         if (parameterType.isEnum()) {
                             ps.print(clazz.getSimpleName() + parameter.getType().getSimpleName());
                         } else if (parameterType.getSimpleName().equals("Object")) {
-                            ps.print("Any"+parameter.getType().getSimpleName());
+                            ps.print("Any" + parameter.getType().getSimpleName());
                         } else {
                             ps.print(parameter.getType().getSimpleName());
                         }
@@ -457,7 +463,7 @@ public class J2SwiftConverter {
                     ps.println(10, "self." + getGetterSetterProperty(method) + " = " + getGetterSetterProperty(method));
                 }
                 ps.println(5, "}");
-                System.out.println(method);
+                //System.out.println(method);
             }
             ps.println();
         }
@@ -473,9 +479,9 @@ public class J2SwiftConverter {
             ps.println(0, " */");
         }
         for (Class<?> enumClass : interfaceEnumList) {
-            ps.println(0, "public enum "+clazz.getSimpleName() + enumClass.getSimpleName() + " {");
+            ps.println(0, "public enum " + clazz.getSimpleName() + enumClass.getSimpleName() + " {");
             Object[] enumConstants = enumClass.getEnumConstants();
-            if (enumConstants.length>0) {
+            if (enumConstants.length > 0) {
                 ps.print(5, "case ");
             }
             for (int i = 0; i < enumConstants.length; i++) {

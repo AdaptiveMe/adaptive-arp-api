@@ -3,9 +3,12 @@
 //
 //  IFile.swift
 //
-//  Created by Carlos Lozano Diez on 28 Aug 2014 23:36:07 GMT.
-//  Copyright (c) 2014 Carlos Lozano Diez. All rights reserved.
+//  Released under Apache Public License v2.0
 //
+//  -----------| aut viam inveniam aut faciam |-----------
+//   Copyright (c) 2014 Carlos Lozano Diez ta Adaptive.me
+//   All rights reserved.                 www.adaptive.me
+//  ------------------------------------------------------
 
 import Foundation
 
@@ -27,16 +30,16 @@ public protocol IFile : IFilePath {
      func listFiles(regex : String, callback : IFileListResultCallback)
      func listFiles(callback : IFileListResultCallback)
      func toPath() -> IFilePath
-     func create(name : String, callback : IFileResultCallback)
      func create(path : String, name : String, callback : IFileResultCallback)
+     func create(name : String, callback : IFileResultCallback)
      func getContent(callback : IFileDataResultCallback)
-     func move(newFile : IFile, callback : IFileResultCallback)
-     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
-     func move(newFile : IFile, callback : IFileResultCallback, overwrite : Bool)
-     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback)
-     func mkDir() -> Bool
      func mkDir(recursive : Bool) -> Bool
+     func mkDir() -> Bool
      func getDateCreated() -> Int64
+     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback)
+     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
+     func move(newFile : IFile, callback : IFileResultCallback)
+     func move(newFile : IFile, callback : IFileResultCallback, overwrite : Bool)
      func getDateModified() -> Int64
      func setContent(content : [Byte], callback : IFileDataResultCallback)
 
