@@ -63,12 +63,12 @@ public class Table {
           self.columnCount = columnCount
      }
 
-     public func getRowCount() -> Int {
-          return self.rowCount
-     }
-
      public func getRows() -> [Row] {
           return self.rows!
+     }
+
+     public func getRowCount() -> Int {
+          return self.rowCount
      }
 
      public func setRowCount(rowCount : Int) {

@@ -18,9 +18,9 @@ public protocol IDevice : IBaseSystem {
      /**
       * Function Declarations
       */
-     func addButtonListener(listener : IButtonListener)
      func getDeviceInfo() -> DeviceInfo
      func getLocaleCurrent() -> Locale
+     func addButtonListener(listener : IButtonListener)
      func removeButtonListener(listener : IButtonListener)
      func removeButtonListeners()
 

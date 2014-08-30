@@ -18,8 +18,8 @@ public protocol IDatabaseResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+     func onError(error : IDatabaseResultCallbackError)
      func onResult(database : Database)
      func onWarning(database : Database, warning : IDatabaseResultCallbackWarning)
-     func onError(error : IDatabaseResultCallbackError)
 
 }

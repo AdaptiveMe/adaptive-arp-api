@@ -18,8 +18,8 @@ public protocol ITableResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+     func onError(error : ITableResultCallbackError)
      func onResult(table : Table)
      func onWarning(table : Table, warning : ITableResultCallbackWarning)
-     func onError(error : ITableResultCallbackError)
 
 }

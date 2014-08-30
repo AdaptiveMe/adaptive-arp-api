@@ -423,7 +423,11 @@ public class J2SwiftConverter {
                         } else if (parameterType.getSimpleName().equals("Object")) {
                             ps.print("Any" + parameter.getType().getSimpleName());
                         } else {
-                            ps.print(parameter.getType().getSimpleName());
+                            if (parameter.getType().equals(clazz)) {
+                                ps.print("Self");
+                            } else {
+                                ps.print(parameter.getType().getSimpleName());
+                            }
                         }
                     }
 

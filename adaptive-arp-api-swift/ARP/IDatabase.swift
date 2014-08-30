@@ -18,6 +18,7 @@ public protocol IDatabase : IBaseData {
      /**
       * Function Declarations
       */
+     func createTable(database : Database, table : Table, callback : ITableResultCallback)
      func deleteDatabase(database : Database, callback : IDatabaseResultCallback)
      func existsDatabase(database : Database) -> Bool
      func getDatabase(database : Database, callback : IDatabaseResultCallback)
@@ -27,6 +28,5 @@ public protocol IDatabase : IBaseData {
      func executeSqlQuery(database : Database, query : String, replacements : [String], callback : ITableResultCallback)
      func executeSqlStatement(database : Database, statement : String, replacements : [String], callback : ITableResultCallback)
      func executeSqlTransactions(database : Database, statements : [String], rollbackFlag : Bool, callback : ITableResultCallback)
-     func createTable(database : Database, table : Table, callback : ITableResultCallback)
 
 }

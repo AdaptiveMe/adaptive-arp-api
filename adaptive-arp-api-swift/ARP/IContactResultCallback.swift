@@ -18,8 +18,8 @@ public protocol IContactResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+     func onError(error : IContactResultCallbackError)
      func onResult(contacts : [Contact])
      func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning)
-     func onError(error : IContactResultCallbackError)
 
 }

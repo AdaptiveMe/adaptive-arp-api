@@ -18,8 +18,8 @@ public protocol IContactPhotoResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+     func onError(error : IContactPhotoResultCallbackError)
      func onResult(contactPhoto : [Byte])
      func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning)
-     func onError(error : IContactPhotoResultCallbackError)
 
 }

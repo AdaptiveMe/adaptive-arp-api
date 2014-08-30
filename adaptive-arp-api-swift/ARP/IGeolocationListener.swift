@@ -18,8 +18,8 @@ public protocol IGeolocationListener : IBaseListener {
      /**
       * Function Declarations
       */
+     func onError(error : IGeolocationListenerError)
      func onResult(geolocation : Geolocation)
      func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning)
-     func onError(error : IGeolocationListenerError)
 
 }

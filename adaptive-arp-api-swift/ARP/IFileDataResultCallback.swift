@@ -18,9 +18,9 @@ public protocol IFileDataResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
-     func onResult(file : IFile, data : [Byte])
-     func onWarning(file : IFile, warning : IFileDataResultCallbackWarning)
-     func onError(file : IFile, error : IFileDataResultCallbackError)
+    func onError<T : IFile>(file : T, error : IFileDataResultCallbackError)
      func onError(error : IFileDataResultCallbackError)
+     func onResult<T : IFile>(file : T, data : [Byte])
+     func onWarning<T : IFile>(file : T, warning : IFileDataResultCallbackWarning)
 
 }

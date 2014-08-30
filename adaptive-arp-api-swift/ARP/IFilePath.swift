@@ -20,25 +20,25 @@ public protocol IFilePath : IBaseData {
       */
      func equals(other : String) -> Bool
      func toString() -> String
-     func getName(index : Int) -> IFilePath
+     func getName(index : Int) -> Self
      func startsWith(other : String) -> Bool
-     func startsWith(other : IFilePath) -> Bool
-     func endsWith(other : IFilePath) -> Bool
+     func startsWith(other : Self) -> Bool
+     func endsWith(other : Self) -> Bool
      func endsWith(other : String) -> Bool
-     func getParent() -> IFilePath
+     func getParent() -> Self
      func isAbsolute() -> Bool
-     func resolve(other : IFilePath) -> IFilePath
-     func resolve(other : String) -> IFilePath
-     func normalize() -> IFilePath
-     func getFileName() -> IFilePath
-     func getFileSystem() -> IFileSystem
-     func getRoot() -> IFilePath
+     func resolve(other : Self) -> Self
+     func resolve(other : String) -> Self
+     func normalize() -> Self
+     func getFileName() -> Self
+     func getFileSystem() -> Self
+     func getRoot() -> Self
      func getNameCount() -> Int
-     func resolveSibling(other : IFilePath) -> IFilePath
-     func resolveSibling(other : String) -> IFilePath
-     func relativize(other : IFilePath) -> IFilePath
-     func toAbsolutePath() -> IFilePath
-     func toFile() -> IFile
-     func equalPath(other : IFilePath) -> Bool
+     func resolveSibling(other : Self) -> Self
+     func resolveSibling(other : String) -> Self
+     func relativize(other : Self) -> Self
+     func toAbsolutePath() -> Self
+     func toFile<T : IFile>() -> T
+     func equalPath(other : Self) -> Bool
 
 }

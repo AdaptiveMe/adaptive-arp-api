@@ -29,14 +29,14 @@ public protocol IFile : IFilePath {
      func isDirectory() -> Bool
      func listFiles(regex : String, callback : IFileListResultCallback)
      func listFiles(callback : IFileListResultCallback)
-     func toPath() -> IFilePath
+     func toPath<T : IFilePath>() -> T
      func create(name : String, callback : IFileResultCallback)
      func create(path : String, name : String, callback : IFileResultCallback)
      func getContent(callback : IFileDataResultCallback)
-     func move(newFile : IFile, callback : IFileResultCallback)
-     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
-     func move(newFile : IFile, callback : IFileResultCallback, overwrite : Bool)
-     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback)
+     func move(newFile : Self, callback : IFileResultCallback)
+     func move(newFile : Self, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
+     func move(newFile : Self, callback : IFileResultCallback, overwrite : Bool)
+     func move(newFile : Self, createPath : Bool, callback : IFileResultCallback)
      func mkDir() -> Bool
      func mkDir(recursive : Bool) -> Bool
      func getDateCreated() -> Int64

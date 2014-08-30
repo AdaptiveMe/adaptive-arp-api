@@ -52,10 +52,6 @@ public class ContactEmail {
           return self.type!
      }
 
-     public func setType(type : EmailType) {
-          self.type = type
-     }
-
      public func getEmail() -> String {
           return self.email
      }
@@ -70,6 +66,10 @@ public class ContactEmail {
 
      public func setEmail(email : String) {
           self.email = email
+     }
+
+     public func setType(type : EmailType) {
+          self.type = type
      }
 
 

@@ -18,8 +18,8 @@ public protocol IMessagingCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+     func onError(error : IMessagingCallbackError)
      func onResult(success : Bool)
      func onWarning(success : Bool, warning : IMessagingCallbackWarning)
-     func onError(error : IMessagingCallbackError)
 
 }

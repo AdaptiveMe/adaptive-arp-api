@@ -18,17 +18,17 @@ public protocol IFileSystem : IBaseData {
      /**
       * Function Declarations
       */
-     func getPath(file : IFile) -> String
-     func getPath(path : IFilePath) -> String
-     func toPath(path : IFile) -> IFilePath
-     func getSeparator() -> char
-     func create(path : IFilePath, name : String, callback : IFileResultCallback)
+     func getPath<T : IFile>(file : T) -> String
+     func getPath<T : IFilePath>(path : T) -> String
+     func toPath<T : IFilePath>(path : T) -> T
+     func getSeparator() -> CChar
+     func create<T : IFilePath>(path : T, name : String, callback : IFileResultCallback)
      func create(path : String, name : String, callback : IFileResultCallback)
      func create(name : String, callback : IFileResultCallback)
-     func isSamePath(source : IFilePath, dest : IFilePath) -> Bool
-     func getApplicationFolder() -> IFilePath
-     func getApplicationCacheFolder() -> IFilePath
-     func getApplicationDocumentsFolder() -> IFilePath
-     func isSameFile(source : IFile, dest : IFile) -> Bool
+     func isSamePath<T : IFilePath>(source : T, dest : T) -> Bool
+     func getApplicationFolder<T : IFilePath>() -> T
+     func getApplicationCacheFolder<T : IFilePath>() -> T
+     func getApplicationDocumentsFolder<T : IFilePath>() -> T
+     func isSameFile<T : IFile>(source : T, dest : T) -> Bool
 
 }

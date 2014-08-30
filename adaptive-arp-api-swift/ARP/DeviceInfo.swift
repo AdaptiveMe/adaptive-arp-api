@@ -52,12 +52,12 @@ public class DeviceInfo {
           return self.vendor
      }
 
-     public func getUuid() -> String {
-          return self.uuid
-     }
-
      public func getModel() -> String {
           return self.model
+     }
+
+     public func getUuid() -> String {
+          return self.uuid
      }
 
 

@@ -18,8 +18,8 @@ public protocol INetworkReachabilityCallback {
      /**
       * Function Declarations
       */
+     func onError(error : INetworkReachabilityCallbackError)
      func onResult(result : Bool)
      func onWarning(result : Bool, warning : INetworkReachabilityCallbackWarning)
-     func onError(error : INetworkReachabilityCallbackError)
 
 }

@@ -18,8 +18,8 @@ public protocol IButtonListener : IBaseListener {
      /**
       * Function Declarations
       */
+     func onError(error : IButtonListenerError)
      func onResult(button : Button)
      func onWarning(button : Button, warning : IButtonListenerWarning)
-     func onError(error : IButtonListenerError)
 
 }

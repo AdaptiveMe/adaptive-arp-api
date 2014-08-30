@@ -18,8 +18,8 @@ public protocol ILifecycleListener : IBaseListener {
      /**
       * Function Declarations
       */
+     func onError(error : ILifecycleListenerError)
      func onResult(lifecycle : Lifecycle)
      func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning)
-     func onError(error : ILifecycleListenerError)
 
 }
