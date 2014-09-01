@@ -27,10 +27,10 @@
 #
 
 Pod::Spec.new do |s|
-s.name             = "adaptive-arp-api-swift"
-s.version          = "1.0.7"
-s.summary          = "The Adaptive Runtime Platform (ARP) provides native “containers” for Hybrid Apps"
-s.description	   = "The Adaptive Runtime Platform (ARP) provides these native “containers” for the main mobile and desktop platforms so that Hybrid apps can be compiled and deployed on a multiplicity of devices leveraging the same code developed using modern web technologies."
+s.name             = "AdaptiveArpApi"
+s.version          = "1.0.18"
+s.summary          = "The Adaptive Runtime Platform (ARP) provides native “containers” for Hybrid Apps. This is the API all platforms must adhere to."
+s.description	   = "The Adaptive Runtime Platform (ARP) provides these native “containers” for the main mobile and desktop platforms so that Hybrid apps can be compiled and deployed on a multiplicity of devices leveraging the same code developed using modern web technologies. This project represents the APIs to be supported on the given language domain."
 s.homepage         = "https://github.com/AdaptiveMe/adaptive-arp-api"
 s.license          = { 
 			:type => 'Apache 2.0 License', 
@@ -41,7 +41,8 @@ s.author           = {
 		     }
 s.source           = { 
 			:git => "https://github.com/AdaptiveMe/adaptive-arp-api.git", 
-			:branch => "master" 
+			:branch => "master",
+			:tag => "v1.0.18" 
 		     }
 s.social_media_url = 'https://twitter.com/adaptivecoder'
 s.platform         = :ios, '8.0'
