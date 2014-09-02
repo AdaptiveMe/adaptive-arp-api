@@ -16,22 +16,65 @@ Please refer to the [project site](http://adaptiveme.github.io) for more informa
 * **Dependencies**
 	* Java [JDK 1.7.0_51](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html?ssSourceSiteId=otnes) or higher. 
 
+###### Artefacts
+Maven:
+
+```
+<dependency>
+        <groupId>adaptive-arp-api-java</groupId>
+        <artifactId>arp-api-specs</artifactId>
+        <version>1.0.14</version>
+        <type>jar</type>
+</dependency>
+
+```
+Gradle:
+
+```
+compile(group: 'adaptive-arp-api-java', name: 'arp-api-specs', version: '1.0.14', ext: 'jar')
+```
+
 #### adaptive-arp-api-objc
 
 * **IDE** 
-	* JetBrains [AppCode 3.0.2](http://www.jetbrains.com/objc/) or higher.
-	* Apple [Xcode 6.0 beta 4](https://developer.apple.com/xcode/) or higher.
+	* JetBrains [AppCode 3.0.2](http://www.jetbrains.com/objc/) or higher, or,
+	* Apple [Xcode 6.0 beta 6](https://developer.apple.com/xcode/) or higher.
 * **Dependencies**
 	* Java [JDK 1.7.0_51](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html?ssSourceSiteId=otnes) or higher. 
+	* j2objc [0.9.3](https://github.com/google/j2objc/releases/tag/0.9.3) or higher.
 
 #### adaptive-arp-api-csharp
 
 * **IDE**
-	* [MonoDevelop 5.0.1](http://monodevelop.com/Download) or higher / [Xamarin Studio 5.0.1](http://monodevelop.com/Download) or higher.
+	* Microsoft Visual Studio 2013 [Update 3](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200395108) or higher.
 * **Dependencies**
-	* [Mono MDK 3.4.0](http://www.go-mono.com/mono-downloads/download.html) or higher.
+    * Microsoft Windows Phone SDK [8.1](http://dev.windows.com/en-us/develop/download-phone-sdk) or higher.
+	* Microsoft .NET Framework [4.5.2](http://www.microsoft.com/en-us/download/details.aspx?id=42642) or higher.
 
+###### Artefacts
+Nuget:
 
+```
+PM> Install-Package Adaptive.Arp.Api
+
+```
+
+#### adaptive-arp-api-swift
+
+* **IDE** 
+	* JetBrains [AppCode 3.0.2](http://www.jetbrains.com/objc/) or higher, or,
+	* Apple [Xcode 6.0 beta 6](https://developer.apple.com/xcode/) or higher.
+* **Dependencies**
+	* Java [JDK 1.7.0_51](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html?ssSourceSiteId=otnes) or higher.
+
+###### Artefacts
+CocoaPod:
+
+```
+pod 'AdaptiveArpApi', '~> 1.0'
+
+```
+	
 ## Contributing
 We'd *love to accept your patches and contributions to this project*.  There are a just a few small guidelines you need to follow to ensure that you and/or your company and our project are safeguarded from inadvertent copyright infringement. I know, this can be a pain but we want fair-play from the very start so that we're all on the same page. Please refer to the [project site](http://adaptiveme.github.io) for more information.
 
