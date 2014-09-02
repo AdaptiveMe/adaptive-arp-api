@@ -31,7 +31,7 @@ Maven:
 
 Gradle:
 
-```json
+```
 compile(group: 'adaptive-arp-api-java', name: 'arp-api-specs', version: '1.0.14', ext: 'jar')
 ```
 
