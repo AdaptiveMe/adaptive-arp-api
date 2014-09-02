@@ -19,7 +19,7 @@ Please refer to the [project site](http://adaptiveme.github.io) for more informa
 ###### Artefacts
 Maven:
 
-```
+```java
 <dependency>
         <groupId>adaptive-arp-api-java</groupId>
         <artifactId>arp-api-specs</artifactId>
@@ -28,11 +28,13 @@ Maven:
 </dependency>
 
 ```
+
 Gradle:
 
-```
+```json
 compile(group: 'adaptive-arp-api-java', name: 'arp-api-specs', version: '1.0.14', ext: 'jar')
 ```
+
 
 #### adaptive-arp-api-objc
 
@@ -53,10 +55,8 @@ compile(group: 'adaptive-arp-api-java', name: 'arp-api-specs', version: '1.0.14'
 
 ###### Artefacts
 Nuget:
-
 ```
 PM> Install-Package Adaptive.Arp.Api
-
 ```
 
 #### adaptive-arp-api-swift
@@ -72,7 +72,6 @@ CocoaPod:
 
 ```
 pod 'AdaptiveArpApi', '~> 1.0'
-
 ```
 	
 ## Contributing
