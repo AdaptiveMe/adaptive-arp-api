@@ -57,7 +57,9 @@ public interface INetworkReachabilityCallback {
      */
     void onError(Error error);
 
-    enum Warning {IncorrectScheme}
 
-    enum Error {NoPermission, NetworkOnMainThreadException}
+    public enum Error{NoPermission,UnknownHost}
+
+    public enum Warning{IncorrectScheme}
+
 }
