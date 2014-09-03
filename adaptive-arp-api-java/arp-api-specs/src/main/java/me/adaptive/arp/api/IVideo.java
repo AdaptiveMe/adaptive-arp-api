@@ -34,5 +34,5 @@ public interface IVideo extends IBaseMedia {
      * Play url video stream
      * @param url of the video
      */
-    void PlayStream(String url);
+    void playStream(String url);
 }
