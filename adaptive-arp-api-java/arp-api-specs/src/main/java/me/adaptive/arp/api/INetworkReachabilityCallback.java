@@ -38,7 +38,7 @@ public interface INetworkReachabilityCallback {
      * @param result
      * @since ARP1.0
      */
-    void onResult(boolean result);
+    void onResult(String result);
 
     /**
      * Data received with warning - ie Found entries with existing key and values have been overriden
@@ -47,7 +47,7 @@ public interface INetworkReachabilityCallback {
      * @param warning
      * @since ARP1.0
      */
-    void onWarning(boolean result, Warning warning);
+    void onWarning(String result, Warning warning);
 
     /**
      * No data received - error condition, not authorized .
