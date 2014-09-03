@@ -31,29 +31,49 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public interface IAccelerationListener : IBaseListener
+	public abstract class IAccelerationListener : IBaseListener
 	{
 		/// <summary>Correct data received.</summary>
 		/// <remarks>Correct data received.</remarks>
 		/// <param name="acceleration"></param>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
-		void OnResult(Acceleration acceleration);
+		public abstract void OnResult(Acceleration acceleration);
 
 		/// <summary>Data received with warning - ie.</summary>
 		/// <remarks>Data received with warning - ie. Needs calibration.</remarks>
 		/// <param name="acceleration"></param>
+		/// <param name="warning"></param>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
-		void OnWarning(Acceleration acceleration);
+		public abstract void OnWarning(Acceleration acceleration, IAccelerationListener.Warning
+			 warning);
 
 		/// <summary>No data received - error condition, not authorized or hardware not available.
 		/// 	</summary>
-		/// <remarks>No data received - error condition, not authorized or hardware not available.
-		/// 	</remarks>
-		/// <param name="acceleration"></param>
+		/// <remarks>
+		/// No data received - error condition, not authorized or hardware not available. This will be reported once for the
+		/// listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+		/// </remarks>
+		/// <param name="error"></param>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
-		void OnError(Acceleration acceleration);
+		public abstract void OnError(IAccelerationListener.Error error);
+
+		/// <summary>Warnings that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum Warning
+		{
+			NeedsCalibration,
+			Stale
+		}
+
+		/// <summary>Errors that can be used</summary>
+		/// <since>ARP1.0</since>
+		public enum Error
+		{
+			Unauthorized,
+			Unavailable
+		}
 	}
 }

@@ -31,44 +31,26 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public abstract class IAccelerometer : IBaseSensor
+	public interface IAccelerometer : IBaseSensor
 	{
 		/// <summary>Register a new listener that will receive acceleration events.</summary>
 		/// <remarks>Register a new listener that will receive acceleration events.</remarks>
 		/// <param name="listener">to be registered.</param>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
-		public abstract void AddAccelerationListener(IAccelerationListener listener);
+		void AddAccelerationListener(IAccelerationListener listener);
 
 		/// <summary>De-registers an existing listener from receiving acceleration events.</summary>
 		/// <remarks>De-registers an existing listener from receiving acceleration events.</remarks>
 		/// <param name="listener"></param>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
-		public abstract void RemoveAccelerationListener(IAccelerationListener listener);
+		void RemoveAccelerationListener(IAccelerationListener listener);
 
 		/// <summary>Removed all existing listeners from receiving acceleration events.</summary>
 		/// <remarks>Removed all existing listeners from receiving acceleration events.</remarks>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
-		public abstract void RemoveAccelerationListeners();
-
-		/// <summary>Success = Correct reading.</summary>
-		/// <remarks>
-		/// Success = Correct reading. Unauthorized = No reading. User has not
-		/// authorized a reading. NeedsCalibration = No reading. Device needs to be
-		/// calibrated. Unavailable = No reading. Not supported or temporarily
-		/// disabled.
-		/// </remarks>
-		/// <author>Carlos Lozano Diez</author>
-		/// <since>ARP1.0</since>
-		public enum Status
-		{
-			Success,
-			Unauthorized,
-			NeedsCalibration,
-			Stale,
-			Unavailable
-		}
+		void RemoveAccelerationListeners();
 	}
 }
