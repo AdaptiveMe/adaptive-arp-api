@@ -34,8 +34,6 @@
 #ifndef _ARPAcceleration_H_
 #define _ARPAcceleration_H_
 
-@class ARPIAccelerometer_StatusEnum;
-
 #import "JreEmulation.h"
 
 @interface ARPAcceleration : NSObject {
@@ -43,15 +41,13 @@
   double x_;
   double y_;
   double z_;
-  ARPIAccelerometer_StatusEnum *status_;
   long long int timeStamp_;
 }
 
 - (id)initWithDouble:(double)x
           withDouble:(double)y
-          withDouble:(double)z;
-
-- (id)initWithARPIAccelerometer_StatusEnum:(ARPIAccelerometer_StatusEnum *)status;
+          withDouble:(double)z
+            withLong:(long long int)timeStamp;
 
 - (id)init;
 
@@ -61,15 +57,19 @@
 
 - (double)getZ;
 
-- (ARPIAccelerometer_StatusEnum *)getStatus;
+- (void)setXWithDouble:(double)x;
+
+- (void)setYWithDouble:(double)y;
+
+- (void)setZWithDouble:(double)z;
+
+- (void)setTimeStampWithLong:(long long int)timeStamp;
 
 - (void)copyAllFieldsTo:(ARPAcceleration *)other;
 
 @end
 
 __attribute__((always_inline)) inline void ARPAcceleration_init() {}
-
-J2OBJC_FIELD_SETTER(ARPAcceleration, status_, ARPIAccelerometer_StatusEnum *)
 
 typedef ARPAcceleration MeAdaptiveArpApiAcceleration;
 

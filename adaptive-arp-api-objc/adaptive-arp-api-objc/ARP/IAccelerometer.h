@@ -38,7 +38,6 @@
 
 #import "JreEmulation.h"
 #include "IBaseSensor.h"
-#include "java/lang/Enum.h"
 
 @protocol ARPIAccelerometer < ARPIBaseSensor, NSObject, JavaObject >
 - (void)addAccelerationListenerWithARPIAccelerationListener:(id<ARPIAccelerationListener>)listener;
@@ -52,42 +51,5 @@
 __attribute__((always_inline)) inline void ARPIAccelerometer_init() {}
 
 #define MeAdaptiveArpApiIAccelerometer ARPIAccelerometer
-
-typedef enum {
-  ARPIAccelerometer_Status_Success = 0,
-  ARPIAccelerometer_Status_Unauthorized = 1,
-  ARPIAccelerometer_Status_NeedsCalibration = 2,
-  ARPIAccelerometer_Status_Stale = 3,
-  ARPIAccelerometer_Status_Unavailable = 4,
-} ARPIAccelerometer_Status;
-
-@interface ARPIAccelerometer_StatusEnum : JavaLangEnum < NSCopying > {
-}
-+ (IOSObjectArray *)values;
-+ (ARPIAccelerometer_StatusEnum *)valueOfWithNSString:(NSString *)name;
-- (id)copyWithZone:(NSZone *)zone;
-
-- (id)initWithNSString:(NSString *)__name withInt:(int)__ordinal;
-@end
-
-FOUNDATION_EXPORT BOOL ARPIAccelerometer_StatusEnum_initialized;
-J2OBJC_STATIC_INIT(ARPIAccelerometer_StatusEnum)
-
-FOUNDATION_EXPORT ARPIAccelerometer_StatusEnum *ARPIAccelerometer_StatusEnum_values[];
-
-#define ARPIAccelerometer_StatusEnum_Success ARPIAccelerometer_StatusEnum_values[ARPIAccelerometer_Status_Success]
-J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerometer_StatusEnum, Success, ARPIAccelerometer_StatusEnum *)
-
-#define ARPIAccelerometer_StatusEnum_Unauthorized ARPIAccelerometer_StatusEnum_values[ARPIAccelerometer_Status_Unauthorized]
-J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerometer_StatusEnum, Unauthorized, ARPIAccelerometer_StatusEnum *)
-
-#define ARPIAccelerometer_StatusEnum_NeedsCalibration ARPIAccelerometer_StatusEnum_values[ARPIAccelerometer_Status_NeedsCalibration]
-J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerometer_StatusEnum, NeedsCalibration, ARPIAccelerometer_StatusEnum *)
-
-#define ARPIAccelerometer_StatusEnum_Stale ARPIAccelerometer_StatusEnum_values[ARPIAccelerometer_Status_Stale]
-J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerometer_StatusEnum, Stale, ARPIAccelerometer_StatusEnum *)
-
-#define ARPIAccelerometer_StatusEnum_Unavailable ARPIAccelerometer_StatusEnum_values[ARPIAccelerometer_Status_Unavailable]
-J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerometer_StatusEnum, Unavailable, ARPIAccelerometer_StatusEnum *)
 
 #endif // _ARPIAccelerometer_H_

@@ -32,28 +32,18 @@
 //
 
 #include "Acceleration.h"
-#include "IAccelerometer.h"
-#include "java/lang/System.h"
 
 @implementation ARPAcceleration
 
 - (id)initWithDouble:(double)x
           withDouble:(double)y
-          withDouble:(double)z {
+          withDouble:(double)z
+            withLong:(long long int)timeStamp {
   if (self = [super init]) {
     self->x_ = x;
     self->y_ = y;
     self->z_ = z;
-    self->status_ = ARPIAccelerometer_StatusEnum_get_Success();
-    self->timeStamp_ = [JavaLangSystem currentTimeMillis];
-  }
-  return self;
-}
-
-- (id)initWithARPIAccelerometer_StatusEnum:(ARPIAccelerometer_StatusEnum *)status {
-  if (self = [super init]) {
-    self->status_ = status;
-    self->timeStamp_ = [JavaLangSystem currentTimeMillis];
+    self->timeStamp_ = timeStamp;
   }
   return self;
 }
@@ -74,13 +64,24 @@
   return z_;
 }
 
-- (ARPIAccelerometer_StatusEnum *)getStatus {
-  return status_;
+- (void)setXWithDouble:(double)x {
+  self->x_ = x;
+}
+
+- (void)setYWithDouble:(double)y {
+  self->y_ = y;
+}
+
+- (void)setZWithDouble:(double)z {
+  self->z_ = z;
+}
+
+- (void)setTimeStampWithLong:(long long int)timeStamp {
+  self->timeStamp_ = timeStamp;
 }
 
 - (void)copyAllFieldsTo:(ARPAcceleration *)other {
   [super copyAllFieldsTo:other];
-  other->status_ = status_;
   other->timeStamp_ = timeStamp_;
   other->x_ = x_;
   other->y_ = y_;
@@ -89,22 +90,23 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "initWithDouble:withDouble:withDouble:", "Acceleration", NULL, 0x1, NULL },
-    { "initWithARPIAccelerometer_StatusEnum:", "Acceleration", NULL, 0x1, NULL },
+    { "initWithDouble:withDouble:withDouble:withLong:", "Acceleration", NULL, 0x1, NULL },
     { "init", "Acceleration", NULL, 0x1, NULL },
     { "getX", NULL, "D", 0x1, NULL },
     { "getY", NULL, "D", 0x1, NULL },
     { "getZ", NULL, "D", 0x1, NULL },
-    { "getStatus", NULL, "Lme.adaptive.arp.api.IAccelerometer$Status;", 0x1, NULL },
+    { "setXWithDouble:", "setX", "V", 0x1, NULL },
+    { "setYWithDouble:", "setY", "V", 0x1, NULL },
+    { "setZWithDouble:", "setZ", "V", 0x1, NULL },
+    { "setTimeStampWithLong:", "setTimeStamp", "V", 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "x_", NULL, 0x0, "D", NULL,  },
     { "y_", NULL, 0x0, "D", NULL,  },
     { "z_", NULL, 0x0, "D", NULL,  },
-    { "status_", NULL, 0x0, "Lme.adaptive.arp.api.IAccelerometer$Status;", NULL,  },
     { "timeStamp_", NULL, 0x0, "J", NULL,  },
   };
-  static J2ObjcClassInfo _ARPAcceleration = { "Acceleration", "me.adaptive.arp.api", NULL, 0x1, 7, methods, 5, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPAcceleration = { "Acceleration", "me.adaptive.arp.api", NULL, 0x1, 9, methods, 4, fields, 0, NULL};
   return &_ARPAcceleration;
 }
 
