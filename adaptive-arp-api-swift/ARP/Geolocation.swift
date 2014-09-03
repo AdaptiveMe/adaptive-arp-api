@@ -17,9 +17,9 @@ public class Geolocation {
      /**
       * Field Declarations
       */
+     var altitude : Double
      var latitude : Double
      var longitude : Double
-     var altitude : Double
      var xDoP : Float
      var yDoP : Float
 
@@ -47,28 +47,16 @@ public class Geolocation {
      /**
       * Function Declarations
       */
-     public func getLatitude() -> Double {
-          return self.latitude
-     }
-
-     public func setLatitude(latitude : Double) {
-          self.latitude = latitude
-     }
-
-     public func getLongitude() -> Double {
-          return self.longitude
-     }
-
-     public func setLongitude(longitude : Double) {
-          self.longitude = longitude
-     }
-
      public func getAltitude() -> Double {
           return self.altitude
      }
 
-     public func setAltitude(altitude : Double) {
-          self.altitude = altitude
+     public func getLatitude() -> Double {
+          return self.latitude
+     }
+
+     public func getLongitude() -> Double {
+          return self.longitude
      }
 
      public func getXDoP() -> Float {
@@ -77,6 +65,18 @@ public class Geolocation {
 
      public func getYDoP() -> Float {
           return self.yDoP
+     }
+
+     public func setAltitude(altitude : Double) {
+          self.altitude = altitude
+     }
+
+     public func setLatitude(latitude : Double) {
+          self.latitude = latitude
+     }
+
+     public func setLongitude(longitude : Double) {
+          self.longitude = longitude
      }
 
 

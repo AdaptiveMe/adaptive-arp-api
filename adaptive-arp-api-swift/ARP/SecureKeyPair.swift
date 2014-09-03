@@ -32,20 +32,20 @@ public class SecureKeyPair {
      /**
       * Function Declarations
       */
-     public func getValue() -> String {
-          return self.value
-     }
-
      public func getKey() -> String {
           return self.key
      }
 
-     public func setValue(value : String) {
-          self.value = value
+     public func getValue() -> String {
+          return self.value
      }
 
      public func setKey(key : String) {
           self.key = key
+     }
+
+     public func setValue(value : String) {
+          self.value = value
      }
 
 

@@ -17,10 +17,10 @@ public class Table {
      /**
       * Field Declarations
       */
-     var name : String
      var columnCount : Int
-     var rowCount : Int
      var columns : [Column]?
+     var name : String
+     var rowCount : Int
      var rows : [Row]?
 
      /**
@@ -43,44 +43,44 @@ public class Table {
      /**
       * Function Declarations
       */
-     public func getName() -> String {
-          return self.name
-     }
-
-     public func setName(name : String) {
-          self.name = name
-     }
-
-     public func setRows(rows : [Row]) {
-          self.rows = rows
-     }
-
      public func getColumnCount() -> Int {
           return self.columnCount
-     }
-
-     public func setColumnCount(columnCount : Int) {
-          self.columnCount = columnCount
-     }
-
-     public func getRows() -> [Row] {
-          return self.rows!
-     }
-
-     public func getRowCount() -> Int {
-          return self.rowCount
-     }
-
-     public func setRowCount(rowCount : Int) {
-          self.rowCount = rowCount
      }
 
      public func getColumns() -> [Column] {
           return self.columns!
      }
 
+     public func getName() -> String {
+          return self.name
+     }
+
+     public func getRowCount() -> Int {
+          return self.rowCount
+     }
+
+     public func getRows() -> [Row] {
+          return self.rows!
+     }
+
+     public func setColumnCount(columnCount : Int) {
+          self.columnCount = columnCount
+     }
+
      public func setColumns(columns : [Column]) {
           self.columns = columns
+     }
+
+     public func setName(name : String) {
+          self.name = name
+     }
+
+     public func setRowCount(rowCount : Int) {
+          self.rowCount = rowCount
+     }
+
+     public func setRows(rows : [Row]) {
+          self.rows = rows
      }
 
 

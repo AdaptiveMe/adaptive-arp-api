@@ -38,12 +38,12 @@ public class Locale {
      /**
       * Function Declarations
       */
-     public func getLanguage() -> String {
-          return self.language
-     }
-
      public func getCountry() -> String {
           return self.country
+     }
+
+     public func getLanguage() -> String {
+          return self.language
      }
 
      public func setCountry(country : String) {

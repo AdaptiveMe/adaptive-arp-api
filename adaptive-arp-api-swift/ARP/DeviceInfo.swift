@@ -17,10 +17,10 @@ public class DeviceInfo {
      /**
       * Field Declarations
       */
-     var name : String
      var model : String
-     var vendor : String
+     var name : String
      var uuid : String
+     var vendor : String
 
      /**
       * Initialization
@@ -44,20 +44,20 @@ public class DeviceInfo {
      /**
       * Function Declarations
       */
-     public func getName() -> String {
-          return self.name
-     }
-
-     public func getVendor() -> String {
-          return self.vendor
-     }
-
      public func getModel() -> String {
           return self.model
      }
 
+     public func getName() -> String {
+          return self.name
+     }
+
      public func getUuid() -> String {
           return self.uuid
+     }
+
+     public func getVendor() -> String {
+          return self.vendor
      }
 
 

@@ -1,7 +1,7 @@
 //
-//  Auto-generated from: me.adaptive.arp.api.IMessaging
+//  Auto-generated from: me.adaptive.arp.api.IAccelerationListener
 //
-//  IMessaging.swift
+//  IAccelerationListenerWarning.swift
 //
 //  Released under Apache Public License v2.0
 //
@@ -12,13 +12,7 @@
 
 import Foundation
 
-public protocol IMessaging : IBasePIM {
-
-
-     /**
-      * Function Declarations
-      */
-     func sendEmail(data : Email, callback : IMessagingCallback)
-     func sendSMS(number : String, text : String, callback : IMessagingCallback)
-
+public enum IAccelerationListenerWarning {
+     case NeedsCalibration, Stale
 }
+

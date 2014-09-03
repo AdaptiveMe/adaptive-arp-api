@@ -47,28 +47,36 @@ public class Endpoint {
      /**
       * Function Declarations
       */
-     public func getPath() -> String {
-          return self.path
-     }
-
-     public func getScheme() -> String {
-          return self.scheme
-     }
-
      public func getHost() -> String {
           return self.host
+     }
+
+     public func getPath() -> String {
+          return self.path
      }
 
      public func getPort() -> Int {
           return self.port
      }
 
+     public func getProxy() -> String {
+          return self.proxy
+     }
+
+     public func getScheme() -> String {
+          return self.scheme
+     }
+
+     public func setHost(host : String) {
+          self.host = host
+     }
+
      public func setPath(path : String) {
           self.path = path
      }
 
-     public func getProxy() -> String {
-          return self.proxy
+     public func setPort(port : Int) {
+          self.port = port
      }
 
      public func setProxy(proxy : String) {
@@ -77,14 +85,6 @@ public class Endpoint {
 
      public func setScheme(scheme : String) {
           self.scheme = scheme
-     }
-
-     public func setHost(host : String) {
-          self.host = host
-     }
-
-     public func setPort(port : Int) {
-          self.port = port
      }
 
 

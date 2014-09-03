@@ -17,13 +17,13 @@ public class Email {
      /**
       * Field Declarations
       */
-     var toRecipients : [EmailAddress]?
-     var ccRecipients : [EmailAddress]?
-     var bccRecipients : [EmailAddress]?
      var attachmentData : [AttachmentData]?
+     var bccRecipients : [EmailAddress]?
+     var ccRecipients : [EmailAddress]?
      var messageBody : String
      var messageBodyMimeType : String
      var subject : String
+     var toRecipients : [EmailAddress]?
 
      /**
       * Initialization
@@ -60,60 +60,60 @@ public class Email {
      /**
       * Function Declarations
       */
-     public func getToRecipients() -> [EmailAddress] {
-          return self.toRecipients!
-     }
-
-     public func setToRecipients(toRecipients : [EmailAddress]) {
-          self.toRecipients = toRecipients
-     }
-
-     public func getCcRecipients() -> [EmailAddress] {
-          return self.ccRecipients!
-     }
-
-     public func setCcRecipients(ccRecipients : [EmailAddress]) {
-          self.ccRecipients = ccRecipients
+     public func getAttachmentData() -> [AttachmentData] {
+          return self.attachmentData!
      }
 
      public func getBccRecipients() -> [EmailAddress] {
           return self.bccRecipients!
      }
 
-     public func setBccRecipients(bccRecipients : [EmailAddress]) {
-          self.bccRecipients = bccRecipients
-     }
-
-     public func getAttachmentData() -> [AttachmentData] {
-          return self.attachmentData!
-     }
-
-     public func setAttachmentData(attachmentData : [AttachmentData]) {
-          self.attachmentData = attachmentData
+     public func getCcRecipients() -> [EmailAddress] {
+          return self.ccRecipients!
      }
 
      public func getMessageBody() -> String {
           return self.messageBody
      }
 
-     public func setMessageBody(messageBody : String) {
-          self.messageBody = messageBody
-     }
-
      public func getMessageBodyMimeType() -> String {
           return self.messageBodyMimeType
-     }
-
-     public func setMessageBodyMimeType(messageBodyMimeType : String) {
-          self.messageBodyMimeType = messageBodyMimeType
      }
 
      public func getSubject() -> String {
           return self.subject
      }
 
+     public func getToRecipients() -> [EmailAddress] {
+          return self.toRecipients!
+     }
+
+     public func setAttachmentData(attachmentData : [AttachmentData]) {
+          self.attachmentData = attachmentData
+     }
+
+     public func setBccRecipients(bccRecipients : [EmailAddress]) {
+          self.bccRecipients = bccRecipients
+     }
+
+     public func setCcRecipients(ccRecipients : [EmailAddress]) {
+          self.ccRecipients = ccRecipients
+     }
+
+     public func setMessageBody(messageBody : String) {
+          self.messageBody = messageBody
+     }
+
+     public func setMessageBodyMimeType(messageBodyMimeType : String) {
+          self.messageBodyMimeType = messageBodyMimeType
+     }
+
      public func setSubject(subject : String) {
           self.subject = subject
+     }
+
+     public func setToRecipients(toRecipients : [EmailAddress]) {
+          self.toRecipients = toRecipients
      }
 
 

@@ -17,8 +17,8 @@ public class ContactSocial {
      /**
       * Field Declarations
       */
-     var socialNetwork : String
      var profileUrl : String
+     var socialNetwork : String
 
      /**
       * Initialization
@@ -38,20 +38,20 @@ public class ContactSocial {
      /**
       * Function Declarations
       */
-     public func getSocialNetwork() -> String {
-          return self.socialNetwork
-     }
-
-     public func setSocialNetwork(socialNetwork : String) {
-          self.socialNetwork = socialNetwork
-     }
-
      public func getProfileUrl() -> String {
           return self.profileUrl
      }
 
+     public func getSocialNetwork() -> String {
+          return self.socialNetwork
+     }
+
      public func setProfileUrl(profileUrl : String) {
           self.profileUrl = profileUrl
+     }
+
+     public func setSocialNetwork(socialNetwork : String) {
+          self.socialNetwork = socialNetwork
      }
 
 

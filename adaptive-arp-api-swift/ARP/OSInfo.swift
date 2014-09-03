@@ -18,8 +18,8 @@ public class OSInfo {
       * Field Declarations
       */
      var name : String
-     var version : String
      var vendor : String
+     var version : String
 
      /**
       * Initialization
