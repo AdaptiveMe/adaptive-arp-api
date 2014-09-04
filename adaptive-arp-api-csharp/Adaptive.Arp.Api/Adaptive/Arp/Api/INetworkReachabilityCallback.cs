@@ -39,15 +39,15 @@ namespace Adaptive.Arp.Api
 		/// <remarks>Correct data received.</remarks>
 		/// <param name="result"></param>
 		/// <since>ARP1.0</since>
-		public abstract void OnResult(bool result);
+		public abstract void OnResult(string result);
 
 		/// <summary>Data received with warning - ie Found entries with existing key and values have been overriden
 		/// 	</summary>
 		/// <param name="result"></param>
 		/// <param name="warning"></param>
 		/// <since>ARP1.0</since>
-		public abstract void OnWarning(bool result, INetworkReachabilityCallback.Warning 
-			warning);
+		public abstract void OnWarning(string result, INetworkReachabilityCallback.Warning
+			 warning);
 
 		/// <summary>No data received - error condition, not authorized .</summary>
 		/// <remarks>No data received - error condition, not authorized .</remarks>
@@ -55,15 +55,26 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public abstract void OnError(INetworkReachabilityCallback.Error error);
 
-		public enum Warning
-		{
-			IncorrectScheme
-		}
-
 		public enum Error
 		{
-			NoPermission,
-			NetworkOnMainThreadException
+			Forbidden,
+			NotFound,
+			MethodNotAllowed,
+			NotAllowed,
+			NotAuthenticated,
+			TimeOut,
+			NoResponse,
+			Unreachable,
+			Wrong_Params
+		}
+
+		public enum Warning
+		{
+			IncorrectScheme,
+			NotSecure,
+			NotTrusted,
+			Redirected,
+			NotRegisteredService
 		}
 	}
 }

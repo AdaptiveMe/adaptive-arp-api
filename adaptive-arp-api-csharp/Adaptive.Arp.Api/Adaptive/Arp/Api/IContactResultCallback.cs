@@ -54,14 +54,16 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public enum Warning
 		{
-			LimitExceeded
+			LimitExceeded,
+			No_Matches
 		}
 
 		/// <summary>Errors that can be used</summary>
 		/// <since>ARP1.0</since>
 		public enum Error
 		{
-			NoPermission
+			NoPermission,
+			Wrong_Params
 		}
 	}
 }

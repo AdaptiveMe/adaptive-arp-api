@@ -63,7 +63,8 @@ namespace Adaptive.Arp.Api
 		{
 			SIM_Not_Present,
 			Email_Account_Not_Found,
-			Not_Sent
+			Not_Sent,
+			Wrong_Params
 		}
 	}
 }
