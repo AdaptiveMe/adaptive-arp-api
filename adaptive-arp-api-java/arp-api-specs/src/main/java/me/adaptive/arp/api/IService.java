@@ -95,7 +95,7 @@ public interface IService extends IBaseCommunication {
      * @param service
      * @param callback
      */
-    void InvokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback);
+    void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback);
 
     /**
      * Type of available services

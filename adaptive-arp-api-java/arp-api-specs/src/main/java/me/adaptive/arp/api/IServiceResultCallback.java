@@ -75,7 +75,7 @@ public interface IServiceResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Warning {
-        NotSecure, NotTrusted, Redirected;
+        NotSecure, NotTrusted, Redirected,NotRegisteredService
     }
 
     /**

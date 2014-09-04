@@ -38,7 +38,7 @@ public interface IRuntime extends IBaseSystem {
      *
      * @since ARP1.0
      */
-    void DismissApplication();
+    void dismissApplication();
 
     /**
      * Whether the application dismiss the splash screen successfully or not
@@ -46,7 +46,7 @@ public interface IRuntime extends IBaseSystem {
      * @return true if the application has dismissed the splash screen;false otherwise
      * @since ARP1.0
      */
-    boolean DismissSplashScreen();
+    boolean dismissSplashScreen();
 
 
 }
