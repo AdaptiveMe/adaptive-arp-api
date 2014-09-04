@@ -18,8 +18,8 @@ public class Service {
       * Field Declarations
       */
      var endpoint : Endpoint?
-     var name : String
      var method : ServiceMethod?
+     var name : String
      var type : ServiceType?
 
      /**
@@ -54,36 +54,36 @@ public class Service {
      /**
       * Function Declarations
       */
-     public func getName() -> String {
-          return self.name
+     public func getEndpoint() -> Endpoint {
+          return self.endpoint!
      }
 
      public func getMethod() -> ServiceMethod {
           return self.method!
      }
 
-     public func setName(name : String) {
-          self.name = name
+     public func getName() -> String {
+          return self.name
      }
 
      public func getType() -> ServiceType {
           return self.type!
      }
 
-     public func getEndpoint() -> Endpoint {
-          return self.endpoint!
-     }
-
      public func setEndpoint(endpoint : Endpoint) {
           self.endpoint = endpoint
      }
 
-     public func setType(type : ServiceType) {
-          self.type = type
-     }
-
      public func setMethod(method : ServiceMethod) {
           self.method = method
+     }
+
+     public func setName(name : String) {
+          self.name = name
+     }
+
+     public func setType(type : ServiceType) {
+          self.type = type
      }
 
 

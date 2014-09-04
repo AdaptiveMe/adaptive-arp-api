@@ -35,12 +35,12 @@ public class ContactWebsite {
      /**
       * Function Declarations
       */
-     public func setUrl(url : String) {
-          self.url = url
-     }
-
      public func getUrl() -> String {
           return self.url
+     }
+
+     public func setUrl(url : String) {
+          self.url = url
      }
 
 

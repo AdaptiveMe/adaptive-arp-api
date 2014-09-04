@@ -17,10 +17,7 @@ import java.lang.reflect.*;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by clozano on 27/08/2014.
@@ -138,7 +135,7 @@ public class J2SwiftConverter {
                     || clazz.getSimpleName().equals("IAdaptiveRP")
                     || clazz.getSimpleName().startsWith("IBase")) {
 
-            }else{
+            } else {
                 //return;
             }
         }
@@ -208,13 +205,27 @@ public class J2SwiftConverter {
          * Fields Section
          */
         List<Class<?>> enumList = new ArrayList<Class<?>>();
+
+
         if (clazz.getDeclaredFields().length > 0) {
             ps.println();
             ps.println(5, "/**");
             ps.println(5, " * Field Declarations");
             ps.println(5, " */");
         }
+
+        List<Field> fieldList = new ArrayList<>();
         for (Field field : clazz.getDeclaredFields()) {
+            fieldList.add(field);
+        }
+        fieldList.sort(new Comparator<Field>() {
+            @Override
+            public int compare(Field o1, Field o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+
+        for (Field field : fieldList) {
             ps.print(5, "var " + field.getName());
             if (field.getType().isPrimitive()) {
                 ps.print(" : " + getPrimitiveTypeSwift(field.getType()));
@@ -260,6 +271,12 @@ public class J2SwiftConverter {
             ps.println(5, "/**");
             ps.println(5, " * Enumeration Declarations");
             ps.println(5, " */");
+            enumList.sort(new Comparator<Class<?>>() {
+                @Override
+                public int compare(Class<?> o1, Class<?> o2) {
+                    return o1.toGenericString().compareTo(o2.toGenericString());
+                }
+            });
         }
         for (Class<?> enumClass : enumList) {
             ps.println(5, "public enum " + enumClass.getSimpleName() + " {");
@@ -283,7 +300,19 @@ public class J2SwiftConverter {
             ps.println(5, "/**");
             ps.println(5, " * Initialization");
             ps.println(5, " */");
+
+            List<Constructor<?>> constructorList = new ArrayList<>();
             for (Constructor<?> constructor : clazz.getConstructors()) {
+                constructorList.add(constructor);
+            }
+            constructorList.sort(new Comparator<Constructor<?>>() {
+                @Override
+                public int compare(Constructor<?> o1, Constructor<?> o2) {
+                    return o1.getName().compareTo(o2.getName());
+                }
+            });
+
+            for (Constructor<?> constructor : constructorList) {
                 Parameter[] parameters = constructor.getParameters();
                 if (parameters.length > 0) {
                     ps.print(5, "public convenience init");
@@ -310,8 +339,8 @@ public class J2SwiftConverter {
                                 ps.print("[Any" + componentType.getSimpleName() + "]");
                             } else {
                                 if (componentType.isEnum()) {
-                                    processClassEnum(clazz,componentType,targetDir);
-                                    ps.print("[" + clazz.getSimpleName()+componentType.getSimpleName() + "]");
+                                    processClassEnum(clazz, componentType, targetDir);
+                                    ps.print("[" + clazz.getSimpleName() + componentType.getSimpleName() + "]");
                                 } else {
                                     ps.print("[" + componentType.getSimpleName() + "]");
                                 }
@@ -382,7 +411,18 @@ public class J2SwiftConverter {
         }
         List<Class<?>> interfaceEnumList = new ArrayList<Class<?>>();
 
+        List<Method> methodList = new ArrayList<>();
         for (Method method : clazz.getDeclaredMethods()) {
+            methodList.add(method);
+        }
+        methodList.sort(new Comparator<Method>() {
+            @Override
+            public int compare(Method o1, Method o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+
+        for (Method method : methodList) {
             if (clazz.isInterface()) {
 
 
@@ -408,8 +448,8 @@ public class J2SwiftConverter {
                                 ps.print("[Any" + componentType.getSimpleName() + "]");
                             } else {
                                 if (componentType.isEnum()) {
-                                    processClassEnum(clazz,componentType,targetDir);
-                                    ps.print("[" + clazz.getSimpleName()+componentType.getSimpleName() + "]");
+                                    processClassEnum(clazz, componentType, targetDir);
+                                    ps.print("[" + clazz.getSimpleName() + componentType.getSimpleName() + "]");
                                 } else {
                                     ps.print("[" + componentType.getSimpleName() + "]");
                                 }
@@ -462,7 +502,7 @@ public class J2SwiftConverter {
                             } else {
                                 if (returnType.isEnum()) {
                                     processClassEnum(clazz, returnType, targetDir);
-                                    ps.print(clazz.getSimpleName()+returnType.getSimpleName());
+                                    ps.print(clazz.getSimpleName() + returnType.getSimpleName());
                                 } else {
                                     ps.print(returnType.getSimpleName());
                                 }
@@ -556,10 +596,10 @@ public class J2SwiftConverter {
         if (interfaceEnumList.size() > 0) {
             ps.println();
             ps.println("}");
-        //    ps.println();
-        //    ps.println(0, "/**");
-        //    ps.println(0, " * Enumeration Declarations");
-        //    ps.println(0, " */");
+            //    ps.println();
+            //    ps.println(0, "/**");
+            //    ps.println(0, " * Enumeration Declarations");
+            //    ps.println(0, " */");
         }
         for (Class<?> enumClass : interfaceEnumList) {
             processClassEnum(clazz, enumClass, targetDir);

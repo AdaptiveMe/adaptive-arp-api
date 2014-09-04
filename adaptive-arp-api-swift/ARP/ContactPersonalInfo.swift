@@ -17,9 +17,9 @@ public class ContactPersonalInfo {
      /**
       * Field Declarations
       */
-     var name : String
-     var middleName : String
      var lastName : String
+     var middleName : String
+     var name : String
      var title : Title?
 
      /**
@@ -51,8 +51,28 @@ public class ContactPersonalInfo {
      /**
       * Function Declarations
       */
+     public func getLastName() -> String {
+          return self.lastName
+     }
+
+     public func getMiddleName() -> String {
+          return self.middleName
+     }
+
      public func getName() -> String {
           return self.name
+     }
+
+     public func getTitle() -> Title {
+          return self.title!
+     }
+
+     public func setLastName(lastName : String) {
+          self.lastName = lastName
+     }
+
+     public func setMiddleName(middleName : String) {
+          self.middleName = middleName
      }
 
      public func setName(name : String) {
@@ -61,26 +81,6 @@ public class ContactPersonalInfo {
 
      public func setTitle(title : Title) {
           self.title = title
-     }
-
-     public func getTitle() -> Title {
-          return self.title!
-     }
-
-     public func getMiddleName() -> String {
-          return self.middleName
-     }
-
-     public func setMiddleName(middleName : String) {
-          self.middleName = middleName
-     }
-
-     public func getLastName() -> String {
-          return self.lastName
-     }
-
-     public func setLastName(lastName : String) {
-          self.lastName = lastName
      }
 
 

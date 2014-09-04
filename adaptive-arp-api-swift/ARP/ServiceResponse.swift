@@ -18,13 +18,13 @@ public class ServiceResponse {
       * Field Declarations
       */
      var content : String
-     var contentType : String
-     var contentLength : String
      var contentBinary : [Byte]?
      var contentBinaryLength : Int
+     var contentEncoding : String
+     var contentLength : String
+     var contentType : String
      var headers : [Header]?
      var session : ISession?
-     var contentEncoding : String
 
      /**
       * Initialization
@@ -60,40 +60,16 @@ public class ServiceResponse {
           return self.content
      }
 
-     public func setContent(content : String) {
-          self.content = content
-     }
-
      public func getContentBinary() -> [Byte] {
           return self.contentBinary!
-     }
-
-     public func setContentBinary(contentBinary : [Byte]) {
-          self.contentBinary = contentBinary
      }
 
      public func getContentBinaryLength() -> Int {
           return self.contentBinaryLength
      }
 
-     public func setContentBinaryLength(contentBinaryLength : Int) {
-          self.contentBinaryLength = contentBinaryLength
-     }
-
-     public func setHeaders(headers : [Header]) {
-          self.headers = headers
-     }
-
-     public func getSession() -> ISession {
-          return self.session!
-     }
-
-     public func setSession(session : ISession) {
-          self.session = session
-     }
-
-     public func setContentEncoding(contentEncoding : String) {
-          self.contentEncoding = contentEncoding
+     public func getContentEncoding() -> String {
+          return self.contentEncoding
      }
 
      public func getContentLength() -> String {
@@ -104,20 +80,44 @@ public class ServiceResponse {
           return self.contentType
      }
 
-     public func setContentType(contentType : String) {
-          self.contentType = contentType
+     public func getHeaders() -> [Header] {
+          return self.headers!
+     }
+
+     public func getSession() -> ISession {
+          return self.session!
+     }
+
+     public func setContent(content : String) {
+          self.content = content
+     }
+
+     public func setContentBinary(contentBinary : [Byte]) {
+          self.contentBinary = contentBinary
+     }
+
+     public func setContentBinaryLength(contentBinaryLength : Int) {
+          self.contentBinaryLength = contentBinaryLength
+     }
+
+     public func setContentEncoding(contentEncoding : String) {
+          self.contentEncoding = contentEncoding
      }
 
      public func setContentLength(contentLength : String) {
           self.contentLength = contentLength
      }
 
-     public func getContentEncoding() -> String {
-          return self.contentEncoding
+     public func setContentType(contentType : String) {
+          self.contentType = contentType
      }
 
-     public func getHeaders() -> [Header] {
-          return self.headers!
+     public func setHeaders(headers : [Header]) {
+          self.headers = headers
+     }
+
+     public func setSession(session : ISession) {
+          self.session = session
      }
 
 

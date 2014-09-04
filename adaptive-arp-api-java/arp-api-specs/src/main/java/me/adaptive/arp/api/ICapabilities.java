@@ -41,8 +41,6 @@ public interface ICapabilities extends IBaseSystem {
      */
     boolean hasSensorSupport(Sensor type);
 
-    ;
-
     /**
      * Determines whether a specific Communication capability is supported by
      * the device.
@@ -63,8 +61,6 @@ public interface ICapabilities extends IBaseSystem {
      * @since ARP1.0
      */
     boolean hasDataSupport(Data type);
-
-    ;
 
     /**
      * Determines whether a specific Media capability is supported by the

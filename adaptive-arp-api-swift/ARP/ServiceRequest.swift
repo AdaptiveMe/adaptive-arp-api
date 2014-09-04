@@ -18,14 +18,14 @@ public class ServiceRequest {
       * Field Declarations
       */
      var content : String
-     var contentType : String
+     var contentEncoding : String
      var contentLength : Int
-     var rawContent : [Byte]?
+     var contentType : String
      var headers : [Header]?
      var method : String
      var protocolVersion : ProtocolVersion?
+     var rawContent : [Byte]?
      var session : ISession?
-     var contentEncoding : String
 
      /**
       * Enumeration Declarations
@@ -66,52 +66,12 @@ public class ServiceRequest {
      /**
       * Function Declarations
       */
-     public func getMethod() -> String {
-          return self.method
-     }
-
      public func getContent() -> String {
           return self.content
      }
 
-     public func setContent(content : String) {
-          self.content = content
-     }
-
-     public func setHeaders(headers : [Header]) {
-          self.headers = headers
-     }
-
-     public func getSession() -> ISession {
-          return self.session!
-     }
-
-     public func setSession(session : ISession) {
-          self.session = session
-     }
-
-     public func setContentEncoding(contentEncoding : String) {
-          self.contentEncoding = contentEncoding
-     }
-
-     public func getProtocolVersion() -> ProtocolVersion {
-          return self.protocolVersion!
-     }
-
-     public func setProtocolVersion(protocolVersion : ProtocolVersion) {
-          self.protocolVersion = protocolVersion
-     }
-
-     public func getRawContent() -> [Byte] {
-          return self.rawContent!
-     }
-
-     public func setRawContent(rawContent : [Byte]) {
-          self.rawContent = rawContent
-     }
-
-     public func setMethod(method : String) {
-          self.method = method
+     public func getContentEncoding() -> String {
+          return self.contentEncoding
      }
 
      public func getContentLength() -> Int {
@@ -122,20 +82,60 @@ public class ServiceRequest {
           return self.contentType
      }
 
-     public func setContentType(contentType : String) {
-          self.contentType = contentType
+     public func getHeaders() -> [Header] {
+          return self.headers!
+     }
+
+     public func getMethod() -> String {
+          return self.method
+     }
+
+     public func getProtocolVersion() -> ProtocolVersion {
+          return self.protocolVersion!
+     }
+
+     public func getRawContent() -> [Byte] {
+          return self.rawContent!
+     }
+
+     public func getSession() -> ISession {
+          return self.session!
+     }
+
+     public func setContent(content : String) {
+          self.content = content
+     }
+
+     public func setContentEncoding(contentEncoding : String) {
+          self.contentEncoding = contentEncoding
      }
 
      public func setContentLength(contentLength : Int) {
           self.contentLength = contentLength
      }
 
-     public func getContentEncoding() -> String {
-          return self.contentEncoding
+     public func setContentType(contentType : String) {
+          self.contentType = contentType
      }
 
-     public func getHeaders() -> [Header] {
-          return self.headers!
+     public func setHeaders(headers : [Header]) {
+          self.headers = headers
+     }
+
+     public func setMethod(method : String) {
+          self.method = method
+     }
+
+     public func setProtocolVersion(protocolVersion : ProtocolVersion) {
+          self.protocolVersion = protocolVersion
+     }
+
+     public func setRawContent(rawContent : [Byte]) {
+          self.rawContent = rawContent
+     }
+
+     public func setSession(session : ISession) {
+          self.session = session
      }
 
 

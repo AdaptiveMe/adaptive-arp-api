@@ -41,7 +41,7 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public void createDatabase(Database database, IDatabaseResultCallback callback);
+    void createDatabase(Database database, IDatabaseResultCallback callback);
 
     /**
      * Deletes a database on default path for every platform.
@@ -51,7 +51,7 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public void deleteDatabase(Database database, IDatabaseResultCallback callback);
+    void deleteDatabase(Database database, IDatabaseResultCallback callback);
 
     /**
      * Checks if database exists by given database name.
@@ -61,7 +61,7 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public boolean existsDatabase(Database database);
+    boolean existsDatabase(Database database);
 
     /**
      * Returns a Database if exists by a given name encapsulated inside a
@@ -72,7 +72,7 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public void getDatabase(Database database, IDatabaseResultCallback callback);
+    void getDatabase(Database database, IDatabaseResultCallback callback);
 
     /**
      * Creates a table inside a database for every platform.
@@ -83,7 +83,7 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public void createTable(Database database, Table table, ITableResultCallback callback);
+    void createTable(Database database, Table table, ITableResultCallback callback);
 
     /**
      * Deletes a table inside a database for every platform.
@@ -94,7 +94,7 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public void deleteTable(Database database, Table table, ITableResultCallback callback);
+    void deleteTable(Database database, Table table, ITableResultCallback callback);
 
     /**
      * Checks if table exists by given database name.
@@ -105,7 +105,7 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public boolean existsTable(Database database, Table table);
+    boolean existsTable(Database database, Table table);
 
     /**
      * Executes SQL query against given database. The replacements should be
@@ -118,8 +118,8 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public void executeSqlQuery(Database database, String query,
-                                String[] replacements, ITableResultCallback callback);
+    void executeSqlQuery(Database database, String query,
+                         String[] replacements, ITableResultCallback callback);
 
     /**
      * Executes SQL statement into the given database. The replacements
@@ -132,8 +132,8 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public void executeSqlStatement(Database database, String statement,
-                                    String[] replacements, ITableResultCallback callback);
+    void executeSqlStatement(Database database, String statement,
+                             String[] replacements, ITableResultCallback callback);
 
     /**
      * Executes SQL transaction (some statements chain) inside given database.
@@ -146,9 +146,9 @@ public interface IDatabase extends IBaseData {
      * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public void executeSqlTransactions(Database database,
-                                       String[] statements, boolean rollbackFlag,
-                                       ITableResultCallback callback);
+    void executeSqlTransactions(Database database,
+                                String[] statements, boolean rollbackFlag,
+                                ITableResultCallback callback);
 
 
 }

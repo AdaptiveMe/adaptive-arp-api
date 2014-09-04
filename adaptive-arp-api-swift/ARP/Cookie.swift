@@ -17,14 +17,14 @@ public class Cookie {
      /**
       * Field Declarations
       */
-     var name : String
-     var value : String
+     var creation : Int64
      var domain : String
+     var expiry : Int64
+     var name : String
      var path : String
      var scheme : String
      var secure : Bool
-     var expiry : Int64
-     var creation : Int64
+     var value : String
 
      /**
       * Initialization
@@ -50,20 +50,20 @@ public class Cookie {
      /**
       * Function Declarations
       */
+     public func getCreation() -> Int64 {
+          return self.creation
+     }
+
+     public func getDomain() -> String {
+          return self.domain
+     }
+
+     public func getExpiry() -> Int64 {
+          return self.expiry
+     }
+
      public func getName() -> String {
           return self.name
-     }
-
-     public func getValue() -> String {
-          return self.value
-     }
-
-     public func setName(name : String) {
-          self.name = name
-     }
-
-     public func setValue(value : String) {
-          self.value = value
      }
 
      public func getPath() -> String {
@@ -74,6 +74,26 @@ public class Cookie {
           return self.scheme
      }
 
+     public func getValue() -> String {
+          return self.value
+     }
+
+     public func isSecure() -> Bool {
+          return self.secure
+     }
+
+     public func setDomain(domain : String) {
+          self.domain = domain
+     }
+
+     public func setExpiry(expiry : Int64) {
+          self.expiry = expiry
+     }
+
+     public func setName(name : String) {
+          self.name = name
+     }
+
      public func setPath(path : String) {
           self.path = path
      }
@@ -82,32 +102,12 @@ public class Cookie {
           self.scheme = scheme
      }
 
-     public func isSecure() -> Bool {
-          return self.secure
-     }
-
-     public func getDomain() -> String {
-          return self.domain
-     }
-
-     public func setDomain(domain : String) {
-          self.domain = domain
-     }
-
      public func setSecure(secure : Bool) {
           self.secure = secure
      }
 
-     public func getExpiry() -> Int64 {
-          return self.expiry
-     }
-
-     public func setExpiry(expiry : Int64) {
-          self.expiry = expiry
-     }
-
-     public func getCreation() -> Int64 {
-          return self.creation
+     public func setValue(value : String) {
+          self.value = value
      }
 
 

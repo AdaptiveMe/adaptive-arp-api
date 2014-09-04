@@ -44,17 +44,37 @@ public interface IAccelerationListener extends IBaseListener {
      * Data received with warning - ie. Needs calibration.
      *
      * @param acceleration
+     * @param warning
      * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    public void onWarning(Acceleration acceleration);
+    public void onWarning(Acceleration acceleration, Warning warning);
 
     /**
-     * No data received - error condition, not authorized or hardware not available.
+     * No data received - error condition, not authorized or hardware not available. This will be reported once for the
+     * listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
      *
-     * @param acceleration
+     * @param error
      * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    public void onError(Acceleration acceleration);
+    public void onError(Error error);
+
+    /**
+     * Warnings that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum Warning {
+        NeedsCalibration, Stale
+    }
+
+    /**
+     * Errors that can be used
+     *
+     * @since ARP1.0
+     */
+    public enum Error {
+        Unauthorized, Unavailable
+    }
 }

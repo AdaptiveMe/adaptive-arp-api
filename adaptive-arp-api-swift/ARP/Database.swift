@@ -17,8 +17,8 @@ public class Database {
      /**
       * Field Declarations
       */
-     var name : String
      var compress : Bool
+     var name : String
 
      /**
       * Initialization
@@ -47,16 +47,16 @@ public class Database {
           return self.name
      }
 
-     public func setName(name : String) {
-          self.name = name
-     }
-
      public func isCompress() -> Bool {
           return self.compress
      }
 
      public func setCompress(compress : Bool) {
           self.compress = compress
+     }
+
+     public func setName(name : String) {
+          self.name = name
      }
 
 

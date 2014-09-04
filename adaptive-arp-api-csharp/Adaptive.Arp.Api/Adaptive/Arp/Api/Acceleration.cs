@@ -26,7 +26,6 @@
  * =====================================================================================================================
  */
 
-using Adaptive.Arp.Api;
 using Sharpen;
 
 namespace Adaptive.Arp.Api
@@ -41,8 +40,6 @@ namespace Adaptive.Arp.Api
 
 		internal double z;
 
-		internal IAccelerometer.Status status;
-
 		internal long timeStamp;
 
 		/// <param name="x">X Coordinate</param>
@@ -50,26 +47,16 @@ namespace Adaptive.Arp.Api
 		/// <param name="z">Z Coordinate</param>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
-		public Acceleration(double x, double y, double z)
+		public Acceleration(double x, double y, double z, long timeStamp)
 		{
 			// X-axis component of the acceleration.
 			// Y-axis component of the acceleration.
 			// Z-axis component of the acceleration.
-			// Status of the acceleration reading.
+			// Timestamp of the acceleration reading.
 			this.x = x;
 			this.y = y;
 			this.z = z;
-			this.status = IAccelerometer.Status.Success;
-			this.timeStamp = Runtime.CurrentTimeMillis();
-		}
-
-		/// <param name="status">Status of the data.</param>
-		/// <author>Carlos Lozano Diez</author>
-		/// <since>ARP1.0</since>
-		public Acceleration(IAccelerometer.Status status)
-		{
-			this.status = status;
-			this.timeStamp = Runtime.CurrentTimeMillis();
+			this.timeStamp = timeStamp;
 		}
 
 		/// <summary>Constructor used by the implementation</summary>
@@ -101,18 +88,24 @@ namespace Adaptive.Arp.Api
 			return z;
 		}
 
-		/// <summary>Status of this acceleration data.</summary>
-		/// <remarks>
-		/// Status of this acceleration data. If status is Success, then the readings
-		/// are given. Any other status represents a fail condition that needs to be
-		/// managed.
-		/// </remarks>
-		/// <returns>status of the orientation data.</returns>
-		/// <author>Carlos Lozano Diez</author>
-		/// <since>ARP1.0</since>
-		public virtual IAccelerometer.Status GetStatus()
+		public virtual void SetX(double x)
 		{
-			return status;
+			this.x = x;
+		}
+
+		public virtual void SetY(double y)
+		{
+			this.y = y;
+		}
+
+		public virtual void SetZ(double z)
+		{
+			this.z = z;
+		}
+
+		public virtual void SetTimeStamp(long timeStamp)
+		{
+			this.timeStamp = timeStamp;
 		}
 	}
 }

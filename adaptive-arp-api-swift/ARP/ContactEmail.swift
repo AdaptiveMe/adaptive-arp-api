@@ -17,9 +17,9 @@ public class ContactEmail {
      /**
       * Field Declarations
       */
-     var type : EmailType?
-     var primary : Bool
      var email : String
+     var primary : Bool
+     var type : EmailType?
 
      /**
       * Enumeration Declarations
@@ -48,24 +48,24 @@ public class ContactEmail {
      /**
       * Function Declarations
       */
-     public func getType() -> EmailType {
-          return self.type!
-     }
-
      public func getEmail() -> String {
           return self.email
+     }
+
+     public func getType() -> EmailType {
+          return self.type!
      }
 
      public func isPrimary() -> Bool {
           return self.primary
      }
 
-     public func setPrimary(primary : Bool) {
-          self.primary = primary
-     }
-
      public func setEmail(email : String) {
           self.email = email
+     }
+
+     public func setPrimary(primary : Bool) {
+          self.primary = primary
      }
 
      public func setType(type : EmailType) {

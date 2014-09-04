@@ -38,8 +38,7 @@ public class Acceleration {
     double y;
     // Z-axis component of the acceleration.
     double z;
-    // Status of the acceleration reading.
-    IAccelerometer.Status status;
+    // Timestamp of the acceleration reading.
     long timeStamp;
 
     /**
@@ -49,22 +48,11 @@ public class Acceleration {
      * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    public Acceleration(double x, double y, double z) {
+    public Acceleration(double x, double y, double z, long timeStamp) {
         this.x = x;
         this.y = y;
         this.z = z;
-        this.status = IAccelerometer.Status.Success;
-        this.timeStamp = System.currentTimeMillis();
-    }
-
-    /**
-     * @param status Status of the data.
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    public Acceleration(IAccelerometer.Status status) {
-        this.status = status;
-        this.timeStamp = System.currentTimeMillis();
+        this.timeStamp = timeStamp;
     }
 
     /**
@@ -100,17 +88,20 @@ public class Acceleration {
         return z;
     }
 
-    /**
-     * Status of this acceleration data. If status is Success, then the readings
-     * are given. Any other status represents a fail condition that needs to be
-     * managed.
-     *
-     * @return status of the orientation data.
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    public IAccelerometer.Status getStatus() {
-        return status;
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public void setZ(double z) {
+        this.z = z;
+    }
+
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
 }
 

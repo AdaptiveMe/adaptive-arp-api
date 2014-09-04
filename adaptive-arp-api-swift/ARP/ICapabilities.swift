@@ -18,12 +18,12 @@ public protocol ICapabilities : IBaseSystem {
      /**
       * Function Declarations
       */
-     func hasSensorSupport(type : ICapabilitiesSensor) -> Bool
+     func hasButtonSupport(type : ICapabilitiesButton) -> Bool
      func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool
      func hasDataSupport(type : ICapabilitiesData) -> Bool
      func hasMediaSupport(type : ICapabilitiesMedia) -> Bool
      func hasNetSupport(type : ICapabilitiesNet) -> Bool
      func hasNotificationSupport(type : ICapabilitiesNotification) -> Bool
-     func hasButtonSupport(type : ICapabilitiesButton) -> Bool
+     func hasSensorSupport(type : ICapabilitiesSensor) -> Bool
 
 }

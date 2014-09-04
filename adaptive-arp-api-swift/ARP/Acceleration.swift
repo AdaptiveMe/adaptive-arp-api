@@ -17,40 +17,27 @@ public class Acceleration {
      /**
       * Field Declarations
       */
+     var timeStamp : Int64
      var x : Double
      var y : Double
      var z : Double
-     var status : Status?
-     var timeStamp : Int64
-
-     /**
-      * Enumeration Declarations
-      */
-     public enum Status {
-          case Success, Unauthorized, NeedsCalibration, Stale, Unavailable
-     }
 
      /**
       * Initialization
       */
-     public init() {
-          self.x = 0.0
-          self.y = 0.0
-          self.z = 0.0
-          self.status = nil
-          self.timeStamp = 0
-     }
-
-     public convenience init(status : Status) {
-          self.init()
-          self.status = status
-     }
-
-     public convenience init(x : Double, y : Double, z : Double) {
+     public convenience init(x : Double, y : Double, z : Double, timeStamp : Int64) {
           self.init()
           self.x = x
           self.y = y
           self.z = z
+          self.timeStamp = timeStamp
+     }
+
+     public init() {
+          self.x = 0.0
+          self.y = 0.0
+          self.z = 0.0
+          self.timeStamp = 0
      }
 
 
@@ -69,8 +56,20 @@ public class Acceleration {
           return self.z
      }
 
-     public func getStatus() -> Status {
-          return self.status!
+     public func setTimeStamp(timeStamp : Int64) {
+          self.timeStamp = timeStamp
+     }
+
+     public func setX(x : Double) {
+          self.x = x
+     }
+
+     public func setY(y : Double) {
+          self.y = y
+     }
+
+     public func setZ(z : Double) {
+          self.z = z
      }
 
 

@@ -18,8 +18,8 @@ public class ContactProfessionalInfo {
       * Field Declarations
       */
      var company : String
-     var jobTitle : String
      var jobDescription : String
+     var jobTitle : String
 
      /**
       * Initialization
@@ -45,24 +45,24 @@ public class ContactProfessionalInfo {
           return self.company
      }
 
-     public func setCompany(company : String) {
-          self.company = company
+     public func getJobDescription() -> String {
+          return self.jobDescription
      }
 
      public func getJobTitle() -> String {
           return self.jobTitle
      }
 
-     public func setJobTitle(jobTitle : String) {
-          self.jobTitle = jobTitle
-     }
-
-     public func getJobDescription() -> String {
-          return self.jobDescription
+     public func setCompany(company : String) {
+          self.company = company
      }
 
      public func setJobDescription(jobDescription : String) {
           self.jobDescription = jobDescription
+     }
+
+     public func setJobTitle(jobTitle : String) {
+          self.jobTitle = jobTitle
      }
 
 

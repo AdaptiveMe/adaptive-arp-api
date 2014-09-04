@@ -47,12 +47,28 @@ public class AttachmentData {
      /**
       * Function Declarations
       */
-     public func getFileName() -> String {
-          return self.fileName
+     public func getData() -> [Byte] {
+          return self.data!
      }
 
      public func getDataSize() -> Int64 {
           return self.dataSize
+     }
+
+     public func getFileName() -> String {
+          return self.fileName
+     }
+
+     public func getMimeType() -> String {
+          return self.mimeType
+     }
+
+     public func getReferenceUrl() -> String {
+          return self.referenceUrl
+     }
+
+     public func setData(data : [Byte]) {
+          self.data = data
      }
 
      public func setDataSize(dataSize : Int64) {
@@ -63,28 +79,12 @@ public class AttachmentData {
           self.fileName = fileName
      }
 
-     public func getMimeType() -> String {
-          return self.mimeType
-     }
-
      public func setMimeType(mimeType : String) {
           self.mimeType = mimeType
      }
 
-     public func getReferenceUrl() -> String {
-          return self.referenceUrl
-     }
-
      public func setReferenceUrl(referenceUrl : String) {
           self.referenceUrl = referenceUrl
-     }
-
-     public func setData(data : [Byte]) {
-          self.data = data
-     }
-
-     public func getData() -> [Byte] {
-          return self.data!
      }
 
 

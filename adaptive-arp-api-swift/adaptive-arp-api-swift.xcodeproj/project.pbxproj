@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E5F3FBD19B7B51D007D92A1 /* IAccelerationListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */; };
+		4E5F3FBE19B7B51D007D92A1 /* IAccelerationListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */; };
+		4E5F3FBF19B7B51D007D92A1 /* IAccelerationListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */; };
+		4E5F3FC019B7B51D007D92A1 /* IAccelerationListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */; };
 		4E6D004719B1CD1900EC2555 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6DFF9919B1CD1900EC2555 /* Acceleration.swift */; };
 		4E6D004819B1CD1900EC2555 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6DFF9919B1CD1900EC2555 /* Acceleration.swift */; };
 		4E6D004919B1CD1900EC2555 /* AttachmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6DFF9A19B1CD1900EC2555 /* AttachmentData.swift */; };
@@ -360,6 +364,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccelerationListenerError.swift; sourceTree = "<group>"; };
+		4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccelerationListenerWarning.swift; sourceTree = "<group>"; };
 		4E6D000019B1CD1900EC2555 /* IGyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGyroscope.swift; sourceTree = "<group>"; };
 		4E6D000119B1CD1900EC2555 /* IImaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IImaging.swift; sourceTree = "<group>"; };
 		4E6D000219B1CD1900EC2555 /* IInternalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IInternalStorage.swift; sourceTree = "<group>"; };
@@ -670,6 +676,8 @@
 		4EF4A69D19AF861D00AE551F /* ARP */ = {
 			isa = PBXGroup;
 			children = (
+				4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */,
+				4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */,
 				4E6DFF9919B1CD1900EC2555 /* Acceleration.swift */,
 				4E6DFF9A19B1CD1900EC2555 /* AttachmentData.swift */,
 				4E6DFF9B19B1CD1900EC2555 /* Button.swift */,
@@ -1056,6 +1064,7 @@
 				4E6D017D19B1CD1900EC2555 /* ITelephony.swift in Sources */,
 				4E6D018F19B1CD1900EC2555 /* IXML.swift in Sources */,
 				4E6D017F19B1CD1900EC2555 /* ITelephonyStatus.swift in Sources */,
+				4E5F3FBD19B7B51D007D92A1 /* IAccelerationListenerError.swift in Sources */,
 				4E6D005319B1CD1900EC2555 /* ContactEmail.swift in Sources */,
 				4E6D00F519B1CD1900EC2555 /* IFileDataResultCallbackError.swift in Sources */,
 				4E6D00F319B1CD1900EC2555 /* IFileDataResultCallback.swift in Sources */,
@@ -1076,6 +1085,7 @@
 				4E6D013119B1CD1900EC2555 /* IMessaging.swift in Sources */,
 				4E6D012D19B1CD1900EC2555 /* IManagement.swift in Sources */,
 				4E6D009919B1CD1900EC2555 /* IBaseReader.swift in Sources */,
+				4E5F3FBF19B7B51D007D92A1 /* IAccelerationListenerWarning.swift in Sources */,
 				4E6D005D19B1CD1900EC2555 /* ContactTag.swift in Sources */,
 				4E6D017119B1CD1900EC2555 /* ISettings.swift in Sources */,
 				4E6D005919B1CD1900EC2555 /* ContactProfessionalInfo.swift in Sources */,
@@ -1245,6 +1255,7 @@
 				4E6D017E19B1CD1900EC2555 /* ITelephony.swift in Sources */,
 				4E6D019019B1CD1900EC2555 /* IXML.swift in Sources */,
 				4E6D018019B1CD1900EC2555 /* ITelephonyStatus.swift in Sources */,
+				4E5F3FBE19B7B51D007D92A1 /* IAccelerationListenerError.swift in Sources */,
 				4E6D005419B1CD1900EC2555 /* ContactEmail.swift in Sources */,
 				4E6D00F619B1CD1900EC2555 /* IFileDataResultCallbackError.swift in Sources */,
 				4E6D00F419B1CD1900EC2555 /* IFileDataResultCallback.swift in Sources */,
@@ -1265,6 +1276,7 @@
 				4E6D013219B1CD1900EC2555 /* IMessaging.swift in Sources */,
 				4E6D012E19B1CD1900EC2555 /* IManagement.swift in Sources */,
 				4E6D009A19B1CD1900EC2555 /* IBaseReader.swift in Sources */,
+				4E5F3FC019B7B51D007D92A1 /* IAccelerationListenerWarning.swift in Sources */,
 				4E6D005E19B1CD1900EC2555 /* ContactTag.swift in Sources */,
 				4E6D017219B1CD1900EC2555 /* ISettings.swift in Sources */,
 				4E6D005A19B1CD1900EC2555 /* ContactProfessionalInfo.swift in Sources */,

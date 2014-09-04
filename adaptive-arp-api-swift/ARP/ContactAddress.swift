@@ -53,12 +53,12 @@ public class ContactAddress {
           return self.type!
      }
 
-     public func setType(type : AddressType) {
-          self.type = type
-     }
-
      public func setAddress(address : String) {
           self.address = address
+     }
+
+     public func setType(type : AddressType) {
+          self.type = type
      }
 
 

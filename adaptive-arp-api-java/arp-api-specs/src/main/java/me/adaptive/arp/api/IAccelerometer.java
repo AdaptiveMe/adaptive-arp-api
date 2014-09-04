@@ -56,17 +56,4 @@ public interface IAccelerometer extends IBaseSensor {
      */
     void removeAccelerationListeners();
 
-    /**
-     * Success = Correct reading. Unauthorized = No reading. User has not
-     * authorized a reading. NeedsCalibration = No reading. Device needs to be
-     * calibrated. Unavailable = No reading. Not supported or temporarily
-     * disabled.
-     *
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    enum Status {
-        Success, Unauthorized, NeedsCalibration, Stale, Unavailable
-    }
-
 }
