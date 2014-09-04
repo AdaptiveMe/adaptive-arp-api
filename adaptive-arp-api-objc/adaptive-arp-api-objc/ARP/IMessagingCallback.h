@@ -84,6 +84,7 @@ typedef enum {
   ARPIMessagingCallback_Error_SIM_Not_Present = 0,
   ARPIMessagingCallback_Error_Email_Account_Not_Found = 1,
   ARPIMessagingCallback_Error_Not_Sent = 2,
+  ARPIMessagingCallback_Error_Wrong_Params = 3,
 } ARPIMessagingCallback_Error;
 
 @interface ARPIMessagingCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -108,5 +109,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIMessagingCallback_ErrorEnum, Email_Account_Not_Fo
 
 #define ARPIMessagingCallback_ErrorEnum_Not_Sent ARPIMessagingCallback_ErrorEnum_values[ARPIMessagingCallback_Error_Not_Sent]
 J2OBJC_STATIC_FIELD_GETTER(ARPIMessagingCallback_ErrorEnum, Not_Sent, ARPIMessagingCallback_ErrorEnum *)
+
+#define ARPIMessagingCallback_ErrorEnum_Wrong_Params ARPIMessagingCallback_ErrorEnum_values[ARPIMessagingCallback_Error_Wrong_Params]
+J2OBJC_STATIC_FIELD_GETTER(ARPIMessagingCallback_ErrorEnum, Wrong_Params, ARPIMessagingCallback_ErrorEnum *)
 
 #endif // _ARPIMessagingCallback_H_

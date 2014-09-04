@@ -58,6 +58,7 @@ __attribute__((always_inline)) inline void ARPIContactPhotoResultCallback_init()
 
 typedef enum {
   ARPIContactPhotoResultCallback_Warning_LimitExceeded = 0,
+  ARPIContactPhotoResultCallback_Warning_No_Matches = 1,
 } ARPIContactPhotoResultCallback_Warning;
 
 @interface ARPIContactPhotoResultCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -77,8 +78,12 @@ FOUNDATION_EXPORT ARPIContactPhotoResultCallback_WarningEnum *ARPIContactPhotoRe
 #define ARPIContactPhotoResultCallback_WarningEnum_LimitExceeded ARPIContactPhotoResultCallback_WarningEnum_values[ARPIContactPhotoResultCallback_Warning_LimitExceeded]
 J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_WarningEnum, LimitExceeded, ARPIContactPhotoResultCallback_WarningEnum *)
 
+#define ARPIContactPhotoResultCallback_WarningEnum_No_Matches ARPIContactPhotoResultCallback_WarningEnum_values[ARPIContactPhotoResultCallback_Warning_No_Matches]
+J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_WarningEnum, No_Matches, ARPIContactPhotoResultCallback_WarningEnum *)
+
 typedef enum {
   ARPIContactPhotoResultCallback_Error_NoPermission = 0,
+  ARPIContactPhotoResultCallback_Error_Wrong_Params = 1,
 } ARPIContactPhotoResultCallback_Error;
 
 @interface ARPIContactPhotoResultCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -97,5 +102,8 @@ FOUNDATION_EXPORT ARPIContactPhotoResultCallback_ErrorEnum *ARPIContactPhotoResu
 
 #define ARPIContactPhotoResultCallback_ErrorEnum_NoPermission ARPIContactPhotoResultCallback_ErrorEnum_values[ARPIContactPhotoResultCallback_Error_NoPermission]
 J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_ErrorEnum, NoPermission, ARPIContactPhotoResultCallback_ErrorEnum *)
+
+#define ARPIContactPhotoResultCallback_ErrorEnum_Wrong_Params ARPIContactPhotoResultCallback_ErrorEnum_values[ARPIContactPhotoResultCallback_Error_Wrong_Params]
+J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_ErrorEnum, Wrong_Params, ARPIContactPhotoResultCallback_ErrorEnum *)
 
 #endif // _ARPIContactPhotoResultCallback_H_

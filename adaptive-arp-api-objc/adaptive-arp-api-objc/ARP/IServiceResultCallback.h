@@ -60,6 +60,7 @@ typedef enum {
   ARPIServiceResultCallback_Warning_NotSecure = 0,
   ARPIServiceResultCallback_Warning_NotTrusted = 1,
   ARPIServiceResultCallback_Warning_Redirected = 2,
+  ARPIServiceResultCallback_Warning_NotRegisteredService = 3,
 } ARPIServiceResultCallback_Warning;
 
 @interface ARPIServiceResultCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -84,6 +85,9 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_WarningEnum, NotTrusted, AR
 
 #define ARPIServiceResultCallback_WarningEnum_Redirected ARPIServiceResultCallback_WarningEnum_values[ARPIServiceResultCallback_Warning_Redirected]
 J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_WarningEnum, Redirected, ARPIServiceResultCallback_WarningEnum *)
+
+#define ARPIServiceResultCallback_WarningEnum_NotRegisteredService ARPIServiceResultCallback_WarningEnum_values[ARPIServiceResultCallback_Warning_NotRegisteredService]
+J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_WarningEnum, NotRegisteredService, ARPIServiceResultCallback_WarningEnum *)
 
 typedef enum {
   ARPIServiceResultCallback_Error_Forbidden = 0,

@@ -38,9 +38,9 @@
 #include "IBaseSystem.h"
 
 @protocol ARPIRuntime < ARPIBaseSystem, NSObject, JavaObject >
-- (void)DismissApplication;
+- (void)dismissApplication;
 
-- (BOOL)DismissSplashScreen;
+- (BOOL)dismissSplashScreen;
 
 @end
 

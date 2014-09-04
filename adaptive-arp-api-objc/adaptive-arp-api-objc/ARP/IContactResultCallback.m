@@ -55,7 +55,7 @@
 
 BOOL ARPIContactResultCallback_WarningEnum_initialized = NO;
 
-ARPIContactResultCallback_WarningEnum *ARPIContactResultCallback_WarningEnum_values[1];
+ARPIContactResultCallback_WarningEnum *ARPIContactResultCallback_WarningEnum_values[2];
 
 @implementation ARPIContactResultCallback_WarningEnum
 
@@ -70,16 +70,17 @@ ARPIContactResultCallback_WarningEnum *ARPIContactResultCallback_WarningEnum_val
 + (void)initialize {
   if (self == [ARPIContactResultCallback_WarningEnum class]) {
     ARPIContactResultCallback_WarningEnum_LimitExceeded = [[ARPIContactResultCallback_WarningEnum alloc] initWithNSString:@"LimitExceeded" withInt:0];
+    ARPIContactResultCallback_WarningEnum_No_Matches = [[ARPIContactResultCallback_WarningEnum alloc] initWithNSString:@"No_Matches" withInt:1];
     ARPIContactResultCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIContactResultCallback_WarningEnum_values count:1 type:[IOSClass classWithClass:[ARPIContactResultCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIContactResultCallback_WarningEnum_values count:2 type:[IOSClass classWithClass:[ARPIContactResultCallback_WarningEnum class]]];
 }
 
 + (ARPIContactResultCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 2; i++) {
     ARPIContactResultCallback_WarningEnum *e = ARPIContactResultCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -95,9 +96,10 @@ ARPIContactResultCallback_WarningEnum *ARPIContactResultCallback_WarningEnum_val
   };
   static J2ObjcFieldInfo fields[] = {
     { "LimitExceeded", "LimitExceeded", 0x4019, "Lme.adaptive.arp.api.IContactResultCallback$Warning;", &ARPIContactResultCallback_WarningEnum_LimitExceeded,  },
+    { "No_Matches", "No_Matches", 0x4019, "Lme.adaptive.arp.api.IContactResultCallback$Warning;", &ARPIContactResultCallback_WarningEnum_No_Matches,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IContactResultCallback$Warning;"};
-  static J2ObjcClassInfo _ARPIContactResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IContactResultCallback", 0x4019, 1, methods, 1, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIContactResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IContactResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
   return &_ARPIContactResultCallback_WarningEnum;
 }
 
@@ -105,7 +107,7 @@ ARPIContactResultCallback_WarningEnum *ARPIContactResultCallback_WarningEnum_val
 
 BOOL ARPIContactResultCallback_ErrorEnum_initialized = NO;
 
-ARPIContactResultCallback_ErrorEnum *ARPIContactResultCallback_ErrorEnum_values[1];
+ARPIContactResultCallback_ErrorEnum *ARPIContactResultCallback_ErrorEnum_values[2];
 
 @implementation ARPIContactResultCallback_ErrorEnum
 
@@ -120,16 +122,17 @@ ARPIContactResultCallback_ErrorEnum *ARPIContactResultCallback_ErrorEnum_values[
 + (void)initialize {
   if (self == [ARPIContactResultCallback_ErrorEnum class]) {
     ARPIContactResultCallback_ErrorEnum_NoPermission = [[ARPIContactResultCallback_ErrorEnum alloc] initWithNSString:@"NoPermission" withInt:0];
+    ARPIContactResultCallback_ErrorEnum_Wrong_Params = [[ARPIContactResultCallback_ErrorEnum alloc] initWithNSString:@"Wrong_Params" withInt:1];
     ARPIContactResultCallback_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIContactResultCallback_ErrorEnum_values count:1 type:[IOSClass classWithClass:[ARPIContactResultCallback_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIContactResultCallback_ErrorEnum_values count:2 type:[IOSClass classWithClass:[ARPIContactResultCallback_ErrorEnum class]]];
 }
 
 + (ARPIContactResultCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 2; i++) {
     ARPIContactResultCallback_ErrorEnum *e = ARPIContactResultCallback_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -145,9 +148,10 @@ ARPIContactResultCallback_ErrorEnum *ARPIContactResultCallback_ErrorEnum_values[
   };
   static J2ObjcFieldInfo fields[] = {
     { "NoPermission", "NoPermission", 0x4019, "Lme.adaptive.arp.api.IContactResultCallback$Error;", &ARPIContactResultCallback_ErrorEnum_NoPermission,  },
+    { "Wrong_Params", "Wrong_Params", 0x4019, "Lme.adaptive.arp.api.IContactResultCallback$Error;", &ARPIContactResultCallback_ErrorEnum_Wrong_Params,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IContactResultCallback$Error;"};
-  static J2ObjcClassInfo _ARPIContactResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IContactResultCallback", 0x4019, 1, methods, 1, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIContactResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IContactResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
   return &_ARPIContactResultCallback_ErrorEnum;
 }
 

@@ -51,7 +51,7 @@
     { "isRegisteredWithARPService:", "isRegistered", "Z", 0x401, NULL },
     { "isRegisteredWithNSString:", "isRegistered", "Z", 0x401, NULL },
     { "getServiceWithNSString:", "getService", "Lme.adaptive.arp.api.Service;", 0x401, NULL },
-    { "InvokeServiceWithARPServiceRequest:withARPService:withARPIServiceResultCallback:", "InvokeService", "V", 0x401, NULL },
+    { "invokeServiceWithARPServiceRequest:withARPService:withARPIServiceResultCallback:", "invokeService", "V", 0x401, NULL },
   };
   static J2ObjcClassInfo _ARPIService = { "IService", "me.adaptive.arp.api", NULL, 0x201, 7, methods, 0, NULL, 0, NULL};
   return &_ARPIService;

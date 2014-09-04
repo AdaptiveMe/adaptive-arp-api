@@ -39,7 +39,10 @@
 @implementation ARPIVideo
 
 + (J2ObjcClassInfo *)__metadata {
-  static J2ObjcClassInfo _ARPIVideo = { "IVideo", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
+  static J2ObjcMethodInfo methods[] = {
+    { "playStreamWithNSString:", "playStream", "V", 0x401, NULL },
+  };
+  static J2ObjcClassInfo _ARPIVideo = { "IVideo", "me.adaptive.arp.api", NULL, 0x201, 1, methods, 0, NULL, 0, NULL};
   return &_ARPIVideo;
 }
 

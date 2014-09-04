@@ -55,7 +55,7 @@
 
 BOOL ARPIServiceResultCallback_WarningEnum_initialized = NO;
 
-ARPIServiceResultCallback_WarningEnum *ARPIServiceResultCallback_WarningEnum_values[3];
+ARPIServiceResultCallback_WarningEnum *ARPIServiceResultCallback_WarningEnum_values[4];
 
 @implementation ARPIServiceResultCallback_WarningEnum
 
@@ -72,16 +72,17 @@ ARPIServiceResultCallback_WarningEnum *ARPIServiceResultCallback_WarningEnum_val
     ARPIServiceResultCallback_WarningEnum_NotSecure = [[ARPIServiceResultCallback_WarningEnum alloc] initWithNSString:@"NotSecure" withInt:0];
     ARPIServiceResultCallback_WarningEnum_NotTrusted = [[ARPIServiceResultCallback_WarningEnum alloc] initWithNSString:@"NotTrusted" withInt:1];
     ARPIServiceResultCallback_WarningEnum_Redirected = [[ARPIServiceResultCallback_WarningEnum alloc] initWithNSString:@"Redirected" withInt:2];
+    ARPIServiceResultCallback_WarningEnum_NotRegisteredService = [[ARPIServiceResultCallback_WarningEnum alloc] initWithNSString:@"NotRegisteredService" withInt:3];
     ARPIServiceResultCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIServiceResultCallback_WarningEnum_values count:3 type:[IOSClass classWithClass:[ARPIServiceResultCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIServiceResultCallback_WarningEnum_values count:4 type:[IOSClass classWithClass:[ARPIServiceResultCallback_WarningEnum class]]];
 }
 
 + (ARPIServiceResultCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     ARPIServiceResultCallback_WarningEnum *e = ARPIServiceResultCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -99,9 +100,10 @@ ARPIServiceResultCallback_WarningEnum *ARPIServiceResultCallback_WarningEnum_val
     { "NotSecure", "NotSecure", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Warning;", &ARPIServiceResultCallback_WarningEnum_NotSecure,  },
     { "NotTrusted", "NotTrusted", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Warning;", &ARPIServiceResultCallback_WarningEnum_NotTrusted,  },
     { "Redirected", "Redirected", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Warning;", &ARPIServiceResultCallback_WarningEnum_Redirected,  },
+    { "NotRegisteredService", "NotRegisteredService", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Warning;", &ARPIServiceResultCallback_WarningEnum_NotRegisteredService,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IServiceResultCallback$Warning;"};
-  static J2ObjcClassInfo _ARPIServiceResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IServiceResultCallback", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIServiceResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IServiceResultCallback", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
   return &_ARPIServiceResultCallback_WarningEnum;
 }
 

@@ -64,6 +64,10 @@
   self->language_ = language;
 }
 
+- (NSString *)description {
+  return [NSString stringWithFormat:@"%@-%@", [((NSString *) nil_chk(self->language_)) lowercaseString], [((NSString *) nil_chk(self->country_)) uppercaseString]];
+}
+
 - (void)copyAllFieldsTo:(ARPLocale *)other {
   [super copyAllFieldsTo:other];
   other->country_ = country_;
@@ -78,12 +82,13 @@
     { "setCountryWithNSString:", "setCountry", "V", 0x1, NULL },
     { "getLanguage", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setLanguageWithNSString:", "setLanguage", "V", 0x1, NULL },
+    { "description", "toString", "Ljava.lang.String;", 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "country_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "language_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPLocale = { "Locale", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 2, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPLocale = { "Locale", "me.adaptive.arp.api", NULL, 0x1, 7, methods, 2, fields, 0, NULL};
   return &_ARPLocale;
 }
 

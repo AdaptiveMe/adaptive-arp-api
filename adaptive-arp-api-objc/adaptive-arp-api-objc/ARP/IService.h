@@ -55,7 +55,7 @@
 
 - (ARPService *)getServiceWithNSString:(NSString *)serviceName;
 
-- (void)InvokeServiceWithARPServiceRequest:(ARPServiceRequest *)serviceRequest
+- (void)invokeServiceWithARPServiceRequest:(ARPServiceRequest *)serviceRequest
                             withARPService:(ARPService *)service
              withARPIServiceResultCallback:(id<ARPIServiceResultCallback>)callback;
 
