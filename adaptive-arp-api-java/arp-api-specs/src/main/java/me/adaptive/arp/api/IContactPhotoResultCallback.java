@@ -63,7 +63,7 @@ public interface IContactPhotoResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Warning {
-        LimitExceeded
+        LimitExceeded,No_Matches
     }
 
     /**
@@ -72,6 +72,6 @@ public interface IContactPhotoResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Error {
-        NoPermission
+        NoPermission,Wrong_Params
     }
 }
