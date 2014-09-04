@@ -54,5 +54,9 @@ public class Locale {
           self.language = language
      }
 
+     public func toString() -> String {
+        return self.language+"-"+self.country;
+     }
+
 
 }

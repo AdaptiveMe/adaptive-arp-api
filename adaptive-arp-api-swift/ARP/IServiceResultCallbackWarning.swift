@@ -13,6 +13,6 @@
 import Foundation
 
 public enum IServiceResultCallbackWarning {
-     case NotSecure, NotTrusted, Redirected
+     case NotSecure, NotTrusted, Redirected, NotRegisteredService
 }
 
