@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E2204C319BA268100BC4819 /* IAppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204B819BA268100BC4819 /* IAppContext.swift */; };
+		4E2204C419BA268100BC4819 /* IAppContextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204B919BA268100BC4819 /* IAppContextType.swift */; };
+		4E2204C519BA268100BC4819 /* IAppRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BA19BA268100BC4819 /* IAppRegistry.swift */; };
+		4E2204C619BA268100BC4819 /* IAppResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BB19BA268100BC4819 /* IAppResource.swift */; };
+		4E2204C719BA268100BC4819 /* IAppResourceCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BC19BA268100BC4819 /* IAppResourceCallback.swift */; };
+		4E2204C819BA268100BC4819 /* IAppResourceCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BD19BA268100BC4819 /* IAppResourceCallbackError.swift */; };
+		4E2204C919BA268100BC4819 /* IAppResourceCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BE19BA268100BC4819 /* IAppResourceCallbackWarning.swift */; };
+		4E2204CA19BA268100BC4819 /* IAppResourceFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BF19BA268100BC4819 /* IAppResourceFormat.swift */; };
+		4E2204CB19BA268100BC4819 /* IAppResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204C019BA268100BC4819 /* IAppResourceHandler.swift */; };
+		4E2204CC19BA268100BC4819 /* IAppResourcePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204C119BA268100BC4819 /* IAppResourcePayload.swift */; };
+		4E2204CD19BA268100BC4819 /* IAppResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204C219BA268100BC4819 /* IAppResourceType.swift */; };
+		4E2204CE19BA26DD00BC4819 /* IAppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204B819BA268100BC4819 /* IAppContext.swift */; };
+		4E2204CF19BA26DD00BC4819 /* IAppContextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204B919BA268100BC4819 /* IAppContextType.swift */; };
+		4E2204D019BA26DD00BC4819 /* IAppRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BA19BA268100BC4819 /* IAppRegistry.swift */; };
+		4E2204D119BA26DD00BC4819 /* IAppResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BB19BA268100BC4819 /* IAppResource.swift */; };
+		4E2204D219BA26DD00BC4819 /* IAppResourceCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BC19BA268100BC4819 /* IAppResourceCallback.swift */; };
+		4E2204D319BA26DD00BC4819 /* IAppResourceCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BD19BA268100BC4819 /* IAppResourceCallbackError.swift */; };
+		4E2204D419BA26DD00BC4819 /* IAppResourceCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BE19BA268100BC4819 /* IAppResourceCallbackWarning.swift */; };
+		4E2204D519BA26DD00BC4819 /* IAppResourceFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204BF19BA268100BC4819 /* IAppResourceFormat.swift */; };
+		4E2204D619BA26DD00BC4819 /* IAppResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204C019BA268100BC4819 /* IAppResourceHandler.swift */; };
+		4E2204D719BA26DD00BC4819 /* IAppResourcePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204C119BA268100BC4819 /* IAppResourcePayload.swift */; };
+		4E2204D819BA26DD00BC4819 /* IAppResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204C219BA268100BC4819 /* IAppResourceType.swift */; };
 		4E5F3FBD19B7B51D007D92A1 /* IAccelerationListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */; };
 		4E5F3FBE19B7B51D007D92A1 /* IAccelerationListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */; };
 		4E5F3FBF19B7B51D007D92A1 /* IAccelerationListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */; };
@@ -364,6 +386,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E2204B819BA268100BC4819 /* IAppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppContext.swift; sourceTree = "<group>"; };
+		4E2204B919BA268100BC4819 /* IAppContextType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppContextType.swift; sourceTree = "<group>"; };
+		4E2204BA19BA268100BC4819 /* IAppRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppRegistry.swift; sourceTree = "<group>"; };
+		4E2204BB19BA268100BC4819 /* IAppResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResource.swift; sourceTree = "<group>"; };
+		4E2204BC19BA268100BC4819 /* IAppResourceCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceCallback.swift; sourceTree = "<group>"; };
+		4E2204BD19BA268100BC4819 /* IAppResourceCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceCallbackError.swift; sourceTree = "<group>"; };
+		4E2204BE19BA268100BC4819 /* IAppResourceCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceCallbackWarning.swift; sourceTree = "<group>"; };
+		4E2204BF19BA268100BC4819 /* IAppResourceFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceFormat.swift; sourceTree = "<group>"; };
+		4E2204C019BA268100BC4819 /* IAppResourceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceHandler.swift; sourceTree = "<group>"; };
+		4E2204C119BA268100BC4819 /* IAppResourcePayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourcePayload.swift; sourceTree = "<group>"; };
+		4E2204C219BA268100BC4819 /* IAppResourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceType.swift; sourceTree = "<group>"; };
+		4E2204D919BA272700BC4819 /* AdaptiveArpApi.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AdaptiveArpApi.podspec; sourceTree = "<group>"; };
 		4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccelerationListenerError.swift; sourceTree = "<group>"; };
 		4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccelerationListenerWarning.swift; sourceTree = "<group>"; };
 		4E6D000019B1CD1900EC2555 /* IGyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGyroscope.swift; sourceTree = "<group>"; };
@@ -587,6 +621,7 @@
 		4EF4A64419AF85A000AE551F = {
 			isa = PBXGroup;
 			children = (
+				4E2204D919BA272700BC4819 /* AdaptiveArpApi.podspec */,
 				4EF4A69D19AF861D00AE551F /* ARP */,
 				4EF4A66D19AF85FA00AE551F /* AdaptiveApi_iOS */,
 				4EF4A67719AF85FA00AE551F /* AdaptiveApi_iOSTests */,
@@ -676,6 +711,17 @@
 		4EF4A69D19AF861D00AE551F /* ARP */ = {
 			isa = PBXGroup;
 			children = (
+				4E2204B819BA268100BC4819 /* IAppContext.swift */,
+				4E2204B919BA268100BC4819 /* IAppContextType.swift */,
+				4E2204BA19BA268100BC4819 /* IAppRegistry.swift */,
+				4E2204BB19BA268100BC4819 /* IAppResource.swift */,
+				4E2204BC19BA268100BC4819 /* IAppResourceCallback.swift */,
+				4E2204BD19BA268100BC4819 /* IAppResourceCallbackError.swift */,
+				4E2204BE19BA268100BC4819 /* IAppResourceCallbackWarning.swift */,
+				4E2204BF19BA268100BC4819 /* IAppResourceFormat.swift */,
+				4E2204C019BA268100BC4819 /* IAppResourceHandler.swift */,
+				4E2204C119BA268100BC4819 /* IAppResourcePayload.swift */,
+				4E2204C219BA268100BC4819 /* IAppResourceType.swift */,
 				4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */,
 				4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */,
 				4E6DFF9919B1CD1900EC2555 /* Acceleration.swift */,
@@ -1036,6 +1082,7 @@
 				4E6D014119B1CD1900EC2555 /* INetworkReachabilityCallbackError.swift in Sources */,
 				4E6D00D319B1CD1900EC2555 /* IContactPhotoResultCallbackError.swift in Sources */,
 				4E6D018919B1CD1900EC2555 /* IVibration.swift in Sources */,
+				4E2204C919BA268100BC4819 /* IAppResourceCallbackWarning.swift in Sources */,
 				4E6D011F19B1CD1900EC2555 /* ILifecycleListenerError.swift in Sources */,
 				4E6D017B19B1CD1900EC2555 /* ITableResultCallbackWarning.swift in Sources */,
 				4E6D008D19B1CD1900EC2555 /* IBaseCommunication.swift in Sources */,
@@ -1056,6 +1103,7 @@
 				4E6D00A319B1CD1900EC2555 /* IBaseUI.swift in Sources */,
 				4E6D007F19B1CD1900EC2555 /* IAnalytics.swift in Sources */,
 				4E6D012319B1CD1900EC2555 /* ILinkedIn.swift in Sources */,
+				4E2204CC19BA268100BC4819 /* IAppResourcePayload.swift in Sources */,
 				4E6D007B19B1CD1900EC2555 /* IAlarm.swift in Sources */,
 				4E6D00FD19B1CD1900EC2555 /* IFileListResultCallbackWarning.swift in Sources */,
 				4E6D017519B1CD1900EC2555 /* IStore.swift in Sources */,
@@ -1096,7 +1144,9 @@
 				4E6D01A119B1CD1900EC2555 /* Table.swift in Sources */,
 				4E6D015F19B1CD1900EC2555 /* ISecureKVResultCallback.swift in Sources */,
 				4E6D00E919B1CD1900EC2555 /* IDesktop.swift in Sources */,
+				4E2204CD19BA268100BC4819 /* IAppResourceType.swift in Sources */,
 				4E6D00B319B1CD1900EC2555 /* ICamera.swift in Sources */,
+				4E2204CB19BA268100BC4819 /* IAppResourceHandler.swift in Sources */,
 				4E6D008F19B1CD1900EC2555 /* IBaseData.swift in Sources */,
 				4E6D010919B1CD1900EC2555 /* IGeolocation.swift in Sources */,
 				4E6D016B19B1CD1900EC2555 /* IServiceResultCallbackError.swift in Sources */,
@@ -1142,6 +1192,8 @@
 				4E6D00AB19B1CD1900EC2555 /* IButtonListener.swift in Sources */,
 				4E6D00F919B1CD1900EC2555 /* IFileListResultCallback.swift in Sources */,
 				4E6D012B19B1CD1900EC2555 /* IMail.swift in Sources */,
+				4E2204CA19BA268100BC4819 /* IAppResourceFormat.swift in Sources */,
+				4E2204C819BA268100BC4819 /* IAppResourceCallbackError.swift in Sources */,
 				4E6D019319B1CD1900EC2555 /* Locale.swift in Sources */,
 				4E6D00D719B1CD1900EC2555 /* IContactResultCallback.swift in Sources */,
 				4E6D013519B1CD1900EC2555 /* IMessagingCallbackError.swift in Sources */,
@@ -1156,10 +1208,12 @@
 				4E6D00E719B1CD1900EC2555 /* IDataStream.swift in Sources */,
 				4E6D006D19B1CD1900EC2555 /* Endpoint.swift in Sources */,
 				4E6D008119B1CD1900EC2555 /* IAudio.swift in Sources */,
+				4E2204C419BA268100BC4819 /* IAppContextType.swift in Sources */,
 				4E6D019919B1CD1900EC2555 /* SecureKeyPair.swift in Sources */,
 				4E6D005719B1CD1900EC2555 /* ContactPhone.swift in Sources */,
 				4E6D011319B1CD1900EC2555 /* IGooglePlus.swift in Sources */,
 				4E6D00BD19B1CD1900EC2555 /* ICapabilitiesMedia.swift in Sources */,
+				4E2204C319BA268100BC4819 /* IAppContext.swift in Sources */,
 				4E6D011919B1CD1900EC2555 /* IInternalStorage.swift in Sources */,
 				4E6D00E319B1CD1900EC2555 /* IDatabaseResultCallbackError.swift in Sources */,
 				4E6D013B19B1CD1900EC2555 /* INetworkNaming.swift in Sources */,
@@ -1175,6 +1229,7 @@
 				4E6D007119B1CD1900EC2555 /* Header.swift in Sources */,
 				4E6D00B919B1CD1900EC2555 /* ICapabilitiesCommunication.swift in Sources */,
 				4E6D006F19B1CD1900EC2555 /* Geolocation.swift in Sources */,
+				4E2204C519BA268100BC4819 /* IAppRegistry.swift in Sources */,
 				4E6D008B19B1CD1900EC2555 /* IBaseCommerce.swift in Sources */,
 				4E6D016719B1CD1900EC2555 /* IService.swift in Sources */,
 				4E6D017919B1CD1900EC2555 /* ITableResultCallbackError.swift in Sources */,
@@ -1189,11 +1244,13 @@
 				4E6D012119B1CD1900EC2555 /* ILifecycleListenerWarning.swift in Sources */,
 				4E6D00D919B1CD1900EC2555 /* IContactResultCallbackError.swift in Sources */,
 				4E6D009F19B1CD1900EC2555 /* IBaseSocial.swift in Sources */,
+				4E2204C619BA268100BC4819 /* IAppResource.swift in Sources */,
 				4E6D010F19B1CD1900EC2555 /* IGeolocationListenerWarning.swift in Sources */,
 				4E6D00EF19B1CD1900EC2555 /* IFacebook.swift in Sources */,
 				4E6D014919B1CD1900EC2555 /* INotification.swift in Sources */,
 				4E6D018319B1CD1900EC2555 /* ITwitter.swift in Sources */,
 				4E6D00ED19B1CD1900EC2555 /* IDisplay.swift in Sources */,
+				4E2204C719BA268100BC4819 /* IAppResourceCallback.swift in Sources */,
 				4E6D010D19B1CD1900EC2555 /* IGeolocationListenerError.swift in Sources */,
 				4E6D013F19B1CD1900EC2555 /* INetworkReachabilityCallback.swift in Sources */,
 				4E6D005119B1CD1900EC2555 /* ContactAddress.swift in Sources */,
@@ -1227,6 +1284,7 @@
 				4E6D014219B1CD1900EC2555 /* INetworkReachabilityCallbackError.swift in Sources */,
 				4E6D00D419B1CD1900EC2555 /* IContactPhotoResultCallbackError.swift in Sources */,
 				4E6D018A19B1CD1900EC2555 /* IVibration.swift in Sources */,
+				4E2204D419BA26DD00BC4819 /* IAppResourceCallbackWarning.swift in Sources */,
 				4E6D012019B1CD1900EC2555 /* ILifecycleListenerError.swift in Sources */,
 				4E6D017C19B1CD1900EC2555 /* ITableResultCallbackWarning.swift in Sources */,
 				4E6D008E19B1CD1900EC2555 /* IBaseCommunication.swift in Sources */,
@@ -1247,6 +1305,7 @@
 				4E6D00A419B1CD1900EC2555 /* IBaseUI.swift in Sources */,
 				4E6D008019B1CD1900EC2555 /* IAnalytics.swift in Sources */,
 				4E6D012419B1CD1900EC2555 /* ILinkedIn.swift in Sources */,
+				4E2204D719BA26DD00BC4819 /* IAppResourcePayload.swift in Sources */,
 				4E6D007C19B1CD1900EC2555 /* IAlarm.swift in Sources */,
 				4E6D00FE19B1CD1900EC2555 /* IFileListResultCallbackWarning.swift in Sources */,
 				4E6D017619B1CD1900EC2555 /* IStore.swift in Sources */,
@@ -1287,7 +1346,9 @@
 				4E6D01A219B1CD1900EC2555 /* Table.swift in Sources */,
 				4E6D016019B1CD1900EC2555 /* ISecureKVResultCallback.swift in Sources */,
 				4E6D00EA19B1CD1900EC2555 /* IDesktop.swift in Sources */,
+				4E2204D819BA26DD00BC4819 /* IAppResourceType.swift in Sources */,
 				4E6D00B419B1CD1900EC2555 /* ICamera.swift in Sources */,
+				4E2204D619BA26DD00BC4819 /* IAppResourceHandler.swift in Sources */,
 				4E6D009019B1CD1900EC2555 /* IBaseData.swift in Sources */,
 				4E6D010A19B1CD1900EC2555 /* IGeolocation.swift in Sources */,
 				4E6D016C19B1CD1900EC2555 /* IServiceResultCallbackError.swift in Sources */,
@@ -1333,6 +1394,8 @@
 				4E6D00AC19B1CD1900EC2555 /* IButtonListener.swift in Sources */,
 				4E6D00FA19B1CD1900EC2555 /* IFileListResultCallback.swift in Sources */,
 				4E6D012C19B1CD1900EC2555 /* IMail.swift in Sources */,
+				4E2204D519BA26DD00BC4819 /* IAppResourceFormat.swift in Sources */,
+				4E2204D319BA26DD00BC4819 /* IAppResourceCallbackError.swift in Sources */,
 				4E6D019419B1CD1900EC2555 /* Locale.swift in Sources */,
 				4E6D00D819B1CD1900EC2555 /* IContactResultCallback.swift in Sources */,
 				4E6D013619B1CD1900EC2555 /* IMessagingCallbackError.swift in Sources */,
@@ -1347,10 +1410,12 @@
 				4E6D00E819B1CD1900EC2555 /* IDataStream.swift in Sources */,
 				4E6D006E19B1CD1900EC2555 /* Endpoint.swift in Sources */,
 				4E6D008219B1CD1900EC2555 /* IAudio.swift in Sources */,
+				4E2204CF19BA26DD00BC4819 /* IAppContextType.swift in Sources */,
 				4E6D019A19B1CD1900EC2555 /* SecureKeyPair.swift in Sources */,
 				4E6D005819B1CD1900EC2555 /* ContactPhone.swift in Sources */,
 				4E6D011419B1CD1900EC2555 /* IGooglePlus.swift in Sources */,
 				4E6D00BE19B1CD1900EC2555 /* ICapabilitiesMedia.swift in Sources */,
+				4E2204CE19BA26DD00BC4819 /* IAppContext.swift in Sources */,
 				4E6D011A19B1CD1900EC2555 /* IInternalStorage.swift in Sources */,
 				4E6D00E419B1CD1900EC2555 /* IDatabaseResultCallbackError.swift in Sources */,
 				4E6D013C19B1CD1900EC2555 /* INetworkNaming.swift in Sources */,
@@ -1366,6 +1431,7 @@
 				4E6D007219B1CD1900EC2555 /* Header.swift in Sources */,
 				4E6D00BA19B1CD1900EC2555 /* ICapabilitiesCommunication.swift in Sources */,
 				4E6D007019B1CD1900EC2555 /* Geolocation.swift in Sources */,
+				4E2204D019BA26DD00BC4819 /* IAppRegistry.swift in Sources */,
 				4E6D008C19B1CD1900EC2555 /* IBaseCommerce.swift in Sources */,
 				4E6D016819B1CD1900EC2555 /* IService.swift in Sources */,
 				4E6D017A19B1CD1900EC2555 /* ITableResultCallbackError.swift in Sources */,
@@ -1380,11 +1446,13 @@
 				4E6D012219B1CD1900EC2555 /* ILifecycleListenerWarning.swift in Sources */,
 				4E6D00DA19B1CD1900EC2555 /* IContactResultCallbackError.swift in Sources */,
 				4E6D00A019B1CD1900EC2555 /* IBaseSocial.swift in Sources */,
+				4E2204D119BA26DD00BC4819 /* IAppResource.swift in Sources */,
 				4E6D011019B1CD1900EC2555 /* IGeolocationListenerWarning.swift in Sources */,
 				4E6D00F019B1CD1900EC2555 /* IFacebook.swift in Sources */,
 				4E6D014A19B1CD1900EC2555 /* INotification.swift in Sources */,
 				4E6D018419B1CD1900EC2555 /* ITwitter.swift in Sources */,
 				4E6D00EE19B1CD1900EC2555 /* IDisplay.swift in Sources */,
+				4E2204D219BA26DD00BC4819 /* IAppResourceCallback.swift in Sources */,
 				4E6D010E19B1CD1900EC2555 /* IGeolocationListenerError.swift in Sources */,
 				4E6D014019B1CD1900EC2555 /* INetworkReachabilityCallback.swift in Sources */,
 				4E6D005219B1CD1900EC2555 /* ContactAddress.swift in Sources */,
