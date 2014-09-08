@@ -15,4 +15,9 @@ import Foundation
 public protocol IBaseCallback : IAdaptiveRP {
 
 
+     /**
+      * Function Declarations
+      */
+     func toString() -> String
+
 }

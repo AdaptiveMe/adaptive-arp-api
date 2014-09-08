@@ -12,7 +12,7 @@
 
 import Foundation
 
-public protocol IAppResourceCallback {
+public protocol IAppResourceCallback : IBaseCallback {
 
 
      /**

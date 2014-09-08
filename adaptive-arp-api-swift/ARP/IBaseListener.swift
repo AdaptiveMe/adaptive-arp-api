@@ -15,4 +15,9 @@ import Foundation
 public protocol IBaseListener : IAdaptiveRP {
 
 
+     /**
+      * Function Declarations
+      */
+     func toString() -> String
+
 }

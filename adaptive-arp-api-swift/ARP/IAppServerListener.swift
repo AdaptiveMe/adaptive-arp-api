@@ -12,7 +12,7 @@
 
 import Foundation
 
-public protocol IAppServerListener {
+public protocol IAppServerListener : IBaseListener {
 
 
      /**
