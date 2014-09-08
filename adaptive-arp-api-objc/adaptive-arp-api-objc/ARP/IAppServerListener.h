@@ -37,9 +37,9 @@
 @protocol ARPIAppServer;
 
 #import "JreEmulation.h"
+#include "IBaseListener.h"
 
-@protocol ARPIAppServerListener < NSObject, JavaObject >
-
+@protocol ARPIAppServerListener < ARPIBaseListener, NSObject, JavaObject >
 - (void)onStartWithARPIAppServer:(id<ARPIAppServer>)server;
 
 - (void)onPausingWithARPIAppServer:(id<ARPIAppServer>)server;

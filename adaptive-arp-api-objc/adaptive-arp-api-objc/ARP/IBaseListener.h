@@ -38,6 +38,8 @@
 #include "IAdaptiveRP.h"
 
 @protocol ARPIBaseListener < ARPIAdaptiveRP, NSObject, JavaObject >
+- (NSString *)description;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIBaseListener_init() {}

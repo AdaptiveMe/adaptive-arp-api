@@ -39,10 +39,10 @@
 @protocol ARPIAppResource;
 
 #import "JreEmulation.h"
+#include "IBaseCallback.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIAppResourceCallback < NSObject, JavaObject >
-
+@protocol ARPIAppResourceCallback < ARPIBaseCallback, NSObject, JavaObject >
 - (void)onResultWithARPIAppResource:(id<ARPIAppResource>)resource;
 
 - (void)onWarningWithARPIAppResource:(id<ARPIAppResource>)resource
