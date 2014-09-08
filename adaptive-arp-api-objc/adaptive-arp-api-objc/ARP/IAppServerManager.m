@@ -48,10 +48,12 @@
     { "removeServerListeners", NULL, "V", 0x401, NULL },
     { "startServer", NULL, "V", 0x401, NULL },
     { "stopServerWithARPIAppServer:", "stopServer", "V", 0x401, NULL },
+    { "pauseServerWithARPIAppServer:", "pauseServer", "V", 0x401, NULL },
+    { "resumeServerWithARPIAppServer:", "resumeServer", "V", 0x401, NULL },
     { "stopServers", NULL, "V", 0x401, NULL },
     { "getServers", NULL, "[Lme.adaptive.arp.api.IAppServer;", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPIAppServerManager = { "IAppServerManager", "me.adaptive.arp.api", NULL, 0x201, 7, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPIAppServerManager = { "IAppServerManager", "me.adaptive.arp.api", NULL, 0x201, 9, methods, 0, NULL, 0, NULL};
   return &_ARPIAppServerManager;
 }
 

@@ -52,6 +52,10 @@
 
 - (void)stopServerWithARPIAppServer:(id<ARPIAppServer>)server;
 
+- (void)pauseServerWithARPIAppServer:(id<ARPIAppServer>)server;
+
+- (void)resumeServerWithARPIAppServer:(id<ARPIAppServer>)server;
+
 - (void)stopServers;
 
 - (IOSObjectArray *)getServers;
