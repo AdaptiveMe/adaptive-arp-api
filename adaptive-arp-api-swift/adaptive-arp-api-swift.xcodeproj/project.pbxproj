@@ -29,6 +29,12 @@
 		4E2204D619BA26DD00BC4819 /* IAppResourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204C019BA268100BC4819 /* IAppResourceHandler.swift */; };
 		4E2204D719BA26DD00BC4819 /* IAppResourcePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204C119BA268100BC4819 /* IAppResourcePayload.swift */; };
 		4E2204D819BA26DD00BC4819 /* IAppResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2204C219BA268100BC4819 /* IAppResourceType.swift */; };
+		4E22053A19BDEB3400BC4819 /* IAppServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22053719BDEB3400BC4819 /* IAppServer.swift */; };
+		4E22053B19BDEB3400BC4819 /* IAppServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22053719BDEB3400BC4819 /* IAppServer.swift */; };
+		4E22053C19BDEB3400BC4819 /* IAppServerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22053819BDEB3400BC4819 /* IAppServerListener.swift */; };
+		4E22053D19BDEB3400BC4819 /* IAppServerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22053819BDEB3400BC4819 /* IAppServerListener.swift */; };
+		4E22053E19BDEB3400BC4819 /* IAppServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22053919BDEB3400BC4819 /* IAppServerManager.swift */; };
+		4E22053F19BDEB3400BC4819 /* IAppServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22053919BDEB3400BC4819 /* IAppServerManager.swift */; };
 		4E5F3FBD19B7B51D007D92A1 /* IAccelerationListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */; };
 		4E5F3FBE19B7B51D007D92A1 /* IAccelerationListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */; };
 		4E5F3FBF19B7B51D007D92A1 /* IAccelerationListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */; };
@@ -398,6 +404,9 @@
 		4E2204C119BA268100BC4819 /* IAppResourcePayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourcePayload.swift; sourceTree = "<group>"; };
 		4E2204C219BA268100BC4819 /* IAppResourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceType.swift; sourceTree = "<group>"; };
 		4E2204D919BA272700BC4819 /* AdaptiveArpApi.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AdaptiveArpApi.podspec; sourceTree = "<group>"; };
+		4E22053719BDEB3400BC4819 /* IAppServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppServer.swift; sourceTree = "<group>"; };
+		4E22053819BDEB3400BC4819 /* IAppServerListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppServerListener.swift; sourceTree = "<group>"; };
+		4E22053919BDEB3400BC4819 /* IAppServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppServerManager.swift; sourceTree = "<group>"; };
 		4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccelerationListenerError.swift; sourceTree = "<group>"; };
 		4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccelerationListenerWarning.swift; sourceTree = "<group>"; };
 		4E6D000019B1CD1900EC2555 /* IGyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGyroscope.swift; sourceTree = "<group>"; };
@@ -711,6 +720,9 @@
 		4EF4A69D19AF861D00AE551F /* ARP */ = {
 			isa = PBXGroup;
 			children = (
+				4E22053719BDEB3400BC4819 /* IAppServer.swift */,
+				4E22053819BDEB3400BC4819 /* IAppServerListener.swift */,
+				4E22053919BDEB3400BC4819 /* IAppServerManager.swift */,
 				4E2204B819BA268100BC4819 /* IAppContext.swift */,
 				4E2204B919BA268100BC4819 /* IAppContextType.swift */,
 				4E2204BA19BA268100BC4819 /* IAppRegistry.swift */,
@@ -1079,6 +1091,7 @@
 				4E6D016F19B1CD1900EC2555 /* ISession.swift in Sources */,
 				4E6D013719B1CD1900EC2555 /* IMessagingCallbackWarning.swift in Sources */,
 				4E6D00FB19B1CD1900EC2555 /* IFileListResultCallbackError.swift in Sources */,
+				4E22053A19BDEB3400BC4819 /* IAppServer.swift in Sources */,
 				4E6D014119B1CD1900EC2555 /* INetworkReachabilityCallbackError.swift in Sources */,
 				4E6D00D319B1CD1900EC2555 /* IContactPhotoResultCallbackError.swift in Sources */,
 				4E6D018919B1CD1900EC2555 /* IVibration.swift in Sources */,
@@ -1101,6 +1114,7 @@
 				4E6D00C119B1CD1900EC2555 /* ICapabilitiesNotification.swift in Sources */,
 				4E6D006119B1CD1900EC2555 /* ContactWebsite.swift in Sources */,
 				4E6D00A319B1CD1900EC2555 /* IBaseUI.swift in Sources */,
+				4E22053C19BDEB3400BC4819 /* IAppServerListener.swift in Sources */,
 				4E6D007F19B1CD1900EC2555 /* IAnalytics.swift in Sources */,
 				4E6D012319B1CD1900EC2555 /* ILinkedIn.swift in Sources */,
 				4E2204CC19BA268100BC4819 /* IAppResourcePayload.swift in Sources */,
@@ -1221,6 +1235,7 @@
 				4E6D012919B1CD1900EC2555 /* IMagnetometer.swift in Sources */,
 				4E6D019519B1CD1900EC2555 /* OSInfo.swift in Sources */,
 				4E6D018D19B1CD1900EC2555 /* IWallet.swift in Sources */,
+				4E22053E19BDEB3400BC4819 /* IAppServerManager.swift in Sources */,
 				4E6D00E119B1CD1900EC2555 /* IDatabaseResultCallback.swift in Sources */,
 				4E6D009119B1CD1900EC2555 /* IBaseListener.swift in Sources */,
 				4E6D00BB19B1CD1900EC2555 /* ICapabilitiesData.swift in Sources */,
@@ -1281,6 +1296,7 @@
 				4E6D017019B1CD1900EC2555 /* ISession.swift in Sources */,
 				4E6D013819B1CD1900EC2555 /* IMessagingCallbackWarning.swift in Sources */,
 				4E6D00FC19B1CD1900EC2555 /* IFileListResultCallbackError.swift in Sources */,
+				4E22053B19BDEB3400BC4819 /* IAppServer.swift in Sources */,
 				4E6D014219B1CD1900EC2555 /* INetworkReachabilityCallbackError.swift in Sources */,
 				4E6D00D419B1CD1900EC2555 /* IContactPhotoResultCallbackError.swift in Sources */,
 				4E6D018A19B1CD1900EC2555 /* IVibration.swift in Sources */,
@@ -1303,6 +1319,7 @@
 				4E6D00C219B1CD1900EC2555 /* ICapabilitiesNotification.swift in Sources */,
 				4E6D006219B1CD1900EC2555 /* ContactWebsite.swift in Sources */,
 				4E6D00A419B1CD1900EC2555 /* IBaseUI.swift in Sources */,
+				4E22053D19BDEB3400BC4819 /* IAppServerListener.swift in Sources */,
 				4E6D008019B1CD1900EC2555 /* IAnalytics.swift in Sources */,
 				4E6D012419B1CD1900EC2555 /* ILinkedIn.swift in Sources */,
 				4E2204D719BA26DD00BC4819 /* IAppResourcePayload.swift in Sources */,
@@ -1423,6 +1440,7 @@
 				4E6D012A19B1CD1900EC2555 /* IMagnetometer.swift in Sources */,
 				4E6D019619B1CD1900EC2555 /* OSInfo.swift in Sources */,
 				4E6D018E19B1CD1900EC2555 /* IWallet.swift in Sources */,
+				4E22053F19BDEB3400BC4819 /* IAppServerManager.swift in Sources */,
 				4E6D00E219B1CD1900EC2555 /* IDatabaseResultCallback.swift in Sources */,
 				4E6D009219B1CD1900EC2555 /* IBaseListener.swift in Sources */,
 				4E6D00BC19B1CD1900EC2555 /* ICapabilitiesData.swift in Sources */,
