@@ -70,6 +70,14 @@
     <Compile Include="Adaptive\Arp\Api\IAlarm.cs" />
     <Compile Include="Adaptive\Arp\Api\IAmbientLight.cs" />
     <Compile Include="Adaptive\Arp\Api\IAnalytics.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAppContext.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAppRegistry.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAppResource.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAppResourceCallback.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAppResourceHandler.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAppServer.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAppServerListener.cs" />
+    <Compile Include="Adaptive\Arp\Api\IAppServerManager.cs" />
     <Compile Include="Adaptive\Arp\Api\IAudio.cs" />
     <Compile Include="Adaptive\Arp\Api\IBarcode.cs" />
     <Compile Include="Adaptive\Arp\Api\IBarometer.cs" />
