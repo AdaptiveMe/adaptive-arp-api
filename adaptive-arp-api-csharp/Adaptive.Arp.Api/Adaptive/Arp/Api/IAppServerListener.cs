@@ -31,7 +31,7 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	public interface IAppServerListener
+	public interface IAppServerListener : IBaseListener
 	{
 		/// <summary>Invoked when the server starts.</summary>
 		/// <remarks>Invoked when the server starts.</remarks>

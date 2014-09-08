@@ -33,5 +33,6 @@ namespace Adaptive.Arp.Api
 {
 	public interface IBaseListener : IAdaptiveRP
 	{
+		string ToString();
 	}
 }
