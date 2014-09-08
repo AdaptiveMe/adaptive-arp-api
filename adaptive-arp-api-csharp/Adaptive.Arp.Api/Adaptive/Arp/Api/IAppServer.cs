@@ -55,9 +55,9 @@ namespace Adaptive.Arp.Api
 		/// <returns>String with the host name supported in the current server.</returns>
 		string GetHost();
 
-		/// <summary>Ports are dynamically assigned from a range &gt;1024 and &lt; 22000.</summary>
+		/// <summary>Ports are dynamically assigned from a range 1024 to 22000.</summary>
 		/// <remarks>
-		/// Ports are dynamically assigned from a range &gt;1024 and &lt; 22000. This port is assigned each time the server is
+		/// Ports are dynamically assigned from a range 1024 to 22000. This port is assigned each time the server is
 		/// started or resumed and represents the specific port the instance is listening on. Please note that the port
 		/// assigned during start may change when the listener is paused and resumed - applications should prepare for this
 		/// to respect platform specific limitations of listening on sockets when an application is in background.
@@ -77,11 +77,11 @@ namespace Adaptive.Arp.Api
 		string GetPath();
 
 		/// <summary>
-		/// The base URI represents the base URI the listener is listening on - this is the sum of <scheme>://<host>:<port><path>,
+		/// The base URI represents the base URI the listener is listening on - this is the sum of SCHEME://HOST:PORT PATH,
 		/// generally this will take the form of http://localhost:1234/.
 		/// </summary>
 		/// <remarks>
-		/// The base URI represents the base URI the listener is listening on - this is the sum of <scheme>://<host>:<port><path>,
+		/// The base URI represents the base URI the listener is listening on - this is the sum of SCHEME://HOST:PORT PATH,
 		/// generally this will take the form of http://localhost:1234/. This is a convenience method for constructing URLs that
 		/// use the internal listener. Applications should use relative paths rather than absolute paths. In specific, an application
 		/// should use "/resource.jpg" rather than "http://localhost:1234/resource.jpg" and set the base path for the view

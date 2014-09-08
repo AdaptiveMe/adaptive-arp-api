@@ -68,6 +68,18 @@ namespace Adaptive.Arp.Api
 		/// <param name="server">Stop the specified server.</param>
 		void StopServer(IAppServer server);
 
+		/// <summary>Asynchronous command to pause listening.</summary>
+		/// <remarks>Asynchronous command to pause listening. This stops the specified instance of the server.
+		/// 	</remarks>
+		/// <param name="server">Stop the specified server.</param>
+		void PauseServer(IAppServer server);
+
+		/// <summary>Asynchronous command to resume listening.</summary>
+		/// <remarks>Asynchronous command to resume listening. This stops the specified instance of the server.
+		/// 	</remarks>
+		/// <param name="server">Stop the specified server.</param>
+		void ResumeServer(IAppServer server);
+
 		/// <summary>Stops all currently listening servers.</summary>
 		/// <remarks>Stops all currently listening servers.</remarks>
 		void StopServers();
