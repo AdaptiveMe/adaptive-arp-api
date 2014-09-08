@@ -31,7 +31,7 @@ package me.adaptive.arp.api;
 /**
  * Created by clozano on 05/09/2014.
  */
-public interface IAppResourceCallback {
+public interface IAppResourceCallback extends IBaseCallback {
 
     enum Warning {PartialContent, TooLarge, LinkedResource}
 

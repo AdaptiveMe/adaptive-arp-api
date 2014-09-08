@@ -28,7 +28,7 @@
 
 package me.adaptive.arp.api;
 
-public interface IAppServerListener {
+public interface IAppServerListener extends IBaseListener {
 
     /**
      * Invoked when the server starts.
