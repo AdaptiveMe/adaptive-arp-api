@@ -67,6 +67,20 @@ public interface IAppServerManager {
     void stopServer(IAppServer server);
 
     /**
+     * Asynchronous command to pause listening. This stops the specified instance of the server.
+     *
+     * @param server Stop the specified server.
+     */
+    void pauseServer(IAppServer server);
+
+    /**
+     * Asynchronous command to resume listening. This stops the specified instance of the server.
+     *
+     * @param server Stop the specified server.
+     */
+    void resumeServer(IAppServer server);
+
+    /**
      * Stops all currently listening servers.
      */
     void stopServers();
