@@ -61,7 +61,7 @@ public class Locale {
      * @param language
      * @since ARP1.0
      */
-    public Locale(String country, String language) {
+    public Locale(String language, String country) {
         this.country = country;
         this.language = language;
     }
@@ -111,6 +111,6 @@ public class Locale {
      * @return string representation of the filename with the locale content
      */
     public String toString(){
-        return this.language.toLowerCase()+"-"+this.country.toUpperCase();
+        return this.language.toLowerCase()+(this.country.toUpperCase() != null?"-"+this.country.toUpperCase():"");
     }
 }
