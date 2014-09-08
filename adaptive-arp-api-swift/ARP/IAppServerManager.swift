@@ -20,8 +20,10 @@ public protocol IAppServerManager {
       */
      func addServerListener(listener : IAppServerListener)
      func getServers() -> [IAppServer]
+     func pauseServer(server : IAppServer)
      func removeServerListener(listener : IAppServerListener)
      func removeServerListeners()
+     func resumeServer(server : IAppServer)
      func startServer()
      func stopServer(server : IAppServer)
      func stopServers()
