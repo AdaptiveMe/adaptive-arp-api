@@ -32,10 +32,22 @@ package me.adaptive.arp.api;
  * Created by clozano on 05/09/2014.
  */
 public interface IAppContext {
-
+    /**
+     * The type of application context - platform specific.
+     */
     enum Type {iOS, OSX, Windows, WindowsPhone, Android}
 
+    /**
+     * The main application context. This should be cast to the platform specific implementation.
+     * @return Object representing the specific singleton application context provided by the OS.
+     */
     Object getContext();
 
+    /**
+     * The type of context provided by the getContext method.
+     * @return Type of platform context.
+     */
     Type getContextType();
+
+
 }

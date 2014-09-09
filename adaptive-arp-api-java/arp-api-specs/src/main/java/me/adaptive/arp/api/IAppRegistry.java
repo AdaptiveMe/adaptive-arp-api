@@ -33,10 +33,38 @@ package me.adaptive.arp.api;
  */
 public interface IAppRegistry {
 
-    void setApplicationContext(IAppContext context);
+    /* Internals */
 
-    IAppContext getApplicationContect();
+    IAppContext getPlatformContext();
 
-    IAppResourceHandler getApplicationResourceHandler();
-    
+    IAppContextWebview getPlatformContextWeb();
+
+    IAppResourceHandler getPlatformResourceHandler();
+
+    /* Base System */
+    ICapabilities getSystemCapabilities();
+
+    IDevice getSystemDevice();
+
+    IDisplay getSystemDisplay();
+
+    IOS getSystemOS();
+
+    IRuntime getSystemRuntime();
+
+    /* Base Application */
+
+    IAnalytics getApplicationAnalytics();
+
+    IGlobalization getApplicationGlobalization();
+
+    ILifecycle getApplicationLifecycle();
+
+    IManagement getApplicationManagement();
+
+    IPrinting getApplicationPrinting();
+
+    ISettings getApplicationSettings();
+
+    IUpdate getApplicationUpdate();
 }
