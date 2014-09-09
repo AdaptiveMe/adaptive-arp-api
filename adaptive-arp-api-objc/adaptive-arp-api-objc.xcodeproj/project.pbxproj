@@ -7,6 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E6A996419BF46A100203DE8 /* IAppContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6A995019BF46A100203DE8 /* IAppContext.h */; };
+		4E6A996519BF46A100203DE8 /* IAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995119BF46A100203DE8 /* IAppContext.m */; };
+		4E6A996619BF46A100203DE8 /* IAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995119BF46A100203DE8 /* IAppContext.m */; };
+		4E6A996719BF46A100203DE8 /* IAppContextWebview.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6A995219BF46A100203DE8 /* IAppContextWebview.h */; };
+		4E6A996819BF46A100203DE8 /* IAppContextWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995319BF46A100203DE8 /* IAppContextWebview.m */; };
+		4E6A996919BF46A100203DE8 /* IAppContextWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995319BF46A100203DE8 /* IAppContextWebview.m */; };
+		4E6A996A19BF46A100203DE8 /* IAppRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6A995419BF46A100203DE8 /* IAppRegistry.h */; };
+		4E6A996B19BF46A100203DE8 /* IAppRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995519BF46A100203DE8 /* IAppRegistry.m */; };
+		4E6A996C19BF46A100203DE8 /* IAppRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995519BF46A100203DE8 /* IAppRegistry.m */; };
+		4E6A996D19BF46A100203DE8 /* IAppResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6A995619BF46A100203DE8 /* IAppResource.h */; };
+		4E6A996E19BF46A100203DE8 /* IAppResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995719BF46A100203DE8 /* IAppResource.m */; };
+		4E6A996F19BF46A100203DE8 /* IAppResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995719BF46A100203DE8 /* IAppResource.m */; };
+		4E6A997019BF46A100203DE8 /* IAppResourceCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6A995819BF46A100203DE8 /* IAppResourceCallback.h */; };
+		4E6A997119BF46A100203DE8 /* IAppResourceCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995919BF46A100203DE8 /* IAppResourceCallback.m */; };
+		4E6A997219BF46A100203DE8 /* IAppResourceCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995919BF46A100203DE8 /* IAppResourceCallback.m */; };
+		4E6A997319BF46A100203DE8 /* IAppResourceHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6A995A19BF46A100203DE8 /* IAppResourceHandler.h */; };
+		4E6A997419BF46A100203DE8 /* IAppResourceHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995B19BF46A100203DE8 /* IAppResourceHandler.m */; };
+		4E6A997519BF46A100203DE8 /* IAppResourceHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995B19BF46A100203DE8 /* IAppResourceHandler.m */; };
+		4E6A997619BF46A100203DE8 /* IAppServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6A995C19BF46A100203DE8 /* IAppServer.h */; };
+		4E6A997719BF46A100203DE8 /* IAppServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995D19BF46A100203DE8 /* IAppServer.m */; };
+		4E6A997819BF46A100203DE8 /* IAppServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995D19BF46A100203DE8 /* IAppServer.m */; };
+		4E6A997919BF46A100203DE8 /* IAppServerListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6A995E19BF46A100203DE8 /* IAppServerListener.h */; };
+		4E6A997A19BF46A100203DE8 /* IAppServerListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995F19BF46A100203DE8 /* IAppServerListener.m */; };
+		4E6A997B19BF46A100203DE8 /* IAppServerListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A995F19BF46A100203DE8 /* IAppServerListener.m */; };
+		4E6A997C19BF46A100203DE8 /* IAppServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6A996019BF46A100203DE8 /* IAppServerManager.h */; };
+		4E6A997D19BF46A100203DE8 /* IAppServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A996119BF46A100203DE8 /* IAppServerManager.m */; };
+		4E6A997E19BF46A100203DE8 /* IAppServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A996119BF46A100203DE8 /* IAppServerManager.m */; };
+		4E6A997F19BF46A100203DE8 /* INetworkReachabilityCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6A996219BF46A100203DE8 /* INetworkReachabilityCallback.h */; };
+		4E6A998019BF46A100203DE8 /* INetworkReachabilityCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A996319BF46A100203DE8 /* INetworkReachabilityCallback.m */; };
+		4E6A998119BF46A100203DE8 /* INetworkReachabilityCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A996319BF46A100203DE8 /* INetworkReachabilityCallback.m */; };
 		4ECC92DE19AD296F0084AA56 /* Acceleration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC91D119AD296E0084AA56 /* Acceleration.m */; };
 		4ECC92DF19AD296F0084AA56 /* AttachmentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC91D319AD296E0084AA56 /* AttachmentData.m */; };
 		4ECC92E019AD296F0084AA56 /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC91D519AD296E0084AA56 /* Button.m */; };
@@ -697,6 +727,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E6A995019BF46A100203DE8 /* IAppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppContext.h; sourceTree = "<group>"; };
+		4E6A995119BF46A100203DE8 /* IAppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAppContext.m; sourceTree = "<group>"; };
+		4E6A995219BF46A100203DE8 /* IAppContextWebview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppContextWebview.h; sourceTree = "<group>"; };
+		4E6A995319BF46A100203DE8 /* IAppContextWebview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAppContextWebview.m; sourceTree = "<group>"; };
+		4E6A995419BF46A100203DE8 /* IAppRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppRegistry.h; sourceTree = "<group>"; };
+		4E6A995519BF46A100203DE8 /* IAppRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAppRegistry.m; sourceTree = "<group>"; };
+		4E6A995619BF46A100203DE8 /* IAppResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppResource.h; sourceTree = "<group>"; };
+		4E6A995719BF46A100203DE8 /* IAppResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAppResource.m; sourceTree = "<group>"; };
+		4E6A995819BF46A100203DE8 /* IAppResourceCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppResourceCallback.h; sourceTree = "<group>"; };
+		4E6A995919BF46A100203DE8 /* IAppResourceCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAppResourceCallback.m; sourceTree = "<group>"; };
+		4E6A995A19BF46A100203DE8 /* IAppResourceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppResourceHandler.h; sourceTree = "<group>"; };
+		4E6A995B19BF46A100203DE8 /* IAppResourceHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAppResourceHandler.m; sourceTree = "<group>"; };
+		4E6A995C19BF46A100203DE8 /* IAppServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppServer.h; sourceTree = "<group>"; };
+		4E6A995D19BF46A100203DE8 /* IAppServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAppServer.m; sourceTree = "<group>"; };
+		4E6A995E19BF46A100203DE8 /* IAppServerListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppServerListener.h; sourceTree = "<group>"; };
+		4E6A995F19BF46A100203DE8 /* IAppServerListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAppServerListener.m; sourceTree = "<group>"; };
+		4E6A996019BF46A100203DE8 /* IAppServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppServerManager.h; sourceTree = "<group>"; };
+		4E6A996119BF46A100203DE8 /* IAppServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAppServerManager.m; sourceTree = "<group>"; };
+		4E6A996219BF46A100203DE8 /* INetworkReachabilityCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetworkReachabilityCallback.h; sourceTree = "<group>"; };
+		4E6A996319BF46A100203DE8 /* INetworkReachabilityCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INetworkReachabilityCallback.m; sourceTree = "<group>"; };
 		4E7F20E619AD03C400378DCA /* libadaptive-api-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libadaptive-api-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E7F20F019AD03C400378DCA /* adaptive-api-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "adaptive-api-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E7F20F319AD03C400378DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1081,6 +1131,26 @@
 		4ECC91CF19AD296E0084AA56 /* ARP */ = {
 			isa = PBXGroup;
 			children = (
+				4E6A995019BF46A100203DE8 /* IAppContext.h */,
+				4E6A995119BF46A100203DE8 /* IAppContext.m */,
+				4E6A995219BF46A100203DE8 /* IAppContextWebview.h */,
+				4E6A995319BF46A100203DE8 /* IAppContextWebview.m */,
+				4E6A995419BF46A100203DE8 /* IAppRegistry.h */,
+				4E6A995519BF46A100203DE8 /* IAppRegistry.m */,
+				4E6A995619BF46A100203DE8 /* IAppResource.h */,
+				4E6A995719BF46A100203DE8 /* IAppResource.m */,
+				4E6A995819BF46A100203DE8 /* IAppResourceCallback.h */,
+				4E6A995919BF46A100203DE8 /* IAppResourceCallback.m */,
+				4E6A995A19BF46A100203DE8 /* IAppResourceHandler.h */,
+				4E6A995B19BF46A100203DE8 /* IAppResourceHandler.m */,
+				4E6A995C19BF46A100203DE8 /* IAppServer.h */,
+				4E6A995D19BF46A100203DE8 /* IAppServer.m */,
+				4E6A995E19BF46A100203DE8 /* IAppServerListener.h */,
+				4E6A995F19BF46A100203DE8 /* IAppServerListener.m */,
+				4E6A996019BF46A100203DE8 /* IAppServerManager.h */,
+				4E6A996119BF46A100203DE8 /* IAppServerManager.m */,
+				4E6A996219BF46A100203DE8 /* INetworkReachabilityCallback.h */,
+				4E6A996319BF46A100203DE8 /* INetworkReachabilityCallback.m */,
 				4ECC91D019AD296E0084AA56 /* Acceleration.h */,
 				4ECC91D119AD296E0084AA56 /* Acceleration.m */,
 				4ECC91D219AD296E0084AA56 /* AttachmentData.h */,
@@ -1373,7 +1443,9 @@
 				4ECC93F319AD29CC0084AA56 /* ContactPersonalInfo.h in Headers */,
 				4ECC93F419AD29CC0084AA56 /* ContactPhone.h in Headers */,
 				4ECC93F519AD29CC0084AA56 /* ContactProfessionalInfo.h in Headers */,
+				4E6A996419BF46A100203DE8 /* IAppContext.h in Headers */,
 				4ECC93F619AD29CC0084AA56 /* ContactSocial.h in Headers */,
+				4E6A997319BF46A100203DE8 /* IAppResourceHandler.h in Headers */,
 				4ECC93F719AD29CC0084AA56 /* ContactTag.h in Headers */,
 				4ECC93F819AD29CC0084AA56 /* ContactUid.h in Headers */,
 				4ECC93F919AD29CC0084AA56 /* ContactWebsite.h in Headers */,
@@ -1384,6 +1456,7 @@
 				4ECC93FE19AD29CD0084AA56 /* EmailAddress.h in Headers */,
 				4ECC93FF19AD29CD0084AA56 /* Endpoint.h in Headers */,
 				4ECC940019AD29CD0084AA56 /* Geolocation.h in Headers */,
+				4E6A996D19BF46A100203DE8 /* IAppResource.h in Headers */,
 				4ECC940119AD29CD0084AA56 /* Header.h in Headers */,
 				4ECC940219AD29CD0084AA56 /* IAccelerationListener.h in Headers */,
 				4ECC940319AD29CD0084AA56 /* IAccelerometer.h in Headers */,
@@ -1429,11 +1502,15 @@
 				4ECC942B19AD29D10084AA56 /* IDataStream.h in Headers */,
 				4ECC942C19AD29D10084AA56 /* IDesktop.h in Headers */,
 				4ECC942D19AD29D10084AA56 /* IDevice.h in Headers */,
+				4E6A997C19BF46A100203DE8 /* IAppServerManager.h in Headers */,
 				4ECC942E19AD29D10084AA56 /* IDisplay.h in Headers */,
 				4ECC942F19AD29D10084AA56 /* IFacebook.h in Headers */,
 				4ECC943019AD29D10084AA56 /* IFile.h in Headers */,
+				4E6A997019BF46A100203DE8 /* IAppResourceCallback.h in Headers */,
+				4E6A997F19BF46A100203DE8 /* INetworkReachabilityCallback.h in Headers */,
 				4ECC943119AD29D10084AA56 /* IFileDataResultCallback.h in Headers */,
 				4ECC943219AD29D20084AA56 /* IFileListResultCallback.h in Headers */,
+				4E6A997619BF46A100203DE8 /* IAppServer.h in Headers */,
 				4ECC943319AD29D20084AA56 /* IFilePath.h in Headers */,
 				4ECC943419AD29D20084AA56 /* IFileResultCallback.h in Headers */,
 				4ECC943519AD29D20084AA56 /* IFileSystem.h in Headers */,
@@ -1460,10 +1537,12 @@
 				4ECC944A19AD29D50084AA56 /* INetworkStatus.h in Headers */,
 				4ECC944B19AD29D50084AA56 /* INFC.h in Headers */,
 				4ECC944C19AD29D50084AA56 /* INotification.h in Headers */,
+				4E6A996719BF46A100203DE8 /* IAppContextWebview.h in Headers */,
 				4ECC944D19AD29D50084AA56 /* INotificationLocal.h in Headers */,
 				4ECC944E19AD29D50084AA56 /* InvalidPathException.h in Headers */,
 				4ECC944F19AD29D60084AA56 /* IOAuth.h in Headers */,
 				4ECC945019AD29D60084AA56 /* IOCR.h in Headers */,
+				4E6A996A19BF46A100203DE8 /* IAppRegistry.h in Headers */,
 				4ECC945119AD29D60084AA56 /* IOpenId.h in Headers */,
 				4ECC945219AD29D60084AA56 /* IOS.h in Headers */,
 				4ECC945319AD29D60084AA56 /* IPrinting.h in Headers */,
@@ -1490,6 +1569,7 @@
 				4ECC946819AD29DA0084AA56 /* IWallet.h in Headers */,
 				4ECC946919AD29DA0084AA56 /* IXML.h in Headers */,
 				4ECC946A19AD29DA0084AA56 /* Lifecycle.h in Headers */,
+				4E6A997919BF46A100203DE8 /* IAppServerListener.h in Headers */,
 				4ECC946B19AD29DB0084AA56 /* Locale.h in Headers */,
 				4ECC946C19AD29DB0084AA56 /* OSInfo.h in Headers */,
 				4ECC946D19AD29DB0084AA56 /* Row.h in Headers */,
@@ -1653,6 +1733,7 @@
 				4ECC92E019AD296F0084AA56 /* Button.m in Sources */,
 				4ECC92E319AD296F0084AA56 /* ContactAddress.m in Sources */,
 				4ECC935A19AD296F0084AA56 /* IWallet.m in Sources */,
+				4E6A997119BF46A100203DE8 /* IAppResourceCallback.m in Sources */,
 				4ECC935F19AD296F0084AA56 /* Row.m in Sources */,
 				4ECC936119AD296F0084AA56 /* Service.m in Sources */,
 				4ECC936419AD296F0084AA56 /* Table.m in Sources */,
@@ -1666,6 +1747,7 @@
 				4ECC932119AD296F0084AA56 /* IFacebook.m in Sources */,
 				4ECC92EE19AD296F0084AA56 /* DeviceInfo.m in Sources */,
 				4ECC935319AD296F0084AA56 /* ITelephony.m in Sources */,
+				4E6A997419BF46A100203DE8 /* IAppResourceHandler.m in Sources */,
 				4ECC930219AD296F0084AA56 /* IBaseData.m in Sources */,
 				4ECC933819AD296F0084AA56 /* IMessagingCallback.m in Sources */,
 				4ECC92E719AD296F0084AA56 /* ContactProfessionalInfo.m in Sources */,
@@ -1676,6 +1758,7 @@
 				4ECC930619AD296F0084AA56 /* IBasePIM.m in Sources */,
 				4ECC936219AD296F0084AA56 /* ServiceRequest.m in Sources */,
 				4ECC92F519AD296F0084AA56 /* IAccelerometer.m in Sources */,
+				4E6A996519BF46A100203DE8 /* IAppContext.m in Sources */,
 				4ECC935E19AD296F0084AA56 /* OSInfo.m in Sources */,
 				4ECC932A19AD296F0084AA56 /* IGlobalization.m in Sources */,
 				4ECC931F19AD296F0084AA56 /* IDevice.m in Sources */,
@@ -1692,6 +1775,7 @@
 				4ECC934F19AD296F0084AA56 /* ISettings.m in Sources */,
 				4ECC935619AD296F0084AA56 /* IUI.m in Sources */,
 				4ECC92E519AD296F0084AA56 /* ContactPersonalInfo.m in Sources */,
+				4E6A996B19BF46A100203DE8 /* IAppRegistry.m in Sources */,
 				4ECC931E19AD296F0084AA56 /* IDesktop.m in Sources */,
 				4ECC934A19AD296F0084AA56 /* ISecureKVResultCallback.m in Sources */,
 				4ECC933719AD296F0084AA56 /* IMessaging.m in Sources */,
@@ -1700,6 +1784,7 @@
 				4ECC933219AD296F0084AA56 /* ILogging.m in Sources */,
 				4ECC935B19AD296F0084AA56 /* IXML.m in Sources */,
 				4ECC930819AD296F0084AA56 /* IBaseSecurity.m in Sources */,
+				4E6A997A19BF46A100203DE8 /* IAppServerListener.m in Sources */,
 				4ECC92E419AD296F0084AA56 /* ContactEmail.m in Sources */,
 				4ECC930A19AD296F0084AA56 /* IBaseSocial.m in Sources */,
 				4ECC92FB19AD296F0084AA56 /* IAudio.m in Sources */,
@@ -1711,6 +1796,7 @@
 				4ECC933319AD296F0084AA56 /* IMagnetometer.m in Sources */,
 				4ECC934D19AD296F0084AA56 /* IServiceResultCallback.m in Sources */,
 				4ECC932E19AD296F0084AA56 /* IInternalStorage.m in Sources */,
+				4E6A996E19BF46A100203DE8 /* IAppResource.m in Sources */,
 				4ECC931719AD296F0084AA56 /* IContact.m in Sources */,
 				4ECC932919AD296F0084AA56 /* IGeolocationListener.m in Sources */,
 				4ECC92F319AD296F0084AA56 /* Header.m in Sources */,
@@ -1730,6 +1816,7 @@
 				4ECC933419AD296F0084AA56 /* IMail.m in Sources */,
 				4ECC934C19AD296F0084AA56 /* IService.m in Sources */,
 				4ECC932219AD296F0084AA56 /* IFile.m in Sources */,
+				4E6A998019BF46A100203DE8 /* INetworkReachabilityCallback.m in Sources */,
 				4ECC92F419AD296F0084AA56 /* IAccelerationListener.m in Sources */,
 				4ECC930C19AD296F0084AA56 /* IBaseUI.m in Sources */,
 				4ECC930E19AD296F0084AA56 /* IBluetooth.m in Sources */,
@@ -1744,6 +1831,7 @@
 				4ECC931B19AD296F0084AA56 /* IDatabase.m in Sources */,
 				4ECC92F119AD296F0084AA56 /* Endpoint.m in Sources */,
 				4ECC934E19AD296F0084AA56 /* ISession.m in Sources */,
+				4E6A997719BF46A100203DE8 /* IAppServer.m in Sources */,
 				4ECC933519AD296F0084AA56 /* IManagement.m in Sources */,
 				4ECC931019AD296F0084AA56 /* IButtonListener.m in Sources */,
 				4ECC92F619AD296F0084AA56 /* IAdaptiveRP.m in Sources */,
@@ -1766,7 +1854,9 @@
 				4ECC92E919AD296F0084AA56 /* ContactTag.m in Sources */,
 				4ECC935419AD296F0084AA56 /* ITimer.m in Sources */,
 				4ECC934419AD296F0084AA56 /* IOS.m in Sources */,
+				4E6A996819BF46A100203DE8 /* IAppContextWebview.m in Sources */,
 				4ECC930419AD296F0084AA56 /* IBaseMedia.m in Sources */,
+				4E6A997D19BF46A100203DE8 /* IAppServerManager.m in Sources */,
 				4ECC92FA19AD296F0084AA56 /* IAnalytics.m in Sources */,
 				4ECC932C19AD296F0084AA56 /* IGyroscope.m in Sources */,
 				4ECC933619AD296F0084AA56 /* IMap.m in Sources */,
@@ -1802,6 +1892,7 @@
 				4ECC937219AD29950084AA56 /* ContactWebsite.m in Sources */,
 				4ECC937319AD29950084AA56 /* Cookie.m in Sources */,
 				4ECC937419AD29950084AA56 /* Database.m in Sources */,
+				4E6A997219BF46A100203DE8 /* IAppResourceCallback.m in Sources */,
 				4ECC937519AD29950084AA56 /* DeviceInfo.m in Sources */,
 				4ECC937619AD29950084AA56 /* Email.m in Sources */,
 				4ECC937719AD29950084AA56 /* EmailAddress.m in Sources */,
@@ -1815,6 +1906,7 @@
 				4ECC937F19AD29950084AA56 /* IAlarm.m in Sources */,
 				4ECC938019AD29950084AA56 /* IAmbientLight.m in Sources */,
 				4ECC938119AD29950084AA56 /* IAnalytics.m in Sources */,
+				4E6A997519BF46A100203DE8 /* IAppResourceHandler.m in Sources */,
 				4ECC938219AD29950084AA56 /* IAudio.m in Sources */,
 				4ECC938319AD29950084AA56 /* IBarcode.m in Sources */,
 				4ECC938419AD29950084AA56 /* IBarometer.m in Sources */,
@@ -1825,6 +1917,7 @@
 				4ECC938919AD29950084AA56 /* IBaseData.m in Sources */,
 				4ECC938A19AD29950084AA56 /* IBaseListener.m in Sources */,
 				4ECC938B19AD29950084AA56 /* IBaseMedia.m in Sources */,
+				4E6A996619BF46A100203DE8 /* IAppContext.m in Sources */,
 				4ECC938C19AD29950084AA56 /* IBaseNotification.m in Sources */,
 				4ECC938D19AD29950084AA56 /* IBasePIM.m in Sources */,
 				4ECC938E19AD29950084AA56 /* IBaseReader.m in Sources */,
@@ -1841,6 +1934,7 @@
 				4ECC939919AD29950084AA56 /* ICamera.m in Sources */,
 				4ECC939A19AD29950084AA56 /* ICapabilities.m in Sources */,
 				4ECC939B19AD29950084AA56 /* ICloud.m in Sources */,
+				4E6A996C19BF46A100203DE8 /* IAppRegistry.m in Sources */,
 				4ECC939C19AD29950084AA56 /* ICompression.m in Sources */,
 				4ECC939D19AD29950084AA56 /* IConcurrent.m in Sources */,
 				4ECC939E19AD29950084AA56 /* IContact.m in Sources */,
@@ -1849,6 +1943,7 @@
 				4ECC93A119AD29950084AA56 /* ICrypto.m in Sources */,
 				4ECC93A219AD29950084AA56 /* IDatabase.m in Sources */,
 				4ECC93A319AD29950084AA56 /* IDatabaseResultCallback.m in Sources */,
+				4E6A997B19BF46A100203DE8 /* IAppServerListener.m in Sources */,
 				4ECC93A419AD29950084AA56 /* IDataStream.m in Sources */,
 				4ECC93A519AD29950084AA56 /* IDesktop.m in Sources */,
 				4ECC93A619AD29950084AA56 /* IDevice.m in Sources */,
@@ -1860,6 +1955,7 @@
 				4ECC93AC19AD29950084AA56 /* IFilePath.m in Sources */,
 				4ECC93AD19AD29950084AA56 /* IFileResultCallback.m in Sources */,
 				4ECC93AE19AD29950084AA56 /* IFileSystem.m in Sources */,
+				4E6A996F19BF46A100203DE8 /* IAppResource.m in Sources */,
 				4ECC93AF19AD29950084AA56 /* IGeolocation.m in Sources */,
 				4ECC93B019AD29950084AA56 /* IGeolocationListener.m in Sources */,
 				4ECC93B119AD29950084AA56 /* IGlobalization.m in Sources */,
@@ -1879,6 +1975,7 @@
 				4ECC93BF19AD29950084AA56 /* IMessagingCallback.m in Sources */,
 				4ECC93C019AD29950084AA56 /* INetworkInfo.m in Sources */,
 				4ECC93C119AD29950084AA56 /* INetworkNaming.m in Sources */,
+				4E6A998119BF46A100203DE8 /* INetworkReachabilityCallback.m in Sources */,
 				4ECC93C219AD29950084AA56 /* INetworkReachability.m in Sources */,
 				4ECC93C319AD29950084AA56 /* INetworkStatus.m in Sources */,
 				4ECC93C419AD29960084AA56 /* INFC.m in Sources */,
@@ -1893,6 +1990,7 @@
 				4ECC93CD19AD29960084AA56 /* IProximity.m in Sources */,
 				4ECC93CE19AD29960084AA56 /* IQRCode.m in Sources */,
 				4ECC93CF19AD29960084AA56 /* IRSS.m in Sources */,
+				4E6A997819BF46A100203DE8 /* IAppServer.m in Sources */,
 				4ECC93D019AD29960084AA56 /* IRuntime.m in Sources */,
 				4ECC93D119AD29960084AA56 /* ISecureKVResultCallback.m in Sources */,
 				4ECC93D219AD29960084AA56 /* ISecurity.m in Sources */,
@@ -1915,7 +2013,9 @@
 				4ECC93E319AD29960084AA56 /* Lifecycle.m in Sources */,
 				4ECC93E419AD29960084AA56 /* Locale.m in Sources */,
 				4ECC93E519AD29960084AA56 /* OSInfo.m in Sources */,
+				4E6A996919BF46A100203DE8 /* IAppContextWebview.m in Sources */,
 				4ECC93E619AD29960084AA56 /* Row.m in Sources */,
+				4E6A997E19BF46A100203DE8 /* IAppServerManager.m in Sources */,
 				4ECC93E719AD29960084AA56 /* SecureKeyPair.m in Sources */,
 				4ECC93E819AD29960084AA56 /* Service.m in Sources */,
 				4ECC93E919AD29960084AA56 /* ServiceRequest.m in Sources */,

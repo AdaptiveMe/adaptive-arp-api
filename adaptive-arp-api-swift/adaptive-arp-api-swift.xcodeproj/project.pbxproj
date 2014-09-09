@@ -39,6 +39,8 @@
 		4E5F3FBE19B7B51D007D92A1 /* IAccelerationListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */; };
 		4E5F3FBF19B7B51D007D92A1 /* IAccelerationListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */; };
 		4E5F3FC019B7B51D007D92A1 /* IAccelerationListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */; };
+		4E6A998319BF470300203DE8 /* IAppContextWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A998219BF470300203DE8 /* IAppContextWebview.swift */; };
+		4E6A998419BF470300203DE8 /* IAppContextWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A998219BF470300203DE8 /* IAppContextWebview.swift */; };
 		4E6D004719B1CD1900EC2555 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6DFF9919B1CD1900EC2555 /* Acceleration.swift */; };
 		4E6D004819B1CD1900EC2555 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6DFF9919B1CD1900EC2555 /* Acceleration.swift */; };
 		4E6D004919B1CD1900EC2555 /* AttachmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6DFF9A19B1CD1900EC2555 /* AttachmentData.swift */; };
@@ -409,6 +411,7 @@
 		4E22053919BDEB3400BC4819 /* IAppServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppServerManager.swift; sourceTree = "<group>"; };
 		4E5F3FBB19B7B51D007D92A1 /* IAccelerationListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccelerationListenerError.swift; sourceTree = "<group>"; };
 		4E5F3FBC19B7B51D007D92A1 /* IAccelerationListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccelerationListenerWarning.swift; sourceTree = "<group>"; };
+		4E6A998219BF470300203DE8 /* IAppContextWebview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppContextWebview.swift; sourceTree = "<group>"; };
 		4E6D000019B1CD1900EC2555 /* IGyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGyroscope.swift; sourceTree = "<group>"; };
 		4E6D000119B1CD1900EC2555 /* IImaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IImaging.swift; sourceTree = "<group>"; };
 		4E6D000219B1CD1900EC2555 /* IInternalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IInternalStorage.swift; sourceTree = "<group>"; };
@@ -720,6 +723,7 @@
 		4EF4A69D19AF861D00AE551F /* ARP */ = {
 			isa = PBXGroup;
 			children = (
+				4E6A998219BF470300203DE8 /* IAppContextWebview.swift */,
 				4E22053719BDEB3400BC4819 /* IAppServer.swift */,
 				4E22053819BDEB3400BC4819 /* IAppServerListener.swift */,
 				4E22053919BDEB3400BC4819 /* IAppServerManager.swift */,
@@ -1204,6 +1208,7 @@
 				4E6D00C519B1CD1900EC2555 /* ICloud.swift in Sources */,
 				4E6D014319B1CD1900EC2555 /* INetworkReachabilityCallbackWarning.swift in Sources */,
 				4E6D00AB19B1CD1900EC2555 /* IButtonListener.swift in Sources */,
+				4E6A998319BF470300203DE8 /* IAppContextWebview.swift in Sources */,
 				4E6D00F919B1CD1900EC2555 /* IFileListResultCallback.swift in Sources */,
 				4E6D012B19B1CD1900EC2555 /* IMail.swift in Sources */,
 				4E2204CA19BA268100BC4819 /* IAppResourceFormat.swift in Sources */,
@@ -1409,6 +1414,7 @@
 				4E6D00C619B1CD1900EC2555 /* ICloud.swift in Sources */,
 				4E6D014419B1CD1900EC2555 /* INetworkReachabilityCallbackWarning.swift in Sources */,
 				4E6D00AC19B1CD1900EC2555 /* IButtonListener.swift in Sources */,
+				4E6A998419BF470300203DE8 /* IAppContextWebview.swift in Sources */,
 				4E6D00FA19B1CD1900EC2555 /* IFileListResultCallback.swift in Sources */,
 				4E6D012C19B1CD1900EC2555 /* IMail.swift in Sources */,
 				4E2204D519BA26DD00BC4819 /* IAppResourceFormat.swift in Sources */,
