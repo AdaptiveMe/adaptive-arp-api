@@ -37,7 +37,7 @@ allprojects {
     apply plugin: 'java'
     sourceCompatibility = 1.7
     targetCompatibility = 1.7
-    version = '1.0.22'
+    version = '1.0.30'
 
     repositories {
         jcenter()

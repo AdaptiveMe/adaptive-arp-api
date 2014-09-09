@@ -39,7 +39,10 @@
 @implementation ARPIBaseListener
 
 + (J2ObjcClassInfo *)__metadata {
-  static J2ObjcClassInfo _ARPIBaseListener = { "IBaseListener", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
+  static J2ObjcMethodInfo methods[] = {
+    { "description", "toString", "Ljava.lang.String;", 0x401, NULL },
+  };
+  static J2ObjcClassInfo _ARPIBaseListener = { "IBaseListener", "me.adaptive.arp.api", NULL, 0x201, 1, methods, 0, NULL, 0, NULL};
   return &_ARPIBaseListener;
 }
 

@@ -18,7 +18,7 @@ public protocol IRuntime : IBaseSystem {
      /**
       * Function Declarations
       */
-     func DismissApplication()
-     func DismissSplashScreen() -> Bool
+     func dismissApplication()
+     func dismissSplashScreen() -> Bool
 
 }

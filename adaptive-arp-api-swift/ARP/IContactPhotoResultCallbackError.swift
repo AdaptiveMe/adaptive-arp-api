@@ -13,6 +13,6 @@
 import Foundation
 
 public enum IContactPhotoResultCallbackError {
-     case NoPermission
+     case NoPermission, Wrong_Params
 }
 

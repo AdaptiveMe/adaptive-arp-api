@@ -13,6 +13,6 @@
 import Foundation
 
 public enum INetworkReachabilityCallbackWarning {
-     case IncorrectScheme
+     case IncorrectScheme, NotSecure, NotTrusted, Redirected, NotRegisteredService
 }
 

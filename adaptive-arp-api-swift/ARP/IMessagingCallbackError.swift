@@ -13,6 +13,6 @@
 import Foundation
 
 public enum IMessagingCallbackError {
-     case SIM_Not_Present, Email_Account_Not_Found, Not_Sent
+     case SIM_Not_Present, Email_Account_Not_Found, Not_Sent, Wrong_Params
 }
 

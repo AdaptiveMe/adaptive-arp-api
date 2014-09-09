@@ -55,7 +55,7 @@
 
 BOOL ARPIContactPhotoResultCallback_WarningEnum_initialized = NO;
 
-ARPIContactPhotoResultCallback_WarningEnum *ARPIContactPhotoResultCallback_WarningEnum_values[1];
+ARPIContactPhotoResultCallback_WarningEnum *ARPIContactPhotoResultCallback_WarningEnum_values[2];
 
 @implementation ARPIContactPhotoResultCallback_WarningEnum
 
@@ -70,16 +70,17 @@ ARPIContactPhotoResultCallback_WarningEnum *ARPIContactPhotoResultCallback_Warni
 + (void)initialize {
   if (self == [ARPIContactPhotoResultCallback_WarningEnum class]) {
     ARPIContactPhotoResultCallback_WarningEnum_LimitExceeded = [[ARPIContactPhotoResultCallback_WarningEnum alloc] initWithNSString:@"LimitExceeded" withInt:0];
+    ARPIContactPhotoResultCallback_WarningEnum_No_Matches = [[ARPIContactPhotoResultCallback_WarningEnum alloc] initWithNSString:@"No_Matches" withInt:1];
     ARPIContactPhotoResultCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIContactPhotoResultCallback_WarningEnum_values count:1 type:[IOSClass classWithClass:[ARPIContactPhotoResultCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIContactPhotoResultCallback_WarningEnum_values count:2 type:[IOSClass classWithClass:[ARPIContactPhotoResultCallback_WarningEnum class]]];
 }
 
 + (ARPIContactPhotoResultCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 2; i++) {
     ARPIContactPhotoResultCallback_WarningEnum *e = ARPIContactPhotoResultCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -95,9 +96,10 @@ ARPIContactPhotoResultCallback_WarningEnum *ARPIContactPhotoResultCallback_Warni
   };
   static J2ObjcFieldInfo fields[] = {
     { "LimitExceeded", "LimitExceeded", 0x4019, "Lme.adaptive.arp.api.IContactPhotoResultCallback$Warning;", &ARPIContactPhotoResultCallback_WarningEnum_LimitExceeded,  },
+    { "No_Matches", "No_Matches", 0x4019, "Lme.adaptive.arp.api.IContactPhotoResultCallback$Warning;", &ARPIContactPhotoResultCallback_WarningEnum_No_Matches,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IContactPhotoResultCallback$Warning;"};
-  static J2ObjcClassInfo _ARPIContactPhotoResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IContactPhotoResultCallback", 0x4019, 1, methods, 1, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIContactPhotoResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IContactPhotoResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
   return &_ARPIContactPhotoResultCallback_WarningEnum;
 }
 
@@ -105,7 +107,7 @@ ARPIContactPhotoResultCallback_WarningEnum *ARPIContactPhotoResultCallback_Warni
 
 BOOL ARPIContactPhotoResultCallback_ErrorEnum_initialized = NO;
 
-ARPIContactPhotoResultCallback_ErrorEnum *ARPIContactPhotoResultCallback_ErrorEnum_values[1];
+ARPIContactPhotoResultCallback_ErrorEnum *ARPIContactPhotoResultCallback_ErrorEnum_values[2];
 
 @implementation ARPIContactPhotoResultCallback_ErrorEnum
 
@@ -120,16 +122,17 @@ ARPIContactPhotoResultCallback_ErrorEnum *ARPIContactPhotoResultCallback_ErrorEn
 + (void)initialize {
   if (self == [ARPIContactPhotoResultCallback_ErrorEnum class]) {
     ARPIContactPhotoResultCallback_ErrorEnum_NoPermission = [[ARPIContactPhotoResultCallback_ErrorEnum alloc] initWithNSString:@"NoPermission" withInt:0];
+    ARPIContactPhotoResultCallback_ErrorEnum_Wrong_Params = [[ARPIContactPhotoResultCallback_ErrorEnum alloc] initWithNSString:@"Wrong_Params" withInt:1];
     ARPIContactPhotoResultCallback_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIContactPhotoResultCallback_ErrorEnum_values count:1 type:[IOSClass classWithClass:[ARPIContactPhotoResultCallback_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIContactPhotoResultCallback_ErrorEnum_values count:2 type:[IOSClass classWithClass:[ARPIContactPhotoResultCallback_ErrorEnum class]]];
 }
 
 + (ARPIContactPhotoResultCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 2; i++) {
     ARPIContactPhotoResultCallback_ErrorEnum *e = ARPIContactPhotoResultCallback_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -145,9 +148,10 @@ ARPIContactPhotoResultCallback_ErrorEnum *ARPIContactPhotoResultCallback_ErrorEn
   };
   static J2ObjcFieldInfo fields[] = {
     { "NoPermission", "NoPermission", 0x4019, "Lme.adaptive.arp.api.IContactPhotoResultCallback$Error;", &ARPIContactPhotoResultCallback_ErrorEnum_NoPermission,  },
+    { "Wrong_Params", "Wrong_Params", 0x4019, "Lme.adaptive.arp.api.IContactPhotoResultCallback$Error;", &ARPIContactPhotoResultCallback_ErrorEnum_Wrong_Params,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IContactPhotoResultCallback$Error;"};
-  static J2ObjcClassInfo _ARPIContactPhotoResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IContactPhotoResultCallback", 0x4019, 1, methods, 1, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIContactPhotoResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IContactPhotoResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
   return &_ARPIContactPhotoResultCallback_ErrorEnum;
 }
 

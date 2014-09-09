@@ -29,4 +29,6 @@
 package me.adaptive.arp.api;
 
 public interface IBaseCallback extends IAdaptiveRP {
+
+    String toString();
 }

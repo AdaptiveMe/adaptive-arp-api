@@ -15,4 +15,9 @@ import Foundation
 public protocol IVideo : IBaseMedia {
 
 
+     /**
+      * Function Declarations
+      */
+     func playStream(url : String)
+
 }

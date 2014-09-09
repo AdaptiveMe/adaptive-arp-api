@@ -55,6 +55,8 @@
 
 - (void)setLanguageWithNSString:(NSString *)language;
 
+- (NSString *)description;
+
 - (void)copyAllFieldsTo:(ARPLocale *)other;
 
 @end

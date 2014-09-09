@@ -1,5 +1,5 @@
 # API Status
-This is the API status at 2 Sep 2014 11:43:16 GMT.
+This is the API status at 5 Sep 2014 17:23:55 GMT.
 
 ## Classes
 | Class | Java | CSharp | ObjC | Swift |
@@ -46,6 +46,11 @@ This is the API status at 2 Sep 2014 11:43:16 GMT.
 | IAlarm |  |  |  |  |
 | IAmbientLight |  |  |  |  |
 | IAnalytics |  |  |  |  |
+| IAppContext | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| IAppRegistry | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| IAppResource | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| IAppResourceCallback | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| IAppResourceHandler | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | IAudio |  |  |  |  |
 | IBarcode |  |  |  |  |
 | IBarometer |  |  |  |  |
@@ -140,7 +145,7 @@ This is the API status at 2 Sep 2014 11:43:16 GMT.
 | IUI |  |  |  |  |
 | IUpdate |  |  |  |  |
 | IVibration |  |  |  |  |
-| IVideo |  |  |  |  |
+| IVideo | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | IWallet |  |  |  |  |
 | IXML |  |  |  |  |
 

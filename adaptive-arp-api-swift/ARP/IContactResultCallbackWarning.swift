@@ -13,6 +13,6 @@
 import Foundation
 
 public enum IContactResultCallbackWarning {
-     case LimitExceeded
+     case LimitExceeded, No_Matches
 }
 

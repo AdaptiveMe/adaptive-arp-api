@@ -38,6 +38,8 @@
 #include "IBaseMedia.h"
 
 @protocol ARPIVideo < ARPIBaseMedia, NSObject, JavaObject >
+- (void)playStreamWithNSString:(NSString *)url;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIVideo_init() {}

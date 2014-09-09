@@ -90,5 +90,12 @@ namespace Adaptive.Arp.Api
 		{
 			this.language = language;
 		}
+
+		/// <summary>Overriden method according to the expected filename</summary>
+		/// <returns>string representation of the filename with the locale content</returns>
+		public override string ToString()
+		{
+			return this.language.ToLower() + "-" + this.country.ToUpper();
+		}
 	}
 }

@@ -42,8 +42,8 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "onResultWithBoolean:", "onResult", "V", 0x401, NULL },
-    { "onWarningWithBoolean:withARPINetworkReachabilityCallback_WarningEnum:", "onWarning", "V", 0x401, NULL },
+    { "onResultWithNSString:", "onResult", "V", 0x401, NULL },
+    { "onWarningWithNSString:withARPINetworkReachabilityCallback_WarningEnum:", "onWarning", "V", 0x401, NULL },
     { "onErrorWithARPINetworkReachabilityCallback_ErrorEnum:", "onError", "V", 0x401, NULL },
   };
   static J2ObjcClassInfo _ARPINetworkReachabilityCallback = { "INetworkReachabilityCallback", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
@@ -52,9 +52,75 @@
 
 @end
 
+BOOL ARPINetworkReachabilityCallback_ErrorEnum_initialized = NO;
+
+ARPINetworkReachabilityCallback_ErrorEnum *ARPINetworkReachabilityCallback_ErrorEnum_values[9];
+
+@implementation ARPINetworkReachabilityCallback_ErrorEnum
+
+- (id)copyWithZone:(NSZone *)zone {
+  return self;
+}
+
+- (id)initWithNSString:(NSString *)__name withInt:(int)__ordinal {
+  return [super initWithNSString:__name withInt:__ordinal];
+}
+
++ (void)initialize {
+  if (self == [ARPINetworkReachabilityCallback_ErrorEnum class]) {
+    ARPINetworkReachabilityCallback_ErrorEnum_Forbidden = [[ARPINetworkReachabilityCallback_ErrorEnum alloc] initWithNSString:@"Forbidden" withInt:0];
+    ARPINetworkReachabilityCallback_ErrorEnum_NotFound = [[ARPINetworkReachabilityCallback_ErrorEnum alloc] initWithNSString:@"NotFound" withInt:1];
+    ARPINetworkReachabilityCallback_ErrorEnum_MethodNotAllowed = [[ARPINetworkReachabilityCallback_ErrorEnum alloc] initWithNSString:@"MethodNotAllowed" withInt:2];
+    ARPINetworkReachabilityCallback_ErrorEnum_NotAllowed = [[ARPINetworkReachabilityCallback_ErrorEnum alloc] initWithNSString:@"NotAllowed" withInt:3];
+    ARPINetworkReachabilityCallback_ErrorEnum_NotAuthenticated = [[ARPINetworkReachabilityCallback_ErrorEnum alloc] initWithNSString:@"NotAuthenticated" withInt:4];
+    ARPINetworkReachabilityCallback_ErrorEnum_TimeOut = [[ARPINetworkReachabilityCallback_ErrorEnum alloc] initWithNSString:@"TimeOut" withInt:5];
+    ARPINetworkReachabilityCallback_ErrorEnum_NoResponse = [[ARPINetworkReachabilityCallback_ErrorEnum alloc] initWithNSString:@"NoResponse" withInt:6];
+    ARPINetworkReachabilityCallback_ErrorEnum_Unreachable = [[ARPINetworkReachabilityCallback_ErrorEnum alloc] initWithNSString:@"Unreachable" withInt:7];
+    ARPINetworkReachabilityCallback_ErrorEnum_Wrong_Params = [[ARPINetworkReachabilityCallback_ErrorEnum alloc] initWithNSString:@"Wrong_Params" withInt:8];
+    ARPINetworkReachabilityCallback_ErrorEnum_initialized = YES;
+  }
+}
+
++ (IOSObjectArray *)values {
+  return [IOSObjectArray arrayWithObjects:ARPINetworkReachabilityCallback_ErrorEnum_values count:9 type:[IOSClass classWithClass:[ARPINetworkReachabilityCallback_ErrorEnum class]]];
+}
+
++ (ARPINetworkReachabilityCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
+  for (int i = 0; i < 9; i++) {
+    ARPINetworkReachabilityCallback_ErrorEnum *e = ARPINetworkReachabilityCallback_ErrorEnum_values[i];
+    if ([name isEqual:[e name]]) {
+      return e;
+    }
+  }
+  @throw [[JavaLangIllegalArgumentException alloc] initWithNSString:name];
+  return nil;
+}
+
++ (J2ObjcClassInfo *)__metadata {
+  static J2ObjcMethodInfo methods[] = {
+    { "init", NULL, NULL, 0x1, NULL },
+  };
+  static J2ObjcFieldInfo fields[] = {
+    { "Forbidden", "Forbidden", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;", &ARPINetworkReachabilityCallback_ErrorEnum_Forbidden,  },
+    { "NotFound", "NotFound", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;", &ARPINetworkReachabilityCallback_ErrorEnum_NotFound,  },
+    { "MethodNotAllowed", "MethodNotAllowed", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;", &ARPINetworkReachabilityCallback_ErrorEnum_MethodNotAllowed,  },
+    { "NotAllowed", "NotAllowed", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;", &ARPINetworkReachabilityCallback_ErrorEnum_NotAllowed,  },
+    { "NotAuthenticated", "NotAuthenticated", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;", &ARPINetworkReachabilityCallback_ErrorEnum_NotAuthenticated,  },
+    { "TimeOut", "TimeOut", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;", &ARPINetworkReachabilityCallback_ErrorEnum_TimeOut,  },
+    { "NoResponse", "NoResponse", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;", &ARPINetworkReachabilityCallback_ErrorEnum_NoResponse,  },
+    { "Unreachable", "Unreachable", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;", &ARPINetworkReachabilityCallback_ErrorEnum_Unreachable,  },
+    { "Wrong_Params", "Wrong_Params", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;", &ARPINetworkReachabilityCallback_ErrorEnum_Wrong_Params,  },
+  };
+  static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;"};
+  static J2ObjcClassInfo _ARPINetworkReachabilityCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "INetworkReachabilityCallback", 0x4019, 1, methods, 9, fields, 1, superclass_type_args};
+  return &_ARPINetworkReachabilityCallback_ErrorEnum;
+}
+
+@end
+
 BOOL ARPINetworkReachabilityCallback_WarningEnum_initialized = NO;
 
-ARPINetworkReachabilityCallback_WarningEnum *ARPINetworkReachabilityCallback_WarningEnum_values[1];
+ARPINetworkReachabilityCallback_WarningEnum *ARPINetworkReachabilityCallback_WarningEnum_values[5];
 
 @implementation ARPINetworkReachabilityCallback_WarningEnum
 
@@ -69,16 +135,20 @@ ARPINetworkReachabilityCallback_WarningEnum *ARPINetworkReachabilityCallback_War
 + (void)initialize {
   if (self == [ARPINetworkReachabilityCallback_WarningEnum class]) {
     ARPINetworkReachabilityCallback_WarningEnum_IncorrectScheme = [[ARPINetworkReachabilityCallback_WarningEnum alloc] initWithNSString:@"IncorrectScheme" withInt:0];
+    ARPINetworkReachabilityCallback_WarningEnum_NotSecure = [[ARPINetworkReachabilityCallback_WarningEnum alloc] initWithNSString:@"NotSecure" withInt:1];
+    ARPINetworkReachabilityCallback_WarningEnum_NotTrusted = [[ARPINetworkReachabilityCallback_WarningEnum alloc] initWithNSString:@"NotTrusted" withInt:2];
+    ARPINetworkReachabilityCallback_WarningEnum_Redirected = [[ARPINetworkReachabilityCallback_WarningEnum alloc] initWithNSString:@"Redirected" withInt:3];
+    ARPINetworkReachabilityCallback_WarningEnum_NotRegisteredService = [[ARPINetworkReachabilityCallback_WarningEnum alloc] initWithNSString:@"NotRegisteredService" withInt:4];
     ARPINetworkReachabilityCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPINetworkReachabilityCallback_WarningEnum_values count:1 type:[IOSClass classWithClass:[ARPINetworkReachabilityCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPINetworkReachabilityCallback_WarningEnum_values count:5 type:[IOSClass classWithClass:[ARPINetworkReachabilityCallback_WarningEnum class]]];
 }
 
 + (ARPINetworkReachabilityCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 5; i++) {
     ARPINetworkReachabilityCallback_WarningEnum *e = ARPINetworkReachabilityCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -94,62 +164,14 @@ ARPINetworkReachabilityCallback_WarningEnum *ARPINetworkReachabilityCallback_War
   };
   static J2ObjcFieldInfo fields[] = {
     { "IncorrectScheme", "IncorrectScheme", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Warning;", &ARPINetworkReachabilityCallback_WarningEnum_IncorrectScheme,  },
+    { "NotSecure", "NotSecure", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Warning;", &ARPINetworkReachabilityCallback_WarningEnum_NotSecure,  },
+    { "NotTrusted", "NotTrusted", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Warning;", &ARPINetworkReachabilityCallback_WarningEnum_NotTrusted,  },
+    { "Redirected", "Redirected", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Warning;", &ARPINetworkReachabilityCallback_WarningEnum_Redirected,  },
+    { "NotRegisteredService", "NotRegisteredService", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Warning;", &ARPINetworkReachabilityCallback_WarningEnum_NotRegisteredService,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.INetworkReachabilityCallback$Warning;"};
-  static J2ObjcClassInfo _ARPINetworkReachabilityCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "INetworkReachabilityCallback", 0x4019, 1, methods, 1, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPINetworkReachabilityCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "INetworkReachabilityCallback", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
   return &_ARPINetworkReachabilityCallback_WarningEnum;
-}
-
-@end
-
-BOOL ARPINetworkReachabilityCallback_ErrorEnum_initialized = NO;
-
-ARPINetworkReachabilityCallback_ErrorEnum *ARPINetworkReachabilityCallback_ErrorEnum_values[2];
-
-@implementation ARPINetworkReachabilityCallback_ErrorEnum
-
-- (id)copyWithZone:(NSZone *)zone {
-  return self;
-}
-
-- (id)initWithNSString:(NSString *)__name withInt:(int)__ordinal {
-  return [super initWithNSString:__name withInt:__ordinal];
-}
-
-+ (void)initialize {
-  if (self == [ARPINetworkReachabilityCallback_ErrorEnum class]) {
-    ARPINetworkReachabilityCallback_ErrorEnum_NoPermission = [[ARPINetworkReachabilityCallback_ErrorEnum alloc] initWithNSString:@"NoPermission" withInt:0];
-    ARPINetworkReachabilityCallback_ErrorEnum_NetworkOnMainThreadException = [[ARPINetworkReachabilityCallback_ErrorEnum alloc] initWithNSString:@"NetworkOnMainThreadException" withInt:1];
-    ARPINetworkReachabilityCallback_ErrorEnum_initialized = YES;
-  }
-}
-
-+ (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPINetworkReachabilityCallback_ErrorEnum_values count:2 type:[IOSClass classWithClass:[ARPINetworkReachabilityCallback_ErrorEnum class]]];
-}
-
-+ (ARPINetworkReachabilityCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
-    ARPINetworkReachabilityCallback_ErrorEnum *e = ARPINetworkReachabilityCallback_ErrorEnum_values[i];
-    if ([name isEqual:[e name]]) {
-      return e;
-    }
-  }
-  @throw [[JavaLangIllegalArgumentException alloc] initWithNSString:name];
-  return nil;
-}
-
-+ (J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { "init", NULL, NULL, 0x1, NULL },
-  };
-  static J2ObjcFieldInfo fields[] = {
-    { "NoPermission", "NoPermission", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;", &ARPINetworkReachabilityCallback_ErrorEnum_NoPermission,  },
-    { "NetworkOnMainThreadException", "NetworkOnMainThreadException", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;", &ARPINetworkReachabilityCallback_ErrorEnum_NetworkOnMainThreadException,  },
-  };
-  static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.INetworkReachabilityCallback$Error;"};
-  static J2ObjcClassInfo _ARPINetworkReachabilityCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "INetworkReachabilityCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
-  return &_ARPINetworkReachabilityCallback_ErrorEnum;
 }
 
 @end

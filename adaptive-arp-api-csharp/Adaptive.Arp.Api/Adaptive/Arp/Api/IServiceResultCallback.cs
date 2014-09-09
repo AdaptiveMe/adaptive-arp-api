@@ -56,7 +56,8 @@ namespace Adaptive.Arp.Api
 		{
 			NotSecure,
 			NotTrusted,
-			Redirected
+			Redirected,
+			NotRegisteredService
 		}
 
 		/// <summary>Errors that can be used</summary>

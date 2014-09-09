@@ -13,6 +13,6 @@
 import Foundation
 
 public enum INetworkReachabilityCallbackError {
-     case NoPermission, NetworkOnMainThreadException
+     case Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, Unreachable, Wrong_Params
 }
 
