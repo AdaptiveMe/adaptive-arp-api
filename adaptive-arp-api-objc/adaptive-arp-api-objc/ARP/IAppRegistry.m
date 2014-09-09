@@ -31,9 +31,22 @@
 //
 //
 
+#include "IAnalytics.h"
 #include "IAppContext.h"
+#include "IAppContextWebview.h"
 #include "IAppRegistry.h"
 #include "IAppResourceHandler.h"
+#include "ICapabilities.h"
+#include "IDevice.h"
+#include "IDisplay.h"
+#include "IGlobalization.h"
+#include "ILifecycle.h"
+#include "IManagement.h"
+#include "IOS.h"
+#include "IPrinting.h"
+#include "IRuntime.h"
+#include "ISettings.h"
+#include "IUpdate.h"
 
 @interface ARPIAppRegistry : NSObject
 @end
@@ -42,11 +55,23 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "setApplicationContextWithARPIAppContext:", "setApplicationContext", "V", 0x401, NULL },
-    { "getApplicationContect", NULL, "Lme.adaptive.arp.api.IAppContext;", 0x401, NULL },
-    { "getApplicationResourceHandler", NULL, "Lme.adaptive.arp.api.IAppResourceHandler;", 0x401, NULL },
+    { "getPlatformContext", NULL, "Lme.adaptive.arp.api.IAppContext;", 0x401, NULL },
+    { "getPlatformContextWeb", NULL, "Lme.adaptive.arp.api.IAppContextWebview;", 0x401, NULL },
+    { "getPlatformResourceHandler", NULL, "Lme.adaptive.arp.api.IAppResourceHandler;", 0x401, NULL },
+    { "getSystemCapabilities", NULL, "Lme.adaptive.arp.api.ICapabilities;", 0x401, NULL },
+    { "getSystemDevice", NULL, "Lme.adaptive.arp.api.IDevice;", 0x401, NULL },
+    { "getSystemDisplay", NULL, "Lme.adaptive.arp.api.IDisplay;", 0x401, NULL },
+    { "getSystemOS", NULL, "Lme.adaptive.arp.api.IOS;", 0x401, NULL },
+    { "getSystemRuntime", NULL, "Lme.adaptive.arp.api.IRuntime;", 0x401, NULL },
+    { "getApplicationAnalytics", NULL, "Lme.adaptive.arp.api.IAnalytics;", 0x401, NULL },
+    { "getApplicationGlobalization", NULL, "Lme.adaptive.arp.api.IGlobalization;", 0x401, NULL },
+    { "getApplicationLifecycle", NULL, "Lme.adaptive.arp.api.ILifecycle;", 0x401, NULL },
+    { "getApplicationManagement", NULL, "Lme.adaptive.arp.api.IManagement;", 0x401, NULL },
+    { "getApplicationPrinting", NULL, "Lme.adaptive.arp.api.IPrinting;", 0x401, NULL },
+    { "getApplicationSettings", NULL, "Lme.adaptive.arp.api.ISettings;", 0x401, NULL },
+    { "getApplicationUpdate", NULL, "Lme.adaptive.arp.api.IUpdate;", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPIAppRegistry = { "IAppRegistry", "me.adaptive.arp.api", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPIAppRegistry = { "IAppRegistry", "me.adaptive.arp.api", NULL, 0x201, 15, methods, 0, NULL, 0, NULL};
   return &_ARPIAppRegistry;
 }
 
