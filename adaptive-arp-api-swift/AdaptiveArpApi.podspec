@@ -50,4 +50,5 @@ s.osx.deployment_target = '10.10'
 s.framework     = 'Foundation'
 s.requires_arc     = true
 s.source_files     = 'adaptive-arp-api-swift/ARP/*.swift'
+s.xcconfig = { 'OTHER_LDFLAGS' => '' }
 end
