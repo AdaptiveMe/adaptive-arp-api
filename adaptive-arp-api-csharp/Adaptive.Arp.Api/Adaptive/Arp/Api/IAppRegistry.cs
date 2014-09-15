@@ -35,10 +35,34 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 05/09/2014.</remarks>
 	public interface IAppRegistry
 	{
-		void SetApplicationContext(IAppContext context);
+		IAppContext GetPlatformContext();
 
-		IAppContext GetApplicationContect();
+		IAppContextWebview GetPlatformContextWeb();
 
-		IAppResourceHandler GetApplicationResourceHandler();
+		IAppResourceHandler GetPlatformResourceHandler();
+
+		ICapabilities GetSystemCapabilities();
+
+		IDevice GetSystemDevice();
+
+		IDisplay GetSystemDisplay();
+
+		IOS GetSystemOS();
+
+		IRuntime GetSystemRuntime();
+
+		IAnalytics GetApplicationAnalytics();
+
+		IGlobalization GetApplicationGlobalization();
+
+		ILifecycle GetApplicationLifecycle();
+
+		IManagement GetApplicationManagement();
+
+		IPrinting GetApplicationPrinting();
+
+		ISettings GetApplicationSettings();
+
+		IUpdate GetApplicationUpdate();
 	}
 }

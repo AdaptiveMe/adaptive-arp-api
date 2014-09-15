@@ -34,18 +34,55 @@
 #ifndef _ARPIAppRegistry_H_
 #define _ARPIAppRegistry_H_
 
+@protocol ARPIAnalytics;
 @protocol ARPIAppContext;
+@protocol ARPIAppContextWebview;
 @protocol ARPIAppResourceHandler;
+@protocol ARPICapabilities;
+@protocol ARPIDevice;
+@protocol ARPIDisplay;
+@protocol ARPIGlobalization;
+@protocol ARPILifecycle;
+@protocol ARPIManagement;
+@protocol ARPIOS;
+@protocol ARPIPrinting;
+@protocol ARPIRuntime;
+@protocol ARPISettings;
+@protocol ARPIUpdate;
 
 #import "JreEmulation.h"
 
 @protocol ARPIAppRegistry < NSObject, JavaObject >
 
-- (void)setApplicationContextWithARPIAppContext:(id<ARPIAppContext>)context;
+- (id<ARPIAppContext>)getPlatformContext;
 
-- (id<ARPIAppContext>)getApplicationContect;
+- (id<ARPIAppContextWebview>)getPlatformContextWeb;
 
-- (id<ARPIAppResourceHandler>)getApplicationResourceHandler;
+- (id<ARPIAppResourceHandler>)getPlatformResourceHandler;
+
+- (id<ARPICapabilities>)getSystemCapabilities;
+
+- (id<ARPIDevice>)getSystemDevice;
+
+- (id<ARPIDisplay>)getSystemDisplay;
+
+- (id<ARPIOS>)getSystemOS;
+
+- (id<ARPIRuntime>)getSystemRuntime;
+
+- (id<ARPIAnalytics>)getApplicationAnalytics;
+
+- (id<ARPIGlobalization>)getApplicationGlobalization;
+
+- (id<ARPILifecycle>)getApplicationLifecycle;
+
+- (id<ARPIManagement>)getApplicationManagement;
+
+- (id<ARPIPrinting>)getApplicationPrinting;
+
+- (id<ARPISettings>)getApplicationSettings;
+
+- (id<ARPIUpdate>)getApplicationUpdate;
 
 @end
 

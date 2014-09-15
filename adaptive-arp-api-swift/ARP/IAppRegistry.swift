@@ -18,8 +18,20 @@ public protocol IAppRegistry {
      /**
       * Function Declarations
       */
-     func getApplicationContect() -> IAppContext
-     func getApplicationResourceHandler() -> IAppResourceHandler
-     func setApplicationContext(context : IAppContext)
+     func getApplicationAnalytics() -> IAnalytics
+     func getApplicationGlobalization() -> IGlobalization
+     func getApplicationLifecycle() -> ILifecycle
+     func getApplicationManagement() -> IManagement
+     func getApplicationPrinting() -> IPrinting
+     func getApplicationSettings() -> ISettings
+     func getApplicationUpdate() -> IUpdate
+     func getPlatformContext() -> IAppContext
+     func getPlatformContextWeb() -> IAppContextWebview
+     func getPlatformResourceHandler() -> IAppResourceHandler
+     func getSystemCapabilities() -> ICapabilities
+     func getSystemDevice() -> IDevice
+     func getSystemDisplay() -> IDisplay
+     func getSystemOS() -> IOS
+     func getSystemRuntime() -> IRuntime
 
 }
