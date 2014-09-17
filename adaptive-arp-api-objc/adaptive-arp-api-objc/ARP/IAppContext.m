@@ -53,7 +53,7 @@
 
 BOOL ARPIAppContext_TypeEnum_initialized = NO;
 
-ARPIAppContext_TypeEnum *ARPIAppContext_TypeEnum_values[5];
+ARPIAppContext_TypeEnum *ARPIAppContext_TypeEnum_values[12];
 
 @implementation ARPIAppContext_TypeEnum
 
@@ -72,16 +72,23 @@ ARPIAppContext_TypeEnum *ARPIAppContext_TypeEnum_values[5];
     ARPIAppContext_TypeEnum_Windows = [[ARPIAppContext_TypeEnum alloc] initWithNSString:@"Windows" withInt:2];
     ARPIAppContext_TypeEnum_WindowsPhone = [[ARPIAppContext_TypeEnum alloc] initWithNSString:@"WindowsPhone" withInt:3];
     ARPIAppContext_TypeEnum_Android = [[ARPIAppContext_TypeEnum alloc] initWithNSString:@"Android" withInt:4];
+    ARPIAppContext_TypeEnum_Linux = [[ARPIAppContext_TypeEnum alloc] initWithNSString:@"Linux" withInt:5];
+    ARPIAppContext_TypeEnum_Blackberry = [[ARPIAppContext_TypeEnum alloc] initWithNSString:@"Blackberry" withInt:6];
+    ARPIAppContext_TypeEnum_Tizen = [[ARPIAppContext_TypeEnum alloc] initWithNSString:@"Tizen" withInt:7];
+    ARPIAppContext_TypeEnum_FirefoxOS = [[ARPIAppContext_TypeEnum alloc] initWithNSString:@"FirefoxOS" withInt:8];
+    ARPIAppContext_TypeEnum_Chromium = [[ARPIAppContext_TypeEnum alloc] initWithNSString:@"Chromium" withInt:9];
+    ARPIAppContext_TypeEnum_Unspecified = [[ARPIAppContext_TypeEnum alloc] initWithNSString:@"Unspecified" withInt:10];
+    ARPIAppContext_TypeEnum_Unknown = [[ARPIAppContext_TypeEnum alloc] initWithNSString:@"Unknown" withInt:11];
     ARPIAppContext_TypeEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIAppContext_TypeEnum_values count:5 type:[IOSClass classWithClass:[ARPIAppContext_TypeEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIAppContext_TypeEnum_values count:12 type:[IOSClass classWithClass:[ARPIAppContext_TypeEnum class]]];
 }
 
 + (ARPIAppContext_TypeEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 12; i++) {
     ARPIAppContext_TypeEnum *e = ARPIAppContext_TypeEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -101,9 +108,16 @@ ARPIAppContext_TypeEnum *ARPIAppContext_TypeEnum_values[5];
     { "Windows", "Windows", 0x4019, "Lme.adaptive.arp.api.IAppContext$Type;", &ARPIAppContext_TypeEnum_Windows,  },
     { "WindowsPhone", "WindowsPhone", 0x4019, "Lme.adaptive.arp.api.IAppContext$Type;", &ARPIAppContext_TypeEnum_WindowsPhone,  },
     { "Android", "Android", 0x4019, "Lme.adaptive.arp.api.IAppContext$Type;", &ARPIAppContext_TypeEnum_Android,  },
+    { "Linux", "Linux", 0x4019, "Lme.adaptive.arp.api.IAppContext$Type;", &ARPIAppContext_TypeEnum_Linux,  },
+    { "Blackberry", "Blackberry", 0x4019, "Lme.adaptive.arp.api.IAppContext$Type;", &ARPIAppContext_TypeEnum_Blackberry,  },
+    { "Tizen", "Tizen", 0x4019, "Lme.adaptive.arp.api.IAppContext$Type;", &ARPIAppContext_TypeEnum_Tizen,  },
+    { "FirefoxOS", "FirefoxOS", 0x4019, "Lme.adaptive.arp.api.IAppContext$Type;", &ARPIAppContext_TypeEnum_FirefoxOS,  },
+    { "Chromium", "Chromium", 0x4019, "Lme.adaptive.arp.api.IAppContext$Type;", &ARPIAppContext_TypeEnum_Chromium,  },
+    { "Unspecified", "Unspecified", 0x4019, "Lme.adaptive.arp.api.IAppContext$Type;", &ARPIAppContext_TypeEnum_Unspecified,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IAppContext$Type;", &ARPIAppContext_TypeEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IAppContext$Type;"};
-  static J2ObjcClassInfo _ARPIAppContext_TypeEnum = { "Type", "me.adaptive.arp.api", "IAppContext", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIAppContext_TypeEnum = { "Type", "me.adaptive.arp.api", "IAppContext", 0x4019, 1, methods, 12, fields, 1, superclass_type_args};
   return &_ARPIAppContext_TypeEnum;
 }
 
