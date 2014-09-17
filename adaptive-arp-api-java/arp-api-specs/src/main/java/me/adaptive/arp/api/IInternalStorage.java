@@ -31,6 +31,6 @@
 
 package me.adaptive.arp.api;
 
-public interface IInternalStorage extends IStore {
+public interface IInternalStorage extends IBaseData {
 
 }
