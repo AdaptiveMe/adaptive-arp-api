@@ -101,5 +101,9 @@ namespace Adaptive.Arp.Api
 		/// <summary>Stop the current server instance.</summary>
 		/// <remarks>Stop the current server instance.</remarks>
 		void StopServer();
+
+		/// <summary>Start the current server instance.</summary>
+		/// <remarks>Start the current server instance.</remarks>
+		void StartServer();
 	}
 }
