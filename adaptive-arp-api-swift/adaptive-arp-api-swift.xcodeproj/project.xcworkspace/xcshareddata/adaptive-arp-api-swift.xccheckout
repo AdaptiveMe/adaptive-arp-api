@@ -14,11 +14,11 @@
 		<string>https://github.com/AdaptiveMe/adaptive-arp-api.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>adaptive-arp-api-swift/adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj</string>
+	<string>adaptive-arp-api-swift/adaptive-arp-api-swift.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>6F60443C0E2F7258B4D1DE6093E5F920529C92D6</key>
-		<string>../../../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/AdaptiveMe/adaptive-arp-api.git</string>
