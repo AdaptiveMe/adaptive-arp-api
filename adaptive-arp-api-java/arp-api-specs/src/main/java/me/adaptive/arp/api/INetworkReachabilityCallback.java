@@ -58,11 +58,11 @@ public interface INetworkReachabilityCallback {
     void onError(Error error);
 
 
-    public enum Error{
+    public enum Error {
         Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, Unreachable, Wrong_Params
     }
 
-    public enum Warning{
+    public enum Warning {
         IncorrectScheme, NotSecure, NotTrusted, Redirected, NotRegisteredService, MalformedUrl
     }
 

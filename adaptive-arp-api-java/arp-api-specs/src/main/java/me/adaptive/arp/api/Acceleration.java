@@ -70,6 +70,10 @@ public class Acceleration {
         return x;
     }
 
+    public void setX(double x) {
+        this.x = x;
+    }
+
     /**
      * @return Y-axis component of the acceleration.
      * @author Carlos Lozano Diez
@@ -79,6 +83,10 @@ public class Acceleration {
         return y;
     }
 
+    public void setY(double y) {
+        this.y = y;
+    }
+
     /**
      * @return Z-axis component of the acceleration.
      * @author Carlos Lozano Diez
@@ -86,14 +94,6 @@ public class Acceleration {
      */
     public double getZ() {
         return z;
-    }
-
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public void setY(double y) {
-        this.y = y;
     }
 
     public void setZ(double z) {

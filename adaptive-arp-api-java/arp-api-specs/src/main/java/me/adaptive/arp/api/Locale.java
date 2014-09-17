@@ -108,9 +108,10 @@ public class Locale {
 
     /**
      * Overriden method according to the expected filename
+     *
      * @return string representation of the filename with the locale content
      */
-    public String toString(){
-        return this.language.toLowerCase()+(this.country.toUpperCase() != null?"-"+this.country.toUpperCase():"");
+    public String toString() {
+        return this.language.toLowerCase() + (this.country.toUpperCase() != null ? "-" + this.country.toUpperCase() : "");
     }
 }

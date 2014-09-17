@@ -33,14 +33,14 @@ package me.adaptive.arp.api;
  */
 public interface IAppResourceCallback extends IBaseCallback {
 
-    enum Warning {PartialContent, TooLarge, LinkedResource}
-
-    enum Error {NotFound, NoPermission}
-
     void onResult(IAppResource resource);
 
     void onWarning(IAppResource resource, Warning warning);
 
     void onError(IAppResource resource, Error error);
+
+    enum Warning {PartialContent, TooLarge, LinkedResource}
+
+    enum Error {NotFound, NoPermission}
 
 }

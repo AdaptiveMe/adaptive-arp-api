@@ -34,11 +34,11 @@ package me.adaptive.arp.api;
 public interface ISecureKVResultCallback extends IBaseCallback {
 
     /**
-            * Correct data received.
-    *
-            * @param keyValues
-    * @since ARP1.0
-            */
+     * Correct data received.
+     *
+     * @param keyValues
+     * @since ARP1.0
+     */
     void onResult(SecureKeyPair[] keyValues);
 
     /**
