@@ -35,7 +35,7 @@ public interface IAppContext {
     /**
      * The type of application context - platform specific.
      */
-    enum Type {iOS, OSX, Windows, WindowsPhone, Android, Unknown}
+    enum Type {iOS, OSX, Windows, WindowsPhone, Android, Linux, Blackberry, Tizen, FirefoxOS, Chromium, Unspecified, Unknown}
 
     /**
      * The main application context. This should be cast to the platform specific implementation.
