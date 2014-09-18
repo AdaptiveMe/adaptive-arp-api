@@ -58,7 +58,7 @@ public interface ISession extends IBaseCommunication {
      *
      * @param cookie
      */
-    void setCookies(Cookie[] cookie);
+    void setCookies(Cookie[] cookies);
 
     /**
      * Set a cookie object
@@ -72,7 +72,7 @@ public interface ISession extends IBaseCommunication {
      *
      * @param cookie
      */
-    void removeCookies(Cookie[] cookie);
+    void removeCookies(Cookie[] cookies);
 
     /**
      * Remove a cookie
