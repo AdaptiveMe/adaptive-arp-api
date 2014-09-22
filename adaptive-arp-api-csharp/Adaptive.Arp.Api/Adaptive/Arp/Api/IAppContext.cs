@@ -43,7 +43,14 @@ namespace Adaptive.Arp.Api
 			Osx,
 			Windows,
 			WindowsPhone,
-			Android
+			Android,
+			Linux,
+			Blackberry,
+			Tizen,
+			FirefoxOS,
+			Chromium,
+			Unspecified,
+			Unknown
 		}
 
 		/// <summary>The main application context.</summary>

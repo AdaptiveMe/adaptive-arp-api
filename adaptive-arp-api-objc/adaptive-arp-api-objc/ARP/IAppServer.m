@@ -48,8 +48,9 @@
     { "pauseServer", NULL, "V", 0x401, NULL },
     { "resumeServer", NULL, "V", 0x401, NULL },
     { "stopServer", NULL, "V", 0x401, NULL },
+    { "startServer", NULL, "V", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPIAppServer = { "IAppServer", "me.adaptive.arp.api", NULL, 0x201, 8, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPIAppServer = { "IAppServer", "me.adaptive.arp.api", NULL, 0x201, 9, methods, 0, NULL, 0, NULL};
   return &_ARPIAppServer;
 }
 

@@ -74,7 +74,7 @@ public interface IMessagingCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Error {
-        SIM_Not_Present, Email_Account_Not_Found, Not_Sent,Wrong_Params
+        SIM_Not_Present, Email_Account_Not_Found, Not_Sent, Wrong_Params, Not_Supported
     }
 
 }

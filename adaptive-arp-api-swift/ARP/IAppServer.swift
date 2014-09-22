@@ -25,6 +25,7 @@ public protocol IAppServer {
      func getScheme() -> String
      func pauseServer()
      func resumeServer()
+     func startServer()
      func stopServer()
 
 }

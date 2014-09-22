@@ -25,6 +25,10 @@
  *             <https://github.com/kechis>
  *             <mailto:kechis@gmail.com>
  *
+ *     * David Barranco Bonilla
+ *             <https://github.com/aryslan>
+ *             <mailto:ddbc@gft.com>
+ *
  * =====================================================================================================================
  */
 
@@ -37,8 +41,24 @@ public interface ILifecycle extends IBaseApplication {
      * Add the listener for the lifecycle of the app
      *
      * @param listener
+     * @since ARP1.0
      */
     void addLifecycleListener(ILifecycleListener listener);
+
+    /**
+     * Un-registers an existing listener from receiving lifecycle events.
+     *
+     * @param listener
+     * @since ARP1.0
+     */
+    void removeLifecycleListener(ILifecycleListener listener);
+
+    /**
+     * Removes all existing listeners from receiving lifecycle events.
+     *
+     * @since ARP1.0
+     */
+    void removeLifecycleListeners();
 
     /**
      * Whether the application is in background or not
@@ -47,4 +67,6 @@ public interface ILifecycle extends IBaseApplication {
      * @since ARP1.0
      */
     boolean isBackground();
+
+
 }

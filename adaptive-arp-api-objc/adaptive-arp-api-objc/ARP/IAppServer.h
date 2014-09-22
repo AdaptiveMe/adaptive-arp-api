@@ -54,6 +54,8 @@
 
 - (void)stopServer;
 
+- (void)startServer;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIAppServer_init() {}

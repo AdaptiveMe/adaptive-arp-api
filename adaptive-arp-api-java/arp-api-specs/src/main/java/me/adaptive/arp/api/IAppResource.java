@@ -33,12 +33,6 @@ package me.adaptive.arp.api;
  */
 public interface IAppResource {
 
-    enum Type {Html, Css, JavaScript, Image, Video, Audio, Property, Database, Other}
-
-    enum Format {Raw, Compressed, Encrypted, EncryptedCompressed}
-
-    enum Payload {Default, Embedded, Linked}
-
     String getName();
 
     String getPath();
@@ -66,5 +60,11 @@ public interface IAppResource {
     byte[] getDataStored();
 
     String getDataPathLinked();
+
+    enum Type {Html, Css, JavaScript, Image, Video, Audio, Property, Database, Other}
+
+    enum Format {Raw, Compressed, Encrypted, EncryptedCompressed}
+
+    enum Payload {Default, Embedded, Linked}
 
 }

@@ -95,4 +95,9 @@ public interface IAppServer {
      * Stop the current server instance.
      */
     void stopServer();
+
+    /**
+     * Start the current server instance.
+     */
+    void startServer();
 }

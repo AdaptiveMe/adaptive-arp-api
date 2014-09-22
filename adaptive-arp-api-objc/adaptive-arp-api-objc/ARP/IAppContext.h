@@ -57,6 +57,13 @@ typedef enum {
   ARPIAppContext_Type_Windows = 2,
   ARPIAppContext_Type_WindowsPhone = 3,
   ARPIAppContext_Type_Android = 4,
+  ARPIAppContext_Type_Linux = 5,
+  ARPIAppContext_Type_Blackberry = 6,
+  ARPIAppContext_Type_Tizen = 7,
+  ARPIAppContext_Type_FirefoxOS = 8,
+  ARPIAppContext_Type_Chromium = 9,
+  ARPIAppContext_Type_Unspecified = 10,
+  ARPIAppContext_Type_Unknown = 11,
 } ARPIAppContext_Type;
 
 @interface ARPIAppContext_TypeEnum : JavaLangEnum < NSCopying > {
@@ -87,5 +94,26 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIAppContext_TypeEnum, WindowsPhone, ARPIAppContext
 
 #define ARPIAppContext_TypeEnum_Android ARPIAppContext_TypeEnum_values[ARPIAppContext_Type_Android]
 J2OBJC_STATIC_FIELD_GETTER(ARPIAppContext_TypeEnum, Android, ARPIAppContext_TypeEnum *)
+
+#define ARPIAppContext_TypeEnum_Linux ARPIAppContext_TypeEnum_values[ARPIAppContext_Type_Linux]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppContext_TypeEnum, Linux, ARPIAppContext_TypeEnum *)
+
+#define ARPIAppContext_TypeEnum_Blackberry ARPIAppContext_TypeEnum_values[ARPIAppContext_Type_Blackberry]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppContext_TypeEnum, Blackberry, ARPIAppContext_TypeEnum *)
+
+#define ARPIAppContext_TypeEnum_Tizen ARPIAppContext_TypeEnum_values[ARPIAppContext_Type_Tizen]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppContext_TypeEnum, Tizen, ARPIAppContext_TypeEnum *)
+
+#define ARPIAppContext_TypeEnum_FirefoxOS ARPIAppContext_TypeEnum_values[ARPIAppContext_Type_FirefoxOS]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppContext_TypeEnum, FirefoxOS, ARPIAppContext_TypeEnum *)
+
+#define ARPIAppContext_TypeEnum_Chromium ARPIAppContext_TypeEnum_values[ARPIAppContext_Type_Chromium]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppContext_TypeEnum, Chromium, ARPIAppContext_TypeEnum *)
+
+#define ARPIAppContext_TypeEnum_Unspecified ARPIAppContext_TypeEnum_values[ARPIAppContext_Type_Unspecified]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppContext_TypeEnum, Unspecified, ARPIAppContext_TypeEnum *)
+
+#define ARPIAppContext_TypeEnum_Unknown ARPIAppContext_TypeEnum_values[ARPIAppContext_Type_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppContext_TypeEnum, Unknown, ARPIAppContext_TypeEnum *)
 
 #endif // _ARPIAppContext_H_

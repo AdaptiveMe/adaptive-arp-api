@@ -13,6 +13,6 @@
 import Foundation
 
 public enum IAppContextType {
-     case iOS, OSX, Windows, WindowsPhone, Android
+     case iOS, OSX, Windows, WindowsPhone, Android, Linux, Blackberry, Tizen, FirefoxOS, Chromium, Unspecified, Unknown
 }
 
