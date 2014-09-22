@@ -72,6 +72,6 @@ public interface IContactPhotoResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Error {
-        NoPermission,Wrong_Params
+        NoPermission,Wrong_Params,No_Photo
     }
 }
