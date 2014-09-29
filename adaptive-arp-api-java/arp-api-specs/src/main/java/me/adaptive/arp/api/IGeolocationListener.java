@@ -56,7 +56,7 @@ public interface IGeolocationListener extends IBaseListener {
      */
     void onError(Error error);
 
-    public enum Error {}
+    public enum Error {RestrictedAccess, DeniedAccess, StatusNotDetermined}
 
     public enum Warning {HighDoP}
 }
