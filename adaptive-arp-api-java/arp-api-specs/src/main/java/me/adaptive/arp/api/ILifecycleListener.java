@@ -62,12 +62,10 @@ public interface ILifecycleListener extends IBaseListener {
     /**
      * Errors
      */
-    public enum Error {
-    }
+    public enum Error { Runtime, Implementation, Killed, Unknown }
 
     /**
      * Warnings
      */
-    public enum Warning {
-    }
+    public enum Warning { MemoryLow, BatteryLow, Unknown }
 }
