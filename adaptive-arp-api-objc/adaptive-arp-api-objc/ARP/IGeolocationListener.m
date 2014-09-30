@@ -55,7 +55,7 @@
 
 BOOL ARPIGeolocationListener_ErrorEnum_initialized = NO;
 
-ARPIGeolocationListener_ErrorEnum *ARPIGeolocationListener_ErrorEnum_values[0];
+ARPIGeolocationListener_ErrorEnum *ARPIGeolocationListener_ErrorEnum_values[3];
 
 @implementation ARPIGeolocationListener_ErrorEnum
 
@@ -69,16 +69,19 @@ ARPIGeolocationListener_ErrorEnum *ARPIGeolocationListener_ErrorEnum_values[0];
 
 + (void)initialize {
   if (self == [ARPIGeolocationListener_ErrorEnum class]) {
+    ARPIGeolocationListener_ErrorEnum_RestrictedAccess = [[ARPIGeolocationListener_ErrorEnum alloc] initWithNSString:@"RestrictedAccess" withInt:0];
+    ARPIGeolocationListener_ErrorEnum_DeniedAccess = [[ARPIGeolocationListener_ErrorEnum alloc] initWithNSString:@"DeniedAccess" withInt:1];
+    ARPIGeolocationListener_ErrorEnum_StatusNotDetermined = [[ARPIGeolocationListener_ErrorEnum alloc] initWithNSString:@"StatusNotDetermined" withInt:2];
     ARPIGeolocationListener_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIGeolocationListener_ErrorEnum_values count:0 type:[IOSClass classWithClass:[ARPIGeolocationListener_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIGeolocationListener_ErrorEnum_values count:3 type:[IOSClass classWithClass:[ARPIGeolocationListener_ErrorEnum class]]];
 }
 
 + (ARPIGeolocationListener_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 0; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPIGeolocationListener_ErrorEnum *e = ARPIGeolocationListener_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -92,8 +95,13 @@ ARPIGeolocationListener_ErrorEnum *ARPIGeolocationListener_ErrorEnum_values[0];
   static J2ObjcMethodInfo methods[] = {
     { "init", NULL, NULL, 0x1, NULL },
   };
+  static J2ObjcFieldInfo fields[] = {
+    { "RestrictedAccess", "RestrictedAccess", 0x4019, "Lme.adaptive.arp.api.IGeolocationListener$Error;", &ARPIGeolocationListener_ErrorEnum_RestrictedAccess,  },
+    { "DeniedAccess", "DeniedAccess", 0x4019, "Lme.adaptive.arp.api.IGeolocationListener$Error;", &ARPIGeolocationListener_ErrorEnum_DeniedAccess,  },
+    { "StatusNotDetermined", "StatusNotDetermined", 0x4019, "Lme.adaptive.arp.api.IGeolocationListener$Error;", &ARPIGeolocationListener_ErrorEnum_StatusNotDetermined,  },
+  };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IGeolocationListener$Error;"};
-  static J2ObjcClassInfo _ARPIGeolocationListener_ErrorEnum = { "Error", "me.adaptive.arp.api", "IGeolocationListener", 0x4019, 1, methods, 0, NULL, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIGeolocationListener_ErrorEnum = { "Error", "me.adaptive.arp.api", "IGeolocationListener", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPIGeolocationListener_ErrorEnum;
 }
 

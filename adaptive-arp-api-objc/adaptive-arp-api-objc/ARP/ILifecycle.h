@@ -42,6 +42,10 @@
 @protocol ARPILifecycle < ARPIBaseApplication, NSObject, JavaObject >
 - (void)addLifecycleListenerWithARPILifecycleListener:(id<ARPILifecycleListener>)listener;
 
+- (void)removeLifecycleListenerWithARPILifecycleListener:(id<ARPILifecycleListener>)listener;
+
+- (void)removeLifecycleListeners;
+
 - (BOOL)isBackground;
 
 @end

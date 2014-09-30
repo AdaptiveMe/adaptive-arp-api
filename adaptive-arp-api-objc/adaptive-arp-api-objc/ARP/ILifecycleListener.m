@@ -55,7 +55,7 @@
 
 BOOL ARPILifecycleListener_ErrorEnum_initialized = NO;
 
-ARPILifecycleListener_ErrorEnum *ARPILifecycleListener_ErrorEnum_values[0];
+ARPILifecycleListener_ErrorEnum *ARPILifecycleListener_ErrorEnum_values[4];
 
 @implementation ARPILifecycleListener_ErrorEnum
 
@@ -69,16 +69,20 @@ ARPILifecycleListener_ErrorEnum *ARPILifecycleListener_ErrorEnum_values[0];
 
 + (void)initialize {
   if (self == [ARPILifecycleListener_ErrorEnum class]) {
+    ARPILifecycleListener_ErrorEnum_Runtime = [[ARPILifecycleListener_ErrorEnum alloc] initWithNSString:@"Runtime" withInt:0];
+    ARPILifecycleListener_ErrorEnum_Implementation = [[ARPILifecycleListener_ErrorEnum alloc] initWithNSString:@"Implementation" withInt:1];
+    ARPILifecycleListener_ErrorEnum_Killed = [[ARPILifecycleListener_ErrorEnum alloc] initWithNSString:@"Killed" withInt:2];
+    ARPILifecycleListener_ErrorEnum_Unknown = [[ARPILifecycleListener_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:3];
     ARPILifecycleListener_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPILifecycleListener_ErrorEnum_values count:0 type:[IOSClass classWithClass:[ARPILifecycleListener_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPILifecycleListener_ErrorEnum_values count:4 type:[IOSClass classWithClass:[ARPILifecycleListener_ErrorEnum class]]];
 }
 
 + (ARPILifecycleListener_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 0; i++) {
+  for (int i = 0; i < 4; i++) {
     ARPILifecycleListener_ErrorEnum *e = ARPILifecycleListener_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -92,8 +96,14 @@ ARPILifecycleListener_ErrorEnum *ARPILifecycleListener_ErrorEnum_values[0];
   static J2ObjcMethodInfo methods[] = {
     { "init", NULL, NULL, 0x1, NULL },
   };
+  static J2ObjcFieldInfo fields[] = {
+    { "Runtime", "Runtime", 0x4019, "Lme.adaptive.arp.api.ILifecycleListener$Error;", &ARPILifecycleListener_ErrorEnum_Runtime,  },
+    { "Implementation", "Implementation", 0x4019, "Lme.adaptive.arp.api.ILifecycleListener$Error;", &ARPILifecycleListener_ErrorEnum_Implementation,  },
+    { "Killed", "Killed", 0x4019, "Lme.adaptive.arp.api.ILifecycleListener$Error;", &ARPILifecycleListener_ErrorEnum_Killed,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ILifecycleListener$Error;", &ARPILifecycleListener_ErrorEnum_Unknown,  },
+  };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ILifecycleListener$Error;"};
-  static J2ObjcClassInfo _ARPILifecycleListener_ErrorEnum = { "Error", "me.adaptive.arp.api", "ILifecycleListener", 0x4019, 1, methods, 0, NULL, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPILifecycleListener_ErrorEnum = { "Error", "me.adaptive.arp.api", "ILifecycleListener", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
   return &_ARPILifecycleListener_ErrorEnum;
 }
 
@@ -101,7 +111,7 @@ ARPILifecycleListener_ErrorEnum *ARPILifecycleListener_ErrorEnum_values[0];
 
 BOOL ARPILifecycleListener_WarningEnum_initialized = NO;
 
-ARPILifecycleListener_WarningEnum *ARPILifecycleListener_WarningEnum_values[0];
+ARPILifecycleListener_WarningEnum *ARPILifecycleListener_WarningEnum_values[3];
 
 @implementation ARPILifecycleListener_WarningEnum
 
@@ -115,16 +125,19 @@ ARPILifecycleListener_WarningEnum *ARPILifecycleListener_WarningEnum_values[0];
 
 + (void)initialize {
   if (self == [ARPILifecycleListener_WarningEnum class]) {
+    ARPILifecycleListener_WarningEnum_MemoryLow = [[ARPILifecycleListener_WarningEnum alloc] initWithNSString:@"MemoryLow" withInt:0];
+    ARPILifecycleListener_WarningEnum_BatteryLow = [[ARPILifecycleListener_WarningEnum alloc] initWithNSString:@"BatteryLow" withInt:1];
+    ARPILifecycleListener_WarningEnum_Unknown = [[ARPILifecycleListener_WarningEnum alloc] initWithNSString:@"Unknown" withInt:2];
     ARPILifecycleListener_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPILifecycleListener_WarningEnum_values count:0 type:[IOSClass classWithClass:[ARPILifecycleListener_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPILifecycleListener_WarningEnum_values count:3 type:[IOSClass classWithClass:[ARPILifecycleListener_WarningEnum class]]];
 }
 
 + (ARPILifecycleListener_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 0; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPILifecycleListener_WarningEnum *e = ARPILifecycleListener_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -138,8 +151,13 @@ ARPILifecycleListener_WarningEnum *ARPILifecycleListener_WarningEnum_values[0];
   static J2ObjcMethodInfo methods[] = {
     { "init", NULL, NULL, 0x1, NULL },
   };
+  static J2ObjcFieldInfo fields[] = {
+    { "MemoryLow", "MemoryLow", 0x4019, "Lme.adaptive.arp.api.ILifecycleListener$Warning;", &ARPILifecycleListener_WarningEnum_MemoryLow,  },
+    { "BatteryLow", "BatteryLow", 0x4019, "Lme.adaptive.arp.api.ILifecycleListener$Warning;", &ARPILifecycleListener_WarningEnum_BatteryLow,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ILifecycleListener$Warning;", &ARPILifecycleListener_WarningEnum_Unknown,  },
+  };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ILifecycleListener$Warning;"};
-  static J2ObjcClassInfo _ARPILifecycleListener_WarningEnum = { "Warning", "me.adaptive.arp.api", "ILifecycleListener", 0x4019, 1, methods, 0, NULL, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPILifecycleListener_WarningEnum = { "Warning", "me.adaptive.arp.api", "ILifecycleListener", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPILifecycleListener_WarningEnum;
 }
 

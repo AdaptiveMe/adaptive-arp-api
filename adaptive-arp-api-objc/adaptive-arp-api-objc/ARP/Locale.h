@@ -44,8 +44,8 @@
 
 - (id)init;
 
-- (id)initWithNSString:(NSString *)country
-          withNSString:(NSString *)language;
+- (id)initWithNSString:(NSString *)language
+          withNSString:(NSString *)country;
 
 - (NSString *)getCountry;
 

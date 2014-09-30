@@ -35,9 +35,9 @@
 #define _ARPIInternalStorage_H_
 
 #import "JreEmulation.h"
-#include "IStore.h"
+#include "IBaseData.h"
 
-@protocol ARPIInternalStorage < ARPIStore, NSObject, JavaObject >
+@protocol ARPIInternalStorage < ARPIBaseData, NSObject, JavaObject >
 @end
 
 __attribute__((always_inline)) inline void ARPIInternalStorage_init() {}

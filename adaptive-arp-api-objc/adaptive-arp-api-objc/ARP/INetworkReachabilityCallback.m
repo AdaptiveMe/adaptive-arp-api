@@ -120,7 +120,7 @@ ARPINetworkReachabilityCallback_ErrorEnum *ARPINetworkReachabilityCallback_Error
 
 BOOL ARPINetworkReachabilityCallback_WarningEnum_initialized = NO;
 
-ARPINetworkReachabilityCallback_WarningEnum *ARPINetworkReachabilityCallback_WarningEnum_values[5];
+ARPINetworkReachabilityCallback_WarningEnum *ARPINetworkReachabilityCallback_WarningEnum_values[6];
 
 @implementation ARPINetworkReachabilityCallback_WarningEnum
 
@@ -139,16 +139,17 @@ ARPINetworkReachabilityCallback_WarningEnum *ARPINetworkReachabilityCallback_War
     ARPINetworkReachabilityCallback_WarningEnum_NotTrusted = [[ARPINetworkReachabilityCallback_WarningEnum alloc] initWithNSString:@"NotTrusted" withInt:2];
     ARPINetworkReachabilityCallback_WarningEnum_Redirected = [[ARPINetworkReachabilityCallback_WarningEnum alloc] initWithNSString:@"Redirected" withInt:3];
     ARPINetworkReachabilityCallback_WarningEnum_NotRegisteredService = [[ARPINetworkReachabilityCallback_WarningEnum alloc] initWithNSString:@"NotRegisteredService" withInt:4];
+    ARPINetworkReachabilityCallback_WarningEnum_MalformedUrl = [[ARPINetworkReachabilityCallback_WarningEnum alloc] initWithNSString:@"MalformedUrl" withInt:5];
     ARPINetworkReachabilityCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPINetworkReachabilityCallback_WarningEnum_values count:5 type:[IOSClass classWithClass:[ARPINetworkReachabilityCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPINetworkReachabilityCallback_WarningEnum_values count:6 type:[IOSClass classWithClass:[ARPINetworkReachabilityCallback_WarningEnum class]]];
 }
 
 + (ARPINetworkReachabilityCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 6; i++) {
     ARPINetworkReachabilityCallback_WarningEnum *e = ARPINetworkReachabilityCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -168,9 +169,10 @@ ARPINetworkReachabilityCallback_WarningEnum *ARPINetworkReachabilityCallback_War
     { "NotTrusted", "NotTrusted", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Warning;", &ARPINetworkReachabilityCallback_WarningEnum_NotTrusted,  },
     { "Redirected", "Redirected", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Warning;", &ARPINetworkReachabilityCallback_WarningEnum_Redirected,  },
     { "NotRegisteredService", "NotRegisteredService", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Warning;", &ARPINetworkReachabilityCallback_WarningEnum_NotRegisteredService,  },
+    { "MalformedUrl", "MalformedUrl", 0x4019, "Lme.adaptive.arp.api.INetworkReachabilityCallback$Warning;", &ARPINetworkReachabilityCallback_WarningEnum_MalformedUrl,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.INetworkReachabilityCallback$Warning;"};
-  static J2ObjcClassInfo _ARPINetworkReachabilityCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "INetworkReachabilityCallback", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPINetworkReachabilityCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "INetworkReachabilityCallback", 0x4019, 1, methods, 6, fields, 1, superclass_type_args};
   return &_ARPINetworkReachabilityCallback_WarningEnum;
 }
 

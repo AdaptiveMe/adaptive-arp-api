@@ -43,11 +43,11 @@
 @protocol ARPISession < ARPIBaseCommunication, NSObject, JavaObject >
 - (IOSObjectArray *)getCookies;
 
-- (void)setCookiesWithARPCookieArray:(IOSObjectArray *)cookie;
+- (void)setCookiesWithARPCookieArray:(IOSObjectArray *)cookies;
 
 - (void)setCookieWithARPCookie:(ARPCookie *)cookie;
 
-- (void)removeCookiesWithARPCookieArray:(IOSObjectArray *)cookie;
+- (void)removeCookiesWithARPCookieArray:(IOSObjectArray *)cookies;
 
 - (void)removeCookieWithARPCookie:(ARPCookie *)cookie;
 

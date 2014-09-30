@@ -53,13 +53,13 @@
 
 - (double)getX;
 
-- (double)getY;
-
-- (double)getZ;
-
 - (void)setXWithDouble:(double)x;
 
+- (double)getY;
+
 - (void)setYWithDouble:(double)y;
+
+- (double)getZ;
 
 - (void)setZWithDouble:(double)z;
 

@@ -56,20 +56,20 @@
   return x_;
 }
 
-- (double)getY {
-  return y_;
-}
-
-- (double)getZ {
-  return z_;
-}
-
 - (void)setXWithDouble:(double)x {
   self->x_ = x;
 }
 
+- (double)getY {
+  return y_;
+}
+
 - (void)setYWithDouble:(double)y {
   self->y_ = y;
+}
+
+- (double)getZ {
+  return z_;
 }
 
 - (void)setZWithDouble:(double)z {
@@ -93,10 +93,10 @@
     { "initWithDouble:withDouble:withDouble:withLong:", "Acceleration", NULL, 0x1, NULL },
     { "init", "Acceleration", NULL, 0x1, NULL },
     { "getX", NULL, "D", 0x1, NULL },
-    { "getY", NULL, "D", 0x1, NULL },
-    { "getZ", NULL, "D", 0x1, NULL },
     { "setXWithDouble:", "setX", "V", 0x1, NULL },
+    { "getY", NULL, "D", 0x1, NULL },
     { "setYWithDouble:", "setY", "V", 0x1, NULL },
+    { "getZ", NULL, "D", 0x1, NULL },
     { "setZWithDouble:", "setZ", "V", 0x1, NULL },
     { "setTimeStampWithLong:", "setTimeStamp", "V", 0x1, NULL },
   };

@@ -42,9 +42,11 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "addLifecycleListenerWithARPILifecycleListener:", "addLifecycleListener", "V", 0x401, NULL },
+    { "removeLifecycleListenerWithARPILifecycleListener:", "removeLifecycleListener", "V", 0x401, NULL },
+    { "removeLifecycleListeners", NULL, "V", 0x401, NULL },
     { "isBackground", NULL, "Z", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPILifecycle = { "ILifecycle", "me.adaptive.arp.api", NULL, 0x201, 2, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPILifecycle = { "ILifecycle", "me.adaptive.arp.api", NULL, 0x201, 4, methods, 0, NULL, 0, NULL};
   return &_ARPILifecycle;
 }
 

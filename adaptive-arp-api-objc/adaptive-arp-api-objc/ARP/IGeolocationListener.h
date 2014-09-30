@@ -56,6 +56,12 @@ __attribute__((always_inline)) inline void ARPIGeolocationListener_init() {}
 
 #define MeAdaptiveArpApiIGeolocationListener ARPIGeolocationListener
 
+typedef enum {
+  ARPIGeolocationListener_Error_RestrictedAccess = 0,
+  ARPIGeolocationListener_Error_DeniedAccess = 1,
+  ARPIGeolocationListener_Error_StatusNotDetermined = 2,
+} ARPIGeolocationListener_Error;
+
 @interface ARPIGeolocationListener_ErrorEnum : JavaLangEnum < NSCopying > {
 }
 + (IOSObjectArray *)values;
@@ -69,6 +75,15 @@ FOUNDATION_EXPORT BOOL ARPIGeolocationListener_ErrorEnum_initialized;
 J2OBJC_STATIC_INIT(ARPIGeolocationListener_ErrorEnum)
 
 FOUNDATION_EXPORT ARPIGeolocationListener_ErrorEnum *ARPIGeolocationListener_ErrorEnum_values[];
+
+#define ARPIGeolocationListener_ErrorEnum_RestrictedAccess ARPIGeolocationListener_ErrorEnum_values[ARPIGeolocationListener_Error_RestrictedAccess]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_ErrorEnum, RestrictedAccess, ARPIGeolocationListener_ErrorEnum *)
+
+#define ARPIGeolocationListener_ErrorEnum_DeniedAccess ARPIGeolocationListener_ErrorEnum_values[ARPIGeolocationListener_Error_DeniedAccess]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_ErrorEnum, DeniedAccess, ARPIGeolocationListener_ErrorEnum *)
+
+#define ARPIGeolocationListener_ErrorEnum_StatusNotDetermined ARPIGeolocationListener_ErrorEnum_values[ARPIGeolocationListener_Error_StatusNotDetermined]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_ErrorEnum, StatusNotDetermined, ARPIGeolocationListener_ErrorEnum *)
 
 typedef enum {
   ARPIGeolocationListener_Warning_HighDoP = 0,

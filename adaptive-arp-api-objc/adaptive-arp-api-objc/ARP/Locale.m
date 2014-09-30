@@ -39,8 +39,8 @@
   return [super init];
 }
 
-- (id)initWithNSString:(NSString *)country
-          withNSString:(NSString *)language {
+- (id)initWithNSString:(NSString *)language
+          withNSString:(NSString *)country {
   if (self = [super init]) {
     self->country_ = country;
     self->language_ = language;
@@ -65,7 +65,7 @@
 }
 
 - (NSString *)description {
-  return [NSString stringWithFormat:@"%@-%@", [((NSString *) nil_chk(self->language_)) lowercaseString], [((NSString *) nil_chk(self->country_)) uppercaseString]];
+  return [NSString stringWithFormat:@"%@%@", [((NSString *) nil_chk(self->language_)) lowercaseString], ([((NSString *) nil_chk(self->country_)) uppercaseString] != nil ? [NSString stringWithFormat:@"-%@", [self->country_ uppercaseString]] : @"")];
 }
 
 - (void)copyAllFieldsTo:(ARPLocale *)other {

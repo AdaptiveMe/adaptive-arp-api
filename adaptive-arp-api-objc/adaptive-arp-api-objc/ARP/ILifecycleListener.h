@@ -56,6 +56,13 @@ __attribute__((always_inline)) inline void ARPILifecycleListener_init() {}
 
 #define MeAdaptiveArpApiILifecycleListener ARPILifecycleListener
 
+typedef enum {
+  ARPILifecycleListener_Error_Runtime = 0,
+  ARPILifecycleListener_Error_Implementation = 1,
+  ARPILifecycleListener_Error_Killed = 2,
+  ARPILifecycleListener_Error_Unknown = 3,
+} ARPILifecycleListener_Error;
+
 @interface ARPILifecycleListener_ErrorEnum : JavaLangEnum < NSCopying > {
 }
 + (IOSObjectArray *)values;
@@ -70,6 +77,24 @@ J2OBJC_STATIC_INIT(ARPILifecycleListener_ErrorEnum)
 
 FOUNDATION_EXPORT ARPILifecycleListener_ErrorEnum *ARPILifecycleListener_ErrorEnum_values[];
 
+#define ARPILifecycleListener_ErrorEnum_Runtime ARPILifecycleListener_ErrorEnum_values[ARPILifecycleListener_Error_Runtime]
+J2OBJC_STATIC_FIELD_GETTER(ARPILifecycleListener_ErrorEnum, Runtime, ARPILifecycleListener_ErrorEnum *)
+
+#define ARPILifecycleListener_ErrorEnum_Implementation ARPILifecycleListener_ErrorEnum_values[ARPILifecycleListener_Error_Implementation]
+J2OBJC_STATIC_FIELD_GETTER(ARPILifecycleListener_ErrorEnum, Implementation, ARPILifecycleListener_ErrorEnum *)
+
+#define ARPILifecycleListener_ErrorEnum_Killed ARPILifecycleListener_ErrorEnum_values[ARPILifecycleListener_Error_Killed]
+J2OBJC_STATIC_FIELD_GETTER(ARPILifecycleListener_ErrorEnum, Killed, ARPILifecycleListener_ErrorEnum *)
+
+#define ARPILifecycleListener_ErrorEnum_Unknown ARPILifecycleListener_ErrorEnum_values[ARPILifecycleListener_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPILifecycleListener_ErrorEnum, Unknown, ARPILifecycleListener_ErrorEnum *)
+
+typedef enum {
+  ARPILifecycleListener_Warning_MemoryLow = 0,
+  ARPILifecycleListener_Warning_BatteryLow = 1,
+  ARPILifecycleListener_Warning_Unknown = 2,
+} ARPILifecycleListener_Warning;
+
 @interface ARPILifecycleListener_WarningEnum : JavaLangEnum < NSCopying > {
 }
 + (IOSObjectArray *)values;
@@ -83,5 +108,14 @@ FOUNDATION_EXPORT BOOL ARPILifecycleListener_WarningEnum_initialized;
 J2OBJC_STATIC_INIT(ARPILifecycleListener_WarningEnum)
 
 FOUNDATION_EXPORT ARPILifecycleListener_WarningEnum *ARPILifecycleListener_WarningEnum_values[];
+
+#define ARPILifecycleListener_WarningEnum_MemoryLow ARPILifecycleListener_WarningEnum_values[ARPILifecycleListener_Warning_MemoryLow]
+J2OBJC_STATIC_FIELD_GETTER(ARPILifecycleListener_WarningEnum, MemoryLow, ARPILifecycleListener_WarningEnum *)
+
+#define ARPILifecycleListener_WarningEnum_BatteryLow ARPILifecycleListener_WarningEnum_values[ARPILifecycleListener_Warning_BatteryLow]
+J2OBJC_STATIC_FIELD_GETTER(ARPILifecycleListener_WarningEnum, BatteryLow, ARPILifecycleListener_WarningEnum *)
+
+#define ARPILifecycleListener_WarningEnum_Unknown ARPILifecycleListener_WarningEnum_values[ARPILifecycleListener_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPILifecycleListener_WarningEnum, Unknown, ARPILifecycleListener_WarningEnum *)
 
 #endif // _ARPILifecycleListener_H_

@@ -114,6 +114,7 @@ typedef enum {
   ARPINetworkReachabilityCallback_Warning_NotTrusted = 2,
   ARPINetworkReachabilityCallback_Warning_Redirected = 3,
   ARPINetworkReachabilityCallback_Warning_NotRegisteredService = 4,
+  ARPINetworkReachabilityCallback_Warning_MalformedUrl = 5,
 } ARPINetworkReachabilityCallback_Warning;
 
 @interface ARPINetworkReachabilityCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -144,5 +145,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_WarningEnum, Redirect
 
 #define ARPINetworkReachabilityCallback_WarningEnum_NotRegisteredService ARPINetworkReachabilityCallback_WarningEnum_values[ARPINetworkReachabilityCallback_Warning_NotRegisteredService]
 J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_WarningEnum, NotRegisteredService, ARPINetworkReachabilityCallback_WarningEnum *)
+
+#define ARPINetworkReachabilityCallback_WarningEnum_MalformedUrl ARPINetworkReachabilityCallback_WarningEnum_values[ARPINetworkReachabilityCallback_Warning_MalformedUrl]
+J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_WarningEnum, MalformedUrl, ARPINetworkReachabilityCallback_WarningEnum *)
 
 #endif // _ARPINetworkReachabilityCallback_H_

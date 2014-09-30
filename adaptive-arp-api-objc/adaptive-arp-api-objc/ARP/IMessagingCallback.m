@@ -106,7 +106,7 @@ ARPIMessagingCallback_WarningEnum *ARPIMessagingCallback_WarningEnum_values[2];
 
 BOOL ARPIMessagingCallback_ErrorEnum_initialized = NO;
 
-ARPIMessagingCallback_ErrorEnum *ARPIMessagingCallback_ErrorEnum_values[4];
+ARPIMessagingCallback_ErrorEnum *ARPIMessagingCallback_ErrorEnum_values[5];
 
 @implementation ARPIMessagingCallback_ErrorEnum
 
@@ -124,16 +124,17 @@ ARPIMessagingCallback_ErrorEnum *ARPIMessagingCallback_ErrorEnum_values[4];
     ARPIMessagingCallback_ErrorEnum_Email_Account_Not_Found = [[ARPIMessagingCallback_ErrorEnum alloc] initWithNSString:@"Email_Account_Not_Found" withInt:1];
     ARPIMessagingCallback_ErrorEnum_Not_Sent = [[ARPIMessagingCallback_ErrorEnum alloc] initWithNSString:@"Not_Sent" withInt:2];
     ARPIMessagingCallback_ErrorEnum_Wrong_Params = [[ARPIMessagingCallback_ErrorEnum alloc] initWithNSString:@"Wrong_Params" withInt:3];
+    ARPIMessagingCallback_ErrorEnum_Not_Supported = [[ARPIMessagingCallback_ErrorEnum alloc] initWithNSString:@"Not_Supported" withInt:4];
     ARPIMessagingCallback_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIMessagingCallback_ErrorEnum_values count:4 type:[IOSClass classWithClass:[ARPIMessagingCallback_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIMessagingCallback_ErrorEnum_values count:5 type:[IOSClass classWithClass:[ARPIMessagingCallback_ErrorEnum class]]];
 }
 
 + (ARPIMessagingCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 5; i++) {
     ARPIMessagingCallback_ErrorEnum *e = ARPIMessagingCallback_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -152,9 +153,10 @@ ARPIMessagingCallback_ErrorEnum *ARPIMessagingCallback_ErrorEnum_values[4];
     { "Email_Account_Not_Found", "Email_Account_Not_Found", 0x4019, "Lme.adaptive.arp.api.IMessagingCallback$Error;", &ARPIMessagingCallback_ErrorEnum_Email_Account_Not_Found,  },
     { "Not_Sent", "Not_Sent", 0x4019, "Lme.adaptive.arp.api.IMessagingCallback$Error;", &ARPIMessagingCallback_ErrorEnum_Not_Sent,  },
     { "Wrong_Params", "Wrong_Params", 0x4019, "Lme.adaptive.arp.api.IMessagingCallback$Error;", &ARPIMessagingCallback_ErrorEnum_Wrong_Params,  },
+    { "Not_Supported", "Not_Supported", 0x4019, "Lme.adaptive.arp.api.IMessagingCallback$Error;", &ARPIMessagingCallback_ErrorEnum_Not_Supported,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IMessagingCallback$Error;"};
-  static J2ObjcClassInfo _ARPIMessagingCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IMessagingCallback", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIMessagingCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IMessagingCallback", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
   return &_ARPIMessagingCallback_ErrorEnum;
 }
 
