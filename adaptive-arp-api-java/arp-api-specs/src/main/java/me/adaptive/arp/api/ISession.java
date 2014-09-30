@@ -56,7 +56,7 @@ public interface ISession extends IBaseCommunication {
     /**
      * Set the cookies array
      *
-     * @param cookie
+     * @param cookies
      */
     void setCookies(Cookie[] cookies);
 
@@ -70,7 +70,7 @@ public interface ISession extends IBaseCommunication {
     /**
      * Remove a cookies array
      *
-     * @param cookie
+     * @param cookies
      */
     void removeCookies(Cookie[] cookies);
 
