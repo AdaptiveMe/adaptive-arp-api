@@ -41,7 +41,7 @@ public class ContactSocial {
      *
      * @since ARP1.0
      */
-    private String socialNetwork;
+    private SocialNetwork socialNetwork;
     /**
      * The profileUrl
      *
@@ -56,7 +56,7 @@ public class ContactSocial {
      * @param profileUrl    of the user
      * @since ARP1.0
      */
-    public ContactSocial(String socialNetwork, String profileUrl) {
+    public ContactSocial(SocialNetwork socialNetwork, String profileUrl) {
         this.socialNetwork = socialNetwork;
         this.profileUrl = profileUrl;
     }
@@ -66,6 +66,15 @@ public class ContactSocial {
      */
     public ContactSocial() {
     }
+    
+    /**
+     * Social Networks
+     *
+     * @since ARP1.0
+     */
+    public enum SocialNetwork {
+        Twitter, Facebook, GooglePlus, LinkedIn, Flickr
+    }
 
     /**
      * Returns the social network
@@ -73,7 +82,7 @@ public class ContactSocial {
      * @return socialNetwork
      * @since ARP1.0
      */
-    public String getSocialNetwork() {
+    public SocialNetwork getSocialNetwork() {
         return socialNetwork;
     }
 
@@ -83,7 +92,7 @@ public class ContactSocial {
      * @param socialNetwork
      * @since ARP1.0
      */
-    public void setSocialNetwork(String socialNetwork) {
+    public void setSocialNetwork(SocialNetwork socialNetwork) {
         this.socialNetwork = socialNetwork;
     }
 

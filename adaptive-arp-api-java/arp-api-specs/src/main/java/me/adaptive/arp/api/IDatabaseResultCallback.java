@@ -65,13 +65,13 @@ public interface IDatabaseResultCallback extends IBaseCallback {
      * Enumeration for warnings related to database manipulation.
      */
     public enum Warning {
-        DatabaseExists
+        DatabaseExists,IsOpen
     }
 
     /**
      * Enumeration for errors related to database manipulation.
      */
     public enum Error {
-        NoSpace, SqlException
+        NoSpace, SqlException,NotDeleted
     }
 }
