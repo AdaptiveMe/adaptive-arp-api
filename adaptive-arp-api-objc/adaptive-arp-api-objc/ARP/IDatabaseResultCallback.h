@@ -58,6 +58,7 @@ __attribute__((always_inline)) inline void ARPIDatabaseResultCallback_init() {}
 
 typedef enum {
   ARPIDatabaseResultCallback_Warning_DatabaseExists = 0,
+  ARPIDatabaseResultCallback_Warning_IsOpen = 1,
 } ARPIDatabaseResultCallback_Warning;
 
 @interface ARPIDatabaseResultCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -77,9 +78,13 @@ FOUNDATION_EXPORT ARPIDatabaseResultCallback_WarningEnum *ARPIDatabaseResultCall
 #define ARPIDatabaseResultCallback_WarningEnum_DatabaseExists ARPIDatabaseResultCallback_WarningEnum_values[ARPIDatabaseResultCallback_Warning_DatabaseExists]
 J2OBJC_STATIC_FIELD_GETTER(ARPIDatabaseResultCallback_WarningEnum, DatabaseExists, ARPIDatabaseResultCallback_WarningEnum *)
 
+#define ARPIDatabaseResultCallback_WarningEnum_IsOpen ARPIDatabaseResultCallback_WarningEnum_values[ARPIDatabaseResultCallback_Warning_IsOpen]
+J2OBJC_STATIC_FIELD_GETTER(ARPIDatabaseResultCallback_WarningEnum, IsOpen, ARPIDatabaseResultCallback_WarningEnum *)
+
 typedef enum {
   ARPIDatabaseResultCallback_Error_NoSpace = 0,
   ARPIDatabaseResultCallback_Error_SqlException = 1,
+  ARPIDatabaseResultCallback_Error_NotDeleted = 2,
 } ARPIDatabaseResultCallback_Error;
 
 @interface ARPIDatabaseResultCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -101,5 +106,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIDatabaseResultCallback_ErrorEnum, NoSpace, ARPIDa
 
 #define ARPIDatabaseResultCallback_ErrorEnum_SqlException ARPIDatabaseResultCallback_ErrorEnum_values[ARPIDatabaseResultCallback_Error_SqlException]
 J2OBJC_STATIC_FIELD_GETTER(ARPIDatabaseResultCallback_ErrorEnum, SqlException, ARPIDatabaseResultCallback_ErrorEnum *)
+
+#define ARPIDatabaseResultCallback_ErrorEnum_NotDeleted ARPIDatabaseResultCallback_ErrorEnum_values[ARPIDatabaseResultCallback_Error_NotDeleted]
+J2OBJC_STATIC_FIELD_GETTER(ARPIDatabaseResultCallback_ErrorEnum, NotDeleted, ARPIDatabaseResultCallback_ErrorEnum *)
 
 #endif // _ARPIDatabaseResultCallback_H_

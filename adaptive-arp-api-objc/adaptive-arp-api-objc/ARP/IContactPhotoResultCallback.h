@@ -84,6 +84,7 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_WarningEnum, No_Matche
 typedef enum {
   ARPIContactPhotoResultCallback_Error_NoPermission = 0,
   ARPIContactPhotoResultCallback_Error_Wrong_Params = 1,
+  ARPIContactPhotoResultCallback_Error_No_Photo = 2,
 } ARPIContactPhotoResultCallback_Error;
 
 @interface ARPIContactPhotoResultCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -105,5 +106,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_ErrorEnum, NoPermissio
 
 #define ARPIContactPhotoResultCallback_ErrorEnum_Wrong_Params ARPIContactPhotoResultCallback_ErrorEnum_values[ARPIContactPhotoResultCallback_Error_Wrong_Params]
 J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_ErrorEnum, Wrong_Params, ARPIContactPhotoResultCallback_ErrorEnum *)
+
+#define ARPIContactPhotoResultCallback_ErrorEnum_No_Photo ARPIContactPhotoResultCallback_ErrorEnum_values[ARPIContactPhotoResultCallback_Error_No_Photo]
+J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_ErrorEnum, No_Photo, ARPIContactPhotoResultCallback_ErrorEnum *)
 
 #endif // _ARPIContactPhotoResultCallback_H_

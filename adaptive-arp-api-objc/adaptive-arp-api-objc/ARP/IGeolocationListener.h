@@ -57,9 +57,10 @@ __attribute__((always_inline)) inline void ARPIGeolocationListener_init() {}
 #define MeAdaptiveArpApiIGeolocationListener ARPIGeolocationListener
 
 typedef enum {
-  ARPIGeolocationListener_Error_RestrictedAccess = 0,
-  ARPIGeolocationListener_Error_DeniedAccess = 1,
-  ARPIGeolocationListener_Error_StatusNotDetermined = 2,
+  ARPIGeolocationListener_Error_Disabled = 0,
+  ARPIGeolocationListener_Error_RestrictedAccess = 1,
+  ARPIGeolocationListener_Error_DeniedAccess = 2,
+  ARPIGeolocationListener_Error_StatusNotDetermined = 3,
 } ARPIGeolocationListener_Error;
 
 @interface ARPIGeolocationListener_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -76,6 +77,9 @@ J2OBJC_STATIC_INIT(ARPIGeolocationListener_ErrorEnum)
 
 FOUNDATION_EXPORT ARPIGeolocationListener_ErrorEnum *ARPIGeolocationListener_ErrorEnum_values[];
 
+#define ARPIGeolocationListener_ErrorEnum_Disabled ARPIGeolocationListener_ErrorEnum_values[ARPIGeolocationListener_Error_Disabled]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_ErrorEnum, Disabled, ARPIGeolocationListener_ErrorEnum *)
+
 #define ARPIGeolocationListener_ErrorEnum_RestrictedAccess ARPIGeolocationListener_ErrorEnum_values[ARPIGeolocationListener_Error_RestrictedAccess]
 J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_ErrorEnum, RestrictedAccess, ARPIGeolocationListener_ErrorEnum *)
 
@@ -87,6 +91,7 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_ErrorEnum, StatusNotDetermine
 
 typedef enum {
   ARPIGeolocationListener_Warning_HighDoP = 0,
+  ARPIGeolocationListener_Warning_StaleData = 1,
 } ARPIGeolocationListener_Warning;
 
 @interface ARPIGeolocationListener_WarningEnum : JavaLangEnum < NSCopying > {
@@ -105,5 +110,8 @@ FOUNDATION_EXPORT ARPIGeolocationListener_WarningEnum *ARPIGeolocationListener_W
 
 #define ARPIGeolocationListener_WarningEnum_HighDoP ARPIGeolocationListener_WarningEnum_values[ARPIGeolocationListener_Warning_HighDoP]
 J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_WarningEnum, HighDoP, ARPIGeolocationListener_WarningEnum *)
+
+#define ARPIGeolocationListener_WarningEnum_StaleData ARPIGeolocationListener_WarningEnum_values[ARPIGeolocationListener_Warning_StaleData]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_WarningEnum, StaleData, ARPIGeolocationListener_WarningEnum *)
 
 #endif // _ARPIGeolocationListener_H_

@@ -55,7 +55,7 @@
 
 BOOL ARPIDatabaseResultCallback_WarningEnum_initialized = NO;
 
-ARPIDatabaseResultCallback_WarningEnum *ARPIDatabaseResultCallback_WarningEnum_values[1];
+ARPIDatabaseResultCallback_WarningEnum *ARPIDatabaseResultCallback_WarningEnum_values[2];
 
 @implementation ARPIDatabaseResultCallback_WarningEnum
 
@@ -70,16 +70,17 @@ ARPIDatabaseResultCallback_WarningEnum *ARPIDatabaseResultCallback_WarningEnum_v
 + (void)initialize {
   if (self == [ARPIDatabaseResultCallback_WarningEnum class]) {
     ARPIDatabaseResultCallback_WarningEnum_DatabaseExists = [[ARPIDatabaseResultCallback_WarningEnum alloc] initWithNSString:@"DatabaseExists" withInt:0];
+    ARPIDatabaseResultCallback_WarningEnum_IsOpen = [[ARPIDatabaseResultCallback_WarningEnum alloc] initWithNSString:@"IsOpen" withInt:1];
     ARPIDatabaseResultCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIDatabaseResultCallback_WarningEnum_values count:1 type:[IOSClass classWithClass:[ARPIDatabaseResultCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIDatabaseResultCallback_WarningEnum_values count:2 type:[IOSClass classWithClass:[ARPIDatabaseResultCallback_WarningEnum class]]];
 }
 
 + (ARPIDatabaseResultCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 2; i++) {
     ARPIDatabaseResultCallback_WarningEnum *e = ARPIDatabaseResultCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -95,9 +96,10 @@ ARPIDatabaseResultCallback_WarningEnum *ARPIDatabaseResultCallback_WarningEnum_v
   };
   static J2ObjcFieldInfo fields[] = {
     { "DatabaseExists", "DatabaseExists", 0x4019, "Lme.adaptive.arp.api.IDatabaseResultCallback$Warning;", &ARPIDatabaseResultCallback_WarningEnum_DatabaseExists,  },
+    { "IsOpen", "IsOpen", 0x4019, "Lme.adaptive.arp.api.IDatabaseResultCallback$Warning;", &ARPIDatabaseResultCallback_WarningEnum_IsOpen,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IDatabaseResultCallback$Warning;"};
-  static J2ObjcClassInfo _ARPIDatabaseResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IDatabaseResultCallback", 0x4019, 1, methods, 1, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIDatabaseResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IDatabaseResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
   return &_ARPIDatabaseResultCallback_WarningEnum;
 }
 
@@ -105,7 +107,7 @@ ARPIDatabaseResultCallback_WarningEnum *ARPIDatabaseResultCallback_WarningEnum_v
 
 BOOL ARPIDatabaseResultCallback_ErrorEnum_initialized = NO;
 
-ARPIDatabaseResultCallback_ErrorEnum *ARPIDatabaseResultCallback_ErrorEnum_values[2];
+ARPIDatabaseResultCallback_ErrorEnum *ARPIDatabaseResultCallback_ErrorEnum_values[3];
 
 @implementation ARPIDatabaseResultCallback_ErrorEnum
 
@@ -121,16 +123,17 @@ ARPIDatabaseResultCallback_ErrorEnum *ARPIDatabaseResultCallback_ErrorEnum_value
   if (self == [ARPIDatabaseResultCallback_ErrorEnum class]) {
     ARPIDatabaseResultCallback_ErrorEnum_NoSpace = [[ARPIDatabaseResultCallback_ErrorEnum alloc] initWithNSString:@"NoSpace" withInt:0];
     ARPIDatabaseResultCallback_ErrorEnum_SqlException = [[ARPIDatabaseResultCallback_ErrorEnum alloc] initWithNSString:@"SqlException" withInt:1];
+    ARPIDatabaseResultCallback_ErrorEnum_NotDeleted = [[ARPIDatabaseResultCallback_ErrorEnum alloc] initWithNSString:@"NotDeleted" withInt:2];
     ARPIDatabaseResultCallback_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIDatabaseResultCallback_ErrorEnum_values count:2 type:[IOSClass classWithClass:[ARPIDatabaseResultCallback_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIDatabaseResultCallback_ErrorEnum_values count:3 type:[IOSClass classWithClass:[ARPIDatabaseResultCallback_ErrorEnum class]]];
 }
 
 + (ARPIDatabaseResultCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPIDatabaseResultCallback_ErrorEnum *e = ARPIDatabaseResultCallback_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -147,9 +150,10 @@ ARPIDatabaseResultCallback_ErrorEnum *ARPIDatabaseResultCallback_ErrorEnum_value
   static J2ObjcFieldInfo fields[] = {
     { "NoSpace", "NoSpace", 0x4019, "Lme.adaptive.arp.api.IDatabaseResultCallback$Error;", &ARPIDatabaseResultCallback_ErrorEnum_NoSpace,  },
     { "SqlException", "SqlException", 0x4019, "Lme.adaptive.arp.api.IDatabaseResultCallback$Error;", &ARPIDatabaseResultCallback_ErrorEnum_SqlException,  },
+    { "NotDeleted", "NotDeleted", 0x4019, "Lme.adaptive.arp.api.IDatabaseResultCallback$Error;", &ARPIDatabaseResultCallback_ErrorEnum_NotDeleted,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IDatabaseResultCallback$Error;"};
-  static J2ObjcClassInfo _ARPIDatabaseResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IDatabaseResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIDatabaseResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IDatabaseResultCallback", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPIDatabaseResultCallback_ErrorEnum;
 }
 
