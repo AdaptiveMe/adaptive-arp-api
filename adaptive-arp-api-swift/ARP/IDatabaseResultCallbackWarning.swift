@@ -13,6 +13,6 @@
 import Foundation
 
 public enum IDatabaseResultCallbackWarning {
-     case DatabaseExists
+     case DatabaseExists, IsOpen
 }
 

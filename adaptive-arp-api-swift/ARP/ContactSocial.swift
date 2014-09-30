@@ -18,19 +18,26 @@ public class ContactSocial {
       * Field Declarations
       */
      var profileUrl : String
-     var socialNetwork : String
+     var socialNetwork : SocialNetwork?
+
+     /**
+      * Enumeration Declarations
+      */
+     public enum SocialNetwork {
+          case Twitter, Facebook, GooglePlus, LinkedIn, Flickr
+     }
 
      /**
       * Initialization
       */
-     public convenience init(socialNetwork : String, profileUrl : String) {
+     public convenience init(socialNetwork : SocialNetwork, profileUrl : String) {
           self.init()
           self.socialNetwork = socialNetwork
           self.profileUrl = profileUrl
      }
 
      public init() {
-          self.socialNetwork = ""
+          self.socialNetwork = nil
           self.profileUrl = ""
      }
 
@@ -42,15 +49,15 @@ public class ContactSocial {
           return self.profileUrl
      }
 
-     public func getSocialNetwork() -> String {
-          return self.socialNetwork
+     public func getSocialNetwork() -> SocialNetwork {
+          return self.socialNetwork!
      }
 
      public func setProfileUrl(profileUrl : String) {
           self.profileUrl = profileUrl
      }
 
-     public func setSocialNetwork(socialNetwork : String) {
+     public func setSocialNetwork(socialNetwork : SocialNetwork) {
           self.socialNetwork = socialNetwork
      }
 

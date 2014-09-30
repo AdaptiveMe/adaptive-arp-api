@@ -13,6 +13,6 @@
 import Foundation
 
 public enum IDatabaseResultCallbackError {
-     case NoSpace, SqlException
+     case NoSpace, SqlException, NotDeleted
 }
 
