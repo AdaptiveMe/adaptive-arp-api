@@ -35,6 +35,14 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 05/09/2014.</remarks>
 	public abstract class IAppResourceCallback : IBaseCallback
 	{
+		public abstract void OnResult(IAppResource resource);
+
+		public abstract void OnWarning(IAppResource resource, IAppResourceCallback.Warning
+			 warning);
+
+		public abstract void OnError(IAppResource resource, IAppResourceCallback.Error error
+			);
+
 		public enum Warning
 		{
 			PartialContent,
@@ -47,13 +55,5 @@ namespace Adaptive.Arp.Api
 			NotFound,
 			NoPermission
 		}
-
-		public abstract void OnResult(IAppResource resource);
-
-		public abstract void OnWarning(IAppResource resource, IAppResourceCallback.Warning
-			 warning);
-
-		public abstract void OnError(IAppResource resource, IAppResourceCallback.Error error
-			);
 	}
 }

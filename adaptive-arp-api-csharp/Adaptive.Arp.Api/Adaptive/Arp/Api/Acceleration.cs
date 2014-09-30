@@ -72,6 +72,11 @@ namespace Adaptive.Arp.Api
 			return x;
 		}
 
+		public virtual void SetX(double x)
+		{
+			this.x = x;
+		}
+
 		/// <returns>Y-axis component of the acceleration.</returns>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
@@ -80,22 +85,17 @@ namespace Adaptive.Arp.Api
 			return y;
 		}
 
+		public virtual void SetY(double y)
+		{
+			this.y = y;
+		}
+
 		/// <returns>Z-axis component of the acceleration.</returns>
 		/// <author>Carlos Lozano Diez</author>
 		/// <since>ARP1.0</since>
 		public virtual double GetZ()
 		{
 			return z;
-		}
-
-		public virtual void SetX(double x)
-		{
-			this.x = x;
-		}
-
-		public virtual void SetY(double y)
-		{
-			this.y = y;
 		}
 
 		public virtual void SetZ(double z)

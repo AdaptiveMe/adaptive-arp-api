@@ -55,7 +55,9 @@ namespace Adaptive.Arp.Api
 
 		public enum Error
 		{
-
+			RestrictedAccess,
+			DeniedAccess,
+			StatusNotDetermined
 		}
 
 		public enum Warning

@@ -74,7 +74,8 @@ namespace Adaptive.Arp.Api
 			NotSecure,
 			NotTrusted,
 			Redirected,
-			NotRegisteredService
+			NotRegisteredService,
+			MalformedUrl
 		}
 	}
 }

@@ -55,13 +55,18 @@ namespace Adaptive.Arp.Api
 		/// <summary>Errors</summary>
 		public enum Error
 		{
-
+			Runtime,
+			Implementation,
+			Killed,
+			Unknown
 		}
 
 		/// <summary>Warnings</summary>
 		public enum Warning
 		{
-
+			MemoryLow,
+			BatteryLow,
+			Unknown
 		}
 	}
 }

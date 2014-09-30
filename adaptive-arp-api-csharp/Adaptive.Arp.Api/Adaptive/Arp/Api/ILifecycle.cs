@@ -35,7 +35,19 @@ namespace Adaptive.Arp.Api
 	{
 		/// <summary>Add the listener for the lifecycle of the app</summary>
 		/// <param name="listener"></param>
+		/// <since>ARP1.0</since>
 		void AddLifecycleListener(ILifecycleListener listener);
+
+		/// <summary>Un-registers an existing listener from receiving lifecycle events.</summary>
+		/// <remarks>Un-registers an existing listener from receiving lifecycle events.</remarks>
+		/// <param name="listener"></param>
+		/// <since>ARP1.0</since>
+		void RemoveLifecycleListener(ILifecycleListener listener);
+
+		/// <summary>Removes all existing listeners from receiving lifecycle events.</summary>
+		/// <remarks>Removes all existing listeners from receiving lifecycle events.</remarks>
+		/// <since>ARP1.0</since>
+		void RemoveLifecycleListeners();
 
 		/// <summary>Whether the application is in background or not</summary>
 		/// <returns>true if the application is in background;false otherwise</returns>

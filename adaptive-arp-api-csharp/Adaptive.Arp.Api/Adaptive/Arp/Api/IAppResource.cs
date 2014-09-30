@@ -35,34 +35,6 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 05/09/2014.</remarks>
 	public abstract class IAppResource
 	{
-		public enum Type
-		{
-			Html,
-			Css,
-			JavaScript,
-			Image,
-			Video,
-			Audio,
-			Property,
-			Database,
-			Other
-		}
-
-		public enum Format
-		{
-			Raw,
-			Compressed,
-			Encrypted,
-			EncryptedCompressed
-		}
-
-		public enum Payload
-		{
-			Default,
-			Embedded,
-			Linked
-		}
-
 		public abstract string GetName();
 
 		public abstract string GetPath();
@@ -90,5 +62,33 @@ namespace Adaptive.Arp.Api
 		public abstract byte[] GetDataStored();
 
 		public abstract string GetDataPathLinked();
+
+		public enum Type
+		{
+			Html,
+			Css,
+			JavaScript,
+			Image,
+			Video,
+			Audio,
+			Property,
+			Database,
+			Other
+		}
+
+		public enum Format
+		{
+			Raw,
+			Compressed,
+			Encrypted,
+			EncryptedCompressed
+		}
+
+		public enum Payload
+		{
+			Default,
+			Embedded,
+			Linked
+		}
 	}
 }

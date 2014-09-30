@@ -53,7 +53,7 @@ namespace Adaptive.Arp.Api
 		/// <param name="country"></param>
 		/// <param name="language"></param>
 		/// <since>ARP1.0</since>
-		public Locale(string country, string language)
+		public Locale(string language, string country)
 		{
 			this.country = country;
 			this.language = language;
@@ -95,7 +95,8 @@ namespace Adaptive.Arp.Api
 		/// <returns>string representation of the filename with the locale content</returns>
 		public override string ToString()
 		{
-			return this.language.ToLower() + "-" + this.country.ToUpper();
+			return this.language.ToLower() + (this.country.ToUpper() != null ? "-" + this.country
+				.ToUpper() : string.Empty);
 		}
 	}
 }

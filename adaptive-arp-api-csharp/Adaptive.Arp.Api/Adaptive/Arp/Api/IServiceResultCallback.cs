@@ -57,7 +57,8 @@ namespace Adaptive.Arp.Api
 			NotSecure,
 			NotTrusted,
 			Redirected,
-			NotRegisteredService
+			NotRegisteredService,
+			Wrong_Params
 		}
 
 		/// <summary>Errors that can be used</summary>
@@ -73,7 +74,8 @@ namespace Adaptive.Arp.Api
 			NoResponse,
 			ServerError,
 			Unreachable,
-			Unknown
+			Unknown,
+			MalformedUrl
 		}
 	}
 }

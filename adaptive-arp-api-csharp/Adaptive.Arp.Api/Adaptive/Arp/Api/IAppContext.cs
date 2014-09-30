@@ -35,6 +35,18 @@ namespace Adaptive.Arp.Api
 	/// <remarks>Created by clozano on 05/09/2014.</remarks>
 	public abstract class IAppContext
 	{
+		/// <summary>The main application context.</summary>
+		/// <remarks>The main application context. This should be cast to the platform specific implementation.
+		/// 	</remarks>
+		/// <returns>Object representing the specific singleton application context provided by the OS.
+		/// 	</returns>
+		public abstract object GetContext();
+
+		/// <summary>The type of context provided by the getContext method.</summary>
+		/// <remarks>The type of context provided by the getContext method.</remarks>
+		/// <returns>Type of platform context.</returns>
+		public abstract IAppContext.Type GetContextType();
+
 		/// <summary>The type of application context - platform specific.</summary>
 		/// <remarks>The type of application context - platform specific.</remarks>
 		public enum Type
@@ -52,17 +64,5 @@ namespace Adaptive.Arp.Api
 			Unspecified,
 			Unknown
 		}
-
-		/// <summary>The main application context.</summary>
-		/// <remarks>The main application context. This should be cast to the platform specific implementation.
-		/// 	</remarks>
-		/// <returns>Object representing the specific singleton application context provided by the OS.
-		/// 	</returns>
-		public abstract object GetContext();
-
-		/// <summary>The type of context provided by the getContext method.</summary>
-		/// <remarks>The type of context provided by the getContext method.</remarks>
-		/// <returns>Type of platform context.</returns>
-		public abstract IAppContext.Type GetContextType();
 	}
 }
