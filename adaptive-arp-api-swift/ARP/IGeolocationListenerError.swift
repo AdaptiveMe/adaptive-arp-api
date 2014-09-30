@@ -13,6 +13,6 @@
 import Foundation
 
 public enum IGeolocationListenerError {
-
+     case RestrictedAccess, DeniedAccess, StatusNotDetermined
 }
 

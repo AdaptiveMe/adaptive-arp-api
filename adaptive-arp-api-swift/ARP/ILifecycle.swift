@@ -20,5 +20,7 @@ public protocol ILifecycle : IBaseApplication {
       */
      func addLifecycleListener(listener : ILifecycleListener)
      func isBackground() -> Bool
+     func removeLifecycleListener(listener : ILifecycleListener)
+     func removeLifecycleListeners()
 
 }

@@ -18,7 +18,7 @@ public protocol IService : IBaseCommunication {
      /**
       * Function Declarations
       */
-     func getService(serviceName : String) -> Service?
+     func getService(serviceName : String) -> Service
      func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback)
      func isRegistered(service : Service) -> Bool
      func isRegistered(serviceName : String) -> Bool

@@ -12,7 +12,7 @@
 
 import Foundation
 
-public protocol IInternalStorage : IStore {
+public protocol IInternalStorage : IBaseData {
 
 
 }

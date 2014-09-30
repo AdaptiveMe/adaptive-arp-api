@@ -13,6 +13,6 @@
 import Foundation
 
 public enum ILifecycleListenerWarning {
-
+     case MemoryLow, BatteryLow, Unknown
 }
 

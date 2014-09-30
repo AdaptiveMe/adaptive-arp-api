@@ -25,9 +25,9 @@ public protocol ISession : IBaseCommunication {
      func removeAttribute(name : String)
      func removeAttributes()
      func removeCookie(cookie : Cookie)
-     func removeCookies(cookie : [Cookie])
+     func removeCookies(cookies : [Cookie])
      func setAttribute(name : String, value : AnyObject)
      func setCookie(cookie : Cookie)
-     func setCookies(cookie : [Cookie])
+     func setCookies(cookies : [Cookie])
 
 }

@@ -13,6 +13,6 @@
 import Foundation
 
 public enum ILifecycleListenerError {
-
+     case Runtime, Implementation, Killed, Unknown
 }
 
