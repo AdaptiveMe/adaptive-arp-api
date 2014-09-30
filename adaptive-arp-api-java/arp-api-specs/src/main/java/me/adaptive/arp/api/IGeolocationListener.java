@@ -56,7 +56,7 @@ public interface IGeolocationListener extends IBaseListener {
      */
     void onError(Error error);
 
-    public enum Error {}
+    public enum Error {GPS_Disabled}
 
-    public enum Warning {HighDoP}
+    public enum Warning {HighDoP,Last_Known}
 }
