@@ -26,6 +26,7 @@
  * =====================================================================================================================
  */
 
+using Adaptive.Arp.Api;
 using Sharpen;
 
 namespace Adaptive.Arp.Api
@@ -36,7 +37,7 @@ namespace Adaptive.Arp.Api
 	{
 		/// <summary>The social network</summary>
 		/// <since>ARP1.0</since>
-		private string socialNetwork;
+		private ContactSocial.SocialNetwork socialNetwork;
 
 		/// <summary>The profileUrl</summary>
 		/// <since>ARP1.0</since>
@@ -46,7 +47,8 @@ namespace Adaptive.Arp.Api
 		/// <param name="socialNetwork">of the profile</param>
 		/// <param name="profileUrl">of the user</param>
 		/// <since>ARP1.0</since>
-		public ContactSocial(string socialNetwork, string profileUrl)
+		public ContactSocial(ContactSocial.SocialNetwork socialNetwork, string profileUrl
+			)
 		{
 			this.socialNetwork = socialNetwork;
 			this.profileUrl = profileUrl;
@@ -57,10 +59,21 @@ namespace Adaptive.Arp.Api
 		{
 		}
 
+		/// <summary>Social Networks</summary>
+		/// <since>ARP1.0</since>
+		public enum SocialNetwork
+		{
+			Twitter,
+			Facebook,
+			GooglePlus,
+			LinkedIn,
+			Flickr
+		}
+
 		/// <summary>Returns the social network</summary>
 		/// <returns>socialNetwork</returns>
 		/// <since>ARP1.0</since>
-		public virtual string GetSocialNetwork()
+		public virtual ContactSocial.SocialNetwork GetSocialNetwork()
 		{
 			return socialNetwork;
 		}
@@ -68,7 +81,7 @@ namespace Adaptive.Arp.Api
 		/// <summary>Set the social network</summary>
 		/// <param name="socialNetwork"></param>
 		/// <since>ARP1.0</since>
-		public virtual void SetSocialNetwork(string socialNetwork)
+		public virtual void SetSocialNetwork(ContactSocial.SocialNetwork socialNetwork)
 		{
 			this.socialNetwork = socialNetwork;
 		}

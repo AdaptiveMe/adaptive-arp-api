@@ -65,7 +65,8 @@ namespace Adaptive.Arp.Api
 		public enum Error
 		{
 			NoPermission,
-			Wrong_Params
+			Wrong_Params,
+			No_Photo
 		}
 	}
 }

@@ -55,6 +55,7 @@ namespace Adaptive.Arp.Api
 
 		public enum Error
 		{
+			Disabled,
 			RestrictedAccess,
 			DeniedAccess,
 			StatusNotDetermined
@@ -62,7 +63,8 @@ namespace Adaptive.Arp.Api
 
 		public enum Warning
 		{
-			HighDoP
+			HighDoP,
+			StaleData
 		}
 	}
 }
