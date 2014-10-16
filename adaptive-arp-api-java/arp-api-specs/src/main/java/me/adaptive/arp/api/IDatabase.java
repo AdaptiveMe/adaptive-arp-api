@@ -64,17 +64,6 @@ public interface IDatabase extends IBaseData {
     boolean existsDatabase(Database database);
 
     /**
-     * Returns a Database if exists by a given name encapsulated inside a
-     * Database Object.
-     *
-     * @param database Database object to find
-     * @param callback Asynchronous callback
-     * @author Ferran Vila Conesa
-     * @since ARP1.0
-     */
-    void getDatabase(Database database, IDatabaseResultCallback callback);
-
-    /**
      * Creates a table inside a database for every platform.
      *
      * @param database Database for table creating.
