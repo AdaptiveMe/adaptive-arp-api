@@ -34,17 +34,20 @@ package me.adaptive.arp.api;
 public interface INetworkReachability extends IBaseCommunication {
 
     /**
-     * Whether there is connectivity to an url or not.
-     *
-     * @param url
-     * @return true if there is network connectivity to the given url; false otherwise
-     */
-    /**
-     * Whether there is connectivity to an url or not.
+     * Whether there is connectivity to an url of a service or not.
      *
      * @param url      to look for
      * @param callback Callback called at the end
+     * @return true if there is network connectivity to the given url; false otherwise
      */
-    void isNetworkReachable(String url, INetworkReachabilityCallback callback);
+    void isNetworkServiceReachable(String url, INetworkReachabilityCallback callback);
 
+    /**
+     * Whether there is connectivity to a host, via domain name or ip address, or not.
+     *
+     * @param host      domain name or ip address of host.
+     * @param callback Callback called at the end.
+     * @return true if there is network connectivity to the given url; false otherwise
+     */
+    void isNetworkReachable(String host, INetworkReachabilityCallback callback);
 }
