@@ -72,6 +72,6 @@ public interface ITableResultCallback extends IBaseCallback {
      * Enumeration for errors related to database manipulation.
      */
     public enum Error {
-        NoSpace, ReadOnlyTable, SqlException, DatabaseNotFound
+        NoSpace, ReadOnlyTable, SqlException, DatabaseNotFound, NoTableFound
     }
 }
