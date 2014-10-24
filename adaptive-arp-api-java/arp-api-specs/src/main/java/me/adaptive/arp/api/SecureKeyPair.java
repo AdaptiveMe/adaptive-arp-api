@@ -48,6 +48,18 @@ public class SecureKeyPair {
     }
 
     /**
+     * Constructor with parameters
+     * 
+     * @param key   name of the keypair
+     * @param value value of the keypair
+     * @since ARP1.0
+     */
+    public SecureKeyPair(String key, String value) {
+        this.key = key
+        this.value = value
+    }
+
+    /**
      * Returns the object key name.
      *
      * @return Key name.
