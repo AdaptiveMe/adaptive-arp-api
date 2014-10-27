@@ -146,6 +146,7 @@ public class J2SwiftConverter {
         if (targetFile.exists()) {
             targetFile.delete();
         }
+        /*
         if (clazz.isInterface()) {
             if (clazz.getSimpleName().equals("ISession")
                     || clazz.getSimpleName().equals("IBaseCommunication")
@@ -156,6 +157,7 @@ public class J2SwiftConverter {
                 //return;
             }
         }
+        */
 
         IndentPrintStream ps = null;
         try {
@@ -168,8 +170,8 @@ public class J2SwiftConverter {
          */
         ps.println(0, "/*");
         ps.println(0, "* =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================");
-        ps.println(0, "*  Auto-generated from: " + clazz.getName());
-        ps.println(0, "*  " + targetFile.getName());
+        ps.println(0, "*  Auto-generated from: " + clazz.getName() + " -> " + targetFile.getName());
+        ps.println(0, "*");
         ps.println(0, "* (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.");
         ps.println(0, "*");
         ps.println(0, "* Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with");
@@ -211,6 +213,9 @@ public class J2SwiftConverter {
                         ps.print(", ");
                     }
                 }
+                //ps.print(", Printable, Equatable");
+            } else {
+                ps.print(": Printable");
             }
             ps.println(" {");
             ps.println();
@@ -502,7 +507,7 @@ public class J2SwiftConverter {
                             //if (parameter.getType().equals(clazz)) {
                             //    ps.print("Self");
                             //} else {
-                                ps.print(parameter.getType().getSimpleName());
+                            ps.print(parameter.getType().getSimpleName());
                             //}
                         }
                     }
@@ -531,7 +536,7 @@ public class J2SwiftConverter {
                         ps.print(getPrimitiveTypeSwift(returnType));
                     } else {
                         if (returnType.getSimpleName().equals("Object")) {
-                            ps.print("Any" + returnType.getSimpleName()+"?");
+                            ps.print("Any" + returnType.getSimpleName() + "?");
                         } else {
                             if (returnType.getSimpleName().equals("Map")) {
                                 ps.print("Dictionary<String,String>?");
@@ -540,7 +545,7 @@ public class J2SwiftConverter {
                                     processClassEnum(clazz, returnType, targetDir);
                                     ps.print(clazz.getSimpleName() + returnType.getSimpleName());
                                 } else {
-                                    ps.print(returnType.getSimpleName()+"?");
+                                    ps.print(returnType.getSimpleName() + "?");
                                 }
                             }
                         }
@@ -625,6 +630,10 @@ public class J2SwiftConverter {
             }
             ps.println();
         }
+
+        //if (clazz.isInterface()) {
+        //ps.println(5, "func ==(lhs: "+clazz.getSimpleName()+", rhs: "+clazz.getSimpleName()+") -> Bool");
+        //}
         /**
          * Interface Enumeration Section
          */
