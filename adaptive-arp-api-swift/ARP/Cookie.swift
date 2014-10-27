@@ -71,7 +71,7 @@ public class Cookie : NSObject  {
           return self.creation
      }
 
-     public func getDomain() -> String {
+     public func getDomain() -> String? {
           return self.domain
      }
 
@@ -79,19 +79,19 @@ public class Cookie : NSObject  {
           return self.expiry
      }
 
-     public func getName() -> String {
+     public func getName() -> String? {
           return self.name
      }
 
-     public func getPath() -> String {
+     public func getPath() -> String? {
           return self.path
      }
 
-     public func getScheme() -> String {
+     public func getScheme() -> String? {
           return self.scheme
      }
 
-     public func getValue() -> String {
+     public func getValue() -> String? {
           return self.value
      }
 

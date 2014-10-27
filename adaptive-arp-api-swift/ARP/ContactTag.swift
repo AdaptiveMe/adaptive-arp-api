@@ -55,11 +55,11 @@ public class ContactTag : NSObject  {
      /**
       * Function Declarations
       */
-     public func getName() -> String {
+     public func getName() -> String? {
           return self.name
      }
 
-     public func getValue() -> String {
+     public func getValue() -> String? {
           return self.value
      }
 

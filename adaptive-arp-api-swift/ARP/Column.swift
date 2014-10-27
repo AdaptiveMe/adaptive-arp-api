@@ -52,7 +52,7 @@ public class Column : NSObject  {
      /**
       * Function Declarations
       */
-     public func getName() -> String {
+     public func getName() -> String? {
           return self.name
      }
 

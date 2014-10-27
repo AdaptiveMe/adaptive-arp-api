@@ -61,19 +61,19 @@ public class DeviceInfo : NSObject  {
      /**
       * Function Declarations
       */
-     public func getModel() -> String {
+     public func getModel() -> String? {
           return self.model
      }
 
-     public func getName() -> String {
+     public func getName() -> String? {
           return self.name
      }
 
-     public func getUuid() -> String {
+     public func getUuid() -> String? {
           return self.uuid
      }
 
-     public func getVendor() -> String {
+     public func getVendor() -> String? {
           return self.vendor
      }
 

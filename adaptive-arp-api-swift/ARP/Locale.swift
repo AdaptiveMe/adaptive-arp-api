@@ -55,11 +55,11 @@ public class Locale : NSObject  {
      /**
       * Function Declarations
       */
-     public func getCountry() -> String {
+     public func getCountry() -> String? {
           return self.country
      }
 
-     public func getLanguage() -> String {
+     public func getLanguage() -> String? {
           return self.language
      }
 
@@ -71,7 +71,7 @@ public class Locale : NSObject  {
           self.language = language
      }
 
-     public func toString() -> String {
+     public func toString() -> String? {
           return self.description
      }
 

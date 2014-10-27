@@ -64,23 +64,23 @@ public class AttachmentData : NSObject  {
      /**
       * Function Declarations
       */
-     public func getData() -> [Byte] {
-          return self.data!
+     public func getData() -> [Byte]? {
+          return self.data
      }
 
      public func getDataSize() -> Int64 {
           return self.dataSize
      }
 
-     public func getFileName() -> String {
+     public func getFileName() -> String? {
           return self.fileName
      }
 
-     public func getMimeType() -> String {
+     public func getMimeType() -> String? {
           return self.mimeType
      }
 
-     public func getReferenceUrl() -> String {
+     public func getReferenceUrl() -> String? {
           return self.referenceUrl
      }
 

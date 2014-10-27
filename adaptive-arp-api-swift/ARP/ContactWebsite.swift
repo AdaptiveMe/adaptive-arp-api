@@ -52,7 +52,7 @@ public class ContactWebsite : NSObject  {
      /**
       * Function Declarations
       */
-     public func getUrl() -> String {
+     public func getUrl() -> String? {
           return self.url
      }
 

@@ -62,7 +62,7 @@ public class ContactSocial : NSObject  {
      /**
       * Function Declarations
       */
-     public func getProfileUrl() -> String {
+     public func getProfileUrl() -> String? {
           return self.profileUrl
      }
 

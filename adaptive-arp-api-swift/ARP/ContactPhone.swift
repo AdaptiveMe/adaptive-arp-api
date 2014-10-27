@@ -62,7 +62,7 @@ public class ContactPhone : NSObject  {
      /**
       * Function Declarations
       */
-     public func getPhone() -> String {
+     public func getPhone() -> String? {
           return self.phone
      }
 

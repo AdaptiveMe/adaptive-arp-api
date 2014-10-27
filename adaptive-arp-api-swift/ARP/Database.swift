@@ -60,7 +60,7 @@ public class Database : NSObject  {
      /**
       * Function Declarations
       */
-     public func getName() -> String {
+     public func getName() -> String? {
           return self.name
      }
 

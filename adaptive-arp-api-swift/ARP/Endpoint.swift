@@ -64,11 +64,11 @@ public class Endpoint : NSObject  {
      /**
       * Function Declarations
       */
-     public func getHost() -> String {
+     public func getHost() -> String? {
           return self.host
      }
 
-     public func getPath() -> String {
+     public func getPath() -> String? {
           return self.path
      }
 
@@ -76,11 +76,11 @@ public class Endpoint : NSObject  {
           return self.port
      }
 
-     public func getProxy() -> String {
+     public func getProxy() -> String? {
           return self.proxy
      }
 
-     public func getScheme() -> String {
+     public func getScheme() -> String? {
           return self.scheme
      }
 

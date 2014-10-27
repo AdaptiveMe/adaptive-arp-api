@@ -52,8 +52,8 @@ public class Row : NSObject  {
      /**
       * Function Declarations
       */
-     public func getValues() -> [AnyObject] {
-          return self.values!
+     public func getValues() -> [AnyObject]? {
+          return self.values
      }
 
      public func setValues(values : [AnyObject]) {

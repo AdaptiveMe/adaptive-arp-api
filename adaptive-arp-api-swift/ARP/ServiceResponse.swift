@@ -73,35 +73,35 @@ public class ServiceResponse : NSObject  {
      /**
       * Function Declarations
       */
-     public func getContent() -> String {
+     public func getContent() -> String? {
           return self.content
      }
 
-     public func getContentBinary() -> [Byte] {
-          return self.contentBinary!
+     public func getContentBinary() -> [Byte]? {
+          return self.contentBinary
      }
 
      public func getContentBinaryLength() -> Int {
           return self.contentBinaryLength
      }
 
-     public func getContentEncoding() -> String {
+     public func getContentEncoding() -> String? {
           return self.contentEncoding
      }
 
-     public func getContentLength() -> String {
+     public func getContentLength() -> String? {
           return self.contentLength
      }
 
-     public func getContentType() -> String {
+     public func getContentType() -> String? {
           return self.contentType
      }
 
-     public func getHeaders() -> [Header] {
-          return self.headers!
+     public func getHeaders() -> [Header]? {
+          return self.headers
      }
 
-     public func getSession() -> ISession {
+     public func getSession() -> ISession? {
           return self.session!
      }
 

@@ -67,35 +67,35 @@ public class Contact : ContactUid {
      /**
       * Function Declarations
       */
-     public func getContactAddresses() -> [ContactAddress] {
-          return self.contactAddresses!
+     public func getContactAddresses() -> [ContactAddress]? {
+          return self.contactAddresses
      }
 
-     public func getContactEmails() -> [ContactEmail] {
-          return self.contactEmails!
+     public func getContactEmails() -> [ContactEmail]? {
+          return self.contactEmails
      }
 
-     public func getContactPhones() -> [ContactPhone] {
-          return self.contactPhones!
+     public func getContactPhones() -> [ContactPhone]? {
+          return self.contactPhones
      }
 
-     public func getContactSocials() -> [ContactSocial] {
-          return self.contactSocials!
+     public func getContactSocials() -> [ContactSocial]? {
+          return self.contactSocials
      }
 
-     public func getContactTags() -> [ContactTag] {
-          return self.contactTags!
+     public func getContactTags() -> [ContactTag]? {
+          return self.contactTags
      }
 
-     public func getContactWebsites() -> [ContactWebsite] {
-          return self.contactWebsites!
+     public func getContactWebsites() -> [ContactWebsite]? {
+          return self.contactWebsites
      }
 
-     public func getPersonalInfo() -> ContactPersonalInfo {
+     public func getPersonalInfo() -> ContactPersonalInfo? {
           return self.personalInfo!
      }
 
-     public func getProfessionalInfo() -> ContactProfessionalInfo {
+     public func getProfessionalInfo() -> ContactProfessionalInfo? {
           return self.professionalInfo!
      }
 

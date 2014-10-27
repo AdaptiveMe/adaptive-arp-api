@@ -65,7 +65,7 @@ public class ContactEmail : NSObject  {
      /**
       * Function Declarations
       */
-     public func getEmail() -> String {
+     public func getEmail() -> String? {
           return self.email
      }
 

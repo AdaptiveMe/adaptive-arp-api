@@ -77,32 +77,32 @@ public class Email : NSObject  {
      /**
       * Function Declarations
       */
-     public func getAttachmentData() -> [AttachmentData] {
-          return self.attachmentData!
+     public func getAttachmentData() -> [AttachmentData]? {
+          return self.attachmentData
      }
 
-     public func getBccRecipients() -> [EmailAddress] {
-          return self.bccRecipients!
+     public func getBccRecipients() -> [EmailAddress]? {
+          return self.bccRecipients
      }
 
-     public func getCcRecipients() -> [EmailAddress] {
-          return self.ccRecipients!
+     public func getCcRecipients() -> [EmailAddress]? {
+          return self.ccRecipients
      }
 
-     public func getMessageBody() -> String {
+     public func getMessageBody() -> String? {
           return self.messageBody
      }
 
-     public func getMessageBodyMimeType() -> String {
+     public func getMessageBodyMimeType() -> String? {
           return self.messageBodyMimeType
      }
 
-     public func getSubject() -> String {
+     public func getSubject() -> String? {
           return self.subject
      }
 
-     public func getToRecipients() -> [EmailAddress] {
-          return self.toRecipients!
+     public func getToRecipients() -> [EmailAddress]? {
+          return self.toRecipients
      }
 
      public func setAttachmentData(attachmentData : [AttachmentData]) {

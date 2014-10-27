@@ -64,11 +64,11 @@ public class Table : NSObject  {
           return self.columnCount
      }
 
-     public func getColumns() -> [Column] {
-          return self.columns!
+     public func getColumns() -> [Column]? {
+          return self.columns
      }
 
-     public func getName() -> String {
+     public func getName() -> String? {
           return self.name
      }
 
@@ -76,8 +76,8 @@ public class Table : NSObject  {
           return self.rowCount
      }
 
-     public func getRows() -> [Row] {
-          return self.rows!
+     public func getRows() -> [Row]? {
+          return self.rows
      }
 
      public func setColumnCount(columnCount : Int) {

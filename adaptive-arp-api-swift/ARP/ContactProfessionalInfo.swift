@@ -58,15 +58,15 @@ public class ContactProfessionalInfo : NSObject  {
      /**
       * Function Declarations
       */
-     public func getCompany() -> String {
+     public func getCompany() -> String? {
           return self.company
      }
 
-     public func getJobDescription() -> String {
+     public func getJobDescription() -> String? {
           return self.jobDescription
      }
 
-     public func getJobTitle() -> String {
+     public func getJobTitle() -> String? {
           return self.jobTitle
      }
 

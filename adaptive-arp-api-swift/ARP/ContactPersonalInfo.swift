@@ -68,15 +68,15 @@ public class ContactPersonalInfo : NSObject  {
      /**
       * Function Declarations
       */
-     public func getLastName() -> String {
+     public func getLastName() -> String? {
           return self.lastName
      }
 
-     public func getMiddleName() -> String {
+     public func getMiddleName() -> String? {
           return self.middleName
      }
 
-     public func getName() -> String {
+     public func getName() -> String? {
           return self.name
      }
 

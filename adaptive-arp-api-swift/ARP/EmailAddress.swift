@@ -52,7 +52,7 @@ public class EmailAddress : NSObject  {
      /**
       * Function Declarations
       */
-     public func getAddress() -> String {
+     public func getAddress() -> String? {
           return self.address
      }
 

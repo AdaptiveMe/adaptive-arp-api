@@ -49,11 +49,11 @@ public class SecureKeyPair : NSObject  {
      /**
       * Function Declarations
       */
-     public func getKey() -> String {
+     public func getKey() -> String? {
           return self.key
      }
 
-     public func getValue() -> String {
+     public func getValue() -> String? {
           return self.value
      }
 

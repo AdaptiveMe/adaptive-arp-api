@@ -58,15 +58,15 @@ public class OSInfo : NSObject  {
      /**
       * Function Declarations
       */
-     public func getName() -> String {
+     public func getName() -> String? {
           return self.name
      }
 
-     public func getVendor() -> String {
+     public func getVendor() -> String? {
           return self.vendor
      }
 
-     public func getVersion() -> String {
+     public func getVersion() -> String? {
           return self.version
      }
 

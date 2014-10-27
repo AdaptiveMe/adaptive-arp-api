@@ -71,7 +71,7 @@ public class Service : NSObject  {
      /**
       * Function Declarations
       */
-     public func getEndpoint() -> Endpoint {
+     public func getEndpoint() -> Endpoint? {
           return self.endpoint!
      }
 
@@ -79,7 +79,7 @@ public class Service : NSObject  {
           return self.method!
      }
 
-     public func getName() -> String {
+     public func getName() -> String? {
           return self.name
      }
 

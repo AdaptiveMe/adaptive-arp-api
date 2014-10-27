@@ -52,7 +52,7 @@ public class ContactUid : NSObject  {
      /**
       * Function Declarations
       */
-     public func getContactId() -> String {
+     public func getContactId() -> String? {
           return self.contactId
      }
 

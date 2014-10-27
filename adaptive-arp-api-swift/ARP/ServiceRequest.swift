@@ -83,11 +83,11 @@ public class ServiceRequest : NSObject  {
      /**
       * Function Declarations
       */
-     public func getContent() -> String {
+     public func getContent() -> String? {
           return self.content
      }
 
-     public func getContentEncoding() -> String {
+     public func getContentEncoding() -> String? {
           return self.contentEncoding
      }
 
@@ -95,15 +95,15 @@ public class ServiceRequest : NSObject  {
           return self.contentLength
      }
 
-     public func getContentType() -> String {
+     public func getContentType() -> String? {
           return self.contentType
      }
 
-     public func getHeaders() -> [Header] {
-          return self.headers!
+     public func getHeaders() -> [Header]? {
+          return self.headers
      }
 
-     public func getMethod() -> String {
+     public func getMethod() -> String? {
           return self.method
      }
 
@@ -111,11 +111,11 @@ public class ServiceRequest : NSObject  {
           return self.protocolVersion!
      }
 
-     public func getRawContent() -> [Byte] {
-          return self.rawContent!
+     public func getRawContent() -> [Byte]? {
+          return self.rawContent
      }
 
-     public func getSession() -> ISession {
+     public func getSession() -> ISession? {
           return self.session!
      }
 
