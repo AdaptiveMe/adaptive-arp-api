@@ -90,17 +90,34 @@ public class J2SwiftConverter {
         /**
          * Header Section
          */
-        ps.println(0, "//");
-        ps.println(0, "//  Auto-generated from: " + clazz.getName());
-        ps.println(0, "//");
-        ps.println(0, "//  " + targetFile.getName());
-        ps.println(0, "//");
-        ps.println(0, "//  Released under Apache Public License v2.0");
-        ps.println(0, "//");
-        ps.println(0, "//  -----------| aut viam inveniam aut faciam |-----------");
-        ps.println(0, "//   Copyright (c) 2014 Carlos Lozano Diez ta Adaptive.me");
-        ps.println(0, "//   All rights reserved.                 www.adaptive.me");
-        ps.println(0, "//  ------------------------------------------------------");
+        ps.println(0, "/*");
+        ps.println(0, "* =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================");
+        ps.println(0, "*  Auto-generated from: " + clazz.getName());
+        ps.println(0, "*  " + targetFile.getName());
+        ps.println(0, "* (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.");
+        ps.println(0, "*");
+        ps.println(0, "* Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with");
+        ps.println(0, "* the License. You may obtain a copy of the License at");
+        ps.println(0, "*");
+        ps.println(0, "*     http://www.apache.org/licenses/LICENSE-2.0");
+        ps.println(0, "*");
+        ps.println(0, "* Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on");
+        ps.println(0, "* an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the");
+        ps.println(0, "* specific language governing permissions and limitations under the License.");
+        ps.println(0, "*");
+        ps.println(0, "* Original author:");
+        ps.println(0, "*");
+        ps.println(0, "*     * Carlos Lozano Diez");
+        ps.println(0, "*                 <http://github.com/carloslozano>");
+        ps.println(0, "*                 <http://twitter.com/adaptivecoder>");
+        ps.println(0, "*                 <mailto:carlos@adaptive.me>");
+        ps.println(0, "*");
+        ps.println(0, "* Contributors:");
+        ps.println(0, "*");
+        ps.println(0, "*     *");
+        ps.println(0, "*");
+        ps.println(0, "* =====================================================================================================================");
+        ps.println(0, "*/");
         ps.println();
         ps.println(0, "import Foundation");
         ps.println();
@@ -177,7 +194,6 @@ public class J2SwiftConverter {
         ps.println(0, "*");
         ps.println(0, "* =====================================================================================================================");
         ps.println(0, "*/");
-
         ps.println();
         ps.println(0, "import Foundation");
         ps.println();

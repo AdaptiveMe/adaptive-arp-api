@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2903c554-5a00-41a6-b7e2-e8efa15421b1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_1_3_9.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_guava_11_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__dom4j_dom4j_1_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_javassist_javassist_3_16_1_GA.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_reflections_reflections_0_9_9_RC1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xml_apis_xml_apis_1_0_b2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Acceleration.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Acceleration.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/AttachmentData.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/AttachmentData.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Button.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Button.swift" />
@@ -151,7 +142,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IVideo.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IVideo.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IWallet.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IWallet.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IXML.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IXML.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/adaptive/j2any/J2Swift.java" afterPath="$PROJECT_DIR$/src/main/java/me/adaptive/j2any/J2Swift.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/adaptive/j2any/j2swift/J2SwiftConverter.java" afterPath="$PROJECT_DIR$/src/main/java/me/adaptive/j2any/j2swift/J2SwiftConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Lifecycle.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Lifecycle.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Locale.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Locale.swift" />
@@ -162,9 +152,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ServiceRequest.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ServiceRequest.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ServiceResponse.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ServiceResponse.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Table.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Table.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/j2swift.iml" afterPath="$PROJECT_DIR$/j2swift.iml" />
     </list>
     <ignored path="j2swift.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -195,18 +182,18 @@
       <file leaf-file-name="J2SwiftConverter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/j2any/j2swift/J2SwiftConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.971698" vertical-offset="1410" max-vertical-offset="11400">
-              <caret line="178" column="28" selection-start-line="178" selection-start-column="28" selection-end-line="178" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.22169812" vertical-offset="1736" max-vertical-offset="11640">
+              <caret line="122" column="21" selection-start-line="122" selection-start-column="21" selection-end-line="122" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1522#1528#0" expanded="true" />
-                <element signature="e#9228#9238#0" expanded="true" />
-                <element signature="e#9726#9727#0" expanded="true" />
-                <element signature="e#9801#9802#0" expanded="true" />
-                <element signature="e#18044#18054#0" expanded="true" />
-                <element signature="e#18343#18344#0" expanded="true" />
-                <element signature="e#18418#18419#0" expanded="true" />
-                <element signature="e#30246#30262#0" expanded="true" />
+                <element signature="e#10478#10488#0" expanded="true" />
+                <element signature="e#10976#10977#0" expanded="true" />
+                <element signature="e#11051#11052#0" expanded="true" />
+                <element signature="e#19294#19304#0" expanded="true" />
+                <element signature="e#19593#19594#0" expanded="true" />
+                <element signature="e#19668#19669#0" expanded="true" />
+                <element signature="e#31496#31512#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -225,8 +212,8 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -991,12 +978,12 @@
       <option name="number" value="Default" />
       <updated>1414399236936</updated>
       <workItem from="1414399239050" duration="1335000" />
-      <workItem from="1414402063947" duration="1856000" />
+      <workItem from="1414402063947" duration="2161000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3191000" />
+    <option name="totallyTimeSpent" value="3496000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="830" extended-state="6" />
@@ -1013,7 +1000,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1074,13 +1061,13 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1522#1528#0" expanded="true" />
-            <element signature="e#9228#9238#0" expanded="true" />
-            <element signature="e#9726#9727#0" expanded="true" />
-            <element signature="e#9801#9802#0" expanded="true" />
-            <element signature="e#18044#18054#0" expanded="true" />
-            <element signature="e#18343#18344#0" expanded="true" />
-            <element signature="e#18418#18419#0" expanded="true" />
-            <element signature="e#30246#30262#0" expanded="true" />
+            <element signature="e#10478#10488#0" expanded="true" />
+            <element signature="e#10976#10977#0" expanded="true" />
+            <element signature="e#11051#11052#0" expanded="true" />
+            <element signature="e#19294#19304#0" expanded="true" />
+            <element signature="e#19593#19594#0" expanded="true" />
+            <element signature="e#19668#19669#0" expanded="true" />
+            <element signature="e#31496#31512#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1129,8 +1116,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1155,18 +1142,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/j2any/j2swift/J2SwiftConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.971698" vertical-offset="1410" max-vertical-offset="11400">
-          <caret line="178" column="28" selection-start-line="178" selection-start-column="28" selection-end-line="178" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.22169812" vertical-offset="1736" max-vertical-offset="11640">
+          <caret line="122" column="21" selection-start-line="122" selection-start-column="21" selection-end-line="122" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1522#1528#0" expanded="true" />
-            <element signature="e#9228#9238#0" expanded="true" />
-            <element signature="e#9726#9727#0" expanded="true" />
-            <element signature="e#9801#9802#0" expanded="true" />
-            <element signature="e#18044#18054#0" expanded="true" />
-            <element signature="e#18343#18344#0" expanded="true" />
-            <element signature="e#18418#18419#0" expanded="true" />
-            <element signature="e#30246#30262#0" expanded="true" />
+            <element signature="e#10478#10488#0" expanded="true" />
+            <element signature="e#10976#10977#0" expanded="true" />
+            <element signature="e#11051#11052#0" expanded="true" />
+            <element signature="e#19294#19304#0" expanded="true" />
+            <element signature="e#19593#19594#0" expanded="true" />
+            <element signature="e#19668#19669#0" expanded="true" />
+            <element signature="e#31496#31512#0" expanded="true" />
           </folding>
         </state>
       </provider>
