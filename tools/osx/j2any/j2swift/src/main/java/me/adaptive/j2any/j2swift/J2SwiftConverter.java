@@ -511,7 +511,15 @@ public class J2SwiftConverter {
         methodList.sort(new Comparator<Method>() {
             @Override
             public int compare(Method o1, Method o2) {
-                return o1.getName().compareTo(o2.getName());
+                String o1String = o1.getName();
+                for (Parameter p : o1.getParameters()) {
+                    o1String+= p.getName()+p.getType().getSimpleName()+o1.getParameterCount();
+                }
+                String o2String = o2.getName()+o2.getParameterCount();
+                for (Parameter p : o2.getParameters()) {
+                    o2String+= p.getName()+p.getType().getSimpleName()+o2.getParameterCount();
+                }
+                return o1String.compareTo(o2String);
             }
         });
 
