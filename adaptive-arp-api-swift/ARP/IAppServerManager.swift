@@ -44,7 +44,7 @@ public protocol IAppServerManager : IAdaptiveRP {
      func removeServerListeners()
      func resumeServer(server : IAppServer)
      func startServer()
-     func stopServers()
      func stopServer(server : IAppServer)
+     func stopServers()
 
 }

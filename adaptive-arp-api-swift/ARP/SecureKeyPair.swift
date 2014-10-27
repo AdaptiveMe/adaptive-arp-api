@@ -49,6 +49,12 @@ public class SecureKeyPair : NSObject, Printable  {
           self.value = ""
      }
 
+     public convenience init(key : String, value : String) {
+          self.init()
+          self.key = key
+          self.value = value
+     }
+
 
      /**
       * Function Declarations
