@@ -31,7 +31,7 @@ package me.adaptive.arp.api;
 /**
  * Created by FRMI on 28/08/2014.
  */
-public interface INetworkReachabilityCallback {
+public interface INetworkReachabilityCallback extends IBaseCallback {
     /**
      * Correct data received.
      *

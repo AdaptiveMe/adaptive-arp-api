@@ -1,14 +1,31 @@
-//
-//  Auto-generated from: me.adaptive.arp.api.IFilePath
-//
-//  IFilePath.swift
-//
-//  Released under Apache Public License v2.0
-//
-//  -----------| aut viam inveniam aut faciam |-----------
-//   Copyright (c) 2014 Carlos Lozano Diez ta Adaptive.me
-//   All rights reserved.                 www.adaptive.me
-//  ------------------------------------------------------
+/*
+* =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
+*  Auto-generated from: me.adaptive.arp.api.IFilePath -> IFilePath.swift
+*
+* (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
+*
+* Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+* the License. You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+* an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+* specific language governing permissions and limitations under the License.
+*
+* Original author:
+*
+*     * Carlos Lozano Diez
+*                 <http://github.com/carloslozano>
+*                 <http://twitter.com/adaptivecoder>
+*                 <mailto:carlos@adaptive.me>
+*
+* Contributors:
+*
+*     *
+*
+* =====================================================================================================================
+*/
 
 import Foundation
 
@@ -18,27 +35,27 @@ public protocol IFilePath : IBaseData {
      /**
       * Function Declarations
       */
-     func equals(other : String) -> Bool
-     func toString() -> String
-     func getName(index : Int) -> Self
-     func startsWith(other : String) -> Bool
-     func startsWith(other : Self) -> Bool
-     func endsWith(other : Self) -> Bool
+     func endsWith(other : IFilePath) -> Bool
      func endsWith(other : String) -> Bool
-     func getParent() -> Self
-     func isAbsolute() -> Bool
-     func resolve(other : Self) -> Self
-     func resolve(other : String) -> Self
-     func normalize() -> Self
-     func getFileName() -> Self
-     func getFileSystem() -> Self
-     func getRoot() -> Self
+     func equalPath(other : IFilePath) -> Bool
+     func equals(other : String) -> Bool
+     func getFileName() -> IFilePath?
+     func getFileSystem() -> IFileSystem?
+     func getName(index : Int) -> IFilePath?
      func getNameCount() -> Int
-     func resolveSibling(other : Self) -> Self
-     func resolveSibling(other : String) -> Self
-     func relativize(other : Self) -> Self
-     func toAbsolutePath() -> Self
-     func toFile<T : IFile>() -> T
-     func equalPath(other : Self) -> Bool
+     func getParent() -> IFilePath?
+     func getRoot() -> IFilePath?
+     func isAbsolute() -> Bool
+     func normalize() -> IFilePath?
+     func relativize(other : IFilePath) -> IFilePath?
+     func resolve(other : IFilePath) -> IFilePath?
+     func resolve(other : String) -> IFilePath?
+     func resolveSibling(other : IFilePath) -> IFilePath?
+     func resolveSibling(other : String) -> IFilePath?
+     func startsWith(other : String) -> Bool
+     func startsWith(other : IFilePath) -> Bool
+     func toAbsolutePath() -> IFilePath?
+     func toFile() -> IFile?
+     func toString() -> String?
 
 }

@@ -1,14 +1,31 @@
-//
-//  Auto-generated from: me.adaptive.arp.api.IFile
-//
-//  IFile.swift
-//
-//  Released under Apache Public License v2.0
-//
-//  -----------| aut viam inveniam aut faciam |-----------
-//   Copyright (c) 2014 Carlos Lozano Diez ta Adaptive.me
-//   All rights reserved.                 www.adaptive.me
-//  ------------------------------------------------------
+/*
+* =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
+*  Auto-generated from: me.adaptive.arp.api.IFile -> IFile.swift
+*
+* (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
+*
+* Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+* the License. You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+* an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+* specific language governing permissions and limitations under the License.
+*
+* Original author:
+*
+*     * Carlos Lozano Diez
+*                 <http://github.com/carloslozano>
+*                 <http://twitter.com/adaptivecoder>
+*                 <mailto:carlos@adaptive.me>
+*
+* Contributors:
+*
+*     *
+*
+* =====================================================================================================================
+*/
 
 import Foundation
 
@@ -18,29 +35,29 @@ public protocol IFile : IFilePath {
      /**
       * Function Declarations
       */
-     func getName() -> String
-     func delete() -> Bool
-     func delete(cascade : Bool) -> Bool
-     func getSize() -> Int64
-     func getPath() -> String
      func canRead() -> Bool
      func canWrite() -> Bool
+     func create(path : String, name : String, callback : IFileResultCallback)
+     func create(name : String, callback : IFileResultCallback)
+     func delete() -> Bool
+     func delete(cascade : Bool) -> Bool
      func exists() -> Bool
+     func getContent(callback : IFileDataResultCallback)
+     func getDateCreated() -> Int64
+     func getDateModified() -> Int64
+     func getName() -> String?
+     func getPath() -> String?
+     func getSize() -> Int64
      func isDirectory() -> Bool
      func listFiles(regex : String, callback : IFileListResultCallback)
      func listFiles(callback : IFileListResultCallback)
-     func toPath<T : IFilePath>() -> T
-     func create(name : String, callback : IFileResultCallback)
-     func create(path : String, name : String, callback : IFileResultCallback)
-     func getContent(callback : IFileDataResultCallback)
-     func move(newFile : Self, callback : IFileResultCallback)
-     func move(newFile : Self, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
-     func move(newFile : Self, callback : IFileResultCallback, overwrite : Bool)
-     func move(newFile : Self, createPath : Bool, callback : IFileResultCallback)
-     func mkDir() -> Bool
      func mkDir(recursive : Bool) -> Bool
-     func getDateCreated() -> Int64
-     func getDateModified() -> Int64
+     func mkDir() -> Bool
+     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback)
+     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
+     func move(newFile : IFile, callback : IFileResultCallback)
+     func move(newFile : IFile, callback : IFileResultCallback, overwrite : Bool)
      func setContent(content : [Byte], callback : IFileDataResultCallback)
+     func toPath() -> IFilePath?
 
 }

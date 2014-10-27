@@ -32,7 +32,7 @@ package me.adaptive.arp.api;
  * Provides support for multiple listeners to be started for any application and manages the delivery of listening
  * server lifecycle events to registered listeners.
  */
-public interface IAppServerManager {
+public interface IAppServerManager extends IAdaptiveRP {
 
     /**
      * Registers a listener to receive server lifecycle events.
