@@ -42,13 +42,4 @@ public interface IMessaging extends IBasePIM {
      * @since ARP1.0
      */
     void sendSMS(String number, String text, IMessagingCallback callback);
-
-    /**
-     * Send an Email
-     *
-     * @param data     the email data
-     * @param callback with the result
-     * @since ARP1.0
-     */
-    void sendEmail(Email data, IMessagingCallback callback);
 }
