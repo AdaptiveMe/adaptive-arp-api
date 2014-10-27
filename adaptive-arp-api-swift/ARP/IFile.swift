@@ -55,10 +55,10 @@ public protocol IFile : IFilePath {
      func listFiles(callback : IFileListResultCallback)
      func mkDir() -> Bool
      func mkDir(recursive : Bool) -> Bool
-     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback)
-     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
-     func move(newFile : IFile, callback : IFileResultCallback)
      func move(newFile : IFile, callback : IFileResultCallback, overwrite : Bool)
+     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
+     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback)
+     func move(newFile : IFile, callback : IFileResultCallback)
      func setContent(content : [Byte], callback : IFileDataResultCallback)
      func toPath() -> IFilePath?
 
