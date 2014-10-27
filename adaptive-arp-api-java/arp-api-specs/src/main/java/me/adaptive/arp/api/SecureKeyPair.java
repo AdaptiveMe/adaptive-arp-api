@@ -55,8 +55,8 @@ public class SecureKeyPair {
      * @since ARP1.0
      */
     public SecureKeyPair(String key, String value) {
-        this.key = key
-        this.value = value
+        this.key = key;
+        this.value = value;
     }
 
     /**
