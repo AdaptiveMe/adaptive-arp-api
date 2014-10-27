@@ -32,6 +32,11 @@ import Foundation
 public protocol IMail : IBasePIM {
 
 
+     /**
+      * Function Declarations
+      */
+
      var description : String { get }
+     func sendEmail(data : Email, callback : IMessagingCallback)
 
 }
