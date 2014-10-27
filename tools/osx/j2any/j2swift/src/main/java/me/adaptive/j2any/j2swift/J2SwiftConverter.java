@@ -592,21 +592,23 @@ public class J2SwiftConverter {
                     if (returnType.isArray()) {
                         Class<?> componentType = returnType.getComponentType();
                         if (componentType.isPrimitive()) {
-                            ps.print("[" + getPrimitiveTypeSwift(componentType) + "]");
+                            ps.print("[" + getPrimitiveTypeSwift(componentType) + "]?");
                         } else {
                             if (componentType.getSimpleName().equals("Object")) {
-                                ps.print("[Any" + componentType.getSimpleName() + "]");
+                                ps.print("[Any" + componentType.getSimpleName() + "]?");
                             } else {
-                                ps.print("[" + componentType.getSimpleName() + "]");
+                                ps.print("[" + componentType.getSimpleName() + "]?");
                             }
                         }
                     } else if (returnType.isPrimitive()) {
                         ps.print(getPrimitiveTypeSwift(returnType));
+                    } else if (returnType.isEnum()) {
+                        ps.print(returnType.getSimpleName());
                     } else {
                         if (returnType.getSimpleName().equals("Object")) {
-                            ps.print("Any" + returnType.getSimpleName());
+                            ps.print("Any" + returnType.getSimpleName()+"?");
                         } else {
-                            ps.print(returnType.getSimpleName());
+                            ps.print(returnType.getSimpleName()+"?");
                         }
                     }
 
@@ -616,9 +618,9 @@ public class J2SwiftConverter {
 
                 if (!returnType.equals(Void.TYPE)) {
                     ps.print(10, "return self." + getGetterSetterProperty(method));
-                    if (returnType.isEnum() || returnType.isInterface() || returnType.isArray()) {
+                    if (returnType.isEnum() || returnType.isInterface() /*|| returnType.isArray()*/) {
                         ps.print("!");
-                    } else if (!returnType.isPrimitive() && !returnType.equals(String.class)) {
+                    } else if (!returnType.isPrimitive() && !returnType.equals(String.class) && !returnType.isArray()) {
                         ps.print("!");
                     }
                     ps.println();

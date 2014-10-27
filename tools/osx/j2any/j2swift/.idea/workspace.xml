@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2903c554-5a00-41a6-b7e2-e8efa15421b1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Acceleration.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Acceleration.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/AttachmentData.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/AttachmentData.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Button.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Button.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Column.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Column.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Contact.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Contact.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ContactAddress.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ContactAddress.swift" />
@@ -22,178 +20,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Email.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Email.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/EmailAddress.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/EmailAddress.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Endpoint.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Endpoint.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Geolocation.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Geolocation.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Header.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Header.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAccelerationListener.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAccelerationListener.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAccelerationListenerError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAccelerationListenerError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAccelerationListenerWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAccelerationListenerWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAccelerometer.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAccelerometer.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAdaptiveRP.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAdaptiveRP.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAds.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAds.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAlarm.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAlarm.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAmbientLight.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAmbientLight.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAnalytics.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAnalytics.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppContext.java" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppContext.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppContext.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppContextType.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppContextType.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppContextWebview.java" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppContextWebview.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppContextWebview.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppContextWebview.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppRegistry.java" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppRegistry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppRegistry.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppRegistry.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppResource.java" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResource.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResource.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceFormat.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceFormat.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppResourceHandler.java" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppResourceHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceHandler.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceHandler.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourcePayload.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourcePayload.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceType.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppResourceType.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppServer.java" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppServer.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppServer.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppServerListener.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppServerListener.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppServerManager.java" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IAppServerManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppServerManager.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAppServerManager.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAudio.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IAudio.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBarcode.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBarcode.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBarometer.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBarometer.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseApplication.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseApplication.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseCommerce.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseCommerce.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseCommunication.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseCommunication.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseData.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseData.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseListener.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseListener.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseMedia.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseMedia.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseNotification.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseNotification.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBasePIM.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBasePIM.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseReader.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseReader.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseSecurity.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseSecurity.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseSensor.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseSensor.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseSocial.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseSocial.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseSystem.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseSystem.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseUI.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseUI.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseUtil.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBaseUtil.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBluetooth.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBluetooth.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBrowser.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IBrowser.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IButtonListener.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IButtonListener.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IButtonListenerError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IButtonListenerError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IButtonListenerWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IButtonListenerWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICalendar.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICalendar.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICamera.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICamera.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilities.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilities.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesButton.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesButton.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesCommunication.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesCommunication.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesData.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesData.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesMedia.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesMedia.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesNet.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesNet.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesNotification.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesNotification.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesSensor.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICapabilitiesSensor.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICloud.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICloud.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICompression.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICompression.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IConcurrent.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IConcurrent.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContact.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContact.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactFieldGroup.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactFieldGroup.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactFilter.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactFilter.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactPhotoResultCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactPhotoResultCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactPhotoResultCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactPhotoResultCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactPhotoResultCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactPhotoResultCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactResultCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactResultCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactResultCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactResultCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactResultCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IContactResultCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICrypto.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ICrypto.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDataStream.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDataStream.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDatabase.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDatabase.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDatabaseResultCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDatabaseResultCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDatabaseResultCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDatabaseResultCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDatabaseResultCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDatabaseResultCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDesktop.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDesktop.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDevice.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDevice.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDisplay.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IDisplay.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFacebook.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFacebook.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IBaseCallback.java" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IBaseCallback.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IBaseListener.java" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/IBaseListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFile.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFile.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileDataResultCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileDataResultCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileDataResultCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileDataResultCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileDataResultCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileDataResultCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileListResultCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileListResultCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileListResultCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileListResultCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileListResultCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileListResultCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFilePath.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFilePath.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileResultCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileResultCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileResultCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileResultCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileResultCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileResultCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileSystem.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IFileSystem.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGeolocation.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGeolocation.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGeolocationListener.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGeolocationListener.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGeolocationListenerError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGeolocationListenerError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGeolocationListenerWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGeolocationListenerWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGlobalization.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGlobalization.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGooglePlus.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGooglePlus.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGyroscope.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IGyroscope.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IImaging.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IImaging.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IInternalStorage.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IInternalStorage.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILifecycle.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILifecycle.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILifecycleListener.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILifecycleListener.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILifecycleListenerError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILifecycleListenerError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILifecycleListenerWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILifecycleListenerWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILinkedIn.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILinkedIn.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILogging.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILogging.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILoggingLogLevel.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ILoggingLogLevel.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMagnetometer.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMagnetometer.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMail.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMail.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IManagement.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IManagement.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMap.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMap.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMessaging.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMessaging.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMessagingCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMessagingCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMessagingCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMessagingCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMessagingCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IMessagingCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INFC.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INFC.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkInfo.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkInfo.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkNaming.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkNaming.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkReachability.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkReachability.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/INetworkReachabilityCallback.java" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-java/arp-api-specs/src/main/java/me/adaptive/arp/api/INetworkReachabilityCallback.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkReachabilityCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkReachabilityCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkReachabilityCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkReachabilityCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkReachabilityCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkReachabilityCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkStatus.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INetworkStatus.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INotification.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INotification.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INotificationLocal.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/INotificationLocal.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IOAuth.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IOAuth.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IOCR.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IOCR.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IOS.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IOS.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IOpenId.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IOpenId.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IPrinting.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IPrinting.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IProximity.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IProximity.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IQRCode.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IQRCode.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IRSS.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IRSS.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IRuntime.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IRuntime.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISecureKVResultCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISecureKVResultCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISecureKVResultCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISecureKVResultCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISecureKVResultCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISecureKVResultCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISecurity.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISecurity.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IService.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IService.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IServiceResultCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IServiceResultCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IServiceResultCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IServiceResultCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IServiceResultCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IServiceResultCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISession.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISession.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISettings.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISettings.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISocket.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ISocket.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IStore.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IStore.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITableResultCallback.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITableResultCallback.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITableResultCallbackError.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITableResultCallbackError.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITableResultCallbackWarning.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITableResultCallbackWarning.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITelephony.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITelephony.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITelephonyStatus.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITelephonyStatus.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITimer.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITimer.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITwitter.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ITwitter.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IUI.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IUI.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IUpdate.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IUpdate.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IVibration.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IVibration.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IVideo.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IVideo.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IWallet.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IWallet.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IXML.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/IXML.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/adaptive/j2any/j2swift/J2SwiftConverter.java" afterPath="$PROJECT_DIR$/src/main/java/me/adaptive/j2any/j2swift/J2SwiftConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Lifecycle.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Lifecycle.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Locale.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Locale.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/OSInfo.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/OSInfo.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Row.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Row.swift" />
@@ -202,6 +33,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ServiceRequest.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ServiceRequest.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ServiceResponse.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/ServiceResponse.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Table.swift" afterPath="$PROJECT_DIR$/../../../../adaptive-arp-api-swift/ARP/Table.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="j2swift.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -232,18 +64,11 @@
       <file leaf-file-name="J2SwiftConverter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/j2any/j2swift/J2SwiftConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.292453" vertical-offset="4884" max-vertical-offset="11775">
-              <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.0776054" vertical-offset="8529" max-vertical-offset="11745">
+              <caret line="605" column="59" selection-start-line="605" selection-start-column="59" selection-end-line="605" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1522#1528#0" expanded="true" />
-                <element signature="e#10623#10633#0" expanded="true" />
-                <element signature="e#11121#11122#0" expanded="true" />
-                <element signature="e#11196#11197#0" expanded="true" />
-                <element signature="e#19439#19449#0" expanded="true" />
-                <element signature="e#19738#19739#0" expanded="true" />
-                <element signature="e#19813#19814#0" expanded="true" />
-                <element signature="e#31799#31815#0" expanded="true" />
+                <element signature="e#31955#31971#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -252,7 +77,7 @@
       <file leaf-file-name="IndentPrintStream.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/j2any/io/IndentPrintStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
+            <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="2595">
               <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding />
             </state>
@@ -262,7 +87,7 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+            <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="360">
               <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
@@ -292,7 +117,7 @@
       <file leaf-file-name="J2Swift.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/j2any/J2Swift.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+            <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="420">
               <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -583,7 +408,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -716,6 +540,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -1031,15 +856,16 @@
       <updated>1414399236936</updated>
       <workItem from="1414399239050" duration="1335000" />
       <workItem from="1414402063947" duration="4304000" />
+      <workItem from="1414407079044" duration="782000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5639000" />
+    <option name="totallyTimeSpent" value="6421000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="830" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1048,11 +874,11 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286517" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3272472" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3272472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1108,18 +934,64 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/j2any/j2swift/J2SwiftConverter.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="11775">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#31955#31971#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/j2any/io/IndentPrintStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="2595">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="360">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/j2any/J2Swift.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="420">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/j2any/j2swift/J2SwiftConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10800">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1522#1528#0" expanded="true" />
-            <element signature="e#10623#10633#0" expanded="true" />
-            <element signature="e#11121#11122#0" expanded="true" />
-            <element signature="e#11196#11197#0" expanded="true" />
-            <element signature="e#19439#19449#0" expanded="true" />
-            <element signature="e#19738#19739#0" expanded="true" />
-            <element signature="e#19813#19814#0" expanded="true" />
-            <element signature="e#31799#31815#0" expanded="true" />
+            <element signature="e#31955#31971#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1194,18 +1066,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/j2any/j2swift/J2SwiftConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.292453" vertical-offset="4884" max-vertical-offset="11775">
-          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.0776054" vertical-offset="8529" max-vertical-offset="11745">
+          <caret line="605" column="59" selection-start-line="605" selection-start-column="59" selection-end-line="605" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1522#1528#0" expanded="true" />
-            <element signature="e#10623#10633#0" expanded="true" />
-            <element signature="e#11121#11122#0" expanded="true" />
-            <element signature="e#11196#11197#0" expanded="true" />
-            <element signature="e#19439#19449#0" expanded="true" />
-            <element signature="e#19738#19739#0" expanded="true" />
-            <element signature="e#19813#19814#0" expanded="true" />
-            <element signature="e#31799#31815#0" expanded="true" />
+            <element signature="e#31955#31971#0" expanded="true" />
           </folding>
         </state>
       </provider>
