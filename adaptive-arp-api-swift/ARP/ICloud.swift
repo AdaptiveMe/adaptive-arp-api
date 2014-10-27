@@ -32,4 +32,6 @@ import Foundation
 public protocol ICloud : IBaseData {
 
 
+     var description : String { get }
+
 }

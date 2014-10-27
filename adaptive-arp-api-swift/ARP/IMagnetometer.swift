@@ -32,4 +32,6 @@ import Foundation
 public protocol IMagnetometer : IBaseSensor {
 
 
+     var description : String { get }
+
 }

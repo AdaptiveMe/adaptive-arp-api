@@ -32,4 +32,6 @@ import Foundation
 public protocol ICamera : IBaseMedia {
 
 
+     var description : String { get }
+
 }

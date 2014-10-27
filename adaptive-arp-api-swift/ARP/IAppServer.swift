@@ -35,6 +35,8 @@ public protocol IAppServer : IAdaptiveRP {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func getBaseURI() -> String?
      func getHost() -> String?
      func getPath() -> String?

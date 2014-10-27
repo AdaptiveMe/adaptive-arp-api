@@ -35,6 +35,8 @@ public protocol INetworkReachabilityCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(error : INetworkReachabilityCallbackError)
      func onResult(result : String)
      func onWarning(result : String, warning : INetworkReachabilityCallbackWarning)

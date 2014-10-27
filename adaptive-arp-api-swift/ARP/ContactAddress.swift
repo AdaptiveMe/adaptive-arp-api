@@ -29,13 +29,17 @@
 
 import Foundation
 
-public class ContactAddress : NSObject  {
+public class ContactAddress : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var address : String
      var type : AddressType?
+     public override var description : String {
+          return "ContactAddress{ address="+address+",type="+type!.hashValue.description+" }"
+     }
+
 
      /**
       * Enumeration Declarations

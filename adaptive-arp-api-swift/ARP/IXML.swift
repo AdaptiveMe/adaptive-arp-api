@@ -32,4 +32,6 @@ import Foundation
 public protocol IXML : IBaseData {
 
 
+     var description : String { get }
+
 }

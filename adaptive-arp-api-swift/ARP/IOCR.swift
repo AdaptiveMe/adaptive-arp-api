@@ -32,4 +32,6 @@ import Foundation
 public protocol IOCR : IBaseReader {
 
 
+     var description : String { get }
+
 }

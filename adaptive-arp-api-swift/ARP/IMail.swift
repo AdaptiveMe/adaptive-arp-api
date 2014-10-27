@@ -32,4 +32,6 @@ import Foundation
 public protocol IMail : IBasePIM {
 
 
+     var description : String { get }
+
 }

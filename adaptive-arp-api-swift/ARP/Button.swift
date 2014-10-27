@@ -29,12 +29,16 @@
 
 import Foundation
 
-public class Button : NSObject  {
+public class Button : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var type : Button?
+     public override var description : String {
+          return "Button{ type="+type!.hashValue.description+" }"
+     }
+
 
      /**
       * Enumeration Declarations

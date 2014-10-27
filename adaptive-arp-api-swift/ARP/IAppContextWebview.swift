@@ -35,6 +35,8 @@ public protocol IAppContextWebview : IAdaptiveRP {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func addWebview(webView : AnyObject)
      func getWebviewPrimary() -> AnyObject?
      func getWebviews() -> [AnyObject]?

@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class ServiceRequest : NSObject  {
+public class ServiceRequest : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -43,6 +43,10 @@ public class ServiceRequest : NSObject  {
      var protocolVersion : ProtocolVersion?
      var rawContent : [Byte]?
      var session : ISession?
+     public override var description : String {
+          return "ServiceRequest{ content="+content+",contentEncoding="+contentEncoding+",contentLength="+contentLength.description+",contentType="+contentType+",headers="+headers!.description+",method="+method+",protocolVersion="+protocolVersion!.hashValue.description+",rawContent="+rawContent!.description+",session="+session!.description+" }"
+     }
+
 
      /**
       * Enumeration Declarations

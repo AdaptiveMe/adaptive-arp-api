@@ -35,6 +35,8 @@ public protocol IBrowser : IBaseUI {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func openBrowser(url : String, title : String, buttonText : String) -> Bool
 
 }

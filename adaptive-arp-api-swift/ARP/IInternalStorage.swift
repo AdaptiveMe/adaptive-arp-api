@@ -32,4 +32,6 @@ import Foundation
 public protocol IInternalStorage : IBaseData {
 
 
+     var description : String { get }
+
 }

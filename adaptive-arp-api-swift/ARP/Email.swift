@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Email : NSObject  {
+public class Email : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -41,6 +41,10 @@ public class Email : NSObject  {
      var messageBodyMimeType : String
      var subject : String
      var toRecipients : [EmailAddress]?
+     public override var description : String {
+          return "Email{ attachmentData="+attachmentData!.description+",bccRecipients="+bccRecipients!.description+",ccRecipients="+ccRecipients!.description+",messageBody="+messageBody+",messageBodyMimeType="+messageBodyMimeType+",subject="+subject+",toRecipients="+toRecipients!.description+" }"
+     }
+
 
      /**
       * Initialization

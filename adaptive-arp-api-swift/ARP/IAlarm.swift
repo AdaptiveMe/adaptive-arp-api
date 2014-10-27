@@ -32,4 +32,6 @@ import Foundation
 public protocol IAlarm : IBaseNotification {
 
 
+     var description : String { get }
+
 }

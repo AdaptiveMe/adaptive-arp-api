@@ -32,4 +32,6 @@ import Foundation
 public protocol IBaseCommunication : IAdaptiveRP {
 
 
+     var description : String { get }
+
 }

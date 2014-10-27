@@ -29,12 +29,16 @@
 
 import Foundation
 
-public class ContactUid : NSObject  {
+public class ContactUid : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var contactId : String
+     public override var description : String {
+          return "ContactUid{ contactId="+contactId+" }"
+     }
+
 
      /**
       * Initialization

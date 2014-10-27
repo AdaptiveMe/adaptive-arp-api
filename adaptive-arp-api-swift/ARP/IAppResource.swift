@@ -35,6 +35,8 @@ public protocol IAppResource : IAdaptiveRP {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func geType() -> IAppResourcePayload
      func getData() -> [Byte]?
      func getDataPathLinked() -> String?

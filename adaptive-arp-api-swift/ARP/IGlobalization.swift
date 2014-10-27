@@ -35,6 +35,8 @@ public protocol IGlobalization : IBaseApplication {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func getLocaleSupportedDescriptors() -> [String]?
      func getResourceLiteral(key : String, locale : Locale) -> String?
      func getResourceLiterals(locale : Locale) -> Dictionary<String,String>?

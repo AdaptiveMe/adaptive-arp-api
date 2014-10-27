@@ -35,6 +35,8 @@ public protocol ICapabilities : IBaseSystem {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func hasButtonSupport(type : ICapabilitiesButton) -> Bool
      func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool
      func hasDataSupport(type : ICapabilitiesData) -> Bool

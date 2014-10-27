@@ -32,4 +32,6 @@ import Foundation
 public protocol IVibration : IBaseNotification {
 
 
+     var description : String { get }
+
 }

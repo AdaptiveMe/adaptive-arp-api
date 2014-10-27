@@ -35,6 +35,8 @@ public protocol IAccelerometer : IBaseSensor {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func addAccelerationListener(listener : IAccelerationListener)
      func removeAccelerationListener(listener : IAccelerationListener)
      func removeAccelerationListeners()

@@ -32,4 +32,6 @@ import Foundation
 public protocol IRSS : IBaseSocial {
 
 
+     var description : String { get }
+
 }

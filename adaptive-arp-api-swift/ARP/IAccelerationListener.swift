@@ -35,6 +35,8 @@ public protocol IAccelerationListener : IBaseListener {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(error : IAccelerationListenerError)
      func onResult(acceleration : Acceleration)
      func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning)

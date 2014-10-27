@@ -32,4 +32,6 @@ import Foundation
 public protocol IBaseReader : IAdaptiveRP {
 
 
+     var description : String { get }
+
 }

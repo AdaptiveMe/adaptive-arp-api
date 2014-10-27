@@ -35,6 +35,8 @@ public protocol IAppResourceCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(resource : IAppResource, error : IAppResourceCallbackError)
      func onResult(resource : IAppResource)
      func onWarning(resource : IAppResource, warning : IAppResourceCallbackWarning)

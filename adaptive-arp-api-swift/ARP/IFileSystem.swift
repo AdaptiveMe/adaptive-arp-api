@@ -35,6 +35,8 @@ public protocol IFileSystem : IBaseData {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func create(path : IFilePath, name : String, callback : IFileResultCallback)
      func create(path : String, name : String, callback : IFileResultCallback)
      func create(name : String, callback : IFileResultCallback)

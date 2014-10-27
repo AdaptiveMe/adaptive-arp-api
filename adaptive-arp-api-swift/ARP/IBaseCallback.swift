@@ -35,6 +35,8 @@ public protocol IBaseCallback : IAdaptiveRP {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func toString() -> String?
 
 }

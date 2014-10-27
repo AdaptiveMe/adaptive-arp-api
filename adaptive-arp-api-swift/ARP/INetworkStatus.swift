@@ -32,4 +32,6 @@ import Foundation
 public protocol INetworkStatus : IBaseCommunication {
 
 
+     var description : String { get }
+
 }

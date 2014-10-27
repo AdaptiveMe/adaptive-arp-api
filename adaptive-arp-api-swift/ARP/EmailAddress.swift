@@ -29,12 +29,16 @@
 
 import Foundation
 
-public class EmailAddress : NSObject  {
+public class EmailAddress : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var address : String
+     public override var description : String {
+          return "EmailAddress{ address="+address+" }"
+     }
+
 
      /**
       * Initialization

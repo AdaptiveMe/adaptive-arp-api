@@ -35,6 +35,8 @@ public protocol IAppServerListener : IBaseListener {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onPaused(server : IAppServer)
      func onPausing(server : IAppServer)
      func onResumed(server : IAppServer)

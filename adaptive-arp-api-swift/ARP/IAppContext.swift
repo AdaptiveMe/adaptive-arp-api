@@ -35,6 +35,8 @@ public protocol IAppContext : IAdaptiveRP {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func getContext() -> AnyObject?
      func getContextType() -> IAppContextType
 

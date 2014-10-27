@@ -35,6 +35,8 @@ public protocol ILifecycleListener : IBaseListener {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(error : ILifecycleListenerError)
      func onResult(lifecycle : Lifecycle)
      func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning)

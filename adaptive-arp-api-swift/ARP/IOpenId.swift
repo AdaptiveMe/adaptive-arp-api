@@ -32,4 +32,6 @@ import Foundation
 public protocol IOpenId : IBaseSecurity {
 
 
+     var description : String { get }
+
 }

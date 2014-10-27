@@ -35,6 +35,8 @@ public protocol ISession : IBaseCommunication {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func getAttribute(name : String) -> AnyObject?
      func getAttributes() -> [AnyObject]?
      func getCookies() -> [Cookie]?

@@ -32,4 +32,6 @@ import Foundation
 public protocol IImaging : IBaseMedia {
 
 
+     var description : String { get }
+
 }

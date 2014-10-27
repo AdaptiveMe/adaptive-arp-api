@@ -32,4 +32,6 @@ import Foundation
 public protocol IBaseCommerce : IAdaptiveRP {
 
 
+     var description : String { get }
+
 }

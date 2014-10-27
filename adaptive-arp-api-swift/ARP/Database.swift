@@ -29,13 +29,17 @@
 
 import Foundation
 
-public class Database : NSObject  {
+public class Database : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var compress : Bool
      var name : String
+     public override var description : String {
+          return "Database{ compress="+compress.description+",name="+name+" }"
+     }
+
 
      /**
       * Initialization

@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class ServiceResponse : NSObject  {
+public class ServiceResponse : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -42,6 +42,10 @@ public class ServiceResponse : NSObject  {
      var contentType : String
      var headers : [Header]?
      var session : ISession?
+     public override var description : String {
+          return "ServiceResponse{ content="+content+",contentBinary="+contentBinary!.description+",contentBinaryLength="+contentBinaryLength.description+",contentEncoding="+contentEncoding+",contentLength="+contentLength+",contentType="+contentType+",headers="+headers!.description+",session="+session!.description+" }"
+     }
+
 
      /**
       * Initialization

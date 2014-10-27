@@ -32,4 +32,6 @@ import Foundation
 public protocol ISocket : IBaseCommunication {
 
 
+     var description : String { get }
+
 }

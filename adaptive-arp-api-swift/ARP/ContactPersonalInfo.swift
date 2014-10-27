@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class ContactPersonalInfo : NSObject  {
+public class ContactPersonalInfo : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -38,6 +38,10 @@ public class ContactPersonalInfo : NSObject  {
      var middleName : String
      var name : String
      var title : Title?
+     public override var description : String {
+          return "ContactPersonalInfo{ lastName="+lastName+",middleName="+middleName+",name="+name+",title="+title!.hashValue.description+" }"
+     }
+
 
      /**
       * Enumeration Declarations

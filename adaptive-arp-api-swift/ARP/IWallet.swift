@@ -32,4 +32,6 @@ import Foundation
 public protocol IWallet : IBaseCommerce {
 
 
+     var description : String { get }
+
 }

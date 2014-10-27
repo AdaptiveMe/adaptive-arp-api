@@ -32,4 +32,6 @@ import Foundation
 public protocol INotification : IBaseNotification {
 
 
+     var description : String { get }
+
 }

@@ -42,6 +42,10 @@ public class Contact : ContactUid {
      var contactWebsites : [ContactWebsite]?
      var personalInfo : ContactPersonalInfo?
      var professionalInfo : ContactProfessionalInfo?
+     public override var description : String {
+          return "Contact{ contactAddresses="+contactAddresses!.description+",contactEmails="+contactEmails!.description+",contactPhones="+contactPhones!.description+",contactSocials="+contactSocials!.description+",contactTags="+contactTags!.description+",contactWebsites="+contactWebsites!.description+",personalInfo="+personalInfo!.description+",professionalInfo="+professionalInfo!.description+" }"
+     }
+
 
      /**
       * Initialization

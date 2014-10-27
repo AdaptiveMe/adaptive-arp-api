@@ -32,4 +32,6 @@ import Foundation
 public protocol IBarometer : IBaseSensor {
 
 
+     var description : String { get }
+
 }

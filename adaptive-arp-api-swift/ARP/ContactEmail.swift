@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class ContactEmail : NSObject  {
+public class ContactEmail : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -37,6 +37,10 @@ public class ContactEmail : NSObject  {
      var email : String
      var primary : Bool
      var type : EmailType?
+     public override var description : String {
+          return "ContactEmail{ email="+email+",primary="+primary.description+",type="+type!.hashValue.description+" }"
+     }
+
 
      /**
       * Enumeration Declarations

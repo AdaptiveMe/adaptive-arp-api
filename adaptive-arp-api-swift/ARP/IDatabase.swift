@@ -35,6 +35,8 @@ public protocol IDatabase : IBaseData {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func createDatabase(database : Database, callback : IDatabaseResultCallback)
      func createTable(database : Database, table : Table, callback : ITableResultCallback)
      func deleteDatabase(database : Database, callback : IDatabaseResultCallback)

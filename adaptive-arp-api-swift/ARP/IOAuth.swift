@@ -32,4 +32,6 @@ import Foundation
 public protocol IOAuth : IBaseSecurity {
 
 
+     var description : String { get }
+
 }

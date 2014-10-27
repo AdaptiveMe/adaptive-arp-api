@@ -35,6 +35,8 @@ public protocol IFileDataResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(file : IFile, error : IFileDataResultCallbackError)
      func onError(error : IFileDataResultCallbackError)
      func onResult(file : IFile, data : [Byte])

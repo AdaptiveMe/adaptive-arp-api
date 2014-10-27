@@ -29,13 +29,17 @@
 
 import Foundation
 
-public class ContactSocial : NSObject  {
+public class ContactSocial : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var profileUrl : String
      var socialNetwork : SocialNetwork?
+     public override var description : String {
+          return "ContactSocial{ profileUrl="+profileUrl+",socialNetwork="+socialNetwork!.hashValue.description+" }"
+     }
+
 
      /**
       * Enumeration Declarations

@@ -29,13 +29,17 @@
 
 import Foundation
 
-public class ContactTag : NSObject  {
+public class ContactTag : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var name : String
      var value : String
+     public override var description : String {
+          return "ContactTag{ name="+name+",value="+value+" }"
+     }
+
 
      /**
       * Initialization

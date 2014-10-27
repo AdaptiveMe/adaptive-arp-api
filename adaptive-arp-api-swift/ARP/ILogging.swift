@@ -35,6 +35,8 @@ public protocol ILogging : IBaseUtil {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func log(level : ILoggingLogLevel, message : String)
      func log(level : ILoggingLogLevel, category : String, message : String)
 

@@ -32,4 +32,6 @@ import Foundation
 public protocol IAds : IBaseCommerce {
 
 
+     var description : String { get }
+
 }

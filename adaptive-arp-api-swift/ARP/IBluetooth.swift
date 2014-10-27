@@ -32,4 +32,6 @@ import Foundation
 public protocol IBluetooth : IBaseCommunication {
 
 
+     var description : String { get }
+
 }

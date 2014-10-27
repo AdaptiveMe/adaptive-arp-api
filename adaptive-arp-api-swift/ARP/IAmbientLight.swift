@@ -32,4 +32,6 @@ import Foundation
 public protocol IAmbientLight : IBaseSensor {
 
 
+     var description : String { get }
+
 }

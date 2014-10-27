@@ -32,4 +32,6 @@ import Foundation
 public protocol IGyroscope : IBaseSensor {
 
 
+     var description : String { get }
+
 }

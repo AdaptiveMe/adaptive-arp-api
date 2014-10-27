@@ -29,12 +29,16 @@
 
 import Foundation
 
-public class Column : NSObject  {
+public class Column : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var name : String
+     public override var description : String {
+          return "Column{ name="+name+" }"
+     }
+
 
      /**
       * Initialization

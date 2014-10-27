@@ -35,6 +35,8 @@ public protocol ITelephony : IBaseCommunication {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func call(number : String) -> ITelephonyStatus
 
 }

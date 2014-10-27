@@ -32,4 +32,6 @@ import Foundation
 public protocol IBarcode : IBaseReader {
 
 
+     var description : String { get }
+
 }

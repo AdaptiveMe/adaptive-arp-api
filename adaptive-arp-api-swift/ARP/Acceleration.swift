@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Acceleration : NSObject  {
+public class Acceleration : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -38,6 +38,10 @@ public class Acceleration : NSObject  {
      var x : Double
      var y : Double
      var z : Double
+     public override var description : String {
+          return "Acceleration{ timeStamp="+timeStamp.description+",x="+x.description+",y="+y.description+",z="+z.description+" }"
+     }
+
 
      /**
       * Initialization

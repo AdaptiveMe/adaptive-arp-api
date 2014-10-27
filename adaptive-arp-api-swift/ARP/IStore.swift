@@ -32,4 +32,6 @@ import Foundation
 public protocol IStore : IBaseCommerce {
 
 
+     var description : String { get }
+
 }

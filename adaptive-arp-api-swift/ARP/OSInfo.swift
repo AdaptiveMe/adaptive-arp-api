@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class OSInfo : NSObject  {
+public class OSInfo : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -37,6 +37,10 @@ public class OSInfo : NSObject  {
      var name : String
      var vendor : String
      var version : String
+     public override var description : String {
+          return "OSInfo{ name="+name+",vendor="+vendor+",version="+version+" }"
+     }
+
 
      /**
       * Initialization

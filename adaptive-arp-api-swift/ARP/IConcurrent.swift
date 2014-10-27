@@ -32,4 +32,6 @@ import Foundation
 public protocol IConcurrent : IBaseUtil {
 
 
+     var description : String { get }
+
 }

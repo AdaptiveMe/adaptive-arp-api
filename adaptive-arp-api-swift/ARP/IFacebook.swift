@@ -32,4 +32,6 @@ import Foundation
 public protocol IFacebook : IBaseSocial {
 
 
+     var description : String { get }
+
 }

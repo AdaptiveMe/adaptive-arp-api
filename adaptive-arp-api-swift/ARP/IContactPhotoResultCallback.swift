@@ -35,6 +35,8 @@ public protocol IContactPhotoResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(error : IContactPhotoResultCallbackError)
      func onResult(contactPhoto : [Byte])
      func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning)

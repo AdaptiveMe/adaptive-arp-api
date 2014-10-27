@@ -35,6 +35,8 @@ public protocol IDatabaseResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(error : IDatabaseResultCallbackError)
      func onResult(database : Database)
      func onWarning(database : Database, warning : IDatabaseResultCallbackWarning)

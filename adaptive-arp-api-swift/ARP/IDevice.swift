@@ -35,6 +35,8 @@ public protocol IDevice : IBaseSystem {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func addButtonListener(listener : IButtonListener)
      func getDeviceInfo() -> DeviceInfo?
      func getLocaleCurrent() -> Locale?

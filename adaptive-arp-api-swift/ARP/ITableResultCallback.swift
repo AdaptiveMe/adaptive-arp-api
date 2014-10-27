@@ -35,6 +35,8 @@ public protocol ITableResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(error : ITableResultCallbackError)
      func onResult(table : Table)
      func onWarning(table : Table, warning : ITableResultCallbackWarning)

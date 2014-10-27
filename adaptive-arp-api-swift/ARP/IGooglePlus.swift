@@ -32,4 +32,6 @@ import Foundation
 public protocol IGooglePlus : IBaseSocial {
 
 
+     var description : String { get }
+
 }

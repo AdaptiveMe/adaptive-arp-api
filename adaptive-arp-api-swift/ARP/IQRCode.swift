@@ -32,4 +32,6 @@ import Foundation
 public protocol IQRCode : IBaseReader {
 
 
+     var description : String { get }
+
 }

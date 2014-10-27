@@ -29,13 +29,17 @@
 
 import Foundation
 
-public class Header : NSObject  {
+public class Header : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var name : String
      var value : String
+     public override var description : String {
+          return "Header{ name="+name+",value="+value+" }"
+     }
+
 
      /**
       * Initialization

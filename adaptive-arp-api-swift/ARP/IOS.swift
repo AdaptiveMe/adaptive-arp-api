@@ -35,6 +35,8 @@ public protocol IOS : IBaseSystem {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func getOSInfo() -> OSInfo?
 
 }

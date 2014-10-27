@@ -32,4 +32,6 @@ import Foundation
 public protocol IBaseSocial : IAdaptiveRP {
 
 
+     var description : String { get }
+
 }

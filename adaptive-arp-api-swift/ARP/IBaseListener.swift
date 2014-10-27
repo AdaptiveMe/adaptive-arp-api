@@ -35,6 +35,8 @@ public protocol IBaseListener : IAdaptiveRP {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func getId() -> Int64
      func toString() -> String?
 

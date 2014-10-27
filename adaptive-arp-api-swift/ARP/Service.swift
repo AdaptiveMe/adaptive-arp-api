@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Service : NSObject  {
+public class Service : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -38,6 +38,10 @@ public class Service : NSObject  {
      var method : ServiceMethod?
      var name : String
      var type : ServiceType?
+     public override var description : String {
+          return "Service{ endpoint="+endpoint!.description+",method="+method!.hashValue.description+",name="+name+",type="+type!.hashValue.description+" }"
+     }
+
 
      /**
       * Enumeration Declarations

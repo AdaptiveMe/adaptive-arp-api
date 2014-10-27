@@ -32,4 +32,6 @@ import Foundation
 public protocol INetworkNaming : IBaseCommunication {
 
 
+     var description : String { get }
+
 }

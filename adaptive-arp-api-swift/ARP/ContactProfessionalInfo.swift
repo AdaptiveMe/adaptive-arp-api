@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class ContactProfessionalInfo : NSObject  {
+public class ContactProfessionalInfo : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -37,6 +37,10 @@ public class ContactProfessionalInfo : NSObject  {
      var company : String
      var jobDescription : String
      var jobTitle : String
+     public override var description : String {
+          return "ContactProfessionalInfo{ company="+company+",jobDescription="+jobDescription+",jobTitle="+jobTitle+" }"
+     }
+
 
      /**
       * Initialization

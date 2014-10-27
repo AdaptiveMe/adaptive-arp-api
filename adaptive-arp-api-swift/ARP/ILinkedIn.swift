@@ -32,4 +32,6 @@ import Foundation
 public protocol ILinkedIn : IBaseSocial {
 
 
+     var description : String { get }
+
 }

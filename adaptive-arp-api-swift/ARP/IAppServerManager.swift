@@ -35,6 +35,8 @@ public protocol IAppServerManager : IAdaptiveRP {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func addServerListener(listener : IAppServerListener)
      func getServers() -> [IAppServer]?
      func pauseServer(server : IAppServer)

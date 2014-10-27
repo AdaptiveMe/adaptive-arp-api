@@ -35,6 +35,8 @@ public protocol IVideo : IBaseMedia {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func playStream(url : String)
 
 }

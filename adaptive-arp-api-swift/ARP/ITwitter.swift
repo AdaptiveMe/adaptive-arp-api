@@ -32,4 +32,6 @@ import Foundation
 public protocol ITwitter : IBaseSocial {
 
 
+     var description : String { get }
+
 }

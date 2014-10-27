@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Cookie : NSObject  {
+public class Cookie : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -42,6 +42,10 @@ public class Cookie : NSObject  {
      var scheme : String
      var secure : Bool
      var value : String
+     public override var description : String {
+          return "Cookie{ creation="+creation.description+",domain="+domain+",expiry="+expiry.description+",name="+name+",path="+path+",scheme="+scheme+",secure="+secure.description+",value="+value+" }"
+     }
+
 
      /**
       * Initialization

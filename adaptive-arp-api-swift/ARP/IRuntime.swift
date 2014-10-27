@@ -35,6 +35,8 @@ public protocol IRuntime : IBaseSystem {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func dismissApplication()
      func dismissSplashScreen() -> Bool
 

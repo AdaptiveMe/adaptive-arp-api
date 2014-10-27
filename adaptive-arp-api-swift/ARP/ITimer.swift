@@ -32,4 +32,6 @@ import Foundation
 public protocol ITimer : IBaseUtil {
 
 
+     var description : String { get }
+
 }

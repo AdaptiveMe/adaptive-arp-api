@@ -32,4 +32,6 @@ import Foundation
 public protocol IBaseMedia : IAdaptiveRP {
 
 
+     var description : String { get }
+
 }

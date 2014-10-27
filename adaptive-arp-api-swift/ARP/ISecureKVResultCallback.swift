@@ -35,6 +35,8 @@ public protocol ISecureKVResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(error : ISecureKVResultCallbackError)
      func onResult(keyValues : [SecureKeyPair])
      func onWarning(keyValues : [SecureKeyPair], warning : ISecureKVResultCallbackWarning)

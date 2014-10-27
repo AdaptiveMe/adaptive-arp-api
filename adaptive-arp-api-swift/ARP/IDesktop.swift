@@ -32,4 +32,6 @@ import Foundation
 public protocol IDesktop : IBaseUI {
 
 
+     var description : String { get }
+
 }

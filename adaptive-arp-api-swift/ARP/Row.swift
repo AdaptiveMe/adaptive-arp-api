@@ -29,12 +29,16 @@
 
 import Foundation
 
-public class Row : NSObject  {
+public class Row : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var values : [AnyObject]?
+     public override var description : String {
+          return "Row{ values="+values!.description+" }"
+     }
+
 
      /**
       * Initialization

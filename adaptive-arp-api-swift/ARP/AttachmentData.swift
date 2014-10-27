@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class AttachmentData : NSObject  {
+public class AttachmentData : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -39,6 +39,10 @@ public class AttachmentData : NSObject  {
      var fileName : String
      var mimeType : String
      var referenceUrl : String
+     public override var description : String {
+          return "AttachmentData{ data="+data!.description+",dataSize="+dataSize.description+",fileName="+fileName+",mimeType="+mimeType+",referenceUrl="+referenceUrl+" }"
+     }
+
 
      /**
       * Initialization

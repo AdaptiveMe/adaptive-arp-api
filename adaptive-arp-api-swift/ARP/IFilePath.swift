@@ -35,6 +35,8 @@ public protocol IFilePath : IBaseData {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func endsWith(other : IFilePath) -> Bool
      func endsWith(other : String) -> Bool
      func equalPath(other : IFilePath) -> Bool

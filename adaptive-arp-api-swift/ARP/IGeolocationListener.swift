@@ -35,6 +35,8 @@ public protocol IGeolocationListener : IBaseListener {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(error : IGeolocationListenerError)
      func onResult(geolocation : Geolocation)
      func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning)

@@ -29,13 +29,17 @@
 
 import Foundation
 
-public class Locale : NSObject  {
+public class Locale : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var country : String
      var language : String
+     public override var description : String {
+          return "Locale{ country="+country+",language="+language+" }"
+     }
+
 
      /**
       * Initialization

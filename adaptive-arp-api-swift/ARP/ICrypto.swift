@@ -32,4 +32,6 @@ import Foundation
 public protocol ICrypto : IBaseUtil {
 
 
+     var description : String { get }
+
 }

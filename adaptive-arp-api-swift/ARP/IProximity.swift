@@ -32,4 +32,6 @@ import Foundation
 public protocol IProximity : IBaseSensor {
 
 
+     var description : String { get }
+
 }

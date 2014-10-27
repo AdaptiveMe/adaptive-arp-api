@@ -35,6 +35,8 @@ public protocol IAppResourceHandler : IAdaptiveRP {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func getResource(resourcePath : String, callback : IAppResourceCallback)
 
 }

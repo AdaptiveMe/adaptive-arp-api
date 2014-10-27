@@ -32,4 +32,6 @@ import Foundation
 public protocol IUI : IBaseUI {
 
 
+     var description : String { get }
+
 }

@@ -32,4 +32,6 @@ import Foundation
 public protocol IPrinting : IBaseApplication {
 
 
+     var description : String { get }
+
 }

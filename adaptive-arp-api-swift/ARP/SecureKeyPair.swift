@@ -29,13 +29,17 @@
 
 import Foundation
 
-public class SecureKeyPair : NSObject  {
+public class SecureKeyPair : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var key : String
      var value : String
+     public override var description : String {
+          return "SecureKeyPair{ key="+key+",value="+value+" }"
+     }
+
 
      /**
       * Initialization

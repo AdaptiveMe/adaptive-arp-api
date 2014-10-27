@@ -29,12 +29,16 @@
 
 import Foundation
 
-public class Lifecycle : NSObject  {
+public class Lifecycle : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var state : State?
+     public override var description : String {
+          return "Lifecycle{ state="+state!.hashValue.description+" }"
+     }
+
 
      /**
       * Enumeration Declarations

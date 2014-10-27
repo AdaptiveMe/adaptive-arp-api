@@ -29,12 +29,16 @@
 
 import Foundation
 
-public class ContactWebsite : NSObject  {
+public class ContactWebsite : NSObject, Printable  {
 
      /**
       * Field Declarations
       */
      var url : String
+     public override var description : String {
+          return "ContactWebsite{ url="+url+" }"
+     }
+
 
      /**
       * Initialization

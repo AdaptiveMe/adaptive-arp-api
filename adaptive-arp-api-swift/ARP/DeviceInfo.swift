@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class DeviceInfo : NSObject  {
+public class DeviceInfo : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -38,6 +38,10 @@ public class DeviceInfo : NSObject  {
      var name : String
      var uuid : String
      var vendor : String
+     public override var description : String {
+          return "DeviceInfo{ model="+model+",name="+name+",uuid="+uuid+",vendor="+vendor+" }"
+     }
+
 
      /**
       * Initialization

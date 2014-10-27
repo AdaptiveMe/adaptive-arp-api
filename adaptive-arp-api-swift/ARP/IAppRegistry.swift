@@ -35,6 +35,8 @@ public protocol IAppRegistry : IAdaptiveRP {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func getApplicationAnalytics() -> IAnalytics?
      func getApplicationGlobalization() -> IGlobalization?
      func getApplicationLifecycle() -> ILifecycle?

@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Table : NSObject  {
+public class Table : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -39,6 +39,10 @@ public class Table : NSObject  {
      var name : String
      var rowCount : Int
      var rows : [Row]?
+     public override var description : String {
+          return "Table{ columnCount="+columnCount.description+",columns="+columns!.description+",name="+name+",rowCount="+rowCount.description+",rows="+rows!.description+" }"
+     }
+
 
      /**
       * Initialization

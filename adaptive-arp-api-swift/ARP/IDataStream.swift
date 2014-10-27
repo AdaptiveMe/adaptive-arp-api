@@ -32,4 +32,6 @@ import Foundation
 public protocol IDataStream : IBaseData {
 
 
+     var description : String { get }
+
 }

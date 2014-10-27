@@ -35,6 +35,8 @@ public protocol IButtonListener : IBaseListener {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(error : IButtonListenerError)
      func onResult(button : Button)
      func onWarning(button : Button, warning : IButtonListenerWarning)

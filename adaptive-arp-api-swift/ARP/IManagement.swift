@@ -32,4 +32,6 @@ import Foundation
 public protocol IManagement : IBaseApplication {
 
 
+     var description : String { get }
+
 }

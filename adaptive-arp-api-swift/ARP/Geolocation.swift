@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Geolocation : NSObject  {
+public class Geolocation : NSObject, Printable  {
 
      /**
       * Field Declarations
@@ -39,6 +39,10 @@ public class Geolocation : NSObject  {
      var longitude : Double
      var xDoP : Float
      var yDoP : Float
+     public override var description : String {
+          return "Geolocation{ altitude="+altitude.description+",latitude="+latitude.description+",longitude="+longitude.description+",xDoP="+xDoP.description+",yDoP="+yDoP.description+" }"
+     }
+
 
      /**
       * Initialization

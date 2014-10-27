@@ -32,4 +32,6 @@ import Foundation
 public protocol IMap : IBaseUI {
 
 
+     var description : String { get }
+
 }

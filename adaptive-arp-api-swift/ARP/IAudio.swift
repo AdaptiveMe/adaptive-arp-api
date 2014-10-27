@@ -32,4 +32,6 @@ import Foundation
 public protocol IAudio : IBaseMedia {
 
 
+     var description : String { get }
+
 }

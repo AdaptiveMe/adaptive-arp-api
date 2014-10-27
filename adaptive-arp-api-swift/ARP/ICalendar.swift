@@ -32,4 +32,6 @@ import Foundation
 public protocol ICalendar : IBasePIM {
 
 
+     var description : String { get }
+
 }

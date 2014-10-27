@@ -32,4 +32,6 @@ import Foundation
 public protocol IDisplay : IBaseSystem {
 
 
+     var description : String { get }
+
 }

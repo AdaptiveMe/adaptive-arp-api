@@ -35,6 +35,8 @@ public protocol IServiceResultCallback : IBaseCallback {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func onError(error : IServiceResultCallbackError)
      func onResult(response : ServiceResponse)
      func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning)

@@ -35,6 +35,8 @@ public protocol INetworkReachability : IBaseCommunication {
      /**
       * Function Declarations
       */
+
+     var description : String { get }
      func isNetworkReachable(host : String, callback : INetworkReachabilityCallback)
      func isNetworkServiceReachable(url : String, callback : INetworkReachabilityCallback)
 
