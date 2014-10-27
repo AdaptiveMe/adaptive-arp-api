@@ -237,7 +237,7 @@ public class J2SwiftConverter {
             if (superClass != null && !superClass.equals(Object.class)) {
                 ps.print(" : " + superClass.getSimpleName());
             } else {
-                ps.print(" : NSObject ");
+                ps.print(" : NSObject, Printable ");
             }
             ps.println(" {");
         }
@@ -303,6 +303,58 @@ public class J2SwiftConverter {
             }
             ps.println();
         }
+
+        // Description
+        if (fieldList.size()>0) {
+            ps.println(5, "public override var description : String {");
+            StringBuffer descriptionBuffer = new StringBuffer();
+            descriptionBuffer.append(clazz.getSimpleName() + "{ ");
+            int fieldIndex = 0;
+            for (Field field : fieldList) {
+                descriptionBuffer.append(field.getName() + "=");
+                if (field.getType().isPrimitive()) {
+                    descriptionBuffer.append("\"+"+field.getName()+".description+\"");
+                } else if (field.getType().isArray()) {
+                    Class<?> componentType = field.getType().getComponentType();
+                    if (componentType.isPrimitive()) {
+                        descriptionBuffer.append("\"+"+field.getName()+"!.description+\"");
+                    } else {
+                        if (componentType.getSimpleName().equals("Object")) {
+                            descriptionBuffer.append("\"+"+field.getName()+"!.description+\"");
+                        } else {
+                            descriptionBuffer.append("\"+"+field.getName()+"!.description+\"");
+                        }
+                    }
+                } else {
+                    if (field.getType().isEnum()) {
+                        descriptionBuffer.append("\"+"+field.getName()+"!.hashValue.description+\"");
+                    } else {
+                        if (field.getType().isInterface()) {
+                            descriptionBuffer.append("\"+"+field.getName()+"!.description+\"");
+                        } else {
+                            if (field.getType().equals(String.class)) {
+                                descriptionBuffer.append("\"+"+field.getName()+"+\"");
+                            } else {
+                                descriptionBuffer.append("\"+"+field.getName()+"!.description+\"");
+                            }
+                        }
+                    }
+                }
+                fieldIndex++;
+                if (fieldIndex < fieldList.size()) {
+                    descriptionBuffer.append(",");
+                }
+            }
+            descriptionBuffer.append(" }");
+            ps.println(10, "return \"" + descriptionBuffer.toString() + "\"");
+            ps.println(5, "}");
+            ps.println();
+            //ps.println(5,"func ==(lhs: "+clazz.getSimpleName()+", rhs: "+clazz.getSimpleName()+") -> Bool {");
+            //ps.println(10,"return false");
+            //ps.println(5,"}");
+            //ps.println();
+        }
+
 
         /**
          * Enumeration Section
@@ -463,6 +515,14 @@ public class J2SwiftConverter {
             }
         });
 
+        if (clazz.isInterface()) {
+            Class[] interfaces = clazz.getInterfaces();
+            if (interfaces.length > 0) {
+                ps.println();
+                ps.print(5, "var description : String { get }");
+                ps.println();
+            }
+        }
         for (Method method : methodList) {
             if (clazz.isInterface()) {
 
