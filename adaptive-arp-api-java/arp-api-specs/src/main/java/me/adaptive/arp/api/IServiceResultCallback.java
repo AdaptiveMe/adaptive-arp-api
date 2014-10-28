@@ -84,6 +84,6 @@ public interface IServiceResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Error {
-        Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, Unknown, MalformedUrl, NotRegisteredService, Unknown
+        Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, MalformedUrl, NotRegisteredService, Unknown
     }
 }
