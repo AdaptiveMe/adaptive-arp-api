@@ -75,7 +75,7 @@ public interface IServiceResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Warning {
-        NotSecure, NotTrusted, Redirected, Wrong_Params
+        NotSecure, NotTrusted, Redirected, Wrong_Params, Unknown
     }
 
     /**
@@ -84,6 +84,6 @@ public interface IServiceResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Error {
-        Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, Unknown, MalformedUrl, NotRegisteredService
+        Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, Unknown, MalformedUrl, NotRegisteredService, Unknown
     }
 }
