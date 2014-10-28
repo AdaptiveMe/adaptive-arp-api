@@ -70,7 +70,7 @@ public interface IFileListResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Warning {
-        PartialResult
+        PartialResult, Unknown
     }
 
     /**
@@ -79,6 +79,6 @@ public interface IFileListResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Error {
-        InexistentFile, Unauthorized
+        InexistentFile, Unauthorized, Unknown
     }
 }
