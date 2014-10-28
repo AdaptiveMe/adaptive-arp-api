@@ -389,8 +389,6 @@
 		4E6D01A019B1CD1900EC2555 /* ServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D004519B1CD1900EC2555 /* ServiceResponse.swift */; };
 		4E6D01A119B1CD1900EC2555 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D004619B1CD1900EC2555 /* Table.swift */; };
 		4E6D01A219B1CD1900EC2555 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D004619B1CD1900EC2555 /* Table.swift */; };
-		4EF4A67B19AF85FA00AE551F /* AdaptiveApi_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4A67A19AF85FA00AE551F /* AdaptiveApi_iOSTests.swift */; };
-		4EF4A69619AF860D00AE551F /* AdaptiveApi_OSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4A69519AF860D00AE551F /* AdaptiveApi_OSXTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -590,12 +588,10 @@
 		4EF4A66F19AF85FA00AE551F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EF4A67619AF85FA00AE551F /* AdaptiveApi_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveApi_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF4A67919AF85FA00AE551F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EF4A67A19AF85FA00AE551F /* AdaptiveApi_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveApi_iOSTests.swift; sourceTree = "<group>"; };
 		4EF4A68719AF860D00AE551F /* AdaptiveApi_OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveApi_OSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF4A68A19AF860D00AE551F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EF4A69119AF860D00AE551F /* AdaptiveApi_OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveApi_OSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF4A69419AF860D00AE551F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EF4A69519AF860D00AE551F /* AdaptiveApi_OSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveApi_OSXTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -673,7 +669,6 @@
 		4EF4A67719AF85FA00AE551F /* AdaptiveApi_iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				4EF4A67A19AF85FA00AE551F /* AdaptiveApi_iOSTests.swift */,
 				4EF4A67819AF85FA00AE551F /* Supporting Files */,
 			);
 			path = AdaptiveApi_iOSTests;
@@ -706,7 +701,6 @@
 		4EF4A69219AF860D00AE551F /* AdaptiveApi_OSXTests */ = {
 			isa = PBXGroup;
 			children = (
-				4EF4A69519AF860D00AE551F /* AdaptiveApi_OSXTests.swift */,
 				4EF4A69319AF860D00AE551F /* Supporting Files */,
 			);
 			path = AdaptiveApi_OSXTests;
@@ -1285,7 +1279,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EF4A67B19AF85FA00AE551F /* AdaptiveApi_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1491,7 +1484,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EF4A69619AF860D00AE551F /* AdaptiveApi_OSXTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
