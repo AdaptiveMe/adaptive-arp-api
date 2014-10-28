@@ -65,7 +65,7 @@ public interface IMessagingCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Warning {
-        Unable_To_Sent_All, Unable_to_fetch_attachment
+        UnableToSentAll, UnableToFetchAttachment, Unknown
     }
 
     /**
@@ -74,7 +74,7 @@ public interface IMessagingCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Error {
-        SIM_Not_Present, Email_Account_Not_Found, Not_Sent, Wrong_Params, Not_Supported
+        SIMNotPresent, EmailAccountNotFound, NotSent, WrongParams, NotSupported, Unknown
     }
 
 }
