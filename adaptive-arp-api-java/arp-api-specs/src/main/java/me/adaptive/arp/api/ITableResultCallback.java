@@ -65,13 +65,13 @@ public interface ITableResultCallback extends IBaseCallback {
      * Enumeration for warnings related to database manipulation.
      */
     public enum Warning {
-        TableExists, TableLocked, NoResults
+        TableExists, TableLocked, NoResults, Unknown
     }
 
     /**
      * Enumeration for errors related to database manipulation.
      */
     public enum Error {
-        NoSpace, ReadOnlyTable, SqlException, DatabaseNotFound, NoTableFound
+        NoSpace, ReadOnlyTable, SqlException, DatabaseNotFound, NoTableFound, Unknown
     }
 }
