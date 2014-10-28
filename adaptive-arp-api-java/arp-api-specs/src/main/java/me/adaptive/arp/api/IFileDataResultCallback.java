@@ -69,13 +69,13 @@ public interface IFileDataResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Warning {
-        ExceedMaximumSize
+        ExceedMaximumSize, Unknown
     }
 
     /**
      * @since ARP1.0
      */
     public enum Error {
-        InexistentFile, InsufficientSpace, Unauthorized
+        InexistentFile, InsufficientSpace, Unauthorized, Unknown
     }
 }
