@@ -66,7 +66,7 @@ public interface IAccelerationListener extends IBaseListener {
      * @since ARP1.0
      */
     public enum Warning {
-        NeedsCalibration, Stale
+        NeedsCalibration, Stale, Unknown
     }
 
     /**
@@ -75,6 +75,6 @@ public interface IAccelerationListener extends IBaseListener {
      * @since ARP1.0
      */
     public enum Error {
-        Unauthorized, Unavailable
+        Unauthorized, Unavailable, Unknown
     }
 }
