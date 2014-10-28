@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IAccelerationListenerWarning {
-     case NeedsCalibration, Stale
+     case NeedsCalibration, Stale, Unknown
 }
 

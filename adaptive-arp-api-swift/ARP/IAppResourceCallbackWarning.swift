@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IAppResourceCallbackWarning {
-     case PartialContent, TooLarge, LinkedResource
+     case PartialContent, TooLarge, LinkedResource, Unknown
 }
 

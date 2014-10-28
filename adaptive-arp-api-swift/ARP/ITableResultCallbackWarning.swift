@@ -30,6 +30,6 @@
 import Foundation
 
 public enum ITableResultCallbackWarning {
-     case TableExists, TableLocked, NoResults
+     case TableExists, TableLocked, NoResults, Unknown
 }
 

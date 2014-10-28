@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IFileResultCallbackWarning {
-     case SourceNotDeleted, RootDirectory
+     case SourceNotDeleted, RootDirectory, Unknown
 }
 

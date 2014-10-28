@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IContactPhotoResultCallbackWarning {
-     case LimitExceeded, No_Matches
+     case LimitExceeded, No_Matches, Unknown
 }
 

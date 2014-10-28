@@ -30,6 +30,6 @@
 import Foundation
 
 public enum ISecureKVResultCallbackWarning {
-     case EntryOverride
+     case EntryOverride, Unknown
 }
 

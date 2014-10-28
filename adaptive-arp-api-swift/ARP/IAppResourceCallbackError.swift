@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IAppResourceCallbackError {
-     case NotFound, NoPermission
+     case NotFound, NoPermission, Unknown
 }
 

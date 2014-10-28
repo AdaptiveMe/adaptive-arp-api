@@ -30,6 +30,6 @@
 import Foundation
 
 public enum ITableResultCallbackError {
-     case NoSpace, ReadOnlyTable, SqlException, DatabaseNotFound, NoTableFound
+     case NoSpace, ReadOnlyTable, SqlException, DatabaseNotFound, NoTableFound, Unknown
 }
 

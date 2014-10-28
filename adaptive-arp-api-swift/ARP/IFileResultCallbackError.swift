@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IFileResultCallbackError {
-     case FileExists, InsufficientSpace, Unauthorized
+     case FileExists, InsufficientSpace, Unauthorized, Unknown
 }
 

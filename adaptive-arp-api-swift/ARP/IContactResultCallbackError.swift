@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IContactResultCallbackError {
-     case NoPermission, Wrong_Params
+     case NoPermission, Wrong_Params, Unknown
 }
 

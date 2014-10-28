@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IMessagingCallbackWarning {
-     case Unable_To_Sent_All, Unable_to_fetch_attachment
+     case UnableToSentAll, UnableToFetchAttachment, Unknown
 }
 

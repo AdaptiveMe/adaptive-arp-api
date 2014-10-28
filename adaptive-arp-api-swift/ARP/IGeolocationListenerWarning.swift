@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IGeolocationListenerWarning {
-     case HighDoP, StaleData
+     case HighDoP, StaleData, Unknown
 }
 

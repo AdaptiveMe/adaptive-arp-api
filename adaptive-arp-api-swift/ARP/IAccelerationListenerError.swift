@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IAccelerationListenerError {
-     case Unauthorized, Unavailable
+     case Unauthorized, Unavailable, Unknown
 }
 

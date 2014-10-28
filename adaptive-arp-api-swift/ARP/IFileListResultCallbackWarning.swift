@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IFileListResultCallbackWarning {
-     case PartialResult
+     case PartialResult, Unknown
 }
 

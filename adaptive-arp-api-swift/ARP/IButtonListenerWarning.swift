@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IButtonListenerWarning {
-     case Not_Implemented
+     case Not_Implemented, Unknown
 }
 

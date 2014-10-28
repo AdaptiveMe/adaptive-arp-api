@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IFileDataResultCallbackWarning {
-     case ExceedMaximumSize
+     case ExceedMaximumSize, Unknown
 }
 

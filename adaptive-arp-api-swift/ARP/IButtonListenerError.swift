@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IButtonListenerError {
-     case Not_Present
+     case Not_Present, Unknown
 }
 

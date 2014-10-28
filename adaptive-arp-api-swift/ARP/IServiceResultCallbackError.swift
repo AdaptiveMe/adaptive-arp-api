@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IServiceResultCallbackError {
-     case Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, Unknown, MalformedUrl, NotRegisteredService
+     case Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, MalformedUrl, NotRegisteredService, Unknown
 }
 

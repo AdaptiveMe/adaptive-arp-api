@@ -30,6 +30,6 @@
 import Foundation
 
 public enum IDatabaseResultCallbackError {
-     case NoSpace, SqlException, NotDeleted
+     case NoSpace, SqlException, NotDeleted, Unknown
 }
 

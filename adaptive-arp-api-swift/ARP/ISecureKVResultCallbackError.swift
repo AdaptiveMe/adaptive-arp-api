@@ -30,6 +30,6 @@
 import Foundation
 
 public enum ISecureKVResultCallbackError {
-     case NoPermission, NoMatchesFound
+     case NoPermission, NoMatchesFound, Unknown
 }
 
