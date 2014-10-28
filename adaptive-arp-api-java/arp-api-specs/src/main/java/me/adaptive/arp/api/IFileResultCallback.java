@@ -71,7 +71,7 @@ public interface IFileResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Warning {
-        SourceNotDeleted, RootDirectory
+        SourceNotDeleted, RootDirectory, Unknown
     }
 
     /**
@@ -80,6 +80,6 @@ public interface IFileResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Error {
-        FileExists, InsufficientSpace, Unauthorized
+        FileExists, InsufficientSpace, Unauthorized, Unknown
     }
 }
