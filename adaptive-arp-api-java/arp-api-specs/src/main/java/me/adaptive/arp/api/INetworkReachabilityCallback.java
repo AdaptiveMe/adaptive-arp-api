@@ -59,11 +59,11 @@ public interface INetworkReachabilityCallback extends IBaseCallback {
 
 
     public enum Error {
-        Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, Unreachable, Wrong_Params, MalformedUrl, DomainUnresolvable
+        Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, Unreachable, Wrong_Params, MalformedUrl, DomainUnresolvable, Unknown
     }
 
     public enum Warning {
-        IncorrectScheme, NotSecure, NotTrusted, Redirected, NotRegisteredService
+        IncorrectScheme, NotSecure, NotTrusted, Redirected, NotRegisteredService, Unknown
     }
 
 }
