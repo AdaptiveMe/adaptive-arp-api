@@ -39,8 +39,8 @@ public interface IAppResourceCallback extends IBaseCallback {
 
     void onError(IAppResource resource, Error error);
 
-    enum Warning {PartialContent, TooLarge, LinkedResource}
+    enum Warning {PartialContent, TooLarge, LinkedResource, Unknown}
 
-    enum Error {NotFound, NoPermission}
+    enum Error {NotFound, NoPermission, Unknown}
 
 }
