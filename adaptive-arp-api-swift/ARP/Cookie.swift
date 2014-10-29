@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Cookie : NSObject, Printable  {
+public class Cookie : NSObject  {
 
      /**
       * Field Declarations

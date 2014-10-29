@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Geolocation : NSObject, Printable  {
+public class Geolocation : NSObject  {
 
      /**
       * Field Declarations

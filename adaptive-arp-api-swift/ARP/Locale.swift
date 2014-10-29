@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Locale : NSObject, Printable  {
+public class Locale : NSObject  {
 
      /**
       * Field Declarations

@@ -237,7 +237,7 @@ public class J2SwiftConverter {
             if (superClass != null && !superClass.equals(Object.class)) {
                 ps.print(" : " + superClass.getSimpleName());
             } else {
-                ps.print(" : NSObject, Printable ");
+                ps.print(" : NSObject ");
             }
             ps.println(" {");
         }

@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class AttachmentData : NSObject, Printable  {
+public class AttachmentData : NSObject  {
 
      /**
       * Field Declarations
@@ -88,12 +88,12 @@ public class AttachmentData : NSObject, Printable  {
           return self.referenceUrl
      }
 
-     public func setDataSize(dataSize : Int64) {
-          self.dataSize = dataSize
-     }
-
      public func setData(data : [Byte]) {
           self.data = data
+     }
+
+     public func setDataSize(dataSize : Int64) {
+          self.dataSize = dataSize
      }
 
      public func setFileName(fileName : String) {

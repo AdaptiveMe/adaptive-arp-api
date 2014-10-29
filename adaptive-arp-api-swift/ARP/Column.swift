@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Column : NSObject, Printable  {
+public class Column : NSObject  {
 
      /**
       * Field Declarations

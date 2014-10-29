@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class SecureKeyPair : NSObject, Printable  {
+public class SecureKeyPair : NSObject  {
 
      /**
       * Field Declarations

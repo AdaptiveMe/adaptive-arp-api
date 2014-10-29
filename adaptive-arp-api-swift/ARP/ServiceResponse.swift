@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class ServiceResponse : NSObject, Printable  {
+public class ServiceResponse : NSObject  {
 
      /**
       * Field Declarations
@@ -109,10 +109,6 @@ public class ServiceResponse : NSObject, Printable  {
           return self.session!
      }
 
-     public func setContent(content : String) {
-          self.content = content
-     }
-
      public func setContentBinary(contentBinary : [Byte]) {
           self.contentBinary = contentBinary
      }
@@ -131,6 +127,10 @@ public class ServiceResponse : NSObject, Printable  {
 
      public func setContentType(contentType : String) {
           self.contentType = contentType
+     }
+
+     public func setContent(content : String) {
+          self.content = content
      }
 
      public func setHeaders(headers : [Header]) {

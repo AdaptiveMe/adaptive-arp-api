@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Service : NSObject, Printable  {
+public class Service : NSObject  {
 
      /**
       * Field Declarations

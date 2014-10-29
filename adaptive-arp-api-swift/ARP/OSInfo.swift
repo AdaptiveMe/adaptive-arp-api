@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class OSInfo : NSObject, Printable  {
+public class OSInfo : NSObject  {
 
      /**
       * Field Declarations

@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Lifecycle : NSObject, Printable  {
+public class Lifecycle : NSObject  {
 
      /**
       * Field Declarations

@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class ContactAddress : NSObject, Printable  {
+public class ContactAddress : NSObject  {
 
      /**
       * Field Declarations

@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Acceleration : NSObject, Printable  {
+public class Acceleration : NSObject  {
 
      /**
       * Field Declarations

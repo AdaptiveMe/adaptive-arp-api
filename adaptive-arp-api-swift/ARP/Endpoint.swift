@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Endpoint : NSObject, Printable  {
+public class Endpoint : NSObject  {
 
      /**
       * Field Declarations

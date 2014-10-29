@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Button : NSObject, Printable  {
+public class Button : NSObject  {
 
      /**
       * Field Declarations

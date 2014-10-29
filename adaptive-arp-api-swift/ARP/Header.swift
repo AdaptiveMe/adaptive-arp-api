@@ -29,7 +29,7 @@
 
 import Foundation
 
-public class Header : NSObject, Printable  {
+public class Header : NSObject  {
 
      /**
       * Field Declarations
