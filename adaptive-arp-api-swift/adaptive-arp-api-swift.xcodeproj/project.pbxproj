@@ -389,6 +389,10 @@
 		4E6D01A019B1CD1900EC2555 /* ServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D004519B1CD1900EC2555 /* ServiceResponse.swift */; };
 		4E6D01A119B1CD1900EC2555 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D004619B1CD1900EC2555 /* Table.swift */; };
 		4E6D01A219B1CD1900EC2555 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D004619B1CD1900EC2555 /* Table.swift */; };
+		C354674A1A00D6D4004AC942 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C35467471A00D6D4004AC942 /* LICENSE */; };
+		C354674B1A00D6D4004AC942 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C35467471A00D6D4004AC942 /* LICENSE */; };
+		C354674C1A00D6D4004AC942 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35467491A00D6D4004AC942 /* SwiftyJSON.swift */; };
+		C354674D1A00D6D4004AC942 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35467491A00D6D4004AC942 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -592,6 +596,8 @@
 		4EF4A68A19AF860D00AE551F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EF4A69119AF860D00AE551F /* AdaptiveApi_OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveApi_OSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF4A69419AF860D00AE551F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C35467471A00D6D4004AC942 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C35467491A00D6D4004AC942 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -631,6 +637,7 @@
 			children = (
 				4E2204D919BA272700BC4819 /* AdaptiveArpApi.podspec */,
 				4EF4A69D19AF861D00AE551F /* ARP */,
+				C35467451A00D6D4004AC942 /* LIB */,
 				4EF4A66D19AF85FA00AE551F /* AdaptiveApi_iOS */,
 				4EF4A67719AF85FA00AE551F /* AdaptiveApi_iOSTests */,
 				4EF4A68819AF860D00AE551F /* AdaptiveApi_OSX */,
@@ -912,6 +919,31 @@
 			path = ARP;
 			sourceTree = "<group>";
 		};
+		C35467451A00D6D4004AC942 /* LIB */ = {
+			isa = PBXGroup;
+			children = (
+				C35467461A00D6D4004AC942 /* SwiftyJSON */,
+			);
+			path = LIB;
+			sourceTree = "<group>";
+		};
+		C35467461A00D6D4004AC942 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				C35467471A00D6D4004AC942 /* LICENSE */,
+				C35467481A00D6D4004AC942 /* Source */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		C35467481A00D6D4004AC942 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C35467491A00D6D4004AC942 /* SwiftyJSON.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1050,6 +1082,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C354674A1A00D6D4004AC942 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1064,6 +1097,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C354674B1A00D6D4004AC942 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1252,6 +1286,7 @@
 				4E6D006919B1CD1900EC2555 /* Email.swift in Sources */,
 				4E6D015919B1CD1900EC2555 /* IQRCode.swift in Sources */,
 				4E6D019D19B1CD1900EC2555 /* ServiceRequest.swift in Sources */,
+				C354674C1A00D6D4004AC942 /* SwiftyJSON.swift in Sources */,
 				4E6D004719B1CD1900EC2555 /* Acceleration.swift in Sources */,
 				4E6D006519B1CD1900EC2555 /* Database.swift in Sources */,
 				4E6D00DF19B1CD1900EC2555 /* IDatabase.swift in Sources */,
@@ -1457,6 +1492,7 @@
 				4E6D006A19B1CD1900EC2555 /* Email.swift in Sources */,
 				4E6D015A19B1CD1900EC2555 /* IQRCode.swift in Sources */,
 				4E6D019E19B1CD1900EC2555 /* ServiceRequest.swift in Sources */,
+				C354674D1A00D6D4004AC942 /* SwiftyJSON.swift in Sources */,
 				4E6D004819B1CD1900EC2555 /* Acceleration.swift in Sources */,
 				4E6D006619B1CD1900EC2555 /* Database.swift in Sources */,
 				4E6D00E019B1CD1900EC2555 /* IDatabase.swift in Sources */,
