@@ -33,13 +33,13 @@ package me.adaptive.arp.api;
 
 
 /**
- * Represents a single key-value pair.
+ * Represents a single secureKey-value pair.
  */
 public class SecureKeyPair {
 
-    private String key;
+    private String secureKey;
 
-    private String data;
+    private String secureData;
 
     /**
      * Constructor used by the implementation
@@ -50,33 +50,33 @@ public class SecureKeyPair {
     /**
      * Constructor with parameters
      * 
-     * @param key   name of the keypair
-     * @param data value of the keypair
+     * @param secureKey   name of the keypair
+     * @param secureData value of the keypair
      * @since ARP1.0
      */
-    public SecureKeyPair(String key, String data) {
-        this.key = key;
-        this.data = data;
+    public SecureKeyPair(String secureKey, String secureData) {
+        this.secureKey = secureKey;
+        this.secureData = secureData;
     }
 
     /**
-     * Returns the object key name.
+     * Returns the object secureKey name.
      *
      * @return Key name.
      * @since ARP 1.0
      */
-    public String getKey() {
-        return key;
+    public String getSecureKey() {
+        return secureKey;
     }
 
     /**
-     * Sets the key name for this object.
+     * Sets the secureKey name for this object.
      *
-     * @param key Key name.
+     * @param secureKey Key name.
      * @since ARP 1.0
      */
-    public void setKey(String key) {
-        this.key = key;
+    public void setSecureKey(String secureKey) {
+        this.secureKey = secureKey;
     }
 
     /**
@@ -85,18 +85,18 @@ public class SecureKeyPair {
      * @return Value.
      * @since ARP 1.0
      */
-    public String getData() {
-        return data;
+    public String getSecureData() {
+        return secureData;
     }
 
     /**
      * Sets the value for this object
      *
-     * @param data value to set.
+     * @param secureData value to set.
      * @since ARP 1.0
      */
-    public void setData(String data) {
-        this.data = data;
+    public void setSecureData(String secureData) {
+        this.secureData = secureData;
     }
 
 }

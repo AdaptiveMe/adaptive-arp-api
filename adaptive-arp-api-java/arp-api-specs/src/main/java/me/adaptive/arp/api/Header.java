@@ -69,12 +69,12 @@ public class Header {
      * Constructor used by the implementation
      *
      * @param name
-     * @param value
+     * @param data
      * @since ARP1.0
      */
-    public Header(String name, String value) {
+    public Header(String name, String data) {
         this.name = name;
-        this.data = value;
+        this.data = data;
     }
 
     /**
