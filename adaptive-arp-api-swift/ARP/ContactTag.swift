@@ -34,45 +34,45 @@ public class ContactTag : NSObject  {
      /**
       * Field Declarations
       */
+     var dataValue : String
      var name : String
-     var value : String
      public override var description : String {
-          return "ContactTag{ name="+name+",value="+value+" }"
+          return "ContactTag{ dataValue="+dataValue+",name="+name+" }"
      }
 
 
      /**
       * Initialization
       */
-     public convenience init(name : String, value : String) {
+     public convenience init(name : String, dataValue : String) {
           self.init()
           self.name = name
-          self.value = value
+          self.dataValue = dataValue
      }
 
      public override init() {
           self.name = ""
-          self.value = ""
+          self.dataValue = ""
      }
 
 
      /**
       * Function Declarations
       */
+     public func getDataValue() -> String? {
+          return self.dataValue
+     }
+
      public func getName() -> String? {
           return self.name
      }
 
-     public func getValue() -> String? {
-          return self.value
+     public func setDataValue(dataValue : String) {
+          self.dataValue = dataValue
      }
 
      public func setName(name : String) {
           self.name = name
-     }
-
-     public func setValue(value : String) {
-          self.value = value
      }
 
 
