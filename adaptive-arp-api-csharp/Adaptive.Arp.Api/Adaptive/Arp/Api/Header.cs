@@ -49,12 +49,12 @@ namespace Adaptive.Arp.Api
 
 		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="name"></param>
-		/// <param name="value"></param>
+		/// <param name="data"></param>
 		/// <since>ARP1.0</since>
-		public Header(string name, string value)
+		public Header(string name, string data)
 		{
 			this.name = name;
-			this.data = value;
+			this.data = data;
 		}
 
 		/// <summary>Returns the header name</summary>

@@ -30,13 +30,13 @@ using Sharpen;
 
 namespace Adaptive.Arp.Api
 {
-	/// <summary>Represents a single key-value pair.</summary>
-	/// <remarks>Represents a single key-value pair.</remarks>
+	/// <summary>Represents a single secureKey-value pair.</summary>
+	/// <remarks>Represents a single secureKey-value pair.</remarks>
 	public class SecureKeyPair
 	{
-		private string key;
+		private string secureKey;
 
-		private string data;
+		private string secureData;
 
 		/// <summary>Constructor used by the implementation</summary>
 		public SecureKeyPair()
@@ -44,47 +44,47 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Constructor with parameters</summary>
-		/// <param name="key">name of the keypair</param>
-		/// <param name="data">value of the keypair</param>
+		/// <param name="secureKey">name of the keypair</param>
+		/// <param name="secureData">value of the keypair</param>
 		/// <since>ARP1.0</since>
-		public SecureKeyPair(string key, string data)
+		public SecureKeyPair(string secureKey, string secureData)
 		{
-			this.key = key;
-			this.data = data;
+			this.secureKey = secureKey;
+			this.secureData = secureData;
 		}
 
-		/// <summary>Returns the object key name.</summary>
-		/// <remarks>Returns the object key name.</remarks>
+		/// <summary>Returns the object secureKey name.</summary>
+		/// <remarks>Returns the object secureKey name.</remarks>
 		/// <returns>Key name.</returns>
 		/// <since>ARP 1.0</since>
-		public virtual string GetKey()
+		public virtual string GetSecureKey()
 		{
-			return key;
+			return secureKey;
 		}
 
-		/// <summary>Sets the key name for this object.</summary>
-		/// <remarks>Sets the key name for this object.</remarks>
-		/// <param name="key">Key name.</param>
+		/// <summary>Sets the secureKey name for this object.</summary>
+		/// <remarks>Sets the secureKey name for this object.</remarks>
+		/// <param name="secureKey">Key name.</param>
 		/// <since>ARP 1.0</since>
-		public virtual void SetKey(string key)
+		public virtual void SetSecureKey(string secureKey)
 		{
-			this.key = key;
+			this.secureKey = secureKey;
 		}
 
 		/// <summary>Returns the object value</summary>
 		/// <returns>Value.</returns>
 		/// <since>ARP 1.0</since>
-		public virtual string GetData()
+		public virtual string GetSecureData()
 		{
-			return data;
+			return secureData;
 		}
 
 		/// <summary>Sets the value for this object</summary>
-		/// <param name="data">value to set.</param>
+		/// <param name="secureData">value to set.</param>
 		/// <since>ARP 1.0</since>
-		public virtual void SetData(string data)
+		public virtual void SetSecureData(string secureData)
 		{
-			this.data = data;
+			this.secureData = secureData;
 		}
 	}
 }
