@@ -55,7 +55,7 @@
 
 BOOL ARPIButtonListener_ErrorEnum_initialized = NO;
 
-ARPIButtonListener_ErrorEnum *ARPIButtonListener_ErrorEnum_values[1];
+ARPIButtonListener_ErrorEnum *ARPIButtonListener_ErrorEnum_values[2];
 
 @implementation ARPIButtonListener_ErrorEnum
 
@@ -70,16 +70,17 @@ ARPIButtonListener_ErrorEnum *ARPIButtonListener_ErrorEnum_values[1];
 + (void)initialize {
   if (self == [ARPIButtonListener_ErrorEnum class]) {
     ARPIButtonListener_ErrorEnum_Not_Present = [[ARPIButtonListener_ErrorEnum alloc] initWithNSString:@"Not_Present" withInt:0];
+    ARPIButtonListener_ErrorEnum_Unknown = [[ARPIButtonListener_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:1];
     ARPIButtonListener_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIButtonListener_ErrorEnum_values count:1 type:[IOSClass classWithClass:[ARPIButtonListener_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIButtonListener_ErrorEnum_values count:2 type:[IOSClass classWithClass:[ARPIButtonListener_ErrorEnum class]]];
 }
 
 + (ARPIButtonListener_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 2; i++) {
     ARPIButtonListener_ErrorEnum *e = ARPIButtonListener_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -95,9 +96,10 @@ ARPIButtonListener_ErrorEnum *ARPIButtonListener_ErrorEnum_values[1];
   };
   static J2ObjcFieldInfo fields[] = {
     { "Not_Present", "Not_Present", 0x4019, "Lme.adaptive.arp.api.IButtonListener$Error;", &ARPIButtonListener_ErrorEnum_Not_Present,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IButtonListener$Error;", &ARPIButtonListener_ErrorEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IButtonListener$Error;"};
-  static J2ObjcClassInfo _ARPIButtonListener_ErrorEnum = { "Error", "me.adaptive.arp.api", "IButtonListener", 0x4019, 1, methods, 1, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIButtonListener_ErrorEnum = { "Error", "me.adaptive.arp.api", "IButtonListener", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
   return &_ARPIButtonListener_ErrorEnum;
 }
 
@@ -105,7 +107,7 @@ ARPIButtonListener_ErrorEnum *ARPIButtonListener_ErrorEnum_values[1];
 
 BOOL ARPIButtonListener_WarningEnum_initialized = NO;
 
-ARPIButtonListener_WarningEnum *ARPIButtonListener_WarningEnum_values[1];
+ARPIButtonListener_WarningEnum *ARPIButtonListener_WarningEnum_values[2];
 
 @implementation ARPIButtonListener_WarningEnum
 
@@ -120,16 +122,17 @@ ARPIButtonListener_WarningEnum *ARPIButtonListener_WarningEnum_values[1];
 + (void)initialize {
   if (self == [ARPIButtonListener_WarningEnum class]) {
     ARPIButtonListener_WarningEnum_Not_Implemented = [[ARPIButtonListener_WarningEnum alloc] initWithNSString:@"Not_Implemented" withInt:0];
+    ARPIButtonListener_WarningEnum_Unknown = [[ARPIButtonListener_WarningEnum alloc] initWithNSString:@"Unknown" withInt:1];
     ARPIButtonListener_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIButtonListener_WarningEnum_values count:1 type:[IOSClass classWithClass:[ARPIButtonListener_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIButtonListener_WarningEnum_values count:2 type:[IOSClass classWithClass:[ARPIButtonListener_WarningEnum class]]];
 }
 
 + (ARPIButtonListener_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 2; i++) {
     ARPIButtonListener_WarningEnum *e = ARPIButtonListener_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -145,9 +148,10 @@ ARPIButtonListener_WarningEnum *ARPIButtonListener_WarningEnum_values[1];
   };
   static J2ObjcFieldInfo fields[] = {
     { "Not_Implemented", "Not_Implemented", 0x4019, "Lme.adaptive.arp.api.IButtonListener$Warning;", &ARPIButtonListener_WarningEnum_Not_Implemented,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IButtonListener$Warning;", &ARPIButtonListener_WarningEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IButtonListener$Warning;"};
-  static J2ObjcClassInfo _ARPIButtonListener_WarningEnum = { "Warning", "me.adaptive.arp.api", "IButtonListener", 0x4019, 1, methods, 1, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIButtonListener_WarningEnum = { "Warning", "me.adaptive.arp.api", "IButtonListener", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
   return &_ARPIButtonListener_WarningEnum;
 }
 

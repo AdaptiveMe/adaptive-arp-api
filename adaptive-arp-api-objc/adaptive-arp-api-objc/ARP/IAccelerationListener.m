@@ -55,7 +55,7 @@
 
 BOOL ARPIAccelerationListener_WarningEnum_initialized = NO;
 
-ARPIAccelerationListener_WarningEnum *ARPIAccelerationListener_WarningEnum_values[2];
+ARPIAccelerationListener_WarningEnum *ARPIAccelerationListener_WarningEnum_values[3];
 
 @implementation ARPIAccelerationListener_WarningEnum
 
@@ -71,16 +71,17 @@ ARPIAccelerationListener_WarningEnum *ARPIAccelerationListener_WarningEnum_value
   if (self == [ARPIAccelerationListener_WarningEnum class]) {
     ARPIAccelerationListener_WarningEnum_NeedsCalibration = [[ARPIAccelerationListener_WarningEnum alloc] initWithNSString:@"NeedsCalibration" withInt:0];
     ARPIAccelerationListener_WarningEnum_Stale = [[ARPIAccelerationListener_WarningEnum alloc] initWithNSString:@"Stale" withInt:1];
+    ARPIAccelerationListener_WarningEnum_Unknown = [[ARPIAccelerationListener_WarningEnum alloc] initWithNSString:@"Unknown" withInt:2];
     ARPIAccelerationListener_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIAccelerationListener_WarningEnum_values count:2 type:[IOSClass classWithClass:[ARPIAccelerationListener_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIAccelerationListener_WarningEnum_values count:3 type:[IOSClass classWithClass:[ARPIAccelerationListener_WarningEnum class]]];
 }
 
 + (ARPIAccelerationListener_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPIAccelerationListener_WarningEnum *e = ARPIAccelerationListener_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -97,9 +98,10 @@ ARPIAccelerationListener_WarningEnum *ARPIAccelerationListener_WarningEnum_value
   static J2ObjcFieldInfo fields[] = {
     { "NeedsCalibration", "NeedsCalibration", 0x4019, "Lme.adaptive.arp.api.IAccelerationListener$Warning;", &ARPIAccelerationListener_WarningEnum_NeedsCalibration,  },
     { "Stale", "Stale", 0x4019, "Lme.adaptive.arp.api.IAccelerationListener$Warning;", &ARPIAccelerationListener_WarningEnum_Stale,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IAccelerationListener$Warning;", &ARPIAccelerationListener_WarningEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IAccelerationListener$Warning;"};
-  static J2ObjcClassInfo _ARPIAccelerationListener_WarningEnum = { "Warning", "me.adaptive.arp.api", "IAccelerationListener", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIAccelerationListener_WarningEnum = { "Warning", "me.adaptive.arp.api", "IAccelerationListener", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPIAccelerationListener_WarningEnum;
 }
 
@@ -107,7 +109,7 @@ ARPIAccelerationListener_WarningEnum *ARPIAccelerationListener_WarningEnum_value
 
 BOOL ARPIAccelerationListener_ErrorEnum_initialized = NO;
 
-ARPIAccelerationListener_ErrorEnum *ARPIAccelerationListener_ErrorEnum_values[2];
+ARPIAccelerationListener_ErrorEnum *ARPIAccelerationListener_ErrorEnum_values[3];
 
 @implementation ARPIAccelerationListener_ErrorEnum
 
@@ -123,16 +125,17 @@ ARPIAccelerationListener_ErrorEnum *ARPIAccelerationListener_ErrorEnum_values[2]
   if (self == [ARPIAccelerationListener_ErrorEnum class]) {
     ARPIAccelerationListener_ErrorEnum_Unauthorized = [[ARPIAccelerationListener_ErrorEnum alloc] initWithNSString:@"Unauthorized" withInt:0];
     ARPIAccelerationListener_ErrorEnum_Unavailable = [[ARPIAccelerationListener_ErrorEnum alloc] initWithNSString:@"Unavailable" withInt:1];
+    ARPIAccelerationListener_ErrorEnum_Unknown = [[ARPIAccelerationListener_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:2];
     ARPIAccelerationListener_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIAccelerationListener_ErrorEnum_values count:2 type:[IOSClass classWithClass:[ARPIAccelerationListener_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIAccelerationListener_ErrorEnum_values count:3 type:[IOSClass classWithClass:[ARPIAccelerationListener_ErrorEnum class]]];
 }
 
 + (ARPIAccelerationListener_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPIAccelerationListener_ErrorEnum *e = ARPIAccelerationListener_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -149,9 +152,10 @@ ARPIAccelerationListener_ErrorEnum *ARPIAccelerationListener_ErrorEnum_values[2]
   static J2ObjcFieldInfo fields[] = {
     { "Unauthorized", "Unauthorized", 0x4019, "Lme.adaptive.arp.api.IAccelerationListener$Error;", &ARPIAccelerationListener_ErrorEnum_Unauthorized,  },
     { "Unavailable", "Unavailable", 0x4019, "Lme.adaptive.arp.api.IAccelerationListener$Error;", &ARPIAccelerationListener_ErrorEnum_Unavailable,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IAccelerationListener$Error;", &ARPIAccelerationListener_ErrorEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IAccelerationListener$Error;"};
-  static J2ObjcClassInfo _ARPIAccelerationListener_ErrorEnum = { "Error", "me.adaptive.arp.api", "IAccelerationListener", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIAccelerationListener_ErrorEnum = { "Error", "me.adaptive.arp.api", "IAccelerationListener", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPIAccelerationListener_ErrorEnum;
 }
 

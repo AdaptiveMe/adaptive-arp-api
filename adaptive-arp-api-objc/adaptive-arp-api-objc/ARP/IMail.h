@@ -34,10 +34,16 @@
 #ifndef _ARPIMail_H_
 #define _ARPIMail_H_
 
+@class ARPEmail;
+@protocol ARPIMessagingCallback;
+
 #import "JreEmulation.h"
 #include "IBasePIM.h"
 
 @protocol ARPIMail < ARPIBasePIM, NSObject, JavaObject >
+- (void)sendEmailWithARPEmail:(ARPEmail *)data
+    withARPIMessagingCallback:(id<ARPIMessagingCallback>)callback;
+
 @end
 
 __attribute__((always_inline)) inline void ARPIMail_init() {}

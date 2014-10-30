@@ -52,9 +52,6 @@
 
 - (BOOL)existsDatabaseWithARPDatabase:(ARPDatabase *)database;
 
-- (void)getDatabaseWithARPDatabase:(ARPDatabase *)database
-    withARPIDatabaseResultCallback:(id<ARPIDatabaseResultCallback>)callback;
-
 - (void)createTableWithARPDatabase:(ARPDatabase *)database
                       withARPTable:(ARPTable *)table
        withARPITableResultCallback:(id<ARPITableResultCallback>)callback;

@@ -60,8 +60,8 @@ typedef enum {
   ARPIServiceResultCallback_Warning_NotSecure = 0,
   ARPIServiceResultCallback_Warning_NotTrusted = 1,
   ARPIServiceResultCallback_Warning_Redirected = 2,
-  ARPIServiceResultCallback_Warning_NotRegisteredService = 3,
-  ARPIServiceResultCallback_Warning_Wrong_Params = 4,
+  ARPIServiceResultCallback_Warning_Wrong_Params = 3,
+  ARPIServiceResultCallback_Warning_Unknown = 4,
 } ARPIServiceResultCallback_Warning;
 
 @interface ARPIServiceResultCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -87,11 +87,11 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_WarningEnum, NotTrusted, AR
 #define ARPIServiceResultCallback_WarningEnum_Redirected ARPIServiceResultCallback_WarningEnum_values[ARPIServiceResultCallback_Warning_Redirected]
 J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_WarningEnum, Redirected, ARPIServiceResultCallback_WarningEnum *)
 
-#define ARPIServiceResultCallback_WarningEnum_NotRegisteredService ARPIServiceResultCallback_WarningEnum_values[ARPIServiceResultCallback_Warning_NotRegisteredService]
-J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_WarningEnum, NotRegisteredService, ARPIServiceResultCallback_WarningEnum *)
-
 #define ARPIServiceResultCallback_WarningEnum_Wrong_Params ARPIServiceResultCallback_WarningEnum_values[ARPIServiceResultCallback_Warning_Wrong_Params]
 J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_WarningEnum, Wrong_Params, ARPIServiceResultCallback_WarningEnum *)
+
+#define ARPIServiceResultCallback_WarningEnum_Unknown ARPIServiceResultCallback_WarningEnum_values[ARPIServiceResultCallback_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_WarningEnum, Unknown, ARPIServiceResultCallback_WarningEnum *)
 
 typedef enum {
   ARPIServiceResultCallback_Error_Forbidden = 0,
@@ -103,8 +103,9 @@ typedef enum {
   ARPIServiceResultCallback_Error_NoResponse = 6,
   ARPIServiceResultCallback_Error_ServerError = 7,
   ARPIServiceResultCallback_Error_Unreachable = 8,
-  ARPIServiceResultCallback_Error_Unknown = 9,
-  ARPIServiceResultCallback_Error_MalformedUrl = 10,
+  ARPIServiceResultCallback_Error_MalformedUrl = 9,
+  ARPIServiceResultCallback_Error_NotRegisteredService = 10,
+  ARPIServiceResultCallback_Error_Unknown = 11,
 } ARPIServiceResultCallback_Error;
 
 @interface ARPIServiceResultCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -148,10 +149,13 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_ErrorEnum, ServerError, ARP
 #define ARPIServiceResultCallback_ErrorEnum_Unreachable ARPIServiceResultCallback_ErrorEnum_values[ARPIServiceResultCallback_Error_Unreachable]
 J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_ErrorEnum, Unreachable, ARPIServiceResultCallback_ErrorEnum *)
 
-#define ARPIServiceResultCallback_ErrorEnum_Unknown ARPIServiceResultCallback_ErrorEnum_values[ARPIServiceResultCallback_Error_Unknown]
-J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_ErrorEnum, Unknown, ARPIServiceResultCallback_ErrorEnum *)
-
 #define ARPIServiceResultCallback_ErrorEnum_MalformedUrl ARPIServiceResultCallback_ErrorEnum_values[ARPIServiceResultCallback_Error_MalformedUrl]
 J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_ErrorEnum, MalformedUrl, ARPIServiceResultCallback_ErrorEnum *)
+
+#define ARPIServiceResultCallback_ErrorEnum_NotRegisteredService ARPIServiceResultCallback_ErrorEnum_values[ARPIServiceResultCallback_Error_NotRegisteredService]
+J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_ErrorEnum, NotRegisteredService, ARPIServiceResultCallback_ErrorEnum *)
+
+#define ARPIServiceResultCallback_ErrorEnum_Unknown ARPIServiceResultCallback_ErrorEnum_values[ARPIServiceResultCallback_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIServiceResultCallback_ErrorEnum, Unknown, ARPIServiceResultCallback_ErrorEnum *)
 
 #endif // _ARPIServiceResultCallback_H_

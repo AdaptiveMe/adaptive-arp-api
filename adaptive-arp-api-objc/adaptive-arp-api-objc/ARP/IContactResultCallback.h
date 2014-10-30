@@ -59,6 +59,7 @@ __attribute__((always_inline)) inline void ARPIContactResultCallback_init() {}
 typedef enum {
   ARPIContactResultCallback_Warning_LimitExceeded = 0,
   ARPIContactResultCallback_Warning_No_Matches = 1,
+  ARPIContactResultCallback_Warning_Unknown = 2,
 } ARPIContactResultCallback_Warning;
 
 @interface ARPIContactResultCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -81,9 +82,13 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIContactResultCallback_WarningEnum, LimitExceeded,
 #define ARPIContactResultCallback_WarningEnum_No_Matches ARPIContactResultCallback_WarningEnum_values[ARPIContactResultCallback_Warning_No_Matches]
 J2OBJC_STATIC_FIELD_GETTER(ARPIContactResultCallback_WarningEnum, No_Matches, ARPIContactResultCallback_WarningEnum *)
 
+#define ARPIContactResultCallback_WarningEnum_Unknown ARPIContactResultCallback_WarningEnum_values[ARPIContactResultCallback_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIContactResultCallback_WarningEnum, Unknown, ARPIContactResultCallback_WarningEnum *)
+
 typedef enum {
   ARPIContactResultCallback_Error_NoPermission = 0,
   ARPIContactResultCallback_Error_Wrong_Params = 1,
+  ARPIContactResultCallback_Error_Unknown = 2,
 } ARPIContactResultCallback_Error;
 
 @interface ARPIContactResultCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -105,5 +110,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIContactResultCallback_ErrorEnum, NoPermission, AR
 
 #define ARPIContactResultCallback_ErrorEnum_Wrong_Params ARPIContactResultCallback_ErrorEnum_values[ARPIContactResultCallback_Error_Wrong_Params]
 J2OBJC_STATIC_FIELD_GETTER(ARPIContactResultCallback_ErrorEnum, Wrong_Params, ARPIContactResultCallback_ErrorEnum *)
+
+#define ARPIContactResultCallback_ErrorEnum_Unknown ARPIContactResultCallback_ErrorEnum_values[ARPIContactResultCallback_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIContactResultCallback_ErrorEnum, Unknown, ARPIContactResultCallback_ErrorEnum *)
 
 #endif // _ARPIContactResultCallback_H_

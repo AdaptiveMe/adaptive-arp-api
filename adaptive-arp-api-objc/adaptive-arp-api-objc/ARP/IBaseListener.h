@@ -38,6 +38,8 @@
 #include "IAdaptiveRP.h"
 
 @protocol ARPIBaseListener < ARPIAdaptiveRP, NSObject, JavaObject >
+- (long long int)getId;
+
 - (NSString *)description;
 
 @end

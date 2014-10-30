@@ -36,10 +36,10 @@
 @implementation ARPCookie
 
 - (id)initWithNSString:(NSString *)name
-          withNSString:(NSString *)value {
+          withNSString:(NSString *)data {
   if (self = [super init]) {
     self->name_ = name;
-    self->value_ = value;
+    self->data_ = data;
   }
   return self;
 }
@@ -96,12 +96,12 @@
   self->name_ = name;
 }
 
-- (NSString *)getValue {
-  return value_;
+- (NSString *)getData {
+  return data_;
 }
 
-- (void)setValueWithNSString:(NSString *)value {
-  self->value_ = value;
+- (void)setDataWithNSString:(NSString *)data {
+  self->data_ = data;
 }
 
 - (long long int)getCreation {
@@ -111,13 +111,13 @@
 - (void)copyAllFieldsTo:(ARPCookie *)other {
   [super copyAllFieldsTo:other];
   other->creation_ = creation_;
+  other->data_ = data_;
   other->domain_ = domain_;
   other->expiry_ = expiry_;
   other->name_ = name_;
   other->path_ = path_;
   other->scheme_ = scheme_;
   other->secure_ = secure_;
-  other->value_ = value_;
 }
 
 + (J2ObjcClassInfo *)__metadata {
@@ -136,13 +136,13 @@
     { "setExpiryWithLong:", "setExpiry", "V", 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setNameWithNSString:", "setName", "V", 0x1, NULL },
-    { "getValue", NULL, "Ljava.lang.String;", 0x1, NULL },
-    { "setValueWithNSString:", "setValue", "V", 0x1, NULL },
+    { "getData", NULL, "Ljava.lang.String;", 0x1, NULL },
+    { "setDataWithNSString:", "setData", "V", 0x1, NULL },
     { "getCreation", NULL, "J", 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "name_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
-    { "value_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
+    { "data_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "domain_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "path_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
     { "scheme_", NULL, 0x2, "Ljava.lang.String;", NULL,  },

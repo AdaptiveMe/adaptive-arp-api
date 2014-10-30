@@ -59,6 +59,7 @@ __attribute__((always_inline)) inline void ARPIContactPhotoResultCallback_init()
 typedef enum {
   ARPIContactPhotoResultCallback_Warning_LimitExceeded = 0,
   ARPIContactPhotoResultCallback_Warning_No_Matches = 1,
+  ARPIContactPhotoResultCallback_Warning_Unknown = 2,
 } ARPIContactPhotoResultCallback_Warning;
 
 @interface ARPIContactPhotoResultCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -81,10 +82,14 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_WarningEnum, LimitExce
 #define ARPIContactPhotoResultCallback_WarningEnum_No_Matches ARPIContactPhotoResultCallback_WarningEnum_values[ARPIContactPhotoResultCallback_Warning_No_Matches]
 J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_WarningEnum, No_Matches, ARPIContactPhotoResultCallback_WarningEnum *)
 
+#define ARPIContactPhotoResultCallback_WarningEnum_Unknown ARPIContactPhotoResultCallback_WarningEnum_values[ARPIContactPhotoResultCallback_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_WarningEnum, Unknown, ARPIContactPhotoResultCallback_WarningEnum *)
+
 typedef enum {
   ARPIContactPhotoResultCallback_Error_NoPermission = 0,
   ARPIContactPhotoResultCallback_Error_Wrong_Params = 1,
   ARPIContactPhotoResultCallback_Error_No_Photo = 2,
+  ARPIContactPhotoResultCallback_Error_Unknown = 3,
 } ARPIContactPhotoResultCallback_Error;
 
 @interface ARPIContactPhotoResultCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -109,5 +114,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_ErrorEnum, Wrong_Param
 
 #define ARPIContactPhotoResultCallback_ErrorEnum_No_Photo ARPIContactPhotoResultCallback_ErrorEnum_values[ARPIContactPhotoResultCallback_Error_No_Photo]
 J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_ErrorEnum, No_Photo, ARPIContactPhotoResultCallback_ErrorEnum *)
+
+#define ARPIContactPhotoResultCallback_ErrorEnum_Unknown ARPIContactPhotoResultCallback_ErrorEnum_values[ARPIContactPhotoResultCallback_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIContactPhotoResultCallback_ErrorEnum, Unknown, ARPIContactPhotoResultCallback_ErrorEnum *)
 
 #endif // _ARPIContactPhotoResultCallback_H_

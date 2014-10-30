@@ -34,7 +34,6 @@
 #ifndef _ARPIMessaging_H_
 #define _ARPIMessaging_H_
 
-@class ARPEmail;
 @protocol ARPIMessagingCallback;
 
 #import "JreEmulation.h"
@@ -44,9 +43,6 @@
 - (void)sendSMSWithNSString:(NSString *)number
                withNSString:(NSString *)text
   withARPIMessagingCallback:(id<ARPIMessagingCallback>)callback;
-
-- (void)sendEmailWithARPEmail:(ARPEmail *)data
-    withARPIMessagingCallback:(id<ARPIMessagingCallback>)callback;
 
 @end
 

@@ -39,18 +39,21 @@
 @interface ARPSecureKeyPair : NSObject {
  @public
   NSString *key_;
-  NSString *value_;
+  NSString *data_;
 }
 
 - (id)init;
+
+- (id)initWithNSString:(NSString *)key
+          withNSString:(NSString *)data;
 
 - (NSString *)getKey;
 
 - (void)setKeyWithNSString:(NSString *)key;
 
-- (NSString *)getValue;
+- (NSString *)getData;
 
-- (void)setValueWithNSString:(NSString *)value;
+- (void)setDataWithNSString:(NSString *)data;
 
 - (void)copyAllFieldsTo:(ARPSecureKeyPair *)other;
 
@@ -59,7 +62,7 @@
 __attribute__((always_inline)) inline void ARPSecureKeyPair_init() {}
 
 J2OBJC_FIELD_SETTER(ARPSecureKeyPair, key_, NSString *)
-J2OBJC_FIELD_SETTER(ARPSecureKeyPair, value_, NSString *)
+J2OBJC_FIELD_SETTER(ARPSecureKeyPair, data_, NSString *)
 
 typedef ARPSecureKeyPair MeAdaptiveArpApiSecureKeyPair;
 

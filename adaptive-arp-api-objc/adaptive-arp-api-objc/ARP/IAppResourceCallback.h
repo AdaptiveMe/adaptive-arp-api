@@ -61,6 +61,7 @@ typedef enum {
   ARPIAppResourceCallback_Warning_PartialContent = 0,
   ARPIAppResourceCallback_Warning_TooLarge = 1,
   ARPIAppResourceCallback_Warning_LinkedResource = 2,
+  ARPIAppResourceCallback_Warning_Unknown = 3,
 } ARPIAppResourceCallback_Warning;
 
 @interface ARPIAppResourceCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -86,9 +87,13 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIAppResourceCallback_WarningEnum, TooLarge, ARPIAp
 #define ARPIAppResourceCallback_WarningEnum_LinkedResource ARPIAppResourceCallback_WarningEnum_values[ARPIAppResourceCallback_Warning_LinkedResource]
 J2OBJC_STATIC_FIELD_GETTER(ARPIAppResourceCallback_WarningEnum, LinkedResource, ARPIAppResourceCallback_WarningEnum *)
 
+#define ARPIAppResourceCallback_WarningEnum_Unknown ARPIAppResourceCallback_WarningEnum_values[ARPIAppResourceCallback_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppResourceCallback_WarningEnum, Unknown, ARPIAppResourceCallback_WarningEnum *)
+
 typedef enum {
   ARPIAppResourceCallback_Error_NotFound = 0,
   ARPIAppResourceCallback_Error_NoPermission = 1,
+  ARPIAppResourceCallback_Error_Unknown = 2,
 } ARPIAppResourceCallback_Error;
 
 @interface ARPIAppResourceCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -110,5 +115,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIAppResourceCallback_ErrorEnum, NotFound, ARPIAppR
 
 #define ARPIAppResourceCallback_ErrorEnum_NoPermission ARPIAppResourceCallback_ErrorEnum_values[ARPIAppResourceCallback_Error_NoPermission]
 J2OBJC_STATIC_FIELD_GETTER(ARPIAppResourceCallback_ErrorEnum, NoPermission, ARPIAppResourceCallback_ErrorEnum *)
+
+#define ARPIAppResourceCallback_ErrorEnum_Unknown ARPIAppResourceCallback_ErrorEnum_values[ARPIAppResourceCallback_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppResourceCallback_ErrorEnum, Unknown, ARPIAppResourceCallback_ErrorEnum *)
 
 #endif // _ARPIAppResourceCallback_H_

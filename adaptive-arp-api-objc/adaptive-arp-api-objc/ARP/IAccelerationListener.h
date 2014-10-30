@@ -59,6 +59,7 @@ __attribute__((always_inline)) inline void ARPIAccelerationListener_init() {}
 typedef enum {
   ARPIAccelerationListener_Warning_NeedsCalibration = 0,
   ARPIAccelerationListener_Warning_Stale = 1,
+  ARPIAccelerationListener_Warning_Unknown = 2,
 } ARPIAccelerationListener_Warning;
 
 @interface ARPIAccelerationListener_WarningEnum : JavaLangEnum < NSCopying > {
@@ -81,9 +82,13 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerationListener_WarningEnum, NeedsCalibratio
 #define ARPIAccelerationListener_WarningEnum_Stale ARPIAccelerationListener_WarningEnum_values[ARPIAccelerationListener_Warning_Stale]
 J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerationListener_WarningEnum, Stale, ARPIAccelerationListener_WarningEnum *)
 
+#define ARPIAccelerationListener_WarningEnum_Unknown ARPIAccelerationListener_WarningEnum_values[ARPIAccelerationListener_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerationListener_WarningEnum, Unknown, ARPIAccelerationListener_WarningEnum *)
+
 typedef enum {
   ARPIAccelerationListener_Error_Unauthorized = 0,
   ARPIAccelerationListener_Error_Unavailable = 1,
+  ARPIAccelerationListener_Error_Unknown = 2,
 } ARPIAccelerationListener_Error;
 
 @interface ARPIAccelerationListener_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -105,5 +110,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerationListener_ErrorEnum, Unauthorized, ARP
 
 #define ARPIAccelerationListener_ErrorEnum_Unavailable ARPIAccelerationListener_ErrorEnum_values[ARPIAccelerationListener_Error_Unavailable]
 J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerationListener_ErrorEnum, Unavailable, ARPIAccelerationListener_ErrorEnum *)
+
+#define ARPIAccelerationListener_ErrorEnum_Unknown ARPIAccelerationListener_ErrorEnum_values[ARPIAccelerationListener_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAccelerationListener_ErrorEnum, Unknown, ARPIAccelerationListener_ErrorEnum *)
 
 #endif // _ARPIAccelerationListener_H_

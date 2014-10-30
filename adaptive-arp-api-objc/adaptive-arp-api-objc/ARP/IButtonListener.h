@@ -58,6 +58,7 @@ __attribute__((always_inline)) inline void ARPIButtonListener_init() {}
 
 typedef enum {
   ARPIButtonListener_Error_Not_Present = 0,
+  ARPIButtonListener_Error_Unknown = 1,
 } ARPIButtonListener_Error;
 
 @interface ARPIButtonListener_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -77,8 +78,12 @@ FOUNDATION_EXPORT ARPIButtonListener_ErrorEnum *ARPIButtonListener_ErrorEnum_val
 #define ARPIButtonListener_ErrorEnum_Not_Present ARPIButtonListener_ErrorEnum_values[ARPIButtonListener_Error_Not_Present]
 J2OBJC_STATIC_FIELD_GETTER(ARPIButtonListener_ErrorEnum, Not_Present, ARPIButtonListener_ErrorEnum *)
 
+#define ARPIButtonListener_ErrorEnum_Unknown ARPIButtonListener_ErrorEnum_values[ARPIButtonListener_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIButtonListener_ErrorEnum, Unknown, ARPIButtonListener_ErrorEnum *)
+
 typedef enum {
   ARPIButtonListener_Warning_Not_Implemented = 0,
+  ARPIButtonListener_Warning_Unknown = 1,
 } ARPIButtonListener_Warning;
 
 @interface ARPIButtonListener_WarningEnum : JavaLangEnum < NSCopying > {
@@ -97,5 +102,8 @@ FOUNDATION_EXPORT ARPIButtonListener_WarningEnum *ARPIButtonListener_WarningEnum
 
 #define ARPIButtonListener_WarningEnum_Not_Implemented ARPIButtonListener_WarningEnum_values[ARPIButtonListener_Warning_Not_Implemented]
 J2OBJC_STATIC_FIELD_GETTER(ARPIButtonListener_WarningEnum, Not_Implemented, ARPIButtonListener_WarningEnum *)
+
+#define ARPIButtonListener_WarningEnum_Unknown ARPIButtonListener_WarningEnum_values[ARPIButtonListener_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIButtonListener_WarningEnum, Unknown, ARPIButtonListener_WarningEnum *)
 
 #endif // _ARPIButtonListener_H_

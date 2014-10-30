@@ -55,7 +55,7 @@
 
 BOOL ARPIGeolocationListener_ErrorEnum_initialized = NO;
 
-ARPIGeolocationListener_ErrorEnum *ARPIGeolocationListener_ErrorEnum_values[4];
+ARPIGeolocationListener_ErrorEnum *ARPIGeolocationListener_ErrorEnum_values[5];
 
 @implementation ARPIGeolocationListener_ErrorEnum
 
@@ -73,16 +73,17 @@ ARPIGeolocationListener_ErrorEnum *ARPIGeolocationListener_ErrorEnum_values[4];
     ARPIGeolocationListener_ErrorEnum_RestrictedAccess = [[ARPIGeolocationListener_ErrorEnum alloc] initWithNSString:@"RestrictedAccess" withInt:1];
     ARPIGeolocationListener_ErrorEnum_DeniedAccess = [[ARPIGeolocationListener_ErrorEnum alloc] initWithNSString:@"DeniedAccess" withInt:2];
     ARPIGeolocationListener_ErrorEnum_StatusNotDetermined = [[ARPIGeolocationListener_ErrorEnum alloc] initWithNSString:@"StatusNotDetermined" withInt:3];
+    ARPIGeolocationListener_ErrorEnum_Unknown = [[ARPIGeolocationListener_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:4];
     ARPIGeolocationListener_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIGeolocationListener_ErrorEnum_values count:4 type:[IOSClass classWithClass:[ARPIGeolocationListener_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIGeolocationListener_ErrorEnum_values count:5 type:[IOSClass classWithClass:[ARPIGeolocationListener_ErrorEnum class]]];
 }
 
 + (ARPIGeolocationListener_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 5; i++) {
     ARPIGeolocationListener_ErrorEnum *e = ARPIGeolocationListener_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -101,9 +102,10 @@ ARPIGeolocationListener_ErrorEnum *ARPIGeolocationListener_ErrorEnum_values[4];
     { "RestrictedAccess", "RestrictedAccess", 0x4019, "Lme.adaptive.arp.api.IGeolocationListener$Error;", &ARPIGeolocationListener_ErrorEnum_RestrictedAccess,  },
     { "DeniedAccess", "DeniedAccess", 0x4019, "Lme.adaptive.arp.api.IGeolocationListener$Error;", &ARPIGeolocationListener_ErrorEnum_DeniedAccess,  },
     { "StatusNotDetermined", "StatusNotDetermined", 0x4019, "Lme.adaptive.arp.api.IGeolocationListener$Error;", &ARPIGeolocationListener_ErrorEnum_StatusNotDetermined,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IGeolocationListener$Error;", &ARPIGeolocationListener_ErrorEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IGeolocationListener$Error;"};
-  static J2ObjcClassInfo _ARPIGeolocationListener_ErrorEnum = { "Error", "me.adaptive.arp.api", "IGeolocationListener", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIGeolocationListener_ErrorEnum = { "Error", "me.adaptive.arp.api", "IGeolocationListener", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
   return &_ARPIGeolocationListener_ErrorEnum;
 }
 
@@ -111,7 +113,7 @@ ARPIGeolocationListener_ErrorEnum *ARPIGeolocationListener_ErrorEnum_values[4];
 
 BOOL ARPIGeolocationListener_WarningEnum_initialized = NO;
 
-ARPIGeolocationListener_WarningEnum *ARPIGeolocationListener_WarningEnum_values[2];
+ARPIGeolocationListener_WarningEnum *ARPIGeolocationListener_WarningEnum_values[3];
 
 @implementation ARPIGeolocationListener_WarningEnum
 
@@ -127,16 +129,17 @@ ARPIGeolocationListener_WarningEnum *ARPIGeolocationListener_WarningEnum_values[
   if (self == [ARPIGeolocationListener_WarningEnum class]) {
     ARPIGeolocationListener_WarningEnum_HighDoP = [[ARPIGeolocationListener_WarningEnum alloc] initWithNSString:@"HighDoP" withInt:0];
     ARPIGeolocationListener_WarningEnum_StaleData = [[ARPIGeolocationListener_WarningEnum alloc] initWithNSString:@"StaleData" withInt:1];
+    ARPIGeolocationListener_WarningEnum_Unknown = [[ARPIGeolocationListener_WarningEnum alloc] initWithNSString:@"Unknown" withInt:2];
     ARPIGeolocationListener_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIGeolocationListener_WarningEnum_values count:2 type:[IOSClass classWithClass:[ARPIGeolocationListener_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIGeolocationListener_WarningEnum_values count:3 type:[IOSClass classWithClass:[ARPIGeolocationListener_WarningEnum class]]];
 }
 
 + (ARPIGeolocationListener_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPIGeolocationListener_WarningEnum *e = ARPIGeolocationListener_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -153,9 +156,10 @@ ARPIGeolocationListener_WarningEnum *ARPIGeolocationListener_WarningEnum_values[
   static J2ObjcFieldInfo fields[] = {
     { "HighDoP", "HighDoP", 0x4019, "Lme.adaptive.arp.api.IGeolocationListener$Warning;", &ARPIGeolocationListener_WarningEnum_HighDoP,  },
     { "StaleData", "StaleData", 0x4019, "Lme.adaptive.arp.api.IGeolocationListener$Warning;", &ARPIGeolocationListener_WarningEnum_StaleData,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IGeolocationListener$Warning;", &ARPIGeolocationListener_WarningEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IGeolocationListener$Warning;"};
-  static J2ObjcClassInfo _ARPIGeolocationListener_WarningEnum = { "Warning", "me.adaptive.arp.api", "IGeolocationListener", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIGeolocationListener_WarningEnum = { "Warning", "me.adaptive.arp.api", "IGeolocationListener", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPIGeolocationListener_WarningEnum;
 }
 

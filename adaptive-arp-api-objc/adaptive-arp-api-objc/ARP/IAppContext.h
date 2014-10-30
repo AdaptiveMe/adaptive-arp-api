@@ -37,10 +37,10 @@
 @class ARPIAppContext_TypeEnum;
 
 #import "JreEmulation.h"
+#include "IAdaptiveRP.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIAppContext < NSObject, JavaObject >
-
+@protocol ARPIAppContext < ARPIAdaptiveRP, NSObject, JavaObject >
 - (id)getContext;
 
 - (ARPIAppContext_TypeEnum *)getContextType;

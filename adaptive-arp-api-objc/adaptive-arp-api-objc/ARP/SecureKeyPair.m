@@ -39,6 +39,15 @@
   return [super init];
 }
 
+- (id)initWithNSString:(NSString *)key
+          withNSString:(NSString *)data {
+  if (self = [super init]) {
+    self->key_ = key;
+    self->data_ = data;
+  }
+  return self;
+}
+
 - (NSString *)getKey {
   return key_;
 }
@@ -47,33 +56,34 @@
   self->key_ = key;
 }
 
-- (NSString *)getValue {
-  return value_;
+- (NSString *)getData {
+  return data_;
 }
 
-- (void)setValueWithNSString:(NSString *)value {
-  self->value_ = value;
+- (void)setDataWithNSString:(NSString *)data {
+  self->data_ = data;
 }
 
 - (void)copyAllFieldsTo:(ARPSecureKeyPair *)other {
   [super copyAllFieldsTo:other];
+  other->data_ = data_;
   other->key_ = key_;
-  other->value_ = value_;
 }
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "init", "SecureKeyPair", NULL, 0x1, NULL },
+    { "initWithNSString:withNSString:", "SecureKeyPair", NULL, 0x1, NULL },
     { "getKey", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setKeyWithNSString:", "setKey", "V", 0x1, NULL },
-    { "getValue", NULL, "Ljava.lang.String;", 0x1, NULL },
-    { "setValueWithNSString:", "setValue", "V", 0x1, NULL },
+    { "getData", NULL, "Ljava.lang.String;", 0x1, NULL },
+    { "setDataWithNSString:", "setData", "V", 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "key_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
-    { "value_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
+    { "data_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ARPSecureKeyPair = { "SecureKeyPair", "me.adaptive.arp.api", NULL, 0x1, 5, methods, 2, fields, 0, NULL};
+  static J2ObjcClassInfo _ARPSecureKeyPair = { "SecureKeyPair", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 2, fields, 0, NULL};
   return &_ARPSecureKeyPair;
 }
 

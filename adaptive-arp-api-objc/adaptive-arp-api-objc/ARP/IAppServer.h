@@ -35,9 +35,9 @@
 #define _ARPIAppServer_H_
 
 #import "JreEmulation.h"
+#include "IAdaptiveRP.h"
 
-@protocol ARPIAppServer < NSObject, JavaObject >
-
+@protocol ARPIAppServer < ARPIAdaptiveRP, NSObject, JavaObject >
 - (NSString *)getScheme;
 
 - (NSString *)getHost;

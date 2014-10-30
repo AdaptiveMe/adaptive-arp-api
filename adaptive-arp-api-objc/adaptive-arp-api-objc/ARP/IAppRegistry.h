@@ -51,9 +51,9 @@
 @protocol ARPIUpdate;
 
 #import "JreEmulation.h"
+#include "IAdaptiveRP.h"
 
-@protocol ARPIAppRegistry < NSObject, JavaObject >
-
+@protocol ARPIAppRegistry < ARPIAdaptiveRP, NSObject, JavaObject >
 - (id<ARPIAppContext>)getPlatformContext;
 
 - (id<ARPIAppContextWebview>)getPlatformContextWeb;

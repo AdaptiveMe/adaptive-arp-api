@@ -40,10 +40,10 @@
 @class IOSByteArray;
 
 #import "JreEmulation.h"
+#include "IAdaptiveRP.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPIAppResource < NSObject, JavaObject >
-
+@protocol ARPIAppResource < ARPIAdaptiveRP, NSObject, JavaObject >
 - (NSString *)getName;
 
 - (NSString *)getPath;

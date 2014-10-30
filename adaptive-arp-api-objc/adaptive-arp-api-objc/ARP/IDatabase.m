@@ -48,7 +48,6 @@
     { "createDatabaseWithARPDatabase:withARPIDatabaseResultCallback:", "createDatabase", "V", 0x401, NULL },
     { "deleteDatabaseWithARPDatabase:withARPIDatabaseResultCallback:", "deleteDatabase", "V", 0x401, NULL },
     { "existsDatabaseWithARPDatabase:", "existsDatabase", "Z", 0x401, NULL },
-    { "getDatabaseWithARPDatabase:withARPIDatabaseResultCallback:", "getDatabase", "V", 0x401, NULL },
     { "createTableWithARPDatabase:withARPTable:withARPITableResultCallback:", "createTable", "V", 0x401, NULL },
     { "deleteTableWithARPDatabase:withARPTable:withARPITableResultCallback:", "deleteTable", "V", 0x401, NULL },
     { "existsTableWithARPDatabase:withARPTable:", "existsTable", "Z", 0x401, NULL },
@@ -56,7 +55,7 @@
     { "executeSqlStatementWithARPDatabase:withNSString:withNSStringArray:withARPITableResultCallback:", "executeSqlStatement", "V", 0x401, NULL },
     { "executeSqlTransactionsWithARPDatabase:withNSStringArray:withBoolean:withARPITableResultCallback:", "executeSqlTransactions", "V", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ARPIDatabase = { "IDatabase", "me.adaptive.arp.api", NULL, 0x201, 10, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ARPIDatabase = { "IDatabase", "me.adaptive.arp.api", NULL, 0x201, 9, methods, 0, NULL, 0, NULL};
   return &_ARPIDatabase;
 }
 

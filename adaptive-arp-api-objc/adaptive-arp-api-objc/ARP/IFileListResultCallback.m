@@ -57,7 +57,7 @@
 
 BOOL ARPIFileListResultCallback_WarningEnum_initialized = NO;
 
-ARPIFileListResultCallback_WarningEnum *ARPIFileListResultCallback_WarningEnum_values[1];
+ARPIFileListResultCallback_WarningEnum *ARPIFileListResultCallback_WarningEnum_values[2];
 
 @implementation ARPIFileListResultCallback_WarningEnum
 
@@ -72,16 +72,17 @@ ARPIFileListResultCallback_WarningEnum *ARPIFileListResultCallback_WarningEnum_v
 + (void)initialize {
   if (self == [ARPIFileListResultCallback_WarningEnum class]) {
     ARPIFileListResultCallback_WarningEnum_PartialResult = [[ARPIFileListResultCallback_WarningEnum alloc] initWithNSString:@"PartialResult" withInt:0];
+    ARPIFileListResultCallback_WarningEnum_Unknown = [[ARPIFileListResultCallback_WarningEnum alloc] initWithNSString:@"Unknown" withInt:1];
     ARPIFileListResultCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIFileListResultCallback_WarningEnum_values count:1 type:[IOSClass classWithClass:[ARPIFileListResultCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIFileListResultCallback_WarningEnum_values count:2 type:[IOSClass classWithClass:[ARPIFileListResultCallback_WarningEnum class]]];
 }
 
 + (ARPIFileListResultCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 2; i++) {
     ARPIFileListResultCallback_WarningEnum *e = ARPIFileListResultCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -97,9 +98,10 @@ ARPIFileListResultCallback_WarningEnum *ARPIFileListResultCallback_WarningEnum_v
   };
   static J2ObjcFieldInfo fields[] = {
     { "PartialResult", "PartialResult", 0x4019, "Lme.adaptive.arp.api.IFileListResultCallback$Warning;", &ARPIFileListResultCallback_WarningEnum_PartialResult,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IFileListResultCallback$Warning;", &ARPIFileListResultCallback_WarningEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IFileListResultCallback$Warning;"};
-  static J2ObjcClassInfo _ARPIFileListResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IFileListResultCallback", 0x4019, 1, methods, 1, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIFileListResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IFileListResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
   return &_ARPIFileListResultCallback_WarningEnum;
 }
 
@@ -107,7 +109,7 @@ ARPIFileListResultCallback_WarningEnum *ARPIFileListResultCallback_WarningEnum_v
 
 BOOL ARPIFileListResultCallback_ErrorEnum_initialized = NO;
 
-ARPIFileListResultCallback_ErrorEnum *ARPIFileListResultCallback_ErrorEnum_values[2];
+ARPIFileListResultCallback_ErrorEnum *ARPIFileListResultCallback_ErrorEnum_values[3];
 
 @implementation ARPIFileListResultCallback_ErrorEnum
 
@@ -123,16 +125,17 @@ ARPIFileListResultCallback_ErrorEnum *ARPIFileListResultCallback_ErrorEnum_value
   if (self == [ARPIFileListResultCallback_ErrorEnum class]) {
     ARPIFileListResultCallback_ErrorEnum_InexistentFile = [[ARPIFileListResultCallback_ErrorEnum alloc] initWithNSString:@"InexistentFile" withInt:0];
     ARPIFileListResultCallback_ErrorEnum_Unauthorized = [[ARPIFileListResultCallback_ErrorEnum alloc] initWithNSString:@"Unauthorized" withInt:1];
+    ARPIFileListResultCallback_ErrorEnum_Unknown = [[ARPIFileListResultCallback_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:2];
     ARPIFileListResultCallback_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIFileListResultCallback_ErrorEnum_values count:2 type:[IOSClass classWithClass:[ARPIFileListResultCallback_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIFileListResultCallback_ErrorEnum_values count:3 type:[IOSClass classWithClass:[ARPIFileListResultCallback_ErrorEnum class]]];
 }
 
 + (ARPIFileListResultCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPIFileListResultCallback_ErrorEnum *e = ARPIFileListResultCallback_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -149,9 +152,10 @@ ARPIFileListResultCallback_ErrorEnum *ARPIFileListResultCallback_ErrorEnum_value
   static J2ObjcFieldInfo fields[] = {
     { "InexistentFile", "InexistentFile", 0x4019, "Lme.adaptive.arp.api.IFileListResultCallback$Error;", &ARPIFileListResultCallback_ErrorEnum_InexistentFile,  },
     { "Unauthorized", "Unauthorized", 0x4019, "Lme.adaptive.arp.api.IFileListResultCallback$Error;", &ARPIFileListResultCallback_ErrorEnum_Unauthorized,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IFileListResultCallback$Error;", &ARPIFileListResultCallback_ErrorEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IFileListResultCallback$Error;"};
-  static J2ObjcClassInfo _ARPIFileListResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IFileListResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIFileListResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IFileListResultCallback", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPIFileListResultCallback_ErrorEnum;
 }
 

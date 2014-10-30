@@ -39,7 +39,7 @@
 @interface ARPCookie : NSObject {
  @public
   NSString *name_;
-  NSString *value_;
+  NSString *data_;
   NSString *domain_;
   NSString *path_;
   NSString *scheme_;
@@ -49,7 +49,7 @@
 }
 
 - (id)initWithNSString:(NSString *)name
-          withNSString:(NSString *)value;
+          withNSString:(NSString *)data;
 
 - (id)init;
 
@@ -77,9 +77,9 @@
 
 - (void)setNameWithNSString:(NSString *)name;
 
-- (NSString *)getValue;
+- (NSString *)getData;
 
-- (void)setValueWithNSString:(NSString *)value;
+- (void)setDataWithNSString:(NSString *)data;
 
 - (long long int)getCreation;
 
@@ -90,7 +90,7 @@
 __attribute__((always_inline)) inline void ARPCookie_init() {}
 
 J2OBJC_FIELD_SETTER(ARPCookie, name_, NSString *)
-J2OBJC_FIELD_SETTER(ARPCookie, value_, NSString *)
+J2OBJC_FIELD_SETTER(ARPCookie, data_, NSString *)
 J2OBJC_FIELD_SETTER(ARPCookie, domain_, NSString *)
 J2OBJC_FIELD_SETTER(ARPCookie, path_, NSString *)
 J2OBJC_FIELD_SETTER(ARPCookie, scheme_, NSString *)

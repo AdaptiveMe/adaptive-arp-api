@@ -72,8 +72,8 @@ ARPIServiceResultCallback_WarningEnum *ARPIServiceResultCallback_WarningEnum_val
     ARPIServiceResultCallback_WarningEnum_NotSecure = [[ARPIServiceResultCallback_WarningEnum alloc] initWithNSString:@"NotSecure" withInt:0];
     ARPIServiceResultCallback_WarningEnum_NotTrusted = [[ARPIServiceResultCallback_WarningEnum alloc] initWithNSString:@"NotTrusted" withInt:1];
     ARPIServiceResultCallback_WarningEnum_Redirected = [[ARPIServiceResultCallback_WarningEnum alloc] initWithNSString:@"Redirected" withInt:2];
-    ARPIServiceResultCallback_WarningEnum_NotRegisteredService = [[ARPIServiceResultCallback_WarningEnum alloc] initWithNSString:@"NotRegisteredService" withInt:3];
-    ARPIServiceResultCallback_WarningEnum_Wrong_Params = [[ARPIServiceResultCallback_WarningEnum alloc] initWithNSString:@"Wrong_Params" withInt:4];
+    ARPIServiceResultCallback_WarningEnum_Wrong_Params = [[ARPIServiceResultCallback_WarningEnum alloc] initWithNSString:@"Wrong_Params" withInt:3];
+    ARPIServiceResultCallback_WarningEnum_Unknown = [[ARPIServiceResultCallback_WarningEnum alloc] initWithNSString:@"Unknown" withInt:4];
     ARPIServiceResultCallback_WarningEnum_initialized = YES;
   }
 }
@@ -101,8 +101,8 @@ ARPIServiceResultCallback_WarningEnum *ARPIServiceResultCallback_WarningEnum_val
     { "NotSecure", "NotSecure", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Warning;", &ARPIServiceResultCallback_WarningEnum_NotSecure,  },
     { "NotTrusted", "NotTrusted", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Warning;", &ARPIServiceResultCallback_WarningEnum_NotTrusted,  },
     { "Redirected", "Redirected", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Warning;", &ARPIServiceResultCallback_WarningEnum_Redirected,  },
-    { "NotRegisteredService", "NotRegisteredService", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Warning;", &ARPIServiceResultCallback_WarningEnum_NotRegisteredService,  },
     { "Wrong_Params", "Wrong_Params", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Warning;", &ARPIServiceResultCallback_WarningEnum_Wrong_Params,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Warning;", &ARPIServiceResultCallback_WarningEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IServiceResultCallback$Warning;"};
   static J2ObjcClassInfo _ARPIServiceResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IServiceResultCallback", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
@@ -113,7 +113,7 @@ ARPIServiceResultCallback_WarningEnum *ARPIServiceResultCallback_WarningEnum_val
 
 BOOL ARPIServiceResultCallback_ErrorEnum_initialized = NO;
 
-ARPIServiceResultCallback_ErrorEnum *ARPIServiceResultCallback_ErrorEnum_values[11];
+ARPIServiceResultCallback_ErrorEnum *ARPIServiceResultCallback_ErrorEnum_values[12];
 
 @implementation ARPIServiceResultCallback_ErrorEnum
 
@@ -136,18 +136,19 @@ ARPIServiceResultCallback_ErrorEnum *ARPIServiceResultCallback_ErrorEnum_values[
     ARPIServiceResultCallback_ErrorEnum_NoResponse = [[ARPIServiceResultCallback_ErrorEnum alloc] initWithNSString:@"NoResponse" withInt:6];
     ARPIServiceResultCallback_ErrorEnum_ServerError = [[ARPIServiceResultCallback_ErrorEnum alloc] initWithNSString:@"ServerError" withInt:7];
     ARPIServiceResultCallback_ErrorEnum_Unreachable = [[ARPIServiceResultCallback_ErrorEnum alloc] initWithNSString:@"Unreachable" withInt:8];
-    ARPIServiceResultCallback_ErrorEnum_Unknown = [[ARPIServiceResultCallback_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:9];
-    ARPIServiceResultCallback_ErrorEnum_MalformedUrl = [[ARPIServiceResultCallback_ErrorEnum alloc] initWithNSString:@"MalformedUrl" withInt:10];
+    ARPIServiceResultCallback_ErrorEnum_MalformedUrl = [[ARPIServiceResultCallback_ErrorEnum alloc] initWithNSString:@"MalformedUrl" withInt:9];
+    ARPIServiceResultCallback_ErrorEnum_NotRegisteredService = [[ARPIServiceResultCallback_ErrorEnum alloc] initWithNSString:@"NotRegisteredService" withInt:10];
+    ARPIServiceResultCallback_ErrorEnum_Unknown = [[ARPIServiceResultCallback_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:11];
     ARPIServiceResultCallback_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIServiceResultCallback_ErrorEnum_values count:11 type:[IOSClass classWithClass:[ARPIServiceResultCallback_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIServiceResultCallback_ErrorEnum_values count:12 type:[IOSClass classWithClass:[ARPIServiceResultCallback_ErrorEnum class]]];
 }
 
 + (ARPIServiceResultCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 11; i++) {
+  for (int i = 0; i < 12; i++) {
     ARPIServiceResultCallback_ErrorEnum *e = ARPIServiceResultCallback_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -171,11 +172,12 @@ ARPIServiceResultCallback_ErrorEnum *ARPIServiceResultCallback_ErrorEnum_values[
     { "NoResponse", "NoResponse", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Error;", &ARPIServiceResultCallback_ErrorEnum_NoResponse,  },
     { "ServerError", "ServerError", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Error;", &ARPIServiceResultCallback_ErrorEnum_ServerError,  },
     { "Unreachable", "Unreachable", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Error;", &ARPIServiceResultCallback_ErrorEnum_Unreachable,  },
-    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Error;", &ARPIServiceResultCallback_ErrorEnum_Unknown,  },
     { "MalformedUrl", "MalformedUrl", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Error;", &ARPIServiceResultCallback_ErrorEnum_MalformedUrl,  },
+    { "NotRegisteredService", "NotRegisteredService", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Error;", &ARPIServiceResultCallback_ErrorEnum_NotRegisteredService,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IServiceResultCallback$Error;", &ARPIServiceResultCallback_ErrorEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IServiceResultCallback$Error;"};
-  static J2ObjcClassInfo _ARPIServiceResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IServiceResultCallback", 0x4019, 1, methods, 11, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIServiceResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IServiceResultCallback", 0x4019, 1, methods, 12, fields, 1, superclass_type_args};
   return &_ARPIServiceResultCallback_ErrorEnum;
 }
 

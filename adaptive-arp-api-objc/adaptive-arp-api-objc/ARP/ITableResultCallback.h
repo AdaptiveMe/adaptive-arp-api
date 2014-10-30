@@ -60,6 +60,7 @@ typedef enum {
   ARPITableResultCallback_Warning_TableExists = 0,
   ARPITableResultCallback_Warning_TableLocked = 1,
   ARPITableResultCallback_Warning_NoResults = 2,
+  ARPITableResultCallback_Warning_Unknown = 3,
 } ARPITableResultCallback_Warning;
 
 @interface ARPITableResultCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -85,10 +86,16 @@ J2OBJC_STATIC_FIELD_GETTER(ARPITableResultCallback_WarningEnum, TableLocked, ARP
 #define ARPITableResultCallback_WarningEnum_NoResults ARPITableResultCallback_WarningEnum_values[ARPITableResultCallback_Warning_NoResults]
 J2OBJC_STATIC_FIELD_GETTER(ARPITableResultCallback_WarningEnum, NoResults, ARPITableResultCallback_WarningEnum *)
 
+#define ARPITableResultCallback_WarningEnum_Unknown ARPITableResultCallback_WarningEnum_values[ARPITableResultCallback_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPITableResultCallback_WarningEnum, Unknown, ARPITableResultCallback_WarningEnum *)
+
 typedef enum {
   ARPITableResultCallback_Error_NoSpace = 0,
   ARPITableResultCallback_Error_ReadOnlyTable = 1,
   ARPITableResultCallback_Error_SqlException = 2,
+  ARPITableResultCallback_Error_DatabaseNotFound = 3,
+  ARPITableResultCallback_Error_NoTableFound = 4,
+  ARPITableResultCallback_Error_Unknown = 5,
 } ARPITableResultCallback_Error;
 
 @interface ARPITableResultCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -113,5 +120,14 @@ J2OBJC_STATIC_FIELD_GETTER(ARPITableResultCallback_ErrorEnum, ReadOnlyTable, ARP
 
 #define ARPITableResultCallback_ErrorEnum_SqlException ARPITableResultCallback_ErrorEnum_values[ARPITableResultCallback_Error_SqlException]
 J2OBJC_STATIC_FIELD_GETTER(ARPITableResultCallback_ErrorEnum, SqlException, ARPITableResultCallback_ErrorEnum *)
+
+#define ARPITableResultCallback_ErrorEnum_DatabaseNotFound ARPITableResultCallback_ErrorEnum_values[ARPITableResultCallback_Error_DatabaseNotFound]
+J2OBJC_STATIC_FIELD_GETTER(ARPITableResultCallback_ErrorEnum, DatabaseNotFound, ARPITableResultCallback_ErrorEnum *)
+
+#define ARPITableResultCallback_ErrorEnum_NoTableFound ARPITableResultCallback_ErrorEnum_values[ARPITableResultCallback_Error_NoTableFound]
+J2OBJC_STATIC_FIELD_GETTER(ARPITableResultCallback_ErrorEnum, NoTableFound, ARPITableResultCallback_ErrorEnum *)
+
+#define ARPITableResultCallback_ErrorEnum_Unknown ARPITableResultCallback_ErrorEnum_values[ARPITableResultCallback_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPITableResultCallback_ErrorEnum, Unknown, ARPITableResultCallback_ErrorEnum *)
 
 #endif // _ARPITableResultCallback_H_

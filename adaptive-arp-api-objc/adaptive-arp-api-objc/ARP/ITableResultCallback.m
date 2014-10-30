@@ -55,7 +55,7 @@
 
 BOOL ARPITableResultCallback_WarningEnum_initialized = NO;
 
-ARPITableResultCallback_WarningEnum *ARPITableResultCallback_WarningEnum_values[3];
+ARPITableResultCallback_WarningEnum *ARPITableResultCallback_WarningEnum_values[4];
 
 @implementation ARPITableResultCallback_WarningEnum
 
@@ -72,16 +72,17 @@ ARPITableResultCallback_WarningEnum *ARPITableResultCallback_WarningEnum_values[
     ARPITableResultCallback_WarningEnum_TableExists = [[ARPITableResultCallback_WarningEnum alloc] initWithNSString:@"TableExists" withInt:0];
     ARPITableResultCallback_WarningEnum_TableLocked = [[ARPITableResultCallback_WarningEnum alloc] initWithNSString:@"TableLocked" withInt:1];
     ARPITableResultCallback_WarningEnum_NoResults = [[ARPITableResultCallback_WarningEnum alloc] initWithNSString:@"NoResults" withInt:2];
+    ARPITableResultCallback_WarningEnum_Unknown = [[ARPITableResultCallback_WarningEnum alloc] initWithNSString:@"Unknown" withInt:3];
     ARPITableResultCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPITableResultCallback_WarningEnum_values count:3 type:[IOSClass classWithClass:[ARPITableResultCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPITableResultCallback_WarningEnum_values count:4 type:[IOSClass classWithClass:[ARPITableResultCallback_WarningEnum class]]];
 }
 
 + (ARPITableResultCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     ARPITableResultCallback_WarningEnum *e = ARPITableResultCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -99,9 +100,10 @@ ARPITableResultCallback_WarningEnum *ARPITableResultCallback_WarningEnum_values[
     { "TableExists", "TableExists", 0x4019, "Lme.adaptive.arp.api.ITableResultCallback$Warning;", &ARPITableResultCallback_WarningEnum_TableExists,  },
     { "TableLocked", "TableLocked", 0x4019, "Lme.adaptive.arp.api.ITableResultCallback$Warning;", &ARPITableResultCallback_WarningEnum_TableLocked,  },
     { "NoResults", "NoResults", 0x4019, "Lme.adaptive.arp.api.ITableResultCallback$Warning;", &ARPITableResultCallback_WarningEnum_NoResults,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ITableResultCallback$Warning;", &ARPITableResultCallback_WarningEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ITableResultCallback$Warning;"};
-  static J2ObjcClassInfo _ARPITableResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "ITableResultCallback", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPITableResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "ITableResultCallback", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
   return &_ARPITableResultCallback_WarningEnum;
 }
 
@@ -109,7 +111,7 @@ ARPITableResultCallback_WarningEnum *ARPITableResultCallback_WarningEnum_values[
 
 BOOL ARPITableResultCallback_ErrorEnum_initialized = NO;
 
-ARPITableResultCallback_ErrorEnum *ARPITableResultCallback_ErrorEnum_values[3];
+ARPITableResultCallback_ErrorEnum *ARPITableResultCallback_ErrorEnum_values[6];
 
 @implementation ARPITableResultCallback_ErrorEnum
 
@@ -126,16 +128,19 @@ ARPITableResultCallback_ErrorEnum *ARPITableResultCallback_ErrorEnum_values[3];
     ARPITableResultCallback_ErrorEnum_NoSpace = [[ARPITableResultCallback_ErrorEnum alloc] initWithNSString:@"NoSpace" withInt:0];
     ARPITableResultCallback_ErrorEnum_ReadOnlyTable = [[ARPITableResultCallback_ErrorEnum alloc] initWithNSString:@"ReadOnlyTable" withInt:1];
     ARPITableResultCallback_ErrorEnum_SqlException = [[ARPITableResultCallback_ErrorEnum alloc] initWithNSString:@"SqlException" withInt:2];
+    ARPITableResultCallback_ErrorEnum_DatabaseNotFound = [[ARPITableResultCallback_ErrorEnum alloc] initWithNSString:@"DatabaseNotFound" withInt:3];
+    ARPITableResultCallback_ErrorEnum_NoTableFound = [[ARPITableResultCallback_ErrorEnum alloc] initWithNSString:@"NoTableFound" withInt:4];
+    ARPITableResultCallback_ErrorEnum_Unknown = [[ARPITableResultCallback_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:5];
     ARPITableResultCallback_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPITableResultCallback_ErrorEnum_values count:3 type:[IOSClass classWithClass:[ARPITableResultCallback_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPITableResultCallback_ErrorEnum_values count:6 type:[IOSClass classWithClass:[ARPITableResultCallback_ErrorEnum class]]];
 }
 
 + (ARPITableResultCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 6; i++) {
     ARPITableResultCallback_ErrorEnum *e = ARPITableResultCallback_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -153,9 +158,12 @@ ARPITableResultCallback_ErrorEnum *ARPITableResultCallback_ErrorEnum_values[3];
     { "NoSpace", "NoSpace", 0x4019, "Lme.adaptive.arp.api.ITableResultCallback$Error;", &ARPITableResultCallback_ErrorEnum_NoSpace,  },
     { "ReadOnlyTable", "ReadOnlyTable", 0x4019, "Lme.adaptive.arp.api.ITableResultCallback$Error;", &ARPITableResultCallback_ErrorEnum_ReadOnlyTable,  },
     { "SqlException", "SqlException", 0x4019, "Lme.adaptive.arp.api.ITableResultCallback$Error;", &ARPITableResultCallback_ErrorEnum_SqlException,  },
+    { "DatabaseNotFound", "DatabaseNotFound", 0x4019, "Lme.adaptive.arp.api.ITableResultCallback$Error;", &ARPITableResultCallback_ErrorEnum_DatabaseNotFound,  },
+    { "NoTableFound", "NoTableFound", 0x4019, "Lme.adaptive.arp.api.ITableResultCallback$Error;", &ARPITableResultCallback_ErrorEnum_NoTableFound,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ITableResultCallback$Error;", &ARPITableResultCallback_ErrorEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ITableResultCallback$Error;"};
-  static J2ObjcClassInfo _ARPITableResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "ITableResultCallback", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPITableResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "ITableResultCallback", 0x4019, 1, methods, 6, fields, 1, superclass_type_args};
   return &_ARPITableResultCallback_ErrorEnum;
 }
 

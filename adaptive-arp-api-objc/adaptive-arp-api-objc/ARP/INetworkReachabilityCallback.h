@@ -38,10 +38,10 @@
 @class ARPINetworkReachabilityCallback_WarningEnum;
 
 #import "JreEmulation.h"
+#include "IBaseCallback.h"
 #include "java/lang/Enum.h"
 
-@protocol ARPINetworkReachabilityCallback < NSObject, JavaObject >
-
+@protocol ARPINetworkReachabilityCallback < ARPIBaseCallback, NSObject, JavaObject >
 - (void)onResultWithNSString:(NSString *)result;
 
 - (void)onWarningWithNSString:(NSString *)result
@@ -65,6 +65,9 @@ typedef enum {
   ARPINetworkReachabilityCallback_Error_NoResponse = 6,
   ARPINetworkReachabilityCallback_Error_Unreachable = 7,
   ARPINetworkReachabilityCallback_Error_Wrong_Params = 8,
+  ARPINetworkReachabilityCallback_Error_MalformedUrl = 9,
+  ARPINetworkReachabilityCallback_Error_DomainUnresolvable = 10,
+  ARPINetworkReachabilityCallback_Error_Unknown = 11,
 } ARPINetworkReachabilityCallback_Error;
 
 @interface ARPINetworkReachabilityCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -108,13 +111,22 @@ J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_ErrorEnum, Unreachabl
 #define ARPINetworkReachabilityCallback_ErrorEnum_Wrong_Params ARPINetworkReachabilityCallback_ErrorEnum_values[ARPINetworkReachabilityCallback_Error_Wrong_Params]
 J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_ErrorEnum, Wrong_Params, ARPINetworkReachabilityCallback_ErrorEnum *)
 
+#define ARPINetworkReachabilityCallback_ErrorEnum_MalformedUrl ARPINetworkReachabilityCallback_ErrorEnum_values[ARPINetworkReachabilityCallback_Error_MalformedUrl]
+J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_ErrorEnum, MalformedUrl, ARPINetworkReachabilityCallback_ErrorEnum *)
+
+#define ARPINetworkReachabilityCallback_ErrorEnum_DomainUnresolvable ARPINetworkReachabilityCallback_ErrorEnum_values[ARPINetworkReachabilityCallback_Error_DomainUnresolvable]
+J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_ErrorEnum, DomainUnresolvable, ARPINetworkReachabilityCallback_ErrorEnum *)
+
+#define ARPINetworkReachabilityCallback_ErrorEnum_Unknown ARPINetworkReachabilityCallback_ErrorEnum_values[ARPINetworkReachabilityCallback_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_ErrorEnum, Unknown, ARPINetworkReachabilityCallback_ErrorEnum *)
+
 typedef enum {
   ARPINetworkReachabilityCallback_Warning_IncorrectScheme = 0,
   ARPINetworkReachabilityCallback_Warning_NotSecure = 1,
   ARPINetworkReachabilityCallback_Warning_NotTrusted = 2,
   ARPINetworkReachabilityCallback_Warning_Redirected = 3,
   ARPINetworkReachabilityCallback_Warning_NotRegisteredService = 4,
-  ARPINetworkReachabilityCallback_Warning_MalformedUrl = 5,
+  ARPINetworkReachabilityCallback_Warning_Unknown = 5,
 } ARPINetworkReachabilityCallback_Warning;
 
 @interface ARPINetworkReachabilityCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -146,7 +158,7 @@ J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_WarningEnum, Redirect
 #define ARPINetworkReachabilityCallback_WarningEnum_NotRegisteredService ARPINetworkReachabilityCallback_WarningEnum_values[ARPINetworkReachabilityCallback_Warning_NotRegisteredService]
 J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_WarningEnum, NotRegisteredService, ARPINetworkReachabilityCallback_WarningEnum *)
 
-#define ARPINetworkReachabilityCallback_WarningEnum_MalformedUrl ARPINetworkReachabilityCallback_WarningEnum_values[ARPINetworkReachabilityCallback_Warning_MalformedUrl]
-J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_WarningEnum, MalformedUrl, ARPINetworkReachabilityCallback_WarningEnum *)
+#define ARPINetworkReachabilityCallback_WarningEnum_Unknown ARPINetworkReachabilityCallback_WarningEnum_values[ARPINetworkReachabilityCallback_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPINetworkReachabilityCallback_WarningEnum, Unknown, ARPINetworkReachabilityCallback_WarningEnum *)
 
 #endif // _ARPINetworkReachabilityCallback_H_

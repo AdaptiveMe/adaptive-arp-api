@@ -61,6 +61,7 @@ typedef enum {
   ARPIGeolocationListener_Error_RestrictedAccess = 1,
   ARPIGeolocationListener_Error_DeniedAccess = 2,
   ARPIGeolocationListener_Error_StatusNotDetermined = 3,
+  ARPIGeolocationListener_Error_Unknown = 4,
 } ARPIGeolocationListener_Error;
 
 @interface ARPIGeolocationListener_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -89,9 +90,13 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_ErrorEnum, DeniedAccess, ARPI
 #define ARPIGeolocationListener_ErrorEnum_StatusNotDetermined ARPIGeolocationListener_ErrorEnum_values[ARPIGeolocationListener_Error_StatusNotDetermined]
 J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_ErrorEnum, StatusNotDetermined, ARPIGeolocationListener_ErrorEnum *)
 
+#define ARPIGeolocationListener_ErrorEnum_Unknown ARPIGeolocationListener_ErrorEnum_values[ARPIGeolocationListener_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_ErrorEnum, Unknown, ARPIGeolocationListener_ErrorEnum *)
+
 typedef enum {
   ARPIGeolocationListener_Warning_HighDoP = 0,
   ARPIGeolocationListener_Warning_StaleData = 1,
+  ARPIGeolocationListener_Warning_Unknown = 2,
 } ARPIGeolocationListener_Warning;
 
 @interface ARPIGeolocationListener_WarningEnum : JavaLangEnum < NSCopying > {
@@ -113,5 +118,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_WarningEnum, HighDoP, ARPIGeo
 
 #define ARPIGeolocationListener_WarningEnum_StaleData ARPIGeolocationListener_WarningEnum_values[ARPIGeolocationListener_Warning_StaleData]
 J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_WarningEnum, StaleData, ARPIGeolocationListener_WarningEnum *)
+
+#define ARPIGeolocationListener_WarningEnum_Unknown ARPIGeolocationListener_WarningEnum_values[ARPIGeolocationListener_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIGeolocationListener_WarningEnum, Unknown, ARPIGeolocationListener_WarningEnum *)
 
 #endif // _ARPIGeolocationListener_H_

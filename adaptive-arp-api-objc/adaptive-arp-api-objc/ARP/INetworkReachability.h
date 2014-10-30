@@ -40,7 +40,10 @@
 #include "IBaseCommunication.h"
 
 @protocol ARPINetworkReachability < ARPIBaseCommunication, NSObject, JavaObject >
-- (void)isNetworkReachableWithNSString:(NSString *)url
+- (void)isNetworkServiceReachableWithNSString:(NSString *)url
+          withARPINetworkReachabilityCallback:(id<ARPINetworkReachabilityCallback>)callback;
+
+- (void)isNetworkReachableWithNSString:(NSString *)host
    withARPINetworkReachabilityCallback:(id<ARPINetworkReachabilityCallback>)callback;
 
 @end

@@ -55,7 +55,7 @@
 
 BOOL ARPISecureKVResultCallback_WarningEnum_initialized = NO;
 
-ARPISecureKVResultCallback_WarningEnum *ARPISecureKVResultCallback_WarningEnum_values[1];
+ARPISecureKVResultCallback_WarningEnum *ARPISecureKVResultCallback_WarningEnum_values[2];
 
 @implementation ARPISecureKVResultCallback_WarningEnum
 
@@ -70,16 +70,17 @@ ARPISecureKVResultCallback_WarningEnum *ARPISecureKVResultCallback_WarningEnum_v
 + (void)initialize {
   if (self == [ARPISecureKVResultCallback_WarningEnum class]) {
     ARPISecureKVResultCallback_WarningEnum_EntryOverride = [[ARPISecureKVResultCallback_WarningEnum alloc] initWithNSString:@"EntryOverride" withInt:0];
+    ARPISecureKVResultCallback_WarningEnum_Unknown = [[ARPISecureKVResultCallback_WarningEnum alloc] initWithNSString:@"Unknown" withInt:1];
     ARPISecureKVResultCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPISecureKVResultCallback_WarningEnum_values count:1 type:[IOSClass classWithClass:[ARPISecureKVResultCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPISecureKVResultCallback_WarningEnum_values count:2 type:[IOSClass classWithClass:[ARPISecureKVResultCallback_WarningEnum class]]];
 }
 
 + (ARPISecureKVResultCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 2; i++) {
     ARPISecureKVResultCallback_WarningEnum *e = ARPISecureKVResultCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -95,9 +96,10 @@ ARPISecureKVResultCallback_WarningEnum *ARPISecureKVResultCallback_WarningEnum_v
   };
   static J2ObjcFieldInfo fields[] = {
     { "EntryOverride", "EntryOverride", 0x4019, "Lme.adaptive.arp.api.ISecureKVResultCallback$Warning;", &ARPISecureKVResultCallback_WarningEnum_EntryOverride,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ISecureKVResultCallback$Warning;", &ARPISecureKVResultCallback_WarningEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ISecureKVResultCallback$Warning;"};
-  static J2ObjcClassInfo _ARPISecureKVResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "ISecureKVResultCallback", 0x4019, 1, methods, 1, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPISecureKVResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "ISecureKVResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
   return &_ARPISecureKVResultCallback_WarningEnum;
 }
 
@@ -105,7 +107,7 @@ ARPISecureKVResultCallback_WarningEnum *ARPISecureKVResultCallback_WarningEnum_v
 
 BOOL ARPISecureKVResultCallback_ErrorEnum_initialized = NO;
 
-ARPISecureKVResultCallback_ErrorEnum *ARPISecureKVResultCallback_ErrorEnum_values[2];
+ARPISecureKVResultCallback_ErrorEnum *ARPISecureKVResultCallback_ErrorEnum_values[3];
 
 @implementation ARPISecureKVResultCallback_ErrorEnum
 
@@ -121,16 +123,17 @@ ARPISecureKVResultCallback_ErrorEnum *ARPISecureKVResultCallback_ErrorEnum_value
   if (self == [ARPISecureKVResultCallback_ErrorEnum class]) {
     ARPISecureKVResultCallback_ErrorEnum_NoPermission = [[ARPISecureKVResultCallback_ErrorEnum alloc] initWithNSString:@"NoPermission" withInt:0];
     ARPISecureKVResultCallback_ErrorEnum_NoMatchesFound = [[ARPISecureKVResultCallback_ErrorEnum alloc] initWithNSString:@"NoMatchesFound" withInt:1];
+    ARPISecureKVResultCallback_ErrorEnum_Unknown = [[ARPISecureKVResultCallback_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:2];
     ARPISecureKVResultCallback_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPISecureKVResultCallback_ErrorEnum_values count:2 type:[IOSClass classWithClass:[ARPISecureKVResultCallback_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPISecureKVResultCallback_ErrorEnum_values count:3 type:[IOSClass classWithClass:[ARPISecureKVResultCallback_ErrorEnum class]]];
 }
 
 + (ARPISecureKVResultCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPISecureKVResultCallback_ErrorEnum *e = ARPISecureKVResultCallback_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -147,9 +150,10 @@ ARPISecureKVResultCallback_ErrorEnum *ARPISecureKVResultCallback_ErrorEnum_value
   static J2ObjcFieldInfo fields[] = {
     { "NoPermission", "NoPermission", 0x4019, "Lme.adaptive.arp.api.ISecureKVResultCallback$Error;", &ARPISecureKVResultCallback_ErrorEnum_NoPermission,  },
     { "NoMatchesFound", "NoMatchesFound", 0x4019, "Lme.adaptive.arp.api.ISecureKVResultCallback$Error;", &ARPISecureKVResultCallback_ErrorEnum_NoMatchesFound,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ISecureKVResultCallback$Error;", &ARPISecureKVResultCallback_ErrorEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ISecureKVResultCallback$Error;"};
-  static J2ObjcClassInfo _ARPISecureKVResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "ISecureKVResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPISecureKVResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "ISecureKVResultCallback", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPISecureKVResultCallback_ErrorEnum;
 }
 

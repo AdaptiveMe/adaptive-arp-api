@@ -37,9 +37,9 @@
 @class IOSObjectArray;
 
 #import "JreEmulation.h"
+#include "IAdaptiveRP.h"
 
-@protocol ARPIAppContextWebview < NSObject, JavaObject >
-
+@protocol ARPIAppContextWebview < ARPIAdaptiveRP, NSObject, JavaObject >
 - (id)getWebviewPrimary;
 
 - (void)addWebviewWithId:(id)webView;

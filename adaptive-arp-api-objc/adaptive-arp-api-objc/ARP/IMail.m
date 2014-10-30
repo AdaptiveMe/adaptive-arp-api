@@ -31,7 +31,9 @@
 //
 //
 
+#include "Email.h"
 #include "IMail.h"
+#include "IMessagingCallback.h"
 
 @interface ARPIMail : NSObject
 @end
@@ -39,7 +41,10 @@
 @implementation ARPIMail
 
 + (J2ObjcClassInfo *)__metadata {
-  static J2ObjcClassInfo _ARPIMail = { "IMail", "me.adaptive.arp.api", NULL, 0x201, 0, NULL, 0, NULL, 0, NULL};
+  static J2ObjcMethodInfo methods[] = {
+    { "sendEmailWithARPEmail:withARPIMessagingCallback:", "sendEmail", "V", 0x401, NULL },
+  };
+  static J2ObjcClassInfo _ARPIMail = { "IMail", "me.adaptive.arp.api", NULL, 0x201, 1, methods, 0, NULL, 0, NULL};
   return &_ARPIMail;
 }
 

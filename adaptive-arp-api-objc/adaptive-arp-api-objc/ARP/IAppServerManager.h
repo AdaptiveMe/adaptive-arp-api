@@ -39,9 +39,9 @@
 @protocol ARPIAppServerListener;
 
 #import "JreEmulation.h"
+#include "IAdaptiveRP.h"
 
-@protocol ARPIAppServerManager < NSObject, JavaObject >
-
+@protocol ARPIAppServerManager < ARPIAdaptiveRP, NSObject, JavaObject >
 - (void)addServerListenerWithARPIAppServerListener:(id<ARPIAppServerListener>)listener;
 
 - (void)removeServerListenerWithARPIAppServerListener:(id<ARPIAppServerListener>)listener;

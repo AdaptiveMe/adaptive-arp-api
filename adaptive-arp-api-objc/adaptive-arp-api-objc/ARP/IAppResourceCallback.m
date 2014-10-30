@@ -55,7 +55,7 @@
 
 BOOL ARPIAppResourceCallback_WarningEnum_initialized = NO;
 
-ARPIAppResourceCallback_WarningEnum *ARPIAppResourceCallback_WarningEnum_values[3];
+ARPIAppResourceCallback_WarningEnum *ARPIAppResourceCallback_WarningEnum_values[4];
 
 @implementation ARPIAppResourceCallback_WarningEnum
 
@@ -72,16 +72,17 @@ ARPIAppResourceCallback_WarningEnum *ARPIAppResourceCallback_WarningEnum_values[
     ARPIAppResourceCallback_WarningEnum_PartialContent = [[ARPIAppResourceCallback_WarningEnum alloc] initWithNSString:@"PartialContent" withInt:0];
     ARPIAppResourceCallback_WarningEnum_TooLarge = [[ARPIAppResourceCallback_WarningEnum alloc] initWithNSString:@"TooLarge" withInt:1];
     ARPIAppResourceCallback_WarningEnum_LinkedResource = [[ARPIAppResourceCallback_WarningEnum alloc] initWithNSString:@"LinkedResource" withInt:2];
+    ARPIAppResourceCallback_WarningEnum_Unknown = [[ARPIAppResourceCallback_WarningEnum alloc] initWithNSString:@"Unknown" withInt:3];
     ARPIAppResourceCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIAppResourceCallback_WarningEnum_values count:3 type:[IOSClass classWithClass:[ARPIAppResourceCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIAppResourceCallback_WarningEnum_values count:4 type:[IOSClass classWithClass:[ARPIAppResourceCallback_WarningEnum class]]];
 }
 
 + (ARPIAppResourceCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     ARPIAppResourceCallback_WarningEnum *e = ARPIAppResourceCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -99,9 +100,10 @@ ARPIAppResourceCallback_WarningEnum *ARPIAppResourceCallback_WarningEnum_values[
     { "PartialContent", "PartialContent", 0x4019, "Lme.adaptive.arp.api.IAppResourceCallback$Warning;", &ARPIAppResourceCallback_WarningEnum_PartialContent,  },
     { "TooLarge", "TooLarge", 0x4019, "Lme.adaptive.arp.api.IAppResourceCallback$Warning;", &ARPIAppResourceCallback_WarningEnum_TooLarge,  },
     { "LinkedResource", "LinkedResource", 0x4019, "Lme.adaptive.arp.api.IAppResourceCallback$Warning;", &ARPIAppResourceCallback_WarningEnum_LinkedResource,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IAppResourceCallback$Warning;", &ARPIAppResourceCallback_WarningEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IAppResourceCallback$Warning;"};
-  static J2ObjcClassInfo _ARPIAppResourceCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IAppResourceCallback", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIAppResourceCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IAppResourceCallback", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
   return &_ARPIAppResourceCallback_WarningEnum;
 }
 
@@ -109,7 +111,7 @@ ARPIAppResourceCallback_WarningEnum *ARPIAppResourceCallback_WarningEnum_values[
 
 BOOL ARPIAppResourceCallback_ErrorEnum_initialized = NO;
 
-ARPIAppResourceCallback_ErrorEnum *ARPIAppResourceCallback_ErrorEnum_values[2];
+ARPIAppResourceCallback_ErrorEnum *ARPIAppResourceCallback_ErrorEnum_values[3];
 
 @implementation ARPIAppResourceCallback_ErrorEnum
 
@@ -125,16 +127,17 @@ ARPIAppResourceCallback_ErrorEnum *ARPIAppResourceCallback_ErrorEnum_values[2];
   if (self == [ARPIAppResourceCallback_ErrorEnum class]) {
     ARPIAppResourceCallback_ErrorEnum_NotFound = [[ARPIAppResourceCallback_ErrorEnum alloc] initWithNSString:@"NotFound" withInt:0];
     ARPIAppResourceCallback_ErrorEnum_NoPermission = [[ARPIAppResourceCallback_ErrorEnum alloc] initWithNSString:@"NoPermission" withInt:1];
+    ARPIAppResourceCallback_ErrorEnum_Unknown = [[ARPIAppResourceCallback_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:2];
     ARPIAppResourceCallback_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIAppResourceCallback_ErrorEnum_values count:2 type:[IOSClass classWithClass:[ARPIAppResourceCallback_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIAppResourceCallback_ErrorEnum_values count:3 type:[IOSClass classWithClass:[ARPIAppResourceCallback_ErrorEnum class]]];
 }
 
 + (ARPIAppResourceCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPIAppResourceCallback_ErrorEnum *e = ARPIAppResourceCallback_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -151,9 +154,10 @@ ARPIAppResourceCallback_ErrorEnum *ARPIAppResourceCallback_ErrorEnum_values[2];
   static J2ObjcFieldInfo fields[] = {
     { "NotFound", "NotFound", 0x4019, "Lme.adaptive.arp.api.IAppResourceCallback$Error;", &ARPIAppResourceCallback_ErrorEnum_NotFound,  },
     { "NoPermission", "NoPermission", 0x4019, "Lme.adaptive.arp.api.IAppResourceCallback$Error;", &ARPIAppResourceCallback_ErrorEnum_NoPermission,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IAppResourceCallback$Error;", &ARPIAppResourceCallback_ErrorEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IAppResourceCallback$Error;"};
-  static J2ObjcClassInfo _ARPIAppResourceCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IAppResourceCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIAppResourceCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IAppResourceCallback", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPIAppResourceCallback_ErrorEnum;
 }
 

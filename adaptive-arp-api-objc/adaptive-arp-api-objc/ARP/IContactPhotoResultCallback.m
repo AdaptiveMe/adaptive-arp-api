@@ -55,7 +55,7 @@
 
 BOOL ARPIContactPhotoResultCallback_WarningEnum_initialized = NO;
 
-ARPIContactPhotoResultCallback_WarningEnum *ARPIContactPhotoResultCallback_WarningEnum_values[2];
+ARPIContactPhotoResultCallback_WarningEnum *ARPIContactPhotoResultCallback_WarningEnum_values[3];
 
 @implementation ARPIContactPhotoResultCallback_WarningEnum
 
@@ -71,16 +71,17 @@ ARPIContactPhotoResultCallback_WarningEnum *ARPIContactPhotoResultCallback_Warni
   if (self == [ARPIContactPhotoResultCallback_WarningEnum class]) {
     ARPIContactPhotoResultCallback_WarningEnum_LimitExceeded = [[ARPIContactPhotoResultCallback_WarningEnum alloc] initWithNSString:@"LimitExceeded" withInt:0];
     ARPIContactPhotoResultCallback_WarningEnum_No_Matches = [[ARPIContactPhotoResultCallback_WarningEnum alloc] initWithNSString:@"No_Matches" withInt:1];
+    ARPIContactPhotoResultCallback_WarningEnum_Unknown = [[ARPIContactPhotoResultCallback_WarningEnum alloc] initWithNSString:@"Unknown" withInt:2];
     ARPIContactPhotoResultCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIContactPhotoResultCallback_WarningEnum_values count:2 type:[IOSClass classWithClass:[ARPIContactPhotoResultCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIContactPhotoResultCallback_WarningEnum_values count:3 type:[IOSClass classWithClass:[ARPIContactPhotoResultCallback_WarningEnum class]]];
 }
 
 + (ARPIContactPhotoResultCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPIContactPhotoResultCallback_WarningEnum *e = ARPIContactPhotoResultCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -97,9 +98,10 @@ ARPIContactPhotoResultCallback_WarningEnum *ARPIContactPhotoResultCallback_Warni
   static J2ObjcFieldInfo fields[] = {
     { "LimitExceeded", "LimitExceeded", 0x4019, "Lme.adaptive.arp.api.IContactPhotoResultCallback$Warning;", &ARPIContactPhotoResultCallback_WarningEnum_LimitExceeded,  },
     { "No_Matches", "No_Matches", 0x4019, "Lme.adaptive.arp.api.IContactPhotoResultCallback$Warning;", &ARPIContactPhotoResultCallback_WarningEnum_No_Matches,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IContactPhotoResultCallback$Warning;", &ARPIContactPhotoResultCallback_WarningEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IContactPhotoResultCallback$Warning;"};
-  static J2ObjcClassInfo _ARPIContactPhotoResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IContactPhotoResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIContactPhotoResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IContactPhotoResultCallback", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPIContactPhotoResultCallback_WarningEnum;
 }
 
@@ -107,7 +109,7 @@ ARPIContactPhotoResultCallback_WarningEnum *ARPIContactPhotoResultCallback_Warni
 
 BOOL ARPIContactPhotoResultCallback_ErrorEnum_initialized = NO;
 
-ARPIContactPhotoResultCallback_ErrorEnum *ARPIContactPhotoResultCallback_ErrorEnum_values[3];
+ARPIContactPhotoResultCallback_ErrorEnum *ARPIContactPhotoResultCallback_ErrorEnum_values[4];
 
 @implementation ARPIContactPhotoResultCallback_ErrorEnum
 
@@ -124,16 +126,17 @@ ARPIContactPhotoResultCallback_ErrorEnum *ARPIContactPhotoResultCallback_ErrorEn
     ARPIContactPhotoResultCallback_ErrorEnum_NoPermission = [[ARPIContactPhotoResultCallback_ErrorEnum alloc] initWithNSString:@"NoPermission" withInt:0];
     ARPIContactPhotoResultCallback_ErrorEnum_Wrong_Params = [[ARPIContactPhotoResultCallback_ErrorEnum alloc] initWithNSString:@"Wrong_Params" withInt:1];
     ARPIContactPhotoResultCallback_ErrorEnum_No_Photo = [[ARPIContactPhotoResultCallback_ErrorEnum alloc] initWithNSString:@"No_Photo" withInt:2];
+    ARPIContactPhotoResultCallback_ErrorEnum_Unknown = [[ARPIContactPhotoResultCallback_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:3];
     ARPIContactPhotoResultCallback_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIContactPhotoResultCallback_ErrorEnum_values count:3 type:[IOSClass classWithClass:[ARPIContactPhotoResultCallback_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIContactPhotoResultCallback_ErrorEnum_values count:4 type:[IOSClass classWithClass:[ARPIContactPhotoResultCallback_ErrorEnum class]]];
 }
 
 + (ARPIContactPhotoResultCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     ARPIContactPhotoResultCallback_ErrorEnum *e = ARPIContactPhotoResultCallback_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -151,9 +154,10 @@ ARPIContactPhotoResultCallback_ErrorEnum *ARPIContactPhotoResultCallback_ErrorEn
     { "NoPermission", "NoPermission", 0x4019, "Lme.adaptive.arp.api.IContactPhotoResultCallback$Error;", &ARPIContactPhotoResultCallback_ErrorEnum_NoPermission,  },
     { "Wrong_Params", "Wrong_Params", 0x4019, "Lme.adaptive.arp.api.IContactPhotoResultCallback$Error;", &ARPIContactPhotoResultCallback_ErrorEnum_Wrong_Params,  },
     { "No_Photo", "No_Photo", 0x4019, "Lme.adaptive.arp.api.IContactPhotoResultCallback$Error;", &ARPIContactPhotoResultCallback_ErrorEnum_No_Photo,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IContactPhotoResultCallback$Error;", &ARPIContactPhotoResultCallback_ErrorEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IContactPhotoResultCallback$Error;"};
-  static J2ObjcClassInfo _ARPIContactPhotoResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IContactPhotoResultCallback", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIContactPhotoResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IContactPhotoResultCallback", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
   return &_ARPIContactPhotoResultCallback_ErrorEnum;
 }
 

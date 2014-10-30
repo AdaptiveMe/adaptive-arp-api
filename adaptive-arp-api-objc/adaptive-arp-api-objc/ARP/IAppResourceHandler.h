@@ -37,9 +37,9 @@
 @protocol ARPIAppResourceCallback;
 
 #import "JreEmulation.h"
+#include "IAdaptiveRP.h"
 
-@protocol ARPIAppResourceHandler < NSObject, JavaObject >
-
+@protocol ARPIAppResourceHandler < ARPIAdaptiveRP, NSObject, JavaObject >
 - (void)getResourceWithNSString:(NSString *)resourcePath
     withARPIAppResourceCallback:(id<ARPIAppResourceCallback>)callback;
 

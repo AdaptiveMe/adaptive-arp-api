@@ -57,7 +57,7 @@
 
 BOOL ARPIFileDataResultCallback_WarningEnum_initialized = NO;
 
-ARPIFileDataResultCallback_WarningEnum *ARPIFileDataResultCallback_WarningEnum_values[1];
+ARPIFileDataResultCallback_WarningEnum *ARPIFileDataResultCallback_WarningEnum_values[2];
 
 @implementation ARPIFileDataResultCallback_WarningEnum
 
@@ -72,16 +72,17 @@ ARPIFileDataResultCallback_WarningEnum *ARPIFileDataResultCallback_WarningEnum_v
 + (void)initialize {
   if (self == [ARPIFileDataResultCallback_WarningEnum class]) {
     ARPIFileDataResultCallback_WarningEnum_ExceedMaximumSize = [[ARPIFileDataResultCallback_WarningEnum alloc] initWithNSString:@"ExceedMaximumSize" withInt:0];
+    ARPIFileDataResultCallback_WarningEnum_Unknown = [[ARPIFileDataResultCallback_WarningEnum alloc] initWithNSString:@"Unknown" withInt:1];
     ARPIFileDataResultCallback_WarningEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIFileDataResultCallback_WarningEnum_values count:1 type:[IOSClass classWithClass:[ARPIFileDataResultCallback_WarningEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIFileDataResultCallback_WarningEnum_values count:2 type:[IOSClass classWithClass:[ARPIFileDataResultCallback_WarningEnum class]]];
 }
 
 + (ARPIFileDataResultCallback_WarningEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 2; i++) {
     ARPIFileDataResultCallback_WarningEnum *e = ARPIFileDataResultCallback_WarningEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -97,9 +98,10 @@ ARPIFileDataResultCallback_WarningEnum *ARPIFileDataResultCallback_WarningEnum_v
   };
   static J2ObjcFieldInfo fields[] = {
     { "ExceedMaximumSize", "ExceedMaximumSize", 0x4019, "Lme.adaptive.arp.api.IFileDataResultCallback$Warning;", &ARPIFileDataResultCallback_WarningEnum_ExceedMaximumSize,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IFileDataResultCallback$Warning;", &ARPIFileDataResultCallback_WarningEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IFileDataResultCallback$Warning;"};
-  static J2ObjcClassInfo _ARPIFileDataResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IFileDataResultCallback", 0x4019, 1, methods, 1, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIFileDataResultCallback_WarningEnum = { "Warning", "me.adaptive.arp.api", "IFileDataResultCallback", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
   return &_ARPIFileDataResultCallback_WarningEnum;
 }
 
@@ -107,7 +109,7 @@ ARPIFileDataResultCallback_WarningEnum *ARPIFileDataResultCallback_WarningEnum_v
 
 BOOL ARPIFileDataResultCallback_ErrorEnum_initialized = NO;
 
-ARPIFileDataResultCallback_ErrorEnum *ARPIFileDataResultCallback_ErrorEnum_values[3];
+ARPIFileDataResultCallback_ErrorEnum *ARPIFileDataResultCallback_ErrorEnum_values[4];
 
 @implementation ARPIFileDataResultCallback_ErrorEnum
 
@@ -124,16 +126,17 @@ ARPIFileDataResultCallback_ErrorEnum *ARPIFileDataResultCallback_ErrorEnum_value
     ARPIFileDataResultCallback_ErrorEnum_InexistentFile = [[ARPIFileDataResultCallback_ErrorEnum alloc] initWithNSString:@"InexistentFile" withInt:0];
     ARPIFileDataResultCallback_ErrorEnum_InsufficientSpace = [[ARPIFileDataResultCallback_ErrorEnum alloc] initWithNSString:@"InsufficientSpace" withInt:1];
     ARPIFileDataResultCallback_ErrorEnum_Unauthorized = [[ARPIFileDataResultCallback_ErrorEnum alloc] initWithNSString:@"Unauthorized" withInt:2];
+    ARPIFileDataResultCallback_ErrorEnum_Unknown = [[ARPIFileDataResultCallback_ErrorEnum alloc] initWithNSString:@"Unknown" withInt:3];
     ARPIFileDataResultCallback_ErrorEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIFileDataResultCallback_ErrorEnum_values count:3 type:[IOSClass classWithClass:[ARPIFileDataResultCallback_ErrorEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIFileDataResultCallback_ErrorEnum_values count:4 type:[IOSClass classWithClass:[ARPIFileDataResultCallback_ErrorEnum class]]];
 }
 
 + (ARPIFileDataResultCallback_ErrorEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     ARPIFileDataResultCallback_ErrorEnum *e = ARPIFileDataResultCallback_ErrorEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -151,9 +154,10 @@ ARPIFileDataResultCallback_ErrorEnum *ARPIFileDataResultCallback_ErrorEnum_value
     { "InexistentFile", "InexistentFile", 0x4019, "Lme.adaptive.arp.api.IFileDataResultCallback$Error;", &ARPIFileDataResultCallback_ErrorEnum_InexistentFile,  },
     { "InsufficientSpace", "InsufficientSpace", 0x4019, "Lme.adaptive.arp.api.IFileDataResultCallback$Error;", &ARPIFileDataResultCallback_ErrorEnum_InsufficientSpace,  },
     { "Unauthorized", "Unauthorized", 0x4019, "Lme.adaptive.arp.api.IFileDataResultCallback$Error;", &ARPIFileDataResultCallback_ErrorEnum_Unauthorized,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IFileDataResultCallback$Error;", &ARPIFileDataResultCallback_ErrorEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IFileDataResultCallback$Error;"};
-  static J2ObjcClassInfo _ARPIFileDataResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IFileDataResultCallback", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIFileDataResultCallback_ErrorEnum = { "Error", "me.adaptive.arp.api", "IFileDataResultCallback", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
   return &_ARPIFileDataResultCallback_ErrorEnum;
 }
 

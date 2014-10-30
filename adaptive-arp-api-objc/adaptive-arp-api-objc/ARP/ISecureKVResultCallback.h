@@ -58,6 +58,7 @@ __attribute__((always_inline)) inline void ARPISecureKVResultCallback_init() {}
 
 typedef enum {
   ARPISecureKVResultCallback_Warning_EntryOverride = 0,
+  ARPISecureKVResultCallback_Warning_Unknown = 1,
 } ARPISecureKVResultCallback_Warning;
 
 @interface ARPISecureKVResultCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -77,9 +78,13 @@ FOUNDATION_EXPORT ARPISecureKVResultCallback_WarningEnum *ARPISecureKVResultCall
 #define ARPISecureKVResultCallback_WarningEnum_EntryOverride ARPISecureKVResultCallback_WarningEnum_values[ARPISecureKVResultCallback_Warning_EntryOverride]
 J2OBJC_STATIC_FIELD_GETTER(ARPISecureKVResultCallback_WarningEnum, EntryOverride, ARPISecureKVResultCallback_WarningEnum *)
 
+#define ARPISecureKVResultCallback_WarningEnum_Unknown ARPISecureKVResultCallback_WarningEnum_values[ARPISecureKVResultCallback_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPISecureKVResultCallback_WarningEnum, Unknown, ARPISecureKVResultCallback_WarningEnum *)
+
 typedef enum {
   ARPISecureKVResultCallback_Error_NoPermission = 0,
   ARPISecureKVResultCallback_Error_NoMatchesFound = 1,
+  ARPISecureKVResultCallback_Error_Unknown = 2,
 } ARPISecureKVResultCallback_Error;
 
 @interface ARPISecureKVResultCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -101,5 +106,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPISecureKVResultCallback_ErrorEnum, NoPermission, A
 
 #define ARPISecureKVResultCallback_ErrorEnum_NoMatchesFound ARPISecureKVResultCallback_ErrorEnum_values[ARPISecureKVResultCallback_Error_NoMatchesFound]
 J2OBJC_STATIC_FIELD_GETTER(ARPISecureKVResultCallback_ErrorEnum, NoMatchesFound, ARPISecureKVResultCallback_ErrorEnum *)
+
+#define ARPISecureKVResultCallback_ErrorEnum_Unknown ARPISecureKVResultCallback_ErrorEnum_values[ARPISecureKVResultCallback_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPISecureKVResultCallback_ErrorEnum, Unknown, ARPISecureKVResultCallback_ErrorEnum *)
 
 #endif // _ARPISecureKVResultCallback_H_

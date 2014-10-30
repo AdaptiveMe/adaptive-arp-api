@@ -62,6 +62,7 @@ __attribute__((always_inline)) inline void ARPIFileListResultCallback_init() {}
 
 typedef enum {
   ARPIFileListResultCallback_Warning_PartialResult = 0,
+  ARPIFileListResultCallback_Warning_Unknown = 1,
 } ARPIFileListResultCallback_Warning;
 
 @interface ARPIFileListResultCallback_WarningEnum : JavaLangEnum < NSCopying > {
@@ -81,9 +82,13 @@ FOUNDATION_EXPORT ARPIFileListResultCallback_WarningEnum *ARPIFileListResultCall
 #define ARPIFileListResultCallback_WarningEnum_PartialResult ARPIFileListResultCallback_WarningEnum_values[ARPIFileListResultCallback_Warning_PartialResult]
 J2OBJC_STATIC_FIELD_GETTER(ARPIFileListResultCallback_WarningEnum, PartialResult, ARPIFileListResultCallback_WarningEnum *)
 
+#define ARPIFileListResultCallback_WarningEnum_Unknown ARPIFileListResultCallback_WarningEnum_values[ARPIFileListResultCallback_Warning_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIFileListResultCallback_WarningEnum, Unknown, ARPIFileListResultCallback_WarningEnum *)
+
 typedef enum {
   ARPIFileListResultCallback_Error_InexistentFile = 0,
   ARPIFileListResultCallback_Error_Unauthorized = 1,
+  ARPIFileListResultCallback_Error_Unknown = 2,
 } ARPIFileListResultCallback_Error;
 
 @interface ARPIFileListResultCallback_ErrorEnum : JavaLangEnum < NSCopying > {
@@ -105,5 +110,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIFileListResultCallback_ErrorEnum, InexistentFile,
 
 #define ARPIFileListResultCallback_ErrorEnum_Unauthorized ARPIFileListResultCallback_ErrorEnum_values[ARPIFileListResultCallback_Error_Unauthorized]
 J2OBJC_STATIC_FIELD_GETTER(ARPIFileListResultCallback_ErrorEnum, Unauthorized, ARPIFileListResultCallback_ErrorEnum *)
+
+#define ARPIFileListResultCallback_ErrorEnum_Unknown ARPIFileListResultCallback_ErrorEnum_values[ARPIFileListResultCallback_Error_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIFileListResultCallback_ErrorEnum, Unknown, ARPIFileListResultCallback_ErrorEnum *)
 
 #endif // _ARPIFileListResultCallback_H_
