@@ -57,7 +57,7 @@ public class Header {
      *
      * @since ARP1.0
      */
-    private String value;
+    private String data;
 
     /**
      * Constructor used by the implementation
@@ -74,7 +74,7 @@ public class Header {
      */
     public Header(String name, String value) {
         this.name = name;
-        this.value = value;
+        this.data = value;
     }
 
     /**
@@ -103,17 +103,17 @@ public class Header {
      * @return
      * @since ARP1.0
      */
-    public String getValue() {
-        return value;
+    public String getData() {
+        return data;
     }
 
     /**
      * Set the header value
      *
-     * @param value
+     * @param data
      * @since ARP1.0
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setData(String data) {
+        this.data = data;
     }
 }
