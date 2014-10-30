@@ -47,17 +47,17 @@ public class ContactTag {
      *
      * @since ARP1.0
      */
-    private String value;
+    private String dataValue;
 
     /**
      * Constructor used by the implementation
      *
-     * @param value
+     * @param dataValue
      * @param name
      * @since ARP1.0
      */
-    public ContactTag(String name, String value) {
-        this.value = value;
+    public ContactTag(String name, String dataValue) {
+        this.dataValue = dataValue;
         this.name = name;
     }
 
@@ -93,18 +93,18 @@ public class ContactTag {
      * @return value
      * @since ARP1.0
      */
-    public String getValue() {
-        return value;
+    public String getDataValue() {
+        return dataValue;
     }
 
     /**
      * Set the value of the Tag
      *
-     * @param value
+     * @param dataValue
      * @since ARP1.0
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setDataValue(String dataValue) {
+        this.dataValue = dataValue;
     }
 }
 
