@@ -40,15 +40,15 @@ namespace Adaptive.Arp.Api
 
 		/// <summary>The value of the Tag</summary>
 		/// <since>ARP1.0</since>
-		private string value;
+		private string dataValue;
 
 		/// <summary>Constructor used by the implementation</summary>
-		/// <param name="value"></param>
+		/// <param name="dataValue"></param>
 		/// <param name="name"></param>
 		/// <since>ARP1.0</since>
-		public ContactTag(string name, string value)
+		public ContactTag(string name, string dataValue)
 		{
-			this.value = value;
+			this.dataValue = dataValue;
 			this.name = name;
 		}
 
@@ -76,17 +76,17 @@ namespace Adaptive.Arp.Api
 		/// <summary>Returns the value of the Tag</summary>
 		/// <returns>value</returns>
 		/// <since>ARP1.0</since>
-		public virtual string GetValue()
+		public virtual string GetDataValue()
 		{
-			return value;
+			return dataValue;
 		}
 
 		/// <summary>Set the value of the Tag</summary>
-		/// <param name="value"></param>
+		/// <param name="dataValue"></param>
 		/// <since>ARP1.0</since>
-		public virtual void SetValue(string value)
+		public virtual void SetDataValue(string dataValue)
 		{
-			this.value = value;
+			this.dataValue = dataValue;
 		}
 	}
 }
