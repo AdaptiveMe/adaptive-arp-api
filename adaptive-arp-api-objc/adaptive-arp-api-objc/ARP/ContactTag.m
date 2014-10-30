@@ -36,9 +36,9 @@
 @implementation ARPContactTag
 
 - (id)initWithNSString:(NSString *)name
-          withNSString:(NSString *)value {
+          withNSString:(NSString *)dataValue {
   if (self = [super init]) {
-    self->value_ = value;
+    self->dataValue_ = dataValue;
     self->name_ = name;
   }
   return self;
@@ -56,18 +56,18 @@
   self->name_ = name;
 }
 
-- (NSString *)getValue {
-  return value_;
+- (NSString *)getDataValue {
+  return dataValue_;
 }
 
-- (void)setValueWithNSString:(NSString *)value {
-  self->value_ = value;
+- (void)setDataValueWithNSString:(NSString *)dataValue {
+  self->dataValue_ = dataValue;
 }
 
 - (void)copyAllFieldsTo:(ARPContactTag *)other {
   [super copyAllFieldsTo:other];
+  other->dataValue_ = dataValue_;
   other->name_ = name_;
-  other->value_ = value_;
 }
 
 + (J2ObjcClassInfo *)__metadata {
@@ -76,12 +76,12 @@
     { "init", "ContactTag", NULL, 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setNameWithNSString:", "setName", "V", 0x1, NULL },
-    { "getValue", NULL, "Ljava.lang.String;", 0x1, NULL },
-    { "setValueWithNSString:", "setValue", "V", 0x1, NULL },
+    { "getDataValue", NULL, "Ljava.lang.String;", 0x1, NULL },
+    { "setDataValueWithNSString:", "setDataValue", "V", 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "name_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
-    { "value_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
+    { "dataValue_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
   static J2ObjcClassInfo _ARPContactTag = { "ContactTag", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 2, fields, 0, NULL};
   return &_ARPContactTag;

@@ -39,11 +39,11 @@
 @interface ARPContactTag : NSObject {
  @public
   NSString *name_;
-  NSString *value_;
+  NSString *dataValue_;
 }
 
 - (id)initWithNSString:(NSString *)name
-          withNSString:(NSString *)value;
+          withNSString:(NSString *)dataValue;
 
 - (id)init;
 
@@ -51,9 +51,9 @@
 
 - (void)setNameWithNSString:(NSString *)name;
 
-- (NSString *)getValue;
+- (NSString *)getDataValue;
 
-- (void)setValueWithNSString:(NSString *)value;
+- (void)setDataValueWithNSString:(NSString *)dataValue;
 
 - (void)copyAllFieldsTo:(ARPContactTag *)other;
 
@@ -62,7 +62,7 @@
 __attribute__((always_inline)) inline void ARPContactTag_init() {}
 
 J2OBJC_FIELD_SETTER(ARPContactTag, name_, NSString *)
-J2OBJC_FIELD_SETTER(ARPContactTag, value_, NSString *)
+J2OBJC_FIELD_SETTER(ARPContactTag, dataValue_, NSString *)
 
 typedef ARPContactTag MeAdaptiveArpApiContactTag;
 
