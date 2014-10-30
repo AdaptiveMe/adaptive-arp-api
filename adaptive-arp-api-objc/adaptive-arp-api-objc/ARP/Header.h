@@ -39,7 +39,7 @@
 @interface ARPHeader : NSObject {
  @public
   NSString *name_;
-  NSString *value_;
+  NSString *data_;
 }
 
 - (id)init;
@@ -51,9 +51,9 @@
 
 - (void)setNameWithNSString:(NSString *)name;
 
-- (NSString *)getValue;
+- (NSString *)getData;
 
-- (void)setValueWithNSString:(NSString *)value;
+- (void)setDataWithNSString:(NSString *)data;
 
 - (void)copyAllFieldsTo:(ARPHeader *)other;
 
@@ -62,7 +62,7 @@
 __attribute__((always_inline)) inline void ARPHeader_init() {}
 
 J2OBJC_FIELD_SETTER(ARPHeader, name_, NSString *)
-J2OBJC_FIELD_SETTER(ARPHeader, value_, NSString *)
+J2OBJC_FIELD_SETTER(ARPHeader, data_, NSString *)
 
 typedef ARPHeader MeAdaptiveArpApiHeader;
 

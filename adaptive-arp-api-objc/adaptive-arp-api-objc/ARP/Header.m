@@ -43,7 +43,7 @@
           withNSString:(NSString *)value {
   if (self = [super init]) {
     self->name_ = name;
-    self->value_ = value;
+    self->data_ = value;
   }
   return self;
 }
@@ -56,18 +56,18 @@
   self->name_ = name;
 }
 
-- (NSString *)getValue {
-  return value_;
+- (NSString *)getData {
+  return data_;
 }
 
-- (void)setValueWithNSString:(NSString *)value {
-  self->value_ = value;
+- (void)setDataWithNSString:(NSString *)data {
+  self->data_ = data;
 }
 
 - (void)copyAllFieldsTo:(ARPHeader *)other {
   [super copyAllFieldsTo:other];
+  other->data_ = data_;
   other->name_ = name_;
-  other->value_ = value_;
 }
 
 + (J2ObjcClassInfo *)__metadata {
@@ -76,12 +76,12 @@
     { "initWithNSString:withNSString:", "Header", NULL, 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "setNameWithNSString:", "setName", "V", 0x1, NULL },
-    { "getValue", NULL, "Ljava.lang.String;", 0x1, NULL },
-    { "setValueWithNSString:", "setValue", "V", 0x1, NULL },
+    { "getData", NULL, "Ljava.lang.String;", 0x1, NULL },
+    { "setDataWithNSString:", "setData", "V", 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "name_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
-    { "value_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
+    { "data_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
   static J2ObjcClassInfo _ARPHeader = { "Header", "me.adaptive.arp.api", NULL, 0x1, 6, methods, 2, fields, 0, NULL};
   return &_ARPHeader;
