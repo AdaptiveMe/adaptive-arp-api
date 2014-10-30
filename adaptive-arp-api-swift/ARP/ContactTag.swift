@@ -74,6 +74,4 @@ public class ContactTag : NSObject  {
      public func setName(name : String) {
           self.name = name
      }
-
-
 }
