@@ -58,13 +58,15 @@ namespace Adaptive.Arp.Api
 			Disabled,
 			RestrictedAccess,
 			DeniedAccess,
-			StatusNotDetermined
+			StatusNotDetermined,
+			Unknown
 		}
 
 		public enum Warning
 		{
 			HighDoP,
-			StaleData
+			StaleData,
+			Unknown
 		}
 	}
 }

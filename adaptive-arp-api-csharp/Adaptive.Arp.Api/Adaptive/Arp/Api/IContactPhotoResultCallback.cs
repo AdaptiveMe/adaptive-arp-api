@@ -57,7 +57,8 @@ namespace Adaptive.Arp.Api
 		public enum Warning
 		{
 			LimitExceeded,
-			No_Matches
+			No_Matches,
+			Unknown
 		}
 
 		/// <summary>Errors that can be used</summary>
@@ -66,7 +67,8 @@ namespace Adaptive.Arp.Api
 		{
 			NoPermission,
 			Wrong_Params,
-			No_Photo
+			No_Photo,
+			Unknown
 		}
 	}
 }

@@ -39,7 +39,7 @@ namespace Adaptive.Arp.Api
 		Cookie[] GetCookies();
 
 		/// <summary>Set the cookies array</summary>
-		/// <param name="cookie"></param>
+		/// <param name="cookies"></param>
 		void SetCookies(Cookie[] cookies);
 
 		/// <summary>Set a cookie object</summary>
@@ -47,7 +47,7 @@ namespace Adaptive.Arp.Api
 		void SetCookie(Cookie cookie);
 
 		/// <summary>Remove a cookies array</summary>
-		/// <param name="cookie"></param>
+		/// <param name="cookies"></param>
 		void RemoveCookies(Cookie[] cookies);
 
 		/// <summary>Remove a cookie</summary>

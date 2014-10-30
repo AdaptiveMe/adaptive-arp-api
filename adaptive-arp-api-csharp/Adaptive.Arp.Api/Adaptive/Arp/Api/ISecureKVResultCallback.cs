@@ -55,13 +55,15 @@ namespace Adaptive.Arp.Api
 
 		public enum Warning
 		{
-			EntryOverride
+			EntryOverride,
+			Unknown
 		}
 
 		public enum Error
 		{
 			NoPermission,
-			NoMatchesFound
+			NoMatchesFound,
+			Unknown
 		}
 	}
 }

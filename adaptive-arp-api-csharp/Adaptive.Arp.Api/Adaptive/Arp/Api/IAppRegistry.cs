@@ -33,7 +33,7 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 05/09/2014.</summary>
 	/// <remarks>Created by clozano on 05/09/2014.</remarks>
-	public interface IAppRegistry
+	public interface IAppRegistry : IAdaptiveRP
 	{
 		IAppContext GetPlatformContext();
 

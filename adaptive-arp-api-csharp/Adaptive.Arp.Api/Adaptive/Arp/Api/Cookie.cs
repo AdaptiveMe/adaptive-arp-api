@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
 
 		/// <summary>Value of the Cookie</summary>
 		/// <since>ARP1.0</since>
-		private string value;
+		private string data;
 
 		/// <summary>Domain for which the cookie is valid.</summary>
 		/// <remarks>Domain for which the cookie is valid.</remarks>
@@ -67,12 +67,12 @@ namespace Adaptive.Arp.Api
 
 		/// <summary>Constructor used by the implementation</summary>
 		/// <param name="name"></param>
-		/// <param name="value"></param>
+		/// <param name="data"></param>
 		/// <since>ARP1.0</since>
-		public Cookie(string name, string value)
+		public Cookie(string name, string data)
 		{
 			this.name = name;
-			this.value = value;
+			this.data = data;
 		}
 
 		/// <summary>Constructor used by the implementation</summary>
@@ -174,17 +174,17 @@ namespace Adaptive.Arp.Api
 		/// <summary>Returns the cookie value</summary>
 		/// <returns></returns>
 		/// <since>ARP1.0</since>
-		public virtual string GetValue()
+		public virtual string GetData()
 		{
-			return value;
+			return data;
 		}
 
 		/// <summary>Set the cookie value</summary>
-		/// <param name="value"></param>
+		/// <param name="data"></param>
 		/// <since>ARP1.0</since>
-		public virtual void SetValue(string value)
+		public virtual void SetData(string data)
 		{
-			this.value = value;
+			this.data = data;
 		}
 
 		/// <returns></returns>

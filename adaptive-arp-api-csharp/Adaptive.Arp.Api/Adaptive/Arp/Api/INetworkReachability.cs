@@ -33,10 +33,20 @@ namespace Adaptive.Arp.Api
 {
 	public interface INetworkReachability : IBaseCommunication
 	{
-		/// <summary>Whether there is connectivity to an url or not.</summary>
-		/// <remarks>Whether there is connectivity to an url or not.</remarks>
+		/// <summary>Whether there is connectivity to an url of a service or not.</summary>
+		/// <remarks>Whether there is connectivity to an url of a service or not.</remarks>
 		/// <param name="url">to look for</param>
 		/// <param name="callback">Callback called at the end</param>
-		void IsNetworkReachable(string url, INetworkReachabilityCallback callback);
+		/// <returns>true if there is network connectivity to the given url; false otherwise</returns>
+		void IsNetworkServiceReachable(string url, INetworkReachabilityCallback callback);
+
+		/// <summary>Whether there is connectivity to a host, via domain name or ip address, or not.
+		/// 	</summary>
+		/// <remarks>Whether there is connectivity to a host, via domain name or ip address, or not.
+		/// 	</remarks>
+		/// <param name="host">domain name or ip address of host.</param>
+		/// <param name="callback">Callback called at the end.</param>
+		/// <returns>true if there is network connectivity to the given url; false otherwise</returns>
+		void IsNetworkReachable(string host, INetworkReachabilityCallback callback);
 	}
 }

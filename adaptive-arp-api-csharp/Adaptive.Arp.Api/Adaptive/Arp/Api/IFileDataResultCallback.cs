@@ -64,7 +64,8 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public enum Warning
 		{
-			ExceedMaximumSize
+			ExceedMaximumSize,
+			Unknown
 		}
 
 		/// <since>ARP1.0</since>
@@ -72,7 +73,8 @@ namespace Adaptive.Arp.Api
 		{
 			InexistentFile,
 			InsufficientSpace,
-			Unauthorized
+			Unauthorized,
+			Unknown
 		}
 	}
 }

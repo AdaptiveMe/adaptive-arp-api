@@ -36,11 +36,21 @@ namespace Adaptive.Arp.Api
 	{
 		private string key;
 
-		private string value;
+		private string data;
 
 		/// <summary>Constructor used by the implementation</summary>
 		public SecureKeyPair()
 		{
+		}
+
+		/// <summary>Constructor with parameters</summary>
+		/// <param name="key">name of the keypair</param>
+		/// <param name="data">value of the keypair</param>
+		/// <since>ARP1.0</since>
+		public SecureKeyPair(string key, string data)
+		{
+			this.key = key;
+			this.data = data;
 		}
 
 		/// <summary>Returns the object key name.</summary>
@@ -64,17 +74,17 @@ namespace Adaptive.Arp.Api
 		/// <summary>Returns the object value</summary>
 		/// <returns>Value.</returns>
 		/// <since>ARP 1.0</since>
-		public virtual string GetValue()
+		public virtual string GetData()
 		{
-			return value;
+			return data;
 		}
 
 		/// <summary>Sets the value for this object</summary>
-		/// <param name="value">value to set.</param>
+		/// <param name="data">value to set.</param>
 		/// <since>ARP 1.0</since>
-		public virtual void SetValue(string value)
+		public virtual void SetData(string data)
 		{
-			this.value = value;
+			this.data = data;
 		}
 	}
 }

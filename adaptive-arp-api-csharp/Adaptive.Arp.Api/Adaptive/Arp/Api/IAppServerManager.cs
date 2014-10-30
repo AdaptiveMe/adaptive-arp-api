@@ -39,7 +39,7 @@ namespace Adaptive.Arp.Api
 	/// Provides support for multiple listeners to be started for any application and manages the delivery of listening
 	/// server lifecycle events to registered listeners.
 	/// </remarks>
-	public interface IAppServerManager
+	public interface IAppServerManager : IAdaptiveRP
 	{
 		/// <summary>Registers a listener to receive server lifecycle events.</summary>
 		/// <remarks>Registers a listener to receive server lifecycle events.</remarks>

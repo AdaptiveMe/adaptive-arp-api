@@ -47,13 +47,15 @@ namespace Adaptive.Arp.Api
 		{
 			PartialContent,
 			TooLarge,
-			LinkedResource
+			LinkedResource,
+			Unknown
 		}
 
 		public enum Error
 		{
 			NotFound,
-			NoPermission
+			NoPermission,
+			Unknown
 		}
 	}
 }

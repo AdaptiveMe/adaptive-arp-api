@@ -58,7 +58,8 @@ namespace Adaptive.Arp.Api
 		public enum Warning
 		{
 			DatabaseExists,
-			IsOpen
+			IsOpen,
+			Unknown
 		}
 
 		/// <summary>Enumeration for errors related to database manipulation.</summary>
@@ -67,7 +68,8 @@ namespace Adaptive.Arp.Api
 		{
 			NoSpace,
 			SqlException,
-			NotDeleted
+			NotDeleted,
+			Unknown
 		}
 	}
 }

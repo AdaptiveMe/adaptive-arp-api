@@ -58,7 +58,8 @@ namespace Adaptive.Arp.Api
 		{
 			TableExists,
 			TableLocked,
-			NoResults
+			NoResults,
+			Unknown
 		}
 
 		/// <summary>Enumeration for errors related to database manipulation.</summary>
@@ -67,7 +68,10 @@ namespace Adaptive.Arp.Api
 		{
 			NoSpace,
 			ReadOnlyTable,
-			SqlException
+			SqlException,
+			DatabaseNotFound,
+			NoTableFound,
+			Unknown
 		}
 	}
 }

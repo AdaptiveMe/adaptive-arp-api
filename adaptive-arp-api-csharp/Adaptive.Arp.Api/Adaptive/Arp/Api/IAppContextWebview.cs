@@ -33,7 +33,7 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 09/09/14.</summary>
 	/// <remarks>Created by clozano on 09/09/14.</remarks>
-	public interface IAppContextWebview
+	public interface IAppContextWebview : IAdaptiveRP
 	{
 		/// <summary>Returns a reference to the main application webview.</summary>
 		/// <remarks>

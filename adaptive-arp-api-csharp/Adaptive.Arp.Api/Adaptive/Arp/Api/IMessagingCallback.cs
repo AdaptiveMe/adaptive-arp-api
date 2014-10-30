@@ -53,19 +53,21 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public enum Warning
 		{
-			Unable_To_Sent_All,
-			Unable_to_fetch_attachment
+			UnableToSentAll,
+			UnableToFetchAttachment,
+			Unknown
 		}
 
 		/// <summary>Errors that can be used</summary>
 		/// <since>ARP1.0</since>
 		public enum Error
 		{
-			SIM_Not_Present,
-			Email_Account_Not_Found,
-			Not_Sent,
-			Wrong_Params,
-			Not_Supported
+			SIMNotPresent,
+			EmailAccountNotFound,
+			NotSent,
+			WrongParams,
+			NotSupported,
+			Unknown
 		}
 	}
 }

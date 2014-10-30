@@ -37,7 +37,7 @@ namespace Adaptive.Arp.Api
 	/// This interfaces represents a specific instance of a listener on the platform. Listeners are generally http or https
 	/// and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content and resources.
 	/// </remarks>
-	public interface IAppServer
+	public interface IAppServer : IAdaptiveRP
 	{
 		/// <summary>Returns the scheme the server instance is using.</summary>
 		/// <remarks>

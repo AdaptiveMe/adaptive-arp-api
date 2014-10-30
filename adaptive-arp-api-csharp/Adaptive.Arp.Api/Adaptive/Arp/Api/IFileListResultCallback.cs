@@ -65,7 +65,8 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public enum Warning
 		{
-			PartialResult
+			PartialResult,
+			Unknown
 		}
 
 		/// <summary>List of errors.</summary>
@@ -74,7 +75,8 @@ namespace Adaptive.Arp.Api
 		public enum Error
 		{
 			InexistentFile,
-			Unauthorized
+			Unauthorized,
+			Unknown
 		}
 	}
 }

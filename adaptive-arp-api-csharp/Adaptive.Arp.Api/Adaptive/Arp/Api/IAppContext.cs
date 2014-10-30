@@ -33,7 +33,7 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by clozano on 05/09/2014.</summary>
 	/// <remarks>Created by clozano on 05/09/2014.</remarks>
-	public abstract class IAppContext
+	public abstract class IAppContext : IAdaptiveRP
 	{
 		/// <summary>The main application context.</summary>
 		/// <remarks>The main application context. This should be cast to the platform specific implementation.

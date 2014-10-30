@@ -53,14 +53,16 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		public enum Error
 		{
-			Not_Present
+			Not_Present,
+			Unknown
 		}
 
 		/// <summary>Warn posibilities</summary>
 		/// <since>ARP1.0</since>
 		public enum Warning
 		{
-			Not_Implemented
+			Not_Implemented,
+			Unknown
 		}
 	}
 }

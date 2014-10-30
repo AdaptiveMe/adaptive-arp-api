@@ -33,7 +33,7 @@ namespace Adaptive.Arp.Api
 {
 	/// <summary>Created by FRMI on 28/08/2014.</summary>
 	/// <remarks>Created by FRMI on 28/08/2014.</remarks>
-	public abstract class INetworkReachabilityCallback
+	public abstract class INetworkReachabilityCallback : IBaseCallback
 	{
 		/// <summary>Correct data received.</summary>
 		/// <remarks>Correct data received.</remarks>
@@ -65,7 +65,10 @@ namespace Adaptive.Arp.Api
 			TimeOut,
 			NoResponse,
 			Unreachable,
-			Wrong_Params
+			Wrong_Params,
+			MalformedUrl,
+			DomainUnresolvable,
+			Unknown
 		}
 
 		public enum Warning
@@ -75,7 +78,7 @@ namespace Adaptive.Arp.Api
 			NotTrusted,
 			Redirected,
 			NotRegisteredService,
-			MalformedUrl
+			Unknown
 		}
 	}
 }

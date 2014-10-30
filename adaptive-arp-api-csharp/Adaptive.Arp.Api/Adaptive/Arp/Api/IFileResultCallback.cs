@@ -68,7 +68,8 @@ namespace Adaptive.Arp.Api
 		public enum Warning
 		{
 			SourceNotDeleted,
-			RootDirectory
+			RootDirectory,
+			Unknown
 		}
 
 		/// <summary>List of errors.</summary>
@@ -78,7 +79,8 @@ namespace Adaptive.Arp.Api
 		{
 			FileExists,
 			InsufficientSpace,
-			Unauthorized
+			Unauthorized,
+			Unknown
 		}
 	}
 }

@@ -57,20 +57,6 @@ namespace Adaptive.Arp.Api
 		/// <since>ARP1.0</since>
 		bool ExistsDatabase(Database database);
 
-		/// <summary>
-		/// Returns a Database if exists by a given name encapsulated inside a
-		/// Database Object.
-		/// </summary>
-		/// <remarks>
-		/// Returns a Database if exists by a given name encapsulated inside a
-		/// Database Object.
-		/// </remarks>
-		/// <param name="database">Database object to find</param>
-		/// <param name="callback">Asynchronous callback</param>
-		/// <author>Ferran Vila Conesa</author>
-		/// <since>ARP1.0</since>
-		void GetDatabase(Database database, IDatabaseResultCallback callback);
-
 		/// <summary>Creates a table inside a database for every platform.</summary>
 		/// <remarks>Creates a table inside a database for every platform.</remarks>
 		/// <param name="database">Database for table creating.</param>

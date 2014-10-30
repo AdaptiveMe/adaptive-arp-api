@@ -65,7 +65,8 @@ namespace Adaptive.Arp.Api
 		public enum Warning
 		{
 			NeedsCalibration,
-			Stale
+			Stale,
+			Unknown
 		}
 
 		/// <summary>Errors that can be used</summary>
@@ -73,7 +74,8 @@ namespace Adaptive.Arp.Api
 		public enum Error
 		{
 			Unauthorized,
-			Unavailable
+			Unavailable,
+			Unknown
 		}
 	}
 }
