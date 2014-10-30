@@ -35,30 +35,30 @@ public class Cookie : NSObject  {
       * Field Declarations
       */
      var creation : Int64
+     var data : String
      var domain : String
      var expiry : Int64
      var name : String
      var path : String
      var scheme : String
      var secure : Bool
-     var value : String
      public override var description : String {
-          return "Cookie{ creation="+creation.description+",domain="+domain+",expiry="+expiry.description+",name="+name+",path="+path+",scheme="+scheme+",secure="+secure.description+",value="+value+" }"
+          return "Cookie{ creation="+creation.description+",data="+data+",domain="+domain+",expiry="+expiry.description+",name="+name+",path="+path+",scheme="+scheme+",secure="+secure.description+" }"
      }
 
 
      /**
       * Initialization
       */
-     public convenience init(name : String, value : String) {
+     public convenience init(name : String, data : String) {
           self.init()
           self.name = name
-          self.value = value
+          self.data = data
      }
 
      public override init() {
           self.name = ""
-          self.value = ""
+          self.data = ""
           self.domain = ""
           self.path = ""
           self.scheme = ""
@@ -73,6 +73,10 @@ public class Cookie : NSObject  {
       */
      public func getCreation() -> Int64 {
           return self.creation
+     }
+
+     public func getData() -> String? {
+          return self.data
      }
 
      public func getDomain() -> String? {
@@ -95,12 +99,12 @@ public class Cookie : NSObject  {
           return self.scheme
      }
 
-     public func getValue() -> String? {
-          return self.value
-     }
-
      public func isSecure() -> Bool {
           return self.secure
+     }
+
+     public func setData(data : String) {
+          self.data = data
      }
 
      public func setDomain(domain : String) {
@@ -125,10 +129,6 @@ public class Cookie : NSObject  {
 
      public func setSecure(secure : Bool) {
           self.secure = secure
-     }
-
-     public func setValue(value : String) {
-          self.value = value
      }
 
 

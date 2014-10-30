@@ -123,6 +123,10 @@ public class ServiceRequest : NSObject  {
           return self.session!
      }
 
+     public func setContent(content : String) {
+          self.content = content
+     }
+
      public func setContentEncoding(contentEncoding : String) {
           self.contentEncoding = contentEncoding
      }
@@ -133,10 +137,6 @@ public class ServiceRequest : NSObject  {
 
      public func setContentType(contentType : String) {
           self.contentType = contentType
-     }
-
-     public func setContent(content : String) {
-          self.content = content
      }
 
      public func setHeaders(headers : [Header]) {

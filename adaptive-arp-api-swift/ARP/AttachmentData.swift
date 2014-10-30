@@ -88,12 +88,12 @@ public class AttachmentData : NSObject  {
           return self.referenceUrl
      }
 
-     public func setData(data : [Byte]) {
-          self.data = data
-     }
-
      public func setDataSize(dataSize : Int64) {
           self.dataSize = dataSize
+     }
+
+     public func setData(data : [Byte]) {
+          self.data = data
      }
 
      public func setFileName(fileName : String) {
