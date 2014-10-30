@@ -40,10 +40,10 @@
 }
 
 - (id)initWithNSString:(NSString *)name
-          withNSString:(NSString *)value {
+          withNSString:(NSString *)data {
   if (self = [super init]) {
     self->name_ = name;
-    self->data_ = value;
+    self->data_ = data;
   }
   return self;
 }
