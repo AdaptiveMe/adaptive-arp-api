@@ -34,10 +34,10 @@ public class Header : NSObject  {
      /**
       * Field Declarations
       */
+     var data : String
      var name : String
-     var value : String
      public override var description : String {
-          return "Header{ name="+name+",value="+value+" }"
+          return "Header{ data="+data+",name="+name+" }"
      }
 
 
@@ -46,7 +46,7 @@ public class Header : NSObject  {
       */
      public override init() {
           self.name = ""
-          self.value = ""
+          self.data = ""
      }
 
      public convenience init(name : String, value : String) {
@@ -59,20 +59,20 @@ public class Header : NSObject  {
      /**
       * Function Declarations
       */
+     public func getData() -> String? {
+          return self.data
+     }
+
      public func getName() -> String? {
           return self.name
      }
 
-     public func getValue() -> String? {
-          return self.value
+     public func setData(data : String) {
+          self.data = data
      }
 
      public func setName(name : String) {
           self.name = name
-     }
-
-     public func setValue(value : String) {
-          self.value = value
      }
 
 
