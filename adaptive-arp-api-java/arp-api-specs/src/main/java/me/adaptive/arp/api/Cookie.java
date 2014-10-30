@@ -57,7 +57,7 @@ public class Cookie {
      *
      * @since ARP1.0
      */
-    private String value;
+    private String data;
     /**
      * Domain for which the cookie is valid.
      */
@@ -91,12 +91,12 @@ public class Cookie {
      * Constructor used by the implementation
      *
      * @param name
-     * @param value
+     * @param data
      * @since ARP1.0
      */
-    public Cookie(String name, String value) {
+    public Cookie(String name, String data) {
         this.name = name;
-        this.value = value;
+        this.data = data;
     }
 
     /**
@@ -226,18 +226,18 @@ public class Cookie {
      * @return
      * @since ARP1.0
      */
-    public String getValue() {
-        return value;
+    public String getData() {
+        return data;
     }
 
     /**
      * Set the cookie value
      *
-     * @param value
+     * @param data
      * @since ARP1.0
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setData(String data) {
+        this.data = data;
     }
 
     /**

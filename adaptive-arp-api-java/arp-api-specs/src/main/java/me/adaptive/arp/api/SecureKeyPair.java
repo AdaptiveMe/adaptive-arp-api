@@ -39,7 +39,7 @@ public class SecureKeyPair {
 
     private String key;
 
-    private String value;
+    private String data;
 
     /**
      * Constructor used by the implementation
@@ -51,12 +51,12 @@ public class SecureKeyPair {
      * Constructor with parameters
      * 
      * @param key   name of the keypair
-     * @param value value of the keypair
+     * @param data value of the keypair
      * @since ARP1.0
      */
-    public SecureKeyPair(String key, String value) {
+    public SecureKeyPair(String key, String data) {
         this.key = key;
-        this.value = value;
+        this.data = data;
     }
 
     /**
@@ -85,18 +85,18 @@ public class SecureKeyPair {
      * @return Value.
      * @since ARP 1.0
      */
-    public String getValue() {
-        return value;
+    public String getData() {
+        return data;
     }
 
     /**
      * Sets the value for this object
      *
-     * @param value value to set.
+     * @param data value to set.
      * @since ARP 1.0
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setData(String data) {
+        this.data = data;
     }
 
 }
