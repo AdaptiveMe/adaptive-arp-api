@@ -40,7 +40,7 @@ namespace Adaptive.Arp.Api
 
 		/// <summary>Value of the header</summary>
 		/// <since>ARP1.0</since>
-		private string value;
+		private string data;
 
 		/// <summary>Constructor used by the implementation</summary>
 		public Header()
@@ -54,7 +54,7 @@ namespace Adaptive.Arp.Api
 		public Header(string name, string value)
 		{
 			this.name = name;
-			this.value = value;
+			this.data = value;
 		}
 
 		/// <summary>Returns the header name</summary>
@@ -76,17 +76,17 @@ namespace Adaptive.Arp.Api
 		/// <summary>Returns the header value</summary>
 		/// <returns></returns>
 		/// <since>ARP1.0</since>
-		public virtual string GetValue()
+		public virtual string GetData()
 		{
-			return value;
+			return data;
 		}
 
 		/// <summary>Set the header value</summary>
-		/// <param name="value"></param>
+		/// <param name="data"></param>
 		/// <since>ARP1.0</since>
-		public virtual void SetValue(string value)
+		public virtual void SetData(string data)
 		{
-			this.value = value;
+			this.data = data;
 		}
 	}
 }
