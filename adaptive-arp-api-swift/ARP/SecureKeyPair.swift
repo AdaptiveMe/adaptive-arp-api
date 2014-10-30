@@ -34,10 +34,10 @@ public class SecureKeyPair : NSObject  {
      /**
       * Field Declarations
       */
-     var data : String
-     var key : String
+     var secureData : String
+     var secureKey : String
      public override var description : String {
-          return "SecureKeyPair{ data="+data+",key="+key+" }"
+          return "SecureKeyPair{ secureData="+secureData+",secureKey="+secureKey+" }"
      }
 
 
@@ -45,34 +45,34 @@ public class SecureKeyPair : NSObject  {
       * Initialization
       */
      public override init() {
-          self.key = ""
-          self.data = ""
+          self.secureKey = ""
+          self.secureData = ""
      }
 
-     public convenience init(key : String, data : String) {
+     public convenience init(secureKey : String, secureData : String) {
           self.init()
-          self.key = key
-          self.data = data
+          self.secureKey = secureKey
+          self.secureData = secureData
      }
 
 
      /**
       * Function Declarations
       */
-     public func getData() -> String? {
-          return self.data
+     public func getSecureData() -> String? {
+          return self.secureData
      }
 
-     public func getKey() -> String? {
-          return self.key
+     public func getSecureKey() -> String? {
+          return self.secureKey
      }
 
-     public func setData(data : String) {
-          self.data = data
+     public func setSecureData(secureData : String) {
+          self.secureData = secureData
      }
 
-     public func setKey(key : String) {
-          self.key = key
+     public func setSecureKey(secureKey : String) {
+          self.secureKey = secureKey
      }
 
 

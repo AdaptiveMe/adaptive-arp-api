@@ -49,10 +49,10 @@ public class Header : NSObject  {
           self.data = ""
      }
 
-     public convenience init(name : String, value : String) {
+     public convenience init(name : String, data : String) {
           self.init()
           self.name = name
-          self.value = value
+          self.data = data
      }
 
 
