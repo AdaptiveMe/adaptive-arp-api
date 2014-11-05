@@ -30,6 +30,29 @@
 import Foundation
 
 public enum IFileListResultCallbackWarning {
-     case PartialResult, Unknown
-}
 
+     /// Enum Values
+     case PartialResult, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .PartialResult: return "PartialResult"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IFileListResultCallbackWarning {
+          if let validString = string {
+               switch validString {
+                    case "PartialResult": return .PartialResult
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

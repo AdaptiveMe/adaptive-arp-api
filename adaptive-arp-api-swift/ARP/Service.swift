@@ -47,10 +47,76 @@ public class Service : NSObject  {
       * Enumeration Declarations
       */
      public enum ServiceMethod {
-          case POST, GET
+          /// Enum Values
+          case POST, GET, Unknown
+
+          /// toString
+          public func toString() -> String {
+               switch self {
+                    case .POST: return "POST"
+                    case .GET: return "GET"
+                    case .Unknown: return "Unknown"
+               }
+          }
+
+          /// toEnum
+          public static func toEnum(string:String?) -> ServiceMethod {
+               if let validString = string {
+                    switch validString {
+                         case "POST": return .POST
+                         case "GET": return .GET
+                         case "Unknown": return .Unknown
+                         default: return .Unknown
+                    }
+               } else {
+                    return .Unknown
+               }
+          }
+
      }
      public enum ServiceType {
-          case SERVICETYPE_AMF_SERIALIZATION, SERVICETYPE_GWT_RPC, SERVICETYPE_OCTET_BINARY, SERVICETYPE_REMOTING_SERIALIZATION, SERVICETYPE_REST_JSON, SERVICETYPE_REST_XML, SERVICETYPE_SOAP_JSON, SERVICETYPE_SOAP_XML, SERVICETYPE_XMLRPC_JSON, SERVICETYPE_XMLRPC_XML
+          /// Enum Values
+          case SERVICETYPE_AMF_SERIALIZATION, SERVICETYPE_GWT_RPC, SERVICETYPE_OCTET_BINARY, SERVICETYPE_REMOTING_SERIALIZATION, SERVICETYPE_REST_JSON, SERVICETYPE_REST_XML, SERVICETYPE_SOAP_JSON, SERVICETYPE_SOAP_XML, SERVICETYPE_XMLRPC_JSON, SERVICETYPE_XMLRPC_XML, Unknown
+
+          /// toString
+          public func toString() -> String {
+               switch self {
+                    case .SERVICETYPE_AMF_SERIALIZATION: return "SERVICETYPE_AMF_SERIALIZATION"
+                    case .SERVICETYPE_GWT_RPC: return "SERVICETYPE_GWT_RPC"
+                    case .SERVICETYPE_OCTET_BINARY: return "SERVICETYPE_OCTET_BINARY"
+                    case .SERVICETYPE_REMOTING_SERIALIZATION: return "SERVICETYPE_REMOTING_SERIALIZATION"
+                    case .SERVICETYPE_REST_JSON: return "SERVICETYPE_REST_JSON"
+                    case .SERVICETYPE_REST_XML: return "SERVICETYPE_REST_XML"
+                    case .SERVICETYPE_SOAP_JSON: return "SERVICETYPE_SOAP_JSON"
+                    case .SERVICETYPE_SOAP_XML: return "SERVICETYPE_SOAP_XML"
+                    case .SERVICETYPE_XMLRPC_JSON: return "SERVICETYPE_XMLRPC_JSON"
+                    case .SERVICETYPE_XMLRPC_XML: return "SERVICETYPE_XMLRPC_XML"
+                    case .Unknown: return "Unknown"
+               }
+          }
+
+          /// toEnum
+          public static func toEnum(string:String?) -> ServiceType {
+               if let validString = string {
+                    switch validString {
+                         case "SERVICETYPE_AMF_SERIALIZATION": return .SERVICETYPE_AMF_SERIALIZATION
+                         case "SERVICETYPE_GWT_RPC": return .SERVICETYPE_GWT_RPC
+                         case "SERVICETYPE_OCTET_BINARY": return .SERVICETYPE_OCTET_BINARY
+                         case "SERVICETYPE_REMOTING_SERIALIZATION": return .SERVICETYPE_REMOTING_SERIALIZATION
+                         case "SERVICETYPE_REST_JSON": return .SERVICETYPE_REST_JSON
+                         case "SERVICETYPE_REST_XML": return .SERVICETYPE_REST_XML
+                         case "SERVICETYPE_SOAP_JSON": return .SERVICETYPE_SOAP_JSON
+                         case "SERVICETYPE_SOAP_XML": return .SERVICETYPE_SOAP_XML
+                         case "SERVICETYPE_XMLRPC_JSON": return .SERVICETYPE_XMLRPC_JSON
+                         case "SERVICETYPE_XMLRPC_XML": return .SERVICETYPE_XMLRPC_XML
+                         case "Unknown": return .Unknown
+                         default: return .Unknown
+                    }
+               } else {
+                    return .Unknown
+               }
+          }
+
      }
 
      /**

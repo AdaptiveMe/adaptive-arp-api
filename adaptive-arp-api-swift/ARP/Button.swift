@@ -44,7 +44,34 @@ public class Button : NSObject  {
       * Enumeration Declarations
       */
      public enum Button {
-          case HomeButton, BackButton, OptionButton
+          /// Enum Values
+          case HomeButton, BackButton, OptionButton, Unknown
+
+          /// toString
+          public func toString() -> String {
+               switch self {
+                    case .HomeButton: return "HomeButton"
+                    case .BackButton: return "BackButton"
+                    case .OptionButton: return "OptionButton"
+                    case .Unknown: return "Unknown"
+               }
+          }
+
+          /// toEnum
+          public static func toEnum(string:String?) -> Button {
+               if let validString = string {
+                    switch validString {
+                         case "HomeButton": return .HomeButton
+                         case "BackButton": return .BackButton
+                         case "OptionButton": return .OptionButton
+                         case "Unknown": return .Unknown
+                         default: return .Unknown
+                    }
+               } else {
+                    return .Unknown
+               }
+          }
+
      }
 
      /**

@@ -30,6 +30,35 @@
 import Foundation
 
 public enum ILoggingLogLevel {
-     case DEBUG, WARN, ERROR, INFO
-}
 
+     /// Enum Values
+     case DEBUG, WARN, ERROR, INFO, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .DEBUG: return "DEBUG"
+               case .WARN: return "WARN"
+               case .ERROR: return "ERROR"
+               case .INFO: return "INFO"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ILoggingLogLevel {
+          if let validString = string {
+               switch validString {
+                    case "DEBUG": return .DEBUG
+                    case "WARN": return .WARN
+                    case "ERROR": return .ERROR
+                    case "INFO": return .INFO
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

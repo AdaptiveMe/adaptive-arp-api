@@ -30,6 +30,41 @@
 import Foundation
 
 public enum ICapabilitiesSensor {
-     case Accelerometer, AmbientLight, Barometer, Geolocation, Gyroscope, Magnetometer, Proximity
-}
 
+     /// Enum Values
+     case Accelerometer, AmbientLight, Barometer, Geolocation, Gyroscope, Magnetometer, Proximity, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Accelerometer: return "Accelerometer"
+               case .AmbientLight: return "AmbientLight"
+               case .Barometer: return "Barometer"
+               case .Geolocation: return "Geolocation"
+               case .Gyroscope: return "Gyroscope"
+               case .Magnetometer: return "Magnetometer"
+               case .Proximity: return "Proximity"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ICapabilitiesSensor {
+          if let validString = string {
+               switch validString {
+                    case "Accelerometer": return .Accelerometer
+                    case "AmbientLight": return .AmbientLight
+                    case "Barometer": return .Barometer
+                    case "Geolocation": return .Geolocation
+                    case "Gyroscope": return .Gyroscope
+                    case "Magnetometer": return .Magnetometer
+                    case "Proximity": return .Proximity
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

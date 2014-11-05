@@ -30,6 +30,31 @@
 import Foundation
 
 public enum IContactResultCallbackError {
-     case NoPermission, Wrong_Params, Unknown
-}
 
+     /// Enum Values
+     case NoPermission, Wrong_Params, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .NoPermission: return "NoPermission"
+               case .Wrong_Params: return "Wrong_Params"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IContactResultCallbackError {
+          if let validString = string {
+               switch validString {
+                    case "NoPermission": return .NoPermission
+                    case "Wrong_Params": return .Wrong_Params
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

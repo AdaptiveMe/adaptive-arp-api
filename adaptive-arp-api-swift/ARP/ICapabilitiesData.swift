@@ -30,6 +30,33 @@
 import Foundation
 
 public enum ICapabilitiesData {
-     case Database, File, Cloud
-}
 
+     /// Enum Values
+     case Database, File, Cloud, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Database: return "Database"
+               case .File: return "File"
+               case .Cloud: return "Cloud"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ICapabilitiesData {
+          if let validString = string {
+               switch validString {
+                    case "Database": return .Database
+                    case "File": return .File
+                    case "Cloud": return .Cloud
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

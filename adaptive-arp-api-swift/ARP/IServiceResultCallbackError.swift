@@ -30,6 +30,49 @@
 import Foundation
 
 public enum IServiceResultCallbackError {
-     case Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, MalformedUrl, NotRegisteredService, Unknown
-}
 
+     /// Enum Values
+     case Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, ServerError, Unreachable, MalformedUrl, NotRegisteredService, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Forbidden: return "Forbidden"
+               case .NotFound: return "NotFound"
+               case .MethodNotAllowed: return "MethodNotAllowed"
+               case .NotAllowed: return "NotAllowed"
+               case .NotAuthenticated: return "NotAuthenticated"
+               case .TimeOut: return "TimeOut"
+               case .NoResponse: return "NoResponse"
+               case .ServerError: return "ServerError"
+               case .Unreachable: return "Unreachable"
+               case .MalformedUrl: return "MalformedUrl"
+               case .NotRegisteredService: return "NotRegisteredService"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IServiceResultCallbackError {
+          if let validString = string {
+               switch validString {
+                    case "Forbidden": return .Forbidden
+                    case "NotFound": return .NotFound
+                    case "MethodNotAllowed": return .MethodNotAllowed
+                    case "NotAllowed": return .NotAllowed
+                    case "NotAuthenticated": return .NotAuthenticated
+                    case "TimeOut": return .TimeOut
+                    case "NoResponse": return .NoResponse
+                    case "ServerError": return .ServerError
+                    case "Unreachable": return .Unreachable
+                    case "MalformedUrl": return .MalformedUrl
+                    case "NotRegisteredService": return .NotRegisteredService
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

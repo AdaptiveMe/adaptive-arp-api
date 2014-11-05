@@ -30,6 +30,31 @@
 import Foundation
 
 public enum IAppResourceCallbackError {
-     case NotFound, NoPermission, Unknown
-}
 
+     /// Enum Values
+     case NotFound, NoPermission, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .NotFound: return "NotFound"
+               case .NoPermission: return "NoPermission"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IAppResourceCallbackError {
+          if let validString = string {
+               switch validString {
+                    case "NotFound": return .NotFound
+                    case "NoPermission": return .NoPermission
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

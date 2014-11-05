@@ -45,7 +45,38 @@ public class ContactSocial : NSObject  {
       * Enumeration Declarations
       */
      public enum SocialNetwork {
-          case Twitter, Facebook, GooglePlus, LinkedIn, Flickr
+          /// Enum Values
+          case Twitter, Facebook, GooglePlus, LinkedIn, Flickr, Unknown
+
+          /// toString
+          public func toString() -> String {
+               switch self {
+                    case .Twitter: return "Twitter"
+                    case .Facebook: return "Facebook"
+                    case .GooglePlus: return "GooglePlus"
+                    case .LinkedIn: return "LinkedIn"
+                    case .Flickr: return "Flickr"
+                    case .Unknown: return "Unknown"
+               }
+          }
+
+          /// toEnum
+          public static func toEnum(string:String?) -> SocialNetwork {
+               if let validString = string {
+                    switch validString {
+                         case "Twitter": return .Twitter
+                         case "Facebook": return .Facebook
+                         case "GooglePlus": return .GooglePlus
+                         case "LinkedIn": return .LinkedIn
+                         case "Flickr": return .Flickr
+                         case "Unknown": return .Unknown
+                         default: return .Unknown
+                    }
+               } else {
+                    return .Unknown
+               }
+          }
+
      }
 
      /**

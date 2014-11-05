@@ -30,6 +30,35 @@
 import Foundation
 
 public enum IServiceResultCallbackWarning {
-     case NotSecure, NotTrusted, Redirected, Wrong_Params, Unknown
-}
 
+     /// Enum Values
+     case NotSecure, NotTrusted, Redirected, Wrong_Params, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .NotSecure: return "NotSecure"
+               case .NotTrusted: return "NotTrusted"
+               case .Redirected: return "Redirected"
+               case .Wrong_Params: return "Wrong_Params"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IServiceResultCallbackWarning {
+          if let validString = string {
+               switch validString {
+                    case "NotSecure": return .NotSecure
+                    case "NotTrusted": return .NotTrusted
+                    case "Redirected": return .Redirected
+                    case "Wrong_Params": return .Wrong_Params
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

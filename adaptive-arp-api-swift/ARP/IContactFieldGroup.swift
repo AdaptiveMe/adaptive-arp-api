@@ -30,6 +30,43 @@
 import Foundation
 
 public enum IContactFieldGroup {
-     case PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS
-}
 
+     /// Enum Values
+     case PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .PERSONAL_INFO: return "PERSONAL_INFO"
+               case .PROFESSIONAL_INFO: return "PROFESSIONAL_INFO"
+               case .ADDRESSES: return "ADDRESSES"
+               case .PHONES: return "PHONES"
+               case .EMAILS: return "EMAILS"
+               case .WEBSITES: return "WEBSITES"
+               case .SOCIALS: return "SOCIALS"
+               case .TAGS: return "TAGS"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IContactFieldGroup {
+          if let validString = string {
+               switch validString {
+                    case "PERSONAL_INFO": return .PERSONAL_INFO
+                    case "PROFESSIONAL_INFO": return .PROFESSIONAL_INFO
+                    case "ADDRESSES": return .ADDRESSES
+                    case "PHONES": return .PHONES
+                    case "EMAILS": return .EMAILS
+                    case "WEBSITES": return .WEBSITES
+                    case "SOCIALS": return .SOCIALS
+                    case "TAGS": return .TAGS
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

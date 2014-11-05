@@ -30,6 +30,37 @@
 import Foundation
 
 public enum INetworkReachabilityCallbackWarning {
-     case IncorrectScheme, NotSecure, NotTrusted, Redirected, NotRegisteredService, Unknown
-}
 
+     /// Enum Values
+     case IncorrectScheme, NotSecure, NotTrusted, Redirected, NotRegisteredService, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .IncorrectScheme: return "IncorrectScheme"
+               case .NotSecure: return "NotSecure"
+               case .NotTrusted: return "NotTrusted"
+               case .Redirected: return "Redirected"
+               case .NotRegisteredService: return "NotRegisteredService"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> INetworkReachabilityCallbackWarning {
+          if let validString = string {
+               switch validString {
+                    case "IncorrectScheme": return .IncorrectScheme
+                    case "NotSecure": return .NotSecure
+                    case "NotTrusted": return .NotTrusted
+                    case "Redirected": return .Redirected
+                    case "NotRegisteredService": return .NotRegisteredService
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

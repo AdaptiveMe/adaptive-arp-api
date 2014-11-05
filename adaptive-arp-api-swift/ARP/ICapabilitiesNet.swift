@@ -30,6 +30,39 @@
 import Foundation
 
 public enum ICapabilitiesNet {
-     case GSM, GPRS, HSDPA, LTE, WIFI, Ethernet
-}
 
+     /// Enum Values
+     case GSM, GPRS, HSDPA, LTE, WIFI, Ethernet, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .GSM: return "GSM"
+               case .GPRS: return "GPRS"
+               case .HSDPA: return "HSDPA"
+               case .LTE: return "LTE"
+               case .WIFI: return "WIFI"
+               case .Ethernet: return "Ethernet"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ICapabilitiesNet {
+          if let validString = string {
+               switch validString {
+                    case "GSM": return .GSM
+                    case "GPRS": return .GPRS
+                    case "HSDPA": return .HSDPA
+                    case "LTE": return .LTE
+                    case "WIFI": return .WIFI
+                    case "Ethernet": return .Ethernet
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

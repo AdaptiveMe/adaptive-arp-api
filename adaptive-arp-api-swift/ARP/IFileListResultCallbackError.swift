@@ -30,6 +30,31 @@
 import Foundation
 
 public enum IFileListResultCallbackError {
-     case InexistentFile, Unauthorized, Unknown
-}
 
+     /// Enum Values
+     case InexistentFile, Unauthorized, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .InexistentFile: return "InexistentFile"
+               case .Unauthorized: return "Unauthorized"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IFileListResultCallbackError {
+          if let validString = string {
+               switch validString {
+                    case "InexistentFile": return .InexistentFile
+                    case "Unauthorized": return .Unauthorized
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

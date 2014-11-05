@@ -47,7 +47,36 @@ public class ContactPersonalInfo : NSObject  {
       * Enumeration Declarations
       */
      public enum Title {
-          case Mr, Mrs, Ms, Dr
+          /// Enum Values
+          case Mr, Mrs, Ms, Dr, Unknown
+
+          /// toString
+          public func toString() -> String {
+               switch self {
+                    case .Mr: return "Mr"
+                    case .Mrs: return "Mrs"
+                    case .Ms: return "Ms"
+                    case .Dr: return "Dr"
+                    case .Unknown: return "Unknown"
+               }
+          }
+
+          /// toEnum
+          public static func toEnum(string:String?) -> Title {
+               if let validString = string {
+                    switch validString {
+                         case "Mr": return .Mr
+                         case "Mrs": return .Mrs
+                         case "Ms": return .Ms
+                         case "Dr": return .Dr
+                         case "Unknown": return .Unknown
+                         default: return .Unknown
+                    }
+               } else {
+                    return .Unknown
+               }
+          }
+
      }
 
      /**

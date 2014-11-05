@@ -30,6 +30,29 @@
 import Foundation
 
 public enum IButtonListenerError {
-     case Not_Present, Unknown
-}
 
+     /// Enum Values
+     case Not_Present, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Not_Present: return "Not_Present"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IButtonListenerError {
+          if let validString = string {
+               switch validString {
+                    case "Not_Present": return .Not_Present
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

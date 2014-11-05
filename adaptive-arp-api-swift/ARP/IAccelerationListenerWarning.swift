@@ -30,6 +30,31 @@
 import Foundation
 
 public enum IAccelerationListenerWarning {
-     case NeedsCalibration, Stale, Unknown
-}
 
+     /// Enum Values
+     case NeedsCalibration, Stale, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .NeedsCalibration: return "NeedsCalibration"
+               case .Stale: return "Stale"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IAccelerationListenerWarning {
+          if let validString = string {
+               switch validString {
+                    case "NeedsCalibration": return .NeedsCalibration
+                    case "Stale": return .Stale
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

@@ -30,6 +30,31 @@
 import Foundation
 
 public enum IMessagingCallbackWarning {
-     case UnableToSentAll, UnableToFetchAttachment, Unknown
-}
 
+     /// Enum Values
+     case UnableToSentAll, UnableToFetchAttachment, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .UnableToSentAll: return "UnableToSentAll"
+               case .UnableToFetchAttachment: return "UnableToFetchAttachment"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IMessagingCallbackWarning {
+          if let validString = string {
+               switch validString {
+                    case "UnableToSentAll": return .UnableToSentAll
+                    case "UnableToFetchAttachment": return .UnableToFetchAttachment
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

@@ -30,6 +30,33 @@
 import Foundation
 
 public enum IAppResourcePayload {
-     case Default, Embedded, Linked
-}
 
+     /// Enum Values
+     case Default, Embedded, Linked, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Default: return "Default"
+               case .Embedded: return "Embedded"
+               case .Linked: return "Linked"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IAppResourcePayload {
+          if let validString = string {
+               switch validString {
+                    case "Default": return .Default
+                    case "Embedded": return .Embedded
+                    case "Linked": return .Linked
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

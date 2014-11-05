@@ -30,6 +30,31 @@
 import Foundation
 
 public enum IDatabaseResultCallbackWarning {
-     case DatabaseExists, IsOpen, Unknown
-}
 
+     /// Enum Values
+     case DatabaseExists, IsOpen, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .DatabaseExists: return "DatabaseExists"
+               case .IsOpen: return "IsOpen"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IDatabaseResultCallbackWarning {
+          if let validString = string {
+               switch validString {
+                    case "DatabaseExists": return .DatabaseExists
+                    case "IsOpen": return .IsOpen
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

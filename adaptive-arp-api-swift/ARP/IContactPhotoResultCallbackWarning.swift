@@ -30,6 +30,31 @@
 import Foundation
 
 public enum IContactPhotoResultCallbackWarning {
-     case LimitExceeded, No_Matches, Unknown
-}
 
+     /// Enum Values
+     case LimitExceeded, No_Matches, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .LimitExceeded: return "LimitExceeded"
+               case .No_Matches: return "No_Matches"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IContactPhotoResultCallbackWarning {
+          if let validString = string {
+               switch validString {
+                    case "LimitExceeded": return .LimitExceeded
+                    case "No_Matches": return .No_Matches
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

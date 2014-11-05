@@ -46,7 +46,34 @@ public class ContactEmail : NSObject  {
       * Enumeration Declarations
       */
      public enum EmailType {
-          case Personal, Work, Other
+          /// Enum Values
+          case Personal, Work, Other, Unknown
+
+          /// toString
+          public func toString() -> String {
+               switch self {
+                    case .Personal: return "Personal"
+                    case .Work: return "Work"
+                    case .Other: return "Other"
+                    case .Unknown: return "Unknown"
+               }
+          }
+
+          /// toEnum
+          public static func toEnum(string:String?) -> EmailType {
+               if let validString = string {
+                    switch validString {
+                         case "Personal": return .Personal
+                         case "Work": return .Work
+                         case "Other": return .Other
+                         case "Unknown": return .Unknown
+                         default: return .Unknown
+                    }
+               } else {
+                    return .Unknown
+               }
+          }
+
      }
 
      /**

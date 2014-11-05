@@ -45,7 +45,42 @@ public class ContactPhone : NSObject  {
       * Enumeration Declarations
       */
      public enum PhoneType {
-          case Mobile, Work, Home, Main, HomeFax, WorkFax, Other
+          /// Enum Values
+          case Mobile, Work, Home, Main, HomeFax, WorkFax, Other, Unknown
+
+          /// toString
+          public func toString() -> String {
+               switch self {
+                    case .Mobile: return "Mobile"
+                    case .Work: return "Work"
+                    case .Home: return "Home"
+                    case .Main: return "Main"
+                    case .HomeFax: return "HomeFax"
+                    case .WorkFax: return "WorkFax"
+                    case .Other: return "Other"
+                    case .Unknown: return "Unknown"
+               }
+          }
+
+          /// toEnum
+          public static func toEnum(string:String?) -> PhoneType {
+               if let validString = string {
+                    switch validString {
+                         case "Mobile": return .Mobile
+                         case "Work": return .Work
+                         case "Home": return .Home
+                         case "Main": return .Main
+                         case "HomeFax": return .HomeFax
+                         case "WorkFax": return .WorkFax
+                         case "Other": return .Other
+                         case "Unknown": return .Unknown
+                         default: return .Unknown
+                    }
+               } else {
+                    return .Unknown
+               }
+          }
+
      }
 
      /**

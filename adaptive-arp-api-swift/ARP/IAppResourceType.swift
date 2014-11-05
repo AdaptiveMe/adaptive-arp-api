@@ -30,6 +30,45 @@
 import Foundation
 
 public enum IAppResourceType {
-     case Html, Css, JavaScript, Image, Video, Audio, Property, Database, Other
-}
 
+     /// Enum Values
+     case Html, Css, JavaScript, Image, Video, Audio, Property, Database, Other, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Html: return "Html"
+               case .Css: return "Css"
+               case .JavaScript: return "JavaScript"
+               case .Image: return "Image"
+               case .Video: return "Video"
+               case .Audio: return "Audio"
+               case .Property: return "Property"
+               case .Database: return "Database"
+               case .Other: return "Other"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IAppResourceType {
+          if let validString = string {
+               switch validString {
+                    case "Html": return .Html
+                    case "Css": return .Css
+                    case "JavaScript": return .JavaScript
+                    case "Image": return .Image
+                    case "Video": return .Video
+                    case "Audio": return .Audio
+                    case "Property": return .Property
+                    case "Database": return .Database
+                    case "Other": return .Other
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

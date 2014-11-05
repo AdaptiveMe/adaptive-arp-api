@@ -30,6 +30,31 @@
 import Foundation
 
 public enum IGeolocationListenerWarning {
-     case HighDoP, StaleData, Unknown
-}
 
+     /// Enum Values
+     case HighDoP, StaleData, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .HighDoP: return "HighDoP"
+               case .StaleData: return "StaleData"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IGeolocationListenerWarning {
+          if let validString = string {
+               switch validString {
+                    case "HighDoP": return .HighDoP
+                    case "StaleData": return .StaleData
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

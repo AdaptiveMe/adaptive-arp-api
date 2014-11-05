@@ -30,6 +30,37 @@
 import Foundation
 
 public enum ICapabilitiesMedia {
-     case Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording
-}
 
+     /// Enum Values
+     case Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Audio_Playback: return "Audio_Playback"
+               case .Audio_Recording: return "Audio_Recording"
+               case .Camera: return "Camera"
+               case .Video_Playback: return "Video_Playback"
+               case .Video_Recording: return "Video_Recording"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ICapabilitiesMedia {
+          if let validString = string {
+               switch validString {
+                    case "Audio_Playback": return .Audio_Playback
+                    case "Audio_Recording": return .Audio_Recording
+                    case "Camera": return .Camera
+                    case "Video_Playback": return .Video_Playback
+                    case "Video_Recording": return .Video_Recording
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

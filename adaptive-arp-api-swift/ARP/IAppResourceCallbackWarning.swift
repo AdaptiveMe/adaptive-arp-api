@@ -30,6 +30,33 @@
 import Foundation
 
 public enum IAppResourceCallbackWarning {
-     case PartialContent, TooLarge, LinkedResource, Unknown
-}
 
+     /// Enum Values
+     case PartialContent, TooLarge, LinkedResource, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .PartialContent: return "PartialContent"
+               case .TooLarge: return "TooLarge"
+               case .LinkedResource: return "LinkedResource"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IAppResourceCallbackWarning {
+          if let validString = string {
+               switch validString {
+                    case "PartialContent": return .PartialContent
+                    case "TooLarge": return .TooLarge
+                    case "LinkedResource": return .LinkedResource
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

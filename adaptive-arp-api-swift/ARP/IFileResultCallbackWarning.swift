@@ -30,6 +30,31 @@
 import Foundation
 
 public enum IFileResultCallbackWarning {
-     case SourceNotDeleted, RootDirectory, Unknown
-}
 
+     /// Enum Values
+     case SourceNotDeleted, RootDirectory, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .SourceNotDeleted: return "SourceNotDeleted"
+               case .RootDirectory: return "RootDirectory"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IFileResultCallbackWarning {
+          if let validString = string {
+               switch validString {
+                    case "SourceNotDeleted": return .SourceNotDeleted
+                    case "RootDirectory": return .RootDirectory
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

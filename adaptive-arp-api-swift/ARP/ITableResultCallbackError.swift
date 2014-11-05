@@ -30,6 +30,37 @@
 import Foundation
 
 public enum ITableResultCallbackError {
-     case NoSpace, ReadOnlyTable, SqlException, DatabaseNotFound, NoTableFound, Unknown
-}
 
+     /// Enum Values
+     case NoSpace, ReadOnlyTable, SqlException, DatabaseNotFound, NoTableFound, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .NoSpace: return "NoSpace"
+               case .ReadOnlyTable: return "ReadOnlyTable"
+               case .SqlException: return "SqlException"
+               case .DatabaseNotFound: return "DatabaseNotFound"
+               case .NoTableFound: return "NoTableFound"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ITableResultCallbackError {
+          if let validString = string {
+               switch validString {
+                    case "NoSpace": return .NoSpace
+                    case "ReadOnlyTable": return .ReadOnlyTable
+                    case "SqlException": return .SqlException
+                    case "DatabaseNotFound": return .DatabaseNotFound
+                    case "NoTableFound": return .NoTableFound
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

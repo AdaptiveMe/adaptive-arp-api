@@ -30,6 +30,33 @@
 import Foundation
 
 public enum IDatabaseResultCallbackError {
-     case NoSpace, SqlException, NotDeleted, Unknown
-}
 
+     /// Enum Values
+     case NoSpace, SqlException, NotDeleted, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .NoSpace: return "NoSpace"
+               case .SqlException: return "SqlException"
+               case .NotDeleted: return "NotDeleted"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IDatabaseResultCallbackError {
+          if let validString = string {
+               switch validString {
+                    case "NoSpace": return .NoSpace
+                    case "SqlException": return .SqlException
+                    case "NotDeleted": return .NotDeleted
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

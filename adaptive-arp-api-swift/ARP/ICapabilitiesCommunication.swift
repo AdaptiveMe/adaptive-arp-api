@@ -30,6 +30,37 @@
 import Foundation
 
 public enum ICapabilitiesCommunication {
-     case Calendar, Contact, Mail, Messaging, Telephony
-}
 
+     /// Enum Values
+     case Calendar, Contact, Mail, Messaging, Telephony, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Calendar: return "Calendar"
+               case .Contact: return "Contact"
+               case .Mail: return "Mail"
+               case .Messaging: return "Messaging"
+               case .Telephony: return "Telephony"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ICapabilitiesCommunication {
+          if let validString = string {
+               switch validString {
+                    case "Calendar": return .Calendar
+                    case "Contact": return .Contact
+                    case "Mail": return .Mail
+                    case "Messaging": return .Messaging
+                    case "Telephony": return .Telephony
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

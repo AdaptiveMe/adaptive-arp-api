@@ -30,6 +30,37 @@
 import Foundation
 
 public enum IMessagingCallbackError {
-     case SIMNotPresent, EmailAccountNotFound, NotSent, WrongParams, NotSupported, Unknown
-}
 
+     /// Enum Values
+     case SIMNotPresent, EmailAccountNotFound, NotSent, WrongParams, NotSupported, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .SIMNotPresent: return "SIMNotPresent"
+               case .EmailAccountNotFound: return "EmailAccountNotFound"
+               case .NotSent: return "NotSent"
+               case .WrongParams: return "WrongParams"
+               case .NotSupported: return "NotSupported"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IMessagingCallbackError {
+          if let validString = string {
+               switch validString {
+                    case "SIMNotPresent": return .SIMNotPresent
+                    case "EmailAccountNotFound": return .EmailAccountNotFound
+                    case "NotSent": return .NotSent
+                    case "WrongParams": return .WrongParams
+                    case "NotSupported": return .NotSupported
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

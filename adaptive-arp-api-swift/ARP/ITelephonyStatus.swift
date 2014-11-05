@@ -30,6 +30,31 @@
 import Foundation
 
 public enum ITelephonyStatus {
-     case Dialing, Failed
-}
 
+     /// Enum Values
+     case Dialing, Failed, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Dialing: return "Dialing"
+               case .Failed: return "Failed"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ITelephonyStatus {
+          if let validString = string {
+               switch validString {
+                    case "Dialing": return .Dialing
+                    case "Failed": return .Failed
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

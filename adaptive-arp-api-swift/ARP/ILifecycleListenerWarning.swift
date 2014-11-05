@@ -30,6 +30,31 @@
 import Foundation
 
 public enum ILifecycleListenerWarning {
-     case MemoryLow, BatteryLow, Unknown
-}
 
+     /// Enum Values
+     case MemoryLow, BatteryLow, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .MemoryLow: return "MemoryLow"
+               case .BatteryLow: return "BatteryLow"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ILifecycleListenerWarning {
+          if let validString = string {
+               switch validString {
+                    case "MemoryLow": return .MemoryLow
+                    case "BatteryLow": return .BatteryLow
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

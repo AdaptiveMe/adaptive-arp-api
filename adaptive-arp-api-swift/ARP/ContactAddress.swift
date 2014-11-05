@@ -45,7 +45,34 @@ public class ContactAddress : NSObject  {
       * Enumeration Declarations
       */
      public enum AddressType {
-          case Home, Work, Other
+          /// Enum Values
+          case Home, Work, Other, Unknown
+
+          /// toString
+          public func toString() -> String {
+               switch self {
+                    case .Home: return "Home"
+                    case .Work: return "Work"
+                    case .Other: return "Other"
+                    case .Unknown: return "Unknown"
+               }
+          }
+
+          /// toEnum
+          public static func toEnum(string:String?) -> AddressType {
+               if let validString = string {
+                    switch validString {
+                         case "Home": return .Home
+                         case "Work": return .Work
+                         case "Other": return .Other
+                         case "Unknown": return .Unknown
+                         default: return .Unknown
+                    }
+               } else {
+                    return .Unknown
+               }
+          }
+
      }
 
      /**

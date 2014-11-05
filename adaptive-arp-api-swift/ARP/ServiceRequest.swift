@@ -52,7 +52,32 @@ public class ServiceRequest : NSObject  {
       * Enumeration Declarations
       */
      public enum ProtocolVersion {
-          case HTTP_PROTOCOL_VERSION_1_0, HTTP_PROTOCOL_VERSION_1_1
+          /// Enum Values
+          case HTTP_PROTOCOL_VERSION_1_0, HTTP_PROTOCOL_VERSION_1_1, Unknown
+
+          /// toString
+          public func toString() -> String {
+               switch self {
+                    case .HTTP_PROTOCOL_VERSION_1_0: return "HTTP_PROTOCOL_VERSION_1_0"
+                    case .HTTP_PROTOCOL_VERSION_1_1: return "HTTP_PROTOCOL_VERSION_1_1"
+                    case .Unknown: return "Unknown"
+               }
+          }
+
+          /// toEnum
+          public static func toEnum(string:String?) -> ProtocolVersion {
+               if let validString = string {
+                    switch validString {
+                         case "HTTP_PROTOCOL_VERSION_1_0": return .HTTP_PROTOCOL_VERSION_1_0
+                         case "HTTP_PROTOCOL_VERSION_1_1": return .HTTP_PROTOCOL_VERSION_1_1
+                         case "Unknown": return .Unknown
+                         default: return .Unknown
+                    }
+               } else {
+                    return .Unknown
+               }
+          }
+
      }
 
      /**

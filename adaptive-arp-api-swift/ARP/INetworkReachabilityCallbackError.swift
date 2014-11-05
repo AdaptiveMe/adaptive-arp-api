@@ -30,6 +30,49 @@
 import Foundation
 
 public enum INetworkReachabilityCallbackError {
-     case Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, Unreachable, Wrong_Params, MalformedUrl, DomainUnresolvable, Unknown
-}
 
+     /// Enum Values
+     case Forbidden, NotFound, MethodNotAllowed, NotAllowed, NotAuthenticated, TimeOut, NoResponse, Unreachable, Wrong_Params, MalformedUrl, DomainUnresolvable, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Forbidden: return "Forbidden"
+               case .NotFound: return "NotFound"
+               case .MethodNotAllowed: return "MethodNotAllowed"
+               case .NotAllowed: return "NotAllowed"
+               case .NotAuthenticated: return "NotAuthenticated"
+               case .TimeOut: return "TimeOut"
+               case .NoResponse: return "NoResponse"
+               case .Unreachable: return "Unreachable"
+               case .Wrong_Params: return "Wrong_Params"
+               case .MalformedUrl: return "MalformedUrl"
+               case .DomainUnresolvable: return "DomainUnresolvable"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> INetworkReachabilityCallbackError {
+          if let validString = string {
+               switch validString {
+                    case "Forbidden": return .Forbidden
+                    case "NotFound": return .NotFound
+                    case "MethodNotAllowed": return .MethodNotAllowed
+                    case "NotAllowed": return .NotAllowed
+                    case "NotAuthenticated": return .NotAuthenticated
+                    case "TimeOut": return .TimeOut
+                    case "NoResponse": return .NoResponse
+                    case "Unreachable": return .Unreachable
+                    case "Wrong_Params": return .Wrong_Params
+                    case "MalformedUrl": return .MalformedUrl
+                    case "DomainUnresolvable": return .DomainUnresolvable
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

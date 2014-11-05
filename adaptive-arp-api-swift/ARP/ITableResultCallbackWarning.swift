@@ -30,6 +30,33 @@
 import Foundation
 
 public enum ITableResultCallbackWarning {
-     case TableExists, TableLocked, NoResults, Unknown
-}
 
+     /// Enum Values
+     case TableExists, TableLocked, NoResults, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .TableExists: return "TableExists"
+               case .TableLocked: return "TableLocked"
+               case .NoResults: return "NoResults"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ITableResultCallbackWarning {
+          if let validString = string {
+               switch validString {
+                    case "TableExists": return .TableExists
+                    case "TableLocked": return .TableLocked
+                    case "NoResults": return .NoResults
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

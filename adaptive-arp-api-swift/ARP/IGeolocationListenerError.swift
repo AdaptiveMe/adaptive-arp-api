@@ -30,6 +30,35 @@
 import Foundation
 
 public enum IGeolocationListenerError {
-     case Disabled, RestrictedAccess, DeniedAccess, StatusNotDetermined, Unknown
-}
 
+     /// Enum Values
+     case Disabled, RestrictedAccess, DeniedAccess, StatusNotDetermined, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Disabled: return "Disabled"
+               case .RestrictedAccess: return "RestrictedAccess"
+               case .DeniedAccess: return "DeniedAccess"
+               case .StatusNotDetermined: return "StatusNotDetermined"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IGeolocationListenerError {
+          if let validString = string {
+               switch validString {
+                    case "Disabled": return .Disabled
+                    case "RestrictedAccess": return .RestrictedAccess
+                    case "DeniedAccess": return .DeniedAccess
+                    case "StatusNotDetermined": return .StatusNotDetermined
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

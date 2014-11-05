@@ -44,7 +44,44 @@ public class Lifecycle : NSObject  {
       * Enumeration Declarations
       */
      public enum State {
-          case Starting, Started, Running, Paused, PausedIdle, PausedRun, Resuming, Stopping
+          /// Enum Values
+          case Starting, Started, Running, Paused, PausedIdle, PausedRun, Resuming, Stopping, Unknown
+
+          /// toString
+          public func toString() -> String {
+               switch self {
+                    case .Starting: return "Starting"
+                    case .Started: return "Started"
+                    case .Running: return "Running"
+                    case .Paused: return "Paused"
+                    case .PausedIdle: return "PausedIdle"
+                    case .PausedRun: return "PausedRun"
+                    case .Resuming: return "Resuming"
+                    case .Stopping: return "Stopping"
+                    case .Unknown: return "Unknown"
+               }
+          }
+
+          /// toEnum
+          public static func toEnum(string:String?) -> State {
+               if let validString = string {
+                    switch validString {
+                         case "Starting": return .Starting
+                         case "Started": return .Started
+                         case "Running": return .Running
+                         case "Paused": return .Paused
+                         case "PausedIdle": return .PausedIdle
+                         case "PausedRun": return .PausedRun
+                         case "Resuming": return .Resuming
+                         case "Stopping": return .Stopping
+                         case "Unknown": return .Unknown
+                         default: return .Unknown
+                    }
+               } else {
+                    return .Unknown
+               }
+          }
+
      }
 
      /**

@@ -30,6 +30,35 @@
 import Foundation
 
 public enum IAppResourceFormat {
-     case Raw, Compressed, Encrypted, EncryptedCompressed
-}
 
+     /// Enum Values
+     case Raw, Compressed, Encrypted, EncryptedCompressed, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Raw: return "Raw"
+               case .Compressed: return "Compressed"
+               case .Encrypted: return "Encrypted"
+               case .EncryptedCompressed: return "EncryptedCompressed"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IAppResourceFormat {
+          if let validString = string {
+               switch validString {
+                    case "Raw": return .Raw
+                    case "Compressed": return .Compressed
+                    case "Encrypted": return .Encrypted
+                    case "EncryptedCompressed": return .EncryptedCompressed
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

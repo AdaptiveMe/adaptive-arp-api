@@ -30,6 +30,33 @@
 import Foundation
 
 public enum IContactPhotoResultCallbackError {
-     case NoPermission, Wrong_Params, No_Photo, Unknown
-}
 
+     /// Enum Values
+     case NoPermission, Wrong_Params, No_Photo, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .NoPermission: return "NoPermission"
+               case .Wrong_Params: return "Wrong_Params"
+               case .No_Photo: return "No_Photo"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IContactPhotoResultCallbackError {
+          if let validString = string {
+               switch validString {
+                    case "NoPermission": return .NoPermission
+                    case "Wrong_Params": return .Wrong_Params
+                    case "No_Photo": return .No_Photo
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

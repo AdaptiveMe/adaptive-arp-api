@@ -30,6 +30,33 @@
 import Foundation
 
 public enum IFileResultCallbackError {
-     case FileExists, InsufficientSpace, Unauthorized, Unknown
-}
 
+     /// Enum Values
+     case FileExists, InsufficientSpace, Unauthorized, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .FileExists: return "FileExists"
+               case .InsufficientSpace: return "InsufficientSpace"
+               case .Unauthorized: return "Unauthorized"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IFileResultCallbackError {
+          if let validString = string {
+               switch validString {
+                    case "FileExists": return .FileExists
+                    case "InsufficientSpace": return .InsufficientSpace
+                    case "Unauthorized": return .Unauthorized
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

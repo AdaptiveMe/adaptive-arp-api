@@ -30,6 +30,29 @@
 import Foundation
 
 public enum ISecureKVResultCallbackWarning {
-     case EntryOverride, Unknown
-}
 
+     /// Enum Values
+     case EntryOverride, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .EntryOverride: return "EntryOverride"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ISecureKVResultCallbackWarning {
+          if let validString = string {
+               switch validString {
+                    case "EntryOverride": return .EntryOverride
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

@@ -30,6 +30,33 @@
 import Foundation
 
 public enum ILifecycleListenerError {
-     case Runtime, Implementation, Killed, Unknown
-}
 
+     /// Enum Values
+     case Runtime, Implementation, Killed, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Runtime: return "Runtime"
+               case .Implementation: return "Implementation"
+               case .Killed: return "Killed"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ILifecycleListenerError {
+          if let validString = string {
+               switch validString {
+                    case "Runtime": return .Runtime
+                    case "Implementation": return .Implementation
+                    case "Killed": return .Killed
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

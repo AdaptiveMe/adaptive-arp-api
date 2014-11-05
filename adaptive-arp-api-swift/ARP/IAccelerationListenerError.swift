@@ -30,6 +30,31 @@
 import Foundation
 
 public enum IAccelerationListenerError {
-     case Unauthorized, Unavailable, Unknown
-}
 
+     /// Enum Values
+     case Unauthorized, Unavailable, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .Unauthorized: return "Unauthorized"
+               case .Unavailable: return "Unavailable"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IAccelerationListenerError {
+          if let validString = string {
+               switch validString {
+                    case "Unauthorized": return .Unauthorized
+                    case "Unavailable": return .Unavailable
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

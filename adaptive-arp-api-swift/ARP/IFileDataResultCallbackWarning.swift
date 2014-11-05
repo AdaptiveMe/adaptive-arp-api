@@ -30,6 +30,29 @@
 import Foundation
 
 public enum IFileDataResultCallbackWarning {
-     case ExceedMaximumSize, Unknown
-}
 
+     /// Enum Values
+     case ExceedMaximumSize, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .ExceedMaximumSize: return "ExceedMaximumSize"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IFileDataResultCallbackWarning {
+          if let validString = string {
+               switch validString {
+                    case "ExceedMaximumSize": return .ExceedMaximumSize
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

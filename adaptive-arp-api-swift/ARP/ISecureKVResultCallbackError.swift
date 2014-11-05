@@ -30,6 +30,31 @@
 import Foundation
 
 public enum ISecureKVResultCallbackError {
-     case NoPermission, NoMatchesFound, Unknown
-}
 
+     /// Enum Values
+     case NoPermission, NoMatchesFound, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .NoPermission: return "NoPermission"
+               case .NoMatchesFound: return "NoMatchesFound"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> ISecureKVResultCallbackError {
+          if let validString = string {
+               switch validString {
+                    case "NoPermission": return .NoPermission
+                    case "NoMatchesFound": return .NoMatchesFound
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}

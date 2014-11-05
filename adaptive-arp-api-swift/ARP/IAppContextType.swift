@@ -30,6 +30,49 @@
 import Foundation
 
 public enum IAppContextType {
-     case iOS, OSX, Windows, WindowsPhone, Android, Linux, Blackberry, Tizen, FirefoxOS, Chromium, Unspecified, Unknown
-}
 
+     /// Enum Values
+     case iOS, OSX, Windows, WindowsPhone, Android, Linux, Blackberry, Tizen, FirefoxOS, Chromium, Unspecified, Unknown
+
+     /// toString
+     public func toString() -> String {
+          switch self {
+               case .iOS: return "iOS"
+               case .OSX: return "OSX"
+               case .Windows: return "Windows"
+               case .WindowsPhone: return "WindowsPhone"
+               case .Android: return "Android"
+               case .Linux: return "Linux"
+               case .Blackberry: return "Blackberry"
+               case .Tizen: return "Tizen"
+               case .FirefoxOS: return "FirefoxOS"
+               case .Chromium: return "Chromium"
+               case .Unspecified: return "Unspecified"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /// toEnum
+     public static func toEnum(string:String?) -> IAppContextType {
+          if let validString = string {
+               switch validString {
+                    case "iOS": return .iOS
+                    case "OSX": return .OSX
+                    case "Windows": return .Windows
+                    case "WindowsPhone": return .WindowsPhone
+                    case "Android": return .Android
+                    case "Linux": return .Linux
+                    case "Blackberry": return .Blackberry
+                    case "Tizen": return .Tizen
+                    case "FirefoxOS": return .FirefoxOS
+                    case "Chromium": return .Chromium
+                    case "Unspecified": return .Unspecified
+                    case "Unknown": return .Unknown
+                    default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
+}
