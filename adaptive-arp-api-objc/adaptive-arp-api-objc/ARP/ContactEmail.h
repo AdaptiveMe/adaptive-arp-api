@@ -79,6 +79,7 @@ typedef enum {
   ARPContactEmail_EmailType_Personal = 0,
   ARPContactEmail_EmailType_Work = 1,
   ARPContactEmail_EmailType_Other = 2,
+  ARPContactEmail_EmailType_Unknown = 3,
 } ARPContactEmail_EmailType;
 
 @interface ARPContactEmail_EmailTypeEnum : JavaLangEnum < NSCopying > {
@@ -103,5 +104,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPContactEmail_EmailTypeEnum, Work, ARPContactEmail_
 
 #define ARPContactEmail_EmailTypeEnum_Other ARPContactEmail_EmailTypeEnum_values[ARPContactEmail_EmailType_Other]
 J2OBJC_STATIC_FIELD_GETTER(ARPContactEmail_EmailTypeEnum, Other, ARPContactEmail_EmailTypeEnum *)
+
+#define ARPContactEmail_EmailTypeEnum_Unknown ARPContactEmail_EmailTypeEnum_values[ARPContactEmail_EmailType_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPContactEmail_EmailTypeEnum, Unknown, ARPContactEmail_EmailTypeEnum *)
 
 #endif // _ARPContactEmail_H_

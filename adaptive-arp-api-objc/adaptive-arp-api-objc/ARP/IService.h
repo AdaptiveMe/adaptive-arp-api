@@ -76,6 +76,7 @@ typedef enum {
   ARPIService_ServiceType_SERVICETYPE_SOAP_XML = 7,
   ARPIService_ServiceType_SERVICETYPE_XMLRPC_JSON = 8,
   ARPIService_ServiceType_SERVICETYPE_XMLRPC_XML = 9,
+  ARPIService_ServiceType_Unknown = 10,
 } ARPIService_ServiceType;
 
 @interface ARPIService_ServiceTypeEnum : JavaLangEnum < NSCopying > {
@@ -122,9 +123,13 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIService_ServiceTypeEnum, SERVICETYPE_XMLRPC_JSON,
 #define ARPIService_ServiceTypeEnum_SERVICETYPE_XMLRPC_XML ARPIService_ServiceTypeEnum_values[ARPIService_ServiceType_SERVICETYPE_XMLRPC_XML]
 J2OBJC_STATIC_FIELD_GETTER(ARPIService_ServiceTypeEnum, SERVICETYPE_XMLRPC_XML, ARPIService_ServiceTypeEnum *)
 
+#define ARPIService_ServiceTypeEnum_Unknown ARPIService_ServiceTypeEnum_values[ARPIService_ServiceType_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIService_ServiceTypeEnum, Unknown, ARPIService_ServiceTypeEnum *)
+
 typedef enum {
   ARPIService_ProtocolVersion_HTTP_PROTOCOL_VERSION_1_0 = 0,
   ARPIService_ProtocolVersion_HTTP_PROTOCOL_VERSION_1_1 = 1,
+  ARPIService_ProtocolVersion_Unknown = 2,
 } ARPIService_ProtocolVersion;
 
 @interface ARPIService_ProtocolVersionEnum : JavaLangEnum < NSCopying > {
@@ -147,9 +152,13 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIService_ProtocolVersionEnum, HTTP_PROTOCOL_VERSIO
 #define ARPIService_ProtocolVersionEnum_HTTP_PROTOCOL_VERSION_1_1 ARPIService_ProtocolVersionEnum_values[ARPIService_ProtocolVersion_HTTP_PROTOCOL_VERSION_1_1]
 J2OBJC_STATIC_FIELD_GETTER(ARPIService_ProtocolVersionEnum, HTTP_PROTOCOL_VERSION_1_1, ARPIService_ProtocolVersionEnum *)
 
+#define ARPIService_ProtocolVersionEnum_Unknown ARPIService_ProtocolVersionEnum_values[ARPIService_ProtocolVersion_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIService_ProtocolVersionEnum, Unknown, ARPIService_ProtocolVersionEnum *)
+
 typedef enum {
   ARPIService_ServiceMethod_POST = 0,
   ARPIService_ServiceMethod_GET = 1,
+  ARPIService_ServiceMethod_Unknown = 2,
 } ARPIService_ServiceMethod;
 
 @interface ARPIService_ServiceMethodEnum : JavaLangEnum < NSCopying > {
@@ -171,5 +180,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIService_ServiceMethodEnum, POST, ARPIService_Serv
 
 #define ARPIService_ServiceMethodEnum_GET ARPIService_ServiceMethodEnum_values[ARPIService_ServiceMethod_GET]
 J2OBJC_STATIC_FIELD_GETTER(ARPIService_ServiceMethodEnum, GET, ARPIService_ServiceMethodEnum *)
+
+#define ARPIService_ServiceMethodEnum_Unknown ARPIService_ServiceMethodEnum_values[ARPIService_ServiceMethod_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIService_ServiceMethodEnum, Unknown, ARPIService_ServiceMethodEnum *)
 
 #endif // _ARPIService_H_

@@ -75,6 +75,7 @@ typedef enum {
   ARPContactSocial_SocialNetwork_GooglePlus = 2,
   ARPContactSocial_SocialNetwork_LinkedIn = 3,
   ARPContactSocial_SocialNetwork_Flickr = 4,
+  ARPContactSocial_SocialNetwork_Unknown = 5,
 } ARPContactSocial_SocialNetwork;
 
 @interface ARPContactSocial_SocialNetworkEnum : JavaLangEnum < NSCopying > {
@@ -105,5 +106,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPContactSocial_SocialNetworkEnum, LinkedIn, ARPCont
 
 #define ARPContactSocial_SocialNetworkEnum_Flickr ARPContactSocial_SocialNetworkEnum_values[ARPContactSocial_SocialNetwork_Flickr]
 J2OBJC_STATIC_FIELD_GETTER(ARPContactSocial_SocialNetworkEnum, Flickr, ARPContactSocial_SocialNetworkEnum *)
+
+#define ARPContactSocial_SocialNetworkEnum_Unknown ARPContactSocial_SocialNetworkEnum_values[ARPContactSocial_SocialNetwork_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPContactSocial_SocialNetworkEnum, Unknown, ARPContactSocial_SocialNetworkEnum *)
 
 #endif // _ARPContactSocial_H_

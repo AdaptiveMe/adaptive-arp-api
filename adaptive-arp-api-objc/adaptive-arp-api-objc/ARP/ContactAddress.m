@@ -93,7 +93,7 @@ withARPContactAddress_AddressTypeEnum:(ARPContactAddress_AddressTypeEnum *)type 
 
 BOOL ARPContactAddress_AddressTypeEnum_initialized = NO;
 
-ARPContactAddress_AddressTypeEnum *ARPContactAddress_AddressTypeEnum_values[3];
+ARPContactAddress_AddressTypeEnum *ARPContactAddress_AddressTypeEnum_values[4];
 
 @implementation ARPContactAddress_AddressTypeEnum
 
@@ -110,16 +110,17 @@ ARPContactAddress_AddressTypeEnum *ARPContactAddress_AddressTypeEnum_values[3];
     ARPContactAddress_AddressTypeEnum_Home = [[ARPContactAddress_AddressTypeEnum alloc] initWithNSString:@"Home" withInt:0];
     ARPContactAddress_AddressTypeEnum_Work = [[ARPContactAddress_AddressTypeEnum alloc] initWithNSString:@"Work" withInt:1];
     ARPContactAddress_AddressTypeEnum_Other = [[ARPContactAddress_AddressTypeEnum alloc] initWithNSString:@"Other" withInt:2];
+    ARPContactAddress_AddressTypeEnum_Unknown = [[ARPContactAddress_AddressTypeEnum alloc] initWithNSString:@"Unknown" withInt:3];
     ARPContactAddress_AddressTypeEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPContactAddress_AddressTypeEnum_values count:3 type:[IOSClass classWithClass:[ARPContactAddress_AddressTypeEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPContactAddress_AddressTypeEnum_values count:4 type:[IOSClass classWithClass:[ARPContactAddress_AddressTypeEnum class]]];
 }
 
 + (ARPContactAddress_AddressTypeEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     ARPContactAddress_AddressTypeEnum *e = ARPContactAddress_AddressTypeEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -137,9 +138,10 @@ ARPContactAddress_AddressTypeEnum *ARPContactAddress_AddressTypeEnum_values[3];
     { "Home", "Home", 0x4019, "Lme.adaptive.arp.api.ContactAddress$AddressType;", &ARPContactAddress_AddressTypeEnum_Home,  },
     { "Work", "Work", 0x4019, "Lme.adaptive.arp.api.ContactAddress$AddressType;", &ARPContactAddress_AddressTypeEnum_Work,  },
     { "Other", "Other", 0x4019, "Lme.adaptive.arp.api.ContactAddress$AddressType;", &ARPContactAddress_AddressTypeEnum_Other,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ContactAddress$AddressType;", &ARPContactAddress_AddressTypeEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ContactAddress$AddressType;"};
-  static J2ObjcClassInfo _ARPContactAddress_AddressTypeEnum = { "AddressType", "me.adaptive.arp.api", "ContactAddress", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPContactAddress_AddressTypeEnum = { "AddressType", "me.adaptive.arp.api", "ContactAddress", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
   return &_ARPContactAddress_AddressTypeEnum;
 }
 

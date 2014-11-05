@@ -77,6 +77,7 @@ typedef enum {
   ARPContactPhone_PhoneType_HomeFax = 4,
   ARPContactPhone_PhoneType_WorkFax = 5,
   ARPContactPhone_PhoneType_Other = 6,
+  ARPContactPhone_PhoneType_Unknown = 7,
 } ARPContactPhone_PhoneType;
 
 @interface ARPContactPhone_PhoneTypeEnum : JavaLangEnum < NSCopying > {
@@ -113,5 +114,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPContactPhone_PhoneTypeEnum, WorkFax, ARPContactPho
 
 #define ARPContactPhone_PhoneTypeEnum_Other ARPContactPhone_PhoneTypeEnum_values[ARPContactPhone_PhoneType_Other]
 J2OBJC_STATIC_FIELD_GETTER(ARPContactPhone_PhoneTypeEnum, Other, ARPContactPhone_PhoneTypeEnum *)
+
+#define ARPContactPhone_PhoneTypeEnum_Unknown ARPContactPhone_PhoneTypeEnum_values[ARPContactPhone_PhoneType_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPContactPhone_PhoneTypeEnum, Unknown, ARPContactPhone_PhoneTypeEnum *)
 
 #endif // _ARPContactPhone_H_

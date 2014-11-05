@@ -121,7 +121,7 @@ withARPContactPersonalInfo_TitleEnum:(ARPContactPersonalInfo_TitleEnum *)title {
 
 BOOL ARPContactPersonalInfo_TitleEnum_initialized = NO;
 
-ARPContactPersonalInfo_TitleEnum *ARPContactPersonalInfo_TitleEnum_values[4];
+ARPContactPersonalInfo_TitleEnum *ARPContactPersonalInfo_TitleEnum_values[5];
 
 @implementation ARPContactPersonalInfo_TitleEnum
 
@@ -139,16 +139,17 @@ ARPContactPersonalInfo_TitleEnum *ARPContactPersonalInfo_TitleEnum_values[4];
     ARPContactPersonalInfo_TitleEnum_Mrs = [[ARPContactPersonalInfo_TitleEnum alloc] initWithNSString:@"Mrs" withInt:1];
     ARPContactPersonalInfo_TitleEnum_Ms = [[ARPContactPersonalInfo_TitleEnum alloc] initWithNSString:@"Ms" withInt:2];
     ARPContactPersonalInfo_TitleEnum_Dr = [[ARPContactPersonalInfo_TitleEnum alloc] initWithNSString:@"Dr" withInt:3];
+    ARPContactPersonalInfo_TitleEnum_Unknown = [[ARPContactPersonalInfo_TitleEnum alloc] initWithNSString:@"Unknown" withInt:4];
     ARPContactPersonalInfo_TitleEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPContactPersonalInfo_TitleEnum_values count:4 type:[IOSClass classWithClass:[ARPContactPersonalInfo_TitleEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPContactPersonalInfo_TitleEnum_values count:5 type:[IOSClass classWithClass:[ARPContactPersonalInfo_TitleEnum class]]];
 }
 
 + (ARPContactPersonalInfo_TitleEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 5; i++) {
     ARPContactPersonalInfo_TitleEnum *e = ARPContactPersonalInfo_TitleEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -167,9 +168,10 @@ ARPContactPersonalInfo_TitleEnum *ARPContactPersonalInfo_TitleEnum_values[4];
     { "Mrs", "Mrs", 0x4019, "Lme.adaptive.arp.api.ContactPersonalInfo$Title;", &ARPContactPersonalInfo_TitleEnum_Mrs,  },
     { "Ms", "Ms", 0x4019, "Lme.adaptive.arp.api.ContactPersonalInfo$Title;", &ARPContactPersonalInfo_TitleEnum_Ms,  },
     { "Dr", "Dr", 0x4019, "Lme.adaptive.arp.api.ContactPersonalInfo$Title;", &ARPContactPersonalInfo_TitleEnum_Dr,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ContactPersonalInfo$Title;", &ARPContactPersonalInfo_TitleEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ContactPersonalInfo$Title;"};
-  static J2ObjcClassInfo _ARPContactPersonalInfo_TitleEnum = { "Title", "me.adaptive.arp.api", "ContactPersonalInfo", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPContactPersonalInfo_TitleEnum = { "Title", "me.adaptive.arp.api", "ContactPersonalInfo", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
   return &_ARPContactPersonalInfo_TitleEnum;
 }
 

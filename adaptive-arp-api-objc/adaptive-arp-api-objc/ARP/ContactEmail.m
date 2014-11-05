@@ -107,7 +107,7 @@
 
 BOOL ARPContactEmail_EmailTypeEnum_initialized = NO;
 
-ARPContactEmail_EmailTypeEnum *ARPContactEmail_EmailTypeEnum_values[3];
+ARPContactEmail_EmailTypeEnum *ARPContactEmail_EmailTypeEnum_values[4];
 
 @implementation ARPContactEmail_EmailTypeEnum
 
@@ -124,16 +124,17 @@ ARPContactEmail_EmailTypeEnum *ARPContactEmail_EmailTypeEnum_values[3];
     ARPContactEmail_EmailTypeEnum_Personal = [[ARPContactEmail_EmailTypeEnum alloc] initWithNSString:@"Personal" withInt:0];
     ARPContactEmail_EmailTypeEnum_Work = [[ARPContactEmail_EmailTypeEnum alloc] initWithNSString:@"Work" withInt:1];
     ARPContactEmail_EmailTypeEnum_Other = [[ARPContactEmail_EmailTypeEnum alloc] initWithNSString:@"Other" withInt:2];
+    ARPContactEmail_EmailTypeEnum_Unknown = [[ARPContactEmail_EmailTypeEnum alloc] initWithNSString:@"Unknown" withInt:3];
     ARPContactEmail_EmailTypeEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPContactEmail_EmailTypeEnum_values count:3 type:[IOSClass classWithClass:[ARPContactEmail_EmailTypeEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPContactEmail_EmailTypeEnum_values count:4 type:[IOSClass classWithClass:[ARPContactEmail_EmailTypeEnum class]]];
 }
 
 + (ARPContactEmail_EmailTypeEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     ARPContactEmail_EmailTypeEnum *e = ARPContactEmail_EmailTypeEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -151,9 +152,10 @@ ARPContactEmail_EmailTypeEnum *ARPContactEmail_EmailTypeEnum_values[3];
     { "Personal", "Personal", 0x4019, "Lme.adaptive.arp.api.ContactEmail$EmailType;", &ARPContactEmail_EmailTypeEnum_Personal,  },
     { "Work", "Work", 0x4019, "Lme.adaptive.arp.api.ContactEmail$EmailType;", &ARPContactEmail_EmailTypeEnum_Work,  },
     { "Other", "Other", 0x4019, "Lme.adaptive.arp.api.ContactEmail$EmailType;", &ARPContactEmail_EmailTypeEnum_Other,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ContactEmail$EmailType;", &ARPContactEmail_EmailTypeEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ContactEmail$EmailType;"};
-  static J2ObjcClassInfo _ARPContactEmail_EmailTypeEnum = { "EmailType", "me.adaptive.arp.api", "ContactEmail", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPContactEmail_EmailTypeEnum = { "EmailType", "me.adaptive.arp.api", "ContactEmail", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
   return &_ARPContactEmail_EmailTypeEnum;
 }
 

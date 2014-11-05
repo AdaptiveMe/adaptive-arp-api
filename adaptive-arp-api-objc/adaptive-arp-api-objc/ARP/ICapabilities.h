@@ -75,6 +75,7 @@ typedef enum {
   ARPICapabilities_Sensor_Gyroscope = 4,
   ARPICapabilities_Sensor_Magnetometer = 5,
   ARPICapabilities_Sensor_Proximity = 6,
+  ARPICapabilities_Sensor_Unknown = 7,
 } ARPICapabilities_Sensor;
 
 @interface ARPICapabilities_SensorEnum : JavaLangEnum < NSCopying > {
@@ -112,12 +113,16 @@ J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_SensorEnum, Magnetometer, ARPICapabi
 #define ARPICapabilities_SensorEnum_Proximity ARPICapabilities_SensorEnum_values[ARPICapabilities_Sensor_Proximity]
 J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_SensorEnum, Proximity, ARPICapabilities_SensorEnum *)
 
+#define ARPICapabilities_SensorEnum_Unknown ARPICapabilities_SensorEnum_values[ARPICapabilities_Sensor_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_SensorEnum, Unknown, ARPICapabilities_SensorEnum *)
+
 typedef enum {
   ARPICapabilities_Communication_Calendar = 0,
   ARPICapabilities_Communication_Contact = 1,
   ARPICapabilities_Communication_Mail = 2,
   ARPICapabilities_Communication_Messaging = 3,
   ARPICapabilities_Communication_Telephony = 4,
+  ARPICapabilities_Communication_Unknown = 5,
 } ARPICapabilities_Communication;
 
 @interface ARPICapabilities_CommunicationEnum : JavaLangEnum < NSCopying > {
@@ -149,10 +154,14 @@ J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_CommunicationEnum, Messaging, ARPICa
 #define ARPICapabilities_CommunicationEnum_Telephony ARPICapabilities_CommunicationEnum_values[ARPICapabilities_Communication_Telephony]
 J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_CommunicationEnum, Telephony, ARPICapabilities_CommunicationEnum *)
 
+#define ARPICapabilities_CommunicationEnum_Unknown ARPICapabilities_CommunicationEnum_values[ARPICapabilities_Communication_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_CommunicationEnum, Unknown, ARPICapabilities_CommunicationEnum *)
+
 typedef enum {
   ARPICapabilities_Data_Database = 0,
   ARPICapabilities_Data_File = 1,
   ARPICapabilities_Data_Cloud = 2,
+  ARPICapabilities_Data_Unknown = 3,
 } ARPICapabilities_Data;
 
 @interface ARPICapabilities_DataEnum : JavaLangEnum < NSCopying > {
@@ -178,12 +187,16 @@ J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_DataEnum, File, ARPICapabilities_Dat
 #define ARPICapabilities_DataEnum_Cloud ARPICapabilities_DataEnum_values[ARPICapabilities_Data_Cloud]
 J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_DataEnum, Cloud, ARPICapabilities_DataEnum *)
 
+#define ARPICapabilities_DataEnum_Unknown ARPICapabilities_DataEnum_values[ARPICapabilities_Data_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_DataEnum, Unknown, ARPICapabilities_DataEnum *)
+
 typedef enum {
   ARPICapabilities_Media_Audio_Playback = 0,
   ARPICapabilities_Media_Audio_Recording = 1,
   ARPICapabilities_Media_Camera = 2,
   ARPICapabilities_Media_Video_Playback = 3,
   ARPICapabilities_Media_Video_Recording = 4,
+  ARPICapabilities_Media_Unknown = 5,
 } ARPICapabilities_Media;
 
 @interface ARPICapabilities_MediaEnum : JavaLangEnum < NSCopying > {
@@ -215,6 +228,9 @@ J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_MediaEnum, Video_Playback, ARPICapab
 #define ARPICapabilities_MediaEnum_Video_Recording ARPICapabilities_MediaEnum_values[ARPICapabilities_Media_Video_Recording]
 J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_MediaEnum, Video_Recording, ARPICapabilities_MediaEnum *)
 
+#define ARPICapabilities_MediaEnum_Unknown ARPICapabilities_MediaEnum_values[ARPICapabilities_Media_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_MediaEnum, Unknown, ARPICapabilities_MediaEnum *)
+
 typedef enum {
   ARPICapabilities_Net_GSM = 0,
   ARPICapabilities_Net_GPRS = 1,
@@ -222,6 +238,7 @@ typedef enum {
   ARPICapabilities_Net_LTE = 3,
   ARPICapabilities_Net_WIFI = 4,
   ARPICapabilities_Net_Ethernet = 5,
+  ARPICapabilities_Net_Unknown = 6,
 } ARPICapabilities_Net;
 
 @interface ARPICapabilities_NetEnum : JavaLangEnum < NSCopying > {
@@ -256,11 +273,15 @@ J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_NetEnum, WIFI, ARPICapabilities_NetE
 #define ARPICapabilities_NetEnum_Ethernet ARPICapabilities_NetEnum_values[ARPICapabilities_Net_Ethernet]
 J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_NetEnum, Ethernet, ARPICapabilities_NetEnum *)
 
+#define ARPICapabilities_NetEnum_Unknown ARPICapabilities_NetEnum_values[ARPICapabilities_Net_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_NetEnum, Unknown, ARPICapabilities_NetEnum *)
+
 typedef enum {
   ARPICapabilities_Notification_Alarm = 0,
   ARPICapabilities_Notification_LocalNotification = 1,
   ARPICapabilities_Notification_RemoteNotification = 2,
   ARPICapabilities_Notification_Vibration = 3,
+  ARPICapabilities_Notification_Unknown = 4,
 } ARPICapabilities_Notification;
 
 @interface ARPICapabilities_NotificationEnum : JavaLangEnum < NSCopying > {
@@ -289,10 +310,14 @@ J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_NotificationEnum, RemoteNotification
 #define ARPICapabilities_NotificationEnum_Vibration ARPICapabilities_NotificationEnum_values[ARPICapabilities_Notification_Vibration]
 J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_NotificationEnum, Vibration, ARPICapabilities_NotificationEnum *)
 
+#define ARPICapabilities_NotificationEnum_Unknown ARPICapabilities_NotificationEnum_values[ARPICapabilities_Notification_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_NotificationEnum, Unknown, ARPICapabilities_NotificationEnum *)
+
 typedef enum {
   ARPICapabilities_Button_HomeButton = 0,
   ARPICapabilities_Button_BackButton = 1,
   ARPICapabilities_Button_OptionButton = 2,
+  ARPICapabilities_Button_Unknown = 3,
 } ARPICapabilities_Button;
 
 @interface ARPICapabilities_ButtonEnum : JavaLangEnum < NSCopying > {
@@ -317,5 +342,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_ButtonEnum, BackButton, ARPICapabili
 
 #define ARPICapabilities_ButtonEnum_OptionButton ARPICapabilities_ButtonEnum_values[ARPICapabilities_Button_OptionButton]
 J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_ButtonEnum, OptionButton, ARPICapabilities_ButtonEnum *)
+
+#define ARPICapabilities_ButtonEnum_Unknown ARPICapabilities_ButtonEnum_values[ARPICapabilities_Button_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPICapabilities_ButtonEnum, Unknown, ARPICapabilities_ButtonEnum *)
 
 #endif // _ARPICapabilities_H_

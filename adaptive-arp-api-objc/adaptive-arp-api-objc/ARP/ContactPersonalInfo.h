@@ -88,6 +88,7 @@ typedef enum {
   ARPContactPersonalInfo_Title_Mrs = 1,
   ARPContactPersonalInfo_Title_Ms = 2,
   ARPContactPersonalInfo_Title_Dr = 3,
+  ARPContactPersonalInfo_Title_Unknown = 4,
 } ARPContactPersonalInfo_Title;
 
 @interface ARPContactPersonalInfo_TitleEnum : JavaLangEnum < NSCopying > {
@@ -115,5 +116,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPContactPersonalInfo_TitleEnum, Ms, ARPContactPerso
 
 #define ARPContactPersonalInfo_TitleEnum_Dr ARPContactPersonalInfo_TitleEnum_values[ARPContactPersonalInfo_Title_Dr]
 J2OBJC_STATIC_FIELD_GETTER(ARPContactPersonalInfo_TitleEnum, Dr, ARPContactPersonalInfo_TitleEnum *)
+
+#define ARPContactPersonalInfo_TitleEnum_Unknown ARPContactPersonalInfo_TitleEnum_values[ARPContactPersonalInfo_Title_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPContactPersonalInfo_TitleEnum, Unknown, ARPContactPersonalInfo_TitleEnum *)
 
 #endif // _ARPContactPersonalInfo_H_

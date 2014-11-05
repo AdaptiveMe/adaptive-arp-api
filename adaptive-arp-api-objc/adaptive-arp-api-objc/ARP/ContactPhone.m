@@ -93,7 +93,7 @@ withARPContactPhone_PhoneTypeEnum:(ARPContactPhone_PhoneTypeEnum *)phoneType {
 
 BOOL ARPContactPhone_PhoneTypeEnum_initialized = NO;
 
-ARPContactPhone_PhoneTypeEnum *ARPContactPhone_PhoneTypeEnum_values[7];
+ARPContactPhone_PhoneTypeEnum *ARPContactPhone_PhoneTypeEnum_values[8];
 
 @implementation ARPContactPhone_PhoneTypeEnum
 
@@ -114,16 +114,17 @@ ARPContactPhone_PhoneTypeEnum *ARPContactPhone_PhoneTypeEnum_values[7];
     ARPContactPhone_PhoneTypeEnum_HomeFax = [[ARPContactPhone_PhoneTypeEnum alloc] initWithNSString:@"HomeFax" withInt:4];
     ARPContactPhone_PhoneTypeEnum_WorkFax = [[ARPContactPhone_PhoneTypeEnum alloc] initWithNSString:@"WorkFax" withInt:5];
     ARPContactPhone_PhoneTypeEnum_Other = [[ARPContactPhone_PhoneTypeEnum alloc] initWithNSString:@"Other" withInt:6];
+    ARPContactPhone_PhoneTypeEnum_Unknown = [[ARPContactPhone_PhoneTypeEnum alloc] initWithNSString:@"Unknown" withInt:7];
     ARPContactPhone_PhoneTypeEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPContactPhone_PhoneTypeEnum_values count:7 type:[IOSClass classWithClass:[ARPContactPhone_PhoneTypeEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPContactPhone_PhoneTypeEnum_values count:8 type:[IOSClass classWithClass:[ARPContactPhone_PhoneTypeEnum class]]];
 }
 
 + (ARPContactPhone_PhoneTypeEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 7; i++) {
+  for (int i = 0; i < 8; i++) {
     ARPContactPhone_PhoneTypeEnum *e = ARPContactPhone_PhoneTypeEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -145,9 +146,10 @@ ARPContactPhone_PhoneTypeEnum *ARPContactPhone_PhoneTypeEnum_values[7];
     { "HomeFax", "HomeFax", 0x4019, "Lme.adaptive.arp.api.ContactPhone$PhoneType;", &ARPContactPhone_PhoneTypeEnum_HomeFax,  },
     { "WorkFax", "WorkFax", 0x4019, "Lme.adaptive.arp.api.ContactPhone$PhoneType;", &ARPContactPhone_PhoneTypeEnum_WorkFax,  },
     { "Other", "Other", 0x4019, "Lme.adaptive.arp.api.ContactPhone$PhoneType;", &ARPContactPhone_PhoneTypeEnum_Other,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ContactPhone$PhoneType;", &ARPContactPhone_PhoneTypeEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ContactPhone$PhoneType;"};
-  static J2ObjcClassInfo _ARPContactPhone_PhoneTypeEnum = { "PhoneType", "me.adaptive.arp.api", "ContactPhone", 0x4019, 1, methods, 7, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPContactPhone_PhoneTypeEnum = { "PhoneType", "me.adaptive.arp.api", "ContactPhone", 0x4019, 1, methods, 8, fields, 1, superclass_type_args};
   return &_ARPContactPhone_PhoneTypeEnum;
 }
 

@@ -71,6 +71,7 @@ typedef enum {
   ARPLifecycle_State_PausedRun = 5,
   ARPLifecycle_State_Resuming = 6,
   ARPLifecycle_State_Stopping = 7,
+  ARPLifecycle_State_Unknown = 8,
 } ARPLifecycle_State;
 
 @interface ARPLifecycle_StateEnum : JavaLangEnum < NSCopying > {
@@ -110,5 +111,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Resuming, ARPLifecycle_StateE
 
 #define ARPLifecycle_StateEnum_Stopping ARPLifecycle_StateEnum_values[ARPLifecycle_State_Stopping]
 J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Stopping, ARPLifecycle_StateEnum *)
+
+#define ARPLifecycle_StateEnum_Unknown ARPLifecycle_StateEnum_values[ARPLifecycle_State_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPLifecycle_StateEnum, Unknown, ARPLifecycle_StateEnum *)
 
 #endif // _ARPLifecycle_H_

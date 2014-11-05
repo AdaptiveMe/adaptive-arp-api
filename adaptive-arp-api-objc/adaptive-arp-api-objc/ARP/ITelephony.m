@@ -52,7 +52,7 @@
 
 BOOL ARPITelephony_StatusEnum_initialized = NO;
 
-ARPITelephony_StatusEnum *ARPITelephony_StatusEnum_values[2];
+ARPITelephony_StatusEnum *ARPITelephony_StatusEnum_values[3];
 
 @implementation ARPITelephony_StatusEnum
 
@@ -68,16 +68,17 @@ ARPITelephony_StatusEnum *ARPITelephony_StatusEnum_values[2];
   if (self == [ARPITelephony_StatusEnum class]) {
     ARPITelephony_StatusEnum_Dialing = [[ARPITelephony_StatusEnum alloc] initWithNSString:@"Dialing" withInt:0];
     ARPITelephony_StatusEnum_Failed = [[ARPITelephony_StatusEnum alloc] initWithNSString:@"Failed" withInt:1];
+    ARPITelephony_StatusEnum_Unknown = [[ARPITelephony_StatusEnum alloc] initWithNSString:@"Unknown" withInt:2];
     ARPITelephony_StatusEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPITelephony_StatusEnum_values count:2 type:[IOSClass classWithClass:[ARPITelephony_StatusEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPITelephony_StatusEnum_values count:3 type:[IOSClass classWithClass:[ARPITelephony_StatusEnum class]]];
 }
 
 + (ARPITelephony_StatusEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPITelephony_StatusEnum *e = ARPITelephony_StatusEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -94,9 +95,10 @@ ARPITelephony_StatusEnum *ARPITelephony_StatusEnum_values[2];
   static J2ObjcFieldInfo fields[] = {
     { "Dialing", "Dialing", 0x4019, "Lme.adaptive.arp.api.ITelephony$Status;", &ARPITelephony_StatusEnum_Dialing,  },
     { "Failed", "Failed", 0x4019, "Lme.adaptive.arp.api.ITelephony$Status;", &ARPITelephony_StatusEnum_Failed,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ITelephony$Status;", &ARPITelephony_StatusEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ITelephony$Status;"};
-  static J2ObjcClassInfo _ARPITelephony_StatusEnum = { "Status", "me.adaptive.arp.api", "ITelephony", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPITelephony_StatusEnum = { "Status", "me.adaptive.arp.api", "ITelephony", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPITelephony_StatusEnum;
 }
 

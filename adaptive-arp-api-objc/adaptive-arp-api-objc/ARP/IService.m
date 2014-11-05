@@ -61,7 +61,7 @@
 
 BOOL ARPIService_ServiceTypeEnum_initialized = NO;
 
-ARPIService_ServiceTypeEnum *ARPIService_ServiceTypeEnum_values[10];
+ARPIService_ServiceTypeEnum *ARPIService_ServiceTypeEnum_values[11];
 
 @implementation ARPIService_ServiceTypeEnum
 
@@ -85,16 +85,17 @@ ARPIService_ServiceTypeEnum *ARPIService_ServiceTypeEnum_values[10];
     ARPIService_ServiceTypeEnum_SERVICETYPE_SOAP_XML = [[ARPIService_ServiceTypeEnum alloc] initWithNSString:@"SERVICETYPE_SOAP_XML" withInt:7];
     ARPIService_ServiceTypeEnum_SERVICETYPE_XMLRPC_JSON = [[ARPIService_ServiceTypeEnum alloc] initWithNSString:@"SERVICETYPE_XMLRPC_JSON" withInt:8];
     ARPIService_ServiceTypeEnum_SERVICETYPE_XMLRPC_XML = [[ARPIService_ServiceTypeEnum alloc] initWithNSString:@"SERVICETYPE_XMLRPC_XML" withInt:9];
+    ARPIService_ServiceTypeEnum_Unknown = [[ARPIService_ServiceTypeEnum alloc] initWithNSString:@"Unknown" withInt:10];
     ARPIService_ServiceTypeEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIService_ServiceTypeEnum_values count:10 type:[IOSClass classWithClass:[ARPIService_ServiceTypeEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIService_ServiceTypeEnum_values count:11 type:[IOSClass classWithClass:[ARPIService_ServiceTypeEnum class]]];
 }
 
 + (ARPIService_ServiceTypeEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 11; i++) {
     ARPIService_ServiceTypeEnum *e = ARPIService_ServiceTypeEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -119,9 +120,10 @@ ARPIService_ServiceTypeEnum *ARPIService_ServiceTypeEnum_values[10];
     { "SERVICETYPE_SOAP_XML", "SERVICETYPE_SOAP_XML", 0x4019, "Lme.adaptive.arp.api.IService$ServiceType;", &ARPIService_ServiceTypeEnum_SERVICETYPE_SOAP_XML,  },
     { "SERVICETYPE_XMLRPC_JSON", "SERVICETYPE_XMLRPC_JSON", 0x4019, "Lme.adaptive.arp.api.IService$ServiceType;", &ARPIService_ServiceTypeEnum_SERVICETYPE_XMLRPC_JSON,  },
     { "SERVICETYPE_XMLRPC_XML", "SERVICETYPE_XMLRPC_XML", 0x4019, "Lme.adaptive.arp.api.IService$ServiceType;", &ARPIService_ServiceTypeEnum_SERVICETYPE_XMLRPC_XML,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IService$ServiceType;", &ARPIService_ServiceTypeEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IService$ServiceType;"};
-  static J2ObjcClassInfo _ARPIService_ServiceTypeEnum = { "ServiceType", "me.adaptive.arp.api", "IService", 0x4019, 1, methods, 10, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIService_ServiceTypeEnum = { "ServiceType", "me.adaptive.arp.api", "IService", 0x4019, 1, methods, 11, fields, 1, superclass_type_args};
   return &_ARPIService_ServiceTypeEnum;
 }
 
@@ -129,7 +131,7 @@ ARPIService_ServiceTypeEnum *ARPIService_ServiceTypeEnum_values[10];
 
 BOOL ARPIService_ProtocolVersionEnum_initialized = NO;
 
-ARPIService_ProtocolVersionEnum *ARPIService_ProtocolVersionEnum_values[2];
+ARPIService_ProtocolVersionEnum *ARPIService_ProtocolVersionEnum_values[3];
 
 @implementation ARPIService_ProtocolVersionEnum
 
@@ -145,16 +147,17 @@ ARPIService_ProtocolVersionEnum *ARPIService_ProtocolVersionEnum_values[2];
   if (self == [ARPIService_ProtocolVersionEnum class]) {
     ARPIService_ProtocolVersionEnum_HTTP_PROTOCOL_VERSION_1_0 = [[ARPIService_ProtocolVersionEnum alloc] initWithNSString:@"HTTP_PROTOCOL_VERSION_1_0" withInt:0];
     ARPIService_ProtocolVersionEnum_HTTP_PROTOCOL_VERSION_1_1 = [[ARPIService_ProtocolVersionEnum alloc] initWithNSString:@"HTTP_PROTOCOL_VERSION_1_1" withInt:1];
+    ARPIService_ProtocolVersionEnum_Unknown = [[ARPIService_ProtocolVersionEnum alloc] initWithNSString:@"Unknown" withInt:2];
     ARPIService_ProtocolVersionEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIService_ProtocolVersionEnum_values count:2 type:[IOSClass classWithClass:[ARPIService_ProtocolVersionEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIService_ProtocolVersionEnum_values count:3 type:[IOSClass classWithClass:[ARPIService_ProtocolVersionEnum class]]];
 }
 
 + (ARPIService_ProtocolVersionEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPIService_ProtocolVersionEnum *e = ARPIService_ProtocolVersionEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -171,9 +174,10 @@ ARPIService_ProtocolVersionEnum *ARPIService_ProtocolVersionEnum_values[2];
   static J2ObjcFieldInfo fields[] = {
     { "HTTP_PROTOCOL_VERSION_1_0", "HTTP_PROTOCOL_VERSION_1_0", 0x4019, "Lme.adaptive.arp.api.IService$ProtocolVersion;", &ARPIService_ProtocolVersionEnum_HTTP_PROTOCOL_VERSION_1_0,  },
     { "HTTP_PROTOCOL_VERSION_1_1", "HTTP_PROTOCOL_VERSION_1_1", 0x4019, "Lme.adaptive.arp.api.IService$ProtocolVersion;", &ARPIService_ProtocolVersionEnum_HTTP_PROTOCOL_VERSION_1_1,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IService$ProtocolVersion;", &ARPIService_ProtocolVersionEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IService$ProtocolVersion;"};
-  static J2ObjcClassInfo _ARPIService_ProtocolVersionEnum = { "ProtocolVersion", "me.adaptive.arp.api", "IService", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIService_ProtocolVersionEnum = { "ProtocolVersion", "me.adaptive.arp.api", "IService", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPIService_ProtocolVersionEnum;
 }
 
@@ -181,7 +185,7 @@ ARPIService_ProtocolVersionEnum *ARPIService_ProtocolVersionEnum_values[2];
 
 BOOL ARPIService_ServiceMethodEnum_initialized = NO;
 
-ARPIService_ServiceMethodEnum *ARPIService_ServiceMethodEnum_values[2];
+ARPIService_ServiceMethodEnum *ARPIService_ServiceMethodEnum_values[3];
 
 @implementation ARPIService_ServiceMethodEnum
 
@@ -197,16 +201,17 @@ ARPIService_ServiceMethodEnum *ARPIService_ServiceMethodEnum_values[2];
   if (self == [ARPIService_ServiceMethodEnum class]) {
     ARPIService_ServiceMethodEnum_POST = [[ARPIService_ServiceMethodEnum alloc] initWithNSString:@"POST" withInt:0];
     ARPIService_ServiceMethodEnum_GET = [[ARPIService_ServiceMethodEnum alloc] initWithNSString:@"GET" withInt:1];
+    ARPIService_ServiceMethodEnum_Unknown = [[ARPIService_ServiceMethodEnum alloc] initWithNSString:@"Unknown" withInt:2];
     ARPIService_ServiceMethodEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIService_ServiceMethodEnum_values count:2 type:[IOSClass classWithClass:[ARPIService_ServiceMethodEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIService_ServiceMethodEnum_values count:3 type:[IOSClass classWithClass:[ARPIService_ServiceMethodEnum class]]];
 }
 
 + (ARPIService_ServiceMethodEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 3; i++) {
     ARPIService_ServiceMethodEnum *e = ARPIService_ServiceMethodEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -223,9 +228,10 @@ ARPIService_ServiceMethodEnum *ARPIService_ServiceMethodEnum_values[2];
   static J2ObjcFieldInfo fields[] = {
     { "POST", "POST", 0x4019, "Lme.adaptive.arp.api.IService$ServiceMethod;", &ARPIService_ServiceMethodEnum_POST,  },
     { "GET", "GET", 0x4019, "Lme.adaptive.arp.api.IService$ServiceMethod;", &ARPIService_ServiceMethodEnum_GET,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IService$ServiceMethod;", &ARPIService_ServiceMethodEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IService$ServiceMethod;"};
-  static J2ObjcClassInfo _ARPIService_ServiceMethodEnum = { "ServiceMethod", "me.adaptive.arp.api", "IService", 0x4019, 1, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIService_ServiceMethodEnum = { "ServiceMethod", "me.adaptive.arp.api", "IService", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
   return &_ARPIService_ServiceMethodEnum;
 }
 

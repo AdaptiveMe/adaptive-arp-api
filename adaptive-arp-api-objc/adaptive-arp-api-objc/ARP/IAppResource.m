@@ -66,7 +66,7 @@
 
 BOOL ARPIAppResource_TypeEnum_initialized = NO;
 
-ARPIAppResource_TypeEnum *ARPIAppResource_TypeEnum_values[9];
+ARPIAppResource_TypeEnum *ARPIAppResource_TypeEnum_values[10];
 
 @implementation ARPIAppResource_TypeEnum
 
@@ -89,16 +89,17 @@ ARPIAppResource_TypeEnum *ARPIAppResource_TypeEnum_values[9];
     ARPIAppResource_TypeEnum_Property = [[ARPIAppResource_TypeEnum alloc] initWithNSString:@"Property" withInt:6];
     ARPIAppResource_TypeEnum_Database = [[ARPIAppResource_TypeEnum alloc] initWithNSString:@"Database" withInt:7];
     ARPIAppResource_TypeEnum_Other = [[ARPIAppResource_TypeEnum alloc] initWithNSString:@"Other" withInt:8];
+    ARPIAppResource_TypeEnum_Unknown = [[ARPIAppResource_TypeEnum alloc] initWithNSString:@"Unknown" withInt:9];
     ARPIAppResource_TypeEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIAppResource_TypeEnum_values count:9 type:[IOSClass classWithClass:[ARPIAppResource_TypeEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIAppResource_TypeEnum_values count:10 type:[IOSClass classWithClass:[ARPIAppResource_TypeEnum class]]];
 }
 
 + (ARPIAppResource_TypeEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 9; i++) {
+  for (int i = 0; i < 10; i++) {
     ARPIAppResource_TypeEnum *e = ARPIAppResource_TypeEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -122,9 +123,10 @@ ARPIAppResource_TypeEnum *ARPIAppResource_TypeEnum_values[9];
     { "Property", "Property", 0x4019, "Lme.adaptive.arp.api.IAppResource$Type;", &ARPIAppResource_TypeEnum_Property,  },
     { "Database", "Database", 0x4019, "Lme.adaptive.arp.api.IAppResource$Type;", &ARPIAppResource_TypeEnum_Database,  },
     { "Other", "Other", 0x4019, "Lme.adaptive.arp.api.IAppResource$Type;", &ARPIAppResource_TypeEnum_Other,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IAppResource$Type;", &ARPIAppResource_TypeEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IAppResource$Type;"};
-  static J2ObjcClassInfo _ARPIAppResource_TypeEnum = { "Type", "me.adaptive.arp.api", "IAppResource", 0x4019, 1, methods, 9, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIAppResource_TypeEnum = { "Type", "me.adaptive.arp.api", "IAppResource", 0x4019, 1, methods, 10, fields, 1, superclass_type_args};
   return &_ARPIAppResource_TypeEnum;
 }
 
@@ -132,7 +134,7 @@ ARPIAppResource_TypeEnum *ARPIAppResource_TypeEnum_values[9];
 
 BOOL ARPIAppResource_FormatEnum_initialized = NO;
 
-ARPIAppResource_FormatEnum *ARPIAppResource_FormatEnum_values[4];
+ARPIAppResource_FormatEnum *ARPIAppResource_FormatEnum_values[5];
 
 @implementation ARPIAppResource_FormatEnum
 
@@ -150,16 +152,17 @@ ARPIAppResource_FormatEnum *ARPIAppResource_FormatEnum_values[4];
     ARPIAppResource_FormatEnum_Compressed = [[ARPIAppResource_FormatEnum alloc] initWithNSString:@"Compressed" withInt:1];
     ARPIAppResource_FormatEnum_Encrypted = [[ARPIAppResource_FormatEnum alloc] initWithNSString:@"Encrypted" withInt:2];
     ARPIAppResource_FormatEnum_EncryptedCompressed = [[ARPIAppResource_FormatEnum alloc] initWithNSString:@"EncryptedCompressed" withInt:3];
+    ARPIAppResource_FormatEnum_Unknown = [[ARPIAppResource_FormatEnum alloc] initWithNSString:@"Unknown" withInt:4];
     ARPIAppResource_FormatEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIAppResource_FormatEnum_values count:4 type:[IOSClass classWithClass:[ARPIAppResource_FormatEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIAppResource_FormatEnum_values count:5 type:[IOSClass classWithClass:[ARPIAppResource_FormatEnum class]]];
 }
 
 + (ARPIAppResource_FormatEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 5; i++) {
     ARPIAppResource_FormatEnum *e = ARPIAppResource_FormatEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -178,9 +181,10 @@ ARPIAppResource_FormatEnum *ARPIAppResource_FormatEnum_values[4];
     { "Compressed", "Compressed", 0x4019, "Lme.adaptive.arp.api.IAppResource$Format;", &ARPIAppResource_FormatEnum_Compressed,  },
     { "Encrypted", "Encrypted", 0x4019, "Lme.adaptive.arp.api.IAppResource$Format;", &ARPIAppResource_FormatEnum_Encrypted,  },
     { "EncryptedCompressed", "EncryptedCompressed", 0x4019, "Lme.adaptive.arp.api.IAppResource$Format;", &ARPIAppResource_FormatEnum_EncryptedCompressed,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IAppResource$Format;", &ARPIAppResource_FormatEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IAppResource$Format;"};
-  static J2ObjcClassInfo _ARPIAppResource_FormatEnum = { "Format", "me.adaptive.arp.api", "IAppResource", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIAppResource_FormatEnum = { "Format", "me.adaptive.arp.api", "IAppResource", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
   return &_ARPIAppResource_FormatEnum;
 }
 
@@ -188,7 +192,7 @@ ARPIAppResource_FormatEnum *ARPIAppResource_FormatEnum_values[4];
 
 BOOL ARPIAppResource_PayloadEnum_initialized = NO;
 
-ARPIAppResource_PayloadEnum *ARPIAppResource_PayloadEnum_values[3];
+ARPIAppResource_PayloadEnum *ARPIAppResource_PayloadEnum_values[4];
 
 @implementation ARPIAppResource_PayloadEnum
 
@@ -205,16 +209,17 @@ ARPIAppResource_PayloadEnum *ARPIAppResource_PayloadEnum_values[3];
     ARPIAppResource_PayloadEnum_Default = [[ARPIAppResource_PayloadEnum alloc] initWithNSString:@"Default" withInt:0];
     ARPIAppResource_PayloadEnum_Embedded = [[ARPIAppResource_PayloadEnum alloc] initWithNSString:@"Embedded" withInt:1];
     ARPIAppResource_PayloadEnum_Linked = [[ARPIAppResource_PayloadEnum alloc] initWithNSString:@"Linked" withInt:2];
+    ARPIAppResource_PayloadEnum_Unknown = [[ARPIAppResource_PayloadEnum alloc] initWithNSString:@"Unknown" withInt:3];
     ARPIAppResource_PayloadEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIAppResource_PayloadEnum_values count:3 type:[IOSClass classWithClass:[ARPIAppResource_PayloadEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIAppResource_PayloadEnum_values count:4 type:[IOSClass classWithClass:[ARPIAppResource_PayloadEnum class]]];
 }
 
 + (ARPIAppResource_PayloadEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     ARPIAppResource_PayloadEnum *e = ARPIAppResource_PayloadEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -232,9 +237,10 @@ ARPIAppResource_PayloadEnum *ARPIAppResource_PayloadEnum_values[3];
     { "Default", "Default", 0x4019, "Lme.adaptive.arp.api.IAppResource$Payload;", &ARPIAppResource_PayloadEnum_Default,  },
     { "Embedded", "Embedded", 0x4019, "Lme.adaptive.arp.api.IAppResource$Payload;", &ARPIAppResource_PayloadEnum_Embedded,  },
     { "Linked", "Linked", 0x4019, "Lme.adaptive.arp.api.IAppResource$Payload;", &ARPIAppResource_PayloadEnum_Linked,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IAppResource$Payload;", &ARPIAppResource_PayloadEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IAppResource$Payload;"};
-  static J2ObjcClassInfo _ARPIAppResource_PayloadEnum = { "Payload", "me.adaptive.arp.api", "IAppResource", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIAppResource_PayloadEnum = { "Payload", "me.adaptive.arp.api", "IAppResource", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
   return &_ARPIAppResource_PayloadEnum;
 }
 

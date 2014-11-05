@@ -93,7 +93,7 @@
 
 BOOL ARPContactSocial_SocialNetworkEnum_initialized = NO;
 
-ARPContactSocial_SocialNetworkEnum *ARPContactSocial_SocialNetworkEnum_values[5];
+ARPContactSocial_SocialNetworkEnum *ARPContactSocial_SocialNetworkEnum_values[6];
 
 @implementation ARPContactSocial_SocialNetworkEnum
 
@@ -112,16 +112,17 @@ ARPContactSocial_SocialNetworkEnum *ARPContactSocial_SocialNetworkEnum_values[5]
     ARPContactSocial_SocialNetworkEnum_GooglePlus = [[ARPContactSocial_SocialNetworkEnum alloc] initWithNSString:@"GooglePlus" withInt:2];
     ARPContactSocial_SocialNetworkEnum_LinkedIn = [[ARPContactSocial_SocialNetworkEnum alloc] initWithNSString:@"LinkedIn" withInt:3];
     ARPContactSocial_SocialNetworkEnum_Flickr = [[ARPContactSocial_SocialNetworkEnum alloc] initWithNSString:@"Flickr" withInt:4];
+    ARPContactSocial_SocialNetworkEnum_Unknown = [[ARPContactSocial_SocialNetworkEnum alloc] initWithNSString:@"Unknown" withInt:5];
     ARPContactSocial_SocialNetworkEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPContactSocial_SocialNetworkEnum_values count:5 type:[IOSClass classWithClass:[ARPContactSocial_SocialNetworkEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPContactSocial_SocialNetworkEnum_values count:6 type:[IOSClass classWithClass:[ARPContactSocial_SocialNetworkEnum class]]];
 }
 
 + (ARPContactSocial_SocialNetworkEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 6; i++) {
     ARPContactSocial_SocialNetworkEnum *e = ARPContactSocial_SocialNetworkEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -141,9 +142,10 @@ ARPContactSocial_SocialNetworkEnum *ARPContactSocial_SocialNetworkEnum_values[5]
     { "GooglePlus", "GooglePlus", 0x4019, "Lme.adaptive.arp.api.ContactSocial$SocialNetwork;", &ARPContactSocial_SocialNetworkEnum_GooglePlus,  },
     { "LinkedIn", "LinkedIn", 0x4019, "Lme.adaptive.arp.api.ContactSocial$SocialNetwork;", &ARPContactSocial_SocialNetworkEnum_LinkedIn,  },
     { "Flickr", "Flickr", 0x4019, "Lme.adaptive.arp.api.ContactSocial$SocialNetwork;", &ARPContactSocial_SocialNetworkEnum_Flickr,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ContactSocial$SocialNetwork;", &ARPContactSocial_SocialNetworkEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ContactSocial$SocialNetwork;"};
-  static J2ObjcClassInfo _ARPContactSocial_SocialNetworkEnum = { "SocialNetwork", "me.adaptive.arp.api", "ContactSocial", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPContactSocial_SocialNetworkEnum = { "SocialNetwork", "me.adaptive.arp.api", "ContactSocial", 0x4019, 1, methods, 6, fields, 1, superclass_type_args};
   return &_ARPContactSocial_SocialNetworkEnum;
 }
 

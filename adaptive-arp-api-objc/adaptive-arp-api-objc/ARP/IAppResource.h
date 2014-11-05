@@ -88,6 +88,7 @@ typedef enum {
   ARPIAppResource_Type_Property = 6,
   ARPIAppResource_Type_Database = 7,
   ARPIAppResource_Type_Other = 8,
+  ARPIAppResource_Type_Unknown = 9,
 } ARPIAppResource_Type;
 
 @interface ARPIAppResource_TypeEnum : JavaLangEnum < NSCopying > {
@@ -131,11 +132,15 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIAppResource_TypeEnum, Database, ARPIAppResource_T
 #define ARPIAppResource_TypeEnum_Other ARPIAppResource_TypeEnum_values[ARPIAppResource_Type_Other]
 J2OBJC_STATIC_FIELD_GETTER(ARPIAppResource_TypeEnum, Other, ARPIAppResource_TypeEnum *)
 
+#define ARPIAppResource_TypeEnum_Unknown ARPIAppResource_TypeEnum_values[ARPIAppResource_Type_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppResource_TypeEnum, Unknown, ARPIAppResource_TypeEnum *)
+
 typedef enum {
   ARPIAppResource_Format_Raw = 0,
   ARPIAppResource_Format_Compressed = 1,
   ARPIAppResource_Format_Encrypted = 2,
   ARPIAppResource_Format_EncryptedCompressed = 3,
+  ARPIAppResource_Format_Unknown = 4,
 } ARPIAppResource_Format;
 
 @interface ARPIAppResource_FormatEnum : JavaLangEnum < NSCopying > {
@@ -164,10 +169,14 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIAppResource_FormatEnum, Encrypted, ARPIAppResourc
 #define ARPIAppResource_FormatEnum_EncryptedCompressed ARPIAppResource_FormatEnum_values[ARPIAppResource_Format_EncryptedCompressed]
 J2OBJC_STATIC_FIELD_GETTER(ARPIAppResource_FormatEnum, EncryptedCompressed, ARPIAppResource_FormatEnum *)
 
+#define ARPIAppResource_FormatEnum_Unknown ARPIAppResource_FormatEnum_values[ARPIAppResource_Format_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppResource_FormatEnum, Unknown, ARPIAppResource_FormatEnum *)
+
 typedef enum {
   ARPIAppResource_Payload_Default = 0,
   ARPIAppResource_Payload_Embedded = 1,
   ARPIAppResource_Payload_Linked = 2,
+  ARPIAppResource_Payload_Unknown = 3,
 } ARPIAppResource_Payload;
 
 @interface ARPIAppResource_PayloadEnum : JavaLangEnum < NSCopying > {
@@ -192,5 +201,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIAppResource_PayloadEnum, Embedded, ARPIAppResourc
 
 #define ARPIAppResource_PayloadEnum_Linked ARPIAppResource_PayloadEnum_values[ARPIAppResource_Payload_Linked]
 J2OBJC_STATIC_FIELD_GETTER(ARPIAppResource_PayloadEnum, Linked, ARPIAppResource_PayloadEnum *)
+
+#define ARPIAppResource_PayloadEnum_Unknown ARPIAppResource_PayloadEnum_values[ARPIAppResource_Payload_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIAppResource_PayloadEnum, Unknown, ARPIAppResource_PayloadEnum *)
 
 #endif // _ARPIAppResource_H_

@@ -64,7 +64,7 @@
 
 BOOL ARPIContact_FilterEnum_initialized = NO;
 
-ARPIContact_FilterEnum *ARPIContact_FilterEnum_values[3];
+ARPIContact_FilterEnum *ARPIContact_FilterEnum_values[4];
 
 @implementation ARPIContact_FilterEnum
 
@@ -81,16 +81,17 @@ ARPIContact_FilterEnum *ARPIContact_FilterEnum_values[3];
     ARPIContact_FilterEnum_HAS_PHONE = [[ARPIContact_FilterEnum alloc] initWithNSString:@"HAS_PHONE" withInt:0];
     ARPIContact_FilterEnum_HAS_EMAIL = [[ARPIContact_FilterEnum alloc] initWithNSString:@"HAS_EMAIL" withInt:1];
     ARPIContact_FilterEnum_HAS_ADDRESS = [[ARPIContact_FilterEnum alloc] initWithNSString:@"HAS_ADDRESS" withInt:2];
+    ARPIContact_FilterEnum_Unknown = [[ARPIContact_FilterEnum alloc] initWithNSString:@"Unknown" withInt:3];
     ARPIContact_FilterEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIContact_FilterEnum_values count:3 type:[IOSClass classWithClass:[ARPIContact_FilterEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIContact_FilterEnum_values count:4 type:[IOSClass classWithClass:[ARPIContact_FilterEnum class]]];
 }
 
 + (ARPIContact_FilterEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     ARPIContact_FilterEnum *e = ARPIContact_FilterEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -108,9 +109,10 @@ ARPIContact_FilterEnum *ARPIContact_FilterEnum_values[3];
     { "HAS_PHONE", "HAS_PHONE", 0x4019, "Lme.adaptive.arp.api.IContact$Filter;", &ARPIContact_FilterEnum_HAS_PHONE,  },
     { "HAS_EMAIL", "HAS_EMAIL", 0x4019, "Lme.adaptive.arp.api.IContact$Filter;", &ARPIContact_FilterEnum_HAS_EMAIL,  },
     { "HAS_ADDRESS", "HAS_ADDRESS", 0x4019, "Lme.adaptive.arp.api.IContact$Filter;", &ARPIContact_FilterEnum_HAS_ADDRESS,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IContact$Filter;", &ARPIContact_FilterEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IContact$Filter;"};
-  static J2ObjcClassInfo _ARPIContact_FilterEnum = { "Filter", "me.adaptive.arp.api", "IContact", 0x4019, 1, methods, 3, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIContact_FilterEnum = { "Filter", "me.adaptive.arp.api", "IContact", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
   return &_ARPIContact_FilterEnum;
 }
 
@@ -118,7 +120,7 @@ ARPIContact_FilterEnum *ARPIContact_FilterEnum_values[3];
 
 BOOL ARPIContact_FieldGroupEnum_initialized = NO;
 
-ARPIContact_FieldGroupEnum *ARPIContact_FieldGroupEnum_values[8];
+ARPIContact_FieldGroupEnum *ARPIContact_FieldGroupEnum_values[9];
 
 @implementation ARPIContact_FieldGroupEnum
 
@@ -140,16 +142,17 @@ ARPIContact_FieldGroupEnum *ARPIContact_FieldGroupEnum_values[8];
     ARPIContact_FieldGroupEnum_WEBSITES = [[ARPIContact_FieldGroupEnum alloc] initWithNSString:@"WEBSITES" withInt:5];
     ARPIContact_FieldGroupEnum_SOCIALS = [[ARPIContact_FieldGroupEnum alloc] initWithNSString:@"SOCIALS" withInt:6];
     ARPIContact_FieldGroupEnum_TAGS = [[ARPIContact_FieldGroupEnum alloc] initWithNSString:@"TAGS" withInt:7];
+    ARPIContact_FieldGroupEnum_Unknown = [[ARPIContact_FieldGroupEnum alloc] initWithNSString:@"Unknown" withInt:8];
     ARPIContact_FieldGroupEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPIContact_FieldGroupEnum_values count:8 type:[IOSClass classWithClass:[ARPIContact_FieldGroupEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPIContact_FieldGroupEnum_values count:9 type:[IOSClass classWithClass:[ARPIContact_FieldGroupEnum class]]];
 }
 
 + (ARPIContact_FieldGroupEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 8; i++) {
+  for (int i = 0; i < 9; i++) {
     ARPIContact_FieldGroupEnum *e = ARPIContact_FieldGroupEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -172,9 +175,10 @@ ARPIContact_FieldGroupEnum *ARPIContact_FieldGroupEnum_values[8];
     { "WEBSITES", "WEBSITES", 0x4019, "Lme.adaptive.arp.api.IContact$FieldGroup;", &ARPIContact_FieldGroupEnum_WEBSITES,  },
     { "SOCIALS", "SOCIALS", 0x4019, "Lme.adaptive.arp.api.IContact$FieldGroup;", &ARPIContact_FieldGroupEnum_SOCIALS,  },
     { "TAGS", "TAGS", 0x4019, "Lme.adaptive.arp.api.IContact$FieldGroup;", &ARPIContact_FieldGroupEnum_TAGS,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.IContact$FieldGroup;", &ARPIContact_FieldGroupEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.IContact$FieldGroup;"};
-  static J2ObjcClassInfo _ARPIContact_FieldGroupEnum = { "FieldGroup", "me.adaptive.arp.api", "IContact", 0x4019, 1, methods, 8, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPIContact_FieldGroupEnum = { "FieldGroup", "me.adaptive.arp.api", "IContact", 0x4019, 1, methods, 9, fields, 1, superclass_type_args};
   return &_ARPIContact_FieldGroupEnum;
 }
 

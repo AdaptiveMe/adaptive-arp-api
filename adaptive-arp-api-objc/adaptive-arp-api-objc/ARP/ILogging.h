@@ -59,6 +59,7 @@ typedef enum {
   ARPILogging_LogLevel_WARN = 1,
   ARPILogging_LogLevel_ERROR = 2,
   ARPILogging_LogLevel_INFO = 3,
+  ARPILogging_LogLevel_Unknown = 4,
 } ARPILogging_LogLevel;
 
 @interface ARPILogging_LogLevelEnum : JavaLangEnum < NSCopying > {
@@ -86,5 +87,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPILogging_LogLevelEnum, ERROR, ARPILogging_LogLevel
 
 #define ARPILogging_LogLevelEnum_INFO ARPILogging_LogLevelEnum_values[ARPILogging_LogLevel_INFO]
 J2OBJC_STATIC_FIELD_GETTER(ARPILogging_LogLevelEnum, INFO, ARPILogging_LogLevelEnum *)
+
+#define ARPILogging_LogLevelEnum_Unknown ARPILogging_LogLevelEnum_values[ARPILogging_LogLevel_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPILogging_LogLevelEnum, Unknown, ARPILogging_LogLevelEnum *)
 
 #endif // _ARPILogging_H_

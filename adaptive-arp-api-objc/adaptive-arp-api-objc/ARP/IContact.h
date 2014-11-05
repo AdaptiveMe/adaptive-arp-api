@@ -80,6 +80,7 @@ typedef enum {
   ARPIContact_Filter_HAS_PHONE = 0,
   ARPIContact_Filter_HAS_EMAIL = 1,
   ARPIContact_Filter_HAS_ADDRESS = 2,
+  ARPIContact_Filter_Unknown = 3,
 } ARPIContact_Filter;
 
 @interface ARPIContact_FilterEnum : JavaLangEnum < NSCopying > {
@@ -105,6 +106,9 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIContact_FilterEnum, HAS_EMAIL, ARPIContact_Filter
 #define ARPIContact_FilterEnum_HAS_ADDRESS ARPIContact_FilterEnum_values[ARPIContact_Filter_HAS_ADDRESS]
 J2OBJC_STATIC_FIELD_GETTER(ARPIContact_FilterEnum, HAS_ADDRESS, ARPIContact_FilterEnum *)
 
+#define ARPIContact_FilterEnum_Unknown ARPIContact_FilterEnum_values[ARPIContact_Filter_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIContact_FilterEnum, Unknown, ARPIContact_FilterEnum *)
+
 typedef enum {
   ARPIContact_FieldGroup_PERSONAL_INFO = 0,
   ARPIContact_FieldGroup_PROFESSIONAL_INFO = 1,
@@ -114,6 +118,7 @@ typedef enum {
   ARPIContact_FieldGroup_WEBSITES = 5,
   ARPIContact_FieldGroup_SOCIALS = 6,
   ARPIContact_FieldGroup_TAGS = 7,
+  ARPIContact_FieldGroup_Unknown = 8,
 } ARPIContact_FieldGroup;
 
 @interface ARPIContact_FieldGroupEnum : JavaLangEnum < NSCopying > {
@@ -153,5 +158,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPIContact_FieldGroupEnum, SOCIALS, ARPIContact_Fiel
 
 #define ARPIContact_FieldGroupEnum_TAGS ARPIContact_FieldGroupEnum_values[ARPIContact_FieldGroup_TAGS]
 J2OBJC_STATIC_FIELD_GETTER(ARPIContact_FieldGroupEnum, TAGS, ARPIContact_FieldGroupEnum *)
+
+#define ARPIContact_FieldGroupEnum_Unknown ARPIContact_FieldGroupEnum_values[ARPIContact_FieldGroup_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPIContact_FieldGroupEnum, Unknown, ARPIContact_FieldGroupEnum *)
 
 #endif // _ARPIContact_H_

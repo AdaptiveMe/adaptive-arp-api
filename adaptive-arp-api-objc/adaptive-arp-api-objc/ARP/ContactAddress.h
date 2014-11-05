@@ -73,6 +73,7 @@ typedef enum {
   ARPContactAddress_AddressType_Home = 0,
   ARPContactAddress_AddressType_Work = 1,
   ARPContactAddress_AddressType_Other = 2,
+  ARPContactAddress_AddressType_Unknown = 3,
 } ARPContactAddress_AddressType;
 
 @interface ARPContactAddress_AddressTypeEnum : JavaLangEnum < NSCopying > {
@@ -97,5 +98,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPContactAddress_AddressTypeEnum, Work, ARPContactAd
 
 #define ARPContactAddress_AddressTypeEnum_Other ARPContactAddress_AddressTypeEnum_values[ARPContactAddress_AddressType_Other]
 J2OBJC_STATIC_FIELD_GETTER(ARPContactAddress_AddressTypeEnum, Other, ARPContactAddress_AddressTypeEnum *)
+
+#define ARPContactAddress_AddressTypeEnum_Unknown ARPContactAddress_AddressTypeEnum_values[ARPContactAddress_AddressType_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPContactAddress_AddressTypeEnum, Unknown, ARPContactAddress_AddressTypeEnum *)
 
 #endif // _ARPContactAddress_H_

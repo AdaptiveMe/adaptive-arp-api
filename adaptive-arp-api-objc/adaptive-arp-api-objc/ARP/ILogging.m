@@ -53,7 +53,7 @@
 
 BOOL ARPILogging_LogLevelEnum_initialized = NO;
 
-ARPILogging_LogLevelEnum *ARPILogging_LogLevelEnum_values[4];
+ARPILogging_LogLevelEnum *ARPILogging_LogLevelEnum_values[5];
 
 @implementation ARPILogging_LogLevelEnum
 
@@ -71,16 +71,17 @@ ARPILogging_LogLevelEnum *ARPILogging_LogLevelEnum_values[4];
     ARPILogging_LogLevelEnum_WARN = [[ARPILogging_LogLevelEnum alloc] initWithNSString:@"WARN" withInt:1];
     ARPILogging_LogLevelEnum_ERROR = [[ARPILogging_LogLevelEnum alloc] initWithNSString:@"ERROR" withInt:2];
     ARPILogging_LogLevelEnum_INFO = [[ARPILogging_LogLevelEnum alloc] initWithNSString:@"INFO" withInt:3];
+    ARPILogging_LogLevelEnum_Unknown = [[ARPILogging_LogLevelEnum alloc] initWithNSString:@"Unknown" withInt:4];
     ARPILogging_LogLevelEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPILogging_LogLevelEnum_values count:4 type:[IOSClass classWithClass:[ARPILogging_LogLevelEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPILogging_LogLevelEnum_values count:5 type:[IOSClass classWithClass:[ARPILogging_LogLevelEnum class]]];
 }
 
 + (ARPILogging_LogLevelEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 5; i++) {
     ARPILogging_LogLevelEnum *e = ARPILogging_LogLevelEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -99,9 +100,10 @@ ARPILogging_LogLevelEnum *ARPILogging_LogLevelEnum_values[4];
     { "WARN", "WARN", 0x4019, "Lme.adaptive.arp.api.ILogging$LogLevel;", &ARPILogging_LogLevelEnum_WARN,  },
     { "ERROR", "ERROR", 0x4019, "Lme.adaptive.arp.api.ILogging$LogLevel;", &ARPILogging_LogLevelEnum_ERROR,  },
     { "INFO", "INFO", 0x4019, "Lme.adaptive.arp.api.ILogging$LogLevel;", &ARPILogging_LogLevelEnum_INFO,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.ILogging$LogLevel;", &ARPILogging_LogLevelEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.ILogging$LogLevel;"};
-  static J2ObjcClassInfo _ARPILogging_LogLevelEnum = { "LogLevel", "me.adaptive.arp.api", "ILogging", 0x4019, 1, methods, 4, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPILogging_LogLevelEnum = { "LogLevel", "me.adaptive.arp.api", "ILogging", 0x4019, 1, methods, 5, fields, 1, superclass_type_args};
   return &_ARPILogging_LogLevelEnum;
 }
 

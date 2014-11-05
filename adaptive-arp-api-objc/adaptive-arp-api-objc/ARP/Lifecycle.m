@@ -79,7 +79,7 @@
 
 BOOL ARPLifecycle_StateEnum_initialized = NO;
 
-ARPLifecycle_StateEnum *ARPLifecycle_StateEnum_values[8];
+ARPLifecycle_StateEnum *ARPLifecycle_StateEnum_values[9];
 
 @implementation ARPLifecycle_StateEnum
 
@@ -101,16 +101,17 @@ ARPLifecycle_StateEnum *ARPLifecycle_StateEnum_values[8];
     ARPLifecycle_StateEnum_PausedRun = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"PausedRun" withInt:5];
     ARPLifecycle_StateEnum_Resuming = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Resuming" withInt:6];
     ARPLifecycle_StateEnum_Stopping = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Stopping" withInt:7];
+    ARPLifecycle_StateEnum_Unknown = [[ARPLifecycle_StateEnum alloc] initWithNSString:@"Unknown" withInt:8];
     ARPLifecycle_StateEnum_initialized = YES;
   }
 }
 
 + (IOSObjectArray *)values {
-  return [IOSObjectArray arrayWithObjects:ARPLifecycle_StateEnum_values count:8 type:[IOSClass classWithClass:[ARPLifecycle_StateEnum class]]];
+  return [IOSObjectArray arrayWithObjects:ARPLifecycle_StateEnum_values count:9 type:[IOSClass classWithClass:[ARPLifecycle_StateEnum class]]];
 }
 
 + (ARPLifecycle_StateEnum *)valueOfWithNSString:(NSString *)name {
-  for (int i = 0; i < 8; i++) {
+  for (int i = 0; i < 9; i++) {
     ARPLifecycle_StateEnum *e = ARPLifecycle_StateEnum_values[i];
     if ([name isEqual:[e name]]) {
       return e;
@@ -133,9 +134,10 @@ ARPLifecycle_StateEnum *ARPLifecycle_StateEnum_values[8];
     { "PausedRun", "PausedRun", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_PausedRun,  },
     { "Resuming", "Resuming", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Resuming,  },
     { "Stopping", "Stopping", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Stopping,  },
+    { "Unknown", "Unknown", 0x4019, "Lme.adaptive.arp.api.Lifecycle$State;", &ARPLifecycle_StateEnum_Unknown,  },
   };
   static const char *superclass_type_args[] = {"Lme.adaptive.arp.api.Lifecycle$State;"};
-  static J2ObjcClassInfo _ARPLifecycle_StateEnum = { "State", "me.adaptive.arp.api", "Lifecycle", 0x4019, 1, methods, 8, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ARPLifecycle_StateEnum = { "State", "me.adaptive.arp.api", "Lifecycle", 0x4019, 1, methods, 9, fields, 1, superclass_type_args};
   return &_ARPLifecycle_StateEnum;
 }
 

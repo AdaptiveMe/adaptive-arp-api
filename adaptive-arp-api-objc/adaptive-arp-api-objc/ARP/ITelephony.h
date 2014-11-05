@@ -52,6 +52,7 @@ __attribute__((always_inline)) inline void ARPITelephony_init() {}
 typedef enum {
   ARPITelephony_Status_Dialing = 0,
   ARPITelephony_Status_Failed = 1,
+  ARPITelephony_Status_Unknown = 2,
 } ARPITelephony_Status;
 
 @interface ARPITelephony_StatusEnum : JavaLangEnum < NSCopying > {
@@ -73,5 +74,8 @@ J2OBJC_STATIC_FIELD_GETTER(ARPITelephony_StatusEnum, Dialing, ARPITelephony_Stat
 
 #define ARPITelephony_StatusEnum_Failed ARPITelephony_StatusEnum_values[ARPITelephony_Status_Failed]
 J2OBJC_STATIC_FIELD_GETTER(ARPITelephony_StatusEnum, Failed, ARPITelephony_StatusEnum *)
+
+#define ARPITelephony_StatusEnum_Unknown ARPITelephony_StatusEnum_values[ARPITelephony_Status_Unknown]
+J2OBJC_STATIC_FIELD_GETTER(ARPITelephony_StatusEnum, Unknown, ARPITelephony_StatusEnum *)
 
 #endif // _ARPITelephony_H_
