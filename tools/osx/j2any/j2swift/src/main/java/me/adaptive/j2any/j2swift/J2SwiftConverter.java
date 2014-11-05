@@ -308,44 +308,44 @@ public class J2SwiftConverter {
         if (fieldList.size()>0) {
             ps.println(5, "public override var description : String {");
             StringBuffer descriptionBuffer = new StringBuffer();
-            descriptionBuffer.append(clazz.getSimpleName() + "{ ");
+            descriptionBuffer.append(clazz.getSimpleName() + "{");
             int fieldIndex = 0;
             for (Field field : fieldList) {
                 descriptionBuffer.append(field.getName() + "=");
                 if (field.getType().isPrimitive()) {
-                    descriptionBuffer.append("\"+"+field.getName()+".description+\"");
+                    descriptionBuffer.append("\\("+field.getName()+".description)");
                 } else if (field.getType().isArray()) {
                     Class<?> componentType = field.getType().getComponentType();
                     if (componentType.isPrimitive()) {
-                        descriptionBuffer.append("\"+"+field.getName()+"!.description+\"");
+                        descriptionBuffer.append("\\("+field.getName()+"!.description)");
                     } else {
                         if (componentType.getSimpleName().equals("Object")) {
-                            descriptionBuffer.append("\"+"+field.getName()+"!.description+\"");
+                            descriptionBuffer.append("\\("+field.getName()+"!.description)");
                         } else {
-                            descriptionBuffer.append("\"+"+field.getName()+"!.description+\"");
+                            descriptionBuffer.append("\\("+field.getName()+"!.description)");
                         }
                     }
                 } else {
                     if (field.getType().isEnum()) {
-                        descriptionBuffer.append("\"+"+field.getName()+"!.hashValue.description+\"");
+                        descriptionBuffer.append("\\("+field.getName()+"!.hashValue.description)");
                     } else {
                         if (field.getType().isInterface()) {
-                            descriptionBuffer.append("\"+"+field.getName()+"!.description+\"");
+                            descriptionBuffer.append("\\("+field.getName()+"!.description)");
                         } else {
                             if (field.getType().equals(String.class)) {
-                                descriptionBuffer.append("\"+"+field.getName()+"+\"");
+                                descriptionBuffer.append("\\("+field.getName()+")");
                             } else {
-                                descriptionBuffer.append("\"+"+field.getName()+"!.description+\"");
+                                descriptionBuffer.append("\\("+field.getName()+"!.description)");
                             }
                         }
                     }
                 }
                 fieldIndex++;
                 if (fieldIndex < fieldList.size()) {
-                    descriptionBuffer.append(",");
+                    descriptionBuffer.append(", ");
                 }
             }
-            descriptionBuffer.append(" }");
+            descriptionBuffer.append("}");
             ps.println(10, "return \"" + descriptionBuffer.toString() + "\"");
             ps.println(5, "}");
             ps.println();
@@ -458,7 +458,19 @@ public class J2SwiftConverter {
                     for (Field field : clazz.getDeclaredFields()) {
                         ps.print(10, "self." + field.getName());
                         if (field.getType().isArray()) {
-                            ps.println(" = nil");
+                            if (field.getType().getComponentType().isPrimitive()) {
+                                ps.println(" = [" + getPrimitiveTypeSwift(field.getType().getComponentType()) + "]()");
+                            } else {
+                                if (field.getType().getComponentType().getSimpleName().equals("Object")) {
+                                    ps.println(" = [Any" + field.getType().getComponentType().getSimpleName() + "]()");
+                                } else {
+                                    if (field.getType().getComponentType().isEnum()) {
+                                        ps.println(" = [" + clazz.getSimpleName() + field.getType().getComponentType().getSimpleName() + "]()");
+                                    } else {
+                                        ps.println(" = [" + field.getType().getComponentType().getSimpleName() + "]()");
+                                    }
+                                }
+                            }
                         } else if (field.getType().isPrimitive()) {
                             if (field.getType().equals(Boolean.TYPE)) {
                                 ps.println(" = false");
