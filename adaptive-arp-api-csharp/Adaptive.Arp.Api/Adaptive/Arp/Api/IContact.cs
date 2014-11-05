@@ -95,7 +95,8 @@ namespace Adaptive.Arp.Api
 		{
 			HasPhone,
 			HasEmail,
-			HasAddress
+			HasAddress,
+			Unknown
 		}
 
 		/// <summary>Group that can be retrieved</summary>
@@ -109,7 +110,8 @@ namespace Adaptive.Arp.Api
 			Emails,
 			Websites,
 			Socials,
-			Tags
+			Tags,
+			Unknown
 		}
 	}
 }

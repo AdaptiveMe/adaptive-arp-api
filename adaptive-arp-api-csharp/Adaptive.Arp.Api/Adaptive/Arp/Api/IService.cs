@@ -83,7 +83,8 @@ namespace Adaptive.Arp.Api
 			ServicetypeSoapJson,
 			ServicetypeSoapXml,
 			ServicetypeXmlrpcJson,
-			ServicetypeXmlrpcXml
+			ServicetypeXmlrpcXml,
+			Unknown
 		}
 
 		/// <summary>Protocol version supported</summary>
@@ -91,7 +92,8 @@ namespace Adaptive.Arp.Api
 		public enum ProtocolVersion
 		{
 			HttpProtocolVersion10,
-			HttpProtocolVersion11
+			HttpProtocolVersion11,
+			Unknown
 		}
 
 		/// <summary>Available methods</summary>
@@ -99,7 +101,8 @@ namespace Adaptive.Arp.Api
 		public enum ServiceMethod
 		{
 			Post,
-			Get
+			Get,
+			Unknown
 		}
 	}
 }

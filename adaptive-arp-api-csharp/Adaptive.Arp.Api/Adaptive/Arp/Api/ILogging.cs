@@ -65,7 +65,8 @@ namespace Adaptive.Arp.Api
 			Debug,
 			Warn,
 			Error,
-			Info
+			Info,
+			Unknown
 		}
 	}
 }

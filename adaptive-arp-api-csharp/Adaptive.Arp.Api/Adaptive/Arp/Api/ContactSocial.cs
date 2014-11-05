@@ -67,7 +67,8 @@ namespace Adaptive.Arp.Api
 			Facebook,
 			GooglePlus,
 			LinkedIn,
-			Flickr
+			Flickr,
+			Unknown
 		}
 
 		/// <summary>Returns the social network</summary>

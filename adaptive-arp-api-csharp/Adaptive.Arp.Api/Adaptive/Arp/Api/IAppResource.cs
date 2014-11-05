@@ -73,7 +73,8 @@ namespace Adaptive.Arp.Api
 			Audio,
 			Property,
 			Database,
-			Other
+			Other,
+			Unknown
 		}
 
 		public enum Format
@@ -81,14 +82,16 @@ namespace Adaptive.Arp.Api
 			Raw,
 			Compressed,
 			Encrypted,
-			EncryptedCompressed
+			EncryptedCompressed,
+			Unknown
 		}
 
 		public enum Payload
 		{
 			Default,
 			Embedded,
-			Linked
+			Linked,
+			Unknown
 		}
 	}
 }

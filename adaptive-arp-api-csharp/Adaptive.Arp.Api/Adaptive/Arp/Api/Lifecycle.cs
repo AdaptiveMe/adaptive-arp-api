@@ -93,7 +93,8 @@ namespace Adaptive.Arp.Api
 			PausedIdle,
 			PausedRun,
 			Resuming,
-			Stopping
+			Stopping,
+			Unknown
 		}
 	}
 }

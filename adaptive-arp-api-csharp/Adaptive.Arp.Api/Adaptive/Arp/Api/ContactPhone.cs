@@ -100,7 +100,8 @@ namespace Adaptive.Arp.Api
 			Main,
 			HomeFax,
 			WorkFax,
-			Other
+			Other,
+			Unknown
 		}
 	}
 }

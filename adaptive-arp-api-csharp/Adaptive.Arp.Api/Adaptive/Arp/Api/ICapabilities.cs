@@ -131,7 +131,8 @@ namespace Adaptive.Arp.Api
 			Geolocation,
 			Gyroscope,
 			Magnetometer,
-			Proximity
+			Proximity,
+			Unknown
 		}
 
 		/// <summary>PIM functionality support enumeration.</summary>
@@ -144,7 +145,8 @@ namespace Adaptive.Arp.Api
 			Contact,
 			Mail,
 			Messaging,
-			Telephony
+			Telephony,
+			Unknown
 		}
 
 		/// <summary>Storage functionality support enumeration.</summary>
@@ -155,7 +157,8 @@ namespace Adaptive.Arp.Api
 		{
 			Database,
 			File,
-			Cloud
+			Cloud,
+			Unknown
 		}
 
 		/// <summary>Media functionality support enumeration.</summary>
@@ -166,7 +169,8 @@ namespace Adaptive.Arp.Api
 			Audio_Recording,
 			Camera,
 			Video_Playback,
-			Video_Recording
+			Video_Recording,
+			Unknown
 		}
 
 		/// <summary>Connectivity support enumeration.</summary>
@@ -180,7 +184,8 @@ namespace Adaptive.Arp.Api
 			Hsdpa,
 			Lte,
 			Wifi,
-			Ethernet
+			Ethernet,
+			Unknown
 		}
 
 		/// <summary>Notification support enumeration.</summary>
@@ -192,7 +197,8 @@ namespace Adaptive.Arp.Api
 			Alarm,
 			LocalNotification,
 			RemoteNotification,
-			Vibration
+			Vibration,
+			Unknown
 		}
 
 		/// <summary>Hardware button support (only those that can interact with the application).
@@ -205,7 +211,8 @@ namespace Adaptive.Arp.Api
 		{
 			HomeButton,
 			BackButton,
-			OptionButton
+			OptionButton,
+			Unknown
 		}
 	}
 }

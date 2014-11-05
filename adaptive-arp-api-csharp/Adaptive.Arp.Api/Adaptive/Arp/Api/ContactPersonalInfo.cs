@@ -142,7 +142,8 @@ namespace Adaptive.Arp.Api
 			Mr,
 			Mrs,
 			Ms,
-			Dr
+			Dr,
+			Unknown
 		}
 	}
 }

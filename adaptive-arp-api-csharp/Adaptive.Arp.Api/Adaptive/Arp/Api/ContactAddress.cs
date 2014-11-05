@@ -96,7 +96,8 @@ namespace Adaptive.Arp.Api
 		{
 			Home,
 			Work,
-			Other
+			Other,
+			Unknown
 		}
 	}
 }

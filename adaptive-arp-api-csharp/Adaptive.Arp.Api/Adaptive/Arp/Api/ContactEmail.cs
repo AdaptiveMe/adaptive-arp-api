@@ -118,7 +118,8 @@ namespace Adaptive.Arp.Api
 		{
 			Personal,
 			Work,
-			Other
+			Other,
+			Unknown
 		}
 	}
 }

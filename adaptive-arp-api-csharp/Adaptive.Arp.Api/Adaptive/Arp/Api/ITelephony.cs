@@ -44,7 +44,8 @@ namespace Adaptive.Arp.Api
 		public enum Status
 		{
 			Dialing,
-			Failed
+			Failed,
+			Unknown
 		}
 	}
 }

@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the personal info of the Contact</summary>
-		/// <?></?>
+		/// <param name="personalInfo"></param>
 		/// <since>ARP1.0</since>
 		public virtual void SetPersonalInfo(ContactPersonalInfo personalInfo)
 		{
@@ -105,7 +105,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the professional info of the Contact</summary>
-		/// <?></?>
+		/// <param name="professionalInfo"></param>
 		/// <since>ARP1.0</since>
 		public virtual void SetProfessionalInfo(ContactProfessionalInfo professionalInfo)
 		{
@@ -121,7 +121,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the addresses of the Contact</summary>
-		/// <?></?>
+		/// <param name="contactAddresses"></param>
 		/// <since>ARP1.0</since>
 		public virtual void SetContactAddresses(ContactAddress[] contactAddresses)
 		{
@@ -137,7 +137,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the phones of the Contact</summary>
-		/// <?></?>
+		/// <param name="contactPhones"></param>
 		/// <since>ARP1.0</since>
 		public virtual void SetContactPhones(ContactPhone[] contactPhones)
 		{
@@ -153,7 +153,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the emails of the Contact</summary>
-		/// <?></?>
+		/// <param name="contactEmails"></param>
 		/// <since>ARP1.0</since>
 		public virtual void SetContactEmails(ContactEmail[] contactEmails)
 		{
@@ -169,7 +169,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the websites of the Contact</summary>
-		/// <?></?>
+		/// <param name="contactWebsites"></param>
 		/// <since>ARP1.0</since>
 		public virtual void SetContactWebsites(ContactWebsite[] contactWebsites)
 		{
@@ -185,7 +185,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the social network info of the Contact</summary>
-		/// <?></?>
+		/// <param name="contactSocials"></param>
 		/// <since>ARP1.0</since>
 		public virtual void SetContactSocials(ContactSocial[] contactSocials)
 		{
@@ -201,7 +201,7 @@ namespace Adaptive.Arp.Api
 		}
 
 		/// <summary>Set the additional tags of the Contact</summary>
-		/// <?></?>
+		/// <param name="contactTags"></param>
 		/// <since>ARP1.0</since>
 		public virtual void SetContactTags(ContactTag[] contactTags)
 		{
