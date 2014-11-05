@@ -36,7 +36,7 @@ public class Button : NSObject  {
       */
      var type : Button?
      public override var description : String {
-          return "Button{ type="+type!.hashValue.description+" }"
+          return "Button{type=\(type!.hashValue.description)}"
      }
 
 

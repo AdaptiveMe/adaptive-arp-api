@@ -39,7 +39,7 @@ public class Service : NSObject  {
      var name : String
      var type : ServiceType?
      public override var description : String {
-          return "Service{ endpoint="+endpoint!.description+",method="+method!.hashValue.description+",name="+name+",type="+type!.hashValue.description+" }"
+          return "Service{endpoint=\(endpoint!.description), method=\(method!.hashValue.description), name=\(name), type=\(type!.hashValue.description)}"
      }
 
 

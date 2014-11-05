@@ -42,7 +42,7 @@ public class Email : NSObject  {
      var subject : String
      var toRecipients : [EmailAddress]?
      public override var description : String {
-          return "Email{ attachmentData="+attachmentData!.description+",bccRecipients="+bccRecipients!.description+",ccRecipients="+ccRecipients!.description+",messageBody="+messageBody+",messageBodyMimeType="+messageBodyMimeType+",subject="+subject+",toRecipients="+toRecipients!.description+" }"
+          return "Email{attachmentData=\(attachmentData!.description), bccRecipients=\(bccRecipients!.description), ccRecipients=\(ccRecipients!.description), messageBody=\(messageBody), messageBodyMimeType=\(messageBodyMimeType), subject=\(subject), toRecipients=\(toRecipients!.description)}"
      }
 
 
@@ -68,10 +68,10 @@ public class Email : NSObject  {
      }
 
      public override init() {
-          self.toRecipients = nil
-          self.ccRecipients = nil
-          self.bccRecipients = nil
-          self.attachmentData = nil
+          self.toRecipients = [EmailAddress]()
+          self.ccRecipients = [EmailAddress]()
+          self.bccRecipients = [EmailAddress]()
+          self.attachmentData = [AttachmentData]()
           self.messageBody = ""
           self.messageBodyMimeType = ""
           self.subject = ""

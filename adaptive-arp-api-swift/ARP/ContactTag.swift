@@ -37,7 +37,7 @@ public class ContactTag : NSObject  {
      var dataValue : String
      var name : String
      public override var description : String {
-          return "ContactTag{ dataValue="+dataValue+",name="+name+" }"
+          return "ContactTag{dataValue=\(dataValue), name=\(name)}"
      }
 
 
@@ -74,4 +74,6 @@ public class ContactTag : NSObject  {
      public func setName(name : String) {
           self.name = name
      }
+
+
 }

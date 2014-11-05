@@ -37,7 +37,7 @@ public class Locale : NSObject  {
      var country : String
      var language : String
      public override var description : String {
-          return "Locale{ country="+country+",language="+language+" }"
+          return "Locale{country=\(country), language=\(language)}"
      }
 
 

@@ -37,7 +37,7 @@ public class SecureKeyPair : NSObject  {
      var secureData : String
      var secureKey : String
      public override var description : String {
-          return "SecureKeyPair{ secureData="+secureData+",secureKey="+secureKey+" }"
+          return "SecureKeyPair{secureData=\(secureData), secureKey=\(secureKey)}"
      }
 
 

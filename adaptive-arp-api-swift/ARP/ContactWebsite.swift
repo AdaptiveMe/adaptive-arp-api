@@ -36,7 +36,7 @@ public class ContactWebsite : NSObject  {
       */
      var url : String
      public override var description : String {
-          return "ContactWebsite{ url="+url+" }"
+          return "ContactWebsite{url=\(url)}"
      }
 
 

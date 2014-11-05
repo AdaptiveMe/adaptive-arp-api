@@ -37,7 +37,7 @@ public class Database : NSObject  {
      var compress : Bool
      var name : String
      public override var description : String {
-          return "Database{ compress="+compress.description+",name="+name+" }"
+          return "Database{compress=\(compress.description), name=\(name)}"
      }
 
 

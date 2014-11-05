@@ -43,7 +43,7 @@ public class Contact : ContactUid {
      var personalInfo : ContactPersonalInfo?
      var professionalInfo : ContactProfessionalInfo?
      public override var description : String {
-          return "Contact{ contactAddresses="+contactAddresses!.description+",contactEmails="+contactEmails!.description+",contactPhones="+contactPhones!.description+",contactSocials="+contactSocials!.description+",contactTags="+contactTags!.description+",contactWebsites="+contactWebsites!.description+",personalInfo="+personalInfo!.description+",professionalInfo="+professionalInfo!.description+" }"
+          return "Contact{contactAddresses=\(contactAddresses!.description), contactEmails=\(contactEmails!.description), contactPhones=\(contactPhones!.description), contactSocials=\(contactSocials!.description), contactTags=\(contactTags!.description), contactWebsites=\(contactWebsites!.description), personalInfo=\(personalInfo!.description), professionalInfo=\(professionalInfo!.description)}"
      }
 
 
@@ -59,12 +59,12 @@ public class Contact : ContactUid {
           super.init()
           self.personalInfo = nil
           self.professionalInfo = nil
-          self.contactAddresses = nil
-          self.contactPhones = nil
-          self.contactEmails = nil
-          self.contactWebsites = nil
-          self.contactSocials = nil
-          self.contactTags = nil
+          self.contactAddresses = [ContactAddress]()
+          self.contactPhones = [ContactPhone]()
+          self.contactEmails = [ContactEmail]()
+          self.contactWebsites = [ContactWebsite]()
+          self.contactSocials = [ContactSocial]()
+          self.contactTags = [ContactTag]()
      }
 
 

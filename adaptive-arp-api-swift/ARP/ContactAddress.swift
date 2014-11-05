@@ -37,7 +37,7 @@ public class ContactAddress : NSObject  {
      var address : String
      var type : AddressType?
      public override var description : String {
-          return "ContactAddress{ address="+address+",type="+type!.hashValue.description+" }"
+          return "ContactAddress{address=\(address), type=\(type!.hashValue.description)}"
      }
 
 

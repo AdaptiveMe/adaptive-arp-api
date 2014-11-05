@@ -38,7 +38,7 @@ public class ContactProfessionalInfo : NSObject  {
      var jobDescription : String
      var jobTitle : String
      public override var description : String {
-          return "ContactProfessionalInfo{ company="+company+",jobDescription="+jobDescription+",jobTitle="+jobTitle+" }"
+          return "ContactProfessionalInfo{company=\(company), jobDescription=\(jobDescription), jobTitle=\(jobTitle)}"
      }
 
 

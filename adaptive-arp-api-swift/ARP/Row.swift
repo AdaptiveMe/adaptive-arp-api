@@ -36,7 +36,7 @@ public class Row : NSObject  {
       */
      var values : [AnyObject]?
      public override var description : String {
-          return "Row{ values="+values!.description+" }"
+          return "Row{values=\(values!.description)}"
      }
 
 
@@ -44,7 +44,7 @@ public class Row : NSObject  {
       * Initialization
       */
      public override init() {
-          self.values = nil
+          self.values = [AnyObject]()
      }
 
      public convenience init(values : [AnyObject]) {

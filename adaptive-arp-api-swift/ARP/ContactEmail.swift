@@ -38,7 +38,7 @@ public class ContactEmail : NSObject  {
      var primary : Bool
      var type : EmailType?
      public override var description : String {
-          return "ContactEmail{ email="+email+",primary="+primary.description+",type="+type!.hashValue.description+" }"
+          return "ContactEmail{email=\(email), primary=\(primary.description), type=\(type!.hashValue.description)}"
      }
 
 

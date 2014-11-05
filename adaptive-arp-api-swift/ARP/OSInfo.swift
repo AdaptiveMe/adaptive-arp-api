@@ -38,7 +38,7 @@ public class OSInfo : NSObject  {
      var vendor : String
      var version : String
      public override var description : String {
-          return "OSInfo{ name="+name+",vendor="+vendor+",version="+version+" }"
+          return "OSInfo{name=\(name), vendor=\(vendor), version=\(version)}"
      }
 
 

@@ -37,7 +37,7 @@ public class Header : NSObject  {
      var data : String
      var name : String
      public override var description : String {
-          return "Header{ data="+data+",name="+name+" }"
+          return "Header{data=\(data), name=\(name)}"
      }
 
 

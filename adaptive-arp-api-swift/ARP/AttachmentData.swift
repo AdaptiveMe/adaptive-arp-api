@@ -40,7 +40,7 @@ public class AttachmentData : NSObject  {
      var mimeType : String
      var referenceUrl : String
      public override var description : String {
-          return "AttachmentData{ data="+data!.description+",dataSize="+dataSize.description+",fileName="+fileName+",mimeType="+mimeType+",referenceUrl="+referenceUrl+" }"
+          return "AttachmentData{data=\(data!.description), dataSize=\(dataSize.description), fileName=\(fileName), mimeType=\(mimeType), referenceUrl=\(referenceUrl)}"
      }
 
 
@@ -57,7 +57,7 @@ public class AttachmentData : NSObject  {
      }
 
      public override init() {
-          self.data = nil
+          self.data = [Byte]()
           self.dataSize = 0
           self.fileName = ""
           self.mimeType = ""
@@ -88,12 +88,12 @@ public class AttachmentData : NSObject  {
           return self.referenceUrl
      }
 
-     public func setDataSize(dataSize : Int64) {
-          self.dataSize = dataSize
-     }
-
      public func setData(data : [Byte]) {
           self.data = data
+     }
+
+     public func setDataSize(dataSize : Int64) {
+          self.dataSize = dataSize
      }
 
      public func setFileName(fileName : String) {

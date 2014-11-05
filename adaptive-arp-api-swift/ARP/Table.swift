@@ -40,7 +40,7 @@ public class Table : NSObject  {
      var rowCount : Int
      var rows : [Row]?
      public override var description : String {
-          return "Table{ columnCount="+columnCount.description+",columns="+columns!.description+",name="+name+",rowCount="+rowCount.description+",rows="+rows!.description+" }"
+          return "Table{columnCount=\(columnCount.description), columns=\(columns!.description), name=\(name), rowCount=\(rowCount.description), rows=\(rows!.description)}"
      }
 
 
@@ -51,8 +51,8 @@ public class Table : NSObject  {
           self.name = ""
           self.columnCount = 0
           self.rowCount = 0
-          self.columns = nil
-          self.rows = nil
+          self.columns = [Column]()
+          self.rows = [Row]()
      }
 
      public convenience init(name : String) {

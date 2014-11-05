@@ -40,7 +40,7 @@ public class Geolocation : NSObject  {
      var xDoP : Float
      var yDoP : Float
      public override var description : String {
-          return "Geolocation{ altitude="+altitude.description+",latitude="+latitude.description+",longitude="+longitude.description+",xDoP="+xDoP.description+",yDoP="+yDoP.description+" }"
+          return "Geolocation{altitude=\(altitude.description), latitude=\(latitude.description), longitude=\(longitude.description), xDoP=\(xDoP.description), yDoP=\(yDoP.description)}"
      }
 
 

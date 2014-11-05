@@ -36,7 +36,7 @@ public class EmailAddress : NSObject  {
       */
      var address : String
      public override var description : String {
-          return "EmailAddress{ address="+address+" }"
+          return "EmailAddress{address=\(address)}"
      }
 
 

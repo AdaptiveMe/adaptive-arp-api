@@ -39,7 +39,7 @@ public class DeviceInfo : NSObject  {
      var uuid : String
      var vendor : String
      public override var description : String {
-          return "DeviceInfo{ model="+model+",name="+name+",uuid="+uuid+",vendor="+vendor+" }"
+          return "DeviceInfo{model=\(model), name=\(name), uuid=\(uuid), vendor=\(vendor)}"
      }
 
 

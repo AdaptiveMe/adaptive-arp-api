@@ -44,7 +44,7 @@ public class ServiceRequest : NSObject  {
      var rawContent : [Byte]?
      var session : ISession?
      public override var description : String {
-          return "ServiceRequest{ content="+content+",contentEncoding="+contentEncoding+",contentLength="+contentLength.description+",contentType="+contentType+",headers="+headers!.description+",method="+method+",protocolVersion="+protocolVersion!.hashValue.description+",rawContent="+rawContent!.description+",session="+session!.description+" }"
+          return "ServiceRequest{content=\(content), contentEncoding=\(contentEncoding), contentLength=\(contentLength.description), contentType=\(contentType), headers=\(headers!.description), method=\(method), protocolVersion=\(protocolVersion!.hashValue.description), rawContent=\(rawContent!.description), session=\(session!.description)}"
      }
 
 
@@ -62,8 +62,8 @@ public class ServiceRequest : NSObject  {
           self.content = ""
           self.contentType = ""
           self.contentLength = 0
-          self.rawContent = nil
-          self.headers = nil
+          self.rawContent = [Byte]()
+          self.headers = [Header]()
           self.method = ""
           self.protocolVersion = nil
           self.session = nil

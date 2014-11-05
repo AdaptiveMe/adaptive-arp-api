@@ -36,7 +36,7 @@ public class ContactUid : NSObject  {
       */
      var contactId : String
      public override var description : String {
-          return "ContactUid{ contactId="+contactId+" }"
+          return "ContactUid{contactId=\(contactId)}"
      }
 
 

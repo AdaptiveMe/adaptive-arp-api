@@ -37,7 +37,7 @@ public class ContactSocial : NSObject  {
      var profileUrl : String
      var socialNetwork : SocialNetwork?
      public override var description : String {
-          return "ContactSocial{ profileUrl="+profileUrl+",socialNetwork="+socialNetwork!.hashValue.description+" }"
+          return "ContactSocial{profileUrl=\(profileUrl), socialNetwork=\(socialNetwork!.hashValue.description)}"
      }
 
 

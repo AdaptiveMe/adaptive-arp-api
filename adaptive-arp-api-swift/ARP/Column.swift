@@ -36,7 +36,7 @@ public class Column : NSObject  {
       */
      var name : String
      public override var description : String {
-          return "Column{ name="+name+" }"
+          return "Column{name=\(name)}"
      }
 
 

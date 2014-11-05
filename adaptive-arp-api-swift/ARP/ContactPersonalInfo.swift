@@ -39,7 +39,7 @@ public class ContactPersonalInfo : NSObject  {
      var name : String
      var title : Title?
      public override var description : String {
-          return "ContactPersonalInfo{ lastName="+lastName+",middleName="+middleName+",name="+name+",title="+title!.hashValue.description+" }"
+          return "ContactPersonalInfo{lastName=\(lastName), middleName=\(middleName), name=\(name), title=\(title!.hashValue.description)}"
      }
 
 

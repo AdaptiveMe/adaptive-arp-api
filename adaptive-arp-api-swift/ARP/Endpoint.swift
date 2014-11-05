@@ -40,7 +40,7 @@ public class Endpoint : NSObject  {
      var proxy : String
      var scheme : String
      public override var description : String {
-          return "Endpoint{ host="+host+",path="+path+",port="+port.description+",proxy="+proxy+",scheme="+scheme+" }"
+          return "Endpoint{host=\(host), path=\(path), port=\(port.description), proxy=\(proxy), scheme=\(scheme)}"
      }
 
 

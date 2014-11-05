@@ -39,7 +39,7 @@ public class Acceleration : NSObject  {
      var y : Double
      var z : Double
      public override var description : String {
-          return "Acceleration{ timeStamp="+timeStamp.description+",x="+x.description+",y="+y.description+",z="+z.description+" }"
+          return "Acceleration{timeStamp=\(timeStamp.description), x=\(x.description), y=\(y.description), z=\(z.description)}"
      }
 
 

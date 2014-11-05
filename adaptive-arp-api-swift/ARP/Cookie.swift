@@ -43,7 +43,7 @@ public class Cookie : NSObject  {
      var scheme : String
      var secure : Bool
      public override var description : String {
-          return "Cookie{ creation="+creation.description+",data="+data+",domain="+domain+",expiry="+expiry.description+",name="+name+",path="+path+",scheme="+scheme+",secure="+secure.description+" }"
+          return "Cookie{creation=\(creation.description), data=\(data), domain=\(domain), expiry=\(expiry.description), name=\(name), path=\(path), scheme=\(scheme), secure=\(secure.description)}"
      }
 
 
