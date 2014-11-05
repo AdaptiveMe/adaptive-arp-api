@@ -122,11 +122,11 @@ public class J2SwiftConverter {
         ps.println(0, "import Foundation");
         ps.println();
 
-        ps.println(0, "public enum " + clazz.getSimpleName() + type.getSimpleName() + " {");
+        ps.println(0, "public enum " + clazz.getSimpleName()+type.getSimpleName() + " {");
+        ps.println();
+        ps.println(5,"/// Enum Values");
         Object[] enumConstants = type.getEnumConstants();
-        if (enumConstants.length > 0) {
-            ps.print(5, "case ");
-        }
+        ps.print(5, "case ");
         for (int i = 0; i < enumConstants.length; i++) {
             ps.print(enumConstants[i]);
             if ((enumConstants.length - 1) > i) {
@@ -134,9 +134,31 @@ public class J2SwiftConverter {
             }
         }
         ps.println();
-        ps.println(0, "}");
         ps.println();
-
+        ps.println(5,"/// toString");
+        ps.println(5,"public func toString() -> String {");
+        ps.println(10,"switch self {");
+        for (int i = 0; i < enumConstants.length; i++) {
+            ps.println(15,"case ."+enumConstants[i]+": return \""+enumConstants[i]+"\"");
+        }
+        ps.println(10,"}");
+        ps.println(5,"}");
+        ps.println();
+        ps.println(5,"/// toEnum");
+        ps.println(5,"public static func toEnum(string:String?) -> "+clazz.getSimpleName()+type.getSimpleName()+" {");
+        ps.println(10,"if let validString = string {");
+        ps.println(15,"switch validString {");
+        for (int i = 0; i < enumConstants.length; i++) {
+            ps.println(20,"case \""+enumConstants[i]+"\": return ."+enumConstants[i]);
+        }
+        ps.println(20,"default: return .Unknown");
+        ps.println(15,"}");
+        ps.println(10,"} else {");
+        ps.println(15,"return .Unknown");
+        ps.println(10,"}");
+        ps.println(5,"}");
+        ps.println();
+        ps.println(0, "}");
         ps.close();
     }
 
@@ -373,6 +395,7 @@ public class J2SwiftConverter {
         }
         for (Class<?> enumClass : enumList) {
             ps.println(5, "public enum " + enumClass.getSimpleName() + " {");
+            ps.println(10,"/// Enum Values");
             Object[] enumConstants = enumClass.getEnumConstants();
             ps.print(10, "case ");
             for (int i = 0; i < enumConstants.length; i++) {
@@ -381,6 +404,31 @@ public class J2SwiftConverter {
                     ps.print(", ");
                 }
             }
+            ps.println();
+            ps.println();
+            ps.println(10,"/// toString");
+            ps.println(10,"public func toString() -> String {");
+            ps.println(15,"switch self {");
+            for (int i = 0; i < enumConstants.length; i++) {
+                ps.println(20,"case ."+enumConstants[i]+": return \""+enumConstants[i]+"\"");
+            }
+            ps.println(15,"}");
+            ps.println(10,"}");
+            ps.println();
+            ps.println(10,"/// toEnum");
+            ps.println(10,"public static func toEnum(string:String?) -> "+enumClass.getSimpleName()+" {");
+            ps.println(15,"if let validString = string {");
+            ps.println(20,"switch validString {");
+            for (int i = 0; i < enumConstants.length; i++) {
+                ps.println(25,"case \""+enumConstants[i]+"\": return ."+enumConstants[i]);
+            }
+            ps.println(25,"default: return .Unknown");
+            ps.println(20,"}");
+            ps.println(15,"} else {");
+            ps.println(20,"return .Unknown");
+            ps.println(15,"}");
+            ps.println(10,"}");
+
             ps.println();
             ps.println(5, "}");
         }
