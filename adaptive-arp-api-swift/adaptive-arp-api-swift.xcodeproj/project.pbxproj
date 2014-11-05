@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4EDB51F01A0297E7008A2C4F /* AdaptiveArpApiiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB51E51A0297E7008A2C4F /* AdaptiveArpApiiOS.framework */; };
-		4EDB51F71A0297E7008A2C4F /* AdaptiveArpApiiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB51F61A0297E7008A2C4F /* AdaptiveArpApiiOSTests.swift */; };
 		4EDB52081A029801008A2C4F /* AdaptiveArpApiOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EDB52071A029801008A2C4F /* AdaptiveArpApiOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4EDB520E1A029801008A2C4F /* AdaptiveArpApiOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDB52031A029801008A2C4F /* AdaptiveArpApiOSX.framework */; };
-		4EDB52151A029801008A2C4F /* AdaptiveArpApiOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB52141A029801008A2C4F /* AdaptiveArpApiOSXTests.swift */; };
 		4EDB521C1A02980E008A2C4F /* IAppContextWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A998219BF470300203DE8 /* IAppContextWebview.swift */; };
 		4EDB521D1A02980E008A2C4F /* IAppServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22053719BDEB3400BC4819 /* IAppServer.swift */; };
 		4EDB521E1A02980E008A2C4F /* IAppServerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22053819BDEB3400BC4819 /* IAppServerListener.swift */; };
@@ -656,13 +654,11 @@
 		4EDB51E81A0297E7008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB51EF1A0297E7008A2C4F /* AdaptiveArpApiiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpApiiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB51F51A0297E7008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EDB51F61A0297E7008A2C4F /* AdaptiveArpApiiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveArpApiiOSTests.swift; sourceTree = "<group>"; };
 		4EDB52031A029801008A2C4F /* AdaptiveArpApiOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveArpApiOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB52061A029801008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDB52071A029801008A2C4F /* AdaptiveArpApiOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdaptiveArpApiOSX.h; sourceTree = "<group>"; };
 		4EDB520D1A029801008A2C4F /* AdaptiveArpApiOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdaptiveArpApiOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDB52131A029801008A2C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EDB52141A029801008A2C4F /* AdaptiveArpApiOSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveArpApiOSXTests.swift; sourceTree = "<group>"; };
 		C35467471A00D6D4004AC942 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C35467491A00D6D4004AC942 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		C357614E1A02665300C637C2 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
@@ -743,7 +739,6 @@
 		4EDB51F31A0297E7008A2C4F /* AdaptiveArpApiiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				4EDB51F61A0297E7008A2C4F /* AdaptiveArpApiiOSTests.swift */,
 				4EDB51F41A0297E7008A2C4F /* Supporting Files */,
 			);
 			path = AdaptiveArpApiiOSTests;
@@ -777,7 +772,6 @@
 		4EDB52111A029801008A2C4F /* AdaptiveArpApiOSXTests */ = {
 			isa = PBXGroup;
 			children = (
-				4EDB52141A029801008A2C4F /* AdaptiveArpApiOSXTests.swift */,
 				4EDB52121A029801008A2C4F /* Supporting Files */,
 			);
 			path = AdaptiveArpApiOSXTests;
@@ -1471,7 +1465,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB51F71A0297E7008A2C4F /* AdaptiveArpApiiOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1700,7 +1693,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EDB52151A029801008A2C4F /* AdaptiveArpApiOSXTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1795,6 +1787,7 @@
 		4EDB52171A029801008A2C4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1818,6 +1811,7 @@
 		4EDB52181A029801008A2C4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
