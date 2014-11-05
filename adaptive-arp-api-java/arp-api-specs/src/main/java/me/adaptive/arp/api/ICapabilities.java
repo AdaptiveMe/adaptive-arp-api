@@ -111,7 +111,7 @@ public interface ICapabilities extends IBaseSystem {
      * @since ARP1.0
      */
     public enum Sensor {
-        Accelerometer, AmbientLight, Barometer, Geolocation, Gyroscope, Magnetometer, Proximity
+        Accelerometer, AmbientLight, Barometer, Geolocation, Gyroscope, Magnetometer, Proximity, Unknown
     }
 
     /**
@@ -121,7 +121,7 @@ public interface ICapabilities extends IBaseSystem {
      * @since ARP1.0
      */
     public enum Communication {
-        Calendar, Contact, Mail, Messaging, Telephony
+        Calendar, Contact, Mail, Messaging, Telephony, Unknown
     }
 
     /**
@@ -131,14 +131,14 @@ public interface ICapabilities extends IBaseSystem {
      * @since ARP1.0
      */
     public enum Data {
-        Database, File, Cloud
+        Database, File, Cloud, Unknown
     }
 
     /**
      * Media functionality support enumeration.
      */
     public enum Media {
-        Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording
+        Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording, Unknown
     }
 
     /**
@@ -148,7 +148,7 @@ public interface ICapabilities extends IBaseSystem {
      * @since ARP1.0
      */
     public enum Net {
-        GSM, GPRS, HSDPA, LTE, WIFI, Ethernet
+        GSM, GPRS, HSDPA, LTE, WIFI, Ethernet, Unknown
     }
 
     /**
@@ -158,7 +158,7 @@ public interface ICapabilities extends IBaseSystem {
      * @since ARP1.0
      */
     public enum Notification {
-        Alarm, LocalNotification, RemoteNotification, Vibration
+        Alarm, LocalNotification, RemoteNotification, Vibration, Unknown
     }
 
     /**
@@ -168,6 +168,6 @@ public interface ICapabilities extends IBaseSystem {
      * @since ARP1.0
      */
     public enum Button {
-        HomeButton, BackButton, OptionButton
+        HomeButton, BackButton, OptionButton, Unknown
     }
 }

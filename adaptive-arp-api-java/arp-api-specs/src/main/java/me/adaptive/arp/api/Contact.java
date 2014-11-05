@@ -114,7 +114,7 @@ public class Contact extends ContactUid {
     /**
      * Set the personal info of the Contact
      *
-     * @param personalInfo[]
+     * @param personalInfo
      * @since ARP1.0
      */
     public void setPersonalInfo(ContactPersonalInfo personalInfo) {
@@ -134,7 +134,7 @@ public class Contact extends ContactUid {
     /**
      * Set the professional info of the Contact
      *
-     * @param professionalInfo[]
+     * @param professionalInfo
      * @since ARP1.0
      */
     public void setProfessionalInfo(ContactProfessionalInfo professionalInfo) {
@@ -154,7 +154,7 @@ public class Contact extends ContactUid {
     /**
      * Set the addresses of the Contact
      *
-     * @param contactAddresses[]
+     * @param contactAddresses
      * @since ARP1.0
      */
     public void setContactAddresses(ContactAddress[] contactAddresses) {
@@ -174,7 +174,7 @@ public class Contact extends ContactUid {
     /**
      * Set the phones of the Contact
      *
-     * @param contactPhones[]
+     * @param contactPhones
      * @since ARP1.0
      */
     public void setContactPhones(ContactPhone[] contactPhones) {
@@ -194,7 +194,7 @@ public class Contact extends ContactUid {
     /**
      * Set the emails of the Contact
      *
-     * @param contactEmails[]
+     * @param contactEmails
      * @since ARP1.0
      */
     public void setContactEmails(ContactEmail[] contactEmails) {
@@ -214,7 +214,7 @@ public class Contact extends ContactUid {
     /**
      * Set the websites of the Contact
      *
-     * @param contactWebsites[]
+     * @param contactWebsites
      * @since ARP1.0
      */
     public void setContactWebsites(ContactWebsite[] contactWebsites) {
@@ -234,7 +234,7 @@ public class Contact extends ContactUid {
     /**
      * Set the social network info of the Contact
      *
-     * @param contactSocials[]
+     * @param contactSocials
      * @since ARP1.0
      */
     public void setContactSocials(ContactSocial[] contactSocials) {
@@ -254,7 +254,7 @@ public class Contact extends ContactUid {
     /**
      * Set the additional tags of the Contact
      *
-     * @param contactTags[]
+     * @param contactTags
      * @since ARP1.0
      */
     public void setContactTags(ContactTag[] contactTags) {

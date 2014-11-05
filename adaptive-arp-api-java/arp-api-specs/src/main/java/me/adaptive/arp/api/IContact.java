@@ -112,7 +112,7 @@ public interface IContact extends IBasePIM {
      * @since ARP1.0
      */
     public enum Filter {
-        HAS_PHONE, HAS_EMAIL, HAS_ADDRESS
+        HAS_PHONE, HAS_EMAIL, HAS_ADDRESS, Unknown
     }
 
     /**
@@ -121,7 +121,7 @@ public interface IContact extends IBasePIM {
      * @since ARP1.0
      */
     public enum FieldGroup {
-        PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS
+        PERSONAL_INFO, PROFESSIONAL_INFO, ADDRESSES, PHONES, EMAILS, WEBSITES, SOCIALS, TAGS, Unknown
     }
 
 }

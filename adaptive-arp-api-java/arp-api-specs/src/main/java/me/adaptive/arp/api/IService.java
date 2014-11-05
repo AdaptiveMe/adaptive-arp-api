@@ -112,7 +112,8 @@ public interface IService extends IBaseCommunication {
         SERVICETYPE_SOAP_JSON,
         SERVICETYPE_SOAP_XML,
         SERVICETYPE_XMLRPC_JSON,
-        SERVICETYPE_XMLRPC_XML
+        SERVICETYPE_XMLRPC_XML,
+        Unknown
     }
 
     /**
@@ -121,7 +122,7 @@ public interface IService extends IBaseCommunication {
      * @since ARP1.0
      */
     public enum ProtocolVersion {
-        HTTP_PROTOCOL_VERSION_1_0, HTTP_PROTOCOL_VERSION_1_1
+        HTTP_PROTOCOL_VERSION_1_0, HTTP_PROTOCOL_VERSION_1_1, Unknown
     }
 
     /**
@@ -130,6 +131,6 @@ public interface IService extends IBaseCommunication {
      * @since ARP1.0
      */
     public enum ServiceMethod {
-        POST, GET
+        POST, GET, Unknown
     }
 }

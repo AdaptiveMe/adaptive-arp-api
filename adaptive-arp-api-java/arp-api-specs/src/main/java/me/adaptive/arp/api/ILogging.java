@@ -60,6 +60,6 @@ public interface ILogging extends IBaseUtil {
      * to match their log levels into these ones.
      */
     public enum LogLevel {
-        DEBUG, WARN, ERROR, INFO
+        DEBUG, WARN, ERROR, INFO, Unknown
     }
 }

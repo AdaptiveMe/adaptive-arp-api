@@ -111,6 +111,6 @@ public class ContactAddress {
      * @since ARP1.0
      */
     public enum AddressType {
-        Home, Work, Other
+        Home, Work, Other, Unknown
     }
 }

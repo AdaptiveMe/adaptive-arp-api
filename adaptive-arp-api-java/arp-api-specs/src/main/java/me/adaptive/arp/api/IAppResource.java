@@ -61,10 +61,10 @@ public interface IAppResource extends IAdaptiveRP {
 
     String getDataPathLinked();
 
-    enum Type {Html, Css, JavaScript, Image, Video, Audio, Property, Database, Other}
+    enum Type {Html, Css, JavaScript, Image, Video, Audio, Property, Database, Other, Unknown}
 
-    enum Format {Raw, Compressed, Encrypted, EncryptedCompressed}
+    enum Format {Raw, Compressed, Encrypted, EncryptedCompressed, Unknown}
 
-    enum Payload {Default, Embedded, Linked}
+    enum Payload {Default, Embedded, Linked, Unknown}
 
 }

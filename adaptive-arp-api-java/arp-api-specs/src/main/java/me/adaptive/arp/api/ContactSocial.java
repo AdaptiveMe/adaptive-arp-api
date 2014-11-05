@@ -73,7 +73,7 @@ public class ContactSocial {
      * @since ARP1.0
      */
     public enum SocialNetwork {
-        Twitter, Facebook, GooglePlus, LinkedIn, Flickr
+        Twitter, Facebook, GooglePlus, LinkedIn, Flickr, Unknown
     }
 
     /**

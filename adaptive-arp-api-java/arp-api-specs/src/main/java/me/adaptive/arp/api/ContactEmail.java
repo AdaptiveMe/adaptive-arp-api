@@ -140,6 +140,6 @@ public class ContactEmail {
      * @since ARP1.0
      */
     public enum EmailType {
-        Personal, Work, Other
+        Personal, Work, Other, Unknown
     }
 }

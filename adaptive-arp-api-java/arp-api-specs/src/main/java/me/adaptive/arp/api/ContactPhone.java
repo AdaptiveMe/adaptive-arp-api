@@ -111,6 +111,6 @@ public class ContactPhone {
      * @since ARP1.0
      */
     public enum PhoneType {
-        Mobile, Work, Home, Main, HomeFax, WorkFax, Other
+        Mobile, Work, Home, Main, HomeFax, WorkFax, Other, Unknown
     }
 }

@@ -168,6 +168,6 @@ public class ContactPersonalInfo {
      * @since ARP1.0
      */
     public enum Title {
-        Mr, Mrs, Ms, Dr
+        Mr, Mrs, Ms, Dr, Unknown
     }
 }

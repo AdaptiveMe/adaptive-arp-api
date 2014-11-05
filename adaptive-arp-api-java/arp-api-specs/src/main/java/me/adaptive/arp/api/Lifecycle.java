@@ -93,6 +93,6 @@ public class Lifecycle {
      * @since ARP1.0
      */
     public enum State {
-        Starting, Started, Running, Paused, PausedIdle, PausedRun, Resuming, Stopping
+        Starting, Started, Running, Paused, PausedIdle, PausedRun, Resuming, Stopping, Unknown
     }
 }

@@ -48,6 +48,6 @@ public interface ITelephony extends IBaseCommunication {
      * @since ARP1.0
      */
     public enum Status {
-        Dialing, Failed
+        Dialing, Failed, Unknown
     }
 }
