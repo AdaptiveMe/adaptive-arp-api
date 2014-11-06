@@ -18,7 +18,7 @@
 *     * Carlos Lozano Diez
 *                 <http://github.com/carloslozano>
 *                 <http://twitter.com/adaptivecoder>
-*                 <mailto:carlos@adaptive.me> 
+*                 <mailto:carlos@adaptive.me>
 *
 * Contributors:
 *
