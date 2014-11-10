@@ -46,7 +46,6 @@ public protocol IAppRegistry : IAdaptiveRP {
      func getApplicationUpdate() -> IUpdate?
      func getPlatformContext() -> IAppContext?
      func getPlatformContextWeb() -> IAppContextWebview?
-     func getPlatformResourceHandler() -> IAppResourceHandler?
      func getSystemCapabilities() -> ICapabilities?
      func getSystemDevice() -> IDevice?
      func getSystemDisplay() -> IDisplay?

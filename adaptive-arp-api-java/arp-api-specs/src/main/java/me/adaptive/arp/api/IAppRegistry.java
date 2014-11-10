@@ -39,8 +39,6 @@ public interface IAppRegistry extends IAdaptiveRP {
 
     IAppContextWebview getPlatformContextWeb();
 
-    IAppResourceHandler getPlatformResourceHandler();
-
     /* Base System */
     ICapabilities getSystemCapabilities();
 
