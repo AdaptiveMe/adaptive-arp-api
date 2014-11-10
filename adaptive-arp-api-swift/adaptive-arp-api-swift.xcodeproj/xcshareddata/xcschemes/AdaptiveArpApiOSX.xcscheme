@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4EDB52021A029801008A2C4F"
-               BuildableName = "AdaptiveArpApiOSX.framework"
+               BuildableName = "AdaptiveArpApi.framework"
                BlueprintName = "AdaptiveArpApiOSX"
                ReferencedContainer = "container:adaptive-arp-api-swift.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4EDB52021A029801008A2C4F"
-            BuildableName = "AdaptiveArpApiOSX.framework"
+            BuildableName = "AdaptiveArpApi.framework"
             BlueprintName = "AdaptiveArpApiOSX"
             ReferencedContainer = "container:adaptive-arp-api-swift.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4EDB52021A029801008A2C4F"
-            BuildableName = "AdaptiveArpApiOSX.framework"
+            BuildableName = "AdaptiveArpApi.framework"
             BlueprintName = "AdaptiveArpApiOSX"
             ReferencedContainer = "container:adaptive-arp-api-swift.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4EDB52021A029801008A2C4F"
-            BuildableName = "AdaptiveArpApiOSX.framework"
+            BuildableName = "AdaptiveArpApi.framework"
             BlueprintName = "AdaptiveArpApiOSX"
             ReferencedContainer = "container:adaptive-arp-api-swift.xcodeproj">
          </BuildableReference>
