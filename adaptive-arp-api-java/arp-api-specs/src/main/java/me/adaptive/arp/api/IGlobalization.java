@@ -38,10 +38,10 @@ public interface IGlobalization extends IBaseApplication {
     /**
      * List of supported locales for the application
      *
-     * @return List of locales (only locale descriptor string, such as "en-US").
+     * @return List of locales
      * @since ARP1.0
      */
-    String[] getLocaleSupportedDescriptors();
+    Locale[] getLocaleSupportedDescriptors();
 
     /**
      * Gets the text/message corresponding to the given key and locale.
