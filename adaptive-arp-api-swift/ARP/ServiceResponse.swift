@@ -43,7 +43,7 @@ public class ServiceResponse : NSObject  {
      var headers : [Header]?
      var session : ISession?
      public override var description : String {
-          return "ServiceResponse{content=\(content), contentBinary=\(contentBinary!.description), contentBinaryLength=\(contentBinaryLength.description), contentEncoding=\(contentEncoding), contentLength=\(contentLength), contentType=\(contentType), headers=\(headers!.description), session=\(session!.description)}"
+          return "ServiceResponse{content=\(content), contentBinary=\(contentBinary!.description), contentBinaryLength=\(contentBinaryLength.description), contentEncoding=\(contentEncoding), contentLength=\(contentLength), contentType=\(contentType), headers=\(headers!.description), session=\(session?.description)}"
      }
 
 
@@ -109,10 +109,6 @@ public class ServiceResponse : NSObject  {
           return self.session!
      }
 
-     public func setContent(content : String) {
-          self.content = content
-     }
-
      public func setContentBinary(contentBinary : [Byte]) {
           self.contentBinary = contentBinary
      }
@@ -123,6 +119,10 @@ public class ServiceResponse : NSObject  {
 
      public func setContentEncoding(contentEncoding : String) {
           self.contentEncoding = contentEncoding
+     }
+
+     public func setContent(content : String) {
+          self.content = content
      }
 
      public func setContentLength(contentLength : String) {

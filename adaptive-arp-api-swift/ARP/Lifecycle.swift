@@ -36,7 +36,7 @@ public class Lifecycle : NSObject  {
       */
      var state : State?
      public override var description : String {
-          return "Lifecycle{state=\(state!.hashValue.description)}"
+          return "Lifecycle{state=\(state?.hashValue.description)}"
      }
 
 

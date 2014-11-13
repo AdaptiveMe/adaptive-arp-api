@@ -44,7 +44,7 @@ public class ServiceRequest : NSObject  {
      var rawContent : [Byte]?
      var session : ISession?
      public override var description : String {
-          return "ServiceRequest{content=\(content), contentEncoding=\(contentEncoding), contentLength=\(contentLength.description), contentType=\(contentType), headers=\(headers!.description), method=\(method), protocolVersion=\(protocolVersion!.hashValue.description), rawContent=\(rawContent!.description), session=\(session!.description)}"
+          return "ServiceRequest{content=\(content), contentEncoding=\(contentEncoding), contentLength=\(contentLength.description), contentType=\(contentType), headers=\(headers!.description), method=\(method), protocolVersion=\(protocolVersion?.hashValue.description), rawContent=\(rawContent!.description), session=\(session?.description)}"
      }
 
 
@@ -148,12 +148,12 @@ public class ServiceRequest : NSObject  {
           return self.session!
      }
 
-     public func setContent(content : String) {
-          self.content = content
-     }
-
      public func setContentEncoding(contentEncoding : String) {
           self.contentEncoding = contentEncoding
+     }
+
+     public func setContent(content : String) {
+          self.content = content
      }
 
      public func setContentLength(contentLength : Int) {

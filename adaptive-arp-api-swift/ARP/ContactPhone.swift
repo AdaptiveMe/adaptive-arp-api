@@ -37,7 +37,7 @@ public class ContactPhone : NSObject  {
      var phone : String
      var phoneType : PhoneType?
      public override var description : String {
-          return "ContactPhone{phone=\(phone), phoneType=\(phoneType!.hashValue.description)}"
+          return "ContactPhone{phone=\(phone), phoneType=\(phoneType?.hashValue.description)}"
      }
 
 
