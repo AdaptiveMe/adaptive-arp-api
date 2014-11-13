@@ -349,7 +349,7 @@ public class J2SwiftConverter {
                     }
                 } else {
                     if (field.getType().isEnum()) {
-                        descriptionBuffer.append("\\("+field.getName()+"!.hashValue.description)");
+                        descriptionBuffer.append("\\("+field.getName()+"?.hashValue.description)");
                     } else {
                         if (field.getType().isInterface()) {
                             descriptionBuffer.append("\\("+field.getName()+"!.description)");
@@ -357,7 +357,7 @@ public class J2SwiftConverter {
                             if (field.getType().equals(String.class)) {
                                 descriptionBuffer.append("\\("+field.getName()+")");
                             } else {
-                                descriptionBuffer.append("\\("+field.getName()+"!.description)");
+                                descriptionBuffer.append("\\("+field.getName()+"?.description)");
                             }
                         }
                     }
