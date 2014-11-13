@@ -352,7 +352,7 @@ public class J2SwiftConverter {
                         descriptionBuffer.append("\\("+field.getName()+"?.hashValue.description)");
                     } else {
                         if (field.getType().isInterface()) {
-                            descriptionBuffer.append("\\("+field.getName()+"!.description)");
+                            descriptionBuffer.append("\\("+field.getName()+"?.description)");
                         } else {
                             if (field.getType().equals(String.class)) {
                                 descriptionBuffer.append("\\("+field.getName()+")");
