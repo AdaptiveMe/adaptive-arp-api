@@ -152,16 +152,16 @@ public class ServiceRequest : NSObject  {
           self.contentEncoding = contentEncoding
      }
 
-     public func setContent(content : String) {
-          self.content = content
-     }
-
      public func setContentLength(contentLength : Int) {
           self.contentLength = contentLength
      }
 
      public func setContentType(contentType : String) {
           self.contentType = contentType
+     }
+
+     public func setContent(content : String) {
+          self.content = content
      }
 
      public func setHeaders(headers : [Header]) {

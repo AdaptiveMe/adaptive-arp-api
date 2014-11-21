@@ -39,8 +39,8 @@ public protocol IFile : IFilePath {
      var description : String { get }
      func canRead() -> Bool
      func canWrite() -> Bool
-     func create(path : String, name : String, callback : IFileResultCallback)
      func create(name : String, callback : IFileResultCallback)
+     func create(path : String, name : String, callback : IFileResultCallback)
      func delete() -> Bool
      func delete(cascade : Bool) -> Bool
      func exists() -> Bool
@@ -51,14 +51,14 @@ public protocol IFile : IFilePath {
      func getPath() -> String?
      func getSize() -> Int64
      func isDirectory() -> Bool
-     func listFiles(regex : String, callback : IFileListResultCallback)
      func listFiles(callback : IFileListResultCallback)
+     func listFiles(regex : String, callback : IFileListResultCallback)
      func mkDir() -> Bool
      func mkDir(recursive : Bool) -> Bool
-     func move(newFile : IFile, callback : IFileResultCallback, overwrite : Bool)
-     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
-     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback)
      func move(newFile : IFile, callback : IFileResultCallback)
+     func move(newFile : IFile, callback : IFileResultCallback, overwrite : Bool)
+     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback)
+     func move(newFile : IFile, createPath : Bool, callback : IFileResultCallback, overwrite : Bool)
      func setContent(content : [Byte], callback : IFileDataResultCallback)
      func toPath() -> IFilePath?
 

@@ -109,20 +109,16 @@ public class ServiceResponse : NSObject  {
           return self.session!
      }
 
-     public func setContentBinary(contentBinary : [Byte]) {
-          self.contentBinary = contentBinary
-     }
-
      public func setContentBinaryLength(contentBinaryLength : Int) {
           self.contentBinaryLength = contentBinaryLength
      }
 
-     public func setContentEncoding(contentEncoding : String) {
-          self.contentEncoding = contentEncoding
+     public func setContentBinary(contentBinary : [Byte]) {
+          self.contentBinary = contentBinary
      }
 
-     public func setContent(content : String) {
-          self.content = content
+     public func setContentEncoding(contentEncoding : String) {
+          self.contentEncoding = contentEncoding
      }
 
      public func setContentLength(contentLength : String) {
@@ -131,6 +127,10 @@ public class ServiceResponse : NSObject  {
 
      public func setContentType(contentType : String) {
           self.contentType = contentType
+     }
+
+     public func setContent(content : String) {
+          self.content = content
      }
 
      public func setHeaders(headers : [Header]) {

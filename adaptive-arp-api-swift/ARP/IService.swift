@@ -39,10 +39,10 @@ public protocol IService : IBaseCommunication {
      var description : String { get }
      func getService(serviceName : String) -> Service?
      func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback)
-     func isRegistered(service : Service) -> Bool
      func isRegistered(serviceName : String) -> Bool
+     func isRegistered(service : Service) -> Bool
      func registerService(service : Service)
-     func unregisterService(service : Service)
      func unregisterServices()
+     func unregisterService(service : Service)
 
 }

@@ -109,12 +109,12 @@ public class ContactPhone : NSObject  {
           return self.phoneType!
      }
 
-     public func setPhone(phone : String) {
-          self.phone = phone
-     }
-
      public func setPhoneType(phoneType : PhoneType) {
           self.phoneType = phoneType
+     }
+
+     public func setPhone(phone : String) {
+          self.phone = phone
      }
 
 

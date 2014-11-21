@@ -37,8 +37,8 @@ public protocol IContact : IBasePIM {
       */
 
      var description : String { get }
-     func getContact(contact : ContactUid, callback : IContactResultCallback)
      func getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback)
+     func getContact(contact : ContactUid, callback : IContactResultCallback)
      func getContacts(callback : IContactResultCallback)
      func getContacts(callback : IContactResultCallback, fields : [IContactFieldGroup])
      func getContacts(callback : IContactResultCallback, fields : [IContactFieldGroup], filter : [IContactFilter])

@@ -121,12 +121,12 @@ public class Email : NSObject  {
           self.ccRecipients = ccRecipients
      }
 
-     public func setMessageBody(messageBody : String) {
-          self.messageBody = messageBody
-     }
-
      public func setMessageBodyMimeType(messageBodyMimeType : String) {
           self.messageBodyMimeType = messageBodyMimeType
+     }
+
+     public func setMessageBody(messageBody : String) {
+          self.messageBody = messageBody
      }
 
      public func setSubject(subject : String) {

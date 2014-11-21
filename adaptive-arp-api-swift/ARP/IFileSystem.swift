@@ -37,9 +37,9 @@ public protocol IFileSystem : IBaseData {
       */
 
      var description : String { get }
+     func create(name : String, callback : IFileResultCallback)
      func create(path : IFilePath, name : String, callback : IFileResultCallback)
      func create(path : String, name : String, callback : IFileResultCallback)
-     func create(name : String, callback : IFileResultCallback)
      func getApplicationCacheFolder() -> IFilePath?
      func getApplicationDocumentsFolder() -> IFilePath?
      func getApplicationFolder() -> IFilePath?

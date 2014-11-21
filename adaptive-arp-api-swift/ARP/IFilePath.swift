@@ -43,19 +43,19 @@ public protocol IFilePath : IBaseData {
      func equals(other : String) -> Bool
      func getFileName() -> IFilePath?
      func getFileSystem() -> IFileSystem?
-     func getName(index : Int) -> IFilePath?
      func getNameCount() -> Int
+     func getName(index : Int) -> IFilePath?
      func getParent() -> IFilePath?
      func getRoot() -> IFilePath?
      func isAbsolute() -> Bool
      func normalize() -> IFilePath?
      func relativize(other : IFilePath) -> IFilePath?
-     func resolve(other : IFilePath) -> IFilePath?
-     func resolve(other : String) -> IFilePath?
      func resolveSibling(other : IFilePath) -> IFilePath?
      func resolveSibling(other : String) -> IFilePath?
-     func startsWith(other : String) -> Bool
+     func resolve(other : IFilePath) -> IFilePath?
+     func resolve(other : String) -> IFilePath?
      func startsWith(other : IFilePath) -> Bool
+     func startsWith(other : String) -> Bool
      func toAbsolutePath() -> IFilePath?
      func toFile() -> IFile?
      func toString() -> String?
