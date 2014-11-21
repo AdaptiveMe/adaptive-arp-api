@@ -24,9 +24,10 @@ import java.util.*;
  */
 public class J2SwiftConverter {
 
-    public static final boolean convert(String sourcePath, String targetPath, String... packages) throws IOException {
+    public static final boolean convert(String sourcePath, String targetPath, String targetPathJS, String... packages) throws IOException {
         File sourceDir = new File(sourcePath);
         File targetDir = new File(targetPath);
+        File targetDirJS = new File(targetPathJS);
         File tempDir = File.createTempFile("temp", Long.toString(System.nanoTime()));
 
         if (tempDir.exists()) {
@@ -44,6 +45,21 @@ public class J2SwiftConverter {
             }
         }
 
+        if (!targetDirJS.exists()) {
+            if (!targetDirJS.mkdirs()) {
+                throw new IOException("Target path '" + targetPathJS + "' can not be created.");
+            }
+        }
+        File targetFileJS = new File(targetDirJS, "adaptive.ts");
+        if (targetFileJS.exists()) {
+            targetFileJS.delete();
+        }
+        jsAppendHeader(targetFileJS);
+        IndentPrintStream js = new IndentPrintStream(new FileOutputStream(targetFileJS, true));
+        js.println("module Adaptive {");
+        js.println();
+
+
         long tIn = System.currentTimeMillis();
         List<File> sourceFileList = new ArrayList<File>();
         processFile(sourceFileList, sourceDir);
@@ -55,11 +71,23 @@ public class J2SwiftConverter {
                         .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(package_))));
 
                 System.out.println("Processing package '" + package_ + "'.");
-                Set<Class<? extends Object>> allClasses = reflections.getSubTypesOf(Object.class);
+                Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(Object.class);
+                List<Class<? extends Object>> allClasses = new ArrayList<>();
+
+                for (Class clazz : allClassesSet) {
+                    allClasses.add(clazz);
+                }
+
+                Collections.sort(allClasses, new Comparator<Class<? extends Object>>() {
+                    @Override
+                    public int compare(Class<? extends Object> o1, Class<? extends Object> o2) {
+                        return o1.getSimpleName().compareToIgnoreCase(o2.getSimpleName());
+                    }
+                });
 
                 for (Class clazz : allClasses) {
                     System.out.print(".");
-                    processClass(clazz, targetDir);
+                    processClass(clazz, targetDir, targetDirJS);
                 }
                 System.out.println(" Finished.");
 
@@ -67,6 +95,9 @@ public class J2SwiftConverter {
                 System.out.println("Class Size: " + allClasses.size());
             }
         }
+        js.println();
+        js.println("}");
+        js.close();
         System.out.println("Processing: " + (System.currentTimeMillis() - tIn) + " ms.");
 
         if (!deleteDirectory(tempDir)) {
@@ -75,14 +106,18 @@ public class J2SwiftConverter {
         return true;
     }
 
-    private static void processClassEnum(Class clazz, Class type, File targetDir) throws IOException {
+    private static void processClassEnum(Class clazz, Class type, File targetDir, File targetDirJS) throws IOException {
         File targetFile = new File(targetDir, clazz.getSimpleName() + type.getSimpleName() + ".swift");
         if (targetFile.exists()) {
             targetFile.delete();
         }
+        File targetFileJS = new File(targetDirJS, "adaptive.ts");
+
         IndentPrintStream ps = null;
+        IndentPrintStream js = null;
         try {
             ps = new IndentPrintStream(new FileOutputStream(targetFile));
+            js = new IndentPrintStream(new FileOutputStream(targetFileJS, true));
         } catch (FileNotFoundException e) {
             throw new IOException("Unable to write to stream.");
         }
@@ -163,11 +198,13 @@ public class J2SwiftConverter {
     }
 
 
-    private static void processClass(Class clazz, File targetDir) throws IOException {
+    private static void processClass(Class clazz, File targetDir, File targetDirJS) throws IOException {
         File targetFile = new File(targetDir, clazz.getSimpleName() + ".swift");
         if (targetFile.exists()) {
             targetFile.delete();
         }
+        File targetFileJS = new File(targetDirJS, "adaptive.ts");
+
         /*
         if (clazz.isInterface()) {
             if (clazz.getSimpleName().equals("ISession")
@@ -182,14 +219,17 @@ public class J2SwiftConverter {
         */
 
         IndentPrintStream ps = null;
+        IndentPrintStream js = null;
         try {
             ps = new IndentPrintStream(new FileOutputStream(targetFile));
+            js = new IndentPrintStream(new FileOutputStream(targetFileJS, true));
         } catch (FileNotFoundException e) {
             throw new IOException("Unable to write to stream.");
         }
         /**
          * Header Section
          */
+
         ps.println(0, "/*");
         ps.println(0, "* =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================");
         ps.println(0, "*  Auto-generated from: " + clazz.getName() + " -> " + targetFile.getName());
@@ -223,16 +263,22 @@ public class J2SwiftConverter {
         ps.println();
 
         if (clazz.isInterface()) {
+            js.print(5, "export interface ");
             ps.print(0, "public protocol ");
             ps.print(clazz.getSimpleName());
+            js.print(clazz.getSimpleName());
+
             Class[] interfaces = clazz.getInterfaces();
             if (interfaces.length > 0) {
                 ps.print(" : ");
+                js.print(" extends ");
                 for (int i = 0; i < interfaces.length; i++) {
                     Class interface_ = interfaces[i];
                     ps.print(interface_.getSimpleName());
+                    js.print(interface_.getSimpleName());
                     if ((interfaces.length - 1) > i) {
                         ps.print(", ");
+                        js.print(", ");
                     }
                 }
                 //ps.print(", Printable, Equatable");
@@ -241,27 +287,36 @@ public class J2SwiftConverter {
             }
             ps.println(" {");
             ps.println();
+            js.println(" {");
+            js.println();
         } else {
+            js.print(5, "export class ");
             ps.print("public class ");
             ps.print(clazz.getSimpleName());
+            js.print(clazz.getSimpleName());
             Class[] interfaces = clazz.getInterfaces();
             if (interfaces.length > 0) {
                 ps.print(" : ");
+                js.print(" extends ");
                 for (int i = 0; i < interfaces.length; i++) {
                     Class interface_ = interfaces[i];
                     ps.print(interface_.getSimpleName());
+                    js.print(interface_.getSimpleName());
                     if ((interfaces.length - 1) > i) {
                         ps.print(", ");
+                        js.print(", ");
                     }
                 }
             }
             Class superClass = clazz.getSuperclass();
             if (superClass != null && !superClass.equals(Object.class)) {
                 ps.print(" : " + superClass.getSimpleName());
+                js.print(" extends " + superClass.getSimpleName());
             } else {
                 ps.print(" : NSObject ");
             }
             ps.println(" {");
+            js.println(" {");
         }
 
         /**
@@ -275,6 +330,8 @@ public class J2SwiftConverter {
             ps.println(5, "/**");
             ps.println(5, " * Field Declarations");
             ps.println(5, " */");
+            js.println();
+            js.println(10, "/** Field Declarations **/");
         }
 
         List<Field> fieldList = new ArrayList<>();
@@ -290,30 +347,39 @@ public class J2SwiftConverter {
 
         for (Field field : fieldList) {
             ps.print(5, "var " + field.getName());
+            js.print(10, "" + field.getName());
             if (field.getType().isPrimitive()) {
                 ps.print(" : " + getPrimitiveTypeSwift(field.getType()));
+                js.print(" : " + getPrimitiveTypeTS(field.getType())+";");
             } else if (field.getType().isArray()) {
                 Class<?> componentType = field.getType().getComponentType();
                 if (componentType.isPrimitive()) {
                     ps.print(" : [" + getPrimitiveTypeSwift(componentType) + "]?");
+                    js.print(" : Array<"+getPrimitiveTypeTS(componentType)+">;");
                 } else {
                     if (componentType.getSimpleName().equals("Object")) {
                         ps.print(" : [Any" + componentType.getSimpleName() + "]?");
+                        js.print(" : Array<any>;");
                     } else {
                         ps.print(" : [" + componentType.getSimpleName() + "]?");
+                        js.print(" : Array<"+componentType.getSimpleName()+">;");
                     }
                 }
             } else {
                 if (field.getType().isEnum()) {
                     ps.print(" : " + field.getType().getSimpleName() + "?");
+                    js.print(" : " + field.getType().getSimpleName()+"Enum;");
                 } else {
                     if (field.getType().isInterface()) {
                         ps.print(" : " + field.getType().getSimpleName() + "?");
+                        js.print(" : " + field.getType().getSimpleName()  +";");
                     } else {
                         if (field.getType().equals(String.class)) {
                             ps.print(" : " + field.getType().getSimpleName());
+                            js.print(" : " + field.getType().getSimpleName().toLowerCase()+";");
                         } else {
                             ps.print(" : " + field.getType().getSimpleName() + "?");
+                            js.print(" : " + field.getType().getSimpleName() +";");
                         }
                     }
                 }
@@ -324,6 +390,7 @@ public class J2SwiftConverter {
                 }
             }
             ps.println();
+            js.println();
         }
 
         // Description
@@ -386,6 +453,9 @@ public class J2SwiftConverter {
             ps.println(5, "/**");
             ps.println(5, " * Enumeration Declarations");
             ps.println(5, " */");
+            //js.println();
+            //js.println(10, "/** Enumeration Declarations **/");
+
             enumList.sort(new Comparator<Class<?>>() {
                 @Override
                 public int compare(Class<?> o1, Class<?> o2) {
@@ -396,14 +466,23 @@ public class J2SwiftConverter {
         for (Class<?> enumClass : enumList) {
             ps.println(5, "public enum " + enumClass.getSimpleName() + " {");
             ps.println(10,"/// Enum Values");
+
+            //js.print(10, "enum " + enumClass.getSimpleName() + "Enum { ");
+
+
             Object[] enumConstants = enumClass.getEnumConstants();
             ps.print(10, "case ");
             for (int i = 0; i < enumConstants.length; i++) {
                 ps.print(enumConstants[i]);
+                //js.print(enumConstants[i]);
                 if ((enumConstants.length - 1) > i) {
                     ps.print(", ");
+                    //js.print(", ");
                 }
             }
+
+            //js.println("};");
+
             ps.println();
             ps.println();
             ps.println(10,"/// toString");
@@ -442,6 +521,9 @@ public class J2SwiftConverter {
             ps.println(5, " * Initialization");
             ps.println(5, " */");
 
+            js.println();
+            js.println(10, "/** Initialization **/");
+
             List<Constructor<?>> constructorList = new ArrayList<>();
             for (Constructor<?> constructor : clazz.getConstructors()) {
                 constructorList.add(constructor);
@@ -453,11 +535,14 @@ public class J2SwiftConverter {
                 }
             });
 
+            boolean singleTSInterface = false;
+
             for (Constructor<?> constructor : constructorList) {
                 Parameter[] parameters = constructor.getParameters();
                 if (parameters.length > 0) {
                     ps.print(5, "public convenience init");
                     ps.print("(");
+                    if (!singleTSInterface) js.print(10, "constructor(");
                 } else {
                     Class superClass = clazz.getSuperclass();
                     if (superClass != null && !superClass.equals(Object.class)) {
@@ -466,90 +551,135 @@ public class J2SwiftConverter {
                         ps.print(5, "public override init");
                     }
                     ps.print("(");
+                    //js.print(10, "constructor(");
                 }
                 for (int i = 0; i < parameters.length; i++) {
                     Parameter parameter = parameters[i];
                     ps.print(parameter.getName() + " : ");
+                    if (!singleTSInterface) js.print(parameter.getName() + ": ");
+
                     Class<?> parameterType = parameter.getType();
                     if (parameterType.isArray()) {
                         Class<?> componentType = parameterType.getComponentType();
                         if (componentType.isPrimitive()) {
                             ps.print("[" + getPrimitiveTypeSwift(componentType) + "]");
+                            if (!singleTSInterface) js.print("Array<" + getPrimitiveTypeTS(componentType) + ">");
                         } else {
                             if (componentType.getSimpleName().equals("Object")) {
                                 ps.print("[Any" + componentType.getSimpleName() + "]");
+                                if (!singleTSInterface) js.print("Array<any>");
                             } else {
                                 if (componentType.isEnum()) {
-                                    processClassEnum(clazz, componentType, targetDir);
+                                    processClassEnum(clazz, componentType, targetDir, targetDirJS);
                                     ps.print("[" + clazz.getSimpleName() + componentType.getSimpleName() + "]");
+                                    if (!singleTSInterface) js.print("Array<" + clazz.getSimpleName() + componentType.getSimpleName() + ">");
                                 } else {
                                     ps.print("[" + componentType.getSimpleName() + "]");
+                                    if (!singleTSInterface) js.print("Array<" + componentType.getSimpleName() + ">");
                                 }
                             }
                         }
                     } else if (parameterType.isPrimitive()) {
                         ps.print(getPrimitiveTypeSwift(parameterType));
+                        if (!singleTSInterface) js.print(getPrimitiveTypeTS(parameterType));
+                    } else if (parameterType.equals(String.class)) {
+                        ps.print(parameter.getType().getSimpleName());
+                        if (!singleTSInterface) js.print(parameter.getType().getSimpleName().toLowerCase());
                     } else {
                         ps.print(parameter.getType().getSimpleName());
+                        js.print(parameter.getType().getSimpleName());
                     }
 
                     if ((parameters.length - 1) > i) {
                         ps.print(", ");
+                        if (!singleTSInterface) js.print(", ");
                     }
                 }
                 ps.println(") {");
+                if (parameters.length > 0) {
+                    if (!singleTSInterface) js.println(") {");
+                }
                 if (parameters.length == 0) {
                     Class superClass = clazz.getSuperclass();
                     if (superClass != null && !superClass.equals(Object.class)) {
                         ps.println(10, "super.init()");
+                        //js.println(15, "super()");
                     }
                     for (Field field : clazz.getDeclaredFields()) {
                         ps.print(10, "self." + field.getName());
+                        //js.print(15, "this." + field.getName());
                         if (field.getType().isArray()) {
                             if (field.getType().getComponentType().isPrimitive()) {
                                 ps.println(" = [" + getPrimitiveTypeSwift(field.getType().getComponentType()) + "]()");
+                                //js.println(" = new Array<"+ getPrimitiveTypeTS(field.getType().getComponentType()) + ">();");
                             } else {
                                 if (field.getType().getComponentType().getSimpleName().equals("Object")) {
                                     ps.println(" = [Any" + field.getType().getComponentType().getSimpleName() + "]()");
+                                    //js.println(" = new Array<any>();");
                                 } else {
                                     if (field.getType().getComponentType().isEnum()) {
                                         ps.println(" = [" + clazz.getSimpleName() + field.getType().getComponentType().getSimpleName() + "]()");
+                                        //js.println(" = new Array<" + clazz.getSimpleName() + field.getType().getComponentType().getSimpleName() + ">();");
                                     } else {
                                         ps.println(" = [" + field.getType().getComponentType().getSimpleName() + "]()");
+                                        //js.println(" = new Array<"+ field.getType().getComponentType().getSimpleName() + ">();");
                                     }
                                 }
                             }
                         } else if (field.getType().isPrimitive()) {
                             if (field.getType().equals(Boolean.TYPE)) {
                                 ps.println(" = false");
+                                //js.println(" = false;");
                             } else if (field.getType().equals(Integer.TYPE)) {
                                 ps.println(" = 0");
+                                //js.println(" = 0;");
                             } else if (field.getType().equals(Long.TYPE)) {
                                 ps.println(" = 0");
+                                //js.println(" = 0;");
                             } else if (field.getType().equals(Float.TYPE)) {
                                 ps.println(" = 0.0");
+                                //js.println(" = 0.0;");
                             } else if (field.getType().equals(Double.TYPE)) {
                                 ps.println(" = 0.0");
+                                //js.println(" = 0.0;");
                             } else if (field.getType().equals(Short.TYPE)) {
                                 ps.println(" = 0.0");
+                                //js.println(" = 0.0;");
                             } else {
                                 ps.println(" = LALA");
+                                //js.println(" = LALA;");
                             }
                         } else if (field.getType().equals(String.class)) {
                             ps.println(" = \"\"");
+                            //js.println(" = \"\";");
                         } else {
                             ps.println(" = nil");
+                            if (!field.getType().isInterface()) {
+                                //js.println(" = new "+field.getType().getSimpleName()+"();");
+                            } else {
+                                //js.println(" = \"\"; /** "+field.getType().getSimpleName()+" **/");
+                            }
                         }
 
                     }
                 } else {
                     ps.println(10, "self.init()");
+                    Class superClass = clazz.getSuperclass();
+                    if (superClass != null && !superClass.equals(Object.class)) {
+                        if (!singleTSInterface) js.println(15, "super()");
+                    }
                     for (Parameter parameter : parameters) {
                         ps.println(10, "self." + parameter.getName() + " = " + parameter.getName());
+                        if (!singleTSInterface) js.println(15, "this." + parameter.getName() + " = " + parameter.getName()+";");
                     }
                 }
                 ps.println(5, "}");
                 ps.println();
+                if (parameters.length > 0) {
+                    if (!singleTSInterface) js.println(10, "}");
+                    if (!singleTSInterface) js.println();
+                    singleTSInterface = true;
+                }
             }
         }
 
@@ -575,7 +705,7 @@ public class J2SwiftConverter {
                 for (Parameter p : o1.getParameters()) {
                     o1String+= p.getName()+p.getType().getSimpleName()+o1.getParameterCount();
                 }
-                String o2String = o2.getName()+o2.getParameterCount();
+                String o2String = o2.getName();
                 for (Parameter p : o2.getParameters()) {
                     o2String+= p.getName()+p.getType().getSimpleName()+o2.getParameterCount();
                 }
@@ -617,7 +747,7 @@ public class J2SwiftConverter {
                                 ps.print("[Any" + componentType.getSimpleName() + "]");
                             } else {
                                 if (componentType.isEnum()) {
-                                    processClassEnum(clazz, componentType, targetDir);
+                                    processClassEnum(clazz, componentType, targetDir, targetDirJS);
                                     ps.print("[" + clazz.getSimpleName() + componentType.getSimpleName() + "]");
                                 } else {
                                     ps.print("[" + componentType.getSimpleName() + "]");
@@ -670,7 +800,7 @@ public class J2SwiftConverter {
                                 ps.print("Dictionary<String,String>?");
                             } else {
                                 if (returnType.isEnum()) {
-                                    processClassEnum(clazz, returnType, targetDir);
+                                    processClassEnum(clazz, returnType, targetDir, targetDirJS);
                                     ps.print(clazz.getSimpleName() + returnType.getSimpleName());
                                 } else {
                                     ps.print(returnType.getSimpleName() + "?");
@@ -768,16 +898,16 @@ public class J2SwiftConverter {
          * Interface Enumeration Section
          */
 
-        if (interfaceEnumList.size() > 0) {
-            ps.println();
-            ps.println("}");
+        //if (interfaceEnumList.size() > 0) {
+        //    ps.println();
+        //    ps.println("}");
             //    ps.println();
             //    ps.println(0, "/**");
             //    ps.println(0, " * Enumeration Declarations");
             //    ps.println(0, " */");
-        }
+        //}
         for (Class<?> enumClass : interfaceEnumList) {
-            processClassEnum(clazz, enumClass, targetDir);
+            processClassEnum(clazz, enumClass, targetDir, targetDirJS);
             /*
             ps.println(0, "public enum " + clazz.getSimpleName() + enumClass.getSimpleName() + " {");
             Object[] enumConstants = enumClass.getEnumConstants();
@@ -801,9 +931,17 @@ public class J2SwiftConverter {
         if (interfaceEnumList.size() == 0) {
             ps.println();
             ps.println(0, "}");
+            js.println(5, "}");
+            js.println();
+        } else {
+            ps.println();
+            ps.println("}");
+            js.println();
+            js.println(5,"}");
         }
 
         ps.close();
+        js.close();
     }
 
     private static String getGetterSetterProperty(Method method) {
@@ -835,6 +973,27 @@ public class J2SwiftConverter {
             return "Bool";
         } else if (primitiveName.equals("char")) {
             return "Character";
+        } else {
+            return primitiveName;
+        }
+    }
+
+    private static String getPrimitiveTypeTS(Class<?> primitiveType) {
+        String primitiveName = primitiveType.getName();
+        if (primitiveName.equals("double")) {
+            return "number";
+        } else if (primitiveName.equals("int")) {
+            return "number";
+        } else if (primitiveName.equals("long")) {
+            return "number";
+        } else if (primitiveName.equals("byte")) {
+            return "number";
+        } else if (primitiveName.equals("float")) {
+            return "number";
+        } else if (primitiveName.equals("boolean")) {
+            return "boolean";
+        } else if (primitiveName.equals("char")) {
+            return "string";
         } else {
             return primitiveName;
         }
@@ -905,5 +1064,42 @@ public class J2SwiftConverter {
         }
         fileManager.close();
         return success;
+    }
+
+    private static void jsAppendHeader(File targetFileJS) throws IOException {
+        IndentPrintStream ps = null;
+        try {
+            ps = new IndentPrintStream(new FileOutputStream(targetFileJS, true));
+        } catch (FileNotFoundException e) {
+            throw new IOException("Unable to write to stream.");
+        }
+        ps.println(0, "/*");
+        ps.println(0, "* =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================");
+        ps.println(0, "*");
+        ps.println(0, "* (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.");
+        ps.println(0, "*");
+        ps.println(0, "* Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with");
+        ps.println(0, "* the License. You may obtain a copy of the License at");
+        ps.println(0, "*");
+        ps.println(0, "*     http://www.apache.org/licenses/LICENSE-2.0");
+        ps.println(0, "*");
+        ps.println(0, "* Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on");
+        ps.println(0, "* an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the");
+        ps.println(0, "* specific language governing permissions and limitations under the License.");
+        ps.println(0, "*");
+        ps.println(0, "* Original author:");
+        ps.println(0, "*");
+        ps.println(0, "*     * Carlos Lozano Diez");
+        ps.println(0, "*                 <http://github.com/carloslozano>");
+        ps.println(0, "*                 <http://twitter.com/adaptivecoder>");
+        ps.println(0, "*                 <mailto:carlos@adaptive.me>");
+        ps.println(0, "*");
+        ps.println(0, "* Contributors:");
+        ps.println(0, "*");
+        ps.println(0, "*     *");
+        ps.println(0, "*");
+        ps.println(0, "* =====================================================================================================================");
+        ps.println(0, "*/");
+        ps.println();
     }
 }

@@ -10,10 +10,11 @@ import java.io.IOException;
 public class J2Swift {
 
     public static void main(String[] args) throws IOException {
-        String sourcePath = "/Users/clozano/Github/Runtimes/adaptive-arp-api/adaptive-arp-api-java/arp-api-specs/src/main/java";
-        String targetPath = "/Users/clozano/Github/Runtimes/adaptive-arp-api/adaptive-arp-api-swift/ARP";
+        String sourcePath = "/Users/clozano/Github/Runtime/adaptive-arp-api/adaptive-arp-api-java/arp-api-specs/src/main/java";
+        String targetPath = "/Users/clozano/Github/Runtime/adaptive-arp-api/adaptive-arp-api-swift/ARP";
+        String targetPathJS = "/Users/clozano/Github/Runtime/adaptive-arp-api/adaptive-arp-api-js";
         String[] packages = {"me.adaptive.arp.api"};
-        if (J2SwiftConverter.convert(sourcePath, targetPath, packages)) {
+        if (J2SwiftConverter.convert(sourcePath, targetPath, targetPathJS, packages)) {
             System.exit(0);
         } else {
             System.exit(-1);
