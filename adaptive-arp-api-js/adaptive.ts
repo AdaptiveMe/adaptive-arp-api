@@ -28,115 +28,455 @@
 
 module Adaptive {
 
-     export class Acceleration {
-
-          /** Field Declarations **/
-          timeStamp : number;
-          x : number;
-          y : number;
-          z : number;
-
-          /** Initialization **/
-          constructor(x: number, y: number, z: number, timeStamp: number) {
-               this.x = x;
-               this.y = y;
-               this.z = z;
-               this.timeStamp = timeStamp;
-          }
+     export interface IAdaptiveRP {
 
      }
 
-     export class AttachmentData {
-
-          /** Field Declarations **/
-          data : Array<number>;
-          dataSize : number;
-          fileName : string;
-          mimeType : string;
-          referenceUrl : string;
-
-          /** Initialization **/
-          constructor(data: Array<number>, dataSize: number, fileName: string, mimeType: string, referenceUrl: string) {
-               this.data = data;
-               this.dataSize = dataSize;
-               this.fileName = fileName;
-               this.mimeType = mimeType;
-               this.referenceUrl = referenceUrl;
-          }
+     export interface IBaseSecurity extends IAdaptiveRP {
 
      }
 
-     export class Button {
-
-          /** Field Declarations **/
-          type : ButtonEnum;
-
-          /** Initialization **/
-          constructor(type: Button) {
-               this.type = type;
-          }
+     export interface IBaseApplication extends IAdaptiveRP {
 
      }
 
-     export class Column {
-
-          /** Field Declarations **/
-          name : string;
-
-          /** Initialization **/
-          constructor(name: string) {
-               this.name = name;
-          }
+     export interface IAppContext extends IAdaptiveRP {
 
      }
 
-     export class Contact extends ContactUid {
-
-          /** Field Declarations **/
-          contactAddresses : Array<ContactAddress>;
-          contactEmails : Array<ContactEmail>;
-          contactPhones : Array<ContactPhone>;
-          contactSocials : Array<ContactSocial>;
-          contactTags : Array<ContactTag>;
-          contactWebsites : Array<ContactWebsite>;
-          personalInfo : ContactPersonalInfo;
-          professionalInfo : ContactProfessionalInfo;
-
-          /** Initialization **/
-          constructor(contactId: string) {
-               super()
-               this.contactId = contactId;
-          }
+     export interface IBaseSocial extends IAdaptiveRP {
 
      }
 
-     export class ContactAddress {
-
-          /** Field Declarations **/
-          address : string;
-          type : AddressTypeEnum;
-
-          /** Initialization **/
-          constructor(address: string, type: AddressType) {
-               this.address = address;
-               this.type = type;
-          }
+     export interface IAppRegistry extends IAdaptiveRP {
 
      }
 
-     export class ContactEmail {
+     export interface IBasePIM extends IAdaptiveRP {
 
-          /** Field Declarations **/
-          email : string;
-          primary : boolean;
-          type : EmailTypeEnum;
+     }
 
-          /** Initialization **/
-          constructor(type: EmailType, primary: boolean, email: string) {
-               this.type = type;
-               this.primary = primary;
-               this.email = email;
-          }
+     export interface IBaseReader extends IAdaptiveRP {
+
+     }
+
+     export interface IBaseCallback extends IAdaptiveRP {
+
+     }
+
+     export interface IBaseSensor extends IAdaptiveRP {
+
+     }
+
+     export interface IAppServer extends IAdaptiveRP {
+
+     }
+
+     export interface IAppContextWebview extends IAdaptiveRP {
+
+     }
+
+     export interface IBaseCommunication extends IAdaptiveRP {
+
+     }
+
+     export interface IAppResourceHandler extends IAdaptiveRP {
+
+     }
+
+     export interface IBaseData extends IAdaptiveRP {
+
+     }
+
+     export interface IAppServerManager extends IAdaptiveRP {
+
+     }
+
+     export interface IBaseNotification extends IAdaptiveRP {
+
+     }
+
+     export interface IBaseUtil extends IAdaptiveRP {
+
+     }
+
+     export interface IAppResource extends IAdaptiveRP {
+
+     }
+
+     export interface IBaseListener extends IAdaptiveRP {
+
+     }
+
+     export interface IBaseMedia extends IAdaptiveRP {
+
+     }
+
+     export interface IBaseUI extends IAdaptiveRP {
+
+     }
+
+     export interface IBaseSystem extends IAdaptiveRP {
+
+     }
+
+     export interface IBaseCommerce extends IAdaptiveRP {
+
+     }
+
+     export interface IStore extends IBaseCommerce {
+
+     }
+
+     export interface IInternalStorage extends IBaseData {
+
+     }
+
+     export interface IMessagingCallback extends IBaseCallback {
+
+
+     }
+     export interface IMap extends IBaseUI {
+
+     }
+
+     export interface IBluetooth extends IBaseCommunication {
+
+     }
+
+     export interface IContactPhotoResultCallback extends IBaseCallback {
+
+
+     }
+     export interface IManagement extends IBaseApplication {
+
+     }
+
+     export interface IOAuth extends IBaseSecurity {
+
+     }
+
+     export interface INetworkStatus extends IBaseCommunication {
+
+     }
+
+     export interface IAlarm extends IBaseNotification {
+
+     }
+
+     export interface IFileResultCallback extends IBaseCallback {
+
+
+     }
+     export interface IWallet extends IBaseCommerce {
+
+     }
+
+     export interface INetworkInfo extends IBaseCommunication {
+
+     }
+
+     export interface IAmbientLight extends IBaseSensor {
+
+     }
+
+     export interface IMessaging extends IBasePIM {
+
+     }
+
+     export interface IFileDataResultCallback extends IBaseCallback {
+
+
+     }
+     export interface ICalendar extends IBasePIM {
+
+     }
+
+     export interface IVideo extends IBaseMedia {
+
+     }
+
+     export interface INetworkNaming extends IBaseCommunication {
+
+     }
+
+     export interface IRuntime extends IBaseSystem {
+
+     }
+
+     export interface IGooglePlus extends IBaseSocial {
+
+     }
+
+     export interface IGlobalization extends IBaseApplication {
+
+     }
+
+     export interface ITwitter extends IBaseSocial {
+
+     }
+
+     export interface INetworkReachabilityCallback extends IBaseCallback {
+
+
+     }
+     export interface INFC extends IBaseReader {
+
+     }
+
+     export interface IAnalytics extends IBaseApplication {
+
+     }
+
+     export interface ILogging extends IBaseUtil {
+
+
+     }
+     export interface IFacebook extends IBaseSocial {
+
+     }
+
+     export interface ICrypto extends IBaseUtil {
+
+     }
+
+     export interface ILinkedIn extends IBaseSocial {
+
+     }
+
+     export interface IRSS extends IBaseSocial {
+
+     }
+
+     export interface IDevice extends IBaseSystem {
+
+     }
+
+     export interface IMagnetometer extends IBaseSensor {
+
+     }
+
+     export interface IContactResultCallback extends IBaseCallback {
+
+
+     }
+     export interface INotificationLocal extends IBaseNotification {
+
+     }
+
+     export interface IContact extends IBasePIM {
+
+     }
+
+     export interface ICapabilities extends IBaseSystem {
+
+
+     }
+     export interface IFileListResultCallback extends IBaseCallback {
+
+
+     }
+     export interface ITelephony extends IBaseCommunication {
+
+     }
+
+     export interface IUpdate extends IBaseApplication {
+
+     }
+
+     export interface ISecurity extends IBaseSecurity {
+
+     }
+
+     export interface IGeolocationListener extends IBaseListener {
+
+
+     }
+     export interface ICloud extends IBaseData {
+
+     }
+
+     export interface IOS extends IBaseSystem {
+
+     }
+
+     export interface ICompression extends IBaseUtil {
+
+     }
+
+     export interface IButtonListener extends IBaseListener {
+
+
+     }
+     export interface ITableResultCallback extends IBaseCallback {
+
+
+     }
+     export interface ILifecycle extends IBaseApplication {
+
+     }
+
+     export interface IAppServerListener extends IBaseListener {
+
+     }
+
+     export interface IAds extends IBaseCommerce {
+
+     }
+
+     export interface ISecureKVResultCallback extends IBaseCallback {
+
+
+     }
+     export interface IAppResourceCallback extends IBaseCallback {
+
+
+     }
+     export interface IDatabaseResultCallback extends IBaseCallback {
+
+
+     }
+     export interface IMail extends IBasePIM {
+
+     }
+
+     export interface IOCR extends IBaseReader {
+
+     }
+
+     export interface IBarometer extends IBaseSensor {
+
+     }
+
+     export interface IDesktop extends IBaseUI {
+
+     }
+
+     export interface IService extends IBaseCommunication {
+
+     }
+
+     export interface IAccelerationListener extends IBaseListener {
+
+
+     }
+     export interface IXML extends IBaseData {
+
+     }
+
+     export interface IQRCode extends IBaseReader {
+
+     }
+
+     export interface IAccelerometer extends IBaseSensor {
+
+     }
+
+     export interface IConcurrent extends IBaseUtil {
+
+     }
+
+     export interface ITimer extends IBaseUtil {
+
+     }
+
+     export interface IDisplay extends IBaseSystem {
+
+     }
+
+     export interface ISettings extends IBaseApplication {
+
+     }
+
+     export interface IFileSystem extends IBaseData {
+
+     }
+
+     export interface IAudio extends IBaseMedia {
+
+     }
+
+     export interface IDataStream extends IBaseData {
+
+     }
+
+     export interface IGeolocation extends IBaseSensor {
+
+     }
+
+     export interface IDatabase extends IBaseData {
+
+     }
+
+     export interface ILifecycleListener extends IBaseListener {
+
+
+     }
+     export interface IUI extends IBaseUI {
+
+     }
+
+     export interface INotification extends IBaseNotification {
+
+     }
+
+     export interface IBrowser extends IBaseUI {
+
+     }
+
+     export interface IProximity extends IBaseSensor {
+
+     }
+
+     export interface IGyroscope extends IBaseSensor {
+
+     }
+
+     export interface IFilePath extends IBaseData {
+
+     }
+
+     export interface ISession extends IBaseCommunication {
+
+     }
+
+     export interface IServiceResultCallback extends IBaseCallback {
+
+
+     }
+     export interface IBarcode extends IBaseReader {
+
+     }
+
+     export interface IPrinting extends IBaseApplication {
+
+     }
+
+     export interface IVibration extends IBaseNotification {
+
+     }
+
+     export interface IImaging extends IBaseMedia {
+
+     }
+
+     export interface ICamera extends IBaseMedia {
+
+     }
+
+     export interface INetworkReachability extends IBaseCommunication {
+
+     }
+
+     export interface IOpenId extends IBaseSecurity {
+
+     }
+
+     export interface ISocket extends IBaseCommunication {
+
+     }
+
+     export interface IFile extends IFilePath {
 
      }
 
@@ -158,50 +498,6 @@ module Adaptive {
 
      }
 
-     export class ContactPhone {
-
-          /** Field Declarations **/
-          phone : string;
-          phoneType : PhoneTypeEnum;
-
-          /** Initialization **/
-          constructor(phone: string, phoneType: PhoneType) {
-               this.phone = phone;
-               this.phoneType = phoneType;
-          }
-
-     }
-
-     export class ContactProfessionalInfo {
-
-          /** Field Declarations **/
-          company : string;
-          jobDescription : string;
-          jobTitle : string;
-
-          /** Initialization **/
-          constructor(jobTitle: string, jobDescription: string, company: string) {
-               this.jobTitle = jobTitle;
-               this.jobDescription = jobDescription;
-               this.company = company;
-          }
-
-     }
-
-     export class ContactSocial {
-
-          /** Field Declarations **/
-          profileUrl : string;
-          socialNetwork : SocialNetworkEnum;
-
-          /** Initialization **/
-          constructor(socialNetwork: SocialNetwork, profileUrl: string) {
-               this.socialNetwork = socialNetwork;
-               this.profileUrl = profileUrl;
-          }
-
-     }
-
      export class ContactTag {
 
           /** Field Declarations **/
@@ -212,18 +508,6 @@ module Adaptive {
           constructor(name: string, dataValue: string) {
                this.name = name;
                this.dataValue = dataValue;
-          }
-
-     }
-
-     export class ContactUid {
-
-          /** Field Declarations **/
-          contactId : string;
-
-          /** Initialization **/
-          constructor(contactId: string) {
-               this.contactId = contactId;
           }
 
      }
@@ -240,54 +524,44 @@ module Adaptive {
 
      }
 
-     export class Cookie {
+     export class OSInfo {
 
           /** Field Declarations **/
-          creation : number;
-          data : string;
-          domain : string;
-          expiry : number;
           name : string;
-          path : string;
-          scheme : string;
-          secure : boolean;
-
-          /** Initialization **/
-          constructor(name: string, data: string) {
-               this.name = name;
-               this.data = data;
-          }
-
-     }
-
-     export class Database {
-
-          /** Field Declarations **/
-          compress : boolean;
-          name : string;
-
-          /** Initialization **/
-          constructor(name: string, compress: boolean) {
-               this.name = name;
-               this.compress = compress;
-          }
-
-     }
-
-     export class DeviceInfo {
-
-          /** Field Declarations **/
-          model : string;
-          name : string;
-          uuid : string;
           vendor : string;
+          version : string;
 
           /** Initialization **/
-          constructor(name: string, model: string, vendor: string, uuid: string) {
+          constructor(name: string, version: string, vendor: string) {
                this.name = name;
-               this.model = model;
+               this.version = version;
                this.vendor = vendor;
-               this.uuid = uuid;
+          }
+
+     }
+
+     export class Column {
+
+          /** Field Declarations **/
+          name : string;
+
+          /** Initialization **/
+          constructor(name: string) {
+               this.name = name;
+          }
+
+     }
+
+     export class Locale {
+
+          /** Field Declarations **/
+          country : string;
+          language : string;
+
+          /** Initialization **/
+          constructor(language: string, country: string) {
+               this.language = language;
+               this.country = country;
           }
 
      }
@@ -312,606 +586,44 @@ module Adaptive {
 
      }
 
-     export class EmailAddress {
+     export class ContactUid {
+
+          /** Field Declarations **/
+          contactId : string;
+
+          /** Initialization **/
+          constructor(contactId: string) {
+               this.contactId = contactId;
+          }
+
+     }
+
+     export class ContactAddress {
 
           /** Field Declarations **/
           address : string;
+          type : AddressTypeEnum;
 
           /** Initialization **/
-          constructor(address: string) {
+          constructor(address: string, type: AddressType) {
                this.address = address;
-          }
-
-     }
-
-     export class Endpoint {
-
-          /** Field Declarations **/
-          host : string;
-          path : string;
-          port : number;
-          proxy : string;
-          scheme : string;
-
-          /** Initialization **/
-          constructor(host: string, path: string, port: number, proxy: string, scheme: string) {
-               this.host = host;
-               this.path = path;
-               this.port = port;
-               this.proxy = proxy;
-               this.scheme = scheme;
-          }
-
-     }
-
-     export class Geolocation {
-
-          /** Field Declarations **/
-          altitude : number;
-          latitude : number;
-          longitude : number;
-          xDoP : number;
-          yDoP : number;
-
-          /** Initialization **/
-          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number) {
-               this.latitude = latitude;
-               this.longitude = longitude;
-               this.altitude = altitude;
-               this.xDoP = xDoP;
-               this.yDoP = yDoP;
-          }
-
-     }
-
-     export class Header {
-
-          /** Field Declarations **/
-          data : string;
-          name : string;
-
-          /** Initialization **/
-          constructor(name: string, data: string) {
-               this.name = name;
-               this.data = data;
-          }
-
-     }
-
-     export interface IAccelerationListener extends IBaseListener {
-
-
-     }
-     export interface IAccelerometer extends IBaseSensor {
-
-     }
-
-     export interface IAdaptiveRP {
-
-     }
-
-     export interface IAds extends IBaseCommerce {
-
-     }
-
-     export interface IAlarm extends IBaseNotification {
-
-     }
-
-     export interface IAmbientLight extends IBaseSensor {
-
-     }
-
-     export interface IAnalytics extends IBaseApplication {
-
-     }
-
-     export interface IAppContext extends IAdaptiveRP {
-
-     }
-
-     export interface IAppContextWebview extends IAdaptiveRP {
-
-     }
-
-     export interface IAppRegistry extends IAdaptiveRP {
-
-     }
-
-     export interface IAppResource extends IAdaptiveRP {
-
-     }
-
-     export interface IAppResourceCallback extends IBaseCallback {
-
-
-     }
-     export interface IAppResourceHandler extends IAdaptiveRP {
-
-     }
-
-     export interface IAppServer extends IAdaptiveRP {
-
-     }
-
-     export interface IAppServerListener extends IBaseListener {
-
-     }
-
-     export interface IAppServerManager extends IAdaptiveRP {
-
-     }
-
-     export interface IAudio extends IBaseMedia {
-
-     }
-
-     export interface IBarcode extends IBaseReader {
-
-     }
-
-     export interface IBarometer extends IBaseSensor {
-
-     }
-
-     export interface IBaseApplication extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseCallback extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseCommerce extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseCommunication extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseData extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseListener extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseMedia extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseNotification extends IAdaptiveRP {
-
-     }
-
-     export interface IBasePIM extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseReader extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseSecurity extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseSensor extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseSocial extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseSystem extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseUI extends IAdaptiveRP {
-
-     }
-
-     export interface IBaseUtil extends IAdaptiveRP {
-
-     }
-
-     export interface IBluetooth extends IBaseCommunication {
-
-     }
-
-     export interface IBrowser extends IBaseUI {
-
-     }
-
-     export interface IButtonListener extends IBaseListener {
-
-
-     }
-     export interface ICalendar extends IBasePIM {
-
-     }
-
-     export interface ICamera extends IBaseMedia {
-
-     }
-
-     export interface ICapabilities extends IBaseSystem {
-
-
-     }
-     export interface ICloud extends IBaseData {
-
-     }
-
-     export interface ICompression extends IBaseUtil {
-
-     }
-
-     export interface IConcurrent extends IBaseUtil {
-
-     }
-
-     export interface IContact extends IBasePIM {
-
-     }
-
-     export interface IContactPhotoResultCallback extends IBaseCallback {
-
-
-     }
-     export interface IContactResultCallback extends IBaseCallback {
-
-
-     }
-     export interface ICrypto extends IBaseUtil {
-
-     }
-
-     export interface IDatabase extends IBaseData {
-
-     }
-
-     export interface IDatabaseResultCallback extends IBaseCallback {
-
-
-     }
-     export interface IDataStream extends IBaseData {
-
-     }
-
-     export interface IDesktop extends IBaseUI {
-
-     }
-
-     export interface IDevice extends IBaseSystem {
-
-     }
-
-     export interface IDisplay extends IBaseSystem {
-
-     }
-
-     export interface IFacebook extends IBaseSocial {
-
-     }
-
-     export interface IFile extends IFilePath {
-
-     }
-
-     export interface IFileDataResultCallback extends IBaseCallback {
-
-
-     }
-     export interface IFileListResultCallback extends IBaseCallback {
-
-
-     }
-     export interface IFilePath extends IBaseData {
-
-     }
-
-     export interface IFileResultCallback extends IBaseCallback {
-
-
-     }
-     export interface IFileSystem extends IBaseData {
-
-     }
-
-     export interface IGeolocation extends IBaseSensor {
-
-     }
-
-     export interface IGeolocationListener extends IBaseListener {
-
-
-     }
-     export interface IGlobalization extends IBaseApplication {
-
-     }
-
-     export interface IGooglePlus extends IBaseSocial {
-
-     }
-
-     export interface IGyroscope extends IBaseSensor {
-
-     }
-
-     export interface IImaging extends IBaseMedia {
-
-     }
-
-     export interface IInternalStorage extends IBaseData {
-
-     }
-
-     export interface ILifecycle extends IBaseApplication {
-
-     }
-
-     export interface ILifecycleListener extends IBaseListener {
-
-
-     }
-     export interface ILinkedIn extends IBaseSocial {
-
-     }
-
-     export interface ILogging extends IBaseUtil {
-
-
-     }
-     export interface IMagnetometer extends IBaseSensor {
-
-     }
-
-     export interface IMail extends IBasePIM {
-
-     }
-
-     export interface IManagement extends IBaseApplication {
-
-     }
-
-     export interface IMap extends IBaseUI {
-
-     }
-
-     export interface IMessaging extends IBasePIM {
-
-     }
-
-     export interface IMessagingCallback extends IBaseCallback {
-
-
-     }
-     export interface INetworkInfo extends IBaseCommunication {
-
-     }
-
-     export interface INetworkNaming extends IBaseCommunication {
-
-     }
-
-     export interface INetworkReachability extends IBaseCommunication {
-
-     }
-
-     export interface INetworkReachabilityCallback extends IBaseCallback {
-
-
-     }
-     export interface INetworkStatus extends IBaseCommunication {
-
-     }
-
-     export interface INFC extends IBaseReader {
-
-     }
-
-     export interface INotification extends IBaseNotification {
-
-     }
-
-     export interface INotificationLocal extends IBaseNotification {
-
-     }
-
-     export interface IOAuth extends IBaseSecurity {
-
-     }
-
-     export interface IOCR extends IBaseReader {
-
-     }
-
-     export interface IOpenId extends IBaseSecurity {
-
-     }
-
-     export interface IOS extends IBaseSystem {
-
-     }
-
-     export interface IPrinting extends IBaseApplication {
-
-     }
-
-     export interface IProximity extends IBaseSensor {
-
-     }
-
-     export interface IQRCode extends IBaseReader {
-
-     }
-
-     export interface IRSS extends IBaseSocial {
-
-     }
-
-     export interface IRuntime extends IBaseSystem {
-
-     }
-
-     export interface ISecureKVResultCallback extends IBaseCallback {
-
-
-     }
-     export interface ISecurity extends IBaseSecurity {
-
-     }
-
-     export interface IService extends IBaseCommunication {
-
-     }
-
-     export interface IServiceResultCallback extends IBaseCallback {
-
-
-     }
-     export interface ISession extends IBaseCommunication {
-
-     }
-
-     export interface ISettings extends IBaseApplication {
-
-     }
-
-     export interface ISocket extends IBaseCommunication {
-
-     }
-
-     export interface IStore extends IBaseCommerce {
-
-     }
-
-     export interface ITableResultCallback extends IBaseCallback {
-
-
-     }
-     export interface ITelephony extends IBaseCommunication {
-
-     }
-
-     export interface ITimer extends IBaseUtil {
-
-     }
-
-     export interface ITwitter extends IBaseSocial {
-
-     }
-
-     export interface IUI extends IBaseUI {
-
-     }
-
-     export interface IUpdate extends IBaseApplication {
-
-     }
-
-     export interface IVibration extends IBaseNotification {
-
-     }
-
-     export interface IVideo extends IBaseMedia {
-
-     }
-
-     export interface IWallet extends IBaseCommerce {
-
-     }
-
-     export interface IXML extends IBaseData {
-
-     }
-
-     export class Lifecycle {
-
-          /** Field Declarations **/
-          state : StateEnum;
-
-          /** Initialization **/
-          constructor(state: State) {
-               this.state = state;
-          }
-
-     }
-
-     export class Locale {
-
-          /** Field Declarations **/
-          country : string;
-          language : string;
-
-          /** Initialization **/
-          constructor(language: string, country: string) {
-               this.language = language;
-               this.country = country;
-          }
-
-     }
-
-     export class OSInfo {
-
-          /** Field Declarations **/
-          name : string;
-          vendor : string;
-          version : string;
-
-          /** Initialization **/
-          constructor(name: string, version: string, vendor: string) {
-               this.name = name;
-               this.version = version;
-               this.vendor = vendor;
-          }
-
-     }
-
-     export class Row {
-
-          /** Field Declarations **/
-          values : Array<any>;
-
-          /** Initialization **/
-          constructor(values: Array<any>) {
-               this.values = values;
-          }
-
-     }
-
-     export class SecureKeyPair {
-
-          /** Field Declarations **/
-          secureData : string;
-          secureKey : string;
-
-          /** Initialization **/
-          constructor(secureKey: string, secureData: string) {
-               this.secureKey = secureKey;
-               this.secureData = secureData;
-          }
-
-     }
-
-     export class Service {
-
-          /** Field Declarations **/
-          endpoint : Endpoint;
-          method : ServiceMethodEnum;
-          name : string;
-          type : ServiceTypeEnum;
-
-          /** Initialization **/
-          constructor(endpoint: Endpoint, name: string, method: ServiceMethod, type: ServiceType) {
-               this.endpoint = endpoint;
-               this.name = name;
-               this.method = method;
                this.type = type;
+          }
+
+     }
+
+     export class ContactProfessionalInfo {
+
+          /** Field Declarations **/
+          company : string;
+          jobDescription : string;
+          jobTitle : string;
+
+          /** Initialization **/
+          constructor(jobTitle: string, jobDescription: string, company: string) {
+               this.jobTitle = jobTitle;
+               this.jobDescription = jobDescription;
+               this.company = company;
           }
 
      }
@@ -944,6 +656,196 @@ module Adaptive {
 
      }
 
+     export class ContactSocial {
+
+          /** Field Declarations **/
+          profileUrl : string;
+          socialNetwork : SocialNetworkEnum;
+
+          /** Initialization **/
+          constructor(socialNetwork: SocialNetwork, profileUrl: string) {
+               this.socialNetwork = socialNetwork;
+               this.profileUrl = profileUrl;
+          }
+
+     }
+
+     export class Endpoint {
+
+          /** Field Declarations **/
+          host : string;
+          path : string;
+          port : number;
+          proxy : string;
+          scheme : string;
+
+          /** Initialization **/
+          constructor(host: string, path: string, port: number, proxy: string, scheme: string) {
+               this.host = host;
+               this.path = path;
+               this.port = port;
+               this.proxy = proxy;
+               this.scheme = scheme;
+          }
+
+     }
+
+     export class Cookie {
+
+          /** Field Declarations **/
+          creation : number;
+          data : string;
+          domain : string;
+          expiry : number;
+          name : string;
+          path : string;
+          scheme : string;
+          secure : boolean;
+
+          /** Initialization **/
+          constructor(name: string, data: string) {
+               this.name = name;
+               this.data = data;
+          }
+
+     }
+
+     export class Button {
+
+          /** Field Declarations **/
+          type : ButtonEnum;
+
+          /** Initialization **/
+          constructor(type: Button) {
+               this.type = type;
+          }
+
+     }
+
+     export class Database {
+
+          /** Field Declarations **/
+          compress : boolean;
+          name : string;
+
+          /** Initialization **/
+          constructor(name: string, compress: boolean) {
+               this.name = name;
+               this.compress = compress;
+          }
+
+     }
+
+     export class AttachmentData {
+
+          /** Field Declarations **/
+          data : Array<number>;
+          dataSize : number;
+          fileName : string;
+          mimeType : string;
+          referenceUrl : string;
+
+          /** Initialization **/
+          constructor(data: Array<number>, dataSize: number, fileName: string, mimeType: string, referenceUrl: string) {
+               this.data = data;
+               this.dataSize = dataSize;
+               this.fileName = fileName;
+               this.mimeType = mimeType;
+               this.referenceUrl = referenceUrl;
+          }
+
+     }
+
+     export class ContactEmail {
+
+          /** Field Declarations **/
+          email : string;
+          primary : boolean;
+          type : EmailTypeEnum;
+
+          /** Initialization **/
+          constructor(type: EmailType, primary: boolean, email: string) {
+               this.type = type;
+               this.primary = primary;
+               this.email = email;
+          }
+
+     }
+
+     export class Table {
+
+          /** Field Declarations **/
+          columnCount : number;
+          columns : Array<Column>;
+          name : string;
+          rowCount : number;
+          rows : Array<Row>;
+
+          /** Initialization **/
+          constructor(name: string) {
+               this.name = name;
+          }
+
+     }
+
+     export class EmailAddress {
+
+          /** Field Declarations **/
+          address : string;
+
+          /** Initialization **/
+          constructor(address: string) {
+               this.address = address;
+          }
+
+     }
+
+     export class DeviceInfo {
+
+          /** Field Declarations **/
+          model : string;
+          name : string;
+          uuid : string;
+          vendor : string;
+
+          /** Initialization **/
+          constructor(name: string, model: string, vendor: string, uuid: string) {
+               this.name = name;
+               this.model = model;
+               this.vendor = vendor;
+               this.uuid = uuid;
+          }
+
+     }
+
+     export class SecureKeyPair {
+
+          /** Field Declarations **/
+          secureData : string;
+          secureKey : string;
+
+          /** Initialization **/
+          constructor(secureKey: string, secureData: string) {
+               this.secureKey = secureKey;
+               this.secureData = secureData;
+          }
+
+     }
+
+     export class Header {
+
+          /** Field Declarations **/
+          data : string;
+          name : string;
+
+          /** Initialization **/
+          constructor(name: string, data: string) {
+               this.name = name;
+               this.data = data;
+          }
+
+     }
+
      export class ServiceResponse {
 
           /** Field Declarations **/
@@ -970,18 +872,116 @@ module Adaptive {
 
      }
 
-     export class Table {
+     export class Contact extends ContactUid {
 
           /** Field Declarations **/
-          columnCount : number;
-          columns : Array<Column>;
-          name : string;
-          rowCount : number;
-          rows : Array<Row>;
+          contactAddresses : Array<ContactAddress>;
+          contactEmails : Array<ContactEmail>;
+          contactPhones : Array<ContactPhone>;
+          contactSocials : Array<ContactSocial>;
+          contactTags : Array<ContactTag>;
+          contactWebsites : Array<ContactWebsite>;
+          personalInfo : ContactPersonalInfo;
+          professionalInfo : ContactProfessionalInfo;
 
           /** Initialization **/
-          constructor(name: string) {
+          constructor(contactId: string) {
+               super()
+               this.contactId = contactId;
+          }
+
+     }
+
+     export class Service {
+
+          /** Field Declarations **/
+          endpoint : Endpoint;
+          method : ServiceMethodEnum;
+          name : string;
+          type : ServiceTypeEnum;
+
+          /** Initialization **/
+          constructor(endpoint: Endpoint, name: string, method: ServiceMethod, type: ServiceType) {
+               this.endpoint = endpoint;
                this.name = name;
+               this.method = method;
+               this.type = type;
+          }
+
+     }
+
+     export class Lifecycle {
+
+          /** Field Declarations **/
+          state : StateEnum;
+
+          /** Initialization **/
+          constructor(state: State) {
+               this.state = state;
+          }
+
+     }
+
+     export class Acceleration {
+
+          /** Field Declarations **/
+          timeStamp : number;
+          x : number;
+          y : number;
+          z : number;
+
+          /** Initialization **/
+          constructor(x: number, y: number, z: number, timeStamp: number) {
+               this.x = x;
+               this.y = y;
+               this.z = z;
+               this.timeStamp = timeStamp;
+          }
+
+     }
+
+     export class ContactPhone {
+
+          /** Field Declarations **/
+          phone : string;
+          phoneType : PhoneTypeEnum;
+
+          /** Initialization **/
+          constructor(phone: string, phoneType: PhoneType) {
+               this.phone = phone;
+               this.phoneType = phoneType;
+          }
+
+     }
+
+     export class Geolocation {
+
+          /** Field Declarations **/
+          altitude : number;
+          latitude : number;
+          longitude : number;
+          xDoP : number;
+          yDoP : number;
+
+          /** Initialization **/
+          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number) {
+               this.latitude = latitude;
+               this.longitude = longitude;
+               this.altitude = altitude;
+               this.xDoP = xDoP;
+               this.yDoP = yDoP;
+          }
+
+     }
+
+     export class Row {
+
+          /** Field Declarations **/
+          values : Array<any>;
+
+          /** Initialization **/
+          constructor(values: Array<any>) {
+               this.values = values;
           }
 
      }

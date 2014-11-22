@@ -73,17 +73,66 @@ public class J2SwiftConverter {
                 System.out.println("Processing package '" + package_ + "'.");
                 Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(Object.class);
                 List<Class<? extends Object>> allClasses = new ArrayList<>();
+                List<Class<? extends Object>> allInterfaces = new ArrayList<>();
 
                 for (Class clazz : allClassesSet) {
-                    allClasses.add(clazz);
+                    if (clazz.isInterface()) {
+                        allInterfaces.add(clazz);
+                    } else {
+                        allClasses.add(clazz);
+                    }
                 }
 
                 Collections.sort(allClasses, new Comparator<Class<? extends Object>>() {
                     @Override
                     public int compare(Class<? extends Object> o1, Class<? extends Object> o2) {
-                        return o1.getSimpleName().compareToIgnoreCase(o2.getSimpleName());
+                        final Class c1 = (Class) o1;
+                        final Class c2 = (Class) o2;
+
+                        if (c1.equals(c2)) {
+                            return 0;
+                        }
+                        if (c1.isAssignableFrom(c2)) {
+                            return -1;
+                        } else {
+                            if (!c2.isAssignableFrom(c2)) {
+                                throw new IllegalArgumentException("The classes share no relation");
+                            }
+                            return 1;
+                        }
                     }
                 });
+
+                Collections.sort(allInterfaces, new Comparator<Class<? extends Object>>() {
+                    @Override
+                    public int compare(Class<? extends Object> o1, Class<? extends Object> o2) {
+                        final Class c1 = (Class) o1;
+                        final Class c2 = (Class) o2;
+
+                        if (c1.equals(c2)) {
+                            return 0;
+                        }
+                        if (c1.isAssignableFrom(c2)) {
+                            return -1;
+                        } else {
+                            if (!c2.isAssignableFrom(c2)) {
+                                throw new IllegalArgumentException("The classes share no relation");
+                            }
+                            if (c1.getInterfaces().length == 1 && c2.getInterfaces().length == 1) {
+                                return this.compare(c1.getInterfaces()[0], c2.getInterfaces()[0]);
+                            } else {
+                                if (c1.getInterfaces().length == 1 && c2.getInterfaces().length == 0) {
+                                    return 1;
+                                } else if (c1.getInterfaces().length == 0 && c2.getInterfaces().length == 1) {
+                                    return -1;
+                                } else {
+                                    return 1;
+                                }
+                            }
+                        }
+                    }
+                });
+                allClasses.addAll(0,allInterfaces);
 
                 for (Class clazz : allClasses) {
                     System.out.print(".");
@@ -157,9 +206,9 @@ public class J2SwiftConverter {
         ps.println(0, "import Foundation");
         ps.println();
 
-        ps.println(0, "public enum " + clazz.getSimpleName()+type.getSimpleName() + " {");
+        ps.println(0, "public enum " + clazz.getSimpleName() + type.getSimpleName() + " {");
         ps.println();
-        ps.println(5,"/// Enum Values");
+        ps.println(5, "/// Enum Values");
         Object[] enumConstants = type.getEnumConstants();
         ps.print(5, "case ");
         for (int i = 0; i < enumConstants.length; i++) {
@@ -170,28 +219,28 @@ public class J2SwiftConverter {
         }
         ps.println();
         ps.println();
-        ps.println(5,"/// toString");
-        ps.println(5,"public func toString() -> String {");
-        ps.println(10,"switch self {");
+        ps.println(5, "/// toString");
+        ps.println(5, "public func toString() -> String {");
+        ps.println(10, "switch self {");
         for (int i = 0; i < enumConstants.length; i++) {
-            ps.println(15,"case ."+enumConstants[i]+": return \""+enumConstants[i]+"\"");
+            ps.println(15, "case ." + enumConstants[i] + ": return \"" + enumConstants[i] + "\"");
         }
-        ps.println(10,"}");
-        ps.println(5,"}");
+        ps.println(10, "}");
+        ps.println(5, "}");
         ps.println();
-        ps.println(5,"/// toEnum");
-        ps.println(5,"public static func toEnum(string:String?) -> "+clazz.getSimpleName()+type.getSimpleName()+" {");
-        ps.println(10,"if let validString = string {");
-        ps.println(15,"switch validString {");
+        ps.println(5, "/// toEnum");
+        ps.println(5, "public static func toEnum(string:String?) -> " + clazz.getSimpleName() + type.getSimpleName() + " {");
+        ps.println(10, "if let validString = string {");
+        ps.println(15, "switch validString {");
         for (int i = 0; i < enumConstants.length; i++) {
-            ps.println(20,"case \""+enumConstants[i]+"\": return ."+enumConstants[i]);
+            ps.println(20, "case \"" + enumConstants[i] + "\": return ." + enumConstants[i]);
         }
-        ps.println(20,"default: return .Unknown");
-        ps.println(15,"}");
-        ps.println(10,"} else {");
-        ps.println(15,"return .Unknown");
-        ps.println(10,"}");
-        ps.println(5,"}");
+        ps.println(20, "default: return .Unknown");
+        ps.println(15, "}");
+        ps.println(10, "} else {");
+        ps.println(15, "return .Unknown");
+        ps.println(10, "}");
+        ps.println(5, "}");
         ps.println();
         ps.println(0, "}");
         ps.close();
@@ -350,36 +399,36 @@ public class J2SwiftConverter {
             js.print(10, "" + field.getName());
             if (field.getType().isPrimitive()) {
                 ps.print(" : " + getPrimitiveTypeSwift(field.getType()));
-                js.print(" : " + getPrimitiveTypeTS(field.getType())+";");
+                js.print(" : " + getPrimitiveTypeTS(field.getType()) + ";");
             } else if (field.getType().isArray()) {
                 Class<?> componentType = field.getType().getComponentType();
                 if (componentType.isPrimitive()) {
                     ps.print(" : [" + getPrimitiveTypeSwift(componentType) + "]?");
-                    js.print(" : Array<"+getPrimitiveTypeTS(componentType)+">;");
+                    js.print(" : Array<" + getPrimitiveTypeTS(componentType) + ">;");
                 } else {
                     if (componentType.getSimpleName().equals("Object")) {
                         ps.print(" : [Any" + componentType.getSimpleName() + "]?");
                         js.print(" : Array<any>;");
                     } else {
                         ps.print(" : [" + componentType.getSimpleName() + "]?");
-                        js.print(" : Array<"+componentType.getSimpleName()+">;");
+                        js.print(" : Array<" + componentType.getSimpleName() + ">;");
                     }
                 }
             } else {
                 if (field.getType().isEnum()) {
                     ps.print(" : " + field.getType().getSimpleName() + "?");
-                    js.print(" : " + field.getType().getSimpleName()+"Enum;");
+                    js.print(" : " + field.getType().getSimpleName() + "Enum;");
                 } else {
                     if (field.getType().isInterface()) {
                         ps.print(" : " + field.getType().getSimpleName() + "?");
-                        js.print(" : " + field.getType().getSimpleName()  +";");
+                        js.print(" : " + field.getType().getSimpleName() + ";");
                     } else {
                         if (field.getType().equals(String.class)) {
                             ps.print(" : " + field.getType().getSimpleName());
-                            js.print(" : " + field.getType().getSimpleName().toLowerCase()+";");
+                            js.print(" : " + field.getType().getSimpleName().toLowerCase() + ";");
                         } else {
                             ps.print(" : " + field.getType().getSimpleName() + "?");
-                            js.print(" : " + field.getType().getSimpleName() +";");
+                            js.print(" : " + field.getType().getSimpleName() + ";");
                         }
                     }
                 }
@@ -394,7 +443,7 @@ public class J2SwiftConverter {
         }
 
         // Description
-        if (fieldList.size()>0) {
+        if (fieldList.size() > 0) {
             ps.println(5, "public override var description : String {");
             StringBuffer descriptionBuffer = new StringBuffer();
             descriptionBuffer.append(clazz.getSimpleName() + "{");
@@ -402,29 +451,29 @@ public class J2SwiftConverter {
             for (Field field : fieldList) {
                 descriptionBuffer.append(field.getName() + "=");
                 if (field.getType().isPrimitive()) {
-                    descriptionBuffer.append("\\("+field.getName()+".description)");
+                    descriptionBuffer.append("\\(" + field.getName() + ".description)");
                 } else if (field.getType().isArray()) {
                     Class<?> componentType = field.getType().getComponentType();
                     if (componentType.isPrimitive()) {
-                        descriptionBuffer.append("\\("+field.getName()+"!.description)");
+                        descriptionBuffer.append("\\(" + field.getName() + "!.description)");
                     } else {
                         if (componentType.getSimpleName().equals("Object")) {
-                            descriptionBuffer.append("\\("+field.getName()+"!.description)");
+                            descriptionBuffer.append("\\(" + field.getName() + "!.description)");
                         } else {
-                            descriptionBuffer.append("\\("+field.getName()+"!.description)");
+                            descriptionBuffer.append("\\(" + field.getName() + "!.description)");
                         }
                     }
                 } else {
                     if (field.getType().isEnum()) {
-                        descriptionBuffer.append("\\("+field.getName()+"?.hashValue.description)");
+                        descriptionBuffer.append("\\(" + field.getName() + "?.hashValue.description)");
                     } else {
                         if (field.getType().isInterface()) {
-                            descriptionBuffer.append("\\("+field.getName()+"?.description)");
+                            descriptionBuffer.append("\\(" + field.getName() + "?.description)");
                         } else {
                             if (field.getType().equals(String.class)) {
-                                descriptionBuffer.append("\\("+field.getName()+")");
+                                descriptionBuffer.append("\\(" + field.getName() + ")");
                             } else {
-                                descriptionBuffer.append("\\("+field.getName()+"?.description)");
+                                descriptionBuffer.append("\\(" + field.getName() + "?.description)");
                             }
                         }
                     }
@@ -465,7 +514,7 @@ public class J2SwiftConverter {
         }
         for (Class<?> enumClass : enumList) {
             ps.println(5, "public enum " + enumClass.getSimpleName() + " {");
-            ps.println(10,"/// Enum Values");
+            ps.println(10, "/// Enum Values");
 
             //js.print(10, "enum " + enumClass.getSimpleName() + "Enum { ");
 
@@ -485,28 +534,28 @@ public class J2SwiftConverter {
 
             ps.println();
             ps.println();
-            ps.println(10,"/// toString");
-            ps.println(10,"public func toString() -> String {");
-            ps.println(15,"switch self {");
+            ps.println(10, "/// toString");
+            ps.println(10, "public func toString() -> String {");
+            ps.println(15, "switch self {");
             for (int i = 0; i < enumConstants.length; i++) {
-                ps.println(20,"case ."+enumConstants[i]+": return \""+enumConstants[i]+"\"");
+                ps.println(20, "case ." + enumConstants[i] + ": return \"" + enumConstants[i] + "\"");
             }
-            ps.println(15,"}");
-            ps.println(10,"}");
+            ps.println(15, "}");
+            ps.println(10, "}");
             ps.println();
-            ps.println(10,"/// toEnum");
-            ps.println(10,"public static func toEnum(string:String?) -> "+enumClass.getSimpleName()+" {");
-            ps.println(15,"if let validString = string {");
-            ps.println(20,"switch validString {");
+            ps.println(10, "/// toEnum");
+            ps.println(10, "public static func toEnum(string:String?) -> " + enumClass.getSimpleName() + " {");
+            ps.println(15, "if let validString = string {");
+            ps.println(20, "switch validString {");
             for (int i = 0; i < enumConstants.length; i++) {
-                ps.println(25,"case \""+enumConstants[i]+"\": return ."+enumConstants[i]);
+                ps.println(25, "case \"" + enumConstants[i] + "\": return ." + enumConstants[i]);
             }
-            ps.println(25,"default: return .Unknown");
-            ps.println(20,"}");
-            ps.println(15,"} else {");
-            ps.println(20,"return .Unknown");
-            ps.println(15,"}");
-            ps.println(10,"}");
+            ps.println(25, "default: return .Unknown");
+            ps.println(20, "}");
+            ps.println(15, "} else {");
+            ps.println(20, "return .Unknown");
+            ps.println(15, "}");
+            ps.println(10, "}");
 
             ps.println();
             ps.println(5, "}");
@@ -572,7 +621,8 @@ public class J2SwiftConverter {
                                 if (componentType.isEnum()) {
                                     processClassEnum(clazz, componentType, targetDir, targetDirJS);
                                     ps.print("[" + clazz.getSimpleName() + componentType.getSimpleName() + "]");
-                                    if (!singleTSInterface) js.print("Array<" + clazz.getSimpleName() + componentType.getSimpleName() + ">");
+                                    if (!singleTSInterface)
+                                        js.print("Array<" + clazz.getSimpleName() + componentType.getSimpleName() + ">");
                                 } else {
                                     ps.print("[" + componentType.getSimpleName() + "]");
                                     if (!singleTSInterface) js.print("Array<" + componentType.getSimpleName() + ">");
@@ -670,7 +720,8 @@ public class J2SwiftConverter {
                     }
                     for (Parameter parameter : parameters) {
                         ps.println(10, "self." + parameter.getName() + " = " + parameter.getName());
-                        if (!singleTSInterface) js.println(15, "this." + parameter.getName() + " = " + parameter.getName()+";");
+                        if (!singleTSInterface)
+                            js.println(15, "this." + parameter.getName() + " = " + parameter.getName() + ";");
                     }
                 }
                 ps.println(5, "}");
@@ -703,11 +754,11 @@ public class J2SwiftConverter {
             public int compare(Method o1, Method o2) {
                 String o1String = o1.getName();
                 for (Parameter p : o1.getParameters()) {
-                    o1String+= p.getName()+p.getType().getSimpleName()+o1.getParameterCount();
+                    o1String += p.getName() + p.getType().getSimpleName() + o1.getParameterCount();
                 }
                 String o2String = o2.getName();
                 for (Parameter p : o2.getParameters()) {
-                    o2String+= p.getName()+p.getType().getSimpleName()+o2.getParameterCount();
+                    o2String += p.getName() + p.getType().getSimpleName() + o2.getParameterCount();
                 }
                 return o1String.compareTo(o2String);
             }
@@ -864,9 +915,9 @@ public class J2SwiftConverter {
                         ps.print(returnType.getSimpleName());
                     } else {
                         if (returnType.getSimpleName().equals("Object")) {
-                            ps.print("Any" + returnType.getSimpleName()+"?");
+                            ps.print("Any" + returnType.getSimpleName() + "?");
                         } else {
-                            ps.print(returnType.getSimpleName()+"?");
+                            ps.print(returnType.getSimpleName() + "?");
                         }
                     }
 
@@ -901,10 +952,10 @@ public class J2SwiftConverter {
         //if (interfaceEnumList.size() > 0) {
         //    ps.println();
         //    ps.println("}");
-            //    ps.println();
-            //    ps.println(0, "/**");
-            //    ps.println(0, " * Enumeration Declarations");
-            //    ps.println(0, " */");
+        //    ps.println();
+        //    ps.println(0, "/**");
+        //    ps.println(0, " * Enumeration Declarations");
+        //    ps.println(0, " */");
         //}
         for (Class<?> enumClass : interfaceEnumList) {
             processClassEnum(clazz, enumClass, targetDir, targetDirJS);
@@ -937,7 +988,7 @@ public class J2SwiftConverter {
             ps.println();
             ps.println("}");
             js.println();
-            js.println(5,"}");
+            js.println(5, "}");
         }
 
         ps.close();
