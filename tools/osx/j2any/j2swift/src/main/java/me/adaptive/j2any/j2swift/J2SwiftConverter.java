@@ -116,6 +116,9 @@ public class J2SwiftConverter {
         js.println(5, "    }");
         js.println(5, "}");
         js.println();
+        js.println(5, "var registeredCallbacks : Dictionary<IBaseCallback> = new Dictionary<IBaseCallback>([]);");
+        js.println(5, "var registeredListeners : Dictionary<IBaseListener> = new Dictionary<IBaseListener>([]);");
+        js.println();
 
         long tIn = System.currentTimeMillis();
         List<File> sourceFileList = new ArrayList<File>();
@@ -1214,7 +1217,9 @@ public class J2SwiftConverter {
         }
 
         if (clazz.isInterface()) {
-            processJSImplementation(clazz, js);
+            if (shouldGenerate(clazz)) {
+                processJSImplementation(clazz, js);
+            }
         }
 
         ps.close();
@@ -1246,7 +1251,9 @@ public class J2SwiftConverter {
                         return o1.toString().compareTo(o2.toString());
                     }
                 });
-
+                js.println(5, "/**");
+                js.println(5," *  Listener "+clazz.getSimpleName()+" implementation.");
+                js.println(5," */");
                 js.println(5, "export class " + clazz.getSimpleName().substring(1) + " implements " + clazz.getSimpleName() + " {");
                 // Fields
                 for (int i = 0; i<nonMethodList.size();i++) {
@@ -1414,6 +1421,9 @@ public class J2SwiftConverter {
                 }
                 js.println(5, "}");
             } else {
+                js.println(5,"/**");
+                js.println(5," *  Service "+clazz.getSimpleName()+" implementation.");
+                js.println(5," */");
                 js.println(5, "export class " + clazz.getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + " {");
                 js.println();
                 js.println(10, "constructor() {}");
@@ -1421,20 +1431,42 @@ public class J2SwiftConverter {
                 for (Method method : clazz.getMethods()) {
                     allMethods.add(method);
                 }
+
                 allMethods.sort(new Comparator<Method>() {
                     @Override
                     public int compare(Method o1, Method o2) {
                         return o1.getName().compareTo(o2.getName());
                     }
                 });
+
                 if (allMethods.size()>0) {
                     js.println();
                 }
                 for (Method method : allMethods) {
                     js.print(10, method.getName());
                     js.print("(");
+                    List<Parameter> allParameters = new ArrayList<>();
+                    for (Parameter parameter : method.getParameters()) {
+                        allParameters.add(parameter);
+                    }
+                    /*
+                    allParameters.sort(new Comparator<Parameter>() {
+                        @Override
+                        public int compare(Parameter o1, Parameter o2) {
+                            return o1.getName().compareTo(o2.getName());
+                        }
+                    });
+                    */
+                    for (int i=0;i<allParameters.size();i++) {
+                        Parameter parameter = allParameters.get(i);
+                        js.print(parameter.getName()+": ");
+                        js.print(getJSClassType(clazz,parameter.getType()));
+                        if (i<allParameters.size()-1) {
+                            js.print(", ");
+                        }
+                    }
                     js.print(")");
-                    js.print(" : "+getJSClassType(clazz,method) +" ");
+                    js.print(" : " + getJSClassType(clazz, method) + " ");
                     js.println("{");
                     if (!getJSClassType(clazz,method).equals("void")) {
                         js.println(15, "return null;");
@@ -1448,10 +1480,45 @@ public class J2SwiftConverter {
         }
     }
 
+    private static String getJSClassType(Class clazz, Class paramClazz) {
+        Class returnType = paramClazz;
+        String returnTypeJS = "";
+        if (returnType.getSimpleName().equals("Map")) {
+            returnTypeJS = "Dictionary<string>";
+        } else if (returnType.isInterface()) {
+            returnTypeJS = returnType.getSimpleName();
+        } else if (returnType.isEnum()) {
+            returnTypeJS = clazz.getSimpleName() + returnType.getSimpleName() + "Enum";
+        } else if (returnType.isPrimitive()) {
+            returnTypeJS = getPrimitiveTypeTS(returnType);
+        } else if (returnType.equals(String.class)) {
+            returnTypeJS = "string";
+        } else if (returnType.equals(Object.class)) {
+            returnTypeJS = "any";
+        } else if (returnType.isArray()) {
+            if (returnType.getComponentType().isPrimitive()) {
+                returnTypeJS = "Array<" + getPrimitiveTypeTS(returnType.getComponentType()) + ">";
+            } else if (returnType.getComponentType().equals(String.class)) {
+                returnTypeJS = "Array<string>";
+            } else if (returnType.getComponentType().equals(Object.class)) {
+                returnTypeJS = "Array<any>";
+            } else if (returnType.getComponentType().isEnum()) {
+                returnTypeJS = "Array<"+clazz.getSimpleName() + returnType.getComponentType().getSimpleName()+"Enum>";
+            } else {
+                returnTypeJS = "Array<" +returnType.getComponentType().getSimpleName() + ">";
+            }
+        } else {
+            returnTypeJS = returnType.getSimpleName();
+        }
+        return returnTypeJS;
+    }
+
     private static String getJSClassType(Class clazz, Method method) {
         Class returnType = method.getReturnType();
         String returnTypeJS = "";
-        if (returnType.isInterface()) {
+        if (returnType.getSimpleName().equals("Map")) {
+            returnTypeJS = "Dictionary<string>";
+        } else if (returnType.isInterface()) {
             returnTypeJS = returnType.getSimpleName();
         } else if (returnType.isEnum()) {
             returnTypeJS = clazz.getSimpleName() + returnType.getSimpleName() + "Enum";
@@ -1632,6 +1699,25 @@ public class J2SwiftConverter {
         }
         fileManager.close();
         return success;
+    }
+
+    private static List<String> filteredList = new ArrayList<>();
+    static {
+        filteredList.add("IService");
+        filteredList.add("ILogging");
+        filteredList.add("IAppContext");
+        filteredList.add("IAppContextWebview");
+        filteredList.add("IAppRegistry");
+        filteredList.add("IAppResource");
+        filteredList.add("IAppResourceCallback");
+        filteredList.add("IAppResourceHandler");
+        filteredList.add("IAppServer");
+        filteredList.add("IAppServerListener");
+        filteredList.add("IAppServerManager");
+    }
+
+    private static boolean shouldGenerate(Class clazz) {
+        return !filteredList.contains(clazz.getSimpleName());
     }
 
     private static void jsAppendHeader(File targetFileJS) throws IOException {

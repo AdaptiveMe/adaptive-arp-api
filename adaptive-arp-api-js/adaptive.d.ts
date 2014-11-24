@@ -27,6 +27,26 @@ declare module Adaptive {
     interface IAdaptiveRP {
     }
     /**
+     *   Interface definition for IBaseUI
+     **/
+    interface IBaseUI extends IAdaptiveRP {
+    }
+    /**
+     *   Interface definition for IBaseSensor
+     **/
+    interface IBaseSensor extends IAdaptiveRP {
+    }
+    /**
+     *   Interface definition for IBasePIM
+     **/
+    interface IBasePIM extends IAdaptiveRP {
+    }
+    /**
+     *   Interface definition for IBaseSystem
+     **/
+    interface IBaseSystem extends IAdaptiveRP {
+    }
+    /**
      *   Interface definition for IAppResourceHandler
      **/
     interface IAppResourceHandler extends IAdaptiveRP {
@@ -36,34 +56,14 @@ declare module Adaptive {
         getResource(resourcePath: string, callback: IAppResourceCallback): any;
     }
     /**
-     *   Interface definition for IBaseSensor
-     **/
-    interface IBaseSensor extends IAdaptiveRP {
-    }
-    /**
-     *   Interface definition for IBaseUtil
-     **/
-    interface IBaseUtil extends IAdaptiveRP {
-    }
-    /**
-     *   Interface definition for IBasePIM
-     **/
-    interface IBasePIM extends IAdaptiveRP {
-    }
-    /**
-     *   Interface definition for IBaseMedia
-     **/
-    interface IBaseMedia extends IAdaptiveRP {
-    }
-    /**
-     *   Interface definition for IBaseUI
-     **/
-    interface IBaseUI extends IAdaptiveRP {
-    }
-    /**
      *   Interface definition for IBaseApplication
      **/
     interface IBaseApplication extends IAdaptiveRP {
+    }
+    /**
+     *   Interface definition for IBaseReader
+     **/
+    interface IBaseReader extends IAdaptiveRP {
     }
     /**
      *   Interface definition for IAppContextWebview
@@ -76,6 +76,11 @@ declare module Adaptive {
         getWebviewPrimary(): any;
         getWebviews(): any[];
         removeWebview(webView: any): any;
+    }
+    /**
+     *   Interface definition for IBaseNotification
+     **/
+    interface IBaseNotification extends IAdaptiveRP {
     }
     /**
      *   Interface definition for IAppServer
@@ -95,14 +100,14 @@ declare module Adaptive {
         stopServer(): any;
     }
     /**
-     *   Interface definition for IBaseSystem
-     **/
-    interface IBaseSystem extends IAdaptiveRP {
-    }
-    /**
      *   Interface definition for IBaseSocial
      **/
     interface IBaseSocial extends IAdaptiveRP {
+    }
+    /**
+     *   Interface definition for IBaseSecurity
+     **/
+    interface IBaseSecurity extends IAdaptiveRP {
     }
     /**
      *   Interface definition for IBaseData
@@ -110,9 +115,34 @@ declare module Adaptive {
     interface IBaseData extends IAdaptiveRP {
     }
     /**
-     *   Interface definition for IBaseNotification
+     *   Interface definition for IAppContext
      **/
-    interface IBaseNotification extends IAdaptiveRP {
+    interface IAppContext extends IAdaptiveRP {
+        /**
+         * Method Declarations for IAppContext
+         */
+        getContext(): any;
+        getContextType(): IAppContextTypeEnum;
+    }
+    /**
+     *  Enumerations for IAppContext Type
+     **/
+    class IAppContextTypeEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static iOS: IAppContextTypeEnum;
+        static OSX: IAppContextTypeEnum;
+        static Windows: IAppContextTypeEnum;
+        static WindowsPhone: IAppContextTypeEnum;
+        static Android: IAppContextTypeEnum;
+        static Linux: IAppContextTypeEnum;
+        static Blackberry: IAppContextTypeEnum;
+        static Tizen: IAppContextTypeEnum;
+        static FirefoxOS: IAppContextTypeEnum;
+        static Chromium: IAppContextTypeEnum;
+        static Unspecified: IAppContextTypeEnum;
+        static Unknown: IAppContextTypeEnum;
     }
     /**
      *   Interface definition for IBaseCommerce
@@ -120,21 +150,41 @@ declare module Adaptive {
     interface IBaseCommerce extends IAdaptiveRP {
     }
     /**
-     *   Interface definition for IBaseReader
+     *   Interface definition for IAppRegistry
      **/
-    interface IBaseReader extends IAdaptiveRP {
+    interface IAppRegistry extends IAdaptiveRP {
+        /**
+         * Method Declarations for IAppRegistry
+         */
+        getApplicationAnalytics(): IAnalytics;
+        getApplicationGlobalization(): IGlobalization;
+        getApplicationLifecycle(): ILifecycle;
+        getApplicationManagement(): IManagement;
+        getApplicationPrinting(): IPrinting;
+        getApplicationSettings(): ISettings;
+        getApplicationUpdate(): IUpdate;
+        getPlatformContext(): IAppContext;
+        getPlatformContextWeb(): IAppContextWebview;
+        getSystemCapabilities(): ICapabilities;
+        getSystemDevice(): IDevice;
+        getSystemDisplay(): IDisplay;
+        getSystemOS(): IOS;
+        getSystemRuntime(): IRuntime;
     }
     /**
-     *   Interface definition for IBaseListener
+     *   Interface definition for IBaseCallback
      **/
-    interface IBaseListener extends IAdaptiveRP {
+    interface IBaseCallback extends IAdaptiveRP {
         /**
-         * Method Declarations for IBaseListener
+         * Method Declarations for IBaseCallback
          */
         getId(): number;
         toString(): string;
     }
-    class BaseListener implements IBaseListener {
+    /**
+     *  Listener IBaseCallback implementation.
+     */
+    class BaseCallback implements IBaseCallback {
         description: string;
         id: number;
         constructor(id: number);
@@ -142,9 +192,9 @@ declare module Adaptive {
         getId(): number;
     }
     /**
-     *   Interface definition for IBaseSecurity
+     *   Interface definition for IBaseMedia
      **/
-    interface IBaseSecurity extends IAdaptiveRP {
+    interface IBaseMedia extends IAdaptiveRP {
     }
     /**
      *   Interface definition for IAppServerManager
@@ -162,6 +212,36 @@ declare module Adaptive {
         startServer(): any;
         stopServers(): any;
         stopServer(server: IAppServer): any;
+    }
+    /**
+     *   Interface definition for IBaseListener
+     **/
+    interface IBaseListener extends IAdaptiveRP {
+        /**
+         * Method Declarations for IBaseListener
+         */
+        getId(): number;
+        toString(): string;
+    }
+    /**
+     *  Listener IBaseListener implementation.
+     */
+    class BaseListener implements IBaseListener {
+        description: string;
+        id: number;
+        constructor(id: number);
+        toString(): string;
+        getId(): number;
+    }
+    /**
+     *   Interface definition for IBaseUtil
+     **/
+    interface IBaseUtil extends IAdaptiveRP {
+    }
+    /**
+     *   Interface definition for IBaseCommunication
+     **/
+    interface IBaseCommunication extends IAdaptiveRP {
     }
     /**
      *   Interface definition for IAppResource
@@ -229,78 +309,102 @@ declare module Adaptive {
         static Unknown: IAppResourceTypeEnum;
     }
     /**
-     *   Interface definition for IBaseCommunication
+     *   Interface definition for IDevice
      **/
-    interface IBaseCommunication extends IAdaptiveRP {
-    }
-    /**
-     *   Interface definition for IAppContext
-     **/
-    interface IAppContext extends IAdaptiveRP {
+    interface IDevice extends IBaseSystem {
         /**
-         * Method Declarations for IAppContext
+         * Method Declarations for IDevice
          */
-        getContext(): any;
-        getContextType(): IAppContextTypeEnum;
+        addButtonListener(listener: IButtonListener): any;
+        getDeviceInfo(): DeviceInfo;
+        getLocaleCurrent(): Locale;
+        removeButtonListener(listener: IButtonListener): any;
+        removeButtonListeners(): any;
     }
     /**
-     *  Enumerations for IAppContext Type
+     *  Service IDevice implementation.
+     */
+    class DeviceBridge implements IDevice {
+        constructor();
+        addButtonListener(listener: IButtonListener): void;
+        getDeviceInfo(): DeviceInfo;
+        getLocaleCurrent(): Locale;
+        removeButtonListener(listener: IButtonListener): void;
+        removeButtonListeners(): void;
+    }
+    /**
+     *   Interface definition for IMail
      **/
-    class IAppContextTypeEnum {
+    interface IMail extends IBasePIM {
+        /**
+         * Method Declarations for IMail
+         */
+        sendEmail(data: Email, callback: IMessagingCallback): any;
+    }
+    /**
+     *  Service IMail implementation.
+     */
+    class MailBridge implements IMail {
+        constructor();
+        sendEmail(data: Email, callback: IMessagingCallback): void;
+    }
+    /**
+     *   Interface definition for ISecureKVResultCallback
+     **/
+    interface ISecureKVResultCallback extends IBaseCallback {
+        /**
+         * Method Declarations for ISecureKVResultCallback
+         */
+        onError(error: ISecureKVResultCallbackErrorEnum): any;
+        onResult(keyValues: SecureKeyPair[]): any;
+        onWarning(keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum): any;
+    }
+    /**
+     *  Enumerations for ISecureKVResultCallback Error
+     **/
+    class ISecureKVResultCallbackErrorEnum {
         value: string;
         constructor(value: string);
         toString(): string;
-        static iOS: IAppContextTypeEnum;
-        static OSX: IAppContextTypeEnum;
-        static Windows: IAppContextTypeEnum;
-        static WindowsPhone: IAppContextTypeEnum;
-        static Android: IAppContextTypeEnum;
-        static Linux: IAppContextTypeEnum;
-        static Blackberry: IAppContextTypeEnum;
-        static Tizen: IAppContextTypeEnum;
-        static FirefoxOS: IAppContextTypeEnum;
-        static Chromium: IAppContextTypeEnum;
-        static Unspecified: IAppContextTypeEnum;
-        static Unknown: IAppContextTypeEnum;
+        static NoPermission: ISecureKVResultCallbackErrorEnum;
+        static NoMatchesFound: ISecureKVResultCallbackErrorEnum;
+        static Unknown: ISecureKVResultCallbackErrorEnum;
     }
     /**
-     *   Interface definition for IAppRegistry
+     *  Enumerations for ISecureKVResultCallback Warning
      **/
-    interface IAppRegistry extends IAdaptiveRP {
-        /**
-         * Method Declarations for IAppRegistry
-         */
-        getApplicationAnalytics(): IAnalytics;
-        getApplicationGlobalization(): IGlobalization;
-        getApplicationLifecycle(): ILifecycle;
-        getApplicationManagement(): IManagement;
-        getApplicationPrinting(): IPrinting;
-        getApplicationSettings(): ISettings;
-        getApplicationUpdate(): IUpdate;
-        getPlatformContext(): IAppContext;
-        getPlatformContextWeb(): IAppContextWebview;
-        getSystemCapabilities(): ICapabilities;
-        getSystemDevice(): IDevice;
-        getSystemDisplay(): IDisplay;
-        getSystemOS(): IOS;
-        getSystemRuntime(): IRuntime;
-    }
-    /**
-     *   Interface definition for IBaseCallback
-     **/
-    interface IBaseCallback extends IAdaptiveRP {
-        /**
-         * Method Declarations for IBaseCallback
-         */
-        getId(): number;
+    class ISecureKVResultCallbackWarningEnum {
+        value: string;
+        constructor(value: string);
         toString(): string;
+        static EntryOverride: ISecureKVResultCallbackWarningEnum;
+        static Unknown: ISecureKVResultCallbackWarningEnum;
     }
-    class BaseCallback implements IBaseCallback {
+    /**
+     *  Listener ISecureKVResultCallback implementation.
+     */
+    class SecureKVResultCallback implements ISecureKVResultCallback {
         description: string;
         id: number;
-        constructor(id: number);
+        onErrorFunction: (error: ISecureKVResultCallbackErrorEnum) => Function;
+        onResultFunction: (keyValues: SecureKeyPair[]) => Function;
+        onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: ISecureKVResultCallbackErrorEnum) => Function, onResultFunction: (keyValues: SecureKeyPair[]) => Function, onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: ISecureKVResultCallbackErrorEnum): void;
+        onResult(keyValues: SecureKeyPair[]): void;
+        onWarning(keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum): void;
+    }
+    /**
+     *   Interface definition for INetworkStatus
+     **/
+    interface INetworkStatus extends IBaseCommunication {
+    }
+    /**
+     *   Interface definition for ICrypto
+     **/
+    interface ICrypto extends IBaseUtil {
     }
     /**
      *   Interface definition for IInternalStorage
@@ -308,29 +412,205 @@ declare module Adaptive {
     interface IInternalStorage extends IBaseData {
     }
     /**
-     *   Interface definition for ITelephony
+     *   Interface definition for IFileResultCallback
      **/
-    interface ITelephony extends IBaseCommunication {
+    interface IFileResultCallback extends IBaseCallback {
         /**
-         * Method Declarations for ITelephony
+         * Method Declarations for IFileResultCallback
          */
-        call(number: string): ITelephonyStatusEnum;
+        onError(error: IFileResultCallbackErrorEnum): any;
+        onResult(storageFile: IFile): any;
+        onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum): any;
     }
     /**
-     *  Enumerations for ITelephony Status
+     *  Enumerations for IFileResultCallback Error
      **/
-    class ITelephonyStatusEnum {
+    class IFileResultCallbackErrorEnum {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Dialing: ITelephonyStatusEnum;
-        static Failed: ITelephonyStatusEnum;
-        static Unknown: ITelephonyStatusEnum;
+        static FileExists: IFileResultCallbackErrorEnum;
+        static InsufficientSpace: IFileResultCallbackErrorEnum;
+        static Unauthorized: IFileResultCallbackErrorEnum;
+        static Unknown: IFileResultCallbackErrorEnum;
+    }
+    /**
+     *  Enumerations for IFileResultCallback Warning
+     **/
+    class IFileResultCallbackWarningEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static SourceNotDeleted: IFileResultCallbackWarningEnum;
+        static RootDirectory: IFileResultCallbackWarningEnum;
+        static Unknown: IFileResultCallbackWarningEnum;
+    }
+    /**
+     *  Listener IFileResultCallback implementation.
+     */
+    class FileResultCallback implements IFileResultCallback {
+        description: string;
+        id: number;
+        onErrorFunction: (error: IFileResultCallbackErrorEnum) => Function;
+        onResultFunction: (storageFile: IFile) => Function;
+        onWarningFunction: (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IFileResultCallbackErrorEnum) => Function, onResultFunction: (storageFile: IFile) => Function, onWarningFunction: (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function);
+        toString(): string;
+        getId(): number;
+        onError(error: IFileResultCallbackErrorEnum): void;
+        onResult(storageFile: IFile): void;
+        onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum): void;
+    }
+    /**
+     *   Interface definition for IManagement
+     **/
+    interface IManagement extends IBaseApplication {
+    }
+    /**
+     *   Interface definition for IUI
+     **/
+    interface IUI extends IBaseUI {
+    }
+    /**
+     *   Interface definition for IQRCode
+     **/
+    interface IQRCode extends IBaseReader {
+    }
+    /**
+     *   Interface definition for INotification
+     **/
+    interface INotification extends IBaseNotification {
+    }
+    /**
+     *   Interface definition for IVibration
+     **/
+    interface IVibration extends IBaseNotification {
+    }
+    /**
+     *   Interface definition for IBarcode
+     **/
+    interface IBarcode extends IBaseReader {
+    }
+    /**
+     *   Interface definition for ILifecycleListener
+     **/
+    interface ILifecycleListener extends IBaseListener {
+        /**
+         * Method Declarations for ILifecycleListener
+         */
+        onError(error: ILifecycleListenerErrorEnum): any;
+        onResult(lifecycle: Lifecycle): any;
+        onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum): any;
+    }
+    /**
+     *  Enumerations for ILifecycleListener Error
+     **/
+    class ILifecycleListenerErrorEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Runtime: ILifecycleListenerErrorEnum;
+        static Implementation: ILifecycleListenerErrorEnum;
+        static Killed: ILifecycleListenerErrorEnum;
+        static Unknown: ILifecycleListenerErrorEnum;
+    }
+    /**
+     *  Enumerations for ILifecycleListener Warning
+     **/
+    class ILifecycleListenerWarningEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static MemoryLow: ILifecycleListenerWarningEnum;
+        static BatteryLow: ILifecycleListenerWarningEnum;
+        static Unknown: ILifecycleListenerWarningEnum;
+    }
+    /**
+     *  Listener ILifecycleListener implementation.
+     */
+    class LifecycleListener implements ILifecycleListener {
+        description: string;
+        id: number;
+        onErrorFunction: (error: ILifecycleListenerErrorEnum) => Function;
+        onResultFunction: (lifecycle: Lifecycle) => Function;
+        onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: ILifecycleListenerErrorEnum) => Function, onResultFunction: (lifecycle: Lifecycle) => Function, onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function);
+        toString(): string;
+        getId(): number;
+        onError(error: ILifecycleListenerErrorEnum): void;
+        onResult(lifecycle: Lifecycle): void;
+        onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum): void;
+    }
+    /**
+     *   Interface definition for ICloud
+     **/
+    interface ICloud extends IBaseData {
     }
     /**
      *   Interface definition for ICompression
      **/
     interface ICompression extends IBaseUtil {
+    }
+    /**
+     *   Interface definition for IDataStream
+     **/
+    interface IDataStream extends IBaseData {
+    }
+    /**
+     *   Interface definition for IConcurrent
+     **/
+    interface IConcurrent extends IBaseUtil {
+    }
+    /**
+     *   Interface definition for ISession
+     **/
+    interface ISession extends IBaseCommunication {
+        /**
+         * Method Declarations for ISession
+         */
+        getAttribute(name: string): any;
+        getAttributes(): any[];
+        getCookies(): Cookie[];
+        listAttributeNames(): string[];
+        removeAttribute(name: string): any;
+        removeAttributes(): any;
+        removeCookie(cookie: Cookie): any;
+        removeCookies(cookies: Cookie[]): any;
+        setAttribute(name: string, value: any): any;
+        setCookie(cookie: Cookie): any;
+        setCookies(cookies: Cookie[]): any;
+    }
+    /**
+     *  Service ISession implementation.
+     */
+    class SessionBridge implements ISession {
+        constructor();
+        getAttribute(name: string): any;
+        getAttributes(): any[];
+        getCookies(): Cookie[];
+        listAttributeNames(): string[];
+        removeAttribute(name: string): void;
+        removeAttributes(): void;
+        removeCookie(cookie: Cookie): void;
+        removeCookies(cookies: Cookie[]): void;
+        setAttribute(name: string, value: any): void;
+        setCookie(cookie: Cookie): void;
+        setCookies(cookies: Cookie[]): void;
+    }
+    /**
+     *   Interface definition for IAppServerListener
+     **/
+    interface IAppServerListener extends IBaseListener {
+        /**
+         * Method Declarations for IAppServerListener
+         */
+        onPaused(server: IAppServer): any;
+        onPausing(server: IAppServer): any;
+        onResumed(server: IAppServer): any;
+        onResuming(server: IAppServer): any;
+        onStart(server: IAppServer): any;
+        onStopped(server: IAppServer): any;
+        onStopping(server: IAppServer): any;
     }
     /**
      *   Interface definition for INetworkReachabilityCallback
@@ -377,6 +657,9 @@ declare module Adaptive {
         static NotRegisteredService: INetworkReachabilityCallbackWarningEnum;
         static Unknown: INetworkReachabilityCallbackWarningEnum;
     }
+    /**
+     *  Listener INetworkReachabilityCallback implementation.
+     */
     class NetworkReachabilityCallback implements INetworkReachabilityCallback {
         description: string;
         id: number;
@@ -391,24 +674,142 @@ declare module Adaptive {
         onWarning(result: string, warning: INetworkReachabilityCallbackWarningEnum): void;
     }
     /**
-     *   Interface definition for IProximity
+     *   Interface definition for IAccelerationListener
      **/
-    interface IProximity extends IBaseSensor {
+    interface IAccelerationListener extends IBaseListener {
+        /**
+         * Method Declarations for IAccelerationListener
+         */
+        onError(error: IAccelerationListenerErrorEnum): any;
+        onResult(acceleration: Acceleration): any;
+        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum): any;
     }
     /**
-     *   Interface definition for IManagement
+     *  Enumerations for IAccelerationListener Error
      **/
-    interface IManagement extends IBaseApplication {
+    class IAccelerationListenerErrorEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Unauthorized: IAccelerationListenerErrorEnum;
+        static Unavailable: IAccelerationListenerErrorEnum;
+        static Unknown: IAccelerationListenerErrorEnum;
     }
     /**
-     *   Interface definition for IPrinting
+     *  Enumerations for IAccelerationListener Warning
      **/
-    interface IPrinting extends IBaseApplication {
+    class IAccelerationListenerWarningEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static NeedsCalibration: IAccelerationListenerWarningEnum;
+        static Stale: IAccelerationListenerWarningEnum;
+        static Unknown: IAccelerationListenerWarningEnum;
     }
     /**
-     *   Interface definition for IAnalytics
+     *  Listener IAccelerationListener implementation.
+     */
+    class AccelerationListener implements IAccelerationListener {
+        description: string;
+        id: number;
+        onErrorFunction: (error: IAccelerationListenerErrorEnum) => Function;
+        onResultFunction: (acceleration: Acceleration) => Function;
+        onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IAccelerationListenerErrorEnum) => Function, onResultFunction: (acceleration: Acceleration) => Function, onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function);
+        toString(): string;
+        getId(): number;
+        onError(error: IAccelerationListenerErrorEnum): void;
+        onResult(acceleration: Acceleration): void;
+        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum): void;
+    }
+    /**
+     *   Interface definition for IDatabase
      **/
-    interface IAnalytics extends IBaseApplication {
+    interface IDatabase extends IBaseData {
+        /**
+         * Method Declarations for IDatabase
+         */
+        createDatabase(database: Database, callback: IDatabaseResultCallback): any;
+        createTable(database: Database, table: Table, callback: ITableResultCallback): any;
+        deleteDatabase(database: Database, callback: IDatabaseResultCallback): any;
+        deleteTable(database: Database, table: Table, callback: ITableResultCallback): any;
+        executeSqlQuery(database: Database, query: string, replacements: String[], callback: ITableResultCallback): any;
+        executeSqlStatement(database: Database, statement: string, replacements: String[], callback: ITableResultCallback): any;
+        executeSqlTransactions(database: Database, statements: String[], rollbackFlag: boolean, callback: ITableResultCallback): any;
+        existsDatabase(database: Database): boolean;
+        existsTable(database: Database, table: Table): boolean;
+    }
+    /**
+     *  Service IDatabase implementation.
+     */
+    class DatabaseBridge implements IDatabase {
+        constructor();
+        createDatabase(database: Database, callback: IDatabaseResultCallback): void;
+        createTable(database: Database, table: Table, callback: ITableResultCallback): void;
+        deleteDatabase(database: Database, callback: IDatabaseResultCallback): void;
+        deleteTable(database: Database, table: Table, callback: ITableResultCallback): void;
+        executeSqlQuery(database: Database, query: string, replacements: string[], callback: ITableResultCallback): void;
+        executeSqlStatement(database: Database, statement: string, replacements: string[], callback: ITableResultCallback): void;
+        executeSqlTransactions(database: Database, statements: string[], rollbackFlag: boolean, callback: ITableResultCallback): void;
+        existsDatabase(database: Database): boolean;
+        existsTable(database: Database, table: Table): boolean;
+    }
+    /**
+     *   Interface definition for INetworkNaming
+     **/
+    interface INetworkNaming extends IBaseCommunication {
+    }
+    /**
+     *   Interface definition for IButtonListener
+     **/
+    interface IButtonListener extends IBaseListener {
+        /**
+         * Method Declarations for IButtonListener
+         */
+        onError(error: IButtonListenerErrorEnum): any;
+        onResult(button: Button): any;
+        onWarning(button: Button, warning: IButtonListenerWarningEnum): any;
+    }
+    /**
+     *  Enumerations for IButtonListener Error
+     **/
+    class IButtonListenerErrorEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Not_Present: IButtonListenerErrorEnum;
+        static Unknown: IButtonListenerErrorEnum;
+    }
+    /**
+     *  Enumerations for IButtonListener Warning
+     **/
+    class IButtonListenerWarningEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Not_Implemented: IButtonListenerWarningEnum;
+        static Unknown: IButtonListenerWarningEnum;
+    }
+    /**
+     *  Listener IButtonListener implementation.
+     */
+    class ButtonListener implements IButtonListener {
+        description: string;
+        id: number;
+        onErrorFunction: (error: IButtonListenerErrorEnum) => Function;
+        onResultFunction: (button: Button) => Function;
+        onWarningFunction: (button: Button, warning: IButtonListenerWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IButtonListenerErrorEnum) => Function, onResultFunction: (button: Button) => Function, onWarningFunction: (button: Button, warning: IButtonListenerWarningEnum) => Function);
+        toString(): string;
+        getId(): number;
+        onError(error: IButtonListenerErrorEnum): void;
+        onResult(button: Button): void;
+        onWarning(button: Button, warning: IButtonListenerWarningEnum): void;
+    }
+    /**
+     *   Interface definition for IBarometer
+     **/
+    interface IBarometer extends IBaseSensor {
     }
     /**
      *   Interface definition for IAds
@@ -416,111 +817,68 @@ declare module Adaptive {
     interface IAds extends IBaseCommerce {
     }
     /**
-     *   Interface definition for IConcurrent
+     *   Interface definition for IAudio
      **/
-    interface IConcurrent extends IBaseUtil {
+    interface IAudio extends IBaseMedia {
     }
     /**
-     *   Interface definition for IFileSystem
+     *   Interface definition for IOCR
      **/
-    interface IFileSystem extends IBaseData {
+    interface IOCR extends IBaseReader {
+    }
+    /**
+     *   Interface definition for IContactResultCallback
+     **/
+    interface IContactResultCallback extends IBaseCallback {
         /**
-         * Method Declarations for IFileSystem
+         * Method Declarations for IContactResultCallback
          */
-        create(name: string, callback: IFileResultCallback): any;
-        create(path: IFilePath, name: string, callback: IFileResultCallback): any;
-        create(path: string, name: string, callback: IFileResultCallback): any;
-        getApplicationCacheFolder(): IFilePath;
-        getApplicationDocumentsFolder(): IFilePath;
-        getApplicationFolder(): IFilePath;
-        getPath(file: IFile): string;
-        getPath(path: IFilePath): string;
-        getSeparator(): string;
-        isSameFile(source: IFile, dest: IFile): boolean;
-        isSamePath(source: IFilePath, dest: IFilePath): boolean;
-        toPath(path: IFile): IFilePath;
+        onError(error: IContactResultCallbackErrorEnum): any;
+        onResult(contacts: Contact[]): any;
+        onWarning(contacts: Contact[], warning: IContactResultCallbackWarningEnum): any;
     }
     /**
-     *   Interface definition for IServiceResultCallback
+     *  Enumerations for IContactResultCallback Error
      **/
-    interface IServiceResultCallback extends IBaseCallback {
-        /**
-         * Method Declarations for IServiceResultCallback
-         */
-        onError(error: IServiceResultCallbackErrorEnum): any;
-        onResult(response: ServiceResponse): any;
-        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum): any;
-    }
-    /**
-     *  Enumerations for IServiceResultCallback Error
-     **/
-    class IServiceResultCallbackErrorEnum {
+    class IContactResultCallbackErrorEnum {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Forbidden: IServiceResultCallbackErrorEnum;
-        static NotFound: IServiceResultCallbackErrorEnum;
-        static MethodNotAllowed: IServiceResultCallbackErrorEnum;
-        static NotAllowed: IServiceResultCallbackErrorEnum;
-        static NotAuthenticated: IServiceResultCallbackErrorEnum;
-        static TimeOut: IServiceResultCallbackErrorEnum;
-        static NoResponse: IServiceResultCallbackErrorEnum;
-        static ServerError: IServiceResultCallbackErrorEnum;
-        static Unreachable: IServiceResultCallbackErrorEnum;
-        static MalformedUrl: IServiceResultCallbackErrorEnum;
-        static NotRegisteredService: IServiceResultCallbackErrorEnum;
-        static Unknown: IServiceResultCallbackErrorEnum;
+        static NoPermission: IContactResultCallbackErrorEnum;
+        static Wrong_Params: IContactResultCallbackErrorEnum;
+        static Unknown: IContactResultCallbackErrorEnum;
     }
     /**
-     *  Enumerations for IServiceResultCallback Warning
+     *  Enumerations for IContactResultCallback Warning
      **/
-    class IServiceResultCallbackWarningEnum {
+    class IContactResultCallbackWarningEnum {
         value: string;
         constructor(value: string);
         toString(): string;
-        static NotSecure: IServiceResultCallbackWarningEnum;
-        static NotTrusted: IServiceResultCallbackWarningEnum;
-        static Redirected: IServiceResultCallbackWarningEnum;
-        static Wrong_Params: IServiceResultCallbackWarningEnum;
-        static Unknown: IServiceResultCallbackWarningEnum;
+        static LimitExceeded: IContactResultCallbackWarningEnum;
+        static No_Matches: IContactResultCallbackWarningEnum;
+        static Unknown: IContactResultCallbackWarningEnum;
     }
-    class ServiceResultCallback implements IServiceResultCallback {
+    /**
+     *  Listener IContactResultCallback implementation.
+     */
+    class ContactResultCallback implements IContactResultCallback {
         description: string;
         id: number;
-        onErrorFunction: (error: IServiceResultCallbackErrorEnum) => Function;
-        onResultFunction: (response: ServiceResponse) => Function;
-        onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function;
-        constructor(id: number, onErrorFunction: (error: IServiceResultCallbackErrorEnum) => Function, onResultFunction: (response: ServiceResponse) => Function, onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function);
+        onErrorFunction: (error: IContactResultCallbackErrorEnum) => Function;
+        onResultFunction: (contacts: Contact[]) => Function;
+        onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IContactResultCallbackErrorEnum) => Function, onResultFunction: (contacts: Contact[]) => Function, onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
-        onError(error: IServiceResultCallbackErrorEnum): void;
-        onResult(response: ServiceResponse): void;
-        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum): void;
+        onError(error: IContactResultCallbackErrorEnum): void;
+        onResult(contacts: Contact[]): void;
+        onWarning(contacts: Contact[], warning: IContactResultCallbackWarningEnum): void;
     }
     /**
-     *   Interface definition for IDesktop
+     *   Interface definition for ITwitter
      **/
-    interface IDesktop extends IBaseUI {
-    }
-    /**
-     *   Interface definition for INetworkInfo
-     **/
-    interface INetworkInfo extends IBaseCommunication {
-    }
-    /**
-     *   Interface definition for IGooglePlus
-     **/
-    interface IGooglePlus extends IBaseSocial {
-    }
-    /**
-     *   Interface definition for ICloud
-     **/
-    interface ICloud extends IBaseData {
-    }
-    /**
-     *   Interface definition for ISettings
-     **/
-    interface ISettings extends IBaseApplication {
+    interface ITwitter extends IBaseSocial {
     }
     /**
      *   Interface definition for IBrowser
@@ -532,9 +890,54 @@ declare module Adaptive {
         openBrowser(url: string, title: string, buttonText: string): boolean;
     }
     /**
+     *  Service IBrowser implementation.
+     */
+    class BrowserBridge implements IBrowser {
+        constructor();
+        openBrowser(url: string, title: string, buttonText: string): boolean;
+    }
+    /**
+     *   Interface definition for IUpdate
+     **/
+    interface IUpdate extends IBaseApplication {
+    }
+    /**
+     *   Interface definition for INetworkReachability
+     **/
+    interface INetworkReachability extends IBaseCommunication {
+        /**
+         * Method Declarations for INetworkReachability
+         */
+        isNetworkReachable(host: string, callback: INetworkReachabilityCallback): any;
+        isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback): any;
+    }
+    /**
+     *  Service INetworkReachability implementation.
+     */
+    class NetworkReachabilityBridge implements INetworkReachability {
+        constructor();
+        isNetworkReachable(host: string, callback: INetworkReachabilityCallback): void;
+        isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback): void;
+    }
+    /**
+     *   Interface definition for ILinkedIn
+     **/
+    interface ILinkedIn extends IBaseSocial {
+    }
+    /**
+     *   Interface definition for ISocket
+     **/
+    interface ISocket extends IBaseCommunication {
+    }
+    /**
      *   Interface definition for IRSS
      **/
     interface IRSS extends IBaseSocial {
+    }
+    /**
+     *   Interface definition for IBluetooth
+     **/
+    interface IBluetooth extends IBaseCommunication {
     }
     /**
      *   Interface definition for IGeolocationListener
@@ -571,6 +974,9 @@ declare module Adaptive {
         static StaleData: IGeolocationListenerWarningEnum;
         static Unknown: IGeolocationListenerWarningEnum;
     }
+    /**
+     *  Listener IGeolocationListener implementation.
+     */
     class GeolocationListener implements IGeolocationListener {
         description: string;
         id: number;
@@ -585,50 +991,150 @@ declare module Adaptive {
         onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarningEnum): void;
     }
     /**
-     *   Interface definition for IContactResultCallback
+     *   Interface definition for IContactPhotoResultCallback
      **/
-    interface IContactResultCallback extends IBaseCallback {
+    interface IContactPhotoResultCallback extends IBaseCallback {
         /**
-         * Method Declarations for IContactResultCallback
+         * Method Declarations for IContactPhotoResultCallback
          */
-        onError(error: IContactResultCallbackErrorEnum): any;
-        onResult(contacts: Contact[]): any;
-        onWarning(contacts: Contact[], warning: IContactResultCallbackWarningEnum): any;
+        onError(error: IContactPhotoResultCallbackErrorEnum): any;
+        onResult(contactPhoto: number[]): any;
+        onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum): any;
     }
     /**
-     *  Enumerations for IContactResultCallback Error
+     *  Enumerations for IContactPhotoResultCallback Error
      **/
-    class IContactResultCallbackErrorEnum {
+    class IContactPhotoResultCallbackErrorEnum {
         value: string;
         constructor(value: string);
         toString(): string;
-        static NoPermission: IContactResultCallbackErrorEnum;
-        static Wrong_Params: IContactResultCallbackErrorEnum;
-        static Unknown: IContactResultCallbackErrorEnum;
+        static NoPermission: IContactPhotoResultCallbackErrorEnum;
+        static Wrong_Params: IContactPhotoResultCallbackErrorEnum;
+        static No_Photo: IContactPhotoResultCallbackErrorEnum;
+        static Unknown: IContactPhotoResultCallbackErrorEnum;
     }
     /**
-     *  Enumerations for IContactResultCallback Warning
+     *  Enumerations for IContactPhotoResultCallback Warning
      **/
-    class IContactResultCallbackWarningEnum {
+    class IContactPhotoResultCallbackWarningEnum {
         value: string;
         constructor(value: string);
         toString(): string;
-        static LimitExceeded: IContactResultCallbackWarningEnum;
-        static No_Matches: IContactResultCallbackWarningEnum;
-        static Unknown: IContactResultCallbackWarningEnum;
+        static LimitExceeded: IContactPhotoResultCallbackWarningEnum;
+        static No_Matches: IContactPhotoResultCallbackWarningEnum;
+        static Unknown: IContactPhotoResultCallbackWarningEnum;
     }
-    class ContactResultCallback implements IContactResultCallback {
+    /**
+     *  Listener IContactPhotoResultCallback implementation.
+     */
+    class ContactPhotoResultCallback implements IContactPhotoResultCallback {
         description: string;
         id: number;
-        onErrorFunction: (error: IContactResultCallbackErrorEnum) => Function;
-        onResultFunction: (contacts: Contact[]) => Function;
-        onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarningEnum) => Function;
-        constructor(id: number, onErrorFunction: (error: IContactResultCallbackErrorEnum) => Function, onResultFunction: (contacts: Contact[]) => Function, onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarningEnum) => Function);
+        onErrorFunction: (error: IContactPhotoResultCallbackErrorEnum) => Function;
+        onResultFunction: (contactPhoto: number[]) => Function;
+        onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IContactPhotoResultCallbackErrorEnum) => Function, onResultFunction: (contactPhoto: number[]) => Function, onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
-        onError(error: IContactResultCallbackErrorEnum): void;
-        onResult(contacts: Contact[]): void;
-        onWarning(contacts: Contact[], warning: IContactResultCallbackWarningEnum): void;
+        onError(error: IContactPhotoResultCallbackErrorEnum): void;
+        onResult(contactPhoto: number[]): void;
+        onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum): void;
+    }
+    /**
+     *   Interface definition for ILifecycle
+     **/
+    interface ILifecycle extends IBaseApplication {
+        /**
+         * Method Declarations for ILifecycle
+         */
+        addLifecycleListener(listener: ILifecycleListener): any;
+        isBackground(): boolean;
+        removeLifecycleListener(listener: ILifecycleListener): any;
+        removeLifecycleListeners(): any;
+    }
+    /**
+     *  Service ILifecycle implementation.
+     */
+    class LifecycleBridge implements ILifecycle {
+        constructor();
+        addLifecycleListener(listener: ILifecycleListener): void;
+        isBackground(): boolean;
+        removeLifecycleListener(listener: ILifecycleListener): void;
+        removeLifecycleListeners(): void;
+    }
+    /**
+     *   Interface definition for IFileSystem
+     **/
+    interface IFileSystem extends IBaseData {
+        /**
+         * Method Declarations for IFileSystem
+         */
+        createWithPathString(path: string, name: string, callback: IFileResultCallback): any;
+        createWithPath(path: IFilePath, name: string, callback: IFileResultCallback): any;
+        create(name: string, callback: IFileResultCallback): any;
+        getApplicationCacheFolder(): IFilePath;
+        getApplicationDocumentsFolder(): IFilePath;
+        getApplicationFolder(): IFilePath;
+        getPathForFile(file: IFile): string;
+        getPathForPath(path: IFilePath): string;
+        getSeparator(): string;
+        isSameFile(source: IFile, dest: IFile): boolean;
+        isSamePath(source: IFilePath, dest: IFilePath): boolean;
+        toPath(path: IFile): IFilePath;
+    }
+    /**
+     *  Service IFileSystem implementation.
+     */
+    class FileSystemBridge implements IFileSystem {
+        constructor();
+        create(name: string, callback: IFileResultCallback): void;
+        createWithPath(path: IFilePath, name: string, callback: IFileResultCallback): void;
+        createWithPathString(path: string, name: string, callback: IFileResultCallback): void;
+        getApplicationCacheFolder(): IFilePath;
+        getApplicationDocumentsFolder(): IFilePath;
+        getApplicationFolder(): IFilePath;
+        getPathForFile(file: IFile): string;
+        getPathForPath(path: IFilePath): string;
+        getSeparator(): string;
+        isSameFile(source: IFile, dest: IFile): boolean;
+        isSamePath(source: IFilePath, dest: IFilePath): boolean;
+        toPath(path: IFile): IFilePath;
+    }
+    /**
+     *   Interface definition for INetworkInfo
+     **/
+    interface INetworkInfo extends IBaseCommunication {
+    }
+    /**
+     *   Interface definition for IOS
+     **/
+    interface IOS extends IBaseSystem {
+        /**
+         * Method Declarations for IOS
+         */
+        getOSInfo(): OSInfo;
+    }
+    /**
+     *  Service IOS implementation.
+     */
+    class OSBridge implements IOS {
+        constructor();
+        getOSInfo(): OSInfo;
+    }
+    /**
+     *   Interface definition for IPrinting
+     **/
+    interface IPrinting extends IBaseApplication {
+    }
+    /**
+     *   Interface definition for IGooglePlus
+     **/
+    interface IGooglePlus extends IBaseSocial {
+    }
+    /**
+     *   Interface definition for IAmbientLight
+     **/
+    interface IAmbientLight extends IBaseSensor {
     }
     /**
      *   Interface definition for INotificationLocal
@@ -636,9 +1142,161 @@ declare module Adaptive {
     interface INotificationLocal extends IBaseNotification {
     }
     /**
-     *   Interface definition for IAudio
+     *   Interface definition for IContact
      **/
-    interface IAudio extends IBaseMedia {
+    interface IContact extends IBasePIM {
+        /**
+         * Method Declarations for IContact
+         */
+        getContactPhoto(contact: ContactUid, callback: IContactPhotoResultCallback): any;
+        getContact(contact: ContactUid, callback: IContactResultCallback): any;
+        getContactsForFields(callback: IContactResultCallback, fields: IContactFieldGroupEnum[]): any;
+        getContactsWithFilter(callback: IContactResultCallback, fields: IContactFieldGroupEnum[], filter: IContactFilterEnum[]): any;
+        getContacts(callback: IContactResultCallback): any;
+        searchContactsWithFilter(term: string, callback: IContactResultCallback, filter: IContactFilterEnum[]): any;
+        searchContacts(term: string, callback: IContactResultCallback): any;
+        setContactPhoto(contact: ContactUid, pngImage: number[]): boolean;
+    }
+    /**
+     *  Enumerations for IContact FieldGroup
+     **/
+    class IContactFieldGroupEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static PERSONAL_INFO: IContactFieldGroupEnum;
+        static PROFESSIONAL_INFO: IContactFieldGroupEnum;
+        static ADDRESSES: IContactFieldGroupEnum;
+        static PHONES: IContactFieldGroupEnum;
+        static EMAILS: IContactFieldGroupEnum;
+        static WEBSITES: IContactFieldGroupEnum;
+        static SOCIALS: IContactFieldGroupEnum;
+        static TAGS: IContactFieldGroupEnum;
+        static Unknown: IContactFieldGroupEnum;
+    }
+    /**
+     *  Enumerations for IContact Filter
+     **/
+    class IContactFilterEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static HAS_PHONE: IContactFilterEnum;
+        static HAS_EMAIL: IContactFilterEnum;
+        static HAS_ADDRESS: IContactFilterEnum;
+        static Unknown: IContactFilterEnum;
+    }
+    /**
+     *  Service IContact implementation.
+     */
+    class ContactBridge implements IContact {
+        constructor();
+        getContact(contact: ContactUid, callback: IContactResultCallback): void;
+        getContactPhoto(contact: ContactUid, callback: IContactPhotoResultCallback): void;
+        getContacts(callback: IContactResultCallback): void;
+        getContactsForFields(callback: IContactResultCallback, fields: IContactFieldGroupEnum[]): void;
+        getContactsWithFilter(callback: IContactResultCallback, fields: IContactFieldGroupEnum[], filter: IContactFilterEnum[]): void;
+        searchContacts(term: string, callback: IContactResultCallback): void;
+        searchContactsWithFilter(term: string, callback: IContactResultCallback, filter: IContactFilterEnum[]): void;
+        setContactPhoto(contact: ContactUid, pngImage: number[]): boolean;
+    }
+    /**
+     *   Interface definition for ILogging
+     **/
+    interface ILogging extends IBaseUtil {
+        /**
+         * Method Declarations for ILogging
+         */
+        log(level: ILoggingLogLevelEnum, message: string): any;
+        log(level: ILoggingLogLevelEnum, category: string, message: string): any;
+    }
+    /**
+     *  Enumerations for ILogging LogLevel
+     **/
+    class ILoggingLogLevelEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static DEBUG: ILoggingLogLevelEnum;
+        static WARN: ILoggingLogLevelEnum;
+        static ERROR: ILoggingLogLevelEnum;
+        static INFO: ILoggingLogLevelEnum;
+        static Unknown: ILoggingLogLevelEnum;
+    }
+    /**
+     *   Interface definition for IStore
+     **/
+    interface IStore extends IBaseCommerce {
+    }
+    /**
+     *   Interface definition for IRuntime
+     **/
+    interface IRuntime extends IBaseSystem {
+        /**
+         * Method Declarations for IRuntime
+         */
+        dismissApplication(): any;
+        dismissSplashScreen(): boolean;
+    }
+    /**
+     *  Service IRuntime implementation.
+     */
+    class RuntimeBridge implements IRuntime {
+        constructor();
+        dismissApplication(): void;
+        dismissSplashScreen(): boolean;
+    }
+    /**
+     *   Interface definition for IMessagingCallback
+     **/
+    interface IMessagingCallback extends IBaseCallback {
+        /**
+         * Method Declarations for IMessagingCallback
+         */
+        onError(error: IMessagingCallbackErrorEnum): any;
+        onResult(success: boolean): any;
+        onWarning(success: boolean, warning: IMessagingCallbackWarningEnum): any;
+    }
+    /**
+     *  Enumerations for IMessagingCallback Error
+     **/
+    class IMessagingCallbackErrorEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static SIMNotPresent: IMessagingCallbackErrorEnum;
+        static EmailAccountNotFound: IMessagingCallbackErrorEnum;
+        static NotSent: IMessagingCallbackErrorEnum;
+        static WrongParams: IMessagingCallbackErrorEnum;
+        static NotSupported: IMessagingCallbackErrorEnum;
+        static Unknown: IMessagingCallbackErrorEnum;
+    }
+    /**
+     *  Enumerations for IMessagingCallback Warning
+     **/
+    class IMessagingCallbackWarningEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static UnableToSentAll: IMessagingCallbackWarningEnum;
+        static UnableToFetchAttachment: IMessagingCallbackWarningEnum;
+        static Unknown: IMessagingCallbackWarningEnum;
+    }
+    /**
+     *  Listener IMessagingCallback implementation.
+     */
+    class MessagingCallback implements IMessagingCallback {
+        description: string;
+        id: number;
+        onErrorFunction: (error: IMessagingCallbackErrorEnum) => Function;
+        onResultFunction: (success: boolean) => Function;
+        onWarningFunction: (success: boolean, warning: IMessagingCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IMessagingCallbackErrorEnum) => Function, onResultFunction: (success: boolean) => Function, onWarningFunction: (success: boolean, warning: IMessagingCallbackWarningEnum) => Function);
+        toString(): string;
+        getId(): number;
+        onError(error: IMessagingCallbackErrorEnum): void;
+        onResult(success: boolean): void;
+        onWarning(success: boolean, warning: IMessagingCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for IDatabaseResultCallback
@@ -674,6 +1332,9 @@ declare module Adaptive {
         static IsOpen: IDatabaseResultCallbackWarningEnum;
         static Unknown: IDatabaseResultCallbackWarningEnum;
     }
+    /**
+     *  Listener IDatabaseResultCallback implementation.
+     */
     class DatabaseResultCallback implements IDatabaseResultCallback {
         description: string;
         id: number;
@@ -686,6 +1347,38 @@ declare module Adaptive {
         onError(error: IDatabaseResultCallbackErrorEnum): void;
         onResult(database: Database): void;
         onWarning(database: Database, warning: IDatabaseResultCallbackWarningEnum): void;
+    }
+    /**
+     *   Interface definition for ISecurity
+     **/
+    interface ISecurity extends IBaseSecurity {
+        /**
+         * Method Declarations for ISecurity
+         */
+        deleteSecureKeyValuePairs(keys: String[], publicAccessName: string, callback: ISecureKVResultCallback): any;
+        getSecureKeyValuePairs(keys: String[], publicAccessName: string, callback: ISecureKVResultCallback): any;
+        isDeviceModified(): boolean;
+        setSecureKeyValuePairs(keyValues: SecureKeyPair[], publicAccessName: string, callback: ISecureKVResultCallback): any;
+    }
+    /**
+     *  Service ISecurity implementation.
+     */
+    class SecurityBridge implements ISecurity {
+        constructor();
+        deleteSecureKeyValuePairs(keys: string[], publicAccessName: string, callback: ISecureKVResultCallback): void;
+        getSecureKeyValuePairs(keys: string[], publicAccessName: string, callback: ISecureKVResultCallback): void;
+        isDeviceModified(): boolean;
+        setSecureKeyValuePairs(keyValues: SecureKeyPair[], publicAccessName: string, callback: ISecureKVResultCallback): void;
+    }
+    /**
+     *   Interface definition for IOAuth
+     **/
+    interface IOAuth extends IBaseSecurity {
+    }
+    /**
+     *   Interface definition for INFC
+     **/
+    interface INFC extends IBaseReader {
     }
     /**
      *   Interface definition for ICapabilities
@@ -799,159 +1492,22 @@ declare module Adaptive {
         static Unknown: ICapabilitiesSensorEnum;
     }
     /**
-     *   Interface definition for IAlarm
-     **/
-    interface IAlarm extends IBaseNotification {
+     *  Service ICapabilities implementation.
+     */
+    class CapabilitiesBridge implements ICapabilities {
+        constructor();
+        hasButtonSupport(type: ICapabilitiesButtonEnum): boolean;
+        hasCommunicationSupport(type: ICapabilitiesCommunicationEnum): boolean;
+        hasDataSupport(type: ICapabilitiesDataEnum): boolean;
+        hasMediaSupport(type: ICapabilitiesMediaEnum): boolean;
+        hasNetSupport(type: ICapabilitiesNetEnum): boolean;
+        hasNotificationSupport(type: ICapabilitiesNotificationEnum): boolean;
+        hasSensorSupport(type: ICapabilitiesSensorEnum): boolean;
     }
     /**
-     *   Interface definition for IAccelerometer
+     *   Interface definition for IAnalytics
      **/
-    interface IAccelerometer extends IBaseSensor {
-        /**
-         * Method Declarations for IAccelerometer
-         */
-        addAccelerationListener(listener: IAccelerationListener): any;
-        removeAccelerationListener(listener: IAccelerationListener): any;
-        removeAccelerationListeners(): any;
-    }
-    /**
-     *   Interface definition for IService
-     **/
-    interface IService extends IBaseCommunication {
-        /**
-         * Method Declarations for IService
-         */
-        getService(serviceName: string): Service;
-        invokeService(serviceRequest: ServiceRequest, service: Service, callback: IServiceResultCallback): any;
-        isRegistered(serviceName: string): boolean;
-        isRegistered(service: Service): boolean;
-        registerService(service: Service): any;
-        unregisterServices(): any;
-        unregisterService(service: Service): any;
-    }
-    /**
-     *   Interface definition for ILifecycle
-     **/
-    interface ILifecycle extends IBaseApplication {
-        /**
-         * Method Declarations for ILifecycle
-         */
-        addLifecycleListener(listener: ILifecycleListener): any;
-        isBackground(): boolean;
-        removeLifecycleListener(listener: ILifecycleListener): any;
-        removeLifecycleListeners(): any;
-    }
-    /**
-     *   Interface definition for IXML
-     **/
-    interface IXML extends IBaseData {
-    }
-    /**
-     *   Interface definition for IAppServerListener
-     **/
-    interface IAppServerListener extends IBaseListener {
-        /**
-         * Method Declarations for IAppServerListener
-         */
-        onPaused(server: IAppServer): any;
-        onPausing(server: IAppServer): any;
-        onResumed(server: IAppServer): any;
-        onResuming(server: IAppServer): any;
-        onStart(server: IAppServer): any;
-        onStopped(server: IAppServer): any;
-        onStopping(server: IAppServer): any;
-    }
-    class AppServerListener implements IAppServerListener {
-        description: string;
-        id: number;
-        onPausedFunction: (server: IAppServer) => Function;
-        onPausingFunction: (server: IAppServer) => Function;
-        onResumedFunction: (server: IAppServer) => Function;
-        onResumingFunction: (server: IAppServer) => Function;
-        onStartFunction: (server: IAppServer) => Function;
-        onStoppedFunction: (server: IAppServer) => Function;
-        onStoppingFunction: (server: IAppServer) => Function;
-        constructor(id: number, onPausedFunction: (server: IAppServer) => Function, onPausingFunction: (server: IAppServer) => Function, onResumedFunction: (server: IAppServer) => Function, onResumingFunction: (server: IAppServer) => Function, onStartFunction: (server: IAppServer) => Function, onStoppedFunction: (server: IAppServer) => Function, onStoppingFunction: (server: IAppServer) => Function);
-        toString(): string;
-        getId(): number;
-        onPaused(server: IAppServer): void;
-        onPausing(server: IAppServer): void;
-        onResumed(server: IAppServer): void;
-        onResuming(server: IAppServer): void;
-        onStart(server: IAppServer): void;
-        onStopped(server: IAppServer): void;
-        onStopping(server: IAppServer): void;
-    }
-    /**
-     *   Interface definition for IMessaging
-     **/
-    interface IMessaging extends IBasePIM {
-        /**
-         * Method Declarations for IMessaging
-         */
-        sendSMS(number: string, text: string, callback: IMessagingCallback): any;
-    }
-    /**
-     *   Interface definition for IUpdate
-     **/
-    interface IUpdate extends IBaseApplication {
-    }
-    /**
-     *   Interface definition for ISocket
-     **/
-    interface ISocket extends IBaseCommunication {
-    }
-    /**
-     *   Interface definition for INetworkNaming
-     **/
-    interface INetworkNaming extends IBaseCommunication {
-    }
-    /**
-     *   Interface definition for ILifecycleListener
-     **/
-    interface ILifecycleListener extends IBaseListener {
-        /**
-         * Method Declarations for ILifecycleListener
-         */
-        onError(error: ILifecycleListenerErrorEnum): any;
-        onResult(lifecycle: Lifecycle): any;
-        onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum): any;
-    }
-    /**
-     *  Enumerations for ILifecycleListener Error
-     **/
-    class ILifecycleListenerErrorEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Runtime: ILifecycleListenerErrorEnum;
-        static Implementation: ILifecycleListenerErrorEnum;
-        static Killed: ILifecycleListenerErrorEnum;
-        static Unknown: ILifecycleListenerErrorEnum;
-    }
-    /**
-     *  Enumerations for ILifecycleListener Warning
-     **/
-    class ILifecycleListenerWarningEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static MemoryLow: ILifecycleListenerWarningEnum;
-        static BatteryLow: ILifecycleListenerWarningEnum;
-        static Unknown: ILifecycleListenerWarningEnum;
-    }
-    class LifecycleListener implements ILifecycleListener {
-        description: string;
-        id: number;
-        onErrorFunction: (error: ILifecycleListenerErrorEnum) => Function;
-        onResultFunction: (lifecycle: Lifecycle) => Function;
-        onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function;
-        constructor(id: number, onErrorFunction: (error: ILifecycleListenerErrorEnum) => Function, onResultFunction: (lifecycle: Lifecycle) => Function, onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function);
-        toString(): string;
-        getId(): number;
-        onError(error: ILifecycleListenerErrorEnum): void;
-        onResult(lifecycle: Lifecycle): void;
-        onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum): void;
+    interface IAnalytics extends IBaseApplication {
     }
     /**
      *   Interface definition for IGeolocation
@@ -965,110 +1521,18 @@ declare module Adaptive {
         removeGeolocationListeners(): any;
     }
     /**
-     *   Interface definition for INotification
-     **/
-    interface INotification extends IBaseNotification {
+     *  Service IGeolocation implementation.
+     */
+    class GeolocationBridge implements IGeolocation {
+        constructor();
+        addGeolocationListener(listener: IGeolocationListener): void;
+        removeGeolocationListener(listener: IGeolocationListener): void;
+        removeGeolocationListeners(): void;
     }
     /**
-     *   Interface definition for IFacebook
+     *   Interface definition for IProximity
      **/
-    interface IFacebook extends IBaseSocial {
-    }
-    /**
-     *   Interface definition for IContactPhotoResultCallback
-     **/
-    interface IContactPhotoResultCallback extends IBaseCallback {
-        /**
-         * Method Declarations for IContactPhotoResultCallback
-         */
-        onError(error: IContactPhotoResultCallbackErrorEnum): any;
-        onResult(contactPhoto: number[]): any;
-        onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum): any;
-    }
-    /**
-     *  Enumerations for IContactPhotoResultCallback Error
-     **/
-    class IContactPhotoResultCallbackErrorEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static NoPermission: IContactPhotoResultCallbackErrorEnum;
-        static Wrong_Params: IContactPhotoResultCallbackErrorEnum;
-        static No_Photo: IContactPhotoResultCallbackErrorEnum;
-        static Unknown: IContactPhotoResultCallbackErrorEnum;
-    }
-    /**
-     *  Enumerations for IContactPhotoResultCallback Warning
-     **/
-    class IContactPhotoResultCallbackWarningEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static LimitExceeded: IContactPhotoResultCallbackWarningEnum;
-        static No_Matches: IContactPhotoResultCallbackWarningEnum;
-        static Unknown: IContactPhotoResultCallbackWarningEnum;
-    }
-    class ContactPhotoResultCallback implements IContactPhotoResultCallback {
-        description: string;
-        id: number;
-        onErrorFunction: (error: IContactPhotoResultCallbackErrorEnum) => Function;
-        onResultFunction: (contactPhoto: number[]) => Function;
-        onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum) => Function;
-        constructor(id: number, onErrorFunction: (error: IContactPhotoResultCallbackErrorEnum) => Function, onResultFunction: (contactPhoto: number[]) => Function, onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum) => Function);
-        toString(): string;
-        getId(): number;
-        onError(error: IContactPhotoResultCallbackErrorEnum): void;
-        onResult(contactPhoto: number[]): void;
-        onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum): void;
-    }
-    /**
-     *   Interface definition for ISecurity
-     **/
-    interface ISecurity extends IBaseSecurity {
-        /**
-         * Method Declarations for ISecurity
-         */
-        deleteSecureKeyValuePairs(keys: String[], publicAccessName: string, callback: ISecureKVResultCallback): any;
-        getSecureKeyValuePairs(keys: String[], publicAccessName: string, callback: ISecureKVResultCallback): any;
-        isDeviceModified(): boolean;
-        setSecureKeyValuePairs(keyValues: SecureKeyPair[], publicAccessName: string, callback: ISecureKVResultCallback): any;
-    }
-    /**
-     *   Interface definition for IDatabase
-     **/
-    interface IDatabase extends IBaseData {
-        /**
-         * Method Declarations for IDatabase
-         */
-        createDatabase(database: Database, callback: IDatabaseResultCallback): any;
-        createTable(database: Database, table: Table, callback: ITableResultCallback): any;
-        deleteDatabase(database: Database, callback: IDatabaseResultCallback): any;
-        deleteTable(database: Database, table: Table, callback: ITableResultCallback): any;
-        executeSqlQuery(database: Database, query: string, replacements: String[], callback: ITableResultCallback): any;
-        executeSqlStatement(database: Database, statement: string, replacements: String[], callback: ITableResultCallback): any;
-        executeSqlTransactions(database: Database, statements: String[], rollbackFlag: boolean, callback: ITableResultCallback): any;
-        existsDatabase(database: Database): boolean;
-        existsTable(database: Database, table: Table): boolean;
-    }
-    /**
-     *   Interface definition for INFC
-     **/
-    interface INFC extends IBaseReader {
-    }
-    /**
-     *   Interface definition for IBluetooth
-     **/
-    interface IBluetooth extends IBaseCommunication {
-    }
-    /**
-     *   Interface definition for ICrypto
-     **/
-    interface ICrypto extends IBaseUtil {
-    }
-    /**
-     *   Interface definition for INetworkStatus
-     **/
-    interface INetworkStatus extends IBaseCommunication {
+    interface IProximity extends IBaseSensor {
     }
     /**
      *   Interface definition for IWallet
@@ -1076,187 +1540,130 @@ declare module Adaptive {
     interface IWallet extends IBaseCommerce {
     }
     /**
-     *   Interface definition for IAccelerationListener
+     *   Interface definition for ITelephony
      **/
-    interface IAccelerationListener extends IBaseListener {
+    interface ITelephony extends IBaseCommunication {
         /**
-         * Method Declarations for IAccelerationListener
+         * Method Declarations for ITelephony
          */
-        onError(error: IAccelerationListenerErrorEnum): any;
-        onResult(acceleration: Acceleration): any;
-        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum): any;
+        call(number: string): ITelephonyStatusEnum;
     }
     /**
-     *  Enumerations for IAccelerationListener Error
+     *  Enumerations for ITelephony Status
      **/
-    class IAccelerationListenerErrorEnum {
+    class ITelephonyStatusEnum {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Unauthorized: IAccelerationListenerErrorEnum;
-        static Unavailable: IAccelerationListenerErrorEnum;
-        static Unknown: IAccelerationListenerErrorEnum;
+        static Dialing: ITelephonyStatusEnum;
+        static Failed: ITelephonyStatusEnum;
+        static Unknown: ITelephonyStatusEnum;
     }
     /**
-     *  Enumerations for IAccelerationListener Warning
-     **/
-    class IAccelerationListenerWarningEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static NeedsCalibration: IAccelerationListenerWarningEnum;
-        static Stale: IAccelerationListenerWarningEnum;
-        static Unknown: IAccelerationListenerWarningEnum;
-    }
-    class AccelerationListener implements IAccelerationListener {
-        description: string;
-        id: number;
-        onErrorFunction: (error: IAccelerationListenerErrorEnum) => Function;
-        onResultFunction: (acceleration: Acceleration) => Function;
-        onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function;
-        constructor(id: number, onErrorFunction: (error: IAccelerationListenerErrorEnum) => Function, onResultFunction: (acceleration: Acceleration) => Function, onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function);
-        toString(): string;
-        getId(): number;
-        onError(error: IAccelerationListenerErrorEnum): void;
-        onResult(acceleration: Acceleration): void;
-        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum): void;
+     *  Service ITelephony implementation.
+     */
+    class TelephonyBridge implements ITelephony {
+        constructor();
+        call(number: string): ITelephonyStatusEnum;
     }
     /**
-     *   Interface definition for INetworkReachability
+     *   Interface definition for IXML
      **/
-    interface INetworkReachability extends IBaseCommunication {
+    interface IXML extends IBaseData {
+    }
+    /**
+     *   Interface definition for IImaging
+     **/
+    interface IImaging extends IBaseMedia {
+    }
+    /**
+     *   Interface definition for IFacebook
+     **/
+    interface IFacebook extends IBaseSocial {
+    }
+    /**
+     *   Interface definition for IMessaging
+     **/
+    interface IMessaging extends IBasePIM {
         /**
-         * Method Declarations for INetworkReachability
+         * Method Declarations for IMessaging
          */
-        isNetworkReachable(host: string, callback: INetworkReachabilityCallback): any;
-        isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback): any;
+        sendSMS(number: string, text: string, callback: IMessagingCallback): any;
     }
     /**
-     *   Interface definition for ITimer
-     **/
-    interface ITimer extends IBaseUtil {
+     *  Service IMessaging implementation.
+     */
+    class MessagingBridge implements IMessaging {
+        constructor();
+        sendSMS(number: string, text: string, callback: IMessagingCallback): void;
     }
     /**
-     *   Interface definition for IOCR
+     *   Interface definition for IFilePath
      **/
-    interface IOCR extends IBaseReader {
-    }
-    /**
-     *   Interface definition for ICalendar
-     **/
-    interface ICalendar extends IBasePIM {
-    }
-    /**
-     *   Interface definition for ISecureKVResultCallback
-     **/
-    interface ISecureKVResultCallback extends IBaseCallback {
+    interface IFilePath extends IBaseData {
         /**
-         * Method Declarations for ISecureKVResultCallback
+         * Method Declarations for IFilePath
          */
-        onError(error: ISecureKVResultCallbackErrorEnum): any;
-        onResult(keyValues: SecureKeyPair[]): any;
-        onWarning(keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum): any;
-    }
-    /**
-     *  Enumerations for ISecureKVResultCallback Error
-     **/
-    class ISecureKVResultCallbackErrorEnum {
-        value: string;
-        constructor(value: string);
+        endsWithPath(other: IFilePath): boolean;
+        endsWith(other: string): boolean;
+        equalPath(other: IFilePath): boolean;
+        equals(other: string): boolean;
+        getFileName(): IFilePath;
+        getFileSystem(): IFileSystem;
+        getNameAtIndex(index: number): string;
+        getNameCount(): number;
+        getParent(): IFilePath;
+        getRoot(): IFilePath;
+        isAbsolute(): boolean;
+        normalize(): IFilePath;
+        relativize(other: IFilePath): IFilePath;
+        resolvePath(other: IFilePath): IFilePath;
+        resolveSiblingPath(other: IFilePath): IFilePath;
+        resolveSibling(other: string): IFilePath;
+        resolve(other: string): IFilePath;
+        startsWithPath(other: IFilePath): boolean;
+        startsWith(other: string): boolean;
+        toAbsolutePath(): IFilePath;
+        toFile(): IFile;
         toString(): string;
-        static NoPermission: ISecureKVResultCallbackErrorEnum;
-        static NoMatchesFound: ISecureKVResultCallbackErrorEnum;
-        static Unknown: ISecureKVResultCallbackErrorEnum;
     }
     /**
-     *  Enumerations for ISecureKVResultCallback Warning
-     **/
-    class ISecureKVResultCallbackWarningEnum {
-        value: string;
-        constructor(value: string);
+     *  Service IFilePath implementation.
+     */
+    class FilePathBridge implements IFilePath {
+        constructor();
+        endsWith(other: string): boolean;
+        endsWithPath(other: IFilePath): boolean;
+        equalPath(other: IFilePath): boolean;
+        equals(other: string): boolean;
+        getFileName(): IFilePath;
+        getFileSystem(): IFileSystem;
+        getNameAtIndex(index: number): string;
+        getNameCount(): number;
+        getParent(): IFilePath;
+        getRoot(): IFilePath;
+        isAbsolute(): boolean;
+        normalize(): IFilePath;
+        relativize(other: IFilePath): IFilePath;
+        resolve(other: string): IFilePath;
+        resolvePath(other: IFilePath): IFilePath;
+        resolveSibling(other: string): IFilePath;
+        resolveSiblingPath(other: IFilePath): IFilePath;
+        startsWith(other: string): boolean;
+        startsWithPath(other: IFilePath): boolean;
+        toAbsolutePath(): IFilePath;
+        toFile(): IFile;
         toString(): string;
-        static EntryOverride: ISecureKVResultCallbackWarningEnum;
-        static Unknown: ISecureKVResultCallbackWarningEnum;
-    }
-    class SecureKVResultCallback implements ISecureKVResultCallback {
-        description: string;
-        id: number;
-        onErrorFunction: (error: ISecureKVResultCallbackErrorEnum) => Function;
-        onResultFunction: (keyValues: SecureKeyPair[]) => Function;
-        onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum) => Function;
-        constructor(id: number, onErrorFunction: (error: ISecureKVResultCallbackErrorEnum) => Function, onResultFunction: (keyValues: SecureKeyPair[]) => Function, onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum) => Function);
-        toString(): string;
-        getId(): number;
-        onError(error: ISecureKVResultCallbackErrorEnum): void;
-        onResult(keyValues: SecureKeyPair[]): void;
-        onWarning(keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum): void;
     }
     /**
-     *   Interface definition for IGlobalization
+     *   Interface definition for IDesktop
      **/
-    interface IGlobalization extends IBaseApplication {
-        /**
-         * Method Declarations for IGlobalization
-         */
-        getLocaleSupportedDescriptors(): Locale[];
-        getResourceLiteral(key: string, locale: Locale): string;
-        getResourceLiterals(locale: Locale): Dictionary<string>;
+    interface IDesktop extends IBaseUI {
     }
     /**
-     *   Interface definition for IFileDataResultCallback
+     *   Interface definition for ISettings
      **/
-    interface IFileDataResultCallback extends IBaseCallback {
-        /**
-         * Method Declarations for IFileDataResultCallback
-         */
-        onError(error: IFileDataResultCallbackErrorEnum): any;
-        onResult(file: IFile, data: number[]): any;
-        onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum): any;
-    }
-    /**
-     *  Enumerations for IFileDataResultCallback Error
-     **/
-    class IFileDataResultCallbackErrorEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static InexistentFile: IFileDataResultCallbackErrorEnum;
-        static InsufficientSpace: IFileDataResultCallbackErrorEnum;
-        static Unauthorized: IFileDataResultCallbackErrorEnum;
-        static Unknown: IFileDataResultCallbackErrorEnum;
-    }
-    /**
-     *  Enumerations for IFileDataResultCallback Warning
-     **/
-    class IFileDataResultCallbackWarningEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static ExceedMaximumSize: IFileDataResultCallbackWarningEnum;
-        static Unknown: IFileDataResultCallbackWarningEnum;
-    }
-    class FileDataResultCallback implements IFileDataResultCallback {
-        description: string;
-        id: number;
-        onErrorFunction: (error: IFileDataResultCallbackErrorEnum) => Function;
-        onResultFunction: (file: IFile, data: number[]) => Function;
-        onWarningFunction: (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function;
-        constructor(id: number, onErrorFunction: (error: IFileDataResultCallbackErrorEnum) => Function, onResultFunction: (file: IFile, data: number[]) => Function, onWarningFunction: (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function);
-        toString(): string;
-        getId(): number;
-        onError(error: IFileDataResultCallbackErrorEnum): void;
-        onResult(file: IFile, data: number[]): void;
-        onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum): void;
-    }
-    /**
-     *   Interface definition for ILinkedIn
-     **/
-    interface ILinkedIn extends IBaseSocial {
-    }
-    /**
-     *   Interface definition for IStore
-     **/
-    interface IStore extends IBaseCommerce {
+    interface ISettings extends IBaseApplication {
     }
     /**
      *   Interface definition for ITableResultCallback
@@ -1295,6 +1702,9 @@ declare module Adaptive {
         static NoResults: ITableResultCallbackWarningEnum;
         static Unknown: ITableResultCallbackWarningEnum;
     }
+    /**
+     *  Listener ITableResultCallback implementation.
+     */
     class TableResultCallback implements ITableResultCallback {
         description: string;
         id: number;
@@ -1309,58 +1719,24 @@ declare module Adaptive {
         onWarning(table: Table, warning: ITableResultCallbackWarningEnum): void;
     }
     /**
-     *   Interface definition for IFilePath
+     *   Interface definition for IGyroscope
      **/
-    interface IFilePath extends IBaseData {
-        /**
-         * Method Declarations for IFilePath
-         */
-        endsWith(other: IFilePath): boolean;
-        endsWith(other: string): boolean;
-        equalPath(other: IFilePath): boolean;
-        equals(other: string): boolean;
-        getFileName(): IFilePath;
-        getFileSystem(): IFileSystem;
-        getNameCount(): number;
-        getName(index: number): string;
-        getParent(): IFilePath;
-        getRoot(): IFilePath;
-        isAbsolute(): boolean;
-        normalize(): IFilePath;
-        relativize(other: IFilePath): IFilePath;
-        resolveSibling(other: IFilePath): IFilePath;
-        resolveSibling(other: string): IFilePath;
-        resolve(other: IFilePath): IFilePath;
-        resolve(other: string): IFilePath;
-        startsWith(other: IFilePath): boolean;
-        startsWith(other: string): boolean;
-        toAbsolutePath(): IFilePath;
-        toFile(): IFile;
-        toString(): string;
+    interface IGyroscope extends IBaseSensor {
     }
     /**
-     *   Interface definition for ISession
+     *   Interface definition for ICamera
      **/
-    interface ISession extends IBaseCommunication {
-        /**
-         * Method Declarations for ISession
-         */
-        getAttribute(name: string): any;
-        getAttributes(): any[];
-        getCookies(): Cookie[];
-        listAttributeNames(): string[];
-        removeAttribute(name: string): any;
-        removeAttributes(): any;
-        removeCookie(cookie: Cookie): any;
-        removeCookies(cookies: Cookie[]): any;
-        setAttribute(name: string, value: any): any;
-        setCookie(cookie: Cookie): any;
-        setCookies(cookies: Cookie[]): any;
+    interface ICamera extends IBaseMedia {
     }
     /**
-     *   Interface definition for IQRCode
+     *   Interface definition for IMagnetometer
      **/
-    interface IQRCode extends IBaseReader {
+    interface IMagnetometer extends IBaseSensor {
+    }
+    /**
+     *   Interface definition for IDisplay
+     **/
+    interface IDisplay extends IBaseSystem {
     }
     /**
      *   Interface definition for IFileListResultCallback
@@ -1394,6 +1770,9 @@ declare module Adaptive {
         static PartialResult: IFileListResultCallbackWarningEnum;
         static Unknown: IFileListResultCallbackWarningEnum;
     }
+    /**
+     *  Listener IFileListResultCallback implementation.
+     */
     class FileListResultCallback implements IFileListResultCallback {
         description: string;
         id: number;
@@ -1408,240 +1787,9 @@ declare module Adaptive {
         onWarning(files: IFile[], warning: IFileListResultCallbackWarningEnum): void;
     }
     /**
-     *   Interface definition for IBarcode
+     *   Interface definition for ICalendar
      **/
-    interface IBarcode extends IBaseReader {
-    }
-    /**
-     *   Interface definition for IVideo
-     **/
-    interface IVideo extends IBaseMedia {
-        /**
-         * Method Declarations for IVideo
-         */
-        playStream(url: string): any;
-    }
-    /**
-     *   Interface definition for IDevice
-     **/
-    interface IDevice extends IBaseSystem {
-        /**
-         * Method Declarations for IDevice
-         */
-        addButtonListener(listener: IButtonListener): any;
-        getDeviceInfo(): DeviceInfo;
-        getLocaleCurrent(): Locale;
-        removeButtonListener(listener: IButtonListener): any;
-        removeButtonListeners(): any;
-    }
-    /**
-     *   Interface definition for IButtonListener
-     **/
-    interface IButtonListener extends IBaseListener {
-        /**
-         * Method Declarations for IButtonListener
-         */
-        onError(error: IButtonListenerErrorEnum): any;
-        onResult(button: Button): any;
-        onWarning(button: Button, warning: IButtonListenerWarningEnum): any;
-    }
-    /**
-     *  Enumerations for IButtonListener Error
-     **/
-    class IButtonListenerErrorEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Not_Present: IButtonListenerErrorEnum;
-        static Unknown: IButtonListenerErrorEnum;
-    }
-    /**
-     *  Enumerations for IButtonListener Warning
-     **/
-    class IButtonListenerWarningEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Not_Implemented: IButtonListenerWarningEnum;
-        static Unknown: IButtonListenerWarningEnum;
-    }
-    class ButtonListener implements IButtonListener {
-        description: string;
-        id: number;
-        onErrorFunction: (error: IButtonListenerErrorEnum) => Function;
-        onResultFunction: (button: Button) => Function;
-        onWarningFunction: (button: Button, warning: IButtonListenerWarningEnum) => Function;
-        constructor(id: number, onErrorFunction: (error: IButtonListenerErrorEnum) => Function, onResultFunction: (button: Button) => Function, onWarningFunction: (button: Button, warning: IButtonListenerWarningEnum) => Function);
-        toString(): string;
-        getId(): number;
-        onError(error: IButtonListenerErrorEnum): void;
-        onResult(button: Button): void;
-        onWarning(button: Button, warning: IButtonListenerWarningEnum): void;
-    }
-    /**
-     *   Interface definition for IMagnetometer
-     **/
-    interface IMagnetometer extends IBaseSensor {
-    }
-    /**
-     *   Interface definition for IMail
-     **/
-    interface IMail extends IBasePIM {
-        /**
-         * Method Declarations for IMail
-         */
-        sendEmail(data: Email, callback: IMessagingCallback): any;
-    }
-    /**
-     *   Interface definition for IBarometer
-     **/
-    interface IBarometer extends IBaseSensor {
-    }
-    /**
-     *   Interface definition for IVibration
-     **/
-    interface IVibration extends IBaseNotification {
-    }
-    /**
-     *   Interface definition for IOS
-     **/
-    interface IOS extends IBaseSystem {
-        /**
-         * Method Declarations for IOS
-         */
-        getOSInfo(): OSInfo;
-    }
-    /**
-     *   Interface definition for IDataStream
-     **/
-    interface IDataStream extends IBaseData {
-    }
-    /**
-     *   Interface definition for IFileResultCallback
-     **/
-    interface IFileResultCallback extends IBaseCallback {
-        /**
-         * Method Declarations for IFileResultCallback
-         */
-        onError(error: IFileResultCallbackErrorEnum): any;
-        onResult(storageFile: IFile): any;
-        onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum): any;
-    }
-    /**
-     *  Enumerations for IFileResultCallback Error
-     **/
-    class IFileResultCallbackErrorEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static FileExists: IFileResultCallbackErrorEnum;
-        static InsufficientSpace: IFileResultCallbackErrorEnum;
-        static Unauthorized: IFileResultCallbackErrorEnum;
-        static Unknown: IFileResultCallbackErrorEnum;
-    }
-    /**
-     *  Enumerations for IFileResultCallback Warning
-     **/
-    class IFileResultCallbackWarningEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static SourceNotDeleted: IFileResultCallbackWarningEnum;
-        static RootDirectory: IFileResultCallbackWarningEnum;
-        static Unknown: IFileResultCallbackWarningEnum;
-    }
-    class FileResultCallback implements IFileResultCallback {
-        description: string;
-        id: number;
-        onErrorFunction: (error: IFileResultCallbackErrorEnum) => Function;
-        onResultFunction: (storageFile: IFile) => Function;
-        onWarningFunction: (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function;
-        constructor(id: number, onErrorFunction: (error: IFileResultCallbackErrorEnum) => Function, onResultFunction: (storageFile: IFile) => Function, onWarningFunction: (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function);
-        toString(): string;
-        getId(): number;
-        onError(error: IFileResultCallbackErrorEnum): void;
-        onResult(storageFile: IFile): void;
-        onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum): void;
-    }
-    /**
-     *   Interface definition for IDisplay
-     **/
-    interface IDisplay extends IBaseSystem {
-    }
-    /**
-     *   Interface definition for IRuntime
-     **/
-    interface IRuntime extends IBaseSystem {
-        /**
-         * Method Declarations for IRuntime
-         */
-        dismissApplication(): any;
-        dismissSplashScreen(): boolean;
-    }
-    /**
-     *   Interface definition for IContact
-     **/
-    interface IContact extends IBasePIM {
-        /**
-         * Method Declarations for IContact
-         */
-        getContactPhoto(contact: ContactUid, callback: IContactPhotoResultCallback): any;
-        getContact(contact: ContactUid, callback: IContactResultCallback): any;
-        getContacts(callback: IContactResultCallback): any;
-        getContacts(callback: IContactResultCallback, fields: IContactFieldGroupEnum[]): any;
-        getContacts(callback: IContactResultCallback, fields: IContactFieldGroupEnum[], filter: IContactFilterEnum[]): any;
-        searchContacts(term: string, callback: IContactResultCallback): any;
-        searchContacts(term: string, callback: IContactResultCallback, filter: IContactFilterEnum[]): any;
-        setContactPhoto(contact: ContactUid, pngImage: number[]): boolean;
-    }
-    /**
-     *  Enumerations for IContact FieldGroup
-     **/
-    class IContactFieldGroupEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static PERSONAL_INFO: IContactFieldGroupEnum;
-        static PROFESSIONAL_INFO: IContactFieldGroupEnum;
-        static ADDRESSES: IContactFieldGroupEnum;
-        static PHONES: IContactFieldGroupEnum;
-        static EMAILS: IContactFieldGroupEnum;
-        static WEBSITES: IContactFieldGroupEnum;
-        static SOCIALS: IContactFieldGroupEnum;
-        static TAGS: IContactFieldGroupEnum;
-        static Unknown: IContactFieldGroupEnum;
-    }
-    /**
-     *  Enumerations for IContact Filter
-     **/
-    class IContactFilterEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static HAS_PHONE: IContactFilterEnum;
-        static HAS_EMAIL: IContactFilterEnum;
-        static HAS_ADDRESS: IContactFilterEnum;
-        static Unknown: IContactFilterEnum;
-    }
-    /**
-     *   Interface definition for IGyroscope
-     **/
-    interface IGyroscope extends IBaseSensor {
-    }
-    /**
-     *   Interface definition for ICamera
-     **/
-    interface ICamera extends IBaseMedia {
-    }
-    /**
-     *   Interface definition for IImaging
-     **/
-    interface IImaging extends IBaseMedia {
-    }
-    /**
-     *   Interface definition for IOAuth
-     **/
-    interface IOAuth extends IBaseSecurity {
+    interface ICalendar extends IBasePIM {
     }
     /**
      *   Interface definition for IMap
@@ -1649,63 +1797,34 @@ declare module Adaptive {
     interface IMap extends IBaseUI {
     }
     /**
-     *   Interface definition for IMessagingCallback
+     *   Interface definition for IAccelerometer
      **/
-    interface IMessagingCallback extends IBaseCallback {
+    interface IAccelerometer extends IBaseSensor {
         /**
-         * Method Declarations for IMessagingCallback
+         * Method Declarations for IAccelerometer
          */
-        onError(error: IMessagingCallbackErrorEnum): any;
-        onResult(success: boolean): any;
-        onWarning(success: boolean, warning: IMessagingCallbackWarningEnum): any;
+        addAccelerationListener(listener: IAccelerationListener): any;
+        removeAccelerationListener(listener: IAccelerationListener): any;
+        removeAccelerationListeners(): any;
     }
     /**
-     *  Enumerations for IMessagingCallback Error
-     **/
-    class IMessagingCallbackErrorEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static SIMNotPresent: IMessagingCallbackErrorEnum;
-        static EmailAccountNotFound: IMessagingCallbackErrorEnum;
-        static NotSent: IMessagingCallbackErrorEnum;
-        static WrongParams: IMessagingCallbackErrorEnum;
-        static NotSupported: IMessagingCallbackErrorEnum;
-        static Unknown: IMessagingCallbackErrorEnum;
+     *  Service IAccelerometer implementation.
+     */
+    class AccelerometerBridge implements IAccelerometer {
+        constructor();
+        addAccelerationListener(listener: IAccelerationListener): void;
+        removeAccelerationListener(listener: IAccelerationListener): void;
+        removeAccelerationListeners(): void;
     }
     /**
-     *  Enumerations for IMessagingCallback Warning
+     *   Interface definition for IAlarm
      **/
-    class IMessagingCallbackWarningEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static UnableToSentAll: IMessagingCallbackWarningEnum;
-        static UnableToFetchAttachment: IMessagingCallbackWarningEnum;
-        static Unknown: IMessagingCallbackWarningEnum;
-    }
-    class MessagingCallback implements IMessagingCallback {
-        description: string;
-        id: number;
-        onErrorFunction: (error: IMessagingCallbackErrorEnum) => Function;
-        onResultFunction: (success: boolean) => Function;
-        onWarningFunction: (success: boolean, warning: IMessagingCallbackWarningEnum) => Function;
-        constructor(id: number, onErrorFunction: (error: IMessagingCallbackErrorEnum) => Function, onResultFunction: (success: boolean) => Function, onWarningFunction: (success: boolean, warning: IMessagingCallbackWarningEnum) => Function);
-        toString(): string;
-        getId(): number;
-        onError(error: IMessagingCallbackErrorEnum): void;
-        onResult(success: boolean): void;
-        onWarning(success: boolean, warning: IMessagingCallbackWarningEnum): void;
+    interface IAlarm extends IBaseNotification {
     }
     /**
      *   Interface definition for IOpenId
      **/
     interface IOpenId extends IBaseSecurity {
-    }
-    /**
-     *   Interface definition for IAmbientLight
-     **/
-    interface IAmbientLight extends IBaseSensor {
     }
     /**
      *   Interface definition for IAppResourceCallback
@@ -1741,51 +1860,170 @@ declare module Adaptive {
         static LinkedResource: IAppResourceCallbackWarningEnum;
         static Unknown: IAppResourceCallbackWarningEnum;
     }
-    class AppResourceCallback implements IAppResourceCallback {
-        description: string;
-        id: number;
-        onErrorFunction: (resource: IAppResource, error: IAppResourceCallbackErrorEnum) => Function;
-        onResultFunction: (resource: IAppResource) => Function;
-        onWarningFunction: (resource: IAppResource, warning: IAppResourceCallbackWarningEnum) => Function;
-        constructor(id: number, onErrorFunction: (resource: IAppResource, error: IAppResourceCallbackErrorEnum) => Function, onResultFunction: (resource: IAppResource) => Function, onWarningFunction: (resource: IAppResource, warning: IAppResourceCallbackWarningEnum) => Function);
-        toString(): string;
-        getId(): number;
-        onError(resource: IAppResource, error: IAppResourceCallbackErrorEnum): void;
-        onResult(resource: IAppResource): void;
-        onWarning(resource: IAppResource, warning: IAppResourceCallbackWarningEnum): void;
-    }
     /**
-     *   Interface definition for ILogging
+     *   Interface definition for IGlobalization
      **/
-    interface ILogging extends IBaseUtil {
+    interface IGlobalization extends IBaseApplication {
         /**
-         * Method Declarations for ILogging
+         * Method Declarations for IGlobalization
          */
-        log(level: ILoggingLogLevelEnum, message: string): any;
-        log(level: ILoggingLogLevelEnum, category: string, message: string): any;
+        getLocaleSupportedDescriptors(): Locale[];
+        getResourceLiteral(key: string, locale: Locale): string;
+        getResourceLiterals(locale: Locale): Dictionary<string>;
     }
     /**
-     *  Enumerations for ILogging LogLevel
+     *  Service IGlobalization implementation.
+     */
+    class GlobalizationBridge implements IGlobalization {
+        constructor();
+        getLocaleSupportedDescriptors(): Locale[];
+        getResourceLiteral(key: string, locale: Locale): string;
+        getResourceLiterals(locale: Locale): Dictionary<string>;
+    }
+    /**
+     *   Interface definition for IServiceResultCallback
      **/
-    class ILoggingLogLevelEnum {
+    interface IServiceResultCallback extends IBaseCallback {
+        /**
+         * Method Declarations for IServiceResultCallback
+         */
+        onError(error: IServiceResultCallbackErrorEnum): any;
+        onResult(response: ServiceResponse): any;
+        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum): any;
+    }
+    /**
+     *  Enumerations for IServiceResultCallback Error
+     **/
+    class IServiceResultCallbackErrorEnum {
         value: string;
         constructor(value: string);
         toString(): string;
-        static DEBUG: ILoggingLogLevelEnum;
-        static WARN: ILoggingLogLevelEnum;
-        static ERROR: ILoggingLogLevelEnum;
-        static INFO: ILoggingLogLevelEnum;
-        static Unknown: ILoggingLogLevelEnum;
+        static Forbidden: IServiceResultCallbackErrorEnum;
+        static NotFound: IServiceResultCallbackErrorEnum;
+        static MethodNotAllowed: IServiceResultCallbackErrorEnum;
+        static NotAllowed: IServiceResultCallbackErrorEnum;
+        static NotAuthenticated: IServiceResultCallbackErrorEnum;
+        static TimeOut: IServiceResultCallbackErrorEnum;
+        static NoResponse: IServiceResultCallbackErrorEnum;
+        static ServerError: IServiceResultCallbackErrorEnum;
+        static Unreachable: IServiceResultCallbackErrorEnum;
+        static MalformedUrl: IServiceResultCallbackErrorEnum;
+        static NotRegisteredService: IServiceResultCallbackErrorEnum;
+        static Unknown: IServiceResultCallbackErrorEnum;
     }
     /**
-     *   Interface definition for ITwitter
+     *  Enumerations for IServiceResultCallback Warning
      **/
-    interface ITwitter extends IBaseSocial {
+    class IServiceResultCallbackWarningEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static NotSecure: IServiceResultCallbackWarningEnum;
+        static NotTrusted: IServiceResultCallbackWarningEnum;
+        static Redirected: IServiceResultCallbackWarningEnum;
+        static Wrong_Params: IServiceResultCallbackWarningEnum;
+        static Unknown: IServiceResultCallbackWarningEnum;
     }
     /**
-     *   Interface definition for IUI
+     *  Listener IServiceResultCallback implementation.
+     */
+    class ServiceResultCallback implements IServiceResultCallback {
+        description: string;
+        id: number;
+        onErrorFunction: (error: IServiceResultCallbackErrorEnum) => Function;
+        onResultFunction: (response: ServiceResponse) => Function;
+        onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IServiceResultCallbackErrorEnum) => Function, onResultFunction: (response: ServiceResponse) => Function, onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function);
+        toString(): string;
+        getId(): number;
+        onError(error: IServiceResultCallbackErrorEnum): void;
+        onResult(response: ServiceResponse): void;
+        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum): void;
+    }
+    /**
+     *   Interface definition for IFileDataResultCallback
      **/
-    interface IUI extends IBaseUI {
+    interface IFileDataResultCallback extends IBaseCallback {
+        /**
+         * Method Declarations for IFileDataResultCallback
+         */
+        onError(error: IFileDataResultCallbackErrorEnum): any;
+        onResult(file: IFile, data: number[]): any;
+        onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum): any;
+    }
+    /**
+     *  Enumerations for IFileDataResultCallback Error
+     **/
+    class IFileDataResultCallbackErrorEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static InexistentFile: IFileDataResultCallbackErrorEnum;
+        static InsufficientSpace: IFileDataResultCallbackErrorEnum;
+        static Unauthorized: IFileDataResultCallbackErrorEnum;
+        static Unknown: IFileDataResultCallbackErrorEnum;
+    }
+    /**
+     *  Enumerations for IFileDataResultCallback Warning
+     **/
+    class IFileDataResultCallbackWarningEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static ExceedMaximumSize: IFileDataResultCallbackWarningEnum;
+        static Unknown: IFileDataResultCallbackWarningEnum;
+    }
+    /**
+     *  Listener IFileDataResultCallback implementation.
+     */
+    class FileDataResultCallback implements IFileDataResultCallback {
+        description: string;
+        id: number;
+        onErrorFunction: (error: IFileDataResultCallbackErrorEnum) => Function;
+        onResultFunction: (file: IFile, data: number[]) => Function;
+        onWarningFunction: (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IFileDataResultCallbackErrorEnum) => Function, onResultFunction: (file: IFile, data: number[]) => Function, onWarningFunction: (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function);
+        toString(): string;
+        getId(): number;
+        onError(error: IFileDataResultCallbackErrorEnum): void;
+        onResult(file: IFile, data: number[]): void;
+        onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum): void;
+    }
+    /**
+     *   Interface definition for IVideo
+     **/
+    interface IVideo extends IBaseMedia {
+        /**
+         * Method Declarations for IVideo
+         */
+        playStream(url: string): any;
+    }
+    /**
+     *  Service IVideo implementation.
+     */
+    class VideoBridge implements IVideo {
+        constructor();
+        playStream(url: string): void;
+    }
+    /**
+     *   Interface definition for ITimer
+     **/
+    interface ITimer extends IBaseUtil {
+    }
+    /**
+     *   Interface definition for IService
+     **/
+    interface IService extends IBaseCommunication {
+        /**
+         * Method Declarations for IService
+         */
+        getService(serviceName: string): Service;
+        invokeService(serviceRequest: ServiceRequest, service: Service, callback: IServiceResultCallback): any;
+        isRegistered(serviceName: string): boolean;
+        isRegistered(service: Service): boolean;
+        registerService(service: Service): any;
+        unregisterServices(): any;
+        unregisterService(service: Service): any;
     }
     /**
      *   Interface definition for IFile
@@ -1796,9 +2034,8 @@ declare module Adaptive {
          */
         canRead(): boolean;
         canWrite(): boolean;
+        createWithPath(path: string, name: string, callback: IFileResultCallback): any;
         create(name: string, callback: IFileResultCallback): any;
-        create(path: string, name: string, callback: IFileResultCallback): any;
-        delete(): boolean;
         delete(cascade: boolean): boolean;
         exists(): boolean;
         getContent(callback: IFileDataResultCallback): any;
@@ -1808,148 +2045,91 @@ declare module Adaptive {
         getPath(): string;
         getSize(): number;
         isDirectory(): boolean;
+        listFilesForRegex(regex: string, callback: IFileListResultCallback): any;
         listFiles(callback: IFileListResultCallback): any;
-        listFiles(regex: string, callback: IFileListResultCallback): any;
-        mkDir(): boolean;
         mkDir(recursive: boolean): boolean;
-        move(newFile: IFile, callback: IFileResultCallback): any;
-        move(newFile: IFile, callback: IFileResultCallback, overwrite: boolean): any;
-        move(newFile: IFile, createPath: boolean, callback: IFileResultCallback): any;
         move(newFile: IFile, createPath: boolean, callback: IFileResultCallback, overwrite: boolean): any;
         setContent(content: number[], callback: IFileDataResultCallback): any;
         toPath(): IFilePath;
     }
     /**
-     *   Class implementation for ContactUid
-     **/
-    class ContactUid {
-        /** Field Declarations **/
-        contactId: string;
-        /** Initialization **/
-        constructor(contactId: string);
-        /**
-         * Method Declarations for ContactUid
-         */
-        getContactId(): string;
-        setContactId(contactId: string): void;
-    }
-    /**
-     *   Class implementation for Table
-     **/
-    class Table {
-        /** Field Declarations **/
-        columnCount: number;
-        columns: Column[];
-        name: string;
-        rowCount: number;
-        rows: Row[];
-        /** Initialization **/
-        constructor(name: string);
-        /**
-         * Method Declarations for Table
-         */
-        getColumnCount(): number;
-        getColumns(): Column[];
+     *  Service IFile implementation.
+     */
+    class FileBridge implements IFile {
+        constructor();
+        canRead(): boolean;
+        canWrite(): boolean;
+        create(name: string, callback: IFileResultCallback): void;
+        createWithPath(path: string, name: string, callback: IFileResultCallback): void;
+        delete(cascade: boolean): boolean;
+        endsWith(other: string): boolean;
+        endsWithPath(other: IFilePath): boolean;
+        equalPath(other: IFilePath): boolean;
+        equals(other: string): boolean;
+        exists(): boolean;
+        getContent(callback: IFileDataResultCallback): void;
+        getDateCreated(): number;
+        getDateModified(): number;
+        getFileName(): IFilePath;
+        getFileSystem(): IFileSystem;
         getName(): string;
-        getRowCount(): number;
-        getRows(): Row[];
-        setColumnCount(columnCount: number): void;
-        setColumns(columns: Column[]): void;
-        setName(name: string): void;
-        setRowCount(rowCount: number): void;
-        setRows(rows: Row[]): void;
+        getNameAtIndex(index: number): string;
+        getNameCount(): number;
+        getParent(): IFilePath;
+        getPath(): string;
+        getRoot(): IFilePath;
+        getSize(): number;
+        isAbsolute(): boolean;
+        isDirectory(): boolean;
+        listFiles(callback: IFileListResultCallback): void;
+        listFilesForRegex(regex: string, callback: IFileListResultCallback): void;
+        mkDir(recursive: boolean): boolean;
+        move(newFile: IFile, createPath: boolean, callback: IFileResultCallback, overwrite: boolean): void;
+        normalize(): IFilePath;
+        relativize(other: IFilePath): IFilePath;
+        resolve(other: string): IFilePath;
+        resolvePath(other: IFilePath): IFilePath;
+        resolveSibling(other: string): IFilePath;
+        resolveSiblingPath(other: IFilePath): IFilePath;
+        setContent(content: number[], callback: IFileDataResultCallback): void;
+        startsWith(other: string): boolean;
+        startsWithPath(other: IFilePath): boolean;
+        toAbsolutePath(): IFilePath;
+        toFile(): IFile;
+        toPath(): IFilePath;
+        toString(): string;
     }
     /**
-     *   Class implementation for Acceleration
+     *   Class implementation for ContactEmail
      **/
-    class Acceleration {
+    class ContactEmail {
         /** Field Declarations **/
-        timeStamp: number;
-        x: number;
-        y: number;
-        z: number;
+        email: string;
+        primary: boolean;
+        type: ContactEmailEmailTypeEnum;
         /** Initialization **/
-        constructor(x: number, y: number, z: number, timeStamp: number);
+        constructor(type: ContactEmailEmailTypeEnum, primary: boolean, email: string);
         /**
-         * Method Declarations for Acceleration
+         * Method Declarations for ContactEmail
          */
-        getX(): number;
-        getY(): number;
-        getZ(): number;
-        setTimeStamp(timeStamp: number): void;
-        setX(x: number): void;
-        setY(y: number): void;
-        setZ(z: number): void;
+        getEmail(): string;
+        getType(): ContactEmailEmailTypeEnum;
+        isPrimary(): boolean;
+        setEmail(email: string): void;
+        setPrimary(primary: boolean): void;
+        setType(type: ContactEmailEmailTypeEnum): void;
     }
     /**
-     *   Class implementation for ContactTag
+     *  Enumerations for ContactEmail EmailType
      **/
-    class ContactTag {
-        /** Field Declarations **/
-        dataValue: string;
-        name: string;
-        /** Initialization **/
-        constructor(name: string, dataValue: string);
-        /**
-         * Method Declarations for ContactTag
-         */
-        getDataValue(): string;
-        getName(): string;
-        setDataValue(dataValue: string): void;
-        setName(name: string): void;
-    }
-    /**
-     *   Class implementation for Service
-     **/
-    class Service {
-        /** Field Declarations **/
-        endpoint: Endpoint;
-        method: ServiceServiceMethodEnum;
-        name: string;
-        type: ServiceServiceTypeEnum;
-        /** Initialization **/
-        constructor(endpoint: Endpoint, name: string, method: ServiceServiceMethodEnum, type: ServiceServiceTypeEnum);
-        /**
-         * Method Declarations for Service
-         */
-        getEndpoint(): Endpoint;
-        getMethod(): ServiceServiceMethodEnum;
-        getName(): string;
-        getType(): ServiceServiceTypeEnum;
-        setEndpoint(endpoint: Endpoint): void;
-        setMethod(method: ServiceServiceMethodEnum): void;
-        setName(name: string): void;
-        setType(type: ServiceServiceTypeEnum): void;
-    }
-    /**
-     *  Enumerations for Service ServiceMethod
-     **/
-    class ServiceServiceMethodEnum {
+    class ContactEmailEmailTypeEnum {
         value: string;
         constructor(value: string);
         toString(): string;
-        static POST: ServiceServiceMethodEnum;
-        static GET: ServiceServiceMethodEnum;
-        static Unknown: ServiceServiceMethodEnum;
-    }
-    /**
-     *  Enumerations for Service ServiceType
-     **/
-    class ServiceServiceTypeEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static SERVICETYPE_AMF_SERIALIZATION: ServiceServiceTypeEnum;
-        static SERVICETYPE_GWT_RPC: ServiceServiceTypeEnum;
-        static SERVICETYPE_OCTET_BINARY: ServiceServiceTypeEnum;
-        static SERVICETYPE_REMOTING_SERIALIZATION: ServiceServiceTypeEnum;
-        static SERVICETYPE_REST_JSON: ServiceServiceTypeEnum;
-        static SERVICETYPE_REST_XML: ServiceServiceTypeEnum;
-        static SERVICETYPE_SOAP_JSON: ServiceServiceTypeEnum;
-        static SERVICETYPE_SOAP_XML: ServiceServiceTypeEnum;
-        static SERVICETYPE_XMLRPC_JSON: ServiceServiceTypeEnum;
-        static SERVICETYPE_XMLRPC_XML: ServiceServiceTypeEnum;
-        static Unknown: ServiceServiceTypeEnum;
+        static Personal: ContactEmailEmailTypeEnum;
+        static Work: ContactEmailEmailTypeEnum;
+        static Other: ContactEmailEmailTypeEnum;
+        static Unknown: ContactEmailEmailTypeEnum;
     }
     /**
      *   Class implementation for Header
@@ -1967,163 +2147,6 @@ declare module Adaptive {
         getName(): string;
         setData(data: string): void;
         setName(name: string): void;
-    }
-    /**
-     *   Class implementation for Row
-     **/
-    class Row {
-        /** Field Declarations **/
-        values: any[];
-        /** Initialization **/
-        constructor(values: any[]);
-        /**
-         * Method Declarations for Row
-         */
-        getValues(): any[];
-        setValues(values: any[]): void;
-    }
-    /**
-     *   Class implementation for Email
-     **/
-    class Email {
-        /** Field Declarations **/
-        attachmentData: AttachmentData[];
-        bccRecipients: EmailAddress[];
-        ccRecipients: EmailAddress[];
-        messageBody: string;
-        messageBodyMimeType: string;
-        subject: string;
-        toRecipients: EmailAddress[];
-        /** Initialization **/
-        constructor(toRecipients: EmailAddress[], subject: string, messageBody: string);
-        /**
-         * Method Declarations for Email
-         */
-        getAttachmentData(): AttachmentData[];
-        getBccRecipients(): EmailAddress[];
-        getCcRecipients(): EmailAddress[];
-        getMessageBody(): string;
-        getMessageBodyMimeType(): string;
-        getSubject(): string;
-        getToRecipients(): EmailAddress[];
-        setAttachmentData(attachmentData: AttachmentData[]): void;
-        setBccRecipients(bccRecipients: EmailAddress[]): void;
-        setCcRecipients(ccRecipients: EmailAddress[]): void;
-        setMessageBodyMimeType(messageBodyMimeType: string): void;
-        setMessageBody(messageBody: string): void;
-        setSubject(subject: string): void;
-        setToRecipients(toRecipients: EmailAddress[]): void;
-    }
-    /**
-     *   Class implementation for Database
-     **/
-    class Database {
-        /** Field Declarations **/
-        compress: boolean;
-        name: string;
-        /** Initialization **/
-        constructor(name: string, compress: boolean);
-        /**
-         * Method Declarations for Database
-         */
-        getName(): string;
-        isCompress(): boolean;
-        setCompress(compress: boolean): void;
-        setName(name: string): void;
-    }
-    /**
-     *   Class implementation for ContactAddress
-     **/
-    class ContactAddress {
-        /** Field Declarations **/
-        address: string;
-        type: ContactAddressAddressTypeEnum;
-        /** Initialization **/
-        constructor(address: string, type: ContactAddressAddressTypeEnum);
-        /**
-         * Method Declarations for ContactAddress
-         */
-        getAddress(): string;
-        getType(): ContactAddressAddressTypeEnum;
-        setAddress(address: string): void;
-        setType(type: ContactAddressAddressTypeEnum): void;
-    }
-    /**
-     *  Enumerations for ContactAddress AddressType
-     **/
-    class ContactAddressAddressTypeEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Home: ContactAddressAddressTypeEnum;
-        static Work: ContactAddressAddressTypeEnum;
-        static Other: ContactAddressAddressTypeEnum;
-        static Unknown: ContactAddressAddressTypeEnum;
-    }
-    /**
-     *   Class implementation for OSInfo
-     **/
-    class OSInfo {
-        /** Field Declarations **/
-        name: string;
-        vendor: string;
-        version: string;
-        /** Initialization **/
-        constructor(name: string, version: string, vendor: string);
-        /**
-         * Method Declarations for OSInfo
-         */
-        getName(): string;
-        getVendor(): string;
-        getVersion(): string;
-    }
-    /**
-     *   Class implementation for SecureKeyPair
-     **/
-    class SecureKeyPair {
-        /** Field Declarations **/
-        secureData: string;
-        secureKey: string;
-        /** Initialization **/
-        constructor(secureKey: string, secureData: string);
-        /**
-         * Method Declarations for SecureKeyPair
-         */
-        getSecureData(): string;
-        getSecureKey(): string;
-        setSecureData(secureData: string): void;
-        setSecureKey(secureKey: string): void;
-    }
-    /**
-     *   Class implementation for Lifecycle
-     **/
-    class Lifecycle {
-        /** Field Declarations **/
-        state: LifecycleStateEnum;
-        /** Initialization **/
-        constructor(state: LifecycleStateEnum);
-        /**
-         * Method Declarations for Lifecycle
-         */
-        getState(): LifecycleStateEnum;
-        setState(state: LifecycleStateEnum): void;
-    }
-    /**
-     *  Enumerations for Lifecycle State
-     **/
-    class LifecycleStateEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Starting: LifecycleStateEnum;
-        static Started: LifecycleStateEnum;
-        static Running: LifecycleStateEnum;
-        static Paused: LifecycleStateEnum;
-        static PausedIdle: LifecycleStateEnum;
-        static PausedRun: LifecycleStateEnum;
-        static Resuming: LifecycleStateEnum;
-        static Stopping: LifecycleStateEnum;
-        static Unknown: LifecycleStateEnum;
     }
     /**
      *   Class implementation for ServiceResponse
@@ -2161,341 +2184,21 @@ declare module Adaptive {
         setSession(session: ISession): void;
     }
     /**
-     *   Class implementation for ContactPhone
+     *   Class implementation for OSInfo
      **/
-    class ContactPhone {
+    class OSInfo {
         /** Field Declarations **/
-        phone: string;
-        phoneType: ContactPhonePhoneTypeEnum;
-        /** Initialization **/
-        constructor(phone: string, phoneType: ContactPhonePhoneTypeEnum);
-        /**
-         * Method Declarations for ContactPhone
-         */
-        getPhone(): string;
-        getPhoneType(): ContactPhonePhoneTypeEnum;
-        setPhoneType(phoneType: ContactPhonePhoneTypeEnum): void;
-        setPhone(phone: string): void;
-    }
-    /**
-     *  Enumerations for ContactPhone PhoneType
-     **/
-    class ContactPhonePhoneTypeEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Mobile: ContactPhonePhoneTypeEnum;
-        static Work: ContactPhonePhoneTypeEnum;
-        static Home: ContactPhonePhoneTypeEnum;
-        static Main: ContactPhonePhoneTypeEnum;
-        static HomeFax: ContactPhonePhoneTypeEnum;
-        static WorkFax: ContactPhonePhoneTypeEnum;
-        static Other: ContactPhonePhoneTypeEnum;
-        static Unknown: ContactPhonePhoneTypeEnum;
-    }
-    /**
-     *   Class implementation for ContactWebsite
-     **/
-    class ContactWebsite {
-        /** Field Declarations **/
-        url: string;
-        /** Initialization **/
-        constructor(url: string);
-        /**
-         * Method Declarations for ContactWebsite
-         */
-        getUrl(): string;
-        setUrl(url: string): void;
-    }
-    /**
-     *   Class implementation for AttachmentData
-     **/
-    class AttachmentData {
-        /** Field Declarations **/
-        data: number[];
-        dataSize: number;
-        fileName: string;
-        mimeType: string;
-        referenceUrl: string;
-        /** Initialization **/
-        constructor(data: number[], dataSize: number, fileName: string, mimeType: string, referenceUrl: string);
-        /**
-         * Method Declarations for AttachmentData
-         */
-        getData(): number[];
-        getDataSize(): number;
-        getFileName(): string;
-        getMimeType(): string;
-        getReferenceUrl(): string;
-        setDataSize(dataSize: number): void;
-        setData(data: number[]): void;
-        setFileName(fileName: string): void;
-        setMimeType(mimeType: string): void;
-        setReferenceUrl(referenceUrl: string): void;
-    }
-    /**
-     *   Class implementation for Geolocation
-     **/
-    class Geolocation {
-        /** Field Declarations **/
-        altitude: number;
-        latitude: number;
-        longitude: number;
-        xDoP: number;
-        yDoP: number;
-        /** Initialization **/
-        constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number);
-        /**
-         * Method Declarations for Geolocation
-         */
-        getAltitude(): number;
-        getLatitude(): number;
-        getLongitude(): number;
-        getXDoP(): number;
-        getYDoP(): number;
-        setAltitude(altitude: number): void;
-        setLatitude(latitude: number): void;
-        setLongitude(longitude: number): void;
-    }
-    /**
-     *   Class implementation for ContactPersonalInfo
-     **/
-    class ContactPersonalInfo {
-        /** Field Declarations **/
-        lastName: string;
-        middleName: string;
         name: string;
-        title: ContactPersonalInfoTitleEnum;
+        vendor: string;
+        version: string;
         /** Initialization **/
-        constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitleEnum);
+        constructor(name: string, version: string, vendor: string);
         /**
-         * Method Declarations for ContactPersonalInfo
+         * Method Declarations for OSInfo
          */
-        getLastName(): string;
-        getMiddleName(): string;
         getName(): string;
-        getTitle(): ContactPersonalInfoTitleEnum;
-        setLastName(lastName: string): void;
-        setMiddleName(middleName: string): void;
-        setName(name: string): void;
-        setTitle(title: ContactPersonalInfoTitleEnum): void;
-    }
-    /**
-     *  Enumerations for ContactPersonalInfo Title
-     **/
-    class ContactPersonalInfoTitleEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Mr: ContactPersonalInfoTitleEnum;
-        static Mrs: ContactPersonalInfoTitleEnum;
-        static Ms: ContactPersonalInfoTitleEnum;
-        static Dr: ContactPersonalInfoTitleEnum;
-        static Unknown: ContactPersonalInfoTitleEnum;
-    }
-    /**
-     *   Class implementation for EmailAddress
-     **/
-    class EmailAddress {
-        /** Field Declarations **/
-        address: string;
-        /** Initialization **/
-        constructor(address: string);
-        /**
-         * Method Declarations for EmailAddress
-         */
-        getAddress(): string;
-        setAddress(address: string): void;
-    }
-    /**
-     *   Class implementation for Contact
-     **/
-    class Contact extends ContactUid {
-        /** Field Declarations **/
-        contactAddresses: ContactAddress[];
-        contactEmails: ContactEmail[];
-        contactPhones: ContactPhone[];
-        contactSocials: ContactSocial[];
-        contactTags: ContactTag[];
-        contactWebsites: ContactWebsite[];
-        personalInfo: ContactPersonalInfo;
-        professionalInfo: ContactProfessionalInfo;
-        /** Initialization **/
-        constructor(contactId: string);
-        /**
-         * Method Declarations for Contact
-         */
-        getContactAddresses(): ContactAddress[];
-        getContactEmails(): ContactEmail[];
-        getContactPhones(): ContactPhone[];
-        getContactSocials(): ContactSocial[];
-        getContactTags(): ContactTag[];
-        getContactWebsites(): ContactWebsite[];
-        getPersonalInfo(): ContactPersonalInfo;
-        getProfessionalInfo(): ContactProfessionalInfo;
-        setContactAddresses(contactAddresses: ContactAddress[]): void;
-        setContactEmails(contactEmails: ContactEmail[]): void;
-        setContactPhones(contactPhones: ContactPhone[]): void;
-        setContactSocials(contactSocials: ContactSocial[]): void;
-        setContactTags(contactTags: ContactTag[]): void;
-        setContactWebsites(contactWebsites: ContactWebsite[]): void;
-        setPersonalInfo(personalInfo: ContactPersonalInfo): void;
-        setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
-    }
-    /**
-     *   Class implementation for ContactProfessionalInfo
-     **/
-    class ContactProfessionalInfo {
-        /** Field Declarations **/
-        company: string;
-        jobDescription: string;
-        jobTitle: string;
-        /** Initialization **/
-        constructor(jobTitle: string, jobDescription: string, company: string);
-        /**
-         * Method Declarations for ContactProfessionalInfo
-         */
-        getCompany(): string;
-        getJobDescription(): string;
-        getJobTitle(): string;
-        setCompany(company: string): void;
-        setJobDescription(jobDescription: string): void;
-        setJobTitle(jobTitle: string): void;
-    }
-    /**
-     *   Class implementation for Cookie
-     **/
-    class Cookie {
-        /** Field Declarations **/
-        creation: number;
-        data: string;
-        domain: string;
-        expiry: number;
-        name: string;
-        path: string;
-        scheme: string;
-        secure: boolean;
-        /** Initialization **/
-        constructor(name: string, data: string);
-        /**
-         * Method Declarations for Cookie
-         */
-        getCreation(): number;
-        getData(): string;
-        getDomain(): string;
-        getExpiry(): number;
-        getName(): string;
-        getPath(): string;
-        getScheme(): string;
-        isSecure(): boolean;
-        setData(data: string): void;
-        setDomain(domain: string): void;
-        setExpiry(expiry: number): void;
-        setName(name: string): void;
-        setPath(path: string): void;
-        setScheme(scheme: string): void;
-        setSecure(secure: boolean): void;
-    }
-    /**
-     *   Class implementation for Locale
-     **/
-    class Locale {
-        /** Field Declarations **/
-        country: string;
-        language: string;
-        description: string;
-        /** Initialization **/
-        constructor(language: string, country: string);
-        /**
-         * Method Declarations for Locale
-         */
-        getCountry(): string;
-        getLanguage(): string;
-        setCountry(country: string): void;
-        setLanguage(language: string): void;
-        toString(): string;
-    }
-    /**
-     *   Class implementation for ContactSocial
-     **/
-    class ContactSocial {
-        /** Field Declarations **/
-        profileUrl: string;
-        socialNetwork: ContactSocialSocialNetworkEnum;
-        /** Initialization **/
-        constructor(socialNetwork: ContactSocialSocialNetworkEnum, profileUrl: string);
-        /**
-         * Method Declarations for ContactSocial
-         */
-        getProfileUrl(): string;
-        getSocialNetwork(): ContactSocialSocialNetworkEnum;
-        setProfileUrl(profileUrl: string): void;
-        setSocialNetwork(socialNetwork: ContactSocialSocialNetworkEnum): void;
-    }
-    /**
-     *  Enumerations for ContactSocial SocialNetwork
-     **/
-    class ContactSocialSocialNetworkEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Twitter: ContactSocialSocialNetworkEnum;
-        static Facebook: ContactSocialSocialNetworkEnum;
-        static GooglePlus: ContactSocialSocialNetworkEnum;
-        static LinkedIn: ContactSocialSocialNetworkEnum;
-        static Flickr: ContactSocialSocialNetworkEnum;
-        static Unknown: ContactSocialSocialNetworkEnum;
-    }
-    /**
-     *   Class implementation for Endpoint
-     **/
-    class Endpoint {
-        /** Field Declarations **/
-        host: string;
-        path: string;
-        port: number;
-        proxy: string;
-        scheme: string;
-        /** Initialization **/
-        constructor(host: string, path: string, port: number, proxy: string, scheme: string);
-        /**
-         * Method Declarations for Endpoint
-         */
-        getHost(): string;
-        getPath(): string;
-        getPort(): number;
-        getProxy(): string;
-        getScheme(): string;
-        setHost(host: string): void;
-        setPath(path: string): void;
-        setPort(port: number): void;
-        setProxy(proxy: string): void;
-        setScheme(scheme: string): void;
-    }
-    /**
-     *   Class implementation for Button
-     **/
-    class Button {
-        /** Field Declarations **/
-        type: ButtonButtonEnum;
-        /** Initialization **/
-        constructor(type: ButtonButtonEnum);
-        /**
-         * Method Declarations for Button
-         */
-        getType(): ButtonButtonEnum;
-    }
-    /**
-     *  Enumerations for Button Button
-     **/
-    class ButtonButtonEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static HomeButton: ButtonButtonEnum;
-        static BackButton: ButtonButtonEnum;
-        static OptionButton: ButtonButtonEnum;
-        static Unknown: ButtonButtonEnum;
+        getVendor(): string;
+        getVersion(): string;
     }
     /**
      *   Class implementation for Column
@@ -2561,6 +2264,442 @@ declare module Adaptive {
         static Unknown: ServiceRequestProtocolVersionEnum;
     }
     /**
+     *   Class implementation for Database
+     **/
+    class Database {
+        /** Field Declarations **/
+        compress: boolean;
+        name: string;
+        /** Initialization **/
+        constructor(name: string, compress: boolean);
+        /**
+         * Method Declarations for Database
+         */
+        getName(): string;
+        isCompress(): boolean;
+        setCompress(compress: boolean): void;
+        setName(name: string): void;
+    }
+    /**
+     *   Class implementation for Cookie
+     **/
+    class Cookie {
+        /** Field Declarations **/
+        creation: number;
+        data: string;
+        domain: string;
+        expiry: number;
+        name: string;
+        path: string;
+        scheme: string;
+        secure: boolean;
+        /** Initialization **/
+        constructor(name: string, data: string);
+        /**
+         * Method Declarations for Cookie
+         */
+        getCreation(): number;
+        getData(): string;
+        getDomain(): string;
+        getExpiry(): number;
+        getName(): string;
+        getPath(): string;
+        getScheme(): string;
+        isSecure(): boolean;
+        setData(data: string): void;
+        setDomain(domain: string): void;
+        setExpiry(expiry: number): void;
+        setName(name: string): void;
+        setPath(path: string): void;
+        setScheme(scheme: string): void;
+        setSecure(secure: boolean): void;
+    }
+    /**
+     *   Class implementation for Locale
+     **/
+    class Locale {
+        /** Field Declarations **/
+        country: string;
+        language: string;
+        description: string;
+        /** Initialization **/
+        constructor(language: string, country: string);
+        /**
+         * Method Declarations for Locale
+         */
+        getCountry(): string;
+        getLanguage(): string;
+        setCountry(country: string): void;
+        setLanguage(language: string): void;
+        toString(): string;
+    }
+    /**
+     *   Class implementation for ContactWebsite
+     **/
+    class ContactWebsite {
+        /** Field Declarations **/
+        url: string;
+        /** Initialization **/
+        constructor(url: string);
+        /**
+         * Method Declarations for ContactWebsite
+         */
+        getUrl(): string;
+        setUrl(url: string): void;
+    }
+    /**
+     *   Class implementation for Row
+     **/
+    class Row {
+        /** Field Declarations **/
+        values: any[];
+        /** Initialization **/
+        constructor(values: any[]);
+        /**
+         * Method Declarations for Row
+         */
+        getValues(): any[];
+        setValues(values: any[]): void;
+    }
+    /**
+     *   Class implementation for ContactPersonalInfo
+     **/
+    class ContactPersonalInfo {
+        /** Field Declarations **/
+        lastName: string;
+        middleName: string;
+        name: string;
+        title: ContactPersonalInfoTitleEnum;
+        /** Initialization **/
+        constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitleEnum);
+        /**
+         * Method Declarations for ContactPersonalInfo
+         */
+        getLastName(): string;
+        getMiddleName(): string;
+        getName(): string;
+        getTitle(): ContactPersonalInfoTitleEnum;
+        setLastName(lastName: string): void;
+        setMiddleName(middleName: string): void;
+        setName(name: string): void;
+        setTitle(title: ContactPersonalInfoTitleEnum): void;
+    }
+    /**
+     *  Enumerations for ContactPersonalInfo Title
+     **/
+    class ContactPersonalInfoTitleEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Mr: ContactPersonalInfoTitleEnum;
+        static Mrs: ContactPersonalInfoTitleEnum;
+        static Ms: ContactPersonalInfoTitleEnum;
+        static Dr: ContactPersonalInfoTitleEnum;
+        static Unknown: ContactPersonalInfoTitleEnum;
+    }
+    /**
+     *   Class implementation for EmailAddress
+     **/
+    class EmailAddress {
+        /** Field Declarations **/
+        address: string;
+        /** Initialization **/
+        constructor(address: string);
+        /**
+         * Method Declarations for EmailAddress
+         */
+        getAddress(): string;
+        setAddress(address: string): void;
+    }
+    /**
+     *   Class implementation for ContactTag
+     **/
+    class ContactTag {
+        /** Field Declarations **/
+        dataValue: string;
+        name: string;
+        /** Initialization **/
+        constructor(name: string, dataValue: string);
+        /**
+         * Method Declarations for ContactTag
+         */
+        getDataValue(): string;
+        getName(): string;
+        setDataValue(dataValue: string): void;
+        setName(name: string): void;
+    }
+    /**
+     *   Class implementation for Endpoint
+     **/
+    class Endpoint {
+        /** Field Declarations **/
+        host: string;
+        path: string;
+        port: number;
+        proxy: string;
+        scheme: string;
+        /** Initialization **/
+        constructor(host: string, path: string, port: number, proxy: string, scheme: string);
+        /**
+         * Method Declarations for Endpoint
+         */
+        getHost(): string;
+        getPath(): string;
+        getPort(): number;
+        getProxy(): string;
+        getScheme(): string;
+        setHost(host: string): void;
+        setPath(path: string): void;
+        setPort(port: number): void;
+        setProxy(proxy: string): void;
+        setScheme(scheme: string): void;
+    }
+    /**
+     *   Class implementation for Geolocation
+     **/
+    class Geolocation {
+        /** Field Declarations **/
+        altitude: number;
+        latitude: number;
+        longitude: number;
+        xDoP: number;
+        yDoP: number;
+        /** Initialization **/
+        constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number);
+        /**
+         * Method Declarations for Geolocation
+         */
+        getAltitude(): number;
+        getLatitude(): number;
+        getLongitude(): number;
+        getXDoP(): number;
+        getYDoP(): number;
+        setAltitude(altitude: number): void;
+        setLatitude(latitude: number): void;
+        setLongitude(longitude: number): void;
+    }
+    /**
+     *   Class implementation for ContactUid
+     **/
+    class ContactUid {
+        /** Field Declarations **/
+        contactId: string;
+        /** Initialization **/
+        constructor(contactId: string);
+        /**
+         * Method Declarations for ContactUid
+         */
+        getContactId(): string;
+        setContactId(contactId: string): void;
+    }
+    /**
+     *   Class implementation for Email
+     **/
+    class Email {
+        /** Field Declarations **/
+        attachmentData: AttachmentData[];
+        bccRecipients: EmailAddress[];
+        ccRecipients: EmailAddress[];
+        messageBody: string;
+        messageBodyMimeType: string;
+        subject: string;
+        toRecipients: EmailAddress[];
+        /** Initialization **/
+        constructor(toRecipients: EmailAddress[], subject: string, messageBody: string);
+        /**
+         * Method Declarations for Email
+         */
+        getAttachmentData(): AttachmentData[];
+        getBccRecipients(): EmailAddress[];
+        getCcRecipients(): EmailAddress[];
+        getMessageBody(): string;
+        getMessageBodyMimeType(): string;
+        getSubject(): string;
+        getToRecipients(): EmailAddress[];
+        setAttachmentData(attachmentData: AttachmentData[]): void;
+        setBccRecipients(bccRecipients: EmailAddress[]): void;
+        setCcRecipients(ccRecipients: EmailAddress[]): void;
+        setMessageBodyMimeType(messageBodyMimeType: string): void;
+        setMessageBody(messageBody: string): void;
+        setSubject(subject: string): void;
+        setToRecipients(toRecipients: EmailAddress[]): void;
+    }
+    /**
+     *   Class implementation for AttachmentData
+     **/
+    class AttachmentData {
+        /** Field Declarations **/
+        data: number[];
+        dataSize: number;
+        fileName: string;
+        mimeType: string;
+        referenceUrl: string;
+        /** Initialization **/
+        constructor(data: number[], dataSize: number, fileName: string, mimeType: string, referenceUrl: string);
+        /**
+         * Method Declarations for AttachmentData
+         */
+        getData(): number[];
+        getDataSize(): number;
+        getFileName(): string;
+        getMimeType(): string;
+        getReferenceUrl(): string;
+        setDataSize(dataSize: number): void;
+        setData(data: number[]): void;
+        setFileName(fileName: string): void;
+        setMimeType(mimeType: string): void;
+        setReferenceUrl(referenceUrl: string): void;
+    }
+    /**
+     *   Class implementation for ContactSocial
+     **/
+    class ContactSocial {
+        /** Field Declarations **/
+        profileUrl: string;
+        socialNetwork: ContactSocialSocialNetworkEnum;
+        /** Initialization **/
+        constructor(socialNetwork: ContactSocialSocialNetworkEnum, profileUrl: string);
+        /**
+         * Method Declarations for ContactSocial
+         */
+        getProfileUrl(): string;
+        getSocialNetwork(): ContactSocialSocialNetworkEnum;
+        setProfileUrl(profileUrl: string): void;
+        setSocialNetwork(socialNetwork: ContactSocialSocialNetworkEnum): void;
+    }
+    /**
+     *  Enumerations for ContactSocial SocialNetwork
+     **/
+    class ContactSocialSocialNetworkEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Twitter: ContactSocialSocialNetworkEnum;
+        static Facebook: ContactSocialSocialNetworkEnum;
+        static GooglePlus: ContactSocialSocialNetworkEnum;
+        static LinkedIn: ContactSocialSocialNetworkEnum;
+        static Flickr: ContactSocialSocialNetworkEnum;
+        static Unknown: ContactSocialSocialNetworkEnum;
+    }
+    /**
+     *   Class implementation for ContactPhone
+     **/
+    class ContactPhone {
+        /** Field Declarations **/
+        phone: string;
+        phoneType: ContactPhonePhoneTypeEnum;
+        /** Initialization **/
+        constructor(phone: string, phoneType: ContactPhonePhoneTypeEnum);
+        /**
+         * Method Declarations for ContactPhone
+         */
+        getPhone(): string;
+        getPhoneType(): ContactPhonePhoneTypeEnum;
+        setPhoneType(phoneType: ContactPhonePhoneTypeEnum): void;
+        setPhone(phone: string): void;
+    }
+    /**
+     *  Enumerations for ContactPhone PhoneType
+     **/
+    class ContactPhonePhoneTypeEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Mobile: ContactPhonePhoneTypeEnum;
+        static Work: ContactPhonePhoneTypeEnum;
+        static Home: ContactPhonePhoneTypeEnum;
+        static Main: ContactPhonePhoneTypeEnum;
+        static HomeFax: ContactPhonePhoneTypeEnum;
+        static WorkFax: ContactPhonePhoneTypeEnum;
+        static Other: ContactPhonePhoneTypeEnum;
+        static Unknown: ContactPhonePhoneTypeEnum;
+    }
+    /**
+     *   Class implementation for SecureKeyPair
+     **/
+    class SecureKeyPair {
+        /** Field Declarations **/
+        secureData: string;
+        secureKey: string;
+        /** Initialization **/
+        constructor(secureKey: string, secureData: string);
+        /**
+         * Method Declarations for SecureKeyPair
+         */
+        getSecureData(): string;
+        getSecureKey(): string;
+        setSecureData(secureData: string): void;
+        setSecureKey(secureKey: string): void;
+    }
+    /**
+     *   Class implementation for Table
+     **/
+    class Table {
+        /** Field Declarations **/
+        columnCount: number;
+        columns: Column[];
+        name: string;
+        rowCount: number;
+        rows: Row[];
+        /** Initialization **/
+        constructor(name: string);
+        /**
+         * Method Declarations for Table
+         */
+        getColumnCount(): number;
+        getColumns(): Column[];
+        getName(): string;
+        getRowCount(): number;
+        getRows(): Row[];
+        setColumnCount(columnCount: number): void;
+        setColumns(columns: Column[]): void;
+        setName(name: string): void;
+        setRowCount(rowCount: number): void;
+        setRows(rows: Row[]): void;
+    }
+    /**
+     *   Class implementation for ContactProfessionalInfo
+     **/
+    class ContactProfessionalInfo {
+        /** Field Declarations **/
+        company: string;
+        jobDescription: string;
+        jobTitle: string;
+        /** Initialization **/
+        constructor(jobTitle: string, jobDescription: string, company: string);
+        /**
+         * Method Declarations for ContactProfessionalInfo
+         */
+        getCompany(): string;
+        getJobDescription(): string;
+        getJobTitle(): string;
+        setCompany(company: string): void;
+        setJobDescription(jobDescription: string): void;
+        setJobTitle(jobTitle: string): void;
+    }
+    /**
+     *   Class implementation for Acceleration
+     **/
+    class Acceleration {
+        /** Field Declarations **/
+        timeStamp: number;
+        x: number;
+        y: number;
+        z: number;
+        /** Initialization **/
+        constructor(x: number, y: number, z: number, timeStamp: number);
+        /**
+         * Method Declarations for Acceleration
+         */
+        getX(): number;
+        getY(): number;
+        getZ(): number;
+        setTimeStamp(timeStamp: number): void;
+        setX(x: number): void;
+        setY(y: number): void;
+        setZ(z: number): void;
+    }
+    /**
      *   Class implementation for DeviceInfo
      **/
     class DeviceInfo {
@@ -2580,35 +2719,176 @@ declare module Adaptive {
         getVendor(): string;
     }
     /**
-     *   Class implementation for ContactEmail
+     *   Class implementation for ContactAddress
      **/
-    class ContactEmail {
+    class ContactAddress {
         /** Field Declarations **/
-        email: string;
-        primary: boolean;
-        type: ContactEmailEmailTypeEnum;
+        address: string;
+        type: ContactAddressAddressTypeEnum;
         /** Initialization **/
-        constructor(type: ContactEmailEmailTypeEnum, primary: boolean, email: string);
+        constructor(address: string, type: ContactAddressAddressTypeEnum);
         /**
-         * Method Declarations for ContactEmail
+         * Method Declarations for ContactAddress
          */
-        getEmail(): string;
-        getType(): ContactEmailEmailTypeEnum;
-        isPrimary(): boolean;
-        setEmail(email: string): void;
-        setPrimary(primary: boolean): void;
-        setType(type: ContactEmailEmailTypeEnum): void;
+        getAddress(): string;
+        getType(): ContactAddressAddressTypeEnum;
+        setAddress(address: string): void;
+        setType(type: ContactAddressAddressTypeEnum): void;
     }
     /**
-     *  Enumerations for ContactEmail EmailType
+     *  Enumerations for ContactAddress AddressType
      **/
-    class ContactEmailEmailTypeEnum {
+    class ContactAddressAddressTypeEnum {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Personal: ContactEmailEmailTypeEnum;
-        static Work: ContactEmailEmailTypeEnum;
-        static Other: ContactEmailEmailTypeEnum;
-        static Unknown: ContactEmailEmailTypeEnum;
+        static Home: ContactAddressAddressTypeEnum;
+        static Work: ContactAddressAddressTypeEnum;
+        static Other: ContactAddressAddressTypeEnum;
+        static Unknown: ContactAddressAddressTypeEnum;
+    }
+    /**
+     *   Class implementation for Contact
+     **/
+    class Contact extends ContactUid {
+        /** Field Declarations **/
+        contactAddresses: ContactAddress[];
+        contactEmails: ContactEmail[];
+        contactPhones: ContactPhone[];
+        contactSocials: ContactSocial[];
+        contactTags: ContactTag[];
+        contactWebsites: ContactWebsite[];
+        personalInfo: ContactPersonalInfo;
+        professionalInfo: ContactProfessionalInfo;
+        /** Initialization **/
+        constructor(contactId: string);
+        /**
+         * Method Declarations for Contact
+         */
+        getContactAddresses(): ContactAddress[];
+        getContactEmails(): ContactEmail[];
+        getContactPhones(): ContactPhone[];
+        getContactSocials(): ContactSocial[];
+        getContactTags(): ContactTag[];
+        getContactWebsites(): ContactWebsite[];
+        getPersonalInfo(): ContactPersonalInfo;
+        getProfessionalInfo(): ContactProfessionalInfo;
+        setContactAddresses(contactAddresses: ContactAddress[]): void;
+        setContactEmails(contactEmails: ContactEmail[]): void;
+        setContactPhones(contactPhones: ContactPhone[]): void;
+        setContactSocials(contactSocials: ContactSocial[]): void;
+        setContactTags(contactTags: ContactTag[]): void;
+        setContactWebsites(contactWebsites: ContactWebsite[]): void;
+        setPersonalInfo(personalInfo: ContactPersonalInfo): void;
+        setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
+    }
+    /**
+     *   Class implementation for Button
+     **/
+    class Button {
+        /** Field Declarations **/
+        type: ButtonButtonEnum;
+        /** Initialization **/
+        constructor(type: ButtonButtonEnum);
+        /**
+         * Method Declarations for Button
+         */
+        getType(): ButtonButtonEnum;
+    }
+    /**
+     *  Enumerations for Button Button
+     **/
+    class ButtonButtonEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static HomeButton: ButtonButtonEnum;
+        static BackButton: ButtonButtonEnum;
+        static OptionButton: ButtonButtonEnum;
+        static Unknown: ButtonButtonEnum;
+    }
+    /**
+     *   Class implementation for Lifecycle
+     **/
+    class Lifecycle {
+        /** Field Declarations **/
+        state: LifecycleStateEnum;
+        /** Initialization **/
+        constructor(state: LifecycleStateEnum);
+        /**
+         * Method Declarations for Lifecycle
+         */
+        getState(): LifecycleStateEnum;
+        setState(state: LifecycleStateEnum): void;
+    }
+    /**
+     *  Enumerations for Lifecycle State
+     **/
+    class LifecycleStateEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Starting: LifecycleStateEnum;
+        static Started: LifecycleStateEnum;
+        static Running: LifecycleStateEnum;
+        static Paused: LifecycleStateEnum;
+        static PausedIdle: LifecycleStateEnum;
+        static PausedRun: LifecycleStateEnum;
+        static Resuming: LifecycleStateEnum;
+        static Stopping: LifecycleStateEnum;
+        static Unknown: LifecycleStateEnum;
+    }
+    /**
+     *   Class implementation for Service
+     **/
+    class Service {
+        /** Field Declarations **/
+        endpoint: Endpoint;
+        method: ServiceServiceMethodEnum;
+        name: string;
+        type: ServiceServiceTypeEnum;
+        /** Initialization **/
+        constructor(endpoint: Endpoint, name: string, method: ServiceServiceMethodEnum, type: ServiceServiceTypeEnum);
+        /**
+         * Method Declarations for Service
+         */
+        getEndpoint(): Endpoint;
+        getMethod(): ServiceServiceMethodEnum;
+        getName(): string;
+        getType(): ServiceServiceTypeEnum;
+        setEndpoint(endpoint: Endpoint): void;
+        setMethod(method: ServiceServiceMethodEnum): void;
+        setName(name: string): void;
+        setType(type: ServiceServiceTypeEnum): void;
+    }
+    /**
+     *  Enumerations for Service ServiceMethod
+     **/
+    class ServiceServiceMethodEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static POST: ServiceServiceMethodEnum;
+        static GET: ServiceServiceMethodEnum;
+        static Unknown: ServiceServiceMethodEnum;
+    }
+    /**
+     *  Enumerations for Service ServiceType
+     **/
+    class ServiceServiceTypeEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static SERVICETYPE_AMF_SERIALIZATION: ServiceServiceTypeEnum;
+        static SERVICETYPE_GWT_RPC: ServiceServiceTypeEnum;
+        static SERVICETYPE_OCTET_BINARY: ServiceServiceTypeEnum;
+        static SERVICETYPE_REMOTING_SERIALIZATION: ServiceServiceTypeEnum;
+        static SERVICETYPE_REST_JSON: ServiceServiceTypeEnum;
+        static SERVICETYPE_REST_XML: ServiceServiceTypeEnum;
+        static SERVICETYPE_SOAP_JSON: ServiceServiceTypeEnum;
+        static SERVICETYPE_SOAP_XML: ServiceServiceTypeEnum;
+        static SERVICETYPE_XMLRPC_JSON: ServiceServiceTypeEnum;
+        static SERVICETYPE_XMLRPC_XML: ServiceServiceTypeEnum;
+        static Unknown: ServiceServiceTypeEnum;
     }
 }
