@@ -1233,7 +1233,20 @@ public class J2SwiftConverter {
                         nonMethodList.add(method);
                     }
                 }
+                onMethodList.sort(new Comparator<Method>() {
+                    @Override
+                    public int compare(Method o1, Method o2) {
+                        return o1.toString().compareTo(o2.toString());
+                    }
+                });
 
+                nonMethodList.sort(new Comparator<Method>() {
+                    @Override
+                    public int compare(Method o1, Method o2) {
+                        return o1.toString().compareTo(o2.toString());
+                    }
+                });
+                
                 js.println(5, "export class " + clazz.getSimpleName().substring(1) + " implements " + clazz.getSimpleName() + " {");
                 // Fields
                 for (int i = 0; i<nonMethodList.size();i++) {

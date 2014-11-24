@@ -526,14 +526,14 @@ module Adaptive {
      export class NetworkReachabilityCallback implements INetworkReachabilityCallback {
           description: string;
           id: number;
-          onResultFunction : (result: string) => Function;
           onErrorFunction : (error: INetworkReachabilityCallbackErrorEnum) => Function;
+          onResultFunction : (result: string) => Function;
           onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (result: string) => Function, onErrorFunction : (error: INetworkReachabilityCallbackErrorEnum) => Function, onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -681,14 +681,14 @@ module Adaptive {
      export class ServiceResultCallback implements IServiceResultCallback {
           description: string;
           id: number;
-          onResultFunction : (response: ServiceResponse) => Function;
           onErrorFunction : (error: IServiceResultCallbackErrorEnum) => Function;
+          onResultFunction : (response: ServiceResponse) => Function;
           onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (response: ServiceResponse) => Function, onErrorFunction : (error: IServiceResultCallbackErrorEnum) => Function, onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -816,14 +816,14 @@ module Adaptive {
      export class GeolocationListener implements IGeolocationListener {
           description: string;
           id: number;
-          onResultFunction : (geolocation: Geolocation) => Function;
           onErrorFunction : (error: IGeolocationListenerErrorEnum) => Function;
+          onResultFunction : (geolocation: Geolocation) => Function;
           onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (geolocation: Geolocation) => Function, onErrorFunction : (error: IGeolocationListenerErrorEnum) => Function, onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -896,14 +896,14 @@ module Adaptive {
      export class ContactResultCallback implements IContactResultCallback {
           description: string;
           id: number;
-          onResultFunction : (contacts: Array<Contact>) => Function;
           onErrorFunction : (error: IContactResultCallbackErrorEnum) => Function;
+          onResultFunction : (contacts: Array<Contact>) => Function;
           onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (contacts: Array<Contact>) => Function, onErrorFunction : (error: IContactResultCallbackErrorEnum) => Function, onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -991,14 +991,14 @@ module Adaptive {
      export class DatabaseResultCallback implements IDatabaseResultCallback {
           description: string;
           id: number;
-          onResultFunction : (database: Database) => Function;
           onErrorFunction : (error: IDatabaseResultCallbackErrorEnum) => Function;
+          onResultFunction : (database: Database) => Function;
           onWarningFunction : (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (database: Database) => Function, onErrorFunction : (error: IDatabaseResultCallbackErrorEnum) => Function, onWarningFunction : (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -1230,22 +1230,22 @@ module Adaptive {
           description: string;
           id: number;
           onPausedFunction : (server: IAppServer) => Function;
-          onStartFunction : (server: IAppServer) => Function;
-          onResumingFunction : (server: IAppServer) => Function;
-          onResumedFunction : (server: IAppServer) => Function;
-          onStoppingFunction : (server: IAppServer) => Function;
-          onStoppedFunction : (server: IAppServer) => Function;
           onPausingFunction : (server: IAppServer) => Function;
+          onResumedFunction : (server: IAppServer) => Function;
+          onResumingFunction : (server: IAppServer) => Function;
+          onStartFunction : (server: IAppServer) => Function;
+          onStoppedFunction : (server: IAppServer) => Function;
+          onStoppingFunction : (server: IAppServer) => Function;
 
           constructor(id: number, onPausedFunction : (server: IAppServer) => Function, onStartFunction : (server: IAppServer) => Function, onResumingFunction : (server: IAppServer) => Function, onResumedFunction : (server: IAppServer) => Function, onStoppingFunction : (server: IAppServer) => Function, onStoppedFunction : (server: IAppServer) => Function, onPausingFunction : (server: IAppServer) => Function) {
                this.id = id;
                this.onPausedFunction = onPausedFunction;
-               this.onStartFunction = onStartFunction;
-               this.onResumingFunction = onResumingFunction;
-               this.onResumedFunction = onResumedFunction;
-               this.onStoppingFunction = onStoppingFunction;
-               this.onStoppedFunction = onStoppedFunction;
                this.onPausingFunction = onPausingFunction;
+               this.onResumedFunction = onResumedFunction;
+               this.onResumingFunction = onResumingFunction;
+               this.onStartFunction = onStartFunction;
+               this.onStoppedFunction = onStoppedFunction;
+               this.onStoppingFunction = onStoppingFunction;
           }
 
           onPaused(server: IAppServer) : void {
@@ -1378,14 +1378,14 @@ module Adaptive {
      export class LifecycleListener implements ILifecycleListener {
           description: string;
           id: number;
-          onResultFunction : (lifecycle: Lifecycle) => Function;
           onErrorFunction : (error: ILifecycleListenerErrorEnum) => Function;
+          onResultFunction : (lifecycle: Lifecycle) => Function;
           onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (lifecycle: Lifecycle) => Function, onErrorFunction : (error: ILifecycleListenerErrorEnum) => Function, onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -1486,14 +1486,14 @@ module Adaptive {
      export class ContactPhotoResultCallback implements IContactPhotoResultCallback {
           description: string;
           id: number;
-          onResultFunction : (contactPhoto: Array<number>) => Function;
           onErrorFunction : (error: IContactPhotoResultCallbackErrorEnum) => Function;
+          onResultFunction : (contactPhoto: Array<number>) => Function;
           onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (contactPhoto: Array<number>) => Function, onErrorFunction : (error: IContactPhotoResultCallbackErrorEnum) => Function, onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -1634,14 +1634,14 @@ module Adaptive {
      export class AccelerationListener implements IAccelerationListener {
           description: string;
           id: number;
-          onResultFunction : (acceleration: Acceleration) => Function;
           onErrorFunction : (error: IAccelerationListenerErrorEnum) => Function;
+          onResultFunction : (acceleration: Acceleration) => Function;
           onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (acceleration: Acceleration) => Function, onErrorFunction : (error: IAccelerationListenerErrorEnum) => Function, onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -1746,14 +1746,14 @@ module Adaptive {
      export class SecureKVResultCallback implements ISecureKVResultCallback {
           description: string;
           id: number;
-          onResultFunction : (keyValues: Array<SecureKeyPair>) => Function;
           onErrorFunction : (error: ISecureKVResultCallbackErrorEnum) => Function;
+          onResultFunction : (keyValues: Array<SecureKeyPair>) => Function;
           onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (keyValues: Array<SecureKeyPair>) => Function, onErrorFunction : (error: ISecureKVResultCallbackErrorEnum) => Function, onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -1839,14 +1839,14 @@ module Adaptive {
      export class FileDataResultCallback implements IFileDataResultCallback {
           description: string;
           id: number;
-          onResultFunction : (file: IFile, data: Array<number>) => Function;
           onErrorFunction : (error: IFileDataResultCallbackErrorEnum) => Function;
+          onResultFunction : (file: IFile, data: Array<number>) => Function;
           onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (file: IFile, data: Array<number>) => Function, onErrorFunction : (error: IFileDataResultCallbackErrorEnum) => Function, onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -1937,14 +1937,14 @@ module Adaptive {
      export class TableResultCallback implements ITableResultCallback {
           description: string;
           id: number;
-          onResultFunction : (table: Table) => Function;
           onErrorFunction : (error: ITableResultCallbackErrorEnum) => Function;
+          onResultFunction : (table: Table) => Function;
           onWarningFunction : (table: Table, warning: ITableResultCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (table: Table) => Function, onErrorFunction : (error: ITableResultCallbackErrorEnum) => Function, onWarningFunction : (table: Table, warning: ITableResultCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -2076,14 +2076,14 @@ module Adaptive {
      export class FileListResultCallback implements IFileListResultCallback {
           description: string;
           id: number;
-          onResultFunction : (files: Array<IFile>) => Function;
           onErrorFunction : (error: IFileListResultCallbackErrorEnum) => Function;
+          onResultFunction : (files: Array<IFile>) => Function;
           onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (files: Array<IFile>) => Function, onErrorFunction : (error: IFileListResultCallbackErrorEnum) => Function, onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -2187,14 +2187,14 @@ module Adaptive {
      export class ButtonListener implements IButtonListener {
           description: string;
           id: number;
-          onResultFunction : (button: Button) => Function;
           onErrorFunction : (error: IButtonListenerErrorEnum) => Function;
+          onResultFunction : (button: Button) => Function;
           onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (button: Button) => Function, onErrorFunction : (error: IButtonListenerErrorEnum) => Function, onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -2318,14 +2318,14 @@ module Adaptive {
      export class FileResultCallback implements IFileResultCallback {
           description: string;
           id: number;
-          onResultFunction : (storageFile: IFile) => Function;
           onErrorFunction : (error: IFileResultCallbackErrorEnum) => Function;
+          onResultFunction : (storageFile: IFile) => Function;
           onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (storageFile: IFile) => Function, onErrorFunction : (error: IFileResultCallbackErrorEnum) => Function, onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -2504,14 +2504,14 @@ module Adaptive {
      export class MessagingCallback implements IMessagingCallback {
           description: string;
           id: number;
-          onResultFunction : (success: boolean) => Function;
           onErrorFunction : (error: IMessagingCallbackErrorEnum) => Function;
+          onResultFunction : (success: boolean) => Function;
           onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (success: boolean) => Function, onErrorFunction : (error: IMessagingCallbackErrorEnum) => Function, onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
@@ -2599,14 +2599,14 @@ module Adaptive {
      export class AppResourceCallback implements IAppResourceCallback {
           description: string;
           id: number;
-          onResultFunction : (resource: IAppResource) => Function;
           onErrorFunction : (resource: IAppResource, error: IAppResourceCallbackErrorEnum) => Function;
+          onResultFunction : (resource: IAppResource) => Function;
           onWarningFunction : (resource: IAppResource, warning: IAppResourceCallbackWarningEnum) => Function;
 
           constructor(id: number, onResultFunction : (resource: IAppResource) => Function, onErrorFunction : (resource: IAppResource, error: IAppResourceCallbackErrorEnum) => Function, onWarningFunction : (resource: IAppResource, warning: IAppResourceCallbackWarningEnum) => Function) {
                this.id = id;
-               this.onResultFunction = onResultFunction;
                this.onErrorFunction = onErrorFunction;
+               this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
