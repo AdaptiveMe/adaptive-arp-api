@@ -37,6 +37,7 @@ public protocol IBaseCallback : IAdaptiveRP {
       */
 
      var description : String { get }
+     func getId() -> Int64
      func toString() -> String?
 
 }

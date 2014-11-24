@@ -94,132 +94,10 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IBaseSecurity
-      **/
-     export interface IBaseSecurity extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IBaseApplication
-      **/
-     export interface IBaseApplication extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IAppContext
-      **/
-     export interface IAppContext extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IAppContext
-           */
-           getContext() : any
-           getContextType() : IAppContextTypeEnum
-
-     }
-     /**
-      *  Enumerations for IAppContext Type
-      **/
-     export class IAppContextTypeEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static iOS = new IAppContextTypeEnum("iOS");
-          static OSX = new IAppContextTypeEnum("OSX");
-          static Windows = new IAppContextTypeEnum("Windows");
-          static WindowsPhone = new IAppContextTypeEnum("WindowsPhone");
-          static Android = new IAppContextTypeEnum("Android");
-          static Linux = new IAppContextTypeEnum("Linux");
-          static Blackberry = new IAppContextTypeEnum("Blackberry");
-          static Tizen = new IAppContextTypeEnum("Tizen");
-          static FirefoxOS = new IAppContextTypeEnum("FirefoxOS");
-          static Chromium = new IAppContextTypeEnum("Chromium");
-          static Unspecified = new IAppContextTypeEnum("Unspecified");
-          static Unknown = new IAppContextTypeEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IBaseSocial
-      **/
-     export interface IBaseSocial extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IAppRegistry
-      **/
-     export interface IAppRegistry extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IAppRegistry
-           */
-           getApplicationAnalytics() : IAnalytics
-           getApplicationGlobalization() : IGlobalization
-           getApplicationLifecycle() : ILifecycle
-           getApplicationManagement() : IManagement
-           getApplicationPrinting() : IPrinting
-           getApplicationSettings() : ISettings
-           getApplicationUpdate() : IUpdate
-           getPlatformContext() : IAppContext
-           getPlatformContextWeb() : IAppContextWebview
-           getSystemCapabilities() : ICapabilities
-           getSystemDevice() : IDevice
-           getSystemDisplay() : IDisplay
-           getSystemOS() : IOS
-           getSystemRuntime() : IRuntime
-     }
-
-     /**
-      *   Interface definition for IBasePIM
-      **/
-     export interface IBasePIM extends IAdaptiveRP {
-
-     }
-
-     /**
       *   Interface definition for IBaseReader
       **/
      export interface IBaseReader extends IAdaptiveRP {
 
-     }
-
-     /**
-      *   Interface definition for IBaseCallback
-      **/
-     export interface IBaseCallback extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IBaseCallback
-           */
-           toString() : string
-     }
-
-     /**
-      *   Interface definition for IBaseSensor
-      **/
-     export interface IBaseSensor extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IAppServer
-      **/
-     export interface IAppServer extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IAppServer
-           */
-           getBaseURI() : string
-           getHost() : string
-           getPath() : string
-           getPort() : number
-           getScheme() : string
-           pauseServer()
-           resumeServer()
-           startServer()
-           stopServer()
      }
 
      /**
@@ -237,60 +115,9 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IBaseCommunication
+      *   Interface definition for IBasePIM
       **/
-     export interface IBaseCommunication extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IAppResourceHandler
-      **/
-     export interface IAppResourceHandler extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IAppResourceHandler
-           */
-           getResource(resourcePath : string, callback : IAppResourceCallback)
-     }
-
-     /**
-      *   Interface definition for IBaseData
-      **/
-     export interface IBaseData extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IAppServerManager
-      **/
-     export interface IAppServerManager extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IAppServerManager
-           */
-           addServerListener(listener : IAppServerListener)
-           getServers() : Array<IAppServer>
-           pauseServer(server : IAppServer)
-           removeServerListener(listener : IAppServerListener)
-           removeServerListeners()
-           resumeServer(server : IAppServer)
-           startServer()
-           stopServers()
-           stopServer(server : IAppServer)
-     }
-
-     /**
-      *   Interface definition for IBaseNotification
-      **/
-     export interface IBaseNotification extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IBaseUtil
-      **/
-     export interface IBaseUtil extends IAdaptiveRP {
+     export interface IBasePIM extends IAdaptiveRP {
 
      }
 
@@ -365,6 +192,27 @@ module Adaptive {
      }
 
      /**
+      *   Interface definition for IBaseSystem
+      **/
+     export interface IBaseSystem extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IBaseUI
+      **/
+     export interface IBaseUI extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IBaseCommunication
+      **/
+     export interface IBaseCommunication extends IAdaptiveRP {
+
+     }
+
+     /**
       *   Interface definition for IBaseListener
       **/
      export interface IBaseListener extends IAdaptiveRP {
@@ -377,23 +225,49 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IBaseMedia
+      *   Interface definition for IAppContext
       **/
-     export interface IBaseMedia extends IAdaptiveRP {
+     export interface IAppContext extends IAdaptiveRP {
+
+          /**
+           * Method Declarations for IAppContext
+           */
+           getContext() : any
+           getContextType() : IAppContextTypeEnum
+
+     }
+     /**
+      *  Enumerations for IAppContext Type
+      **/
+     export class IAppContextTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static iOS = new IAppContextTypeEnum("iOS");
+          static OSX = new IAppContextTypeEnum("OSX");
+          static Windows = new IAppContextTypeEnum("Windows");
+          static WindowsPhone = new IAppContextTypeEnum("WindowsPhone");
+          static Android = new IAppContextTypeEnum("Android");
+          static Linux = new IAppContextTypeEnum("Linux");
+          static Blackberry = new IAppContextTypeEnum("Blackberry");
+          static Tizen = new IAppContextTypeEnum("Tizen");
+          static FirefoxOS = new IAppContextTypeEnum("FirefoxOS");
+          static Chromium = new IAppContextTypeEnum("Chromium");
+          static Unspecified = new IAppContextTypeEnum("Unspecified");
+          static Unknown = new IAppContextTypeEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for IBaseSocial
+      **/
+     export interface IBaseSocial extends IAdaptiveRP {
 
      }
 
      /**
-      *   Interface definition for IBaseUI
+      *   Interface definition for IBaseNotification
       **/
-     export interface IBaseUI extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IBaseSystem
-      **/
-     export interface IBaseSystem extends IAdaptiveRP {
+     export interface IBaseNotification extends IAdaptiveRP {
 
      }
 
@@ -405,16 +279,598 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IStore
+      *   Interface definition for IAppResourceHandler
       **/
-     export interface IStore extends IBaseCommerce {
+     export interface IAppResourceHandler extends IAdaptiveRP {
+
+          /**
+           * Method Declarations for IAppResourceHandler
+           */
+           getResource(resourcePath : string, callback : IAppResourceCallback)
+     }
+
+     /**
+      *   Interface definition for IBaseMedia
+      **/
+     export interface IBaseMedia extends IAdaptiveRP {
 
      }
 
      /**
-      *   Interface definition for IInternalStorage
+      *   Interface definition for IBaseData
       **/
-     export interface IInternalStorage extends IBaseData {
+     export interface IBaseData extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IBaseCallback
+      **/
+     export interface IBaseCallback extends IAdaptiveRP {
+
+          /**
+           * Method Declarations for IBaseCallback
+           */
+           getId() : number
+           toString() : string
+     }
+
+     /**
+      *   Interface definition for IBaseSensor
+      **/
+     export interface IBaseSensor extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IAppServerManager
+      **/
+     export interface IAppServerManager extends IAdaptiveRP {
+
+          /**
+           * Method Declarations for IAppServerManager
+           */
+           addServerListener(listener : IAppServerListener)
+           getServers() : Array<IAppServer>
+           pauseServer(server : IAppServer)
+           removeServerListener(listener : IAppServerListener)
+           removeServerListeners()
+           resumeServer(server : IAppServer)
+           startServer()
+           stopServers()
+           stopServer(server : IAppServer)
+     }
+
+     /**
+      *   Interface definition for IAppServer
+      **/
+     export interface IAppServer extends IAdaptiveRP {
+
+          /**
+           * Method Declarations for IAppServer
+           */
+           getBaseURI() : string
+           getHost() : string
+           getPath() : string
+           getPort() : number
+           getScheme() : string
+           pauseServer()
+           resumeServer()
+           startServer()
+           stopServer()
+     }
+
+     /**
+      *   Interface definition for IBaseUtil
+      **/
+     export interface IBaseUtil extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IAppRegistry
+      **/
+     export interface IAppRegistry extends IAdaptiveRP {
+
+          /**
+           * Method Declarations for IAppRegistry
+           */
+           getApplicationAnalytics() : IAnalytics
+           getApplicationGlobalization() : IGlobalization
+           getApplicationLifecycle() : ILifecycle
+           getApplicationManagement() : IManagement
+           getApplicationPrinting() : IPrinting
+           getApplicationSettings() : ISettings
+           getApplicationUpdate() : IUpdate
+           getPlatformContext() : IAppContext
+           getPlatformContextWeb() : IAppContextWebview
+           getSystemCapabilities() : ICapabilities
+           getSystemDevice() : IDevice
+           getSystemDisplay() : IDisplay
+           getSystemOS() : IOS
+           getSystemRuntime() : IRuntime
+     }
+
+     /**
+      *   Interface definition for IBaseSecurity
+      **/
+     export interface IBaseSecurity extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IBaseApplication
+      **/
+     export interface IBaseApplication extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IDataStream
+      **/
+     export interface IDataStream extends IBaseData {
+
+     }
+
+     /**
+      *   Interface definition for IGooglePlus
+      **/
+     export interface IGooglePlus extends IBaseSocial {
+
+     }
+
+     /**
+      *   Interface definition for IAds
+      **/
+     export interface IAds extends IBaseCommerce {
+
+     }
+
+     /**
+      *   Interface definition for IVideo
+      **/
+     export interface IVideo extends IBaseMedia {
+
+          /**
+           * Method Declarations for IVideo
+           */
+           playStream(url : string)
+     }
+
+     /**
+      *   Interface definition for IVibration
+      **/
+     export interface IVibration extends IBaseNotification {
+
+     }
+
+     /**
+      *   Interface definition for INotificationLocal
+      **/
+     export interface INotificationLocal extends IBaseNotification {
+
+     }
+
+     /**
+      *   Interface definition for ISession
+      **/
+     export interface ISession extends IBaseCommunication {
+
+          /**
+           * Method Declarations for ISession
+           */
+           getAttribute(name : string) : any
+           getAttributes() : Array<any>
+           getCookies() : Array<Cookie>
+           listAttributeNames() : Array<string>
+           removeAttribute(name : string)
+           removeAttributes()
+           removeCookie(cookie : Cookie)
+           removeCookies(cookies : Array<Cookie>)
+           setAttribute(name : string, value : any)
+           setCookie(cookie : Cookie)
+           setCookies(cookies : Array<Cookie>)
+     }
+
+     /**
+      *   Interface definition for ITableResultCallback
+      **/
+     export interface ITableResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for ITableResultCallback
+           */
+           onError(error : ITableResultCallbackErrorEnum)
+           onResult(table : Table)
+           onWarning(table : Table, warning : ITableResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for ITableResultCallback Error
+      **/
+     export class ITableResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoSpace = new ITableResultCallbackErrorEnum("NoSpace");
+          static ReadOnlyTable = new ITableResultCallbackErrorEnum("ReadOnlyTable");
+          static SqlException = new ITableResultCallbackErrorEnum("SqlException");
+          static DatabaseNotFound = new ITableResultCallbackErrorEnum("DatabaseNotFound");
+          static NoTableFound = new ITableResultCallbackErrorEnum("NoTableFound");
+          static Unknown = new ITableResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for ITableResultCallback Warning
+      **/
+     export class ITableResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static TableExists = new ITableResultCallbackWarningEnum("TableExists");
+          static TableLocked = new ITableResultCallbackWarningEnum("TableLocked");
+          static NoResults = new ITableResultCallbackWarningEnum("NoResults");
+          static Unknown = new ITableResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for ICamera
+      **/
+     export interface ICamera extends IBaseMedia {
+
+     }
+
+     /**
+      *   Interface definition for IBrowser
+      **/
+     export interface IBrowser extends IBaseUI {
+
+          /**
+           * Method Declarations for IBrowser
+           */
+           openBrowser(url : string, title : string, buttonText : string) : boolean
+     }
+
+     /**
+      *   Interface definition for IGeolocation
+      **/
+     export interface IGeolocation extends IBaseSensor {
+
+          /**
+           * Method Declarations for IGeolocation
+           */
+           addGeolocationListener(listener : IGeolocationListener)
+           removeGeolocationListener(listener : IGeolocationListener)
+           removeGeolocationListeners()
+     }
+
+     /**
+      *   Interface definition for IOAuth
+      **/
+     export interface IOAuth extends IBaseSecurity {
+
+     }
+
+     /**
+      *   Interface definition for IFileSystem
+      **/
+     export interface IFileSystem extends IBaseData {
+
+          /**
+           * Method Declarations for IFileSystem
+           */
+           create(name : string, callback : IFileResultCallback)
+           create(path : IFilePath, name : string, callback : IFileResultCallback)
+           create(path : string, name : string, callback : IFileResultCallback)
+           getApplicationCacheFolder() : IFilePath
+           getApplicationDocumentsFolder() : IFilePath
+           getApplicationFolder() : IFilePath
+           getPath(file : IFile) : string
+           getPath(path : IFilePath) : string
+           getSeparator() : string
+           isSameFile(source : IFile, dest : IFile) : boolean
+           isSamePath(source : IFilePath, dest : IFilePath) : boolean
+           toPath(path : IFile) : IFilePath
+     }
+
+     /**
+      *   Interface definition for IAppResourceCallback
+      **/
+     export interface IAppResourceCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IAppResourceCallback
+           */
+           onError(resource : IAppResource, error : IAppResourceCallbackErrorEnum)
+           onResult(resource : IAppResource)
+           onWarning(resource : IAppResource, warning : IAppResourceCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IAppResourceCallback Error
+      **/
+     export class IAppResourceCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NotFound = new IAppResourceCallbackErrorEnum("NotFound");
+          static NoPermission = new IAppResourceCallbackErrorEnum("NoPermission");
+          static Unknown = new IAppResourceCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IAppResourceCallback Warning
+      **/
+     export class IAppResourceCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static PartialContent = new IAppResourceCallbackWarningEnum("PartialContent");
+          static TooLarge = new IAppResourceCallbackWarningEnum("TooLarge");
+          static LinkedResource = new IAppResourceCallbackWarningEnum("LinkedResource");
+          static Unknown = new IAppResourceCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for IFileResultCallback
+      **/
+     export interface IFileResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IFileResultCallback
+           */
+           onError(error : IFileResultCallbackErrorEnum)
+           onError(file : IFile, error : IFileResultCallbackErrorEnum)
+           onResult(storageFile : IFile)
+           onWarning(sourceFile : IFile, destinationFile : IFile, warning : IFileResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IFileResultCallback Error
+      **/
+     export class IFileResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static FileExists = new IFileResultCallbackErrorEnum("FileExists");
+          static InsufficientSpace = new IFileResultCallbackErrorEnum("InsufficientSpace");
+          static Unauthorized = new IFileResultCallbackErrorEnum("Unauthorized");
+          static Unknown = new IFileResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IFileResultCallback Warning
+      **/
+     export class IFileResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static SourceNotDeleted = new IFileResultCallbackWarningEnum("SourceNotDeleted");
+          static RootDirectory = new IFileResultCallbackWarningEnum("RootDirectory");
+          static Unknown = new IFileResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for IAccelerometer
+      **/
+     export interface IAccelerometer extends IBaseSensor {
+
+          /**
+           * Method Declarations for IAccelerometer
+           */
+           addAccelerationListener(listener : IAccelerationListener)
+           removeAccelerationListener(listener : IAccelerationListener)
+           removeAccelerationListeners()
+     }
+
+     /**
+      *   Interface definition for IOS
+      **/
+     export interface IOS extends IBaseSystem {
+
+          /**
+           * Method Declarations for IOS
+           */
+           getOSInfo() : OSInfo
+     }
+
+     /**
+      *   Interface definition for IAudio
+      **/
+     export interface IAudio extends IBaseMedia {
+
+     }
+
+     /**
+      *   Interface definition for IDatabaseResultCallback
+      **/
+     export interface IDatabaseResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IDatabaseResultCallback
+           */
+           onError(error : IDatabaseResultCallbackErrorEnum)
+           onResult(database : Database)
+           onWarning(database : Database, warning : IDatabaseResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IDatabaseResultCallback Error
+      **/
+     export class IDatabaseResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoSpace = new IDatabaseResultCallbackErrorEnum("NoSpace");
+          static SqlException = new IDatabaseResultCallbackErrorEnum("SqlException");
+          static NotDeleted = new IDatabaseResultCallbackErrorEnum("NotDeleted");
+          static Unknown = new IDatabaseResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IDatabaseResultCallback Warning
+      **/
+     export class IDatabaseResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static DatabaseExists = new IDatabaseResultCallbackWarningEnum("DatabaseExists");
+          static IsOpen = new IDatabaseResultCallbackWarningEnum("IsOpen");
+          static Unknown = new IDatabaseResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for IQRCode
+      **/
+     export interface IQRCode extends IBaseReader {
+
+     }
+
+     /**
+      *   Interface definition for ILinkedIn
+      **/
+     export interface ILinkedIn extends IBaseSocial {
+
+     }
+
+     /**
+      *   Interface definition for IBarometer
+      **/
+     export interface IBarometer extends IBaseSensor {
+
+     }
+
+     /**
+      *   Interface definition for IContactResultCallback
+      **/
+     export interface IContactResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IContactResultCallback
+           */
+           onError(error : IContactResultCallbackErrorEnum)
+           onResult(contacts : Array<Contact>)
+           onWarning(contacts : Array<Contact>, warning : IContactResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IContactResultCallback Error
+      **/
+     export class IContactResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new IContactResultCallbackErrorEnum("NoPermission");
+          static Wrong_Params = new IContactResultCallbackErrorEnum("Wrong_Params");
+          static Unknown = new IContactResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IContactResultCallback Warning
+      **/
+     export class IContactResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static LimitExceeded = new IContactResultCallbackWarningEnum("LimitExceeded");
+          static No_Matches = new IContactResultCallbackWarningEnum("No_Matches");
+          static Unknown = new IContactResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for IPrinting
+      **/
+     export interface IPrinting extends IBaseApplication {
+
+     }
+
+     /**
+      *   Interface definition for IMagnetometer
+      **/
+     export interface IMagnetometer extends IBaseSensor {
+
+     }
+
+     /**
+      *   Interface definition for ILogging
+      **/
+     export interface ILogging extends IBaseUtil {
+
+          /**
+           * Method Declarations for ILogging
+           */
+           log(level : ILoggingLogLevelEnum, message : string)
+           log(level : ILoggingLogLevelEnum, category : string, message : string)
+
+     }
+     /**
+      *  Enumerations for ILogging LogLevel
+      **/
+     export class ILoggingLogLevelEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static DEBUG = new ILoggingLogLevelEnum("DEBUG");
+          static WARN = new ILoggingLogLevelEnum("WARN");
+          static ERROR = new ILoggingLogLevelEnum("ERROR");
+          static INFO = new ILoggingLogLevelEnum("INFO");
+          static Unknown = new ILoggingLogLevelEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for IGlobalization
+      **/
+     export interface IGlobalization extends IBaseApplication {
+
+          /**
+           * Method Declarations for IGlobalization
+           */
+           getLocaleSupportedDescriptors() : Array<Locale>
+           getResourceLiteral(key : string, locale : Locale) : string
+           getResourceLiterals(locale : Locale) : Dictionary<string>
+     }
+
+     /**
+      *   Interface definition for IAccelerationListener
+      **/
+     export interface IAccelerationListener extends IBaseListener {
+
+          /**
+           * Method Declarations for IAccelerationListener
+           */
+           onError(error : IAccelerationListenerErrorEnum)
+           onResult(acceleration : Acceleration)
+           onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IAccelerationListener Error
+      **/
+     export class IAccelerationListenerErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Unauthorized = new IAccelerationListenerErrorEnum("Unauthorized");
+          static Unavailable = new IAccelerationListenerErrorEnum("Unavailable");
+          static Unknown = new IAccelerationListenerErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IAccelerationListener Warning
+      **/
+     export class IAccelerationListenerWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NeedsCalibration = new IAccelerationListenerWarningEnum("NeedsCalibration");
+          static Stale = new IAccelerationListenerWarningEnum("Stale");
+          static Unknown = new IAccelerationListenerWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for IDisplay
+      **/
+     export interface IDisplay extends IBaseSystem {
 
      }
 
@@ -459,9 +915,9 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IMap
+      *   Interface definition for IUpdate
       **/
-     export interface IMap extends IBaseUI {
+     export interface IUpdate extends IBaseApplication {
 
      }
 
@@ -473,202 +929,90 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IContactPhotoResultCallback
+      *   Interface definition for IMail
       **/
-     export interface IContactPhotoResultCallback extends IBaseCallback {
+     export interface IMail extends IBasePIM {
 
           /**
-           * Method Declarations for IContactPhotoResultCallback
+           * Method Declarations for IMail
            */
-           onError(error : IContactPhotoResultCallbackErrorEnum)
-           onResult(contactPhoto : Array<number>)
-           onWarning(contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IContactPhotoResultCallback Error
-      **/
-     export class IContactPhotoResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NoPermission = new IContactPhotoResultCallbackErrorEnum("NoPermission");
-          static Wrong_Params = new IContactPhotoResultCallbackErrorEnum("Wrong_Params");
-          static No_Photo = new IContactPhotoResultCallbackErrorEnum("No_Photo");
-          static Unknown = new IContactPhotoResultCallbackErrorEnum("Unknown");
+           sendEmail(data : Email, callback : IMessagingCallback)
      }
 
      /**
-      *  Enumerations for IContactPhotoResultCallback Warning
+      *   Interface definition for IXML
       **/
-     export class IContactPhotoResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static LimitExceeded = new IContactPhotoResultCallbackWarningEnum("LimitExceeded");
-          static No_Matches = new IContactPhotoResultCallbackWarningEnum("No_Matches");
-          static Unknown = new IContactPhotoResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IManagement
-      **/
-     export interface IManagement extends IBaseApplication {
+     export interface IXML extends IBaseData {
 
      }
 
      /**
-      *   Interface definition for IOAuth
+      *   Interface definition for IDatabase
       **/
-     export interface IOAuth extends IBaseSecurity {
-
-     }
-
-     /**
-      *   Interface definition for INetworkStatus
-      **/
-     export interface INetworkStatus extends IBaseCommunication {
-
-     }
-
-     /**
-      *   Interface definition for IAlarm
-      **/
-     export interface IAlarm extends IBaseNotification {
-
-     }
-
-     /**
-      *   Interface definition for IFileResultCallback
-      **/
-     export interface IFileResultCallback extends IBaseCallback {
+     export interface IDatabase extends IBaseData {
 
           /**
-           * Method Declarations for IFileResultCallback
+           * Method Declarations for IDatabase
            */
-           onError(error : IFileResultCallbackErrorEnum)
-           onError(file : IFile, error : IFileResultCallbackErrorEnum)
-           onResult(storageFile : IFile)
-           onWarning(sourceFile : IFile, destinationFile : IFile, warning : IFileResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IFileResultCallback Error
-      **/
-     export class IFileResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static FileExists = new IFileResultCallbackErrorEnum("FileExists");
-          static InsufficientSpace = new IFileResultCallbackErrorEnum("InsufficientSpace");
-          static Unauthorized = new IFileResultCallbackErrorEnum("Unauthorized");
-          static Unknown = new IFileResultCallbackErrorEnum("Unknown");
+           createDatabase(database : Database, callback : IDatabaseResultCallback)
+           createTable(database : Database, table : Table, callback : ITableResultCallback)
+           deleteDatabase(database : Database, callback : IDatabaseResultCallback)
+           deleteTable(database : Database, table : Table, callback : ITableResultCallback)
+           executeSqlQuery(database : Database, query : string, replacements : Array<String>, callback : ITableResultCallback)
+           executeSqlStatement(database : Database, statement : string, replacements : Array<String>, callback : ITableResultCallback)
+           executeSqlTransactions(database : Database, statements : Array<String>, rollbackFlag : boolean, callback : ITableResultCallback)
+           existsDatabase(database : Database) : boolean
+           existsTable(database : Database, table : Table) : boolean
      }
 
      /**
-      *  Enumerations for IFileResultCallback Warning
+      *   Interface definition for IProximity
       **/
-     export class IFileResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static SourceNotDeleted = new IFileResultCallbackWarningEnum("SourceNotDeleted");
-          static RootDirectory = new IFileResultCallbackWarningEnum("RootDirectory");
-          static Unknown = new IFileResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IWallet
-      **/
-     export interface IWallet extends IBaseCommerce {
+     export interface IProximity extends IBaseSensor {
 
      }
 
      /**
-      *   Interface definition for INetworkInfo
+      *   Interface definition for ICompression
       **/
-     export interface INetworkInfo extends IBaseCommunication {
+     export interface ICompression extends IBaseUtil {
 
      }
 
      /**
-      *   Interface definition for IAmbientLight
+      *   Interface definition for ITelephony
       **/
-     export interface IAmbientLight extends IBaseSensor {
-
-     }
-
-     /**
-      *   Interface definition for IMessaging
-      **/
-     export interface IMessaging extends IBasePIM {
+     export interface ITelephony extends IBaseCommunication {
 
           /**
-           * Method Declarations for IMessaging
+           * Method Declarations for ITelephony
            */
-           sendSMS(number : string, text : string, callback : IMessagingCallback)
-     }
-
-     /**
-      *   Interface definition for IFileDataResultCallback
-      **/
-     export interface IFileDataResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IFileDataResultCallback
-           */
-           onError(error : IFileDataResultCallbackErrorEnum)
-           onError(file : IFile, error : IFileDataResultCallbackErrorEnum)
-           onResult(file : IFile, data : Array<number>)
-           onWarning(file : IFile, warning : IFileDataResultCallbackWarningEnum)
+           call(number : string) : ITelephonyStatusEnum
 
      }
      /**
-      *  Enumerations for IFileDataResultCallback Error
+      *  Enumerations for ITelephony Status
       **/
-     export class IFileDataResultCallbackErrorEnum {
+     export class ITelephonyStatusEnum {
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static InexistentFile = new IFileDataResultCallbackErrorEnum("InexistentFile");
-          static InsufficientSpace = new IFileDataResultCallbackErrorEnum("InsufficientSpace");
-          static Unauthorized = new IFileDataResultCallbackErrorEnum("Unauthorized");
-          static Unknown = new IFileDataResultCallbackErrorEnum("Unknown");
+          static Dialing = new ITelephonyStatusEnum("Dialing");
+          static Failed = new ITelephonyStatusEnum("Failed");
+          static Unknown = new ITelephonyStatusEnum("Unknown");
      }
 
      /**
-      *  Enumerations for IFileDataResultCallback Warning
+      *   Interface definition for ICrypto
       **/
-     export class IFileDataResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
+     export interface ICrypto extends IBaseUtil {
 
-          static ExceedMaximumSize = new IFileDataResultCallbackWarningEnum("ExceedMaximumSize");
-          static Unknown = new IFileDataResultCallbackWarningEnum("Unknown");
      }
 
      /**
       *   Interface definition for ICalendar
       **/
      export interface ICalendar extends IBasePIM {
-
-     }
-
-     /**
-      *   Interface definition for IVideo
-      **/
-     export interface IVideo extends IBaseMedia {
-
-          /**
-           * Method Declarations for IVideo
-           */
-           playStream(url : string)
-     }
-
-     /**
-      *   Interface definition for INetworkNaming
-      **/
-     export interface INetworkNaming extends IBaseCommunication {
 
      }
 
@@ -685,29 +1029,16 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IGooglePlus
+      *   Interface definition for IDesktop
       **/
-     export interface IGooglePlus extends IBaseSocial {
+     export interface IDesktop extends IBaseUI {
 
      }
 
      /**
-      *   Interface definition for IGlobalization
+      *   Interface definition for ISettings
       **/
-     export interface IGlobalization extends IBaseApplication {
-
-          /**
-           * Method Declarations for IGlobalization
-           */
-           getLocaleSupportedDescriptors() : Array<Locale>
-           getResourceLiteral(key : string, locale : Locale) : string
-           getResourceLiterals(locale : Locale) : Dictionary<string>
-     }
-
-     /**
-      *   Interface definition for ITwitter
-      **/
-     export interface ITwitter extends IBaseSocial {
+     export interface ISettings extends IBaseApplication {
 
      }
 
@@ -761,9 +1092,58 @@ module Adaptive {
      }
 
      /**
+      *   Interface definition for IConcurrent
+      **/
+     export interface IConcurrent extends IBaseUtil {
+
+     }
+
+     /**
+      *   Interface definition for IBarcode
+      **/
+     export interface IBarcode extends IBaseReader {
+
+     }
+
+     /**
+      *   Interface definition for ICloud
+      **/
+     export interface ICloud extends IBaseData {
+
+     }
+
+     /**
+      *   Interface definition for ISecurity
+      **/
+     export interface ISecurity extends IBaseSecurity {
+
+          /**
+           * Method Declarations for ISecurity
+           */
+           deleteSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback)
+           getSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback)
+           isDeviceModified() : boolean
+           setSecureKeyValuePairs(keyValues : Array<SecureKeyPair>, publicAccessName : string, callback : ISecureKVResultCallback)
+     }
+
+     /**
+      *   Interface definition for ITwitter
+      **/
+     export interface ITwitter extends IBaseSocial {
+
+     }
+
+     /**
       *   Interface definition for INFC
       **/
      export interface INFC extends IBaseReader {
+
+     }
+
+     /**
+      *   Interface definition for IAmbientLight
+      **/
+     export interface IAmbientLight extends IBaseSensor {
 
      }
 
@@ -775,57 +1155,310 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for ILogging
+      *   Interface definition for INetworkInfo
       **/
-     export interface ILogging extends IBaseUtil {
+     export interface INetworkInfo extends IBaseCommunication {
+
+     }
+
+     /**
+      *   Interface definition for IService
+      **/
+     export interface IService extends IBaseCommunication {
 
           /**
-           * Method Declarations for ILogging
+           * Method Declarations for IService
            */
-           log(level : ILoggingLogLevelEnum, message : string)
-           log(level : ILoggingLogLevelEnum, category : string, message : string)
+           getService(serviceName : string) : Service
+           invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback)
+           isRegistered(serviceName : string) : boolean
+           isRegistered(service : Service) : boolean
+           registerService(service : Service)
+           unregisterServices()
+           unregisterService(service : Service)
+     }
+
+     /**
+      *   Interface definition for INotification
+      **/
+     export interface INotification extends IBaseNotification {
+
+     }
+
+     /**
+      *   Interface definition for IServiceResultCallback
+      **/
+     export interface IServiceResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IServiceResultCallback
+           */
+           onError(error : IServiceResultCallbackErrorEnum)
+           onResult(response : ServiceResponse)
+           onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarningEnum)
 
      }
      /**
-      *  Enumerations for ILogging LogLevel
+      *  Enumerations for IServiceResultCallback Error
       **/
-     export class ILoggingLogLevelEnum {
+     export class IServiceResultCallbackErrorEnum {
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static DEBUG = new ILoggingLogLevelEnum("DEBUG");
-          static WARN = new ILoggingLogLevelEnum("WARN");
-          static ERROR = new ILoggingLogLevelEnum("ERROR");
-          static INFO = new ILoggingLogLevelEnum("INFO");
-          static Unknown = new ILoggingLogLevelEnum("Unknown");
+          static Forbidden = new IServiceResultCallbackErrorEnum("Forbidden");
+          static NotFound = new IServiceResultCallbackErrorEnum("NotFound");
+          static MethodNotAllowed = new IServiceResultCallbackErrorEnum("MethodNotAllowed");
+          static NotAllowed = new IServiceResultCallbackErrorEnum("NotAllowed");
+          static NotAuthenticated = new IServiceResultCallbackErrorEnum("NotAuthenticated");
+          static TimeOut = new IServiceResultCallbackErrorEnum("TimeOut");
+          static NoResponse = new IServiceResultCallbackErrorEnum("NoResponse");
+          static ServerError = new IServiceResultCallbackErrorEnum("ServerError");
+          static Unreachable = new IServiceResultCallbackErrorEnum("Unreachable");
+          static MalformedUrl = new IServiceResultCallbackErrorEnum("MalformedUrl");
+          static NotRegisteredService = new IServiceResultCallbackErrorEnum("NotRegisteredService");
+          static Unknown = new IServiceResultCallbackErrorEnum("Unknown");
      }
 
      /**
-      *   Interface definition for IFacebook
+      *  Enumerations for IServiceResultCallback Warning
       **/
-     export interface IFacebook extends IBaseSocial {
+     export class IServiceResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NotSecure = new IServiceResultCallbackWarningEnum("NotSecure");
+          static NotTrusted = new IServiceResultCallbackWarningEnum("NotTrusted");
+          static Redirected = new IServiceResultCallbackWarningEnum("Redirected");
+          static Wrong_Params = new IServiceResultCallbackWarningEnum("Wrong_Params");
+          static Unknown = new IServiceResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for INetworkNaming
+      **/
+     export interface INetworkNaming extends IBaseCommunication {
 
      }
 
      /**
-      *   Interface definition for ICrypto
+      *   Interface definition for INetworkReachability
       **/
-     export interface ICrypto extends IBaseUtil {
+     export interface INetworkReachability extends IBaseCommunication {
+
+          /**
+           * Method Declarations for INetworkReachability
+           */
+           isNetworkReachable(host : string, callback : INetworkReachabilityCallback)
+           isNetworkServiceReachable(url : string, callback : INetworkReachabilityCallback)
+     }
+
+     /**
+      *   Interface definition for IContactPhotoResultCallback
+      **/
+     export interface IContactPhotoResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IContactPhotoResultCallback
+           */
+           onError(error : IContactPhotoResultCallbackErrorEnum)
+           onResult(contactPhoto : Array<number>)
+           onWarning(contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IContactPhotoResultCallback Error
+      **/
+     export class IContactPhotoResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new IContactPhotoResultCallbackErrorEnum("NoPermission");
+          static Wrong_Params = new IContactPhotoResultCallbackErrorEnum("Wrong_Params");
+          static No_Photo = new IContactPhotoResultCallbackErrorEnum("No_Photo");
+          static Unknown = new IContactPhotoResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IContactPhotoResultCallback Warning
+      **/
+     export class IContactPhotoResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static LimitExceeded = new IContactPhotoResultCallbackWarningEnum("LimitExceeded");
+          static No_Matches = new IContactPhotoResultCallbackWarningEnum("No_Matches");
+          static Unknown = new IContactPhotoResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for INetworkStatus
+      **/
+     export interface INetworkStatus extends IBaseCommunication {
 
      }
 
      /**
-      *   Interface definition for ILinkedIn
+      *   Interface definition for IFileListResultCallback
       **/
-     export interface ILinkedIn extends IBaseSocial {
+     export interface IFileListResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IFileListResultCallback
+           */
+           onError(error : IFileListResultCallbackErrorEnum)
+           onError(file : IFile, error : IFileListResultCallbackErrorEnum)
+           onResult(files : Array<IFile>)
+           onWarning(files : Array<IFile>, warning : IFileListResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IFileListResultCallback Error
+      **/
+     export class IFileListResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static InexistentFile = new IFileListResultCallbackErrorEnum("InexistentFile");
+          static Unauthorized = new IFileListResultCallbackErrorEnum("Unauthorized");
+          static Unknown = new IFileListResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IFileListResultCallback Warning
+      **/
+     export class IFileListResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static PartialResult = new IFileListResultCallbackWarningEnum("PartialResult");
+          static Unknown = new IFileListResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for ITimer
+      **/
+     export interface ITimer extends IBaseUtil {
 
      }
 
      /**
-      *   Interface definition for IRSS
+      *   Interface definition for ISecureKVResultCallback
       **/
-     export interface IRSS extends IBaseSocial {
+     export interface ISecureKVResultCallback extends IBaseCallback {
 
+          /**
+           * Method Declarations for ISecureKVResultCallback
+           */
+           onError(error : ISecureKVResultCallbackErrorEnum)
+           onResult(keyValues : Array<SecureKeyPair>)
+           onWarning(keyValues : Array<SecureKeyPair>, warning : ISecureKVResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for ISecureKVResultCallback Error
+      **/
+     export class ISecureKVResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new ISecureKVResultCallbackErrorEnum("NoPermission");
+          static NoMatchesFound = new ISecureKVResultCallbackErrorEnum("NoMatchesFound");
+          static Unknown = new ISecureKVResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for ISecureKVResultCallback Warning
+      **/
+     export class ISecureKVResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static EntryOverride = new ISecureKVResultCallbackWarningEnum("EntryOverride");
+          static Unknown = new ISecureKVResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for ILifecycle
+      **/
+     export interface ILifecycle extends IBaseApplication {
+
+          /**
+           * Method Declarations for ILifecycle
+           */
+           addLifecycleListener(listener : ILifecycleListener)
+           isBackground() : boolean
+           removeLifecycleListener(listener : ILifecycleListener)
+           removeLifecycleListeners()
+     }
+
+     /**
+      *   Interface definition for IFileDataResultCallback
+      **/
+     export interface IFileDataResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IFileDataResultCallback
+           */
+           onError(error : IFileDataResultCallbackErrorEnum)
+           onError(file : IFile, error : IFileDataResultCallbackErrorEnum)
+           onResult(file : IFile, data : Array<number>)
+           onWarning(file : IFile, warning : IFileDataResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IFileDataResultCallback Error
+      **/
+     export class IFileDataResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static InexistentFile = new IFileDataResultCallbackErrorEnum("InexistentFile");
+          static InsufficientSpace = new IFileDataResultCallbackErrorEnum("InsufficientSpace");
+          static Unauthorized = new IFileDataResultCallbackErrorEnum("Unauthorized");
+          static Unknown = new IFileDataResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IFileDataResultCallback Warning
+      **/
+     export class IFileDataResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static ExceedMaximumSize = new IFileDataResultCallbackWarningEnum("ExceedMaximumSize");
+          static Unknown = new IFileDataResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for IFilePath
+      **/
+     export interface IFilePath extends IBaseData {
+
+          /**
+           * Method Declarations for IFilePath
+           */
+           endsWith(other : IFilePath) : boolean
+           endsWith(other : string) : boolean
+           equalPath(other : IFilePath) : boolean
+           equals(other : string) : boolean
+           getFileName() : IFilePath
+           getFileSystem() : IFileSystem
+           getNameCount() : number
+           getName(index : number) : string
+           getParent() : IFilePath
+           getRoot() : IFilePath
+           isAbsolute() : boolean
+           normalize() : IFilePath
+           relativize(other : IFilePath) : IFilePath
+           resolveSibling(other : IFilePath) : IFilePath
+           resolveSibling(other : string) : IFilePath
+           resolve(other : IFilePath) : IFilePath
+           resolve(other : string) : IFilePath
+           startsWith(other : IFilePath) : boolean
+           startsWith(other : string) : boolean
+           toAbsolutePath() : IFilePath
+           toFile() : IFile
+           toString() : string
      }
 
      /**
@@ -844,103 +1477,10 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IMagnetometer
+      *   Interface definition for IInternalStorage
       **/
-     export interface IMagnetometer extends IBaseSensor {
+     export interface IInternalStorage extends IBaseData {
 
-     }
-
-     /**
-      *   Interface definition for IContactResultCallback
-      **/
-     export interface IContactResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IContactResultCallback
-           */
-           onError(error : IContactResultCallbackErrorEnum)
-           onResult(contacts : Array<Contact>)
-           onWarning(contacts : Array<Contact>, warning : IContactResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IContactResultCallback Error
-      **/
-     export class IContactResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NoPermission = new IContactResultCallbackErrorEnum("NoPermission");
-          static Wrong_Params = new IContactResultCallbackErrorEnum("Wrong_Params");
-          static Unknown = new IContactResultCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IContactResultCallback Warning
-      **/
-     export class IContactResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static LimitExceeded = new IContactResultCallbackWarningEnum("LimitExceeded");
-          static No_Matches = new IContactResultCallbackWarningEnum("No_Matches");
-          static Unknown = new IContactResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for INotificationLocal
-      **/
-     export interface INotificationLocal extends IBaseNotification {
-
-     }
-
-     /**
-      *   Interface definition for IContact
-      **/
-     export interface IContact extends IBasePIM {
-
-          /**
-           * Method Declarations for IContact
-           */
-           getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback)
-           getContact(contact : ContactUid, callback : IContactResultCallback)
-           getContacts(callback : IContactResultCallback)
-           getContacts(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>)
-           getContacts(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>, filter : Array<IContactFilterEnum>)
-           searchContacts(term : string, callback : IContactResultCallback)
-           searchContacts(term : string, callback : IContactResultCallback, filter : Array<IContactFilterEnum>)
-           setContactPhoto(contact : ContactUid, pngImage : Array<number>) : boolean
-
-     }
-     /**
-      *  Enumerations for IContact FieldGroup
-      **/
-     export class IContactFieldGroupEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static PERSONAL_INFO = new IContactFieldGroupEnum("PERSONAL_INFO");
-          static PROFESSIONAL_INFO = new IContactFieldGroupEnum("PROFESSIONAL_INFO");
-          static ADDRESSES = new IContactFieldGroupEnum("ADDRESSES");
-          static PHONES = new IContactFieldGroupEnum("PHONES");
-          static EMAILS = new IContactFieldGroupEnum("EMAILS");
-          static WEBSITES = new IContactFieldGroupEnum("WEBSITES");
-          static SOCIALS = new IContactFieldGroupEnum("SOCIALS");
-          static TAGS = new IContactFieldGroupEnum("TAGS");
-          static Unknown = new IContactFieldGroupEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IContact Filter
-      **/
-     export class IContactFilterEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static HAS_PHONE = new IContactFilterEnum("HAS_PHONE");
-          static HAS_EMAIL = new IContactFilterEnum("HAS_EMAIL");
-          static HAS_ADDRESS = new IContactFilterEnum("HAS_ADDRESS");
-          static Unknown = new IContactFilterEnum("Unknown");
      }
 
      /**
@@ -1064,84 +1604,66 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IFileListResultCallback
+      *   Interface definition for IManagement
       **/
-     export interface IFileListResultCallback extends IBaseCallback {
+     export interface IManagement extends IBaseApplication {
+
+     }
+
+     /**
+      *   Interface definition for IMap
+      **/
+     export interface IMap extends IBaseUI {
+
+     }
+
+     /**
+      *   Interface definition for IContact
+      **/
+     export interface IContact extends IBasePIM {
 
           /**
-           * Method Declarations for IFileListResultCallback
+           * Method Declarations for IContact
            */
-           onError(error : IFileListResultCallbackErrorEnum)
-           onError(file : IFile, error : IFileListResultCallbackErrorEnum)
-           onResult(files : Array<IFile>)
-           onWarning(files : Array<IFile>, warning : IFileListResultCallbackWarningEnum)
+           getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback)
+           getContact(contact : ContactUid, callback : IContactResultCallback)
+           getContacts(callback : IContactResultCallback)
+           getContacts(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>)
+           getContacts(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>, filter : Array<IContactFilterEnum>)
+           searchContacts(term : string, callback : IContactResultCallback)
+           searchContacts(term : string, callback : IContactResultCallback, filter : Array<IContactFilterEnum>)
+           setContactPhoto(contact : ContactUid, pngImage : Array<number>) : boolean
 
      }
      /**
-      *  Enumerations for IFileListResultCallback Error
+      *  Enumerations for IContact FieldGroup
       **/
-     export class IFileListResultCallbackErrorEnum {
+     export class IContactFieldGroupEnum {
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static InexistentFile = new IFileListResultCallbackErrorEnum("InexistentFile");
-          static Unauthorized = new IFileListResultCallbackErrorEnum("Unauthorized");
-          static Unknown = new IFileListResultCallbackErrorEnum("Unknown");
+          static PERSONAL_INFO = new IContactFieldGroupEnum("PERSONAL_INFO");
+          static PROFESSIONAL_INFO = new IContactFieldGroupEnum("PROFESSIONAL_INFO");
+          static ADDRESSES = new IContactFieldGroupEnum("ADDRESSES");
+          static PHONES = new IContactFieldGroupEnum("PHONES");
+          static EMAILS = new IContactFieldGroupEnum("EMAILS");
+          static WEBSITES = new IContactFieldGroupEnum("WEBSITES");
+          static SOCIALS = new IContactFieldGroupEnum("SOCIALS");
+          static TAGS = new IContactFieldGroupEnum("TAGS");
+          static Unknown = new IContactFieldGroupEnum("Unknown");
      }
 
      /**
-      *  Enumerations for IFileListResultCallback Warning
+      *  Enumerations for IContact Filter
       **/
-     export class IFileListResultCallbackWarningEnum {
+     export class IContactFilterEnum {
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static PartialResult = new IFileListResultCallbackWarningEnum("PartialResult");
-          static Unknown = new IFileListResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for ITelephony
-      **/
-     export interface ITelephony extends IBaseCommunication {
-
-          /**
-           * Method Declarations for ITelephony
-           */
-           call(number : string) : ITelephonyStatusEnum
-
-     }
-     /**
-      *  Enumerations for ITelephony Status
-      **/
-     export class ITelephonyStatusEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Dialing = new ITelephonyStatusEnum("Dialing");
-          static Failed = new ITelephonyStatusEnum("Failed");
-          static Unknown = new ITelephonyStatusEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IUpdate
-      **/
-     export interface IUpdate extends IBaseApplication {
-
-     }
-
-     /**
-      *   Interface definition for ISecurity
-      **/
-     export interface ISecurity extends IBaseSecurity {
-
-          /**
-           * Method Declarations for ISecurity
-           */
-           deleteSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback)
-           getSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback)
-           isDeviceModified() : boolean
-           setSecureKeyValuePairs(keyValues : Array<SecureKeyPair>, publicAccessName : string, callback : ISecureKVResultCallback)
+          static HAS_PHONE = new IContactFilterEnum("HAS_PHONE");
+          static HAS_EMAIL = new IContactFilterEnum("HAS_EMAIL");
+          static HAS_ADDRESS = new IContactFilterEnum("HAS_ADDRESS");
+          static Unknown = new IContactFilterEnum("Unknown");
      }
 
      /**
@@ -1184,463 +1706,24 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for ICloud
+      *   Interface definition for IWallet
       **/
-     export interface ICloud extends IBaseData {
+     export interface IWallet extends IBaseCommerce {
 
      }
 
      /**
-      *   Interface definition for IOS
+      *   Interface definition for IStore
       **/
-     export interface IOS extends IBaseSystem {
-
-          /**
-           * Method Declarations for IOS
-           */
-           getOSInfo() : OSInfo
-     }
-
-     /**
-      *   Interface definition for ICompression
-      **/
-     export interface ICompression extends IBaseUtil {
+     export interface IStore extends IBaseCommerce {
 
      }
 
      /**
-      *   Interface definition for IButtonListener
+      *   Interface definition for IFacebook
       **/
-     export interface IButtonListener extends IBaseListener {
+     export interface IFacebook extends IBaseSocial {
 
-          /**
-           * Method Declarations for IButtonListener
-           */
-           onError(error : IButtonListenerErrorEnum)
-           onResult(button : Button)
-           onWarning(button : Button, warning : IButtonListenerWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IButtonListener Error
-      **/
-     export class IButtonListenerErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Not_Present = new IButtonListenerErrorEnum("Not_Present");
-          static Unknown = new IButtonListenerErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IButtonListener Warning
-      **/
-     export class IButtonListenerWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Not_Implemented = new IButtonListenerWarningEnum("Not_Implemented");
-          static Unknown = new IButtonListenerWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for ITableResultCallback
-      **/
-     export interface ITableResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for ITableResultCallback
-           */
-           onError(error : ITableResultCallbackErrorEnum)
-           onResult(table : Table)
-           onWarning(table : Table, warning : ITableResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for ITableResultCallback Error
-      **/
-     export class ITableResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NoSpace = new ITableResultCallbackErrorEnum("NoSpace");
-          static ReadOnlyTable = new ITableResultCallbackErrorEnum("ReadOnlyTable");
-          static SqlException = new ITableResultCallbackErrorEnum("SqlException");
-          static DatabaseNotFound = new ITableResultCallbackErrorEnum("DatabaseNotFound");
-          static NoTableFound = new ITableResultCallbackErrorEnum("NoTableFound");
-          static Unknown = new ITableResultCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for ITableResultCallback Warning
-      **/
-     export class ITableResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static TableExists = new ITableResultCallbackWarningEnum("TableExists");
-          static TableLocked = new ITableResultCallbackWarningEnum("TableLocked");
-          static NoResults = new ITableResultCallbackWarningEnum("NoResults");
-          static Unknown = new ITableResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for ILifecycle
-      **/
-     export interface ILifecycle extends IBaseApplication {
-
-          /**
-           * Method Declarations for ILifecycle
-           */
-           addLifecycleListener(listener : ILifecycleListener)
-           isBackground() : boolean
-           removeLifecycleListener(listener : ILifecycleListener)
-           removeLifecycleListeners()
-     }
-
-     /**
-      *   Interface definition for IAppServerListener
-      **/
-     export interface IAppServerListener extends IBaseListener {
-
-          /**
-           * Method Declarations for IAppServerListener
-           */
-           onPaused(server : IAppServer)
-           onPausing(server : IAppServer)
-           onResumed(server : IAppServer)
-           onResuming(server : IAppServer)
-           onStart(server : IAppServer)
-           onStopped(server : IAppServer)
-           onStopping(server : IAppServer)
-     }
-
-     /**
-      *   Interface definition for IAds
-      **/
-     export interface IAds extends IBaseCommerce {
-
-     }
-
-     /**
-      *   Interface definition for ISecureKVResultCallback
-      **/
-     export interface ISecureKVResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for ISecureKVResultCallback
-           */
-           onError(error : ISecureKVResultCallbackErrorEnum)
-           onResult(keyValues : Array<SecureKeyPair>)
-           onWarning(keyValues : Array<SecureKeyPair>, warning : ISecureKVResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for ISecureKVResultCallback Error
-      **/
-     export class ISecureKVResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NoPermission = new ISecureKVResultCallbackErrorEnum("NoPermission");
-          static NoMatchesFound = new ISecureKVResultCallbackErrorEnum("NoMatchesFound");
-          static Unknown = new ISecureKVResultCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for ISecureKVResultCallback Warning
-      **/
-     export class ISecureKVResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static EntryOverride = new ISecureKVResultCallbackWarningEnum("EntryOverride");
-          static Unknown = new ISecureKVResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IAppResourceCallback
-      **/
-     export interface IAppResourceCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IAppResourceCallback
-           */
-           onError(resource : IAppResource, error : IAppResourceCallbackErrorEnum)
-           onResult(resource : IAppResource)
-           onWarning(resource : IAppResource, warning : IAppResourceCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IAppResourceCallback Error
-      **/
-     export class IAppResourceCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NotFound = new IAppResourceCallbackErrorEnum("NotFound");
-          static NoPermission = new IAppResourceCallbackErrorEnum("NoPermission");
-          static Unknown = new IAppResourceCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IAppResourceCallback Warning
-      **/
-     export class IAppResourceCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static PartialContent = new IAppResourceCallbackWarningEnum("PartialContent");
-          static TooLarge = new IAppResourceCallbackWarningEnum("TooLarge");
-          static LinkedResource = new IAppResourceCallbackWarningEnum("LinkedResource");
-          static Unknown = new IAppResourceCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IDatabaseResultCallback
-      **/
-     export interface IDatabaseResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IDatabaseResultCallback
-           */
-           onError(error : IDatabaseResultCallbackErrorEnum)
-           onResult(database : Database)
-           onWarning(database : Database, warning : IDatabaseResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IDatabaseResultCallback Error
-      **/
-     export class IDatabaseResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NoSpace = new IDatabaseResultCallbackErrorEnum("NoSpace");
-          static SqlException = new IDatabaseResultCallbackErrorEnum("SqlException");
-          static NotDeleted = new IDatabaseResultCallbackErrorEnum("NotDeleted");
-          static Unknown = new IDatabaseResultCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IDatabaseResultCallback Warning
-      **/
-     export class IDatabaseResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static DatabaseExists = new IDatabaseResultCallbackWarningEnum("DatabaseExists");
-          static IsOpen = new IDatabaseResultCallbackWarningEnum("IsOpen");
-          static Unknown = new IDatabaseResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IMail
-      **/
-     export interface IMail extends IBasePIM {
-
-          /**
-           * Method Declarations for IMail
-           */
-           sendEmail(data : Email, callback : IMessagingCallback)
-     }
-
-     /**
-      *   Interface definition for IOCR
-      **/
-     export interface IOCR extends IBaseReader {
-
-     }
-
-     /**
-      *   Interface definition for IBarometer
-      **/
-     export interface IBarometer extends IBaseSensor {
-
-     }
-
-     /**
-      *   Interface definition for IDesktop
-      **/
-     export interface IDesktop extends IBaseUI {
-
-     }
-
-     /**
-      *   Interface definition for IService
-      **/
-     export interface IService extends IBaseCommunication {
-
-          /**
-           * Method Declarations for IService
-           */
-           getService(serviceName : string) : Service
-           invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback)
-           isRegistered(serviceName : string) : boolean
-           isRegistered(service : Service) : boolean
-           registerService(service : Service)
-           unregisterServices()
-           unregisterService(service : Service)
-     }
-
-     /**
-      *   Interface definition for IAccelerationListener
-      **/
-     export interface IAccelerationListener extends IBaseListener {
-
-          /**
-           * Method Declarations for IAccelerationListener
-           */
-           onError(error : IAccelerationListenerErrorEnum)
-           onResult(acceleration : Acceleration)
-           onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IAccelerationListener Error
-      **/
-     export class IAccelerationListenerErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Unauthorized = new IAccelerationListenerErrorEnum("Unauthorized");
-          static Unavailable = new IAccelerationListenerErrorEnum("Unavailable");
-          static Unknown = new IAccelerationListenerErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IAccelerationListener Warning
-      **/
-     export class IAccelerationListenerWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NeedsCalibration = new IAccelerationListenerWarningEnum("NeedsCalibration");
-          static Stale = new IAccelerationListenerWarningEnum("Stale");
-          static Unknown = new IAccelerationListenerWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IXML
-      **/
-     export interface IXML extends IBaseData {
-
-     }
-
-     /**
-      *   Interface definition for IQRCode
-      **/
-     export interface IQRCode extends IBaseReader {
-
-     }
-
-     /**
-      *   Interface definition for IAccelerometer
-      **/
-     export interface IAccelerometer extends IBaseSensor {
-
-          /**
-           * Method Declarations for IAccelerometer
-           */
-           addAccelerationListener(listener : IAccelerationListener)
-           removeAccelerationListener(listener : IAccelerationListener)
-           removeAccelerationListeners()
-     }
-
-     /**
-      *   Interface definition for IConcurrent
-      **/
-     export interface IConcurrent extends IBaseUtil {
-
-     }
-
-     /**
-      *   Interface definition for ITimer
-      **/
-     export interface ITimer extends IBaseUtil {
-
-     }
-
-     /**
-      *   Interface definition for IDisplay
-      **/
-     export interface IDisplay extends IBaseSystem {
-
-     }
-
-     /**
-      *   Interface definition for ISettings
-      **/
-     export interface ISettings extends IBaseApplication {
-
-     }
-
-     /**
-      *   Interface definition for IFileSystem
-      **/
-     export interface IFileSystem extends IBaseData {
-
-          /**
-           * Method Declarations for IFileSystem
-           */
-           create(name : string, callback : IFileResultCallback)
-           create(path : IFilePath, name : string, callback : IFileResultCallback)
-           create(path : string, name : string, callback : IFileResultCallback)
-           getApplicationCacheFolder() : IFilePath
-           getApplicationDocumentsFolder() : IFilePath
-           getApplicationFolder() : IFilePath
-           getPath(file : IFile) : string
-           getPath(path : IFilePath) : string
-           getSeparator() : string
-           isSameFile(source : IFile, dest : IFile) : boolean
-           isSamePath(source : IFilePath, dest : IFilePath) : boolean
-           toPath(path : IFile) : IFilePath
-     }
-
-     /**
-      *   Interface definition for IAudio
-      **/
-     export interface IAudio extends IBaseMedia {
-
-     }
-
-     /**
-      *   Interface definition for IDataStream
-      **/
-     export interface IDataStream extends IBaseData {
-
-     }
-
-     /**
-      *   Interface definition for IGeolocation
-      **/
-     export interface IGeolocation extends IBaseSensor {
-
-          /**
-           * Method Declarations for IGeolocation
-           */
-           addGeolocationListener(listener : IGeolocationListener)
-           removeGeolocationListener(listener : IGeolocationListener)
-           removeGeolocationListeners()
-     }
-
-     /**
-      *   Interface definition for IDatabase
-      **/
-     export interface IDatabase extends IBaseData {
-
-          /**
-           * Method Declarations for IDatabase
-           */
-           createDatabase(database : Database, callback : IDatabaseResultCallback)
-           createTable(database : Database, table : Table, callback : ITableResultCallback)
-           deleteDatabase(database : Database, callback : IDatabaseResultCallback)
-           deleteTable(database : Database, table : Table, callback : ITableResultCallback)
-           executeSqlQuery(database : Database, query : string, replacements : Array<String>, callback : ITableResultCallback)
-           executeSqlStatement(database : Database, statement : string, replacements : Array<String>, callback : ITableResultCallback)
-           executeSqlTransactions(database : Database, statements : Array<String>, rollbackFlag : boolean, callback : ITableResultCallback)
-           existsDatabase(database : Database) : boolean
-           existsTable(database : Database, table : Table) : boolean
      }
 
      /**
@@ -1682,164 +1765,38 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IUI
+      *   Interface definition for IMessaging
       **/
-     export interface IUI extends IBaseUI {
-
-     }
-
-     /**
-      *   Interface definition for INotification
-      **/
-     export interface INotification extends IBaseNotification {
-
-     }
-
-     /**
-      *   Interface definition for IBrowser
-      **/
-     export interface IBrowser extends IBaseUI {
+     export interface IMessaging extends IBasePIM {
 
           /**
-           * Method Declarations for IBrowser
+           * Method Declarations for IMessaging
            */
-           openBrowser(url : string, title : string, buttonText : string) : boolean
+           sendSMS(number : string, text : string, callback : IMessagingCallback)
      }
 
      /**
-      *   Interface definition for IProximity
+      *   Interface definition for ISocket
       **/
-     export interface IProximity extends IBaseSensor {
-
-     }
-
-     /**
-      *   Interface definition for IGyroscope
-      **/
-     export interface IGyroscope extends IBaseSensor {
+     export interface ISocket extends IBaseCommunication {
 
      }
 
      /**
-      *   Interface definition for IFilePath
+      *   Interface definition for IAppServerListener
       **/
-     export interface IFilePath extends IBaseData {
+     export interface IAppServerListener extends IBaseListener {
 
           /**
-           * Method Declarations for IFilePath
+           * Method Declarations for IAppServerListener
            */
-           endsWith(other : IFilePath) : boolean
-           endsWith(other : string) : boolean
-           equalPath(other : IFilePath) : boolean
-           equals(other : string) : boolean
-           getFileName() : IFilePath
-           getFileSystem() : IFileSystem
-           getNameCount() : number
-           getName(index : number) : string
-           getParent() : IFilePath
-           getRoot() : IFilePath
-           isAbsolute() : boolean
-           normalize() : IFilePath
-           relativize(other : IFilePath) : IFilePath
-           resolveSibling(other : IFilePath) : IFilePath
-           resolveSibling(other : string) : IFilePath
-           resolve(other : IFilePath) : IFilePath
-           resolve(other : string) : IFilePath
-           startsWith(other : IFilePath) : boolean
-           startsWith(other : string) : boolean
-           toAbsolutePath() : IFilePath
-           toFile() : IFile
-           toString() : string
-     }
-
-     /**
-      *   Interface definition for ISession
-      **/
-     export interface ISession extends IBaseCommunication {
-
-          /**
-           * Method Declarations for ISession
-           */
-           getAttribute(name : string) : any
-           getAttributes() : Array<any>
-           getCookies() : Array<Cookie>
-           listAttributeNames() : Array<string>
-           removeAttribute(name : string)
-           removeAttributes()
-           removeCookie(cookie : Cookie)
-           removeCookies(cookies : Array<Cookie>)
-           setAttribute(name : string, value : any)
-           setCookie(cookie : Cookie)
-           setCookies(cookies : Array<Cookie>)
-     }
-
-     /**
-      *   Interface definition for IServiceResultCallback
-      **/
-     export interface IServiceResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IServiceResultCallback
-           */
-           onError(error : IServiceResultCallbackErrorEnum)
-           onResult(response : ServiceResponse)
-           onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IServiceResultCallback Error
-      **/
-     export class IServiceResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Forbidden = new IServiceResultCallbackErrorEnum("Forbidden");
-          static NotFound = new IServiceResultCallbackErrorEnum("NotFound");
-          static MethodNotAllowed = new IServiceResultCallbackErrorEnum("MethodNotAllowed");
-          static NotAllowed = new IServiceResultCallbackErrorEnum("NotAllowed");
-          static NotAuthenticated = new IServiceResultCallbackErrorEnum("NotAuthenticated");
-          static TimeOut = new IServiceResultCallbackErrorEnum("TimeOut");
-          static NoResponse = new IServiceResultCallbackErrorEnum("NoResponse");
-          static ServerError = new IServiceResultCallbackErrorEnum("ServerError");
-          static Unreachable = new IServiceResultCallbackErrorEnum("Unreachable");
-          static MalformedUrl = new IServiceResultCallbackErrorEnum("MalformedUrl");
-          static NotRegisteredService = new IServiceResultCallbackErrorEnum("NotRegisteredService");
-          static Unknown = new IServiceResultCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IServiceResultCallback Warning
-      **/
-     export class IServiceResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NotSecure = new IServiceResultCallbackWarningEnum("NotSecure");
-          static NotTrusted = new IServiceResultCallbackWarningEnum("NotTrusted");
-          static Redirected = new IServiceResultCallbackWarningEnum("Redirected");
-          static Wrong_Params = new IServiceResultCallbackWarningEnum("Wrong_Params");
-          static Unknown = new IServiceResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IBarcode
-      **/
-     export interface IBarcode extends IBaseReader {
-
-     }
-
-     /**
-      *   Interface definition for IPrinting
-      **/
-     export interface IPrinting extends IBaseApplication {
-
-     }
-
-     /**
-      *   Interface definition for IVibration
-      **/
-     export interface IVibration extends IBaseNotification {
-
+           onPaused(server : IAppServer)
+           onPausing(server : IAppServer)
+           onResumed(server : IAppServer)
+           onResuming(server : IAppServer)
+           onStart(server : IAppServer)
+           onStopped(server : IAppServer)
+           onStopping(server : IAppServer)
      }
 
      /**
@@ -1850,22 +1807,66 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for ICamera
+      *   Interface definition for IAlarm
       **/
-     export interface ICamera extends IBaseMedia {
+     export interface IAlarm extends IBaseNotification {
 
      }
 
      /**
-      *   Interface definition for INetworkReachability
+      *   Interface definition for IRSS
       **/
-     export interface INetworkReachability extends IBaseCommunication {
+     export interface IRSS extends IBaseSocial {
+
+     }
+
+     /**
+      *   Interface definition for IButtonListener
+      **/
+     export interface IButtonListener extends IBaseListener {
 
           /**
-           * Method Declarations for INetworkReachability
+           * Method Declarations for IButtonListener
            */
-           isNetworkReachable(host : string, callback : INetworkReachabilityCallback)
-           isNetworkServiceReachable(url : string, callback : INetworkReachabilityCallback)
+           onError(error : IButtonListenerErrorEnum)
+           onResult(button : Button)
+           onWarning(button : Button, warning : IButtonListenerWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IButtonListener Error
+      **/
+     export class IButtonListenerErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Not_Present = new IButtonListenerErrorEnum("Not_Present");
+          static Unknown = new IButtonListenerErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IButtonListener Warning
+      **/
+     export class IButtonListenerWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Not_Implemented = new IButtonListenerWarningEnum("Not_Implemented");
+          static Unknown = new IButtonListenerWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for IOCR
+      **/
+     export interface IOCR extends IBaseReader {
+
+     }
+
+     /**
+      *   Interface definition for IUI
+      **/
+     export interface IUI extends IBaseUI {
+
      }
 
      /**
@@ -1876,9 +1877,9 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for ISocket
+      *   Interface definition for IGyroscope
       **/
-     export interface ISocket extends IBaseCommunication {
+     export interface IGyroscope extends IBaseSensor {
 
      }
 
@@ -1917,73 +1918,404 @@ module Adaptive {
      }
 
      /**
-      *   Class implementation for ContactPersonalInfo
+      *   Class implementation for Header
       **/
-     export class ContactPersonalInfo {
+     export class Header {
 
           /** Field Declarations **/
-          lastName : string;
-          middleName : string;
+          data : string;
           name : string;
-          title : ContactPersonalInfoTitleEnum;
 
           /** Initialization **/
-          constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitleEnum) {
+          constructor(name: string, data: string) {
                this.name = name;
-               this.middleName = middleName;
-               this.lastName = lastName;
-               this.title = title;
+               this.data = data;
           }
 
           /**
-           * Method Declarations for ContactPersonalInfo
+           * Method Declarations for Header
            */
-          getLastName() : string {
-               return this.lastName
-          }
-
-          getMiddleName() : string {
-               return this.middleName
+          getData() : string {
+               return this.data
           }
 
           getName() : string {
                return this.name
           }
 
-          getTitle() : ContactPersonalInfoTitleEnum {
-               return this.title
-          }
-
-          setLastName(lastName : string) {
-               this.lastName = lastName
-          }
-
-          setMiddleName(middleName : string) {
-               this.middleName = middleName
+          setData(data : string) {
+               this.data = data
           }
 
           setName(name : string) {
                this.name = name
           }
 
-          setTitle(title : ContactPersonalInfoTitleEnum) {
-               this.title = title
+     }
+
+     /**
+      *   Class implementation for ContactProfessionalInfo
+      **/
+     export class ContactProfessionalInfo {
+
+          /** Field Declarations **/
+          company : string;
+          jobDescription : string;
+          jobTitle : string;
+
+          /** Initialization **/
+          constructor(jobTitle: string, jobDescription: string, company: string) {
+               this.jobTitle = jobTitle;
+               this.jobDescription = jobDescription;
+               this.company = company;
+          }
+
+          /**
+           * Method Declarations for ContactProfessionalInfo
+           */
+          getCompany() : string {
+               return this.company
+          }
+
+          getJobDescription() : string {
+               return this.jobDescription
+          }
+
+          getJobTitle() : string {
+               return this.jobTitle
+          }
+
+          setCompany(company : string) {
+               this.company = company
+          }
+
+          setJobDescription(jobDescription : string) {
+               this.jobDescription = jobDescription
+          }
+
+          setJobTitle(jobTitle : string) {
+               this.jobTitle = jobTitle
           }
 
      }
 
      /**
-      *  Enumerations for ContactPersonalInfo Title
+      *   Class implementation for DeviceInfo
       **/
-     export class ContactPersonalInfoTitleEnum {
+     export class DeviceInfo {
+
+          /** Field Declarations **/
+          model : string;
+          name : string;
+          uuid : string;
+          vendor : string;
+
+          /** Initialization **/
+          constructor(name: string, model: string, vendor: string, uuid: string) {
+               this.name = name;
+               this.model = model;
+               this.vendor = vendor;
+               this.uuid = uuid;
+          }
+
+          /**
+           * Method Declarations for DeviceInfo
+           */
+          getModel() : string {
+               return this.model
+          }
+
+          getName() : string {
+               return this.name
+          }
+
+          getUuid() : string {
+               return this.uuid
+          }
+
+          getVendor() : string {
+               return this.vendor
+          }
+
+     }
+
+     /**
+      *   Class implementation for Lifecycle
+      **/
+     export class Lifecycle {
+
+          /** Field Declarations **/
+          state : LifecycleStateEnum;
+
+          /** Initialization **/
+          constructor(state: LifecycleStateEnum) {
+               this.state = state;
+          }
+
+          /**
+           * Method Declarations for Lifecycle
+           */
+          getState() : LifecycleStateEnum {
+               return this.state
+          }
+
+          setState(state : LifecycleStateEnum) {
+               this.state = state
+          }
+
+     }
+
+     /**
+      *  Enumerations for Lifecycle State
+      **/
+     export class LifecycleStateEnum {
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Mr = new ContactPersonalInfoTitleEnum("Mr");
-          static Mrs = new ContactPersonalInfoTitleEnum("Mrs");
-          static Ms = new ContactPersonalInfoTitleEnum("Ms");
-          static Dr = new ContactPersonalInfoTitleEnum("Dr");
-          static Unknown = new ContactPersonalInfoTitleEnum("Unknown");
+          static Starting = new LifecycleStateEnum("Starting");
+          static Started = new LifecycleStateEnum("Started");
+          static Running = new LifecycleStateEnum("Running");
+          static Paused = new LifecycleStateEnum("Paused");
+          static PausedIdle = new LifecycleStateEnum("PausedIdle");
+          static PausedRun = new LifecycleStateEnum("PausedRun");
+          static Resuming = new LifecycleStateEnum("Resuming");
+          static Stopping = new LifecycleStateEnum("Stopping");
+          static Unknown = new LifecycleStateEnum("Unknown");
+     }
+
+     /**
+      *   Class implementation for ContactUid
+      **/
+     export class ContactUid {
+
+          /** Field Declarations **/
+          contactId : string;
+
+          /** Initialization **/
+          constructor(contactId: string) {
+               this.contactId = contactId;
+          }
+
+          /**
+           * Method Declarations for ContactUid
+           */
+          getContactId() : string {
+               return this.contactId
+          }
+
+          setContactId(contactId : string) {
+               this.contactId = contactId
+          }
+
+     }
+
+     /**
+      *   Class implementation for Row
+      **/
+     export class Row {
+
+          /** Field Declarations **/
+          values : Array<any>;
+
+          /** Initialization **/
+          constructor(values: Array<any>) {
+               this.values = values;
+          }
+
+          /**
+           * Method Declarations for Row
+           */
+          getValues() : Array<any> {
+               return this.values
+          }
+
+          setValues(values : Array<any>) {
+               this.values = values
+          }
+
+     }
+
+     /**
+      *   Class implementation for Endpoint
+      **/
+     export class Endpoint {
+
+          /** Field Declarations **/
+          host : string;
+          path : string;
+          port : number;
+          proxy : string;
+          scheme : string;
+
+          /** Initialization **/
+          constructor(host: string, path: string, port: number, proxy: string, scheme: string) {
+               this.host = host;
+               this.path = path;
+               this.port = port;
+               this.proxy = proxy;
+               this.scheme = scheme;
+          }
+
+          /**
+           * Method Declarations for Endpoint
+           */
+          getHost() : string {
+               return this.host
+          }
+
+          getPath() : string {
+               return this.path
+          }
+
+          getPort() : number {
+               return this.port
+          }
+
+          getProxy() : string {
+               return this.proxy
+          }
+
+          getScheme() : string {
+               return this.scheme
+          }
+
+          setHost(host : string) {
+               this.host = host
+          }
+
+          setPath(path : string) {
+               this.path = path
+          }
+
+          setPort(port : number) {
+               this.port = port
+          }
+
+          setProxy(proxy : string) {
+               this.proxy = proxy
+          }
+
+          setScheme(scheme : string) {
+               this.scheme = scheme
+          }
+
+     }
+
+     /**
+      *   Class implementation for ContactEmail
+      **/
+     export class ContactEmail {
+
+          /** Field Declarations **/
+          email : string;
+          primary : boolean;
+          type : ContactEmailEmailTypeEnum;
+
+          /** Initialization **/
+          constructor(type: ContactEmailEmailTypeEnum, primary: boolean, email: string) {
+               this.type = type;
+               this.primary = primary;
+               this.email = email;
+          }
+
+          /**
+           * Method Declarations for ContactEmail
+           */
+          getEmail() : string {
+               return this.email
+          }
+
+          getType() : ContactEmailEmailTypeEnum {
+               return this.type
+          }
+
+          isPrimary() : boolean {
+               return this.primary
+          }
+
+          setEmail(email : string) {
+               this.email = email
+          }
+
+          setPrimary(primary : boolean) {
+               this.primary = primary
+          }
+
+          setType(type : ContactEmailEmailTypeEnum) {
+               this.type = type
+          }
+
+     }
+
+     /**
+      *  Enumerations for ContactEmail EmailType
+      **/
+     export class ContactEmailEmailTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Personal = new ContactEmailEmailTypeEnum("Personal");
+          static Work = new ContactEmailEmailTypeEnum("Work");
+          static Other = new ContactEmailEmailTypeEnum("Other");
+          static Unknown = new ContactEmailEmailTypeEnum("Unknown");
+     }
+
+     /**
+      *   Class implementation for Geolocation
+      **/
+     export class Geolocation {
+
+          /** Field Declarations **/
+          altitude : number;
+          latitude : number;
+          longitude : number;
+          xDoP : number;
+          yDoP : number;
+
+          /** Initialization **/
+          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number) {
+               this.latitude = latitude;
+               this.longitude = longitude;
+               this.altitude = altitude;
+               this.xDoP = xDoP;
+               this.yDoP = yDoP;
+          }
+
+          /**
+           * Method Declarations for Geolocation
+           */
+          getAltitude() : number {
+               return this.altitude
+          }
+
+          getLatitude() : number {
+               return this.latitude
+          }
+
+          getLongitude() : number {
+               return this.longitude
+          }
+
+          getXDoP() : number {
+               return this.xDoP
+          }
+
+          getYDoP() : number {
+               return this.yDoP
+          }
+
+          setAltitude(altitude : number) {
+               this.altitude = altitude
+          }
+
+          setLatitude(latitude : number) {
+               this.latitude = latitude
+          }
+
+          setLongitude(longitude : number) {
+               this.longitude = longitude
+          }
+
      }
 
      /**
@@ -2023,87 +2355,339 @@ module Adaptive {
      }
 
      /**
-      *   Class implementation for ContactWebsite
+      *   Class implementation for ServiceResponse
       **/
-     export class ContactWebsite {
+     export class ServiceResponse {
 
           /** Field Declarations **/
-          url : string;
+          content : string;
+          contentBinary : Array<number>;
+          contentBinaryLength : number;
+          contentEncoding : string;
+          contentLength : string;
+          contentType : string;
+          headers : Array<Header>;
+          session : ISession;
 
           /** Initialization **/
-          constructor(url: string) {
-               this.url = url;
+          constructor(content: string, contentType: string, contentLength: string, contentBinary: Array<number>, contentBinaryLength: number, headers: Array<Header>, session: ISession, contentEncoding: string) {
+               this.content = content;
+               this.contentType = contentType;
+               this.contentLength = contentLength;
+               this.contentBinary = contentBinary;
+               this.contentBinaryLength = contentBinaryLength;
+               this.headers = headers;
+               this.session = session;
+               this.contentEncoding = contentEncoding;
           }
 
           /**
-           * Method Declarations for ContactWebsite
+           * Method Declarations for ServiceResponse
            */
-          getUrl() : string {
-               return this.url
+          getContent() : string {
+               return this.content
           }
 
-          setUrl(url : string) {
-               this.url = url
+          getContentBinary() : Array<number> {
+               return this.contentBinary
+          }
+
+          getContentBinaryLength() : number {
+               return this.contentBinaryLength
+          }
+
+          getContentEncoding() : string {
+               return this.contentEncoding
+          }
+
+          getContentLength() : string {
+               return this.contentLength
+          }
+
+          getContentType() : string {
+               return this.contentType
+          }
+
+          getHeaders() : Array<Header> {
+               return this.headers
+          }
+
+          getSession() : ISession {
+               return this.session
+          }
+
+          setContentBinaryLength(contentBinaryLength : number) {
+               this.contentBinaryLength = contentBinaryLength
+          }
+
+          setContentBinary(contentBinary : Array<number>) {
+               this.contentBinary = contentBinary
+          }
+
+          setContentEncoding(contentEncoding : string) {
+               this.contentEncoding = contentEncoding
+          }
+
+          setContentLength(contentLength : string) {
+               this.contentLength = contentLength
+          }
+
+          setContentType(contentType : string) {
+               this.contentType = contentType
+          }
+
+          setContent(content : string) {
+               this.content = content
+          }
+
+          setHeaders(headers : Array<Header>) {
+               this.headers = headers
+          }
+
+          setSession(session : ISession) {
+               this.session = session
           }
 
      }
 
      /**
-      *   Class implementation for OSInfo
+      *   Class implementation for Cookie
       **/
-     export class OSInfo {
+     export class Cookie {
 
           /** Field Declarations **/
+          creation : number;
+          data : string;
+          domain : string;
+          expiry : number;
           name : string;
-          vendor : string;
-          version : string;
+          path : string;
+          scheme : string;
+          secure : boolean;
 
           /** Initialization **/
-          constructor(name: string, version: string, vendor: string) {
+          constructor(name: string, data: string) {
                this.name = name;
-               this.version = version;
-               this.vendor = vendor;
+               this.data = data;
           }
 
           /**
-           * Method Declarations for OSInfo
+           * Method Declarations for Cookie
            */
+          getCreation() : number {
+               return this.creation
+          }
+
+          getData() : string {
+               return this.data
+          }
+
+          getDomain() : string {
+               return this.domain
+          }
+
+          getExpiry() : number {
+               return this.expiry
+          }
+
           getName() : string {
                return this.name
           }
 
-          getVendor() : string {
-               return this.vendor
+          getPath() : string {
+               return this.path
           }
 
-          getVersion() : string {
-               return this.version
+          getScheme() : string {
+               return this.scheme
           }
 
-     }
-
-     /**
-      *   Class implementation for Column
-      **/
-     export class Column {
-
-          /** Field Declarations **/
-          name : string;
-
-          /** Initialization **/
-          constructor(name: string) {
-               this.name = name;
+          isSecure() : boolean {
+               return this.secure
           }
 
-          /**
-           * Method Declarations for Column
-           */
-          getName() : string {
-               return this.name
+          setData(data : string) {
+               this.data = data
+          }
+
+          setDomain(domain : string) {
+               this.domain = domain
+          }
+
+          setExpiry(expiry : number) {
+               this.expiry = expiry
           }
 
           setName(name : string) {
                this.name = name
+          }
+
+          setPath(path : string) {
+               this.path = path
+          }
+
+          setScheme(scheme : string) {
+               this.scheme = scheme
+          }
+
+          setSecure(secure : boolean) {
+               this.secure = secure
+          }
+
+     }
+
+     /**
+      *   Class implementation for AttachmentData
+      **/
+     export class AttachmentData {
+
+          /** Field Declarations **/
+          data : Array<number>;
+          dataSize : number;
+          fileName : string;
+          mimeType : string;
+          referenceUrl : string;
+
+          /** Initialization **/
+          constructor(data: Array<number>, dataSize: number, fileName: string, mimeType: string, referenceUrl: string) {
+               this.data = data;
+               this.dataSize = dataSize;
+               this.fileName = fileName;
+               this.mimeType = mimeType;
+               this.referenceUrl = referenceUrl;
+          }
+
+          /**
+           * Method Declarations for AttachmentData
+           */
+          getData() : Array<number> {
+               return this.data
+          }
+
+          getDataSize() : number {
+               return this.dataSize
+          }
+
+          getFileName() : string {
+               return this.fileName
+          }
+
+          getMimeType() : string {
+               return this.mimeType
+          }
+
+          getReferenceUrl() : string {
+               return this.referenceUrl
+          }
+
+          setDataSize(dataSize : number) {
+               this.dataSize = dataSize
+          }
+
+          setData(data : Array<number>) {
+               this.data = data
+          }
+
+          setFileName(fileName : string) {
+               this.fileName = fileName
+          }
+
+          setMimeType(mimeType : string) {
+               this.mimeType = mimeType
+          }
+
+          setReferenceUrl(referenceUrl : string) {
+               this.referenceUrl = referenceUrl
+          }
+
+     }
+
+     /**
+      *   Class implementation for Contact
+      **/
+     export class Contact extends ContactUid {
+
+          /** Field Declarations **/
+          contactAddresses : Array<ContactAddress>;
+          contactEmails : Array<ContactEmail>;
+          contactPhones : Array<ContactPhone>;
+          contactSocials : Array<ContactSocial>;
+          contactTags : Array<ContactTag>;
+          contactWebsites : Array<ContactWebsite>;
+          personalInfo : ContactPersonalInfo;
+          professionalInfo : ContactProfessionalInfo;
+
+          /** Initialization **/
+          constructor(contactId: string) {
+               super(contactId)
+               this.contactId = contactId;
+          }
+
+          /**
+           * Method Declarations for Contact
+           */
+          getContactAddresses() : Array<ContactAddress> {
+               return this.contactAddresses
+          }
+
+          getContactEmails() : Array<ContactEmail> {
+               return this.contactEmails
+          }
+
+          getContactPhones() : Array<ContactPhone> {
+               return this.contactPhones
+          }
+
+          getContactSocials() : Array<ContactSocial> {
+               return this.contactSocials
+          }
+
+          getContactTags() : Array<ContactTag> {
+               return this.contactTags
+          }
+
+          getContactWebsites() : Array<ContactWebsite> {
+               return this.contactWebsites
+          }
+
+          getPersonalInfo() : ContactPersonalInfo {
+               return this.personalInfo
+          }
+
+          getProfessionalInfo() : ContactProfessionalInfo {
+               return this.professionalInfo
+          }
+
+          setContactAddresses(contactAddresses : Array<ContactAddress>) {
+               this.contactAddresses = contactAddresses
+          }
+
+          setContactEmails(contactEmails : Array<ContactEmail>) {
+               this.contactEmails = contactEmails
+          }
+
+          setContactPhones(contactPhones : Array<ContactPhone>) {
+               this.contactPhones = contactPhones
+          }
+
+          setContactSocials(contactSocials : Array<ContactSocial>) {
+               this.contactSocials = contactSocials
+          }
+
+          setContactTags(contactTags : Array<ContactTag>) {
+               this.contactTags = contactTags
+          }
+
+          setContactWebsites(contactWebsites : Array<ContactWebsite>) {
+               this.contactWebsites = contactWebsites
+          }
+
+          setPersonalInfo(personalInfo : ContactPersonalInfo) {
+               this.personalInfo = personalInfo
+          }
+
+          setProfessionalInfo(professionalInfo : ContactProfessionalInfo) {
+               this.professionalInfo = professionalInfo
           }
 
      }
@@ -2146,114 +2730,6 @@ module Adaptive {
 
           toString() : string {
                return this.description
-          }
-
-     }
-
-     /**
-      *   Class implementation for Email
-      **/
-     export class Email {
-
-          /** Field Declarations **/
-          attachmentData : Array<AttachmentData>;
-          bccRecipients : Array<EmailAddress>;
-          ccRecipients : Array<EmailAddress>;
-          messageBody : string;
-          messageBodyMimeType : string;
-          subject : string;
-          toRecipients : Array<EmailAddress>;
-
-          /** Initialization **/
-          constructor(toRecipients: Array<EmailAddress>, subject: string, messageBody: string) {
-               this.toRecipients = toRecipients;
-               this.subject = subject;
-               this.messageBody = messageBody;
-          }
-
-          /**
-           * Method Declarations for Email
-           */
-          getAttachmentData() : Array<AttachmentData> {
-               return this.attachmentData
-          }
-
-          getBccRecipients() : Array<EmailAddress> {
-               return this.bccRecipients
-          }
-
-          getCcRecipients() : Array<EmailAddress> {
-               return this.ccRecipients
-          }
-
-          getMessageBody() : string {
-               return this.messageBody
-          }
-
-          getMessageBodyMimeType() : string {
-               return this.messageBodyMimeType
-          }
-
-          getSubject() : string {
-               return this.subject
-          }
-
-          getToRecipients() : Array<EmailAddress> {
-               return this.toRecipients
-          }
-
-          setAttachmentData(attachmentData : Array<AttachmentData>) {
-               this.attachmentData = attachmentData
-          }
-
-          setBccRecipients(bccRecipients : Array<EmailAddress>) {
-               this.bccRecipients = bccRecipients
-          }
-
-          setCcRecipients(ccRecipients : Array<EmailAddress>) {
-               this.ccRecipients = ccRecipients
-          }
-
-          setMessageBodyMimeType(messageBodyMimeType : string) {
-               this.messageBodyMimeType = messageBodyMimeType
-          }
-
-          setMessageBody(messageBody : string) {
-               this.messageBody = messageBody
-          }
-
-          setSubject(subject : string) {
-               this.subject = subject
-          }
-
-          setToRecipients(toRecipients : Array<EmailAddress>) {
-               this.toRecipients = toRecipients
-          }
-
-     }
-
-     /**
-      *   Class implementation for ContactUid
-      **/
-     export class ContactUid {
-
-          /** Field Declarations **/
-          contactId : string;
-
-          /** Initialization **/
-          constructor(contactId: string) {
-               this.contactId = contactId;
-          }
-
-          /**
-           * Method Declarations for ContactUid
-           */
-          getContactId() : string {
-               return this.contactId
-          }
-
-          setContactId(contactId : string) {
-               this.contactId = contactId
           }
 
      }
@@ -2305,52 +2781,6 @@ module Adaptive {
           static Work = new ContactAddressAddressTypeEnum("Work");
           static Other = new ContactAddressAddressTypeEnum("Other");
           static Unknown = new ContactAddressAddressTypeEnum("Unknown");
-     }
-
-     /**
-      *   Class implementation for ContactProfessionalInfo
-      **/
-     export class ContactProfessionalInfo {
-
-          /** Field Declarations **/
-          company : string;
-          jobDescription : string;
-          jobTitle : string;
-
-          /** Initialization **/
-          constructor(jobTitle: string, jobDescription: string, company: string) {
-               this.jobTitle = jobTitle;
-               this.jobDescription = jobDescription;
-               this.company = company;
-          }
-
-          /**
-           * Method Declarations for ContactProfessionalInfo
-           */
-          getCompany() : string {
-               return this.company
-          }
-
-          getJobDescription() : string {
-               return this.jobDescription
-          }
-
-          getJobTitle() : string {
-               return this.jobTitle
-          }
-
-          setCompany(company : string) {
-               this.company = company
-          }
-
-          setJobDescription(jobDescription : string) {
-               this.jobDescription = jobDescription
-          }
-
-          setJobTitle(jobTitle : string) {
-               this.jobTitle = jobTitle
-          }
-
      }
 
      /**
@@ -2472,6 +2902,218 @@ module Adaptive {
      }
 
      /**
+      *   Class implementation for EmailAddress
+      **/
+     export class EmailAddress {
+
+          /** Field Declarations **/
+          address : string;
+
+          /** Initialization **/
+          constructor(address: string) {
+               this.address = address;
+          }
+
+          /**
+           * Method Declarations for EmailAddress
+           */
+          getAddress() : string {
+               return this.address
+          }
+
+          setAddress(address : string) {
+               this.address = address
+          }
+
+     }
+
+     /**
+      *   Class implementation for SecureKeyPair
+      **/
+     export class SecureKeyPair {
+
+          /** Field Declarations **/
+          secureData : string;
+          secureKey : string;
+
+          /** Initialization **/
+          constructor(secureKey: string, secureData: string) {
+               this.secureKey = secureKey;
+               this.secureData = secureData;
+          }
+
+          /**
+           * Method Declarations for SecureKeyPair
+           */
+          getSecureData() : string {
+               return this.secureData
+          }
+
+          getSecureKey() : string {
+               return this.secureKey
+          }
+
+          setSecureData(secureData : string) {
+               this.secureData = secureData
+          }
+
+          setSecureKey(secureKey : string) {
+               this.secureKey = secureKey
+          }
+
+     }
+
+     /**
+      *   Class implementation for Database
+      **/
+     export class Database {
+
+          /** Field Declarations **/
+          compress : boolean;
+          name : string;
+
+          /** Initialization **/
+          constructor(name: string, compress: boolean) {
+               this.name = name;
+               this.compress = compress;
+          }
+
+          /**
+           * Method Declarations for Database
+           */
+          getName() : string {
+               return this.name
+          }
+
+          isCompress() : boolean {
+               return this.compress
+          }
+
+          setCompress(compress : boolean) {
+               this.compress = compress
+          }
+
+          setName(name : string) {
+               this.name = name
+          }
+
+     }
+
+     /**
+      *   Class implementation for ContactPhone
+      **/
+     export class ContactPhone {
+
+          /** Field Declarations **/
+          phone : string;
+          phoneType : ContactPhonePhoneTypeEnum;
+
+          /** Initialization **/
+          constructor(phone: string, phoneType: ContactPhonePhoneTypeEnum) {
+               this.phone = phone;
+               this.phoneType = phoneType;
+          }
+
+          /**
+           * Method Declarations for ContactPhone
+           */
+          getPhone() : string {
+               return this.phone
+          }
+
+          getPhoneType() : ContactPhonePhoneTypeEnum {
+               return this.phoneType
+          }
+
+          setPhoneType(phoneType : ContactPhonePhoneTypeEnum) {
+               this.phoneType = phoneType
+          }
+
+          setPhone(phone : string) {
+               this.phone = phone
+          }
+
+     }
+
+     /**
+      *  Enumerations for ContactPhone PhoneType
+      **/
+     export class ContactPhonePhoneTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Mobile = new ContactPhonePhoneTypeEnum("Mobile");
+          static Work = new ContactPhonePhoneTypeEnum("Work");
+          static Home = new ContactPhonePhoneTypeEnum("Home");
+          static Main = new ContactPhonePhoneTypeEnum("Main");
+          static HomeFax = new ContactPhonePhoneTypeEnum("HomeFax");
+          static WorkFax = new ContactPhonePhoneTypeEnum("WorkFax");
+          static Other = new ContactPhonePhoneTypeEnum("Other");
+          static Unknown = new ContactPhonePhoneTypeEnum("Unknown");
+     }
+
+     /**
+      *   Class implementation for ContactWebsite
+      **/
+     export class ContactWebsite {
+
+          /** Field Declarations **/
+          url : string;
+
+          /** Initialization **/
+          constructor(url: string) {
+               this.url = url;
+          }
+
+          /**
+           * Method Declarations for ContactWebsite
+           */
+          getUrl() : string {
+               return this.url
+          }
+
+          setUrl(url : string) {
+               this.url = url
+          }
+
+     }
+
+     /**
+      *   Class implementation for Button
+      **/
+     export class Button {
+
+          /** Field Declarations **/
+          type : ButtonButtonEnum;
+
+          /** Initialization **/
+          constructor(type: ButtonButtonEnum) {
+               this.type = type;
+          }
+
+          /**
+           * Method Declarations for Button
+           */
+          getType() : ButtonButtonEnum {
+               return this.type
+          }
+
+     }
+
+     /**
+      *  Enumerations for Button Button
+      **/
+     export class ButtonButtonEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HomeButton = new ButtonButtonEnum("HomeButton");
+          static BackButton = new ButtonButtonEnum("BackButton");
+          static OptionButton = new ButtonButtonEnum("OptionButton");
+          static Unknown = new ButtonButtonEnum("Unknown");
+     }
+
+     /**
       *   Class implementation for ContactSocial
       **/
      export class ContactSocial {
@@ -2523,220 +3165,179 @@ module Adaptive {
      }
 
      /**
-      *   Class implementation for Endpoint
+      *   Class implementation for Acceleration
       **/
-     export class Endpoint {
+     export class Acceleration {
 
           /** Field Declarations **/
-          host : string;
-          path : string;
-          port : number;
-          proxy : string;
-          scheme : string;
+          timeStamp : number;
+          x : number;
+          y : number;
+          z : number;
 
           /** Initialization **/
-          constructor(host: string, path: string, port: number, proxy: string, scheme: string) {
-               this.host = host;
-               this.path = path;
-               this.port = port;
-               this.proxy = proxy;
-               this.scheme = scheme;
+          constructor(x: number, y: number, z: number, timeStamp: number) {
+               this.x = x;
+               this.y = y;
+               this.z = z;
+               this.timeStamp = timeStamp;
           }
 
           /**
-           * Method Declarations for Endpoint
+           * Method Declarations for Acceleration
            */
-          getHost() : string {
-               return this.host
+          getX() : number {
+               return this.x
           }
 
-          getPath() : string {
-               return this.path
+          getY() : number {
+               return this.y
           }
 
-          getPort() : number {
-               return this.port
+          getZ() : number {
+               return this.z
           }
 
-          getProxy() : string {
-               return this.proxy
+          setTimeStamp(timeStamp : number) {
+               this.timeStamp = timeStamp
           }
 
-          getScheme() : string {
-               return this.scheme
+          setX(x : number) {
+               this.x = x
           }
 
-          setHost(host : string) {
-               this.host = host
+          setY(y : number) {
+               this.y = y
           }
 
-          setPath(path : string) {
-               this.path = path
-          }
-
-          setPort(port : number) {
-               this.port = port
-          }
-
-          setProxy(proxy : string) {
-               this.proxy = proxy
-          }
-
-          setScheme(scheme : string) {
-               this.scheme = scheme
+          setZ(z : number) {
+               this.z = z
           }
 
      }
 
      /**
-      *   Class implementation for Cookie
+      *   Class implementation for ContactPersonalInfo
       **/
-     export class Cookie {
+     export class ContactPersonalInfo {
 
           /** Field Declarations **/
-          creation : number;
-          data : string;
-          domain : string;
-          expiry : number;
+          lastName : string;
+          middleName : string;
           name : string;
-          path : string;
-          scheme : string;
-          secure : boolean;
+          title : ContactPersonalInfoTitleEnum;
 
           /** Initialization **/
-          constructor(name: string, data: string) {
+          constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitleEnum) {
                this.name = name;
-               this.data = data;
+               this.middleName = middleName;
+               this.lastName = lastName;
+               this.title = title;
           }
 
           /**
-           * Method Declarations for Cookie
+           * Method Declarations for ContactPersonalInfo
            */
-          getCreation() : number {
-               return this.creation
+          getLastName() : string {
+               return this.lastName
           }
 
-          getData() : string {
-               return this.data
-          }
-
-          getDomain() : string {
-               return this.domain
-          }
-
-          getExpiry() : number {
-               return this.expiry
+          getMiddleName() : string {
+               return this.middleName
           }
 
           getName() : string {
                return this.name
           }
 
-          getPath() : string {
-               return this.path
+          getTitle() : ContactPersonalInfoTitleEnum {
+               return this.title
           }
 
-          getScheme() : string {
-               return this.scheme
+          setLastName(lastName : string) {
+               this.lastName = lastName
           }
 
-          isSecure() : boolean {
-               return this.secure
-          }
-
-          setData(data : string) {
-               this.data = data
-          }
-
-          setDomain(domain : string) {
-               this.domain = domain
-          }
-
-          setExpiry(expiry : number) {
-               this.expiry = expiry
+          setMiddleName(middleName : string) {
+               this.middleName = middleName
           }
 
           setName(name : string) {
                this.name = name
           }
 
-          setPath(path : string) {
-               this.path = path
-          }
-
-          setScheme(scheme : string) {
-               this.scheme = scheme
-          }
-
-          setSecure(secure : boolean) {
-               this.secure = secure
+          setTitle(title : ContactPersonalInfoTitleEnum) {
+               this.title = title
           }
 
      }
 
      /**
-      *   Class implementation for Button
+      *  Enumerations for ContactPersonalInfo Title
       **/
-     export class Button {
-
-          /** Field Declarations **/
-          type : ButtonButtonEnum;
-
-          /** Initialization **/
-          constructor(type: ButtonButtonEnum) {
-               this.type = type;
-          }
-
-          /**
-           * Method Declarations for Button
-           */
-          getType() : ButtonButtonEnum {
-               return this.type
-          }
-
-     }
-
-     /**
-      *  Enumerations for Button Button
-      **/
-     export class ButtonButtonEnum {
+     export class ContactPersonalInfoTitleEnum {
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static HomeButton = new ButtonButtonEnum("HomeButton");
-          static BackButton = new ButtonButtonEnum("BackButton");
-          static OptionButton = new ButtonButtonEnum("OptionButton");
-          static Unknown = new ButtonButtonEnum("Unknown");
+          static Mr = new ContactPersonalInfoTitleEnum("Mr");
+          static Mrs = new ContactPersonalInfoTitleEnum("Mrs");
+          static Ms = new ContactPersonalInfoTitleEnum("Ms");
+          static Dr = new ContactPersonalInfoTitleEnum("Dr");
+          static Unknown = new ContactPersonalInfoTitleEnum("Unknown");
      }
 
      /**
-      *   Class implementation for Database
+      *   Class implementation for OSInfo
       **/
-     export class Database {
+     export class OSInfo {
 
           /** Field Declarations **/
-          compress : boolean;
           name : string;
+          vendor : string;
+          version : string;
 
           /** Initialization **/
-          constructor(name: string, compress: boolean) {
+          constructor(name: string, version: string, vendor: string) {
                this.name = name;
-               this.compress = compress;
+               this.version = version;
+               this.vendor = vendor;
           }
 
           /**
-           * Method Declarations for Database
+           * Method Declarations for OSInfo
            */
           getName() : string {
                return this.name
           }
 
-          isCompress() : boolean {
-               return this.compress
+          getVendor() : string {
+               return this.vendor
           }
 
-          setCompress(compress : boolean) {
-               this.compress = compress
+          getVersion() : string {
+               return this.version
+          }
+
+     }
+
+     /**
+      *   Class implementation for Column
+      **/
+     export class Column {
+
+          /** Field Declarations **/
+          name : string;
+
+          /** Initialization **/
+          constructor(name: string) {
+               this.name = name;
+          }
+
+          /**
+           * Method Declarations for Column
+           */
+          getName() : string {
+               return this.name
           }
 
           setName(name : string) {
@@ -2746,128 +3347,85 @@ module Adaptive {
      }
 
      /**
-      *   Class implementation for AttachmentData
+      *   Class implementation for Email
       **/
-     export class AttachmentData {
+     export class Email {
 
           /** Field Declarations **/
-          data : Array<number>;
-          dataSize : number;
-          fileName : string;
-          mimeType : string;
-          referenceUrl : string;
+          attachmentData : Array<AttachmentData>;
+          bccRecipients : Array<EmailAddress>;
+          ccRecipients : Array<EmailAddress>;
+          messageBody : string;
+          messageBodyMimeType : string;
+          subject : string;
+          toRecipients : Array<EmailAddress>;
 
           /** Initialization **/
-          constructor(data: Array<number>, dataSize: number, fileName: string, mimeType: string, referenceUrl: string) {
-               this.data = data;
-               this.dataSize = dataSize;
-               this.fileName = fileName;
-               this.mimeType = mimeType;
-               this.referenceUrl = referenceUrl;
+          constructor(toRecipients: Array<EmailAddress>, subject: string, messageBody: string) {
+               this.toRecipients = toRecipients;
+               this.subject = subject;
+               this.messageBody = messageBody;
           }
 
           /**
-           * Method Declarations for AttachmentData
+           * Method Declarations for Email
            */
-          getData() : Array<number> {
-               return this.data
+          getAttachmentData() : Array<AttachmentData> {
+               return this.attachmentData
           }
 
-          getDataSize() : number {
-               return this.dataSize
+          getBccRecipients() : Array<EmailAddress> {
+               return this.bccRecipients
           }
 
-          getFileName() : string {
-               return this.fileName
+          getCcRecipients() : Array<EmailAddress> {
+               return this.ccRecipients
           }
 
-          getMimeType() : string {
-               return this.mimeType
+          getMessageBody() : string {
+               return this.messageBody
           }
 
-          getReferenceUrl() : string {
-               return this.referenceUrl
+          getMessageBodyMimeType() : string {
+               return this.messageBodyMimeType
           }
 
-          setDataSize(dataSize : number) {
-               this.dataSize = dataSize
+          getSubject() : string {
+               return this.subject
           }
 
-          setData(data : Array<number>) {
-               this.data = data
+          getToRecipients() : Array<EmailAddress> {
+               return this.toRecipients
           }
 
-          setFileName(fileName : string) {
-               this.fileName = fileName
+          setAttachmentData(attachmentData : Array<AttachmentData>) {
+               this.attachmentData = attachmentData
           }
 
-          setMimeType(mimeType : string) {
-               this.mimeType = mimeType
+          setBccRecipients(bccRecipients : Array<EmailAddress>) {
+               this.bccRecipients = bccRecipients
           }
 
-          setReferenceUrl(referenceUrl : string) {
-               this.referenceUrl = referenceUrl
+          setCcRecipients(ccRecipients : Array<EmailAddress>) {
+               this.ccRecipients = ccRecipients
           }
 
-     }
-
-     /**
-      *   Class implementation for ContactEmail
-      **/
-     export class ContactEmail {
-
-          /** Field Declarations **/
-          email : string;
-          primary : boolean;
-          type : ContactEmailEmailTypeEnum;
-
-          /** Initialization **/
-          constructor(type: ContactEmailEmailTypeEnum, primary: boolean, email: string) {
-               this.type = type;
-               this.primary = primary;
-               this.email = email;
+          setMessageBodyMimeType(messageBodyMimeType : string) {
+               this.messageBodyMimeType = messageBodyMimeType
           }
 
-          /**
-           * Method Declarations for ContactEmail
-           */
-          getEmail() : string {
-               return this.email
+          setMessageBody(messageBody : string) {
+               this.messageBody = messageBody
           }
 
-          getType() : ContactEmailEmailTypeEnum {
-               return this.type
+          setSubject(subject : string) {
+               this.subject = subject
           }
 
-          isPrimary() : boolean {
-               return this.primary
+          setToRecipients(toRecipients : Array<EmailAddress>) {
+               this.toRecipients = toRecipients
           }
 
-          setEmail(email : string) {
-               this.email = email
-          }
-
-          setPrimary(primary : boolean) {
-               this.primary = primary
-          }
-
-          setType(type : ContactEmailEmailTypeEnum) {
-               this.type = type
-          }
-
-     }
-
-     /**
-      *  Enumerations for ContactEmail EmailType
-      **/
-     export class ContactEmailEmailTypeEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Personal = new ContactEmailEmailTypeEnum("Personal");
-          static Work = new ContactEmailEmailTypeEnum("Work");
-          static Other = new ContactEmailEmailTypeEnum("Other");
-          static Unknown = new ContactEmailEmailTypeEnum("Unknown");
      }
 
      /**
@@ -2928,330 +3486,6 @@ module Adaptive {
 
           setRows(rows : Array<Row>) {
                this.rows = rows
-          }
-
-     }
-
-     /**
-      *   Class implementation for EmailAddress
-      **/
-     export class EmailAddress {
-
-          /** Field Declarations **/
-          address : string;
-
-          /** Initialization **/
-          constructor(address: string) {
-               this.address = address;
-          }
-
-          /**
-           * Method Declarations for EmailAddress
-           */
-          getAddress() : string {
-               return this.address
-          }
-
-          setAddress(address : string) {
-               this.address = address
-          }
-
-     }
-
-     /**
-      *   Class implementation for DeviceInfo
-      **/
-     export class DeviceInfo {
-
-          /** Field Declarations **/
-          model : string;
-          name : string;
-          uuid : string;
-          vendor : string;
-
-          /** Initialization **/
-          constructor(name: string, model: string, vendor: string, uuid: string) {
-               this.name = name;
-               this.model = model;
-               this.vendor = vendor;
-               this.uuid = uuid;
-          }
-
-          /**
-           * Method Declarations for DeviceInfo
-           */
-          getModel() : string {
-               return this.model
-          }
-
-          getName() : string {
-               return this.name
-          }
-
-          getUuid() : string {
-               return this.uuid
-          }
-
-          getVendor() : string {
-               return this.vendor
-          }
-
-     }
-
-     /**
-      *   Class implementation for SecureKeyPair
-      **/
-     export class SecureKeyPair {
-
-          /** Field Declarations **/
-          secureData : string;
-          secureKey : string;
-
-          /** Initialization **/
-          constructor(secureKey: string, secureData: string) {
-               this.secureKey = secureKey;
-               this.secureData = secureData;
-          }
-
-          /**
-           * Method Declarations for SecureKeyPair
-           */
-          getSecureData() : string {
-               return this.secureData
-          }
-
-          getSecureKey() : string {
-               return this.secureKey
-          }
-
-          setSecureData(secureData : string) {
-               this.secureData = secureData
-          }
-
-          setSecureKey(secureKey : string) {
-               this.secureKey = secureKey
-          }
-
-     }
-
-     /**
-      *   Class implementation for Header
-      **/
-     export class Header {
-
-          /** Field Declarations **/
-          data : string;
-          name : string;
-
-          /** Initialization **/
-          constructor(name: string, data: string) {
-               this.name = name;
-               this.data = data;
-          }
-
-          /**
-           * Method Declarations for Header
-           */
-          getData() : string {
-               return this.data
-          }
-
-          getName() : string {
-               return this.name
-          }
-
-          setData(data : string) {
-               this.data = data
-          }
-
-          setName(name : string) {
-               this.name = name
-          }
-
-     }
-
-     /**
-      *   Class implementation for ServiceResponse
-      **/
-     export class ServiceResponse {
-
-          /** Field Declarations **/
-          content : string;
-          contentBinary : Array<number>;
-          contentBinaryLength : number;
-          contentEncoding : string;
-          contentLength : string;
-          contentType : string;
-          headers : Array<Header>;
-          session : ISession;
-
-          /** Initialization **/
-          constructor(content: string, contentType: string, contentLength: string, contentBinary: Array<number>, contentBinaryLength: number, headers: Array<Header>, session: ISession, contentEncoding: string) {
-               this.content = content;
-               this.contentType = contentType;
-               this.contentLength = contentLength;
-               this.contentBinary = contentBinary;
-               this.contentBinaryLength = contentBinaryLength;
-               this.headers = headers;
-               this.session = session;
-               this.contentEncoding = contentEncoding;
-          }
-
-          /**
-           * Method Declarations for ServiceResponse
-           */
-          getContent() : string {
-               return this.content
-          }
-
-          getContentBinary() : Array<number> {
-               return this.contentBinary
-          }
-
-          getContentBinaryLength() : number {
-               return this.contentBinaryLength
-          }
-
-          getContentEncoding() : string {
-               return this.contentEncoding
-          }
-
-          getContentLength() : string {
-               return this.contentLength
-          }
-
-          getContentType() : string {
-               return this.contentType
-          }
-
-          getHeaders() : Array<Header> {
-               return this.headers
-          }
-
-          getSession() : ISession {
-               return this.session
-          }
-
-          setContentBinaryLength(contentBinaryLength : number) {
-               this.contentBinaryLength = contentBinaryLength
-          }
-
-          setContentBinary(contentBinary : Array<number>) {
-               this.contentBinary = contentBinary
-          }
-
-          setContentEncoding(contentEncoding : string) {
-               this.contentEncoding = contentEncoding
-          }
-
-          setContentLength(contentLength : string) {
-               this.contentLength = contentLength
-          }
-
-          setContentType(contentType : string) {
-               this.contentType = contentType
-          }
-
-          setContent(content : string) {
-               this.content = content
-          }
-
-          setHeaders(headers : Array<Header>) {
-               this.headers = headers
-          }
-
-          setSession(session : ISession) {
-               this.session = session
-          }
-
-     }
-
-     /**
-      *   Class implementation for Contact
-      **/
-     export class Contact extends ContactUid {
-
-          /** Field Declarations **/
-          contactAddresses : Array<ContactAddress>;
-          contactEmails : Array<ContactEmail>;
-          contactPhones : Array<ContactPhone>;
-          contactSocials : Array<ContactSocial>;
-          contactTags : Array<ContactTag>;
-          contactWebsites : Array<ContactWebsite>;
-          personalInfo : ContactPersonalInfo;
-          professionalInfo : ContactProfessionalInfo;
-
-          /** Initialization **/
-          constructor(contactId: string) {
-               super(contactId)
-               this.contactId = contactId;
-          }
-
-          /**
-           * Method Declarations for Contact
-           */
-          getContactAddresses() : Array<ContactAddress> {
-               return this.contactAddresses
-          }
-
-          getContactEmails() : Array<ContactEmail> {
-               return this.contactEmails
-          }
-
-          getContactPhones() : Array<ContactPhone> {
-               return this.contactPhones
-          }
-
-          getContactSocials() : Array<ContactSocial> {
-               return this.contactSocials
-          }
-
-          getContactTags() : Array<ContactTag> {
-               return this.contactTags
-          }
-
-          getContactWebsites() : Array<ContactWebsite> {
-               return this.contactWebsites
-          }
-
-          getPersonalInfo() : ContactPersonalInfo {
-               return this.personalInfo
-          }
-
-          getProfessionalInfo() : ContactProfessionalInfo {
-               return this.professionalInfo
-          }
-
-          setContactAddresses(contactAddresses : Array<ContactAddress>) {
-               this.contactAddresses = contactAddresses
-          }
-
-          setContactEmails(contactEmails : Array<ContactEmail>) {
-               this.contactEmails = contactEmails
-          }
-
-          setContactPhones(contactPhones : Array<ContactPhone>) {
-               this.contactPhones = contactPhones
-          }
-
-          setContactSocials(contactSocials : Array<ContactSocial>) {
-               this.contactSocials = contactSocials
-          }
-
-          setContactTags(contactTags : Array<ContactTag>) {
-               this.contactTags = contactTags
-          }
-
-          setContactWebsites(contactWebsites : Array<ContactWebsite>) {
-               this.contactWebsites = contactWebsites
-          }
-
-          setPersonalInfo(personalInfo : ContactPersonalInfo) {
-               this.personalInfo = personalInfo
-          }
-
-          setProfessionalInfo(professionalInfo : ContactProfessionalInfo) {
-               this.professionalInfo = professionalInfo
           }
 
      }
@@ -3342,239 +3576,6 @@ module Adaptive {
           static SERVICETYPE_XMLRPC_JSON = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_JSON");
           static SERVICETYPE_XMLRPC_XML = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_XML");
           static Unknown = new ServiceServiceTypeEnum("Unknown");
-     }
-
-     /**
-      *   Class implementation for Lifecycle
-      **/
-     export class Lifecycle {
-
-          /** Field Declarations **/
-          state : LifecycleStateEnum;
-
-          /** Initialization **/
-          constructor(state: LifecycleStateEnum) {
-               this.state = state;
-          }
-
-          /**
-           * Method Declarations for Lifecycle
-           */
-          getState() : LifecycleStateEnum {
-               return this.state
-          }
-
-          setState(state : LifecycleStateEnum) {
-               this.state = state
-          }
-
-     }
-
-     /**
-      *  Enumerations for Lifecycle State
-      **/
-     export class LifecycleStateEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Starting = new LifecycleStateEnum("Starting");
-          static Started = new LifecycleStateEnum("Started");
-          static Running = new LifecycleStateEnum("Running");
-          static Paused = new LifecycleStateEnum("Paused");
-          static PausedIdle = new LifecycleStateEnum("PausedIdle");
-          static PausedRun = new LifecycleStateEnum("PausedRun");
-          static Resuming = new LifecycleStateEnum("Resuming");
-          static Stopping = new LifecycleStateEnum("Stopping");
-          static Unknown = new LifecycleStateEnum("Unknown");
-     }
-
-     /**
-      *   Class implementation for Acceleration
-      **/
-     export class Acceleration {
-
-          /** Field Declarations **/
-          timeStamp : number;
-          x : number;
-          y : number;
-          z : number;
-
-          /** Initialization **/
-          constructor(x: number, y: number, z: number, timeStamp: number) {
-               this.x = x;
-               this.y = y;
-               this.z = z;
-               this.timeStamp = timeStamp;
-          }
-
-          /**
-           * Method Declarations for Acceleration
-           */
-          getX() : number {
-               return this.x
-          }
-
-          getY() : number {
-               return this.y
-          }
-
-          getZ() : number {
-               return this.z
-          }
-
-          setTimeStamp(timeStamp : number) {
-               this.timeStamp = timeStamp
-          }
-
-          setX(x : number) {
-               this.x = x
-          }
-
-          setY(y : number) {
-               this.y = y
-          }
-
-          setZ(z : number) {
-               this.z = z
-          }
-
-     }
-
-     /**
-      *   Class implementation for ContactPhone
-      **/
-     export class ContactPhone {
-
-          /** Field Declarations **/
-          phone : string;
-          phoneType : ContactPhonePhoneTypeEnum;
-
-          /** Initialization **/
-          constructor(phone: string, phoneType: ContactPhonePhoneTypeEnum) {
-               this.phone = phone;
-               this.phoneType = phoneType;
-          }
-
-          /**
-           * Method Declarations for ContactPhone
-           */
-          getPhone() : string {
-               return this.phone
-          }
-
-          getPhoneType() : ContactPhonePhoneTypeEnum {
-               return this.phoneType
-          }
-
-          setPhoneType(phoneType : ContactPhonePhoneTypeEnum) {
-               this.phoneType = phoneType
-          }
-
-          setPhone(phone : string) {
-               this.phone = phone
-          }
-
-     }
-
-     /**
-      *  Enumerations for ContactPhone PhoneType
-      **/
-     export class ContactPhonePhoneTypeEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Mobile = new ContactPhonePhoneTypeEnum("Mobile");
-          static Work = new ContactPhonePhoneTypeEnum("Work");
-          static Home = new ContactPhonePhoneTypeEnum("Home");
-          static Main = new ContactPhonePhoneTypeEnum("Main");
-          static HomeFax = new ContactPhonePhoneTypeEnum("HomeFax");
-          static WorkFax = new ContactPhonePhoneTypeEnum("WorkFax");
-          static Other = new ContactPhonePhoneTypeEnum("Other");
-          static Unknown = new ContactPhonePhoneTypeEnum("Unknown");
-     }
-
-     /**
-      *   Class implementation for Geolocation
-      **/
-     export class Geolocation {
-
-          /** Field Declarations **/
-          altitude : number;
-          latitude : number;
-          longitude : number;
-          xDoP : number;
-          yDoP : number;
-
-          /** Initialization **/
-          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number) {
-               this.latitude = latitude;
-               this.longitude = longitude;
-               this.altitude = altitude;
-               this.xDoP = xDoP;
-               this.yDoP = yDoP;
-          }
-
-          /**
-           * Method Declarations for Geolocation
-           */
-          getAltitude() : number {
-               return this.altitude
-          }
-
-          getLatitude() : number {
-               return this.latitude
-          }
-
-          getLongitude() : number {
-               return this.longitude
-          }
-
-          getXDoP() : number {
-               return this.xDoP
-          }
-
-          getYDoP() : number {
-               return this.yDoP
-          }
-
-          setAltitude(altitude : number) {
-               this.altitude = altitude
-          }
-
-          setLatitude(latitude : number) {
-               this.latitude = latitude
-          }
-
-          setLongitude(longitude : number) {
-               this.longitude = longitude
-          }
-
-     }
-
-     /**
-      *   Class implementation for Row
-      **/
-     export class Row {
-
-          /** Field Declarations **/
-          values : Array<any>;
-
-          /** Initialization **/
-          constructor(values: Array<any>) {
-               this.values = values;
-          }
-
-          /**
-           * Method Declarations for Row
-           */
-          getValues() : Array<any> {
-               return this.values
-          }
-
-          setValues(values : Array<any>) {
-               this.values = values
-          }
-
      }
 
 
