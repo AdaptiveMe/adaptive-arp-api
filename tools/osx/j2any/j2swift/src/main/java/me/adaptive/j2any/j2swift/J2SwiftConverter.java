@@ -417,7 +417,7 @@ public class J2SwiftConverter {
             } else {
                 if (field.getType().isEnum()) {
                     ps.print(" : " + field.getType().getSimpleName() + "?");
-                    js.print(" : " + field.getType().getSimpleName() + "Enum;");
+                    js.print(" : " + clazz.getSimpleName()+field.getType().getSimpleName() + "Enum;");
                 } else {
                     if (field.getType().isInterface()) {
                         ps.print(" : " + field.getType().getSimpleName() + "?");
@@ -635,6 +635,9 @@ public class J2SwiftConverter {
                     } else if (parameterType.equals(String.class)) {
                         ps.print(parameter.getType().getSimpleName());
                         if (!singleTSInterface) js.print(parameter.getType().getSimpleName().toLowerCase());
+                    } else if (parameterType.isEnum()) {
+                        ps.print(parameter.getType().getSimpleName());
+                        js.print(clazz.getSimpleName()+parameter.getType().getSimpleName()+"Enum");
                     } else {
                         ps.print(parameter.getType().getSimpleName());
                         js.print(parameter.getType().getSimpleName());
@@ -716,7 +719,17 @@ public class J2SwiftConverter {
                     ps.println(10, "self.init()");
                     Class superClass = clazz.getSuperclass();
                     if (superClass != null && !superClass.equals(Object.class)) {
-                        if (!singleTSInterface) js.println(15, "super()");
+                        if (!singleTSInterface) {
+                            js.print(15, "super(");
+                            for (int i = 0; i < parameters.length; i++) {
+                                Parameter parameter = parameters[i];
+                                js.print(parameter.getName());
+                                if ((parameters.length - 1) > i) {
+                                    ps.print(", ");
+                                }
+                            }
+                            js.println(")");
+                        }
                     }
                     for (Parameter parameter : parameters) {
                         ps.println(10, "self." + parameter.getName() + " = " + parameter.getName());
@@ -990,6 +1003,54 @@ public class J2SwiftConverter {
             js.println();
             js.println(5, "}");
         }
+            /*
+
+                 export class MyEnum
+     {
+          constructor(public value:string){
+          }
+
+          toString(){
+               return this.value;
+          }
+
+          // values
+          static hello = new MyEnum("hello");
+          static world = new MyEnum("world");
+     }
+
+             */
+
+        for (Class<?> enumClass : enumList) {
+            js.println();
+            js.println(5, "export class " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum {");
+            js.println(10,"constructor(public value:string){}");
+            js.println(10,"toString(){return this.value;}");
+            js.println();
+            Object[] enumConstants = enumClass.getEnumConstants();
+
+            for (int i = 0; i < enumConstants.length; i++) {
+                js.println(10,"static "+enumConstants[i]+" = new "+clazz.getSimpleName() + enumClass.getSimpleName() + "Enum(\""+enumConstants[i]+"\");");
+            }
+            js.println(5,"}");
+            js.println();
+        }
+
+        for (Class<?> enumClass : interfaceEnumList) {
+            js.println();
+            js.println(5, "export class " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum {");
+            js.println(10,"constructor(public value:string){}");
+            js.println(10,"toString(){return this.value;}");
+            js.println();
+            Object[] enumConstants = enumClass.getEnumConstants();
+
+            for (int i = 0; i < enumConstants.length; i++) {
+                js.println(10,"static "+enumConstants[i]+" = new "+clazz.getSimpleName() + enumClass.getSimpleName() + "Enum(\""+enumConstants[i]+"\");");
+            }
+            js.println(5,"}");
+            js.println();
+        }
+
 
         ps.close();
         js.close();

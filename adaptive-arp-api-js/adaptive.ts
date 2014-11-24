@@ -136,6 +136,29 @@ module Adaptive {
 
 
      }
+
+     export class IMessagingCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static SIMNotPresent = new IMessagingCallbackErrorEnum("SIMNotPresent");
+          static EmailAccountNotFound = new IMessagingCallbackErrorEnum("EmailAccountNotFound");
+          static NotSent = new IMessagingCallbackErrorEnum("NotSent");
+          static WrongParams = new IMessagingCallbackErrorEnum("WrongParams");
+          static NotSupported = new IMessagingCallbackErrorEnum("NotSupported");
+          static Unknown = new IMessagingCallbackErrorEnum("Unknown");
+     }
+
+
+     export class IMessagingCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static UnableToSentAll = new IMessagingCallbackWarningEnum("UnableToSentAll");
+          static UnableToFetchAttachment = new IMessagingCallbackWarningEnum("UnableToFetchAttachment");
+          static Unknown = new IMessagingCallbackWarningEnum("Unknown");
+     }
+
      export interface IMap extends IBaseUI {
 
      }
@@ -148,6 +171,27 @@ module Adaptive {
 
 
      }
+
+     export class IContactPhotoResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new IContactPhotoResultCallbackErrorEnum("NoPermission");
+          static Wrong_Params = new IContactPhotoResultCallbackErrorEnum("Wrong_Params");
+          static No_Photo = new IContactPhotoResultCallbackErrorEnum("No_Photo");
+          static Unknown = new IContactPhotoResultCallbackErrorEnum("Unknown");
+     }
+
+
+     export class IContactPhotoResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static LimitExceeded = new IContactPhotoResultCallbackWarningEnum("LimitExceeded");
+          static No_Matches = new IContactPhotoResultCallbackWarningEnum("No_Matches");
+          static Unknown = new IContactPhotoResultCallbackWarningEnum("Unknown");
+     }
+
      export interface IManagement extends IBaseApplication {
 
      }
@@ -168,6 +212,27 @@ module Adaptive {
 
 
      }
+
+     export class IFileResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static FileExists = new IFileResultCallbackErrorEnum("FileExists");
+          static InsufficientSpace = new IFileResultCallbackErrorEnum("InsufficientSpace");
+          static Unauthorized = new IFileResultCallbackErrorEnum("Unauthorized");
+          static Unknown = new IFileResultCallbackErrorEnum("Unknown");
+     }
+
+
+     export class IFileResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static SourceNotDeleted = new IFileResultCallbackWarningEnum("SourceNotDeleted");
+          static RootDirectory = new IFileResultCallbackWarningEnum("RootDirectory");
+          static Unknown = new IFileResultCallbackWarningEnum("Unknown");
+     }
+
      export interface IWallet extends IBaseCommerce {
 
      }
@@ -188,6 +253,25 @@ module Adaptive {
 
 
      }
+
+     export class IFileDataResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static InexistentFile = new IFileDataResultCallbackErrorEnum("InexistentFile");
+          static InsufficientSpace = new IFileDataResultCallbackErrorEnum("InsufficientSpace");
+          static Unauthorized = new IFileDataResultCallbackErrorEnum("Unauthorized");
+          static Unknown = new IFileDataResultCallbackErrorEnum("Unknown");
+     }
+
+     export class IFileDataResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static ExceedMaximumSize = new IFileDataResultCallbackWarningEnum("ExceedMaximumSize");
+          static Unknown = new IFileDataResultCallbackWarningEnum("Unknown");
+     }
+
      export interface ICalendar extends IBasePIM {
 
      }
@@ -220,6 +304,38 @@ module Adaptive {
 
 
      }
+
+     export class INetworkReachabilityCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Forbidden = new INetworkReachabilityCallbackErrorEnum("Forbidden");
+          static NotFound = new INetworkReachabilityCallbackErrorEnum("NotFound");
+          static MethodNotAllowed = new INetworkReachabilityCallbackErrorEnum("MethodNotAllowed");
+          static NotAllowed = new INetworkReachabilityCallbackErrorEnum("NotAllowed");
+          static NotAuthenticated = new INetworkReachabilityCallbackErrorEnum("NotAuthenticated");
+          static TimeOut = new INetworkReachabilityCallbackErrorEnum("TimeOut");
+          static NoResponse = new INetworkReachabilityCallbackErrorEnum("NoResponse");
+          static Unreachable = new INetworkReachabilityCallbackErrorEnum("Unreachable");
+          static Wrong_Params = new INetworkReachabilityCallbackErrorEnum("Wrong_Params");
+          static MalformedUrl = new INetworkReachabilityCallbackErrorEnum("MalformedUrl");
+          static DomainUnresolvable = new INetworkReachabilityCallbackErrorEnum("DomainUnresolvable");
+          static Unknown = new INetworkReachabilityCallbackErrorEnum("Unknown");
+     }
+
+
+     export class INetworkReachabilityCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static IncorrectScheme = new INetworkReachabilityCallbackWarningEnum("IncorrectScheme");
+          static NotSecure = new INetworkReachabilityCallbackWarningEnum("NotSecure");
+          static NotTrusted = new INetworkReachabilityCallbackWarningEnum("NotTrusted");
+          static Redirected = new INetworkReachabilityCallbackWarningEnum("Redirected");
+          static NotRegisteredService = new INetworkReachabilityCallbackWarningEnum("NotRegisteredService");
+          static Unknown = new INetworkReachabilityCallbackWarningEnum("Unknown");
+     }
+
      export interface INFC extends IBaseReader {
 
      }
@@ -232,6 +348,18 @@ module Adaptive {
 
 
      }
+
+     export class ILoggingLogLevelEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static DEBUG = new ILoggingLogLevelEnum("DEBUG");
+          static WARN = new ILoggingLogLevelEnum("WARN");
+          static ERROR = new ILoggingLogLevelEnum("ERROR");
+          static INFO = new ILoggingLogLevelEnum("INFO");
+          static Unknown = new ILoggingLogLevelEnum("Unknown");
+     }
+
      export interface IFacebook extends IBaseSocial {
 
      }
@@ -260,6 +388,26 @@ module Adaptive {
 
 
      }
+
+     export class IContactResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new IContactResultCallbackErrorEnum("NoPermission");
+          static Wrong_Params = new IContactResultCallbackErrorEnum("Wrong_Params");
+          static Unknown = new IContactResultCallbackErrorEnum("Unknown");
+     }
+
+
+     export class IContactResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static LimitExceeded = new IContactResultCallbackWarningEnum("LimitExceeded");
+          static No_Matches = new IContactResultCallbackWarningEnum("No_Matches");
+          static Unknown = new IContactResultCallbackWarningEnum("Unknown");
+     }
+
      export interface INotificationLocal extends IBaseNotification {
 
      }
@@ -272,10 +420,118 @@ module Adaptive {
 
 
      }
+
+     export class ICapabilitiesButtonEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HomeButton = new ICapabilitiesButtonEnum("HomeButton");
+          static BackButton = new ICapabilitiesButtonEnum("BackButton");
+          static OptionButton = new ICapabilitiesButtonEnum("OptionButton");
+          static Unknown = new ICapabilitiesButtonEnum("Unknown");
+     }
+
+
+     export class ICapabilitiesCommunicationEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Calendar = new ICapabilitiesCommunicationEnum("Calendar");
+          static Contact = new ICapabilitiesCommunicationEnum("Contact");
+          static Mail = new ICapabilitiesCommunicationEnum("Mail");
+          static Messaging = new ICapabilitiesCommunicationEnum("Messaging");
+          static Telephony = new ICapabilitiesCommunicationEnum("Telephony");
+          static Unknown = new ICapabilitiesCommunicationEnum("Unknown");
+     }
+
+
+     export class ICapabilitiesDataEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Database = new ICapabilitiesDataEnum("Database");
+          static File = new ICapabilitiesDataEnum("File");
+          static Cloud = new ICapabilitiesDataEnum("Cloud");
+          static Unknown = new ICapabilitiesDataEnum("Unknown");
+     }
+
+
+     export class ICapabilitiesMediaEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Audio_Playback = new ICapabilitiesMediaEnum("Audio_Playback");
+          static Audio_Recording = new ICapabilitiesMediaEnum("Audio_Recording");
+          static Camera = new ICapabilitiesMediaEnum("Camera");
+          static Video_Playback = new ICapabilitiesMediaEnum("Video_Playback");
+          static Video_Recording = new ICapabilitiesMediaEnum("Video_Recording");
+          static Unknown = new ICapabilitiesMediaEnum("Unknown");
+     }
+
+
+     export class ICapabilitiesNetEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static GSM = new ICapabilitiesNetEnum("GSM");
+          static GPRS = new ICapabilitiesNetEnum("GPRS");
+          static HSDPA = new ICapabilitiesNetEnum("HSDPA");
+          static LTE = new ICapabilitiesNetEnum("LTE");
+          static WIFI = new ICapabilitiesNetEnum("WIFI");
+          static Ethernet = new ICapabilitiesNetEnum("Ethernet");
+          static Unknown = new ICapabilitiesNetEnum("Unknown");
+     }
+
+
+     export class ICapabilitiesNotificationEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Alarm = new ICapabilitiesNotificationEnum("Alarm");
+          static LocalNotification = new ICapabilitiesNotificationEnum("LocalNotification");
+          static RemoteNotification = new ICapabilitiesNotificationEnum("RemoteNotification");
+          static Vibration = new ICapabilitiesNotificationEnum("Vibration");
+          static Unknown = new ICapabilitiesNotificationEnum("Unknown");
+     }
+
+
+     export class ICapabilitiesSensorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Accelerometer = new ICapabilitiesSensorEnum("Accelerometer");
+          static AmbientLight = new ICapabilitiesSensorEnum("AmbientLight");
+          static Barometer = new ICapabilitiesSensorEnum("Barometer");
+          static Geolocation = new ICapabilitiesSensorEnum("Geolocation");
+          static Gyroscope = new ICapabilitiesSensorEnum("Gyroscope");
+          static Magnetometer = new ICapabilitiesSensorEnum("Magnetometer");
+          static Proximity = new ICapabilitiesSensorEnum("Proximity");
+          static Unknown = new ICapabilitiesSensorEnum("Unknown");
+     }
+
      export interface IFileListResultCallback extends IBaseCallback {
 
 
      }
+
+     export class IFileListResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static InexistentFile = new IFileListResultCallbackErrorEnum("InexistentFile");
+          static Unauthorized = new IFileListResultCallbackErrorEnum("Unauthorized");
+          static Unknown = new IFileListResultCallbackErrorEnum("Unknown");
+     }
+
+
+     export class IFileListResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static PartialResult = new IFileListResultCallbackWarningEnum("PartialResult");
+          static Unknown = new IFileListResultCallbackWarningEnum("Unknown");
+     }
+
      export interface ITelephony extends IBaseCommunication {
 
      }
@@ -292,6 +548,28 @@ module Adaptive {
 
 
      }
+
+     export class IGeolocationListenerErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Disabled = new IGeolocationListenerErrorEnum("Disabled");
+          static RestrictedAccess = new IGeolocationListenerErrorEnum("RestrictedAccess");
+          static DeniedAccess = new IGeolocationListenerErrorEnum("DeniedAccess");
+          static StatusNotDetermined = new IGeolocationListenerErrorEnum("StatusNotDetermined");
+          static Unknown = new IGeolocationListenerErrorEnum("Unknown");
+     }
+
+
+     export class IGeolocationListenerWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HighDoP = new IGeolocationListenerWarningEnum("HighDoP");
+          static StaleData = new IGeolocationListenerWarningEnum("StaleData");
+          static Unknown = new IGeolocationListenerWarningEnum("Unknown");
+     }
+
      export interface ICloud extends IBaseData {
 
      }
@@ -308,10 +586,52 @@ module Adaptive {
 
 
      }
+
+     export class IButtonListenerErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Not_Present = new IButtonListenerErrorEnum("Not_Present");
+          static Unknown = new IButtonListenerErrorEnum("Unknown");
+     }
+
+
+     export class IButtonListenerWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Not_Implemented = new IButtonListenerWarningEnum("Not_Implemented");
+          static Unknown = new IButtonListenerWarningEnum("Unknown");
+     }
+
      export interface ITableResultCallback extends IBaseCallback {
 
 
      }
+
+     export class ITableResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoSpace = new ITableResultCallbackErrorEnum("NoSpace");
+          static ReadOnlyTable = new ITableResultCallbackErrorEnum("ReadOnlyTable");
+          static SqlException = new ITableResultCallbackErrorEnum("SqlException");
+          static DatabaseNotFound = new ITableResultCallbackErrorEnum("DatabaseNotFound");
+          static NoTableFound = new ITableResultCallbackErrorEnum("NoTableFound");
+          static Unknown = new ITableResultCallbackErrorEnum("Unknown");
+     }
+
+
+     export class ITableResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static TableExists = new ITableResultCallbackWarningEnum("TableExists");
+          static TableLocked = new ITableResultCallbackWarningEnum("TableLocked");
+          static NoResults = new ITableResultCallbackWarningEnum("NoResults");
+          static Unknown = new ITableResultCallbackWarningEnum("Unknown");
+     }
+
      export interface ILifecycle extends IBaseApplication {
 
      }
@@ -328,14 +648,75 @@ module Adaptive {
 
 
      }
+
+     export class ISecureKVResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new ISecureKVResultCallbackErrorEnum("NoPermission");
+          static NoMatchesFound = new ISecureKVResultCallbackErrorEnum("NoMatchesFound");
+          static Unknown = new ISecureKVResultCallbackErrorEnum("Unknown");
+     }
+
+
+     export class ISecureKVResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static EntryOverride = new ISecureKVResultCallbackWarningEnum("EntryOverride");
+          static Unknown = new ISecureKVResultCallbackWarningEnum("Unknown");
+     }
+
      export interface IAppResourceCallback extends IBaseCallback {
 
 
      }
+
+     export class IAppResourceCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NotFound = new IAppResourceCallbackErrorEnum("NotFound");
+          static NoPermission = new IAppResourceCallbackErrorEnum("NoPermission");
+          static Unknown = new IAppResourceCallbackErrorEnum("Unknown");
+     }
+
+
+     export class IAppResourceCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static PartialContent = new IAppResourceCallbackWarningEnum("PartialContent");
+          static TooLarge = new IAppResourceCallbackWarningEnum("TooLarge");
+          static LinkedResource = new IAppResourceCallbackWarningEnum("LinkedResource");
+          static Unknown = new IAppResourceCallbackWarningEnum("Unknown");
+     }
+
      export interface IDatabaseResultCallback extends IBaseCallback {
 
 
      }
+
+     export class IDatabaseResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoSpace = new IDatabaseResultCallbackErrorEnum("NoSpace");
+          static SqlException = new IDatabaseResultCallbackErrorEnum("SqlException");
+          static NotDeleted = new IDatabaseResultCallbackErrorEnum("NotDeleted");
+          static Unknown = new IDatabaseResultCallbackErrorEnum("Unknown");
+     }
+
+
+     export class IDatabaseResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static DatabaseExists = new IDatabaseResultCallbackWarningEnum("DatabaseExists");
+          static IsOpen = new IDatabaseResultCallbackWarningEnum("IsOpen");
+          static Unknown = new IDatabaseResultCallbackWarningEnum("Unknown");
+     }
+
      export interface IMail extends IBasePIM {
 
      }
@@ -360,6 +741,26 @@ module Adaptive {
 
 
      }
+
+     export class IAccelerationListenerErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Unauthorized = new IAccelerationListenerErrorEnum("Unauthorized");
+          static Unavailable = new IAccelerationListenerErrorEnum("Unavailable");
+          static Unknown = new IAccelerationListenerErrorEnum("Unknown");
+     }
+
+
+     export class IAccelerationListenerWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NeedsCalibration = new IAccelerationListenerWarningEnum("NeedsCalibration");
+          static Stale = new IAccelerationListenerWarningEnum("Stale");
+          static Unknown = new IAccelerationListenerWarningEnum("Unknown");
+     }
+
      export interface IXML extends IBaseData {
 
      }
@@ -412,6 +813,27 @@ module Adaptive {
 
 
      }
+
+     export class ILifecycleListenerErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Runtime = new ILifecycleListenerErrorEnum("Runtime");
+          static Implementation = new ILifecycleListenerErrorEnum("Implementation");
+          static Killed = new ILifecycleListenerErrorEnum("Killed");
+          static Unknown = new ILifecycleListenerErrorEnum("Unknown");
+     }
+
+
+     export class ILifecycleListenerWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static MemoryLow = new ILifecycleListenerWarningEnum("MemoryLow");
+          static BatteryLow = new ILifecycleListenerWarningEnum("BatteryLow");
+          static Unknown = new ILifecycleListenerWarningEnum("Unknown");
+     }
+
      export interface IUI extends IBaseUI {
 
      }
@@ -444,6 +866,37 @@ module Adaptive {
 
 
      }
+
+     export class IServiceResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Forbidden = new IServiceResultCallbackErrorEnum("Forbidden");
+          static NotFound = new IServiceResultCallbackErrorEnum("NotFound");
+          static MethodNotAllowed = new IServiceResultCallbackErrorEnum("MethodNotAllowed");
+          static NotAllowed = new IServiceResultCallbackErrorEnum("NotAllowed");
+          static NotAuthenticated = new IServiceResultCallbackErrorEnum("NotAuthenticated");
+          static TimeOut = new IServiceResultCallbackErrorEnum("TimeOut");
+          static NoResponse = new IServiceResultCallbackErrorEnum("NoResponse");
+          static ServerError = new IServiceResultCallbackErrorEnum("ServerError");
+          static Unreachable = new IServiceResultCallbackErrorEnum("Unreachable");
+          static MalformedUrl = new IServiceResultCallbackErrorEnum("MalformedUrl");
+          static NotRegisteredService = new IServiceResultCallbackErrorEnum("NotRegisteredService");
+          static Unknown = new IServiceResultCallbackErrorEnum("Unknown");
+     }
+
+
+     export class IServiceResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NotSecure = new IServiceResultCallbackWarningEnum("NotSecure");
+          static NotTrusted = new IServiceResultCallbackWarningEnum("NotTrusted");
+          static Redirected = new IServiceResultCallbackWarningEnum("Redirected");
+          static Wrong_Params = new IServiceResultCallbackWarningEnum("Wrong_Params");
+          static Unknown = new IServiceResultCallbackWarningEnum("Unknown");
+     }
+
      export interface IBarcode extends IBaseReader {
 
      }
@@ -486,16 +939,28 @@ module Adaptive {
           lastName : string;
           middleName : string;
           name : string;
-          title : TitleEnum;
+          title : ContactPersonalInfoTitleEnum;
 
           /** Initialization **/
-          constructor(name: string, middleName: string, lastName: string, title: Title) {
+          constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitleEnum) {
                this.name = name;
                this.middleName = middleName;
                this.lastName = lastName;
                this.title = title;
           }
 
+     }
+
+
+     export class ContactPersonalInfoTitleEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Mr = new ContactPersonalInfoTitleEnum("Mr");
+          static Mrs = new ContactPersonalInfoTitleEnum("Mrs");
+          static Ms = new ContactPersonalInfoTitleEnum("Ms");
+          static Dr = new ContactPersonalInfoTitleEnum("Dr");
+          static Unknown = new ContactPersonalInfoTitleEnum("Unknown");
      }
 
      export class ContactTag {
@@ -602,14 +1067,25 @@ module Adaptive {
 
           /** Field Declarations **/
           address : string;
-          type : AddressTypeEnum;
+          type : ContactAddressAddressTypeEnum;
 
           /** Initialization **/
-          constructor(address: string, type: AddressType) {
+          constructor(address: string, type: ContactAddressAddressTypeEnum) {
                this.address = address;
                this.type = type;
           }
 
+     }
+
+
+     export class ContactAddressAddressTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Home = new ContactAddressAddressTypeEnum("Home");
+          static Work = new ContactAddressAddressTypeEnum("Work");
+          static Other = new ContactAddressAddressTypeEnum("Other");
+          static Unknown = new ContactAddressAddressTypeEnum("Unknown");
      }
 
      export class ContactProfessionalInfo {
@@ -637,12 +1113,12 @@ module Adaptive {
           contentType : string;
           headers : Array<Header>;
           method : string;
-          protocolVersion : ProtocolVersionEnum;
+          protocolVersion : ServiceRequestProtocolVersionEnum;
           rawContent : Array<number>;
           session : ISession;
 
           /** Initialization **/
-          constructor(content: string, contentType: string, contentLength: number, rawContent: Array<number>, headers: Array<Header>, method: string, protocolVersion: ProtocolVersion, session: ISession, contentEncoding: string) {
+          constructor(content: string, contentType: string, contentLength: number, rawContent: Array<number>, headers: Array<Header>, method: string, protocolVersion: ServiceRequestProtocolVersionEnum, session: ISession, contentEncoding: string) {
                this.content = content;
                this.contentType = contentType;
                this.contentLength = contentLength;
@@ -656,18 +1132,41 @@ module Adaptive {
 
      }
 
+
+     export class ServiceRequestProtocolVersionEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HTTP_PROTOCOL_VERSION_1_0 = new ServiceRequestProtocolVersionEnum("HTTP_PROTOCOL_VERSION_1_0");
+          static HTTP_PROTOCOL_VERSION_1_1 = new ServiceRequestProtocolVersionEnum("HTTP_PROTOCOL_VERSION_1_1");
+          static Unknown = new ServiceRequestProtocolVersionEnum("Unknown");
+     }
+
      export class ContactSocial {
 
           /** Field Declarations **/
           profileUrl : string;
-          socialNetwork : SocialNetworkEnum;
+          socialNetwork : ContactSocialSocialNetworkEnum;
 
           /** Initialization **/
-          constructor(socialNetwork: SocialNetwork, profileUrl: string) {
+          constructor(socialNetwork: ContactSocialSocialNetworkEnum, profileUrl: string) {
                this.socialNetwork = socialNetwork;
                this.profileUrl = profileUrl;
           }
 
+     }
+
+
+     export class ContactSocialSocialNetworkEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Twitter = new ContactSocialSocialNetworkEnum("Twitter");
+          static Facebook = new ContactSocialSocialNetworkEnum("Facebook");
+          static GooglePlus = new ContactSocialSocialNetworkEnum("GooglePlus");
+          static LinkedIn = new ContactSocialSocialNetworkEnum("LinkedIn");
+          static Flickr = new ContactSocialSocialNetworkEnum("Flickr");
+          static Unknown = new ContactSocialSocialNetworkEnum("Unknown");
      }
 
      export class Endpoint {
@@ -713,13 +1212,24 @@ module Adaptive {
      export class Button {
 
           /** Field Declarations **/
-          type : ButtonEnum;
+          type : ButtonButtonEnum;
 
           /** Initialization **/
-          constructor(type: Button) {
+          constructor(type: ButtonButtonEnum) {
                this.type = type;
           }
 
+     }
+
+
+     export class ButtonButtonEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HomeButton = new ButtonButtonEnum("HomeButton");
+          static BackButton = new ButtonButtonEnum("BackButton");
+          static OptionButton = new ButtonButtonEnum("OptionButton");
+          static Unknown = new ButtonButtonEnum("Unknown");
      }
 
      export class Database {
@@ -761,15 +1271,26 @@ module Adaptive {
           /** Field Declarations **/
           email : string;
           primary : boolean;
-          type : EmailTypeEnum;
+          type : ContactEmailEmailTypeEnum;
 
           /** Initialization **/
-          constructor(type: EmailType, primary: boolean, email: string) {
+          constructor(type: ContactEmailEmailTypeEnum, primary: boolean, email: string) {
                this.type = type;
                this.primary = primary;
                this.email = email;
           }
 
+     }
+
+
+     export class ContactEmailEmailTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Personal = new ContactEmailEmailTypeEnum("Personal");
+          static Work = new ContactEmailEmailTypeEnum("Work");
+          static Other = new ContactEmailEmailTypeEnum("Other");
+          static Unknown = new ContactEmailEmailTypeEnum("Unknown");
      }
 
      export class Table {
@@ -886,7 +1407,7 @@ module Adaptive {
 
           /** Initialization **/
           constructor(contactId: string) {
-               super()
+               super(contactId)
                this.contactId = contactId;
           }
 
@@ -896,12 +1417,12 @@ module Adaptive {
 
           /** Field Declarations **/
           endpoint : Endpoint;
-          method : ServiceMethodEnum;
+          method : ServiceServiceMethodEnum;
           name : string;
-          type : ServiceTypeEnum;
+          type : ServiceServiceTypeEnum;
 
           /** Initialization **/
-          constructor(endpoint: Endpoint, name: string, method: ServiceMethod, type: ServiceType) {
+          constructor(endpoint: Endpoint, name: string, method: ServiceServiceMethodEnum, type: ServiceServiceTypeEnum) {
                this.endpoint = endpoint;
                this.name = name;
                this.method = method;
@@ -910,16 +1431,60 @@ module Adaptive {
 
      }
 
+
+     export class ServiceServiceMethodEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static POST = new ServiceServiceMethodEnum("POST");
+          static GET = new ServiceServiceMethodEnum("GET");
+          static Unknown = new ServiceServiceMethodEnum("Unknown");
+     }
+
+
+     export class ServiceServiceTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static SERVICETYPE_AMF_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_AMF_SERIALIZATION");
+          static SERVICETYPE_GWT_RPC = new ServiceServiceTypeEnum("SERVICETYPE_GWT_RPC");
+          static SERVICETYPE_OCTET_BINARY = new ServiceServiceTypeEnum("SERVICETYPE_OCTET_BINARY");
+          static SERVICETYPE_REMOTING_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_REMOTING_SERIALIZATION");
+          static SERVICETYPE_REST_JSON = new ServiceServiceTypeEnum("SERVICETYPE_REST_JSON");
+          static SERVICETYPE_REST_XML = new ServiceServiceTypeEnum("SERVICETYPE_REST_XML");
+          static SERVICETYPE_SOAP_JSON = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_JSON");
+          static SERVICETYPE_SOAP_XML = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_XML");
+          static SERVICETYPE_XMLRPC_JSON = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_JSON");
+          static SERVICETYPE_XMLRPC_XML = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_XML");
+          static Unknown = new ServiceServiceTypeEnum("Unknown");
+     }
+
      export class Lifecycle {
 
           /** Field Declarations **/
-          state : StateEnum;
+          state : LifecycleStateEnum;
 
           /** Initialization **/
-          constructor(state: State) {
+          constructor(state: LifecycleStateEnum) {
                this.state = state;
           }
 
+     }
+
+
+     export class LifecycleStateEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Starting = new LifecycleStateEnum("Starting");
+          static Started = new LifecycleStateEnum("Started");
+          static Running = new LifecycleStateEnum("Running");
+          static Paused = new LifecycleStateEnum("Paused");
+          static PausedIdle = new LifecycleStateEnum("PausedIdle");
+          static PausedRun = new LifecycleStateEnum("PausedRun");
+          static Resuming = new LifecycleStateEnum("Resuming");
+          static Stopping = new LifecycleStateEnum("Stopping");
+          static Unknown = new LifecycleStateEnum("Unknown");
      }
 
      export class Acceleration {
@@ -944,14 +1509,29 @@ module Adaptive {
 
           /** Field Declarations **/
           phone : string;
-          phoneType : PhoneTypeEnum;
+          phoneType : ContactPhonePhoneTypeEnum;
 
           /** Initialization **/
-          constructor(phone: string, phoneType: PhoneType) {
+          constructor(phone: string, phoneType: ContactPhonePhoneTypeEnum) {
                this.phone = phone;
                this.phoneType = phoneType;
           }
 
+     }
+
+
+     export class ContactPhonePhoneTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Mobile = new ContactPhonePhoneTypeEnum("Mobile");
+          static Work = new ContactPhonePhoneTypeEnum("Work");
+          static Home = new ContactPhonePhoneTypeEnum("Home");
+          static Main = new ContactPhonePhoneTypeEnum("Main");
+          static HomeFax = new ContactPhonePhoneTypeEnum("HomeFax");
+          static WorkFax = new ContactPhonePhoneTypeEnum("WorkFax");
+          static Other = new ContactPhonePhoneTypeEnum("Other");
+          static Unknown = new ContactPhonePhoneTypeEnum("Unknown");
      }
 
      export class Geolocation {
