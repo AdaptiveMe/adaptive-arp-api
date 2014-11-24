@@ -1213,9 +1213,228 @@ public class J2SwiftConverter {
             js.println();
         }
 
+        if (clazz.isInterface()) {
+            processJSImplementation(clazz, js);
+        }
 
         ps.close();
         js.close();
+    }
+
+    private static void processJSImplementation(Class clazz, IndentPrintStream js) {
+        if (clazz.getMethods().length>0) {
+            if (clazz.getSimpleName().endsWith("Listener") || clazz.getSimpleName().endsWith("Callback")) {
+                List<Method> onMethodList = new ArrayList<>();
+                List<Method> nonMethodList = new ArrayList<>();
+                for (Method method : clazz.getMethods()) {
+                    if (method.getName().startsWith("on")) {
+                        onMethodList.add(method);
+                    } else {
+                        nonMethodList.add(method);
+                    }
+                }
+
+                js.println(5, "export class " + clazz.getSimpleName().substring(1) + " implements " + clazz.getSimpleName() + " {");
+                // Fields
+                for (int i = 0; i<nonMethodList.size();i++) {
+                    Method method = nonMethodList.get(i);
+                        Class returnType = method.getReturnType();
+                        String returnTypeJS = "";
+                        if (returnType.isInterface()) {
+                            returnTypeJS = returnType.getSimpleName();
+                        } else if (returnType.isEnum()) {
+                            returnTypeJS = clazz.getSimpleName() + returnType.getSimpleName() + "Enum";
+                        } else if (returnType.isPrimitive()) {
+                            returnTypeJS = getPrimitiveTypeTS(returnType);
+                        } else if (returnType.equals(String.class)) {
+                            returnTypeJS = "string";
+                        } else if (returnType.isArray()) {
+                            returnTypeJS = "NotImplemented";
+                        }
+                        js.println(10, getGetterSetterProperty(method) + ": " + returnTypeJS+";");
+                }
+                for (Method method : onMethodList) {
+                    js.print(10,getJSListenerDeclaration(clazz,method));
+                    js.println(";");
+                }
+
+                // Constructor
+                js.println();
+                if (clazz.getSimpleName().endsWith("Listener") || clazz.getSimpleName().endsWith("Callback")) {
+                    js.print(10, "constructor(");
+                    for (int i = 0; i<nonMethodList.size();i++) {
+                        Method method = nonMethodList.get(i);
+                        if (!method.getName().startsWith("on") && !method.getName().startsWith("toString")) {
+                            Class returnType = method.getReturnType();
+                            String returnTypeJS = "";
+                            if (returnType.isInterface()) {
+                                returnTypeJS = returnType.getSimpleName();
+                            } else if (returnType.isEnum()) {
+                                returnTypeJS = clazz.getSimpleName() + returnType.getSimpleName() + "Enum";
+                            } else if (returnType.isPrimitive()) {
+                                returnTypeJS = getPrimitiveTypeTS(returnType);
+                            } else if (returnType.equals(String.class)) {
+                                returnTypeJS = "string";
+                            } else if (returnType.isArray()) {
+                                returnTypeJS = "NotImplemented";
+                            }
+                            js.print(getGetterSetterProperty(method) + ": " + returnTypeJS+"");
+                            if (i<nonMethodList.size()-1) {
+                                js.print(", ");
+                            }
+                        }
+                    }
+                    if (onMethodList.size()>0) {
+                        js.print(", ");
+                    }
+                    for (int i  = 0;i<onMethodList.size();i++) {
+                        Method method = clazz.getMethods()[i];
+                        if (method.getName().startsWith("on")) {
+                            js.print(getJSListenerDeclaration(clazz,method));
+                            if (i < onMethodList.size()-1) {
+                                js.print(", ");
+                            }
+                        }
+                    }
+                    js.println(") {");
+
+
+                    for (Method method : clazz.getMethods()) {
+                        if (!method.getName().startsWith("on") && !method.getName().startsWith("toString")) {
+                            Class returnType = method.getReturnType();
+                            String returnTypeJS = "";
+                            if (returnType.isInterface()) {
+                                returnTypeJS = returnType.getSimpleName();
+                            } else if (returnType.isEnum()) {
+                                returnTypeJS = clazz.getSimpleName() + returnType.getSimpleName() + "Enum";
+                            } else if (returnType.isPrimitive()) {
+                                returnTypeJS = getPrimitiveTypeTS(returnType);
+                            } else if (returnType.equals(String.class)) {
+                                returnTypeJS = "string";
+                            } else if (returnType.isArray()) {
+                                returnTypeJS = "NotImplemented";
+                            }
+                            js.println(15,"this."+getGetterSetterProperty(method) + " = " + getGetterSetterProperty(method) + ";");
+                        }
+                    }
+                    for (Method method : onMethodList) {
+                        js.println(15, "this."+method.getName()+"Function = "+method.getName()+"Function;");
+                    }
+                    js.println(10,"}");
+
+                    // Functions
+                    js.println();
+                    for (Method method : clazz.getMethods()) {
+                        if (!method.getName().startsWith("on") && !method.getName().startsWith("toString")) {
+                            Class returnType = method.getReturnType();
+                            String returnTypeJS = "";
+                            if (returnType.isInterface()) {
+                                returnTypeJS = returnType.getSimpleName();
+                            } else if (returnType.isEnum()) {
+                                returnTypeJS = clazz.getSimpleName() + returnType.getSimpleName() + "Enum";
+                            } else if (returnType.isPrimitive()) {
+                                returnTypeJS = getPrimitiveTypeTS(returnType);
+                            } else if (returnType.equals(String.class)) {
+                                returnTypeJS = "string";
+                            } else if (returnType.isArray()) {
+                                returnTypeJS = "NotImplemented";
+                            }
+                            js.println(10, method.getName()+"() : "+returnTypeJS+" {");
+                            js.println(15,"return this."+getGetterSetterProperty(method));
+                            js.println(10,"}");
+                            js.println();
+                        } else if (method.getName().equals("toString")) {
+                            js.println(10, method.getName()+"() : string {");
+                            if (clazz.getSimpleName().endsWith("Listener") || clazz.getSimpleName().endsWith("Callback")) {
+                                js.println(15,"return \""+clazz.getSimpleName().substring(1)+"{\"+this.id+\"}\";");
+                            }
+                            js.println(10,"}");
+                        } else {
+                            js.print(10, method.getName() + "(");
+                            for (int i=0;i<method.getParameterCount();i++) {
+                                Parameter parameter = method.getParameters()[i];
+                                Class returnType = parameter.getType();
+                                String returnTypeJS = "";
+                                if (returnType.isInterface()) {
+                                    returnTypeJS = returnType.getSimpleName();
+                                } else if (returnType.isEnum()) {
+                                    returnTypeJS = clazz.getSimpleName() + returnType.getSimpleName() + "Enum";
+                                } else if (returnType.isPrimitive()) {
+                                    returnTypeJS = getPrimitiveTypeTS(returnType);
+                                } else if (returnType.equals(String.class)) {
+                                    returnTypeJS = "string";
+                                } else if (returnType.isArray()) {
+                                    if (returnType.getComponentType().isPrimitive()) {
+                                        returnTypeJS = "Array<" + getPrimitiveTypeTS(returnType.getComponentType()) + ">";
+                                    } else if (returnType.getComponentType().equals(String.class)) {
+                                        returnTypeJS = "Array<string>";
+                                    } else {
+                                        returnTypeJS = "Array<" +returnType.getComponentType().getSimpleName() + ">";
+                                    }
+                                } else {
+                                    returnTypeJS = returnType.getSimpleName();
+                                }
+                                js.print(parameter.getName() + ": " + returnTypeJS);
+                                if (i < method.getParameterCount()-1) {
+                                    js.print(", ");
+                                }
+                            }
+                            js.println(") : void {");
+                            js.println(15, "if (typeof this."+method.getName()+"Function === 'undefined') {");
+                            js.println(20, "console.log(\"WARNING: The "+clazz.getSimpleName().substring(1)+" does not define the "+method.getName()+"Function.\");");
+                            js.println(15, "} else {");
+                            js.print(20, "this."+method.getName()+"Function(");
+                            for (int i=0;i<method.getParameterCount();i++) {
+                                js.print(method.getParameters()[i].getName());
+                                if (i<method.getParameterCount()-1) {
+                                    js.print(", ");
+                                }
+                            }
+                            js.println(");");
+                            js.println(15, "}");
+                            js.println(10, "}");
+                        }
+                    }
+
+                }
+                js.println(5, "}");
+            }
+        }
+    }
+
+    private static String getJSListenerDeclaration(Class clazz, Method method) {
+        StringBuffer js = new StringBuffer();
+
+        js.append(method.getName()+"Function : (");
+        for (int j=0;j<method.getParameterCount();j++) {
+            Parameter parameter = method.getParameters()[j];
+            Class returnType = parameter.getType();
+            String returnTypeJS = "";
+            if (returnType.isInterface()) {
+                returnTypeJS = returnType.getSimpleName();
+            } else if (returnType.isEnum()) {
+                returnTypeJS = clazz.getSimpleName() + returnType.getSimpleName() + "Enum";
+            } else if (returnType.isPrimitive()) {
+                returnTypeJS = getPrimitiveTypeTS(returnType);
+            } else if (returnType.equals(String.class)) {
+                returnTypeJS = "string";
+            } else if (returnType.isArray()) {
+                if (returnType.getComponentType().isPrimitive()) {
+                    returnTypeJS = "Array<" + getPrimitiveTypeTS(returnType.getComponentType()) + ">";
+                } else {
+                    returnTypeJS = "Array<" + returnType.getComponentType().getSimpleName() + ">";
+                }
+            } else {
+                returnTypeJS = returnType.getSimpleName();
+            }
+            js.append(parameter.getName()+": ");
+            js.append(returnTypeJS);
+            if (j < method.getParameterCount()-1) {
+                js.append(", ");
+            }
+        }
+        js.append(") => Function");
+        return js.toString();
     }
 
     private static String getGetterSetterProperty(Method method) {

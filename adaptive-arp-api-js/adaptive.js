@@ -72,6 +72,19 @@ var Adaptive;
         return Dictionary;
     })();
     Adaptive.Dictionary = Dictionary;
+    var BaseListener = (function () {
+        function BaseListener(id) {
+            this.id = id;
+        }
+        BaseListener.prototype.toString = function () {
+            return "BaseListener{" + this.id + "}";
+        };
+        BaseListener.prototype.getId = function () {
+            return this.id;
+        };
+        return BaseListener;
+    })();
+    Adaptive.BaseListener = BaseListener;
     /**
      *  Enumerations for IAppResource Payload
      **/
@@ -155,258 +168,19 @@ var Adaptive;
         return IAppContextTypeEnum;
     })();
     Adaptive.IAppContextTypeEnum = IAppContextTypeEnum;
-    /**
-     *  Enumerations for ITableResultCallback Error
-     **/
-    var ITableResultCallbackErrorEnum = (function () {
-        function ITableResultCallbackErrorEnum(value) {
-            this.value = value;
+    var BaseCallback = (function () {
+        function BaseCallback(id) {
+            this.id = id;
         }
-        ITableResultCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
+        BaseCallback.prototype.toString = function () {
+            return "BaseCallback{" + this.id + "}";
         };
-        ITableResultCallbackErrorEnum.NoSpace = new ITableResultCallbackErrorEnum("NoSpace");
-        ITableResultCallbackErrorEnum.ReadOnlyTable = new ITableResultCallbackErrorEnum("ReadOnlyTable");
-        ITableResultCallbackErrorEnum.SqlException = new ITableResultCallbackErrorEnum("SqlException");
-        ITableResultCallbackErrorEnum.DatabaseNotFound = new ITableResultCallbackErrorEnum("DatabaseNotFound");
-        ITableResultCallbackErrorEnum.NoTableFound = new ITableResultCallbackErrorEnum("NoTableFound");
-        ITableResultCallbackErrorEnum.Unknown = new ITableResultCallbackErrorEnum("Unknown");
-        return ITableResultCallbackErrorEnum;
-    })();
-    Adaptive.ITableResultCallbackErrorEnum = ITableResultCallbackErrorEnum;
-    /**
-     *  Enumerations for ITableResultCallback Warning
-     **/
-    var ITableResultCallbackWarningEnum = (function () {
-        function ITableResultCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        ITableResultCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
+        BaseCallback.prototype.getId = function () {
+            return this.id;
         };
-        ITableResultCallbackWarningEnum.TableExists = new ITableResultCallbackWarningEnum("TableExists");
-        ITableResultCallbackWarningEnum.TableLocked = new ITableResultCallbackWarningEnum("TableLocked");
-        ITableResultCallbackWarningEnum.NoResults = new ITableResultCallbackWarningEnum("NoResults");
-        ITableResultCallbackWarningEnum.Unknown = new ITableResultCallbackWarningEnum("Unknown");
-        return ITableResultCallbackWarningEnum;
+        return BaseCallback;
     })();
-    Adaptive.ITableResultCallbackWarningEnum = ITableResultCallbackWarningEnum;
-    /**
-     *  Enumerations for IAppResourceCallback Error
-     **/
-    var IAppResourceCallbackErrorEnum = (function () {
-        function IAppResourceCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        IAppResourceCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IAppResourceCallbackErrorEnum.NotFound = new IAppResourceCallbackErrorEnum("NotFound");
-        IAppResourceCallbackErrorEnum.NoPermission = new IAppResourceCallbackErrorEnum("NoPermission");
-        IAppResourceCallbackErrorEnum.Unknown = new IAppResourceCallbackErrorEnum("Unknown");
-        return IAppResourceCallbackErrorEnum;
-    })();
-    Adaptive.IAppResourceCallbackErrorEnum = IAppResourceCallbackErrorEnum;
-    /**
-     *  Enumerations for IAppResourceCallback Warning
-     **/
-    var IAppResourceCallbackWarningEnum = (function () {
-        function IAppResourceCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IAppResourceCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IAppResourceCallbackWarningEnum.PartialContent = new IAppResourceCallbackWarningEnum("PartialContent");
-        IAppResourceCallbackWarningEnum.TooLarge = new IAppResourceCallbackWarningEnum("TooLarge");
-        IAppResourceCallbackWarningEnum.LinkedResource = new IAppResourceCallbackWarningEnum("LinkedResource");
-        IAppResourceCallbackWarningEnum.Unknown = new IAppResourceCallbackWarningEnum("Unknown");
-        return IAppResourceCallbackWarningEnum;
-    })();
-    Adaptive.IAppResourceCallbackWarningEnum = IAppResourceCallbackWarningEnum;
-    /**
-     *  Enumerations for IFileResultCallback Error
-     **/
-    var IFileResultCallbackErrorEnum = (function () {
-        function IFileResultCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        IFileResultCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IFileResultCallbackErrorEnum.FileExists = new IFileResultCallbackErrorEnum("FileExists");
-        IFileResultCallbackErrorEnum.InsufficientSpace = new IFileResultCallbackErrorEnum("InsufficientSpace");
-        IFileResultCallbackErrorEnum.Unauthorized = new IFileResultCallbackErrorEnum("Unauthorized");
-        IFileResultCallbackErrorEnum.Unknown = new IFileResultCallbackErrorEnum("Unknown");
-        return IFileResultCallbackErrorEnum;
-    })();
-    Adaptive.IFileResultCallbackErrorEnum = IFileResultCallbackErrorEnum;
-    /**
-     *  Enumerations for IFileResultCallback Warning
-     **/
-    var IFileResultCallbackWarningEnum = (function () {
-        function IFileResultCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IFileResultCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IFileResultCallbackWarningEnum.SourceNotDeleted = new IFileResultCallbackWarningEnum("SourceNotDeleted");
-        IFileResultCallbackWarningEnum.RootDirectory = new IFileResultCallbackWarningEnum("RootDirectory");
-        IFileResultCallbackWarningEnum.Unknown = new IFileResultCallbackWarningEnum("Unknown");
-        return IFileResultCallbackWarningEnum;
-    })();
-    Adaptive.IFileResultCallbackWarningEnum = IFileResultCallbackWarningEnum;
-    /**
-     *  Enumerations for IDatabaseResultCallback Error
-     **/
-    var IDatabaseResultCallbackErrorEnum = (function () {
-        function IDatabaseResultCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        IDatabaseResultCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IDatabaseResultCallbackErrorEnum.NoSpace = new IDatabaseResultCallbackErrorEnum("NoSpace");
-        IDatabaseResultCallbackErrorEnum.SqlException = new IDatabaseResultCallbackErrorEnum("SqlException");
-        IDatabaseResultCallbackErrorEnum.NotDeleted = new IDatabaseResultCallbackErrorEnum("NotDeleted");
-        IDatabaseResultCallbackErrorEnum.Unknown = new IDatabaseResultCallbackErrorEnum("Unknown");
-        return IDatabaseResultCallbackErrorEnum;
-    })();
-    Adaptive.IDatabaseResultCallbackErrorEnum = IDatabaseResultCallbackErrorEnum;
-    /**
-     *  Enumerations for IDatabaseResultCallback Warning
-     **/
-    var IDatabaseResultCallbackWarningEnum = (function () {
-        function IDatabaseResultCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IDatabaseResultCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IDatabaseResultCallbackWarningEnum.DatabaseExists = new IDatabaseResultCallbackWarningEnum("DatabaseExists");
-        IDatabaseResultCallbackWarningEnum.IsOpen = new IDatabaseResultCallbackWarningEnum("IsOpen");
-        IDatabaseResultCallbackWarningEnum.Unknown = new IDatabaseResultCallbackWarningEnum("Unknown");
-        return IDatabaseResultCallbackWarningEnum;
-    })();
-    Adaptive.IDatabaseResultCallbackWarningEnum = IDatabaseResultCallbackWarningEnum;
-    /**
-     *  Enumerations for IContactResultCallback Error
-     **/
-    var IContactResultCallbackErrorEnum = (function () {
-        function IContactResultCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        IContactResultCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IContactResultCallbackErrorEnum.NoPermission = new IContactResultCallbackErrorEnum("NoPermission");
-        IContactResultCallbackErrorEnum.Wrong_Params = new IContactResultCallbackErrorEnum("Wrong_Params");
-        IContactResultCallbackErrorEnum.Unknown = new IContactResultCallbackErrorEnum("Unknown");
-        return IContactResultCallbackErrorEnum;
-    })();
-    Adaptive.IContactResultCallbackErrorEnum = IContactResultCallbackErrorEnum;
-    /**
-     *  Enumerations for IContactResultCallback Warning
-     **/
-    var IContactResultCallbackWarningEnum = (function () {
-        function IContactResultCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IContactResultCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IContactResultCallbackWarningEnum.LimitExceeded = new IContactResultCallbackWarningEnum("LimitExceeded");
-        IContactResultCallbackWarningEnum.No_Matches = new IContactResultCallbackWarningEnum("No_Matches");
-        IContactResultCallbackWarningEnum.Unknown = new IContactResultCallbackWarningEnum("Unknown");
-        return IContactResultCallbackWarningEnum;
-    })();
-    Adaptive.IContactResultCallbackWarningEnum = IContactResultCallbackWarningEnum;
-    /**
-     *  Enumerations for ILogging LogLevel
-     **/
-    var ILoggingLogLevelEnum = (function () {
-        function ILoggingLogLevelEnum(value) {
-            this.value = value;
-        }
-        ILoggingLogLevelEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ILoggingLogLevelEnum.DEBUG = new ILoggingLogLevelEnum("DEBUG");
-        ILoggingLogLevelEnum.WARN = new ILoggingLogLevelEnum("WARN");
-        ILoggingLogLevelEnum.ERROR = new ILoggingLogLevelEnum("ERROR");
-        ILoggingLogLevelEnum.INFO = new ILoggingLogLevelEnum("INFO");
-        ILoggingLogLevelEnum.Unknown = new ILoggingLogLevelEnum("Unknown");
-        return ILoggingLogLevelEnum;
-    })();
-    Adaptive.ILoggingLogLevelEnum = ILoggingLogLevelEnum;
-    /**
-     *  Enumerations for IAccelerationListener Error
-     **/
-    var IAccelerationListenerErrorEnum = (function () {
-        function IAccelerationListenerErrorEnum(value) {
-            this.value = value;
-        }
-        IAccelerationListenerErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IAccelerationListenerErrorEnum.Unauthorized = new IAccelerationListenerErrorEnum("Unauthorized");
-        IAccelerationListenerErrorEnum.Unavailable = new IAccelerationListenerErrorEnum("Unavailable");
-        IAccelerationListenerErrorEnum.Unknown = new IAccelerationListenerErrorEnum("Unknown");
-        return IAccelerationListenerErrorEnum;
-    })();
-    Adaptive.IAccelerationListenerErrorEnum = IAccelerationListenerErrorEnum;
-    /**
-     *  Enumerations for IAccelerationListener Warning
-     **/
-    var IAccelerationListenerWarningEnum = (function () {
-        function IAccelerationListenerWarningEnum(value) {
-            this.value = value;
-        }
-        IAccelerationListenerWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IAccelerationListenerWarningEnum.NeedsCalibration = new IAccelerationListenerWarningEnum("NeedsCalibration");
-        IAccelerationListenerWarningEnum.Stale = new IAccelerationListenerWarningEnum("Stale");
-        IAccelerationListenerWarningEnum.Unknown = new IAccelerationListenerWarningEnum("Unknown");
-        return IAccelerationListenerWarningEnum;
-    })();
-    Adaptive.IAccelerationListenerWarningEnum = IAccelerationListenerWarningEnum;
-    /**
-     *  Enumerations for IMessagingCallback Error
-     **/
-    var IMessagingCallbackErrorEnum = (function () {
-        function IMessagingCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        IMessagingCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IMessagingCallbackErrorEnum.SIMNotPresent = new IMessagingCallbackErrorEnum("SIMNotPresent");
-        IMessagingCallbackErrorEnum.EmailAccountNotFound = new IMessagingCallbackErrorEnum("EmailAccountNotFound");
-        IMessagingCallbackErrorEnum.NotSent = new IMessagingCallbackErrorEnum("NotSent");
-        IMessagingCallbackErrorEnum.WrongParams = new IMessagingCallbackErrorEnum("WrongParams");
-        IMessagingCallbackErrorEnum.NotSupported = new IMessagingCallbackErrorEnum("NotSupported");
-        IMessagingCallbackErrorEnum.Unknown = new IMessagingCallbackErrorEnum("Unknown");
-        return IMessagingCallbackErrorEnum;
-    })();
-    Adaptive.IMessagingCallbackErrorEnum = IMessagingCallbackErrorEnum;
-    /**
-     *  Enumerations for IMessagingCallback Warning
-     **/
-    var IMessagingCallbackWarningEnum = (function () {
-        function IMessagingCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IMessagingCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IMessagingCallbackWarningEnum.UnableToSentAll = new IMessagingCallbackWarningEnum("UnableToSentAll");
-        IMessagingCallbackWarningEnum.UnableToFetchAttachment = new IMessagingCallbackWarningEnum("UnableToFetchAttachment");
-        IMessagingCallbackWarningEnum.Unknown = new IMessagingCallbackWarningEnum("Unknown");
-        return IMessagingCallbackWarningEnum;
-    })();
-    Adaptive.IMessagingCallbackWarningEnum = IMessagingCallbackWarningEnum;
+    Adaptive.BaseCallback = BaseCallback;
     /**
      *  Enumerations for ITelephony Status
      **/
@@ -467,6 +241,46 @@ var Adaptive;
         return INetworkReachabilityCallbackWarningEnum;
     })();
     Adaptive.INetworkReachabilityCallbackWarningEnum = INetworkReachabilityCallbackWarningEnum;
+    var NetworkReachabilityCallback = (function () {
+        function NetworkReachabilityCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        NetworkReachabilityCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The NetworkReachabilityCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        NetworkReachabilityCallback.prototype.onWarning = function (result, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The NetworkReachabilityCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(result, warning);
+            }
+        };
+        NetworkReachabilityCallback.prototype.onResult = function (result) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The NetworkReachabilityCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(result);
+            }
+        };
+        NetworkReachabilityCallback.prototype.toString = function () {
+            return "NetworkReachabilityCallback{" + this.id + "}";
+        };
+        NetworkReachabilityCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return NetworkReachabilityCallback;
+    })();
+    Adaptive.NetworkReachabilityCallback = NetworkReachabilityCallback;
     /**
      *  Enumerations for IServiceResultCallback Error
      **/
@@ -510,133 +324,265 @@ var Adaptive;
         return IServiceResultCallbackWarningEnum;
     })();
     Adaptive.IServiceResultCallbackWarningEnum = IServiceResultCallbackWarningEnum;
+    var ServiceResultCallback = (function () {
+        function ServiceResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        ServiceResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The ServiceResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        ServiceResultCallback.prototype.onWarning = function (response, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The ServiceResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(response, warning);
+            }
+        };
+        ServiceResultCallback.prototype.onResult = function (response) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The ServiceResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(response);
+            }
+        };
+        ServiceResultCallback.prototype.toString = function () {
+            return "ServiceResultCallback{" + this.id + "}";
+        };
+        ServiceResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return ServiceResultCallback;
+    })();
+    Adaptive.ServiceResultCallback = ServiceResultCallback;
     /**
-     *  Enumerations for IContactPhotoResultCallback Error
+     *  Enumerations for IGeolocationListener Error
      **/
-    var IContactPhotoResultCallbackErrorEnum = (function () {
-        function IContactPhotoResultCallbackErrorEnum(value) {
+    var IGeolocationListenerErrorEnum = (function () {
+        function IGeolocationListenerErrorEnum(value) {
             this.value = value;
         }
-        IContactPhotoResultCallbackErrorEnum.prototype.toString = function () {
+        IGeolocationListenerErrorEnum.prototype.toString = function () {
             return this.value;
         };
-        IContactPhotoResultCallbackErrorEnum.NoPermission = new IContactPhotoResultCallbackErrorEnum("NoPermission");
-        IContactPhotoResultCallbackErrorEnum.Wrong_Params = new IContactPhotoResultCallbackErrorEnum("Wrong_Params");
-        IContactPhotoResultCallbackErrorEnum.No_Photo = new IContactPhotoResultCallbackErrorEnum("No_Photo");
-        IContactPhotoResultCallbackErrorEnum.Unknown = new IContactPhotoResultCallbackErrorEnum("Unknown");
-        return IContactPhotoResultCallbackErrorEnum;
+        IGeolocationListenerErrorEnum.Disabled = new IGeolocationListenerErrorEnum("Disabled");
+        IGeolocationListenerErrorEnum.RestrictedAccess = new IGeolocationListenerErrorEnum("RestrictedAccess");
+        IGeolocationListenerErrorEnum.DeniedAccess = new IGeolocationListenerErrorEnum("DeniedAccess");
+        IGeolocationListenerErrorEnum.StatusNotDetermined = new IGeolocationListenerErrorEnum("StatusNotDetermined");
+        IGeolocationListenerErrorEnum.Unknown = new IGeolocationListenerErrorEnum("Unknown");
+        return IGeolocationListenerErrorEnum;
     })();
-    Adaptive.IContactPhotoResultCallbackErrorEnum = IContactPhotoResultCallbackErrorEnum;
+    Adaptive.IGeolocationListenerErrorEnum = IGeolocationListenerErrorEnum;
     /**
-     *  Enumerations for IContactPhotoResultCallback Warning
+     *  Enumerations for IGeolocationListener Warning
      **/
-    var IContactPhotoResultCallbackWarningEnum = (function () {
-        function IContactPhotoResultCallbackWarningEnum(value) {
+    var IGeolocationListenerWarningEnum = (function () {
+        function IGeolocationListenerWarningEnum(value) {
             this.value = value;
         }
-        IContactPhotoResultCallbackWarningEnum.prototype.toString = function () {
+        IGeolocationListenerWarningEnum.prototype.toString = function () {
             return this.value;
         };
-        IContactPhotoResultCallbackWarningEnum.LimitExceeded = new IContactPhotoResultCallbackWarningEnum("LimitExceeded");
-        IContactPhotoResultCallbackWarningEnum.No_Matches = new IContactPhotoResultCallbackWarningEnum("No_Matches");
-        IContactPhotoResultCallbackWarningEnum.Unknown = new IContactPhotoResultCallbackWarningEnum("Unknown");
-        return IContactPhotoResultCallbackWarningEnum;
+        IGeolocationListenerWarningEnum.HighDoP = new IGeolocationListenerWarningEnum("HighDoP");
+        IGeolocationListenerWarningEnum.StaleData = new IGeolocationListenerWarningEnum("StaleData");
+        IGeolocationListenerWarningEnum.Unknown = new IGeolocationListenerWarningEnum("Unknown");
+        return IGeolocationListenerWarningEnum;
     })();
-    Adaptive.IContactPhotoResultCallbackWarningEnum = IContactPhotoResultCallbackWarningEnum;
+    Adaptive.IGeolocationListenerWarningEnum = IGeolocationListenerWarningEnum;
+    var GeolocationListener = (function () {
+        function GeolocationListener(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        GeolocationListener.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The GeolocationListener does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        GeolocationListener.prototype.onWarning = function (geolocation, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The GeolocationListener does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(geolocation, warning);
+            }
+        };
+        GeolocationListener.prototype.onResult = function (geolocation) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The GeolocationListener does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(geolocation);
+            }
+        };
+        GeolocationListener.prototype.toString = function () {
+            return "GeolocationListener{" + this.id + "}";
+        };
+        GeolocationListener.prototype.getId = function () {
+            return this.id;
+        };
+        return GeolocationListener;
+    })();
+    Adaptive.GeolocationListener = GeolocationListener;
     /**
-     *  Enumerations for IFileListResultCallback Error
+     *  Enumerations for IContactResultCallback Error
      **/
-    var IFileListResultCallbackErrorEnum = (function () {
-        function IFileListResultCallbackErrorEnum(value) {
+    var IContactResultCallbackErrorEnum = (function () {
+        function IContactResultCallbackErrorEnum(value) {
             this.value = value;
         }
-        IFileListResultCallbackErrorEnum.prototype.toString = function () {
+        IContactResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
         };
-        IFileListResultCallbackErrorEnum.InexistentFile = new IFileListResultCallbackErrorEnum("InexistentFile");
-        IFileListResultCallbackErrorEnum.Unauthorized = new IFileListResultCallbackErrorEnum("Unauthorized");
-        IFileListResultCallbackErrorEnum.Unknown = new IFileListResultCallbackErrorEnum("Unknown");
-        return IFileListResultCallbackErrorEnum;
+        IContactResultCallbackErrorEnum.NoPermission = new IContactResultCallbackErrorEnum("NoPermission");
+        IContactResultCallbackErrorEnum.Wrong_Params = new IContactResultCallbackErrorEnum("Wrong_Params");
+        IContactResultCallbackErrorEnum.Unknown = new IContactResultCallbackErrorEnum("Unknown");
+        return IContactResultCallbackErrorEnum;
     })();
-    Adaptive.IFileListResultCallbackErrorEnum = IFileListResultCallbackErrorEnum;
+    Adaptive.IContactResultCallbackErrorEnum = IContactResultCallbackErrorEnum;
     /**
-     *  Enumerations for IFileListResultCallback Warning
+     *  Enumerations for IContactResultCallback Warning
      **/
-    var IFileListResultCallbackWarningEnum = (function () {
-        function IFileListResultCallbackWarningEnum(value) {
+    var IContactResultCallbackWarningEnum = (function () {
+        function IContactResultCallbackWarningEnum(value) {
             this.value = value;
         }
-        IFileListResultCallbackWarningEnum.prototype.toString = function () {
+        IContactResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
         };
-        IFileListResultCallbackWarningEnum.PartialResult = new IFileListResultCallbackWarningEnum("PartialResult");
-        IFileListResultCallbackWarningEnum.Unknown = new IFileListResultCallbackWarningEnum("Unknown");
-        return IFileListResultCallbackWarningEnum;
+        IContactResultCallbackWarningEnum.LimitExceeded = new IContactResultCallbackWarningEnum("LimitExceeded");
+        IContactResultCallbackWarningEnum.No_Matches = new IContactResultCallbackWarningEnum("No_Matches");
+        IContactResultCallbackWarningEnum.Unknown = new IContactResultCallbackWarningEnum("Unknown");
+        return IContactResultCallbackWarningEnum;
     })();
-    Adaptive.IFileListResultCallbackWarningEnum = IFileListResultCallbackWarningEnum;
+    Adaptive.IContactResultCallbackWarningEnum = IContactResultCallbackWarningEnum;
+    var ContactResultCallback = (function () {
+        function ContactResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        ContactResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The ContactResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        ContactResultCallback.prototype.onWarning = function (contacts, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The ContactResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(contacts, warning);
+            }
+        };
+        ContactResultCallback.prototype.onResult = function (contacts) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The ContactResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(contacts);
+            }
+        };
+        ContactResultCallback.prototype.toString = function () {
+            return "ContactResultCallback{" + this.id + "}";
+        };
+        ContactResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return ContactResultCallback;
+    })();
+    Adaptive.ContactResultCallback = ContactResultCallback;
     /**
-     *  Enumerations for ISecureKVResultCallback Error
+     *  Enumerations for IDatabaseResultCallback Error
      **/
-    var ISecureKVResultCallbackErrorEnum = (function () {
-        function ISecureKVResultCallbackErrorEnum(value) {
+    var IDatabaseResultCallbackErrorEnum = (function () {
+        function IDatabaseResultCallbackErrorEnum(value) {
             this.value = value;
         }
-        ISecureKVResultCallbackErrorEnum.prototype.toString = function () {
+        IDatabaseResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
         };
-        ISecureKVResultCallbackErrorEnum.NoPermission = new ISecureKVResultCallbackErrorEnum("NoPermission");
-        ISecureKVResultCallbackErrorEnum.NoMatchesFound = new ISecureKVResultCallbackErrorEnum("NoMatchesFound");
-        ISecureKVResultCallbackErrorEnum.Unknown = new ISecureKVResultCallbackErrorEnum("Unknown");
-        return ISecureKVResultCallbackErrorEnum;
+        IDatabaseResultCallbackErrorEnum.NoSpace = new IDatabaseResultCallbackErrorEnum("NoSpace");
+        IDatabaseResultCallbackErrorEnum.SqlException = new IDatabaseResultCallbackErrorEnum("SqlException");
+        IDatabaseResultCallbackErrorEnum.NotDeleted = new IDatabaseResultCallbackErrorEnum("NotDeleted");
+        IDatabaseResultCallbackErrorEnum.Unknown = new IDatabaseResultCallbackErrorEnum("Unknown");
+        return IDatabaseResultCallbackErrorEnum;
     })();
-    Adaptive.ISecureKVResultCallbackErrorEnum = ISecureKVResultCallbackErrorEnum;
+    Adaptive.IDatabaseResultCallbackErrorEnum = IDatabaseResultCallbackErrorEnum;
     /**
-     *  Enumerations for ISecureKVResultCallback Warning
+     *  Enumerations for IDatabaseResultCallback Warning
      **/
-    var ISecureKVResultCallbackWarningEnum = (function () {
-        function ISecureKVResultCallbackWarningEnum(value) {
+    var IDatabaseResultCallbackWarningEnum = (function () {
+        function IDatabaseResultCallbackWarningEnum(value) {
             this.value = value;
         }
-        ISecureKVResultCallbackWarningEnum.prototype.toString = function () {
+        IDatabaseResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
         };
-        ISecureKVResultCallbackWarningEnum.EntryOverride = new ISecureKVResultCallbackWarningEnum("EntryOverride");
-        ISecureKVResultCallbackWarningEnum.Unknown = new ISecureKVResultCallbackWarningEnum("Unknown");
-        return ISecureKVResultCallbackWarningEnum;
+        IDatabaseResultCallbackWarningEnum.DatabaseExists = new IDatabaseResultCallbackWarningEnum("DatabaseExists");
+        IDatabaseResultCallbackWarningEnum.IsOpen = new IDatabaseResultCallbackWarningEnum("IsOpen");
+        IDatabaseResultCallbackWarningEnum.Unknown = new IDatabaseResultCallbackWarningEnum("Unknown");
+        return IDatabaseResultCallbackWarningEnum;
     })();
-    Adaptive.ISecureKVResultCallbackWarningEnum = ISecureKVResultCallbackWarningEnum;
-    /**
-     *  Enumerations for IFileDataResultCallback Error
-     **/
-    var IFileDataResultCallbackErrorEnum = (function () {
-        function IFileDataResultCallbackErrorEnum(value) {
-            this.value = value;
+    Adaptive.IDatabaseResultCallbackWarningEnum = IDatabaseResultCallbackWarningEnum;
+    var DatabaseResultCallback = (function () {
+        function DatabaseResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
         }
-        IFileDataResultCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
+        DatabaseResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The DatabaseResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
         };
-        IFileDataResultCallbackErrorEnum.InexistentFile = new IFileDataResultCallbackErrorEnum("InexistentFile");
-        IFileDataResultCallbackErrorEnum.InsufficientSpace = new IFileDataResultCallbackErrorEnum("InsufficientSpace");
-        IFileDataResultCallbackErrorEnum.Unauthorized = new IFileDataResultCallbackErrorEnum("Unauthorized");
-        IFileDataResultCallbackErrorEnum.Unknown = new IFileDataResultCallbackErrorEnum("Unknown");
-        return IFileDataResultCallbackErrorEnum;
-    })();
-    Adaptive.IFileDataResultCallbackErrorEnum = IFileDataResultCallbackErrorEnum;
-    /**
-     *  Enumerations for IFileDataResultCallback Warning
-     **/
-    var IFileDataResultCallbackWarningEnum = (function () {
-        function IFileDataResultCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IFileDataResultCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
+        DatabaseResultCallback.prototype.onWarning = function (database, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The DatabaseResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(database, warning);
+            }
         };
-        IFileDataResultCallbackWarningEnum.ExceedMaximumSize = new IFileDataResultCallbackWarningEnum("ExceedMaximumSize");
-        IFileDataResultCallbackWarningEnum.Unknown = new IFileDataResultCallbackWarningEnum("Unknown");
-        return IFileDataResultCallbackWarningEnum;
+        DatabaseResultCallback.prototype.onResult = function (database) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The DatabaseResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(database);
+            }
+        };
+        DatabaseResultCallback.prototype.toString = function () {
+            return "DatabaseResultCallback{" + this.id + "}";
+        };
+        DatabaseResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return DatabaseResultCallback;
     })();
-    Adaptive.IFileDataResultCallbackWarningEnum = IFileDataResultCallbackWarningEnum;
+    Adaptive.DatabaseResultCallback = DatabaseResultCallback;
     /**
      *  Enumerations for ICapabilities Button
      **/
@@ -768,6 +714,733 @@ var Adaptive;
         return ICapabilitiesSensorEnum;
     })();
     Adaptive.ICapabilitiesSensorEnum = ICapabilitiesSensorEnum;
+    var AppServerListener = (function () {
+        function AppServerListener(id, onPausedFunction, onStartFunction, onResumingFunction, onResumedFunction, onStoppingFunction, onStoppedFunction, onPausingFunction) {
+            this.id = id;
+            this.onPausedFunction = onPausedFunction;
+            this.onStartFunction = onStartFunction;
+            this.onResumingFunction = onResumingFunction;
+            this.onResumedFunction = onResumedFunction;
+            this.onStoppingFunction = onStoppingFunction;
+            this.onStoppedFunction = onStoppedFunction;
+            this.onPausingFunction = onPausingFunction;
+        }
+        AppServerListener.prototype.onPaused = function (server) {
+            if (typeof this.onPausedFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onPausedFunction.");
+            }
+            else {
+                this.onPausedFunction(server);
+            }
+        };
+        AppServerListener.prototype.onStart = function (server) {
+            if (typeof this.onStartFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onStartFunction.");
+            }
+            else {
+                this.onStartFunction(server);
+            }
+        };
+        AppServerListener.prototype.onResuming = function (server) {
+            if (typeof this.onResumingFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onResumingFunction.");
+            }
+            else {
+                this.onResumingFunction(server);
+            }
+        };
+        AppServerListener.prototype.onResumed = function (server) {
+            if (typeof this.onResumedFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onResumedFunction.");
+            }
+            else {
+                this.onResumedFunction(server);
+            }
+        };
+        AppServerListener.prototype.onStopping = function (server) {
+            if (typeof this.onStoppingFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onStoppingFunction.");
+            }
+            else {
+                this.onStoppingFunction(server);
+            }
+        };
+        AppServerListener.prototype.onStopped = function (server) {
+            if (typeof this.onStoppedFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onStoppedFunction.");
+            }
+            else {
+                this.onStoppedFunction(server);
+            }
+        };
+        AppServerListener.prototype.onPausing = function (server) {
+            if (typeof this.onPausingFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onPausingFunction.");
+            }
+            else {
+                this.onPausingFunction(server);
+            }
+        };
+        AppServerListener.prototype.toString = function () {
+            return "AppServerListener{" + this.id + "}";
+        };
+        AppServerListener.prototype.getId = function () {
+            return this.id;
+        };
+        return AppServerListener;
+    })();
+    Adaptive.AppServerListener = AppServerListener;
+    /**
+     *  Enumerations for ILifecycleListener Error
+     **/
+    var ILifecycleListenerErrorEnum = (function () {
+        function ILifecycleListenerErrorEnum(value) {
+            this.value = value;
+        }
+        ILifecycleListenerErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ILifecycleListenerErrorEnum.Runtime = new ILifecycleListenerErrorEnum("Runtime");
+        ILifecycleListenerErrorEnum.Implementation = new ILifecycleListenerErrorEnum("Implementation");
+        ILifecycleListenerErrorEnum.Killed = new ILifecycleListenerErrorEnum("Killed");
+        ILifecycleListenerErrorEnum.Unknown = new ILifecycleListenerErrorEnum("Unknown");
+        return ILifecycleListenerErrorEnum;
+    })();
+    Adaptive.ILifecycleListenerErrorEnum = ILifecycleListenerErrorEnum;
+    /**
+     *  Enumerations for ILifecycleListener Warning
+     **/
+    var ILifecycleListenerWarningEnum = (function () {
+        function ILifecycleListenerWarningEnum(value) {
+            this.value = value;
+        }
+        ILifecycleListenerWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ILifecycleListenerWarningEnum.MemoryLow = new ILifecycleListenerWarningEnum("MemoryLow");
+        ILifecycleListenerWarningEnum.BatteryLow = new ILifecycleListenerWarningEnum("BatteryLow");
+        ILifecycleListenerWarningEnum.Unknown = new ILifecycleListenerWarningEnum("Unknown");
+        return ILifecycleListenerWarningEnum;
+    })();
+    Adaptive.ILifecycleListenerWarningEnum = ILifecycleListenerWarningEnum;
+    var LifecycleListener = (function () {
+        function LifecycleListener(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        LifecycleListener.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The LifecycleListener does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        LifecycleListener.prototype.onWarning = function (lifecycle, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The LifecycleListener does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(lifecycle, warning);
+            }
+        };
+        LifecycleListener.prototype.onResult = function (lifecycle) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The LifecycleListener does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(lifecycle);
+            }
+        };
+        LifecycleListener.prototype.toString = function () {
+            return "LifecycleListener{" + this.id + "}";
+        };
+        LifecycleListener.prototype.getId = function () {
+            return this.id;
+        };
+        return LifecycleListener;
+    })();
+    Adaptive.LifecycleListener = LifecycleListener;
+    /**
+     *  Enumerations for IContactPhotoResultCallback Error
+     **/
+    var IContactPhotoResultCallbackErrorEnum = (function () {
+        function IContactPhotoResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        IContactPhotoResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IContactPhotoResultCallbackErrorEnum.NoPermission = new IContactPhotoResultCallbackErrorEnum("NoPermission");
+        IContactPhotoResultCallbackErrorEnum.Wrong_Params = new IContactPhotoResultCallbackErrorEnum("Wrong_Params");
+        IContactPhotoResultCallbackErrorEnum.No_Photo = new IContactPhotoResultCallbackErrorEnum("No_Photo");
+        IContactPhotoResultCallbackErrorEnum.Unknown = new IContactPhotoResultCallbackErrorEnum("Unknown");
+        return IContactPhotoResultCallbackErrorEnum;
+    })();
+    Adaptive.IContactPhotoResultCallbackErrorEnum = IContactPhotoResultCallbackErrorEnum;
+    /**
+     *  Enumerations for IContactPhotoResultCallback Warning
+     **/
+    var IContactPhotoResultCallbackWarningEnum = (function () {
+        function IContactPhotoResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IContactPhotoResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IContactPhotoResultCallbackWarningEnum.LimitExceeded = new IContactPhotoResultCallbackWarningEnum("LimitExceeded");
+        IContactPhotoResultCallbackWarningEnum.No_Matches = new IContactPhotoResultCallbackWarningEnum("No_Matches");
+        IContactPhotoResultCallbackWarningEnum.Unknown = new IContactPhotoResultCallbackWarningEnum("Unknown");
+        return IContactPhotoResultCallbackWarningEnum;
+    })();
+    Adaptive.IContactPhotoResultCallbackWarningEnum = IContactPhotoResultCallbackWarningEnum;
+    var ContactPhotoResultCallback = (function () {
+        function ContactPhotoResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        ContactPhotoResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The ContactPhotoResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        ContactPhotoResultCallback.prototype.onWarning = function (contactPhoto, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The ContactPhotoResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(contactPhoto, warning);
+            }
+        };
+        ContactPhotoResultCallback.prototype.onResult = function (contactPhoto) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The ContactPhotoResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(contactPhoto);
+            }
+        };
+        ContactPhotoResultCallback.prototype.toString = function () {
+            return "ContactPhotoResultCallback{" + this.id + "}";
+        };
+        ContactPhotoResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return ContactPhotoResultCallback;
+    })();
+    Adaptive.ContactPhotoResultCallback = ContactPhotoResultCallback;
+    /**
+     *  Enumerations for IAccelerationListener Error
+     **/
+    var IAccelerationListenerErrorEnum = (function () {
+        function IAccelerationListenerErrorEnum(value) {
+            this.value = value;
+        }
+        IAccelerationListenerErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IAccelerationListenerErrorEnum.Unauthorized = new IAccelerationListenerErrorEnum("Unauthorized");
+        IAccelerationListenerErrorEnum.Unavailable = new IAccelerationListenerErrorEnum("Unavailable");
+        IAccelerationListenerErrorEnum.Unknown = new IAccelerationListenerErrorEnum("Unknown");
+        return IAccelerationListenerErrorEnum;
+    })();
+    Adaptive.IAccelerationListenerErrorEnum = IAccelerationListenerErrorEnum;
+    /**
+     *  Enumerations for IAccelerationListener Warning
+     **/
+    var IAccelerationListenerWarningEnum = (function () {
+        function IAccelerationListenerWarningEnum(value) {
+            this.value = value;
+        }
+        IAccelerationListenerWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IAccelerationListenerWarningEnum.NeedsCalibration = new IAccelerationListenerWarningEnum("NeedsCalibration");
+        IAccelerationListenerWarningEnum.Stale = new IAccelerationListenerWarningEnum("Stale");
+        IAccelerationListenerWarningEnum.Unknown = new IAccelerationListenerWarningEnum("Unknown");
+        return IAccelerationListenerWarningEnum;
+    })();
+    Adaptive.IAccelerationListenerWarningEnum = IAccelerationListenerWarningEnum;
+    var AccelerationListener = (function () {
+        function AccelerationListener(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        AccelerationListener.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The AccelerationListener does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        AccelerationListener.prototype.onWarning = function (acceleration, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The AccelerationListener does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(acceleration, warning);
+            }
+        };
+        AccelerationListener.prototype.onResult = function (acceleration) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The AccelerationListener does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(acceleration);
+            }
+        };
+        AccelerationListener.prototype.toString = function () {
+            return "AccelerationListener{" + this.id + "}";
+        };
+        AccelerationListener.prototype.getId = function () {
+            return this.id;
+        };
+        return AccelerationListener;
+    })();
+    Adaptive.AccelerationListener = AccelerationListener;
+    /**
+     *  Enumerations for ISecureKVResultCallback Error
+     **/
+    var ISecureKVResultCallbackErrorEnum = (function () {
+        function ISecureKVResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        ISecureKVResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ISecureKVResultCallbackErrorEnum.NoPermission = new ISecureKVResultCallbackErrorEnum("NoPermission");
+        ISecureKVResultCallbackErrorEnum.NoMatchesFound = new ISecureKVResultCallbackErrorEnum("NoMatchesFound");
+        ISecureKVResultCallbackErrorEnum.Unknown = new ISecureKVResultCallbackErrorEnum("Unknown");
+        return ISecureKVResultCallbackErrorEnum;
+    })();
+    Adaptive.ISecureKVResultCallbackErrorEnum = ISecureKVResultCallbackErrorEnum;
+    /**
+     *  Enumerations for ISecureKVResultCallback Warning
+     **/
+    var ISecureKVResultCallbackWarningEnum = (function () {
+        function ISecureKVResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        ISecureKVResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ISecureKVResultCallbackWarningEnum.EntryOverride = new ISecureKVResultCallbackWarningEnum("EntryOverride");
+        ISecureKVResultCallbackWarningEnum.Unknown = new ISecureKVResultCallbackWarningEnum("Unknown");
+        return ISecureKVResultCallbackWarningEnum;
+    })();
+    Adaptive.ISecureKVResultCallbackWarningEnum = ISecureKVResultCallbackWarningEnum;
+    var SecureKVResultCallback = (function () {
+        function SecureKVResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        SecureKVResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The SecureKVResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        SecureKVResultCallback.prototype.onWarning = function (keyValues, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The SecureKVResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(keyValues, warning);
+            }
+        };
+        SecureKVResultCallback.prototype.onResult = function (keyValues) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The SecureKVResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(keyValues);
+            }
+        };
+        SecureKVResultCallback.prototype.toString = function () {
+            return "SecureKVResultCallback{" + this.id + "}";
+        };
+        SecureKVResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return SecureKVResultCallback;
+    })();
+    Adaptive.SecureKVResultCallback = SecureKVResultCallback;
+    /**
+     *  Enumerations for IFileDataResultCallback Error
+     **/
+    var IFileDataResultCallbackErrorEnum = (function () {
+        function IFileDataResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        IFileDataResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IFileDataResultCallbackErrorEnum.InexistentFile = new IFileDataResultCallbackErrorEnum("InexistentFile");
+        IFileDataResultCallbackErrorEnum.InsufficientSpace = new IFileDataResultCallbackErrorEnum("InsufficientSpace");
+        IFileDataResultCallbackErrorEnum.Unauthorized = new IFileDataResultCallbackErrorEnum("Unauthorized");
+        IFileDataResultCallbackErrorEnum.Unknown = new IFileDataResultCallbackErrorEnum("Unknown");
+        return IFileDataResultCallbackErrorEnum;
+    })();
+    Adaptive.IFileDataResultCallbackErrorEnum = IFileDataResultCallbackErrorEnum;
+    /**
+     *  Enumerations for IFileDataResultCallback Warning
+     **/
+    var IFileDataResultCallbackWarningEnum = (function () {
+        function IFileDataResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IFileDataResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IFileDataResultCallbackWarningEnum.ExceedMaximumSize = new IFileDataResultCallbackWarningEnum("ExceedMaximumSize");
+        IFileDataResultCallbackWarningEnum.Unknown = new IFileDataResultCallbackWarningEnum("Unknown");
+        return IFileDataResultCallbackWarningEnum;
+    })();
+    Adaptive.IFileDataResultCallbackWarningEnum = IFileDataResultCallbackWarningEnum;
+    var FileDataResultCallback = (function () {
+        function FileDataResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        FileDataResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The FileDataResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        FileDataResultCallback.prototype.onWarning = function (file, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The FileDataResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(file, warning);
+            }
+        };
+        FileDataResultCallback.prototype.onResult = function (file, data) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The FileDataResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(file, data);
+            }
+        };
+        FileDataResultCallback.prototype.toString = function () {
+            return "FileDataResultCallback{" + this.id + "}";
+        };
+        FileDataResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return FileDataResultCallback;
+    })();
+    Adaptive.FileDataResultCallback = FileDataResultCallback;
+    /**
+     *  Enumerations for ITableResultCallback Error
+     **/
+    var ITableResultCallbackErrorEnum = (function () {
+        function ITableResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        ITableResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ITableResultCallbackErrorEnum.NoSpace = new ITableResultCallbackErrorEnum("NoSpace");
+        ITableResultCallbackErrorEnum.ReadOnlyTable = new ITableResultCallbackErrorEnum("ReadOnlyTable");
+        ITableResultCallbackErrorEnum.SqlException = new ITableResultCallbackErrorEnum("SqlException");
+        ITableResultCallbackErrorEnum.DatabaseNotFound = new ITableResultCallbackErrorEnum("DatabaseNotFound");
+        ITableResultCallbackErrorEnum.NoTableFound = new ITableResultCallbackErrorEnum("NoTableFound");
+        ITableResultCallbackErrorEnum.Unknown = new ITableResultCallbackErrorEnum("Unknown");
+        return ITableResultCallbackErrorEnum;
+    })();
+    Adaptive.ITableResultCallbackErrorEnum = ITableResultCallbackErrorEnum;
+    /**
+     *  Enumerations for ITableResultCallback Warning
+     **/
+    var ITableResultCallbackWarningEnum = (function () {
+        function ITableResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        ITableResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ITableResultCallbackWarningEnum.TableExists = new ITableResultCallbackWarningEnum("TableExists");
+        ITableResultCallbackWarningEnum.TableLocked = new ITableResultCallbackWarningEnum("TableLocked");
+        ITableResultCallbackWarningEnum.NoResults = new ITableResultCallbackWarningEnum("NoResults");
+        ITableResultCallbackWarningEnum.Unknown = new ITableResultCallbackWarningEnum("Unknown");
+        return ITableResultCallbackWarningEnum;
+    })();
+    Adaptive.ITableResultCallbackWarningEnum = ITableResultCallbackWarningEnum;
+    var TableResultCallback = (function () {
+        function TableResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        TableResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The TableResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        TableResultCallback.prototype.onWarning = function (table, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The TableResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(table, warning);
+            }
+        };
+        TableResultCallback.prototype.onResult = function (table) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The TableResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(table);
+            }
+        };
+        TableResultCallback.prototype.toString = function () {
+            return "TableResultCallback{" + this.id + "}";
+        };
+        TableResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return TableResultCallback;
+    })();
+    Adaptive.TableResultCallback = TableResultCallback;
+    /**
+     *  Enumerations for IFileListResultCallback Error
+     **/
+    var IFileListResultCallbackErrorEnum = (function () {
+        function IFileListResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        IFileListResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IFileListResultCallbackErrorEnum.InexistentFile = new IFileListResultCallbackErrorEnum("InexistentFile");
+        IFileListResultCallbackErrorEnum.Unauthorized = new IFileListResultCallbackErrorEnum("Unauthorized");
+        IFileListResultCallbackErrorEnum.Unknown = new IFileListResultCallbackErrorEnum("Unknown");
+        return IFileListResultCallbackErrorEnum;
+    })();
+    Adaptive.IFileListResultCallbackErrorEnum = IFileListResultCallbackErrorEnum;
+    /**
+     *  Enumerations for IFileListResultCallback Warning
+     **/
+    var IFileListResultCallbackWarningEnum = (function () {
+        function IFileListResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IFileListResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IFileListResultCallbackWarningEnum.PartialResult = new IFileListResultCallbackWarningEnum("PartialResult");
+        IFileListResultCallbackWarningEnum.Unknown = new IFileListResultCallbackWarningEnum("Unknown");
+        return IFileListResultCallbackWarningEnum;
+    })();
+    Adaptive.IFileListResultCallbackWarningEnum = IFileListResultCallbackWarningEnum;
+    var FileListResultCallback = (function () {
+        function FileListResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        FileListResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The FileListResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        FileListResultCallback.prototype.onWarning = function (files, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The FileListResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(files, warning);
+            }
+        };
+        FileListResultCallback.prototype.onResult = function (files) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The FileListResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(files);
+            }
+        };
+        FileListResultCallback.prototype.toString = function () {
+            return "FileListResultCallback{" + this.id + "}";
+        };
+        FileListResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return FileListResultCallback;
+    })();
+    Adaptive.FileListResultCallback = FileListResultCallback;
+    /**
+     *  Enumerations for IButtonListener Error
+     **/
+    var IButtonListenerErrorEnum = (function () {
+        function IButtonListenerErrorEnum(value) {
+            this.value = value;
+        }
+        IButtonListenerErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IButtonListenerErrorEnum.Not_Present = new IButtonListenerErrorEnum("Not_Present");
+        IButtonListenerErrorEnum.Unknown = new IButtonListenerErrorEnum("Unknown");
+        return IButtonListenerErrorEnum;
+    })();
+    Adaptive.IButtonListenerErrorEnum = IButtonListenerErrorEnum;
+    /**
+     *  Enumerations for IButtonListener Warning
+     **/
+    var IButtonListenerWarningEnum = (function () {
+        function IButtonListenerWarningEnum(value) {
+            this.value = value;
+        }
+        IButtonListenerWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IButtonListenerWarningEnum.Not_Implemented = new IButtonListenerWarningEnum("Not_Implemented");
+        IButtonListenerWarningEnum.Unknown = new IButtonListenerWarningEnum("Unknown");
+        return IButtonListenerWarningEnum;
+    })();
+    Adaptive.IButtonListenerWarningEnum = IButtonListenerWarningEnum;
+    var ButtonListener = (function () {
+        function ButtonListener(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        ButtonListener.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The ButtonListener does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        ButtonListener.prototype.onWarning = function (button, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The ButtonListener does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(button, warning);
+            }
+        };
+        ButtonListener.prototype.onResult = function (button) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The ButtonListener does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(button);
+            }
+        };
+        ButtonListener.prototype.toString = function () {
+            return "ButtonListener{" + this.id + "}";
+        };
+        ButtonListener.prototype.getId = function () {
+            return this.id;
+        };
+        return ButtonListener;
+    })();
+    Adaptive.ButtonListener = ButtonListener;
+    /**
+     *  Enumerations for IFileResultCallback Error
+     **/
+    var IFileResultCallbackErrorEnum = (function () {
+        function IFileResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        IFileResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IFileResultCallbackErrorEnum.FileExists = new IFileResultCallbackErrorEnum("FileExists");
+        IFileResultCallbackErrorEnum.InsufficientSpace = new IFileResultCallbackErrorEnum("InsufficientSpace");
+        IFileResultCallbackErrorEnum.Unauthorized = new IFileResultCallbackErrorEnum("Unauthorized");
+        IFileResultCallbackErrorEnum.Unknown = new IFileResultCallbackErrorEnum("Unknown");
+        return IFileResultCallbackErrorEnum;
+    })();
+    Adaptive.IFileResultCallbackErrorEnum = IFileResultCallbackErrorEnum;
+    /**
+     *  Enumerations for IFileResultCallback Warning
+     **/
+    var IFileResultCallbackWarningEnum = (function () {
+        function IFileResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IFileResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IFileResultCallbackWarningEnum.SourceNotDeleted = new IFileResultCallbackWarningEnum("SourceNotDeleted");
+        IFileResultCallbackWarningEnum.RootDirectory = new IFileResultCallbackWarningEnum("RootDirectory");
+        IFileResultCallbackWarningEnum.Unknown = new IFileResultCallbackWarningEnum("Unknown");
+        return IFileResultCallbackWarningEnum;
+    })();
+    Adaptive.IFileResultCallbackWarningEnum = IFileResultCallbackWarningEnum;
+    var FileResultCallback = (function () {
+        function FileResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        FileResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The FileResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        FileResultCallback.prototype.onWarning = function (sourceFile, destinationFile, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The FileResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(sourceFile, destinationFile, warning);
+            }
+        };
+        FileResultCallback.prototype.onResult = function (storageFile) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The FileResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(storageFile);
+            }
+        };
+        FileResultCallback.prototype.toString = function () {
+            return "FileResultCallback{" + this.id + "}";
+        };
+        FileResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return FileResultCallback;
+    })();
+    Adaptive.FileResultCallback = FileResultCallback;
     /**
      *  Enumerations for IContact FieldGroup
      **/
@@ -808,102 +1481,381 @@ var Adaptive;
     })();
     Adaptive.IContactFilterEnum = IContactFilterEnum;
     /**
-     *  Enumerations for IGeolocationListener Error
+     *  Enumerations for IMessagingCallback Error
      **/
-    var IGeolocationListenerErrorEnum = (function () {
-        function IGeolocationListenerErrorEnum(value) {
+    var IMessagingCallbackErrorEnum = (function () {
+        function IMessagingCallbackErrorEnum(value) {
             this.value = value;
         }
-        IGeolocationListenerErrorEnum.prototype.toString = function () {
+        IMessagingCallbackErrorEnum.prototype.toString = function () {
             return this.value;
         };
-        IGeolocationListenerErrorEnum.Disabled = new IGeolocationListenerErrorEnum("Disabled");
-        IGeolocationListenerErrorEnum.RestrictedAccess = new IGeolocationListenerErrorEnum("RestrictedAccess");
-        IGeolocationListenerErrorEnum.DeniedAccess = new IGeolocationListenerErrorEnum("DeniedAccess");
-        IGeolocationListenerErrorEnum.StatusNotDetermined = new IGeolocationListenerErrorEnum("StatusNotDetermined");
-        IGeolocationListenerErrorEnum.Unknown = new IGeolocationListenerErrorEnum("Unknown");
-        return IGeolocationListenerErrorEnum;
+        IMessagingCallbackErrorEnum.SIMNotPresent = new IMessagingCallbackErrorEnum("SIMNotPresent");
+        IMessagingCallbackErrorEnum.EmailAccountNotFound = new IMessagingCallbackErrorEnum("EmailAccountNotFound");
+        IMessagingCallbackErrorEnum.NotSent = new IMessagingCallbackErrorEnum("NotSent");
+        IMessagingCallbackErrorEnum.WrongParams = new IMessagingCallbackErrorEnum("WrongParams");
+        IMessagingCallbackErrorEnum.NotSupported = new IMessagingCallbackErrorEnum("NotSupported");
+        IMessagingCallbackErrorEnum.Unknown = new IMessagingCallbackErrorEnum("Unknown");
+        return IMessagingCallbackErrorEnum;
     })();
-    Adaptive.IGeolocationListenerErrorEnum = IGeolocationListenerErrorEnum;
+    Adaptive.IMessagingCallbackErrorEnum = IMessagingCallbackErrorEnum;
     /**
-     *  Enumerations for IGeolocationListener Warning
+     *  Enumerations for IMessagingCallback Warning
      **/
-    var IGeolocationListenerWarningEnum = (function () {
-        function IGeolocationListenerWarningEnum(value) {
+    var IMessagingCallbackWarningEnum = (function () {
+        function IMessagingCallbackWarningEnum(value) {
             this.value = value;
         }
-        IGeolocationListenerWarningEnum.prototype.toString = function () {
+        IMessagingCallbackWarningEnum.prototype.toString = function () {
             return this.value;
         };
-        IGeolocationListenerWarningEnum.HighDoP = new IGeolocationListenerWarningEnum("HighDoP");
-        IGeolocationListenerWarningEnum.StaleData = new IGeolocationListenerWarningEnum("StaleData");
-        IGeolocationListenerWarningEnum.Unknown = new IGeolocationListenerWarningEnum("Unknown");
-        return IGeolocationListenerWarningEnum;
+        IMessagingCallbackWarningEnum.UnableToSentAll = new IMessagingCallbackWarningEnum("UnableToSentAll");
+        IMessagingCallbackWarningEnum.UnableToFetchAttachment = new IMessagingCallbackWarningEnum("UnableToFetchAttachment");
+        IMessagingCallbackWarningEnum.Unknown = new IMessagingCallbackWarningEnum("Unknown");
+        return IMessagingCallbackWarningEnum;
     })();
-    Adaptive.IGeolocationListenerWarningEnum = IGeolocationListenerWarningEnum;
+    Adaptive.IMessagingCallbackWarningEnum = IMessagingCallbackWarningEnum;
+    var MessagingCallback = (function () {
+        function MessagingCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        MessagingCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The MessagingCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        MessagingCallback.prototype.onWarning = function (success, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The MessagingCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(success, warning);
+            }
+        };
+        MessagingCallback.prototype.onResult = function (success) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The MessagingCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(success);
+            }
+        };
+        MessagingCallback.prototype.toString = function () {
+            return "MessagingCallback{" + this.id + "}";
+        };
+        MessagingCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return MessagingCallback;
+    })();
+    Adaptive.MessagingCallback = MessagingCallback;
     /**
-     *  Enumerations for ILifecycleListener Error
+     *  Enumerations for IAppResourceCallback Error
      **/
-    var ILifecycleListenerErrorEnum = (function () {
-        function ILifecycleListenerErrorEnum(value) {
+    var IAppResourceCallbackErrorEnum = (function () {
+        function IAppResourceCallbackErrorEnum(value) {
             this.value = value;
         }
-        ILifecycleListenerErrorEnum.prototype.toString = function () {
+        IAppResourceCallbackErrorEnum.prototype.toString = function () {
             return this.value;
         };
-        ILifecycleListenerErrorEnum.Runtime = new ILifecycleListenerErrorEnum("Runtime");
-        ILifecycleListenerErrorEnum.Implementation = new ILifecycleListenerErrorEnum("Implementation");
-        ILifecycleListenerErrorEnum.Killed = new ILifecycleListenerErrorEnum("Killed");
-        ILifecycleListenerErrorEnum.Unknown = new ILifecycleListenerErrorEnum("Unknown");
-        return ILifecycleListenerErrorEnum;
+        IAppResourceCallbackErrorEnum.NotFound = new IAppResourceCallbackErrorEnum("NotFound");
+        IAppResourceCallbackErrorEnum.NoPermission = new IAppResourceCallbackErrorEnum("NoPermission");
+        IAppResourceCallbackErrorEnum.Unknown = new IAppResourceCallbackErrorEnum("Unknown");
+        return IAppResourceCallbackErrorEnum;
     })();
-    Adaptive.ILifecycleListenerErrorEnum = ILifecycleListenerErrorEnum;
+    Adaptive.IAppResourceCallbackErrorEnum = IAppResourceCallbackErrorEnum;
     /**
-     *  Enumerations for ILifecycleListener Warning
+     *  Enumerations for IAppResourceCallback Warning
      **/
-    var ILifecycleListenerWarningEnum = (function () {
-        function ILifecycleListenerWarningEnum(value) {
+    var IAppResourceCallbackWarningEnum = (function () {
+        function IAppResourceCallbackWarningEnum(value) {
             this.value = value;
         }
-        ILifecycleListenerWarningEnum.prototype.toString = function () {
+        IAppResourceCallbackWarningEnum.prototype.toString = function () {
             return this.value;
         };
-        ILifecycleListenerWarningEnum.MemoryLow = new ILifecycleListenerWarningEnum("MemoryLow");
-        ILifecycleListenerWarningEnum.BatteryLow = new ILifecycleListenerWarningEnum("BatteryLow");
-        ILifecycleListenerWarningEnum.Unknown = new ILifecycleListenerWarningEnum("Unknown");
-        return ILifecycleListenerWarningEnum;
+        IAppResourceCallbackWarningEnum.PartialContent = new IAppResourceCallbackWarningEnum("PartialContent");
+        IAppResourceCallbackWarningEnum.TooLarge = new IAppResourceCallbackWarningEnum("TooLarge");
+        IAppResourceCallbackWarningEnum.LinkedResource = new IAppResourceCallbackWarningEnum("LinkedResource");
+        IAppResourceCallbackWarningEnum.Unknown = new IAppResourceCallbackWarningEnum("Unknown");
+        return IAppResourceCallbackWarningEnum;
     })();
-    Adaptive.ILifecycleListenerWarningEnum = ILifecycleListenerWarningEnum;
+    Adaptive.IAppResourceCallbackWarningEnum = IAppResourceCallbackWarningEnum;
+    var AppResourceCallback = (function () {
+        function AppResourceCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+            this.id = id;
+            this.onErrorFunction = onErrorFunction;
+            this.onWarningFunction = onWarningFunction;
+            this.onResultFunction = onResultFunction;
+        }
+        AppResourceCallback.prototype.onError = function (resource, error) {
+            if (typeof this.onErrorFunction === 'undefined') {
+                console.log("WARNING: The AppResourceCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(resource, error);
+            }
+        };
+        AppResourceCallback.prototype.onWarning = function (resource, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The AppResourceCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(resource, warning);
+            }
+        };
+        AppResourceCallback.prototype.onResult = function (resource) {
+            if (typeof this.onResultFunction === 'undefined') {
+                console.log("WARNING: The AppResourceCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(resource);
+            }
+        };
+        AppResourceCallback.prototype.toString = function () {
+            return "AppResourceCallback{" + this.id + "}";
+        };
+        AppResourceCallback.prototype.getId = function () {
+            return this.id;
+        };
+        return AppResourceCallback;
+    })();
+    Adaptive.AppResourceCallback = AppResourceCallback;
     /**
-     *  Enumerations for IButtonListener Error
+     *  Enumerations for ILogging LogLevel
      **/
-    var IButtonListenerErrorEnum = (function () {
-        function IButtonListenerErrorEnum(value) {
+    var ILoggingLogLevelEnum = (function () {
+        function ILoggingLogLevelEnum(value) {
             this.value = value;
         }
-        IButtonListenerErrorEnum.prototype.toString = function () {
+        ILoggingLogLevelEnum.prototype.toString = function () {
             return this.value;
         };
-        IButtonListenerErrorEnum.Not_Present = new IButtonListenerErrorEnum("Not_Present");
-        IButtonListenerErrorEnum.Unknown = new IButtonListenerErrorEnum("Unknown");
-        return IButtonListenerErrorEnum;
+        ILoggingLogLevelEnum.DEBUG = new ILoggingLogLevelEnum("DEBUG");
+        ILoggingLogLevelEnum.WARN = new ILoggingLogLevelEnum("WARN");
+        ILoggingLogLevelEnum.ERROR = new ILoggingLogLevelEnum("ERROR");
+        ILoggingLogLevelEnum.INFO = new ILoggingLogLevelEnum("INFO");
+        ILoggingLogLevelEnum.Unknown = new ILoggingLogLevelEnum("Unknown");
+        return ILoggingLogLevelEnum;
     })();
-    Adaptive.IButtonListenerErrorEnum = IButtonListenerErrorEnum;
+    Adaptive.ILoggingLogLevelEnum = ILoggingLogLevelEnum;
     /**
-     *  Enumerations for IButtonListener Warning
+     *   Class implementation for ContactUid
      **/
-    var IButtonListenerWarningEnum = (function () {
-        function IButtonListenerWarningEnum(value) {
+    var ContactUid = (function () {
+        /** Initialization **/
+        function ContactUid(contactId) {
+            this.contactId = contactId;
+        }
+        /**
+         * Method Declarations for ContactUid
+         */
+        ContactUid.prototype.getContactId = function () {
+            return this.contactId;
+        };
+        ContactUid.prototype.setContactId = function (contactId) {
+            this.contactId = contactId;
+        };
+        return ContactUid;
+    })();
+    Adaptive.ContactUid = ContactUid;
+    /**
+     *   Class implementation for Table
+     **/
+    var Table = (function () {
+        /** Initialization **/
+        function Table(name) {
+            this.name = name;
+        }
+        /**
+         * Method Declarations for Table
+         */
+        Table.prototype.getColumnCount = function () {
+            return this.columnCount;
+        };
+        Table.prototype.getColumns = function () {
+            return this.columns;
+        };
+        Table.prototype.getName = function () {
+            return this.name;
+        };
+        Table.prototype.getRowCount = function () {
+            return this.rowCount;
+        };
+        Table.prototype.getRows = function () {
+            return this.rows;
+        };
+        Table.prototype.setColumnCount = function (columnCount) {
+            this.columnCount = columnCount;
+        };
+        Table.prototype.setColumns = function (columns) {
+            this.columns = columns;
+        };
+        Table.prototype.setName = function (name) {
+            this.name = name;
+        };
+        Table.prototype.setRowCount = function (rowCount) {
+            this.rowCount = rowCount;
+        };
+        Table.prototype.setRows = function (rows) {
+            this.rows = rows;
+        };
+        return Table;
+    })();
+    Adaptive.Table = Table;
+    /**
+     *   Class implementation for Acceleration
+     **/
+    var Acceleration = (function () {
+        /** Initialization **/
+        function Acceleration(x, y, z, timeStamp) {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            this.timeStamp = timeStamp;
+        }
+        /**
+         * Method Declarations for Acceleration
+         */
+        Acceleration.prototype.getX = function () {
+            return this.x;
+        };
+        Acceleration.prototype.getY = function () {
+            return this.y;
+        };
+        Acceleration.prototype.getZ = function () {
+            return this.z;
+        };
+        Acceleration.prototype.setTimeStamp = function (timeStamp) {
+            this.timeStamp = timeStamp;
+        };
+        Acceleration.prototype.setX = function (x) {
+            this.x = x;
+        };
+        Acceleration.prototype.setY = function (y) {
+            this.y = y;
+        };
+        Acceleration.prototype.setZ = function (z) {
+            this.z = z;
+        };
+        return Acceleration;
+    })();
+    Adaptive.Acceleration = Acceleration;
+    /**
+     *   Class implementation for ContactTag
+     **/
+    var ContactTag = (function () {
+        /** Initialization **/
+        function ContactTag(name, dataValue) {
+            this.name = name;
+            this.dataValue = dataValue;
+        }
+        /**
+         * Method Declarations for ContactTag
+         */
+        ContactTag.prototype.getDataValue = function () {
+            return this.dataValue;
+        };
+        ContactTag.prototype.getName = function () {
+            return this.name;
+        };
+        ContactTag.prototype.setDataValue = function (dataValue) {
+            this.dataValue = dataValue;
+        };
+        ContactTag.prototype.setName = function (name) {
+            this.name = name;
+        };
+        return ContactTag;
+    })();
+    Adaptive.ContactTag = ContactTag;
+    /**
+     *   Class implementation for Service
+     **/
+    var Service = (function () {
+        /** Initialization **/
+        function Service(endpoint, name, method, type) {
+            this.endpoint = endpoint;
+            this.name = name;
+            this.method = method;
+            this.type = type;
+        }
+        /**
+         * Method Declarations for Service
+         */
+        Service.prototype.getEndpoint = function () {
+            return this.endpoint;
+        };
+        Service.prototype.getMethod = function () {
+            return this.method;
+        };
+        Service.prototype.getName = function () {
+            return this.name;
+        };
+        Service.prototype.getType = function () {
+            return this.type;
+        };
+        Service.prototype.setEndpoint = function (endpoint) {
+            this.endpoint = endpoint;
+        };
+        Service.prototype.setMethod = function (method) {
+            this.method = method;
+        };
+        Service.prototype.setName = function (name) {
+            this.name = name;
+        };
+        Service.prototype.setType = function (type) {
+            this.type = type;
+        };
+        return Service;
+    })();
+    Adaptive.Service = Service;
+    /**
+     *  Enumerations for Service ServiceMethod
+     **/
+    var ServiceServiceMethodEnum = (function () {
+        function ServiceServiceMethodEnum(value) {
             this.value = value;
         }
-        IButtonListenerWarningEnum.prototype.toString = function () {
+        ServiceServiceMethodEnum.prototype.toString = function () {
             return this.value;
         };
-        IButtonListenerWarningEnum.Not_Implemented = new IButtonListenerWarningEnum("Not_Implemented");
-        IButtonListenerWarningEnum.Unknown = new IButtonListenerWarningEnum("Unknown");
-        return IButtonListenerWarningEnum;
+        ServiceServiceMethodEnum.POST = new ServiceServiceMethodEnum("POST");
+        ServiceServiceMethodEnum.GET = new ServiceServiceMethodEnum("GET");
+        ServiceServiceMethodEnum.Unknown = new ServiceServiceMethodEnum("Unknown");
+        return ServiceServiceMethodEnum;
     })();
-    Adaptive.IButtonListenerWarningEnum = IButtonListenerWarningEnum;
+    Adaptive.ServiceServiceMethodEnum = ServiceServiceMethodEnum;
+    /**
+     *  Enumerations for Service ServiceType
+     **/
+    var ServiceServiceTypeEnum = (function () {
+        function ServiceServiceTypeEnum(value) {
+            this.value = value;
+        }
+        ServiceServiceTypeEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ServiceServiceTypeEnum.SERVICETYPE_AMF_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_AMF_SERIALIZATION");
+        ServiceServiceTypeEnum.SERVICETYPE_GWT_RPC = new ServiceServiceTypeEnum("SERVICETYPE_GWT_RPC");
+        ServiceServiceTypeEnum.SERVICETYPE_OCTET_BINARY = new ServiceServiceTypeEnum("SERVICETYPE_OCTET_BINARY");
+        ServiceServiceTypeEnum.SERVICETYPE_REMOTING_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_REMOTING_SERIALIZATION");
+        ServiceServiceTypeEnum.SERVICETYPE_REST_JSON = new ServiceServiceTypeEnum("SERVICETYPE_REST_JSON");
+        ServiceServiceTypeEnum.SERVICETYPE_REST_XML = new ServiceServiceTypeEnum("SERVICETYPE_REST_XML");
+        ServiceServiceTypeEnum.SERVICETYPE_SOAP_JSON = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_JSON");
+        ServiceServiceTypeEnum.SERVICETYPE_SOAP_XML = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_XML");
+        ServiceServiceTypeEnum.SERVICETYPE_XMLRPC_JSON = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_JSON");
+        ServiceServiceTypeEnum.SERVICETYPE_XMLRPC_XML = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_XML");
+        ServiceServiceTypeEnum.Unknown = new ServiceServiceTypeEnum("Unknown");
+        return ServiceServiceTypeEnum;
+    })();
+    Adaptive.ServiceServiceTypeEnum = ServiceServiceTypeEnum;
     /**
      *   Class implementation for Header
      **/
@@ -932,68 +1884,206 @@ var Adaptive;
     })();
     Adaptive.Header = Header;
     /**
-     *   Class implementation for ContactProfessionalInfo
+     *   Class implementation for Row
      **/
-    var ContactProfessionalInfo = (function () {
+    var Row = (function () {
         /** Initialization **/
-        function ContactProfessionalInfo(jobTitle, jobDescription, company) {
-            this.jobTitle = jobTitle;
-            this.jobDescription = jobDescription;
-            this.company = company;
+        function Row(values) {
+            this.values = values;
         }
         /**
-         * Method Declarations for ContactProfessionalInfo
+         * Method Declarations for Row
          */
-        ContactProfessionalInfo.prototype.getCompany = function () {
-            return this.company;
+        Row.prototype.getValues = function () {
+            return this.values;
         };
-        ContactProfessionalInfo.prototype.getJobDescription = function () {
-            return this.jobDescription;
+        Row.prototype.setValues = function (values) {
+            this.values = values;
         };
-        ContactProfessionalInfo.prototype.getJobTitle = function () {
-            return this.jobTitle;
-        };
-        ContactProfessionalInfo.prototype.setCompany = function (company) {
-            this.company = company;
-        };
-        ContactProfessionalInfo.prototype.setJobDescription = function (jobDescription) {
-            this.jobDescription = jobDescription;
-        };
-        ContactProfessionalInfo.prototype.setJobTitle = function (jobTitle) {
-            this.jobTitle = jobTitle;
-        };
-        return ContactProfessionalInfo;
+        return Row;
     })();
-    Adaptive.ContactProfessionalInfo = ContactProfessionalInfo;
+    Adaptive.Row = Row;
     /**
-     *   Class implementation for DeviceInfo
+     *   Class implementation for Email
      **/
-    var DeviceInfo = (function () {
+    var Email = (function () {
         /** Initialization **/
-        function DeviceInfo(name, model, vendor, uuid) {
-            this.name = name;
-            this.model = model;
-            this.vendor = vendor;
-            this.uuid = uuid;
+        function Email(toRecipients, subject, messageBody) {
+            this.toRecipients = toRecipients;
+            this.subject = subject;
+            this.messageBody = messageBody;
         }
         /**
-         * Method Declarations for DeviceInfo
+         * Method Declarations for Email
          */
-        DeviceInfo.prototype.getModel = function () {
-            return this.model;
+        Email.prototype.getAttachmentData = function () {
+            return this.attachmentData;
         };
-        DeviceInfo.prototype.getName = function () {
+        Email.prototype.getBccRecipients = function () {
+            return this.bccRecipients;
+        };
+        Email.prototype.getCcRecipients = function () {
+            return this.ccRecipients;
+        };
+        Email.prototype.getMessageBody = function () {
+            return this.messageBody;
+        };
+        Email.prototype.getMessageBodyMimeType = function () {
+            return this.messageBodyMimeType;
+        };
+        Email.prototype.getSubject = function () {
+            return this.subject;
+        };
+        Email.prototype.getToRecipients = function () {
+            return this.toRecipients;
+        };
+        Email.prototype.setAttachmentData = function (attachmentData) {
+            this.attachmentData = attachmentData;
+        };
+        Email.prototype.setBccRecipients = function (bccRecipients) {
+            this.bccRecipients = bccRecipients;
+        };
+        Email.prototype.setCcRecipients = function (ccRecipients) {
+            this.ccRecipients = ccRecipients;
+        };
+        Email.prototype.setMessageBodyMimeType = function (messageBodyMimeType) {
+            this.messageBodyMimeType = messageBodyMimeType;
+        };
+        Email.prototype.setMessageBody = function (messageBody) {
+            this.messageBody = messageBody;
+        };
+        Email.prototype.setSubject = function (subject) {
+            this.subject = subject;
+        };
+        Email.prototype.setToRecipients = function (toRecipients) {
+            this.toRecipients = toRecipients;
+        };
+        return Email;
+    })();
+    Adaptive.Email = Email;
+    /**
+     *   Class implementation for Database
+     **/
+    var Database = (function () {
+        /** Initialization **/
+        function Database(name, compress) {
+            this.name = name;
+            this.compress = compress;
+        }
+        /**
+         * Method Declarations for Database
+         */
+        Database.prototype.getName = function () {
             return this.name;
         };
-        DeviceInfo.prototype.getUuid = function () {
-            return this.uuid;
+        Database.prototype.isCompress = function () {
+            return this.compress;
         };
-        DeviceInfo.prototype.getVendor = function () {
+        Database.prototype.setCompress = function (compress) {
+            this.compress = compress;
+        };
+        Database.prototype.setName = function (name) {
+            this.name = name;
+        };
+        return Database;
+    })();
+    Adaptive.Database = Database;
+    /**
+     *   Class implementation for ContactAddress
+     **/
+    var ContactAddress = (function () {
+        /** Initialization **/
+        function ContactAddress(address, type) {
+            this.address = address;
+            this.type = type;
+        }
+        /**
+         * Method Declarations for ContactAddress
+         */
+        ContactAddress.prototype.getAddress = function () {
+            return this.address;
+        };
+        ContactAddress.prototype.getType = function () {
+            return this.type;
+        };
+        ContactAddress.prototype.setAddress = function (address) {
+            this.address = address;
+        };
+        ContactAddress.prototype.setType = function (type) {
+            this.type = type;
+        };
+        return ContactAddress;
+    })();
+    Adaptive.ContactAddress = ContactAddress;
+    /**
+     *  Enumerations for ContactAddress AddressType
+     **/
+    var ContactAddressAddressTypeEnum = (function () {
+        function ContactAddressAddressTypeEnum(value) {
+            this.value = value;
+        }
+        ContactAddressAddressTypeEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ContactAddressAddressTypeEnum.Home = new ContactAddressAddressTypeEnum("Home");
+        ContactAddressAddressTypeEnum.Work = new ContactAddressAddressTypeEnum("Work");
+        ContactAddressAddressTypeEnum.Other = new ContactAddressAddressTypeEnum("Other");
+        ContactAddressAddressTypeEnum.Unknown = new ContactAddressAddressTypeEnum("Unknown");
+        return ContactAddressAddressTypeEnum;
+    })();
+    Adaptive.ContactAddressAddressTypeEnum = ContactAddressAddressTypeEnum;
+    /**
+     *   Class implementation for OSInfo
+     **/
+    var OSInfo = (function () {
+        /** Initialization **/
+        function OSInfo(name, version, vendor) {
+            this.name = name;
+            this.version = version;
+            this.vendor = vendor;
+        }
+        /**
+         * Method Declarations for OSInfo
+         */
+        OSInfo.prototype.getName = function () {
+            return this.name;
+        };
+        OSInfo.prototype.getVendor = function () {
             return this.vendor;
         };
-        return DeviceInfo;
+        OSInfo.prototype.getVersion = function () {
+            return this.version;
+        };
+        return OSInfo;
     })();
-    Adaptive.DeviceInfo = DeviceInfo;
+    Adaptive.OSInfo = OSInfo;
+    /**
+     *   Class implementation for SecureKeyPair
+     **/
+    var SecureKeyPair = (function () {
+        /** Initialization **/
+        function SecureKeyPair(secureKey, secureData) {
+            this.secureKey = secureKey;
+            this.secureData = secureData;
+        }
+        /**
+         * Method Declarations for SecureKeyPair
+         */
+        SecureKeyPair.prototype.getSecureData = function () {
+            return this.secureData;
+        };
+        SecureKeyPair.prototype.getSecureKey = function () {
+            return this.secureKey;
+        };
+        SecureKeyPair.prototype.setSecureData = function (secureData) {
+            this.secureData = secureData;
+        };
+        SecureKeyPair.prototype.setSecureKey = function (secureKey) {
+            this.secureKey = secureKey;
+        };
+        return SecureKeyPair;
+    })();
+    Adaptive.SecureKeyPair = SecureKeyPair;
     /**
      *   Class implementation for Lifecycle
      **/
@@ -1036,214 +2126,6 @@ var Adaptive;
         return LifecycleStateEnum;
     })();
     Adaptive.LifecycleStateEnum = LifecycleStateEnum;
-    /**
-     *   Class implementation for ContactUid
-     **/
-    var ContactUid = (function () {
-        /** Initialization **/
-        function ContactUid(contactId) {
-            this.contactId = contactId;
-        }
-        /**
-         * Method Declarations for ContactUid
-         */
-        ContactUid.prototype.getContactId = function () {
-            return this.contactId;
-        };
-        ContactUid.prototype.setContactId = function (contactId) {
-            this.contactId = contactId;
-        };
-        return ContactUid;
-    })();
-    Adaptive.ContactUid = ContactUid;
-    /**
-     *   Class implementation for Row
-     **/
-    var Row = (function () {
-        /** Initialization **/
-        function Row(values) {
-            this.values = values;
-        }
-        /**
-         * Method Declarations for Row
-         */
-        Row.prototype.getValues = function () {
-            return this.values;
-        };
-        Row.prototype.setValues = function (values) {
-            this.values = values;
-        };
-        return Row;
-    })();
-    Adaptive.Row = Row;
-    /**
-     *   Class implementation for Endpoint
-     **/
-    var Endpoint = (function () {
-        /** Initialization **/
-        function Endpoint(host, path, port, proxy, scheme) {
-            this.host = host;
-            this.path = path;
-            this.port = port;
-            this.proxy = proxy;
-            this.scheme = scheme;
-        }
-        /**
-         * Method Declarations for Endpoint
-         */
-        Endpoint.prototype.getHost = function () {
-            return this.host;
-        };
-        Endpoint.prototype.getPath = function () {
-            return this.path;
-        };
-        Endpoint.prototype.getPort = function () {
-            return this.port;
-        };
-        Endpoint.prototype.getProxy = function () {
-            return this.proxy;
-        };
-        Endpoint.prototype.getScheme = function () {
-            return this.scheme;
-        };
-        Endpoint.prototype.setHost = function (host) {
-            this.host = host;
-        };
-        Endpoint.prototype.setPath = function (path) {
-            this.path = path;
-        };
-        Endpoint.prototype.setPort = function (port) {
-            this.port = port;
-        };
-        Endpoint.prototype.setProxy = function (proxy) {
-            this.proxy = proxy;
-        };
-        Endpoint.prototype.setScheme = function (scheme) {
-            this.scheme = scheme;
-        };
-        return Endpoint;
-    })();
-    Adaptive.Endpoint = Endpoint;
-    /**
-     *   Class implementation for ContactEmail
-     **/
-    var ContactEmail = (function () {
-        /** Initialization **/
-        function ContactEmail(type, primary, email) {
-            this.type = type;
-            this.primary = primary;
-            this.email = email;
-        }
-        /**
-         * Method Declarations for ContactEmail
-         */
-        ContactEmail.prototype.getEmail = function () {
-            return this.email;
-        };
-        ContactEmail.prototype.getType = function () {
-            return this.type;
-        };
-        ContactEmail.prototype.isPrimary = function () {
-            return this.primary;
-        };
-        ContactEmail.prototype.setEmail = function (email) {
-            this.email = email;
-        };
-        ContactEmail.prototype.setPrimary = function (primary) {
-            this.primary = primary;
-        };
-        ContactEmail.prototype.setType = function (type) {
-            this.type = type;
-        };
-        return ContactEmail;
-    })();
-    Adaptive.ContactEmail = ContactEmail;
-    /**
-     *  Enumerations for ContactEmail EmailType
-     **/
-    var ContactEmailEmailTypeEnum = (function () {
-        function ContactEmailEmailTypeEnum(value) {
-            this.value = value;
-        }
-        ContactEmailEmailTypeEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ContactEmailEmailTypeEnum.Personal = new ContactEmailEmailTypeEnum("Personal");
-        ContactEmailEmailTypeEnum.Work = new ContactEmailEmailTypeEnum("Work");
-        ContactEmailEmailTypeEnum.Other = new ContactEmailEmailTypeEnum("Other");
-        ContactEmailEmailTypeEnum.Unknown = new ContactEmailEmailTypeEnum("Unknown");
-        return ContactEmailEmailTypeEnum;
-    })();
-    Adaptive.ContactEmailEmailTypeEnum = ContactEmailEmailTypeEnum;
-    /**
-     *   Class implementation for Geolocation
-     **/
-    var Geolocation = (function () {
-        /** Initialization **/
-        function Geolocation(latitude, longitude, altitude, xDoP, yDoP) {
-            this.latitude = latitude;
-            this.longitude = longitude;
-            this.altitude = altitude;
-            this.xDoP = xDoP;
-            this.yDoP = yDoP;
-        }
-        /**
-         * Method Declarations for Geolocation
-         */
-        Geolocation.prototype.getAltitude = function () {
-            return this.altitude;
-        };
-        Geolocation.prototype.getLatitude = function () {
-            return this.latitude;
-        };
-        Geolocation.prototype.getLongitude = function () {
-            return this.longitude;
-        };
-        Geolocation.prototype.getXDoP = function () {
-            return this.xDoP;
-        };
-        Geolocation.prototype.getYDoP = function () {
-            return this.yDoP;
-        };
-        Geolocation.prototype.setAltitude = function (altitude) {
-            this.altitude = altitude;
-        };
-        Geolocation.prototype.setLatitude = function (latitude) {
-            this.latitude = latitude;
-        };
-        Geolocation.prototype.setLongitude = function (longitude) {
-            this.longitude = longitude;
-        };
-        return Geolocation;
-    })();
-    Adaptive.Geolocation = Geolocation;
-    /**
-     *   Class implementation for ContactTag
-     **/
-    var ContactTag = (function () {
-        /** Initialization **/
-        function ContactTag(name, dataValue) {
-            this.name = name;
-            this.dataValue = dataValue;
-        }
-        /**
-         * Method Declarations for ContactTag
-         */
-        ContactTag.prototype.getDataValue = function () {
-            return this.dataValue;
-        };
-        ContactTag.prototype.getName = function () {
-            return this.name;
-        };
-        ContactTag.prototype.setDataValue = function (dataValue) {
-            this.dataValue = dataValue;
-        };
-        ContactTag.prototype.setName = function (name) {
-            this.name = name;
-        };
-        return ContactTag;
-    })();
-    Adaptive.ContactTag = ContactTag;
     /**
      *   Class implementation for ServiceResponse
      **/
@@ -1314,65 +2196,73 @@ var Adaptive;
     })();
     Adaptive.ServiceResponse = ServiceResponse;
     /**
-     *   Class implementation for Cookie
+     *   Class implementation for ContactPhone
      **/
-    var Cookie = (function () {
+    var ContactPhone = (function () {
         /** Initialization **/
-        function Cookie(name, data) {
-            this.name = name;
-            this.data = data;
+        function ContactPhone(phone, phoneType) {
+            this.phone = phone;
+            this.phoneType = phoneType;
         }
         /**
-         * Method Declarations for Cookie
+         * Method Declarations for ContactPhone
          */
-        Cookie.prototype.getCreation = function () {
-            return this.creation;
+        ContactPhone.prototype.getPhone = function () {
+            return this.phone;
         };
-        Cookie.prototype.getData = function () {
-            return this.data;
+        ContactPhone.prototype.getPhoneType = function () {
+            return this.phoneType;
         };
-        Cookie.prototype.getDomain = function () {
-            return this.domain;
+        ContactPhone.prototype.setPhoneType = function (phoneType) {
+            this.phoneType = phoneType;
         };
-        Cookie.prototype.getExpiry = function () {
-            return this.expiry;
+        ContactPhone.prototype.setPhone = function (phone) {
+            this.phone = phone;
         };
-        Cookie.prototype.getName = function () {
-            return this.name;
-        };
-        Cookie.prototype.getPath = function () {
-            return this.path;
-        };
-        Cookie.prototype.getScheme = function () {
-            return this.scheme;
-        };
-        Cookie.prototype.isSecure = function () {
-            return this.secure;
-        };
-        Cookie.prototype.setData = function (data) {
-            this.data = data;
-        };
-        Cookie.prototype.setDomain = function (domain) {
-            this.domain = domain;
-        };
-        Cookie.prototype.setExpiry = function (expiry) {
-            this.expiry = expiry;
-        };
-        Cookie.prototype.setName = function (name) {
-            this.name = name;
-        };
-        Cookie.prototype.setPath = function (path) {
-            this.path = path;
-        };
-        Cookie.prototype.setScheme = function (scheme) {
-            this.scheme = scheme;
-        };
-        Cookie.prototype.setSecure = function (secure) {
-            this.secure = secure;
-        };
-        return Cookie;
+        return ContactPhone;
     })();
-    Adaptive.Cookie = Cookie;
+    Adaptive.ContactPhone = ContactPhone;
+    /**
+     *  Enumerations for ContactPhone PhoneType
+     **/
+    var ContactPhonePhoneTypeEnum = (function () {
+        function ContactPhonePhoneTypeEnum(value) {
+            this.value = value;
+        }
+        ContactPhonePhoneTypeEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ContactPhonePhoneTypeEnum.Mobile = new ContactPhonePhoneTypeEnum("Mobile");
+        ContactPhonePhoneTypeEnum.Work = new ContactPhonePhoneTypeEnum("Work");
+        ContactPhonePhoneTypeEnum.Home = new ContactPhonePhoneTypeEnum("Home");
+        ContactPhonePhoneTypeEnum.Main = new ContactPhonePhoneTypeEnum("Main");
+        ContactPhonePhoneTypeEnum.HomeFax = new ContactPhonePhoneTypeEnum("HomeFax");
+        ContactPhonePhoneTypeEnum.WorkFax = new ContactPhonePhoneTypeEnum("WorkFax");
+        ContactPhonePhoneTypeEnum.Other = new ContactPhonePhoneTypeEnum("Other");
+        ContactPhonePhoneTypeEnum.Unknown = new ContactPhonePhoneTypeEnum("Unknown");
+        return ContactPhonePhoneTypeEnum;
+    })();
+    Adaptive.ContactPhonePhoneTypeEnum = ContactPhonePhoneTypeEnum;
+    /**
+     *   Class implementation for ContactWebsite
+     **/
+    var ContactWebsite = (function () {
+        /** Initialization **/
+        function ContactWebsite(url) {
+            this.url = url;
+        }
+        /**
+         * Method Declarations for ContactWebsite
+         */
+        ContactWebsite.prototype.getUrl = function () {
+            return this.url;
+        };
+        ContactWebsite.prototype.setUrl = function (url) {
+            this.url = url;
+        };
+        return ContactWebsite;
+    })();
+    Adaptive.ContactWebsite = ContactWebsite;
     /**
      *   Class implementation for AttachmentData
      **/
@@ -1421,6 +2311,127 @@ var Adaptive;
         return AttachmentData;
     })();
     Adaptive.AttachmentData = AttachmentData;
+    /**
+     *   Class implementation for Geolocation
+     **/
+    var Geolocation = (function () {
+        /** Initialization **/
+        function Geolocation(latitude, longitude, altitude, xDoP, yDoP) {
+            this.latitude = latitude;
+            this.longitude = longitude;
+            this.altitude = altitude;
+            this.xDoP = xDoP;
+            this.yDoP = yDoP;
+        }
+        /**
+         * Method Declarations for Geolocation
+         */
+        Geolocation.prototype.getAltitude = function () {
+            return this.altitude;
+        };
+        Geolocation.prototype.getLatitude = function () {
+            return this.latitude;
+        };
+        Geolocation.prototype.getLongitude = function () {
+            return this.longitude;
+        };
+        Geolocation.prototype.getXDoP = function () {
+            return this.xDoP;
+        };
+        Geolocation.prototype.getYDoP = function () {
+            return this.yDoP;
+        };
+        Geolocation.prototype.setAltitude = function (altitude) {
+            this.altitude = altitude;
+        };
+        Geolocation.prototype.setLatitude = function (latitude) {
+            this.latitude = latitude;
+        };
+        Geolocation.prototype.setLongitude = function (longitude) {
+            this.longitude = longitude;
+        };
+        return Geolocation;
+    })();
+    Adaptive.Geolocation = Geolocation;
+    /**
+     *   Class implementation for ContactPersonalInfo
+     **/
+    var ContactPersonalInfo = (function () {
+        /** Initialization **/
+        function ContactPersonalInfo(name, middleName, lastName, title) {
+            this.name = name;
+            this.middleName = middleName;
+            this.lastName = lastName;
+            this.title = title;
+        }
+        /**
+         * Method Declarations for ContactPersonalInfo
+         */
+        ContactPersonalInfo.prototype.getLastName = function () {
+            return this.lastName;
+        };
+        ContactPersonalInfo.prototype.getMiddleName = function () {
+            return this.middleName;
+        };
+        ContactPersonalInfo.prototype.getName = function () {
+            return this.name;
+        };
+        ContactPersonalInfo.prototype.getTitle = function () {
+            return this.title;
+        };
+        ContactPersonalInfo.prototype.setLastName = function (lastName) {
+            this.lastName = lastName;
+        };
+        ContactPersonalInfo.prototype.setMiddleName = function (middleName) {
+            this.middleName = middleName;
+        };
+        ContactPersonalInfo.prototype.setName = function (name) {
+            this.name = name;
+        };
+        ContactPersonalInfo.prototype.setTitle = function (title) {
+            this.title = title;
+        };
+        return ContactPersonalInfo;
+    })();
+    Adaptive.ContactPersonalInfo = ContactPersonalInfo;
+    /**
+     *  Enumerations for ContactPersonalInfo Title
+     **/
+    var ContactPersonalInfoTitleEnum = (function () {
+        function ContactPersonalInfoTitleEnum(value) {
+            this.value = value;
+        }
+        ContactPersonalInfoTitleEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ContactPersonalInfoTitleEnum.Mr = new ContactPersonalInfoTitleEnum("Mr");
+        ContactPersonalInfoTitleEnum.Mrs = new ContactPersonalInfoTitleEnum("Mrs");
+        ContactPersonalInfoTitleEnum.Ms = new ContactPersonalInfoTitleEnum("Ms");
+        ContactPersonalInfoTitleEnum.Dr = new ContactPersonalInfoTitleEnum("Dr");
+        ContactPersonalInfoTitleEnum.Unknown = new ContactPersonalInfoTitleEnum("Unknown");
+        return ContactPersonalInfoTitleEnum;
+    })();
+    Adaptive.ContactPersonalInfoTitleEnum = ContactPersonalInfoTitleEnum;
+    /**
+     *   Class implementation for EmailAddress
+     **/
+    var EmailAddress = (function () {
+        /** Initialization **/
+        function EmailAddress(address) {
+            this.address = address;
+        }
+        /**
+         * Method Declarations for EmailAddress
+         */
+        EmailAddress.prototype.getAddress = function () {
+            return this.address;
+        };
+        EmailAddress.prototype.setAddress = function (address) {
+            this.address = address;
+        };
+        return EmailAddress;
+    })();
+    Adaptive.EmailAddress = EmailAddress;
     /**
      *   Class implementation for Contact
      **/
@@ -1486,6 +2497,100 @@ var Adaptive;
     })(ContactUid);
     Adaptive.Contact = Contact;
     /**
+     *   Class implementation for ContactProfessionalInfo
+     **/
+    var ContactProfessionalInfo = (function () {
+        /** Initialization **/
+        function ContactProfessionalInfo(jobTitle, jobDescription, company) {
+            this.jobTitle = jobTitle;
+            this.jobDescription = jobDescription;
+            this.company = company;
+        }
+        /**
+         * Method Declarations for ContactProfessionalInfo
+         */
+        ContactProfessionalInfo.prototype.getCompany = function () {
+            return this.company;
+        };
+        ContactProfessionalInfo.prototype.getJobDescription = function () {
+            return this.jobDescription;
+        };
+        ContactProfessionalInfo.prototype.getJobTitle = function () {
+            return this.jobTitle;
+        };
+        ContactProfessionalInfo.prototype.setCompany = function (company) {
+            this.company = company;
+        };
+        ContactProfessionalInfo.prototype.setJobDescription = function (jobDescription) {
+            this.jobDescription = jobDescription;
+        };
+        ContactProfessionalInfo.prototype.setJobTitle = function (jobTitle) {
+            this.jobTitle = jobTitle;
+        };
+        return ContactProfessionalInfo;
+    })();
+    Adaptive.ContactProfessionalInfo = ContactProfessionalInfo;
+    /**
+     *   Class implementation for Cookie
+     **/
+    var Cookie = (function () {
+        /** Initialization **/
+        function Cookie(name, data) {
+            this.name = name;
+            this.data = data;
+        }
+        /**
+         * Method Declarations for Cookie
+         */
+        Cookie.prototype.getCreation = function () {
+            return this.creation;
+        };
+        Cookie.prototype.getData = function () {
+            return this.data;
+        };
+        Cookie.prototype.getDomain = function () {
+            return this.domain;
+        };
+        Cookie.prototype.getExpiry = function () {
+            return this.expiry;
+        };
+        Cookie.prototype.getName = function () {
+            return this.name;
+        };
+        Cookie.prototype.getPath = function () {
+            return this.path;
+        };
+        Cookie.prototype.getScheme = function () {
+            return this.scheme;
+        };
+        Cookie.prototype.isSecure = function () {
+            return this.secure;
+        };
+        Cookie.prototype.setData = function (data) {
+            this.data = data;
+        };
+        Cookie.prototype.setDomain = function (domain) {
+            this.domain = domain;
+        };
+        Cookie.prototype.setExpiry = function (expiry) {
+            this.expiry = expiry;
+        };
+        Cookie.prototype.setName = function (name) {
+            this.name = name;
+        };
+        Cookie.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        Cookie.prototype.setScheme = function (scheme) {
+            this.scheme = scheme;
+        };
+        Cookie.prototype.setSecure = function (secure) {
+            this.secure = secure;
+        };
+        return Cookie;
+    })();
+    Adaptive.Cookie = Cookie;
+    /**
      *   Class implementation for Locale
      **/
     var Locale = (function () {
@@ -1517,49 +2622,153 @@ var Adaptive;
     })();
     Adaptive.Locale = Locale;
     /**
-     *   Class implementation for ContactAddress
+     *   Class implementation for ContactSocial
      **/
-    var ContactAddress = (function () {
+    var ContactSocial = (function () {
         /** Initialization **/
-        function ContactAddress(address, type) {
-            this.address = address;
+        function ContactSocial(socialNetwork, profileUrl) {
+            this.socialNetwork = socialNetwork;
+            this.profileUrl = profileUrl;
+        }
+        /**
+         * Method Declarations for ContactSocial
+         */
+        ContactSocial.prototype.getProfileUrl = function () {
+            return this.profileUrl;
+        };
+        ContactSocial.prototype.getSocialNetwork = function () {
+            return this.socialNetwork;
+        };
+        ContactSocial.prototype.setProfileUrl = function (profileUrl) {
+            this.profileUrl = profileUrl;
+        };
+        ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
+            this.socialNetwork = socialNetwork;
+        };
+        return ContactSocial;
+    })();
+    Adaptive.ContactSocial = ContactSocial;
+    /**
+     *  Enumerations for ContactSocial SocialNetwork
+     **/
+    var ContactSocialSocialNetworkEnum = (function () {
+        function ContactSocialSocialNetworkEnum(value) {
+            this.value = value;
+        }
+        ContactSocialSocialNetworkEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ContactSocialSocialNetworkEnum.Twitter = new ContactSocialSocialNetworkEnum("Twitter");
+        ContactSocialSocialNetworkEnum.Facebook = new ContactSocialSocialNetworkEnum("Facebook");
+        ContactSocialSocialNetworkEnum.GooglePlus = new ContactSocialSocialNetworkEnum("GooglePlus");
+        ContactSocialSocialNetworkEnum.LinkedIn = new ContactSocialSocialNetworkEnum("LinkedIn");
+        ContactSocialSocialNetworkEnum.Flickr = new ContactSocialSocialNetworkEnum("Flickr");
+        ContactSocialSocialNetworkEnum.Unknown = new ContactSocialSocialNetworkEnum("Unknown");
+        return ContactSocialSocialNetworkEnum;
+    })();
+    Adaptive.ContactSocialSocialNetworkEnum = ContactSocialSocialNetworkEnum;
+    /**
+     *   Class implementation for Endpoint
+     **/
+    var Endpoint = (function () {
+        /** Initialization **/
+        function Endpoint(host, path, port, proxy, scheme) {
+            this.host = host;
+            this.path = path;
+            this.port = port;
+            this.proxy = proxy;
+            this.scheme = scheme;
+        }
+        /**
+         * Method Declarations for Endpoint
+         */
+        Endpoint.prototype.getHost = function () {
+            return this.host;
+        };
+        Endpoint.prototype.getPath = function () {
+            return this.path;
+        };
+        Endpoint.prototype.getPort = function () {
+            return this.port;
+        };
+        Endpoint.prototype.getProxy = function () {
+            return this.proxy;
+        };
+        Endpoint.prototype.getScheme = function () {
+            return this.scheme;
+        };
+        Endpoint.prototype.setHost = function (host) {
+            this.host = host;
+        };
+        Endpoint.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        Endpoint.prototype.setPort = function (port) {
+            this.port = port;
+        };
+        Endpoint.prototype.setProxy = function (proxy) {
+            this.proxy = proxy;
+        };
+        Endpoint.prototype.setScheme = function (scheme) {
+            this.scheme = scheme;
+        };
+        return Endpoint;
+    })();
+    Adaptive.Endpoint = Endpoint;
+    /**
+     *   Class implementation for Button
+     **/
+    var Button = (function () {
+        /** Initialization **/
+        function Button(type) {
             this.type = type;
         }
         /**
-         * Method Declarations for ContactAddress
+         * Method Declarations for Button
          */
-        ContactAddress.prototype.getAddress = function () {
-            return this.address;
-        };
-        ContactAddress.prototype.getType = function () {
+        Button.prototype.getType = function () {
             return this.type;
         };
-        ContactAddress.prototype.setAddress = function (address) {
-            this.address = address;
-        };
-        ContactAddress.prototype.setType = function (type) {
-            this.type = type;
-        };
-        return ContactAddress;
+        return Button;
     })();
-    Adaptive.ContactAddress = ContactAddress;
+    Adaptive.Button = Button;
     /**
-     *  Enumerations for ContactAddress AddressType
+     *  Enumerations for Button Button
      **/
-    var ContactAddressAddressTypeEnum = (function () {
-        function ContactAddressAddressTypeEnum(value) {
+    var ButtonButtonEnum = (function () {
+        function ButtonButtonEnum(value) {
             this.value = value;
         }
-        ContactAddressAddressTypeEnum.prototype.toString = function () {
+        ButtonButtonEnum.prototype.toString = function () {
             return this.value;
         };
-        ContactAddressAddressTypeEnum.Home = new ContactAddressAddressTypeEnum("Home");
-        ContactAddressAddressTypeEnum.Work = new ContactAddressAddressTypeEnum("Work");
-        ContactAddressAddressTypeEnum.Other = new ContactAddressAddressTypeEnum("Other");
-        ContactAddressAddressTypeEnum.Unknown = new ContactAddressAddressTypeEnum("Unknown");
-        return ContactAddressAddressTypeEnum;
+        ButtonButtonEnum.HomeButton = new ButtonButtonEnum("HomeButton");
+        ButtonButtonEnum.BackButton = new ButtonButtonEnum("BackButton");
+        ButtonButtonEnum.OptionButton = new ButtonButtonEnum("OptionButton");
+        ButtonButtonEnum.Unknown = new ButtonButtonEnum("Unknown");
+        return ButtonButtonEnum;
     })();
-    Adaptive.ContactAddressAddressTypeEnum = ContactAddressAddressTypeEnum;
+    Adaptive.ButtonButtonEnum = ButtonButtonEnum;
+    /**
+     *   Class implementation for Column
+     **/
+    var Column = (function () {
+        /** Initialization **/
+        function Column(name) {
+            this.name = name;
+        }
+        /**
+         * Method Declarations for Column
+         */
+        Column.prototype.getName = function () {
+            return this.name;
+        };
+        Column.prototype.setName = function (name) {
+            this.name = name;
+        };
+        return Column;
+    })();
+    Adaptive.Column = Column;
     /**
      *   Class implementation for ServiceRequest
      **/
@@ -1653,551 +2862,84 @@ var Adaptive;
     })();
     Adaptive.ServiceRequestProtocolVersionEnum = ServiceRequestProtocolVersionEnum;
     /**
-     *   Class implementation for EmailAddress
+     *   Class implementation for DeviceInfo
      **/
-    var EmailAddress = (function () {
+    var DeviceInfo = (function () {
         /** Initialization **/
-        function EmailAddress(address) {
-            this.address = address;
-        }
-        /**
-         * Method Declarations for EmailAddress
-         */
-        EmailAddress.prototype.getAddress = function () {
-            return this.address;
-        };
-        EmailAddress.prototype.setAddress = function (address) {
-            this.address = address;
-        };
-        return EmailAddress;
-    })();
-    Adaptive.EmailAddress = EmailAddress;
-    /**
-     *   Class implementation for SecureKeyPair
-     **/
-    var SecureKeyPair = (function () {
-        /** Initialization **/
-        function SecureKeyPair(secureKey, secureData) {
-            this.secureKey = secureKey;
-            this.secureData = secureData;
-        }
-        /**
-         * Method Declarations for SecureKeyPair
-         */
-        SecureKeyPair.prototype.getSecureData = function () {
-            return this.secureData;
-        };
-        SecureKeyPair.prototype.getSecureKey = function () {
-            return this.secureKey;
-        };
-        SecureKeyPair.prototype.setSecureData = function (secureData) {
-            this.secureData = secureData;
-        };
-        SecureKeyPair.prototype.setSecureKey = function (secureKey) {
-            this.secureKey = secureKey;
-        };
-        return SecureKeyPair;
-    })();
-    Adaptive.SecureKeyPair = SecureKeyPair;
-    /**
-     *   Class implementation for Database
-     **/
-    var Database = (function () {
-        /** Initialization **/
-        function Database(name, compress) {
+        function DeviceInfo(name, model, vendor, uuid) {
             this.name = name;
-            this.compress = compress;
-        }
-        /**
-         * Method Declarations for Database
-         */
-        Database.prototype.getName = function () {
-            return this.name;
-        };
-        Database.prototype.isCompress = function () {
-            return this.compress;
-        };
-        Database.prototype.setCompress = function (compress) {
-            this.compress = compress;
-        };
-        Database.prototype.setName = function (name) {
-            this.name = name;
-        };
-        return Database;
-    })();
-    Adaptive.Database = Database;
-    /**
-     *   Class implementation for ContactPhone
-     **/
-    var ContactPhone = (function () {
-        /** Initialization **/
-        function ContactPhone(phone, phoneType) {
-            this.phone = phone;
-            this.phoneType = phoneType;
-        }
-        /**
-         * Method Declarations for ContactPhone
-         */
-        ContactPhone.prototype.getPhone = function () {
-            return this.phone;
-        };
-        ContactPhone.prototype.getPhoneType = function () {
-            return this.phoneType;
-        };
-        ContactPhone.prototype.setPhoneType = function (phoneType) {
-            this.phoneType = phoneType;
-        };
-        ContactPhone.prototype.setPhone = function (phone) {
-            this.phone = phone;
-        };
-        return ContactPhone;
-    })();
-    Adaptive.ContactPhone = ContactPhone;
-    /**
-     *  Enumerations for ContactPhone PhoneType
-     **/
-    var ContactPhonePhoneTypeEnum = (function () {
-        function ContactPhonePhoneTypeEnum(value) {
-            this.value = value;
-        }
-        ContactPhonePhoneTypeEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ContactPhonePhoneTypeEnum.Mobile = new ContactPhonePhoneTypeEnum("Mobile");
-        ContactPhonePhoneTypeEnum.Work = new ContactPhonePhoneTypeEnum("Work");
-        ContactPhonePhoneTypeEnum.Home = new ContactPhonePhoneTypeEnum("Home");
-        ContactPhonePhoneTypeEnum.Main = new ContactPhonePhoneTypeEnum("Main");
-        ContactPhonePhoneTypeEnum.HomeFax = new ContactPhonePhoneTypeEnum("HomeFax");
-        ContactPhonePhoneTypeEnum.WorkFax = new ContactPhonePhoneTypeEnum("WorkFax");
-        ContactPhonePhoneTypeEnum.Other = new ContactPhonePhoneTypeEnum("Other");
-        ContactPhonePhoneTypeEnum.Unknown = new ContactPhonePhoneTypeEnum("Unknown");
-        return ContactPhonePhoneTypeEnum;
-    })();
-    Adaptive.ContactPhonePhoneTypeEnum = ContactPhonePhoneTypeEnum;
-    /**
-     *   Class implementation for ContactWebsite
-     **/
-    var ContactWebsite = (function () {
-        /** Initialization **/
-        function ContactWebsite(url) {
-            this.url = url;
-        }
-        /**
-         * Method Declarations for ContactWebsite
-         */
-        ContactWebsite.prototype.getUrl = function () {
-            return this.url;
-        };
-        ContactWebsite.prototype.setUrl = function (url) {
-            this.url = url;
-        };
-        return ContactWebsite;
-    })();
-    Adaptive.ContactWebsite = ContactWebsite;
-    /**
-     *   Class implementation for Button
-     **/
-    var Button = (function () {
-        /** Initialization **/
-        function Button(type) {
-            this.type = type;
-        }
-        /**
-         * Method Declarations for Button
-         */
-        Button.prototype.getType = function () {
-            return this.type;
-        };
-        return Button;
-    })();
-    Adaptive.Button = Button;
-    /**
-     *  Enumerations for Button Button
-     **/
-    var ButtonButtonEnum = (function () {
-        function ButtonButtonEnum(value) {
-            this.value = value;
-        }
-        ButtonButtonEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ButtonButtonEnum.HomeButton = new ButtonButtonEnum("HomeButton");
-        ButtonButtonEnum.BackButton = new ButtonButtonEnum("BackButton");
-        ButtonButtonEnum.OptionButton = new ButtonButtonEnum("OptionButton");
-        ButtonButtonEnum.Unknown = new ButtonButtonEnum("Unknown");
-        return ButtonButtonEnum;
-    })();
-    Adaptive.ButtonButtonEnum = ButtonButtonEnum;
-    /**
-     *   Class implementation for ContactSocial
-     **/
-    var ContactSocial = (function () {
-        /** Initialization **/
-        function ContactSocial(socialNetwork, profileUrl) {
-            this.socialNetwork = socialNetwork;
-            this.profileUrl = profileUrl;
-        }
-        /**
-         * Method Declarations for ContactSocial
-         */
-        ContactSocial.prototype.getProfileUrl = function () {
-            return this.profileUrl;
-        };
-        ContactSocial.prototype.getSocialNetwork = function () {
-            return this.socialNetwork;
-        };
-        ContactSocial.prototype.setProfileUrl = function (profileUrl) {
-            this.profileUrl = profileUrl;
-        };
-        ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
-            this.socialNetwork = socialNetwork;
-        };
-        return ContactSocial;
-    })();
-    Adaptive.ContactSocial = ContactSocial;
-    /**
-     *  Enumerations for ContactSocial SocialNetwork
-     **/
-    var ContactSocialSocialNetworkEnum = (function () {
-        function ContactSocialSocialNetworkEnum(value) {
-            this.value = value;
-        }
-        ContactSocialSocialNetworkEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ContactSocialSocialNetworkEnum.Twitter = new ContactSocialSocialNetworkEnum("Twitter");
-        ContactSocialSocialNetworkEnum.Facebook = new ContactSocialSocialNetworkEnum("Facebook");
-        ContactSocialSocialNetworkEnum.GooglePlus = new ContactSocialSocialNetworkEnum("GooglePlus");
-        ContactSocialSocialNetworkEnum.LinkedIn = new ContactSocialSocialNetworkEnum("LinkedIn");
-        ContactSocialSocialNetworkEnum.Flickr = new ContactSocialSocialNetworkEnum("Flickr");
-        ContactSocialSocialNetworkEnum.Unknown = new ContactSocialSocialNetworkEnum("Unknown");
-        return ContactSocialSocialNetworkEnum;
-    })();
-    Adaptive.ContactSocialSocialNetworkEnum = ContactSocialSocialNetworkEnum;
-    /**
-     *   Class implementation for Acceleration
-     **/
-    var Acceleration = (function () {
-        /** Initialization **/
-        function Acceleration(x, y, z, timeStamp) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.timeStamp = timeStamp;
-        }
-        /**
-         * Method Declarations for Acceleration
-         */
-        Acceleration.prototype.getX = function () {
-            return this.x;
-        };
-        Acceleration.prototype.getY = function () {
-            return this.y;
-        };
-        Acceleration.prototype.getZ = function () {
-            return this.z;
-        };
-        Acceleration.prototype.setTimeStamp = function (timeStamp) {
-            this.timeStamp = timeStamp;
-        };
-        Acceleration.prototype.setX = function (x) {
-            this.x = x;
-        };
-        Acceleration.prototype.setY = function (y) {
-            this.y = y;
-        };
-        Acceleration.prototype.setZ = function (z) {
-            this.z = z;
-        };
-        return Acceleration;
-    })();
-    Adaptive.Acceleration = Acceleration;
-    /**
-     *   Class implementation for ContactPersonalInfo
-     **/
-    var ContactPersonalInfo = (function () {
-        /** Initialization **/
-        function ContactPersonalInfo(name, middleName, lastName, title) {
-            this.name = name;
-            this.middleName = middleName;
-            this.lastName = lastName;
-            this.title = title;
-        }
-        /**
-         * Method Declarations for ContactPersonalInfo
-         */
-        ContactPersonalInfo.prototype.getLastName = function () {
-            return this.lastName;
-        };
-        ContactPersonalInfo.prototype.getMiddleName = function () {
-            return this.middleName;
-        };
-        ContactPersonalInfo.prototype.getName = function () {
-            return this.name;
-        };
-        ContactPersonalInfo.prototype.getTitle = function () {
-            return this.title;
-        };
-        ContactPersonalInfo.prototype.setLastName = function (lastName) {
-            this.lastName = lastName;
-        };
-        ContactPersonalInfo.prototype.setMiddleName = function (middleName) {
-            this.middleName = middleName;
-        };
-        ContactPersonalInfo.prototype.setName = function (name) {
-            this.name = name;
-        };
-        ContactPersonalInfo.prototype.setTitle = function (title) {
-            this.title = title;
-        };
-        return ContactPersonalInfo;
-    })();
-    Adaptive.ContactPersonalInfo = ContactPersonalInfo;
-    /**
-     *  Enumerations for ContactPersonalInfo Title
-     **/
-    var ContactPersonalInfoTitleEnum = (function () {
-        function ContactPersonalInfoTitleEnum(value) {
-            this.value = value;
-        }
-        ContactPersonalInfoTitleEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ContactPersonalInfoTitleEnum.Mr = new ContactPersonalInfoTitleEnum("Mr");
-        ContactPersonalInfoTitleEnum.Mrs = new ContactPersonalInfoTitleEnum("Mrs");
-        ContactPersonalInfoTitleEnum.Ms = new ContactPersonalInfoTitleEnum("Ms");
-        ContactPersonalInfoTitleEnum.Dr = new ContactPersonalInfoTitleEnum("Dr");
-        ContactPersonalInfoTitleEnum.Unknown = new ContactPersonalInfoTitleEnum("Unknown");
-        return ContactPersonalInfoTitleEnum;
-    })();
-    Adaptive.ContactPersonalInfoTitleEnum = ContactPersonalInfoTitleEnum;
-    /**
-     *   Class implementation for OSInfo
-     **/
-    var OSInfo = (function () {
-        /** Initialization **/
-        function OSInfo(name, version, vendor) {
-            this.name = name;
-            this.version = version;
+            this.model = model;
             this.vendor = vendor;
+            this.uuid = uuid;
         }
         /**
-         * Method Declarations for OSInfo
+         * Method Declarations for DeviceInfo
          */
-        OSInfo.prototype.getName = function () {
+        DeviceInfo.prototype.getModel = function () {
+            return this.model;
+        };
+        DeviceInfo.prototype.getName = function () {
             return this.name;
         };
-        OSInfo.prototype.getVendor = function () {
+        DeviceInfo.prototype.getUuid = function () {
+            return this.uuid;
+        };
+        DeviceInfo.prototype.getVendor = function () {
             return this.vendor;
         };
-        OSInfo.prototype.getVersion = function () {
-            return this.version;
-        };
-        return OSInfo;
+        return DeviceInfo;
     })();
-    Adaptive.OSInfo = OSInfo;
+    Adaptive.DeviceInfo = DeviceInfo;
     /**
-     *   Class implementation for Column
+     *   Class implementation for ContactEmail
      **/
-    var Column = (function () {
+    var ContactEmail = (function () {
         /** Initialization **/
-        function Column(name) {
-            this.name = name;
-        }
-        /**
-         * Method Declarations for Column
-         */
-        Column.prototype.getName = function () {
-            return this.name;
-        };
-        Column.prototype.setName = function (name) {
-            this.name = name;
-        };
-        return Column;
-    })();
-    Adaptive.Column = Column;
-    /**
-     *   Class implementation for Email
-     **/
-    var Email = (function () {
-        /** Initialization **/
-        function Email(toRecipients, subject, messageBody) {
-            this.toRecipients = toRecipients;
-            this.subject = subject;
-            this.messageBody = messageBody;
-        }
-        /**
-         * Method Declarations for Email
-         */
-        Email.prototype.getAttachmentData = function () {
-            return this.attachmentData;
-        };
-        Email.prototype.getBccRecipients = function () {
-            return this.bccRecipients;
-        };
-        Email.prototype.getCcRecipients = function () {
-            return this.ccRecipients;
-        };
-        Email.prototype.getMessageBody = function () {
-            return this.messageBody;
-        };
-        Email.prototype.getMessageBodyMimeType = function () {
-            return this.messageBodyMimeType;
-        };
-        Email.prototype.getSubject = function () {
-            return this.subject;
-        };
-        Email.prototype.getToRecipients = function () {
-            return this.toRecipients;
-        };
-        Email.prototype.setAttachmentData = function (attachmentData) {
-            this.attachmentData = attachmentData;
-        };
-        Email.prototype.setBccRecipients = function (bccRecipients) {
-            this.bccRecipients = bccRecipients;
-        };
-        Email.prototype.setCcRecipients = function (ccRecipients) {
-            this.ccRecipients = ccRecipients;
-        };
-        Email.prototype.setMessageBodyMimeType = function (messageBodyMimeType) {
-            this.messageBodyMimeType = messageBodyMimeType;
-        };
-        Email.prototype.setMessageBody = function (messageBody) {
-            this.messageBody = messageBody;
-        };
-        Email.prototype.setSubject = function (subject) {
-            this.subject = subject;
-        };
-        Email.prototype.setToRecipients = function (toRecipients) {
-            this.toRecipients = toRecipients;
-        };
-        return Email;
-    })();
-    Adaptive.Email = Email;
-    /**
-     *   Class implementation for Table
-     **/
-    var Table = (function () {
-        /** Initialization **/
-        function Table(name) {
-            this.name = name;
-        }
-        /**
-         * Method Declarations for Table
-         */
-        Table.prototype.getColumnCount = function () {
-            return this.columnCount;
-        };
-        Table.prototype.getColumns = function () {
-            return this.columns;
-        };
-        Table.prototype.getName = function () {
-            return this.name;
-        };
-        Table.prototype.getRowCount = function () {
-            return this.rowCount;
-        };
-        Table.prototype.getRows = function () {
-            return this.rows;
-        };
-        Table.prototype.setColumnCount = function (columnCount) {
-            this.columnCount = columnCount;
-        };
-        Table.prototype.setColumns = function (columns) {
-            this.columns = columns;
-        };
-        Table.prototype.setName = function (name) {
-            this.name = name;
-        };
-        Table.prototype.setRowCount = function (rowCount) {
-            this.rowCount = rowCount;
-        };
-        Table.prototype.setRows = function (rows) {
-            this.rows = rows;
-        };
-        return Table;
-    })();
-    Adaptive.Table = Table;
-    /**
-     *   Class implementation for Service
-     **/
-    var Service = (function () {
-        /** Initialization **/
-        function Service(endpoint, name, method, type) {
-            this.endpoint = endpoint;
-            this.name = name;
-            this.method = method;
+        function ContactEmail(type, primary, email) {
             this.type = type;
+            this.primary = primary;
+            this.email = email;
         }
         /**
-         * Method Declarations for Service
+         * Method Declarations for ContactEmail
          */
-        Service.prototype.getEndpoint = function () {
-            return this.endpoint;
+        ContactEmail.prototype.getEmail = function () {
+            return this.email;
         };
-        Service.prototype.getMethod = function () {
-            return this.method;
-        };
-        Service.prototype.getName = function () {
-            return this.name;
-        };
-        Service.prototype.getType = function () {
+        ContactEmail.prototype.getType = function () {
             return this.type;
         };
-        Service.prototype.setEndpoint = function (endpoint) {
-            this.endpoint = endpoint;
+        ContactEmail.prototype.isPrimary = function () {
+            return this.primary;
         };
-        Service.prototype.setMethod = function (method) {
-            this.method = method;
+        ContactEmail.prototype.setEmail = function (email) {
+            this.email = email;
         };
-        Service.prototype.setName = function (name) {
-            this.name = name;
+        ContactEmail.prototype.setPrimary = function (primary) {
+            this.primary = primary;
         };
-        Service.prototype.setType = function (type) {
+        ContactEmail.prototype.setType = function (type) {
             this.type = type;
         };
-        return Service;
+        return ContactEmail;
     })();
-    Adaptive.Service = Service;
+    Adaptive.ContactEmail = ContactEmail;
     /**
-     *  Enumerations for Service ServiceMethod
+     *  Enumerations for ContactEmail EmailType
      **/
-    var ServiceServiceMethodEnum = (function () {
-        function ServiceServiceMethodEnum(value) {
+    var ContactEmailEmailTypeEnum = (function () {
+        function ContactEmailEmailTypeEnum(value) {
             this.value = value;
         }
-        ServiceServiceMethodEnum.prototype.toString = function () {
+        ContactEmailEmailTypeEnum.prototype.toString = function () {
             return this.value;
         };
-        ServiceServiceMethodEnum.POST = new ServiceServiceMethodEnum("POST");
-        ServiceServiceMethodEnum.GET = new ServiceServiceMethodEnum("GET");
-        ServiceServiceMethodEnum.Unknown = new ServiceServiceMethodEnum("Unknown");
-        return ServiceServiceMethodEnum;
+        ContactEmailEmailTypeEnum.Personal = new ContactEmailEmailTypeEnum("Personal");
+        ContactEmailEmailTypeEnum.Work = new ContactEmailEmailTypeEnum("Work");
+        ContactEmailEmailTypeEnum.Other = new ContactEmailEmailTypeEnum("Other");
+        ContactEmailEmailTypeEnum.Unknown = new ContactEmailEmailTypeEnum("Unknown");
+        return ContactEmailEmailTypeEnum;
     })();
-    Adaptive.ServiceServiceMethodEnum = ServiceServiceMethodEnum;
-    /**
-     *  Enumerations for Service ServiceType
-     **/
-    var ServiceServiceTypeEnum = (function () {
-        function ServiceServiceTypeEnum(value) {
-            this.value = value;
-        }
-        ServiceServiceTypeEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ServiceServiceTypeEnum.SERVICETYPE_AMF_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_AMF_SERIALIZATION");
-        ServiceServiceTypeEnum.SERVICETYPE_GWT_RPC = new ServiceServiceTypeEnum("SERVICETYPE_GWT_RPC");
-        ServiceServiceTypeEnum.SERVICETYPE_OCTET_BINARY = new ServiceServiceTypeEnum("SERVICETYPE_OCTET_BINARY");
-        ServiceServiceTypeEnum.SERVICETYPE_REMOTING_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_REMOTING_SERIALIZATION");
-        ServiceServiceTypeEnum.SERVICETYPE_REST_JSON = new ServiceServiceTypeEnum("SERVICETYPE_REST_JSON");
-        ServiceServiceTypeEnum.SERVICETYPE_REST_XML = new ServiceServiceTypeEnum("SERVICETYPE_REST_XML");
-        ServiceServiceTypeEnum.SERVICETYPE_SOAP_JSON = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_JSON");
-        ServiceServiceTypeEnum.SERVICETYPE_SOAP_XML = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_XML");
-        ServiceServiceTypeEnum.SERVICETYPE_XMLRPC_JSON = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_JSON");
-        ServiceServiceTypeEnum.SERVICETYPE_XMLRPC_XML = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_XML");
-        ServiceServiceTypeEnum.Unknown = new ServiceServiceTypeEnum("Unknown");
-        return ServiceServiceTypeEnum;
-    })();
-    Adaptive.ServiceServiceTypeEnum = ServiceServiceTypeEnum;
+    Adaptive.ContactEmailEmailTypeEnum = ContactEmailEmailTypeEnum;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=adaptive.js.map
