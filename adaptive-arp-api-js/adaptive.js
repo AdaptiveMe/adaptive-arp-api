@@ -72,6 +72,59 @@ var Adaptive;
         return Dictionary;
     })();
     Adaptive.Dictionary = Dictionary;
+    var AppResourceHandlerBridge = (function () {
+        function AppResourceHandlerBridge() {
+        }
+        AppResourceHandlerBridge.prototype.getResource = function () {
+        };
+        return AppResourceHandlerBridge;
+    })();
+    Adaptive.AppResourceHandlerBridge = AppResourceHandlerBridge;
+    var AppContextWebviewBridge = (function () {
+        function AppContextWebviewBridge() {
+        }
+        AppContextWebviewBridge.prototype.addWebview = function () {
+        };
+        AppContextWebviewBridge.prototype.getWebviewPrimary = function () {
+            return null;
+        };
+        AppContextWebviewBridge.prototype.getWebviews = function () {
+            return null;
+        };
+        AppContextWebviewBridge.prototype.removeWebview = function () {
+        };
+        return AppContextWebviewBridge;
+    })();
+    Adaptive.AppContextWebviewBridge = AppContextWebviewBridge;
+    var AppServerBridge = (function () {
+        function AppServerBridge() {
+        }
+        AppServerBridge.prototype.getBaseURI = function () {
+            return null;
+        };
+        AppServerBridge.prototype.getHost = function () {
+            return null;
+        };
+        AppServerBridge.prototype.getPath = function () {
+            return null;
+        };
+        AppServerBridge.prototype.getPort = function () {
+            return null;
+        };
+        AppServerBridge.prototype.getScheme = function () {
+            return null;
+        };
+        AppServerBridge.prototype.pauseServer = function () {
+        };
+        AppServerBridge.prototype.resumeServer = function () {
+        };
+        AppServerBridge.prototype.startServer = function () {
+        };
+        AppServerBridge.prototype.stopServer = function () {
+        };
+        return AppServerBridge;
+    })();
+    Adaptive.AppServerBridge = AppServerBridge;
     var BaseListener = (function () {
         function BaseListener(id) {
             this.id = id;
@@ -85,6 +138,31 @@ var Adaptive;
         return BaseListener;
     })();
     Adaptive.BaseListener = BaseListener;
+    var AppServerManagerBridge = (function () {
+        function AppServerManagerBridge() {
+        }
+        AppServerManagerBridge.prototype.addServerListener = function () {
+        };
+        AppServerManagerBridge.prototype.getServers = function () {
+            return null;
+        };
+        AppServerManagerBridge.prototype.pauseServer = function () {
+        };
+        AppServerManagerBridge.prototype.removeServerListener = function () {
+        };
+        AppServerManagerBridge.prototype.removeServerListeners = function () {
+        };
+        AppServerManagerBridge.prototype.resumeServer = function () {
+        };
+        AppServerManagerBridge.prototype.startServer = function () {
+        };
+        AppServerManagerBridge.prototype.stopServer = function () {
+        };
+        AppServerManagerBridge.prototype.stopServers = function () {
+        };
+        return AppServerManagerBridge;
+    })();
+    Adaptive.AppServerManagerBridge = AppServerManagerBridge;
     /**
      *  Enumerations for IAppResource Payload
      **/
@@ -143,6 +221,54 @@ var Adaptive;
         return IAppResourceTypeEnum;
     })();
     Adaptive.IAppResourceTypeEnum = IAppResourceTypeEnum;
+    var AppResourceBridge = (function () {
+        function AppResourceBridge() {
+        }
+        AppResourceBridge.prototype.geType = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getData = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getDataPathLinked = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getDataStored = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getFormat = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getMd5 = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getMimetype = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getName = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getPath = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getSize = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getSizeStored = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getTimestamp = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getType = function () {
+            return null;
+        };
+        AppResourceBridge.prototype.getUuid = function () {
+            return null;
+        };
+        return AppResourceBridge;
+    })();
+    Adaptive.AppResourceBridge = AppResourceBridge;
     /**
      *  Enumerations for IAppContext Type
      **/
@@ -168,6 +294,66 @@ var Adaptive;
         return IAppContextTypeEnum;
     })();
     Adaptive.IAppContextTypeEnum = IAppContextTypeEnum;
+    var AppContextBridge = (function () {
+        function AppContextBridge() {
+        }
+        AppContextBridge.prototype.getContext = function () {
+            return null;
+        };
+        AppContextBridge.prototype.getContextType = function () {
+            return null;
+        };
+        return AppContextBridge;
+    })();
+    Adaptive.AppContextBridge = AppContextBridge;
+    var AppRegistryBridge = (function () {
+        function AppRegistryBridge() {
+        }
+        AppRegistryBridge.prototype.getApplicationAnalytics = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getApplicationGlobalization = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getApplicationLifecycle = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getApplicationManagement = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getApplicationPrinting = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getApplicationSettings = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getApplicationUpdate = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getPlatformContext = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getPlatformContextWeb = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getSystemCapabilities = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getSystemDevice = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getSystemDisplay = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getSystemOS = function () {
+            return null;
+        };
+        AppRegistryBridge.prototype.getSystemRuntime = function () {
+            return null;
+        };
+        return AppRegistryBridge;
+    })();
+    Adaptive.AppRegistryBridge = AppRegistryBridge;
     var BaseCallback = (function () {
         function BaseCallback(id) {
             this.id = id;
@@ -197,6 +383,15 @@ var Adaptive;
         return ITelephonyStatusEnum;
     })();
     Adaptive.ITelephonyStatusEnum = ITelephonyStatusEnum;
+    var TelephonyBridge = (function () {
+        function TelephonyBridge() {
+        }
+        TelephonyBridge.prototype.call = function () {
+            return null;
+        };
+        return TelephonyBridge;
+    })();
+    Adaptive.TelephonyBridge = TelephonyBridge;
     /**
      *  Enumerations for INetworkReachabilityCallback Error
      **/
@@ -242,26 +437,24 @@ var Adaptive;
     })();
     Adaptive.INetworkReachabilityCallbackWarningEnum = INetworkReachabilityCallbackWarningEnum;
     var NetworkReachabilityCallback = (function () {
-        function NetworkReachabilityCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function NetworkReachabilityCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        NetworkReachabilityCallback.prototype.toString = function () {
+            return "NetworkReachabilityCallback{" + this.id + "}";
+        };
+        NetworkReachabilityCallback.prototype.getId = function () {
+            return this.id;
+        };
         NetworkReachabilityCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The NetworkReachabilityCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        NetworkReachabilityCallback.prototype.onWarning = function (result, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The NetworkReachabilityCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(result, warning);
             }
         };
         NetworkReachabilityCallback.prototype.onResult = function (result) {
@@ -272,15 +465,56 @@ var Adaptive;
                 this.onResultFunction(result);
             }
         };
-        NetworkReachabilityCallback.prototype.toString = function () {
-            return "NetworkReachabilityCallback{" + this.id + "}";
-        };
-        NetworkReachabilityCallback.prototype.getId = function () {
-            return this.id;
+        NetworkReachabilityCallback.prototype.onWarning = function (result, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The NetworkReachabilityCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(result, warning);
+            }
         };
         return NetworkReachabilityCallback;
     })();
     Adaptive.NetworkReachabilityCallback = NetworkReachabilityCallback;
+    var FileSystemBridge = (function () {
+        function FileSystemBridge() {
+        }
+        FileSystemBridge.prototype.create = function () {
+        };
+        FileSystemBridge.prototype.create = function () {
+        };
+        FileSystemBridge.prototype.create = function () {
+        };
+        FileSystemBridge.prototype.getApplicationCacheFolder = function () {
+            return null;
+        };
+        FileSystemBridge.prototype.getApplicationDocumentsFolder = function () {
+            return null;
+        };
+        FileSystemBridge.prototype.getApplicationFolder = function () {
+            return null;
+        };
+        FileSystemBridge.prototype.getPath = function () {
+            return null;
+        };
+        FileSystemBridge.prototype.getPath = function () {
+            return null;
+        };
+        FileSystemBridge.prototype.getSeparator = function () {
+            return null;
+        };
+        FileSystemBridge.prototype.isSameFile = function () {
+            return null;
+        };
+        FileSystemBridge.prototype.isSamePath = function () {
+            return null;
+        };
+        FileSystemBridge.prototype.toPath = function () {
+            return null;
+        };
+        return FileSystemBridge;
+    })();
+    Adaptive.FileSystemBridge = FileSystemBridge;
     /**
      *  Enumerations for IServiceResultCallback Error
      **/
@@ -325,26 +559,24 @@ var Adaptive;
     })();
     Adaptive.IServiceResultCallbackWarningEnum = IServiceResultCallbackWarningEnum;
     var ServiceResultCallback = (function () {
-        function ServiceResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function ServiceResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        ServiceResultCallback.prototype.toString = function () {
+            return "ServiceResultCallback{" + this.id + "}";
+        };
+        ServiceResultCallback.prototype.getId = function () {
+            return this.id;
+        };
         ServiceResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The ServiceResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        ServiceResultCallback.prototype.onWarning = function (response, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The ServiceResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(response, warning);
             }
         };
         ServiceResultCallback.prototype.onResult = function (response) {
@@ -355,15 +587,26 @@ var Adaptive;
                 this.onResultFunction(response);
             }
         };
-        ServiceResultCallback.prototype.toString = function () {
-            return "ServiceResultCallback{" + this.id + "}";
-        };
-        ServiceResultCallback.prototype.getId = function () {
-            return this.id;
+        ServiceResultCallback.prototype.onWarning = function (response, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The ServiceResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(response, warning);
+            }
         };
         return ServiceResultCallback;
     })();
     Adaptive.ServiceResultCallback = ServiceResultCallback;
+    var BrowserBridge = (function () {
+        function BrowserBridge() {
+        }
+        BrowserBridge.prototype.openBrowser = function () {
+            return null;
+        };
+        return BrowserBridge;
+    })();
+    Adaptive.BrowserBridge = BrowserBridge;
     /**
      *  Enumerations for IGeolocationListener Error
      **/
@@ -399,26 +642,24 @@ var Adaptive;
     })();
     Adaptive.IGeolocationListenerWarningEnum = IGeolocationListenerWarningEnum;
     var GeolocationListener = (function () {
-        function GeolocationListener(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function GeolocationListener(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        GeolocationListener.prototype.toString = function () {
+            return "GeolocationListener{" + this.id + "}";
+        };
+        GeolocationListener.prototype.getId = function () {
+            return this.id;
+        };
         GeolocationListener.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The GeolocationListener does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        GeolocationListener.prototype.onWarning = function (geolocation, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The GeolocationListener does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(geolocation, warning);
             }
         };
         GeolocationListener.prototype.onResult = function (geolocation) {
@@ -429,11 +670,13 @@ var Adaptive;
                 this.onResultFunction(geolocation);
             }
         };
-        GeolocationListener.prototype.toString = function () {
-            return "GeolocationListener{" + this.id + "}";
-        };
-        GeolocationListener.prototype.getId = function () {
-            return this.id;
+        GeolocationListener.prototype.onWarning = function (geolocation, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The GeolocationListener does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(geolocation, warning);
+            }
         };
         return GeolocationListener;
     })();
@@ -471,26 +714,24 @@ var Adaptive;
     })();
     Adaptive.IContactResultCallbackWarningEnum = IContactResultCallbackWarningEnum;
     var ContactResultCallback = (function () {
-        function ContactResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function ContactResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        ContactResultCallback.prototype.toString = function () {
+            return "ContactResultCallback{" + this.id + "}";
+        };
+        ContactResultCallback.prototype.getId = function () {
+            return this.id;
+        };
         ContactResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The ContactResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        ContactResultCallback.prototype.onWarning = function (contacts, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The ContactResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(contacts, warning);
             }
         };
         ContactResultCallback.prototype.onResult = function (contacts) {
@@ -501,11 +742,13 @@ var Adaptive;
                 this.onResultFunction(contacts);
             }
         };
-        ContactResultCallback.prototype.toString = function () {
-            return "ContactResultCallback{" + this.id + "}";
-        };
-        ContactResultCallback.prototype.getId = function () {
-            return this.id;
+        ContactResultCallback.prototype.onWarning = function (contacts, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The ContactResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(contacts, warning);
+            }
         };
         return ContactResultCallback;
     })();
@@ -544,26 +787,24 @@ var Adaptive;
     })();
     Adaptive.IDatabaseResultCallbackWarningEnum = IDatabaseResultCallbackWarningEnum;
     var DatabaseResultCallback = (function () {
-        function DatabaseResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function DatabaseResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        DatabaseResultCallback.prototype.toString = function () {
+            return "DatabaseResultCallback{" + this.id + "}";
+        };
+        DatabaseResultCallback.prototype.getId = function () {
+            return this.id;
+        };
         DatabaseResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The DatabaseResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        DatabaseResultCallback.prototype.onWarning = function (database, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The DatabaseResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(database, warning);
             }
         };
         DatabaseResultCallback.prototype.onResult = function (database) {
@@ -574,11 +815,13 @@ var Adaptive;
                 this.onResultFunction(database);
             }
         };
-        DatabaseResultCallback.prototype.toString = function () {
-            return "DatabaseResultCallback{" + this.id + "}";
-        };
-        DatabaseResultCallback.prototype.getId = function () {
-            return this.id;
+        DatabaseResultCallback.prototype.onWarning = function (database, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The DatabaseResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(database, warning);
+            }
         };
         return DatabaseResultCallback;
     })();
@@ -714,63 +957,106 @@ var Adaptive;
         return ICapabilitiesSensorEnum;
     })();
     Adaptive.ICapabilitiesSensorEnum = ICapabilitiesSensorEnum;
+    var CapabilitiesBridge = (function () {
+        function CapabilitiesBridge() {
+        }
+        CapabilitiesBridge.prototype.hasButtonSupport = function () {
+            return null;
+        };
+        CapabilitiesBridge.prototype.hasCommunicationSupport = function () {
+            return null;
+        };
+        CapabilitiesBridge.prototype.hasDataSupport = function () {
+            return null;
+        };
+        CapabilitiesBridge.prototype.hasMediaSupport = function () {
+            return null;
+        };
+        CapabilitiesBridge.prototype.hasNetSupport = function () {
+            return null;
+        };
+        CapabilitiesBridge.prototype.hasNotificationSupport = function () {
+            return null;
+        };
+        CapabilitiesBridge.prototype.hasSensorSupport = function () {
+            return null;
+        };
+        return CapabilitiesBridge;
+    })();
+    Adaptive.CapabilitiesBridge = CapabilitiesBridge;
+    var AccelerometerBridge = (function () {
+        function AccelerometerBridge() {
+        }
+        AccelerometerBridge.prototype.addAccelerationListener = function () {
+        };
+        AccelerometerBridge.prototype.removeAccelerationListener = function () {
+        };
+        AccelerometerBridge.prototype.removeAccelerationListeners = function () {
+        };
+        return AccelerometerBridge;
+    })();
+    Adaptive.AccelerometerBridge = AccelerometerBridge;
+    var ServiceBridge = (function () {
+        function ServiceBridge() {
+        }
+        ServiceBridge.prototype.getService = function () {
+            return null;
+        };
+        ServiceBridge.prototype.invokeService = function () {
+        };
+        ServiceBridge.prototype.isRegistered = function () {
+            return null;
+        };
+        ServiceBridge.prototype.isRegistered = function () {
+            return null;
+        };
+        ServiceBridge.prototype.registerService = function () {
+        };
+        ServiceBridge.prototype.unregisterService = function () {
+        };
+        ServiceBridge.prototype.unregisterServices = function () {
+        };
+        return ServiceBridge;
+    })();
+    Adaptive.ServiceBridge = ServiceBridge;
+    var LifecycleBridge = (function () {
+        function LifecycleBridge() {
+        }
+        LifecycleBridge.prototype.addLifecycleListener = function () {
+        };
+        LifecycleBridge.prototype.isBackground = function () {
+            return null;
+        };
+        LifecycleBridge.prototype.removeLifecycleListener = function () {
+        };
+        LifecycleBridge.prototype.removeLifecycleListeners = function () {
+        };
+        return LifecycleBridge;
+    })();
+    Adaptive.LifecycleBridge = LifecycleBridge;
     var AppServerListener = (function () {
-        function AppServerListener(id, onPausedFunction, onStartFunction, onResumingFunction, onResumedFunction, onStoppingFunction, onStoppedFunction, onPausingFunction) {
+        function AppServerListener(id, onPausedFunction, onPausingFunction, onResumedFunction, onResumingFunction, onStartFunction, onStoppedFunction, onStoppingFunction) {
             this.id = id;
             this.onPausedFunction = onPausedFunction;
-            this.onStartFunction = onStartFunction;
-            this.onResumingFunction = onResumingFunction;
-            this.onResumedFunction = onResumedFunction;
-            this.onStoppingFunction = onStoppingFunction;
-            this.onStoppedFunction = onStoppedFunction;
             this.onPausingFunction = onPausingFunction;
+            this.onResumedFunction = onResumedFunction;
+            this.onResumingFunction = onResumingFunction;
+            this.onStartFunction = onStartFunction;
+            this.onStoppedFunction = onStoppedFunction;
+            this.onStoppingFunction = onStoppingFunction;
         }
+        AppServerListener.prototype.toString = function () {
+            return "AppServerListener{" + this.id + "}";
+        };
+        AppServerListener.prototype.getId = function () {
+            return this.id;
+        };
         AppServerListener.prototype.onPaused = function (server) {
             if (typeof this.onPausedFunction === 'undefined') {
                 console.log("WARNING: The AppServerListener does not define the onPausedFunction.");
             }
             else {
                 this.onPausedFunction(server);
-            }
-        };
-        AppServerListener.prototype.onStart = function (server) {
-            if (typeof this.onStartFunction === 'undefined') {
-                console.log("WARNING: The AppServerListener does not define the onStartFunction.");
-            }
-            else {
-                this.onStartFunction(server);
-            }
-        };
-        AppServerListener.prototype.onResuming = function (server) {
-            if (typeof this.onResumingFunction === 'undefined') {
-                console.log("WARNING: The AppServerListener does not define the onResumingFunction.");
-            }
-            else {
-                this.onResumingFunction(server);
-            }
-        };
-        AppServerListener.prototype.onResumed = function (server) {
-            if (typeof this.onResumedFunction === 'undefined') {
-                console.log("WARNING: The AppServerListener does not define the onResumedFunction.");
-            }
-            else {
-                this.onResumedFunction(server);
-            }
-        };
-        AppServerListener.prototype.onStopping = function (server) {
-            if (typeof this.onStoppingFunction === 'undefined') {
-                console.log("WARNING: The AppServerListener does not define the onStoppingFunction.");
-            }
-            else {
-                this.onStoppingFunction(server);
-            }
-        };
-        AppServerListener.prototype.onStopped = function (server) {
-            if (typeof this.onStoppedFunction === 'undefined') {
-                console.log("WARNING: The AppServerListener does not define the onStoppedFunction.");
-            }
-            else {
-                this.onStoppedFunction(server);
             }
         };
         AppServerListener.prototype.onPausing = function (server) {
@@ -781,15 +1067,57 @@ var Adaptive;
                 this.onPausingFunction(server);
             }
         };
-        AppServerListener.prototype.toString = function () {
-            return "AppServerListener{" + this.id + "}";
+        AppServerListener.prototype.onResumed = function (server) {
+            if (typeof this.onResumedFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onResumedFunction.");
+            }
+            else {
+                this.onResumedFunction(server);
+            }
         };
-        AppServerListener.prototype.getId = function () {
-            return this.id;
+        AppServerListener.prototype.onResuming = function (server) {
+            if (typeof this.onResumingFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onResumingFunction.");
+            }
+            else {
+                this.onResumingFunction(server);
+            }
+        };
+        AppServerListener.prototype.onStart = function (server) {
+            if (typeof this.onStartFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onStartFunction.");
+            }
+            else {
+                this.onStartFunction(server);
+            }
+        };
+        AppServerListener.prototype.onStopped = function (server) {
+            if (typeof this.onStoppedFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onStoppedFunction.");
+            }
+            else {
+                this.onStoppedFunction(server);
+            }
+        };
+        AppServerListener.prototype.onStopping = function (server) {
+            if (typeof this.onStoppingFunction === 'undefined') {
+                console.log("WARNING: The AppServerListener does not define the onStoppingFunction.");
+            }
+            else {
+                this.onStoppingFunction(server);
+            }
         };
         return AppServerListener;
     })();
     Adaptive.AppServerListener = AppServerListener;
+    var MessagingBridge = (function () {
+        function MessagingBridge() {
+        }
+        MessagingBridge.prototype.sendSMS = function () {
+        };
+        return MessagingBridge;
+    })();
+    Adaptive.MessagingBridge = MessagingBridge;
     /**
      *  Enumerations for ILifecycleListener Error
      **/
@@ -824,26 +1152,24 @@ var Adaptive;
     })();
     Adaptive.ILifecycleListenerWarningEnum = ILifecycleListenerWarningEnum;
     var LifecycleListener = (function () {
-        function LifecycleListener(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function LifecycleListener(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        LifecycleListener.prototype.toString = function () {
+            return "LifecycleListener{" + this.id + "}";
+        };
+        LifecycleListener.prototype.getId = function () {
+            return this.id;
+        };
         LifecycleListener.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The LifecycleListener does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        LifecycleListener.prototype.onWarning = function (lifecycle, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The LifecycleListener does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(lifecycle, warning);
             }
         };
         LifecycleListener.prototype.onResult = function (lifecycle) {
@@ -854,15 +1180,29 @@ var Adaptive;
                 this.onResultFunction(lifecycle);
             }
         };
-        LifecycleListener.prototype.toString = function () {
-            return "LifecycleListener{" + this.id + "}";
-        };
-        LifecycleListener.prototype.getId = function () {
-            return this.id;
+        LifecycleListener.prototype.onWarning = function (lifecycle, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The LifecycleListener does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(lifecycle, warning);
+            }
         };
         return LifecycleListener;
     })();
     Adaptive.LifecycleListener = LifecycleListener;
+    var GeolocationBridge = (function () {
+        function GeolocationBridge() {
+        }
+        GeolocationBridge.prototype.addGeolocationListener = function () {
+        };
+        GeolocationBridge.prototype.removeGeolocationListener = function () {
+        };
+        GeolocationBridge.prototype.removeGeolocationListeners = function () {
+        };
+        return GeolocationBridge;
+    })();
+    Adaptive.GeolocationBridge = GeolocationBridge;
     /**
      *  Enumerations for IContactPhotoResultCallback Error
      **/
@@ -897,26 +1237,24 @@ var Adaptive;
     })();
     Adaptive.IContactPhotoResultCallbackWarningEnum = IContactPhotoResultCallbackWarningEnum;
     var ContactPhotoResultCallback = (function () {
-        function ContactPhotoResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function ContactPhotoResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        ContactPhotoResultCallback.prototype.toString = function () {
+            return "ContactPhotoResultCallback{" + this.id + "}";
+        };
+        ContactPhotoResultCallback.prototype.getId = function () {
+            return this.id;
+        };
         ContactPhotoResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The ContactPhotoResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        ContactPhotoResultCallback.prototype.onWarning = function (contactPhoto, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The ContactPhotoResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(contactPhoto, warning);
             }
         };
         ContactPhotoResultCallback.prototype.onResult = function (contactPhoto) {
@@ -927,15 +1265,58 @@ var Adaptive;
                 this.onResultFunction(contactPhoto);
             }
         };
-        ContactPhotoResultCallback.prototype.toString = function () {
-            return "ContactPhotoResultCallback{" + this.id + "}";
-        };
-        ContactPhotoResultCallback.prototype.getId = function () {
-            return this.id;
+        ContactPhotoResultCallback.prototype.onWarning = function (contactPhoto, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The ContactPhotoResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(contactPhoto, warning);
+            }
         };
         return ContactPhotoResultCallback;
     })();
     Adaptive.ContactPhotoResultCallback = ContactPhotoResultCallback;
+    var SecurityBridge = (function () {
+        function SecurityBridge() {
+        }
+        SecurityBridge.prototype.deleteSecureKeyValuePairs = function () {
+        };
+        SecurityBridge.prototype.getSecureKeyValuePairs = function () {
+        };
+        SecurityBridge.prototype.isDeviceModified = function () {
+            return null;
+        };
+        SecurityBridge.prototype.setSecureKeyValuePairs = function () {
+        };
+        return SecurityBridge;
+    })();
+    Adaptive.SecurityBridge = SecurityBridge;
+    var DatabaseBridge = (function () {
+        function DatabaseBridge() {
+        }
+        DatabaseBridge.prototype.createDatabase = function () {
+        };
+        DatabaseBridge.prototype.createTable = function () {
+        };
+        DatabaseBridge.prototype.deleteDatabase = function () {
+        };
+        DatabaseBridge.prototype.deleteTable = function () {
+        };
+        DatabaseBridge.prototype.executeSqlQuery = function () {
+        };
+        DatabaseBridge.prototype.executeSqlStatement = function () {
+        };
+        DatabaseBridge.prototype.executeSqlTransactions = function () {
+        };
+        DatabaseBridge.prototype.existsDatabase = function () {
+            return null;
+        };
+        DatabaseBridge.prototype.existsTable = function () {
+            return null;
+        };
+        return DatabaseBridge;
+    })();
+    Adaptive.DatabaseBridge = DatabaseBridge;
     /**
      *  Enumerations for IAccelerationListener Error
      **/
@@ -969,26 +1350,24 @@ var Adaptive;
     })();
     Adaptive.IAccelerationListenerWarningEnum = IAccelerationListenerWarningEnum;
     var AccelerationListener = (function () {
-        function AccelerationListener(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function AccelerationListener(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        AccelerationListener.prototype.toString = function () {
+            return "AccelerationListener{" + this.id + "}";
+        };
+        AccelerationListener.prototype.getId = function () {
+            return this.id;
+        };
         AccelerationListener.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The AccelerationListener does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        AccelerationListener.prototype.onWarning = function (acceleration, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The AccelerationListener does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(acceleration, warning);
             }
         };
         AccelerationListener.prototype.onResult = function (acceleration) {
@@ -999,15 +1378,27 @@ var Adaptive;
                 this.onResultFunction(acceleration);
             }
         };
-        AccelerationListener.prototype.toString = function () {
-            return "AccelerationListener{" + this.id + "}";
-        };
-        AccelerationListener.prototype.getId = function () {
-            return this.id;
+        AccelerationListener.prototype.onWarning = function (acceleration, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The AccelerationListener does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(acceleration, warning);
+            }
         };
         return AccelerationListener;
     })();
     Adaptive.AccelerationListener = AccelerationListener;
+    var NetworkReachabilityBridge = (function () {
+        function NetworkReachabilityBridge() {
+        }
+        NetworkReachabilityBridge.prototype.isNetworkReachable = function () {
+        };
+        NetworkReachabilityBridge.prototype.isNetworkServiceReachable = function () {
+        };
+        return NetworkReachabilityBridge;
+    })();
+    Adaptive.NetworkReachabilityBridge = NetworkReachabilityBridge;
     /**
      *  Enumerations for ISecureKVResultCallback Error
      **/
@@ -1040,26 +1431,24 @@ var Adaptive;
     })();
     Adaptive.ISecureKVResultCallbackWarningEnum = ISecureKVResultCallbackWarningEnum;
     var SecureKVResultCallback = (function () {
-        function SecureKVResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function SecureKVResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        SecureKVResultCallback.prototype.toString = function () {
+            return "SecureKVResultCallback{" + this.id + "}";
+        };
+        SecureKVResultCallback.prototype.getId = function () {
+            return this.id;
+        };
         SecureKVResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The SecureKVResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        SecureKVResultCallback.prototype.onWarning = function (keyValues, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The SecureKVResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(keyValues, warning);
             }
         };
         SecureKVResultCallback.prototype.onResult = function (keyValues) {
@@ -1070,15 +1459,32 @@ var Adaptive;
                 this.onResultFunction(keyValues);
             }
         };
-        SecureKVResultCallback.prototype.toString = function () {
-            return "SecureKVResultCallback{" + this.id + "}";
-        };
-        SecureKVResultCallback.prototype.getId = function () {
-            return this.id;
+        SecureKVResultCallback.prototype.onWarning = function (keyValues, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The SecureKVResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(keyValues, warning);
+            }
         };
         return SecureKVResultCallback;
     })();
     Adaptive.SecureKVResultCallback = SecureKVResultCallback;
+    var GlobalizationBridge = (function () {
+        function GlobalizationBridge() {
+        }
+        GlobalizationBridge.prototype.getLocaleSupportedDescriptors = function () {
+            return null;
+        };
+        GlobalizationBridge.prototype.getResourceLiteral = function () {
+            return null;
+        };
+        GlobalizationBridge.prototype.getResourceLiterals = function () {
+            return null;
+        };
+        return GlobalizationBridge;
+    })();
+    Adaptive.GlobalizationBridge = GlobalizationBridge;
     /**
      *  Enumerations for IFileDataResultCallback Error
      **/
@@ -1112,26 +1518,24 @@ var Adaptive;
     })();
     Adaptive.IFileDataResultCallbackWarningEnum = IFileDataResultCallbackWarningEnum;
     var FileDataResultCallback = (function () {
-        function FileDataResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function FileDataResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        FileDataResultCallback.prototype.toString = function () {
+            return "FileDataResultCallback{" + this.id + "}";
+        };
+        FileDataResultCallback.prototype.getId = function () {
+            return this.id;
+        };
         FileDataResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The FileDataResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        FileDataResultCallback.prototype.onWarning = function (file, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The FileDataResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(file, warning);
             }
         };
         FileDataResultCallback.prototype.onResult = function (file, data) {
@@ -1142,11 +1546,13 @@ var Adaptive;
                 this.onResultFunction(file, data);
             }
         };
-        FileDataResultCallback.prototype.toString = function () {
-            return "FileDataResultCallback{" + this.id + "}";
-        };
-        FileDataResultCallback.prototype.getId = function () {
-            return this.id;
+        FileDataResultCallback.prototype.onWarning = function (file, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The FileDataResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(file, warning);
+            }
         };
         return FileDataResultCallback;
     })();
@@ -1188,26 +1594,24 @@ var Adaptive;
     })();
     Adaptive.ITableResultCallbackWarningEnum = ITableResultCallbackWarningEnum;
     var TableResultCallback = (function () {
-        function TableResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function TableResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        TableResultCallback.prototype.toString = function () {
+            return "TableResultCallback{" + this.id + "}";
+        };
+        TableResultCallback.prototype.getId = function () {
+            return this.id;
+        };
         TableResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The TableResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        TableResultCallback.prototype.onWarning = function (table, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The TableResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(table, warning);
             }
         };
         TableResultCallback.prototype.onResult = function (table) {
@@ -1218,15 +1622,121 @@ var Adaptive;
                 this.onResultFunction(table);
             }
         };
-        TableResultCallback.prototype.toString = function () {
-            return "TableResultCallback{" + this.id + "}";
-        };
-        TableResultCallback.prototype.getId = function () {
-            return this.id;
+        TableResultCallback.prototype.onWarning = function (table, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The TableResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(table, warning);
+            }
         };
         return TableResultCallback;
     })();
     Adaptive.TableResultCallback = TableResultCallback;
+    var FilePathBridge = (function () {
+        function FilePathBridge() {
+        }
+        FilePathBridge.prototype.endsWith = function () {
+            return null;
+        };
+        FilePathBridge.prototype.endsWith = function () {
+            return null;
+        };
+        FilePathBridge.prototype.equalPath = function () {
+            return null;
+        };
+        FilePathBridge.prototype.equals = function () {
+            return null;
+        };
+        FilePathBridge.prototype.getFileName = function () {
+            return null;
+        };
+        FilePathBridge.prototype.getFileSystem = function () {
+            return null;
+        };
+        FilePathBridge.prototype.getName = function () {
+            return null;
+        };
+        FilePathBridge.prototype.getNameCount = function () {
+            return null;
+        };
+        FilePathBridge.prototype.getParent = function () {
+            return null;
+        };
+        FilePathBridge.prototype.getRoot = function () {
+            return null;
+        };
+        FilePathBridge.prototype.isAbsolute = function () {
+            return null;
+        };
+        FilePathBridge.prototype.normalize = function () {
+            return null;
+        };
+        FilePathBridge.prototype.relativize = function () {
+            return null;
+        };
+        FilePathBridge.prototype.resolve = function () {
+            return null;
+        };
+        FilePathBridge.prototype.resolve = function () {
+            return null;
+        };
+        FilePathBridge.prototype.resolveSibling = function () {
+            return null;
+        };
+        FilePathBridge.prototype.resolveSibling = function () {
+            return null;
+        };
+        FilePathBridge.prototype.startsWith = function () {
+            return null;
+        };
+        FilePathBridge.prototype.startsWith = function () {
+            return null;
+        };
+        FilePathBridge.prototype.toAbsolutePath = function () {
+            return null;
+        };
+        FilePathBridge.prototype.toFile = function () {
+            return null;
+        };
+        FilePathBridge.prototype.toString = function () {
+            return null;
+        };
+        return FilePathBridge;
+    })();
+    Adaptive.FilePathBridge = FilePathBridge;
+    var SessionBridge = (function () {
+        function SessionBridge() {
+        }
+        SessionBridge.prototype.getAttribute = function () {
+            return null;
+        };
+        SessionBridge.prototype.getAttributes = function () {
+            return null;
+        };
+        SessionBridge.prototype.getCookies = function () {
+            return null;
+        };
+        SessionBridge.prototype.listAttributeNames = function () {
+            return null;
+        };
+        SessionBridge.prototype.removeAttribute = function () {
+        };
+        SessionBridge.prototype.removeAttributes = function () {
+        };
+        SessionBridge.prototype.removeCookie = function () {
+        };
+        SessionBridge.prototype.removeCookies = function () {
+        };
+        SessionBridge.prototype.setAttribute = function () {
+        };
+        SessionBridge.prototype.setCookie = function () {
+        };
+        SessionBridge.prototype.setCookies = function () {
+        };
+        return SessionBridge;
+    })();
+    Adaptive.SessionBridge = SessionBridge;
     /**
      *  Enumerations for IFileListResultCallback Error
      **/
@@ -1259,26 +1769,24 @@ var Adaptive;
     })();
     Adaptive.IFileListResultCallbackWarningEnum = IFileListResultCallbackWarningEnum;
     var FileListResultCallback = (function () {
-        function FileListResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function FileListResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        FileListResultCallback.prototype.toString = function () {
+            return "FileListResultCallback{" + this.id + "}";
+        };
+        FileListResultCallback.prototype.getId = function () {
+            return this.id;
+        };
         FileListResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The FileListResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        FileListResultCallback.prototype.onWarning = function (files, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The FileListResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(files, warning);
             }
         };
         FileListResultCallback.prototype.onResult = function (files) {
@@ -1289,15 +1797,43 @@ var Adaptive;
                 this.onResultFunction(files);
             }
         };
-        FileListResultCallback.prototype.toString = function () {
-            return "FileListResultCallback{" + this.id + "}";
-        };
-        FileListResultCallback.prototype.getId = function () {
-            return this.id;
+        FileListResultCallback.prototype.onWarning = function (files, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The FileListResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(files, warning);
+            }
         };
         return FileListResultCallback;
     })();
     Adaptive.FileListResultCallback = FileListResultCallback;
+    var VideoBridge = (function () {
+        function VideoBridge() {
+        }
+        VideoBridge.prototype.playStream = function () {
+        };
+        return VideoBridge;
+    })();
+    Adaptive.VideoBridge = VideoBridge;
+    var DeviceBridge = (function () {
+        function DeviceBridge() {
+        }
+        DeviceBridge.prototype.addButtonListener = function () {
+        };
+        DeviceBridge.prototype.getDeviceInfo = function () {
+            return null;
+        };
+        DeviceBridge.prototype.getLocaleCurrent = function () {
+            return null;
+        };
+        DeviceBridge.prototype.removeButtonListener = function () {
+        };
+        DeviceBridge.prototype.removeButtonListeners = function () {
+        };
+        return DeviceBridge;
+    })();
+    Adaptive.DeviceBridge = DeviceBridge;
     /**
      *  Enumerations for IButtonListener Error
      **/
@@ -1329,26 +1865,24 @@ var Adaptive;
     })();
     Adaptive.IButtonListenerWarningEnum = IButtonListenerWarningEnum;
     var ButtonListener = (function () {
-        function ButtonListener(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function ButtonListener(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        ButtonListener.prototype.toString = function () {
+            return "ButtonListener{" + this.id + "}";
+        };
+        ButtonListener.prototype.getId = function () {
+            return this.id;
+        };
         ButtonListener.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The ButtonListener does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        ButtonListener.prototype.onWarning = function (button, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The ButtonListener does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(button, warning);
             }
         };
         ButtonListener.prototype.onResult = function (button) {
@@ -1359,15 +1893,34 @@ var Adaptive;
                 this.onResultFunction(button);
             }
         };
-        ButtonListener.prototype.toString = function () {
-            return "ButtonListener{" + this.id + "}";
-        };
-        ButtonListener.prototype.getId = function () {
-            return this.id;
+        ButtonListener.prototype.onWarning = function (button, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The ButtonListener does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(button, warning);
+            }
         };
         return ButtonListener;
     })();
     Adaptive.ButtonListener = ButtonListener;
+    var MailBridge = (function () {
+        function MailBridge() {
+        }
+        MailBridge.prototype.sendEmail = function () {
+        };
+        return MailBridge;
+    })();
+    Adaptive.MailBridge = MailBridge;
+    var OSBridge = (function () {
+        function OSBridge() {
+        }
+        OSBridge.prototype.getOSInfo = function () {
+            return null;
+        };
+        return OSBridge;
+    })();
+    Adaptive.OSBridge = OSBridge;
     /**
      *  Enumerations for IFileResultCallback Error
      **/
@@ -1402,26 +1955,24 @@ var Adaptive;
     })();
     Adaptive.IFileResultCallbackWarningEnum = IFileResultCallbackWarningEnum;
     var FileResultCallback = (function () {
-        function FileResultCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function FileResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        FileResultCallback.prototype.toString = function () {
+            return "FileResultCallback{" + this.id + "}";
+        };
+        FileResultCallback.prototype.getId = function () {
+            return this.id;
+        };
         FileResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The FileResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        FileResultCallback.prototype.onWarning = function (sourceFile, destinationFile, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The FileResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(sourceFile, destinationFile, warning);
             }
         };
         FileResultCallback.prototype.onResult = function (storageFile) {
@@ -1432,15 +1983,28 @@ var Adaptive;
                 this.onResultFunction(storageFile);
             }
         };
-        FileResultCallback.prototype.toString = function () {
-            return "FileResultCallback{" + this.id + "}";
-        };
-        FileResultCallback.prototype.getId = function () {
-            return this.id;
+        FileResultCallback.prototype.onWarning = function (sourceFile, destinationFile, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The FileResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(sourceFile, destinationFile, warning);
+            }
         };
         return FileResultCallback;
     })();
     Adaptive.FileResultCallback = FileResultCallback;
+    var RuntimeBridge = (function () {
+        function RuntimeBridge() {
+        }
+        RuntimeBridge.prototype.dismissApplication = function () {
+        };
+        RuntimeBridge.prototype.dismissSplashScreen = function () {
+            return null;
+        };
+        return RuntimeBridge;
+    })();
+    Adaptive.RuntimeBridge = RuntimeBridge;
     /**
      *  Enumerations for IContact FieldGroup
      **/
@@ -1480,6 +2044,29 @@ var Adaptive;
         return IContactFilterEnum;
     })();
     Adaptive.IContactFilterEnum = IContactFilterEnum;
+    var ContactBridge = (function () {
+        function ContactBridge() {
+        }
+        ContactBridge.prototype.getContact = function () {
+        };
+        ContactBridge.prototype.getContactPhoto = function () {
+        };
+        ContactBridge.prototype.getContacts = function () {
+        };
+        ContactBridge.prototype.getContacts = function () {
+        };
+        ContactBridge.prototype.getContacts = function () {
+        };
+        ContactBridge.prototype.searchContacts = function () {
+        };
+        ContactBridge.prototype.searchContacts = function () {
+        };
+        ContactBridge.prototype.setContactPhoto = function () {
+            return null;
+        };
+        return ContactBridge;
+    })();
+    Adaptive.ContactBridge = ContactBridge;
     /**
      *  Enumerations for IMessagingCallback Error
      **/
@@ -1516,26 +2103,24 @@ var Adaptive;
     })();
     Adaptive.IMessagingCallbackWarningEnum = IMessagingCallbackWarningEnum;
     var MessagingCallback = (function () {
-        function MessagingCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function MessagingCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        MessagingCallback.prototype.toString = function () {
+            return "MessagingCallback{" + this.id + "}";
+        };
+        MessagingCallback.prototype.getId = function () {
+            return this.id;
+        };
         MessagingCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The MessagingCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
-            }
-        };
-        MessagingCallback.prototype.onWarning = function (success, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The MessagingCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(success, warning);
             }
         };
         MessagingCallback.prototype.onResult = function (success) {
@@ -1546,11 +2131,13 @@ var Adaptive;
                 this.onResultFunction(success);
             }
         };
-        MessagingCallback.prototype.toString = function () {
-            return "MessagingCallback{" + this.id + "}";
-        };
-        MessagingCallback.prototype.getId = function () {
-            return this.id;
+        MessagingCallback.prototype.onWarning = function (success, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The MessagingCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(success, warning);
+            }
         };
         return MessagingCallback;
     })();
@@ -1589,26 +2176,24 @@ var Adaptive;
     })();
     Adaptive.IAppResourceCallbackWarningEnum = IAppResourceCallbackWarningEnum;
     var AppResourceCallback = (function () {
-        function AppResourceCallback(id, onErrorFunction, onWarningFunction, onResultFunction) {
+        function AppResourceCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = id;
             this.onErrorFunction = onErrorFunction;
-            this.onWarningFunction = onWarningFunction;
             this.onResultFunction = onResultFunction;
+            this.onWarningFunction = onWarningFunction;
         }
+        AppResourceCallback.prototype.toString = function () {
+            return "AppResourceCallback{" + this.id + "}";
+        };
+        AppResourceCallback.prototype.getId = function () {
+            return this.id;
+        };
         AppResourceCallback.prototype.onError = function (resource, error) {
             if (typeof this.onErrorFunction === 'undefined') {
                 console.log("WARNING: The AppResourceCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(resource, error);
-            }
-        };
-        AppResourceCallback.prototype.onWarning = function (resource, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The AppResourceCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(resource, warning);
             }
         };
         AppResourceCallback.prototype.onResult = function (resource) {
@@ -1619,11 +2204,13 @@ var Adaptive;
                 this.onResultFunction(resource);
             }
         };
-        AppResourceCallback.prototype.toString = function () {
-            return "AppResourceCallback{" + this.id + "}";
-        };
-        AppResourceCallback.prototype.getId = function () {
-            return this.id;
+        AppResourceCallback.prototype.onWarning = function (resource, warning) {
+            if (typeof this.onWarningFunction === 'undefined') {
+                console.log("WARNING: The AppResourceCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(resource, warning);
+            }
         };
         return AppResourceCallback;
     })();
@@ -1646,6 +2233,150 @@ var Adaptive;
         return ILoggingLogLevelEnum;
     })();
     Adaptive.ILoggingLogLevelEnum = ILoggingLogLevelEnum;
+    var LoggingBridge = (function () {
+        function LoggingBridge() {
+        }
+        LoggingBridge.prototype.log = function () {
+        };
+        LoggingBridge.prototype.log = function () {
+        };
+        return LoggingBridge;
+    })();
+    Adaptive.LoggingBridge = LoggingBridge;
+    var FileBridge = (function () {
+        function FileBridge() {
+        }
+        FileBridge.prototype.canRead = function () {
+            return null;
+        };
+        FileBridge.prototype.canWrite = function () {
+            return null;
+        };
+        FileBridge.prototype.create = function () {
+        };
+        FileBridge.prototype.create = function () {
+        };
+        FileBridge.prototype.delete = function () {
+            return null;
+        };
+        FileBridge.prototype.delete = function () {
+            return null;
+        };
+        FileBridge.prototype.endsWith = function () {
+            return null;
+        };
+        FileBridge.prototype.endsWith = function () {
+            return null;
+        };
+        FileBridge.prototype.equalPath = function () {
+            return null;
+        };
+        FileBridge.prototype.equals = function () {
+            return null;
+        };
+        FileBridge.prototype.exists = function () {
+            return null;
+        };
+        FileBridge.prototype.getContent = function () {
+        };
+        FileBridge.prototype.getDateCreated = function () {
+            return null;
+        };
+        FileBridge.prototype.getDateModified = function () {
+            return null;
+        };
+        FileBridge.prototype.getFileName = function () {
+            return null;
+        };
+        FileBridge.prototype.getFileSystem = function () {
+            return null;
+        };
+        FileBridge.prototype.getName = function () {
+            return null;
+        };
+        FileBridge.prototype.getName = function () {
+            return null;
+        };
+        FileBridge.prototype.getNameCount = function () {
+            return null;
+        };
+        FileBridge.prototype.getParent = function () {
+            return null;
+        };
+        FileBridge.prototype.getPath = function () {
+            return null;
+        };
+        FileBridge.prototype.getRoot = function () {
+            return null;
+        };
+        FileBridge.prototype.getSize = function () {
+            return null;
+        };
+        FileBridge.prototype.isAbsolute = function () {
+            return null;
+        };
+        FileBridge.prototype.isDirectory = function () {
+            return null;
+        };
+        FileBridge.prototype.listFiles = function () {
+        };
+        FileBridge.prototype.listFiles = function () {
+        };
+        FileBridge.prototype.mkDir = function () {
+            return null;
+        };
+        FileBridge.prototype.mkDir = function () {
+            return null;
+        };
+        FileBridge.prototype.move = function () {
+        };
+        FileBridge.prototype.move = function () {
+        };
+        FileBridge.prototype.move = function () {
+        };
+        FileBridge.prototype.move = function () {
+        };
+        FileBridge.prototype.normalize = function () {
+            return null;
+        };
+        FileBridge.prototype.relativize = function () {
+            return null;
+        };
+        FileBridge.prototype.resolve = function () {
+            return null;
+        };
+        FileBridge.prototype.resolve = function () {
+            return null;
+        };
+        FileBridge.prototype.resolveSibling = function () {
+            return null;
+        };
+        FileBridge.prototype.resolveSibling = function () {
+            return null;
+        };
+        FileBridge.prototype.setContent = function () {
+        };
+        FileBridge.prototype.startsWith = function () {
+            return null;
+        };
+        FileBridge.prototype.startsWith = function () {
+            return null;
+        };
+        FileBridge.prototype.toAbsolutePath = function () {
+            return null;
+        };
+        FileBridge.prototype.toFile = function () {
+            return null;
+        };
+        FileBridge.prototype.toPath = function () {
+            return null;
+        };
+        FileBridge.prototype.toString = function () {
+            return null;
+        };
+        return FileBridge;
+    })();
+    Adaptive.FileBridge = FileBridge;
     /**
      *   Class implementation for ContactUid
      **/

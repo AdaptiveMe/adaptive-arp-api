@@ -381,14 +381,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: INetworkReachabilityCallbackErrorEnum) => Function;
-        onWarningFunction: (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function;
         onResultFunction: (result: string) => Function;
-        constructor(id: number, onErrorFunction: (error: INetworkReachabilityCallbackErrorEnum) => Function, onWarningFunction: (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function, onResultFunction: (result: string) => Function);
-        onError(error: INetworkReachabilityCallbackErrorEnum): void;
-        onWarning(result: string, warning: INetworkReachabilityCallbackWarningEnum): void;
-        onResult(result: string): void;
+        onWarningFunction: (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: INetworkReachabilityCallbackErrorEnum) => Function, onResultFunction: (result: string) => Function, onWarningFunction: (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: INetworkReachabilityCallbackErrorEnum): void;
+        onResult(result: string): void;
+        onWarning(result: string, warning: INetworkReachabilityCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for IProximity
@@ -488,14 +488,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: IServiceResultCallbackErrorEnum) => Function;
-        onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function;
         onResultFunction: (response: ServiceResponse) => Function;
-        constructor(id: number, onErrorFunction: (error: IServiceResultCallbackErrorEnum) => Function, onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function, onResultFunction: (response: ServiceResponse) => Function);
-        onError(error: IServiceResultCallbackErrorEnum): void;
-        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum): void;
-        onResult(response: ServiceResponse): void;
+        onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IServiceResultCallbackErrorEnum) => Function, onResultFunction: (response: ServiceResponse) => Function, onWarningFunction: (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: IServiceResultCallbackErrorEnum): void;
+        onResult(response: ServiceResponse): void;
+        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for IDesktop
@@ -575,14 +575,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: IGeolocationListenerErrorEnum) => Function;
-        onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function;
         onResultFunction: (geolocation: Geolocation) => Function;
-        constructor(id: number, onErrorFunction: (error: IGeolocationListenerErrorEnum) => Function, onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function, onResultFunction: (geolocation: Geolocation) => Function);
-        onError(error: IGeolocationListenerErrorEnum): void;
-        onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarningEnum): void;
-        onResult(geolocation: Geolocation): void;
+        onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IGeolocationListenerErrorEnum) => Function, onResultFunction: (geolocation: Geolocation) => Function, onWarningFunction: (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: IGeolocationListenerErrorEnum): void;
+        onResult(geolocation: Geolocation): void;
+        onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarningEnum): void;
     }
     /**
      *   Interface definition for IContactResultCallback
@@ -621,14 +621,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: IContactResultCallbackErrorEnum) => Function;
-        onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarningEnum) => Function;
         onResultFunction: (contacts: Contact[]) => Function;
-        constructor(id: number, onErrorFunction: (error: IContactResultCallbackErrorEnum) => Function, onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarningEnum) => Function, onResultFunction: (contacts: Contact[]) => Function);
-        onError(error: IContactResultCallbackErrorEnum): void;
-        onWarning(contacts: Contact[], warning: IContactResultCallbackWarningEnum): void;
-        onResult(contacts: Contact[]): void;
+        onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IContactResultCallbackErrorEnum) => Function, onResultFunction: (contacts: Contact[]) => Function, onWarningFunction: (contacts: Contact[], warning: IContactResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: IContactResultCallbackErrorEnum): void;
+        onResult(contacts: Contact[]): void;
+        onWarning(contacts: Contact[], warning: IContactResultCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for INotificationLocal
@@ -678,14 +678,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: IDatabaseResultCallbackErrorEnum) => Function;
-        onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function;
         onResultFunction: (database: Database) => Function;
-        constructor(id: number, onErrorFunction: (error: IDatabaseResultCallbackErrorEnum) => Function, onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function, onResultFunction: (database: Database) => Function);
-        onError(error: IDatabaseResultCallbackErrorEnum): void;
-        onWarning(database: Database, warning: IDatabaseResultCallbackWarningEnum): void;
-        onResult(database: Database): void;
+        onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IDatabaseResultCallbackErrorEnum) => Function, onResultFunction: (database: Database) => Function, onWarningFunction: (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: IDatabaseResultCallbackErrorEnum): void;
+        onResult(database: Database): void;
+        onWarning(database: Database, warning: IDatabaseResultCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for ICapabilities
@@ -865,22 +865,22 @@ declare module Adaptive {
         description: string;
         id: number;
         onPausedFunction: (server: IAppServer) => Function;
-        onStartFunction: (server: IAppServer) => Function;
-        onResumingFunction: (server: IAppServer) => Function;
-        onResumedFunction: (server: IAppServer) => Function;
-        onStoppingFunction: (server: IAppServer) => Function;
-        onStoppedFunction: (server: IAppServer) => Function;
         onPausingFunction: (server: IAppServer) => Function;
-        constructor(id: number, onPausedFunction: (server: IAppServer) => Function, onStartFunction: (server: IAppServer) => Function, onResumingFunction: (server: IAppServer) => Function, onResumedFunction: (server: IAppServer) => Function, onStoppingFunction: (server: IAppServer) => Function, onStoppedFunction: (server: IAppServer) => Function, onPausingFunction: (server: IAppServer) => Function);
-        onPaused(server: IAppServer): void;
-        onStart(server: IAppServer): void;
-        onResuming(server: IAppServer): void;
-        onResumed(server: IAppServer): void;
-        onStopping(server: IAppServer): void;
-        onStopped(server: IAppServer): void;
-        onPausing(server: IAppServer): void;
+        onResumedFunction: (server: IAppServer) => Function;
+        onResumingFunction: (server: IAppServer) => Function;
+        onStartFunction: (server: IAppServer) => Function;
+        onStoppedFunction: (server: IAppServer) => Function;
+        onStoppingFunction: (server: IAppServer) => Function;
+        constructor(id: number, onPausedFunction: (server: IAppServer) => Function, onPausingFunction: (server: IAppServer) => Function, onResumedFunction: (server: IAppServer) => Function, onResumingFunction: (server: IAppServer) => Function, onStartFunction: (server: IAppServer) => Function, onStoppedFunction: (server: IAppServer) => Function, onStoppingFunction: (server: IAppServer) => Function);
         toString(): string;
         getId(): number;
+        onPaused(server: IAppServer): void;
+        onPausing(server: IAppServer): void;
+        onResumed(server: IAppServer): void;
+        onResuming(server: IAppServer): void;
+        onStart(server: IAppServer): void;
+        onStopped(server: IAppServer): void;
+        onStopping(server: IAppServer): void;
     }
     /**
      *   Interface definition for IMessaging
@@ -944,14 +944,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: ILifecycleListenerErrorEnum) => Function;
-        onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function;
         onResultFunction: (lifecycle: Lifecycle) => Function;
-        constructor(id: number, onErrorFunction: (error: ILifecycleListenerErrorEnum) => Function, onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function, onResultFunction: (lifecycle: Lifecycle) => Function);
-        onError(error: ILifecycleListenerErrorEnum): void;
-        onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum): void;
-        onResult(lifecycle: Lifecycle): void;
+        onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: ILifecycleListenerErrorEnum) => Function, onResultFunction: (lifecycle: Lifecycle) => Function, onWarningFunction: (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: ILifecycleListenerErrorEnum): void;
+        onResult(lifecycle: Lifecycle): void;
+        onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum): void;
     }
     /**
      *   Interface definition for IGeolocation
@@ -1012,14 +1012,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: IContactPhotoResultCallbackErrorEnum) => Function;
-        onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum) => Function;
         onResultFunction: (contactPhoto: number[]) => Function;
-        constructor(id: number, onErrorFunction: (error: IContactPhotoResultCallbackErrorEnum) => Function, onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum) => Function, onResultFunction: (contactPhoto: number[]) => Function);
-        onError(error: IContactPhotoResultCallbackErrorEnum): void;
-        onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum): void;
-        onResult(contactPhoto: number[]): void;
+        onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IContactPhotoResultCallbackErrorEnum) => Function, onResultFunction: (contactPhoto: number[]) => Function, onWarningFunction: (contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: IContactPhotoResultCallbackErrorEnum): void;
+        onResult(contactPhoto: number[]): void;
+        onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for ISecurity
@@ -1112,14 +1112,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: IAccelerationListenerErrorEnum) => Function;
-        onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function;
         onResultFunction: (acceleration: Acceleration) => Function;
-        constructor(id: number, onErrorFunction: (error: IAccelerationListenerErrorEnum) => Function, onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function, onResultFunction: (acceleration: Acceleration) => Function);
-        onError(error: IAccelerationListenerErrorEnum): void;
-        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum): void;
-        onResult(acceleration: Acceleration): void;
+        onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IAccelerationListenerErrorEnum) => Function, onResultFunction: (acceleration: Acceleration) => Function, onWarningFunction: (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: IAccelerationListenerErrorEnum): void;
+        onResult(acceleration: Acceleration): void;
+        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum): void;
     }
     /**
      *   Interface definition for INetworkReachability
@@ -1182,14 +1182,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: ISecureKVResultCallbackErrorEnum) => Function;
-        onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum) => Function;
         onResultFunction: (keyValues: SecureKeyPair[]) => Function;
-        constructor(id: number, onErrorFunction: (error: ISecureKVResultCallbackErrorEnum) => Function, onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum) => Function, onResultFunction: (keyValues: SecureKeyPair[]) => Function);
-        onError(error: ISecureKVResultCallbackErrorEnum): void;
-        onWarning(keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum): void;
-        onResult(keyValues: SecureKeyPair[]): void;
+        onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: ISecureKVResultCallbackErrorEnum) => Function, onResultFunction: (keyValues: SecureKeyPair[]) => Function, onWarningFunction: (keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: ISecureKVResultCallbackErrorEnum): void;
+        onResult(keyValues: SecureKeyPair[]): void;
+        onWarning(keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for IGlobalization
@@ -1239,14 +1239,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: IFileDataResultCallbackErrorEnum) => Function;
-        onWarningFunction: (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function;
         onResultFunction: (file: IFile, data: number[]) => Function;
-        constructor(id: number, onErrorFunction: (error: IFileDataResultCallbackErrorEnum) => Function, onWarningFunction: (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function, onResultFunction: (file: IFile, data: number[]) => Function);
-        onError(error: IFileDataResultCallbackErrorEnum): void;
-        onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum): void;
-        onResult(file: IFile, data: number[]): void;
+        onWarningFunction: (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IFileDataResultCallbackErrorEnum) => Function, onResultFunction: (file: IFile, data: number[]) => Function, onWarningFunction: (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: IFileDataResultCallbackErrorEnum): void;
+        onResult(file: IFile, data: number[]): void;
+        onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for ILinkedIn
@@ -1299,14 +1299,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: ITableResultCallbackErrorEnum) => Function;
-        onWarningFunction: (table: Table, warning: ITableResultCallbackWarningEnum) => Function;
         onResultFunction: (table: Table) => Function;
-        constructor(id: number, onErrorFunction: (error: ITableResultCallbackErrorEnum) => Function, onWarningFunction: (table: Table, warning: ITableResultCallbackWarningEnum) => Function, onResultFunction: (table: Table) => Function);
-        onError(error: ITableResultCallbackErrorEnum): void;
-        onWarning(table: Table, warning: ITableResultCallbackWarningEnum): void;
-        onResult(table: Table): void;
+        onWarningFunction: (table: Table, warning: ITableResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: ITableResultCallbackErrorEnum) => Function, onResultFunction: (table: Table) => Function, onWarningFunction: (table: Table, warning: ITableResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: ITableResultCallbackErrorEnum): void;
+        onResult(table: Table): void;
+        onWarning(table: Table, warning: ITableResultCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for IFilePath
@@ -1398,14 +1398,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: IFileListResultCallbackErrorEnum) => Function;
-        onWarningFunction: (files: IFile[], warning: IFileListResultCallbackWarningEnum) => Function;
         onResultFunction: (files: IFile[]) => Function;
-        constructor(id: number, onErrorFunction: (error: IFileListResultCallbackErrorEnum) => Function, onWarningFunction: (files: IFile[], warning: IFileListResultCallbackWarningEnum) => Function, onResultFunction: (files: IFile[]) => Function);
-        onError(error: IFileListResultCallbackErrorEnum): void;
-        onWarning(files: IFile[], warning: IFileListResultCallbackWarningEnum): void;
-        onResult(files: IFile[]): void;
+        onWarningFunction: (files: IFile[], warning: IFileListResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IFileListResultCallbackErrorEnum) => Function, onResultFunction: (files: IFile[]) => Function, onWarningFunction: (files: IFile[], warning: IFileListResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: IFileListResultCallbackErrorEnum): void;
+        onResult(files: IFile[]): void;
+        onWarning(files: IFile[], warning: IFileListResultCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for IBarcode
@@ -1469,14 +1469,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: IButtonListenerErrorEnum) => Function;
-        onWarningFunction: (button: Button, warning: IButtonListenerWarningEnum) => Function;
         onResultFunction: (button: Button) => Function;
-        constructor(id: number, onErrorFunction: (error: IButtonListenerErrorEnum) => Function, onWarningFunction: (button: Button, warning: IButtonListenerWarningEnum) => Function, onResultFunction: (button: Button) => Function);
-        onError(error: IButtonListenerErrorEnum): void;
-        onWarning(button: Button, warning: IButtonListenerWarningEnum): void;
-        onResult(button: Button): void;
+        onWarningFunction: (button: Button, warning: IButtonListenerWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IButtonListenerErrorEnum) => Function, onResultFunction: (button: Button) => Function, onWarningFunction: (button: Button, warning: IButtonListenerWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: IButtonListenerErrorEnum): void;
+        onResult(button: Button): void;
+        onWarning(button: Button, warning: IButtonListenerWarningEnum): void;
     }
     /**
      *   Interface definition for IMagnetometer
@@ -1554,14 +1554,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: IFileResultCallbackErrorEnum) => Function;
-        onWarningFunction: (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function;
         onResultFunction: (storageFile: IFile) => Function;
-        constructor(id: number, onErrorFunction: (error: IFileResultCallbackErrorEnum) => Function, onWarningFunction: (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function, onResultFunction: (storageFile: IFile) => Function);
-        onError(error: IFileResultCallbackErrorEnum): void;
-        onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum): void;
-        onResult(storageFile: IFile): void;
+        onWarningFunction: (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IFileResultCallbackErrorEnum) => Function, onResultFunction: (storageFile: IFile) => Function, onWarningFunction: (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: IFileResultCallbackErrorEnum): void;
+        onResult(storageFile: IFile): void;
+        onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for IDisplay
@@ -1688,14 +1688,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (error: IMessagingCallbackErrorEnum) => Function;
-        onWarningFunction: (success: boolean, warning: IMessagingCallbackWarningEnum) => Function;
         onResultFunction: (success: boolean) => Function;
-        constructor(id: number, onErrorFunction: (error: IMessagingCallbackErrorEnum) => Function, onWarningFunction: (success: boolean, warning: IMessagingCallbackWarningEnum) => Function, onResultFunction: (success: boolean) => Function);
-        onError(error: IMessagingCallbackErrorEnum): void;
-        onWarning(success: boolean, warning: IMessagingCallbackWarningEnum): void;
-        onResult(success: boolean): void;
+        onWarningFunction: (success: boolean, warning: IMessagingCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (error: IMessagingCallbackErrorEnum) => Function, onResultFunction: (success: boolean) => Function, onWarningFunction: (success: boolean, warning: IMessagingCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(error: IMessagingCallbackErrorEnum): void;
+        onResult(success: boolean): void;
+        onWarning(success: boolean, warning: IMessagingCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for IOpenId
@@ -1745,14 +1745,14 @@ declare module Adaptive {
         description: string;
         id: number;
         onErrorFunction: (resource: IAppResource, error: IAppResourceCallbackErrorEnum) => Function;
-        onWarningFunction: (resource: IAppResource, warning: IAppResourceCallbackWarningEnum) => Function;
         onResultFunction: (resource: IAppResource) => Function;
-        constructor(id: number, onErrorFunction: (resource: IAppResource, error: IAppResourceCallbackErrorEnum) => Function, onWarningFunction: (resource: IAppResource, warning: IAppResourceCallbackWarningEnum) => Function, onResultFunction: (resource: IAppResource) => Function);
-        onError(resource: IAppResource, error: IAppResourceCallbackErrorEnum): void;
-        onWarning(resource: IAppResource, warning: IAppResourceCallbackWarningEnum): void;
-        onResult(resource: IAppResource): void;
+        onWarningFunction: (resource: IAppResource, warning: IAppResourceCallbackWarningEnum) => Function;
+        constructor(id: number, onErrorFunction: (resource: IAppResource, error: IAppResourceCallbackErrorEnum) => Function, onResultFunction: (resource: IAppResource) => Function, onWarningFunction: (resource: IAppResource, warning: IAppResourceCallbackWarningEnum) => Function);
         toString(): string;
         getId(): number;
+        onError(resource: IAppResource, error: IAppResourceCallbackErrorEnum): void;
+        onResult(resource: IAppResource): void;
+        onWarning(resource: IAppResource, warning: IAppResourceCallbackWarningEnum): void;
     }
     /**
      *   Interface definition for ILogging

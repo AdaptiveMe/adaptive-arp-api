@@ -104,6 +104,14 @@ module Adaptive {
            getResource(resourcePath : string, callback : IAppResourceCallback)
      }
 
+     export class AppResourceHandlerBridge implements IAppResourceHandler {
+
+          constructor() {}
+
+          getResource() : void {
+          }
+
+     }
      /**
       *   Interface definition for IBaseSensor
       **/
@@ -160,6 +168,22 @@ module Adaptive {
            removeWebview(webView : any)
      }
 
+     export class AppContextWebviewBridge implements IAppContextWebview {
+
+          constructor() {}
+
+          addWebview() : void {
+          }
+          getWebviewPrimary() : any {
+               return null;
+          }
+          getWebviews() : Array<any> {
+               return null;
+          }
+          removeWebview() : void {
+          }
+
+     }
      /**
       *   Interface definition for IAppServer
       **/
@@ -179,6 +203,35 @@ module Adaptive {
            stopServer()
      }
 
+     export class AppServerBridge implements IAppServer {
+
+          constructor() {}
+
+          getBaseURI() : string {
+               return null;
+          }
+          getHost() : string {
+               return null;
+          }
+          getPath() : string {
+               return null;
+          }
+          getPort() : number {
+               return null;
+          }
+          getScheme() : string {
+               return null;
+          }
+          pauseServer() : void {
+          }
+          resumeServer() : void {
+          }
+          startServer() : void {
+          }
+          stopServer() : void {
+          }
+
+     }
      /**
       *   Interface definition for IBaseSystem
       **/
@@ -275,6 +328,31 @@ module Adaptive {
            stopServer(server : IAppServer)
      }
 
+     export class AppServerManagerBridge implements IAppServerManager {
+
+          constructor() {}
+
+          addServerListener() : void {
+          }
+          getServers() : Array<IAppServer> {
+               return null;
+          }
+          pauseServer() : void {
+          }
+          removeServerListener() : void {
+          }
+          removeServerListeners() : void {
+          }
+          resumeServer() : void {
+          }
+          startServer() : void {
+          }
+          stopServer() : void {
+          }
+          stopServers() : void {
+          }
+
+     }
      /**
       *   Interface definition for IAppResource
       **/
@@ -345,6 +423,54 @@ module Adaptive {
           static Unknown = new IAppResourceTypeEnum("Unknown");
      }
 
+     export class AppResourceBridge implements IAppResource {
+
+          constructor() {}
+
+          geType() : IAppResourcePayloadEnum {
+               return null;
+          }
+          getData() : Array<number> {
+               return null;
+          }
+          getDataPathLinked() : string {
+               return null;
+          }
+          getDataStored() : Array<number> {
+               return null;
+          }
+          getFormat() : IAppResourceFormatEnum {
+               return null;
+          }
+          getMd5() : string {
+               return null;
+          }
+          getMimetype() : string {
+               return null;
+          }
+          getName() : string {
+               return null;
+          }
+          getPath() : string {
+               return null;
+          }
+          getSize() : number {
+               return null;
+          }
+          getSizeStored() : number {
+               return null;
+          }
+          getTimestamp() : number {
+               return null;
+          }
+          getType() : IAppResourceTypeEnum {
+               return null;
+          }
+          getUuid() : string {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for IBaseCommunication
       **/
@@ -385,6 +511,18 @@ module Adaptive {
           static Unknown = new IAppContextTypeEnum("Unknown");
      }
 
+     export class AppContextBridge implements IAppContext {
+
+          constructor() {}
+
+          getContext() : any {
+               return null;
+          }
+          getContextType() : IAppContextTypeEnum {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for IAppRegistry
       **/
@@ -409,6 +547,54 @@ module Adaptive {
            getSystemRuntime() : IRuntime
      }
 
+     export class AppRegistryBridge implements IAppRegistry {
+
+          constructor() {}
+
+          getApplicationAnalytics() : IAnalytics {
+               return null;
+          }
+          getApplicationGlobalization() : IGlobalization {
+               return null;
+          }
+          getApplicationLifecycle() : ILifecycle {
+               return null;
+          }
+          getApplicationManagement() : IManagement {
+               return null;
+          }
+          getApplicationPrinting() : IPrinting {
+               return null;
+          }
+          getApplicationSettings() : ISettings {
+               return null;
+          }
+          getApplicationUpdate() : IUpdate {
+               return null;
+          }
+          getPlatformContext() : IAppContext {
+               return null;
+          }
+          getPlatformContextWeb() : IAppContextWebview {
+               return null;
+          }
+          getSystemCapabilities() : ICapabilities {
+               return null;
+          }
+          getSystemDevice() : IDevice {
+               return null;
+          }
+          getSystemDisplay() : IDisplay {
+               return null;
+          }
+          getSystemOS() : IOS {
+               return null;
+          }
+          getSystemRuntime() : IRuntime {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for IBaseCallback
       **/
@@ -467,6 +653,15 @@ module Adaptive {
           static Unknown = new ITelephonyStatusEnum("Unknown");
      }
 
+     export class TelephonyBridge implements ITelephony {
+
+          constructor() {}
+
+          call() : ITelephonyStatusEnum {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for ICompression
       **/
@@ -630,6 +825,45 @@ module Adaptive {
            toPath(path : IFile) : IFilePath
      }
 
+     export class FileSystemBridge implements IFileSystem {
+
+          constructor() {}
+
+          create() : void {
+          }
+          create() : void {
+          }
+          create() : void {
+          }
+          getApplicationCacheFolder() : IFilePath {
+               return null;
+          }
+          getApplicationDocumentsFolder() : IFilePath {
+               return null;
+          }
+          getApplicationFolder() : IFilePath {
+               return null;
+          }
+          getPath() : string {
+               return null;
+          }
+          getPath() : string {
+               return null;
+          }
+          getSeparator() : string {
+               return null;
+          }
+          isSameFile() : boolean {
+               return null;
+          }
+          isSamePath() : boolean {
+               return null;
+          }
+          toPath() : IFilePath {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for IServiceResultCallback
       **/
@@ -767,6 +1001,15 @@ module Adaptive {
            openBrowser(url : string, title : string, buttonText : string) : boolean
      }
 
+     export class BrowserBridge implements IBrowser {
+
+          constructor() {}
+
+          openBrowser() : boolean {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for IRSS
       **/
@@ -1151,6 +1394,33 @@ module Adaptive {
           static Unknown = new ICapabilitiesSensorEnum("Unknown");
      }
 
+     export class CapabilitiesBridge implements ICapabilities {
+
+          constructor() {}
+
+          hasButtonSupport() : boolean {
+               return null;
+          }
+          hasCommunicationSupport() : boolean {
+               return null;
+          }
+          hasDataSupport() : boolean {
+               return null;
+          }
+          hasMediaSupport() : boolean {
+               return null;
+          }
+          hasNetSupport() : boolean {
+               return null;
+          }
+          hasNotificationSupport() : boolean {
+               return null;
+          }
+          hasSensorSupport() : boolean {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for IAlarm
       **/
@@ -1171,6 +1441,18 @@ module Adaptive {
            removeAccelerationListeners()
      }
 
+     export class AccelerometerBridge implements IAccelerometer {
+
+          constructor() {}
+
+          addAccelerationListener() : void {
+          }
+          removeAccelerationListener() : void {
+          }
+          removeAccelerationListeners() : void {
+          }
+
+     }
      /**
       *   Interface definition for IService
       **/
@@ -1188,6 +1470,29 @@ module Adaptive {
            unregisterService(service : Service)
      }
 
+     export class ServiceBridge implements IService {
+
+          constructor() {}
+
+          getService() : Service {
+               return null;
+          }
+          invokeService() : void {
+          }
+          isRegistered() : boolean {
+               return null;
+          }
+          isRegistered() : boolean {
+               return null;
+          }
+          registerService() : void {
+          }
+          unregisterService() : void {
+          }
+          unregisterServices() : void {
+          }
+
+     }
      /**
       *   Interface definition for ILifecycle
       **/
@@ -1202,6 +1507,21 @@ module Adaptive {
            removeLifecycleListeners()
      }
 
+     export class LifecycleBridge implements ILifecycle {
+
+          constructor() {}
+
+          addLifecycleListener() : void {
+          }
+          isBackground() : boolean {
+               return null;
+          }
+          removeLifecycleListener() : void {
+          }
+          removeLifecycleListeners() : void {
+          }
+
+     }
      /**
       *   Interface definition for IXML
       **/
@@ -1316,6 +1636,14 @@ module Adaptive {
            sendSMS(number : string, text : string, callback : IMessagingCallback)
      }
 
+     export class MessagingBridge implements IMessaging {
+
+          constructor() {}
+
+          sendSMS() : void {
+          }
+
+     }
      /**
       *   Interface definition for IUpdate
       **/
@@ -1431,6 +1759,18 @@ module Adaptive {
            removeGeolocationListeners()
      }
 
+     export class GeolocationBridge implements IGeolocation {
+
+          constructor() {}
+
+          addGeolocationListener() : void {
+          }
+          removeGeolocationListener() : void {
+          }
+          removeGeolocationListeners() : void {
+          }
+
+     }
      /**
       *   Interface definition for INotification
       **/
@@ -1540,6 +1880,21 @@ module Adaptive {
            setSecureKeyValuePairs(keyValues : Array<SecureKeyPair>, publicAccessName : string, callback : ISecureKVResultCallback)
      }
 
+     export class SecurityBridge implements ISecurity {
+
+          constructor() {}
+
+          deleteSecureKeyValuePairs() : void {
+          }
+          getSecureKeyValuePairs() : void {
+          }
+          isDeviceModified() : boolean {
+               return null;
+          }
+          setSecureKeyValuePairs() : void {
+          }
+
+     }
      /**
       *   Interface definition for IDatabase
       **/
@@ -1559,6 +1914,32 @@ module Adaptive {
            existsTable(database : Database, table : Table) : boolean
      }
 
+     export class DatabaseBridge implements IDatabase {
+
+          constructor() {}
+
+          createDatabase() : void {
+          }
+          createTable() : void {
+          }
+          deleteDatabase() : void {
+          }
+          deleteTable() : void {
+          }
+          executeSqlQuery() : void {
+          }
+          executeSqlStatement() : void {
+          }
+          executeSqlTransactions() : void {
+          }
+          existsDatabase() : boolean {
+               return null;
+          }
+          existsTable() : boolean {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for INFC
       **/
@@ -1686,6 +2067,16 @@ module Adaptive {
            isNetworkServiceReachable(url : string, callback : INetworkReachabilityCallback)
      }
 
+     export class NetworkReachabilityBridge implements INetworkReachability {
+
+          constructor() {}
+
+          isNetworkReachable() : void {
+          }
+          isNetworkServiceReachable() : void {
+          }
+
+     }
      /**
       *   Interface definition for ITimer
       **/
@@ -1799,6 +2190,21 @@ module Adaptive {
            getResourceLiterals(locale : Locale) : Dictionary<string>
      }
 
+     export class GlobalizationBridge implements IGlobalization {
+
+          constructor() {}
+
+          getLocaleSupportedDescriptors() : Array<Locale> {
+               return null;
+          }
+          getResourceLiteral() : string {
+               return null;
+          }
+          getResourceLiterals() : Map {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for IFileDataResultCallback
       **/
@@ -2009,6 +2415,78 @@ module Adaptive {
            toString() : string
      }
 
+     export class FilePathBridge implements IFilePath {
+
+          constructor() {}
+
+          endsWith() : boolean {
+               return null;
+          }
+          endsWith() : boolean {
+               return null;
+          }
+          equalPath() : boolean {
+               return null;
+          }
+          equals() : boolean {
+               return null;
+          }
+          getFileName() : IFilePath {
+               return null;
+          }
+          getFileSystem() : IFileSystem {
+               return null;
+          }
+          getName() : string {
+               return null;
+          }
+          getNameCount() : number {
+               return null;
+          }
+          getParent() : IFilePath {
+               return null;
+          }
+          getRoot() : IFilePath {
+               return null;
+          }
+          isAbsolute() : boolean {
+               return null;
+          }
+          normalize() : IFilePath {
+               return null;
+          }
+          relativize() : IFilePath {
+               return null;
+          }
+          resolve() : IFilePath {
+               return null;
+          }
+          resolve() : IFilePath {
+               return null;
+          }
+          resolveSibling() : IFilePath {
+               return null;
+          }
+          resolveSibling() : IFilePath {
+               return null;
+          }
+          startsWith() : boolean {
+               return null;
+          }
+          startsWith() : boolean {
+               return null;
+          }
+          toAbsolutePath() : IFilePath {
+               return null;
+          }
+          toFile() : IFile {
+               return null;
+          }
+          toString() : string {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for ISession
       **/
@@ -2030,6 +2508,38 @@ module Adaptive {
            setCookies(cookies : Array<Cookie>)
      }
 
+     export class SessionBridge implements ISession {
+
+          constructor() {}
+
+          getAttribute() : any {
+               return null;
+          }
+          getAttributes() : Array<any> {
+               return null;
+          }
+          getCookies() : Array<Cookie> {
+               return null;
+          }
+          listAttributeNames() : Array<string> {
+               return null;
+          }
+          removeAttribute() : void {
+          }
+          removeAttributes() : void {
+          }
+          removeCookie() : void {
+          }
+          removeCookies() : void {
+          }
+          setAttribute() : void {
+          }
+          setCookie() : void {
+          }
+          setCookies() : void {
+          }
+
+     }
      /**
       *   Interface definition for IQRCode
       **/
@@ -2134,6 +2644,14 @@ module Adaptive {
            playStream(url : string)
      }
 
+     export class VideoBridge implements IVideo {
+
+          constructor() {}
+
+          playStream() : void {
+          }
+
+     }
      /**
       *   Interface definition for IDevice
       **/
@@ -2149,6 +2667,24 @@ module Adaptive {
            removeButtonListeners()
      }
 
+     export class DeviceBridge implements IDevice {
+
+          constructor() {}
+
+          addButtonListener() : void {
+          }
+          getDeviceInfo() : DeviceInfo {
+               return null;
+          }
+          getLocaleCurrent() : Locale {
+               return null;
+          }
+          removeButtonListener() : void {
+          }
+          removeButtonListeners() : void {
+          }
+
+     }
      /**
       *   Interface definition for IButtonListener
       **/
@@ -2245,6 +2781,14 @@ module Adaptive {
            sendEmail(data : Email, callback : IMessagingCallback)
      }
 
+     export class MailBridge implements IMail {
+
+          constructor() {}
+
+          sendEmail() : void {
+          }
+
+     }
      /**
       *   Interface definition for IBarometer
       **/
@@ -2270,6 +2814,15 @@ module Adaptive {
            getOSInfo() : OSInfo
      }
 
+     export class OSBridge implements IOS {
+
+          constructor() {}
+
+          getOSInfo() : OSInfo {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for IDataStream
       **/
@@ -2377,6 +2930,17 @@ module Adaptive {
            dismissSplashScreen() : boolean
      }
 
+     export class RuntimeBridge implements IRuntime {
+
+          constructor() {}
+
+          dismissApplication() : void {
+          }
+          dismissSplashScreen() : boolean {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for IContact
       **/
@@ -2426,6 +2990,29 @@ module Adaptive {
           static Unknown = new IContactFilterEnum("Unknown");
      }
 
+     export class ContactBridge implements IContact {
+
+          constructor() {}
+
+          getContact() : void {
+          }
+          getContactPhoto() : void {
+          }
+          getContacts() : void {
+          }
+          getContacts() : void {
+          }
+          getContacts() : void {
+          }
+          searchContacts() : void {
+          }
+          searchContacts() : void {
+          }
+          setContactPhoto() : boolean {
+               return null;
+          }
+
+     }
      /**
       *   Interface definition for IGyroscope
       **/
@@ -2665,6 +3252,16 @@ module Adaptive {
           static Unknown = new ILoggingLogLevelEnum("Unknown");
      }
 
+     export class LoggingBridge implements ILogging {
+
+          constructor() {}
+
+          log() : void {
+          }
+          log() : void {
+          }
+
+     }
      /**
       *   Interface definition for ITwitter
       **/
@@ -2713,6 +3310,140 @@ module Adaptive {
            toPath() : IFilePath
      }
 
+     export class FileBridge implements IFile {
+
+          constructor() {}
+
+          canRead() : boolean {
+               return null;
+          }
+          canWrite() : boolean {
+               return null;
+          }
+          create() : void {
+          }
+          create() : void {
+          }
+          delete() : boolean {
+               return null;
+          }
+          delete() : boolean {
+               return null;
+          }
+          endsWith() : boolean {
+               return null;
+          }
+          endsWith() : boolean {
+               return null;
+          }
+          equalPath() : boolean {
+               return null;
+          }
+          equals() : boolean {
+               return null;
+          }
+          exists() : boolean {
+               return null;
+          }
+          getContent() : void {
+          }
+          getDateCreated() : number {
+               return null;
+          }
+          getDateModified() : number {
+               return null;
+          }
+          getFileName() : IFilePath {
+               return null;
+          }
+          getFileSystem() : IFileSystem {
+               return null;
+          }
+          getName() : string {
+               return null;
+          }
+          getName() : string {
+               return null;
+          }
+          getNameCount() : number {
+               return null;
+          }
+          getParent() : IFilePath {
+               return null;
+          }
+          getPath() : string {
+               return null;
+          }
+          getRoot() : IFilePath {
+               return null;
+          }
+          getSize() : number {
+               return null;
+          }
+          isAbsolute() : boolean {
+               return null;
+          }
+          isDirectory() : boolean {
+               return null;
+          }
+          listFiles() : void {
+          }
+          listFiles() : void {
+          }
+          mkDir() : boolean {
+               return null;
+          }
+          mkDir() : boolean {
+               return null;
+          }
+          move() : void {
+          }
+          move() : void {
+          }
+          move() : void {
+          }
+          move() : void {
+          }
+          normalize() : IFilePath {
+               return null;
+          }
+          relativize() : IFilePath {
+               return null;
+          }
+          resolve() : IFilePath {
+               return null;
+          }
+          resolve() : IFilePath {
+               return null;
+          }
+          resolveSibling() : IFilePath {
+               return null;
+          }
+          resolveSibling() : IFilePath {
+               return null;
+          }
+          setContent() : void {
+          }
+          startsWith() : boolean {
+               return null;
+          }
+          startsWith() : boolean {
+               return null;
+          }
+          toAbsolutePath() : IFilePath {
+               return null;
+          }
+          toFile() : IFile {
+               return null;
+          }
+          toPath() : IFilePath {
+               return null;
+          }
+          toString() : string {
+               return null;
+          }
+
+     }
      /**
       *   Class implementation for ContactUid
       **/

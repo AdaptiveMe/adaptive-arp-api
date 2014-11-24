@@ -1413,8 +1413,68 @@ public class J2SwiftConverter {
 
                 }
                 js.println(5, "}");
+            } else {
+                js.println(5, "export class " + clazz.getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + " {");
+                js.println();
+                js.println(10, "constructor() {}");
+                List<Method> allMethods = new ArrayList<>();
+                for (Method method : clazz.getMethods()) {
+                    allMethods.add(method);
+                }
+                allMethods.sort(new Comparator<Method>() {
+                    @Override
+                    public int compare(Method o1, Method o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+                if (allMethods.size()>0) {
+                    js.println();
+                }
+                for (Method method : allMethods) {
+                    js.print(10, method.getName());
+                    js.print("(");
+                    js.print(")");
+                    js.print(" : "+getJSClassType(clazz,method) +" ");
+                    js.println("{");
+                    if (!getJSClassType(clazz,method).equals("void")) {
+                        js.println(15, "return null;");
+                    }
+                    js.println(10,"}");
+
+                }
+                js.println();
+                js.println(5, "}");
             }
         }
+    }
+
+    private static String getJSClassType(Class clazz, Method method) {
+        Class returnType = method.getReturnType();
+        String returnTypeJS = "";
+        if (returnType.isInterface()) {
+            returnTypeJS = returnType.getSimpleName();
+        } else if (returnType.isEnum()) {
+            returnTypeJS = clazz.getSimpleName() + returnType.getSimpleName() + "Enum";
+        } else if (returnType.isPrimitive()) {
+            returnTypeJS = getPrimitiveTypeTS(returnType);
+        } else if (returnType.equals(String.class)) {
+            returnTypeJS = "string";
+        } else if (returnType.equals(Object.class)) {
+            returnTypeJS = "any";
+        } else if (returnType.isArray()) {
+            if (returnType.getComponentType().isPrimitive()) {
+                returnTypeJS = "Array<" + getPrimitiveTypeTS(returnType.getComponentType()) + ">";
+            } else if (returnType.getComponentType().equals(String.class)) {
+                returnTypeJS = "Array<string>";
+            } else if (returnType.getComponentType().equals(Object.class)) {
+                returnTypeJS = "Array<any>";
+            } else {
+                returnTypeJS = "Array<" +returnType.getComponentType().getSimpleName() + ">";
+            }
+        } else {
+            returnTypeJS = returnType.getSimpleName();
+        }
+        return returnTypeJS;
     }
 
     private static String getJSListenerDeclaration(Class clazz, Method method) {
