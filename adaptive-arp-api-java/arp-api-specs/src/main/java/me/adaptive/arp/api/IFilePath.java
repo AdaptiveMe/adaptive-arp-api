@@ -45,7 +45,7 @@ package me.adaptive.arp.api;
  * {@link #getParent getParent}, {@link #getRoot getRoot}, and  methods to access
  * the path components or a subsequence of its name elements.
  * <p> In addition to accessing the components of a path, a {@code Path} also
- * defines the {@link #resolve(IFilePath) resolve} and {@link #resolveSibling(IFilePath)
+ * defines the {@link #resolvePath(IFilePath) resolve} and {@link #resolveSiblingPath(IFilePath)
  * resolveSibling} methods to combine paths. The {@link #relativize relativize}
  * method that can be used to construct a relative path between two paths.
  * Paths can be, and tested against each other using
@@ -151,7 +151,7 @@ public interface IFilePath extends IBaseData {
      *                   equal to the number of elements, or this path has zero name
      *                   elements
      */
-    public String getName(int index) throws Exception;
+    public String getNameAtIndex(int index) throws Exception;
 
     /**
      * Tests if this path starts with the given path.
@@ -171,12 +171,12 @@ public interface IFilePath extends IBaseData {
      * @return {@code true} if this path starts with the given path; otherwise
      * {@code false}
      */
-    public boolean startsWith(IFilePath other);
+    public boolean startsWithPath(IFilePath other);
 
     /**
      * Tests if this path starts with a {@code Path}, constructed by converting
      * the given path string, in exactly the manner specified by the {@link
-     * #startsWith(IFilePath) startsWith(IFilePath)} method. On UNIX for example, the path
+     * #startsWithPath(IFilePath) startsWith(IFilePath)} method. On UNIX for example, the path
      * "{@code foo/bar}" starts with "{@code foo}" and "{@code foo/bar}". It
      * does not start with "{@code f}" or "{@code fo}".
      *
@@ -206,12 +206,12 @@ public interface IFilePath extends IBaseData {
      * @return {@code true} if this path ends with the given path; otherwise
      * {@code false}
      */
-    public boolean endsWith(IFilePath other);
+    public boolean endsWithPath(IFilePath other);
 
     /**
      * Tests if this path ends with a {@code Path}, constructed by converting
      * the given path string, in exactly the manner specified by the {@link
-     * #endsWith(IFilePath) endsWith(Path)} method. On UNIX for example, the path
+     * #endsWithPath(IFilePath) endsWith(Path)} method. On UNIX for example, the path
      * "{@code foo/bar}" ends with "{@code foo/bar}" and "{@code bar}". It does
      * not end with "{@code r}" or "{@code /bar}". Note that trailing separators
      * are not taken into account, and so invoking this method on the {@code
@@ -274,12 +274,12 @@ public interface IFilePath extends IBaseData {
      * @return the resulting path
      * @see #relativize
      */
-    public IFilePath resolve(IFilePath other);
+    public IFilePath resolvePath(IFilePath other);
 
     /**
      * Converts a given path string to a {@code Path} and resolves it against
      * this {@code Path} in exactly the manner specified by the {@link
-     * #resolve(IFilePath) resolve} method. For example, suppose that the name
+     * #resolvePath(IFilePath) resolve} method. For example, suppose that the name
      * separator is "{@code /}" and a path represents "{@code foo/bar}", then
      * invoking this method with the path string "{@code gus}" will result in
      * the {@code Path} "{@code foo/bar/gus}".
@@ -303,14 +303,14 @@ public interface IFilePath extends IBaseData {
      *
      * @param other the path to resolve against this path's parent
      * @return the resulting path
-     * @see #resolve(IFilePath)
+     * @see #resolvePath(IFilePath)
      */
-    public IFilePath resolveSibling(IFilePath other);
+    public IFilePath resolveSiblingPath(IFilePath other);
 
     /**
      * Converts a given path string to a {@code Path} and resolves it against
      * this path's {@link #getParent parent} path in exactly the manner
-     * specified by the {@link #resolveSibling(IFilePath) resolveSibling} method.
+     * specified by the {@link #resolveSiblingPath(IFilePath) resolveSibling} method.
      *
      * @param other the path string to resolve against this path's parent
      * @return the resulting path
@@ -319,9 +319,9 @@ public interface IFilePath extends IBaseData {
 
     /**
      * Constructs a relative path between this path and a given path.
-     * <p> Relativization is the inverse of {@link #resolve(IFilePath) resolution}.
+     * <p> Relativization is the inverse of {@link #resolvePath(IFilePath) resolution}.
      * This method attempts to construct a {@link #isAbsolute relative} path
-     * that when {@link #resolve(IFilePath) resolved} against this path, yields a
+     * that when {@link #resolvePath(IFilePath) resolved} against this path, yields a
      * path that locates the same file as the given path. For example, on UNIX,
      * if this path is {@code "/a/b"} and the given path is {@code "/a/b/c/d"}
      * then the resulting relative path would be {@code "c/d"}. Where this

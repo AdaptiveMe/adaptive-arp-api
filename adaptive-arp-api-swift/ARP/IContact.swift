@@ -39,11 +39,11 @@ public protocol IContact : IBasePIM {
      var description : String { get }
      func getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback)
      func getContact(contact : ContactUid, callback : IContactResultCallback)
+     func getContactsForFields(callback : IContactResultCallback, fields : [IContactFieldGroup])
+     func getContactsWithFilter(callback : IContactResultCallback, fields : [IContactFieldGroup], filter : [IContactFilter])
      func getContacts(callback : IContactResultCallback)
-     func getContacts(callback : IContactResultCallback, fields : [IContactFieldGroup])
-     func getContacts(callback : IContactResultCallback, fields : [IContactFieldGroup], filter : [IContactFilter])
+     func searchContactsWithFilter(term : String, callback : IContactResultCallback, filter : [IContactFilter])
      func searchContacts(term : String, callback : IContactResultCallback)
-     func searchContacts(term : String, callback : IContactResultCallback, filter : [IContactFilter])
      func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool
 
 }

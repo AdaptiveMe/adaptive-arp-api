@@ -47,15 +47,6 @@ public interface IFile extends IFilePath {
     boolean exists();
 
     /**
-     * Deletes the given file of path. If the file is a directory and contains files and or subdirectories, then delete
-     * will not delete the file from the filesystem.
-     *
-     * @return True if the file was deleted, false otherwise.
-     * @since ARP1.0
-     */
-    boolean delete();
-
-    /**
      * Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
      * deleted if the cascade parameter is set to true.
      *
@@ -82,15 +73,8 @@ public interface IFile extends IFilePath {
      * @param callback Result of the operation.
      * @since ARP1.0
      */
-    public void create(String path, String name, IFileResultCallback callback);
+    public void createWithPath(String path, String name, IFileResultCallback callback);
 
-    /**
-     * Creates the parent path to the given file/path if it doesn't already exist.
-     *
-     * @return True if the path was created, false otherwise (or it exists already).
-     * @since ARP1.0
-     */
-    boolean mkDir();
 
     /**
      * Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
@@ -118,7 +102,7 @@ public interface IFile extends IFilePath {
      * @param callback Result of operation.
      * @since ARP1.0
      */
-    void listFiles(String regex, IFileListResultCallback callback);
+    void listFilesForRegex(String regex, IFileListResultCallback callback);
 
     /**
      * Returns the size in bytes of the file or zero if the reference is a folder.
@@ -192,35 +176,6 @@ public interface IFile extends IFilePath {
      * @since ARP1.0
      */
     boolean canRead();
-
-    /**
-     * Moves the current file to the given file destination.
-     *
-     * @param newFile  Destination path/file for the move.
-     * @param callback Result of the operation.
-     * @since ARP1.0
-     */
-    void move(IFile newFile, IFileResultCallback callback);
-
-    /**
-     * Moves the current file to the given file destination, optionally overwriting the destination if it exists.
-     *
-     * @param newFile   Destination path/file for the move.
-     * @param callback  Result of the operation.
-     * @param overwrite True to overwrite if the destination already exists, false otherwise.
-     * @since ARP1.0
-     */
-    void move(IFile newFile, IFileResultCallback callback, boolean overwrite);
-
-    /**
-     * Moves the current file to the given file destination, optionally creating the path to the new destionation.
-     *
-     * @param newFile    Destination path/file for the move.
-     * @param createPath True to create the path if it does not already exist.
-     * @param callback   Result of the operation.
-     * @since ARP1.0
-     */
-    void move(IFile newFile, boolean createPath, IFileResultCallback callback);
 
     /**
      * Moves the current file to the givven file destionation, optionally overwriting and creating the path to the

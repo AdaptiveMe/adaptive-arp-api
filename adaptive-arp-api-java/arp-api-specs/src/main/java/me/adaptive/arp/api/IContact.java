@@ -49,7 +49,7 @@ public interface IContact extends IBasePIM {
      * @param filter   to search for
      * @since ARP1.0
      */
-    void searchContacts(String term, IContactResultCallback callback, Filter... filter);
+    void searchContactsWithFilter(String term, IContactResultCallback callback, Filter... filter);
 
     /**
      * Get all the details of a contact according to its id
@@ -94,7 +94,7 @@ public interface IContact extends IBasePIM {
      * @param fields   to get for each Contact
      * @since ARP1.0
      */
-    void getContacts(IContactResultCallback callback, FieldGroup... fields);
+    void getContactsForFields(IContactResultCallback callback, FieldGroup... fields);
 
     /**
      * Get marked fields of all contacts according to a filter
@@ -104,7 +104,7 @@ public interface IContact extends IBasePIM {
      * @param filter   to search for
      * @since ARP1.0
      */
-    void getContacts(IContactResultCallback callback, FieldGroup[] fields, Filter... filter);
+    void getContactsWithFilter(IContactResultCallback callback, FieldGroup[] fields, Filter... filter);
 
     /**
      * Filter that can be used

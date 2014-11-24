@@ -46,7 +46,7 @@ public interface IFileSystem extends IBaseData {
      * @return String representation of the path.
      * @since ARP1.0
      */
-    public String getPath(IFilePath path);
+    public String getPathForPath(IFilePath path);
 
     /**
      * Returns the path of the file as a string.
@@ -55,7 +55,7 @@ public interface IFileSystem extends IBaseData {
      * @return String representation of path to the file.
      * @since ARP1.0
      */
-    public String getPath(IFile file);
+    public String getPathForFile(IFile file);
 
     /**
      * Compare 2 files to determine whether they're the same.
@@ -94,7 +94,7 @@ public interface IFileSystem extends IBaseData {
      * @param callback Result of the operation.
      * @since ARP1.0
      */
-    public void create(String path, String name, IFileResultCallback callback);
+    public void createWithPathString(String path, String name, IFileResultCallback callback);
 
     /**
      * Creates a file with the specified name in the specified path.
@@ -104,7 +104,7 @@ public interface IFileSystem extends IBaseData {
      * @param callback Result of the operation.
      * @since ARP1.0
      */
-    public void create(IFilePath path, String name, IFileResultCallback callback);
+    public void createWithPath(IFilePath path, String name, IFileResultCallback callback);
 
     /**
      * Extract the path element of the given file.

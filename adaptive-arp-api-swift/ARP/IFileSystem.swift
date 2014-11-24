@@ -37,14 +37,14 @@ public protocol IFileSystem : IBaseData {
       */
 
      var description : String { get }
+     func createWithPathString(path : String, name : String, callback : IFileResultCallback)
+     func createWithPath(path : IFilePath, name : String, callback : IFileResultCallback)
      func create(name : String, callback : IFileResultCallback)
-     func create(path : IFilePath, name : String, callback : IFileResultCallback)
-     func create(path : String, name : String, callback : IFileResultCallback)
      func getApplicationCacheFolder() -> IFilePath?
      func getApplicationDocumentsFolder() -> IFilePath?
      func getApplicationFolder() -> IFilePath?
-     func getPath(file : IFile) -> String?
-     func getPath(path : IFilePath) -> String?
+     func getPathForFile(file : IFile) -> String?
+     func getPathForPath(path : IFilePath) -> String?
      func getSeparator() -> Character
      func isSameFile(source : IFile, dest : IFile) -> Bool
      func isSamePath(source : IFilePath, dest : IFilePath) -> Bool
