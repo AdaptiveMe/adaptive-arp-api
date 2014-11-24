@@ -58,7 +58,64 @@ public class J2SwiftConverter {
         IndentPrintStream js = new IndentPrintStream(new FileOutputStream(targetFileJS, true));
         js.println("module Adaptive {");
         js.println();
-
+        js.println(5, "/** Dictionary Definition **/");
+        js.println(5, "export interface IDictionary<V> {");
+        js.println(10, "add(key: string, value: V): void;");
+        js.println(10, "remove(key: string): void;");
+        js.println(10, "containsKey(key: string): boolean;");
+        js.println(10, "keys(): string[];");
+        js.println(10, "values(): V[];");
+        js.println(5, "}");
+        js.println();
+        js.println(5, "export class Dictionary<V> implements IDictionary<V>{");
+        js.println(5, "");
+        js.println(5, "    _keys: Array<string> = new Array<string>();");
+        js.println(5, "    _values: Array<V> = new Array<V>();");
+        js.println(5, "");
+        js.println(5, "    constructor(init: { key: string; value: V; }[]) {");
+        js.println(5, "");
+        js.println(5, "        for (var x = 0; x < init.length; x++) {");
+        js.println(5, "            this[init[x].key] = init[x].value;");
+        js.println(5, "            this._keys.push(init[x].key);");
+        js.println(5, "            this._values.push(init[x].value);");
+        js.println(5, "        }");
+        js.println(5, "    }");
+        js.println(5, "");
+        js.println(5, "    add(key: string, value: V) {");
+        js.println(5, "        this[key] = value;");
+        js.println(5, "        this._keys.push(key);");
+        js.println(5, "        this._values.push(value);");
+        js.println(5, "    }");
+        js.println(5, "");
+        js.println(5, "    remove(key: string) {");
+        js.println(5, "        var index = this._keys.indexOf(key, 0);");
+        js.println(5, "        this._keys.splice(index, 1);");
+        js.println(5, "        this._values.splice(index, 1);");
+        js.println(5, "");
+        js.println(5, "        delete this[key];");
+        js.println(5, "    }");
+        js.println(5, "");
+        js.println(5, "    keys(): string[] {");
+        js.println(5, "        return this._keys;");
+        js.println(5, "    }");
+        js.println(5, "");
+        js.println(5, "    values(): V[] {");
+        js.println(5, "        return this._values;");
+        js.println(5, "    }");
+        js.println(5, "");
+        js.println(5, "    containsKey(key: string) {");
+        js.println(5, "        if (typeof this[key] === \"undefined\") {");
+        js.println(5, "            return false;");
+        js.println(5, "        }");
+        js.println(5, "");
+        js.println(5, "        return true;");
+        js.println(5, "    }");
+        js.println(5, "");
+        js.println(5, "    toLookup(): IDictionary<V> {");
+        js.println(5, "        return this;");
+        js.println(5, "    }");
+        js.println(5, "}");
+        js.println();
 
         long tIn = System.currentTimeMillis();
         List<File> sourceFileList = new ArrayList<File>();
@@ -132,7 +189,7 @@ public class J2SwiftConverter {
                         }
                     }
                 });
-                allClasses.addAll(0,allInterfaces);
+                allClasses.addAll(0, allInterfaces);
 
                 for (Class clazz : allClasses) {
                     System.out.print(".");
@@ -313,12 +370,13 @@ public class J2SwiftConverter {
 
         if (clazz.isInterface()) {
             js.println(5, "/**");
-            js.println(5, " *   Interface definition for "+clazz.getSimpleName()+"");
+            js.println(5, " *   Interface definition for " + clazz.getSimpleName() + "");
             js.println(5, " **/");
             js.print(5, "export interface ");
             ps.print(0, "public protocol ");
             ps.print(clazz.getSimpleName());
             js.print(clazz.getSimpleName());
+
 
             Class[] interfaces = clazz.getInterfaces();
             if (interfaces.length > 0) {
@@ -343,7 +401,7 @@ public class J2SwiftConverter {
             js.println();
         } else {
             js.println(5, "/**");
-            js.println(5, " *   Class implementation for "+clazz.getSimpleName()+"");
+            js.println(5, " *   Class implementation for " + clazz.getSimpleName() + "");
             js.println(5, " **/");
             js.print(5, "export class ");
             ps.print("public class ");
@@ -423,7 +481,7 @@ public class J2SwiftConverter {
             } else {
                 if (field.getType().isEnum()) {
                     ps.print(" : " + field.getType().getSimpleName() + "?");
-                    js.print(" : " + clazz.getSimpleName()+field.getType().getSimpleName() + "Enum;");
+                    js.print(" : " + clazz.getSimpleName() + field.getType().getSimpleName() + "Enum;");
                 } else {
                     if (field.getType().isInterface()) {
                         ps.print(" : " + field.getType().getSimpleName() + "?");
@@ -451,6 +509,7 @@ public class J2SwiftConverter {
         // Description
         if (fieldList.size() > 0) {
             ps.println(5, "public override var description : String {");
+
             StringBuffer descriptionBuffer = new StringBuffer();
             descriptionBuffer.append(clazz.getSimpleName() + "{");
             int fieldIndex = 0;
@@ -493,6 +552,9 @@ public class J2SwiftConverter {
             ps.println(10, "return \"" + descriptionBuffer.toString() + "\"");
             ps.println(5, "}");
             ps.println();
+            if (clazz.getSimpleName().equals("Locale")) {
+                js.println(10, "description : string;");
+            }
             //ps.println(5,"func ==(lhs: "+clazz.getSimpleName()+", rhs: "+clazz.getSimpleName()+") -> Bool {");
             //ps.println(10,"return false");
             //ps.println(5,"}");
@@ -643,7 +705,7 @@ public class J2SwiftConverter {
                         if (!singleTSInterface) js.print(parameter.getType().getSimpleName().toLowerCase());
                     } else if (parameterType.isEnum()) {
                         ps.print(parameter.getType().getSimpleName());
-                        js.print(clazz.getSimpleName()+parameter.getType().getSimpleName()+"Enum");
+                        js.print(clazz.getSimpleName() + parameter.getType().getSimpleName() + "Enum");
                     } else {
                         ps.print(parameter.getType().getSimpleName());
                         js.print(parameter.getType().getSimpleName());
@@ -742,6 +804,9 @@ public class J2SwiftConverter {
                         if (!singleTSInterface)
                             js.println(15, "this." + parameter.getName() + " = " + parameter.getName() + ";");
                     }
+                    if (clazz.getSimpleName().equals("Locale")) {
+                        js.println(15, "this.description = this.country+\"_\"+this.language;");
+                    }
                 }
                 ps.println(5, "}");
                 ps.println();
@@ -763,7 +828,7 @@ public class J2SwiftConverter {
             ps.println(5, " */");
 
             js.println(10, "/**");
-            js.println(10, " * Method Declarations for "+clazz.getSimpleName());
+            js.println(10, " * Method Declarations for " + clazz.getSimpleName());
             js.println(10, " */");
         }
         List<Class<?>> interfaceEnumList = new ArrayList<Class<?>>();
@@ -848,7 +913,7 @@ public class J2SwiftConverter {
                     } else {
                         if (parameterType.isEnum()) {
                             ps.print(clazz.getSimpleName() + parameter.getType().getSimpleName());
-                            js.print(clazz.getSimpleName() + parameter.getType().getSimpleName()+"Enum");
+                            js.print(clazz.getSimpleName() + parameter.getType().getSimpleName() + "Enum");
                         } else if (parameterType.getSimpleName().equals("Object")) {
                             ps.print("Any" + parameter.getType().getSimpleName());
                             js.print("any");
@@ -905,7 +970,7 @@ public class J2SwiftConverter {
                         } else {
                             if (returnType.getSimpleName().equals("Map")) {
                                 ps.print("Dictionary<String,String>?");
-                                js.print("Dictionary<String,String>");
+                                js.print("Dictionary<string>");
                             } else {
                                 if (returnType.isEnum()) {
                                     processClassEnum(clazz, returnType, targetDir, targetDirJS);
@@ -950,7 +1015,7 @@ public class J2SwiftConverter {
                             if (componentType.getSimpleName().equals("Object")) {
                                 ps.print("[Any" + componentType.getSimpleName() + "]");
                                 js.print("Array<any>");
-                            } else if(componentType.equals(String.class)) {
+                            } else if (componentType.equals(String.class)) {
                                 ps.print("[" + componentType.getSimpleName() + "]");
                                 js.print("Array<string>");
                             } else {
@@ -961,12 +1026,12 @@ public class J2SwiftConverter {
                     } else if (parameterType.isPrimitive()) {
                         ps.print(getPrimitiveTypeSwift(parameterType));
                         js.print(getPrimitiveTypeTS(parameterType));
-                    } else if(parameterType.equals(String.class)) {
+                    } else if (parameterType.equals(String.class)) {
                         ps.print(parameter.getType().getSimpleName());
                         js.print("string");
-                    } else if(parameterType.isEnum()) {
+                    } else if (parameterType.isEnum()) {
                         ps.print(parameter.getType().getSimpleName());
-                        js.print(clazz.getSimpleName()+parameter.getType().getSimpleName()+"Enum");
+                        js.print(clazz.getSimpleName() + parameter.getType().getSimpleName() + "Enum");
                     } else {
                         ps.print(parameter.getType().getSimpleName());
                         js.print(parameter.getType().getSimpleName());
@@ -1006,12 +1071,12 @@ public class J2SwiftConverter {
                         js.print(getPrimitiveTypeTS(returnType));
                     } else if (returnType.isEnum()) {
                         ps.print(returnType.getSimpleName());
-                        js.print(clazz.getSimpleName()+returnType.getSimpleName()+"Enum");
+                        js.print(clazz.getSimpleName() + returnType.getSimpleName() + "Enum");
                     } else {
                         if (returnType.getSimpleName().equals("Object")) {
                             ps.print("Any" + returnType.getSimpleName() + "?");
                             js.print("any");
-                        } else if(returnType.equals(String.class)) {
+                        } else if (returnType.equals(String.class)) {
                             ps.print(returnType.getSimpleName() + "?");
                             js.print("string");
                         } else {
@@ -1027,7 +1092,7 @@ public class J2SwiftConverter {
 
                 if (!returnType.equals(Void.TYPE)) {
                     ps.print(10, "return self." + getGetterSetterProperty(method));
-                    js.print(15, "return this." + getGetterSetterProperty(method)+"");
+                    js.print(15, "return this." + getGetterSetterProperty(method) + "");
                     if (returnType.isEnum() || returnType.isInterface() /*|| returnType.isArray()*/) {
                         ps.print("!");
                     } else if (!returnType.isPrimitive() && !returnType.equals(String.class) && !returnType.isArray()) {
@@ -1037,7 +1102,7 @@ public class J2SwiftConverter {
                     js.println("");
                 } else {
                     ps.println(10, "self." + getGetterSetterProperty(method) + " = " + getGetterSetterProperty(method));
-                    js.println(15, "this." + getGetterSetterProperty(method) + " = " + getGetterSetterProperty(method)+"");
+                    js.println(15, "this." + getGetterSetterProperty(method) + " = " + getGetterSetterProperty(method) + "");
                 }
                 ps.println(5, "}");
                 js.println(10, "}");
@@ -1115,35 +1180,36 @@ public class J2SwiftConverter {
 
         for (Class<?> enumClass : enumList) {
             js.println(5, "/**");
-            js.println(5, " *  Enumerations for "+clazz.getSimpleName() +" "+enumClass.getSimpleName()+"");
+            js.println(5, " *  Enumerations for " + clazz.getSimpleName() + " " + enumClass.getSimpleName() + "");
             js.println(5, " **/");
 
             js.println(5, "export class " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum {");
-            js.println(10,"constructor(public value:string){}");
-            js.println(10,"toString(){return this.value;}");
+            js.println(10, "constructor(public value:string){}");
+            js.println(10, "toString(){return this.value;}");
             js.println();
             Object[] enumConstants = enumClass.getEnumConstants();
 
             for (int i = 0; i < enumConstants.length; i++) {
-                js.println(10,"static "+enumConstants[i]+" = new "+clazz.getSimpleName() + enumClass.getSimpleName() + "Enum(\""+enumConstants[i]+"\");");
+                js.println(10, "static " + enumConstants[i] + " = new " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum(\"" + enumConstants[i] + "\");");
             }
-            js.println(5,"}");
+            js.println(5, "}");
             js.println();
         }
 
         for (Class<?> enumClass : interfaceEnumList) {
             js.println(5, "/**");
-            js.println(5, " *  Enumerations for "+clazz.getSimpleName() +" "+enumClass.getSimpleName()+"");
-            js.println(5, " **/");            js.println(5, "export class " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum {");
-            js.println(10,"constructor(public value:string){}");
-            js.println(10,"toString(){return this.value;}");
+            js.println(5, " *  Enumerations for " + clazz.getSimpleName() + " " + enumClass.getSimpleName() + "");
+            js.println(5, " **/");
+            js.println(5, "export class " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum {");
+            js.println(10, "constructor(public value:string){}");
+            js.println(10, "toString(){return this.value;}");
             js.println();
             Object[] enumConstants = enumClass.getEnumConstants();
 
             for (int i = 0; i < enumConstants.length; i++) {
-                js.println(10,"static "+enumConstants[i]+" = new "+clazz.getSimpleName() + enumClass.getSimpleName() + "Enum(\""+enumConstants[i]+"\");");
+                js.println(10, "static " + enumConstants[i] + " = new " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum(\"" + enumConstants[i] + "\");");
             }
-            js.println(5,"}");
+            js.println(5, "}");
             js.println();
         }
 

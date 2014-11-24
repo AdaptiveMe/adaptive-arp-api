@@ -1,4 +1,26 @@
 declare module Adaptive {
+    /** Dictionary Definition **/
+    interface IDictionary<V> {
+        add(key: string, value: V): void;
+        remove(key: string): void;
+        containsKey(key: string): boolean;
+        keys(): string[];
+        values(): V[];
+    }
+    class Dictionary<V> implements IDictionary<V> {
+        _keys: string[];
+        _values: V[];
+        constructor(init: {
+            key: string;
+            value: V;
+        }[]);
+        add(key: string, value: V): void;
+        remove(key: string): void;
+        keys(): string[];
+        values(): V[];
+        containsKey(key: string): boolean;
+        toLookup(): IDictionary<V>;
+    }
     /**
      *   Interface definition for IAdaptiveRP
      **/
@@ -511,7 +533,7 @@ declare module Adaptive {
          */
         getLocaleSupportedDescriptors(): Locale[];
         getResourceLiteral(key: string, locale: Locale): string;
-        getResourceLiterals(locale: Locale): any[];
+        getResourceLiterals(locale: Locale): Dictionary<string>;
     }
     /**
      *   Interface definition for ITwitter
@@ -1400,7 +1422,7 @@ declare module Adaptive {
         getFileName(): IFilePath;
         getFileSystem(): IFileSystem;
         getNameCount(): number;
-        getName(index: number): IFilePath;
+        getName(index: number): string;
         getParent(): IFilePath;
         getRoot(): IFilePath;
         isAbsolute(): boolean;
@@ -1541,6 +1563,7 @@ declare module Adaptive {
         getContent(callback: IFileDataResultCallback): any;
         getDateCreated(): number;
         getDateModified(): number;
+        getName(): string;
         getPath(): string;
         getSize(): number;
         isDirectory(): boolean;
