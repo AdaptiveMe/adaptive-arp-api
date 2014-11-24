@@ -118,6 +118,7 @@ public class J2SwiftConverter {
         js.println();
         js.println(5, "var registeredCallbacks : Dictionary<IBaseCallback> = new Dictionary<IBaseCallback>([]);");
         js.println(5, "var registeredListeners : Dictionary<IBaseListener> = new Dictionary<IBaseListener>([]);");
+        js.println(5, "var registeredCounter : number = 0;");
         js.println();
 
         long tIn = System.currentTimeMillis();
@@ -1282,9 +1283,10 @@ public class J2SwiftConverter {
                 js.println();
                 if (clazz.getSimpleName().endsWith("Listener") || clazz.getSimpleName().endsWith("Callback")) {
                     js.print(10, "constructor(");
+                    boolean hasParam = false;
                     for (int i = 0; i<nonMethodList.size();i++) {
                         Method method = nonMethodList.get(i);
-                        if (!method.getName().startsWith("on") && !method.getName().startsWith("toString")) {
+                        if (!method.getName().startsWith("on") && !method.getName().startsWith("toString") && !method.getName().equals("getId")) {
                             Class returnType = method.getReturnType();
                             String returnTypeJS = "";
                             if (returnType.isInterface()) {
@@ -1301,11 +1303,12 @@ public class J2SwiftConverter {
                             js.print(getGetterSetterProperty(method) + ": " + returnTypeJS+"");
                             if (i<nonMethodList.size()-1) {
                                 js.print(", ");
+                                hasParam = true;
                             }
                         }
                     }
                     if (onMethodList.size()>0) {
-                        js.print(", ");
+                        if (hasParam) js.print(", ");
                     }
                     for (int i  = 0;i<onMethodList.size();i++) {
                         Method method = onMethodList.get(i);
@@ -1332,7 +1335,11 @@ public class J2SwiftConverter {
                             } else if (returnType.isArray()) {
                                 returnTypeJS = "NotImplemented";
                             }
-                            js.println(15,"this."+getGetterSetterProperty(method) + " = " + getGetterSetterProperty(method) + ";");
+                            if (method.getName().equals("getId")) {
+                                js.println(15, "this." + getGetterSetterProperty(method) + " = ++registeredCounter;");
+                            } else {
+                                js.println(15, "this." + getGetterSetterProperty(method) + " = " + getGetterSetterProperty(method) + ";");
+                            }
                         }
                     }
                     for (Method method : onMethodList) {

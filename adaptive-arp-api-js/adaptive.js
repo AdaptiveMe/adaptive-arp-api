@@ -74,6 +74,7 @@ var Adaptive;
     Adaptive.Dictionary = Dictionary;
     var registeredCallbacks = new Dictionary([]);
     var registeredListeners = new Dictionary([]);
+    var registeredCounter = 0;
     /**
      *  Enumerations for IAppContext Type
      **/
@@ -103,8 +104,8 @@ var Adaptive;
      *  Listener IBaseCallback implementation.
      */
     var BaseCallback = (function () {
-        function BaseCallback(id) {
-            this.id = id;
+        function BaseCallback() {
+            this.id = ++registeredCounter;
         }
         BaseCallback.prototype.toString = function () {
             return "BaseCallback{" + this.id + "}";
@@ -119,8 +120,8 @@ var Adaptive;
      *  Listener IBaseListener implementation.
      */
     var BaseListener = (function () {
-        function BaseListener(id) {
-            this.id = id;
+        function BaseListener() {
+            this.id = ++registeredCounter;
         }
         BaseListener.prototype.toString = function () {
             return "BaseListener{" + this.id + "}";
@@ -256,8 +257,8 @@ var Adaptive;
      *  Listener ISecureKVResultCallback implementation.
      */
     var SecureKVResultCallback = (function () {
-        function SecureKVResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function SecureKVResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -332,8 +333,8 @@ var Adaptive;
      *  Listener IFileResultCallback implementation.
      */
     var FileResultCallback = (function () {
-        function FileResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function FileResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -408,8 +409,8 @@ var Adaptive;
      *  Listener ILifecycleListener implementation.
      */
     var LifecycleListener = (function () {
-        function LifecycleListener(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function LifecycleListener(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -530,8 +531,8 @@ var Adaptive;
      *  Listener INetworkReachabilityCallback implementation.
      */
     var NetworkReachabilityCallback = (function () {
-        function NetworkReachabilityCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function NetworkReachabilityCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -605,8 +606,8 @@ var Adaptive;
      *  Listener IAccelerationListener implementation.
      */
     var AccelerationListener = (function () {
-        function AccelerationListener(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function AccelerationListener(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -707,8 +708,8 @@ var Adaptive;
      *  Listener IButtonListener implementation.
      */
     var ButtonListener = (function () {
-        function ButtonListener(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function ButtonListener(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -782,8 +783,8 @@ var Adaptive;
      *  Listener IContactResultCallback implementation.
      */
     var ContactResultCallback = (function () {
-        function ContactResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function ContactResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -884,8 +885,8 @@ var Adaptive;
      *  Listener IGeolocationListener implementation.
      */
     var GeolocationListener = (function () {
-        function GeolocationListener(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function GeolocationListener(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -960,8 +961,8 @@ var Adaptive;
      *  Listener IContactPhotoResultCallback implementation.
      */
     var ContactPhotoResultCallback = (function () {
-        function ContactPhotoResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function ContactPhotoResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -1207,8 +1208,8 @@ var Adaptive;
      *  Listener IMessagingCallback implementation.
      */
     var MessagingCallback = (function () {
-        function MessagingCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function MessagingCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -1283,8 +1284,8 @@ var Adaptive;
      *  Listener IDatabaseResultCallback implementation.
      */
     var DatabaseResultCallback = (function () {
-        function DatabaseResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function DatabaseResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -1670,8 +1671,8 @@ var Adaptive;
      *  Listener ITableResultCallback implementation.
      */
     var TableResultCallback = (function () {
-        function TableResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function TableResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -1744,8 +1745,8 @@ var Adaptive;
      *  Listener IFileListResultCallback implementation.
      */
     var FileListResultCallback = (function () {
-        function FileListResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function FileListResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -1896,8 +1897,8 @@ var Adaptive;
      *  Listener IServiceResultCallback implementation.
      */
     var ServiceResultCallback = (function () {
-        function ServiceResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function ServiceResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;
@@ -1971,8 +1972,8 @@ var Adaptive;
      *  Listener IFileDataResultCallback implementation.
      */
     var FileDataResultCallback = (function () {
-        function FileDataResultCallback(id, onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = id;
+        function FileDataResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
             this.onErrorFunction = onErrorFunction;
             this.onResultFunction = onResultFunction;
             this.onWarningFunction = onWarningFunction;

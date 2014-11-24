@@ -88,6 +88,7 @@ module Adaptive {
 
      var registeredCallbacks : Dictionary<IBaseCallback> = new Dictionary<IBaseCallback>([]);
      var registeredListeners : Dictionary<IBaseListener> = new Dictionary<IBaseListener>([]);
+     var registeredCounter : number = 0;
 
      /**
       *   Interface definition for IAdaptiveRP
@@ -293,8 +294,8 @@ module Adaptive {
           description: string;
           id: number;
 
-          constructor(id: number) {
-               this.id = id;
+          constructor() {
+               this.id = ++registeredCounter;
           }
 
           toString() : string {
@@ -350,8 +351,8 @@ module Adaptive {
           description: string;
           id: number;
 
-          constructor(id: number) {
-               this.id = id;
+          constructor() {
+               this.id = ++registeredCounter;
           }
 
           toString() : string {
@@ -550,8 +551,8 @@ module Adaptive {
           onResultFunction : (keyValues: Array<SecureKeyPair>) => Function;
           onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: ISecureKVResultCallbackErrorEnum) => Function, onResultFunction : (keyValues: Array<SecureKeyPair>) => Function, onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: ISecureKVResultCallbackErrorEnum) => Function, onResultFunction : (keyValues: Array<SecureKeyPair>) => Function, onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -655,8 +656,8 @@ module Adaptive {
           onResultFunction : (storageFile: IFile) => Function;
           onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: IFileResultCallbackErrorEnum) => Function, onResultFunction : (storageFile: IFile) => Function, onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: IFileResultCallbackErrorEnum) => Function, onResultFunction : (storageFile: IFile) => Function, onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -781,8 +782,8 @@ module Adaptive {
           onResultFunction : (lifecycle: Lifecycle) => Function;
           onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: ILifecycleListenerErrorEnum) => Function, onResultFunction : (lifecycle: Lifecycle) => Function, onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: ILifecycleListenerErrorEnum) => Function, onResultFunction : (lifecycle: Lifecycle) => Function, onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -977,8 +978,8 @@ module Adaptive {
           onResultFunction : (result: string) => Function;
           onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: INetworkReachabilityCallbackErrorEnum) => Function, onResultFunction : (result: string) => Function, onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: INetworkReachabilityCallbackErrorEnum) => Function, onResultFunction : (result: string) => Function, onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -1060,8 +1061,8 @@ module Adaptive {
           onResultFunction : (acceleration: Acceleration) => Function;
           onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: IAccelerationListenerErrorEnum) => Function, onResultFunction : (acceleration: Acceleration) => Function, onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: IAccelerationListenerErrorEnum) => Function, onResultFunction : (acceleration: Acceleration) => Function, onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -1196,8 +1197,8 @@ module Adaptive {
           onResultFunction : (button: Button) => Function;
           onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: IButtonListenerErrorEnum) => Function, onResultFunction : (button: Button) => Function, onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: IButtonListenerErrorEnum) => Function, onResultFunction : (button: Button) => Function, onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -1307,8 +1308,8 @@ module Adaptive {
           onResultFunction : (contacts: Array<Contact>) => Function;
           onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: IContactResultCallbackErrorEnum) => Function, onResultFunction : (contacts: Array<Contact>) => Function, onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: IContactResultCallbackErrorEnum) => Function, onResultFunction : (contacts: Array<Contact>) => Function, onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -1482,8 +1483,8 @@ module Adaptive {
           onResultFunction : (geolocation: Geolocation) => Function;
           onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: IGeolocationListenerErrorEnum) => Function, onResultFunction : (geolocation: Geolocation) => Function, onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: IGeolocationListenerErrorEnum) => Function, onResultFunction : (geolocation: Geolocation) => Function, onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -1566,8 +1567,8 @@ module Adaptive {
           onResultFunction : (contactPhoto: Array<number>) => Function;
           onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: IContactPhotoResultCallbackErrorEnum) => Function, onResultFunction : (contactPhoto: Array<number>) => Function, onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: IContactPhotoResultCallbackErrorEnum) => Function, onResultFunction : (contactPhoto: Array<number>) => Function, onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -1940,8 +1941,8 @@ module Adaptive {
           onResultFunction : (success: boolean) => Function;
           onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: IMessagingCallbackErrorEnum) => Function, onResultFunction : (success: boolean) => Function, onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: IMessagingCallbackErrorEnum) => Function, onResultFunction : (success: boolean) => Function, onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -2024,8 +2025,8 @@ module Adaptive {
           onResultFunction : (database: Database) => Function;
           onWarningFunction : (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: IDatabaseResultCallbackErrorEnum) => Function, onResultFunction : (database: Database) => Function, onWarningFunction : (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: IDatabaseResultCallbackErrorEnum) => Function, onResultFunction : (database: Database) => Function, onWarningFunction : (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -2555,8 +2556,8 @@ module Adaptive {
           onResultFunction : (table: Table) => Function;
           onWarningFunction : (table: Table, warning: ITableResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: ITableResultCallbackErrorEnum) => Function, onResultFunction : (table: Table) => Function, onWarningFunction : (table: Table, warning: ITableResultCallbackWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: ITableResultCallbackErrorEnum) => Function, onResultFunction : (table: Table) => Function, onWarningFunction : (table: Table, warning: ITableResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -2665,8 +2666,8 @@ module Adaptive {
           onResultFunction : (files: Array<IFile>) => Function;
           onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: IFileListResultCallbackErrorEnum) => Function, onResultFunction : (files: Array<IFile>) => Function, onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: IFileListResultCallbackErrorEnum) => Function, onResultFunction : (files: Array<IFile>) => Function, onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -2884,8 +2885,8 @@ module Adaptive {
           onResultFunction : (response: ServiceResponse) => Function;
           onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: IServiceResultCallbackErrorEnum) => Function, onResultFunction : (response: ServiceResponse) => Function, onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: IServiceResultCallbackErrorEnum) => Function, onResultFunction : (response: ServiceResponse) => Function, onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
@@ -2967,8 +2968,8 @@ module Adaptive {
           onResultFunction : (file: IFile, data: Array<number>) => Function;
           onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onErrorFunction : (error: IFileDataResultCallbackErrorEnum) => Function, onResultFunction : (file: IFile, data: Array<number>) => Function, onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function) {
-               this.id = id;
+          constructor(onErrorFunction : (error: IFileDataResultCallbackErrorEnum) => Function, onResultFunction : (file: IFile, data: Array<number>) => Function, onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
