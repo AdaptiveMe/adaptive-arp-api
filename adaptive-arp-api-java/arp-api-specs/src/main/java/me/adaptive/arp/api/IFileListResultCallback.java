@@ -56,15 +56,6 @@ public interface IFileListResultCallback extends IBaseCallback {
     void onError(Error error);
 
     /**
-     * Error processing data retrieval/storage operation.
-     *
-     * @param file  File referenced during error.
-     * @param error Error condition encountered.
-     * @since ARP1.0
-     */
-    void onError(IFile file, Error error);
-
-    /**
      * List of warnings.
      *
      * @since ARP1.0
