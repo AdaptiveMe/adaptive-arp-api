@@ -530,25 +530,32 @@ module Adaptive {
           onResultFunction : (result: string) => Function;
           onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (result: string) => Function, onErrorFunction : (error: INetworkReachabilityCallbackErrorEnum) => Function, onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: INetworkReachabilityCallbackErrorEnum) => Function, onResultFunction : (result: string) => Function, onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(result: string) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The NetworkReachabilityCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(result);
-               }
+          toString() : string {
+               return "NetworkReachabilityCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: INetworkReachabilityCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The NetworkReachabilityCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(result: string) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The NetworkReachabilityCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(result);
                }
           }
           onWarning(result: string, warning: INetworkReachabilityCallbackWarningEnum) : void {
@@ -558,13 +565,6 @@ module Adaptive {
                     this.onWarningFunction(result, warning);
                }
           }
-          toString() : string {
-               return "NetworkReachabilityCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for IProximity
@@ -685,25 +685,32 @@ module Adaptive {
           onResultFunction : (response: ServiceResponse) => Function;
           onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (response: ServiceResponse) => Function, onErrorFunction : (error: IServiceResultCallbackErrorEnum) => Function, onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: IServiceResultCallbackErrorEnum) => Function, onResultFunction : (response: ServiceResponse) => Function, onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(response: ServiceResponse) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The ServiceResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(response);
-               }
+          toString() : string {
+               return "ServiceResultCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: IServiceResultCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The ServiceResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(response: ServiceResponse) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The ServiceResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(response);
                }
           }
           onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) : void {
@@ -713,13 +720,6 @@ module Adaptive {
                     this.onWarningFunction(response, warning);
                }
           }
-          toString() : string {
-               return "ServiceResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for IDesktop
@@ -820,25 +820,32 @@ module Adaptive {
           onResultFunction : (geolocation: Geolocation) => Function;
           onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (geolocation: Geolocation) => Function, onErrorFunction : (error: IGeolocationListenerErrorEnum) => Function, onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: IGeolocationListenerErrorEnum) => Function, onResultFunction : (geolocation: Geolocation) => Function, onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(geolocation: Geolocation) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The GeolocationListener does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(geolocation);
-               }
+          toString() : string {
+               return "GeolocationListener{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: IGeolocationListenerErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The GeolocationListener does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(geolocation: Geolocation) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The GeolocationListener does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(geolocation);
                }
           }
           onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) : void {
@@ -848,13 +855,6 @@ module Adaptive {
                     this.onWarningFunction(geolocation, warning);
                }
           }
-          toString() : string {
-               return "GeolocationListener{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for IContactResultCallback
@@ -900,25 +900,32 @@ module Adaptive {
           onResultFunction : (contacts: Array<Contact>) => Function;
           onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (contacts: Array<Contact>) => Function, onErrorFunction : (error: IContactResultCallbackErrorEnum) => Function, onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: IContactResultCallbackErrorEnum) => Function, onResultFunction : (contacts: Array<Contact>) => Function, onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(contacts: Array<Contact>) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The ContactResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(contacts);
-               }
+          toString() : string {
+               return "ContactResultCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: IContactResultCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The ContactResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(contacts: Array<Contact>) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The ContactResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(contacts);
                }
           }
           onWarning(contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) : void {
@@ -928,13 +935,6 @@ module Adaptive {
                     this.onWarningFunction(contacts, warning);
                }
           }
-          toString() : string {
-               return "ContactResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for INotificationLocal
@@ -995,25 +995,32 @@ module Adaptive {
           onResultFunction : (database: Database) => Function;
           onWarningFunction : (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (database: Database) => Function, onErrorFunction : (error: IDatabaseResultCallbackErrorEnum) => Function, onWarningFunction : (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: IDatabaseResultCallbackErrorEnum) => Function, onResultFunction : (database: Database) => Function, onWarningFunction : (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(database: Database) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The DatabaseResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(database);
-               }
+          toString() : string {
+               return "DatabaseResultCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: IDatabaseResultCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The DatabaseResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(database: Database) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The DatabaseResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(database);
                }
           }
           onWarning(database: Database, warning: IDatabaseResultCallbackWarningEnum) : void {
@@ -1023,13 +1030,6 @@ module Adaptive {
                     this.onWarningFunction(database, warning);
                }
           }
-          toString() : string {
-               return "DatabaseResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for ICapabilities
@@ -1237,7 +1237,7 @@ module Adaptive {
           onStoppedFunction : (server: IAppServer) => Function;
           onStoppingFunction : (server: IAppServer) => Function;
 
-          constructor(id: number, onPausedFunction : (server: IAppServer) => Function, onStartFunction : (server: IAppServer) => Function, onResumingFunction : (server: IAppServer) => Function, onResumedFunction : (server: IAppServer) => Function, onStoppingFunction : (server: IAppServer) => Function, onStoppedFunction : (server: IAppServer) => Function, onPausingFunction : (server: IAppServer) => Function) {
+          constructor(id: number, onPausedFunction : (server: IAppServer) => Function, onPausingFunction : (server: IAppServer) => Function, onResumedFunction : (server: IAppServer) => Function, onResumingFunction : (server: IAppServer) => Function, onStartFunction : (server: IAppServer) => Function, onStoppedFunction : (server: IAppServer) => Function, onStoppingFunction : (server: IAppServer) => Function) {
                this.id = id;
                this.onPausedFunction = onPausedFunction;
                this.onPausingFunction = onPausingFunction;
@@ -1248,46 +1248,18 @@ module Adaptive {
                this.onStoppingFunction = onStoppingFunction;
           }
 
+          toString() : string {
+               return "AppServerListener{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
           onPaused(server: IAppServer) : void {
                if (typeof this.onPausedFunction === 'undefined') {
                     console.log("WARNING: The AppServerListener does not define the onPausedFunction.");
                } else {
                     this.onPausedFunction(server);
-               }
-          }
-          onStart(server: IAppServer) : void {
-               if (typeof this.onStartFunction === 'undefined') {
-                    console.log("WARNING: The AppServerListener does not define the onStartFunction.");
-               } else {
-                    this.onStartFunction(server);
-               }
-          }
-          onResuming(server: IAppServer) : void {
-               if (typeof this.onResumingFunction === 'undefined') {
-                    console.log("WARNING: The AppServerListener does not define the onResumingFunction.");
-               } else {
-                    this.onResumingFunction(server);
-               }
-          }
-          onResumed(server: IAppServer) : void {
-               if (typeof this.onResumedFunction === 'undefined') {
-                    console.log("WARNING: The AppServerListener does not define the onResumedFunction.");
-               } else {
-                    this.onResumedFunction(server);
-               }
-          }
-          onStopping(server: IAppServer) : void {
-               if (typeof this.onStoppingFunction === 'undefined') {
-                    console.log("WARNING: The AppServerListener does not define the onStoppingFunction.");
-               } else {
-                    this.onStoppingFunction(server);
-               }
-          }
-          onStopped(server: IAppServer) : void {
-               if (typeof this.onStoppedFunction === 'undefined') {
-                    console.log("WARNING: The AppServerListener does not define the onStoppedFunction.");
-               } else {
-                    this.onStoppedFunction(server);
                }
           }
           onPausing(server: IAppServer) : void {
@@ -1297,13 +1269,41 @@ module Adaptive {
                     this.onPausingFunction(server);
                }
           }
-          toString() : string {
-               return "AppServerListener{"+this.id+"}";
+          onResumed(server: IAppServer) : void {
+               if (typeof this.onResumedFunction === 'undefined') {
+                    console.log("WARNING: The AppServerListener does not define the onResumedFunction.");
+               } else {
+                    this.onResumedFunction(server);
+               }
           }
-          getId() : number {
-               return this.id
+          onResuming(server: IAppServer) : void {
+               if (typeof this.onResumingFunction === 'undefined') {
+                    console.log("WARNING: The AppServerListener does not define the onResumingFunction.");
+               } else {
+                    this.onResumingFunction(server);
+               }
           }
-
+          onStart(server: IAppServer) : void {
+               if (typeof this.onStartFunction === 'undefined') {
+                    console.log("WARNING: The AppServerListener does not define the onStartFunction.");
+               } else {
+                    this.onStartFunction(server);
+               }
+          }
+          onStopped(server: IAppServer) : void {
+               if (typeof this.onStoppedFunction === 'undefined') {
+                    console.log("WARNING: The AppServerListener does not define the onStoppedFunction.");
+               } else {
+                    this.onStoppedFunction(server);
+               }
+          }
+          onStopping(server: IAppServer) : void {
+               if (typeof this.onStoppingFunction === 'undefined') {
+                    console.log("WARNING: The AppServerListener does not define the onStoppingFunction.");
+               } else {
+                    this.onStoppingFunction(server);
+               }
+          }
      }
      /**
       *   Interface definition for IMessaging
@@ -1382,25 +1382,32 @@ module Adaptive {
           onResultFunction : (lifecycle: Lifecycle) => Function;
           onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (lifecycle: Lifecycle) => Function, onErrorFunction : (error: ILifecycleListenerErrorEnum) => Function, onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: ILifecycleListenerErrorEnum) => Function, onResultFunction : (lifecycle: Lifecycle) => Function, onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(lifecycle: Lifecycle) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The LifecycleListener does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(lifecycle);
-               }
+          toString() : string {
+               return "LifecycleListener{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: ILifecycleListenerErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The LifecycleListener does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(lifecycle: Lifecycle) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The LifecycleListener does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(lifecycle);
                }
           }
           onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) : void {
@@ -1410,13 +1417,6 @@ module Adaptive {
                     this.onWarningFunction(lifecycle, warning);
                }
           }
-          toString() : string {
-               return "LifecycleListener{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for IGeolocation
@@ -1490,25 +1490,32 @@ module Adaptive {
           onResultFunction : (contactPhoto: Array<number>) => Function;
           onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (contactPhoto: Array<number>) => Function, onErrorFunction : (error: IContactPhotoResultCallbackErrorEnum) => Function, onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: IContactPhotoResultCallbackErrorEnum) => Function, onResultFunction : (contactPhoto: Array<number>) => Function, onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(contactPhoto: Array<number>) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The ContactPhotoResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(contactPhoto);
-               }
+          toString() : string {
+               return "ContactPhotoResultCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: IContactPhotoResultCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The ContactPhotoResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(contactPhoto: Array<number>) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The ContactPhotoResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(contactPhoto);
                }
           }
           onWarning(contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) : void {
@@ -1518,13 +1525,6 @@ module Adaptive {
                     this.onWarningFunction(contactPhoto, warning);
                }
           }
-          toString() : string {
-               return "ContactPhotoResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for ISecurity
@@ -1638,25 +1638,32 @@ module Adaptive {
           onResultFunction : (acceleration: Acceleration) => Function;
           onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (acceleration: Acceleration) => Function, onErrorFunction : (error: IAccelerationListenerErrorEnum) => Function, onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: IAccelerationListenerErrorEnum) => Function, onResultFunction : (acceleration: Acceleration) => Function, onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(acceleration: Acceleration) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The AccelerationListener does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(acceleration);
-               }
+          toString() : string {
+               return "AccelerationListener{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: IAccelerationListenerErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The AccelerationListener does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(acceleration: Acceleration) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The AccelerationListener does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(acceleration);
                }
           }
           onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) : void {
@@ -1666,13 +1673,6 @@ module Adaptive {
                     this.onWarningFunction(acceleration, warning);
                }
           }
-          toString() : string {
-               return "AccelerationListener{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for INetworkReachability
@@ -1750,25 +1750,32 @@ module Adaptive {
           onResultFunction : (keyValues: Array<SecureKeyPair>) => Function;
           onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (keyValues: Array<SecureKeyPair>) => Function, onErrorFunction : (error: ISecureKVResultCallbackErrorEnum) => Function, onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: ISecureKVResultCallbackErrorEnum) => Function, onResultFunction : (keyValues: Array<SecureKeyPair>) => Function, onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(keyValues: Array<SecureKeyPair>) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The SecureKVResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(keyValues);
-               }
+          toString() : string {
+               return "SecureKVResultCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: ISecureKVResultCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The SecureKVResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(keyValues: Array<SecureKeyPair>) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The SecureKVResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(keyValues);
                }
           }
           onWarning(keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) : void {
@@ -1778,13 +1785,6 @@ module Adaptive {
                     this.onWarningFunction(keyValues, warning);
                }
           }
-          toString() : string {
-               return "SecureKVResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for IGlobalization
@@ -1843,25 +1843,32 @@ module Adaptive {
           onResultFunction : (file: IFile, data: Array<number>) => Function;
           onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (file: IFile, data: Array<number>) => Function, onErrorFunction : (error: IFileDataResultCallbackErrorEnum) => Function, onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: IFileDataResultCallbackErrorEnum) => Function, onResultFunction : (file: IFile, data: Array<number>) => Function, onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(file: IFile, data: Array<number>) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The FileDataResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(file, data);
-               }
+          toString() : string {
+               return "FileDataResultCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: IFileDataResultCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The FileDataResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(file: IFile, data: Array<number>) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The FileDataResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(file, data);
                }
           }
           onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum) : void {
@@ -1871,13 +1878,6 @@ module Adaptive {
                     this.onWarningFunction(file, warning);
                }
           }
-          toString() : string {
-               return "FileDataResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for ILinkedIn
@@ -1941,25 +1941,32 @@ module Adaptive {
           onResultFunction : (table: Table) => Function;
           onWarningFunction : (table: Table, warning: ITableResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (table: Table) => Function, onErrorFunction : (error: ITableResultCallbackErrorEnum) => Function, onWarningFunction : (table: Table, warning: ITableResultCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: ITableResultCallbackErrorEnum) => Function, onResultFunction : (table: Table) => Function, onWarningFunction : (table: Table, warning: ITableResultCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(table: Table) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The TableResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(table);
-               }
+          toString() : string {
+               return "TableResultCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: ITableResultCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The TableResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(table: Table) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The TableResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(table);
                }
           }
           onWarning(table: Table, warning: ITableResultCallbackWarningEnum) : void {
@@ -1969,13 +1976,6 @@ module Adaptive {
                     this.onWarningFunction(table, warning);
                }
           }
-          toString() : string {
-               return "TableResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for IFilePath
@@ -2080,25 +2080,32 @@ module Adaptive {
           onResultFunction : (files: Array<IFile>) => Function;
           onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (files: Array<IFile>) => Function, onErrorFunction : (error: IFileListResultCallbackErrorEnum) => Function, onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: IFileListResultCallbackErrorEnum) => Function, onResultFunction : (files: Array<IFile>) => Function, onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(files: Array<IFile>) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The FileListResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(files);
-               }
+          toString() : string {
+               return "FileListResultCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: IFileListResultCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The FileListResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(files: Array<IFile>) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The FileListResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(files);
                }
           }
           onWarning(files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) : void {
@@ -2108,13 +2115,6 @@ module Adaptive {
                     this.onWarningFunction(files, warning);
                }
           }
-          toString() : string {
-               return "FileListResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for IBarcode
@@ -2191,25 +2191,32 @@ module Adaptive {
           onResultFunction : (button: Button) => Function;
           onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (button: Button) => Function, onErrorFunction : (error: IButtonListenerErrorEnum) => Function, onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: IButtonListenerErrorEnum) => Function, onResultFunction : (button: Button) => Function, onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(button: Button) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The ButtonListener does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(button);
-               }
+          toString() : string {
+               return "ButtonListener{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: IButtonListenerErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The ButtonListener does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(button: Button) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The ButtonListener does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(button);
                }
           }
           onWarning(button: Button, warning: IButtonListenerWarningEnum) : void {
@@ -2219,13 +2226,6 @@ module Adaptive {
                     this.onWarningFunction(button, warning);
                }
           }
-          toString() : string {
-               return "ButtonListener{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for IMagnetometer
@@ -2322,25 +2322,32 @@ module Adaptive {
           onResultFunction : (storageFile: IFile) => Function;
           onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (storageFile: IFile) => Function, onErrorFunction : (error: IFileResultCallbackErrorEnum) => Function, onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: IFileResultCallbackErrorEnum) => Function, onResultFunction : (storageFile: IFile) => Function, onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(storageFile: IFile) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The FileResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(storageFile);
-               }
+          toString() : string {
+               return "FileResultCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: IFileResultCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The FileResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(storageFile: IFile) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The FileResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(storageFile);
                }
           }
           onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) : void {
@@ -2350,13 +2357,6 @@ module Adaptive {
                     this.onWarningFunction(sourceFile, destinationFile, warning);
                }
           }
-          toString() : string {
-               return "FileResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for IDisplay
@@ -2508,25 +2508,32 @@ module Adaptive {
           onResultFunction : (success: boolean) => Function;
           onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (success: boolean) => Function, onErrorFunction : (error: IMessagingCallbackErrorEnum) => Function, onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (error: IMessagingCallbackErrorEnum) => Function, onResultFunction : (success: boolean) => Function, onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(success: boolean) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The MessagingCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(success);
-               }
+          toString() : string {
+               return "MessagingCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(error: IMessagingCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The MessagingCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
+               }
+          }
+          onResult(success: boolean) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The MessagingCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(success);
                }
           }
           onWarning(success: boolean, warning: IMessagingCallbackWarningEnum) : void {
@@ -2536,13 +2543,6 @@ module Adaptive {
                     this.onWarningFunction(success, warning);
                }
           }
-          toString() : string {
-               return "MessagingCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for IOpenId
@@ -2603,25 +2603,32 @@ module Adaptive {
           onResultFunction : (resource: IAppResource) => Function;
           onWarningFunction : (resource: IAppResource, warning: IAppResourceCallbackWarningEnum) => Function;
 
-          constructor(id: number, onResultFunction : (resource: IAppResource) => Function, onErrorFunction : (resource: IAppResource, error: IAppResourceCallbackErrorEnum) => Function, onWarningFunction : (resource: IAppResource, warning: IAppResourceCallbackWarningEnum) => Function) {
+          constructor(id: number, onErrorFunction : (resource: IAppResource, error: IAppResourceCallbackErrorEnum) => Function, onResultFunction : (resource: IAppResource) => Function, onWarningFunction : (resource: IAppResource, warning: IAppResourceCallbackWarningEnum) => Function) {
                this.id = id;
                this.onErrorFunction = onErrorFunction;
                this.onResultFunction = onResultFunction;
                this.onWarningFunction = onWarningFunction;
           }
 
-          onResult(resource: IAppResource) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The AppResourceCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(resource);
-               }
+          toString() : string {
+               return "AppResourceCallback{"+this.id+"}";
           }
+          getId() : number {
+               return this.id
+          }
+
           onError(resource: IAppResource, error: IAppResourceCallbackErrorEnum) : void {
                if (typeof this.onErrorFunction === 'undefined') {
                     console.log("WARNING: The AppResourceCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(resource, error);
+               }
+          }
+          onResult(resource: IAppResource) : void {
+               if (typeof this.onResultFunction === 'undefined') {
+                    console.log("WARNING: The AppResourceCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(resource);
                }
           }
           onWarning(resource: IAppResource, warning: IAppResourceCallbackWarningEnum) : void {
@@ -2631,13 +2638,6 @@ module Adaptive {
                     this.onWarningFunction(resource, warning);
                }
           }
-          toString() : string {
-               return "AppResourceCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
      }
      /**
       *   Interface definition for ILogging

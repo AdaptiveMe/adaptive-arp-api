@@ -1246,7 +1246,7 @@ public class J2SwiftConverter {
                         return o1.toString().compareTo(o2.toString());
                     }
                 });
-                
+
                 js.println(5, "export class " + clazz.getSimpleName().substring(1) + " implements " + clazz.getSimpleName() + " {");
                 // Fields
                 for (int i = 0; i<nonMethodList.size();i++) {
@@ -1301,18 +1301,16 @@ public class J2SwiftConverter {
                         js.print(", ");
                     }
                     for (int i  = 0;i<onMethodList.size();i++) {
-                        Method method = clazz.getMethods()[i];
-                        if (method.getName().startsWith("on")) {
+                        Method method = onMethodList.get(i);
                             js.print(getJSListenerDeclaration(clazz,method));
                             if (i < onMethodList.size()-1) {
                                 js.print(", ");
                             }
-                        }
                     }
                     js.println(") {");
 
 
-                    for (Method method : clazz.getMethods()) {
+                    for (Method method : nonMethodList) {
                         if (!method.getName().startsWith("on") && !method.getName().startsWith("toString")) {
                             Class returnType = method.getReturnType();
                             String returnTypeJS = "";
@@ -1337,7 +1335,11 @@ public class J2SwiftConverter {
 
                     // Functions
                     js.println();
-                    for (Method method : clazz.getMethods()) {
+                    List<Method> allMethods = new ArrayList<>();
+                    allMethods.addAll(nonMethodList);
+                    allMethods.addAll(onMethodList);
+
+                    for (Method method : allMethods) {
                         if (!method.getName().startsWith("on") && !method.getName().startsWith("toString")) {
                             Class returnType = method.getReturnType();
                             String returnTypeJS = "";
