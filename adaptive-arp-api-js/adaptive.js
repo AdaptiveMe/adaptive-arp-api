@@ -75,6 +75,7 @@ var Adaptive;
     var registeredCallbacks = new Dictionary([]);
     var registeredListeners = new Dictionary([]);
     var registeredCounter = 0;
+    var bridgePath = "https://adaptiveapp";
     /**
      *  Enumerations for IAppContext Type
      **/
@@ -199,10 +200,34 @@ var Adaptive;
         DeviceBridge.prototype.addButtonListener = function (listener) {
         };
         DeviceBridge.prototype.getDeviceInfo = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/getDeviceInfo", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         DeviceBridge.prototype.getLocaleCurrent = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/getLocaleCurrent", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         DeviceBridge.prototype.removeButtonListener = function (listener) {
         };
@@ -455,16 +480,64 @@ var Adaptive;
         function SessionBridge() {
         }
         SessionBridge.prototype.getAttribute = function (name) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/getAttribute", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         SessionBridge.prototype.getAttributes = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/getAttributes", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         SessionBridge.prototype.getCookies = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/getCookies", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         SessionBridge.prototype.listAttributeNames = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/listAttributeNames", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         SessionBridge.prototype.removeAttribute = function (name) {
         };
@@ -666,10 +739,34 @@ var Adaptive;
         DatabaseBridge.prototype.executeSqlTransactions = function (database, statements, rollbackFlag, callback) {
         };
         DatabaseBridge.prototype.existsDatabase = function (database) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/existsDatabase", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         DatabaseBridge.prototype.existsTable = function (database, table) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/existsTable", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         return DatabaseBridge;
     })();
@@ -829,7 +926,19 @@ var Adaptive;
         function BrowserBridge() {
         }
         BrowserBridge.prototype.openBrowser = function (url, title, buttonText) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseUI/IBrowser/openBrowser", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         return BrowserBridge;
     })();
@@ -1009,7 +1118,19 @@ var Adaptive;
         LifecycleBridge.prototype.addLifecycleListener = function (listener) {
         };
         LifecycleBridge.prototype.isBackground = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/isBackground", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         LifecycleBridge.prototype.removeLifecycleListener = function (listener) {
         };
@@ -1031,31 +1152,139 @@ var Adaptive;
         FileSystemBridge.prototype.createWithPathString = function (path, name, callback) {
         };
         FileSystemBridge.prototype.getApplicationCacheFolder = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getApplicationCacheFolder", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileSystemBridge.prototype.getApplicationDocumentsFolder = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getApplicationDocumentsFolder", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileSystemBridge.prototype.getApplicationFolder = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getApplicationFolder", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileSystemBridge.prototype.getPathForFile = function (file) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getPathForFile", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileSystemBridge.prototype.getPathForPath = function (path) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getPathForPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileSystemBridge.prototype.getSeparator = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getSeparator", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileSystemBridge.prototype.isSameFile = function (source, dest) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/isSameFile", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileSystemBridge.prototype.isSamePath = function (source, dest) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/isSamePath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileSystemBridge.prototype.toPath = function (path) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/toPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         return FileSystemBridge;
     })();
@@ -1067,7 +1296,19 @@ var Adaptive;
         function OSBridge() {
         }
         OSBridge.prototype.getOSInfo = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IOS/getOSInfo", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         return OSBridge;
     })();
@@ -1132,7 +1373,19 @@ var Adaptive;
         ContactBridge.prototype.searchContactsWithFilter = function (term, callback, filter) {
         };
         ContactBridge.prototype.setContactPhoto = function (contact, pngImage) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/setContactPhoto", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         return ContactBridge;
     })();
@@ -1164,7 +1417,19 @@ var Adaptive;
         RuntimeBridge.prototype.dismissApplication = function () {
         };
         RuntimeBridge.prototype.dismissSplashScreen = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IRuntime/dismissSplashScreen", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         return RuntimeBridge;
     })();
@@ -1334,7 +1599,19 @@ var Adaptive;
         SecurityBridge.prototype.getSecureKeyValuePairs = function (keys, publicAccessName, callback) {
         };
         SecurityBridge.prototype.isDeviceModified = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/isDeviceModified", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         SecurityBridge.prototype.setSecureKeyValuePairs = function (keyValues, publicAccessName, callback) {
         };
@@ -1479,25 +1756,109 @@ var Adaptive;
         function CapabilitiesBridge() {
         }
         CapabilitiesBridge.prototype.hasButtonSupport = function (type) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasButtonSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         CapabilitiesBridge.prototype.hasCommunicationSupport = function (type) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasCommunicationSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         CapabilitiesBridge.prototype.hasDataSupport = function (type) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasDataSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         CapabilitiesBridge.prototype.hasMediaSupport = function (type) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasMediaSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         CapabilitiesBridge.prototype.hasNetSupport = function (type) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasNetSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         CapabilitiesBridge.prototype.hasNotificationSupport = function (type) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasNotificationSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         CapabilitiesBridge.prototype.hasSensorSupport = function (type) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasSensorSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         return CapabilitiesBridge;
     })();
@@ -1540,7 +1901,19 @@ var Adaptive;
         function TelephonyBridge() {
         }
         TelephonyBridge.prototype.call = function (number) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ITelephony/call", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         return TelephonyBridge;
     })();
@@ -1563,70 +1936,334 @@ var Adaptive;
         function FilePathBridge() {
         }
         FilePathBridge.prototype.endsWith = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/endsWith", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.endsWithPath = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/endsWithPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.equalPath = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/equalPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.equals = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/equals", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.getFileName = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getFileName", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.getFileSystem = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getFileSystem", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.getNameAtIndex = function (index) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getNameAtIndex", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.getNameCount = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getNameCount", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.getParent = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getParent", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.getRoot = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getRoot", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.isAbsolute = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/isAbsolute", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.normalize = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/normalize", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.relativize = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/relativize", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.resolve = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/resolve", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.resolvePath = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/resolvePath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.resolveSibling = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/resolveSibling", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.resolveSiblingPath = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/resolveSiblingPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.startsWith = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/startsWith", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.startsWithPath = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/startsWithPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.toAbsolutePath = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/toAbsolutePath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.toFile = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/toFile", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FilePathBridge.prototype.toString = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/toString", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         return FilePathBridge;
     })();
@@ -1839,13 +2476,49 @@ var Adaptive;
         function GlobalizationBridge() {
         }
         GlobalizationBridge.prototype.getLocaleSupportedDescriptors = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getLocaleSupportedDescriptors", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         GlobalizationBridge.prototype.getResourceLiteral = function (key, locale) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiteral", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         GlobalizationBridge.prototype.getResourceLiterals = function (locale) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiterals", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         return GlobalizationBridge;
     })();
@@ -2029,120 +2702,528 @@ var Adaptive;
         function FileBridge() {
         }
         FileBridge.prototype.canRead = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/canRead", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.canWrite = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/canWrite", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.create = function (name, callback) {
         };
         FileBridge.prototype.createWithPath = function (path, name, callback) {
         };
         FileBridge.prototype.delete = function (cascade) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/delete", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.endsWith = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/endsWith", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.endsWithPath = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/endsWithPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.equalPath = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/equalPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.equals = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/equals", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.exists = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/exists", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.getContent = function (callback) {
         };
         FileBridge.prototype.getDateCreated = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getDateCreated", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.getDateModified = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getDateModified", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.getFileName = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getFileName", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.getFileSystem = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getFileSystem", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.getName = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getName", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.getNameAtIndex = function (index) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getNameAtIndex", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.getNameCount = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getNameCount", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.getParent = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getParent", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.getPath = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.getRoot = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getRoot", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.getSize = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getSize", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.isAbsolute = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/isAbsolute", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.isDirectory = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/isDirectory", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.listFiles = function (callback) {
         };
         FileBridge.prototype.listFilesForRegex = function (regex, callback) {
         };
         FileBridge.prototype.mkDir = function (recursive) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/mkDir", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.move = function (newFile, createPath, callback, overwrite) {
         };
         FileBridge.prototype.normalize = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/normalize", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.relativize = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/relativize", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.resolve = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/resolve", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.resolvePath = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/resolvePath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.resolveSibling = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/resolveSibling", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.resolveSiblingPath = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/resolveSiblingPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.setContent = function (content, callback) {
         };
         FileBridge.prototype.startsWith = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/startsWith", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.startsWithPath = function (other) {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/startsWithPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.toAbsolutePath = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/toAbsolutePath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.toFile = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/toFile", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.toPath = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/toPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         FileBridge.prototype.toString = function () {
-            return null;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/toString", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send();
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status);
+                return null;
+            }
         };
         return FileBridge;
     })();

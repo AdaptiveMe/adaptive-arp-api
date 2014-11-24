@@ -119,6 +119,7 @@ public class J2SwiftConverter {
         js.println(5, "var registeredCallbacks : Dictionary<IBaseCallback> = new Dictionary<IBaseCallback>([]);");
         js.println(5, "var registeredListeners : Dictionary<IBaseListener> = new Dictionary<IBaseListener>([]);");
         js.println(5, "var registeredCounter : number = 0;");
+        js.println(5, "var bridgePath : string = \"https://adaptiveapp\";");
         js.println();
 
         long tIn = System.currentTimeMillis();
@@ -1476,7 +1477,33 @@ public class J2SwiftConverter {
                     js.print(" : " + getJSClassType(clazz, method) + " ");
                     js.println("{");
                     if (!getJSClassType(clazz,method).equals("void")) {
-                        js.println(15, "return null;");
+                        js.println(15, "var xhr = new XMLHttpRequest();");
+                        boolean done = false;
+                        StringBuffer relativePath = new StringBuffer();
+                        Class relativeClass = clazz;
+                        while (!done) {
+
+                            relativePath.insert(0, relativeClass.getSimpleName());
+                            relativePath.insert(0, "/");
+                            if (relativeClass.getInterfaces()!=null && relativeClass.getInterfaces().length>0) {
+                                relativeClass = relativeClass.getInterfaces()[0];
+                            } else {
+                                done = true;
+                            }
+                        }
+                        relativePath.append("/");
+                        relativePath.append(method.getName());
+                        js.println(15, "xhr.open(\"POST\", bridgePath+\""+relativePath.toString()+"\", false);");
+                        js.println(15, "xhr.setRequestHeader(\"Content-type\", \"application/json\");");
+                        js.println(15, "xhr.send();");
+                        js.println(15, "if (xhr.status == 200) {");
+                        js.println(20, "if (xhr.responseText != null && xhr.responseText != '') {");
+                        js.println(25, "return JSON.parse(xhr.responseText);");
+                        js.println(20, "}");
+                        js.println(15, "} else {");
+                        js.println(20, "console.log(\"ERROR: \"+xhr.status);");
+                        js.println(20, "return null;");
+                        js.println(15, "}");
                     }
                     js.println(10,"}");
 
