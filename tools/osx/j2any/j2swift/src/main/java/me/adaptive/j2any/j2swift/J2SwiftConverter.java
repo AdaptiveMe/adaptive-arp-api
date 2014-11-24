@@ -312,6 +312,9 @@ public class J2SwiftConverter {
         ps.println();
 
         if (clazz.isInterface()) {
+            js.println(5, "/**");
+            js.println(5, " *   Interface definition for "+clazz.getSimpleName()+"");
+            js.println(5, " **/");
             js.print(5, "export interface ");
             ps.print(0, "public protocol ");
             ps.print(clazz.getSimpleName());
@@ -339,6 +342,9 @@ public class J2SwiftConverter {
             js.println(" {");
             js.println();
         } else {
+            js.println(5, "/**");
+            js.println(5, " *   Class implementation for "+clazz.getSimpleName()+"");
+            js.println(5, " **/");
             js.print(5, "export class ");
             ps.print("public class ");
             ps.print(clazz.getSimpleName());
@@ -755,6 +761,10 @@ public class J2SwiftConverter {
             ps.println(5, "/**");
             ps.println(5, " * Function Declarations");
             ps.println(5, " */");
+
+            js.println(10, "/**");
+            js.println(10, " * Method Declarations for "+clazz.getSimpleName());
+            js.println(10, " */");
         }
         List<Class<?>> interfaceEnumList = new ArrayList<Class<?>>();
 
@@ -788,10 +798,14 @@ public class J2SwiftConverter {
         for (Method method : methodList) {
             if (clazz.isInterface()) {
 
-
                 ps.print(5, "func ");
                 ps.print(method.getName());
                 ps.print("(");
+
+                js.print(10, " ");
+                js.print(method.getName());
+                js.print("(");
+
                 Parameter[] parameters = method.getParameters();
                 for (int i = 0; i < parameters.length; i++) {
                     Parameter parameter = parameters[i];
@@ -801,158 +815,236 @@ public class J2SwiftConverter {
                         }
                     }
                     ps.print(parameter.getName() + " : ");
+
+                    js.print(parameter.getName() + " : ");
+
                     Class<?> parameterType = parameter.getType();
                     if (parameterType.isArray()) {
                         Class<?> componentType = parameterType.getComponentType();
                         if (componentType.isPrimitive()) {
                             ps.print("[" + getPrimitiveTypeSwift(componentType) + "]");
+                            js.print("Array<" + getPrimitiveTypeTS(componentType) + ">");
                         } else {
                             if (componentType.getSimpleName().equals("Object")) {
                                 ps.print("[Any" + componentType.getSimpleName() + "]");
+                                js.print("Array<any>");
                             } else {
                                 if (componentType.isEnum()) {
                                     processClassEnum(clazz, componentType, targetDir, targetDirJS);
+                                    if (!interfaceEnumList.contains(componentType)) {
+                                        interfaceEnumList.add(componentType);
+                                    }
                                     ps.print("[" + clazz.getSimpleName() + componentType.getSimpleName() + "]");
+                                    js.print("Array<" + clazz.getSimpleName() + componentType.getSimpleName() + "Enum>");
                                 } else {
                                     ps.print("[" + componentType.getSimpleName() + "]");
+                                    js.print("Array<" + componentType.getSimpleName() + ">");
                                 }
                             }
                         }
                     } else if (parameterType.isPrimitive()) {
                         ps.print(getPrimitiveTypeSwift(parameterType));
+                        js.print(getPrimitiveTypeTS(parameterType));
                     } else {
                         if (parameterType.isEnum()) {
                             ps.print(clazz.getSimpleName() + parameter.getType().getSimpleName());
+                            js.print(clazz.getSimpleName() + parameter.getType().getSimpleName()+"Enum");
                         } else if (parameterType.getSimpleName().equals("Object")) {
                             ps.print("Any" + parameter.getType().getSimpleName());
+                            js.print("any");
+                        } else if (parameterType.equals(String.class)) {
+                            ps.print(parameter.getType().getSimpleName());
+                            js.print("string");
                         } else {
                             //if (parameter.getType().equals(clazz)) {
                             //    ps.print("Self");
                             //} else {
                             ps.print(parameter.getType().getSimpleName());
+                            js.print(parameter.getType().getSimpleName());
                             //}
                         }
                     }
 
                     if ((parameters.length - 1) > i) {
                         ps.print(", ");
+                        js.print(", ");
                     }
                 }
                 ps.print(")");
+                js.print(")");
 
                 Class<?> returnType = method.getReturnType();
                 if (!returnType.equals(Void.TYPE)) {
                     ps.print(" -> ");
+                    js.print(" : ");
+
                     if (returnType.isArray()) {
                         Class<?> componentType = returnType.getComponentType();
                         if (componentType.isPrimitive()) {
                             ps.print("[" + getPrimitiveTypeSwift(componentType) + "]?");
+                            js.print("Array<" + getPrimitiveTypeTS(componentType) + ">");
                         } else {
                             if (componentType.getSimpleName().equals("Object")) {
                                 ps.print("[Any" + componentType.getSimpleName() + "]?");
+                                js.print("Array<any>");
+                            } else if (componentType.equals(String.class)) {
+                                ps.print("[" + componentType.getSimpleName() + "]?");
+                                js.print("Array<string>");
                             } else {
                                 ps.print("[" + componentType.getSimpleName() + "]?");
+                                js.print("Array<" + componentType.getSimpleName() + ">");
                             }
                         }
                     } else if (returnType.isPrimitive()) {
                         ps.print(getPrimitiveTypeSwift(returnType));
+                        js.print(getPrimitiveTypeTS(returnType));
                     } else {
                         if (returnType.getSimpleName().equals("Object")) {
                             ps.print("Any" + returnType.getSimpleName() + "?");
+                            js.print("any");
                         } else {
                             if (returnType.getSimpleName().equals("Map")) {
                                 ps.print("Dictionary<String,String>?");
+                                js.print("Dictionary<String,String>");
                             } else {
                                 if (returnType.isEnum()) {
                                     processClassEnum(clazz, returnType, targetDir, targetDirJS);
+                                    if (!interfaceEnumList.contains(returnType)) {
+                                        interfaceEnumList.add(returnType);
+                                    }
                                     ps.print(clazz.getSimpleName() + returnType.getSimpleName());
+                                    js.print(clazz.getSimpleName() + returnType.getSimpleName() + "Enum");
+                                } else if (returnType.equals(String.class)) {
+                                    ps.print(returnType.getSimpleName() + "?");
+                                    js.print("string");
                                 } else {
                                     ps.print(returnType.getSimpleName() + "?");
+                                    js.print(returnType.getSimpleName());
                                 }
                             }
                         }
                     }
 
                 }
-
-
             } else {
                 ps.print(5, "public func ");
                 ps.print(method.getName());
                 ps.print("(");
+
+                js.print(10, "");
+                js.print(method.getName());
+                js.print("(");
+
                 Parameter[] parameters = method.getParameters();
                 for (int i = 0; i < parameters.length; i++) {
                     Parameter parameter = parameters[i];
                     ps.print(parameter.getName() + " : ");
+                    js.print(parameter.getName() + " : ");
                     Class<?> parameterType = parameter.getType();
                     if (parameterType.isArray()) {
                         Class<?> componentType = parameterType.getComponentType();
                         if (componentType.isPrimitive()) {
                             ps.print("[" + getPrimitiveTypeSwift(componentType) + "]");
+                            js.print("Array<" + getPrimitiveTypeTS(componentType) + ">");
                         } else {
                             if (componentType.getSimpleName().equals("Object")) {
                                 ps.print("[Any" + componentType.getSimpleName() + "]");
+                                js.print("Array<any>");
+                            } else if(componentType.equals(String.class)) {
+                                ps.print("[" + componentType.getSimpleName() + "]");
+                                js.print("Array<string>");
                             } else {
                                 ps.print("[" + componentType.getSimpleName() + "]");
+                                js.print("Array<" + componentType.getSimpleName() + ">");
                             }
                         }
                     } else if (parameterType.isPrimitive()) {
                         ps.print(getPrimitiveTypeSwift(parameterType));
+                        js.print(getPrimitiveTypeTS(parameterType));
+                    } else if(parameterType.equals(String.class)) {
+                        ps.print(parameter.getType().getSimpleName());
+                        js.print("string");
+                    } else if(parameterType.isEnum()) {
+                        ps.print(parameter.getType().getSimpleName());
+                        js.print(clazz.getSimpleName()+parameter.getType().getSimpleName()+"Enum");
                     } else {
                         ps.print(parameter.getType().getSimpleName());
+                        js.print(parameter.getType().getSimpleName());
                     }
 
                     if ((parameters.length - 1) > i) {
                         ps.print(", ");
+                        js.print(", ");
                     }
                 }
                 ps.print(")");
+                js.print(")");
 
                 Class<?> returnType = method.getReturnType();
                 if (!returnType.equals(Void.TYPE)) {
                     ps.print(" -> ");
+                    js.print(" : ");
                     if (returnType.isArray()) {
                         Class<?> componentType = returnType.getComponentType();
                         if (componentType.isPrimitive()) {
                             ps.print("[" + getPrimitiveTypeSwift(componentType) + "]?");
+                            js.print("Array<" + getPrimitiveTypeTS(componentType) + ">");
                         } else {
                             if (componentType.getSimpleName().equals("Object")) {
                                 ps.print("[Any" + componentType.getSimpleName() + "]?");
+                                js.print("Array<any>");
+                            } else if (componentType.equals(String.class)) {
+                                ps.print("[" + componentType.getSimpleName() + "]?");
+                                js.print("Array<string>");
                             } else {
                                 ps.print("[" + componentType.getSimpleName() + "]?");
+                                js.print("Array<" + componentType.getSimpleName() + ">");
                             }
                         }
                     } else if (returnType.isPrimitive()) {
                         ps.print(getPrimitiveTypeSwift(returnType));
+                        js.print(getPrimitiveTypeTS(returnType));
                     } else if (returnType.isEnum()) {
                         ps.print(returnType.getSimpleName());
+                        js.print(clazz.getSimpleName()+returnType.getSimpleName()+"Enum");
                     } else {
                         if (returnType.getSimpleName().equals("Object")) {
                             ps.print("Any" + returnType.getSimpleName() + "?");
+                            js.print("any");
+                        } else if(returnType.equals(String.class)) {
+                            ps.print(returnType.getSimpleName() + "?");
+                            js.print("string");
                         } else {
                             ps.print(returnType.getSimpleName() + "?");
+                            js.print(returnType.getSimpleName());
                         }
                     }
 
                 }
 
                 ps.println(" {");
+                js.println(" {");
 
                 if (!returnType.equals(Void.TYPE)) {
                     ps.print(10, "return self." + getGetterSetterProperty(method));
+                    js.print(15, "return this." + getGetterSetterProperty(method)+"");
                     if (returnType.isEnum() || returnType.isInterface() /*|| returnType.isArray()*/) {
                         ps.print("!");
                     } else if (!returnType.isPrimitive() && !returnType.equals(String.class) && !returnType.isArray()) {
                         ps.print("!");
                     }
                     ps.println();
+                    js.println("");
                 } else {
                     ps.println(10, "self." + getGetterSetterProperty(method) + " = " + getGetterSetterProperty(method));
+                    js.println(15, "this." + getGetterSetterProperty(method) + " = " + getGetterSetterProperty(method)+"");
                 }
                 ps.println(5, "}");
+                js.println(10, "}");
                 //System.out.println(method);
             }
             ps.println();
+            js.println();
         }
 
         //if (clazz.isInterface()) {
@@ -1022,7 +1114,10 @@ public class J2SwiftConverter {
              */
 
         for (Class<?> enumClass : enumList) {
-            js.println();
+            js.println(5, "/**");
+            js.println(5, " *  Enumerations for "+clazz.getSimpleName() +" "+enumClass.getSimpleName()+"");
+            js.println(5, " **/");
+
             js.println(5, "export class " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum {");
             js.println(10,"constructor(public value:string){}");
             js.println(10,"toString(){return this.value;}");
@@ -1037,8 +1132,9 @@ public class J2SwiftConverter {
         }
 
         for (Class<?> enumClass : interfaceEnumList) {
-            js.println();
-            js.println(5, "export class " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum {");
+            js.println(5, "/**");
+            js.println(5, " *  Enumerations for "+clazz.getSimpleName() +" "+enumClass.getSimpleName()+"");
+            js.println(5, " **/");            js.println(5, "export class " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum {");
             js.println(10,"constructor(public value:string){}");
             js.println(10,"toString(){return this.value;}");
             js.println();
