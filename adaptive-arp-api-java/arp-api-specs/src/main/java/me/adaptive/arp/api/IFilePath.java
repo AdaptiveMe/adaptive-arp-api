@@ -151,7 +151,7 @@ public interface IFilePath extends IBaseData {
      *                   equal to the number of elements, or this path has zero name
      *                   elements
      */
-    public IFilePath getName(int index) throws Exception;
+    public String getName(int index) throws Exception;
 
     /**
      * Tests if this path starts with the given path.

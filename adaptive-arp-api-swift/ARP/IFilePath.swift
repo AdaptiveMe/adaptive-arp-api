@@ -44,7 +44,7 @@ public protocol IFilePath : IBaseData {
      func getFileName() -> IFilePath?
      func getFileSystem() -> IFileSystem?
      func getNameCount() -> Int
-     func getName(index : Int) -> IFilePath?
+     func getName(index : Int) -> String?
      func getParent() -> IFilePath?
      func getRoot() -> IFilePath?
      func isAbsolute() -> Bool
