@@ -476,7 +476,7 @@ module Adaptive {
                if (xhr.status == 200) {
                     registeredIButtonListener.add(""+listener.getId(),listener);
                } else {
-                    console.log("ERROR: "+xhr.status+" IDevice.addButtonListener");
+                    console.error("ERROR: "+xhr.status+" IDevice.addButtonListener");
                }
           }
           getDeviceInfo() : DeviceInfo {
@@ -488,11 +488,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IDevice.getDeviceInfo incorrect response received.");
+                         console.error("ERROR: IDevice.getDeviceInfo incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IDevice.getDeviceInfo");
+                    console.error("ERROR: "+xhr.status+" IDevice.getDeviceInfo");
                     return null;
                }
           }
@@ -505,11 +505,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IDevice.getLocaleCurrent incorrect response received.");
+                         console.error("ERROR: IDevice.getLocaleCurrent incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IDevice.getLocaleCurrent");
+                    console.error("ERROR: "+xhr.status+" IDevice.getLocaleCurrent");
                     return null;
                }
           }
@@ -521,7 +521,7 @@ module Adaptive {
                if (xhr.status == 200) {
                     registeredIButtonListener.remove(""+listener.getId());
                } else {
-                    console.log("ERROR: "+xhr.status+" IDevice.removeButtonListener");
+                    console.error("ERROR: "+xhr.status+" IDevice.removeButtonListener");
                }
           }
           removeButtonListeners() : void {
@@ -535,7 +535,7 @@ module Adaptive {
                          registeredIAccelerationListener.remove(key);
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IDevice.removeButtonListeners");
+                    console.error("ERROR: "+xhr.status+" IDevice.removeButtonListeners");
                }
           }
 
@@ -568,7 +568,7 @@ module Adaptive {
                     // Callback removed from 'registeredIMessagingCallback' on receiving async response.
                } else {
                     registeredIMessagingCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IMail.sendEmail");
+                    console.error("ERROR: "+xhr.status+" IMail.sendEmail");
                }
           }
 
@@ -632,9 +632,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: ISecureKVResultCallbackErrorEnum) => Function, onResultFunction : (keyValues: Array<SecureKeyPair>) => Function, onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: SecureKVResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: SecureKVResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: SecureKVResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -645,22 +657,22 @@ module Adaptive {
           }
 
           onError(error: ISecureKVResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The SecureKVResultCallback does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The SecureKVResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(keyValues: Array<SecureKeyPair>) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The SecureKVResultCallback does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The SecureKVResultCallback does not define the onResultFunction.");
                } else {
                     this.onResultFunction(keyValues);
                }
           }
           onWarning(keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The SecureKVResultCallback does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The SecureKVResultCallback does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(keyValues, warning);
                }
@@ -748,9 +760,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: IFileResultCallbackErrorEnum) => Function, onResultFunction : (storageFile: IFile) => Function, onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: FileResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: FileResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: FileResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -761,22 +785,22 @@ module Adaptive {
           }
 
           onError(error: IFileResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The FileResultCallback does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The FileResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(storageFile: IFile) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The FileResultCallback does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The FileResultCallback does not define the onResultFunction.");
                } else {
                     this.onResultFunction(storageFile);
                }
           }
           onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The FileResultCallback does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The FileResultCallback does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(sourceFile, destinationFile, warning);
                }
@@ -885,9 +909,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: ILifecycleListenerErrorEnum) => Function, onResultFunction : (lifecycle: Lifecycle) => Function, onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: LifecycleListener onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: LifecycleListener onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: LifecycleListener onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -898,22 +934,22 @@ module Adaptive {
           }
 
           onError(error: ILifecycleListenerErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The LifecycleListener does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The LifecycleListener does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(lifecycle: Lifecycle) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The LifecycleListener does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The LifecycleListener does not define the onResultFunction.");
                } else {
                     this.onResultFunction(lifecycle);
                }
           }
           onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The LifecycleListener does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The LifecycleListener does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(lifecycle, warning);
                }
@@ -984,11 +1020,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ISession.getAttribute incorrect response received.");
+                         console.error("ERROR: ISession.getAttribute incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ISession.getAttribute");
+                    console.error("ERROR: "+xhr.status+" ISession.getAttribute");
                     return null;
                }
           }
@@ -1001,11 +1037,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ISession.getAttributes incorrect response received.");
+                         console.error("ERROR: ISession.getAttributes incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ISession.getAttributes");
+                    console.error("ERROR: "+xhr.status+" ISession.getAttributes");
                     return null;
                }
           }
@@ -1018,11 +1054,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ISession.getCookies incorrect response received.");
+                         console.error("ERROR: ISession.getCookies incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ISession.getCookies");
+                    console.error("ERROR: "+xhr.status+" ISession.getCookies");
                     return null;
                }
           }
@@ -1035,11 +1071,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ISession.listAttributeNames incorrect response received.");
+                         console.error("ERROR: ISession.listAttributeNames incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ISession.listAttributeNames");
+                    console.error("ERROR: "+xhr.status+" ISession.listAttributeNames");
                     return null;
                }
           }
@@ -1050,7 +1086,7 @@ module Adaptive {
                xhr.send(); // TODO: Add parameters to send.
                if (xhr.status == 200) {
                } else {
-                    console.log("ERROR: "+xhr.status+" ISession.removeAttribute");
+                    console.error("ERROR: "+xhr.status+" ISession.removeAttribute");
                }
           }
           removeAttributes() : void {
@@ -1060,7 +1096,7 @@ module Adaptive {
                xhr.send(); // No parameters.
                if (xhr.status == 200) {
                } else {
-                    console.log("ERROR: "+xhr.status+" ISession.removeAttributes");
+                    console.error("ERROR: "+xhr.status+" ISession.removeAttributes");
                }
           }
           removeCookie(cookie: Cookie) : void {
@@ -1070,7 +1106,7 @@ module Adaptive {
                xhr.send(); // TODO: Add parameters to send.
                if (xhr.status == 200) {
                } else {
-                    console.log("ERROR: "+xhr.status+" ISession.removeCookie");
+                    console.error("ERROR: "+xhr.status+" ISession.removeCookie");
                }
           }
           removeCookies(cookies: Array<Cookie>) : void {
@@ -1080,7 +1116,7 @@ module Adaptive {
                xhr.send(); // TODO: Add parameters to send.
                if (xhr.status == 200) {
                } else {
-                    console.log("ERROR: "+xhr.status+" ISession.removeCookies");
+                    console.error("ERROR: "+xhr.status+" ISession.removeCookies");
                }
           }
           setAttribute(name: string, value: any) : void {
@@ -1090,7 +1126,7 @@ module Adaptive {
                xhr.send(); // TODO: Add parameters to send.
                if (xhr.status == 200) {
                } else {
-                    console.log("ERROR: "+xhr.status+" ISession.setAttribute");
+                    console.error("ERROR: "+xhr.status+" ISession.setAttribute");
                }
           }
           setCookie(cookie: Cookie) : void {
@@ -1100,7 +1136,7 @@ module Adaptive {
                xhr.send(); // TODO: Add parameters to send.
                if (xhr.status == 200) {
                } else {
-                    console.log("ERROR: "+xhr.status+" ISession.setCookie");
+                    console.error("ERROR: "+xhr.status+" ISession.setCookie");
                }
           }
           setCookies(cookies: Array<Cookie>) : void {
@@ -1110,7 +1146,7 @@ module Adaptive {
                xhr.send(); // TODO: Add parameters to send.
                if (xhr.status == 200) {
                } else {
-                    console.log("ERROR: "+xhr.status+" ISession.setCookies");
+                    console.error("ERROR: "+xhr.status+" ISession.setCookies");
                }
           }
 
@@ -1204,9 +1240,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: INetworkReachabilityCallbackErrorEnum) => Function, onResultFunction : (result: string) => Function, onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -1217,22 +1265,22 @@ module Adaptive {
           }
 
           onError(error: INetworkReachabilityCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The NetworkReachabilityCallback does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The NetworkReachabilityCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(result: string) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The NetworkReachabilityCallback does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The NetworkReachabilityCallback does not define the onResultFunction.");
                } else {
                     this.onResultFunction(result);
                }
           }
           onWarning(result: string, warning: INetworkReachabilityCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The NetworkReachabilityCallback does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The NetworkReachabilityCallback does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(result, warning);
                }
@@ -1298,9 +1346,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: IAccelerationListenerErrorEnum) => Function, onResultFunction : (acceleration: Acceleration) => Function, onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: AccelerationListener onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: AccelerationListener onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: AccelerationListener onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -1311,22 +1371,22 @@ module Adaptive {
           }
 
           onError(error: IAccelerationListenerErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The AccelerationListener does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The AccelerationListener does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(acceleration: Acceleration) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The AccelerationListener does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The AccelerationListener does not define the onResultFunction.");
                } else {
                     this.onResultFunction(acceleration);
                }
           }
           onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The AccelerationListener does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The AccelerationListener does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(acceleration, warning);
                }
@@ -1368,7 +1428,7 @@ module Adaptive {
                     // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response.
                } else {
                     registeredIDatabaseResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IDatabase.createDatabase");
+                    console.error("ERROR: "+xhr.status+" IDatabase.createDatabase");
                }
           }
           createTable(database: Database, table: Table, callback: ITableResultCallback) : void {
@@ -1381,7 +1441,7 @@ module Adaptive {
                     // Callback removed from 'registeredITableResultCallback' on receiving async response.
                } else {
                     registeredITableResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IDatabase.createTable");
+                    console.error("ERROR: "+xhr.status+" IDatabase.createTable");
                }
           }
           deleteDatabase(database: Database, callback: IDatabaseResultCallback) : void {
@@ -1394,7 +1454,7 @@ module Adaptive {
                     // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response.
                } else {
                     registeredIDatabaseResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IDatabase.deleteDatabase");
+                    console.error("ERROR: "+xhr.status+" IDatabase.deleteDatabase");
                }
           }
           deleteTable(database: Database, table: Table, callback: ITableResultCallback) : void {
@@ -1407,7 +1467,7 @@ module Adaptive {
                     // Callback removed from 'registeredITableResultCallback' on receiving async response.
                } else {
                     registeredITableResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IDatabase.deleteTable");
+                    console.error("ERROR: "+xhr.status+" IDatabase.deleteTable");
                }
           }
           executeSqlQuery(database: Database, query: string, replacements: Array<string>, callback: ITableResultCallback) : void {
@@ -1420,7 +1480,7 @@ module Adaptive {
                     // Callback removed from 'registeredITableResultCallback' on receiving async response.
                } else {
                     registeredITableResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IDatabase.executeSqlQuery");
+                    console.error("ERROR: "+xhr.status+" IDatabase.executeSqlQuery");
                }
           }
           executeSqlStatement(database: Database, statement: string, replacements: Array<string>, callback: ITableResultCallback) : void {
@@ -1433,7 +1493,7 @@ module Adaptive {
                     // Callback removed from 'registeredITableResultCallback' on receiving async response.
                } else {
                     registeredITableResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IDatabase.executeSqlStatement");
+                    console.error("ERROR: "+xhr.status+" IDatabase.executeSqlStatement");
                }
           }
           executeSqlTransactions(database: Database, statements: Array<string>, rollbackFlag: boolean, callback: ITableResultCallback) : void {
@@ -1446,7 +1506,7 @@ module Adaptive {
                     // Callback removed from 'registeredITableResultCallback' on receiving async response.
                } else {
                     registeredITableResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IDatabase.executeSqlTransactions");
+                    console.error("ERROR: "+xhr.status+" IDatabase.executeSqlTransactions");
                }
           }
           existsDatabase(database: Database) : boolean {
@@ -1458,11 +1518,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IDatabase.existsDatabase incorrect response received.");
+                         console.error("ERROR: IDatabase.existsDatabase incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IDatabase.existsDatabase");
+                    console.error("ERROR: "+xhr.status+" IDatabase.existsDatabase");
                     return null;
                }
           }
@@ -1475,11 +1535,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IDatabase.existsTable incorrect response received.");
+                         console.error("ERROR: IDatabase.existsTable incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IDatabase.existsTable");
+                    console.error("ERROR: "+xhr.status+" IDatabase.existsTable");
                     return null;
                }
           }
@@ -1550,9 +1610,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: IButtonListenerErrorEnum) => Function, onResultFunction : (button: Button) => Function, onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: ButtonListener onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: ButtonListener onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: ButtonListener onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -1563,22 +1635,22 @@ module Adaptive {
           }
 
           onError(error: IButtonListenerErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The ButtonListener does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The ButtonListener does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(button: Button) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The ButtonListener does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The ButtonListener does not define the onResultFunction.");
                } else {
                     this.onResultFunction(button);
                }
           }
           onWarning(button: Button, warning: IButtonListenerWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The ButtonListener does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The ButtonListener does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(button, warning);
                }
@@ -1672,9 +1744,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: IContactResultCallbackErrorEnum) => Function, onResultFunction : (contacts: Array<Contact>) => Function, onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: ContactResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: ContactResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: ContactResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -1685,22 +1769,22 @@ module Adaptive {
           }
 
           onError(error: IContactResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The ContactResultCallback does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The ContactResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(contacts: Array<Contact>) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The ContactResultCallback does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The ContactResultCallback does not define the onResultFunction.");
                } else {
                     this.onResultFunction(contacts);
                }
           }
           onWarning(contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The ContactResultCallback does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The ContactResultCallback does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(contacts, warning);
                }
@@ -1740,11 +1824,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IBrowser.openBrowser incorrect response received.");
+                         console.error("ERROR: IBrowser.openBrowser incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IBrowser.openBrowser");
+                    console.error("ERROR: "+xhr.status+" IBrowser.openBrowser");
                     return null;
                }
           }
@@ -1786,7 +1870,7 @@ module Adaptive {
                     // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response.
                } else {
                     registeredINetworkReachabilityCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" INetworkReachability.isNetworkReachable");
+                    console.error("ERROR: "+xhr.status+" INetworkReachability.isNetworkReachable");
                }
           }
           isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback) : void {
@@ -1799,7 +1883,7 @@ module Adaptive {
                     // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response.
                } else {
                     registeredINetworkReachabilityCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" INetworkReachability.isNetworkServiceReachable");
+                    console.error("ERROR: "+xhr.status+" INetworkReachability.isNetworkServiceReachable");
                }
           }
 
@@ -1894,9 +1978,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: IGeolocationListenerErrorEnum) => Function, onResultFunction : (geolocation: Geolocation) => Function, onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: GeolocationListener onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: GeolocationListener onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: GeolocationListener onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -1907,22 +2003,22 @@ module Adaptive {
           }
 
           onError(error: IGeolocationListenerErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The GeolocationListener does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The GeolocationListener does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(geolocation: Geolocation) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The GeolocationListener does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The GeolocationListener does not define the onResultFunction.");
                } else {
                     this.onResultFunction(geolocation);
                }
           }
           onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The GeolocationListener does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The GeolocationListener does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(geolocation, warning);
                }
@@ -1989,9 +2085,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: IContactPhotoResultCallbackErrorEnum) => Function, onResultFunction : (contactPhoto: Array<number>) => Function, onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: ContactPhotoResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: ContactPhotoResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: ContactPhotoResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -2002,22 +2110,22 @@ module Adaptive {
           }
 
           onError(error: IContactPhotoResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The ContactPhotoResultCallback does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The ContactPhotoResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(contactPhoto: Array<number>) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The ContactPhotoResultCallback does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The ContactPhotoResultCallback does not define the onResultFunction.");
                } else {
                     this.onResultFunction(contactPhoto);
                }
           }
           onWarning(contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The ContactPhotoResultCallback does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The ContactPhotoResultCallback does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(contactPhoto, warning);
                }
@@ -2052,7 +2160,7 @@ module Adaptive {
                if (xhr.status == 200) {
                     registeredILifecycleListener.add(""+listener.getId(),listener);
                } else {
-                    console.log("ERROR: "+xhr.status+" ILifecycle.addLifecycleListener");
+                    console.error("ERROR: "+xhr.status+" ILifecycle.addLifecycleListener");
                }
           }
           isBackground() : boolean {
@@ -2064,11 +2172,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ILifecycle.isBackground incorrect response received.");
+                         console.error("ERROR: ILifecycle.isBackground incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ILifecycle.isBackground");
+                    console.error("ERROR: "+xhr.status+" ILifecycle.isBackground");
                     return null;
                }
           }
@@ -2080,7 +2188,7 @@ module Adaptive {
                if (xhr.status == 200) {
                     registeredILifecycleListener.remove(""+listener.getId());
                } else {
-                    console.log("ERROR: "+xhr.status+" ILifecycle.removeLifecycleListener");
+                    console.error("ERROR: "+xhr.status+" ILifecycle.removeLifecycleListener");
                }
           }
           removeLifecycleListeners() : void {
@@ -2094,7 +2202,7 @@ module Adaptive {
                          registeredIAccelerationListener.remove(key);
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ILifecycle.removeLifecycleListeners");
+                    console.error("ERROR: "+xhr.status+" ILifecycle.removeLifecycleListeners");
                }
           }
 
@@ -2138,7 +2246,7 @@ module Adaptive {
                     // Callback removed from 'registeredIFileResultCallback' on receiving async response.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IFileSystem.create");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.create");
                }
           }
           createWithPath(path: IFilePath, name: string, callback: IFileResultCallback) : void {
@@ -2151,7 +2259,7 @@ module Adaptive {
                     // Callback removed from 'registeredIFileResultCallback' on receiving async response.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IFileSystem.createWithPath");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.createWithPath");
                }
           }
           createWithPathString(path: string, name: string, callback: IFileResultCallback) : void {
@@ -2164,7 +2272,7 @@ module Adaptive {
                     // Callback removed from 'registeredIFileResultCallback' on receiving async response.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IFileSystem.createWithPathString");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.createWithPathString");
                }
           }
           getApplicationCacheFolder() : IFilePath {
@@ -2176,11 +2284,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFileSystem.getApplicationCacheFolder incorrect response received.");
+                         console.error("ERROR: IFileSystem.getApplicationCacheFolder incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFileSystem.getApplicationCacheFolder");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getApplicationCacheFolder");
                     return null;
                }
           }
@@ -2193,11 +2301,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFileSystem.getApplicationDocumentsFolder incorrect response received.");
+                         console.error("ERROR: IFileSystem.getApplicationDocumentsFolder incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFileSystem.getApplicationDocumentsFolder");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getApplicationDocumentsFolder");
                     return null;
                }
           }
@@ -2210,11 +2318,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFileSystem.getApplicationFolder incorrect response received.");
+                         console.error("ERROR: IFileSystem.getApplicationFolder incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFileSystem.getApplicationFolder");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getApplicationFolder");
                     return null;
                }
           }
@@ -2227,11 +2335,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFileSystem.getPathForFile incorrect response received.");
+                         console.error("ERROR: IFileSystem.getPathForFile incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFileSystem.getPathForFile");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getPathForFile");
                     return null;
                }
           }
@@ -2244,11 +2352,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFileSystem.getPathForPath incorrect response received.");
+                         console.error("ERROR: IFileSystem.getPathForPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFileSystem.getPathForPath");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getPathForPath");
                     return null;
                }
           }
@@ -2261,11 +2369,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFileSystem.getSeparator incorrect response received.");
+                         console.error("ERROR: IFileSystem.getSeparator incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFileSystem.getSeparator");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getSeparator");
                     return null;
                }
           }
@@ -2278,11 +2386,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFileSystem.isSameFile incorrect response received.");
+                         console.error("ERROR: IFileSystem.isSameFile incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFileSystem.isSameFile");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.isSameFile");
                     return null;
                }
           }
@@ -2295,11 +2403,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFileSystem.isSamePath incorrect response received.");
+                         console.error("ERROR: IFileSystem.isSamePath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFileSystem.isSamePath");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.isSamePath");
                     return null;
                }
           }
@@ -2312,11 +2420,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFileSystem.toPath incorrect response received.");
+                         console.error("ERROR: IFileSystem.toPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFileSystem.toPath");
+                    console.error("ERROR: "+xhr.status+" IFileSystem.toPath");
                     return null;
                }
           }
@@ -2356,11 +2464,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IOS.getOSInfo incorrect response received.");
+                         console.error("ERROR: IOS.getOSInfo incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IOS.getOSInfo");
+                    console.error("ERROR: "+xhr.status+" IOS.getOSInfo");
                     return null;
                }
           }
@@ -2460,7 +2568,7 @@ module Adaptive {
                     // Callback removed from 'registeredIContactResultCallback' on receiving async response.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IContact.getContact");
+                    console.error("ERROR: "+xhr.status+" IContact.getContact");
                }
           }
           getContactPhoto(contact: ContactUid, callback: IContactPhotoResultCallback) : void {
@@ -2473,7 +2581,7 @@ module Adaptive {
                     // Callback removed from 'registeredIContactPhotoResultCallback' on receiving async response.
                } else {
                     registeredIContactPhotoResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IContact.getContactPhoto");
+                    console.error("ERROR: "+xhr.status+" IContact.getContactPhoto");
                }
           }
           getContacts(callback: IContactResultCallback) : void {
@@ -2486,7 +2594,7 @@ module Adaptive {
                     // Callback removed from 'registeredIContactResultCallback' on receiving async response.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IContact.getContacts");
+                    console.error("ERROR: "+xhr.status+" IContact.getContacts");
                }
           }
           getContactsForFields(callback: IContactResultCallback, fields: Array<IContactFieldGroupEnum>) : void {
@@ -2499,7 +2607,7 @@ module Adaptive {
                     // Callback removed from 'registeredIContactResultCallback' on receiving async response.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IContact.getContactsForFields");
+                    console.error("ERROR: "+xhr.status+" IContact.getContactsForFields");
                }
           }
           getContactsWithFilter(callback: IContactResultCallback, fields: Array<IContactFieldGroupEnum>, filter: Array<IContactFilterEnum>) : void {
@@ -2512,7 +2620,7 @@ module Adaptive {
                     // Callback removed from 'registeredIContactResultCallback' on receiving async response.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IContact.getContactsWithFilter");
+                    console.error("ERROR: "+xhr.status+" IContact.getContactsWithFilter");
                }
           }
           searchContacts(term: string, callback: IContactResultCallback) : void {
@@ -2525,7 +2633,7 @@ module Adaptive {
                     // Callback removed from 'registeredIContactResultCallback' on receiving async response.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IContact.searchContacts");
+                    console.error("ERROR: "+xhr.status+" IContact.searchContacts");
                }
           }
           searchContactsWithFilter(term: string, callback: IContactResultCallback, filter: Array<IContactFilterEnum>) : void {
@@ -2538,7 +2646,7 @@ module Adaptive {
                     // Callback removed from 'registeredIContactResultCallback' on receiving async response.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IContact.searchContactsWithFilter");
+                    console.error("ERROR: "+xhr.status+" IContact.searchContactsWithFilter");
                }
           }
           setContactPhoto(contact: ContactUid, pngImage: Array<number>) : boolean {
@@ -2550,11 +2658,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IContact.setContactPhoto incorrect response received.");
+                         console.error("ERROR: IContact.setContactPhoto incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IContact.setContactPhoto");
+                    console.error("ERROR: "+xhr.status+" IContact.setContactPhoto");
                     return null;
                }
           }
@@ -2619,7 +2727,7 @@ module Adaptive {
                xhr.send(); // No parameters.
                if (xhr.status == 200) {
                } else {
-                    console.log("ERROR: "+xhr.status+" IRuntime.dismissApplication");
+                    console.error("ERROR: "+xhr.status+" IRuntime.dismissApplication");
                }
           }
           dismissSplashScreen() : boolean {
@@ -2631,11 +2739,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IRuntime.dismissSplashScreen incorrect response received.");
+                         console.error("ERROR: IRuntime.dismissSplashScreen incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IRuntime.dismissSplashScreen");
+                    console.error("ERROR: "+xhr.status+" IRuntime.dismissSplashScreen");
                     return null;
                }
           }
@@ -2704,9 +2812,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: IMessagingCallbackErrorEnum) => Function, onResultFunction : (success: boolean) => Function, onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: MessagingCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: MessagingCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: MessagingCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -2717,22 +2837,22 @@ module Adaptive {
           }
 
           onError(error: IMessagingCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The MessagingCallback does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The MessagingCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(success: boolean) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The MessagingCallback does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The MessagingCallback does not define the onResultFunction.");
                } else {
                     this.onResultFunction(success);
                }
           }
           onWarning(success: boolean, warning: IMessagingCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The MessagingCallback does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The MessagingCallback does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(success, warning);
                }
@@ -2799,9 +2919,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: IDatabaseResultCallbackErrorEnum) => Function, onResultFunction : (database: Database) => Function, onWarningFunction : (database: Database, warning: IDatabaseResultCallbackWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: DatabaseResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: DatabaseResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: DatabaseResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -2812,22 +2944,22 @@ module Adaptive {
           }
 
           onError(error: IDatabaseResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The DatabaseResultCallback does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The DatabaseResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(database: Database) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The DatabaseResultCallback does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The DatabaseResultCallback does not define the onResultFunction.");
                } else {
                     this.onResultFunction(database);
                }
           }
           onWarning(database: Database, warning: IDatabaseResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The DatabaseResultCallback does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The DatabaseResultCallback does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(database, warning);
                }
@@ -2864,7 +2996,7 @@ module Adaptive {
                     // Callback removed from 'registeredISecureKVResultCallback' on receiving async response.
                } else {
                     registeredISecureKVResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" ISecurity.deleteSecureKeyValuePairs");
+                    console.error("ERROR: "+xhr.status+" ISecurity.deleteSecureKeyValuePairs");
                }
           }
           getSecureKeyValuePairs(keys: Array<string>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
@@ -2877,7 +3009,7 @@ module Adaptive {
                     // Callback removed from 'registeredISecureKVResultCallback' on receiving async response.
                } else {
                     registeredISecureKVResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" ISecurity.getSecureKeyValuePairs");
+                    console.error("ERROR: "+xhr.status+" ISecurity.getSecureKeyValuePairs");
                }
           }
           isDeviceModified() : boolean {
@@ -2889,11 +3021,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ISecurity.isDeviceModified incorrect response received.");
+                         console.error("ERROR: ISecurity.isDeviceModified incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ISecurity.isDeviceModified");
+                    console.error("ERROR: "+xhr.status+" ISecurity.isDeviceModified");
                     return null;
                }
           }
@@ -2907,7 +3039,7 @@ module Adaptive {
                     // Callback removed from 'registeredISecureKVResultCallback' on receiving async response.
                } else {
                     registeredISecureKVResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" ISecurity.setSecureKeyValuePairs");
+                    console.error("ERROR: "+xhr.status+" ISecurity.setSecureKeyValuePairs");
                }
           }
 
@@ -3062,11 +3194,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ICapabilities.hasButtonSupport incorrect response received.");
+                         console.error("ERROR: ICapabilities.hasButtonSupport incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ICapabilities.hasButtonSupport");
+                    console.error("ERROR: "+xhr.status+" ICapabilities.hasButtonSupport");
                     return null;
                }
           }
@@ -3079,11 +3211,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ICapabilities.hasCommunicationSupport incorrect response received.");
+                         console.error("ERROR: ICapabilities.hasCommunicationSupport incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ICapabilities.hasCommunicationSupport");
+                    console.error("ERROR: "+xhr.status+" ICapabilities.hasCommunicationSupport");
                     return null;
                }
           }
@@ -3096,11 +3228,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ICapabilities.hasDataSupport incorrect response received.");
+                         console.error("ERROR: ICapabilities.hasDataSupport incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ICapabilities.hasDataSupport");
+                    console.error("ERROR: "+xhr.status+" ICapabilities.hasDataSupport");
                     return null;
                }
           }
@@ -3113,11 +3245,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ICapabilities.hasMediaSupport incorrect response received.");
+                         console.error("ERROR: ICapabilities.hasMediaSupport incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ICapabilities.hasMediaSupport");
+                    console.error("ERROR: "+xhr.status+" ICapabilities.hasMediaSupport");
                     return null;
                }
           }
@@ -3130,11 +3262,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ICapabilities.hasNetSupport incorrect response received.");
+                         console.error("ERROR: ICapabilities.hasNetSupport incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ICapabilities.hasNetSupport");
+                    console.error("ERROR: "+xhr.status+" ICapabilities.hasNetSupport");
                     return null;
                }
           }
@@ -3147,11 +3279,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ICapabilities.hasNotificationSupport incorrect response received.");
+                         console.error("ERROR: ICapabilities.hasNotificationSupport incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ICapabilities.hasNotificationSupport");
+                    console.error("ERROR: "+xhr.status+" ICapabilities.hasNotificationSupport");
                     return null;
                }
           }
@@ -3164,11 +3296,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ICapabilities.hasSensorSupport incorrect response received.");
+                         console.error("ERROR: ICapabilities.hasSensorSupport incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ICapabilities.hasSensorSupport");
+                    console.error("ERROR: "+xhr.status+" ICapabilities.hasSensorSupport");
                     return null;
                }
           }
@@ -3209,7 +3341,7 @@ module Adaptive {
                if (xhr.status == 200) {
                     registeredIGeolocationListener.add(""+listener.getId(),listener);
                } else {
-                    console.log("ERROR: "+xhr.status+" IGeolocation.addGeolocationListener");
+                    console.error("ERROR: "+xhr.status+" IGeolocation.addGeolocationListener");
                }
           }
           removeGeolocationListener(listener: IGeolocationListener) : void {
@@ -3220,7 +3352,7 @@ module Adaptive {
                if (xhr.status == 200) {
                     registeredIGeolocationListener.remove(""+listener.getId());
                } else {
-                    console.log("ERROR: "+xhr.status+" IGeolocation.removeGeolocationListener");
+                    console.error("ERROR: "+xhr.status+" IGeolocation.removeGeolocationListener");
                }
           }
           removeGeolocationListeners() : void {
@@ -3234,7 +3366,7 @@ module Adaptive {
                          registeredIAccelerationListener.remove(key);
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IGeolocation.removeGeolocationListeners");
+                    console.error("ERROR: "+xhr.status+" IGeolocation.removeGeolocationListeners");
                }
           }
 
@@ -3292,11 +3424,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: ITelephony.call incorrect response received.");
+                         console.error("ERROR: ITelephony.call incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" ITelephony.call");
+                    console.error("ERROR: "+xhr.status+" ITelephony.call");
                     return null;
                }
           }
@@ -3351,7 +3483,7 @@ module Adaptive {
                     // Callback removed from 'registeredIMessagingCallback' on receiving async response.
                } else {
                     registeredIMessagingCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IMessaging.sendSMS");
+                    console.error("ERROR: "+xhr.status+" IMessaging.sendSMS");
                }
           }
 
@@ -3404,11 +3536,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.endsWith incorrect response received.");
+                         console.error("ERROR: IFilePath.endsWith incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.endsWith");
+                    console.error("ERROR: "+xhr.status+" IFilePath.endsWith");
                     return null;
                }
           }
@@ -3421,11 +3553,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.endsWithPath incorrect response received.");
+                         console.error("ERROR: IFilePath.endsWithPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.endsWithPath");
+                    console.error("ERROR: "+xhr.status+" IFilePath.endsWithPath");
                     return null;
                }
           }
@@ -3438,11 +3570,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.equalPath incorrect response received.");
+                         console.error("ERROR: IFilePath.equalPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.equalPath");
+                    console.error("ERROR: "+xhr.status+" IFilePath.equalPath");
                     return null;
                }
           }
@@ -3455,11 +3587,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.equals incorrect response received.");
+                         console.error("ERROR: IFilePath.equals incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.equals");
+                    console.error("ERROR: "+xhr.status+" IFilePath.equals");
                     return null;
                }
           }
@@ -3472,11 +3604,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.getFileName incorrect response received.");
+                         console.error("ERROR: IFilePath.getFileName incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.getFileName");
+                    console.error("ERROR: "+xhr.status+" IFilePath.getFileName");
                     return null;
                }
           }
@@ -3489,11 +3621,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.getFileSystem incorrect response received.");
+                         console.error("ERROR: IFilePath.getFileSystem incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.getFileSystem");
+                    console.error("ERROR: "+xhr.status+" IFilePath.getFileSystem");
                     return null;
                }
           }
@@ -3506,11 +3638,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.getNameAtIndex incorrect response received.");
+                         console.error("ERROR: IFilePath.getNameAtIndex incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.getNameAtIndex");
+                    console.error("ERROR: "+xhr.status+" IFilePath.getNameAtIndex");
                     return null;
                }
           }
@@ -3523,11 +3655,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.getNameCount incorrect response received.");
+                         console.error("ERROR: IFilePath.getNameCount incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.getNameCount");
+                    console.error("ERROR: "+xhr.status+" IFilePath.getNameCount");
                     return null;
                }
           }
@@ -3540,11 +3672,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.getParent incorrect response received.");
+                         console.error("ERROR: IFilePath.getParent incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.getParent");
+                    console.error("ERROR: "+xhr.status+" IFilePath.getParent");
                     return null;
                }
           }
@@ -3557,11 +3689,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.getRoot incorrect response received.");
+                         console.error("ERROR: IFilePath.getRoot incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.getRoot");
+                    console.error("ERROR: "+xhr.status+" IFilePath.getRoot");
                     return null;
                }
           }
@@ -3574,11 +3706,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.isAbsolute incorrect response received.");
+                         console.error("ERROR: IFilePath.isAbsolute incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.isAbsolute");
+                    console.error("ERROR: "+xhr.status+" IFilePath.isAbsolute");
                     return null;
                }
           }
@@ -3591,11 +3723,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.normalize incorrect response received.");
+                         console.error("ERROR: IFilePath.normalize incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.normalize");
+                    console.error("ERROR: "+xhr.status+" IFilePath.normalize");
                     return null;
                }
           }
@@ -3608,11 +3740,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.relativize incorrect response received.");
+                         console.error("ERROR: IFilePath.relativize incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.relativize");
+                    console.error("ERROR: "+xhr.status+" IFilePath.relativize");
                     return null;
                }
           }
@@ -3625,11 +3757,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.resolve incorrect response received.");
+                         console.error("ERROR: IFilePath.resolve incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.resolve");
+                    console.error("ERROR: "+xhr.status+" IFilePath.resolve");
                     return null;
                }
           }
@@ -3642,11 +3774,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.resolvePath incorrect response received.");
+                         console.error("ERROR: IFilePath.resolvePath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.resolvePath");
+                    console.error("ERROR: "+xhr.status+" IFilePath.resolvePath");
                     return null;
                }
           }
@@ -3659,11 +3791,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.resolveSibling incorrect response received.");
+                         console.error("ERROR: IFilePath.resolveSibling incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.resolveSibling");
+                    console.error("ERROR: "+xhr.status+" IFilePath.resolveSibling");
                     return null;
                }
           }
@@ -3676,11 +3808,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.resolveSiblingPath incorrect response received.");
+                         console.error("ERROR: IFilePath.resolveSiblingPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.resolveSiblingPath");
+                    console.error("ERROR: "+xhr.status+" IFilePath.resolveSiblingPath");
                     return null;
                }
           }
@@ -3693,11 +3825,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.startsWith incorrect response received.");
+                         console.error("ERROR: IFilePath.startsWith incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.startsWith");
+                    console.error("ERROR: "+xhr.status+" IFilePath.startsWith");
                     return null;
                }
           }
@@ -3710,11 +3842,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.startsWithPath incorrect response received.");
+                         console.error("ERROR: IFilePath.startsWithPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.startsWithPath");
+                    console.error("ERROR: "+xhr.status+" IFilePath.startsWithPath");
                     return null;
                }
           }
@@ -3727,11 +3859,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.toAbsolutePath incorrect response received.");
+                         console.error("ERROR: IFilePath.toAbsolutePath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.toAbsolutePath");
+                    console.error("ERROR: "+xhr.status+" IFilePath.toAbsolutePath");
                     return null;
                }
           }
@@ -3744,11 +3876,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.toFile incorrect response received.");
+                         console.error("ERROR: IFilePath.toFile incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.toFile");
+                    console.error("ERROR: "+xhr.status+" IFilePath.toFile");
                     return null;
                }
           }
@@ -3761,11 +3893,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFilePath.toString incorrect response received.");
+                         console.error("ERROR: IFilePath.toString incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFilePath.toString");
+                    console.error("ERROR: "+xhr.status+" IFilePath.toString");
                     return null;
                }
           }
@@ -3849,9 +3981,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: ITableResultCallbackErrorEnum) => Function, onResultFunction : (table: Table) => Function, onWarningFunction : (table: Table, warning: ITableResultCallbackWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: TableResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: TableResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: TableResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -3862,22 +4006,22 @@ module Adaptive {
           }
 
           onError(error: ITableResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The TableResultCallback does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The TableResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(table: Table) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The TableResultCallback does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The TableResultCallback does not define the onResultFunction.");
                } else {
                     this.onResultFunction(table);
                }
           }
           onWarning(table: Table, warning: ITableResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The TableResultCallback does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The TableResultCallback does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(table, warning);
                }
@@ -3970,9 +4114,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: IFileListResultCallbackErrorEnum) => Function, onResultFunction : (files: Array<IFile>) => Function, onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: FileListResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: FileListResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: FileListResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -3983,22 +4139,22 @@ module Adaptive {
           }
 
           onError(error: IFileListResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The FileListResultCallback does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The FileListResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(files: Array<IFile>) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The FileListResultCallback does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The FileListResultCallback does not define the onResultFunction.");
                } else {
                     this.onResultFunction(files);
                }
           }
           onWarning(files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The FileListResultCallback does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The FileListResultCallback does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(files, warning);
                }
@@ -4046,7 +4202,7 @@ module Adaptive {
                if (xhr.status == 200) {
                     registeredIAccelerationListener.add(""+listener.getId(),listener);
                } else {
-                    console.log("ERROR: "+xhr.status+" IAccelerometer.addAccelerationListener");
+                    console.error("ERROR: "+xhr.status+" IAccelerometer.addAccelerationListener");
                }
           }
           removeAccelerationListener(listener: IAccelerationListener) : void {
@@ -4057,7 +4213,7 @@ module Adaptive {
                if (xhr.status == 200) {
                     registeredIAccelerationListener.remove(""+listener.getId());
                } else {
-                    console.log("ERROR: "+xhr.status+" IAccelerometer.removeAccelerationListener");
+                    console.error("ERROR: "+xhr.status+" IAccelerometer.removeAccelerationListener");
                }
           }
           removeAccelerationListeners() : void {
@@ -4071,7 +4227,7 @@ module Adaptive {
                          registeredIAccelerationListener.remove(key);
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IAccelerometer.removeAccelerationListeners");
+                    console.error("ERROR: "+xhr.status+" IAccelerometer.removeAccelerationListeners");
                }
           }
 
@@ -4157,11 +4313,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IGlobalization.getLocaleSupportedDescriptors incorrect response received.");
+                         console.error("ERROR: IGlobalization.getLocaleSupportedDescriptors incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IGlobalization.getLocaleSupportedDescriptors");
+                    console.error("ERROR: "+xhr.status+" IGlobalization.getLocaleSupportedDescriptors");
                     return null;
                }
           }
@@ -4174,11 +4330,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IGlobalization.getResourceLiteral incorrect response received.");
+                         console.error("ERROR: IGlobalization.getResourceLiteral incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IGlobalization.getResourceLiteral");
+                    console.error("ERROR: "+xhr.status+" IGlobalization.getResourceLiteral");
                     return null;
                }
           }
@@ -4191,11 +4347,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IGlobalization.getResourceLiterals incorrect response received.");
+                         console.error("ERROR: IGlobalization.getResourceLiterals incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IGlobalization.getResourceLiterals");
+                    console.error("ERROR: "+xhr.status+" IGlobalization.getResourceLiterals");
                     return null;
                }
           }
@@ -4272,9 +4428,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: IServiceResultCallbackErrorEnum) => Function, onResultFunction : (response: ServiceResponse) => Function, onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: ServiceResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: ServiceResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: ServiceResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -4285,22 +4453,22 @@ module Adaptive {
           }
 
           onError(error: IServiceResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The ServiceResultCallback does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The ServiceResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(response: ServiceResponse) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The ServiceResultCallback does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The ServiceResultCallback does not define the onResultFunction.");
                } else {
                     this.onResultFunction(response);
                }
           }
           onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The ServiceResultCallback does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The ServiceResultCallback does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(response, warning);
                }
@@ -4366,9 +4534,21 @@ module Adaptive {
 
           constructor(onErrorFunction : (error: IFileDataResultCallbackErrorEnum) => Function, onResultFunction : (file: IFile, data: Array<number>) => Function, onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function) {
                this.id = ++registeredCounter;
-               this.onErrorFunction = onErrorFunction;
-               this.onResultFunction = onResultFunction;
-               this.onWarningFunction = onWarningFunction;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: FileDataResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: FileDataResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: FileDataResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
           }
 
           toString() : string {
@@ -4379,22 +4559,22 @@ module Adaptive {
           }
 
           onError(error: IFileDataResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined') {
-                    console.log("WARNING: The FileDataResultCallback does not define the onErrorFunction.");
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The FileDataResultCallback does not define the onErrorFunction.");
                } else {
                     this.onErrorFunction(error);
                }
           }
           onResult(file: IFile, data: Array<number>) : void {
-               if (typeof this.onResultFunction === 'undefined') {
-                    console.log("WARNING: The FileDataResultCallback does not define the onResultFunction.");
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The FileDataResultCallback does not define the onResultFunction.");
                } else {
                     this.onResultFunction(file, data);
                }
           }
           onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined') {
-                    console.log("WARNING: The FileDataResultCallback does not define the onWarningFunction.");
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The FileDataResultCallback does not define the onWarningFunction.");
                } else {
                     this.onWarningFunction(file, warning);
                }
@@ -4425,7 +4605,7 @@ module Adaptive {
                xhr.send(); // TODO: Add parameters to send.
                if (xhr.status == 200) {
                } else {
-                    console.log("ERROR: "+xhr.status+" IVideo.playStream");
+                    console.error("ERROR: "+xhr.status+" IVideo.playStream");
                }
           }
 
@@ -4499,11 +4679,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.canRead incorrect response received.");
+                         console.error("ERROR: IFile.canRead incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.canRead");
+                    console.error("ERROR: "+xhr.status+" IFile.canRead");
                     return null;
                }
           }
@@ -4516,11 +4696,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.canWrite incorrect response received.");
+                         console.error("ERROR: IFile.canWrite incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.canWrite");
+                    console.error("ERROR: "+xhr.status+" IFile.canWrite");
                     return null;
                }
           }
@@ -4534,7 +4714,7 @@ module Adaptive {
                     // Callback removed from 'registeredIFileResultCallback' on receiving async response.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IFile.create");
+                    console.error("ERROR: "+xhr.status+" IFile.create");
                }
           }
           createWithPath(path: string, name: string, callback: IFileResultCallback) : void {
@@ -4547,7 +4727,7 @@ module Adaptive {
                     // Callback removed from 'registeredIFileResultCallback' on receiving async response.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IFile.createWithPath");
+                    console.error("ERROR: "+xhr.status+" IFile.createWithPath");
                }
           }
           delete(cascade: boolean) : boolean {
@@ -4559,11 +4739,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.delete incorrect response received.");
+                         console.error("ERROR: IFile.delete incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.delete");
+                    console.error("ERROR: "+xhr.status+" IFile.delete");
                     return null;
                }
           }
@@ -4576,11 +4756,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.endsWith incorrect response received.");
+                         console.error("ERROR: IFile.endsWith incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.endsWith");
+                    console.error("ERROR: "+xhr.status+" IFile.endsWith");
                     return null;
                }
           }
@@ -4593,11 +4773,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.endsWithPath incorrect response received.");
+                         console.error("ERROR: IFile.endsWithPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.endsWithPath");
+                    console.error("ERROR: "+xhr.status+" IFile.endsWithPath");
                     return null;
                }
           }
@@ -4610,11 +4790,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.equalPath incorrect response received.");
+                         console.error("ERROR: IFile.equalPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.equalPath");
+                    console.error("ERROR: "+xhr.status+" IFile.equalPath");
                     return null;
                }
           }
@@ -4627,11 +4807,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.equals incorrect response received.");
+                         console.error("ERROR: IFile.equals incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.equals");
+                    console.error("ERROR: "+xhr.status+" IFile.equals");
                     return null;
                }
           }
@@ -4644,11 +4824,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.exists incorrect response received.");
+                         console.error("ERROR: IFile.exists incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.exists");
+                    console.error("ERROR: "+xhr.status+" IFile.exists");
                     return null;
                }
           }
@@ -4662,7 +4842,7 @@ module Adaptive {
                     // Callback removed from 'registeredIFileDataResultCallback' on receiving async response.
                } else {
                     registeredIFileDataResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IFile.getContent");
+                    console.error("ERROR: "+xhr.status+" IFile.getContent");
                }
           }
           getDateCreated() : number {
@@ -4674,11 +4854,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.getDateCreated incorrect response received.");
+                         console.error("ERROR: IFile.getDateCreated incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.getDateCreated");
+                    console.error("ERROR: "+xhr.status+" IFile.getDateCreated");
                     return null;
                }
           }
@@ -4691,11 +4871,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.getDateModified incorrect response received.");
+                         console.error("ERROR: IFile.getDateModified incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.getDateModified");
+                    console.error("ERROR: "+xhr.status+" IFile.getDateModified");
                     return null;
                }
           }
@@ -4708,11 +4888,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.getFileName incorrect response received.");
+                         console.error("ERROR: IFile.getFileName incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.getFileName");
+                    console.error("ERROR: "+xhr.status+" IFile.getFileName");
                     return null;
                }
           }
@@ -4725,11 +4905,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.getFileSystem incorrect response received.");
+                         console.error("ERROR: IFile.getFileSystem incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.getFileSystem");
+                    console.error("ERROR: "+xhr.status+" IFile.getFileSystem");
                     return null;
                }
           }
@@ -4742,11 +4922,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.getName incorrect response received.");
+                         console.error("ERROR: IFile.getName incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.getName");
+                    console.error("ERROR: "+xhr.status+" IFile.getName");
                     return null;
                }
           }
@@ -4759,11 +4939,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.getNameAtIndex incorrect response received.");
+                         console.error("ERROR: IFile.getNameAtIndex incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.getNameAtIndex");
+                    console.error("ERROR: "+xhr.status+" IFile.getNameAtIndex");
                     return null;
                }
           }
@@ -4776,11 +4956,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.getNameCount incorrect response received.");
+                         console.error("ERROR: IFile.getNameCount incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.getNameCount");
+                    console.error("ERROR: "+xhr.status+" IFile.getNameCount");
                     return null;
                }
           }
@@ -4793,11 +4973,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.getParent incorrect response received.");
+                         console.error("ERROR: IFile.getParent incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.getParent");
+                    console.error("ERROR: "+xhr.status+" IFile.getParent");
                     return null;
                }
           }
@@ -4810,11 +4990,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.getPath incorrect response received.");
+                         console.error("ERROR: IFile.getPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.getPath");
+                    console.error("ERROR: "+xhr.status+" IFile.getPath");
                     return null;
                }
           }
@@ -4827,11 +5007,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.getRoot incorrect response received.");
+                         console.error("ERROR: IFile.getRoot incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.getRoot");
+                    console.error("ERROR: "+xhr.status+" IFile.getRoot");
                     return null;
                }
           }
@@ -4844,11 +5024,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.getSize incorrect response received.");
+                         console.error("ERROR: IFile.getSize incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.getSize");
+                    console.error("ERROR: "+xhr.status+" IFile.getSize");
                     return null;
                }
           }
@@ -4861,11 +5041,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.isAbsolute incorrect response received.");
+                         console.error("ERROR: IFile.isAbsolute incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.isAbsolute");
+                    console.error("ERROR: "+xhr.status+" IFile.isAbsolute");
                     return null;
                }
           }
@@ -4878,11 +5058,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.isDirectory incorrect response received.");
+                         console.error("ERROR: IFile.isDirectory incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.isDirectory");
+                    console.error("ERROR: "+xhr.status+" IFile.isDirectory");
                     return null;
                }
           }
@@ -4896,7 +5076,7 @@ module Adaptive {
                     // Callback removed from 'registeredIFileListResultCallback' on receiving async response.
                } else {
                     registeredIFileListResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IFile.listFiles");
+                    console.error("ERROR: "+xhr.status+" IFile.listFiles");
                }
           }
           listFilesForRegex(regex: string, callback: IFileListResultCallback) : void {
@@ -4909,7 +5089,7 @@ module Adaptive {
                     // Callback removed from 'registeredIFileListResultCallback' on receiving async response.
                } else {
                     registeredIFileListResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IFile.listFilesForRegex");
+                    console.error("ERROR: "+xhr.status+" IFile.listFilesForRegex");
                }
           }
           mkDir(recursive: boolean) : boolean {
@@ -4921,11 +5101,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.mkDir incorrect response received.");
+                         console.error("ERROR: IFile.mkDir incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.mkDir");
+                    console.error("ERROR: "+xhr.status+" IFile.mkDir");
                     return null;
                }
           }
@@ -4939,7 +5119,7 @@ module Adaptive {
                     // Callback removed from 'registeredIFileResultCallback' on receiving async response.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IFile.move");
+                    console.error("ERROR: "+xhr.status+" IFile.move");
                }
           }
           normalize() : IFilePath {
@@ -4951,11 +5131,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.normalize incorrect response received.");
+                         console.error("ERROR: IFile.normalize incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.normalize");
+                    console.error("ERROR: "+xhr.status+" IFile.normalize");
                     return null;
                }
           }
@@ -4968,11 +5148,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.relativize incorrect response received.");
+                         console.error("ERROR: IFile.relativize incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.relativize");
+                    console.error("ERROR: "+xhr.status+" IFile.relativize");
                     return null;
                }
           }
@@ -4985,11 +5165,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.resolve incorrect response received.");
+                         console.error("ERROR: IFile.resolve incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.resolve");
+                    console.error("ERROR: "+xhr.status+" IFile.resolve");
                     return null;
                }
           }
@@ -5002,11 +5182,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.resolvePath incorrect response received.");
+                         console.error("ERROR: IFile.resolvePath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.resolvePath");
+                    console.error("ERROR: "+xhr.status+" IFile.resolvePath");
                     return null;
                }
           }
@@ -5019,11 +5199,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.resolveSibling incorrect response received.");
+                         console.error("ERROR: IFile.resolveSibling incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.resolveSibling");
+                    console.error("ERROR: "+xhr.status+" IFile.resolveSibling");
                     return null;
                }
           }
@@ -5036,11 +5216,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.resolveSiblingPath incorrect response received.");
+                         console.error("ERROR: IFile.resolveSiblingPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.resolveSiblingPath");
+                    console.error("ERROR: "+xhr.status+" IFile.resolveSiblingPath");
                     return null;
                }
           }
@@ -5054,7 +5234,7 @@ module Adaptive {
                     // Callback removed from 'registeredIFileDataResultCallback' on receiving async response.
                } else {
                     registeredIFileDataResultCallback.remove(""+callback.getId());
-                    console.log("ERROR: "+xhr.status+" IFile.setContent");
+                    console.error("ERROR: "+xhr.status+" IFile.setContent");
                }
           }
           startsWith(other: string) : boolean {
@@ -5066,11 +5246,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.startsWith incorrect response received.");
+                         console.error("ERROR: IFile.startsWith incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.startsWith");
+                    console.error("ERROR: "+xhr.status+" IFile.startsWith");
                     return null;
                }
           }
@@ -5083,11 +5263,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.startsWithPath incorrect response received.");
+                         console.error("ERROR: IFile.startsWithPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.startsWithPath");
+                    console.error("ERROR: "+xhr.status+" IFile.startsWithPath");
                     return null;
                }
           }
@@ -5100,11 +5280,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.toAbsolutePath incorrect response received.");
+                         console.error("ERROR: IFile.toAbsolutePath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.toAbsolutePath");
+                    console.error("ERROR: "+xhr.status+" IFile.toAbsolutePath");
                     return null;
                }
           }
@@ -5117,11 +5297,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.toFile incorrect response received.");
+                         console.error("ERROR: IFile.toFile incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.toFile");
+                    console.error("ERROR: "+xhr.status+" IFile.toFile");
                     return null;
                }
           }
@@ -5134,11 +5314,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.toPath incorrect response received.");
+                         console.error("ERROR: IFile.toPath incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.toPath");
+                    console.error("ERROR: "+xhr.status+" IFile.toPath");
                     return null;
                }
           }
@@ -5151,11 +5331,11 @@ module Adaptive {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
                     } else {
-                         console.log("ERROR: IFile.toString incorrect response received.");
+                         console.error("ERROR: IFile.toString incorrect response received.");
                          return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status+" IFile.toString");
+                    console.error("ERROR: "+xhr.status+" IFile.toString");
                     return null;
                }
           }

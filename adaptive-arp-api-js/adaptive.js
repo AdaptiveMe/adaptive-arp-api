@@ -204,7 +204,7 @@ var Adaptive;
                 registeredIButtonListener.add("" + listener.getId(), listener);
             }
             else {
-                console.log("ERROR: " + xhr.status + " IDevice.addButtonListener");
+                console.error("ERROR: " + xhr.status + " IDevice.addButtonListener");
             }
         };
         DeviceBridge.prototype.getDeviceInfo = function () {
@@ -217,12 +217,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IDevice.getDeviceInfo incorrect response received.");
+                    console.error("ERROR: IDevice.getDeviceInfo incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IDevice.getDeviceInfo");
+                console.error("ERROR: " + xhr.status + " IDevice.getDeviceInfo");
                 return null;
             }
         };
@@ -236,12 +236,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IDevice.getLocaleCurrent incorrect response received.");
+                    console.error("ERROR: IDevice.getLocaleCurrent incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IDevice.getLocaleCurrent");
+                console.error("ERROR: " + xhr.status + " IDevice.getLocaleCurrent");
                 return null;
             }
         };
@@ -254,7 +254,7 @@ var Adaptive;
                 registeredIButtonListener.remove("" + listener.getId());
             }
             else {
-                console.log("ERROR: " + xhr.status + " IDevice.removeButtonListener");
+                console.error("ERROR: " + xhr.status + " IDevice.removeButtonListener");
             }
         };
         DeviceBridge.prototype.removeButtonListeners = function () {
@@ -269,7 +269,7 @@ var Adaptive;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IDevice.removeButtonListeners");
+                console.error("ERROR: " + xhr.status + " IDevice.removeButtonListeners");
             }
         };
         return DeviceBridge;
@@ -291,7 +291,7 @@ var Adaptive;
             }
             else {
                 registeredIMessagingCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IMail.sendEmail");
+                console.error("ERROR: " + xhr.status + " IMail.sendEmail");
             }
         };
         return MailBridge;
@@ -345,9 +345,24 @@ var Adaptive;
     var SecureKVResultCallback = (function () {
         function SecureKVResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: SecureKVResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: SecureKVResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: SecureKVResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         SecureKVResultCallback.prototype.toString = function () {
             return "SecureKVResultCallback{" + this.id + "}";
@@ -356,24 +371,24 @@ var Adaptive;
             return this.id;
         };
         SecureKVResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The SecureKVResultCallback does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The SecureKVResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         SecureKVResultCallback.prototype.onResult = function (keyValues) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The SecureKVResultCallback does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The SecureKVResultCallback does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(keyValues);
             }
         };
         SecureKVResultCallback.prototype.onWarning = function (keyValues, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The SecureKVResultCallback does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The SecureKVResultCallback does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(keyValues, warning);
@@ -432,9 +447,24 @@ var Adaptive;
     var FileResultCallback = (function () {
         function FileResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: FileResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: FileResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: FileResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         FileResultCallback.prototype.toString = function () {
             return "FileResultCallback{" + this.id + "}";
@@ -443,24 +473,24 @@ var Adaptive;
             return this.id;
         };
         FileResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The FileResultCallback does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The FileResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         FileResultCallback.prototype.onResult = function (storageFile) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The FileResultCallback does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The FileResultCallback does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(storageFile);
             }
         };
         FileResultCallback.prototype.onWarning = function (sourceFile, destinationFile, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The FileResultCallback does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The FileResultCallback does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(sourceFile, destinationFile, warning);
@@ -519,9 +549,24 @@ var Adaptive;
     var LifecycleListener = (function () {
         function LifecycleListener(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: LifecycleListener onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: LifecycleListener onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: LifecycleListener onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         LifecycleListener.prototype.toString = function () {
             return "LifecycleListener{" + this.id + "}";
@@ -530,24 +575,24 @@ var Adaptive;
             return this.id;
         };
         LifecycleListener.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The LifecycleListener does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The LifecycleListener does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         LifecycleListener.prototype.onResult = function (lifecycle) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The LifecycleListener does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The LifecycleListener does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(lifecycle);
             }
         };
         LifecycleListener.prototype.onWarning = function (lifecycle, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The LifecycleListener does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The LifecycleListener does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(lifecycle, warning);
@@ -572,12 +617,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ISession.getAttribute incorrect response received.");
+                    console.error("ERROR: ISession.getAttribute incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISession.getAttribute");
+                console.error("ERROR: " + xhr.status + " ISession.getAttribute");
                 return null;
             }
         };
@@ -591,12 +636,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ISession.getAttributes incorrect response received.");
+                    console.error("ERROR: ISession.getAttributes incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISession.getAttributes");
+                console.error("ERROR: " + xhr.status + " ISession.getAttributes");
                 return null;
             }
         };
@@ -610,12 +655,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ISession.getCookies incorrect response received.");
+                    console.error("ERROR: ISession.getCookies incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISession.getCookies");
+                console.error("ERROR: " + xhr.status + " ISession.getCookies");
                 return null;
             }
         };
@@ -629,12 +674,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ISession.listAttributeNames incorrect response received.");
+                    console.error("ERROR: ISession.listAttributeNames incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISession.listAttributeNames");
+                console.error("ERROR: " + xhr.status + " ISession.listAttributeNames");
                 return null;
             }
         };
@@ -646,7 +691,7 @@ var Adaptive;
             if (xhr.status == 200) {
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISession.removeAttribute");
+                console.error("ERROR: " + xhr.status + " ISession.removeAttribute");
             }
         };
         SessionBridge.prototype.removeAttributes = function () {
@@ -657,7 +702,7 @@ var Adaptive;
             if (xhr.status == 200) {
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISession.removeAttributes");
+                console.error("ERROR: " + xhr.status + " ISession.removeAttributes");
             }
         };
         SessionBridge.prototype.removeCookie = function (cookie) {
@@ -668,7 +713,7 @@ var Adaptive;
             if (xhr.status == 200) {
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISession.removeCookie");
+                console.error("ERROR: " + xhr.status + " ISession.removeCookie");
             }
         };
         SessionBridge.prototype.removeCookies = function (cookies) {
@@ -679,7 +724,7 @@ var Adaptive;
             if (xhr.status == 200) {
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISession.removeCookies");
+                console.error("ERROR: " + xhr.status + " ISession.removeCookies");
             }
         };
         SessionBridge.prototype.setAttribute = function (name, value) {
@@ -690,7 +735,7 @@ var Adaptive;
             if (xhr.status == 200) {
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISession.setAttribute");
+                console.error("ERROR: " + xhr.status + " ISession.setAttribute");
             }
         };
         SessionBridge.prototype.setCookie = function (cookie) {
@@ -701,7 +746,7 @@ var Adaptive;
             if (xhr.status == 200) {
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISession.setCookie");
+                console.error("ERROR: " + xhr.status + " ISession.setCookie");
             }
         };
         SessionBridge.prototype.setCookies = function (cookies) {
@@ -712,7 +757,7 @@ var Adaptive;
             if (xhr.status == 200) {
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISession.setCookies");
+                console.error("ERROR: " + xhr.status + " ISession.setCookies");
             }
         };
         return SessionBridge;
@@ -779,9 +824,24 @@ var Adaptive;
     var NetworkReachabilityCallback = (function () {
         function NetworkReachabilityCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: NetworkReachabilityCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: NetworkReachabilityCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: NetworkReachabilityCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         NetworkReachabilityCallback.prototype.toString = function () {
             return "NetworkReachabilityCallback{" + this.id + "}";
@@ -790,24 +850,24 @@ var Adaptive;
             return this.id;
         };
         NetworkReachabilityCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The NetworkReachabilityCallback does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The NetworkReachabilityCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         NetworkReachabilityCallback.prototype.onResult = function (result) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The NetworkReachabilityCallback does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The NetworkReachabilityCallback does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(result);
             }
         };
         NetworkReachabilityCallback.prototype.onWarning = function (result, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The NetworkReachabilityCallback does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The NetworkReachabilityCallback does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(result, warning);
@@ -865,9 +925,24 @@ var Adaptive;
     var AccelerationListener = (function () {
         function AccelerationListener(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: AccelerationListener onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: AccelerationListener onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: AccelerationListener onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         AccelerationListener.prototype.toString = function () {
             return "AccelerationListener{" + this.id + "}";
@@ -876,24 +951,24 @@ var Adaptive;
             return this.id;
         };
         AccelerationListener.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The AccelerationListener does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The AccelerationListener does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         AccelerationListener.prototype.onResult = function (acceleration) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The AccelerationListener does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The AccelerationListener does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(acceleration);
             }
         };
         AccelerationListener.prototype.onWarning = function (acceleration, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The AccelerationListener does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The AccelerationListener does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(acceleration, warning);
@@ -918,7 +993,7 @@ var Adaptive;
             }
             else {
                 registeredIDatabaseResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IDatabase.createDatabase");
+                console.error("ERROR: " + xhr.status + " IDatabase.createDatabase");
             }
         };
         DatabaseBridge.prototype.createTable = function (database, table, callback) {
@@ -931,7 +1006,7 @@ var Adaptive;
             }
             else {
                 registeredITableResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IDatabase.createTable");
+                console.error("ERROR: " + xhr.status + " IDatabase.createTable");
             }
         };
         DatabaseBridge.prototype.deleteDatabase = function (database, callback) {
@@ -944,7 +1019,7 @@ var Adaptive;
             }
             else {
                 registeredIDatabaseResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IDatabase.deleteDatabase");
+                console.error("ERROR: " + xhr.status + " IDatabase.deleteDatabase");
             }
         };
         DatabaseBridge.prototype.deleteTable = function (database, table, callback) {
@@ -957,7 +1032,7 @@ var Adaptive;
             }
             else {
                 registeredITableResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IDatabase.deleteTable");
+                console.error("ERROR: " + xhr.status + " IDatabase.deleteTable");
             }
         };
         DatabaseBridge.prototype.executeSqlQuery = function (database, query, replacements, callback) {
@@ -970,7 +1045,7 @@ var Adaptive;
             }
             else {
                 registeredITableResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IDatabase.executeSqlQuery");
+                console.error("ERROR: " + xhr.status + " IDatabase.executeSqlQuery");
             }
         };
         DatabaseBridge.prototype.executeSqlStatement = function (database, statement, replacements, callback) {
@@ -983,7 +1058,7 @@ var Adaptive;
             }
             else {
                 registeredITableResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IDatabase.executeSqlStatement");
+                console.error("ERROR: " + xhr.status + " IDatabase.executeSqlStatement");
             }
         };
         DatabaseBridge.prototype.executeSqlTransactions = function (database, statements, rollbackFlag, callback) {
@@ -996,7 +1071,7 @@ var Adaptive;
             }
             else {
                 registeredITableResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IDatabase.executeSqlTransactions");
+                console.error("ERROR: " + xhr.status + " IDatabase.executeSqlTransactions");
             }
         };
         DatabaseBridge.prototype.existsDatabase = function (database) {
@@ -1009,12 +1084,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IDatabase.existsDatabase incorrect response received.");
+                    console.error("ERROR: IDatabase.existsDatabase incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IDatabase.existsDatabase");
+                console.error("ERROR: " + xhr.status + " IDatabase.existsDatabase");
                 return null;
             }
         };
@@ -1028,12 +1103,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IDatabase.existsTable incorrect response received.");
+                    console.error("ERROR: IDatabase.existsTable incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IDatabase.existsTable");
+                console.error("ERROR: " + xhr.status + " IDatabase.existsTable");
                 return null;
             }
         };
@@ -1087,9 +1162,24 @@ var Adaptive;
     var ButtonListener = (function () {
         function ButtonListener(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: ButtonListener onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: ButtonListener onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: ButtonListener onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         ButtonListener.prototype.toString = function () {
             return "ButtonListener{" + this.id + "}";
@@ -1098,24 +1188,24 @@ var Adaptive;
             return this.id;
         };
         ButtonListener.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The ButtonListener does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The ButtonListener does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         ButtonListener.prototype.onResult = function (button) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The ButtonListener does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The ButtonListener does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(button);
             }
         };
         ButtonListener.prototype.onWarning = function (button, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The ButtonListener does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The ButtonListener does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(button, warning);
@@ -1173,9 +1263,24 @@ var Adaptive;
     var ContactResultCallback = (function () {
         function ContactResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: ContactResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: ContactResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: ContactResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         ContactResultCallback.prototype.toString = function () {
             return "ContactResultCallback{" + this.id + "}";
@@ -1184,24 +1289,24 @@ var Adaptive;
             return this.id;
         };
         ContactResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The ContactResultCallback does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The ContactResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         ContactResultCallback.prototype.onResult = function (contacts) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The ContactResultCallback does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The ContactResultCallback does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(contacts);
             }
         };
         ContactResultCallback.prototype.onWarning = function (contacts, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The ContactResultCallback does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The ContactResultCallback does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(contacts, warning);
@@ -1226,12 +1331,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IBrowser.openBrowser incorrect response received.");
+                    console.error("ERROR: IBrowser.openBrowser incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IBrowser.openBrowser");
+                console.error("ERROR: " + xhr.status + " IBrowser.openBrowser");
                 return null;
             }
         };
@@ -1254,7 +1359,7 @@ var Adaptive;
             }
             else {
                 registeredINetworkReachabilityCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " INetworkReachability.isNetworkReachable");
+                console.error("ERROR: " + xhr.status + " INetworkReachability.isNetworkReachable");
             }
         };
         NetworkReachabilityBridge.prototype.isNetworkServiceReachable = function (url, callback) {
@@ -1267,7 +1372,7 @@ var Adaptive;
             }
             else {
                 registeredINetworkReachabilityCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " INetworkReachability.isNetworkServiceReachable");
+                console.error("ERROR: " + xhr.status + " INetworkReachability.isNetworkServiceReachable");
             }
         };
         return NetworkReachabilityBridge;
@@ -1324,9 +1429,24 @@ var Adaptive;
     var GeolocationListener = (function () {
         function GeolocationListener(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: GeolocationListener onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: GeolocationListener onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: GeolocationListener onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         GeolocationListener.prototype.toString = function () {
             return "GeolocationListener{" + this.id + "}";
@@ -1335,24 +1455,24 @@ var Adaptive;
             return this.id;
         };
         GeolocationListener.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The GeolocationListener does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The GeolocationListener does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         GeolocationListener.prototype.onResult = function (geolocation) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The GeolocationListener does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The GeolocationListener does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(geolocation);
             }
         };
         GeolocationListener.prototype.onWarning = function (geolocation, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The GeolocationListener does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The GeolocationListener does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(geolocation, warning);
@@ -1411,9 +1531,24 @@ var Adaptive;
     var ContactPhotoResultCallback = (function () {
         function ContactPhotoResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: ContactPhotoResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: ContactPhotoResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: ContactPhotoResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         ContactPhotoResultCallback.prototype.toString = function () {
             return "ContactPhotoResultCallback{" + this.id + "}";
@@ -1422,24 +1557,24 @@ var Adaptive;
             return this.id;
         };
         ContactPhotoResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The ContactPhotoResultCallback does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The ContactPhotoResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         ContactPhotoResultCallback.prototype.onResult = function (contactPhoto) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The ContactPhotoResultCallback does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The ContactPhotoResultCallback does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(contactPhoto);
             }
         };
         ContactPhotoResultCallback.prototype.onWarning = function (contactPhoto, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The ContactPhotoResultCallback does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The ContactPhotoResultCallback does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(contactPhoto, warning);
@@ -1463,7 +1598,7 @@ var Adaptive;
                 registeredILifecycleListener.add("" + listener.getId(), listener);
             }
             else {
-                console.log("ERROR: " + xhr.status + " ILifecycle.addLifecycleListener");
+                console.error("ERROR: " + xhr.status + " ILifecycle.addLifecycleListener");
             }
         };
         LifecycleBridge.prototype.isBackground = function () {
@@ -1476,12 +1611,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ILifecycle.isBackground incorrect response received.");
+                    console.error("ERROR: ILifecycle.isBackground incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ILifecycle.isBackground");
+                console.error("ERROR: " + xhr.status + " ILifecycle.isBackground");
                 return null;
             }
         };
@@ -1494,7 +1629,7 @@ var Adaptive;
                 registeredILifecycleListener.remove("" + listener.getId());
             }
             else {
-                console.log("ERROR: " + xhr.status + " ILifecycle.removeLifecycleListener");
+                console.error("ERROR: " + xhr.status + " ILifecycle.removeLifecycleListener");
             }
         };
         LifecycleBridge.prototype.removeLifecycleListeners = function () {
@@ -1509,7 +1644,7 @@ var Adaptive;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ILifecycle.removeLifecycleListeners");
+                console.error("ERROR: " + xhr.status + " ILifecycle.removeLifecycleListeners");
             }
         };
         return LifecycleBridge;
@@ -1531,7 +1666,7 @@ var Adaptive;
             }
             else {
                 registeredIFileResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IFileSystem.create");
+                console.error("ERROR: " + xhr.status + " IFileSystem.create");
             }
         };
         FileSystemBridge.prototype.createWithPath = function (path, name, callback) {
@@ -1544,7 +1679,7 @@ var Adaptive;
             }
             else {
                 registeredIFileResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IFileSystem.createWithPath");
+                console.error("ERROR: " + xhr.status + " IFileSystem.createWithPath");
             }
         };
         FileSystemBridge.prototype.createWithPathString = function (path, name, callback) {
@@ -1557,7 +1692,7 @@ var Adaptive;
             }
             else {
                 registeredIFileResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IFileSystem.createWithPathString");
+                console.error("ERROR: " + xhr.status + " IFileSystem.createWithPathString");
             }
         };
         FileSystemBridge.prototype.getApplicationCacheFolder = function () {
@@ -1570,12 +1705,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFileSystem.getApplicationCacheFolder incorrect response received.");
+                    console.error("ERROR: IFileSystem.getApplicationCacheFolder incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFileSystem.getApplicationCacheFolder");
+                console.error("ERROR: " + xhr.status + " IFileSystem.getApplicationCacheFolder");
                 return null;
             }
         };
@@ -1589,12 +1724,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFileSystem.getApplicationDocumentsFolder incorrect response received.");
+                    console.error("ERROR: IFileSystem.getApplicationDocumentsFolder incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFileSystem.getApplicationDocumentsFolder");
+                console.error("ERROR: " + xhr.status + " IFileSystem.getApplicationDocumentsFolder");
                 return null;
             }
         };
@@ -1608,12 +1743,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFileSystem.getApplicationFolder incorrect response received.");
+                    console.error("ERROR: IFileSystem.getApplicationFolder incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFileSystem.getApplicationFolder");
+                console.error("ERROR: " + xhr.status + " IFileSystem.getApplicationFolder");
                 return null;
             }
         };
@@ -1627,12 +1762,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFileSystem.getPathForFile incorrect response received.");
+                    console.error("ERROR: IFileSystem.getPathForFile incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFileSystem.getPathForFile");
+                console.error("ERROR: " + xhr.status + " IFileSystem.getPathForFile");
                 return null;
             }
         };
@@ -1646,12 +1781,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFileSystem.getPathForPath incorrect response received.");
+                    console.error("ERROR: IFileSystem.getPathForPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFileSystem.getPathForPath");
+                console.error("ERROR: " + xhr.status + " IFileSystem.getPathForPath");
                 return null;
             }
         };
@@ -1665,12 +1800,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFileSystem.getSeparator incorrect response received.");
+                    console.error("ERROR: IFileSystem.getSeparator incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFileSystem.getSeparator");
+                console.error("ERROR: " + xhr.status + " IFileSystem.getSeparator");
                 return null;
             }
         };
@@ -1684,12 +1819,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFileSystem.isSameFile incorrect response received.");
+                    console.error("ERROR: IFileSystem.isSameFile incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFileSystem.isSameFile");
+                console.error("ERROR: " + xhr.status + " IFileSystem.isSameFile");
                 return null;
             }
         };
@@ -1703,12 +1838,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFileSystem.isSamePath incorrect response received.");
+                    console.error("ERROR: IFileSystem.isSamePath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFileSystem.isSamePath");
+                console.error("ERROR: " + xhr.status + " IFileSystem.isSamePath");
                 return null;
             }
         };
@@ -1722,12 +1857,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFileSystem.toPath incorrect response received.");
+                    console.error("ERROR: IFileSystem.toPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFileSystem.toPath");
+                console.error("ERROR: " + xhr.status + " IFileSystem.toPath");
                 return null;
             }
         };
@@ -1750,12 +1885,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IOS.getOSInfo incorrect response received.");
+                    console.error("ERROR: IOS.getOSInfo incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IOS.getOSInfo");
+                console.error("ERROR: " + xhr.status + " IOS.getOSInfo");
                 return null;
             }
         };
@@ -1817,7 +1952,7 @@ var Adaptive;
             }
             else {
                 registeredIContactResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IContact.getContact");
+                console.error("ERROR: " + xhr.status + " IContact.getContact");
             }
         };
         ContactBridge.prototype.getContactPhoto = function (contact, callback) {
@@ -1830,7 +1965,7 @@ var Adaptive;
             }
             else {
                 registeredIContactPhotoResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IContact.getContactPhoto");
+                console.error("ERROR: " + xhr.status + " IContact.getContactPhoto");
             }
         };
         ContactBridge.prototype.getContacts = function (callback) {
@@ -1843,7 +1978,7 @@ var Adaptive;
             }
             else {
                 registeredIContactResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IContact.getContacts");
+                console.error("ERROR: " + xhr.status + " IContact.getContacts");
             }
         };
         ContactBridge.prototype.getContactsForFields = function (callback, fields) {
@@ -1856,7 +1991,7 @@ var Adaptive;
             }
             else {
                 registeredIContactResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IContact.getContactsForFields");
+                console.error("ERROR: " + xhr.status + " IContact.getContactsForFields");
             }
         };
         ContactBridge.prototype.getContactsWithFilter = function (callback, fields, filter) {
@@ -1869,7 +2004,7 @@ var Adaptive;
             }
             else {
                 registeredIContactResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IContact.getContactsWithFilter");
+                console.error("ERROR: " + xhr.status + " IContact.getContactsWithFilter");
             }
         };
         ContactBridge.prototype.searchContacts = function (term, callback) {
@@ -1882,7 +2017,7 @@ var Adaptive;
             }
             else {
                 registeredIContactResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IContact.searchContacts");
+                console.error("ERROR: " + xhr.status + " IContact.searchContacts");
             }
         };
         ContactBridge.prototype.searchContactsWithFilter = function (term, callback, filter) {
@@ -1895,7 +2030,7 @@ var Adaptive;
             }
             else {
                 registeredIContactResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IContact.searchContactsWithFilter");
+                console.error("ERROR: " + xhr.status + " IContact.searchContactsWithFilter");
             }
         };
         ContactBridge.prototype.setContactPhoto = function (contact, pngImage) {
@@ -1908,12 +2043,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IContact.setContactPhoto incorrect response received.");
+                    console.error("ERROR: IContact.setContactPhoto incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IContact.setContactPhoto");
+                console.error("ERROR: " + xhr.status + " IContact.setContactPhoto");
                 return null;
             }
         };
@@ -1952,7 +2087,7 @@ var Adaptive;
             if (xhr.status == 200) {
             }
             else {
-                console.log("ERROR: " + xhr.status + " IRuntime.dismissApplication");
+                console.error("ERROR: " + xhr.status + " IRuntime.dismissApplication");
             }
         };
         RuntimeBridge.prototype.dismissSplashScreen = function () {
@@ -1965,12 +2100,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IRuntime.dismissSplashScreen incorrect response received.");
+                    console.error("ERROR: IRuntime.dismissSplashScreen incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IRuntime.dismissSplashScreen");
+                console.error("ERROR: " + xhr.status + " IRuntime.dismissSplashScreen");
                 return null;
             }
         };
@@ -2029,9 +2164,24 @@ var Adaptive;
     var MessagingCallback = (function () {
         function MessagingCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: MessagingCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: MessagingCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: MessagingCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         MessagingCallback.prototype.toString = function () {
             return "MessagingCallback{" + this.id + "}";
@@ -2040,24 +2190,24 @@ var Adaptive;
             return this.id;
         };
         MessagingCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The MessagingCallback does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The MessagingCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         MessagingCallback.prototype.onResult = function (success) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The MessagingCallback does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The MessagingCallback does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(success);
             }
         };
         MessagingCallback.prototype.onWarning = function (success, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The MessagingCallback does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The MessagingCallback does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(success, warning);
@@ -2116,9 +2266,24 @@ var Adaptive;
     var DatabaseResultCallback = (function () {
         function DatabaseResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: DatabaseResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: DatabaseResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: DatabaseResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         DatabaseResultCallback.prototype.toString = function () {
             return "DatabaseResultCallback{" + this.id + "}";
@@ -2127,24 +2292,24 @@ var Adaptive;
             return this.id;
         };
         DatabaseResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The DatabaseResultCallback does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The DatabaseResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         DatabaseResultCallback.prototype.onResult = function (database) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The DatabaseResultCallback does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The DatabaseResultCallback does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(database);
             }
         };
         DatabaseResultCallback.prototype.onWarning = function (database, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The DatabaseResultCallback does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The DatabaseResultCallback does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(database, warning);
@@ -2169,7 +2334,7 @@ var Adaptive;
             }
             else {
                 registeredISecureKVResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " ISecurity.deleteSecureKeyValuePairs");
+                console.error("ERROR: " + xhr.status + " ISecurity.deleteSecureKeyValuePairs");
             }
         };
         SecurityBridge.prototype.getSecureKeyValuePairs = function (keys, publicAccessName, callback) {
@@ -2182,7 +2347,7 @@ var Adaptive;
             }
             else {
                 registeredISecureKVResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " ISecurity.getSecureKeyValuePairs");
+                console.error("ERROR: " + xhr.status + " ISecurity.getSecureKeyValuePairs");
             }
         };
         SecurityBridge.prototype.isDeviceModified = function () {
@@ -2195,12 +2360,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ISecurity.isDeviceModified incorrect response received.");
+                    console.error("ERROR: ISecurity.isDeviceModified incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ISecurity.isDeviceModified");
+                console.error("ERROR: " + xhr.status + " ISecurity.isDeviceModified");
                 return null;
             }
         };
@@ -2214,7 +2379,7 @@ var Adaptive;
             }
             else {
                 registeredISecureKVResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " ISecurity.setSecureKeyValuePairs");
+                console.error("ERROR: " + xhr.status + " ISecurity.setSecureKeyValuePairs");
             }
         };
         return SecurityBridge;
@@ -2367,12 +2532,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ICapabilities.hasButtonSupport incorrect response received.");
+                    console.error("ERROR: ICapabilities.hasButtonSupport incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ICapabilities.hasButtonSupport");
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasButtonSupport");
                 return null;
             }
         };
@@ -2386,12 +2551,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ICapabilities.hasCommunicationSupport incorrect response received.");
+                    console.error("ERROR: ICapabilities.hasCommunicationSupport incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ICapabilities.hasCommunicationSupport");
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasCommunicationSupport");
                 return null;
             }
         };
@@ -2405,12 +2570,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ICapabilities.hasDataSupport incorrect response received.");
+                    console.error("ERROR: ICapabilities.hasDataSupport incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ICapabilities.hasDataSupport");
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasDataSupport");
                 return null;
             }
         };
@@ -2424,12 +2589,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ICapabilities.hasMediaSupport incorrect response received.");
+                    console.error("ERROR: ICapabilities.hasMediaSupport incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ICapabilities.hasMediaSupport");
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasMediaSupport");
                 return null;
             }
         };
@@ -2443,12 +2608,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ICapabilities.hasNetSupport incorrect response received.");
+                    console.error("ERROR: ICapabilities.hasNetSupport incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ICapabilities.hasNetSupport");
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasNetSupport");
                 return null;
             }
         };
@@ -2462,12 +2627,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ICapabilities.hasNotificationSupport incorrect response received.");
+                    console.error("ERROR: ICapabilities.hasNotificationSupport incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ICapabilities.hasNotificationSupport");
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasNotificationSupport");
                 return null;
             }
         };
@@ -2481,12 +2646,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ICapabilities.hasSensorSupport incorrect response received.");
+                    console.error("ERROR: ICapabilities.hasSensorSupport incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ICapabilities.hasSensorSupport");
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasSensorSupport");
                 return null;
             }
         };
@@ -2508,7 +2673,7 @@ var Adaptive;
                 registeredIGeolocationListener.add("" + listener.getId(), listener);
             }
             else {
-                console.log("ERROR: " + xhr.status + " IGeolocation.addGeolocationListener");
+                console.error("ERROR: " + xhr.status + " IGeolocation.addGeolocationListener");
             }
         };
         GeolocationBridge.prototype.removeGeolocationListener = function (listener) {
@@ -2520,7 +2685,7 @@ var Adaptive;
                 registeredIGeolocationListener.remove("" + listener.getId());
             }
             else {
-                console.log("ERROR: " + xhr.status + " IGeolocation.removeGeolocationListener");
+                console.error("ERROR: " + xhr.status + " IGeolocation.removeGeolocationListener");
             }
         };
         GeolocationBridge.prototype.removeGeolocationListeners = function () {
@@ -2535,7 +2700,7 @@ var Adaptive;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IGeolocation.removeGeolocationListeners");
+                console.error("ERROR: " + xhr.status + " IGeolocation.removeGeolocationListeners");
             }
         };
         return GeolocationBridge;
@@ -2573,12 +2738,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: ITelephony.call incorrect response received.");
+                    console.error("ERROR: ITelephony.call incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " ITelephony.call");
+                console.error("ERROR: " + xhr.status + " ITelephony.call");
                 return null;
             }
         };
@@ -2601,7 +2766,7 @@ var Adaptive;
             }
             else {
                 registeredIMessagingCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IMessaging.sendSMS");
+                console.error("ERROR: " + xhr.status + " IMessaging.sendSMS");
             }
         };
         return MessagingBridge;
@@ -2623,12 +2788,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.endsWith incorrect response received.");
+                    console.error("ERROR: IFilePath.endsWith incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.endsWith");
+                console.error("ERROR: " + xhr.status + " IFilePath.endsWith");
                 return null;
             }
         };
@@ -2642,12 +2807,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.endsWithPath incorrect response received.");
+                    console.error("ERROR: IFilePath.endsWithPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.endsWithPath");
+                console.error("ERROR: " + xhr.status + " IFilePath.endsWithPath");
                 return null;
             }
         };
@@ -2661,12 +2826,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.equalPath incorrect response received.");
+                    console.error("ERROR: IFilePath.equalPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.equalPath");
+                console.error("ERROR: " + xhr.status + " IFilePath.equalPath");
                 return null;
             }
         };
@@ -2680,12 +2845,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.equals incorrect response received.");
+                    console.error("ERROR: IFilePath.equals incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.equals");
+                console.error("ERROR: " + xhr.status + " IFilePath.equals");
                 return null;
             }
         };
@@ -2699,12 +2864,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.getFileName incorrect response received.");
+                    console.error("ERROR: IFilePath.getFileName incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.getFileName");
+                console.error("ERROR: " + xhr.status + " IFilePath.getFileName");
                 return null;
             }
         };
@@ -2718,12 +2883,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.getFileSystem incorrect response received.");
+                    console.error("ERROR: IFilePath.getFileSystem incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.getFileSystem");
+                console.error("ERROR: " + xhr.status + " IFilePath.getFileSystem");
                 return null;
             }
         };
@@ -2737,12 +2902,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.getNameAtIndex incorrect response received.");
+                    console.error("ERROR: IFilePath.getNameAtIndex incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.getNameAtIndex");
+                console.error("ERROR: " + xhr.status + " IFilePath.getNameAtIndex");
                 return null;
             }
         };
@@ -2756,12 +2921,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.getNameCount incorrect response received.");
+                    console.error("ERROR: IFilePath.getNameCount incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.getNameCount");
+                console.error("ERROR: " + xhr.status + " IFilePath.getNameCount");
                 return null;
             }
         };
@@ -2775,12 +2940,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.getParent incorrect response received.");
+                    console.error("ERROR: IFilePath.getParent incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.getParent");
+                console.error("ERROR: " + xhr.status + " IFilePath.getParent");
                 return null;
             }
         };
@@ -2794,12 +2959,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.getRoot incorrect response received.");
+                    console.error("ERROR: IFilePath.getRoot incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.getRoot");
+                console.error("ERROR: " + xhr.status + " IFilePath.getRoot");
                 return null;
             }
         };
@@ -2813,12 +2978,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.isAbsolute incorrect response received.");
+                    console.error("ERROR: IFilePath.isAbsolute incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.isAbsolute");
+                console.error("ERROR: " + xhr.status + " IFilePath.isAbsolute");
                 return null;
             }
         };
@@ -2832,12 +2997,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.normalize incorrect response received.");
+                    console.error("ERROR: IFilePath.normalize incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.normalize");
+                console.error("ERROR: " + xhr.status + " IFilePath.normalize");
                 return null;
             }
         };
@@ -2851,12 +3016,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.relativize incorrect response received.");
+                    console.error("ERROR: IFilePath.relativize incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.relativize");
+                console.error("ERROR: " + xhr.status + " IFilePath.relativize");
                 return null;
             }
         };
@@ -2870,12 +3035,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.resolve incorrect response received.");
+                    console.error("ERROR: IFilePath.resolve incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.resolve");
+                console.error("ERROR: " + xhr.status + " IFilePath.resolve");
                 return null;
             }
         };
@@ -2889,12 +3054,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.resolvePath incorrect response received.");
+                    console.error("ERROR: IFilePath.resolvePath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.resolvePath");
+                console.error("ERROR: " + xhr.status + " IFilePath.resolvePath");
                 return null;
             }
         };
@@ -2908,12 +3073,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.resolveSibling incorrect response received.");
+                    console.error("ERROR: IFilePath.resolveSibling incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.resolveSibling");
+                console.error("ERROR: " + xhr.status + " IFilePath.resolveSibling");
                 return null;
             }
         };
@@ -2927,12 +3092,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.resolveSiblingPath incorrect response received.");
+                    console.error("ERROR: IFilePath.resolveSiblingPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.resolveSiblingPath");
+                console.error("ERROR: " + xhr.status + " IFilePath.resolveSiblingPath");
                 return null;
             }
         };
@@ -2946,12 +3111,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.startsWith incorrect response received.");
+                    console.error("ERROR: IFilePath.startsWith incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.startsWith");
+                console.error("ERROR: " + xhr.status + " IFilePath.startsWith");
                 return null;
             }
         };
@@ -2965,12 +3130,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.startsWithPath incorrect response received.");
+                    console.error("ERROR: IFilePath.startsWithPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.startsWithPath");
+                console.error("ERROR: " + xhr.status + " IFilePath.startsWithPath");
                 return null;
             }
         };
@@ -2984,12 +3149,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.toAbsolutePath incorrect response received.");
+                    console.error("ERROR: IFilePath.toAbsolutePath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.toAbsolutePath");
+                console.error("ERROR: " + xhr.status + " IFilePath.toAbsolutePath");
                 return null;
             }
         };
@@ -3003,12 +3168,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.toFile incorrect response received.");
+                    console.error("ERROR: IFilePath.toFile incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.toFile");
+                console.error("ERROR: " + xhr.status + " IFilePath.toFile");
                 return null;
             }
         };
@@ -3022,12 +3187,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFilePath.toString incorrect response received.");
+                    console.error("ERROR: IFilePath.toString incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFilePath.toString");
+                console.error("ERROR: " + xhr.status + " IFilePath.toString");
                 return null;
             }
         };
@@ -3087,9 +3252,24 @@ var Adaptive;
     var TableResultCallback = (function () {
         function TableResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: TableResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: TableResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: TableResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         TableResultCallback.prototype.toString = function () {
             return "TableResultCallback{" + this.id + "}";
@@ -3098,24 +3278,24 @@ var Adaptive;
             return this.id;
         };
         TableResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The TableResultCallback does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The TableResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         TableResultCallback.prototype.onResult = function (table) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The TableResultCallback does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The TableResultCallback does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(table);
             }
         };
         TableResultCallback.prototype.onWarning = function (table, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The TableResultCallback does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The TableResultCallback does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(table, warning);
@@ -3172,9 +3352,24 @@ var Adaptive;
     var FileListResultCallback = (function () {
         function FileListResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: FileListResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: FileListResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: FileListResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         FileListResultCallback.prototype.toString = function () {
             return "FileListResultCallback{" + this.id + "}";
@@ -3183,24 +3378,24 @@ var Adaptive;
             return this.id;
         };
         FileListResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The FileListResultCallback does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The FileListResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         FileListResultCallback.prototype.onResult = function (files) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The FileListResultCallback does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The FileListResultCallback does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(files);
             }
         };
         FileListResultCallback.prototype.onWarning = function (files, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The FileListResultCallback does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The FileListResultCallback does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(files, warning);
@@ -3224,7 +3419,7 @@ var Adaptive;
                 registeredIAccelerationListener.add("" + listener.getId(), listener);
             }
             else {
-                console.log("ERROR: " + xhr.status + " IAccelerometer.addAccelerationListener");
+                console.error("ERROR: " + xhr.status + " IAccelerometer.addAccelerationListener");
             }
         };
         AccelerometerBridge.prototype.removeAccelerationListener = function (listener) {
@@ -3236,7 +3431,7 @@ var Adaptive;
                 registeredIAccelerationListener.remove("" + listener.getId());
             }
             else {
-                console.log("ERROR: " + xhr.status + " IAccelerometer.removeAccelerationListener");
+                console.error("ERROR: " + xhr.status + " IAccelerometer.removeAccelerationListener");
             }
         };
         AccelerometerBridge.prototype.removeAccelerationListeners = function () {
@@ -3251,7 +3446,7 @@ var Adaptive;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IAccelerometer.removeAccelerationListeners");
+                console.error("ERROR: " + xhr.status + " IAccelerometer.removeAccelerationListeners");
             }
         };
         return AccelerometerBridge;
@@ -3306,12 +3501,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IGlobalization.getLocaleSupportedDescriptors incorrect response received.");
+                    console.error("ERROR: IGlobalization.getLocaleSupportedDescriptors incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IGlobalization.getLocaleSupportedDescriptors");
+                console.error("ERROR: " + xhr.status + " IGlobalization.getLocaleSupportedDescriptors");
                 return null;
             }
         };
@@ -3325,12 +3520,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IGlobalization.getResourceLiteral incorrect response received.");
+                    console.error("ERROR: IGlobalization.getResourceLiteral incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IGlobalization.getResourceLiteral");
+                console.error("ERROR: " + xhr.status + " IGlobalization.getResourceLiteral");
                 return null;
             }
         };
@@ -3344,12 +3539,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IGlobalization.getResourceLiterals incorrect response received.");
+                    console.error("ERROR: IGlobalization.getResourceLiterals incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IGlobalization.getResourceLiterals");
+                console.error("ERROR: " + xhr.status + " IGlobalization.getResourceLiterals");
                 return null;
             }
         };
@@ -3416,9 +3611,24 @@ var Adaptive;
     var ServiceResultCallback = (function () {
         function ServiceResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: ServiceResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: ServiceResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: ServiceResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         ServiceResultCallback.prototype.toString = function () {
             return "ServiceResultCallback{" + this.id + "}";
@@ -3427,24 +3637,24 @@ var Adaptive;
             return this.id;
         };
         ServiceResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The ServiceResultCallback does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The ServiceResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         ServiceResultCallback.prototype.onResult = function (response) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The ServiceResultCallback does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The ServiceResultCallback does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(response);
             }
         };
         ServiceResultCallback.prototype.onWarning = function (response, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The ServiceResultCallback does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The ServiceResultCallback does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(response, warning);
@@ -3502,9 +3712,24 @@ var Adaptive;
     var FileDataResultCallback = (function () {
         function FileDataResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
-            this.onErrorFunction = onErrorFunction;
-            this.onResultFunction = onResultFunction;
-            this.onWarningFunction = onWarningFunction;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: FileDataResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: FileDataResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: FileDataResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
         }
         FileDataResultCallback.prototype.toString = function () {
             return "FileDataResultCallback{" + this.id + "}";
@@ -3513,24 +3738,24 @@ var Adaptive;
             return this.id;
         };
         FileDataResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined') {
-                console.log("WARNING: The FileDataResultCallback does not define the onErrorFunction.");
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The FileDataResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
         FileDataResultCallback.prototype.onResult = function (file, data) {
-            if (typeof this.onResultFunction === 'undefined') {
-                console.log("WARNING: The FileDataResultCallback does not define the onResultFunction.");
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The FileDataResultCallback does not define the onResultFunction.");
             }
             else {
                 this.onResultFunction(file, data);
             }
         };
         FileDataResultCallback.prototype.onWarning = function (file, warning) {
-            if (typeof this.onWarningFunction === 'undefined') {
-                console.log("WARNING: The FileDataResultCallback does not define the onWarningFunction.");
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The FileDataResultCallback does not define the onWarningFunction.");
             }
             else {
                 this.onWarningFunction(file, warning);
@@ -3553,7 +3778,7 @@ var Adaptive;
             if (xhr.status == 200) {
             }
             else {
-                console.log("ERROR: " + xhr.status + " IVideo.playStream");
+                console.error("ERROR: " + xhr.status + " IVideo.playStream");
             }
         };
         return VideoBridge;
@@ -3575,12 +3800,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.canRead incorrect response received.");
+                    console.error("ERROR: IFile.canRead incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.canRead");
+                console.error("ERROR: " + xhr.status + " IFile.canRead");
                 return null;
             }
         };
@@ -3594,12 +3819,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.canWrite incorrect response received.");
+                    console.error("ERROR: IFile.canWrite incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.canWrite");
+                console.error("ERROR: " + xhr.status + " IFile.canWrite");
                 return null;
             }
         };
@@ -3613,7 +3838,7 @@ var Adaptive;
             }
             else {
                 registeredIFileResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IFile.create");
+                console.error("ERROR: " + xhr.status + " IFile.create");
             }
         };
         FileBridge.prototype.createWithPath = function (path, name, callback) {
@@ -3626,7 +3851,7 @@ var Adaptive;
             }
             else {
                 registeredIFileResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IFile.createWithPath");
+                console.error("ERROR: " + xhr.status + " IFile.createWithPath");
             }
         };
         FileBridge.prototype.delete = function (cascade) {
@@ -3639,12 +3864,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.delete incorrect response received.");
+                    console.error("ERROR: IFile.delete incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.delete");
+                console.error("ERROR: " + xhr.status + " IFile.delete");
                 return null;
             }
         };
@@ -3658,12 +3883,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.endsWith incorrect response received.");
+                    console.error("ERROR: IFile.endsWith incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.endsWith");
+                console.error("ERROR: " + xhr.status + " IFile.endsWith");
                 return null;
             }
         };
@@ -3677,12 +3902,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.endsWithPath incorrect response received.");
+                    console.error("ERROR: IFile.endsWithPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.endsWithPath");
+                console.error("ERROR: " + xhr.status + " IFile.endsWithPath");
                 return null;
             }
         };
@@ -3696,12 +3921,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.equalPath incorrect response received.");
+                    console.error("ERROR: IFile.equalPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.equalPath");
+                console.error("ERROR: " + xhr.status + " IFile.equalPath");
                 return null;
             }
         };
@@ -3715,12 +3940,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.equals incorrect response received.");
+                    console.error("ERROR: IFile.equals incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.equals");
+                console.error("ERROR: " + xhr.status + " IFile.equals");
                 return null;
             }
         };
@@ -3734,12 +3959,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.exists incorrect response received.");
+                    console.error("ERROR: IFile.exists incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.exists");
+                console.error("ERROR: " + xhr.status + " IFile.exists");
                 return null;
             }
         };
@@ -3753,7 +3978,7 @@ var Adaptive;
             }
             else {
                 registeredIFileDataResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IFile.getContent");
+                console.error("ERROR: " + xhr.status + " IFile.getContent");
             }
         };
         FileBridge.prototype.getDateCreated = function () {
@@ -3766,12 +3991,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.getDateCreated incorrect response received.");
+                    console.error("ERROR: IFile.getDateCreated incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.getDateCreated");
+                console.error("ERROR: " + xhr.status + " IFile.getDateCreated");
                 return null;
             }
         };
@@ -3785,12 +4010,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.getDateModified incorrect response received.");
+                    console.error("ERROR: IFile.getDateModified incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.getDateModified");
+                console.error("ERROR: " + xhr.status + " IFile.getDateModified");
                 return null;
             }
         };
@@ -3804,12 +4029,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.getFileName incorrect response received.");
+                    console.error("ERROR: IFile.getFileName incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.getFileName");
+                console.error("ERROR: " + xhr.status + " IFile.getFileName");
                 return null;
             }
         };
@@ -3823,12 +4048,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.getFileSystem incorrect response received.");
+                    console.error("ERROR: IFile.getFileSystem incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.getFileSystem");
+                console.error("ERROR: " + xhr.status + " IFile.getFileSystem");
                 return null;
             }
         };
@@ -3842,12 +4067,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.getName incorrect response received.");
+                    console.error("ERROR: IFile.getName incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.getName");
+                console.error("ERROR: " + xhr.status + " IFile.getName");
                 return null;
             }
         };
@@ -3861,12 +4086,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.getNameAtIndex incorrect response received.");
+                    console.error("ERROR: IFile.getNameAtIndex incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.getNameAtIndex");
+                console.error("ERROR: " + xhr.status + " IFile.getNameAtIndex");
                 return null;
             }
         };
@@ -3880,12 +4105,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.getNameCount incorrect response received.");
+                    console.error("ERROR: IFile.getNameCount incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.getNameCount");
+                console.error("ERROR: " + xhr.status + " IFile.getNameCount");
                 return null;
             }
         };
@@ -3899,12 +4124,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.getParent incorrect response received.");
+                    console.error("ERROR: IFile.getParent incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.getParent");
+                console.error("ERROR: " + xhr.status + " IFile.getParent");
                 return null;
             }
         };
@@ -3918,12 +4143,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.getPath incorrect response received.");
+                    console.error("ERROR: IFile.getPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.getPath");
+                console.error("ERROR: " + xhr.status + " IFile.getPath");
                 return null;
             }
         };
@@ -3937,12 +4162,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.getRoot incorrect response received.");
+                    console.error("ERROR: IFile.getRoot incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.getRoot");
+                console.error("ERROR: " + xhr.status + " IFile.getRoot");
                 return null;
             }
         };
@@ -3956,12 +4181,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.getSize incorrect response received.");
+                    console.error("ERROR: IFile.getSize incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.getSize");
+                console.error("ERROR: " + xhr.status + " IFile.getSize");
                 return null;
             }
         };
@@ -3975,12 +4200,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.isAbsolute incorrect response received.");
+                    console.error("ERROR: IFile.isAbsolute incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.isAbsolute");
+                console.error("ERROR: " + xhr.status + " IFile.isAbsolute");
                 return null;
             }
         };
@@ -3994,12 +4219,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.isDirectory incorrect response received.");
+                    console.error("ERROR: IFile.isDirectory incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.isDirectory");
+                console.error("ERROR: " + xhr.status + " IFile.isDirectory");
                 return null;
             }
         };
@@ -4013,7 +4238,7 @@ var Adaptive;
             }
             else {
                 registeredIFileListResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IFile.listFiles");
+                console.error("ERROR: " + xhr.status + " IFile.listFiles");
             }
         };
         FileBridge.prototype.listFilesForRegex = function (regex, callback) {
@@ -4026,7 +4251,7 @@ var Adaptive;
             }
             else {
                 registeredIFileListResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IFile.listFilesForRegex");
+                console.error("ERROR: " + xhr.status + " IFile.listFilesForRegex");
             }
         };
         FileBridge.prototype.mkDir = function (recursive) {
@@ -4039,12 +4264,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.mkDir incorrect response received.");
+                    console.error("ERROR: IFile.mkDir incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.mkDir");
+                console.error("ERROR: " + xhr.status + " IFile.mkDir");
                 return null;
             }
         };
@@ -4058,7 +4283,7 @@ var Adaptive;
             }
             else {
                 registeredIFileResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IFile.move");
+                console.error("ERROR: " + xhr.status + " IFile.move");
             }
         };
         FileBridge.prototype.normalize = function () {
@@ -4071,12 +4296,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.normalize incorrect response received.");
+                    console.error("ERROR: IFile.normalize incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.normalize");
+                console.error("ERROR: " + xhr.status + " IFile.normalize");
                 return null;
             }
         };
@@ -4090,12 +4315,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.relativize incorrect response received.");
+                    console.error("ERROR: IFile.relativize incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.relativize");
+                console.error("ERROR: " + xhr.status + " IFile.relativize");
                 return null;
             }
         };
@@ -4109,12 +4334,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.resolve incorrect response received.");
+                    console.error("ERROR: IFile.resolve incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.resolve");
+                console.error("ERROR: " + xhr.status + " IFile.resolve");
                 return null;
             }
         };
@@ -4128,12 +4353,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.resolvePath incorrect response received.");
+                    console.error("ERROR: IFile.resolvePath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.resolvePath");
+                console.error("ERROR: " + xhr.status + " IFile.resolvePath");
                 return null;
             }
         };
@@ -4147,12 +4372,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.resolveSibling incorrect response received.");
+                    console.error("ERROR: IFile.resolveSibling incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.resolveSibling");
+                console.error("ERROR: " + xhr.status + " IFile.resolveSibling");
                 return null;
             }
         };
@@ -4166,12 +4391,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.resolveSiblingPath incorrect response received.");
+                    console.error("ERROR: IFile.resolveSiblingPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.resolveSiblingPath");
+                console.error("ERROR: " + xhr.status + " IFile.resolveSiblingPath");
                 return null;
             }
         };
@@ -4185,7 +4410,7 @@ var Adaptive;
             }
             else {
                 registeredIFileDataResultCallback.remove("" + callback.getId());
-                console.log("ERROR: " + xhr.status + " IFile.setContent");
+                console.error("ERROR: " + xhr.status + " IFile.setContent");
             }
         };
         FileBridge.prototype.startsWith = function (other) {
@@ -4198,12 +4423,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.startsWith incorrect response received.");
+                    console.error("ERROR: IFile.startsWith incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.startsWith");
+                console.error("ERROR: " + xhr.status + " IFile.startsWith");
                 return null;
             }
         };
@@ -4217,12 +4442,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.startsWithPath incorrect response received.");
+                    console.error("ERROR: IFile.startsWithPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.startsWithPath");
+                console.error("ERROR: " + xhr.status + " IFile.startsWithPath");
                 return null;
             }
         };
@@ -4236,12 +4461,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.toAbsolutePath incorrect response received.");
+                    console.error("ERROR: IFile.toAbsolutePath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.toAbsolutePath");
+                console.error("ERROR: " + xhr.status + " IFile.toAbsolutePath");
                 return null;
             }
         };
@@ -4255,12 +4480,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.toFile incorrect response received.");
+                    console.error("ERROR: IFile.toFile incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.toFile");
+                console.error("ERROR: " + xhr.status + " IFile.toFile");
                 return null;
             }
         };
@@ -4274,12 +4499,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.toPath incorrect response received.");
+                    console.error("ERROR: IFile.toPath incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.toPath");
+                console.error("ERROR: " + xhr.status + " IFile.toPath");
                 return null;
             }
         };
@@ -4293,12 +4518,12 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.log("ERROR: IFile.toString incorrect response received.");
+                    console.error("ERROR: IFile.toString incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.log("ERROR: " + xhr.status + " IFile.toString");
+                console.error("ERROR: " + xhr.status + " IFile.toString");
                 return null;
             }
         };

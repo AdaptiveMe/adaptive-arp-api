@@ -1398,7 +1398,11 @@ public class J2SwiftConverter {
                         }
                     }
                     for (Method method : onMethodList) {
-                        js.println(15, "this." + method.getName() + "Function = " + method.getName() + "Function;");
+                        js.println(15, "if (this." + method.getName() + "Function == null) {");
+                        js.println(20, "console.error(\"ERROR: "+clazz.getSimpleName().substring(1)+" "+ method.getName() + "Function is not defined.\");");
+                        js.println(15, "} else {");
+                        js.println(20, "this." + method.getName() + "Function = " + method.getName() + "Function;");
+                        js.println(15, "}");
                     }
                     js.println(10, "}");
 
@@ -1464,8 +1468,8 @@ public class J2SwiftConverter {
                                 }
                             }
                             js.println(") : void {");
-                            js.println(15, "if (typeof this." + method.getName() + "Function === 'undefined') {");
-                            js.println(20, "console.log(\"WARNING: The " + clazz.getSimpleName().substring(1) + " does not define the " + method.getName() + "Function.\");");
+                            js.println(15, "if (typeof this." + method.getName() + "Function === 'undefined' || this." + method.getName() + "Function == null) {");
+                            js.println(20, "console.warn(\"WARNING: The " + clazz.getSimpleName().substring(1) + " does not define the " + method.getName() + "Function.\");");
                             js.println(15, "} else {");
                             js.print(20, "this." + method.getName() + "Function(");
                             for (int i = 0; i < method.getParameterCount(); i++) {
@@ -1554,11 +1558,11 @@ public class J2SwiftConverter {
                         js.println(20, "if (xhr.responseText != null && xhr.responseText != '') {");
                         js.println(25, "return JSON.parse(xhr.responseText);");
                         js.println(20, "} else {");
-                        js.println(25, "console.log(\"ERROR: " + clazz.getSimpleName() + "." + method.getName() + " incorrect response received.\");");
+                        js.println(25, "console.error(\"ERROR: " + clazz.getSimpleName() + "." + method.getName() + " incorrect response received.\");");
                         js.println(25, "return null;");
                         js.println(20, "}");
                         js.println(15, "} else {");
-                        js.println(20, "console.log(\"ERROR: \"+xhr.status+\" " + clazz.getSimpleName() + "." + method.getName() + "\");");
+                        js.println(20, "console.error(\"ERROR: \"+xhr.status+\" " + clazz.getSimpleName() + "." + method.getName() + "\");");
                         js.println(20, "return null;");
                         js.println(15, "}");
                     } else {
@@ -1618,7 +1622,7 @@ public class J2SwiftConverter {
                                 js.println(20, "registered" + parameter.getType().getSimpleName() + ".remove(\"\"+" + parameter.getName() + ".getId());");
                             }
                         }
-                        js.println(20, "console.log(\"ERROR: \"+xhr.status+\" " + clazz.getSimpleName() + "." + method.getName() + "\");");
+                        js.println(20, "console.error(\"ERROR: \"+xhr.status+\" " + clazz.getSimpleName() + "." + method.getName() + "\");");
                         js.println(15, "}");
                     }
                     js.println(10, "}");
