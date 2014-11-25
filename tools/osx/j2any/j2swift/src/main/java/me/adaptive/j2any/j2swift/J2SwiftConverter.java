@@ -116,8 +116,6 @@ public class J2SwiftConverter {
         js.println(5, "    }");
         js.println(5, "}");
         js.println();
-        js.println(5, "var registeredCallbacks : Dictionary<IBaseCallback> = new Dictionary<IBaseCallback>([]);");
-        js.println(5, "var registeredListeners : Dictionary<IBaseListener> = new Dictionary<IBaseListener>([]);");
         js.println(5, "var registeredCounter : number = 0;");
         js.println(5, "var bridgePath : string = \"https://adaptiveapp\";");
         js.println();
@@ -1229,7 +1227,7 @@ public class J2SwiftConverter {
     }
 
     private static void processJSImplementation(Class clazz, IndentPrintStream js) {
-        if (clazz.getMethods().length>0) {
+        if (clazz.getMethods().length > 0) {
             if (clazz.getSimpleName().endsWith("Listener") || clazz.getSimpleName().endsWith("Callback")) {
                 List<Method> onMethodList = new ArrayList<>();
                 List<Method> nonMethodList = new ArrayList<>();
@@ -1253,30 +1251,86 @@ public class J2SwiftConverter {
                         return o1.toString().compareTo(o2.toString());
                     }
                 });
+                boolean needsControlDictionary = false;
+                for (Method method : clazz.getMethods()) {
+                    if (method.getName().startsWith("on")) {
+                        needsControlDictionary = true;
+                        break;
+                    }
+                }
+                if (needsControlDictionary) {
+                    js.println(5, "/**");
+                    if (clazz.getName().endsWith("Listener")) {
+                        js.print(5, " *  Listener ");
+                    } else if (clazz.getName().endsWith("Callback")) {
+                        js.print(5, " *  Callback ");
+                    }
+                    js.println(clazz.getSimpleName() + " control dictionary.");
+                    js.println(5, " */");
+                    js.println(5, "var registered" + clazz.getSimpleName() + " = new Dictionary<" + clazz.getSimpleName() + ">([]);");
+                    js.println();
+                    js.println(5, "/**");
+                    if (clazz.getName().endsWith("Listener")) {
+                        js.print(5, " *  Listener ");
+                    } else if (clazz.getName().endsWith("Callback")) {
+                        js.print(5, " *  Callback ");
+                    }
+                    js.println(clazz.getSimpleName() + " handler.");
+                    js.println(10, "// TODO: Implement handler.");
+                    js.println(5, " */");
+
+                    js.println(5, "export function handle"+clazz.getSimpleName()+"(id:number) {");
+                    js.println(5, "}");
+                    // TODO: Implement Listener / Callback handler
+                    /*
+                     export function handleIServiceResultCallback(id : number, response : ServiceResponse, warning: IServiceResultCallbackWarningEnum, error: IServiceResultCallbackErrorEnum  ) {
+                        var callback = registeredIServiceResultCallback[""+id]
+                        if (typeof callback === 'undefined') {
+                            console.log("WARNING: No callback with id "+id);
+                        } else {
+                            if (error != null) {
+                                callback.onError(error);
+                            } else if (warning != null && response != null) {
+                                callback.onWarning(response, warning);
+                            }else if (response != null) {
+                                callback.onResult(response);
+                            } else {
+                                callback.onError(IServiceResultCallbackErrorEnum.Unknown);
+                            }
+                        }
+                        registeredIServiceResultCallback.remove(""+id);
+                     }
+                    */
+                }
                 js.println(5, "/**");
-                js.println(5," *  Listener "+clazz.getSimpleName()+" implementation.");
-                js.println(5," */");
+                if (clazz.getName().endsWith("Listener")) {
+                    js.print(5, " *  Listener ");
+                } else if (clazz.getName().endsWith("Callback")) {
+                    js.print(5, " *  Callback ");
+                }
+                js.println(clazz.getSimpleName() + " implementation.");
+                js.println(5, " */");
                 js.println(5, "export class " + clazz.getSimpleName().substring(1) + " implements " + clazz.getSimpleName() + " {");
                 // Fields
-                for (int i = 0; i<nonMethodList.size();i++) {
+                for (int i = 0; i < nonMethodList.size(); i++) {
                     Method method = nonMethodList.get(i);
-                        Class returnType = method.getReturnType();
-                        String returnTypeJS = "";
-                        if (returnType.isInterface()) {
-                            returnTypeJS = returnType.getSimpleName();
-                        } else if (returnType.isEnum()) {
-                            returnTypeJS = clazz.getSimpleName() + returnType.getSimpleName() + "Enum";
-                        } else if (returnType.isPrimitive()) {
-                            returnTypeJS = getPrimitiveTypeTS(returnType);
-                        } else if (returnType.equals(String.class)) {
-                            returnTypeJS = "string";
-                        } else if (returnType.isArray()) {
-                            returnTypeJS = "NotImplemented";
-                        }
-                        js.println(10, getGetterSetterProperty(method) + ": " + returnTypeJS+";");
+                    Class returnType = method.getReturnType();
+                    String returnTypeJS = "";
+                    if (returnType.isInterface()) {
+                        returnTypeJS = returnType.getSimpleName();
+                    } else if (returnType.isEnum()) {
+                        returnTypeJS = clazz.getSimpleName() + returnType.getSimpleName() + "Enum";
+                    } else if (returnType.isPrimitive()) {
+                        returnTypeJS = getPrimitiveTypeTS(returnType);
+                    } else if (returnType.equals(String.class)) {
+                        returnTypeJS = "string";
+                    } else if (returnType.isArray()) {
+                        returnTypeJS = "NotImplemented";
+                    }
+                    js.println(10, getGetterSetterProperty(method) + ": " + returnTypeJS + ";");
                 }
                 for (Method method : onMethodList) {
-                    js.print(10,getJSListenerDeclaration(clazz,method));
+                    js.print(10, getJSListenerDeclaration(clazz, method));
                     js.println(";");
                 }
 
@@ -1285,7 +1339,7 @@ public class J2SwiftConverter {
                 if (clazz.getSimpleName().endsWith("Listener") || clazz.getSimpleName().endsWith("Callback")) {
                     js.print(10, "constructor(");
                     boolean hasParam = false;
-                    for (int i = 0; i<nonMethodList.size();i++) {
+                    for (int i = 0; i < nonMethodList.size(); i++) {
                         Method method = nonMethodList.get(i);
                         if (!method.getName().startsWith("on") && !method.getName().startsWith("toString") && !method.getName().equals("getId")) {
                             Class returnType = method.getReturnType();
@@ -1301,22 +1355,22 @@ public class J2SwiftConverter {
                             } else if (returnType.isArray()) {
                                 returnTypeJS = "NotImplemented";
                             }
-                            js.print(getGetterSetterProperty(method) + ": " + returnTypeJS+"");
-                            if (i<nonMethodList.size()-1) {
+                            js.print(getGetterSetterProperty(method) + ": " + returnTypeJS + "");
+                            if (i < nonMethodList.size() - 1) {
                                 js.print(", ");
                                 hasParam = true;
                             }
                         }
                     }
-                    if (onMethodList.size()>0) {
+                    if (onMethodList.size() > 0) {
                         if (hasParam) js.print(", ");
                     }
-                    for (int i  = 0;i<onMethodList.size();i++) {
+                    for (int i = 0; i < onMethodList.size(); i++) {
                         Method method = onMethodList.get(i);
-                            js.print(getJSListenerDeclaration(clazz,method));
-                            if (i < onMethodList.size()-1) {
-                                js.print(", ");
-                            }
+                        js.print(getJSListenerDeclaration(clazz, method));
+                        if (i < onMethodList.size() - 1) {
+                            js.print(", ");
+                        }
                     }
                     js.println(") {");
 
@@ -1344,9 +1398,9 @@ public class J2SwiftConverter {
                         }
                     }
                     for (Method method : onMethodList) {
-                        js.println(15, "this."+method.getName()+"Function = "+method.getName()+"Function;");
+                        js.println(15, "this." + method.getName() + "Function = " + method.getName() + "Function;");
                     }
-                    js.println(10,"}");
+                    js.println(10, "}");
 
                     // Functions
                     js.println();
@@ -1369,19 +1423,19 @@ public class J2SwiftConverter {
                             } else if (returnType.isArray()) {
                                 returnTypeJS = "NotImplemented";
                             }
-                            js.println(10, method.getName()+"() : "+returnTypeJS+" {");
-                            js.println(15,"return this."+getGetterSetterProperty(method));
-                            js.println(10,"}");
+                            js.println(10, method.getName() + "() : " + returnTypeJS + " {");
+                            js.println(15, "return this." + getGetterSetterProperty(method));
+                            js.println(10, "}");
                             js.println();
                         } else if (method.getName().equals("toString")) {
-                            js.println(10, method.getName()+"() : string {");
+                            js.println(10, method.getName() + "() : string {");
                             if (clazz.getSimpleName().endsWith("Listener") || clazz.getSimpleName().endsWith("Callback")) {
-                                js.println(15,"return \""+clazz.getSimpleName().substring(1)+"{\"+this.id+\"}\";");
+                                js.println(15, "return \"" + clazz.getSimpleName().substring(1) + "{\"+this.id+\"}\";");
                             }
-                            js.println(10,"}");
+                            js.println(10, "}");
                         } else {
                             js.print(10, method.getName() + "(");
-                            for (int i=0;i<method.getParameterCount();i++) {
+                            for (int i = 0; i < method.getParameterCount(); i++) {
                                 Parameter parameter = method.getParameters()[i];
                                 Class returnType = parameter.getType();
                                 String returnTypeJS = "";
@@ -1399,24 +1453,24 @@ public class J2SwiftConverter {
                                     } else if (returnType.getComponentType().equals(String.class)) {
                                         returnTypeJS = "Array<string>";
                                     } else {
-                                        returnTypeJS = "Array<" +returnType.getComponentType().getSimpleName() + ">";
+                                        returnTypeJS = "Array<" + returnType.getComponentType().getSimpleName() + ">";
                                     }
                                 } else {
                                     returnTypeJS = returnType.getSimpleName();
                                 }
                                 js.print(parameter.getName() + ": " + returnTypeJS);
-                                if (i < method.getParameterCount()-1) {
+                                if (i < method.getParameterCount() - 1) {
                                     js.print(", ");
                                 }
                             }
                             js.println(") : void {");
-                            js.println(15, "if (typeof this."+method.getName()+"Function === 'undefined') {");
-                            js.println(20, "console.log(\"WARNING: The "+clazz.getSimpleName().substring(1)+" does not define the "+method.getName()+"Function.\");");
+                            js.println(15, "if (typeof this." + method.getName() + "Function === 'undefined') {");
+                            js.println(20, "console.log(\"WARNING: The " + clazz.getSimpleName().substring(1) + " does not define the " + method.getName() + "Function.\");");
                             js.println(15, "} else {");
-                            js.print(20, "this."+method.getName()+"Function(");
-                            for (int i=0;i<method.getParameterCount();i++) {
+                            js.print(20, "this." + method.getName() + "Function(");
+                            for (int i = 0; i < method.getParameterCount(); i++) {
                                 js.print(method.getParameters()[i].getName());
-                                if (i<method.getParameterCount()-1) {
+                                if (i < method.getParameterCount() - 1) {
                                     js.print(", ");
                                 }
                             }
@@ -1429,9 +1483,9 @@ public class J2SwiftConverter {
                 }
                 js.println(5, "}");
             } else {
-                js.println(5,"/**");
-                js.println(5," *  Service "+clazz.getSimpleName()+" implementation.");
-                js.println(5," */");
+                js.println(5, "/**");
+                js.println(5, " *  Service " + clazz.getSimpleName() + " implementation.");
+                js.println(5, " */");
                 js.println(5, "export class " + clazz.getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + " {");
                 js.println();
                 js.println(10, "constructor() {}");
@@ -1447,7 +1501,7 @@ public class J2SwiftConverter {
                     }
                 });
 
-                if (allMethods.size()>0) {
+                if (allMethods.size() > 0) {
                     js.println();
                 }
                 for (Method method : allMethods) {
@@ -1465,18 +1519,18 @@ public class J2SwiftConverter {
                         }
                     });
                     */
-                    for (int i=0;i<allParameters.size();i++) {
+                    for (int i = 0; i < allParameters.size(); i++) {
                         Parameter parameter = allParameters.get(i);
-                        js.print(parameter.getName()+": ");
-                        js.print(getJSClassType(clazz,parameter.getType()));
-                        if (i<allParameters.size()-1) {
+                        js.print(parameter.getName() + ": ");
+                        js.print(getJSClassType(clazz, parameter.getType()));
+                        if (i < allParameters.size() - 1) {
                             js.print(", ");
                         }
                     }
                     js.print(")");
                     js.print(" : " + getJSClassType(clazz, method) + " ");
                     js.println("{");
-                    if (!getJSClassType(clazz,method).equals("void")) {
+                    if (!getJSClassType(clazz, method).equals("void")) {
                         js.println(15, "var xhr = new XMLHttpRequest();");
                         boolean done = false;
                         StringBuffer relativePath = new StringBuffer();
@@ -1485,7 +1539,7 @@ public class J2SwiftConverter {
 
                             relativePath.insert(0, relativeClass.getSimpleName());
                             relativePath.insert(0, "/");
-                            if (relativeClass.getInterfaces()!=null && relativeClass.getInterfaces().length>0) {
+                            if (relativeClass.getInterfaces() != null && relativeClass.getInterfaces().length > 0) {
                                 relativeClass = relativeClass.getInterfaces()[0];
                             } else {
                                 done = true;
@@ -1493,19 +1547,81 @@ public class J2SwiftConverter {
                         }
                         relativePath.append("/");
                         relativePath.append(method.getName());
-                        js.println(15, "xhr.open(\"POST\", bridgePath+\""+relativePath.toString()+"\", false);");
+                        js.println(15, "xhr.open(\"POST\", bridgePath+\"" + relativePath.toString() + "\", false);");
                         js.println(15, "xhr.setRequestHeader(\"Content-type\", \"application/json\");");
                         js.println(15, "xhr.send();");
                         js.println(15, "if (xhr.status == 200) {");
                         js.println(20, "if (xhr.responseText != null && xhr.responseText != '') {");
                         js.println(25, "return JSON.parse(xhr.responseText);");
+                        js.println(20, "} else {");
+                        js.println(25, "console.log(\"ERROR: " + clazz.getSimpleName() + "." + method.getName() + " incorrect response received.\");");
+                        js.println(25, "return null;");
                         js.println(20, "}");
                         js.println(15, "} else {");
-                        js.println(20, "console.log(\"ERROR: \"+xhr.status);");
+                        js.println(20, "console.log(\"ERROR: \"+xhr.status+\" " + clazz.getSimpleName() + "." + method.getName() + "\");");
                         js.println(20, "return null;");
                         js.println(15, "}");
+                    } else {
+                        for (Parameter parameter : method.getParameters()) {
+                            if (parameter.getType().getSimpleName().endsWith("Callback")) {
+                                js.println(15, "registered" + parameter.getType().getSimpleName() + ".add(\"\"+" + parameter.getName() + ".getId()," + parameter.getName() + ");");
+                            }
+                        }
+                        js.println(15, "var xhr = new XMLHttpRequest();");
+                        boolean done = false;
+                        StringBuffer relativePath = new StringBuffer();
+                        Class relativeClass = clazz;
+                        while (!done) {
+
+                            relativePath.insert(0, relativeClass.getSimpleName());
+                            relativePath.insert(0, "/");
+                            if (relativeClass.getInterfaces() != null && relativeClass.getInterfaces().length > 0) {
+                                relativeClass = relativeClass.getInterfaces()[0];
+                            } else {
+                                done = true;
+                            }
+                        }
+                        relativePath.append("/");
+                        relativePath.append(method.getName());
+                        js.println(15, "xhr.open(\"POST\", bridgePath+\"" + relativePath.toString() + "\", false);");
+                        js.println(15, "xhr.setRequestHeader(\"Content-type\", \"application/json\");");
+
+                        if (method.getParameterCount() == 0) {
+                            js.println(15, "xhr.send(); // No parameters.");
+                        } else {
+                            js.println(15, "xhr.send(); // TODO: Add parameters to send.");
+                        }
+                        js.println(15, "if (xhr.status == 200) {");
+                        if (!getJSClassType(clazz, method).equals("void"))
+                            js.println(20, "if (xhr.responseText != null && xhr.responseText != '') {");
+                        for (Parameter parameter : method.getParameters()) {
+                            if (parameter.getType().getSimpleName().endsWith("Listener")) {
+                                if (method.getName().startsWith("remove") && method.getName().endsWith("Listener")) {
+                                    js.println(20, "registered" + parameter.getType().getSimpleName() + ".remove(\"\"+" + parameter.getName() + ".getId());");
+                                } else if (method.getName().startsWith("add") && method.getName().endsWith("Listener")) {
+                                    js.println(20, "registered" + parameter.getType().getSimpleName() + ".add(\"\"+" + parameter.getName() + ".getId()," + parameter.getName() + ");");
+                                }
+                            } else if (parameter.getType().getSimpleName().endsWith("Callback")) {
+                                js.println(20, "// Callback removed from 'registered" + parameter.getType().getSimpleName() + "' on receiving async response.");
+                            }
+                        }
+                        if (method.getName().startsWith("remove") && method.getName().endsWith("Listeners")) {
+                            js.println(20, "var keys = registeredIAccelerationListener.keys();");
+                            js.println(20, "for (var key in keys) {");
+                            js.println(25, "registeredIAccelerationListener.remove(key);");
+                            js.println(20, "}");
+                        }
+                        if (!getJSClassType(clazz, method).equals("void")) js.println(20, "}");
+                        js.println(15, "} else {");
+                        for (Parameter parameter : method.getParameters()) {
+                            if (parameter.getType().getSimpleName().endsWith("Callback")) {
+                                js.println(20, "registered" + parameter.getType().getSimpleName() + ".remove(\"\"+" + parameter.getName() + ".getId());");
+                            }
+                        }
+                        js.println(20, "console.log(\"ERROR: \"+xhr.status+\" " + clazz.getSimpleName() + "." + method.getName() + "\");");
+                        js.println(15, "}");
                     }
-                    js.println(10,"}");
+                    js.println(10, "}");
 
                 }
                 js.println();
@@ -1537,9 +1653,9 @@ public class J2SwiftConverter {
             } else if (returnType.getComponentType().equals(Object.class)) {
                 returnTypeJS = "Array<any>";
             } else if (returnType.getComponentType().isEnum()) {
-                returnTypeJS = "Array<"+clazz.getSimpleName() + returnType.getComponentType().getSimpleName()+"Enum>";
+                returnTypeJS = "Array<" + clazz.getSimpleName() + returnType.getComponentType().getSimpleName() + "Enum>";
             } else {
-                returnTypeJS = "Array<" +returnType.getComponentType().getSimpleName() + ">";
+                returnTypeJS = "Array<" + returnType.getComponentType().getSimpleName() + ">";
             }
         } else {
             returnTypeJS = returnType.getSimpleName();
@@ -1570,7 +1686,7 @@ public class J2SwiftConverter {
             } else if (returnType.getComponentType().equals(Object.class)) {
                 returnTypeJS = "Array<any>";
             } else {
-                returnTypeJS = "Array<" +returnType.getComponentType().getSimpleName() + ">";
+                returnTypeJS = "Array<" + returnType.getComponentType().getSimpleName() + ">";
             }
         } else {
             returnTypeJS = returnType.getSimpleName();
@@ -1581,8 +1697,8 @@ public class J2SwiftConverter {
     private static String getJSListenerDeclaration(Class clazz, Method method) {
         StringBuffer js = new StringBuffer();
 
-        js.append(method.getName()+"Function : (");
-        for (int j=0;j<method.getParameterCount();j++) {
+        js.append(method.getName() + "Function : (");
+        for (int j = 0; j < method.getParameterCount(); j++) {
             Parameter parameter = method.getParameters()[j];
             Class returnType = parameter.getType();
             String returnTypeJS = "";
@@ -1603,9 +1719,9 @@ public class J2SwiftConverter {
             } else {
                 returnTypeJS = returnType.getSimpleName();
             }
-            js.append(parameter.getName()+": ");
+            js.append(parameter.getName() + ": ");
             js.append(returnTypeJS);
-            if (j < method.getParameterCount()-1) {
+            if (j < method.getParameterCount() - 1) {
                 js.append(", ");
             }
         }
@@ -1736,6 +1852,7 @@ public class J2SwiftConverter {
     }
 
     private static List<String> filteredList = new ArrayList<>();
+
     static {
         filteredList.add("IService");
         filteredList.add("ILogging");

@@ -182,7 +182,7 @@ declare module Adaptive {
         toString(): string;
     }
     /**
-     *  Listener IBaseCallback implementation.
+     *  Callback IBaseCallback implementation.
      */
     class BaseCallback implements IBaseCallback {
         description: string;
@@ -381,7 +381,12 @@ declare module Adaptive {
         static Unknown: ISecureKVResultCallbackWarningEnum;
     }
     /**
-     *  Listener ISecureKVResultCallback implementation.
+     *  Callback ISecureKVResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleISecureKVResultCallback(id: number): void;
+    /**
+     *  Callback ISecureKVResultCallback implementation.
      */
     class SecureKVResultCallback implements ISecureKVResultCallback {
         description: string;
@@ -446,7 +451,12 @@ declare module Adaptive {
         static Unknown: IFileResultCallbackWarningEnum;
     }
     /**
-     *  Listener IFileResultCallback implementation.
+     *  Callback IFileResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIFileResultCallback(id: number): void;
+    /**
+     *  Callback IFileResultCallback implementation.
      */
     class FileResultCallback implements IFileResultCallback {
         description: string;
@@ -525,6 +535,11 @@ declare module Adaptive {
         static BatteryLow: ILifecycleListenerWarningEnum;
         static Unknown: ILifecycleListenerWarningEnum;
     }
+    /**
+     *  Listener ILifecycleListener handler.
+         // TODO: Implement handler.
+     */
+    function handleILifecycleListener(id: number): void;
     /**
      *  Listener ILifecycleListener implementation.
      */
@@ -658,7 +673,12 @@ declare module Adaptive {
         static Unknown: INetworkReachabilityCallbackWarningEnum;
     }
     /**
-     *  Listener INetworkReachabilityCallback implementation.
+     *  Callback INetworkReachabilityCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleINetworkReachabilityCallback(id: number): void;
+    /**
+     *  Callback INetworkReachabilityCallback implementation.
      */
     class NetworkReachabilityCallback implements INetworkReachabilityCallback {
         description: string;
@@ -706,6 +726,11 @@ declare module Adaptive {
         static Stale: IAccelerationListenerWarningEnum;
         static Unknown: IAccelerationListenerWarningEnum;
     }
+    /**
+     *  Listener IAccelerationListener handler.
+         // TODO: Implement handler.
+     */
+    function handleIAccelerationListener(id: number): void;
     /**
      *  Listener IAccelerationListener implementation.
      */
@@ -791,6 +816,11 @@ declare module Adaptive {
         static Unknown: IButtonListenerWarningEnum;
     }
     /**
+     *  Listener IButtonListener handler.
+         // TODO: Implement handler.
+     */
+    function handleIButtonListener(id: number): void;
+    /**
      *  Listener IButtonListener implementation.
      */
     class ButtonListener implements IButtonListener {
@@ -860,7 +890,12 @@ declare module Adaptive {
         static Unknown: IContactResultCallbackWarningEnum;
     }
     /**
-     *  Listener IContactResultCallback implementation.
+     *  Callback IContactResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIContactResultCallback(id: number): void;
+    /**
+     *  Callback IContactResultCallback implementation.
      */
     class ContactResultCallback implements IContactResultCallback {
         description: string;
@@ -975,6 +1010,11 @@ declare module Adaptive {
         static Unknown: IGeolocationListenerWarningEnum;
     }
     /**
+     *  Listener IGeolocationListener handler.
+         // TODO: Implement handler.
+     */
+    function handleIGeolocationListener(id: number): void;
+    /**
      *  Listener IGeolocationListener implementation.
      */
     class GeolocationListener implements IGeolocationListener {
@@ -1025,7 +1065,12 @@ declare module Adaptive {
         static Unknown: IContactPhotoResultCallbackWarningEnum;
     }
     /**
-     *  Listener IContactPhotoResultCallback implementation.
+     *  Callback IContactPhotoResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIContactPhotoResultCallback(id: number): void;
+    /**
+     *  Callback IContactPhotoResultCallback implementation.
      */
     class ContactPhotoResultCallback implements IContactPhotoResultCallback {
         description: string;
@@ -1283,7 +1328,12 @@ declare module Adaptive {
         static Unknown: IMessagingCallbackWarningEnum;
     }
     /**
-     *  Listener IMessagingCallback implementation.
+     *  Callback IMessagingCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIMessagingCallback(id: number): void;
+    /**
+     *  Callback IMessagingCallback implementation.
      */
     class MessagingCallback implements IMessagingCallback {
         description: string;
@@ -1333,7 +1383,12 @@ declare module Adaptive {
         static Unknown: IDatabaseResultCallbackWarningEnum;
     }
     /**
-     *  Listener IDatabaseResultCallback implementation.
+     *  Callback IDatabaseResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIDatabaseResultCallback(id: number): void;
+    /**
+     *  Callback IDatabaseResultCallback implementation.
      */
     class DatabaseResultCallback implements IDatabaseResultCallback {
         description: string;
@@ -1703,7 +1758,12 @@ declare module Adaptive {
         static Unknown: ITableResultCallbackWarningEnum;
     }
     /**
-     *  Listener ITableResultCallback implementation.
+     *  Callback ITableResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleITableResultCallback(id: number): void;
+    /**
+     *  Callback ITableResultCallback implementation.
      */
     class TableResultCallback implements ITableResultCallback {
         description: string;
@@ -1771,7 +1831,12 @@ declare module Adaptive {
         static Unknown: IFileListResultCallbackWarningEnum;
     }
     /**
-     *  Listener IFileListResultCallback implementation.
+     *  Callback IFileListResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIFileListResultCallback(id: number): void;
+    /**
+     *  Callback IFileListResultCallback implementation.
      */
     class FileListResultCallback implements IFileListResultCallback {
         description: string;
@@ -1925,7 +1990,12 @@ declare module Adaptive {
         static Unknown: IServiceResultCallbackWarningEnum;
     }
     /**
-     *  Listener IServiceResultCallback implementation.
+     *  Callback IServiceResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIServiceResultCallback(id: number): void;
+    /**
+     *  Callback IServiceResultCallback implementation.
      */
     class ServiceResultCallback implements IServiceResultCallback {
         description: string;
@@ -1974,7 +2044,12 @@ declare module Adaptive {
         static Unknown: IFileDataResultCallbackWarningEnum;
     }
     /**
-     *  Listener IFileDataResultCallback implementation.
+     *  Callback IFileDataResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIFileDataResultCallback(id: number): void;
+    /**
+     *  Callback IFileDataResultCallback implementation.
      */
     class FileDataResultCallback implements IFileDataResultCallback {
         description: string;

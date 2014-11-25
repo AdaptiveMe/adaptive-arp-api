@@ -72,8 +72,6 @@ var Adaptive;
         return Dictionary;
     })();
     Adaptive.Dictionary = Dictionary;
-    var registeredCallbacks = new Dictionary([]);
-    var registeredListeners = new Dictionary([]);
     var registeredCounter = 0;
     var bridgePath = "https://adaptiveapp";
     /**
@@ -102,7 +100,7 @@ var Adaptive;
     })();
     Adaptive.IAppContextTypeEnum = IAppContextTypeEnum;
     /**
-     *  Listener IBaseCallback implementation.
+     *  Callback IBaseCallback implementation.
      */
     var BaseCallback = (function () {
         function BaseCallback() {
@@ -198,6 +196,16 @@ var Adaptive;
         function DeviceBridge() {
         }
         DeviceBridge.prototype.addButtonListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/addButtonListener", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+                registeredIButtonListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " IDevice.addButtonListener");
+            }
         };
         DeviceBridge.prototype.getDeviceInfo = function () {
             var xhr = new XMLHttpRequest();
@@ -208,9 +216,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IDevice.getDeviceInfo incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IDevice.getDeviceInfo");
                 return null;
             }
         };
@@ -223,15 +235,42 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IDevice.getLocaleCurrent incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IDevice.getLocaleCurrent");
                 return null;
             }
         };
         DeviceBridge.prototype.removeButtonListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListener", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+                registeredIButtonListener.remove("" + listener.getId());
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " IDevice.removeButtonListener");
+            }
         };
         DeviceBridge.prototype.removeButtonListeners = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListeners", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // No parameters.
+            if (xhr.status == 200) {
+                var keys = registeredIAccelerationListener.keys();
+                for (var key in keys) {
+                    registeredIAccelerationListener.remove(key);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " IDevice.removeButtonListeners");
+            }
         };
         return DeviceBridge;
     })();
@@ -243,6 +282,17 @@ var Adaptive;
         function MailBridge() {
         }
         MailBridge.prototype.sendEmail = function (data, callback) {
+            registeredIMessagingCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IMail/sendEmail", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIMessagingCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IMail.sendEmail");
+            }
         };
         return MailBridge;
     })();
@@ -279,7 +329,18 @@ var Adaptive;
     })();
     Adaptive.ISecureKVResultCallbackWarningEnum = ISecureKVResultCallbackWarningEnum;
     /**
-     *  Listener ISecureKVResultCallback implementation.
+     *  Callback ISecureKVResultCallback control dictionary.
+     */
+    var registeredISecureKVResultCallback = new Dictionary([]);
+    /**
+     *  Callback ISecureKVResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleISecureKVResultCallback(id) {
+    }
+    Adaptive.handleISecureKVResultCallback = handleISecureKVResultCallback;
+    /**
+     *  Callback ISecureKVResultCallback implementation.
      */
     var SecureKVResultCallback = (function () {
         function SecureKVResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
@@ -355,7 +416,18 @@ var Adaptive;
     })();
     Adaptive.IFileResultCallbackWarningEnum = IFileResultCallbackWarningEnum;
     /**
-     *  Listener IFileResultCallback implementation.
+     *  Callback IFileResultCallback control dictionary.
+     */
+    var registeredIFileResultCallback = new Dictionary([]);
+    /**
+     *  Callback IFileResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIFileResultCallback(id) {
+    }
+    Adaptive.handleIFileResultCallback = handleIFileResultCallback;
+    /**
+     *  Callback IFileResultCallback implementation.
      */
     var FileResultCallback = (function () {
         function FileResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
@@ -431,6 +503,17 @@ var Adaptive;
     })();
     Adaptive.ILifecycleListenerWarningEnum = ILifecycleListenerWarningEnum;
     /**
+     *  Listener ILifecycleListener control dictionary.
+     */
+    var registeredILifecycleListener = new Dictionary([]);
+    /**
+     *  Listener ILifecycleListener handler.
+         // TODO: Implement handler.
+     */
+    function handleILifecycleListener(id) {
+    }
+    Adaptive.handleILifecycleListener = handleILifecycleListener;
+    /**
      *  Listener ILifecycleListener implementation.
      */
     var LifecycleListener = (function () {
@@ -488,9 +571,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ISession.getAttribute incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ISession.getAttribute");
                 return null;
             }
         };
@@ -503,9 +590,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ISession.getAttributes incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ISession.getAttributes");
                 return null;
             }
         };
@@ -518,9 +609,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ISession.getCookies incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ISession.getCookies");
                 return null;
             }
         };
@@ -533,25 +628,92 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ISession.listAttributeNames incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ISession.listAttributeNames");
                 return null;
             }
         };
         SessionBridge.prototype.removeAttribute = function (name) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/removeAttribute", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " ISession.removeAttribute");
+            }
         };
         SessionBridge.prototype.removeAttributes = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/removeAttributes", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // No parameters.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " ISession.removeAttributes");
+            }
         };
         SessionBridge.prototype.removeCookie = function (cookie) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/removeCookie", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " ISession.removeCookie");
+            }
         };
         SessionBridge.prototype.removeCookies = function (cookies) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/removeCookies", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " ISession.removeCookies");
+            }
         };
         SessionBridge.prototype.setAttribute = function (name, value) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/setAttribute", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " ISession.setAttribute");
+            }
         };
         SessionBridge.prototype.setCookie = function (cookie) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/setCookie", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " ISession.setCookie");
+            }
         };
         SessionBridge.prototype.setCookies = function (cookies) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/setCookies", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " ISession.setCookies");
+            }
         };
         return SessionBridge;
     })();
@@ -601,7 +763,18 @@ var Adaptive;
     })();
     Adaptive.INetworkReachabilityCallbackWarningEnum = INetworkReachabilityCallbackWarningEnum;
     /**
-     *  Listener INetworkReachabilityCallback implementation.
+     *  Callback INetworkReachabilityCallback control dictionary.
+     */
+    var registeredINetworkReachabilityCallback = new Dictionary([]);
+    /**
+     *  Callback INetworkReachabilityCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleINetworkReachabilityCallback(id) {
+    }
+    Adaptive.handleINetworkReachabilityCallback = handleINetworkReachabilityCallback;
+    /**
+     *  Callback INetworkReachabilityCallback implementation.
      */
     var NetworkReachabilityCallback = (function () {
         function NetworkReachabilityCallback(onErrorFunction, onResultFunction, onWarningFunction) {
@@ -676,6 +849,17 @@ var Adaptive;
     })();
     Adaptive.IAccelerationListenerWarningEnum = IAccelerationListenerWarningEnum;
     /**
+     *  Listener IAccelerationListener control dictionary.
+     */
+    var registeredIAccelerationListener = new Dictionary([]);
+    /**
+     *  Listener IAccelerationListener handler.
+         // TODO: Implement handler.
+     */
+    function handleIAccelerationListener(id) {
+    }
+    Adaptive.handleIAccelerationListener = handleIAccelerationListener;
+    /**
      *  Listener IAccelerationListener implementation.
      */
     var AccelerationListener = (function () {
@@ -725,18 +909,95 @@ var Adaptive;
         function DatabaseBridge() {
         }
         DatabaseBridge.prototype.createDatabase = function (database, callback) {
+            registeredIDatabaseResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/createDatabase", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIDatabaseResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IDatabase.createDatabase");
+            }
         };
         DatabaseBridge.prototype.createTable = function (database, table, callback) {
+            registeredITableResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/createTable", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredITableResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IDatabase.createTable");
+            }
         };
         DatabaseBridge.prototype.deleteDatabase = function (database, callback) {
+            registeredIDatabaseResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/deleteDatabase", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIDatabaseResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IDatabase.deleteDatabase");
+            }
         };
         DatabaseBridge.prototype.deleteTable = function (database, table, callback) {
+            registeredITableResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/deleteTable", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredITableResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IDatabase.deleteTable");
+            }
         };
         DatabaseBridge.prototype.executeSqlQuery = function (database, query, replacements, callback) {
+            registeredITableResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/executeSqlQuery", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredITableResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IDatabase.executeSqlQuery");
+            }
         };
         DatabaseBridge.prototype.executeSqlStatement = function (database, statement, replacements, callback) {
+            registeredITableResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/executeSqlStatement", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredITableResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IDatabase.executeSqlStatement");
+            }
         };
         DatabaseBridge.prototype.executeSqlTransactions = function (database, statements, rollbackFlag, callback) {
+            registeredITableResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/executeSqlTransactions", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredITableResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IDatabase.executeSqlTransactions");
+            }
         };
         DatabaseBridge.prototype.existsDatabase = function (database) {
             var xhr = new XMLHttpRequest();
@@ -747,9 +1008,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IDatabase.existsDatabase incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IDatabase.existsDatabase");
                 return null;
             }
         };
@@ -762,9 +1027,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IDatabase.existsTable incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IDatabase.existsTable");
                 return null;
             }
         };
@@ -801,6 +1070,17 @@ var Adaptive;
         return IButtonListenerWarningEnum;
     })();
     Adaptive.IButtonListenerWarningEnum = IButtonListenerWarningEnum;
+    /**
+     *  Listener IButtonListener control dictionary.
+     */
+    var registeredIButtonListener = new Dictionary([]);
+    /**
+     *  Listener IButtonListener handler.
+         // TODO: Implement handler.
+     */
+    function handleIButtonListener(id) {
+    }
+    Adaptive.handleIButtonListener = handleIButtonListener;
     /**
      *  Listener IButtonListener implementation.
      */
@@ -877,7 +1157,18 @@ var Adaptive;
     })();
     Adaptive.IContactResultCallbackWarningEnum = IContactResultCallbackWarningEnum;
     /**
-     *  Listener IContactResultCallback implementation.
+     *  Callback IContactResultCallback control dictionary.
+     */
+    var registeredIContactResultCallback = new Dictionary([]);
+    /**
+     *  Callback IContactResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIContactResultCallback(id) {
+    }
+    Adaptive.handleIContactResultCallback = handleIContactResultCallback;
+    /**
+     *  Callback IContactResultCallback implementation.
      */
     var ContactResultCallback = (function () {
         function ContactResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
@@ -934,9 +1225,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IBrowser.openBrowser incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IBrowser.openBrowser");
                 return null;
             }
         };
@@ -950,8 +1245,30 @@ var Adaptive;
         function NetworkReachabilityBridge() {
         }
         NetworkReachabilityBridge.prototype.isNetworkReachable = function (host, callback) {
+            registeredINetworkReachabilityCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkReachable", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredINetworkReachabilityCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " INetworkReachability.isNetworkReachable");
+            }
         };
         NetworkReachabilityBridge.prototype.isNetworkServiceReachable = function (url, callback) {
+            registeredINetworkReachabilityCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkServiceReachable", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredINetworkReachabilityCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " INetworkReachability.isNetworkServiceReachable");
+            }
         };
         return NetworkReachabilityBridge;
     })();
@@ -990,6 +1307,17 @@ var Adaptive;
         return IGeolocationListenerWarningEnum;
     })();
     Adaptive.IGeolocationListenerWarningEnum = IGeolocationListenerWarningEnum;
+    /**
+     *  Listener IGeolocationListener control dictionary.
+     */
+    var registeredIGeolocationListener = new Dictionary([]);
+    /**
+     *  Listener IGeolocationListener handler.
+         // TODO: Implement handler.
+     */
+    function handleIGeolocationListener(id) {
+    }
+    Adaptive.handleIGeolocationListener = handleIGeolocationListener;
     /**
      *  Listener IGeolocationListener implementation.
      */
@@ -1067,7 +1395,18 @@ var Adaptive;
     })();
     Adaptive.IContactPhotoResultCallbackWarningEnum = IContactPhotoResultCallbackWarningEnum;
     /**
-     *  Listener IContactPhotoResultCallback implementation.
+     *  Callback IContactPhotoResultCallback control dictionary.
+     */
+    var registeredIContactPhotoResultCallback = new Dictionary([]);
+    /**
+     *  Callback IContactPhotoResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIContactPhotoResultCallback(id) {
+    }
+    Adaptive.handleIContactPhotoResultCallback = handleIContactPhotoResultCallback;
+    /**
+     *  Callback IContactPhotoResultCallback implementation.
      */
     var ContactPhotoResultCallback = (function () {
         function ContactPhotoResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
@@ -1116,6 +1455,16 @@ var Adaptive;
         function LifecycleBridge() {
         }
         LifecycleBridge.prototype.addLifecycleListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/addLifecycleListener", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+                registeredILifecycleListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " ILifecycle.addLifecycleListener");
+            }
         };
         LifecycleBridge.prototype.isBackground = function () {
             var xhr = new XMLHttpRequest();
@@ -1126,15 +1475,42 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ILifecycle.isBackground incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ILifecycle.isBackground");
                 return null;
             }
         };
         LifecycleBridge.prototype.removeLifecycleListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListener", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+                registeredILifecycleListener.remove("" + listener.getId());
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " ILifecycle.removeLifecycleListener");
+            }
         };
         LifecycleBridge.prototype.removeLifecycleListeners = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListeners", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // No parameters.
+            if (xhr.status == 200) {
+                var keys = registeredIAccelerationListener.keys();
+                for (var key in keys) {
+                    registeredIAccelerationListener.remove(key);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " ILifecycle.removeLifecycleListeners");
+            }
         };
         return LifecycleBridge;
     })();
@@ -1146,10 +1522,43 @@ var Adaptive;
         function FileSystemBridge() {
         }
         FileSystemBridge.prototype.create = function (name, callback) {
+            registeredIFileResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/create", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIFileResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IFileSystem.create");
+            }
         };
         FileSystemBridge.prototype.createWithPath = function (path, name, callback) {
+            registeredIFileResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/createWithPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIFileResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IFileSystem.createWithPath");
+            }
         };
         FileSystemBridge.prototype.createWithPathString = function (path, name, callback) {
+            registeredIFileResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/createWithPathString", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIFileResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IFileSystem.createWithPathString");
+            }
         };
         FileSystemBridge.prototype.getApplicationCacheFolder = function () {
             var xhr = new XMLHttpRequest();
@@ -1160,9 +1569,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFileSystem.getApplicationCacheFolder incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFileSystem.getApplicationCacheFolder");
                 return null;
             }
         };
@@ -1175,9 +1588,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFileSystem.getApplicationDocumentsFolder incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFileSystem.getApplicationDocumentsFolder");
                 return null;
             }
         };
@@ -1190,9 +1607,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFileSystem.getApplicationFolder incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFileSystem.getApplicationFolder");
                 return null;
             }
         };
@@ -1205,9 +1626,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFileSystem.getPathForFile incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFileSystem.getPathForFile");
                 return null;
             }
         };
@@ -1220,9 +1645,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFileSystem.getPathForPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFileSystem.getPathForPath");
                 return null;
             }
         };
@@ -1235,9 +1664,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFileSystem.getSeparator incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFileSystem.getSeparator");
                 return null;
             }
         };
@@ -1250,9 +1683,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFileSystem.isSameFile incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFileSystem.isSameFile");
                 return null;
             }
         };
@@ -1265,9 +1702,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFileSystem.isSamePath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFileSystem.isSamePath");
                 return null;
             }
         };
@@ -1280,9 +1721,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFileSystem.toPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFileSystem.toPath");
                 return null;
             }
         };
@@ -1304,9 +1749,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IOS.getOSInfo incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IOS.getOSInfo");
                 return null;
             }
         };
@@ -1359,18 +1808,95 @@ var Adaptive;
         function ContactBridge() {
         }
         ContactBridge.prototype.getContact = function (contact, callback) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContact", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IContact.getContact");
+            }
         };
         ContactBridge.prototype.getContactPhoto = function (contact, callback) {
+            registeredIContactPhotoResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactPhoto", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactPhotoResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IContact.getContactPhoto");
+            }
         };
         ContactBridge.prototype.getContacts = function (callback) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContacts", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IContact.getContacts");
+            }
         };
         ContactBridge.prototype.getContactsForFields = function (callback, fields) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactsForFields", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IContact.getContactsForFields");
+            }
         };
         ContactBridge.prototype.getContactsWithFilter = function (callback, fields, filter) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactsWithFilter", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IContact.getContactsWithFilter");
+            }
         };
         ContactBridge.prototype.searchContacts = function (term, callback) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/searchContacts", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IContact.searchContacts");
+            }
         };
         ContactBridge.prototype.searchContactsWithFilter = function (term, callback, filter) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/searchContactsWithFilter", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IContact.searchContactsWithFilter");
+            }
         };
         ContactBridge.prototype.setContactPhoto = function (contact, pngImage) {
             var xhr = new XMLHttpRequest();
@@ -1381,9 +1907,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IContact.setContactPhoto incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IContact.setContactPhoto");
                 return null;
             }
         };
@@ -1415,6 +1945,15 @@ var Adaptive;
         function RuntimeBridge() {
         }
         RuntimeBridge.prototype.dismissApplication = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IRuntime/dismissApplication", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // No parameters.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " IRuntime.dismissApplication");
+            }
         };
         RuntimeBridge.prototype.dismissSplashScreen = function () {
             var xhr = new XMLHttpRequest();
@@ -1425,9 +1964,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IRuntime.dismissSplashScreen incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IRuntime.dismissSplashScreen");
                 return null;
             }
         };
@@ -1470,7 +2013,18 @@ var Adaptive;
     })();
     Adaptive.IMessagingCallbackWarningEnum = IMessagingCallbackWarningEnum;
     /**
-     *  Listener IMessagingCallback implementation.
+     *  Callback IMessagingCallback control dictionary.
+     */
+    var registeredIMessagingCallback = new Dictionary([]);
+    /**
+     *  Callback IMessagingCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIMessagingCallback(id) {
+    }
+    Adaptive.handleIMessagingCallback = handleIMessagingCallback;
+    /**
+     *  Callback IMessagingCallback implementation.
      */
     var MessagingCallback = (function () {
         function MessagingCallback(onErrorFunction, onResultFunction, onWarningFunction) {
@@ -1546,7 +2100,18 @@ var Adaptive;
     })();
     Adaptive.IDatabaseResultCallbackWarningEnum = IDatabaseResultCallbackWarningEnum;
     /**
-     *  Listener IDatabaseResultCallback implementation.
+     *  Callback IDatabaseResultCallback control dictionary.
+     */
+    var registeredIDatabaseResultCallback = new Dictionary([]);
+    /**
+     *  Callback IDatabaseResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIDatabaseResultCallback(id) {
+    }
+    Adaptive.handleIDatabaseResultCallback = handleIDatabaseResultCallback;
+    /**
+     *  Callback IDatabaseResultCallback implementation.
      */
     var DatabaseResultCallback = (function () {
         function DatabaseResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
@@ -1595,8 +2160,30 @@ var Adaptive;
         function SecurityBridge() {
         }
         SecurityBridge.prototype.deleteSecureKeyValuePairs = function (keys, publicAccessName, callback) {
+            registeredISecureKVResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/deleteSecureKeyValuePairs", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredISecureKVResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " ISecurity.deleteSecureKeyValuePairs");
+            }
         };
         SecurityBridge.prototype.getSecureKeyValuePairs = function (keys, publicAccessName, callback) {
+            registeredISecureKVResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/getSecureKeyValuePairs", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredISecureKVResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " ISecurity.getSecureKeyValuePairs");
+            }
         };
         SecurityBridge.prototype.isDeviceModified = function () {
             var xhr = new XMLHttpRequest();
@@ -1607,13 +2194,28 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ISecurity.isDeviceModified incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ISecurity.isDeviceModified");
                 return null;
             }
         };
         SecurityBridge.prototype.setSecureKeyValuePairs = function (keyValues, publicAccessName, callback) {
+            registeredISecureKVResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/setSecureKeyValuePairs", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredISecureKVResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " ISecurity.setSecureKeyValuePairs");
+            }
         };
         return SecurityBridge;
     })();
@@ -1764,9 +2366,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ICapabilities.hasButtonSupport incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ICapabilities.hasButtonSupport");
                 return null;
             }
         };
@@ -1779,9 +2385,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ICapabilities.hasCommunicationSupport incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ICapabilities.hasCommunicationSupport");
                 return null;
             }
         };
@@ -1794,9 +2404,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ICapabilities.hasDataSupport incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ICapabilities.hasDataSupport");
                 return null;
             }
         };
@@ -1809,9 +2423,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ICapabilities.hasMediaSupport incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ICapabilities.hasMediaSupport");
                 return null;
             }
         };
@@ -1824,9 +2442,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ICapabilities.hasNetSupport incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ICapabilities.hasNetSupport");
                 return null;
             }
         };
@@ -1839,9 +2461,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ICapabilities.hasNotificationSupport incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ICapabilities.hasNotificationSupport");
                 return null;
             }
         };
@@ -1854,9 +2480,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ICapabilities.hasSensorSupport incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ICapabilities.hasSensorSupport");
                 return null;
             }
         };
@@ -1870,10 +2500,43 @@ var Adaptive;
         function GeolocationBridge() {
         }
         GeolocationBridge.prototype.addGeolocationListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/addGeolocationListener", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+                registeredIGeolocationListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " IGeolocation.addGeolocationListener");
+            }
         };
         GeolocationBridge.prototype.removeGeolocationListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListener", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+                registeredIGeolocationListener.remove("" + listener.getId());
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " IGeolocation.removeGeolocationListener");
+            }
         };
         GeolocationBridge.prototype.removeGeolocationListeners = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListeners", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // No parameters.
+            if (xhr.status == 200) {
+                var keys = registeredIAccelerationListener.keys();
+                for (var key in keys) {
+                    registeredIAccelerationListener.remove(key);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " IGeolocation.removeGeolocationListeners");
+            }
         };
         return GeolocationBridge;
     })();
@@ -1909,9 +2572,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: ITelephony.call incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " ITelephony.call");
                 return null;
             }
         };
@@ -1925,6 +2592,17 @@ var Adaptive;
         function MessagingBridge() {
         }
         MessagingBridge.prototype.sendSMS = function (number, text, callback) {
+            registeredIMessagingCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IMessaging/sendSMS", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIMessagingCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IMessaging.sendSMS");
+            }
         };
         return MessagingBridge;
     })();
@@ -1944,9 +2622,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.endsWith incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.endsWith");
                 return null;
             }
         };
@@ -1959,9 +2641,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.endsWithPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.endsWithPath");
                 return null;
             }
         };
@@ -1974,9 +2660,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.equalPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.equalPath");
                 return null;
             }
         };
@@ -1989,9 +2679,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.equals incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.equals");
                 return null;
             }
         };
@@ -2004,9 +2698,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.getFileName incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.getFileName");
                 return null;
             }
         };
@@ -2019,9 +2717,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.getFileSystem incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.getFileSystem");
                 return null;
             }
         };
@@ -2034,9 +2736,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.getNameAtIndex incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.getNameAtIndex");
                 return null;
             }
         };
@@ -2049,9 +2755,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.getNameCount incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.getNameCount");
                 return null;
             }
         };
@@ -2064,9 +2774,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.getParent incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.getParent");
                 return null;
             }
         };
@@ -2079,9 +2793,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.getRoot incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.getRoot");
                 return null;
             }
         };
@@ -2094,9 +2812,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.isAbsolute incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.isAbsolute");
                 return null;
             }
         };
@@ -2109,9 +2831,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.normalize incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.normalize");
                 return null;
             }
         };
@@ -2124,9 +2850,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.relativize incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.relativize");
                 return null;
             }
         };
@@ -2139,9 +2869,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.resolve incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.resolve");
                 return null;
             }
         };
@@ -2154,9 +2888,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.resolvePath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.resolvePath");
                 return null;
             }
         };
@@ -2169,9 +2907,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.resolveSibling incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.resolveSibling");
                 return null;
             }
         };
@@ -2184,9 +2926,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.resolveSiblingPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.resolveSiblingPath");
                 return null;
             }
         };
@@ -2199,9 +2945,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.startsWith incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.startsWith");
                 return null;
             }
         };
@@ -2214,9 +2964,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.startsWithPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.startsWithPath");
                 return null;
             }
         };
@@ -2229,9 +2983,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.toAbsolutePath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.toAbsolutePath");
                 return null;
             }
         };
@@ -2244,9 +3002,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.toFile incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.toFile");
                 return null;
             }
         };
@@ -2259,9 +3021,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFilePath.toString incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFilePath.toString");
                 return null;
             }
         };
@@ -2305,7 +3071,18 @@ var Adaptive;
     })();
     Adaptive.ITableResultCallbackWarningEnum = ITableResultCallbackWarningEnum;
     /**
-     *  Listener ITableResultCallback implementation.
+     *  Callback ITableResultCallback control dictionary.
+     */
+    var registeredITableResultCallback = new Dictionary([]);
+    /**
+     *  Callback ITableResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleITableResultCallback(id) {
+    }
+    Adaptive.handleITableResultCallback = handleITableResultCallback;
+    /**
+     *  Callback ITableResultCallback implementation.
      */
     var TableResultCallback = (function () {
         function TableResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
@@ -2379,7 +3156,18 @@ var Adaptive;
     })();
     Adaptive.IFileListResultCallbackWarningEnum = IFileListResultCallbackWarningEnum;
     /**
-     *  Listener IFileListResultCallback implementation.
+     *  Callback IFileListResultCallback control dictionary.
+     */
+    var registeredIFileListResultCallback = new Dictionary([]);
+    /**
+     *  Callback IFileListResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIFileListResultCallback(id) {
+    }
+    Adaptive.handleIFileListResultCallback = handleIFileListResultCallback;
+    /**
+     *  Callback IFileListResultCallback implementation.
      */
     var FileListResultCallback = (function () {
         function FileListResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
@@ -2428,10 +3216,43 @@ var Adaptive;
         function AccelerometerBridge() {
         }
         AccelerometerBridge.prototype.addAccelerationListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/addAccelerationListener", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+                registeredIAccelerationListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " IAccelerometer.addAccelerationListener");
+            }
         };
         AccelerometerBridge.prototype.removeAccelerationListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListener", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+                registeredIAccelerationListener.remove("" + listener.getId());
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " IAccelerometer.removeAccelerationListener");
+            }
         };
         AccelerometerBridge.prototype.removeAccelerationListeners = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListeners", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // No parameters.
+            if (xhr.status == 200) {
+                var keys = registeredIAccelerationListener.keys();
+                for (var key in keys) {
+                    registeredIAccelerationListener.remove(key);
+                }
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " IAccelerometer.removeAccelerationListeners");
+            }
         };
         return AccelerometerBridge;
     })();
@@ -2484,9 +3305,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IGlobalization.getLocaleSupportedDescriptors incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IGlobalization.getLocaleSupportedDescriptors");
                 return null;
             }
         };
@@ -2499,9 +3324,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IGlobalization.getResourceLiteral incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IGlobalization.getResourceLiteral");
                 return null;
             }
         };
@@ -2514,9 +3343,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IGlobalization.getResourceLiterals incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IGlobalization.getResourceLiterals");
                 return null;
             }
         };
@@ -2567,7 +3400,18 @@ var Adaptive;
     })();
     Adaptive.IServiceResultCallbackWarningEnum = IServiceResultCallbackWarningEnum;
     /**
-     *  Listener IServiceResultCallback implementation.
+     *  Callback IServiceResultCallback control dictionary.
+     */
+    var registeredIServiceResultCallback = new Dictionary([]);
+    /**
+     *  Callback IServiceResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIServiceResultCallback(id) {
+    }
+    Adaptive.handleIServiceResultCallback = handleIServiceResultCallback;
+    /**
+     *  Callback IServiceResultCallback implementation.
      */
     var ServiceResultCallback = (function () {
         function ServiceResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
@@ -2642,7 +3486,18 @@ var Adaptive;
     })();
     Adaptive.IFileDataResultCallbackWarningEnum = IFileDataResultCallbackWarningEnum;
     /**
-     *  Listener IFileDataResultCallback implementation.
+     *  Callback IFileDataResultCallback control dictionary.
+     */
+    var registeredIFileDataResultCallback = new Dictionary([]);
+    /**
+     *  Callback IFileDataResultCallback handler.
+         // TODO: Implement handler.
+     */
+    function handleIFileDataResultCallback(id) {
+    }
+    Adaptive.handleIFileDataResultCallback = handleIFileDataResultCallback;
+    /**
+     *  Callback IFileDataResultCallback implementation.
      */
     var FileDataResultCallback = (function () {
         function FileDataResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
@@ -2691,6 +3546,15 @@ var Adaptive;
         function VideoBridge() {
         }
         VideoBridge.prototype.playStream = function (url) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseMedia/IVideo/playStream", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.log("ERROR: " + xhr.status + " IVideo.playStream");
+            }
         };
         return VideoBridge;
     })();
@@ -2710,9 +3574,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.canRead incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.canRead");
                 return null;
             }
         };
@@ -2725,15 +3593,41 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.canWrite incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.canWrite");
                 return null;
             }
         };
         FileBridge.prototype.create = function (name, callback) {
+            registeredIFileResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/create", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIFileResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IFile.create");
+            }
         };
         FileBridge.prototype.createWithPath = function (path, name, callback) {
+            registeredIFileResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/createWithPath", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIFileResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IFile.createWithPath");
+            }
         };
         FileBridge.prototype.delete = function (cascade) {
             var xhr = new XMLHttpRequest();
@@ -2744,9 +3638,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.delete incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.delete");
                 return null;
             }
         };
@@ -2759,9 +3657,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.endsWith incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.endsWith");
                 return null;
             }
         };
@@ -2774,9 +3676,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.endsWithPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.endsWithPath");
                 return null;
             }
         };
@@ -2789,9 +3695,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.equalPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.equalPath");
                 return null;
             }
         };
@@ -2804,9 +3714,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.equals incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.equals");
                 return null;
             }
         };
@@ -2819,13 +3733,28 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.exists incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.exists");
                 return null;
             }
         };
         FileBridge.prototype.getContent = function (callback) {
+            registeredIFileDataResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getContent", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIFileDataResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IFile.getContent");
+            }
         };
         FileBridge.prototype.getDateCreated = function () {
             var xhr = new XMLHttpRequest();
@@ -2836,9 +3765,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.getDateCreated incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.getDateCreated");
                 return null;
             }
         };
@@ -2851,9 +3784,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.getDateModified incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.getDateModified");
                 return null;
             }
         };
@@ -2866,9 +3803,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.getFileName incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.getFileName");
                 return null;
             }
         };
@@ -2881,9 +3822,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.getFileSystem incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.getFileSystem");
                 return null;
             }
         };
@@ -2896,9 +3841,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.getName incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.getName");
                 return null;
             }
         };
@@ -2911,9 +3860,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.getNameAtIndex incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.getNameAtIndex");
                 return null;
             }
         };
@@ -2926,9 +3879,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.getNameCount incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.getNameCount");
                 return null;
             }
         };
@@ -2941,9 +3898,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.getParent incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.getParent");
                 return null;
             }
         };
@@ -2956,9 +3917,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.getPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.getPath");
                 return null;
             }
         };
@@ -2971,9 +3936,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.getRoot incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.getRoot");
                 return null;
             }
         };
@@ -2986,9 +3955,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.getSize incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.getSize");
                 return null;
             }
         };
@@ -3001,9 +3974,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.isAbsolute incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.isAbsolute");
                 return null;
             }
         };
@@ -3016,15 +3993,41 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.isDirectory incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.isDirectory");
                 return null;
             }
         };
         FileBridge.prototype.listFiles = function (callback) {
+            registeredIFileListResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/listFiles", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIFileListResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IFile.listFiles");
+            }
         };
         FileBridge.prototype.listFilesForRegex = function (regex, callback) {
+            registeredIFileListResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/listFilesForRegex", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIFileListResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IFile.listFilesForRegex");
+            }
         };
         FileBridge.prototype.mkDir = function (recursive) {
             var xhr = new XMLHttpRequest();
@@ -3035,13 +4038,28 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.mkDir incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.mkDir");
                 return null;
             }
         };
         FileBridge.prototype.move = function (newFile, createPath, callback, overwrite) {
+            registeredIFileResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/move", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIFileResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IFile.move");
+            }
         };
         FileBridge.prototype.normalize = function () {
             var xhr = new XMLHttpRequest();
@@ -3052,9 +4070,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.normalize incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.normalize");
                 return null;
             }
         };
@@ -3067,9 +4089,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.relativize incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.relativize");
                 return null;
             }
         };
@@ -3082,9 +4108,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.resolve incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.resolve");
                 return null;
             }
         };
@@ -3097,9 +4127,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.resolvePath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.resolvePath");
                 return null;
             }
         };
@@ -3112,9 +4146,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.resolveSibling incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.resolveSibling");
                 return null;
             }
         };
@@ -3127,13 +4165,28 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.resolveSiblingPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.resolveSiblingPath");
                 return null;
             }
         };
         FileBridge.prototype.setContent = function (content, callback) {
+            registeredIFileDataResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/setContent", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // TODO: Add parameters to send.
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIFileDataResultCallback.remove("" + callback.getId());
+                console.log("ERROR: " + xhr.status + " IFile.setContent");
+            }
         };
         FileBridge.prototype.startsWith = function (other) {
             var xhr = new XMLHttpRequest();
@@ -3144,9 +4197,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.startsWith incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.startsWith");
                 return null;
             }
         };
@@ -3159,9 +4216,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.startsWithPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.startsWithPath");
                 return null;
             }
         };
@@ -3174,9 +4235,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.toAbsolutePath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.toAbsolutePath");
                 return null;
             }
         };
@@ -3189,9 +4254,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.toFile incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.toFile");
                 return null;
             }
         };
@@ -3204,9 +4273,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.toPath incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.toPath");
                 return null;
             }
         };
@@ -3219,9 +4292,13 @@ var Adaptive;
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
                 }
+                else {
+                    console.log("ERROR: IFile.toString incorrect response received.");
+                    return null;
+                }
             }
             else {
-                console.log("ERROR: " + xhr.status);
+                console.log("ERROR: " + xhr.status + " IFile.toString");
                 return null;
             }
         };

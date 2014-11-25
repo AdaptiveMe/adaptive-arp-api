@@ -86,8 +86,6 @@ module Adaptive {
          }
      }
 
-     var registeredCallbacks : Dictionary<IBaseCallback> = new Dictionary<IBaseCallback>([]);
-     var registeredListeners : Dictionary<IBaseListener> = new Dictionary<IBaseListener>([]);
      var registeredCounter : number = 0;
      var bridgePath : string = "https://adaptiveapp";
 
@@ -289,7 +287,7 @@ module Adaptive {
      }
 
      /**
-      *  Listener IBaseCallback implementation.
+      *  Callback IBaseCallback implementation.
       */
      export class BaseCallback implements IBaseCallback {
           description: string;
@@ -471,6 +469,15 @@ module Adaptive {
           constructor() {}
 
           addButtonListener(listener: IButtonListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/addButtonListener", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    registeredIButtonListener.add(""+listener.getId(),listener);
+               } else {
+                    console.log("ERROR: "+xhr.status+" IDevice.addButtonListener");
+               }
           }
           getDeviceInfo() : DeviceInfo {
                var xhr = new XMLHttpRequest();
@@ -480,9 +487,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IDevice.getDeviceInfo incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IDevice.getDeviceInfo");
                     return null;
                }
           }
@@ -494,15 +504,39 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IDevice.getLocaleCurrent incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IDevice.getLocaleCurrent");
                     return null;
                }
           }
           removeButtonListener(listener: IButtonListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListener", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    registeredIButtonListener.remove(""+listener.getId());
+               } else {
+                    console.log("ERROR: "+xhr.status+" IDevice.removeButtonListener");
+               }
           }
           removeButtonListeners() : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListeners", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // No parameters.
+               if (xhr.status == 200) {
+                    var keys = registeredIAccelerationListener.keys();
+                    for (var key in keys) {
+                         registeredIAccelerationListener.remove(key);
+                    }
+               } else {
+                    console.log("ERROR: "+xhr.status+" IDevice.removeButtonListeners");
+               }
           }
 
      }
@@ -525,6 +559,17 @@ module Adaptive {
           constructor() {}
 
           sendEmail(data: Email, callback: IMessagingCallback) : void {
+               registeredIMessagingCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IMail/sendEmail", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIMessagingCallback' on receiving async response.
+               } else {
+                    registeredIMessagingCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IMail.sendEmail");
+               }
           }
 
      }
@@ -565,7 +610,18 @@ module Adaptive {
      }
 
      /**
-      *  Listener ISecureKVResultCallback implementation.
+      *  Callback ISecureKVResultCallback control dictionary.
+      */
+     var registeredISecureKVResultCallback = new Dictionary<ISecureKVResultCallback>([]);
+
+     /**
+      *  Callback ISecureKVResultCallback handler.
+          // TODO: Implement handler.
+      */
+     export function handleISecureKVResultCallback(id:number) {
+     }
+     /**
+      *  Callback ISecureKVResultCallback implementation.
       */
      export class SecureKVResultCallback implements ISecureKVResultCallback {
           description: string;
@@ -670,7 +726,18 @@ module Adaptive {
      }
 
      /**
-      *  Listener IFileResultCallback implementation.
+      *  Callback IFileResultCallback control dictionary.
+      */
+     var registeredIFileResultCallback = new Dictionary<IFileResultCallback>([]);
+
+     /**
+      *  Callback IFileResultCallback handler.
+          // TODO: Implement handler.
+      */
+     export function handleIFileResultCallback(id:number) {
+     }
+     /**
+      *  Callback IFileResultCallback implementation.
       */
      export class FileResultCallback implements IFileResultCallback {
           description: string;
@@ -796,6 +863,17 @@ module Adaptive {
      }
 
      /**
+      *  Listener ILifecycleListener control dictionary.
+      */
+     var registeredILifecycleListener = new Dictionary<ILifecycleListener>([]);
+
+     /**
+      *  Listener ILifecycleListener handler.
+          // TODO: Implement handler.
+      */
+     export function handleILifecycleListener(id:number) {
+     }
+     /**
       *  Listener ILifecycleListener implementation.
       */
      export class LifecycleListener implements ILifecycleListener {
@@ -905,9 +983,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ISession.getAttribute incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ISession.getAttribute");
                     return null;
                }
           }
@@ -919,9 +1000,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ISession.getAttributes incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ISession.getAttributes");
                     return null;
                }
           }
@@ -933,9 +1017,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ISession.getCookies incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ISession.getCookies");
                     return null;
                }
           }
@@ -947,25 +1034,84 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ISession.listAttributeNames incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ISession.listAttributeNames");
                     return null;
                }
           }
           removeAttribute(name: string) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeAttribute", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+               } else {
+                    console.log("ERROR: "+xhr.status+" ISession.removeAttribute");
+               }
           }
           removeAttributes() : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeAttributes", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // No parameters.
+               if (xhr.status == 200) {
+               } else {
+                    console.log("ERROR: "+xhr.status+" ISession.removeAttributes");
+               }
           }
           removeCookie(cookie: Cookie) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeCookie", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+               } else {
+                    console.log("ERROR: "+xhr.status+" ISession.removeCookie");
+               }
           }
           removeCookies(cookies: Array<Cookie>) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeCookies", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+               } else {
+                    console.log("ERROR: "+xhr.status+" ISession.removeCookies");
+               }
           }
           setAttribute(name: string, value: any) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setAttribute", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+               } else {
+                    console.log("ERROR: "+xhr.status+" ISession.setAttribute");
+               }
           }
           setCookie(cookie: Cookie) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setCookie", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+               } else {
+                    console.log("ERROR: "+xhr.status+" ISession.setCookie");
+               }
           }
           setCookies(cookies: Array<Cookie>) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setCookies", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+               } else {
+                    console.log("ERROR: "+xhr.status+" ISession.setCookies");
+               }
           }
 
      }
@@ -1036,7 +1182,18 @@ module Adaptive {
      }
 
      /**
-      *  Listener INetworkReachabilityCallback implementation.
+      *  Callback INetworkReachabilityCallback control dictionary.
+      */
+     var registeredINetworkReachabilityCallback = new Dictionary<INetworkReachabilityCallback>([]);
+
+     /**
+      *  Callback INetworkReachabilityCallback handler.
+          // TODO: Implement handler.
+      */
+     export function handleINetworkReachabilityCallback(id:number) {
+     }
+     /**
+      *  Callback INetworkReachabilityCallback implementation.
       */
      export class NetworkReachabilityCallback implements INetworkReachabilityCallback {
           description: string;
@@ -1119,6 +1276,17 @@ module Adaptive {
      }
 
      /**
+      *  Listener IAccelerationListener control dictionary.
+      */
+     var registeredIAccelerationListener = new Dictionary<IAccelerationListener>([]);
+
+     /**
+      *  Listener IAccelerationListener handler.
+          // TODO: Implement handler.
+      */
+     export function handleIAccelerationListener(id:number) {
+     }
+     /**
       *  Listener IAccelerationListener implementation.
       */
      export class AccelerationListener implements IAccelerationListener {
@@ -1191,18 +1359,95 @@ module Adaptive {
           constructor() {}
 
           createDatabase(database: Database, callback: IDatabaseResultCallback) : void {
+               registeredIDatabaseResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/createDatabase", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response.
+               } else {
+                    registeredIDatabaseResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IDatabase.createDatabase");
+               }
           }
           createTable(database: Database, table: Table, callback: ITableResultCallback) : void {
+               registeredITableResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/createTable", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response.
+               } else {
+                    registeredITableResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IDatabase.createTable");
+               }
           }
           deleteDatabase(database: Database, callback: IDatabaseResultCallback) : void {
+               registeredIDatabaseResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/deleteDatabase", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response.
+               } else {
+                    registeredIDatabaseResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IDatabase.deleteDatabase");
+               }
           }
           deleteTable(database: Database, table: Table, callback: ITableResultCallback) : void {
+               registeredITableResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/deleteTable", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response.
+               } else {
+                    registeredITableResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IDatabase.deleteTable");
+               }
           }
           executeSqlQuery(database: Database, query: string, replacements: Array<string>, callback: ITableResultCallback) : void {
+               registeredITableResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlQuery", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response.
+               } else {
+                    registeredITableResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IDatabase.executeSqlQuery");
+               }
           }
           executeSqlStatement(database: Database, statement: string, replacements: Array<string>, callback: ITableResultCallback) : void {
+               registeredITableResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlStatement", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response.
+               } else {
+                    registeredITableResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IDatabase.executeSqlStatement");
+               }
           }
           executeSqlTransactions(database: Database, statements: Array<string>, rollbackFlag: boolean, callback: ITableResultCallback) : void {
+               registeredITableResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlTransactions", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response.
+               } else {
+                    registeredITableResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IDatabase.executeSqlTransactions");
+               }
           }
           existsDatabase(database: Database) : boolean {
                var xhr = new XMLHttpRequest();
@@ -1212,9 +1457,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IDatabase.existsDatabase incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IDatabase.existsDatabase");
                     return null;
                }
           }
@@ -1226,9 +1474,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IDatabase.existsTable incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IDatabase.existsTable");
                     return null;
                }
           }
@@ -1276,6 +1527,17 @@ module Adaptive {
           static Unknown = new IButtonListenerWarningEnum("Unknown");
      }
 
+     /**
+      *  Listener IButtonListener control dictionary.
+      */
+     var registeredIButtonListener = new Dictionary<IButtonListener>([]);
+
+     /**
+      *  Listener IButtonListener handler.
+          // TODO: Implement handler.
+      */
+     export function handleIButtonListener(id:number) {
+     }
      /**
       *  Listener IButtonListener implementation.
       */
@@ -1388,7 +1650,18 @@ module Adaptive {
      }
 
      /**
-      *  Listener IContactResultCallback implementation.
+      *  Callback IContactResultCallback control dictionary.
+      */
+     var registeredIContactResultCallback = new Dictionary<IContactResultCallback>([]);
+
+     /**
+      *  Callback IContactResultCallback handler.
+          // TODO: Implement handler.
+      */
+     export function handleIContactResultCallback(id:number) {
+     }
+     /**
+      *  Callback IContactResultCallback implementation.
       */
      export class ContactResultCallback implements IContactResultCallback {
           description: string;
@@ -1466,9 +1739,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IBrowser.openBrowser incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IBrowser.openBrowser");
                     return null;
                }
           }
@@ -1501,8 +1777,30 @@ module Adaptive {
           constructor() {}
 
           isNetworkReachable(host: string, callback: INetworkReachabilityCallback) : void {
+               registeredINetworkReachabilityCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkReachable", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response.
+               } else {
+                    registeredINetworkReachabilityCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" INetworkReachability.isNetworkReachable");
+               }
           }
           isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback) : void {
+               registeredINetworkReachabilityCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkServiceReachable", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response.
+               } else {
+                    registeredINetworkReachabilityCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" INetworkReachability.isNetworkServiceReachable");
+               }
           }
 
      }
@@ -1573,6 +1871,17 @@ module Adaptive {
           static Unknown = new IGeolocationListenerWarningEnum("Unknown");
      }
 
+     /**
+      *  Listener IGeolocationListener control dictionary.
+      */
+     var registeredIGeolocationListener = new Dictionary<IGeolocationListener>([]);
+
+     /**
+      *  Listener IGeolocationListener handler.
+          // TODO: Implement handler.
+      */
+     export function handleIGeolocationListener(id:number) {
+     }
      /**
       *  Listener IGeolocationListener implementation.
       */
@@ -1658,7 +1967,18 @@ module Adaptive {
      }
 
      /**
-      *  Listener IContactPhotoResultCallback implementation.
+      *  Callback IContactPhotoResultCallback control dictionary.
+      */
+     var registeredIContactPhotoResultCallback = new Dictionary<IContactPhotoResultCallback>([]);
+
+     /**
+      *  Callback IContactPhotoResultCallback handler.
+          // TODO: Implement handler.
+      */
+     export function handleIContactPhotoResultCallback(id:number) {
+     }
+     /**
+      *  Callback IContactPhotoResultCallback implementation.
       */
      export class ContactPhotoResultCallback implements IContactPhotoResultCallback {
           description: string;
@@ -1725,6 +2045,15 @@ module Adaptive {
           constructor() {}
 
           addLifecycleListener(listener: ILifecycleListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/addLifecycleListener", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    registeredILifecycleListener.add(""+listener.getId(),listener);
+               } else {
+                    console.log("ERROR: "+xhr.status+" ILifecycle.addLifecycleListener");
+               }
           }
           isBackground() : boolean {
                var xhr = new XMLHttpRequest();
@@ -1734,15 +2063,39 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ILifecycle.isBackground incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ILifecycle.isBackground");
                     return null;
                }
           }
           removeLifecycleListener(listener: ILifecycleListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListener", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    registeredILifecycleListener.remove(""+listener.getId());
+               } else {
+                    console.log("ERROR: "+xhr.status+" ILifecycle.removeLifecycleListener");
+               }
           }
           removeLifecycleListeners() : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListeners", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // No parameters.
+               if (xhr.status == 200) {
+                    var keys = registeredIAccelerationListener.keys();
+                    for (var key in keys) {
+                         registeredIAccelerationListener.remove(key);
+                    }
+               } else {
+                    console.log("ERROR: "+xhr.status+" ILifecycle.removeLifecycleListeners");
+               }
           }
 
      }
@@ -1776,10 +2129,43 @@ module Adaptive {
           constructor() {}
 
           create(name: string, callback: IFileResultCallback) : void {
+               registeredIFileResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/create", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+               } else {
+                    registeredIFileResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IFileSystem.create");
+               }
           }
           createWithPath(path: IFilePath, name: string, callback: IFileResultCallback) : void {
+               registeredIFileResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/createWithPath", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+               } else {
+                    registeredIFileResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IFileSystem.createWithPath");
+               }
           }
           createWithPathString(path: string, name: string, callback: IFileResultCallback) : void {
+               registeredIFileResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/createWithPathString", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+               } else {
+                    registeredIFileResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IFileSystem.createWithPathString");
+               }
           }
           getApplicationCacheFolder() : IFilePath {
                var xhr = new XMLHttpRequest();
@@ -1789,9 +2175,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFileSystem.getApplicationCacheFolder incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFileSystem.getApplicationCacheFolder");
                     return null;
                }
           }
@@ -1803,9 +2192,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFileSystem.getApplicationDocumentsFolder incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFileSystem.getApplicationDocumentsFolder");
                     return null;
                }
           }
@@ -1817,9 +2209,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFileSystem.getApplicationFolder incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFileSystem.getApplicationFolder");
                     return null;
                }
           }
@@ -1831,9 +2226,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFileSystem.getPathForFile incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFileSystem.getPathForFile");
                     return null;
                }
           }
@@ -1845,9 +2243,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFileSystem.getPathForPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFileSystem.getPathForPath");
                     return null;
                }
           }
@@ -1859,9 +2260,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFileSystem.getSeparator incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFileSystem.getSeparator");
                     return null;
                }
           }
@@ -1873,9 +2277,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFileSystem.isSameFile incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFileSystem.isSameFile");
                     return null;
                }
           }
@@ -1887,9 +2294,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFileSystem.isSamePath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFileSystem.isSamePath");
                     return null;
                }
           }
@@ -1901,9 +2311,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFileSystem.toPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFileSystem.toPath");
                     return null;
                }
           }
@@ -1942,9 +2355,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IOS.getOSInfo incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IOS.getOSInfo");
                     return null;
                }
           }
@@ -2035,18 +2451,95 @@ module Adaptive {
           constructor() {}
 
           getContact(contact: ContactUid, callback: IContactResultCallback) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContact", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IContact.getContact");
+               }
           }
           getContactPhoto(contact: ContactUid, callback: IContactPhotoResultCallback) : void {
+               registeredIContactPhotoResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactPhoto", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactPhotoResultCallback' on receiving async response.
+               } else {
+                    registeredIContactPhotoResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IContact.getContactPhoto");
+               }
           }
           getContacts(callback: IContactResultCallback) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContacts", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IContact.getContacts");
+               }
           }
           getContactsForFields(callback: IContactResultCallback, fields: Array<IContactFieldGroupEnum>) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactsForFields", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IContact.getContactsForFields");
+               }
           }
           getContactsWithFilter(callback: IContactResultCallback, fields: Array<IContactFieldGroupEnum>, filter: Array<IContactFilterEnum>) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactsWithFilter", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IContact.getContactsWithFilter");
+               }
           }
           searchContacts(term: string, callback: IContactResultCallback) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/searchContacts", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IContact.searchContacts");
+               }
           }
           searchContactsWithFilter(term: string, callback: IContactResultCallback, filter: Array<IContactFilterEnum>) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/searchContactsWithFilter", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IContact.searchContactsWithFilter");
+               }
           }
           setContactPhoto(contact: ContactUid, pngImage: Array<number>) : boolean {
                var xhr = new XMLHttpRequest();
@@ -2056,9 +2549,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IContact.setContactPhoto incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IContact.setContactPhoto");
                     return null;
                }
           }
@@ -2117,6 +2613,14 @@ module Adaptive {
           constructor() {}
 
           dismissApplication() : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IRuntime/dismissApplication", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // No parameters.
+               if (xhr.status == 200) {
+               } else {
+                    console.log("ERROR: "+xhr.status+" IRuntime.dismissApplication");
+               }
           }
           dismissSplashScreen() : boolean {
                var xhr = new XMLHttpRequest();
@@ -2126,9 +2630,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IRuntime.dismissSplashScreen incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IRuntime.dismissSplashScreen");
                     return null;
                }
           }
@@ -2175,7 +2682,18 @@ module Adaptive {
      }
 
      /**
-      *  Listener IMessagingCallback implementation.
+      *  Callback IMessagingCallback control dictionary.
+      */
+     var registeredIMessagingCallback = new Dictionary<IMessagingCallback>([]);
+
+     /**
+      *  Callback IMessagingCallback handler.
+          // TODO: Implement handler.
+      */
+     export function handleIMessagingCallback(id:number) {
+     }
+     /**
+      *  Callback IMessagingCallback implementation.
       */
      export class MessagingCallback implements IMessagingCallback {
           description: string;
@@ -2259,7 +2777,18 @@ module Adaptive {
      }
 
      /**
-      *  Listener IDatabaseResultCallback implementation.
+      *  Callback IDatabaseResultCallback control dictionary.
+      */
+     var registeredIDatabaseResultCallback = new Dictionary<IDatabaseResultCallback>([]);
+
+     /**
+      *  Callback IDatabaseResultCallback handler.
+          // TODO: Implement handler.
+      */
+     export function handleIDatabaseResultCallback(id:number) {
+     }
+     /**
+      *  Callback IDatabaseResultCallback implementation.
       */
      export class DatabaseResultCallback implements IDatabaseResultCallback {
           description: string;
@@ -2326,8 +2855,30 @@ module Adaptive {
           constructor() {}
 
           deleteSecureKeyValuePairs(keys: Array<string>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
+               registeredISecureKVResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/deleteSecureKeyValuePairs", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response.
+               } else {
+                    registeredISecureKVResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" ISecurity.deleteSecureKeyValuePairs");
+               }
           }
           getSecureKeyValuePairs(keys: Array<string>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
+               registeredISecureKVResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/getSecureKeyValuePairs", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response.
+               } else {
+                    registeredISecureKVResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" ISecurity.getSecureKeyValuePairs");
+               }
           }
           isDeviceModified() : boolean {
                var xhr = new XMLHttpRequest();
@@ -2337,13 +2888,27 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ISecurity.isDeviceModified incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ISecurity.isDeviceModified");
                     return null;
                }
           }
           setSecureKeyValuePairs(keyValues: Array<SecureKeyPair>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
+               registeredISecureKVResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/setSecureKeyValuePairs", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response.
+               } else {
+                    registeredISecureKVResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" ISecurity.setSecureKeyValuePairs");
+               }
           }
 
      }
@@ -2496,9 +3061,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ICapabilities.hasButtonSupport incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ICapabilities.hasButtonSupport");
                     return null;
                }
           }
@@ -2510,9 +3078,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ICapabilities.hasCommunicationSupport incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ICapabilities.hasCommunicationSupport");
                     return null;
                }
           }
@@ -2524,9 +3095,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ICapabilities.hasDataSupport incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ICapabilities.hasDataSupport");
                     return null;
                }
           }
@@ -2538,9 +3112,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ICapabilities.hasMediaSupport incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ICapabilities.hasMediaSupport");
                     return null;
                }
           }
@@ -2552,9 +3129,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ICapabilities.hasNetSupport incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ICapabilities.hasNetSupport");
                     return null;
                }
           }
@@ -2566,9 +3146,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ICapabilities.hasNotificationSupport incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ICapabilities.hasNotificationSupport");
                     return null;
                }
           }
@@ -2580,9 +3163,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ICapabilities.hasSensorSupport incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ICapabilities.hasSensorSupport");
                     return null;
                }
           }
@@ -2616,10 +3202,40 @@ module Adaptive {
           constructor() {}
 
           addGeolocationListener(listener: IGeolocationListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IGeolocation/addGeolocationListener", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    registeredIGeolocationListener.add(""+listener.getId(),listener);
+               } else {
+                    console.log("ERROR: "+xhr.status+" IGeolocation.addGeolocationListener");
+               }
           }
           removeGeolocationListener(listener: IGeolocationListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListener", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    registeredIGeolocationListener.remove(""+listener.getId());
+               } else {
+                    console.log("ERROR: "+xhr.status+" IGeolocation.removeGeolocationListener");
+               }
           }
           removeGeolocationListeners() : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListeners", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // No parameters.
+               if (xhr.status == 200) {
+                    var keys = registeredIAccelerationListener.keys();
+                    for (var key in keys) {
+                         registeredIAccelerationListener.remove(key);
+                    }
+               } else {
+                    console.log("ERROR: "+xhr.status+" IGeolocation.removeGeolocationListeners");
+               }
           }
 
      }
@@ -2675,9 +3291,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: ITelephony.call incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" ITelephony.call");
                     return null;
                }
           }
@@ -2723,6 +3342,17 @@ module Adaptive {
           constructor() {}
 
           sendSMS(number: string, text: string, callback: IMessagingCallback) : void {
+               registeredIMessagingCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IMessaging/sendSMS", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIMessagingCallback' on receiving async response.
+               } else {
+                    registeredIMessagingCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IMessaging.sendSMS");
+               }
           }
 
      }
@@ -2773,9 +3403,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.endsWith incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.endsWith");
                     return null;
                }
           }
@@ -2787,9 +3420,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.endsWithPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.endsWithPath");
                     return null;
                }
           }
@@ -2801,9 +3437,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.equalPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.equalPath");
                     return null;
                }
           }
@@ -2815,9 +3454,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.equals incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.equals");
                     return null;
                }
           }
@@ -2829,9 +3471,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.getFileName incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.getFileName");
                     return null;
                }
           }
@@ -2843,9 +3488,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.getFileSystem incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.getFileSystem");
                     return null;
                }
           }
@@ -2857,9 +3505,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.getNameAtIndex incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.getNameAtIndex");
                     return null;
                }
           }
@@ -2871,9 +3522,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.getNameCount incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.getNameCount");
                     return null;
                }
           }
@@ -2885,9 +3539,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.getParent incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.getParent");
                     return null;
                }
           }
@@ -2899,9 +3556,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.getRoot incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.getRoot");
                     return null;
                }
           }
@@ -2913,9 +3573,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.isAbsolute incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.isAbsolute");
                     return null;
                }
           }
@@ -2927,9 +3590,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.normalize incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.normalize");
                     return null;
                }
           }
@@ -2941,9 +3607,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.relativize incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.relativize");
                     return null;
                }
           }
@@ -2955,9 +3624,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.resolve incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.resolve");
                     return null;
                }
           }
@@ -2969,9 +3641,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.resolvePath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.resolvePath");
                     return null;
                }
           }
@@ -2983,9 +3658,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.resolveSibling incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.resolveSibling");
                     return null;
                }
           }
@@ -2997,9 +3675,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.resolveSiblingPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.resolveSiblingPath");
                     return null;
                }
           }
@@ -3011,9 +3692,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.startsWith incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.startsWith");
                     return null;
                }
           }
@@ -3025,9 +3709,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.startsWithPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.startsWithPath");
                     return null;
                }
           }
@@ -3039,9 +3726,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.toAbsolutePath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.toAbsolutePath");
                     return null;
                }
           }
@@ -3053,9 +3743,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.toFile incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.toFile");
                     return null;
                }
           }
@@ -3067,9 +3760,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFilePath.toString incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFilePath.toString");
                     return null;
                }
           }
@@ -3131,7 +3827,18 @@ module Adaptive {
      }
 
      /**
-      *  Listener ITableResultCallback implementation.
+      *  Callback ITableResultCallback control dictionary.
+      */
+     var registeredITableResultCallback = new Dictionary<ITableResultCallback>([]);
+
+     /**
+      *  Callback ITableResultCallback handler.
+          // TODO: Implement handler.
+      */
+     export function handleITableResultCallback(id:number) {
+     }
+     /**
+      *  Callback ITableResultCallback implementation.
       */
      export class TableResultCallback implements ITableResultCallback {
           description: string;
@@ -3241,7 +3948,18 @@ module Adaptive {
      }
 
      /**
-      *  Listener IFileListResultCallback implementation.
+      *  Callback IFileListResultCallback control dictionary.
+      */
+     var registeredIFileListResultCallback = new Dictionary<IFileListResultCallback>([]);
+
+     /**
+      *  Callback IFileListResultCallback handler.
+          // TODO: Implement handler.
+      */
+     export function handleIFileListResultCallback(id:number) {
+     }
+     /**
+      *  Callback IFileListResultCallback implementation.
       */
      export class FileListResultCallback implements IFileListResultCallback {
           description: string;
@@ -3321,10 +4039,40 @@ module Adaptive {
           constructor() {}
 
           addAccelerationListener(listener: IAccelerationListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/addAccelerationListener", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    registeredIAccelerationListener.add(""+listener.getId(),listener);
+               } else {
+                    console.log("ERROR: "+xhr.status+" IAccelerometer.addAccelerationListener");
+               }
           }
           removeAccelerationListener(listener: IAccelerationListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListener", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    registeredIAccelerationListener.remove(""+listener.getId());
+               } else {
+                    console.log("ERROR: "+xhr.status+" IAccelerometer.removeAccelerationListener");
+               }
           }
           removeAccelerationListeners() : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListeners", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // No parameters.
+               if (xhr.status == 200) {
+                    var keys = registeredIAccelerationListener.keys();
+                    for (var key in keys) {
+                         registeredIAccelerationListener.remove(key);
+                    }
+               } else {
+                    console.log("ERROR: "+xhr.status+" IAccelerometer.removeAccelerationListeners");
+               }
           }
 
      }
@@ -3408,9 +4156,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IGlobalization.getLocaleSupportedDescriptors incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IGlobalization.getLocaleSupportedDescriptors");
                     return null;
                }
           }
@@ -3422,9 +4173,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IGlobalization.getResourceLiteral incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IGlobalization.getResourceLiteral");
                     return null;
                }
           }
@@ -3436,9 +4190,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IGlobalization.getResourceLiterals incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IGlobalization.getResourceLiterals");
                     return null;
                }
           }
@@ -3493,7 +4250,18 @@ module Adaptive {
      }
 
      /**
-      *  Listener IServiceResultCallback implementation.
+      *  Callback IServiceResultCallback control dictionary.
+      */
+     var registeredIServiceResultCallback = new Dictionary<IServiceResultCallback>([]);
+
+     /**
+      *  Callback IServiceResultCallback handler.
+          // TODO: Implement handler.
+      */
+     export function handleIServiceResultCallback(id:number) {
+     }
+     /**
+      *  Callback IServiceResultCallback implementation.
       */
      export class ServiceResultCallback implements IServiceResultCallback {
           description: string;
@@ -3576,7 +4344,18 @@ module Adaptive {
      }
 
      /**
-      *  Listener IFileDataResultCallback implementation.
+      *  Callback IFileDataResultCallback control dictionary.
+      */
+     var registeredIFileDataResultCallback = new Dictionary<IFileDataResultCallback>([]);
+
+     /**
+      *  Callback IFileDataResultCallback handler.
+          // TODO: Implement handler.
+      */
+     export function handleIFileDataResultCallback(id:number) {
+     }
+     /**
+      *  Callback IFileDataResultCallback implementation.
       */
      export class FileDataResultCallback implements IFileDataResultCallback {
           description: string;
@@ -3640,6 +4419,14 @@ module Adaptive {
           constructor() {}
 
           playStream(url: string) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseMedia/IVideo/playStream", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+               } else {
+                    console.log("ERROR: "+xhr.status+" IVideo.playStream");
+               }
           }
 
      }
@@ -3711,9 +4498,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.canRead incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.canRead");
                     return null;
                }
           }
@@ -3725,15 +4515,40 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.canWrite incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.canWrite");
                     return null;
                }
           }
           create(name: string, callback: IFileResultCallback) : void {
+               registeredIFileResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/create", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+               } else {
+                    registeredIFileResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IFile.create");
+               }
           }
           createWithPath(path: string, name: string, callback: IFileResultCallback) : void {
+               registeredIFileResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/createWithPath", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+               } else {
+                    registeredIFileResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IFile.createWithPath");
+               }
           }
           delete(cascade: boolean) : boolean {
                var xhr = new XMLHttpRequest();
@@ -3743,9 +4558,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.delete incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.delete");
                     return null;
                }
           }
@@ -3757,9 +4575,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.endsWith incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.endsWith");
                     return null;
                }
           }
@@ -3771,9 +4592,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.endsWithPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.endsWithPath");
                     return null;
                }
           }
@@ -3785,9 +4609,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.equalPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.equalPath");
                     return null;
                }
           }
@@ -3799,9 +4626,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.equals incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.equals");
                     return null;
                }
           }
@@ -3813,13 +4643,27 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.exists incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.exists");
                     return null;
                }
           }
           getContent(callback: IFileDataResultCallback) : void {
+               registeredIFileDataResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getContent", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileDataResultCallback' on receiving async response.
+               } else {
+                    registeredIFileDataResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IFile.getContent");
+               }
           }
           getDateCreated() : number {
                var xhr = new XMLHttpRequest();
@@ -3829,9 +4673,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.getDateCreated incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.getDateCreated");
                     return null;
                }
           }
@@ -3843,9 +4690,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.getDateModified incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.getDateModified");
                     return null;
                }
           }
@@ -3857,9 +4707,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.getFileName incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.getFileName");
                     return null;
                }
           }
@@ -3871,9 +4724,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.getFileSystem incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.getFileSystem");
                     return null;
                }
           }
@@ -3885,9 +4741,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.getName incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.getName");
                     return null;
                }
           }
@@ -3899,9 +4758,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.getNameAtIndex incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.getNameAtIndex");
                     return null;
                }
           }
@@ -3913,9 +4775,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.getNameCount incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.getNameCount");
                     return null;
                }
           }
@@ -3927,9 +4792,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.getParent incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.getParent");
                     return null;
                }
           }
@@ -3941,9 +4809,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.getPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.getPath");
                     return null;
                }
           }
@@ -3955,9 +4826,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.getRoot incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.getRoot");
                     return null;
                }
           }
@@ -3969,9 +4843,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.getSize incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.getSize");
                     return null;
                }
           }
@@ -3983,9 +4860,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.isAbsolute incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.isAbsolute");
                     return null;
                }
           }
@@ -3997,15 +4877,40 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.isDirectory incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.isDirectory");
                     return null;
                }
           }
           listFiles(callback: IFileListResultCallback) : void {
+               registeredIFileListResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/listFiles", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileListResultCallback' on receiving async response.
+               } else {
+                    registeredIFileListResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IFile.listFiles");
+               }
           }
           listFilesForRegex(regex: string, callback: IFileListResultCallback) : void {
+               registeredIFileListResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/listFilesForRegex", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileListResultCallback' on receiving async response.
+               } else {
+                    registeredIFileListResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IFile.listFilesForRegex");
+               }
           }
           mkDir(recursive: boolean) : boolean {
                var xhr = new XMLHttpRequest();
@@ -4015,13 +4920,27 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.mkDir incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.mkDir");
                     return null;
                }
           }
           move(newFile: IFile, createPath: boolean, callback: IFileResultCallback, overwrite: boolean) : void {
+               registeredIFileResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/move", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+               } else {
+                    registeredIFileResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IFile.move");
+               }
           }
           normalize() : IFilePath {
                var xhr = new XMLHttpRequest();
@@ -4031,9 +4950,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.normalize incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.normalize");
                     return null;
                }
           }
@@ -4045,9 +4967,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.relativize incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.relativize");
                     return null;
                }
           }
@@ -4059,9 +4984,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.resolve incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.resolve");
                     return null;
                }
           }
@@ -4073,9 +5001,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.resolvePath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.resolvePath");
                     return null;
                }
           }
@@ -4087,9 +5018,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.resolveSibling incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.resolveSibling");
                     return null;
                }
           }
@@ -4101,13 +5035,27 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.resolveSiblingPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.resolveSiblingPath");
                     return null;
                }
           }
           setContent(content: Array<number>, callback: IFileDataResultCallback) : void {
+               registeredIFileDataResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/setContent", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // TODO: Add parameters to send.
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileDataResultCallback' on receiving async response.
+               } else {
+                    registeredIFileDataResultCallback.remove(""+callback.getId());
+                    console.log("ERROR: "+xhr.status+" IFile.setContent");
+               }
           }
           startsWith(other: string) : boolean {
                var xhr = new XMLHttpRequest();
@@ -4117,9 +5065,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.startsWith incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.startsWith");
                     return null;
                }
           }
@@ -4131,9 +5082,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.startsWithPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.startsWithPath");
                     return null;
                }
           }
@@ -4145,9 +5099,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.toAbsolutePath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.toAbsolutePath");
                     return null;
                }
           }
@@ -4159,9 +5116,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.toFile incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.toFile");
                     return null;
                }
           }
@@ -4173,9 +5133,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.toPath incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.toPath");
                     return null;
                }
           }
@@ -4187,9 +5150,12 @@ module Adaptive {
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
+                    } else {
+                         console.log("ERROR: IFile.toString incorrect response received.");
+                         return null;
                     }
                } else {
-                    console.log("ERROR: "+xhr.status);
+                    console.log("ERROR: "+xhr.status+" IFile.toString");
                     return null;
                }
           }
