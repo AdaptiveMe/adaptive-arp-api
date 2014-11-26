@@ -7348,7 +7348,135 @@ module Adaptive {
           static SERVICETYPE_XMLRPC_JSON = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_JSON");
           static SERVICETYPE_XMLRPC_XML = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_XML");
           static Unknown = new ServiceServiceTypeEnum("Unknown");
+
+         public static getClassDescription() : string {
+             return "static";
+         }
      }
 
+    export class ReflectionStereotypeEnum {
+        constructor(public value:string){}
+        toString(){return this.value;}
 
+        static TypeModule = new ReflectionStereotypeEnum("Module");
+        static TypeCategory = new ReflectionStereotypeEnum("Category");
+        static TypeClass = new ReflectionStereotypeEnum("Class");
+        static TypeFunction = new ReflectionStereotypeEnum("Function");
+        static TypeObject = new ReflectionStereotypeEnum("Object");
+        static TypeDescription = new ReflectionStereotypeEnum("Description");
+    }
+
+    export class ReflectionTypeEnum {
+        constructor(public value:string){}
+        toString(){return this.value;}
+
+        static TypeString = new ReflectionStereotypeEnum("string");
+        static TypeNumber = new ReflectionStereotypeEnum("number");
+        static TypeObject = new ReflectionStereotypeEnum("object");
+        static TypeArray = new ReflectionStereotypeEnum("Array");
+    }
+
+    export interface IReflection {
+        name : string;
+        description: string;
+        getName() : string;
+        getStereotype() : ReflectionStereotypeEnum;
+        getDescription(): string;
+    }
+
+    export interface IModule extends IReflection {
+        categories: Array<ICategory>
+        getCategories() : Array<ICategory>;
+        getClasses() : Array<IClass>;
+    }
+
+    export interface ICategory extends IReflection {
+        classes: Array<IClass>;
+        getClasses() : Array<IClass>;
+    }
+
+    export interface IClass extends IReflection {
+        functions: Array<IFunction>;
+        getFunctions() : Array<IFunction>;
+    }
+
+    export interface IFunction extends IReflection {
+        parameters: Array<IObject>;
+        getParameters() : Array<IObject>;
+        getReturnType() : IObject;
+    }
+
+    interface IObject extends IReflection {
+        type: string;
+        componentType: IObject;
+
+        getType() : string;
+        getComponentType():string;
+        isPrimitive():boolean;
+        isArray():boolean;
+        isVoid():boolean;
+    }
+
+    export class ReflectionModule implements IModule {
+        name:string;
+        description:string;
+        categories:Array<ICategory>;
+
+        constructor(name:string, description:string, categories:Array<ICategory>) {
+            this.name = name;
+            this.description = description;
+            this.categories = categories;
+        }
+
+        getName():string {
+            return this.name;
+        }
+
+        getStereotype(): ReflectionStereotypeEnum {
+            return ReflectionStereotypeEnum.TypeModule;
+        }
+
+        getDescription(): string {
+            return this.description;
+        }
+
+        getCategories():Array<ICategory> {
+            return this.categories;
+        }
+
+        getClasses():Array<IClass> {
+            var classArray = new Array<IClass>();
+            for (var category in this.categories) {
+                for (var clazz in category.getClasses()) {
+                    classArray.push(clazz);
+                }
+            }
+            return classArray;
+        }
+    }
+
+    export class ReflectionCategory implements ICategory {
+        classes:Array<IClass>;
+        name:string;
+        description:string;
+
+        getClasses():Array<IClass> {
+            return this.classes;
+        }
+
+        getName():string {
+            return this.name;
+        }
+
+        getStereotype():ReflectionStereotypeEnum {
+            return ReflectionStereotypeEnum.TypeCategory;
+        }
+
+        getDescription():string {
+            return this.description;
+        }
+
+    }
 }
+
+console.log(Adaptive.ServiceServiceTypeEnum.getClassDescription());
