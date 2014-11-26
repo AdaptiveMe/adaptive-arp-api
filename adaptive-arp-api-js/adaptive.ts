@@ -470,9 +470,9 @@ module Adaptive {
 
           addButtonListener(listener: IButtonListener) : void {
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/addButtonListener", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/addButtonListener?id="+listener.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(); // Listeners only require id included in URL param.
                if (xhr.status == 200) {
                     registeredIButtonListener.add(""+listener.getId(),listener);
                } else {
@@ -483,7 +483,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/getDeviceInfo", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -500,7 +500,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/getLocaleCurrent", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -515,9 +515,9 @@ module Adaptive {
           }
           removeButtonListener(listener: IButtonListener) : void {
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListener", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListener?id="+listener.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(); // Listeners only require id included in URL param.
                if (xhr.status == 200) {
                     registeredIButtonListener.remove(""+listener.getId());
                } else {
@@ -561,11 +561,11 @@ module Adaptive {
           sendEmail(data: Email, callback: IMessagingCallback) : void {
                registeredIMessagingCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IMail/sendEmail", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IMail/sendEmail?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { data: data } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIMessagingCallback' on receiving async response.
+                    // Callback removed from 'registeredIMessagingCallback' on receiving async response handler.
                } else {
                     registeredIMessagingCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IMail.sendEmail");
@@ -615,10 +615,34 @@ module Adaptive {
      var registeredISecureKVResultCallback = new Dictionary<ISecureKVResultCallback>([]);
 
      /**
-      *  Callback ISecureKVResultCallback handler.
-          // TODO: Implement handler.
+      *  Callback ISecureKVResultCallback onError/onWarning/onResult handlers.
       */
-     export function handleISecureKVResultCallback(id:number) {
+     export function handleISecureKVResultCallbackError(id:number, error: ISecureKVResultCallbackErrorEnum) : void {
+          var callback = registeredISecureKVResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredISecureKVResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredISecureKVResultCallback.remove(""+id)
+          }
+     }
+     export function handleISecureKVResultCallbackResult(id:number, keyValues: Array<SecureKeyPair>) : void {
+          var callback = registeredISecureKVResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredISecureKVResultCallback dictionary.");
+          } else {
+               callback.onResult(keyValues);
+               registeredISecureKVResultCallback.remove(""+id)
+          }
+     }
+     export function handleISecureKVResultCallbackWarning(id:number, keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) : void {
+          var callback = registeredISecureKVResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredISecureKVResultCallback dictionary.");
+          } else {
+               callback.onWarning(keyValues, warning);
+               registeredISecureKVResultCallback.remove(""+id)
+          }
      }
      /**
       *  Callback ISecureKVResultCallback implementation.
@@ -743,10 +767,34 @@ module Adaptive {
      var registeredIFileResultCallback = new Dictionary<IFileResultCallback>([]);
 
      /**
-      *  Callback IFileResultCallback handler.
-          // TODO: Implement handler.
+      *  Callback IFileResultCallback onError/onWarning/onResult handlers.
       */
-     export function handleIFileResultCallback(id:number) {
+     export function handleIFileResultCallbackError(id:number, error: IFileResultCallbackErrorEnum) : void {
+          var callback = registeredIFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIFileResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileResultCallbackResult(id:number, storageFile: IFile) : void {
+          var callback = registeredIFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileResultCallback dictionary.");
+          } else {
+               callback.onResult(storageFile);
+               registeredIFileResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileResultCallbackWarning(id:number, sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) : void {
+          var callback = registeredIFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileResultCallback dictionary.");
+          } else {
+               callback.onWarning(sourceFile, destinationFile, warning);
+               registeredIFileResultCallback.remove(""+id)
+          }
      }
      /**
       *  Callback IFileResultCallback implementation.
@@ -892,10 +940,31 @@ module Adaptive {
      var registeredILifecycleListener = new Dictionary<ILifecycleListener>([]);
 
      /**
-      *  Listener ILifecycleListener handler.
-          // TODO: Implement handler.
+      *  Listener ILifecycleListener onError/onWarning/onResult handlers.
       */
-     export function handleILifecycleListener(id:number) {
+     export function handleILifecycleListenerError(id:number, error: ILifecycleListenerErrorEnum) : void {
+          var listener = registeredILifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredILifecycleListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleILifecycleListenerResult(id:number, lifecycle: Lifecycle) : void {
+          var listener = registeredILifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredILifecycleListener dictionary.");
+          } else {
+               listener.onResult(lifecycle);
+          }
+     }
+     export function handleILifecycleListenerWarning(id:number, lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) : void {
+          var listener = registeredILifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredILifecycleListener dictionary.");
+          } else {
+               listener.onWarning(lifecycle, warning);
+          }
      }
      /**
       *  Listener ILifecycleListener implementation.
@@ -1015,7 +1084,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/getAttribute", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { name: name}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -1032,7 +1101,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/getAttributes", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -1049,7 +1118,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/getCookies", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -1066,7 +1135,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/listAttributeNames", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -1083,7 +1152,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeAttribute", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { name: name}}));
                if (xhr.status == 200) {
                } else {
                     console.error("ERROR: "+xhr.status+" ISession.removeAttribute");
@@ -1103,7 +1172,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeCookie", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { cookie: cookie}}));
                if (xhr.status == 200) {
                } else {
                     console.error("ERROR: "+xhr.status+" ISession.removeCookie");
@@ -1113,7 +1182,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeCookies", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { cookies: cookies}}));
                if (xhr.status == 200) {
                } else {
                     console.error("ERROR: "+xhr.status+" ISession.removeCookies");
@@ -1123,7 +1192,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setAttribute", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { name: name, value: value}}));
                if (xhr.status == 200) {
                } else {
                     console.error("ERROR: "+xhr.status+" ISession.setAttribute");
@@ -1133,7 +1202,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setCookie", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { cookie: cookie}}));
                if (xhr.status == 200) {
                } else {
                     console.error("ERROR: "+xhr.status+" ISession.setCookie");
@@ -1143,7 +1212,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setCookies", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { cookies: cookies}}));
                if (xhr.status == 200) {
                } else {
                     console.error("ERROR: "+xhr.status+" ISession.setCookies");
@@ -1223,10 +1292,34 @@ module Adaptive {
      var registeredINetworkReachabilityCallback = new Dictionary<INetworkReachabilityCallback>([]);
 
      /**
-      *  Callback INetworkReachabilityCallback handler.
-          // TODO: Implement handler.
+      *  Callback INetworkReachabilityCallback onError/onWarning/onResult handlers.
       */
-     export function handleINetworkReachabilityCallback(id:number) {
+     export function handleINetworkReachabilityCallbackError(id:number, error: INetworkReachabilityCallbackErrorEnum) : void {
+          var callback = registeredINetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredINetworkReachabilityCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredINetworkReachabilityCallback.remove(""+id)
+          }
+     }
+     export function handleINetworkReachabilityCallbackResult(id:number, result: string) : void {
+          var callback = registeredINetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredINetworkReachabilityCallback dictionary.");
+          } else {
+               callback.onResult(result);
+               registeredINetworkReachabilityCallback.remove(""+id)
+          }
+     }
+     export function handleINetworkReachabilityCallbackWarning(id:number, result: string, warning: INetworkReachabilityCallbackWarningEnum) : void {
+          var callback = registeredINetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredINetworkReachabilityCallback dictionary.");
+          } else {
+               callback.onWarning(result, warning);
+               registeredINetworkReachabilityCallback.remove(""+id)
+          }
      }
      /**
       *  Callback INetworkReachabilityCallback implementation.
@@ -1329,10 +1422,31 @@ module Adaptive {
      var registeredIAccelerationListener = new Dictionary<IAccelerationListener>([]);
 
      /**
-      *  Listener IAccelerationListener handler.
-          // TODO: Implement handler.
+      *  Listener IAccelerationListener onError/onWarning/onResult handlers.
       */
-     export function handleIAccelerationListener(id:number) {
+     export function handleIAccelerationListenerError(id:number, error: IAccelerationListenerErrorEnum) : void {
+          var listener = registeredIAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIAccelerationListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleIAccelerationListenerResult(id:number, acceleration: Acceleration) : void {
+          var listener = registeredIAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIAccelerationListener dictionary.");
+          } else {
+               listener.onResult(acceleration);
+          }
+     }
+     export function handleIAccelerationListenerWarning(id:number, acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) : void {
+          var listener = registeredIAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIAccelerationListener dictionary.");
+          } else {
+               listener.onWarning(acceleration, warning);
+          }
      }
      /**
       *  Listener IAccelerationListener implementation.
@@ -1421,11 +1535,11 @@ module Adaptive {
           createDatabase(database: Database, callback: IDatabaseResultCallback) : void {
                registeredIDatabaseResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/createDatabase", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/createDatabase?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { database: database } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response handler.
                } else {
                     registeredIDatabaseResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IDatabase.createDatabase");
@@ -1434,11 +1548,11 @@ module Adaptive {
           createTable(database: Database, table: Table, callback: ITableResultCallback) : void {
                registeredITableResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/createTable", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/createTable?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { database: database, table: table } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredITableResultCallback' on receiving async response.
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
                } else {
                     registeredITableResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IDatabase.createTable");
@@ -1447,11 +1561,11 @@ module Adaptive {
           deleteDatabase(database: Database, callback: IDatabaseResultCallback) : void {
                registeredIDatabaseResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/deleteDatabase", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/deleteDatabase?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { database: database } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response handler.
                } else {
                     registeredIDatabaseResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IDatabase.deleteDatabase");
@@ -1460,11 +1574,11 @@ module Adaptive {
           deleteTable(database: Database, table: Table, callback: ITableResultCallback) : void {
                registeredITableResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/deleteTable", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/deleteTable?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { database: database, table: table } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredITableResultCallback' on receiving async response.
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
                } else {
                     registeredITableResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IDatabase.deleteTable");
@@ -1473,11 +1587,11 @@ module Adaptive {
           executeSqlQuery(database: Database, query: string, replacements: Array<string>, callback: ITableResultCallback) : void {
                registeredITableResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlQuery", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlQuery?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { database: database, query: query, replacements: replacements } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredITableResultCallback' on receiving async response.
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
                } else {
                     registeredITableResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IDatabase.executeSqlQuery");
@@ -1486,11 +1600,11 @@ module Adaptive {
           executeSqlStatement(database: Database, statement: string, replacements: Array<string>, callback: ITableResultCallback) : void {
                registeredITableResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlStatement", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlStatement?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { database: database, statement: statement, replacements: replacements } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredITableResultCallback' on receiving async response.
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
                } else {
                     registeredITableResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IDatabase.executeSqlStatement");
@@ -1499,11 +1613,11 @@ module Adaptive {
           executeSqlTransactions(database: Database, statements: Array<string>, rollbackFlag: boolean, callback: ITableResultCallback) : void {
                registeredITableResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlTransactions", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlTransactions?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { database: database, statements: statements, rollbackFlag: rollbackFlag } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredITableResultCallback' on receiving async response.
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
                } else {
                     registeredITableResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IDatabase.executeSqlTransactions");
@@ -1513,7 +1627,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/existsDatabase", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { database: database}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -1530,7 +1644,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/existsTable", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { database: database, table: table}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -1593,10 +1707,31 @@ module Adaptive {
      var registeredIButtonListener = new Dictionary<IButtonListener>([]);
 
      /**
-      *  Listener IButtonListener handler.
-          // TODO: Implement handler.
+      *  Listener IButtonListener onError/onWarning/onResult handlers.
       */
-     export function handleIButtonListener(id:number) {
+     export function handleIButtonListenerError(id:number, error: IButtonListenerErrorEnum) : void {
+          var listener = registeredIButtonListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIButtonListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleIButtonListenerResult(id:number, button: Button) : void {
+          var listener = registeredIButtonListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIButtonListener dictionary.");
+          } else {
+               listener.onResult(button);
+          }
+     }
+     export function handleIButtonListenerWarning(id:number, button: Button, warning: IButtonListenerWarningEnum) : void {
+          var listener = registeredIButtonListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIButtonListener dictionary.");
+          } else {
+               listener.onWarning(button, warning);
+          }
      }
      /**
       *  Listener IButtonListener implementation.
@@ -1727,10 +1862,34 @@ module Adaptive {
      var registeredIContactResultCallback = new Dictionary<IContactResultCallback>([]);
 
      /**
-      *  Callback IContactResultCallback handler.
-          // TODO: Implement handler.
+      *  Callback IContactResultCallback onError/onWarning/onResult handlers.
       */
-     export function handleIContactResultCallback(id:number) {
+     export function handleIContactResultCallbackError(id:number, error: IContactResultCallbackErrorEnum) : void {
+          var callback = registeredIContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIContactResultCallback.remove(""+id)
+          }
+     }
+     export function handleIContactResultCallbackResult(id:number, contacts: Array<Contact>) : void {
+          var callback = registeredIContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactResultCallback dictionary.");
+          } else {
+               callback.onResult(contacts);
+               registeredIContactResultCallback.remove(""+id)
+          }
+     }
+     export function handleIContactResultCallbackWarning(id:number, contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) : void {
+          var callback = registeredIContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactResultCallback dictionary.");
+          } else {
+               callback.onWarning(contacts, warning);
+               registeredIContactResultCallback.remove(""+id)
+          }
      }
      /**
       *  Callback IContactResultCallback implementation.
@@ -1819,7 +1978,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseUI/IBrowser/openBrowser", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { url: url, title: title, buttonText: buttonText}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -1863,11 +2022,11 @@ module Adaptive {
           isNetworkReachable(host: string, callback: INetworkReachabilityCallback) : void {
                registeredINetworkReachabilityCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkReachable", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkReachable?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { host: host } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response.
+                    // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response handler.
                } else {
                     registeredINetworkReachabilityCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" INetworkReachability.isNetworkReachable");
@@ -1876,11 +2035,11 @@ module Adaptive {
           isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback) : void {
                registeredINetworkReachabilityCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkServiceReachable", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkServiceReachable?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { url: url } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response.
+                    // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response handler.
                } else {
                     registeredINetworkReachabilityCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" INetworkReachability.isNetworkServiceReachable");
@@ -1961,10 +2120,31 @@ module Adaptive {
      var registeredIGeolocationListener = new Dictionary<IGeolocationListener>([]);
 
      /**
-      *  Listener IGeolocationListener handler.
-          // TODO: Implement handler.
+      *  Listener IGeolocationListener onError/onWarning/onResult handlers.
       */
-     export function handleIGeolocationListener(id:number) {
+     export function handleIGeolocationListenerError(id:number, error: IGeolocationListenerErrorEnum) : void {
+          var listener = registeredIGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIGeolocationListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleIGeolocationListenerResult(id:number, geolocation: Geolocation) : void {
+          var listener = registeredIGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIGeolocationListener dictionary.");
+          } else {
+               listener.onResult(geolocation);
+          }
+     }
+     export function handleIGeolocationListenerWarning(id:number, geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) : void {
+          var listener = registeredIGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIGeolocationListener dictionary.");
+          } else {
+               listener.onWarning(geolocation, warning);
+          }
      }
      /**
       *  Listener IGeolocationListener implementation.
@@ -2068,10 +2248,34 @@ module Adaptive {
      var registeredIContactPhotoResultCallback = new Dictionary<IContactPhotoResultCallback>([]);
 
      /**
-      *  Callback IContactPhotoResultCallback handler.
-          // TODO: Implement handler.
+      *  Callback IContactPhotoResultCallback onError/onWarning/onResult handlers.
       */
-     export function handleIContactPhotoResultCallback(id:number) {
+     export function handleIContactPhotoResultCallbackError(id:number, error: IContactPhotoResultCallbackErrorEnum) : void {
+          var callback = registeredIContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactPhotoResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIContactPhotoResultCallback.remove(""+id)
+          }
+     }
+     export function handleIContactPhotoResultCallbackResult(id:number, contactPhoto: Array<number>) : void {
+          var callback = registeredIContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactPhotoResultCallback dictionary.");
+          } else {
+               callback.onResult(contactPhoto);
+               registeredIContactPhotoResultCallback.remove(""+id)
+          }
+     }
+     export function handleIContactPhotoResultCallbackWarning(id:number, contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) : void {
+          var callback = registeredIContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactPhotoResultCallback dictionary.");
+          } else {
+               callback.onWarning(contactPhoto, warning);
+               registeredIContactPhotoResultCallback.remove(""+id)
+          }
      }
      /**
       *  Callback IContactPhotoResultCallback implementation.
@@ -2154,9 +2358,9 @@ module Adaptive {
 
           addLifecycleListener(listener: ILifecycleListener) : void {
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/addLifecycleListener", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/addLifecycleListener?id="+listener.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(); // Listeners only require id included in URL param.
                if (xhr.status == 200) {
                     registeredILifecycleListener.add(""+listener.getId(),listener);
                } else {
@@ -2167,7 +2371,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/isBackground", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2182,9 +2386,9 @@ module Adaptive {
           }
           removeLifecycleListener(listener: ILifecycleListener) : void {
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListener", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListener?id="+listener.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(); // Listeners only require id included in URL param.
                if (xhr.status == 200) {
                     registeredILifecycleListener.remove(""+listener.getId());
                } else {
@@ -2239,11 +2443,11 @@ module Adaptive {
           create(name: string, callback: IFileResultCallback) : void {
                registeredIFileResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/create", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/create?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { name: name } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IFileSystem.create");
@@ -2252,11 +2456,11 @@ module Adaptive {
           createWithPath(path: IFilePath, name: string, callback: IFileResultCallback) : void {
                registeredIFileResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/createWithPath", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/createWithPath?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { path: path, name: name } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IFileSystem.createWithPath");
@@ -2265,11 +2469,11 @@ module Adaptive {
           createWithPathString(path: string, name: string, callback: IFileResultCallback) : void {
                registeredIFileResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/createWithPathString", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/createWithPathString?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { path: path, name: name } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IFileSystem.createWithPathString");
@@ -2279,7 +2483,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getApplicationCacheFolder", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2296,7 +2500,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getApplicationDocumentsFolder", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2313,7 +2517,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getApplicationFolder", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2330,7 +2534,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getPathForFile", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { file: file}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2347,7 +2551,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getPathForPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { path: path}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2364,7 +2568,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getSeparator", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2381,7 +2585,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/isSameFile", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { source: source, dest: dest}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2398,7 +2602,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/isSamePath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { source: source, dest: dest}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2415,7 +2619,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/toPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { path: path}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2459,7 +2663,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IOS/getOSInfo", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2561,11 +2765,11 @@ module Adaptive {
           getContact(contact: ContactUid, callback: IContactResultCallback) : void {
                registeredIContactResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContact", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContact?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { contact: contact } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IContact.getContact");
@@ -2574,11 +2778,11 @@ module Adaptive {
           getContactPhoto(contact: ContactUid, callback: IContactPhotoResultCallback) : void {
                registeredIContactPhotoResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactPhoto", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactPhoto?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { contact: contact } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactPhotoResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIContactPhotoResultCallback' on receiving async response handler.
                } else {
                     registeredIContactPhotoResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IContact.getContactPhoto");
@@ -2587,11 +2791,11 @@ module Adaptive {
           getContacts(callback: IContactResultCallback) : void {
                registeredIContactResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContacts", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContacts?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: {  } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IContact.getContacts");
@@ -2600,11 +2804,11 @@ module Adaptive {
           getContactsForFields(callback: IContactResultCallback, fields: Array<IContactFieldGroupEnum>) : void {
                registeredIContactResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactsForFields", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactsForFields?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { callback: callback } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IContact.getContactsForFields");
@@ -2613,11 +2817,11 @@ module Adaptive {
           getContactsWithFilter(callback: IContactResultCallback, fields: Array<IContactFieldGroupEnum>, filter: Array<IContactFilterEnum>) : void {
                registeredIContactResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactsWithFilter", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactsWithFilter?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { callback: callback, fields: fields } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IContact.getContactsWithFilter");
@@ -2626,11 +2830,11 @@ module Adaptive {
           searchContacts(term: string, callback: IContactResultCallback) : void {
                registeredIContactResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/searchContacts", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/searchContacts?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { term: term } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IContact.searchContacts");
@@ -2639,11 +2843,11 @@ module Adaptive {
           searchContactsWithFilter(term: string, callback: IContactResultCallback, filter: Array<IContactFilterEnum>) : void {
                registeredIContactResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/searchContactsWithFilter", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/searchContactsWithFilter?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { term: term, callback: callback } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
                } else {
                     registeredIContactResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IContact.searchContactsWithFilter");
@@ -2653,7 +2857,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/setContactPhoto", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { contact: contact, pngImage: pngImage}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2734,7 +2938,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IRuntime/dismissSplashScreen", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -2795,10 +2999,34 @@ module Adaptive {
      var registeredIMessagingCallback = new Dictionary<IMessagingCallback>([]);
 
      /**
-      *  Callback IMessagingCallback handler.
-          // TODO: Implement handler.
+      *  Callback IMessagingCallback onError/onWarning/onResult handlers.
       */
-     export function handleIMessagingCallback(id:number) {
+     export function handleIMessagingCallbackError(id:number, error: IMessagingCallbackErrorEnum) : void {
+          var callback = registeredIMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIMessagingCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIMessagingCallback.remove(""+id)
+          }
+     }
+     export function handleIMessagingCallbackResult(id:number, success: boolean) : void {
+          var callback = registeredIMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIMessagingCallback dictionary.");
+          } else {
+               callback.onResult(success);
+               registeredIMessagingCallback.remove(""+id)
+          }
+     }
+     export function handleIMessagingCallbackWarning(id:number, success: boolean, warning: IMessagingCallbackWarningEnum) : void {
+          var callback = registeredIMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIMessagingCallback dictionary.");
+          } else {
+               callback.onWarning(success, warning);
+               registeredIMessagingCallback.remove(""+id)
+          }
      }
      /**
       *  Callback IMessagingCallback implementation.
@@ -2902,10 +3130,34 @@ module Adaptive {
      var registeredIDatabaseResultCallback = new Dictionary<IDatabaseResultCallback>([]);
 
      /**
-      *  Callback IDatabaseResultCallback handler.
-          // TODO: Implement handler.
+      *  Callback IDatabaseResultCallback onError/onWarning/onResult handlers.
       */
-     export function handleIDatabaseResultCallback(id:number) {
+     export function handleIDatabaseResultCallbackError(id:number, error: IDatabaseResultCallbackErrorEnum) : void {
+          var callback = registeredIDatabaseResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIDatabaseResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIDatabaseResultCallback.remove(""+id)
+          }
+     }
+     export function handleIDatabaseResultCallbackResult(id:number, database: Database) : void {
+          var callback = registeredIDatabaseResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIDatabaseResultCallback dictionary.");
+          } else {
+               callback.onResult(database);
+               registeredIDatabaseResultCallback.remove(""+id)
+          }
+     }
+     export function handleIDatabaseResultCallbackWarning(id:number, database: Database, warning: IDatabaseResultCallbackWarningEnum) : void {
+          var callback = registeredIDatabaseResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIDatabaseResultCallback dictionary.");
+          } else {
+               callback.onWarning(database, warning);
+               registeredIDatabaseResultCallback.remove(""+id)
+          }
      }
      /**
       *  Callback IDatabaseResultCallback implementation.
@@ -2989,11 +3241,11 @@ module Adaptive {
           deleteSecureKeyValuePairs(keys: Array<string>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
                registeredISecureKVResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/deleteSecureKeyValuePairs", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/deleteSecureKeyValuePairs?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response.
+                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response handler.
                } else {
                     registeredISecureKVResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" ISecurity.deleteSecureKeyValuePairs");
@@ -3002,11 +3254,11 @@ module Adaptive {
           getSecureKeyValuePairs(keys: Array<string>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
                registeredISecureKVResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/getSecureKeyValuePairs", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/getSecureKeyValuePairs?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response.
+                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response handler.
                } else {
                     registeredISecureKVResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" ISecurity.getSecureKeyValuePairs");
@@ -3016,7 +3268,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/isDeviceModified", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3032,11 +3284,11 @@ module Adaptive {
           setSecureKeyValuePairs(keyValues: Array<SecureKeyPair>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
                registeredISecureKVResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/setSecureKeyValuePairs", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/setSecureKeyValuePairs?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { keyValues: keyValues, publicAccessName: publicAccessName } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response.
+                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response handler.
                } else {
                     registeredISecureKVResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" ISecurity.setSecureKeyValuePairs");
@@ -3189,7 +3441,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/ICapabilities/hasButtonSupport", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { type: type}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3206,7 +3458,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/ICapabilities/hasCommunicationSupport", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { type: type}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3223,7 +3475,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/ICapabilities/hasDataSupport", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { type: type}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3240,7 +3492,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/ICapabilities/hasMediaSupport", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { type: type}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3257,7 +3509,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/ICapabilities/hasNetSupport", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { type: type}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3274,7 +3526,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/ICapabilities/hasNotificationSupport", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { type: type}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3291,7 +3543,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/ICapabilities/hasSensorSupport", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { type: type}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3335,9 +3587,9 @@ module Adaptive {
 
           addGeolocationListener(listener: IGeolocationListener) : void {
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IGeolocation/addGeolocationListener", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IGeolocation/addGeolocationListener?id="+listener.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(); // Listeners only require id included in URL param.
                if (xhr.status == 200) {
                     registeredIGeolocationListener.add(""+listener.getId(),listener);
                } else {
@@ -3346,9 +3598,9 @@ module Adaptive {
           }
           removeGeolocationListener(listener: IGeolocationListener) : void {
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListener", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListener?id="+listener.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(); // Listeners only require id included in URL param.
                if (xhr.status == 200) {
                     registeredIGeolocationListener.remove(""+listener.getId());
                } else {
@@ -3419,7 +3671,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ITelephony/call", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { number: number}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3476,11 +3728,11 @@ module Adaptive {
           sendSMS(number: string, text: string, callback: IMessagingCallback) : void {
                registeredIMessagingCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IMessaging/sendSMS", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IMessaging/sendSMS?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { number: number, text: text } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIMessagingCallback' on receiving async response.
+                    // Callback removed from 'registeredIMessagingCallback' on receiving async response handler.
                } else {
                     registeredIMessagingCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IMessaging.sendSMS");
@@ -3531,7 +3783,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/endsWith", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3548,7 +3800,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/endsWithPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3565,7 +3817,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/equalPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3582,7 +3834,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/equals", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3599,7 +3851,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/getFileName", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3616,7 +3868,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/getFileSystem", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3633,7 +3885,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/getNameAtIndex", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { index: index}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3650,7 +3902,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/getNameCount", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3667,7 +3919,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/getParent", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3684,7 +3936,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/getRoot", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3701,7 +3953,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/isAbsolute", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3718,7 +3970,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/normalize", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3735,7 +3987,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/relativize", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3752,7 +4004,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/resolve", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3769,7 +4021,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/resolvePath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3786,7 +4038,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/resolveSibling", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3803,7 +4055,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/resolveSiblingPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3820,7 +4072,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/startsWith", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3837,7 +4089,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/startsWithPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3854,7 +4106,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/toAbsolutePath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3871,7 +4123,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/toFile", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3888,7 +4140,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/toString", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -3964,10 +4216,34 @@ module Adaptive {
      var registeredITableResultCallback = new Dictionary<ITableResultCallback>([]);
 
      /**
-      *  Callback ITableResultCallback handler.
-          // TODO: Implement handler.
+      *  Callback ITableResultCallback onError/onWarning/onResult handlers.
       */
-     export function handleITableResultCallback(id:number) {
+     export function handleITableResultCallbackError(id:number, error: ITableResultCallbackErrorEnum) : void {
+          var callback = registeredITableResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredITableResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredITableResultCallback.remove(""+id)
+          }
+     }
+     export function handleITableResultCallbackResult(id:number, table: Table) : void {
+          var callback = registeredITableResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredITableResultCallback dictionary.");
+          } else {
+               callback.onResult(table);
+               registeredITableResultCallback.remove(""+id)
+          }
+     }
+     export function handleITableResultCallbackWarning(id:number, table: Table, warning: ITableResultCallbackWarningEnum) : void {
+          var callback = registeredITableResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredITableResultCallback dictionary.");
+          } else {
+               callback.onWarning(table, warning);
+               registeredITableResultCallback.remove(""+id)
+          }
      }
      /**
       *  Callback ITableResultCallback implementation.
@@ -4097,10 +4373,34 @@ module Adaptive {
      var registeredIFileListResultCallback = new Dictionary<IFileListResultCallback>([]);
 
      /**
-      *  Callback IFileListResultCallback handler.
-          // TODO: Implement handler.
+      *  Callback IFileListResultCallback onError/onWarning/onResult handlers.
       */
-     export function handleIFileListResultCallback(id:number) {
+     export function handleIFileListResultCallbackError(id:number, error: IFileListResultCallbackErrorEnum) : void {
+          var callback = registeredIFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileListResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIFileListResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileListResultCallbackResult(id:number, files: Array<IFile>) : void {
+          var callback = registeredIFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileListResultCallback dictionary.");
+          } else {
+               callback.onResult(files);
+               registeredIFileListResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileListResultCallbackWarning(id:number, files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) : void {
+          var callback = registeredIFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileListResultCallback dictionary.");
+          } else {
+               callback.onWarning(files, warning);
+               registeredIFileListResultCallback.remove(""+id)
+          }
      }
      /**
       *  Callback IFileListResultCallback implementation.
@@ -4196,9 +4496,9 @@ module Adaptive {
 
           addAccelerationListener(listener: IAccelerationListener) : void {
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/addAccelerationListener", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/addAccelerationListener?id="+listener.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(); // Listeners only require id included in URL param.
                if (xhr.status == 200) {
                     registeredIAccelerationListener.add(""+listener.getId(),listener);
                } else {
@@ -4207,9 +4507,9 @@ module Adaptive {
           }
           removeAccelerationListener(listener: IAccelerationListener) : void {
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListener", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListener?id="+listener.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(); // Listeners only require id included in URL param.
                if (xhr.status == 200) {
                     registeredIAccelerationListener.remove(""+listener.getId());
                } else {
@@ -4308,7 +4608,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/IGlobalization/getLocaleSupportedDescriptors", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4325,7 +4625,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiteral", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { key: key, locale: locale}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4342,7 +4642,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiterals", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { locale: locale}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4411,10 +4711,34 @@ module Adaptive {
      var registeredIServiceResultCallback = new Dictionary<IServiceResultCallback>([]);
 
      /**
-      *  Callback IServiceResultCallback handler.
-          // TODO: Implement handler.
+      *  Callback IServiceResultCallback onError/onWarning/onResult handlers.
       */
-     export function handleIServiceResultCallback(id:number) {
+     export function handleIServiceResultCallbackError(id:number, error: IServiceResultCallbackErrorEnum) : void {
+          var callback = registeredIServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIServiceResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIServiceResultCallback.remove(""+id)
+          }
+     }
+     export function handleIServiceResultCallbackResult(id:number, response: ServiceResponse) : void {
+          var callback = registeredIServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIServiceResultCallback dictionary.");
+          } else {
+               callback.onResult(response);
+               registeredIServiceResultCallback.remove(""+id)
+          }
+     }
+     export function handleIServiceResultCallbackWarning(id:number, response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) : void {
+          var callback = registeredIServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIServiceResultCallback dictionary.");
+          } else {
+               callback.onWarning(response, warning);
+               registeredIServiceResultCallback.remove(""+id)
+          }
      }
      /**
       *  Callback IServiceResultCallback implementation.
@@ -4517,10 +4841,34 @@ module Adaptive {
      var registeredIFileDataResultCallback = new Dictionary<IFileDataResultCallback>([]);
 
      /**
-      *  Callback IFileDataResultCallback handler.
-          // TODO: Implement handler.
+      *  Callback IFileDataResultCallback onError/onWarning/onResult handlers.
       */
-     export function handleIFileDataResultCallback(id:number) {
+     export function handleIFileDataResultCallbackError(id:number, error: IFileDataResultCallbackErrorEnum) : void {
+          var callback = registeredIFileDataResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileDataResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIFileDataResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileDataResultCallbackResult(id:number, file: IFile, data: Array<number>) : void {
+          var callback = registeredIFileDataResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileDataResultCallback dictionary.");
+          } else {
+               callback.onResult(file, data);
+               registeredIFileDataResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileDataResultCallbackWarning(id:number, file: IFile, warning: IFileDataResultCallbackWarningEnum) : void {
+          var callback = registeredIFileDataResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileDataResultCallback dictionary.");
+          } else {
+               callback.onWarning(file, warning);
+               registeredIFileDataResultCallback.remove(""+id)
+          }
      }
      /**
       *  Callback IFileDataResultCallback implementation.
@@ -4602,7 +4950,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseMedia/IVideo/playStream", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { url: url}}));
                if (xhr.status == 200) {
                } else {
                     console.error("ERROR: "+xhr.status+" IVideo.playStream");
@@ -4674,7 +5022,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/canRead", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4691,7 +5039,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/canWrite", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4707,11 +5055,11 @@ module Adaptive {
           create(name: string, callback: IFileResultCallback) : void {
                registeredIFileResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/create", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/create?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { name: name } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IFile.create");
@@ -4720,11 +5068,11 @@ module Adaptive {
           createWithPath(path: string, name: string, callback: IFileResultCallback) : void {
                registeredIFileResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/createWithPath", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/createWithPath?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { path: path, name: name } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IFile.createWithPath");
@@ -4734,7 +5082,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/delete", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { cascade: cascade}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4751,7 +5099,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/endsWith", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4768,7 +5116,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/endsWithPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4785,7 +5133,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/equalPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4802,7 +5150,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/equals", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4819,7 +5167,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/exists", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4835,11 +5183,11 @@ module Adaptive {
           getContent(callback: IFileDataResultCallback) : void {
                registeredIFileDataResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getContent", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getContent?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: {  } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileDataResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIFileDataResultCallback' on receiving async response handler.
                } else {
                     registeredIFileDataResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IFile.getContent");
@@ -4849,7 +5197,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getDateCreated", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4866,7 +5214,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getDateModified", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4883,7 +5231,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getFileName", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4900,7 +5248,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getFileSystem", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4917,7 +5265,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getName", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4934,7 +5282,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getNameAtIndex", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { index: index}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4951,7 +5299,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getNameCount", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4968,7 +5316,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getParent", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -4985,7 +5333,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5002,7 +5350,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getRoot", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5019,7 +5367,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/getSize", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5036,7 +5384,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/isAbsolute", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5053,7 +5401,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/isDirectory", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5069,11 +5417,11 @@ module Adaptive {
           listFiles(callback: IFileListResultCallback) : void {
                registeredIFileListResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/listFiles", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/listFiles?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: {  } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileListResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIFileListResultCallback' on receiving async response handler.
                } else {
                     registeredIFileListResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IFile.listFiles");
@@ -5082,11 +5430,11 @@ module Adaptive {
           listFilesForRegex(regex: string, callback: IFileListResultCallback) : void {
                registeredIFileListResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/listFilesForRegex", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/listFilesForRegex?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { regex: regex } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileListResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIFileListResultCallback' on receiving async response handler.
                } else {
                     registeredIFileListResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IFile.listFilesForRegex");
@@ -5096,7 +5444,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/mkDir", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { recursive: recursive}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5112,11 +5460,11 @@ module Adaptive {
           move(newFile: IFile, createPath: boolean, callback: IFileResultCallback, overwrite: boolean) : void {
                registeredIFileResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/move", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/move?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { newFile: newFile, createPath: createPath, callback: callback } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
                } else {
                     registeredIFileResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IFile.move");
@@ -5126,7 +5474,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/normalize", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5143,7 +5491,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/relativize", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5160,7 +5508,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/resolve", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5177,7 +5525,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/resolvePath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5194,7 +5542,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/resolveSibling", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5211,7 +5559,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/resolveSiblingPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5227,11 +5575,11 @@ module Adaptive {
           setContent(content: Array<number>, callback: IFileDataResultCallback) : void {
                registeredIFileDataResultCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/setContent", false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/setContent?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // TODO: Add parameters to send.
+               xhr.send(JSON.stringify({ request: { content: content } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileDataResultCallback' on receiving async response.
+                    // Callback removed from 'registeredIFileDataResultCallback' on receiving async response handler.
                } else {
                     registeredIFileDataResultCallback.remove(""+callback.getId());
                     console.error("ERROR: "+xhr.status+" IFile.setContent");
@@ -5241,7 +5589,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/startsWith", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5258,7 +5606,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/startsWithPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { other: other}}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5275,7 +5623,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/toAbsolutePath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5292,7 +5640,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/toFile", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5309,7 +5657,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/toPath", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5326,7 +5674,7 @@ module Adaptive {
                var xhr = new XMLHttpRequest();
                xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFilePath/IFile/toString", false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send();
+               xhr.send(JSON.stringify({ request: { }}));
                if (xhr.status == 200) {
                     if (xhr.responseText != null && xhr.responseText != '') {
                          return JSON.parse(xhr.responseText);
@@ -5373,15 +5721,15 @@ module Adaptive {
                return this.primary
           }
 
-          setEmail(email : string) {
+          setEmail(email : string) : void {
                this.email = email
           }
 
-          setPrimary(primary : boolean) {
+          setPrimary(primary : boolean) : void {
                this.primary = primary
           }
 
-          setType(type : ContactEmailEmailTypeEnum) {
+          setType(type : ContactEmailEmailTypeEnum) : void {
                this.type = type
           }
 
@@ -5426,11 +5774,11 @@ module Adaptive {
                return this.name
           }
 
-          setData(data : string) {
+          setData(data : string) : void {
                this.data = data
           }
 
-          setName(name : string) {
+          setName(name : string) : void {
                this.name = name
           }
 
@@ -5498,35 +5846,35 @@ module Adaptive {
                return this.session
           }
 
-          setContentBinaryLength(contentBinaryLength : number) {
+          setContentBinaryLength(contentBinaryLength : number) : void {
                this.contentBinaryLength = contentBinaryLength
           }
 
-          setContentBinary(contentBinary : Array<number>) {
+          setContentBinary(contentBinary : Array<number>) : void {
                this.contentBinary = contentBinary
           }
 
-          setContentEncoding(contentEncoding : string) {
+          setContentEncoding(contentEncoding : string) : void {
                this.contentEncoding = contentEncoding
           }
 
-          setContentLength(contentLength : string) {
+          setContentLength(contentLength : string) : void {
                this.contentLength = contentLength
           }
 
-          setContentType(contentType : string) {
+          setContentType(contentType : string) : void {
                this.contentType = contentType
           }
 
-          setContent(content : string) {
+          setContent(content : string) : void {
                this.content = content
           }
 
-          setHeaders(headers : Array<Header>) {
+          setHeaders(headers : Array<Header>) : void {
                this.headers = headers
           }
 
-          setSession(session : ISession) {
+          setSession(session : ISession) : void {
                this.session = session
           }
 
@@ -5586,7 +5934,7 @@ module Adaptive {
                return this.name
           }
 
-          setName(name : string) {
+          setName(name : string) : void {
                this.name = name
           }
 
@@ -5660,39 +6008,39 @@ module Adaptive {
                return this.session
           }
 
-          setContentEncoding(contentEncoding : string) {
+          setContentEncoding(contentEncoding : string) : void {
                this.contentEncoding = contentEncoding
           }
 
-          setContentLength(contentLength : number) {
+          setContentLength(contentLength : number) : void {
                this.contentLength = contentLength
           }
 
-          setContentType(contentType : string) {
+          setContentType(contentType : string) : void {
                this.contentType = contentType
           }
 
-          setContent(content : string) {
+          setContent(content : string) : void {
                this.content = content
           }
 
-          setHeaders(headers : Array<Header>) {
+          setHeaders(headers : Array<Header>) : void {
                this.headers = headers
           }
 
-          setMethod(method : string) {
+          setMethod(method : string) : void {
                this.method = method
           }
 
-          setProtocolVersion(protocolVersion : ServiceRequestProtocolVersionEnum) {
+          setProtocolVersion(protocolVersion : ServiceRequestProtocolVersionEnum) : void {
                this.protocolVersion = protocolVersion
           }
 
-          setRawContent(rawContent : Array<number>) {
+          setRawContent(rawContent : Array<number>) : void {
                this.rawContent = rawContent
           }
 
-          setSession(session : ISession) {
+          setSession(session : ISession) : void {
                this.session = session
           }
 
@@ -5736,11 +6084,11 @@ module Adaptive {
                return this.compress
           }
 
-          setCompress(compress : boolean) {
+          setCompress(compress : boolean) : void {
                this.compress = compress
           }
 
-          setName(name : string) {
+          setName(name : string) : void {
                this.name = name
           }
 
@@ -5802,31 +6150,31 @@ module Adaptive {
                return this.secure
           }
 
-          setData(data : string) {
+          setData(data : string) : void {
                this.data = data
           }
 
-          setDomain(domain : string) {
+          setDomain(domain : string) : void {
                this.domain = domain
           }
 
-          setExpiry(expiry : number) {
+          setExpiry(expiry : number) : void {
                this.expiry = expiry
           }
 
-          setName(name : string) {
+          setName(name : string) : void {
                this.name = name
           }
 
-          setPath(path : string) {
+          setPath(path : string) : void {
                this.path = path
           }
 
-          setScheme(scheme : string) {
+          setScheme(scheme : string) : void {
                this.scheme = scheme
           }
 
-          setSecure(secure : boolean) {
+          setSecure(secure : boolean) : void {
                this.secure = secure
           }
 
@@ -5860,11 +6208,11 @@ module Adaptive {
                return this.language
           }
 
-          setCountry(country : string) {
+          setCountry(country : string) : void {
                this.country = country
           }
 
-          setLanguage(language : string) {
+          setLanguage(language : string) : void {
                this.language = language
           }
 
@@ -5894,7 +6242,7 @@ module Adaptive {
                return this.url
           }
 
-          setUrl(url : string) {
+          setUrl(url : string) : void {
                this.url = url
           }
 
@@ -5920,7 +6268,7 @@ module Adaptive {
                return this.values
           }
 
-          setValues(values : Array<any>) {
+          setValues(values : Array<any>) : void {
                this.values = values
           }
 
@@ -5964,19 +6312,19 @@ module Adaptive {
                return this.title
           }
 
-          setLastName(lastName : string) {
+          setLastName(lastName : string) : void {
                this.lastName = lastName
           }
 
-          setMiddleName(middleName : string) {
+          setMiddleName(middleName : string) : void {
                this.middleName = middleName
           }
 
-          setName(name : string) {
+          setName(name : string) : void {
                this.name = name
           }
 
-          setTitle(title : ContactPersonalInfoTitleEnum) {
+          setTitle(title : ContactPersonalInfoTitleEnum) : void {
                this.title = title
           }
 
@@ -6016,7 +6364,7 @@ module Adaptive {
                return this.address
           }
 
-          setAddress(address : string) {
+          setAddress(address : string) : void {
                this.address = address
           }
 
@@ -6048,11 +6396,11 @@ module Adaptive {
                return this.name
           }
 
-          setDataValue(dataValue : string) {
+          setDataValue(dataValue : string) : void {
                this.dataValue = dataValue
           }
 
-          setName(name : string) {
+          setName(name : string) : void {
                this.name = name
           }
 
@@ -6102,23 +6450,23 @@ module Adaptive {
                return this.scheme
           }
 
-          setHost(host : string) {
+          setHost(host : string) : void {
                this.host = host
           }
 
-          setPath(path : string) {
+          setPath(path : string) : void {
                this.path = path
           }
 
-          setPort(port : number) {
+          setPort(port : number) : void {
                this.port = port
           }
 
-          setProxy(proxy : string) {
+          setProxy(proxy : string) : void {
                this.proxy = proxy
           }
 
-          setScheme(scheme : string) {
+          setScheme(scheme : string) : void {
                this.scheme = scheme
           }
 
@@ -6168,15 +6516,15 @@ module Adaptive {
                return this.yDoP
           }
 
-          setAltitude(altitude : number) {
+          setAltitude(altitude : number) : void {
                this.altitude = altitude
           }
 
-          setLatitude(latitude : number) {
+          setLatitude(latitude : number) : void {
                this.latitude = latitude
           }
 
-          setLongitude(longitude : number) {
+          setLongitude(longitude : number) : void {
                this.longitude = longitude
           }
 
@@ -6202,7 +6550,7 @@ module Adaptive {
                return this.contactId
           }
 
-          setContactId(contactId : string) {
+          setContactId(contactId : string) : void {
                this.contactId = contactId
           }
 
@@ -6260,31 +6608,31 @@ module Adaptive {
                return this.toRecipients
           }
 
-          setAttachmentData(attachmentData : Array<AttachmentData>) {
+          setAttachmentData(attachmentData : Array<AttachmentData>) : void {
                this.attachmentData = attachmentData
           }
 
-          setBccRecipients(bccRecipients : Array<EmailAddress>) {
+          setBccRecipients(bccRecipients : Array<EmailAddress>) : void {
                this.bccRecipients = bccRecipients
           }
 
-          setCcRecipients(ccRecipients : Array<EmailAddress>) {
+          setCcRecipients(ccRecipients : Array<EmailAddress>) : void {
                this.ccRecipients = ccRecipients
           }
 
-          setMessageBodyMimeType(messageBodyMimeType : string) {
+          setMessageBodyMimeType(messageBodyMimeType : string) : void {
                this.messageBodyMimeType = messageBodyMimeType
           }
 
-          setMessageBody(messageBody : string) {
+          setMessageBody(messageBody : string) : void {
                this.messageBody = messageBody
           }
 
-          setSubject(subject : string) {
+          setSubject(subject : string) : void {
                this.subject = subject
           }
 
-          setToRecipients(toRecipients : Array<EmailAddress>) {
+          setToRecipients(toRecipients : Array<EmailAddress>) : void {
                this.toRecipients = toRecipients
           }
 
@@ -6334,23 +6682,23 @@ module Adaptive {
                return this.referenceUrl
           }
 
-          setDataSize(dataSize : number) {
+          setDataSize(dataSize : number) : void {
                this.dataSize = dataSize
           }
 
-          setData(data : Array<number>) {
+          setData(data : Array<number>) : void {
                this.data = data
           }
 
-          setFileName(fileName : string) {
+          setFileName(fileName : string) : void {
                this.fileName = fileName
           }
 
-          setMimeType(mimeType : string) {
+          setMimeType(mimeType : string) : void {
                this.mimeType = mimeType
           }
 
-          setReferenceUrl(referenceUrl : string) {
+          setReferenceUrl(referenceUrl : string) : void {
                this.referenceUrl = referenceUrl
           }
 
@@ -6382,11 +6730,11 @@ module Adaptive {
                return this.socialNetwork
           }
 
-          setProfileUrl(profileUrl : string) {
+          setProfileUrl(profileUrl : string) : void {
                this.profileUrl = profileUrl
           }
 
-          setSocialNetwork(socialNetwork : ContactSocialSocialNetworkEnum) {
+          setSocialNetwork(socialNetwork : ContactSocialSocialNetworkEnum) : void {
                this.socialNetwork = socialNetwork
           }
 
@@ -6433,11 +6781,11 @@ module Adaptive {
                return this.phoneType
           }
 
-          setPhoneType(phoneType : ContactPhonePhoneTypeEnum) {
+          setPhoneType(phoneType : ContactPhonePhoneTypeEnum) : void {
                this.phoneType = phoneType
           }
 
-          setPhone(phone : string) {
+          setPhone(phone : string) : void {
                this.phone = phone
           }
 
@@ -6486,11 +6834,11 @@ module Adaptive {
                return this.secureKey
           }
 
-          setSecureData(secureData : string) {
+          setSecureData(secureData : string) : void {
                this.secureData = secureData
           }
 
-          setSecureKey(secureKey : string) {
+          setSecureKey(secureKey : string) : void {
                this.secureKey = secureKey
           }
 
@@ -6536,23 +6884,23 @@ module Adaptive {
                return this.rows
           }
 
-          setColumnCount(columnCount : number) {
+          setColumnCount(columnCount : number) : void {
                this.columnCount = columnCount
           }
 
-          setColumns(columns : Array<Column>) {
+          setColumns(columns : Array<Column>) : void {
                this.columns = columns
           }
 
-          setName(name : string) {
+          setName(name : string) : void {
                this.name = name
           }
 
-          setRowCount(rowCount : number) {
+          setRowCount(rowCount : number) : void {
                this.rowCount = rowCount
           }
 
-          setRows(rows : Array<Row>) {
+          setRows(rows : Array<Row>) : void {
                this.rows = rows
           }
 
@@ -6590,15 +6938,15 @@ module Adaptive {
                return this.jobTitle
           }
 
-          setCompany(company : string) {
+          setCompany(company : string) : void {
                this.company = company
           }
 
-          setJobDescription(jobDescription : string) {
+          setJobDescription(jobDescription : string) : void {
                this.jobDescription = jobDescription
           }
 
-          setJobTitle(jobTitle : string) {
+          setJobTitle(jobTitle : string) : void {
                this.jobTitle = jobTitle
           }
 
@@ -6638,19 +6986,19 @@ module Adaptive {
                return this.z
           }
 
-          setTimeStamp(timeStamp : number) {
+          setTimeStamp(timeStamp : number) : void {
                this.timeStamp = timeStamp
           }
 
-          setX(x : number) {
+          setX(x : number) : void {
                this.x = x
           }
 
-          setY(y : number) {
+          setY(y : number) : void {
                this.y = y
           }
 
-          setZ(z : number) {
+          setZ(z : number) : void {
                this.z = z
           }
 
@@ -6722,11 +7070,11 @@ module Adaptive {
                return this.type
           }
 
-          setAddress(address : string) {
+          setAddress(address : string) : void {
                this.address = address
           }
 
-          setType(type : ContactAddressAddressTypeEnum) {
+          setType(type : ContactAddressAddressTypeEnum) : void {
                this.type = type
           }
 
@@ -6801,35 +7149,35 @@ module Adaptive {
                return this.professionalInfo
           }
 
-          setContactAddresses(contactAddresses : Array<ContactAddress>) {
+          setContactAddresses(contactAddresses : Array<ContactAddress>) : void {
                this.contactAddresses = contactAddresses
           }
 
-          setContactEmails(contactEmails : Array<ContactEmail>) {
+          setContactEmails(contactEmails : Array<ContactEmail>) : void {
                this.contactEmails = contactEmails
           }
 
-          setContactPhones(contactPhones : Array<ContactPhone>) {
+          setContactPhones(contactPhones : Array<ContactPhone>) : void {
                this.contactPhones = contactPhones
           }
 
-          setContactSocials(contactSocials : Array<ContactSocial>) {
+          setContactSocials(contactSocials : Array<ContactSocial>) : void {
                this.contactSocials = contactSocials
           }
 
-          setContactTags(contactTags : Array<ContactTag>) {
+          setContactTags(contactTags : Array<ContactTag>) : void {
                this.contactTags = contactTags
           }
 
-          setContactWebsites(contactWebsites : Array<ContactWebsite>) {
+          setContactWebsites(contactWebsites : Array<ContactWebsite>) : void {
                this.contactWebsites = contactWebsites
           }
 
-          setPersonalInfo(personalInfo : ContactPersonalInfo) {
+          setPersonalInfo(personalInfo : ContactPersonalInfo) : void {
                this.personalInfo = personalInfo
           }
 
-          setProfessionalInfo(professionalInfo : ContactProfessionalInfo) {
+          setProfessionalInfo(professionalInfo : ContactProfessionalInfo) : void {
                this.professionalInfo = professionalInfo
           }
 
@@ -6890,7 +7238,7 @@ module Adaptive {
                return this.state
           }
 
-          setState(state : LifecycleStateEnum) {
+          setState(state : LifecycleStateEnum) : void {
                this.state = state
           }
 
@@ -6952,19 +7300,19 @@ module Adaptive {
                return this.type
           }
 
-          setEndpoint(endpoint : Endpoint) {
+          setEndpoint(endpoint : Endpoint) : void {
                this.endpoint = endpoint
           }
 
-          setMethod(method : ServiceServiceMethodEnum) {
+          setMethod(method : ServiceServiceMethodEnum) : void {
                this.method = method
           }
 
-          setName(name : string) {
+          setName(name : string) : void {
                this.name = name
           }
 
-          setType(type : ServiceServiceTypeEnum) {
+          setType(type : ServiceServiceTypeEnum) : void {
                this.type = type
           }
 

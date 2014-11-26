@@ -381,10 +381,11 @@ declare module Adaptive {
         static Unknown: ISecureKVResultCallbackWarningEnum;
     }
     /**
-     *  Callback ISecureKVResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback ISecureKVResultCallback onError/onWarning/onResult handlers.
      */
-    function handleISecureKVResultCallback(id: number): void;
+    function handleISecureKVResultCallbackError(id: number, error: ISecureKVResultCallbackErrorEnum): void;
+    function handleISecureKVResultCallbackResult(id: number, keyValues: SecureKeyPair[]): void;
+    function handleISecureKVResultCallbackWarning(id: number, keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum): void;
     /**
      *  Callback ISecureKVResultCallback implementation.
      */
@@ -451,10 +452,11 @@ declare module Adaptive {
         static Unknown: IFileResultCallbackWarningEnum;
     }
     /**
-     *  Callback IFileResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IFileResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIFileResultCallback(id: number): void;
+    function handleIFileResultCallbackError(id: number, error: IFileResultCallbackErrorEnum): void;
+    function handleIFileResultCallbackResult(id: number, storageFile: IFile): void;
+    function handleIFileResultCallbackWarning(id: number, sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum): void;
     /**
      *  Callback IFileResultCallback implementation.
      */
@@ -536,10 +538,11 @@ declare module Adaptive {
         static Unknown: ILifecycleListenerWarningEnum;
     }
     /**
-     *  Listener ILifecycleListener handler.
-         // TODO: Implement handler.
+     *  Listener ILifecycleListener onError/onWarning/onResult handlers.
      */
-    function handleILifecycleListener(id: number): void;
+    function handleILifecycleListenerError(id: number, error: ILifecycleListenerErrorEnum): void;
+    function handleILifecycleListenerResult(id: number, lifecycle: Lifecycle): void;
+    function handleILifecycleListenerWarning(id: number, lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum): void;
     /**
      *  Listener ILifecycleListener implementation.
      */
@@ -673,10 +676,11 @@ declare module Adaptive {
         static Unknown: INetworkReachabilityCallbackWarningEnum;
     }
     /**
-     *  Callback INetworkReachabilityCallback handler.
-         // TODO: Implement handler.
+     *  Callback INetworkReachabilityCallback onError/onWarning/onResult handlers.
      */
-    function handleINetworkReachabilityCallback(id: number): void;
+    function handleINetworkReachabilityCallbackError(id: number, error: INetworkReachabilityCallbackErrorEnum): void;
+    function handleINetworkReachabilityCallbackResult(id: number, result: string): void;
+    function handleINetworkReachabilityCallbackWarning(id: number, result: string, warning: INetworkReachabilityCallbackWarningEnum): void;
     /**
      *  Callback INetworkReachabilityCallback implementation.
      */
@@ -727,10 +731,11 @@ declare module Adaptive {
         static Unknown: IAccelerationListenerWarningEnum;
     }
     /**
-     *  Listener IAccelerationListener handler.
-         // TODO: Implement handler.
+     *  Listener IAccelerationListener onError/onWarning/onResult handlers.
      */
-    function handleIAccelerationListener(id: number): void;
+    function handleIAccelerationListenerError(id: number, error: IAccelerationListenerErrorEnum): void;
+    function handleIAccelerationListenerResult(id: number, acceleration: Acceleration): void;
+    function handleIAccelerationListenerWarning(id: number, acceleration: Acceleration, warning: IAccelerationListenerWarningEnum): void;
     /**
      *  Listener IAccelerationListener implementation.
      */
@@ -816,10 +821,11 @@ declare module Adaptive {
         static Unknown: IButtonListenerWarningEnum;
     }
     /**
-     *  Listener IButtonListener handler.
-         // TODO: Implement handler.
+     *  Listener IButtonListener onError/onWarning/onResult handlers.
      */
-    function handleIButtonListener(id: number): void;
+    function handleIButtonListenerError(id: number, error: IButtonListenerErrorEnum): void;
+    function handleIButtonListenerResult(id: number, button: Button): void;
+    function handleIButtonListenerWarning(id: number, button: Button, warning: IButtonListenerWarningEnum): void;
     /**
      *  Listener IButtonListener implementation.
      */
@@ -890,10 +896,11 @@ declare module Adaptive {
         static Unknown: IContactResultCallbackWarningEnum;
     }
     /**
-     *  Callback IContactResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IContactResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIContactResultCallback(id: number): void;
+    function handleIContactResultCallbackError(id: number, error: IContactResultCallbackErrorEnum): void;
+    function handleIContactResultCallbackResult(id: number, contacts: Contact[]): void;
+    function handleIContactResultCallbackWarning(id: number, contacts: Contact[], warning: IContactResultCallbackWarningEnum): void;
     /**
      *  Callback IContactResultCallback implementation.
      */
@@ -1010,10 +1017,11 @@ declare module Adaptive {
         static Unknown: IGeolocationListenerWarningEnum;
     }
     /**
-     *  Listener IGeolocationListener handler.
-         // TODO: Implement handler.
+     *  Listener IGeolocationListener onError/onWarning/onResult handlers.
      */
-    function handleIGeolocationListener(id: number): void;
+    function handleIGeolocationListenerError(id: number, error: IGeolocationListenerErrorEnum): void;
+    function handleIGeolocationListenerResult(id: number, geolocation: Geolocation): void;
+    function handleIGeolocationListenerWarning(id: number, geolocation: Geolocation, warning: IGeolocationListenerWarningEnum): void;
     /**
      *  Listener IGeolocationListener implementation.
      */
@@ -1065,10 +1073,11 @@ declare module Adaptive {
         static Unknown: IContactPhotoResultCallbackWarningEnum;
     }
     /**
-     *  Callback IContactPhotoResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IContactPhotoResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIContactPhotoResultCallback(id: number): void;
+    function handleIContactPhotoResultCallbackError(id: number, error: IContactPhotoResultCallbackErrorEnum): void;
+    function handleIContactPhotoResultCallbackResult(id: number, contactPhoto: number[]): void;
+    function handleIContactPhotoResultCallbackWarning(id: number, contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum): void;
     /**
      *  Callback IContactPhotoResultCallback implementation.
      */
@@ -1328,10 +1337,11 @@ declare module Adaptive {
         static Unknown: IMessagingCallbackWarningEnum;
     }
     /**
-     *  Callback IMessagingCallback handler.
-         // TODO: Implement handler.
+     *  Callback IMessagingCallback onError/onWarning/onResult handlers.
      */
-    function handleIMessagingCallback(id: number): void;
+    function handleIMessagingCallbackError(id: number, error: IMessagingCallbackErrorEnum): void;
+    function handleIMessagingCallbackResult(id: number, success: boolean): void;
+    function handleIMessagingCallbackWarning(id: number, success: boolean, warning: IMessagingCallbackWarningEnum): void;
     /**
      *  Callback IMessagingCallback implementation.
      */
@@ -1383,10 +1393,11 @@ declare module Adaptive {
         static Unknown: IDatabaseResultCallbackWarningEnum;
     }
     /**
-     *  Callback IDatabaseResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IDatabaseResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIDatabaseResultCallback(id: number): void;
+    function handleIDatabaseResultCallbackError(id: number, error: IDatabaseResultCallbackErrorEnum): void;
+    function handleIDatabaseResultCallbackResult(id: number, database: Database): void;
+    function handleIDatabaseResultCallbackWarning(id: number, database: Database, warning: IDatabaseResultCallbackWarningEnum): void;
     /**
      *  Callback IDatabaseResultCallback implementation.
      */
@@ -1758,10 +1769,11 @@ declare module Adaptive {
         static Unknown: ITableResultCallbackWarningEnum;
     }
     /**
-     *  Callback ITableResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback ITableResultCallback onError/onWarning/onResult handlers.
      */
-    function handleITableResultCallback(id: number): void;
+    function handleITableResultCallbackError(id: number, error: ITableResultCallbackErrorEnum): void;
+    function handleITableResultCallbackResult(id: number, table: Table): void;
+    function handleITableResultCallbackWarning(id: number, table: Table, warning: ITableResultCallbackWarningEnum): void;
     /**
      *  Callback ITableResultCallback implementation.
      */
@@ -1831,10 +1843,11 @@ declare module Adaptive {
         static Unknown: IFileListResultCallbackWarningEnum;
     }
     /**
-     *  Callback IFileListResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IFileListResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIFileListResultCallback(id: number): void;
+    function handleIFileListResultCallbackError(id: number, error: IFileListResultCallbackErrorEnum): void;
+    function handleIFileListResultCallbackResult(id: number, files: IFile[]): void;
+    function handleIFileListResultCallbackWarning(id: number, files: IFile[], warning: IFileListResultCallbackWarningEnum): void;
     /**
      *  Callback IFileListResultCallback implementation.
      */
@@ -1990,10 +2003,11 @@ declare module Adaptive {
         static Unknown: IServiceResultCallbackWarningEnum;
     }
     /**
-     *  Callback IServiceResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IServiceResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIServiceResultCallback(id: number): void;
+    function handleIServiceResultCallbackError(id: number, error: IServiceResultCallbackErrorEnum): void;
+    function handleIServiceResultCallbackResult(id: number, response: ServiceResponse): void;
+    function handleIServiceResultCallbackWarning(id: number, response: ServiceResponse, warning: IServiceResultCallbackWarningEnum): void;
     /**
      *  Callback IServiceResultCallback implementation.
      */
@@ -2044,10 +2058,11 @@ declare module Adaptive {
         static Unknown: IFileDataResultCallbackWarningEnum;
     }
     /**
-     *  Callback IFileDataResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IFileDataResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIFileDataResultCallback(id: number): void;
+    function handleIFileDataResultCallbackError(id: number, error: IFileDataResultCallbackErrorEnum): void;
+    function handleIFileDataResultCallbackResult(id: number, file: IFile, data: number[]): void;
+    function handleIFileDataResultCallbackWarning(id: number, file: IFile, warning: IFileDataResultCallbackWarningEnum): void;
     /**
      *  Callback IFileDataResultCallback implementation.
      */

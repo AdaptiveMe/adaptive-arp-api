@@ -197,9 +197,9 @@ var Adaptive;
         }
         DeviceBridge.prototype.addButtonListener = function (listener) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/addButtonListener", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/addButtonListener?id=" + listener.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(); // Listeners only require id included in URL param.
             if (xhr.status == 200) {
                 registeredIButtonListener.add("" + listener.getId(), listener);
             }
@@ -211,7 +211,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/getDeviceInfo", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -230,7 +230,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/getLocaleCurrent", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -247,9 +247,9 @@ var Adaptive;
         };
         DeviceBridge.prototype.removeButtonListener = function (listener) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListener", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListener?id=" + listener.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(); // Listeners only require id included in URL param.
             if (xhr.status == 200) {
                 registeredIButtonListener.remove("" + listener.getId());
             }
@@ -284,9 +284,9 @@ var Adaptive;
         MailBridge.prototype.sendEmail = function (data, callback) {
             registeredIMessagingCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IMail/sendEmail", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IMail/sendEmail?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { data: data } }));
             if (xhr.status == 200) {
             }
             else {
@@ -333,12 +333,41 @@ var Adaptive;
      */
     var registeredISecureKVResultCallback = new Dictionary([]);
     /**
-     *  Callback ISecureKVResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback ISecureKVResultCallback onError/onWarning/onResult handlers.
      */
-    function handleISecureKVResultCallback(id) {
+    function handleISecureKVResultCallbackError(id, error) {
+        var callback = registeredISecureKVResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredISecureKVResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredISecureKVResultCallback.remove("" + id);
+        }
     }
-    Adaptive.handleISecureKVResultCallback = handleISecureKVResultCallback;
+    Adaptive.handleISecureKVResultCallbackError = handleISecureKVResultCallbackError;
+    function handleISecureKVResultCallbackResult(id, keyValues) {
+        var callback = registeredISecureKVResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredISecureKVResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(keyValues);
+            registeredISecureKVResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleISecureKVResultCallbackResult = handleISecureKVResultCallbackResult;
+    function handleISecureKVResultCallbackWarning(id, keyValues, warning) {
+        var callback = registeredISecureKVResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredISecureKVResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(keyValues, warning);
+            registeredISecureKVResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleISecureKVResultCallbackWarning = handleISecureKVResultCallbackWarning;
     /**
      *  Callback ISecureKVResultCallback implementation.
      */
@@ -435,12 +464,41 @@ var Adaptive;
      */
     var registeredIFileResultCallback = new Dictionary([]);
     /**
-     *  Callback IFileResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IFileResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIFileResultCallback(id) {
+    function handleIFileResultCallbackError(id, error) {
+        var callback = registeredIFileResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIFileResultCallback.remove("" + id);
+        }
     }
-    Adaptive.handleIFileResultCallback = handleIFileResultCallback;
+    Adaptive.handleIFileResultCallbackError = handleIFileResultCallbackError;
+    function handleIFileResultCallbackResult(id, storageFile) {
+        var callback = registeredIFileResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(storageFile);
+            registeredIFileResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileResultCallbackResult = handleIFileResultCallbackResult;
+    function handleIFileResultCallbackWarning(id, sourceFile, destinationFile, warning) {
+        var callback = registeredIFileResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(sourceFile, destinationFile, warning);
+            registeredIFileResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileResultCallbackWarning = handleIFileResultCallbackWarning;
     /**
      *  Callback IFileResultCallback implementation.
      */
@@ -537,12 +595,38 @@ var Adaptive;
      */
     var registeredILifecycleListener = new Dictionary([]);
     /**
-     *  Listener ILifecycleListener handler.
-         // TODO: Implement handler.
+     *  Listener ILifecycleListener onError/onWarning/onResult handlers.
      */
-    function handleILifecycleListener(id) {
+    function handleILifecycleListenerError(id, error) {
+        var listener = registeredILifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredILifecycleListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
     }
-    Adaptive.handleILifecycleListener = handleILifecycleListener;
+    Adaptive.handleILifecycleListenerError = handleILifecycleListenerError;
+    function handleILifecycleListenerResult(id, lifecycle) {
+        var listener = registeredILifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredILifecycleListener dictionary.");
+        }
+        else {
+            listener.onResult(lifecycle);
+        }
+    }
+    Adaptive.handleILifecycleListenerResult = handleILifecycleListenerResult;
+    function handleILifecycleListenerWarning(id, lifecycle, warning) {
+        var listener = registeredILifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredILifecycleListener dictionary.");
+        }
+        else {
+            listener.onWarning(lifecycle, warning);
+        }
+    }
+    Adaptive.handleILifecycleListenerWarning = handleILifecycleListenerWarning;
     /**
      *  Listener ILifecycleListener implementation.
      */
@@ -611,7 +695,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/getAttribute", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { name: name } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -630,7 +714,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/getAttributes", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -649,7 +733,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/getCookies", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -668,7 +752,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/listAttributeNames", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -687,7 +771,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/removeAttribute", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { name: name } }));
             if (xhr.status == 200) {
             }
             else {
@@ -709,7 +793,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/removeCookie", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { cookie: cookie } }));
             if (xhr.status == 200) {
             }
             else {
@@ -720,7 +804,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/removeCookies", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { cookies: cookies } }));
             if (xhr.status == 200) {
             }
             else {
@@ -731,7 +815,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/setAttribute", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { name: name, value: value } }));
             if (xhr.status == 200) {
             }
             else {
@@ -742,7 +826,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/setCookie", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { cookie: cookie } }));
             if (xhr.status == 200) {
             }
             else {
@@ -753,7 +837,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ISession/setCookies", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { cookies: cookies } }));
             if (xhr.status == 200) {
             }
             else {
@@ -812,12 +896,41 @@ var Adaptive;
      */
     var registeredINetworkReachabilityCallback = new Dictionary([]);
     /**
-     *  Callback INetworkReachabilityCallback handler.
-         // TODO: Implement handler.
+     *  Callback INetworkReachabilityCallback onError/onWarning/onResult handlers.
      */
-    function handleINetworkReachabilityCallback(id) {
+    function handleINetworkReachabilityCallbackError(id, error) {
+        var callback = registeredINetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredINetworkReachabilityCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredINetworkReachabilityCallback.remove("" + id);
+        }
     }
-    Adaptive.handleINetworkReachabilityCallback = handleINetworkReachabilityCallback;
+    Adaptive.handleINetworkReachabilityCallbackError = handleINetworkReachabilityCallbackError;
+    function handleINetworkReachabilityCallbackResult(id, result) {
+        var callback = registeredINetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredINetworkReachabilityCallback dictionary.");
+        }
+        else {
+            callback.onResult(result);
+            registeredINetworkReachabilityCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleINetworkReachabilityCallbackResult = handleINetworkReachabilityCallbackResult;
+    function handleINetworkReachabilityCallbackWarning(id, result, warning) {
+        var callback = registeredINetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredINetworkReachabilityCallback dictionary.");
+        }
+        else {
+            callback.onWarning(result, warning);
+            registeredINetworkReachabilityCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleINetworkReachabilityCallbackWarning = handleINetworkReachabilityCallbackWarning;
     /**
      *  Callback INetworkReachabilityCallback implementation.
      */
@@ -913,12 +1026,38 @@ var Adaptive;
      */
     var registeredIAccelerationListener = new Dictionary([]);
     /**
-     *  Listener IAccelerationListener handler.
-         // TODO: Implement handler.
+     *  Listener IAccelerationListener onError/onWarning/onResult handlers.
      */
-    function handleIAccelerationListener(id) {
+    function handleIAccelerationListenerError(id, error) {
+        var listener = registeredIAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIAccelerationListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
     }
-    Adaptive.handleIAccelerationListener = handleIAccelerationListener;
+    Adaptive.handleIAccelerationListenerError = handleIAccelerationListenerError;
+    function handleIAccelerationListenerResult(id, acceleration) {
+        var listener = registeredIAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIAccelerationListener dictionary.");
+        }
+        else {
+            listener.onResult(acceleration);
+        }
+    }
+    Adaptive.handleIAccelerationListenerResult = handleIAccelerationListenerResult;
+    function handleIAccelerationListenerWarning(id, acceleration, warning) {
+        var listener = registeredIAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIAccelerationListener dictionary.");
+        }
+        else {
+            listener.onWarning(acceleration, warning);
+        }
+    }
+    Adaptive.handleIAccelerationListenerWarning = handleIAccelerationListenerWarning;
     /**
      *  Listener IAccelerationListener implementation.
      */
@@ -986,9 +1125,9 @@ var Adaptive;
         DatabaseBridge.prototype.createDatabase = function (database, callback) {
             registeredIDatabaseResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/createDatabase", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/createDatabase?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { database: database } }));
             if (xhr.status == 200) {
             }
             else {
@@ -999,9 +1138,9 @@ var Adaptive;
         DatabaseBridge.prototype.createTable = function (database, table, callback) {
             registeredITableResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/createTable", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/createTable?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { database: database, table: table } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1012,9 +1151,9 @@ var Adaptive;
         DatabaseBridge.prototype.deleteDatabase = function (database, callback) {
             registeredIDatabaseResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/deleteDatabase", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/deleteDatabase?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { database: database } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1025,9 +1164,9 @@ var Adaptive;
         DatabaseBridge.prototype.deleteTable = function (database, table, callback) {
             registeredITableResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/deleteTable", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/deleteTable?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { database: database, table: table } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1038,9 +1177,9 @@ var Adaptive;
         DatabaseBridge.prototype.executeSqlQuery = function (database, query, replacements, callback) {
             registeredITableResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/executeSqlQuery", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/executeSqlQuery?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { database: database, query: query, replacements: replacements } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1051,9 +1190,9 @@ var Adaptive;
         DatabaseBridge.prototype.executeSqlStatement = function (database, statement, replacements, callback) {
             registeredITableResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/executeSqlStatement", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/executeSqlStatement?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { database: database, statement: statement, replacements: replacements } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1064,9 +1203,9 @@ var Adaptive;
         DatabaseBridge.prototype.executeSqlTransactions = function (database, statements, rollbackFlag, callback) {
             registeredITableResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/executeSqlTransactions", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/executeSqlTransactions?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { database: database, statements: statements, rollbackFlag: rollbackFlag } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1078,7 +1217,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/existsDatabase", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { database: database } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1097,7 +1236,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IDatabase/existsTable", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { database: database, table: table } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1150,12 +1289,38 @@ var Adaptive;
      */
     var registeredIButtonListener = new Dictionary([]);
     /**
-     *  Listener IButtonListener handler.
-         // TODO: Implement handler.
+     *  Listener IButtonListener onError/onWarning/onResult handlers.
      */
-    function handleIButtonListener(id) {
+    function handleIButtonListenerError(id, error) {
+        var listener = registeredIButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIButtonListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
     }
-    Adaptive.handleIButtonListener = handleIButtonListener;
+    Adaptive.handleIButtonListenerError = handleIButtonListenerError;
+    function handleIButtonListenerResult(id, button) {
+        var listener = registeredIButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIButtonListener dictionary.");
+        }
+        else {
+            listener.onResult(button);
+        }
+    }
+    Adaptive.handleIButtonListenerResult = handleIButtonListenerResult;
+    function handleIButtonListenerWarning(id, button, warning) {
+        var listener = registeredIButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIButtonListener dictionary.");
+        }
+        else {
+            listener.onWarning(button, warning);
+        }
+    }
+    Adaptive.handleIButtonListenerWarning = handleIButtonListenerWarning;
     /**
      *  Listener IButtonListener implementation.
      */
@@ -1251,12 +1416,41 @@ var Adaptive;
      */
     var registeredIContactResultCallback = new Dictionary([]);
     /**
-     *  Callback IContactResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IContactResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIContactResultCallback(id) {
+    function handleIContactResultCallbackError(id, error) {
+        var callback = registeredIContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIContactResultCallback.remove("" + id);
+        }
     }
-    Adaptive.handleIContactResultCallback = handleIContactResultCallback;
+    Adaptive.handleIContactResultCallbackError = handleIContactResultCallbackError;
+    function handleIContactResultCallbackResult(id, contacts) {
+        var callback = registeredIContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(contacts);
+            registeredIContactResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIContactResultCallbackResult = handleIContactResultCallbackResult;
+    function handleIContactResultCallbackWarning(id, contacts, warning) {
+        var callback = registeredIContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(contacts, warning);
+            registeredIContactResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIContactResultCallbackWarning = handleIContactResultCallbackWarning;
     /**
      *  Callback IContactResultCallback implementation.
      */
@@ -1325,7 +1519,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseUI/IBrowser/openBrowser", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { url: url, title: title, buttonText: buttonText } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1352,9 +1546,9 @@ var Adaptive;
         NetworkReachabilityBridge.prototype.isNetworkReachable = function (host, callback) {
             registeredINetworkReachabilityCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkReachable", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkReachable?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { host: host } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1365,9 +1559,9 @@ var Adaptive;
         NetworkReachabilityBridge.prototype.isNetworkServiceReachable = function (url, callback) {
             registeredINetworkReachabilityCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkServiceReachable", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkServiceReachable?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { url: url } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1417,12 +1611,38 @@ var Adaptive;
      */
     var registeredIGeolocationListener = new Dictionary([]);
     /**
-     *  Listener IGeolocationListener handler.
-         // TODO: Implement handler.
+     *  Listener IGeolocationListener onError/onWarning/onResult handlers.
      */
-    function handleIGeolocationListener(id) {
+    function handleIGeolocationListenerError(id, error) {
+        var listener = registeredIGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIGeolocationListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
     }
-    Adaptive.handleIGeolocationListener = handleIGeolocationListener;
+    Adaptive.handleIGeolocationListenerError = handleIGeolocationListenerError;
+    function handleIGeolocationListenerResult(id, geolocation) {
+        var listener = registeredIGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIGeolocationListener dictionary.");
+        }
+        else {
+            listener.onResult(geolocation);
+        }
+    }
+    Adaptive.handleIGeolocationListenerResult = handleIGeolocationListenerResult;
+    function handleIGeolocationListenerWarning(id, geolocation, warning) {
+        var listener = registeredIGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIGeolocationListener dictionary.");
+        }
+        else {
+            listener.onWarning(geolocation, warning);
+        }
+    }
+    Adaptive.handleIGeolocationListenerWarning = handleIGeolocationListenerWarning;
     /**
      *  Listener IGeolocationListener implementation.
      */
@@ -1519,12 +1739,41 @@ var Adaptive;
      */
     var registeredIContactPhotoResultCallback = new Dictionary([]);
     /**
-     *  Callback IContactPhotoResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IContactPhotoResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIContactPhotoResultCallback(id) {
+    function handleIContactPhotoResultCallbackError(id, error) {
+        var callback = registeredIContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactPhotoResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIContactPhotoResultCallback.remove("" + id);
+        }
     }
-    Adaptive.handleIContactPhotoResultCallback = handleIContactPhotoResultCallback;
+    Adaptive.handleIContactPhotoResultCallbackError = handleIContactPhotoResultCallbackError;
+    function handleIContactPhotoResultCallbackResult(id, contactPhoto) {
+        var callback = registeredIContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactPhotoResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(contactPhoto);
+            registeredIContactPhotoResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIContactPhotoResultCallbackResult = handleIContactPhotoResultCallbackResult;
+    function handleIContactPhotoResultCallbackWarning(id, contactPhoto, warning) {
+        var callback = registeredIContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactPhotoResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(contactPhoto, warning);
+            registeredIContactPhotoResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIContactPhotoResultCallbackWarning = handleIContactPhotoResultCallbackWarning;
     /**
      *  Callback IContactPhotoResultCallback implementation.
      */
@@ -1591,9 +1840,9 @@ var Adaptive;
         }
         LifecycleBridge.prototype.addLifecycleListener = function (listener) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/addLifecycleListener", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/addLifecycleListener?id=" + listener.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(); // Listeners only require id included in URL param.
             if (xhr.status == 200) {
                 registeredILifecycleListener.add("" + listener.getId(), listener);
             }
@@ -1605,7 +1854,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/isBackground", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1622,9 +1871,9 @@ var Adaptive;
         };
         LifecycleBridge.prototype.removeLifecycleListener = function (listener) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListener", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListener?id=" + listener.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(); // Listeners only require id included in URL param.
             if (xhr.status == 200) {
                 registeredILifecycleListener.remove("" + listener.getId());
             }
@@ -1659,9 +1908,9 @@ var Adaptive;
         FileSystemBridge.prototype.create = function (name, callback) {
             registeredIFileResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/create", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/create?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { name: name } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1672,9 +1921,9 @@ var Adaptive;
         FileSystemBridge.prototype.createWithPath = function (path, name, callback) {
             registeredIFileResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/createWithPath", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/createWithPath?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { path: path, name: name } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1685,9 +1934,9 @@ var Adaptive;
         FileSystemBridge.prototype.createWithPathString = function (path, name, callback) {
             registeredIFileResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/createWithPathString", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/createWithPathString?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { path: path, name: name } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1699,7 +1948,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getApplicationCacheFolder", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1718,7 +1967,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getApplicationDocumentsFolder", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1737,7 +1986,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getApplicationFolder", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1756,7 +2005,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getPathForFile", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { file: file } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1775,7 +2024,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getPathForPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { path: path } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1794,7 +2043,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/getSeparator", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1813,7 +2062,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/isSameFile", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { source: source, dest: dest } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1832,7 +2081,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/isSamePath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { source: source, dest: dest } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1851,7 +2100,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFileSystem/toPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { path: path } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1879,7 +2128,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IOS/getOSInfo", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -1945,9 +2194,9 @@ var Adaptive;
         ContactBridge.prototype.getContact = function (contact, callback) {
             registeredIContactResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContact", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContact?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { contact: contact } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1958,9 +2207,9 @@ var Adaptive;
         ContactBridge.prototype.getContactPhoto = function (contact, callback) {
             registeredIContactPhotoResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactPhoto", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactPhoto?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { contact: contact } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1971,9 +2220,9 @@ var Adaptive;
         ContactBridge.prototype.getContacts = function (callback) {
             registeredIContactResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContacts", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContacts?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
             }
             else {
@@ -1984,9 +2233,9 @@ var Adaptive;
         ContactBridge.prototype.getContactsForFields = function (callback, fields) {
             registeredIContactResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactsForFields", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactsForFields?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { callback: callback } }));
             if (xhr.status == 200) {
             }
             else {
@@ -1997,9 +2246,9 @@ var Adaptive;
         ContactBridge.prototype.getContactsWithFilter = function (callback, fields, filter) {
             registeredIContactResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactsWithFilter", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactsWithFilter?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { callback: callback, fields: fields } }));
             if (xhr.status == 200) {
             }
             else {
@@ -2010,9 +2259,9 @@ var Adaptive;
         ContactBridge.prototype.searchContacts = function (term, callback) {
             registeredIContactResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/searchContacts", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/searchContacts?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { term: term } }));
             if (xhr.status == 200) {
             }
             else {
@@ -2023,9 +2272,9 @@ var Adaptive;
         ContactBridge.prototype.searchContactsWithFilter = function (term, callback, filter) {
             registeredIContactResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/searchContactsWithFilter", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/searchContactsWithFilter?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { term: term, callback: callback } }));
             if (xhr.status == 200) {
             }
             else {
@@ -2037,7 +2286,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/setContactPhoto", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { contact: contact, pngImage: pngImage } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2094,7 +2343,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IRuntime/dismissSplashScreen", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2152,12 +2401,41 @@ var Adaptive;
      */
     var registeredIMessagingCallback = new Dictionary([]);
     /**
-     *  Callback IMessagingCallback handler.
-         // TODO: Implement handler.
+     *  Callback IMessagingCallback onError/onWarning/onResult handlers.
      */
-    function handleIMessagingCallback(id) {
+    function handleIMessagingCallbackError(id, error) {
+        var callback = registeredIMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIMessagingCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIMessagingCallback.remove("" + id);
+        }
     }
-    Adaptive.handleIMessagingCallback = handleIMessagingCallback;
+    Adaptive.handleIMessagingCallbackError = handleIMessagingCallbackError;
+    function handleIMessagingCallbackResult(id, success) {
+        var callback = registeredIMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIMessagingCallback dictionary.");
+        }
+        else {
+            callback.onResult(success);
+            registeredIMessagingCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIMessagingCallbackResult = handleIMessagingCallbackResult;
+    function handleIMessagingCallbackWarning(id, success, warning) {
+        var callback = registeredIMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIMessagingCallback dictionary.");
+        }
+        else {
+            callback.onWarning(success, warning);
+            registeredIMessagingCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIMessagingCallbackWarning = handleIMessagingCallbackWarning;
     /**
      *  Callback IMessagingCallback implementation.
      */
@@ -2254,12 +2532,41 @@ var Adaptive;
      */
     var registeredIDatabaseResultCallback = new Dictionary([]);
     /**
-     *  Callback IDatabaseResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IDatabaseResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIDatabaseResultCallback(id) {
+    function handleIDatabaseResultCallbackError(id, error) {
+        var callback = registeredIDatabaseResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIDatabaseResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIDatabaseResultCallback.remove("" + id);
+        }
     }
-    Adaptive.handleIDatabaseResultCallback = handleIDatabaseResultCallback;
+    Adaptive.handleIDatabaseResultCallbackError = handleIDatabaseResultCallbackError;
+    function handleIDatabaseResultCallbackResult(id, database) {
+        var callback = registeredIDatabaseResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIDatabaseResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(database);
+            registeredIDatabaseResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIDatabaseResultCallbackResult = handleIDatabaseResultCallbackResult;
+    function handleIDatabaseResultCallbackWarning(id, database, warning) {
+        var callback = registeredIDatabaseResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIDatabaseResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(database, warning);
+            registeredIDatabaseResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIDatabaseResultCallbackWarning = handleIDatabaseResultCallbackWarning;
     /**
      *  Callback IDatabaseResultCallback implementation.
      */
@@ -2327,9 +2634,9 @@ var Adaptive;
         SecurityBridge.prototype.deleteSecureKeyValuePairs = function (keys, publicAccessName, callback) {
             registeredISecureKVResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/deleteSecureKeyValuePairs", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/deleteSecureKeyValuePairs?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
             if (xhr.status == 200) {
             }
             else {
@@ -2340,9 +2647,9 @@ var Adaptive;
         SecurityBridge.prototype.getSecureKeyValuePairs = function (keys, publicAccessName, callback) {
             registeredISecureKVResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/getSecureKeyValuePairs", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/getSecureKeyValuePairs?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
             if (xhr.status == 200) {
             }
             else {
@@ -2354,7 +2661,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/isDeviceModified", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2372,9 +2679,9 @@ var Adaptive;
         SecurityBridge.prototype.setSecureKeyValuePairs = function (keyValues, publicAccessName, callback) {
             registeredISecureKVResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/setSecureKeyValuePairs", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/setSecureKeyValuePairs?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { keyValues: keyValues, publicAccessName: publicAccessName } }));
             if (xhr.status == 200) {
             }
             else {
@@ -2526,7 +2833,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasButtonSupport", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { type: type } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2545,7 +2852,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasCommunicationSupport", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { type: type } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2564,7 +2871,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasDataSupport", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { type: type } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2583,7 +2890,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasMediaSupport", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { type: type } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2602,7 +2909,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasNetSupport", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { type: type } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2621,7 +2928,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasNotificationSupport", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { type: type } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2640,7 +2947,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasSensorSupport", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { type: type } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2666,9 +2973,9 @@ var Adaptive;
         }
         GeolocationBridge.prototype.addGeolocationListener = function (listener) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/addGeolocationListener", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/addGeolocationListener?id=" + listener.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(); // Listeners only require id included in URL param.
             if (xhr.status == 200) {
                 registeredIGeolocationListener.add("" + listener.getId(), listener);
             }
@@ -2678,9 +2985,9 @@ var Adaptive;
         };
         GeolocationBridge.prototype.removeGeolocationListener = function (listener) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListener", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListener?id=" + listener.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(); // Listeners only require id included in URL param.
             if (xhr.status == 200) {
                 registeredIGeolocationListener.remove("" + listener.getId());
             }
@@ -2732,7 +3039,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ITelephony/call", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { number: number } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2759,9 +3066,9 @@ var Adaptive;
         MessagingBridge.prototype.sendSMS = function (number, text, callback) {
             registeredIMessagingCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IMessaging/sendSMS", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IMessaging/sendSMS?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { number: number, text: text } }));
             if (xhr.status == 200) {
             }
             else {
@@ -2782,7 +3089,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/endsWith", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2801,7 +3108,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/endsWithPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2820,7 +3127,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/equalPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2839,7 +3146,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/equals", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2858,7 +3165,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getFileName", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2877,7 +3184,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getFileSystem", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2896,7 +3203,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getNameAtIndex", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { index: index } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2915,7 +3222,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getNameCount", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2934,7 +3241,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getParent", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2953,7 +3260,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/getRoot", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2972,7 +3279,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/isAbsolute", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -2991,7 +3298,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/normalize", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3010,7 +3317,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/relativize", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3029,7 +3336,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/resolve", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3048,7 +3355,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/resolvePath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3067,7 +3374,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/resolveSibling", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3086,7 +3393,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/resolveSiblingPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3105,7 +3412,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/startsWith", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3124,7 +3431,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/startsWithPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3143,7 +3450,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/toAbsolutePath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3162,7 +3469,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/toFile", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3181,7 +3488,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/toString", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3240,12 +3547,41 @@ var Adaptive;
      */
     var registeredITableResultCallback = new Dictionary([]);
     /**
-     *  Callback ITableResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback ITableResultCallback onError/onWarning/onResult handlers.
      */
-    function handleITableResultCallback(id) {
+    function handleITableResultCallbackError(id, error) {
+        var callback = registeredITableResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredITableResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredITableResultCallback.remove("" + id);
+        }
     }
-    Adaptive.handleITableResultCallback = handleITableResultCallback;
+    Adaptive.handleITableResultCallbackError = handleITableResultCallbackError;
+    function handleITableResultCallbackResult(id, table) {
+        var callback = registeredITableResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredITableResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(table);
+            registeredITableResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleITableResultCallbackResult = handleITableResultCallbackResult;
+    function handleITableResultCallbackWarning(id, table, warning) {
+        var callback = registeredITableResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredITableResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(table, warning);
+            registeredITableResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleITableResultCallbackWarning = handleITableResultCallbackWarning;
     /**
      *  Callback ITableResultCallback implementation.
      */
@@ -3340,12 +3676,41 @@ var Adaptive;
      */
     var registeredIFileListResultCallback = new Dictionary([]);
     /**
-     *  Callback IFileListResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IFileListResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIFileListResultCallback(id) {
+    function handleIFileListResultCallbackError(id, error) {
+        var callback = registeredIFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileListResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIFileListResultCallback.remove("" + id);
+        }
     }
-    Adaptive.handleIFileListResultCallback = handleIFileListResultCallback;
+    Adaptive.handleIFileListResultCallbackError = handleIFileListResultCallbackError;
+    function handleIFileListResultCallbackResult(id, files) {
+        var callback = registeredIFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileListResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(files);
+            registeredIFileListResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileListResultCallbackResult = handleIFileListResultCallbackResult;
+    function handleIFileListResultCallbackWarning(id, files, warning) {
+        var callback = registeredIFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileListResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(files, warning);
+            registeredIFileListResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileListResultCallbackWarning = handleIFileListResultCallbackWarning;
     /**
      *  Callback IFileListResultCallback implementation.
      */
@@ -3412,9 +3777,9 @@ var Adaptive;
         }
         AccelerometerBridge.prototype.addAccelerationListener = function (listener) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/addAccelerationListener", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/addAccelerationListener?id=" + listener.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(); // Listeners only require id included in URL param.
             if (xhr.status == 200) {
                 registeredIAccelerationListener.add("" + listener.getId(), listener);
             }
@@ -3424,9 +3789,9 @@ var Adaptive;
         };
         AccelerometerBridge.prototype.removeAccelerationListener = function (listener) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListener", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListener?id=" + listener.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(); // Listeners only require id included in URL param.
             if (xhr.status == 200) {
                 registeredIAccelerationListener.remove("" + listener.getId());
             }
@@ -3495,7 +3860,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getLocaleSupportedDescriptors", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3514,7 +3879,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiteral", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { key: key, locale: locale } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3533,7 +3898,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiterals", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { locale: locale } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3599,12 +3964,41 @@ var Adaptive;
      */
     var registeredIServiceResultCallback = new Dictionary([]);
     /**
-     *  Callback IServiceResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IServiceResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIServiceResultCallback(id) {
+    function handleIServiceResultCallbackError(id, error) {
+        var callback = registeredIServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIServiceResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIServiceResultCallback.remove("" + id);
+        }
     }
-    Adaptive.handleIServiceResultCallback = handleIServiceResultCallback;
+    Adaptive.handleIServiceResultCallbackError = handleIServiceResultCallbackError;
+    function handleIServiceResultCallbackResult(id, response) {
+        var callback = registeredIServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIServiceResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(response);
+            registeredIServiceResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIServiceResultCallbackResult = handleIServiceResultCallbackResult;
+    function handleIServiceResultCallbackWarning(id, response, warning) {
+        var callback = registeredIServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIServiceResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(response, warning);
+            registeredIServiceResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIServiceResultCallbackWarning = handleIServiceResultCallbackWarning;
     /**
      *  Callback IServiceResultCallback implementation.
      */
@@ -3700,12 +4094,41 @@ var Adaptive;
      */
     var registeredIFileDataResultCallback = new Dictionary([]);
     /**
-     *  Callback IFileDataResultCallback handler.
-         // TODO: Implement handler.
+     *  Callback IFileDataResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIFileDataResultCallback(id) {
+    function handleIFileDataResultCallbackError(id, error) {
+        var callback = registeredIFileDataResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileDataResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIFileDataResultCallback.remove("" + id);
+        }
     }
-    Adaptive.handleIFileDataResultCallback = handleIFileDataResultCallback;
+    Adaptive.handleIFileDataResultCallbackError = handleIFileDataResultCallbackError;
+    function handleIFileDataResultCallbackResult(id, file, data) {
+        var callback = registeredIFileDataResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileDataResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(file, data);
+            registeredIFileDataResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileDataResultCallbackResult = handleIFileDataResultCallbackResult;
+    function handleIFileDataResultCallbackWarning(id, file, warning) {
+        var callback = registeredIFileDataResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileDataResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(file, warning);
+            registeredIFileDataResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileDataResultCallbackWarning = handleIFileDataResultCallbackWarning;
     /**
      *  Callback IFileDataResultCallback implementation.
      */
@@ -3774,7 +4197,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseMedia/IVideo/playStream", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { url: url } }));
             if (xhr.status == 200) {
             }
             else {
@@ -3794,7 +4217,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/canRead", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3813,7 +4236,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/canWrite", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3831,9 +4254,9 @@ var Adaptive;
         FileBridge.prototype.create = function (name, callback) {
             registeredIFileResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/create", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/create?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { name: name } }));
             if (xhr.status == 200) {
             }
             else {
@@ -3844,9 +4267,9 @@ var Adaptive;
         FileBridge.prototype.createWithPath = function (path, name, callback) {
             registeredIFileResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/createWithPath", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/createWithPath?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { path: path, name: name } }));
             if (xhr.status == 200) {
             }
             else {
@@ -3858,7 +4281,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/delete", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { cascade: cascade } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3877,7 +4300,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/endsWith", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3896,7 +4319,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/endsWithPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3915,7 +4338,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/equalPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3934,7 +4357,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/equals", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3953,7 +4376,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/exists", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -3971,9 +4394,9 @@ var Adaptive;
         FileBridge.prototype.getContent = function (callback) {
             registeredIFileDataResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getContent", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getContent?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
             }
             else {
@@ -3985,7 +4408,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getDateCreated", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4004,7 +4427,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getDateModified", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4023,7 +4446,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getFileName", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4042,7 +4465,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getFileSystem", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4061,7 +4484,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getName", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4080,7 +4503,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getNameAtIndex", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { index: index } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4099,7 +4522,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getNameCount", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4118,7 +4541,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getParent", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4137,7 +4560,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4156,7 +4579,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getRoot", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4175,7 +4598,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/getSize", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4194,7 +4617,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/isAbsolute", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4213,7 +4636,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/isDirectory", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4231,9 +4654,9 @@ var Adaptive;
         FileBridge.prototype.listFiles = function (callback) {
             registeredIFileListResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/listFiles", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/listFiles?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
             }
             else {
@@ -4244,9 +4667,9 @@ var Adaptive;
         FileBridge.prototype.listFilesForRegex = function (regex, callback) {
             registeredIFileListResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/listFilesForRegex", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/listFilesForRegex?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { regex: regex } }));
             if (xhr.status == 200) {
             }
             else {
@@ -4258,7 +4681,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/mkDir", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { recursive: recursive } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4276,9 +4699,9 @@ var Adaptive;
         FileBridge.prototype.move = function (newFile, createPath, callback, overwrite) {
             registeredIFileResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/move", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/move?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { newFile: newFile, createPath: createPath, callback: callback } }));
             if (xhr.status == 200) {
             }
             else {
@@ -4290,7 +4713,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/normalize", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4309,7 +4732,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/relativize", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4328,7 +4751,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/resolve", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4347,7 +4770,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/resolvePath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4366,7 +4789,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/resolveSibling", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4385,7 +4808,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/resolveSiblingPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4403,9 +4826,9 @@ var Adaptive;
         FileBridge.prototype.setContent = function (content, callback) {
             registeredIFileDataResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/setContent", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/setContent?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // TODO: Add parameters to send.
+            xhr.send(JSON.stringify({ request: { content: content } }));
             if (xhr.status == 200) {
             }
             else {
@@ -4417,7 +4840,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/startsWith", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4436,7 +4859,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/startsWithPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: { other: other } }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4455,7 +4878,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/toAbsolutePath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4474,7 +4897,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/toFile", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4493,7 +4916,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/toPath", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);
@@ -4512,7 +4935,7 @@ var Adaptive;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseData/IFilePath/IFile/toString", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send();
+            xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
                 if (xhr.responseText != null && xhr.responseText != '') {
                     return JSON.parse(xhr.responseText);

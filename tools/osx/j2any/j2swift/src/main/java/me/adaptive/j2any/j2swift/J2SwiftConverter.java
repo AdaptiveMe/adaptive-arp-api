@@ -1087,11 +1087,14 @@ public class J2SwiftConverter {
                             js.print(returnType.getSimpleName());
                         }
                     }
-
+                    ps.println(" {");
+                    js.println(" {");
+                } else {
+                    ps.println(" {");
+                    js.println(" : void {");
                 }
 
-                ps.println(" {");
-                js.println(" {");
+
 
                 if (!returnType.equals(Void.TYPE)) {
                     ps.print(10, "return self." + getGetterSetterProperty(method));
@@ -1275,17 +1278,60 @@ public class J2SwiftConverter {
                     } else if (clazz.getName().endsWith("Callback")) {
                         js.print(5, " *  Callback ");
                     }
-                    js.println(clazz.getSimpleName() + " handler.");
-                    js.println(10, "// TODO: Implement handler.");
+                    js.println(clazz.getSimpleName() + " onError/onWarning/onResult handlers.");
                     js.println(5, " */");
-
-                    js.println(5, "export function handle"+clazz.getSimpleName()+"(id:number) {");
-                    js.println(5, "}");
+                    for (Method method : onMethodList) {
+                        if (method.getName().equals("onError")) {
+                            js.print(5, "export function handle"+clazz.getSimpleName()+"Error(id:number, ");
+                        } else if (method.getName().equals("onWarning")) {
+                            js.print(5, "export function handle"+clazz.getSimpleName()+"Warning(id:number, ");
+                        } else if (method.getName().equals("onResult")) {
+                            js.print(5, "export function handle"+clazz.getSimpleName()+"Result(id:number, ");
+                        }
+                        for (int i=0;i<method.getParameterCount();i++) {
+                            Parameter parameter = method.getParameters()[i];
+                            js.print(parameter.getName()+": "+getJSClassType(clazz,parameter.getType()));
+                            if (i<method.getParameterCount()-1) {
+                                js.print(", ");
+                            }
+                        }
+                        js.println(") : void {");
+                        String fnName = "UNDEFINED";
+                        if (clazz.getName().endsWith("Listener")) {
+                            fnName = "listener";
+                        } else if (clazz.getName().endsWith("Callback")) {
+                            fnName = "callback";
+                        }
+                        js.println(10, "var "+fnName+" = registered"+clazz.getSimpleName()+"[\"\"+id];");
+                        js.println(10,"if (typeof "+fnName+" === 'undefined' || "+fnName+" == null) {");
+                        js.println(15,"console.error(\"ERROR: No "+fnName+" with id \"+id+\" registered in registered"+clazz.getSimpleName()+" dictionary.\");");
+                        js.println(10,"} else {");
+                        if (method.getName().equals("onError")) {
+                            js.print(15, fnName + ".onError(");
+                        } else if (method.getName().equals("onWarning")) {
+                            js.print(15, fnName+".onWarning(");
+                        } else if (method.getName().equals("onResult")) {
+                            js.print(15, fnName+".onResult(");
+                        }
+                        for (int i=0;i<method.getParameterCount();i++) {
+                            Parameter parameter = method.getParameters()[i];
+                            js.print(parameter.getName());
+                            if (i<method.getParameterCount()-1) {
+                                js.print(", ");
+                            }
+                        }
+                        js.println(");");
+                        if (clazz.getName().endsWith("Callback")) {
+                            js.println(15, "registered"+clazz.getSimpleName()+".remove(\"\"+id)");
+                        }
+                        js.println(10,"}");
+                        js.println(5, "}");
+                    }
                     // TODO: Implement Listener / Callback handler
                     /*
                      export function handleIServiceResultCallback(id : number, response : ServiceResponse, warning: IServiceResultCallbackWarningEnum, error: IServiceResultCallbackErrorEnum  ) {
                         var callback = registeredIServiceResultCallback[""+id]
-                        if (typeof callback === 'undefined') {
+                        if (typeof callback === 'undefined' || callback == null) {
                             console.log("WARNING: No callback with id "+id);
                         } else {
                             if (error != null) {
@@ -1551,9 +1597,18 @@ public class J2SwiftConverter {
                         }
                         relativePath.append("/");
                         relativePath.append(method.getName());
+
                         js.println(15, "xhr.open(\"POST\", bridgePath+\"" + relativePath.toString() + "\", false);");
                         js.println(15, "xhr.setRequestHeader(\"Content-type\", \"application/json\");");
-                        js.println(15, "xhr.send();");
+                        js.print(15, "xhr.send(JSON.stringify({ request: { ");
+                        for (int i=0;i<allParameters.size();i++) {
+                            Parameter p = allParameters.get(i);
+                            js.print(""+p.getName()+": "+p.getName());
+                            if (i<allParameters.size()-1) {
+                                js.print(", ");
+                            }
+                        }
+                        js.println("}}));");
                         js.println(15, "if (xhr.status == 200) {");
                         js.println(20, "if (xhr.responseText != null && xhr.responseText != '') {");
                         js.println(25, "return JSON.parse(xhr.responseText);");
@@ -1566,9 +1621,14 @@ public class J2SwiftConverter {
                         js.println(20, "return null;");
                         js.println(15, "}");
                     } else {
+                        String idCallList = null;
                         for (Parameter parameter : method.getParameters()) {
+
                             if (parameter.getType().getSimpleName().endsWith("Callback")) {
                                 js.println(15, "registered" + parameter.getType().getSimpleName() + ".add(\"\"+" + parameter.getName() + ".getId()," + parameter.getName() + ");");
+                                idCallList = parameter.getName() + ".getId()";
+                            } else if (parameter.getType().getSimpleName().endsWith("Listener")) {
+                                idCallList = parameter.getName() + ".getId()";
                             }
                         }
                         js.println(15, "var xhr = new XMLHttpRequest();");
@@ -1587,13 +1647,51 @@ public class J2SwiftConverter {
                         }
                         relativePath.append("/");
                         relativePath.append(method.getName());
-                        js.println(15, "xhr.open(\"POST\", bridgePath+\"" + relativePath.toString() + "\", false);");
+                        js.println(15, "xhr.open(\"POST\", bridgePath+\"" + relativePath.toString() + (idCallList != null ? "?id=\"+" + idCallList : "\"") + ", false);");
                         js.println(15, "xhr.setRequestHeader(\"Content-type\", \"application/json\");");
 
                         if (method.getParameterCount() == 0) {
                             js.println(15, "xhr.send(); // No parameters.");
                         } else {
-                            js.println(15, "xhr.send(); // TODO: Add parameters to send.");
+                            boolean isCallback = false;
+                            boolean isListener = false;
+                            for (Parameter p : method.getParameters()) {
+                                if (p.getType().getSimpleName().endsWith("Listener")) {
+                                    isListener = true;
+                                } else if (p.getType().getSimpleName().endsWith("Callback")) {
+                                    isCallback = true;
+                                }
+                            }
+                            if (isListener) {
+                                js.println(15, "xhr.send(); // Listeners only require id included in URL param.");
+                            } else if (isCallback) {
+                                js.print(15, "xhr.send(JSON.stringify({ request: { ");
+                                List<Parameter> filteredList = new ArrayList<>();
+                                for (Parameter p : allParameters) {
+                                    if (!p.getType().getSimpleName().endsWith("Callback")) {
+                                        filteredList.add(p);
+                                    }
+                                }
+
+                                for (int i=0;i<filteredList.size();i++) {
+                                    Parameter p = allParameters.get(i);
+                                    js.print(""+p.getName()+": "+p.getName());
+                                    if (i<filteredList.size()-1) {
+                                        js.print(", ");
+                                    }
+                                }
+                                js.println(" } }));");
+                            } else {
+                                js.print(15, "xhr.send(JSON.stringify({ request: { ");
+                                for (int i=0;i<allParameters.size();i++) {
+                                    Parameter p = allParameters.get(i);
+                                    js.print(""+p.getName()+": "+p.getName());
+                                    if (i<allParameters.size()-1) {
+                                        js.print(", ");
+                                    }
+                                }
+                                js.println("}}));");
+                            }
                         }
                         js.println(15, "if (xhr.status == 200) {");
                         if (!getJSClassType(clazz, method).equals("void"))
@@ -1606,7 +1704,7 @@ public class J2SwiftConverter {
                                     js.println(20, "registered" + parameter.getType().getSimpleName() + ".add(\"\"+" + parameter.getName() + ".getId()," + parameter.getName() + ");");
                                 }
                             } else if (parameter.getType().getSimpleName().endsWith("Callback")) {
-                                js.println(20, "// Callback removed from 'registered" + parameter.getType().getSimpleName() + "' on receiving async response.");
+                                js.println(20, "// Callback removed from 'registered" + parameter.getType().getSimpleName() + "' on receiving async response handler.");
                             }
                         }
                         if (method.getName().startsWith("remove") && method.getName().endsWith("Listeners")) {
