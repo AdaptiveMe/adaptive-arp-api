@@ -6234,6 +6234,9 @@ var Adaptive;
         ServiceServiceTypeEnum.prototype.toString = function () {
             return this.value;
         };
+        ServiceServiceTypeEnum.getClassDescription = function () {
+            return "static";
+        };
         ServiceServiceTypeEnum.SERVICETYPE_AMF_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_AMF_SERIALIZATION");
         ServiceServiceTypeEnum.SERVICETYPE_GWT_RPC = new ServiceServiceTypeEnum("SERVICETYPE_GWT_RPC");
         ServiceServiceTypeEnum.SERVICETYPE_OCTET_BINARY = new ServiceServiceTypeEnum("SERVICETYPE_OCTET_BINARY");
@@ -6248,5 +6251,169 @@ var Adaptive;
         return ServiceServiceTypeEnum;
     })();
     Adaptive.ServiceServiceTypeEnum = ServiceServiceTypeEnum;
+    var ReflectionStereotypeEnum = (function () {
+        function ReflectionStereotypeEnum(value) {
+            this.value = value;
+        }
+        ReflectionStereotypeEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ReflectionStereotypeEnum.TypeModule = new ReflectionStereotypeEnum("Module");
+        ReflectionStereotypeEnum.TypeCategory = new ReflectionStereotypeEnum("Category");
+        ReflectionStereotypeEnum.TypeClass = new ReflectionStereotypeEnum("Class");
+        ReflectionStereotypeEnum.TypeFunction = new ReflectionStereotypeEnum("Function");
+        ReflectionStereotypeEnum.TypeObject = new ReflectionStereotypeEnum("Object");
+        ReflectionStereotypeEnum.TypeDescription = new ReflectionStereotypeEnum("Description");
+        return ReflectionStereotypeEnum;
+    })();
+    Adaptive.ReflectionStereotypeEnum = ReflectionStereotypeEnum;
+    var ReflectionTypeEnum = (function () {
+        function ReflectionTypeEnum(value) {
+            this.value = value;
+        }
+        ReflectionTypeEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ReflectionTypeEnum.TypeString = new ReflectionStereotypeEnum("string");
+        ReflectionTypeEnum.TypeNumber = new ReflectionStereotypeEnum("number");
+        ReflectionTypeEnum.TypeObject = new ReflectionStereotypeEnum("object");
+        ReflectionTypeEnum.TypeArray = new ReflectionStereotypeEnum("Array");
+        return ReflectionTypeEnum;
+    })();
+    Adaptive.ReflectionTypeEnum = ReflectionTypeEnum;
+    var Reflection = (function () {
+        function Reflection(name, description, stereotype) {
+            this.name = name;
+            this.description = description;
+            this.stereotype = stereotype;
+        }
+        Reflection.prototype.getName = function () {
+            return this.name;
+        };
+        Reflection.prototype.getStereotype = function () {
+            return this.stereotype;
+        };
+        Reflection.prototype.getDescription = function () {
+            return this.description;
+        };
+        return Reflection;
+    })();
+    Adaptive.Reflection = Reflection;
+    var ReflectionModule = (function (_super) {
+        __extends(ReflectionModule, _super);
+        function ReflectionModule(name, description, categories) {
+            _super.call(this, name, description, ReflectionStereotypeEnum.TypeModule);
+            this.categories = categories;
+        }
+        ReflectionModule.prototype.getCategories = function () {
+            return this.categories;
+        };
+        ReflectionModule.prototype.getClasses = function () {
+            var _array = new Array();
+            for (var i = 0; i < this.getCategories().length; i++) {
+                var category = this.getCategories()[i];
+                for (var j = 0; j < category.getClasses().length; j++) {
+                    _array.push(category.getClasses()[j]);
+                }
+            }
+            return _array;
+        };
+        return ReflectionModule;
+    })(Reflection);
+    Adaptive.ReflectionModule = ReflectionModule;
+    var ReflectionCategory = (function (_super) {
+        __extends(ReflectionCategory, _super);
+        function ReflectionCategory(name, description, classes) {
+            _super.call(this, name, description, ReflectionStereotypeEnum.TypeCategory);
+            this.classes = classes;
+        }
+        ReflectionCategory.prototype.getClasses = function () {
+            return this.classes;
+        };
+        return ReflectionCategory;
+    })(Reflection);
+    Adaptive.ReflectionCategory = ReflectionCategory;
+    var ReflectionClass = (function (_super) {
+        __extends(ReflectionClass, _super);
+        function ReflectionClass(name, description, functions) {
+            _super.call(this, name, description, ReflectionStereotypeEnum.TypeClass);
+            this.functions = functions;
+        }
+        ReflectionClass.prototype.getFunctions = function () {
+            return this.functions;
+        };
+        return ReflectionClass;
+    })(Reflection);
+    Adaptive.ReflectionClass = ReflectionClass;
+    var ReflectionFunction = (function (_super) {
+        __extends(ReflectionFunction, _super);
+        function ReflectionFunction(name, description, parameters, returnType) {
+            _super.call(this, name, description, ReflectionStereotypeEnum.TypeFunction);
+            this.parameters = parameters;
+            this.returnType = returnType;
+        }
+        ReflectionFunction.prototype.getParameters = function () {
+            return this.parameters;
+        };
+        ReflectionFunction.prototype.getReturnType = function () {
+            return this.returnType;
+        };
+        return ReflectionFunction;
+    })(Reflection);
+    Adaptive.ReflectionFunction = ReflectionFunction;
+    var ReflectionObject = (function (_super) {
+        __extends(ReflectionObject, _super);
+        function ReflectionObject(name, description, type, fields) {
+            _super.call(this, name, description, ReflectionStereotypeEnum.TypeObject);
+            this.primitive = false;
+            this._array = false;
+            this._void = false;
+            this.type = type;
+            this.fields = fields;
+            this.componentType = null;
+            if (this.type == "number" || this.type == "string" || this.type == "boolean") {
+                this.primitive = true;
+            }
+            if (this.type == null || this.type == "null") {
+                this._void = true;
+            }
+            if (this.type != null && this.type.indexOf("Array") > -1) {
+                this._array = true;
+                this.componentType = new ReflectionObject(name, "Array component of " + type + ".", this.type.substring(5, this.type.length - 1), null);
+            }
+        }
+        ReflectionObject.prototype.getType = function () {
+            return this.type;
+        };
+        ReflectionObject.prototype.getComponentType = function () {
+            return this.componentType;
+        };
+        ReflectionObject.prototype.isPrimitive = function () {
+            return this.primitive;
+        };
+        ReflectionObject.prototype.isArray = function () {
+            return this._array;
+        };
+        ReflectionObject.prototype.isVoid = function () {
+            return this._void;
+        };
+        return ReflectionObject;
+    })(Reflection);
+    Adaptive.ReflectionObject = ReflectionObject;
 })(Adaptive || (Adaptive = {}));
+var arrayCategory = new Array();
+for (var _categories = 0; _categories < 20; _categories++) {
+    var arrayClasses = new Array();
+    for (var _classes = 0; _classes < 20; _classes++) {
+        var arrayFunctions = new Array();
+        for (var _functions = 0; _functions < 20; _functions++) {
+            var arrayParameters = new Array();
+            for (var _parameters = 0; _parameters < 5; _parameters++) {
+                var arrayFields = new Array();
+                for (var _fields = 0; _fields < 10; _fields++) {
+                }
+            }
+        }
+    }
+}
 //# sourceMappingURL=adaptive.js.map

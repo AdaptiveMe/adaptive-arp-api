@@ -2980,5 +2980,81 @@ declare module Adaptive {
         static SERVICETYPE_XMLRPC_JSON: ServiceServiceTypeEnum;
         static SERVICETYPE_XMLRPC_XML: ServiceServiceTypeEnum;
         static Unknown: ServiceServiceTypeEnum;
+        static getClassDescription(): string;
+    }
+    class ReflectionStereotypeEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static TypeModule: ReflectionStereotypeEnum;
+        static TypeCategory: ReflectionStereotypeEnum;
+        static TypeClass: ReflectionStereotypeEnum;
+        static TypeFunction: ReflectionStereotypeEnum;
+        static TypeObject: ReflectionStereotypeEnum;
+        static TypeDescription: ReflectionStereotypeEnum;
+    }
+    class ReflectionTypeEnum {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static TypeString: ReflectionStereotypeEnum;
+        static TypeNumber: ReflectionStereotypeEnum;
+        static TypeObject: ReflectionStereotypeEnum;
+        static TypeArray: ReflectionStereotypeEnum;
+    }
+    interface IReflection {
+        name: string;
+        description: string;
+        stereotype: ReflectionStereotypeEnum;
+        getName(): string;
+        getStereotype(): ReflectionStereotypeEnum;
+        getDescription(): string;
+    }
+    class Reflection implements IReflection {
+        name: string;
+        description: string;
+        stereotype: ReflectionStereotypeEnum;
+        constructor(name: string, description: string, stereotype: ReflectionStereotypeEnum);
+        getName(): string;
+        getStereotype(): ReflectionStereotypeEnum;
+        getDescription(): string;
+    }
+    class ReflectionModule extends Reflection {
+        categories: ReflectionCategory[];
+        constructor(name: string, description: string, categories: ReflectionCategory[]);
+        getCategories(): ReflectionCategory[];
+        getClasses(): ReflectionClass[];
+    }
+    class ReflectionCategory extends Reflection {
+        classes: ReflectionClass[];
+        constructor(name: string, description: string, classes: ReflectionClass[]);
+        getClasses(): ReflectionClass[];
+    }
+    class ReflectionClass extends Reflection {
+        functions: ReflectionFunction[];
+        constructor(name: string, description: string, functions: ReflectionFunction[]);
+        getFunctions(): ReflectionFunction[];
+    }
+    class ReflectionFunction extends Reflection {
+        parameters: ReflectionObject[];
+        returnType: ReflectionObject;
+        constructor(name: string, description: string, parameters: ReflectionObject[], returnType: ReflectionObject);
+        getParameters(): ReflectionObject[];
+        getReturnType(): ReflectionObject;
+    }
+    class ReflectionObject extends Reflection {
+        type: string;
+        componentType: ReflectionObject;
+        fields: ReflectionObject[];
+        primitive: boolean;
+        _array: boolean;
+        _void: boolean;
+        constructor(name: string, description: string, type: string, fields: ReflectionObject[]);
+        getType(): string;
+        getComponentType(): ReflectionObject;
+        isPrimitive(): boolean;
+        isArray(): boolean;
+        isVoid(): boolean;
     }
 }
+declare var arrayCategory: Adaptive.ReflectionCategory[];

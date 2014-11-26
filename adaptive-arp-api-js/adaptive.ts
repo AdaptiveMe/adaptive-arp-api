@@ -7379,104 +7379,163 @@ module Adaptive {
     export interface IReflection {
         name : string;
         description: string;
+        stereotype: ReflectionStereotypeEnum;
         getName() : string;
         getStereotype() : ReflectionStereotypeEnum;
         getDescription(): string;
     }
 
-    export interface IModule extends IReflection {
-        categories: Array<ICategory>
-        getCategories() : Array<ICategory>;
-        getClasses() : Array<IClass>;
-    }
-
-    export interface ICategory extends IReflection {
-        classes: Array<IClass>;
-        getClasses() : Array<IClass>;
-    }
-
-    export interface IClass extends IReflection {
-        functions: Array<IFunction>;
-        getFunctions() : Array<IFunction>;
-    }
-
-    export interface IFunction extends IReflection {
-        parameters: Array<IObject>;
-        getParameters() : Array<IObject>;
-        getReturnType() : IObject;
-    }
-
-    interface IObject extends IReflection {
-        type: string;
-        componentType: IObject;
-
-        getType() : string;
-        getComponentType():string;
-        isPrimitive():boolean;
-        isArray():boolean;
-        isVoid():boolean;
-    }
-
-    export class ReflectionModule implements IModule {
+    export class Reflection implements IReflection {
         name:string;
         description:string;
-        categories:Array<ICategory>;
+        stereotype: ReflectionStereotypeEnum;
 
-        constructor(name:string, description:string, categories:Array<ICategory>) {
+        constructor(name:string, description:string,stereotype:ReflectionStereotypeEnum) {
             this.name = name;
             this.description = description;
-            this.categories = categories;
+            this.stereotype = stereotype;
         }
 
         getName():string {
             return this.name;
         }
-
         getStereotype(): ReflectionStereotypeEnum {
-            return ReflectionStereotypeEnum.TypeModule;
+            return this.stereotype;
         }
-
-        getDescription(): string {
-            return this.description;
-        }
-
-        getCategories():Array<ICategory> {
-            return this.categories;
-        }
-
-        getClasses():Array<IClass> {
-            var classArray = new Array<IClass>();
-            for (var category in this.categories) {
-                for (var clazz in category.getClasses()) {
-                    classArray.push(clazz);
-                }
-            }
-            return classArray;
-        }
-    }
-
-    export class ReflectionCategory implements ICategory {
-        classes:Array<IClass>;
-        name:string;
-        description:string;
-
-        getClasses():Array<IClass> {
-            return this.classes;
-        }
-
-        getName():string {
-            return this.name;
-        }
-
-        getStereotype():ReflectionStereotypeEnum {
-            return ReflectionStereotypeEnum.TypeCategory;
-        }
-
         getDescription():string {
             return this.description;
         }
+    }
 
+    export class ReflectionModule extends Reflection {
+        categories: Array<ReflectionCategory>;
+
+        constructor(name:string, description:string,categories:Array<ReflectionCategory>) {
+            super(name,description,ReflectionStereotypeEnum.TypeModule)
+            this.categories = categories;
+        }
+
+        getCategories() : Array<ReflectionCategory> {
+            return this.categories;
+        }
+
+        getClasses() : Array<ReflectionClass> {
+            var _array = new Array<ReflectionClass>();
+            for (var i=0; i < this.getCategories().length; i++) {
+                var category:ReflectionCategory = this.getCategories()[i];
+                for (var j=0; j < category.getClasses().length; j++) {
+                    _array.push(category.getClasses()[j]);
+                }
+            }
+            return _array;
+        }
+    }
+
+    export class ReflectionCategory extends Reflection {
+        classes: Array<ReflectionClass>;
+
+        constructor(name:string, description:string, classes:Array<ReflectionClass>) {
+            super(name, description, ReflectionStereotypeEnum.TypeCategory);
+            this.classes = classes;
+        }
+
+        getClasses() : Array<ReflectionClass> {
+            return this.classes;
+        }
+    }
+
+    export class ReflectionClass extends Reflection {
+        functions: Array<ReflectionFunction>;
+
+        constructor(name:string, description:string, functions:Array<ReflectionFunction>) {
+            super(name,description,ReflectionStereotypeEnum.TypeClass);
+            this.functions = functions;
+        }
+
+        getFunctions() : Array<ReflectionFunction> {
+            return this.functions;
+        }
+    }
+
+    export class ReflectionFunction extends Reflection {
+        parameters: Array<ReflectionObject>;
+        returnType: ReflectionObject;
+
+        constructor(name:string, description:string, parameters:Array<ReflectionObject>, returnType:ReflectionObject) {
+            super(name,description,ReflectionStereotypeEnum.TypeFunction);
+            this.parameters = parameters;
+            this.returnType = returnType;
+        }
+
+        getParameters() : Array<ReflectionObject> {
+            return this.parameters;
+        }
+        getReturnType() : ReflectionObject {
+            return this.returnType;
+        }
+    }
+
+    export class ReflectionObject extends Reflection {
+        type: string;
+        componentType: ReflectionObject;
+        fields:Array<ReflectionObject>;
+        primitive: boolean = false;
+        _array:boolean = false;
+        _void:boolean = false;
+
+        constructor(name:string, description:string, type:string, fields:Array<ReflectionObject>) {
+            super(name,description,ReflectionStereotypeEnum.TypeObject);
+            this.type = type;
+            this.fields = fields;
+            this.componentType = null;
+            if (this.type == "number" || this.type == "string" || this.type == "boolean") {
+                this.primitive = true;
+            }
+            if (this.type == null || this.type == "null") {
+                this._void = true;
+            }
+            if (this.type !=null && this.type.indexOf("Array")>-1) {
+                this._array = true;
+                this.componentType = new ReflectionObject(name, "Array component of "+type+".",this.type.substring(5,this.type.length-1), null);
+            }
+        }
+
+        getType() : string {
+            return this.type;
+        }
+        getComponentType():ReflectionObject {
+            return this.componentType;
+        }
+        isPrimitive():boolean {
+            return this.primitive;
+        }
+        isArray():boolean {
+            return this._array;
+        }
+        isVoid():boolean {
+            return this._void;
+        }
     }
 }
 
-console.log(Adaptive.ServiceServiceTypeEnum.getClassDescription());
+var arrayCategory = new Array<Adaptive.ReflectionCategory>();
+for (var _categories = 0; _categories < 20 ; _categories++) {
+
+    var arrayClasses = new Array<Adaptive.ReflectionClass>();
+    for (var _classes = 0; _classes < 20; _classes++) {
+
+        var arrayFunctions = new Array<Adaptive.ReflectionFunction>();
+        for (var _functions = 0; _functions<20; _functions++) {
+
+            var arrayParameters = new Array<Adaptive.ReflectionObject>();
+            for (var _parameters = 0; _parameters<5;_parameters++) {
+
+                var arrayFields = new Array<Adaptive.ReflectionObject>();
+                for (var _fields = 0; _fields < 10; _fields++) {
+
+                }
+            }
+        }
+    }
+}
+
