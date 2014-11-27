@@ -6369,7 +6369,12 @@ var Adaptive;
             this._array = false;
             this._void = false;
             this.type = type;
-            this.fields = fields;
+            if (fields == null) {
+                this.fields = new Array();
+            }
+            else {
+                this.fields = fields;
+            }
             this.componentType = null;
             if (this.type == "number" || this.type == "string" || this.type == "boolean") {
                 this.primitive = true;

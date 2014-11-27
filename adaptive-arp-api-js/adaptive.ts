@@ -7486,7 +7486,11 @@ module Adaptive {
         constructor(name:string, description:string, type:string, fields:Array<ReflectionObject>) {
             super(name,description,ReflectionStereotypeEnum.TypeObject);
             this.type = type;
-            this.fields = fields;
+            if (fields == null) {
+                this.fields = new Array<ReflectionObject>();
+            } else {
+                this.fields = fields;
+            }
             this.componentType = null;
             if (this.type == "number" || this.type == "string" || this.type == "boolean") {
                 this.primitive = true;
