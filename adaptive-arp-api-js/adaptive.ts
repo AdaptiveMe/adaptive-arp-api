@@ -185,10 +185,18 @@ module Adaptive {
     export class ReflectionClass extends Reflection {
         functions: Array<ReflectionFunction>;
         fields:Array<ReflectionObject>;
+        _enum:boolean = false;
 
         constructor(name:string, description:string, functions:Array<ReflectionFunction>, fields:Array<ReflectionObject>) {
             super(name,description,ReflectionStereotypeEnum.TypeClass);
-            this.functions = functions;
+            if (this.name !=null && this.name.indexOf("Enum")>-1) {
+                this._enum = true;
+            }
+            if (functions == null) {
+                this.functions = new Array<ReflectionFunction>();
+            } else {
+                this.functions = functions;
+            }
             if (fields == null) {
                 this.fields = new Array<ReflectionObject>();
             } else {
@@ -202,6 +210,9 @@ module Adaptive {
 
         getFields() : Array<ReflectionObject> {
             return this.fields;
+        }
+        isEnum() : boolean {
+            return this._enum;
         }
     }
 
@@ -234,6 +245,7 @@ module Adaptive {
         primitive: boolean = false;
         _array:boolean = false;
         _void:boolean = false;
+        _enum:boolean = false;
 
         constructor(name:string, description:string, type:string, fields:Array<ReflectionObject>) {
             super(name,description,ReflectionStereotypeEnum.TypeObject);
@@ -254,6 +266,9 @@ module Adaptive {
                 this._array = true;
                 this.componentType = new ReflectionObject(name, "Array component of "+type+".",this.type.substring(5,this.type.length-1), null);
             }
+            if (this.type !=null && this.type.indexOf("Enum")>-1) {
+                this._enum = true;
+            }
         }
 
         getType() : string {
@@ -270,6 +285,9 @@ module Adaptive {
         }
         isVoid():boolean {
             return this._void;
+        }
+        isEnum():boolean {
+            return this._enum;
         }
     }
      /**
@@ -294,8 +312,8 @@ module Adaptive {
           /**
            * Method Declarations for IBaseListener
            */
-           getId() : number
-           toString() : string
+           getId() : number;
+           toString() : string;
      }
 
      /**
@@ -316,6 +334,10 @@ module Adaptive {
                return this.id
           }
 
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IBaseUtil
@@ -339,8 +361,8 @@ module Adaptive {
           /**
            * Method Declarations for IAppContext
            */
-           getContext() : any
-           getContextType() : IAppContextTypeEnum
+           getContext() : any;
+           getContextType() : IAppContextTypeEnum;
 
      }
      /**
@@ -362,6 +384,10 @@ module Adaptive {
           static Chromium = new IAppContextTypeEnum("Chromium");
           static Unspecified = new IAppContextTypeEnum("Unspecified");
           static Unknown = new IAppContextTypeEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -386,10 +412,10 @@ module Adaptive {
           /**
            * Method Declarations for IAppContextWebview
            */
-           addWebview(webView : any)
-           getWebviewPrimary() : any
-           getWebviews() : Array<any>
-           removeWebview(webView : any)
+           addWebview(webView : any);
+           getWebviewPrimary() : any;
+           getWebviews() : Array<any>;
+           removeWebview(webView : any);
      }
 
      /**
@@ -414,20 +440,20 @@ module Adaptive {
           /**
            * Method Declarations for IAppResource
            */
-           geType() : IAppResourcePayloadEnum
-           getData() : Array<number>
-           getDataPathLinked() : string
-           getDataStored() : Array<number>
-           getFormat() : IAppResourceFormatEnum
-           getMd5() : string
-           getMimetype() : string
-           getName() : string
-           getPath() : string
-           getSize() : number
-           getSizeStored() : number
-           getTimestamp() : number
-           getType() : IAppResourceTypeEnum
-           getUuid() : string
+           geType() : IAppResourcePayloadEnum;
+           getData() : Array<number>;
+           getDataPathLinked() : string;
+           getDataStored() : Array<number>;
+           getFormat() : IAppResourceFormatEnum;
+           getMd5() : string;
+           getMimetype() : string;
+           getName() : string;
+           getPath() : string;
+           getSize() : number;
+           getSizeStored() : number;
+           getTimestamp() : number;
+           getType() : IAppResourceTypeEnum;
+           getUuid() : string;
 
      }
      /**
@@ -441,6 +467,10 @@ module Adaptive {
           static Embedded = new IAppResourcePayloadEnum("Embedded");
           static Linked = new IAppResourcePayloadEnum("Linked");
           static Unknown = new IAppResourcePayloadEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -455,6 +485,10 @@ module Adaptive {
           static Encrypted = new IAppResourceFormatEnum("Encrypted");
           static EncryptedCompressed = new IAppResourceFormatEnum("EncryptedCompressed");
           static Unknown = new IAppResourceFormatEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -474,6 +508,10 @@ module Adaptive {
           static Database = new IAppResourceTypeEnum("Database");
           static Other = new IAppResourceTypeEnum("Other");
           static Unknown = new IAppResourceTypeEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -484,15 +522,15 @@ module Adaptive {
           /**
            * Method Declarations for IAppServerManager
            */
-           addServerListener(listener : IAppServerListener)
-           getServers() : Array<IAppServer>
-           pauseServer(server : IAppServer)
-           removeServerListener(listener : IAppServerListener)
-           removeServerListeners()
-           resumeServer(server : IAppServer)
-           startServer()
-           stopServers()
-           stopServer(server : IAppServer)
+           addServerListener(listener : IAppServerListener);
+           getServers() : Array<IAppServer>;
+           pauseServer(server : IAppServer);
+           removeServerListener(listener : IAppServerListener);
+           removeServerListeners();
+           resumeServer(server : IAppServer);
+           startServer();
+           stopServers();
+           stopServer(server : IAppServer);
      }
 
      /**
@@ -524,8 +562,8 @@ module Adaptive {
           /**
            * Method Declarations for IBaseCallback
            */
-           getId() : number
-           toString() : string
+           getId() : number;
+           toString() : string;
      }
 
      /**
@@ -546,6 +584,10 @@ module Adaptive {
                return this.id
           }
 
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IBaseSensor
@@ -562,15 +604,15 @@ module Adaptive {
           /**
            * Method Declarations for IAppServer
            */
-           getBaseURI() : string
-           getHost() : string
-           getPath() : string
-           getPort() : number
-           getScheme() : string
-           pauseServer()
-           resumeServer()
-           startServer()
-           stopServer()
+           getBaseURI() : string;
+           getHost() : string;
+           getPath() : string;
+           getPort() : number;
+           getScheme() : string;
+           pauseServer();
+           resumeServer();
+           startServer();
+           stopServer();
      }
 
      /**
@@ -595,20 +637,20 @@ module Adaptive {
           /**
            * Method Declarations for IAppRegistry
            */
-           getApplicationAnalytics() : IAnalytics
-           getApplicationGlobalization() : IGlobalization
-           getApplicationLifecycle() : ILifecycle
-           getApplicationManagement() : IManagement
-           getApplicationPrinting() : IPrinting
-           getApplicationSettings() : ISettings
-           getApplicationUpdate() : IUpdate
-           getPlatformContext() : IAppContext
-           getPlatformContextWeb() : IAppContextWebview
-           getSystemCapabilities() : ICapabilities
-           getSystemDevice() : IDevice
-           getSystemDisplay() : IDisplay
-           getSystemOS() : IOS
-           getSystemRuntime() : IRuntime
+           getApplicationAnalytics() : IAnalytics;
+           getApplicationGlobalization() : IGlobalization;
+           getApplicationLifecycle() : ILifecycle;
+           getApplicationManagement() : IManagement;
+           getApplicationPrinting() : IPrinting;
+           getApplicationSettings() : ISettings;
+           getApplicationUpdate() : IUpdate;
+           getPlatformContext() : IAppContext;
+           getPlatformContextWeb() : IAppContextWebview;
+           getSystemCapabilities() : ICapabilities;
+           getSystemDevice() : IDevice;
+           getSystemDisplay() : IDisplay;
+           getSystemOS() : IOS;
+           getSystemRuntime() : IRuntime;
      }
 
      /**
@@ -619,7 +661,7 @@ module Adaptive {
           /**
            * Method Declarations for IAppResourceHandler
            */
-           getResource(resourcePath : string, callback : IAppResourceCallback)
+           getResource(resourcePath : string, callback : IAppResourceCallback);
      }
 
      /**
@@ -637,9 +679,9 @@ module Adaptive {
           /**
            * Method Declarations for IDatabaseResultCallback
            */
-           onError(error : IDatabaseResultCallbackErrorEnum)
-           onResult(database : Database)
-           onWarning(database : Database, warning : IDatabaseResultCallbackWarningEnum)
+           onError(error : IDatabaseResultCallbackErrorEnum);
+           onResult(database : Database);
+           onWarning(database : Database, warning : IDatabaseResultCallbackWarningEnum);
 
      }
      /**
@@ -653,6 +695,10 @@ module Adaptive {
           static SqlException = new IDatabaseResultCallbackErrorEnum("SqlException");
           static NotDeleted = new IDatabaseResultCallbackErrorEnum("NotDeleted");
           static Unknown = new IDatabaseResultCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -665,6 +711,10 @@ module Adaptive {
           static DatabaseExists = new IDatabaseResultCallbackWarningEnum("DatabaseExists");
           static IsOpen = new IDatabaseResultCallbackWarningEnum("IsOpen");
           static Unknown = new IDatabaseResultCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -759,6 +809,10 @@ module Adaptive {
                     this.onWarningFunction(database, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for ICamera
@@ -782,9 +836,9 @@ module Adaptive {
           /**
            * Method Declarations for IContactPhotoResultCallback
            */
-           onError(error : IContactPhotoResultCallbackErrorEnum)
-           onResult(contactPhoto : Array<number>)
-           onWarning(contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarningEnum)
+           onError(error : IContactPhotoResultCallbackErrorEnum);
+           onResult(contactPhoto : Array<number>);
+           onWarning(contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarningEnum);
 
      }
      /**
@@ -798,6 +852,10 @@ module Adaptive {
           static Wrong_Params = new IContactPhotoResultCallbackErrorEnum("Wrong_Params");
           static No_Photo = new IContactPhotoResultCallbackErrorEnum("No_Photo");
           static Unknown = new IContactPhotoResultCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -810,6 +868,10 @@ module Adaptive {
           static LimitExceeded = new IContactPhotoResultCallbackWarningEnum("LimitExceeded");
           static No_Matches = new IContactPhotoResultCallbackWarningEnum("No_Matches");
           static Unknown = new IContactPhotoResultCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -904,6 +966,10 @@ module Adaptive {
                     this.onWarningFunction(contactPhoto, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for ICloud
@@ -920,13 +986,13 @@ module Adaptive {
           /**
            * Method Declarations for ICapabilities
            */
-           hasButtonSupport(type : ICapabilitiesButtonEnum) : boolean
-           hasCommunicationSupport(type : ICapabilitiesCommunicationEnum) : boolean
-           hasDataSupport(type : ICapabilitiesDataEnum) : boolean
-           hasMediaSupport(type : ICapabilitiesMediaEnum) : boolean
-           hasNetSupport(type : ICapabilitiesNetEnum) : boolean
-           hasNotificationSupport(type : ICapabilitiesNotificationEnum) : boolean
-           hasSensorSupport(type : ICapabilitiesSensorEnum) : boolean
+           hasButtonSupport(type : ICapabilitiesButtonEnum) : boolean;
+           hasCommunicationSupport(type : ICapabilitiesCommunicationEnum) : boolean;
+           hasDataSupport(type : ICapabilitiesDataEnum) : boolean;
+           hasMediaSupport(type : ICapabilitiesMediaEnum) : boolean;
+           hasNetSupport(type : ICapabilitiesNetEnum) : boolean;
+           hasNotificationSupport(type : ICapabilitiesNotificationEnum) : boolean;
+           hasSensorSupport(type : ICapabilitiesSensorEnum) : boolean;
 
      }
      /**
@@ -940,6 +1006,10 @@ module Adaptive {
           static BackButton = new ICapabilitiesButtonEnum("BackButton");
           static OptionButton = new ICapabilitiesButtonEnum("OptionButton");
           static Unknown = new ICapabilitiesButtonEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -955,6 +1025,10 @@ module Adaptive {
           static Messaging = new ICapabilitiesCommunicationEnum("Messaging");
           static Telephony = new ICapabilitiesCommunicationEnum("Telephony");
           static Unknown = new ICapabilitiesCommunicationEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -968,6 +1042,10 @@ module Adaptive {
           static File = new ICapabilitiesDataEnum("File");
           static Cloud = new ICapabilitiesDataEnum("Cloud");
           static Unknown = new ICapabilitiesDataEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -983,6 +1061,10 @@ module Adaptive {
           static Video_Playback = new ICapabilitiesMediaEnum("Video_Playback");
           static Video_Recording = new ICapabilitiesMediaEnum("Video_Recording");
           static Unknown = new ICapabilitiesMediaEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -999,6 +1081,10 @@ module Adaptive {
           static WIFI = new ICapabilitiesNetEnum("WIFI");
           static Ethernet = new ICapabilitiesNetEnum("Ethernet");
           static Unknown = new ICapabilitiesNetEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -1013,6 +1099,10 @@ module Adaptive {
           static RemoteNotification = new ICapabilitiesNotificationEnum("RemoteNotification");
           static Vibration = new ICapabilitiesNotificationEnum("Vibration");
           static Unknown = new ICapabilitiesNotificationEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -1030,6 +1120,10 @@ module Adaptive {
           static Magnetometer = new ICapabilitiesSensorEnum("Magnetometer");
           static Proximity = new ICapabilitiesSensorEnum("Proximity");
           static Unknown = new ICapabilitiesSensorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -1159,6 +1253,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IMail
@@ -1168,7 +1265,7 @@ module Adaptive {
           /**
            * Method Declarations for IMail
            */
-           sendEmail(data : Email, callback : IMessagingCallback)
+           sendEmail(data : Email, callback : IMessagingCallback);
      }
 
      /**
@@ -1192,6 +1289,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IGlobalization
@@ -1201,9 +1301,9 @@ module Adaptive {
           /**
            * Method Declarations for IGlobalization
            */
-           getLocaleSupportedDescriptors() : Array<Locale>
-           getResourceLiteral(key : string, locale : Locale) : string
-           getResourceLiterals(locale : Locale) : Dictionary<string>
+           getLocaleSupportedDescriptors() : Array<Locale>;
+           getResourceLiteral(key : string, locale : Locale) : string;
+           getResourceLiterals(locale : Locale) : Dictionary<string>;
      }
 
      /**
@@ -1265,6 +1365,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for ICalendar
@@ -1288,10 +1391,10 @@ module Adaptive {
           /**
            * Method Declarations for ILifecycle
            */
-           addLifecycleListener(listener : ILifecycleListener)
-           isBackground() : boolean
-           removeLifecycleListener(listener : ILifecycleListener)
-           removeLifecycleListeners()
+           addLifecycleListener(listener : ILifecycleListener);
+           isBackground() : boolean;
+           removeLifecycleListener(listener : ILifecycleListener);
+           removeLifecycleListeners();
      }
 
      /**
@@ -1355,6 +1458,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for ILinkedIn
@@ -1371,9 +1477,9 @@ module Adaptive {
           /**
            * Method Declarations for IMessagingCallback
            */
-           onError(error : IMessagingCallbackErrorEnum)
-           onResult(success : boolean)
-           onWarning(success : boolean, warning : IMessagingCallbackWarningEnum)
+           onError(error : IMessagingCallbackErrorEnum);
+           onResult(success : boolean);
+           onWarning(success : boolean, warning : IMessagingCallbackWarningEnum);
 
      }
      /**
@@ -1389,6 +1495,10 @@ module Adaptive {
           static WrongParams = new IMessagingCallbackErrorEnum("WrongParams");
           static NotSupported = new IMessagingCallbackErrorEnum("NotSupported");
           static Unknown = new IMessagingCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -1401,6 +1511,10 @@ module Adaptive {
           static UnableToSentAll = new IMessagingCallbackWarningEnum("UnableToSentAll");
           static UnableToFetchAttachment = new IMessagingCallbackWarningEnum("UnableToFetchAttachment");
           static Unknown = new IMessagingCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -1495,6 +1609,10 @@ module Adaptive {
                     this.onWarningFunction(success, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IAccelerometer
@@ -1504,9 +1622,9 @@ module Adaptive {
           /**
            * Method Declarations for IAccelerometer
            */
-           addAccelerationListener(listener : IAccelerationListener)
-           removeAccelerationListener(listener : IAccelerationListener)
-           removeAccelerationListeners()
+           addAccelerationListener(listener : IAccelerationListener);
+           removeAccelerationListener(listener : IAccelerationListener);
+           removeAccelerationListeners();
      }
 
      /**
@@ -1553,6 +1671,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IOpenId
@@ -1583,9 +1704,9 @@ module Adaptive {
           /**
            * Method Declarations for IGeolocation
            */
-           addGeolocationListener(listener : IGeolocationListener)
-           removeGeolocationListener(listener : IGeolocationListener)
-           removeGeolocationListeners()
+           addGeolocationListener(listener : IGeolocationListener);
+           removeGeolocationListener(listener : IGeolocationListener);
+           removeGeolocationListeners();
      }
 
      /**
@@ -1632,6 +1753,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IGeolocationListener
@@ -1641,9 +1765,9 @@ module Adaptive {
           /**
            * Method Declarations for IGeolocationListener
            */
-           onError(error : IGeolocationListenerErrorEnum)
-           onResult(geolocation : Geolocation)
-           onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarningEnum)
+           onError(error : IGeolocationListenerErrorEnum);
+           onResult(geolocation : Geolocation);
+           onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarningEnum);
 
      }
      /**
@@ -1658,6 +1782,10 @@ module Adaptive {
           static DeniedAccess = new IGeolocationListenerErrorEnum("DeniedAccess");
           static StatusNotDetermined = new IGeolocationListenerErrorEnum("StatusNotDetermined");
           static Unknown = new IGeolocationListenerErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -1670,6 +1798,10 @@ module Adaptive {
           static HighDoP = new IGeolocationListenerWarningEnum("HighDoP");
           static StaleData = new IGeolocationListenerWarningEnum("StaleData");
           static Unknown = new IGeolocationListenerWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -1761,6 +1893,10 @@ module Adaptive {
                     this.onWarningFunction(geolocation, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IContactResultCallback
@@ -1770,9 +1906,9 @@ module Adaptive {
           /**
            * Method Declarations for IContactResultCallback
            */
-           onError(error : IContactResultCallbackErrorEnum)
-           onResult(contacts : Array<Contact>)
-           onWarning(contacts : Array<Contact>, warning : IContactResultCallbackWarningEnum)
+           onError(error : IContactResultCallbackErrorEnum);
+           onResult(contacts : Array<Contact>);
+           onWarning(contacts : Array<Contact>, warning : IContactResultCallbackWarningEnum);
 
      }
      /**
@@ -1785,6 +1921,10 @@ module Adaptive {
           static NoPermission = new IContactResultCallbackErrorEnum("NoPermission");
           static Wrong_Params = new IContactResultCallbackErrorEnum("Wrong_Params");
           static Unknown = new IContactResultCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -1797,6 +1937,10 @@ module Adaptive {
           static LimitExceeded = new IContactResultCallbackWarningEnum("LimitExceeded");
           static No_Matches = new IContactResultCallbackWarningEnum("No_Matches");
           static Unknown = new IContactResultCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -1891,6 +2035,10 @@ module Adaptive {
                     this.onWarningFunction(contacts, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IMessaging
@@ -1900,7 +2048,7 @@ module Adaptive {
           /**
            * Method Declarations for IMessaging
            */
-           sendSMS(number : string, text : string, callback : IMessagingCallback)
+           sendSMS(number : string, text : string, callback : IMessagingCallback);
      }
 
      /**
@@ -1924,6 +2072,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IQRCode
@@ -1940,9 +2091,9 @@ module Adaptive {
           /**
            * Method Declarations for IFileResultCallback
            */
-           onError(error : IFileResultCallbackErrorEnum)
-           onResult(storageFile : IFile)
-           onWarning(sourceFile : IFile, destinationFile : IFile, warning : IFileResultCallbackWarningEnum)
+           onError(error : IFileResultCallbackErrorEnum);
+           onResult(storageFile : IFile);
+           onWarning(sourceFile : IFile, destinationFile : IFile, warning : IFileResultCallbackWarningEnum);
 
      }
      /**
@@ -1956,6 +2107,10 @@ module Adaptive {
           static InsufficientSpace = new IFileResultCallbackErrorEnum("InsufficientSpace");
           static Unauthorized = new IFileResultCallbackErrorEnum("Unauthorized");
           static Unknown = new IFileResultCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -1968,6 +2123,10 @@ module Adaptive {
           static SourceNotDeleted = new IFileResultCallbackWarningEnum("SourceNotDeleted");
           static RootDirectory = new IFileResultCallbackWarningEnum("RootDirectory");
           static Unknown = new IFileResultCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -2062,6 +2221,10 @@ module Adaptive {
                     this.onWarningFunction(sourceFile, destinationFile, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IFileListResultCallback
@@ -2071,9 +2234,9 @@ module Adaptive {
           /**
            * Method Declarations for IFileListResultCallback
            */
-           onError(error : IFileListResultCallbackErrorEnum)
-           onResult(files : Array<IFile>)
-           onWarning(files : Array<IFile>, warning : IFileListResultCallbackWarningEnum)
+           onError(error : IFileListResultCallbackErrorEnum);
+           onResult(files : Array<IFile>);
+           onWarning(files : Array<IFile>, warning : IFileListResultCallbackWarningEnum);
 
      }
      /**
@@ -2086,6 +2249,10 @@ module Adaptive {
           static InexistentFile = new IFileListResultCallbackErrorEnum("InexistentFile");
           static Unauthorized = new IFileListResultCallbackErrorEnum("Unauthorized");
           static Unknown = new IFileListResultCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -2097,6 +2264,10 @@ module Adaptive {
 
           static PartialResult = new IFileListResultCallbackWarningEnum("PartialResult");
           static Unknown = new IFileListResultCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -2191,6 +2362,10 @@ module Adaptive {
                     this.onWarningFunction(files, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for ITimer
@@ -2214,8 +2389,8 @@ module Adaptive {
           /**
            * Method Declarations for IRuntime
            */
-           dismissApplication()
-           dismissSplashScreen() : boolean
+           dismissApplication();
+           dismissSplashScreen() : boolean;
      }
 
      /**
@@ -2253,6 +2428,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for ISession
@@ -2262,17 +2440,17 @@ module Adaptive {
           /**
            * Method Declarations for ISession
            */
-           getAttribute(name : string) : any
-           getAttributes() : Array<any>
-           getCookies() : Array<Cookie>
-           listAttributeNames() : Array<string>
-           removeAttribute(name : string)
-           removeAttributes()
-           removeCookie(cookie : Cookie)
-           removeCookies(cookies : Array<Cookie>)
-           setAttribute(name : string, value : any)
-           setCookie(cookie : Cookie)
-           setCookies(cookies : Array<Cookie>)
+           getAttribute(name : string) : any;
+           getAttributes() : Array<any>;
+           getCookies() : Array<Cookie>;
+           listAttributeNames() : Array<string>;
+           removeAttribute(name : string);
+           removeAttributes();
+           removeCookie(cookie : Cookie);
+           removeCookies(cookies : Array<Cookie>);
+           setAttribute(name : string, value : any);
+           setCookie(cookie : Cookie);
+           setCookies(cookies : Array<Cookie>);
      }
 
      /**
@@ -2421,6 +2599,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IVideo
@@ -2430,7 +2611,7 @@ module Adaptive {
           /**
            * Method Declarations for IVideo
            */
-           playStream(url : string)
+           playStream(url : string);
      }
 
      /**
@@ -2451,6 +2632,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IMap
@@ -2516,7 +2700,7 @@ module Adaptive {
           /**
            * Method Declarations for IBrowser
            */
-           openBrowser(url : string, title : string, buttonText : string) : boolean
+           openBrowser(url : string, title : string, buttonText : string) : boolean;
      }
 
      /**
@@ -2544,6 +2728,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IRSS
@@ -2574,11 +2761,11 @@ module Adaptive {
           /**
            * Method Declarations for IDevice
            */
-           addButtonListener(listener : IButtonListener)
-           getDeviceInfo() : DeviceInfo
-           getLocaleCurrent() : Locale
-           removeButtonListener(listener : IButtonListener)
-           removeButtonListeners()
+           addButtonListener(listener : IButtonListener);
+           getDeviceInfo() : DeviceInfo;
+           getLocaleCurrent() : Locale;
+           removeButtonListener(listener : IButtonListener);
+           removeButtonListeners();
      }
 
      /**
@@ -2659,6 +2846,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IAppServerListener
@@ -2668,13 +2858,13 @@ module Adaptive {
           /**
            * Method Declarations for IAppServerListener
            */
-           onPaused(server : IAppServer)
-           onPausing(server : IAppServer)
-           onResumed(server : IAppServer)
-           onResuming(server : IAppServer)
-           onStart(server : IAppServer)
-           onStopped(server : IAppServer)
-           onStopping(server : IAppServer)
+           onPaused(server : IAppServer);
+           onPausing(server : IAppServer);
+           onResumed(server : IAppServer);
+           onResuming(server : IAppServer);
+           onStart(server : IAppServer);
+           onStopped(server : IAppServer);
+           onStopping(server : IAppServer);
      }
 
      /**
@@ -2692,15 +2882,15 @@ module Adaptive {
           /**
            * Method Declarations for IDatabase
            */
-           createDatabase(database : Database, callback : IDatabaseResultCallback)
-           createTable(database : Database, table : Table, callback : ITableResultCallback)
-           deleteDatabase(database : Database, callback : IDatabaseResultCallback)
-           deleteTable(database : Database, table : Table, callback : ITableResultCallback)
-           executeSqlQuery(database : Database, query : string, replacements : Array<String>, callback : ITableResultCallback)
-           executeSqlStatement(database : Database, statement : string, replacements : Array<String>, callback : ITableResultCallback)
-           executeSqlTransactions(database : Database, statements : Array<String>, rollbackFlag : boolean, callback : ITableResultCallback)
-           existsDatabase(database : Database) : boolean
-           existsTable(database : Database, table : Table) : boolean
+           createDatabase(database : Database, callback : IDatabaseResultCallback);
+           createTable(database : Database, table : Table, callback : ITableResultCallback);
+           deleteDatabase(database : Database, callback : IDatabaseResultCallback);
+           deleteTable(database : Database, table : Table, callback : ITableResultCallback);
+           executeSqlQuery(database : Database, query : string, replacements : Array<String>, callback : ITableResultCallback);
+           executeSqlStatement(database : Database, statement : string, replacements : Array<String>, callback : ITableResultCallback);
+           executeSqlTransactions(database : Database, statements : Array<String>, rollbackFlag : boolean, callback : ITableResultCallback);
+           existsDatabase(database : Database) : boolean;
+           existsTable(database : Database, table : Table) : boolean;
      }
 
      /**
@@ -2836,6 +3026,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for ISecurity
@@ -2845,10 +3038,10 @@ module Adaptive {
           /**
            * Method Declarations for ISecurity
            */
-           deleteSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback)
-           getSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback)
-           isDeviceModified() : boolean
-           setSecureKeyValuePairs(keyValues : Array<SecureKeyPair>, publicAccessName : string, callback : ISecureKVResultCallback)
+           deleteSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback);
+           getSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback);
+           isDeviceModified() : boolean;
+           setSecureKeyValuePairs(keyValues : Array<SecureKeyPair>, publicAccessName : string, callback : ISecureKVResultCallback);
      }
 
      /**
@@ -2915,6 +3108,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IVibration
@@ -2938,8 +3134,8 @@ module Adaptive {
           /**
            * Method Declarations for ILogging
            */
-           log(level : ILoggingLogLevelEnum, message : string)
-           log(level : ILoggingLogLevelEnum, category : string, message : string)
+           log(level : ILoggingLogLevelEnum, message : string);
+           log(level : ILoggingLogLevelEnum, category : string, message : string);
 
      }
      /**
@@ -2954,6 +3150,10 @@ module Adaptive {
           static ERROR = new ILoggingLogLevelEnum("ERROR");
           static INFO = new ILoggingLogLevelEnum("INFO");
           static Unknown = new ILoggingLogLevelEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -2978,9 +3178,9 @@ module Adaptive {
           /**
            * Method Declarations for IServiceResultCallback
            */
-           onError(error : IServiceResultCallbackErrorEnum)
-           onResult(response : ServiceResponse)
-           onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarningEnum)
+           onError(error : IServiceResultCallbackErrorEnum);
+           onResult(response : ServiceResponse);
+           onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarningEnum);
 
      }
      /**
@@ -3002,6 +3202,10 @@ module Adaptive {
           static MalformedUrl = new IServiceResultCallbackErrorEnum("MalformedUrl");
           static NotRegisteredService = new IServiceResultCallbackErrorEnum("NotRegisteredService");
           static Unknown = new IServiceResultCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3016,6 +3220,10 @@ module Adaptive {
           static Redirected = new IServiceResultCallbackWarningEnum("Redirected");
           static Wrong_Params = new IServiceResultCallbackWarningEnum("Wrong_Params");
           static Unknown = new IServiceResultCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3110,6 +3318,10 @@ module Adaptive {
                     this.onWarningFunction(response, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IMagnetometer
@@ -3133,7 +3345,7 @@ module Adaptive {
           /**
            * Method Declarations for ITelephony
            */
-           call(number : string) : ITelephonyStatusEnum
+           call(number : string) : ITelephonyStatusEnum;
 
      }
      /**
@@ -3146,6 +3358,10 @@ module Adaptive {
           static Dialing = new ITelephonyStatusEnum("Dialing");
           static Failed = new ITelephonyStatusEnum("Failed");
           static Unknown = new ITelephonyStatusEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3173,6 +3389,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IAppResourceCallback
@@ -3182,9 +3401,9 @@ module Adaptive {
           /**
            * Method Declarations for IAppResourceCallback
            */
-           onError(resource : IAppResource, error : IAppResourceCallbackErrorEnum)
-           onResult(resource : IAppResource)
-           onWarning(resource : IAppResource, warning : IAppResourceCallbackWarningEnum)
+           onError(resource : IAppResource, error : IAppResourceCallbackErrorEnum);
+           onResult(resource : IAppResource);
+           onWarning(resource : IAppResource, warning : IAppResourceCallbackWarningEnum);
 
      }
      /**
@@ -3197,6 +3416,10 @@ module Adaptive {
           static NotFound = new IAppResourceCallbackErrorEnum("NotFound");
           static NoPermission = new IAppResourceCallbackErrorEnum("NoPermission");
           static Unknown = new IAppResourceCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3210,6 +3433,10 @@ module Adaptive {
           static TooLarge = new IAppResourceCallbackWarningEnum("TooLarge");
           static LinkedResource = new IAppResourceCallbackWarningEnum("LinkedResource");
           static Unknown = new IAppResourceCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3220,18 +3447,18 @@ module Adaptive {
           /**
            * Method Declarations for IFileSystem
            */
-           createWithPathString(path : string, name : string, callback : IFileResultCallback)
-           createWithPath(path : IFilePath, name : string, callback : IFileResultCallback)
-           create(name : string, callback : IFileResultCallback)
-           getApplicationCacheFolder() : IFilePath
-           getApplicationDocumentsFolder() : IFilePath
-           getApplicationFolder() : IFilePath
-           getPathForFile(file : IFile) : string
-           getPathForPath(path : IFilePath) : string
-           getSeparator() : string
-           isSameFile(source : IFile, dest : IFile) : boolean
-           isSamePath(source : IFilePath, dest : IFilePath) : boolean
-           toPath(path : IFile) : IFilePath
+           createWithPathString(path : string, name : string, callback : IFileResultCallback);
+           createWithPath(path : IFilePath, name : string, callback : IFileResultCallback);
+           create(name : string, callback : IFileResultCallback);
+           getApplicationCacheFolder() : IFilePath;
+           getApplicationDocumentsFolder() : IFilePath;
+           getApplicationFolder() : IFilePath;
+           getPathForFile(file : IFile) : string;
+           getPathForPath(path : IFilePath) : string;
+           getSeparator() : string;
+           isSameFile(source : IFile, dest : IFile) : boolean;
+           isSamePath(source : IFilePath, dest : IFilePath) : boolean;
+           toPath(path : IFile) : IFilePath;
      }
 
      /**
@@ -3434,6 +3661,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IDataStream
@@ -3457,9 +3687,9 @@ module Adaptive {
           /**
            * Method Declarations for ISecureKVResultCallback
            */
-           onError(error : ISecureKVResultCallbackErrorEnum)
-           onResult(keyValues : Array<SecureKeyPair>)
-           onWarning(keyValues : Array<SecureKeyPair>, warning : ISecureKVResultCallbackWarningEnum)
+           onError(error : ISecureKVResultCallbackErrorEnum);
+           onResult(keyValues : Array<SecureKeyPair>);
+           onWarning(keyValues : Array<SecureKeyPair>, warning : ISecureKVResultCallbackWarningEnum);
 
      }
      /**
@@ -3472,6 +3702,10 @@ module Adaptive {
           static NoPermission = new ISecureKVResultCallbackErrorEnum("NoPermission");
           static NoMatchesFound = new ISecureKVResultCallbackErrorEnum("NoMatchesFound");
           static Unknown = new ISecureKVResultCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3483,6 +3717,10 @@ module Adaptive {
 
           static EntryOverride = new ISecureKVResultCallbackWarningEnum("EntryOverride");
           static Unknown = new ISecureKVResultCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3577,6 +3815,10 @@ module Adaptive {
                     this.onWarningFunction(keyValues, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IImaging
@@ -3593,9 +3835,9 @@ module Adaptive {
           /**
            * Method Declarations for INetworkReachabilityCallback
            */
-           onError(error : INetworkReachabilityCallbackErrorEnum)
-           onResult(result : string)
-           onWarning(result : string, warning : INetworkReachabilityCallbackWarningEnum)
+           onError(error : INetworkReachabilityCallbackErrorEnum);
+           onResult(result : string);
+           onWarning(result : string, warning : INetworkReachabilityCallbackWarningEnum);
 
      }
      /**
@@ -3617,6 +3859,10 @@ module Adaptive {
           static MalformedUrl = new INetworkReachabilityCallbackErrorEnum("MalformedUrl");
           static DomainUnresolvable = new INetworkReachabilityCallbackErrorEnum("DomainUnresolvable");
           static Unknown = new INetworkReachabilityCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3632,6 +3878,10 @@ module Adaptive {
           static Redirected = new INetworkReachabilityCallbackWarningEnum("Redirected");
           static NotRegisteredService = new INetworkReachabilityCallbackWarningEnum("NotRegisteredService");
           static Unknown = new INetworkReachabilityCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3726,6 +3976,10 @@ module Adaptive {
                     this.onWarningFunction(result, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IFileDataResultCallback
@@ -3735,9 +3989,9 @@ module Adaptive {
           /**
            * Method Declarations for IFileDataResultCallback
            */
-           onError(error : IFileDataResultCallbackErrorEnum)
-           onResult(file : IFile, data : Array<number>)
-           onWarning(file : IFile, warning : IFileDataResultCallbackWarningEnum)
+           onError(error : IFileDataResultCallbackErrorEnum);
+           onResult(file : IFile, data : Array<number>);
+           onWarning(file : IFile, warning : IFileDataResultCallbackWarningEnum);
 
      }
      /**
@@ -3751,6 +4005,10 @@ module Adaptive {
           static InsufficientSpace = new IFileDataResultCallbackErrorEnum("InsufficientSpace");
           static Unauthorized = new IFileDataResultCallbackErrorEnum("Unauthorized");
           static Unknown = new IFileDataResultCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3762,6 +4020,10 @@ module Adaptive {
 
           static ExceedMaximumSize = new IFileDataResultCallbackWarningEnum("ExceedMaximumSize");
           static Unknown = new IFileDataResultCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3856,6 +4118,10 @@ module Adaptive {
                     this.onWarningFunction(file, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IAmbientLight
@@ -3872,9 +4138,9 @@ module Adaptive {
           /**
            * Method Declarations for IAccelerationListener
            */
-           onError(error : IAccelerationListenerErrorEnum)
-           onResult(acceleration : Acceleration)
-           onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarningEnum)
+           onError(error : IAccelerationListenerErrorEnum);
+           onResult(acceleration : Acceleration);
+           onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarningEnum);
 
      }
      /**
@@ -3887,6 +4153,10 @@ module Adaptive {
           static Unauthorized = new IAccelerationListenerErrorEnum("Unauthorized");
           static Unavailable = new IAccelerationListenerErrorEnum("Unavailable");
           static Unknown = new IAccelerationListenerErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3899,6 +4169,10 @@ module Adaptive {
           static NeedsCalibration = new IAccelerationListenerWarningEnum("NeedsCalibration");
           static Stale = new IAccelerationListenerWarningEnum("Stale");
           static Unknown = new IAccelerationListenerWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -3990,6 +4264,10 @@ module Adaptive {
                     this.onWarningFunction(acceleration, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IProximity
@@ -4013,8 +4291,8 @@ module Adaptive {
           /**
            * Method Declarations for INetworkReachability
            */
-           isNetworkReachable(host : string, callback : INetworkReachabilityCallback)
-           isNetworkServiceReachable(url : string, callback : INetworkReachabilityCallback)
+           isNetworkReachable(host : string, callback : INetworkReachabilityCallback);
+           isNetworkServiceReachable(url : string, callback : INetworkReachabilityCallback);
      }
 
      /**
@@ -4051,6 +4329,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for ILifecycleListener
@@ -4060,9 +4341,9 @@ module Adaptive {
           /**
            * Method Declarations for ILifecycleListener
            */
-           onError(error : ILifecycleListenerErrorEnum)
-           onResult(lifecycle : Lifecycle)
-           onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarningEnum)
+           onError(error : ILifecycleListenerErrorEnum);
+           onResult(lifecycle : Lifecycle);
+           onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarningEnum);
 
      }
      /**
@@ -4076,6 +4357,10 @@ module Adaptive {
           static Implementation = new ILifecycleListenerErrorEnum("Implementation");
           static Killed = new ILifecycleListenerErrorEnum("Killed");
           static Unknown = new ILifecycleListenerErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -4088,6 +4373,10 @@ module Adaptive {
           static MemoryLow = new ILifecycleListenerWarningEnum("MemoryLow");
           static BatteryLow = new ILifecycleListenerWarningEnum("BatteryLow");
           static Unknown = new ILifecycleListenerWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -4179,6 +4468,10 @@ module Adaptive {
                     this.onWarningFunction(lifecycle, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for INFC
@@ -4216,28 +4509,28 @@ module Adaptive {
           /**
            * Method Declarations for IFilePath
            */
-           endsWithPath(other : IFilePath) : boolean
-           endsWith(other : string) : boolean
-           equalPath(other : IFilePath) : boolean
-           equals(other : string) : boolean
-           getFileName() : IFilePath
-           getFileSystem() : IFileSystem
-           getNameAtIndex(index : number) : string
-           getNameCount() : number
-           getParent() : IFilePath
-           getRoot() : IFilePath
-           isAbsolute() : boolean
-           normalize() : IFilePath
-           relativize(other : IFilePath) : IFilePath
-           resolvePath(other : IFilePath) : IFilePath
-           resolveSiblingPath(other : IFilePath) : IFilePath
-           resolveSibling(other : string) : IFilePath
-           resolve(other : string) : IFilePath
-           startsWithPath(other : IFilePath) : boolean
-           startsWith(other : string) : boolean
-           toAbsolutePath() : IFilePath
-           toFile() : IFile
-           toString() : string
+           endsWithPath(other : IFilePath) : boolean;
+           endsWith(other : string) : boolean;
+           equalPath(other : IFilePath) : boolean;
+           equals(other : string) : boolean;
+           getFileName() : IFilePath;
+           getFileSystem() : IFileSystem;
+           getNameAtIndex(index : number) : string;
+           getNameCount() : number;
+           getParent() : IFilePath;
+           getRoot() : IFilePath;
+           isAbsolute() : boolean;
+           normalize() : IFilePath;
+           relativize(other : IFilePath) : IFilePath;
+           resolvePath(other : IFilePath) : IFilePath;
+           resolveSiblingPath(other : IFilePath) : IFilePath;
+           resolveSibling(other : string) : IFilePath;
+           resolve(other : string) : IFilePath;
+           startsWithPath(other : IFilePath) : boolean;
+           startsWith(other : string) : boolean;
+           toAbsolutePath() : IFilePath;
+           toFile() : IFile;
+           toString() : string;
      }
 
      /**
@@ -4622,6 +4915,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IBarcode
@@ -4638,13 +4934,13 @@ module Adaptive {
           /**
            * Method Declarations for IService
            */
-           getService(serviceName : string) : Service
-           invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback)
-           isRegistered(serviceName : string) : boolean
-           isRegistered(service : Service) : boolean
-           registerService(service : Service)
-           unregisterServices()
-           unregisterService(service : Service)
+           getService(serviceName : string) : Service;
+           invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback);
+           isRegistered(serviceName : string) : boolean;
+           isRegistered(service : Service) : boolean;
+           registerService(service : Service);
+           unregisterServices();
+           unregisterService(service : Service);
      }
 
      /**
@@ -4669,7 +4965,7 @@ module Adaptive {
           /**
            * Method Declarations for IOS
            */
-           getOSInfo() : OSInfo
+           getOSInfo() : OSInfo;
      }
 
      /**
@@ -4697,6 +4993,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IContact
@@ -4706,14 +5005,14 @@ module Adaptive {
           /**
            * Method Declarations for IContact
            */
-           getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback)
-           getContact(contact : ContactUid, callback : IContactResultCallback)
-           getContactsForFields(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>)
-           getContactsWithFilter(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>, filter : Array<IContactFilterEnum>)
-           getContacts(callback : IContactResultCallback)
-           searchContactsWithFilter(term : string, callback : IContactResultCallback, filter : Array<IContactFilterEnum>)
-           searchContacts(term : string, callback : IContactResultCallback)
-           setContactPhoto(contact : ContactUid, pngImage : Array<number>) : boolean
+           getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback);
+           getContact(contact : ContactUid, callback : IContactResultCallback);
+           getContactsForFields(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>);
+           getContactsWithFilter(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>, filter : Array<IContactFilterEnum>);
+           getContacts(callback : IContactResultCallback);
+           searchContactsWithFilter(term : string, callback : IContactResultCallback, filter : Array<IContactFilterEnum>);
+           searchContacts(term : string, callback : IContactResultCallback);
+           setContactPhoto(contact : ContactUid, pngImage : Array<number>) : boolean;
 
      }
      /**
@@ -4732,6 +5031,10 @@ module Adaptive {
           static SOCIALS = new IContactFieldGroupEnum("SOCIALS");
           static TAGS = new IContactFieldGroupEnum("TAGS");
           static Unknown = new IContactFieldGroupEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -4745,6 +5048,10 @@ module Adaptive {
           static HAS_EMAIL = new IContactFilterEnum("HAS_EMAIL");
           static HAS_ADDRESS = new IContactFilterEnum("HAS_ADDRESS");
           static Unknown = new IContactFilterEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -4863,6 +5170,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IButtonListener
@@ -4872,9 +5182,9 @@ module Adaptive {
           /**
            * Method Declarations for IButtonListener
            */
-           onError(error : IButtonListenerErrorEnum)
-           onResult(button : Button)
-           onWarning(button : Button, warning : IButtonListenerWarningEnum)
+           onError(error : IButtonListenerErrorEnum);
+           onResult(button : Button);
+           onWarning(button : Button, warning : IButtonListenerWarningEnum);
 
      }
      /**
@@ -4886,6 +5196,10 @@ module Adaptive {
 
           static Not_Present = new IButtonListenerErrorEnum("Not_Present");
           static Unknown = new IButtonListenerErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -4897,6 +5211,10 @@ module Adaptive {
 
           static Not_Implemented = new IButtonListenerWarningEnum("Not_Implemented");
           static Unknown = new IButtonListenerWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -4988,6 +5306,10 @@ module Adaptive {
                     this.onWarningFunction(button, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for IDesktop
@@ -5032,9 +5354,9 @@ module Adaptive {
           /**
            * Method Declarations for ITableResultCallback
            */
-           onError(error : ITableResultCallbackErrorEnum)
-           onResult(table : Table)
-           onWarning(table : Table, warning : ITableResultCallbackWarningEnum)
+           onError(error : ITableResultCallbackErrorEnum);
+           onResult(table : Table);
+           onWarning(table : Table, warning : ITableResultCallbackWarningEnum);
 
      }
      /**
@@ -5050,6 +5372,10 @@ module Adaptive {
           static DatabaseNotFound = new ITableResultCallbackErrorEnum("DatabaseNotFound");
           static NoTableFound = new ITableResultCallbackErrorEnum("NoTableFound");
           static Unknown = new ITableResultCallbackErrorEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -5063,6 +5389,10 @@ module Adaptive {
           static TableLocked = new ITableResultCallbackWarningEnum("TableLocked");
           static NoResults = new ITableResultCallbackWarningEnum("NoResults");
           static Unknown = new ITableResultCallbackWarningEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -5157,6 +5487,10 @@ module Adaptive {
                     this.onWarningFunction(table, warning);
                }
           }
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Interface definition for ISettings
@@ -5173,25 +5507,25 @@ module Adaptive {
           /**
            * Method Declarations for IFile
            */
-           canRead() : boolean
-           canWrite() : boolean
-           createWithPath(path : string, name : string, callback : IFileResultCallback)
-           create(name : string, callback : IFileResultCallback)
-           delete(cascade : boolean) : boolean
-           exists() : boolean
-           getContent(callback : IFileDataResultCallback)
-           getDateCreated() : number
-           getDateModified() : number
-           getName() : string
-           getPath() : string
-           getSize() : number
-           isDirectory() : boolean
-           listFilesForRegex(regex : string, callback : IFileListResultCallback)
-           listFiles(callback : IFileListResultCallback)
-           mkDir(recursive : boolean) : boolean
-           move(newFile : IFile, createPath : boolean, callback : IFileResultCallback, overwrite : boolean)
-           setContent(content : Array<number>, callback : IFileDataResultCallback)
-           toPath() : IFilePath
+           canRead() : boolean;
+           canWrite() : boolean;
+           createWithPath(path : string, name : string, callback : IFileResultCallback);
+           create(name : string, callback : IFileResultCallback);
+           delete(cascade : boolean) : boolean;
+           exists() : boolean;
+           getContent(callback : IFileDataResultCallback);
+           getDateCreated() : number;
+           getDateModified() : number;
+           getName() : string;
+           getPath() : string;
+           getSize() : number;
+           isDirectory() : boolean;
+           listFilesForRegex(regex : string, callback : IFileListResultCallback);
+           listFiles(callback : IFileListResultCallback);
+           mkDir(recursive : boolean) : boolean;
+           move(newFile : IFile, createPath : boolean, callback : IFileResultCallback, overwrite : boolean);
+           setContent(content : Array<number>, callback : IFileDataResultCallback);
+           toPath() : IFilePath;
      }
 
      /**
@@ -5871,6 +6205,9 @@ module Adaptive {
                }
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
      /**
       *   Class implementation for Email
@@ -5952,6 +6289,9 @@ module Adaptive {
                this.toRecipients = toRecipients
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -5988,6 +6328,9 @@ module Adaptive {
                this.name = name
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6054,6 +6397,9 @@ module Adaptive {
                this.referenceUrl = referenceUrl
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6106,6 +6452,9 @@ module Adaptive {
                this.z = z
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6142,6 +6491,9 @@ module Adaptive {
                this.name = name
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6228,6 +6580,9 @@ module Adaptive {
                this.secure = secure
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6274,6 +6629,9 @@ module Adaptive {
                this.jobTitle = jobTitle
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6380,6 +6738,9 @@ module Adaptive {
                this.session = session
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6392,6 +6753,10 @@ module Adaptive {
           static HTTP_PROTOCOL_VERSION_1_0 = new ServiceRequestProtocolVersionEnum("HTTP_PROTOCOL_VERSION_1_0");
           static HTTP_PROTOCOL_VERSION_1_1 = new ServiceRequestProtocolVersionEnum("HTTP_PROTOCOL_VERSION_1_1");
           static Unknown = new ServiceRequestProtocolVersionEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6428,6 +6793,9 @@ module Adaptive {
                this.type = type
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6441,6 +6809,10 @@ module Adaptive {
           static Work = new ContactAddressAddressTypeEnum("Work");
           static Other = new ContactAddressAddressTypeEnum("Other");
           static Unknown = new ContactAddressAddressTypeEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6487,6 +6859,9 @@ module Adaptive {
                this.type = type
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6500,6 +6875,10 @@ module Adaptive {
           static Work = new ContactEmailEmailTypeEnum("Work");
           static Other = new ContactEmailEmailTypeEnum("Other");
           static Unknown = new ContactEmailEmailTypeEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6566,6 +6945,9 @@ module Adaptive {
                this.scheme = scheme
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6592,6 +6974,9 @@ module Adaptive {
                this.name = name
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6648,6 +7033,9 @@ module Adaptive {
                this.type = type
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6660,6 +7048,10 @@ module Adaptive {
           static POST = new ServiceServiceMethodEnum("POST");
           static GET = new ServiceServiceMethodEnum("GET");
           static Unknown = new ServiceServiceMethodEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6680,6 +7072,10 @@ module Adaptive {
           static SERVICETYPE_XMLRPC_JSON = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_JSON");
           static SERVICETYPE_XMLRPC_XML = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_XML");
           static Unknown = new ServiceServiceTypeEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6706,6 +7102,9 @@ module Adaptive {
                this.state = state
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6724,6 +7123,10 @@ module Adaptive {
           static Resuming = new LifecycleStateEnum("Resuming");
           static Stopping = new LifecycleStateEnum("Stopping");
           static Unknown = new LifecycleStateEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6750,6 +7153,9 @@ module Adaptive {
                this.url = url
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6786,6 +7192,9 @@ module Adaptive {
                this.secureKey = secureKey
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6812,6 +7221,9 @@ module Adaptive {
                this.values = values
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6838,6 +7250,9 @@ module Adaptive {
                this.contactId = contactId
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6894,6 +7309,9 @@ module Adaptive {
                this.title = title
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6908,6 +7326,10 @@ module Adaptive {
           static Ms = new ContactPersonalInfoTitleEnum("Ms");
           static Dr = new ContactPersonalInfoTitleEnum("Dr");
           static Unknown = new ContactPersonalInfoTitleEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -6944,6 +7366,9 @@ module Adaptive {
                this.name = name
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7034,6 +7459,9 @@ module Adaptive {
                this.professionalInfo = professionalInfo
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7070,6 +7498,9 @@ module Adaptive {
                this.phone = phone
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7087,6 +7518,10 @@ module Adaptive {
           static WorkFax = new ContactPhonePhoneTypeEnum("WorkFax");
           static Other = new ContactPhonePhoneTypeEnum("Other");
           static Unknown = new ContactPhonePhoneTypeEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7145,6 +7580,9 @@ module Adaptive {
                this.longitude = longitude
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7167,6 +7605,9 @@ module Adaptive {
                return this.type
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7180,6 +7621,10 @@ module Adaptive {
           static BackButton = new ButtonButtonEnum("BackButton");
           static OptionButton = new ButtonButtonEnum("OptionButton");
           static Unknown = new ButtonButtonEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7214,6 +7659,9 @@ module Adaptive {
                return this.version
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7256,6 +7704,9 @@ module Adaptive {
                return this.description
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7292,6 +7743,9 @@ module Adaptive {
                this.socialNetwork = socialNetwork
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7307,6 +7761,10 @@ module Adaptive {
           static LinkedIn = new ContactSocialSocialNetworkEnum("LinkedIn");
           static Flickr = new ContactSocialSocialNetworkEnum("Flickr");
           static Unknown = new ContactSocialSocialNetworkEnum("Unknown");
+
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7369,6 +7827,9 @@ module Adaptive {
                this.rows = rows
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7465,6 +7926,9 @@ module Adaptive {
                this.session = session
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7491,6 +7955,9 @@ module Adaptive {
                this.address = address
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
      /**
@@ -7531,6 +7998,9 @@ module Adaptive {
                return this.vendor
           }
 
+          static getReflection() : ReflectionClass {
+               return null; // TODO: Implement reflection
+          }
      }
 
 

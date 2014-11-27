@@ -215,10 +215,18 @@ public class J2SwiftConverter {
                 "    export class ReflectionClass extends Reflection {\n" +
                 "        functions: Array<ReflectionFunction>;\n" +
                 "        fields:Array<ReflectionObject>;\n" +
+                "        _enum:boolean = false;\n" +
                 "\n" +
                 "        constructor(name:string, description:string, functions:Array<ReflectionFunction>, fields:Array<ReflectionObject>) {\n" +
                 "            super(name,description,ReflectionStereotypeEnum.TypeClass);\n" +
-                "            this.functions = functions;\n" +
+                "            if (this.name !=null && this.name.indexOf(\"Enum\")>-1) {\n" +
+                "                this._enum = true;\n" +
+                "            }\n" +
+                "            if (functions == null) {\n" +
+                "                this.functions = new Array<ReflectionFunction>();\n" +
+                "            } else {\n" +
+                "                this.functions = functions;\n" +
+                "            }\n" +
                 "            if (fields == null) {\n" +
                 "                this.fields = new Array<ReflectionObject>();\n" +
                 "            } else {\n" +
@@ -233,7 +241,9 @@ public class J2SwiftConverter {
                 "        getFields() : Array<ReflectionObject> {\n" +
                 "            return this.fields;\n" +
                 "        }\n" +
-                "    }\n" +
+                "        isEnum() : boolean {\n" +
+                "            return this._enum;\n" +
+                "        }\n" +                "    }\n" +
                 "\n" +
                 "    export class ReflectionFunction extends Reflection {\n" +
                 "        parameters: Array<ReflectionObject>;\n" +
@@ -264,6 +274,7 @@ public class J2SwiftConverter {
                 "        primitive: boolean = false;\n" +
                 "        _array:boolean = false;\n" +
                 "        _void:boolean = false;\n" +
+                "        _enum:boolean = false;\n" +
                 "\n" +
                 "        constructor(name:string, description:string, type:string, fields:Array<ReflectionObject>) {\n" +
                 "            super(name,description,ReflectionStereotypeEnum.TypeObject);\n" +
@@ -284,6 +295,9 @@ public class J2SwiftConverter {
                 "                this._array = true;\n" +
                 "                this.componentType = new ReflectionObject(name, \"Array component of \"+type+\".\",this.type.substring(5,this.type.length-1), null);\n" +
                 "            }\n" +
+                "            if (this.type !=null && this.type.indexOf(\"Enum\")>-1) {\n" +
+                "                this._enum = true;\n" +
+                "            }\n" +
                 "        }\n" +
                 "\n" +
                 "        getType() : string {\n" +
@@ -300,6 +314,9 @@ public class J2SwiftConverter {
                 "        }\n" +
                 "        isVoid():boolean {\n" +
                 "            return this._void;\n" +
+                "        }\n" +
+                "        isEnum():boolean {\n" +
+                "            return this._enum;\n" +
                 "        }\n" +
                 "    }");
 
@@ -1175,8 +1192,8 @@ public class J2SwiftConverter {
                             }
                         }
                     }
-
                 }
+                js.print(";");
             } else {
                 ps.print(5, "public func ");
                 ps.print(method.getName());
@@ -1300,6 +1317,10 @@ public class J2SwiftConverter {
             ps.println();
             js.println();
         }
+        if (!clazz.isInterface()) {
+            processJSReflection(clazz, js, 10);
+        }
+
 
         //if (clazz.isInterface()) {
         //ps.println(5, "func ==(lhs: "+clazz.getSimpleName()+", rhs: "+clazz.getSimpleName()+") -> Bool");
@@ -1381,6 +1402,8 @@ public class J2SwiftConverter {
             for (int i = 0; i < enumConstants.length; i++) {
                 js.println(10, "static " + enumConstants[i] + " = new " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum(\"" + enumConstants[i] + "\");");
             }
+            js.println();
+            processJSReflection(clazz, js, 10);
             js.println(5, "}");
             js.println();
         }
@@ -1398,6 +1421,9 @@ public class J2SwiftConverter {
             for (int i = 0; i < enumConstants.length; i++) {
                 js.println(10, "static " + enumConstants[i] + " = new " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum(\"" + enumConstants[i] + "\");");
             }
+            js.println();
+            processJSReflection(clazz, js, 10);
+
             js.println(5, "}");
             js.println();
         }
@@ -1410,6 +1436,13 @@ public class J2SwiftConverter {
 
         ps.close();
         js.close();
+    }
+
+    private static void processJSReflection(Class clazz, IndentPrintStream js, int initialIndent) {
+                js.println(initialIndent, "static getReflection() : ReflectionClass {");
+                js.println(initialIndent + 5, "return null; // TODO: Implement reflection");
+                js.println(initialIndent, "}");
+        
     }
 
     private static void processJSImplementation(Class clazz, IndentPrintStream js) {
@@ -1712,7 +1745,8 @@ public class J2SwiftConverter {
                             js.println(10, "}");
                         }
                     }
-
+                    js.println();
+                    processJSReflection(clazz, js, 10);
                 }
                 js.println(5, "}");
             } else {
@@ -1910,6 +1944,7 @@ public class J2SwiftConverter {
 
                 }
                 js.println();
+                processJSReflection(clazz, js, 10);
                 js.println(5, "}");
             }
         }

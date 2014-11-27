@@ -163,7 +163,16 @@ var Adaptive;
         __extends(ReflectionClass, _super);
         function ReflectionClass(name, description, functions, fields) {
             _super.call(this, name, description, ReflectionStereotypeEnum.TypeClass);
-            this.functions = functions;
+            this._enum = false;
+            if (this.name != null && this.name.indexOf("Enum") > -1) {
+                this._enum = true;
+            }
+            if (functions == null) {
+                this.functions = new Array();
+            }
+            else {
+                this.functions = functions;
+            }
             if (fields == null) {
                 this.fields = new Array();
             }
@@ -176,6 +185,9 @@ var Adaptive;
         };
         ReflectionClass.prototype.getFields = function () {
             return this.fields;
+        };
+        ReflectionClass.prototype.isEnum = function () {
+            return this._enum;
         };
         return ReflectionClass;
     })(Reflection);
@@ -208,6 +220,7 @@ var Adaptive;
             this.primitive = false;
             this._array = false;
             this._void = false;
+            this._enum = false;
             this.type = type;
             if (fields == null) {
                 this.fields = new Array();
@@ -226,6 +239,9 @@ var Adaptive;
                 this._array = true;
                 this.componentType = new ReflectionObject(name, "Array component of " + type + ".", this.type.substring(5, this.type.length - 1), null);
             }
+            if (this.type != null && this.type.indexOf("Enum") > -1) {
+                this._enum = true;
+            }
         }
         ReflectionObject.prototype.getType = function () {
             return this.type;
@@ -241,6 +257,9 @@ var Adaptive;
         };
         ReflectionObject.prototype.isVoid = function () {
             return this._void;
+        };
+        ReflectionObject.prototype.isEnum = function () {
+            return this._enum;
         };
         return ReflectionObject;
     })(Reflection);
@@ -258,6 +277,9 @@ var Adaptive;
         BaseListener.prototype.getId = function () {
             return this.id;
         };
+        BaseListener.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return BaseListener;
     })();
     Adaptive.BaseListener = BaseListener;
@@ -270,6 +292,9 @@ var Adaptive;
         }
         IAppContextTypeEnum.prototype.toString = function () {
             return this.value;
+        };
+        IAppContextTypeEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IAppContextTypeEnum.iOS = new IAppContextTypeEnum("iOS");
         IAppContextTypeEnum.OSX = new IAppContextTypeEnum("OSX");
@@ -296,6 +321,9 @@ var Adaptive;
         IAppResourcePayloadEnum.prototype.toString = function () {
             return this.value;
         };
+        IAppResourcePayloadEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         IAppResourcePayloadEnum.Default = new IAppResourcePayloadEnum("Default");
         IAppResourcePayloadEnum.Embedded = new IAppResourcePayloadEnum("Embedded");
         IAppResourcePayloadEnum.Linked = new IAppResourcePayloadEnum("Linked");
@@ -312,6 +340,9 @@ var Adaptive;
         }
         IAppResourceFormatEnum.prototype.toString = function () {
             return this.value;
+        };
+        IAppResourceFormatEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IAppResourceFormatEnum.Raw = new IAppResourceFormatEnum("Raw");
         IAppResourceFormatEnum.Compressed = new IAppResourceFormatEnum("Compressed");
@@ -330,6 +361,9 @@ var Adaptive;
         }
         IAppResourceTypeEnum.prototype.toString = function () {
             return this.value;
+        };
+        IAppResourceTypeEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IAppResourceTypeEnum.Html = new IAppResourceTypeEnum("Html");
         IAppResourceTypeEnum.Css = new IAppResourceTypeEnum("Css");
@@ -357,6 +391,9 @@ var Adaptive;
         BaseCallback.prototype.getId = function () {
             return this.id;
         };
+        BaseCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return BaseCallback;
     })();
     Adaptive.BaseCallback = BaseCallback;
@@ -369,6 +406,9 @@ var Adaptive;
         }
         IDatabaseResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IDatabaseResultCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IDatabaseResultCallbackErrorEnum.NoSpace = new IDatabaseResultCallbackErrorEnum("NoSpace");
         IDatabaseResultCallbackErrorEnum.SqlException = new IDatabaseResultCallbackErrorEnum("SqlException");
@@ -386,6 +426,9 @@ var Adaptive;
         }
         IDatabaseResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IDatabaseResultCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IDatabaseResultCallbackWarningEnum.DatabaseExists = new IDatabaseResultCallbackWarningEnum("DatabaseExists");
         IDatabaseResultCallbackWarningEnum.IsOpen = new IDatabaseResultCallbackWarningEnum("IsOpen");
@@ -488,6 +531,9 @@ var Adaptive;
                 this.onWarningFunction(database, warning);
             }
         };
+        DatabaseResultCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return DatabaseResultCallback;
     })();
     Adaptive.DatabaseResultCallback = DatabaseResultCallback;
@@ -500,6 +546,9 @@ var Adaptive;
         }
         IContactPhotoResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IContactPhotoResultCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IContactPhotoResultCallbackErrorEnum.NoPermission = new IContactPhotoResultCallbackErrorEnum("NoPermission");
         IContactPhotoResultCallbackErrorEnum.Wrong_Params = new IContactPhotoResultCallbackErrorEnum("Wrong_Params");
@@ -517,6 +566,9 @@ var Adaptive;
         }
         IContactPhotoResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IContactPhotoResultCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IContactPhotoResultCallbackWarningEnum.LimitExceeded = new IContactPhotoResultCallbackWarningEnum("LimitExceeded");
         IContactPhotoResultCallbackWarningEnum.No_Matches = new IContactPhotoResultCallbackWarningEnum("No_Matches");
@@ -619,6 +671,9 @@ var Adaptive;
                 this.onWarningFunction(contactPhoto, warning);
             }
         };
+        ContactPhotoResultCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ContactPhotoResultCallback;
     })();
     Adaptive.ContactPhotoResultCallback = ContactPhotoResultCallback;
@@ -631,6 +686,9 @@ var Adaptive;
         }
         ICapabilitiesButtonEnum.prototype.toString = function () {
             return this.value;
+        };
+        ICapabilitiesButtonEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ICapabilitiesButtonEnum.HomeButton = new ICapabilitiesButtonEnum("HomeButton");
         ICapabilitiesButtonEnum.BackButton = new ICapabilitiesButtonEnum("BackButton");
@@ -648,6 +706,9 @@ var Adaptive;
         }
         ICapabilitiesCommunicationEnum.prototype.toString = function () {
             return this.value;
+        };
+        ICapabilitiesCommunicationEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ICapabilitiesCommunicationEnum.Calendar = new ICapabilitiesCommunicationEnum("Calendar");
         ICapabilitiesCommunicationEnum.Contact = new ICapabilitiesCommunicationEnum("Contact");
@@ -668,6 +729,9 @@ var Adaptive;
         ICapabilitiesDataEnum.prototype.toString = function () {
             return this.value;
         };
+        ICapabilitiesDataEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         ICapabilitiesDataEnum.Database = new ICapabilitiesDataEnum("Database");
         ICapabilitiesDataEnum.File = new ICapabilitiesDataEnum("File");
         ICapabilitiesDataEnum.Cloud = new ICapabilitiesDataEnum("Cloud");
@@ -684,6 +748,9 @@ var Adaptive;
         }
         ICapabilitiesMediaEnum.prototype.toString = function () {
             return this.value;
+        };
+        ICapabilitiesMediaEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ICapabilitiesMediaEnum.Audio_Playback = new ICapabilitiesMediaEnum("Audio_Playback");
         ICapabilitiesMediaEnum.Audio_Recording = new ICapabilitiesMediaEnum("Audio_Recording");
@@ -703,6 +770,9 @@ var Adaptive;
         }
         ICapabilitiesNetEnum.prototype.toString = function () {
             return this.value;
+        };
+        ICapabilitiesNetEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ICapabilitiesNetEnum.GSM = new ICapabilitiesNetEnum("GSM");
         ICapabilitiesNetEnum.GPRS = new ICapabilitiesNetEnum("GPRS");
@@ -724,6 +794,9 @@ var Adaptive;
         ICapabilitiesNotificationEnum.prototype.toString = function () {
             return this.value;
         };
+        ICapabilitiesNotificationEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         ICapabilitiesNotificationEnum.Alarm = new ICapabilitiesNotificationEnum("Alarm");
         ICapabilitiesNotificationEnum.LocalNotification = new ICapabilitiesNotificationEnum("LocalNotification");
         ICapabilitiesNotificationEnum.RemoteNotification = new ICapabilitiesNotificationEnum("RemoteNotification");
@@ -741,6 +814,9 @@ var Adaptive;
         }
         ICapabilitiesSensorEnum.prototype.toString = function () {
             return this.value;
+        };
+        ICapabilitiesSensorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ICapabilitiesSensorEnum.Accelerometer = new ICapabilitiesSensorEnum("Accelerometer");
         ICapabilitiesSensorEnum.AmbientLight = new ICapabilitiesSensorEnum("AmbientLight");
@@ -892,6 +968,9 @@ var Adaptive;
                 return null;
             }
         };
+        CapabilitiesBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return CapabilitiesBridge;
     })();
     Adaptive.CapabilitiesBridge = CapabilitiesBridge;
@@ -913,6 +992,9 @@ var Adaptive;
                 registeredIMessagingCallback.remove("" + callback.getId());
                 console.error("ERROR: " + xhr.status + " IMail.sendEmail");
             }
+        };
+        MailBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return MailBridge;
     })();
@@ -979,6 +1061,9 @@ var Adaptive;
                 console.error("ERROR: " + xhr.status + " IGlobalization.getResourceLiterals");
                 return null;
             }
+        };
+        GlobalizationBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return GlobalizationBridge;
     })();
@@ -1047,6 +1132,9 @@ var Adaptive;
                 console.error("ERROR: " + xhr.status + " ILifecycle.removeLifecycleListeners");
             }
         };
+        LifecycleBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return LifecycleBridge;
     })();
     Adaptive.LifecycleBridge = LifecycleBridge;
@@ -1059,6 +1147,9 @@ var Adaptive;
         }
         IMessagingCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IMessagingCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IMessagingCallbackErrorEnum.SIMNotPresent = new IMessagingCallbackErrorEnum("SIMNotPresent");
         IMessagingCallbackErrorEnum.EmailAccountNotFound = new IMessagingCallbackErrorEnum("EmailAccountNotFound");
@@ -1078,6 +1169,9 @@ var Adaptive;
         }
         IMessagingCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IMessagingCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IMessagingCallbackWarningEnum.UnableToSentAll = new IMessagingCallbackWarningEnum("UnableToSentAll");
         IMessagingCallbackWarningEnum.UnableToFetchAttachment = new IMessagingCallbackWarningEnum("UnableToFetchAttachment");
@@ -1180,6 +1274,9 @@ var Adaptive;
                 this.onWarningFunction(success, warning);
             }
         };
+        MessagingCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return MessagingCallback;
     })();
     Adaptive.MessagingCallback = MessagingCallback;
@@ -1227,6 +1324,9 @@ var Adaptive;
             else {
                 console.error("ERROR: " + xhr.status + " IAccelerometer.removeAccelerationListeners");
             }
+        };
+        AccelerometerBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return AccelerometerBridge;
     })();
@@ -1276,6 +1376,9 @@ var Adaptive;
                 console.error("ERROR: " + xhr.status + " IGeolocation.removeGeolocationListeners");
             }
         };
+        GeolocationBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return GeolocationBridge;
     })();
     Adaptive.GeolocationBridge = GeolocationBridge;
@@ -1288,6 +1391,9 @@ var Adaptive;
         }
         IGeolocationListenerErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IGeolocationListenerErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IGeolocationListenerErrorEnum.Disabled = new IGeolocationListenerErrorEnum("Disabled");
         IGeolocationListenerErrorEnum.RestrictedAccess = new IGeolocationListenerErrorEnum("RestrictedAccess");
@@ -1306,6 +1412,9 @@ var Adaptive;
         }
         IGeolocationListenerWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IGeolocationListenerWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IGeolocationListenerWarningEnum.HighDoP = new IGeolocationListenerWarningEnum("HighDoP");
         IGeolocationListenerWarningEnum.StaleData = new IGeolocationListenerWarningEnum("StaleData");
@@ -1405,6 +1514,9 @@ var Adaptive;
                 this.onWarningFunction(geolocation, warning);
             }
         };
+        GeolocationListener.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return GeolocationListener;
     })();
     Adaptive.GeolocationListener = GeolocationListener;
@@ -1417,6 +1529,9 @@ var Adaptive;
         }
         IContactResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IContactResultCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IContactResultCallbackErrorEnum.NoPermission = new IContactResultCallbackErrorEnum("NoPermission");
         IContactResultCallbackErrorEnum.Wrong_Params = new IContactResultCallbackErrorEnum("Wrong_Params");
@@ -1433,6 +1548,9 @@ var Adaptive;
         }
         IContactResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IContactResultCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IContactResultCallbackWarningEnum.LimitExceeded = new IContactResultCallbackWarningEnum("LimitExceeded");
         IContactResultCallbackWarningEnum.No_Matches = new IContactResultCallbackWarningEnum("No_Matches");
@@ -1535,6 +1653,9 @@ var Adaptive;
                 this.onWarningFunction(contacts, warning);
             }
         };
+        ContactResultCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ContactResultCallback;
     })();
     Adaptive.ContactResultCallback = ContactResultCallback;
@@ -1557,6 +1678,9 @@ var Adaptive;
                 console.error("ERROR: " + xhr.status + " IMessaging.sendSMS");
             }
         };
+        MessagingBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return MessagingBridge;
     })();
     Adaptive.MessagingBridge = MessagingBridge;
@@ -1569,6 +1693,9 @@ var Adaptive;
         }
         IFileResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IFileResultCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IFileResultCallbackErrorEnum.FileExists = new IFileResultCallbackErrorEnum("FileExists");
         IFileResultCallbackErrorEnum.InsufficientSpace = new IFileResultCallbackErrorEnum("InsufficientSpace");
@@ -1586,6 +1713,9 @@ var Adaptive;
         }
         IFileResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IFileResultCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IFileResultCallbackWarningEnum.SourceNotDeleted = new IFileResultCallbackWarningEnum("SourceNotDeleted");
         IFileResultCallbackWarningEnum.RootDirectory = new IFileResultCallbackWarningEnum("RootDirectory");
@@ -1688,6 +1818,9 @@ var Adaptive;
                 this.onWarningFunction(sourceFile, destinationFile, warning);
             }
         };
+        FileResultCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return FileResultCallback;
     })();
     Adaptive.FileResultCallback = FileResultCallback;
@@ -1700,6 +1833,9 @@ var Adaptive;
         }
         IFileListResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IFileListResultCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IFileListResultCallbackErrorEnum.InexistentFile = new IFileListResultCallbackErrorEnum("InexistentFile");
         IFileListResultCallbackErrorEnum.Unauthorized = new IFileListResultCallbackErrorEnum("Unauthorized");
@@ -1716,6 +1852,9 @@ var Adaptive;
         }
         IFileListResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IFileListResultCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IFileListResultCallbackWarningEnum.PartialResult = new IFileListResultCallbackWarningEnum("PartialResult");
         IFileListResultCallbackWarningEnum.Unknown = new IFileListResultCallbackWarningEnum("Unknown");
@@ -1817,6 +1956,9 @@ var Adaptive;
                 this.onWarningFunction(files, warning);
             }
         };
+        FileListResultCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return FileListResultCallback;
     })();
     Adaptive.FileListResultCallback = FileListResultCallback;
@@ -1855,6 +1997,9 @@ var Adaptive;
                 console.error("ERROR: " + xhr.status + " IRuntime.dismissSplashScreen");
                 return null;
             }
+        };
+        RuntimeBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return RuntimeBridge;
     })();
@@ -2018,6 +2163,9 @@ var Adaptive;
                 console.error("ERROR: " + xhr.status + " ISession.setCookies");
             }
         };
+        SessionBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return SessionBridge;
     })();
     Adaptive.SessionBridge = SessionBridge;
@@ -2037,6 +2185,9 @@ var Adaptive;
             else {
                 console.error("ERROR: " + xhr.status + " IVideo.playStream");
             }
+        };
+        VideoBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return VideoBridge;
     })();
@@ -2065,6 +2216,9 @@ var Adaptive;
                 console.error("ERROR: " + xhr.status + " IBrowser.openBrowser");
                 return null;
             }
+        };
+        BrowserBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return BrowserBridge;
     })();
@@ -2151,6 +2305,9 @@ var Adaptive;
             else {
                 console.error("ERROR: " + xhr.status + " IDevice.removeButtonListeners");
             }
+        };
+        DeviceBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return DeviceBridge;
     })();
@@ -2290,6 +2447,9 @@ var Adaptive;
                 return null;
             }
         };
+        DatabaseBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return DatabaseBridge;
     })();
     Adaptive.DatabaseBridge = DatabaseBridge;
@@ -2357,6 +2517,9 @@ var Adaptive;
                 console.error("ERROR: " + xhr.status + " ISecurity.setSecureKeyValuePairs");
             }
         };
+        SecurityBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return SecurityBridge;
     })();
     Adaptive.SecurityBridge = SecurityBridge;
@@ -2369,6 +2532,9 @@ var Adaptive;
         }
         ILoggingLogLevelEnum.prototype.toString = function () {
             return this.value;
+        };
+        ILoggingLogLevelEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ILoggingLogLevelEnum.DEBUG = new ILoggingLogLevelEnum("DEBUG");
         ILoggingLogLevelEnum.WARN = new ILoggingLogLevelEnum("WARN");
@@ -2387,6 +2553,9 @@ var Adaptive;
         }
         IServiceResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IServiceResultCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IServiceResultCallbackErrorEnum.Forbidden = new IServiceResultCallbackErrorEnum("Forbidden");
         IServiceResultCallbackErrorEnum.NotFound = new IServiceResultCallbackErrorEnum("NotFound");
@@ -2412,6 +2581,9 @@ var Adaptive;
         }
         IServiceResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IServiceResultCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IServiceResultCallbackWarningEnum.NotSecure = new IServiceResultCallbackWarningEnum("NotSecure");
         IServiceResultCallbackWarningEnum.NotTrusted = new IServiceResultCallbackWarningEnum("NotTrusted");
@@ -2516,6 +2688,9 @@ var Adaptive;
                 this.onWarningFunction(response, warning);
             }
         };
+        ServiceResultCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ServiceResultCallback;
     })();
     Adaptive.ServiceResultCallback = ServiceResultCallback;
@@ -2528,6 +2703,9 @@ var Adaptive;
         }
         ITelephonyStatusEnum.prototype.toString = function () {
             return this.value;
+        };
+        ITelephonyStatusEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ITelephonyStatusEnum.Dialing = new ITelephonyStatusEnum("Dialing");
         ITelephonyStatusEnum.Failed = new ITelephonyStatusEnum("Failed");
@@ -2560,6 +2738,9 @@ var Adaptive;
                 return null;
             }
         };
+        TelephonyBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return TelephonyBridge;
     })();
     Adaptive.TelephonyBridge = TelephonyBridge;
@@ -2572,6 +2753,9 @@ var Adaptive;
         }
         IAppResourceCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IAppResourceCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IAppResourceCallbackErrorEnum.NotFound = new IAppResourceCallbackErrorEnum("NotFound");
         IAppResourceCallbackErrorEnum.NoPermission = new IAppResourceCallbackErrorEnum("NoPermission");
@@ -2588,6 +2772,9 @@ var Adaptive;
         }
         IAppResourceCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IAppResourceCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IAppResourceCallbackWarningEnum.PartialContent = new IAppResourceCallbackWarningEnum("PartialContent");
         IAppResourceCallbackWarningEnum.TooLarge = new IAppResourceCallbackWarningEnum("TooLarge");
@@ -2812,6 +2999,9 @@ var Adaptive;
                 return null;
             }
         };
+        FileSystemBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return FileSystemBridge;
     })();
     Adaptive.FileSystemBridge = FileSystemBridge;
@@ -2824,6 +3014,9 @@ var Adaptive;
         }
         ISecureKVResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        ISecureKVResultCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ISecureKVResultCallbackErrorEnum.NoPermission = new ISecureKVResultCallbackErrorEnum("NoPermission");
         ISecureKVResultCallbackErrorEnum.NoMatchesFound = new ISecureKVResultCallbackErrorEnum("NoMatchesFound");
@@ -2840,6 +3033,9 @@ var Adaptive;
         }
         ISecureKVResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        ISecureKVResultCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ISecureKVResultCallbackWarningEnum.EntryOverride = new ISecureKVResultCallbackWarningEnum("EntryOverride");
         ISecureKVResultCallbackWarningEnum.Unknown = new ISecureKVResultCallbackWarningEnum("Unknown");
@@ -2941,6 +3137,9 @@ var Adaptive;
                 this.onWarningFunction(keyValues, warning);
             }
         };
+        SecureKVResultCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return SecureKVResultCallback;
     })();
     Adaptive.SecureKVResultCallback = SecureKVResultCallback;
@@ -2953,6 +3152,9 @@ var Adaptive;
         }
         INetworkReachabilityCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        INetworkReachabilityCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         INetworkReachabilityCallbackErrorEnum.Forbidden = new INetworkReachabilityCallbackErrorEnum("Forbidden");
         INetworkReachabilityCallbackErrorEnum.NotFound = new INetworkReachabilityCallbackErrorEnum("NotFound");
@@ -2978,6 +3180,9 @@ var Adaptive;
         }
         INetworkReachabilityCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        INetworkReachabilityCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         INetworkReachabilityCallbackWarningEnum.IncorrectScheme = new INetworkReachabilityCallbackWarningEnum("IncorrectScheme");
         INetworkReachabilityCallbackWarningEnum.NotSecure = new INetworkReachabilityCallbackWarningEnum("NotSecure");
@@ -3083,6 +3288,9 @@ var Adaptive;
                 this.onWarningFunction(result, warning);
             }
         };
+        NetworkReachabilityCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return NetworkReachabilityCallback;
     })();
     Adaptive.NetworkReachabilityCallback = NetworkReachabilityCallback;
@@ -3095,6 +3303,9 @@ var Adaptive;
         }
         IFileDataResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IFileDataResultCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IFileDataResultCallbackErrorEnum.InexistentFile = new IFileDataResultCallbackErrorEnum("InexistentFile");
         IFileDataResultCallbackErrorEnum.InsufficientSpace = new IFileDataResultCallbackErrorEnum("InsufficientSpace");
@@ -3112,6 +3323,9 @@ var Adaptive;
         }
         IFileDataResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IFileDataResultCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IFileDataResultCallbackWarningEnum.ExceedMaximumSize = new IFileDataResultCallbackWarningEnum("ExceedMaximumSize");
         IFileDataResultCallbackWarningEnum.Unknown = new IFileDataResultCallbackWarningEnum("Unknown");
@@ -3213,6 +3427,9 @@ var Adaptive;
                 this.onWarningFunction(file, warning);
             }
         };
+        FileDataResultCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return FileDataResultCallback;
     })();
     Adaptive.FileDataResultCallback = FileDataResultCallback;
@@ -3225,6 +3442,9 @@ var Adaptive;
         }
         IAccelerationListenerErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IAccelerationListenerErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IAccelerationListenerErrorEnum.Unauthorized = new IAccelerationListenerErrorEnum("Unauthorized");
         IAccelerationListenerErrorEnum.Unavailable = new IAccelerationListenerErrorEnum("Unavailable");
@@ -3241,6 +3461,9 @@ var Adaptive;
         }
         IAccelerationListenerWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IAccelerationListenerWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IAccelerationListenerWarningEnum.NeedsCalibration = new IAccelerationListenerWarningEnum("NeedsCalibration");
         IAccelerationListenerWarningEnum.Stale = new IAccelerationListenerWarningEnum("Stale");
@@ -3340,6 +3563,9 @@ var Adaptive;
                 this.onWarningFunction(acceleration, warning);
             }
         };
+        AccelerationListener.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return AccelerationListener;
     })();
     Adaptive.AccelerationListener = AccelerationListener;
@@ -3375,6 +3601,9 @@ var Adaptive;
                 console.error("ERROR: " + xhr.status + " INetworkReachability.isNetworkServiceReachable");
             }
         };
+        NetworkReachabilityBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return NetworkReachabilityBridge;
     })();
     Adaptive.NetworkReachabilityBridge = NetworkReachabilityBridge;
@@ -3387,6 +3616,9 @@ var Adaptive;
         }
         ILifecycleListenerErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        ILifecycleListenerErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ILifecycleListenerErrorEnum.Runtime = new ILifecycleListenerErrorEnum("Runtime");
         ILifecycleListenerErrorEnum.Implementation = new ILifecycleListenerErrorEnum("Implementation");
@@ -3404,6 +3636,9 @@ var Adaptive;
         }
         ILifecycleListenerWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        ILifecycleListenerWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ILifecycleListenerWarningEnum.MemoryLow = new ILifecycleListenerWarningEnum("MemoryLow");
         ILifecycleListenerWarningEnum.BatteryLow = new ILifecycleListenerWarningEnum("BatteryLow");
@@ -3502,6 +3737,9 @@ var Adaptive;
             else {
                 this.onWarningFunction(lifecycle, warning);
             }
+        };
+        LifecycleListener.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return LifecycleListener;
     })();
@@ -3930,6 +4168,9 @@ var Adaptive;
                 return null;
             }
         };
+        FilePathBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return FilePathBridge;
     })();
     Adaptive.FilePathBridge = FilePathBridge;
@@ -3958,6 +4199,9 @@ var Adaptive;
                 return null;
             }
         };
+        OSBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return OSBridge;
     })();
     Adaptive.OSBridge = OSBridge;
@@ -3970,6 +4214,9 @@ var Adaptive;
         }
         IContactFieldGroupEnum.prototype.toString = function () {
             return this.value;
+        };
+        IContactFieldGroupEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IContactFieldGroupEnum.PERSONAL_INFO = new IContactFieldGroupEnum("PERSONAL_INFO");
         IContactFieldGroupEnum.PROFESSIONAL_INFO = new IContactFieldGroupEnum("PROFESSIONAL_INFO");
@@ -3992,6 +4239,9 @@ var Adaptive;
         }
         IContactFilterEnum.prototype.toString = function () {
             return this.value;
+        };
+        IContactFilterEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IContactFilterEnum.HAS_PHONE = new IContactFilterEnum("HAS_PHONE");
         IContactFilterEnum.HAS_EMAIL = new IContactFilterEnum("HAS_EMAIL");
@@ -4116,6 +4366,9 @@ var Adaptive;
                 return null;
             }
         };
+        ContactBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ContactBridge;
     })();
     Adaptive.ContactBridge = ContactBridge;
@@ -4128,6 +4381,9 @@ var Adaptive;
         }
         IButtonListenerErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        IButtonListenerErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IButtonListenerErrorEnum.Not_Present = new IButtonListenerErrorEnum("Not_Present");
         IButtonListenerErrorEnum.Unknown = new IButtonListenerErrorEnum("Unknown");
@@ -4143,6 +4399,9 @@ var Adaptive;
         }
         IButtonListenerWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        IButtonListenerWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         IButtonListenerWarningEnum.Not_Implemented = new IButtonListenerWarningEnum("Not_Implemented");
         IButtonListenerWarningEnum.Unknown = new IButtonListenerWarningEnum("Unknown");
@@ -4241,6 +4500,9 @@ var Adaptive;
                 this.onWarningFunction(button, warning);
             }
         };
+        ButtonListener.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ButtonListener;
     })();
     Adaptive.ButtonListener = ButtonListener;
@@ -4253,6 +4515,9 @@ var Adaptive;
         }
         ITableResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
+        };
+        ITableResultCallbackErrorEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ITableResultCallbackErrorEnum.NoSpace = new ITableResultCallbackErrorEnum("NoSpace");
         ITableResultCallbackErrorEnum.ReadOnlyTable = new ITableResultCallbackErrorEnum("ReadOnlyTable");
@@ -4272,6 +4537,9 @@ var Adaptive;
         }
         ITableResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
+        };
+        ITableResultCallbackWarningEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ITableResultCallbackWarningEnum.TableExists = new ITableResultCallbackWarningEnum("TableExists");
         ITableResultCallbackWarningEnum.TableLocked = new ITableResultCallbackWarningEnum("TableLocked");
@@ -4374,6 +4642,9 @@ var Adaptive;
             else {
                 this.onWarningFunction(table, warning);
             }
+        };
+        TableResultCallback.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return TableResultCallback;
     })();
@@ -5121,6 +5392,9 @@ var Adaptive;
                 return null;
             }
         };
+        FileBridge.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return FileBridge;
     })();
     Adaptive.FileBridge = FileBridge;
@@ -5179,6 +5453,9 @@ var Adaptive;
         Email.prototype.setToRecipients = function (toRecipients) {
             this.toRecipients = toRecipients;
         };
+        Email.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return Email;
     })();
     Adaptive.Email = Email;
@@ -5205,6 +5482,9 @@ var Adaptive;
         };
         Database.prototype.setName = function (name) {
             this.name = name;
+        };
+        Database.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return Database;
     })();
@@ -5254,6 +5534,9 @@ var Adaptive;
         AttachmentData.prototype.setReferenceUrl = function (referenceUrl) {
             this.referenceUrl = referenceUrl;
         };
+        AttachmentData.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return AttachmentData;
     })();
     Adaptive.AttachmentData = AttachmentData;
@@ -5292,6 +5575,9 @@ var Adaptive;
         Acceleration.prototype.setZ = function (z) {
             this.z = z;
         };
+        Acceleration.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return Acceleration;
     })();
     Adaptive.Acceleration = Acceleration;
@@ -5318,6 +5604,9 @@ var Adaptive;
         };
         ContactTag.prototype.setName = function (name) {
             this.name = name;
+        };
+        ContactTag.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return ContactTag;
     })();
@@ -5379,6 +5668,9 @@ var Adaptive;
         Cookie.prototype.setSecure = function (secure) {
             this.secure = secure;
         };
+        Cookie.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return Cookie;
     })();
     Adaptive.Cookie = Cookie;
@@ -5412,6 +5704,9 @@ var Adaptive;
         };
         ContactProfessionalInfo.prototype.setJobTitle = function (jobTitle) {
             this.jobTitle = jobTitle;
+        };
+        ContactProfessionalInfo.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return ContactProfessionalInfo;
     })();
@@ -5489,6 +5784,9 @@ var Adaptive;
         ServiceRequest.prototype.setSession = function (session) {
             this.session = session;
         };
+        ServiceRequest.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ServiceRequest;
     })();
     Adaptive.ServiceRequest = ServiceRequest;
@@ -5501,6 +5799,9 @@ var Adaptive;
         }
         ServiceRequestProtocolVersionEnum.prototype.toString = function () {
             return this.value;
+        };
+        ServiceRequestProtocolVersionEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ServiceRequestProtocolVersionEnum.HTTP_PROTOCOL_VERSION_1_0 = new ServiceRequestProtocolVersionEnum("HTTP_PROTOCOL_VERSION_1_0");
         ServiceRequestProtocolVersionEnum.HTTP_PROTOCOL_VERSION_1_1 = new ServiceRequestProtocolVersionEnum("HTTP_PROTOCOL_VERSION_1_1");
@@ -5532,6 +5833,9 @@ var Adaptive;
         ContactAddress.prototype.setType = function (type) {
             this.type = type;
         };
+        ContactAddress.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ContactAddress;
     })();
     Adaptive.ContactAddress = ContactAddress;
@@ -5544,6 +5848,9 @@ var Adaptive;
         }
         ContactAddressAddressTypeEnum.prototype.toString = function () {
             return this.value;
+        };
+        ContactAddressAddressTypeEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ContactAddressAddressTypeEnum.Home = new ContactAddressAddressTypeEnum("Home");
         ContactAddressAddressTypeEnum.Work = new ContactAddressAddressTypeEnum("Work");
@@ -5583,6 +5890,9 @@ var Adaptive;
         ContactEmail.prototype.setType = function (type) {
             this.type = type;
         };
+        ContactEmail.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ContactEmail;
     })();
     Adaptive.ContactEmail = ContactEmail;
@@ -5595,6 +5905,9 @@ var Adaptive;
         }
         ContactEmailEmailTypeEnum.prototype.toString = function () {
             return this.value;
+        };
+        ContactEmailEmailTypeEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ContactEmailEmailTypeEnum.Personal = new ContactEmailEmailTypeEnum("Personal");
         ContactEmailEmailTypeEnum.Work = new ContactEmailEmailTypeEnum("Work");
@@ -5648,6 +5961,9 @@ var Adaptive;
         Endpoint.prototype.setScheme = function (scheme) {
             this.scheme = scheme;
         };
+        Endpoint.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return Endpoint;
     })();
     Adaptive.Endpoint = Endpoint;
@@ -5667,6 +5983,9 @@ var Adaptive;
         };
         Column.prototype.setName = function (name) {
             this.name = name;
+        };
+        Column.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return Column;
     })();
@@ -5709,6 +6028,9 @@ var Adaptive;
         Service.prototype.setType = function (type) {
             this.type = type;
         };
+        Service.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return Service;
     })();
     Adaptive.Service = Service;
@@ -5721,6 +6043,9 @@ var Adaptive;
         }
         ServiceServiceMethodEnum.prototype.toString = function () {
             return this.value;
+        };
+        ServiceServiceMethodEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ServiceServiceMethodEnum.POST = new ServiceServiceMethodEnum("POST");
         ServiceServiceMethodEnum.GET = new ServiceServiceMethodEnum("GET");
@@ -5737,6 +6062,9 @@ var Adaptive;
         }
         ServiceServiceTypeEnum.prototype.toString = function () {
             return this.value;
+        };
+        ServiceServiceTypeEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ServiceServiceTypeEnum.SERVICETYPE_AMF_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_AMF_SERIALIZATION");
         ServiceServiceTypeEnum.SERVICETYPE_GWT_RPC = new ServiceServiceTypeEnum("SERVICETYPE_GWT_RPC");
@@ -5769,6 +6097,9 @@ var Adaptive;
         Lifecycle.prototype.setState = function (state) {
             this.state = state;
         };
+        Lifecycle.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return Lifecycle;
     })();
     Adaptive.Lifecycle = Lifecycle;
@@ -5781,6 +6112,9 @@ var Adaptive;
         }
         LifecycleStateEnum.prototype.toString = function () {
             return this.value;
+        };
+        LifecycleStateEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         LifecycleStateEnum.Starting = new LifecycleStateEnum("Starting");
         LifecycleStateEnum.Started = new LifecycleStateEnum("Started");
@@ -5811,6 +6145,9 @@ var Adaptive;
         ContactWebsite.prototype.setUrl = function (url) {
             this.url = url;
         };
+        ContactWebsite.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ContactWebsite;
     })();
     Adaptive.ContactWebsite = ContactWebsite;
@@ -5838,6 +6175,9 @@ var Adaptive;
         SecureKeyPair.prototype.setSecureKey = function (secureKey) {
             this.secureKey = secureKey;
         };
+        SecureKeyPair.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return SecureKeyPair;
     })();
     Adaptive.SecureKeyPair = SecureKeyPair;
@@ -5858,6 +6198,9 @@ var Adaptive;
         Row.prototype.setValues = function (values) {
             this.values = values;
         };
+        Row.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return Row;
     })();
     Adaptive.Row = Row;
@@ -5877,6 +6220,9 @@ var Adaptive;
         };
         ContactUid.prototype.setContactId = function (contactId) {
             this.contactId = contactId;
+        };
+        ContactUid.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return ContactUid;
     })();
@@ -5919,6 +6265,9 @@ var Adaptive;
         ContactPersonalInfo.prototype.setTitle = function (title) {
             this.title = title;
         };
+        ContactPersonalInfo.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ContactPersonalInfo;
     })();
     Adaptive.ContactPersonalInfo = ContactPersonalInfo;
@@ -5931,6 +6280,9 @@ var Adaptive;
         }
         ContactPersonalInfoTitleEnum.prototype.toString = function () {
             return this.value;
+        };
+        ContactPersonalInfoTitleEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ContactPersonalInfoTitleEnum.Mr = new ContactPersonalInfoTitleEnum("Mr");
         ContactPersonalInfoTitleEnum.Mrs = new ContactPersonalInfoTitleEnum("Mrs");
@@ -5963,6 +6315,9 @@ var Adaptive;
         };
         Header.prototype.setName = function (name) {
             this.name = name;
+        };
+        Header.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return Header;
     })();
@@ -6028,6 +6383,9 @@ var Adaptive;
         Contact.prototype.setProfessionalInfo = function (professionalInfo) {
             this.professionalInfo = professionalInfo;
         };
+        Contact.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return Contact;
     })(ContactUid);
     Adaptive.Contact = Contact;
@@ -6055,6 +6413,9 @@ var Adaptive;
         ContactPhone.prototype.setPhone = function (phone) {
             this.phone = phone;
         };
+        ContactPhone.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ContactPhone;
     })();
     Adaptive.ContactPhone = ContactPhone;
@@ -6067,6 +6428,9 @@ var Adaptive;
         }
         ContactPhonePhoneTypeEnum.prototype.toString = function () {
             return this.value;
+        };
+        ContactPhonePhoneTypeEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ContactPhonePhoneTypeEnum.Mobile = new ContactPhonePhoneTypeEnum("Mobile");
         ContactPhonePhoneTypeEnum.Work = new ContactPhonePhoneTypeEnum("Work");
@@ -6118,6 +6482,9 @@ var Adaptive;
         Geolocation.prototype.setLongitude = function (longitude) {
             this.longitude = longitude;
         };
+        Geolocation.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return Geolocation;
     })();
     Adaptive.Geolocation = Geolocation;
@@ -6135,6 +6502,9 @@ var Adaptive;
         Button.prototype.getType = function () {
             return this.type;
         };
+        Button.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return Button;
     })();
     Adaptive.Button = Button;
@@ -6147,6 +6517,9 @@ var Adaptive;
         }
         ButtonButtonEnum.prototype.toString = function () {
             return this.value;
+        };
+        ButtonButtonEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ButtonButtonEnum.HomeButton = new ButtonButtonEnum("HomeButton");
         ButtonButtonEnum.BackButton = new ButtonButtonEnum("BackButton");
@@ -6176,6 +6549,9 @@ var Adaptive;
         };
         OSInfo.prototype.getVersion = function () {
             return this.version;
+        };
+        OSInfo.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return OSInfo;
     })();
@@ -6208,6 +6584,9 @@ var Adaptive;
         Locale.prototype.toString = function () {
             return this.description;
         };
+        Locale.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return Locale;
     })();
     Adaptive.Locale = Locale;
@@ -6235,6 +6614,9 @@ var Adaptive;
         ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
             this.socialNetwork = socialNetwork;
         };
+        ContactSocial.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ContactSocial;
     })();
     Adaptive.ContactSocial = ContactSocial;
@@ -6247,6 +6629,9 @@ var Adaptive;
         }
         ContactSocialSocialNetworkEnum.prototype.toString = function () {
             return this.value;
+        };
+        ContactSocialSocialNetworkEnum.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         ContactSocialSocialNetworkEnum.Twitter = new ContactSocialSocialNetworkEnum("Twitter");
         ContactSocialSocialNetworkEnum.Facebook = new ContactSocialSocialNetworkEnum("Facebook");
@@ -6297,6 +6682,9 @@ var Adaptive;
         };
         Table.prototype.setRows = function (rows) {
             this.rows = rows;
+        };
+        Table.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return Table;
     })();
@@ -6367,6 +6755,9 @@ var Adaptive;
         ServiceResponse.prototype.setSession = function (session) {
             this.session = session;
         };
+        ServiceResponse.getReflection = function () {
+            return null; // TODO: Implement reflection
+        };
         return ServiceResponse;
     })();
     Adaptive.ServiceResponse = ServiceResponse;
@@ -6386,6 +6777,9 @@ var Adaptive;
         };
         EmailAddress.prototype.setAddress = function (address) {
             this.address = address;
+        };
+        EmailAddress.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return EmailAddress;
     })();
@@ -6415,6 +6809,9 @@ var Adaptive;
         };
         DeviceInfo.prototype.getVendor = function () {
             return this.vendor;
+        };
+        DeviceInfo.getReflection = function () {
+            return null; // TODO: Implement reflection
         };
         return DeviceInfo;
     })();
