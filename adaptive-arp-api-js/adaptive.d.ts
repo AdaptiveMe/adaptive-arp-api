@@ -3060,3 +3060,4 @@ declare module Adaptive {
     }
 }
 declare var arrayCategory: Adaptive.ReflectionCategory[];
+declare var moduleDescription: Adaptive.ReflectionModule;

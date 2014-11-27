@@ -7537,23 +7537,38 @@ module Adaptive {
 }
 
 var arrayCategory = new Array<Adaptive.ReflectionCategory>();
-for (var _categories = 0; _categories < 20 ; _categories++) {
+for (var _categories = 0; _categories < 10 ; _categories++) {
 
     var arrayClasses = new Array<Adaptive.ReflectionClass>();
-    for (var _classes = 0; _classes < 20; _classes++) {
+    for (var _classes = 0; _classes < 10; _classes++) {
 
         var arrayFunctions = new Array<Adaptive.ReflectionFunction>();
-        for (var _functions = 0; _functions<20; _functions++) {
+        for (var _functions = 0; _functions<5; _functions++) {
 
             var arrayParameters = new Array<Adaptive.ReflectionObject>();
             for (var _parameters = 0; _parameters<5;_parameters++) {
 
                 var arrayFields = new Array<Adaptive.ReflectionObject>();
-                for (var _fields = 0; _fields < 10; _fields++) {
-
+                for (var _fields = 0; _fields < 2; _fields++) {
+                    arrayFields.push(new Adaptive.ReflectionObject("fieldString"+_fields, "Description fieldString"+_fields,"string", null));
+                    arrayFields.push(new Adaptive.ReflectionObject("fieldNumber"+_fields, "Description fieldNumber"+_fields,"number", null));
+                    arrayFields.push(new Adaptive.ReflectionObject("fieldBoolean"+_fields, "Description fieldBoolean"+_fields,"boolean", null));
+                    arrayFields.push(new Adaptive.ReflectionObject("arrayString"+_fields, "Description arrayString"+_fields,"Array<string>", null));
+                    arrayFields.push(new Adaptive.ReflectionObject("arrayNumber"+_fields, "Description arrayNumber"+_fields,"Array<number>", null));
+                    arrayFields.push(new Adaptive.ReflectionObject("arrayBoolean"+_fields, "Description arrayBoolean"+_fields,"Array<boolean>", null));
                 }
-            }
-        }
-    }
-}
 
+                arrayParameters.push(new Adaptive.ReflectionObject("param"+_parameters,"Description param"+_parameters,"Type"+_parameters,arrayFields));
+            }
+
+            arrayFunctions.push(new Adaptive.ReflectionFunction("setFunction"+_functions, "Description setFunction"+_functions, arrayParameters,new Adaptive.ReflectionObject("void", "void", null, null)));
+        }
+
+        arrayClasses.push(new Adaptive.ReflectionClass("Class"+_classes,"Description Class"+_classes, arrayFunctions,arrayFields));
+    }
+
+    arrayCategory.push(new Adaptive.ReflectionCategory("Category"+_categories,"Description Category"+_categories,arrayClasses));
+}
+var moduleDescription = new Adaptive.ReflectionModule("Adaptive","Adaptive Runtime Platform JS API",arrayCategory);
+
+console.log(moduleDescription.getClasses());
