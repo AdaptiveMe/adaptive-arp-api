@@ -6358,7 +6358,12 @@ var Adaptive;
         __extends(ReflectionFunction, _super);
         function ReflectionFunction(name, description, parameters, returnType) {
             _super.call(this, name, description, ReflectionStereotypeEnum.TypeFunction);
-            this.parameters = parameters;
+            if (parameters == null) {
+                this.parameters = new Array();
+            }
+            else {
+                this.parameters = parameters;
+            }
             this.returnType = returnType;
         }
         ReflectionFunction.prototype.getParameters = function () {

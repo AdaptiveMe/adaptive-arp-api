@@ -7473,7 +7473,11 @@ module Adaptive {
 
         constructor(name:string, description:string, parameters:Array<ReflectionObject>, returnType:ReflectionObject) {
             super(name,description,ReflectionStereotypeEnum.TypeFunction);
-            this.parameters = parameters;
+            if (parameters == null) {
+                this.parameters = new Array<ReflectionObject>();
+            } else {
+                this.parameters = parameters;
+            }
             this.returnType = returnType;
         }
 
