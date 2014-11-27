@@ -3032,8 +3032,10 @@ declare module Adaptive {
     }
     class ReflectionClass extends Reflection {
         functions: ReflectionFunction[];
-        constructor(name: string, description: string, functions: ReflectionFunction[]);
+        fields: ReflectionObject[];
+        constructor(name: string, description: string, functions: ReflectionFunction[], fields: ReflectionObject[]);
         getFunctions(): ReflectionFunction[];
+        getFields(): ReflectionObject[];
     }
     class ReflectionFunction extends Reflection {
         parameters: ReflectionObject[];

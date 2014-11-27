@@ -6335,12 +6335,21 @@ var Adaptive;
     Adaptive.ReflectionCategory = ReflectionCategory;
     var ReflectionClass = (function (_super) {
         __extends(ReflectionClass, _super);
-        function ReflectionClass(name, description, functions) {
+        function ReflectionClass(name, description, functions, fields) {
             _super.call(this, name, description, ReflectionStereotypeEnum.TypeClass);
             this.functions = functions;
+            if (fields == null) {
+                this.fields = new Array();
+            }
+            else {
+                this.fields = fields;
+            }
         }
         ReflectionClass.prototype.getFunctions = function () {
             return this.functions;
+        };
+        ReflectionClass.prototype.getFields = function () {
+            return this.fields;
         };
         return ReflectionClass;
     })(Reflection);

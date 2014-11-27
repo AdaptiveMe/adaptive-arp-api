@@ -7446,14 +7446,24 @@ module Adaptive {
 
     export class ReflectionClass extends Reflection {
         functions: Array<ReflectionFunction>;
+        fields:Array<ReflectionObject>;
 
-        constructor(name:string, description:string, functions:Array<ReflectionFunction>) {
+        constructor(name:string, description:string, functions:Array<ReflectionFunction>, fields:Array<ReflectionObject>) {
             super(name,description,ReflectionStereotypeEnum.TypeClass);
             this.functions = functions;
+            if (fields == null) {
+                this.fields = new Array<ReflectionObject>();
+            } else {
+                this.fields = fields;
+            }
         }
 
         getFunctions() : Array<ReflectionFunction> {
             return this.functions;
+        }
+
+        getFields() : Array<ReflectionObject> {
+            return this.fields;
         }
     }
 
