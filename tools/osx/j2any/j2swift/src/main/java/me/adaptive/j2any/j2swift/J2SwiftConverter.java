@@ -119,205 +119,168 @@ public class J2SwiftConverter {
         js.println(5, "var registeredCounter : number = 0;");
         js.println(5, "var bridgePath : string = \"https://adaptiveapp\";");
         js.println();
-        js.println(5,"/**");
-        js.println(5," *   Reflection support classes for metadata documentation.");
-        js.println(5," */");
-        js.println("    export class ReflectionStereotypeEnum {\n" +
-                "        constructor(public value:string){}\n" +
-                "        toString(){return this.value;}\n" +
-                "\n" +
-                "        static TypeModule = new ReflectionStereotypeEnum(\"Module\");\n" +
-                "        static TypeCategory = new ReflectionStereotypeEnum(\"Category\");\n" +
-                "        static TypeClass = new ReflectionStereotypeEnum(\"Class\");\n" +
-                "        static TypeFunction = new ReflectionStereotypeEnum(\"Function\");\n" +
-                "        static TypeObject = new ReflectionStereotypeEnum(\"Object\");\n" +
-                "        static TypeDescription = new ReflectionStereotypeEnum(\"Description\");\n" +
-                "    }\n" +
-                "\n" +
-                "    export class ReflectionTypeEnum {\n" +
-                "        constructor(public value:string){}\n" +
-                "        toString(){return this.value;}\n" +
-                "\n" +
-                "        static TypeString = new ReflectionStereotypeEnum(\"string\");\n" +
-                "        static TypeNumber = new ReflectionStereotypeEnum(\"number\");\n" +
-                "        static TypeObject = new ReflectionStereotypeEnum(\"object\");\n" +
-                "        static TypeArray = new ReflectionStereotypeEnum(\"Array\");\n" +
-                "    }\n" +
-                "\n" +
-                "    export interface IReflection {\n" +
-                "        name : string;\n" +
-                "        description: string;\n" +
-                "        stereotype: ReflectionStereotypeEnum;\n" +
-                "        getName() : string;\n" +
-                "        getStereotype() : ReflectionStereotypeEnum;\n" +
-                "        getDescription(): string;\n" +
-                "    }\n" +
-                "\n" +
-                "    export class Reflection implements IReflection {\n" +
+        js.println(5, "/**");
+        js.println(5, " *   Reflection support classes for metadata documentation.");
+        js.println(5, " */");
+        js.println("    export class ReflectionBase {\n" +
                 "        name:string;\n" +
                 "        description:string;\n" +
-                "        stereotype: ReflectionStereotypeEnum;\n" +
                 "\n" +
-                "        constructor(name:string, description:string,stereotype:ReflectionStereotypeEnum) {\n" +
+                "        constructor(name:string, description:string) {\n" +
                 "            this.name = name;\n" +
                 "            this.description = description;\n" +
-                "            this.stereotype = stereotype;\n" +
                 "        }\n" +
                 "\n" +
                 "        getName():string {\n" +
                 "            return this.name;\n" +
                 "        }\n" +
-                "        getStereotype(): ReflectionStereotypeEnum {\n" +
-                "            return this.stereotype;\n" +
-                "        }\n" +
+                "\n" +
                 "        getDescription():string {\n" +
                 "            return this.description;\n" +
                 "        }\n" +
                 "    }\n" +
                 "\n" +
-                "    export class ReflectionModule extends Reflection {\n" +
-                "        categories: Array<ReflectionCategory>;\n" +
+                "    export class ReflectionPackage extends ReflectionBase {\n" +
+                "        _classes:Array<ReflectionClass> = new Array<ReflectionClass>();\n" +
                 "\n" +
-                "        constructor(name:string, description:string,categories:Array<ReflectionCategory>) {\n" +
-                "            super(name,description,ReflectionStereotypeEnum.TypeModule)\n" +
-                "            this.categories = categories;\n" +
+                "        constructor(name:string, description:string) {\n" +
+                "            super(name, description);\n" +
                 "        }\n" +
                 "\n" +
-                "        getCategories() : Array<ReflectionCategory> {\n" +
-                "            return this.categories;\n" +
+                "        addClass(clazz:ReflectionClass):void {\n" +
+                "            this._classes.push(clazz);\n" +
                 "        }\n" +
                 "\n" +
-                "        getClasses() : Array<ReflectionClass> {\n" +
-                "            var _array = new Array<ReflectionClass>();\n" +
-                "            for (var i=0; i < this.getCategories().length; i++) {\n" +
-                "                var category:ReflectionCategory = this.getCategories()[i];\n" +
-                "                for (var j=0; j < category.getClasses().length; j++) {\n" +
-                "                    _array.push(category.getClasses()[j]);\n" +
-                "                }\n" +
+                "        getClasses():Array<ReflectionClass> {\n" +
+                "            return this._classes;\n" +
+                "        }\n" +
+                "\n" +
+                "    }\n" +
+                "\n" +
+                "    export class ReflectionMember extends ReflectionBase {\n" +
+                "\n" +
+                "    }\n" +
+                "\n" +
+                "    export class ReflectionClass extends ReflectionBase {\n" +
+                "        _isarray:boolean = false;\n" +
+                "        _isprimitive:boolean = false;\n" +
+                "        _isenum:boolean = false;\n" +
+                "        _fields:Array<ReflectionField> = new Array<ReflectionField>();\n" +
+                "        _methods:Array<ReflectionMethod> = new Array<ReflectionMethod>();\n" +
+                "        _package:ReflectionPackage;\n" +
+                "        _type:string = \"null\";\n" +
+                "        _typeComponent:ReflectionClass;\n" +
+                "\n" +
+                "        constructor(name:string, description:string, type:string, _methods:Array<ReflectionMethod>, _fields:Array<ReflectionField>, _package:ReflectionPackage) {\n" +
+                "            super(name, description);\n" +
+                "            this._package = _package;\n" +
+                "            this._type = type;\n" +
+                "            if (this._type == null) {\n" +
+                "                this._type = \"null\";\n" +
+                "            } else if (this._type == \"string\" || this._type == \"number\" || this._type == \"boolean\") {\n" +
+                "                this._isprimitive = true;\n" +
+                "            } else if (this._type.indexOf(\"Array\") == 0) {\n" +
+                "                this._isarray = true;\n" +
+                "            } else if (this._type.indexOf(\"Enum\") > -1) {\n" +
+                "                this._isenum = true;\n" +
                 "            }\n" +
-                "            return _array;\n" +
+                "\n" +
+                "            if (_methods != null) {\n" +
+                "                this._methods = _methods;\n" +
+                "            }\n" +
+                "            if (_fields != null) {\n" +
+                "                this._fields = _fields;\n" +
+                "            }\n" +
+                "        }\n" +
+                "\n" +
+                "        setTypeComponent(typeComponent:ReflectionClass):ReflectionClass {\n" +
+                "            this._typeComponent = typeComponent;\n" +
+                "            return this;\n" +
+                "        }\n" +
+                "\n" +
+                "        getFields():Array<ReflectionField> {\n" +
+                "            return this._fields;\n" +
+                "        }\n" +
+                "\n" +
+                "        getMethods():Array<ReflectionMethod> {\n" +
+                "            return this._methods;\n" +
+                "        }\n" +
+                "\n" +
+                "        getType():string {\n" +
+                "            return this._type;\n" +
+                "        }\n" +
+                "\n" +
+                "    }\n" +
+                "\n" +
+                "    export class ReflectionMethod extends ReflectionBase {\n" +
+                "        _returnType:ReflectionClass;\n" +
+                "        _isvoid:boolean = true;\n" +
+                "        _parameters:Array<ReflectionParameter> = new Array<ReflectionParameter>();\n" +
+                "\n" +
+                "        constructor(name:string, description:string, _parameters:Array<ReflectionParameter>, _returnType:ReflectionClass) {\n" +
+                "            super(name, description)\n" +
+                "            if (_parameters != null) {\n" +
+                "                this._parameters = _parameters;\n" +
+                "            }\n" +
+                "            if (_returnType == null) {\n" +
+                "                this._isvoid = true;\n" +
+                "                this._returnType = null;\n" +
+                "            } else {\n" +
+                "                this._isvoid = false;\n" +
+                "                this._returnType = _returnType;\n" +
+                "            }\n" +
+                "        }\n" +
+                "\n" +
+                "        isVoid():boolean {\n" +
+                "            return this._isvoid;\n" +
+                "        }\n" +
+                "\n" +
+                "        getParameters():Array<ReflectionParameter> {\n" +
+                "            return this._parameters;\n" +
+                "        }\n" +
+                "\n" +
+                "        getParameterCount():number {\n" +
+                "            return this._parameters.length;\n" +
+                "        }\n" +
+                "\n" +
+                "        getReturnType():ReflectionClass {\n" +
+                "            return this._returnType;\n" +
                 "        }\n" +
                 "    }\n" +
                 "\n" +
-                "    export class ReflectionCategory extends Reflection {\n" +
-                "        classes: Array<ReflectionClass>;\n" +
+                "    export class ReflectionParameter extends ReflectionBase {\n" +
+                "        _type:ReflectionClass;\n" +
                 "\n" +
-                "        constructor(name:string, description:string, classes:Array<ReflectionClass>) {\n" +
-                "            super(name, description, ReflectionStereotypeEnum.TypeCategory);\n" +
-                "            this.classes = classes;\n" +
+                "        constructor(name:string, description:string, _type:ReflectionClass) {\n" +
+                "            super(name, description)\n" +
+                "            this._type = _type;\n" +
                 "        }\n" +
                 "\n" +
-                "        getClasses() : Array<ReflectionClass> {\n" +
-                "            return this.classes;\n" +
-                "        }\n" +
-                "    }\n" +
-                "\n" +
-                "    export class ReflectionClass extends Reflection {\n" +
-                "        functions: Array<ReflectionFunction>;\n" +
-                "        fields:Array<ReflectionObject>;\n" +
-                "        _enum:boolean = false;\n" +
-                "\n" +
-                "        constructor(name:string, description:string, functions:Array<ReflectionFunction>, fields:Array<ReflectionObject>) {\n" +
-                "            super(name,description,ReflectionStereotypeEnum.TypeClass);\n" +
-                "            if (this.name !=null && this.name.indexOf(\"Enum\")>-1) {\n" +
-                "                this._enum = true;\n" +
-                "            }\n" +
-                "            if (functions == null) {\n" +
-                "                this.functions = new Array<ReflectionFunction>();\n" +
-                "            } else {\n" +
-                "                this.functions = functions;\n" +
-                "            }\n" +
-                "            if (fields == null) {\n" +
-                "                this.fields = new Array<ReflectionObject>();\n" +
-                "            } else {\n" +
-                "                this.fields = fields;\n" +
-                "            }\n" +
-                "        }\n" +
-                "\n" +
-                "        getFunctions() : Array<ReflectionFunction> {\n" +
-                "            return this.functions;\n" +
-                "        }\n" +
-                "\n" +
-                "        getFields() : Array<ReflectionObject> {\n" +
-                "            return this.fields;\n" +
-                "        }\n" +
-                "        isEnum() : boolean {\n" +
-                "            return this._enum;\n" +
-                "        }\n" +                "    }\n" +
-                "\n" +
-                "    export class ReflectionFunction extends Reflection {\n" +
-                "        parameters: Array<ReflectionObject>;\n" +
-                "        returnType: ReflectionObject;\n" +
-                "\n" +
-                "        constructor(name:string, description:string, parameters:Array<ReflectionObject>, returnType:ReflectionObject) {\n" +
-                "            super(name,description,ReflectionStereotypeEnum.TypeFunction);\n" +
-                "            if (parameters == null) {\n" +
-                "                this.parameters = new Array<ReflectionObject>();\n" +
-                "            } else {\n" +
-                "                this.parameters = parameters;\n" +
-                "            }\n" +
-                "            this.returnType = returnType;\n" +
-                "        }\n" +
-                "\n" +
-                "        getParameters() : Array<ReflectionObject> {\n" +
-                "            return this.parameters;\n" +
-                "        }\n" +
-                "        getReturnType() : ReflectionObject {\n" +
-                "            return this.returnType;\n" +
+                "        getType():ReflectionClass {\n" +
+                "            return this._type;\n" +
                 "        }\n" +
                 "    }\n" +
                 "\n" +
-                "    export class ReflectionObject extends Reflection {\n" +
-                "        type: string;\n" +
-                "        componentType: ReflectionObject;\n" +
-                "        fields:Array<ReflectionObject>;\n" +
-                "        primitive: boolean = false;\n" +
-                "        _array:boolean = false;\n" +
-                "        _void:boolean = false;\n" +
-                "        _enum:boolean = false;\n" +
+                "    export class ReflectionField extends ReflectionBase {\n" +
+                "        type:ReflectionClass;\n" +
                 "\n" +
-                "        constructor(name:string, description:string, type:string, fields:Array<ReflectionObject>) {\n" +
-                "            super(name,description,ReflectionStereotypeEnum.TypeObject);\n" +
+                "        constructor(name:string, description:string, type:ReflectionClass) {\n" +
+                "            super(name, description);\n" +
                 "            this.type = type;\n" +
-                "            if (fields == null) {\n" +
-                "                this.fields = new Array<ReflectionObject>();\n" +
-                "            } else {\n" +
-                "                this.fields = fields;\n" +
-                "            }\n" +
-                "            this.componentType = null;\n" +
-                "            if (this.type == \"number\" || this.type == \"string\" || this.type == \"boolean\") {\n" +
-                "                this.primitive = true;\n" +
-                "            }\n" +
-                "            if (this.type == null || this.type == \"null\") {\n" +
-                "                this._void = true;\n" +
-                "            }\n" +
-                "            if (this.type !=null && this.type.indexOf(\"Array\")>-1) {\n" +
-                "                this._array = true;\n" +
-                "                this.componentType = new ReflectionObject(name, \"Array component of \"+type+\".\",this.type.substring(5,this.type.length-1), null);\n" +
-                "            }\n" +
-                "            if (this.type !=null && this.type.indexOf(\"Enum\")>-1) {\n" +
-                "                this._enum = true;\n" +
-                "            }\n" +
                 "        }\n" +
                 "\n" +
-                "        getType() : string {\n" +
+                "        getType():ReflectionClass {\n" +
                 "            return this.type;\n" +
                 "        }\n" +
-                "        getComponentType():ReflectionObject {\n" +
-                "            return this.componentType;\n" +
+                "    }");
+        js.println("\n" +
+                "    var _package : ReflectionPackage = null;\n" +
+                "\n" +
+                "    export function getReflection() : ReflectionPackage {\n" +
+                "        if (_package == null) {\n" +
+                "            _package = new ReflectionPackage(\"Adaptive\",\"Adaptive Runtime Platform JS API\");\n" +
                 "        }\n" +
-                "        isPrimitive():boolean {\n" +
-                "            return this.primitive;\n" +
-                "        }\n" +
-                "        isArray():boolean {\n" +
-                "            return this._array;\n" +
-                "        }\n" +
-                "        isVoid():boolean {\n" +
-                "            return this._void;\n" +
-                "        }\n" +
-                "        isEnum():boolean {\n" +
-                "            return this._enum;\n" +
-                "        }\n" +
+                "        return _package;\n" +
                 "    }");
 
         long tIn = System.currentTimeMillis();
@@ -1295,7 +1258,6 @@ public class J2SwiftConverter {
                 }
 
 
-
                 if (!returnType.equals(Void.TYPE)) {
                     ps.print(10, "return self." + getGetterSetterProperty(method));
                     js.print(15, "return this." + getGetterSetterProperty(method) + "");
@@ -1403,7 +1365,7 @@ public class J2SwiftConverter {
                 js.println(10, "static " + enumConstants[i] + " = new " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum(\"" + enumConstants[i] + "\");");
             }
             js.println();
-            processJSReflection(clazz, js, 10);
+            processJSReflection(enumClass, js, 10);
             js.println(5, "}");
             js.println();
         }
@@ -1422,7 +1384,7 @@ public class J2SwiftConverter {
                 js.println(10, "static " + enumConstants[i] + " = new " + clazz.getSimpleName() + enumClass.getSimpleName() + "Enum(\"" + enumConstants[i] + "\");");
             }
             js.println();
-            processJSReflection(clazz, js, 10);
+            processJSReflection(enumClass, js, 10);
 
             js.println(5, "}");
             js.println();
@@ -1439,10 +1401,90 @@ public class J2SwiftConverter {
     }
 
     private static void processJSReflection(Class clazz, IndentPrintStream js, int initialIndent) {
-                js.println(initialIndent, "static getReflection() : ReflectionClass {");
-                js.println(initialIndent + 5, "return null; // TODO: Implement reflection");
-                js.println(initialIndent, "}");
-        
+        js.println(initialIndent, "static getReflection() : ReflectionClass {");
+        if (clazz.isInterface()) {
+            js.println();
+            js.println(initialIndent + 5,"/** Fields of "+clazz.getSimpleName().substring(1)+" **/");
+            js.println(initialIndent + 5,"var _fields = new Array<ReflectionField>();");
+            for (Field field : clazz.getDeclaredFields()) {
+                js.println(initialIndent + 5,"_fields.push(new ReflectionField('"+field.getName()+"','Field "+field.getName()+" of class "+clazz.getSimpleName().substring(1)+"', "+processJSReflectionDescription(field.getType(),clazz)+"));");
+            }
+            js.println();
+            js.println(initialIndent + 5,"/** Methods of "+clazz.getSimpleName().substring(1)+" **/");
+            js.println(initialIndent + 5,"var _methods = new Array<ReflectionMethod>();");
+            for (Method method : clazz.getDeclaredMethods()) {
+                js.println(initialIndent + 5,"/** Method "+method.getName()+" of "+clazz.getSimpleName().substring(1)+" **/");
+                js.println(initialIndent+5, "var _params_"+method.getName()+": Array<ReflectionParameter> = new Array<ReflectionParameter>();");
+                for (Parameter parameter : method.getParameters()) {
+                    js.println(initialIndent+5, "_params_"+method.getName()+".push(new ReflectionParameter('"+parameter.getName()+"', '"+clazz.getSimpleName().substring(1)+" "+method.getName()+" "+parameter.getName()+"', "+processJSReflectionDescription(method.getReturnType(), clazz)+"));");
+                }
+                if (method.getReturnType().equals(Void.TYPE)) {
+                    js.println(initialIndent + 5, " _methods.push(new ReflectionMethod('" + method.getName() + "','" + clazz.getSimpleName().substring(1) + " " + method.getName() + "', _params_"+method.getName()+", null));");
+                } else {
+                    js.println(initialIndent+5," _methods.push(new ReflectionMethod('"+method.getName()+"','"+clazz.getSimpleName().substring(1)+" "+method.getName()+"', _params_"+method.getName()+", "+processJSReflectionDescription(method.getReturnType(), clazz)+"));");
+                }
+            }
+            js.println();
+            js.println(initialIndent + 5,"/** Class description of "+clazz.getSimpleName()+" **/");
+            if (clazz.getSimpleName().endsWith("Listener") || clazz.getSimpleName().endsWith("Callback")) {
+                js.println(initialIndent + 5,"var clazz = new ReflectionClass('"+clazz.getSimpleName().substring(1)+"','Listener/Callback class "+clazz.getSimpleName().substring(1)+"', '"+clazz.getSimpleName().substring(1)+"', _methods, _fields, Adaptive.getReflection());");
+            } else {
+                js.println(initialIndent + 5, "var clazz = new ReflectionClass('" + clazz.getSimpleName().substring(1) + "Bridge','Bridge class " + clazz.getSimpleName().substring(1) + "Bridge', '" + clazz.getSimpleName().substring(1) + "Bridge', _methods, _fields, Adaptive.getReflection());");
+            }
+            js.println(initialIndent + 5,"return clazz;");
+        } else if (clazz.isEnum()) {
+            js.println(initialIndent + 5, "return null; // TODO: Implement reflection -> " + clazz.getDeclaringClass().getSimpleName()+" "+clazz.getSimpleName());
+        } else {
+            js.println();
+            js.println(initialIndent + 5,"/** Fields of "+clazz.getSimpleName()+" **/");
+            js.println(initialIndent + 5,"var _fields = new Array<ReflectionField>();");
+            for (Field field : clazz.getDeclaredFields()) {
+                js.println(initialIndent + 5,"_fields.push(new ReflectionField('"+field.getName()+"','Field "+field.getName()+" of class "+clazz.getSimpleName()+"', "+processJSReflectionDescription(field.getType(),clazz)+"));");
+            }
+            js.println();
+            js.println(initialIndent + 5,"/** Methods of "+clazz.getSimpleName()+" **/");
+            js.println(initialIndent + 5,"var _methods = new Array<ReflectionMethod>();");
+            for (Method method : clazz.getDeclaredMethods()) {
+                js.println(initialIndent + 5,"/** Method "+method.getName()+" of "+clazz.getSimpleName()+" **/");
+                js.println(initialIndent+5, "var _params_"+method.getName()+": Array<ReflectionParameter> = new Array<ReflectionParameter>();");
+                for (Parameter parameter : method.getParameters()) {
+                    js.println(initialIndent+5, "_params_"+method.getName()+".push(new ReflectionParameter('"+parameter.getName()+"', '"+clazz.getSimpleName()+" "+method.getName()+" "+parameter.getName()+"', "+processJSReflectionDescription(method.getReturnType(), clazz)+"));");
+                }
+                if (method.getReturnType().equals(Void.TYPE)) {
+                    js.println(initialIndent + 5, " _methods.push(new ReflectionMethod('" + method.getName() + "','" + clazz.getSimpleName() + " " + method.getName() + "', _params_"+method.getName()+", null));");
+                } else {
+                    js.println(initialIndent+5," _methods.push(new ReflectionMethod('"+method.getName()+"','"+clazz.getSimpleName()+" "+method.getName()+"', _params_"+method.getName()+", "+processJSReflectionDescription(method.getReturnType(), clazz)+"));");
+                }
+            }
+            js.println();
+            js.println(initialIndent + 5,"/** Class description of "+clazz.getSimpleName()+" **/");
+            js.println(initialIndent + 5,"var clazz = new ReflectionClass('"+clazz.getSimpleName()+"','Bean class "+clazz.getSimpleName()+"', '"+clazz.getSimpleName()+"', _methods, _fields, Adaptive.getReflection());");
+            js.println(initialIndent + 5,"return clazz;");
+        }
+        js.println(initialIndent, "}");
+
+    }
+
+    private static String processJSReflectionDescription(Class clazz, Class parent) {
+        if (clazz.isPrimitive()) {
+            return "new ReflectionClass('"+getPrimitiveTypeTS(clazz)+"', 'Primitive type "+getPrimitiveTypeTS(clazz)+"', '"+getPrimitiveTypeTS(clazz)+"', null, null, Adaptive.getReflection())";
+        } else if (clazz.equals(String.class)) {
+            return "new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())";
+        } else if (clazz.equals(Object.class)) {
+            return "new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection())";
+        } else if (clazz.isArray()) {
+            Class component = clazz.getComponentType();
+            String result = "new ReflectionClass('Array<"+getPrimitiveTypeTS(component)+">', 'Array of "+getPrimitiveTypeTS(component)+"', 'Array<"+getPrimitiveTypeTS(component)+">', null, null, Adaptive.getReflection())";
+            return result+".setTypeComponent("+processJSReflectionDescription(component, clazz)+")";
+        } else if (clazz.isEnum()) {
+            return parent.getSimpleName() + clazz.getSimpleName() + "Enum.getReflection()";
+        } else if (clazz.getSimpleName().equals("Map")) {
+            return "new ReflectionClass('Dictionary', 'Dictionary type string', 'Dictionary<any>', null, null, Adaptive.getReflection())";
+        } else if (clazz.isInterface()) {
+            return clazz.getSimpleName().substring(1)+"Bridge.getReflection()";
+        } else {
+            return clazz.getSimpleName() + ".getReflection()";
+        }
     }
 
     private static void processJSImplementation(Class clazz, IndentPrintStream js) {
@@ -1498,16 +1540,16 @@ public class J2SwiftConverter {
                     js.println(5, " */");
                     for (Method method : onMethodList) {
                         if (method.getName().equals("onError")) {
-                            js.print(5, "export function handle"+clazz.getSimpleName()+"Error(id:number, ");
+                            js.print(5, "export function handle" + clazz.getSimpleName() + "Error(id:number, ");
                         } else if (method.getName().equals("onWarning")) {
-                            js.print(5, "export function handle"+clazz.getSimpleName()+"Warning(id:number, ");
+                            js.print(5, "export function handle" + clazz.getSimpleName() + "Warning(id:number, ");
                         } else if (method.getName().equals("onResult")) {
-                            js.print(5, "export function handle"+clazz.getSimpleName()+"Result(id:number, ");
+                            js.print(5, "export function handle" + clazz.getSimpleName() + "Result(id:number, ");
                         }
-                        for (int i=0;i<method.getParameterCount();i++) {
+                        for (int i = 0; i < method.getParameterCount(); i++) {
                             Parameter parameter = method.getParameters()[i];
-                            js.print(parameter.getName()+": "+getJSClassType(clazz,parameter.getType()));
-                            if (i<method.getParameterCount()-1) {
+                            js.print(parameter.getName() + ": " + getJSClassType(clazz, parameter.getType()));
+                            if (i < method.getParameterCount() - 1) {
                                 js.print(", ");
                             }
                         }
@@ -1518,29 +1560,29 @@ public class J2SwiftConverter {
                         } else if (clazz.getName().endsWith("Callback")) {
                             fnName = "callback";
                         }
-                        js.println(10, "var "+fnName+" = registered"+clazz.getSimpleName()+"[\"\"+id];");
-                        js.println(10,"if (typeof "+fnName+" === 'undefined' || "+fnName+" == null) {");
-                        js.println(15,"console.error(\"ERROR: No "+fnName+" with id \"+id+\" registered in registered"+clazz.getSimpleName()+" dictionary.\");");
-                        js.println(10,"} else {");
+                        js.println(10, "var " + fnName + " = registered" + clazz.getSimpleName() + "[\"\"+id];");
+                        js.println(10, "if (typeof " + fnName + " === 'undefined' || " + fnName + " == null) {");
+                        js.println(15, "console.error(\"ERROR: No " + fnName + " with id \"+id+\" registered in registered" + clazz.getSimpleName() + " dictionary.\");");
+                        js.println(10, "} else {");
                         if (method.getName().equals("onError")) {
                             js.print(15, fnName + ".onError(");
                         } else if (method.getName().equals("onWarning")) {
-                            js.print(15, fnName+".onWarning(");
+                            js.print(15, fnName + ".onWarning(");
                         } else if (method.getName().equals("onResult")) {
-                            js.print(15, fnName+".onResult(");
+                            js.print(15, fnName + ".onResult(");
                         }
-                        for (int i=0;i<method.getParameterCount();i++) {
+                        for (int i = 0; i < method.getParameterCount(); i++) {
                             Parameter parameter = method.getParameters()[i];
                             js.print(parameter.getName());
-                            if (i<method.getParameterCount()-1) {
+                            if (i < method.getParameterCount() - 1) {
                                 js.print(", ");
                             }
                         }
                         js.println(");");
                         if (clazz.getName().endsWith("Callback")) {
-                            js.println(15, "registered"+clazz.getSimpleName()+".remove(\"\"+id)");
+                            js.println(15, "registered" + clazz.getSimpleName() + ".remove(\"\"+id)");
                         }
-                        js.println(10,"}");
+                        js.println(10, "}");
                         js.println(5, "}");
                     }
                     // TODO: Implement Listener / Callback handler
@@ -1661,7 +1703,7 @@ public class J2SwiftConverter {
                     }
                     for (Method method : onMethodList) {
                         js.println(15, "if (this." + method.getName() + "Function == null) {");
-                        js.println(20, "console.error(\"ERROR: "+clazz.getSimpleName().substring(1)+" "+ method.getName() + "Function is not defined.\");");
+                        js.println(20, "console.error(\"ERROR: " + clazz.getSimpleName().substring(1) + " " + method.getName() + "Function is not defined.\");");
                         js.println(15, "} else {");
                         js.println(20, "this." + method.getName() + "Function = " + method.getName() + "Function;");
                         js.println(15, "}");
@@ -1818,10 +1860,10 @@ public class J2SwiftConverter {
                         js.println(15, "xhr.open(\"POST\", bridgePath+\"" + relativePath.toString() + "\", false);");
                         js.println(15, "xhr.setRequestHeader(\"Content-type\", \"application/json\");");
                         js.print(15, "xhr.send(JSON.stringify({ request: { ");
-                        for (int i=0;i<allParameters.size();i++) {
+                        for (int i = 0; i < allParameters.size(); i++) {
                             Parameter p = allParameters.get(i);
-                            js.print(""+p.getName()+": "+p.getName());
-                            if (i<allParameters.size()-1) {
+                            js.print("" + p.getName() + ": " + p.getName());
+                            if (i < allParameters.size() - 1) {
                                 js.print(", ");
                             }
                         }
@@ -1890,20 +1932,20 @@ public class J2SwiftConverter {
                                     }
                                 }
 
-                                for (int i=0;i<filteredList.size();i++) {
+                                for (int i = 0; i < filteredList.size(); i++) {
                                     Parameter p = allParameters.get(i);
-                                    js.print(""+p.getName()+": "+p.getName());
-                                    if (i<filteredList.size()-1) {
+                                    js.print("" + p.getName() + ": " + p.getName());
+                                    if (i < filteredList.size() - 1) {
                                         js.print(", ");
                                     }
                                 }
                                 js.println(" } }));");
                             } else {
                                 js.print(15, "xhr.send(JSON.stringify({ request: { ");
-                                for (int i=0;i<allParameters.size();i++) {
+                                for (int i = 0; i < allParameters.size(); i++) {
                                     Parameter p = allParameters.get(i);
-                                    js.print(""+p.getName()+": "+p.getName());
-                                    if (i<allParameters.size()-1) {
+                                    js.print("" + p.getName() + ": " + p.getName());
+                                    if (i < allParameters.size() - 1) {
                                         js.print(", ");
                                     }
                                 }
@@ -2084,7 +2126,7 @@ public class J2SwiftConverter {
     }
 
     private static String getPrimitiveTypeTS(Class<?> primitiveType) {
-        String primitiveName = primitiveType.getName();
+        String primitiveName = primitiveType.getSimpleName();
         if (primitiveName.equals("double")) {
             return "number";
         } else if (primitiveName.equals("int")) {
@@ -2099,6 +2141,10 @@ public class J2SwiftConverter {
             return "boolean";
         } else if (primitiveName.equals("char")) {
             return "string";
+        } else if (primitiveName.equals("String")) {
+            return "string";
+        } else if (primitiveName.equals("Object")) {
+            return "any";
         } else {
             return primitiveName;
         }
