@@ -90,6 +90,189 @@ module Adaptive {
      var bridgePath : string = "https://adaptiveapp";
 
      /**
+      *   Reflection support classes for metadata documentation.
+      */
+    export class ReflectionStereotypeEnum {
+        constructor(public value:string){}
+        toString(){return this.value;}
+
+        static TypeModule = new ReflectionStereotypeEnum("Module");
+        static TypeCategory = new ReflectionStereotypeEnum("Category");
+        static TypeClass = new ReflectionStereotypeEnum("Class");
+        static TypeFunction = new ReflectionStereotypeEnum("Function");
+        static TypeObject = new ReflectionStereotypeEnum("Object");
+        static TypeDescription = new ReflectionStereotypeEnum("Description");
+    }
+
+    export class ReflectionTypeEnum {
+        constructor(public value:string){}
+        toString(){return this.value;}
+
+        static TypeString = new ReflectionStereotypeEnum("string");
+        static TypeNumber = new ReflectionStereotypeEnum("number");
+        static TypeObject = new ReflectionStereotypeEnum("object");
+        static TypeArray = new ReflectionStereotypeEnum("Array");
+    }
+
+    export interface IReflection {
+        name : string;
+        description: string;
+        stereotype: ReflectionStereotypeEnum;
+        getName() : string;
+        getStereotype() : ReflectionStereotypeEnum;
+        getDescription(): string;
+    }
+
+    export class Reflection implements IReflection {
+        name:string;
+        description:string;
+        stereotype: ReflectionStereotypeEnum;
+
+        constructor(name:string, description:string,stereotype:ReflectionStereotypeEnum) {
+            this.name = name;
+            this.description = description;
+            this.stereotype = stereotype;
+        }
+
+        getName():string {
+            return this.name;
+        }
+        getStereotype(): ReflectionStereotypeEnum {
+            return this.stereotype;
+        }
+        getDescription():string {
+            return this.description;
+        }
+    }
+
+    export class ReflectionModule extends Reflection {
+        categories: Array<ReflectionCategory>;
+
+        constructor(name:string, description:string,categories:Array<ReflectionCategory>) {
+            super(name,description,ReflectionStereotypeEnum.TypeModule)
+            this.categories = categories;
+        }
+
+        getCategories() : Array<ReflectionCategory> {
+            return this.categories;
+        }
+
+        getClasses() : Array<ReflectionClass> {
+            var _array = new Array<ReflectionClass>();
+            for (var i=0; i < this.getCategories().length; i++) {
+                var category:ReflectionCategory = this.getCategories()[i];
+                for (var j=0; j < category.getClasses().length; j++) {
+                    _array.push(category.getClasses()[j]);
+                }
+            }
+            return _array;
+        }
+    }
+
+    export class ReflectionCategory extends Reflection {
+        classes: Array<ReflectionClass>;
+
+        constructor(name:string, description:string, classes:Array<ReflectionClass>) {
+            super(name, description, ReflectionStereotypeEnum.TypeCategory);
+            this.classes = classes;
+        }
+
+        getClasses() : Array<ReflectionClass> {
+            return this.classes;
+        }
+    }
+
+    export class ReflectionClass extends Reflection {
+        functions: Array<ReflectionFunction>;
+        fields:Array<ReflectionObject>;
+
+        constructor(name:string, description:string, functions:Array<ReflectionFunction>, fields:Array<ReflectionObject>) {
+            super(name,description,ReflectionStereotypeEnum.TypeClass);
+            this.functions = functions;
+            if (fields == null) {
+                this.fields = new Array<ReflectionObject>();
+            } else {
+                this.fields = fields;
+            }
+        }
+
+        getFunctions() : Array<ReflectionFunction> {
+            return this.functions;
+        }
+
+        getFields() : Array<ReflectionObject> {
+            return this.fields;
+        }
+    }
+
+    export class ReflectionFunction extends Reflection {
+        parameters: Array<ReflectionObject>;
+        returnType: ReflectionObject;
+
+        constructor(name:string, description:string, parameters:Array<ReflectionObject>, returnType:ReflectionObject) {
+            super(name,description,ReflectionStereotypeEnum.TypeFunction);
+            if (parameters == null) {
+                this.parameters = new Array<ReflectionObject>();
+            } else {
+                this.parameters = parameters;
+            }
+            this.returnType = returnType;
+        }
+
+        getParameters() : Array<ReflectionObject> {
+            return this.parameters;
+        }
+        getReturnType() : ReflectionObject {
+            return this.returnType;
+        }
+    }
+
+    export class ReflectionObject extends Reflection {
+        type: string;
+        componentType: ReflectionObject;
+        fields:Array<ReflectionObject>;
+        primitive: boolean = false;
+        _array:boolean = false;
+        _void:boolean = false;
+
+        constructor(name:string, description:string, type:string, fields:Array<ReflectionObject>) {
+            super(name,description,ReflectionStereotypeEnum.TypeObject);
+            this.type = type;
+            if (fields == null) {
+                this.fields = new Array<ReflectionObject>();
+            } else {
+                this.fields = fields;
+            }
+            this.componentType = null;
+            if (this.type == "number" || this.type == "string" || this.type == "boolean") {
+                this.primitive = true;
+            }
+            if (this.type == null || this.type == "null") {
+                this._void = true;
+            }
+            if (this.type !=null && this.type.indexOf("Array")>-1) {
+                this._array = true;
+                this.componentType = new ReflectionObject(name, "Array component of "+type+".",this.type.substring(5,this.type.length-1), null);
+            }
+        }
+
+        getType() : string {
+            return this.type;
+        }
+        getComponentType():ReflectionObject {
+            return this.componentType;
+        }
+        isPrimitive():boolean {
+            return this.primitive;
+        }
+        isArray():boolean {
+            return this._array;
+        }
+        isVoid():boolean {
+            return this._void;
+        }
+    }
+     /**
       *   Interface definition for IAdaptiveRP
       **/
      export interface IAdaptiveRP {
@@ -101,234 +284,6 @@ module Adaptive {
       **/
      export interface IBaseUI extends IAdaptiveRP {
 
-     }
-
-     /**
-      *   Interface definition for IBaseSensor
-      **/
-     export interface IBaseSensor extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IBasePIM
-      **/
-     export interface IBasePIM extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IBaseSystem
-      **/
-     export interface IBaseSystem extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IAppResourceHandler
-      **/
-     export interface IAppResourceHandler extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IAppResourceHandler
-           */
-           getResource(resourcePath : string, callback : IAppResourceCallback)
-     }
-
-     /**
-      *   Interface definition for IBaseApplication
-      **/
-     export interface IBaseApplication extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IBaseReader
-      **/
-     export interface IBaseReader extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IAppContextWebview
-      **/
-     export interface IAppContextWebview extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IAppContextWebview
-           */
-           addWebview(webView : any)
-           getWebviewPrimary() : any
-           getWebviews() : Array<any>
-           removeWebview(webView : any)
-     }
-
-     /**
-      *   Interface definition for IBaseNotification
-      **/
-     export interface IBaseNotification extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IAppServer
-      **/
-     export interface IAppServer extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IAppServer
-           */
-           getBaseURI() : string
-           getHost() : string
-           getPath() : string
-           getPort() : number
-           getScheme() : string
-           pauseServer()
-           resumeServer()
-           startServer()
-           stopServer()
-     }
-
-     /**
-      *   Interface definition for IBaseSocial
-      **/
-     export interface IBaseSocial extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IBaseSecurity
-      **/
-     export interface IBaseSecurity extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IBaseData
-      **/
-     export interface IBaseData extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IAppContext
-      **/
-     export interface IAppContext extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IAppContext
-           */
-           getContext() : any
-           getContextType() : IAppContextTypeEnum
-
-     }
-     /**
-      *  Enumerations for IAppContext Type
-      **/
-     export class IAppContextTypeEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static iOS = new IAppContextTypeEnum("iOS");
-          static OSX = new IAppContextTypeEnum("OSX");
-          static Windows = new IAppContextTypeEnum("Windows");
-          static WindowsPhone = new IAppContextTypeEnum("WindowsPhone");
-          static Android = new IAppContextTypeEnum("Android");
-          static Linux = new IAppContextTypeEnum("Linux");
-          static Blackberry = new IAppContextTypeEnum("Blackberry");
-          static Tizen = new IAppContextTypeEnum("Tizen");
-          static FirefoxOS = new IAppContextTypeEnum("FirefoxOS");
-          static Chromium = new IAppContextTypeEnum("Chromium");
-          static Unspecified = new IAppContextTypeEnum("Unspecified");
-          static Unknown = new IAppContextTypeEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IBaseCommerce
-      **/
-     export interface IBaseCommerce extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IAppRegistry
-      **/
-     export interface IAppRegistry extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IAppRegistry
-           */
-           getApplicationAnalytics() : IAnalytics
-           getApplicationGlobalization() : IGlobalization
-           getApplicationLifecycle() : ILifecycle
-           getApplicationManagement() : IManagement
-           getApplicationPrinting() : IPrinting
-           getApplicationSettings() : ISettings
-           getApplicationUpdate() : IUpdate
-           getPlatformContext() : IAppContext
-           getPlatformContextWeb() : IAppContextWebview
-           getSystemCapabilities() : ICapabilities
-           getSystemDevice() : IDevice
-           getSystemDisplay() : IDisplay
-           getSystemOS() : IOS
-           getSystemRuntime() : IRuntime
-     }
-
-     /**
-      *   Interface definition for IBaseCallback
-      **/
-     export interface IBaseCallback extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IBaseCallback
-           */
-           getId() : number
-           toString() : string
-     }
-
-     /**
-      *  Callback IBaseCallback implementation.
-      */
-     export class BaseCallback implements IBaseCallback {
-          description: string;
-          id: number;
-
-          constructor() {
-               this.id = ++registeredCounter;
-          }
-
-          toString() : string {
-               return "BaseCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-     }
-     /**
-      *   Interface definition for IBaseMedia
-      **/
-     export interface IBaseMedia extends IAdaptiveRP {
-
-     }
-
-     /**
-      *   Interface definition for IAppServerManager
-      **/
-     export interface IAppServerManager extends IAdaptiveRP {
-
-          /**
-           * Method Declarations for IAppServerManager
-           */
-           addServerListener(listener : IAppServerListener)
-           getServers() : Array<IAppServer>
-           pauseServer(server : IAppServer)
-           removeServerListener(listener : IAppServerListener)
-           removeServerListeners()
-           resumeServer(server : IAppServer)
-           startServer()
-           stopServers()
-           stopServer(server : IAppServer)
      }
 
      /**
@@ -370,9 +325,84 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IBaseCommunication
+      *   Interface definition for IBaseSocial
       **/
-     export interface IBaseCommunication extends IAdaptiveRP {
+     export interface IBaseSocial extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IAppContext
+      **/
+     export interface IAppContext extends IAdaptiveRP {
+
+          /**
+           * Method Declarations for IAppContext
+           */
+           getContext() : any
+           getContextType() : IAppContextTypeEnum
+
+     }
+     /**
+      *  Enumerations for IAppContext Type
+      **/
+     export class IAppContextTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static iOS = new IAppContextTypeEnum("iOS");
+          static OSX = new IAppContextTypeEnum("OSX");
+          static Windows = new IAppContextTypeEnum("Windows");
+          static WindowsPhone = new IAppContextTypeEnum("WindowsPhone");
+          static Android = new IAppContextTypeEnum("Android");
+          static Linux = new IAppContextTypeEnum("Linux");
+          static Blackberry = new IAppContextTypeEnum("Blackberry");
+          static Tizen = new IAppContextTypeEnum("Tizen");
+          static FirefoxOS = new IAppContextTypeEnum("FirefoxOS");
+          static Chromium = new IAppContextTypeEnum("Chromium");
+          static Unspecified = new IAppContextTypeEnum("Unspecified");
+          static Unknown = new IAppContextTypeEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for IBaseApplication
+      **/
+     export interface IBaseApplication extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IBasePIM
+      **/
+     export interface IBasePIM extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IAppContextWebview
+      **/
+     export interface IAppContextWebview extends IAdaptiveRP {
+
+          /**
+           * Method Declarations for IAppContextWebview
+           */
+           addWebview(webView : any)
+           getWebviewPrimary() : any
+           getWebviews() : Array<any>
+           removeWebview(webView : any)
+     }
+
+     /**
+      *   Interface definition for IBaseSystem
+      **/
+     export interface IBaseSystem extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IBaseNotification
+      **/
+     export interface IBaseNotification extends IAdaptiveRP {
 
      }
 
@@ -447,2645 +477,158 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IDevice
+      *   Interface definition for IAppServerManager
       **/
-     export interface IDevice extends IBaseSystem {
+     export interface IAppServerManager extends IAdaptiveRP {
 
           /**
-           * Method Declarations for IDevice
+           * Method Declarations for IAppServerManager
            */
-           addButtonListener(listener : IButtonListener)
-           getDeviceInfo() : DeviceInfo
-           getLocaleCurrent() : Locale
-           removeButtonListener(listener : IButtonListener)
-           removeButtonListeners()
+           addServerListener(listener : IAppServerListener)
+           getServers() : Array<IAppServer>
+           pauseServer(server : IAppServer)
+           removeServerListener(listener : IAppServerListener)
+           removeServerListeners()
+           resumeServer(server : IAppServer)
+           startServer()
+           stopServers()
+           stopServer(server : IAppServer)
      }
 
      /**
-      *  Service IDevice implementation.
-      */
-     export class DeviceBridge implements IDevice {
-
-          constructor() {}
-
-          addButtonListener(listener: IButtonListener) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/addButtonListener?id="+listener.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // Listeners only require id included in URL param.
-               if (xhr.status == 200) {
-                    registeredIButtonListener.add(""+listener.getId(),listener);
-               } else {
-                    console.error("ERROR: "+xhr.status+" IDevice.addButtonListener");
-               }
-          }
-          getDeviceInfo() : DeviceInfo {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/getDeviceInfo", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IDevice.getDeviceInfo incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IDevice.getDeviceInfo");
-                    return null;
-               }
-          }
-          getLocaleCurrent() : Locale {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/getLocaleCurrent", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IDevice.getLocaleCurrent incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IDevice.getLocaleCurrent");
-                    return null;
-               }
-          }
-          removeButtonListener(listener: IButtonListener) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListener?id="+listener.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // Listeners only require id included in URL param.
-               if (xhr.status == 200) {
-                    registeredIButtonListener.remove(""+listener.getId());
-               } else {
-                    console.error("ERROR: "+xhr.status+" IDevice.removeButtonListener");
-               }
-          }
-          removeButtonListeners() : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListeners", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // No parameters.
-               if (xhr.status == 200) {
-                    var keys = registeredIAccelerationListener.keys();
-                    for (var key in keys) {
-                         registeredIAccelerationListener.remove(key);
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IDevice.removeButtonListeners");
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for IMail
+      *   Interface definition for IBaseCommunication
       **/
-     export interface IMail extends IBasePIM {
+     export interface IBaseCommunication extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IBaseCommerce
+      **/
+     export interface IBaseCommerce extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IBaseSecurity
+      **/
+     export interface IBaseSecurity extends IAdaptiveRP {
+
+     }
+
+     /**
+      *   Interface definition for IBaseCallback
+      **/
+     export interface IBaseCallback extends IAdaptiveRP {
 
           /**
-           * Method Declarations for IMail
+           * Method Declarations for IBaseCallback
            */
-           sendEmail(data : Email, callback : IMessagingCallback)
+           getId() : number
+           toString() : string
      }
 
      /**
-      *  Service IMail implementation.
+      *  Callback IBaseCallback implementation.
       */
-     export class MailBridge implements IMail {
-
-          constructor() {}
-
-          sendEmail(data: Email, callback: IMessagingCallback) : void {
-               registeredIMessagingCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IMail/sendEmail?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { data: data } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIMessagingCallback' on receiving async response handler.
-               } else {
-                    registeredIMessagingCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IMail.sendEmail");
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for ISecureKVResultCallback
-      **/
-     export interface ISecureKVResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for ISecureKVResultCallback
-           */
-           onError(error : ISecureKVResultCallbackErrorEnum)
-           onResult(keyValues : Array<SecureKeyPair>)
-           onWarning(keyValues : Array<SecureKeyPair>, warning : ISecureKVResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for ISecureKVResultCallback Error
-      **/
-     export class ISecureKVResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NoPermission = new ISecureKVResultCallbackErrorEnum("NoPermission");
-          static NoMatchesFound = new ISecureKVResultCallbackErrorEnum("NoMatchesFound");
-          static Unknown = new ISecureKVResultCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for ISecureKVResultCallback Warning
-      **/
-     export class ISecureKVResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static EntryOverride = new ISecureKVResultCallbackWarningEnum("EntryOverride");
-          static Unknown = new ISecureKVResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *  Callback ISecureKVResultCallback control dictionary.
-      */
-     var registeredISecureKVResultCallback = new Dictionary<ISecureKVResultCallback>([]);
-
-     /**
-      *  Callback ISecureKVResultCallback onError/onWarning/onResult handlers.
-      */
-     export function handleISecureKVResultCallbackError(id:number, error: ISecureKVResultCallbackErrorEnum) : void {
-          var callback = registeredISecureKVResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredISecureKVResultCallback dictionary.");
-          } else {
-               callback.onError(error);
-               registeredISecureKVResultCallback.remove(""+id)
-          }
-     }
-     export function handleISecureKVResultCallbackResult(id:number, keyValues: Array<SecureKeyPair>) : void {
-          var callback = registeredISecureKVResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredISecureKVResultCallback dictionary.");
-          } else {
-               callback.onResult(keyValues);
-               registeredISecureKVResultCallback.remove(""+id)
-          }
-     }
-     export function handleISecureKVResultCallbackWarning(id:number, keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) : void {
-          var callback = registeredISecureKVResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredISecureKVResultCallback dictionary.");
-          } else {
-               callback.onWarning(keyValues, warning);
-               registeredISecureKVResultCallback.remove(""+id)
-          }
-     }
-     /**
-      *  Callback ISecureKVResultCallback implementation.
-      */
-     export class SecureKVResultCallback implements ISecureKVResultCallback {
+     export class BaseCallback implements IBaseCallback {
           description: string;
           id: number;
-          onErrorFunction : (error: ISecureKVResultCallbackErrorEnum) => Function;
-          onResultFunction : (keyValues: Array<SecureKeyPair>) => Function;
-          onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function;
 
-          constructor(onErrorFunction : (error: ISecureKVResultCallbackErrorEnum) => Function, onResultFunction : (keyValues: Array<SecureKeyPair>) => Function, onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function) {
+          constructor() {
                this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: SecureKVResultCallback onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: SecureKVResultCallback onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: SecureKVResultCallback onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
           }
 
           toString() : string {
-               return "SecureKVResultCallback{"+this.id+"}";
+               return "BaseCallback{"+this.id+"}";
           }
           getId() : number {
                return this.id
           }
 
-          onError(error: ISecureKVResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The SecureKVResultCallback does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(keyValues: Array<SecureKeyPair>) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The SecureKVResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(keyValues);
-               }
-          }
-          onWarning(keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The SecureKVResultCallback does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(keyValues, warning);
-               }
-          }
      }
      /**
-      *   Interface definition for INetworkStatus
+      *   Interface definition for IBaseSensor
       **/
-     export interface INetworkStatus extends IBaseCommunication {
+     export interface IBaseSensor extends IAdaptiveRP {
 
      }
 
      /**
-      *   Interface definition for ICrypto
+      *   Interface definition for IAppServer
       **/
-     export interface ICrypto extends IBaseUtil {
-
-     }
-
-     /**
-      *   Interface definition for IInternalStorage
-      **/
-     export interface IInternalStorage extends IBaseData {
-
-     }
-
-     /**
-      *   Interface definition for IFileResultCallback
-      **/
-     export interface IFileResultCallback extends IBaseCallback {
+     export interface IAppServer extends IAdaptiveRP {
 
           /**
-           * Method Declarations for IFileResultCallback
+           * Method Declarations for IAppServer
            */
-           onError(error : IFileResultCallbackErrorEnum)
-           onResult(storageFile : IFile)
-           onWarning(sourceFile : IFile, destinationFile : IFile, warning : IFileResultCallbackWarningEnum)
-
+           getBaseURI() : string
+           getHost() : string
+           getPath() : string
+           getPort() : number
+           getScheme() : string
+           pauseServer()
+           resumeServer()
+           startServer()
+           stopServer()
      }
+
      /**
-      *  Enumerations for IFileResultCallback Error
+      *   Interface definition for IBaseReader
       **/
-     export class IFileResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
+     export interface IBaseReader extends IAdaptiveRP {
 
-          static FileExists = new IFileResultCallbackErrorEnum("FileExists");
-          static InsufficientSpace = new IFileResultCallbackErrorEnum("InsufficientSpace");
-          static Unauthorized = new IFileResultCallbackErrorEnum("Unauthorized");
-          static Unknown = new IFileResultCallbackErrorEnum("Unknown");
      }
 
      /**
-      *  Enumerations for IFileResultCallback Warning
+      *   Interface definition for IBaseMedia
       **/
-     export class IFileResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
+     export interface IBaseMedia extends IAdaptiveRP {
 
-          static SourceNotDeleted = new IFileResultCallbackWarningEnum("SourceNotDeleted");
-          static RootDirectory = new IFileResultCallbackWarningEnum("RootDirectory");
-          static Unknown = new IFileResultCallbackWarningEnum("Unknown");
      }
 
      /**
-      *  Callback IFileResultCallback control dictionary.
-      */
-     var registeredIFileResultCallback = new Dictionary<IFileResultCallback>([]);
-
-     /**
-      *  Callback IFileResultCallback onError/onWarning/onResult handlers.
-      */
-     export function handleIFileResultCallbackError(id:number, error: IFileResultCallbackErrorEnum) : void {
-          var callback = registeredIFileResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIFileResultCallback dictionary.");
-          } else {
-               callback.onError(error);
-               registeredIFileResultCallback.remove(""+id)
-          }
-     }
-     export function handleIFileResultCallbackResult(id:number, storageFile: IFile) : void {
-          var callback = registeredIFileResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIFileResultCallback dictionary.");
-          } else {
-               callback.onResult(storageFile);
-               registeredIFileResultCallback.remove(""+id)
-          }
-     }
-     export function handleIFileResultCallbackWarning(id:number, sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) : void {
-          var callback = registeredIFileResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIFileResultCallback dictionary.");
-          } else {
-               callback.onWarning(sourceFile, destinationFile, warning);
-               registeredIFileResultCallback.remove(""+id)
-          }
-     }
-     /**
-      *  Callback IFileResultCallback implementation.
-      */
-     export class FileResultCallback implements IFileResultCallback {
-          description: string;
-          id: number;
-          onErrorFunction : (error: IFileResultCallbackErrorEnum) => Function;
-          onResultFunction : (storageFile: IFile) => Function;
-          onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: IFileResultCallbackErrorEnum) => Function, onResultFunction : (storageFile: IFile) => Function, onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: FileResultCallback onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: FileResultCallback onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: FileResultCallback onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "FileResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: IFileResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The FileResultCallback does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(storageFile: IFile) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The FileResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(storageFile);
-               }
-          }
-          onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The FileResultCallback does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(sourceFile, destinationFile, warning);
-               }
-          }
-     }
-     /**
-      *   Interface definition for IManagement
+      *   Interface definition for IAppRegistry
       **/
-     export interface IManagement extends IBaseApplication {
-
-     }
-
-     /**
-      *   Interface definition for IUI
-      **/
-     export interface IUI extends IBaseUI {
-
-     }
-
-     /**
-      *   Interface definition for IQRCode
-      **/
-     export interface IQRCode extends IBaseReader {
-
-     }
-
-     /**
-      *   Interface definition for INotification
-      **/
-     export interface INotification extends IBaseNotification {
-
-     }
-
-     /**
-      *   Interface definition for IVibration
-      **/
-     export interface IVibration extends IBaseNotification {
-
-     }
-
-     /**
-      *   Interface definition for IBarcode
-      **/
-     export interface IBarcode extends IBaseReader {
-
-     }
-
-     /**
-      *   Interface definition for ILifecycleListener
-      **/
-     export interface ILifecycleListener extends IBaseListener {
+     export interface IAppRegistry extends IAdaptiveRP {
 
           /**
-           * Method Declarations for ILifecycleListener
+           * Method Declarations for IAppRegistry
            */
-           onError(error : ILifecycleListenerErrorEnum)
-           onResult(lifecycle : Lifecycle)
-           onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarningEnum)
-
+           getApplicationAnalytics() : IAnalytics
+           getApplicationGlobalization() : IGlobalization
+           getApplicationLifecycle() : ILifecycle
+           getApplicationManagement() : IManagement
+           getApplicationPrinting() : IPrinting
+           getApplicationSettings() : ISettings
+           getApplicationUpdate() : IUpdate
+           getPlatformContext() : IAppContext
+           getPlatformContextWeb() : IAppContextWebview
+           getSystemCapabilities() : ICapabilities
+           getSystemDevice() : IDevice
+           getSystemDisplay() : IDisplay
+           getSystemOS() : IOS
+           getSystemRuntime() : IRuntime
      }
+
      /**
-      *  Enumerations for ILifecycleListener Error
+      *   Interface definition for IAppResourceHandler
       **/
-     export class ILifecycleListenerErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Runtime = new ILifecycleListenerErrorEnum("Runtime");
-          static Implementation = new ILifecycleListenerErrorEnum("Implementation");
-          static Killed = new ILifecycleListenerErrorEnum("Killed");
-          static Unknown = new ILifecycleListenerErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for ILifecycleListener Warning
-      **/
-     export class ILifecycleListenerWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static MemoryLow = new ILifecycleListenerWarningEnum("MemoryLow");
-          static BatteryLow = new ILifecycleListenerWarningEnum("BatteryLow");
-          static Unknown = new ILifecycleListenerWarningEnum("Unknown");
-     }
-
-     /**
-      *  Listener ILifecycleListener control dictionary.
-      */
-     var registeredILifecycleListener = new Dictionary<ILifecycleListener>([]);
-
-     /**
-      *  Listener ILifecycleListener onError/onWarning/onResult handlers.
-      */
-     export function handleILifecycleListenerError(id:number, error: ILifecycleListenerErrorEnum) : void {
-          var listener = registeredILifecycleListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredILifecycleListener dictionary.");
-          } else {
-               listener.onError(error);
-          }
-     }
-     export function handleILifecycleListenerResult(id:number, lifecycle: Lifecycle) : void {
-          var listener = registeredILifecycleListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredILifecycleListener dictionary.");
-          } else {
-               listener.onResult(lifecycle);
-          }
-     }
-     export function handleILifecycleListenerWarning(id:number, lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) : void {
-          var listener = registeredILifecycleListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredILifecycleListener dictionary.");
-          } else {
-               listener.onWarning(lifecycle, warning);
-          }
-     }
-     /**
-      *  Listener ILifecycleListener implementation.
-      */
-     export class LifecycleListener implements ILifecycleListener {
-          description: string;
-          id: number;
-          onErrorFunction : (error: ILifecycleListenerErrorEnum) => Function;
-          onResultFunction : (lifecycle: Lifecycle) => Function;
-          onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: ILifecycleListenerErrorEnum) => Function, onResultFunction : (lifecycle: Lifecycle) => Function, onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: LifecycleListener onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: LifecycleListener onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: LifecycleListener onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "LifecycleListener{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: ILifecycleListenerErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The LifecycleListener does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(lifecycle: Lifecycle) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The LifecycleListener does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(lifecycle);
-               }
-          }
-          onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The LifecycleListener does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(lifecycle, warning);
-               }
-          }
-     }
-     /**
-      *   Interface definition for ICloud
-      **/
-     export interface ICloud extends IBaseData {
-
-     }
-
-     /**
-      *   Interface definition for ICompression
-      **/
-     export interface ICompression extends IBaseUtil {
-
-     }
-
-     /**
-      *   Interface definition for IDataStream
-      **/
-     export interface IDataStream extends IBaseData {
-
-     }
-
-     /**
-      *   Interface definition for IConcurrent
-      **/
-     export interface IConcurrent extends IBaseUtil {
-
-     }
-
-     /**
-      *   Interface definition for ISession
-      **/
-     export interface ISession extends IBaseCommunication {
+     export interface IAppResourceHandler extends IAdaptiveRP {
 
           /**
-           * Method Declarations for ISession
+           * Method Declarations for IAppResourceHandler
            */
-           getAttribute(name : string) : any
-           getAttributes() : Array<any>
-           getCookies() : Array<Cookie>
-           listAttributeNames() : Array<string>
-           removeAttribute(name : string)
-           removeAttributes()
-           removeCookie(cookie : Cookie)
-           removeCookies(cookies : Array<Cookie>)
-           setAttribute(name : string, value : any)
-           setCookie(cookie : Cookie)
-           setCookies(cookies : Array<Cookie>)
+           getResource(resourcePath : string, callback : IAppResourceCallback)
      }
 
      /**
-      *  Service ISession implementation.
-      */
-     export class SessionBridge implements ISession {
-
-          constructor() {}
-
-          getAttribute(name: string) : any {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/getAttribute", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { name: name}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: ISession.getAttribute incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISession.getAttribute");
-                    return null;
-               }
-          }
-          getAttributes() : Array<any> {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/getAttributes", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: ISession.getAttributes incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISession.getAttributes");
-                    return null;
-               }
-          }
-          getCookies() : Array<Cookie> {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/getCookies", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: ISession.getCookies incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISession.getCookies");
-                    return null;
-               }
-          }
-          listAttributeNames() : Array<string> {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/listAttributeNames", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: ISession.listAttributeNames incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISession.listAttributeNames");
-                    return null;
-               }
-          }
-          removeAttribute(name: string) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeAttribute", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { name: name}}));
-               if (xhr.status == 200) {
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISession.removeAttribute");
-               }
-          }
-          removeAttributes() : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeAttributes", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // No parameters.
-               if (xhr.status == 200) {
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISession.removeAttributes");
-               }
-          }
-          removeCookie(cookie: Cookie) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeCookie", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { cookie: cookie}}));
-               if (xhr.status == 200) {
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISession.removeCookie");
-               }
-          }
-          removeCookies(cookies: Array<Cookie>) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeCookies", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { cookies: cookies}}));
-               if (xhr.status == 200) {
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISession.removeCookies");
-               }
-          }
-          setAttribute(name: string, value: any) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setAttribute", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { name: name, value: value}}));
-               if (xhr.status == 200) {
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISession.setAttribute");
-               }
-          }
-          setCookie(cookie: Cookie) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setCookie", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { cookie: cookie}}));
-               if (xhr.status == 200) {
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISession.setCookie");
-               }
-          }
-          setCookies(cookies: Array<Cookie>) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setCookies", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { cookies: cookies}}));
-               if (xhr.status == 200) {
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISession.setCookies");
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for IAppServerListener
+      *   Interface definition for IBaseData
       **/
-     export interface IAppServerListener extends IBaseListener {
+     export interface IBaseData extends IAdaptiveRP {
 
-          /**
-           * Method Declarations for IAppServerListener
-           */
-           onPaused(server : IAppServer)
-           onPausing(server : IAppServer)
-           onResumed(server : IAppServer)
-           onResuming(server : IAppServer)
-           onStart(server : IAppServer)
-           onStopped(server : IAppServer)
-           onStopping(server : IAppServer)
      }
 
-     /**
-      *   Interface definition for INetworkReachabilityCallback
-      **/
-     export interface INetworkReachabilityCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for INetworkReachabilityCallback
-           */
-           onError(error : INetworkReachabilityCallbackErrorEnum)
-           onResult(result : string)
-           onWarning(result : string, warning : INetworkReachabilityCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for INetworkReachabilityCallback Error
-      **/
-     export class INetworkReachabilityCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Forbidden = new INetworkReachabilityCallbackErrorEnum("Forbidden");
-          static NotFound = new INetworkReachabilityCallbackErrorEnum("NotFound");
-          static MethodNotAllowed = new INetworkReachabilityCallbackErrorEnum("MethodNotAllowed");
-          static NotAllowed = new INetworkReachabilityCallbackErrorEnum("NotAllowed");
-          static NotAuthenticated = new INetworkReachabilityCallbackErrorEnum("NotAuthenticated");
-          static TimeOut = new INetworkReachabilityCallbackErrorEnum("TimeOut");
-          static NoResponse = new INetworkReachabilityCallbackErrorEnum("NoResponse");
-          static Unreachable = new INetworkReachabilityCallbackErrorEnum("Unreachable");
-          static Wrong_Params = new INetworkReachabilityCallbackErrorEnum("Wrong_Params");
-          static MalformedUrl = new INetworkReachabilityCallbackErrorEnum("MalformedUrl");
-          static DomainUnresolvable = new INetworkReachabilityCallbackErrorEnum("DomainUnresolvable");
-          static Unknown = new INetworkReachabilityCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for INetworkReachabilityCallback Warning
-      **/
-     export class INetworkReachabilityCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static IncorrectScheme = new INetworkReachabilityCallbackWarningEnum("IncorrectScheme");
-          static NotSecure = new INetworkReachabilityCallbackWarningEnum("NotSecure");
-          static NotTrusted = new INetworkReachabilityCallbackWarningEnum("NotTrusted");
-          static Redirected = new INetworkReachabilityCallbackWarningEnum("Redirected");
-          static NotRegisteredService = new INetworkReachabilityCallbackWarningEnum("NotRegisteredService");
-          static Unknown = new INetworkReachabilityCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *  Callback INetworkReachabilityCallback control dictionary.
-      */
-     var registeredINetworkReachabilityCallback = new Dictionary<INetworkReachabilityCallback>([]);
-
-     /**
-      *  Callback INetworkReachabilityCallback onError/onWarning/onResult handlers.
-      */
-     export function handleINetworkReachabilityCallbackError(id:number, error: INetworkReachabilityCallbackErrorEnum) : void {
-          var callback = registeredINetworkReachabilityCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredINetworkReachabilityCallback dictionary.");
-          } else {
-               callback.onError(error);
-               registeredINetworkReachabilityCallback.remove(""+id)
-          }
-     }
-     export function handleINetworkReachabilityCallbackResult(id:number, result: string) : void {
-          var callback = registeredINetworkReachabilityCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredINetworkReachabilityCallback dictionary.");
-          } else {
-               callback.onResult(result);
-               registeredINetworkReachabilityCallback.remove(""+id)
-          }
-     }
-     export function handleINetworkReachabilityCallbackWarning(id:number, result: string, warning: INetworkReachabilityCallbackWarningEnum) : void {
-          var callback = registeredINetworkReachabilityCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredINetworkReachabilityCallback dictionary.");
-          } else {
-               callback.onWarning(result, warning);
-               registeredINetworkReachabilityCallback.remove(""+id)
-          }
-     }
-     /**
-      *  Callback INetworkReachabilityCallback implementation.
-      */
-     export class NetworkReachabilityCallback implements INetworkReachabilityCallback {
-          description: string;
-          id: number;
-          onErrorFunction : (error: INetworkReachabilityCallbackErrorEnum) => Function;
-          onResultFunction : (result: string) => Function;
-          onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: INetworkReachabilityCallbackErrorEnum) => Function, onResultFunction : (result: string) => Function, onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: NetworkReachabilityCallback onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: NetworkReachabilityCallback onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: NetworkReachabilityCallback onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "NetworkReachabilityCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: INetworkReachabilityCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The NetworkReachabilityCallback does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(result: string) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The NetworkReachabilityCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(result);
-               }
-          }
-          onWarning(result: string, warning: INetworkReachabilityCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The NetworkReachabilityCallback does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(result, warning);
-               }
-          }
-     }
-     /**
-      *   Interface definition for IAccelerationListener
-      **/
-     export interface IAccelerationListener extends IBaseListener {
-
-          /**
-           * Method Declarations for IAccelerationListener
-           */
-           onError(error : IAccelerationListenerErrorEnum)
-           onResult(acceleration : Acceleration)
-           onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IAccelerationListener Error
-      **/
-     export class IAccelerationListenerErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Unauthorized = new IAccelerationListenerErrorEnum("Unauthorized");
-          static Unavailable = new IAccelerationListenerErrorEnum("Unavailable");
-          static Unknown = new IAccelerationListenerErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IAccelerationListener Warning
-      **/
-     export class IAccelerationListenerWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NeedsCalibration = new IAccelerationListenerWarningEnum("NeedsCalibration");
-          static Stale = new IAccelerationListenerWarningEnum("Stale");
-          static Unknown = new IAccelerationListenerWarningEnum("Unknown");
-     }
-
-     /**
-      *  Listener IAccelerationListener control dictionary.
-      */
-     var registeredIAccelerationListener = new Dictionary<IAccelerationListener>([]);
-
-     /**
-      *  Listener IAccelerationListener onError/onWarning/onResult handlers.
-      */
-     export function handleIAccelerationListenerError(id:number, error: IAccelerationListenerErrorEnum) : void {
-          var listener = registeredIAccelerationListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredIAccelerationListener dictionary.");
-          } else {
-               listener.onError(error);
-          }
-     }
-     export function handleIAccelerationListenerResult(id:number, acceleration: Acceleration) : void {
-          var listener = registeredIAccelerationListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredIAccelerationListener dictionary.");
-          } else {
-               listener.onResult(acceleration);
-          }
-     }
-     export function handleIAccelerationListenerWarning(id:number, acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) : void {
-          var listener = registeredIAccelerationListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredIAccelerationListener dictionary.");
-          } else {
-               listener.onWarning(acceleration, warning);
-          }
-     }
-     /**
-      *  Listener IAccelerationListener implementation.
-      */
-     export class AccelerationListener implements IAccelerationListener {
-          description: string;
-          id: number;
-          onErrorFunction : (error: IAccelerationListenerErrorEnum) => Function;
-          onResultFunction : (acceleration: Acceleration) => Function;
-          onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: IAccelerationListenerErrorEnum) => Function, onResultFunction : (acceleration: Acceleration) => Function, onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: AccelerationListener onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: AccelerationListener onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: AccelerationListener onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "AccelerationListener{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: IAccelerationListenerErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The AccelerationListener does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(acceleration: Acceleration) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The AccelerationListener does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(acceleration);
-               }
-          }
-          onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The AccelerationListener does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(acceleration, warning);
-               }
-          }
-     }
-     /**
-      *   Interface definition for IDatabase
-      **/
-     export interface IDatabase extends IBaseData {
-
-          /**
-           * Method Declarations for IDatabase
-           */
-           createDatabase(database : Database, callback : IDatabaseResultCallback)
-           createTable(database : Database, table : Table, callback : ITableResultCallback)
-           deleteDatabase(database : Database, callback : IDatabaseResultCallback)
-           deleteTable(database : Database, table : Table, callback : ITableResultCallback)
-           executeSqlQuery(database : Database, query : string, replacements : Array<String>, callback : ITableResultCallback)
-           executeSqlStatement(database : Database, statement : string, replacements : Array<String>, callback : ITableResultCallback)
-           executeSqlTransactions(database : Database, statements : Array<String>, rollbackFlag : boolean, callback : ITableResultCallback)
-           existsDatabase(database : Database) : boolean
-           existsTable(database : Database, table : Table) : boolean
-     }
-
-     /**
-      *  Service IDatabase implementation.
-      */
-     export class DatabaseBridge implements IDatabase {
-
-          constructor() {}
-
-          createDatabase(database: Database, callback: IDatabaseResultCallback) : void {
-               registeredIDatabaseResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/createDatabase?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { database: database } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response handler.
-               } else {
-                    registeredIDatabaseResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IDatabase.createDatabase");
-               }
-          }
-          createTable(database: Database, table: Table, callback: ITableResultCallback) : void {
-               registeredITableResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/createTable?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { database: database, table: table } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
-               } else {
-                    registeredITableResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IDatabase.createTable");
-               }
-          }
-          deleteDatabase(database: Database, callback: IDatabaseResultCallback) : void {
-               registeredIDatabaseResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/deleteDatabase?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { database: database } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response handler.
-               } else {
-                    registeredIDatabaseResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IDatabase.deleteDatabase");
-               }
-          }
-          deleteTable(database: Database, table: Table, callback: ITableResultCallback) : void {
-               registeredITableResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/deleteTable?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { database: database, table: table } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
-               } else {
-                    registeredITableResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IDatabase.deleteTable");
-               }
-          }
-          executeSqlQuery(database: Database, query: string, replacements: Array<string>, callback: ITableResultCallback) : void {
-               registeredITableResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlQuery?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { database: database, query: query, replacements: replacements } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
-               } else {
-                    registeredITableResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IDatabase.executeSqlQuery");
-               }
-          }
-          executeSqlStatement(database: Database, statement: string, replacements: Array<string>, callback: ITableResultCallback) : void {
-               registeredITableResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlStatement?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { database: database, statement: statement, replacements: replacements } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
-               } else {
-                    registeredITableResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IDatabase.executeSqlStatement");
-               }
-          }
-          executeSqlTransactions(database: Database, statements: Array<string>, rollbackFlag: boolean, callback: ITableResultCallback) : void {
-               registeredITableResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlTransactions?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { database: database, statements: statements, rollbackFlag: rollbackFlag } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
-               } else {
-                    registeredITableResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IDatabase.executeSqlTransactions");
-               }
-          }
-          existsDatabase(database: Database) : boolean {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/existsDatabase", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { database: database}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IDatabase.existsDatabase incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IDatabase.existsDatabase");
-                    return null;
-               }
-          }
-          existsTable(database: Database, table: Table) : boolean {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/existsTable", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { database: database, table: table}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IDatabase.existsTable incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IDatabase.existsTable");
-                    return null;
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for INetworkNaming
-      **/
-     export interface INetworkNaming extends IBaseCommunication {
-
-     }
-
-     /**
-      *   Interface definition for IButtonListener
-      **/
-     export interface IButtonListener extends IBaseListener {
-
-          /**
-           * Method Declarations for IButtonListener
-           */
-           onError(error : IButtonListenerErrorEnum)
-           onResult(button : Button)
-           onWarning(button : Button, warning : IButtonListenerWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IButtonListener Error
-      **/
-     export class IButtonListenerErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Not_Present = new IButtonListenerErrorEnum("Not_Present");
-          static Unknown = new IButtonListenerErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IButtonListener Warning
-      **/
-     export class IButtonListenerWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Not_Implemented = new IButtonListenerWarningEnum("Not_Implemented");
-          static Unknown = new IButtonListenerWarningEnum("Unknown");
-     }
-
-     /**
-      *  Listener IButtonListener control dictionary.
-      */
-     var registeredIButtonListener = new Dictionary<IButtonListener>([]);
-
-     /**
-      *  Listener IButtonListener onError/onWarning/onResult handlers.
-      */
-     export function handleIButtonListenerError(id:number, error: IButtonListenerErrorEnum) : void {
-          var listener = registeredIButtonListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredIButtonListener dictionary.");
-          } else {
-               listener.onError(error);
-          }
-     }
-     export function handleIButtonListenerResult(id:number, button: Button) : void {
-          var listener = registeredIButtonListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredIButtonListener dictionary.");
-          } else {
-               listener.onResult(button);
-          }
-     }
-     export function handleIButtonListenerWarning(id:number, button: Button, warning: IButtonListenerWarningEnum) : void {
-          var listener = registeredIButtonListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredIButtonListener dictionary.");
-          } else {
-               listener.onWarning(button, warning);
-          }
-     }
-     /**
-      *  Listener IButtonListener implementation.
-      */
-     export class ButtonListener implements IButtonListener {
-          description: string;
-          id: number;
-          onErrorFunction : (error: IButtonListenerErrorEnum) => Function;
-          onResultFunction : (button: Button) => Function;
-          onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: IButtonListenerErrorEnum) => Function, onResultFunction : (button: Button) => Function, onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: ButtonListener onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: ButtonListener onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: ButtonListener onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "ButtonListener{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: IButtonListenerErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The ButtonListener does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(button: Button) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The ButtonListener does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(button);
-               }
-          }
-          onWarning(button: Button, warning: IButtonListenerWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The ButtonListener does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(button, warning);
-               }
-          }
-     }
-     /**
-      *   Interface definition for IBarometer
-      **/
-     export interface IBarometer extends IBaseSensor {
-
-     }
-
-     /**
-      *   Interface definition for IAds
-      **/
-     export interface IAds extends IBaseCommerce {
-
-     }
-
-     /**
-      *   Interface definition for IAudio
-      **/
-     export interface IAudio extends IBaseMedia {
-
-     }
-
-     /**
-      *   Interface definition for IOCR
-      **/
-     export interface IOCR extends IBaseReader {
-
-     }
-
-     /**
-      *   Interface definition for IContactResultCallback
-      **/
-     export interface IContactResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IContactResultCallback
-           */
-           onError(error : IContactResultCallbackErrorEnum)
-           onResult(contacts : Array<Contact>)
-           onWarning(contacts : Array<Contact>, warning : IContactResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IContactResultCallback Error
-      **/
-     export class IContactResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NoPermission = new IContactResultCallbackErrorEnum("NoPermission");
-          static Wrong_Params = new IContactResultCallbackErrorEnum("Wrong_Params");
-          static Unknown = new IContactResultCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IContactResultCallback Warning
-      **/
-     export class IContactResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static LimitExceeded = new IContactResultCallbackWarningEnum("LimitExceeded");
-          static No_Matches = new IContactResultCallbackWarningEnum("No_Matches");
-          static Unknown = new IContactResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *  Callback IContactResultCallback control dictionary.
-      */
-     var registeredIContactResultCallback = new Dictionary<IContactResultCallback>([]);
-
-     /**
-      *  Callback IContactResultCallback onError/onWarning/onResult handlers.
-      */
-     export function handleIContactResultCallbackError(id:number, error: IContactResultCallbackErrorEnum) : void {
-          var callback = registeredIContactResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIContactResultCallback dictionary.");
-          } else {
-               callback.onError(error);
-               registeredIContactResultCallback.remove(""+id)
-          }
-     }
-     export function handleIContactResultCallbackResult(id:number, contacts: Array<Contact>) : void {
-          var callback = registeredIContactResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIContactResultCallback dictionary.");
-          } else {
-               callback.onResult(contacts);
-               registeredIContactResultCallback.remove(""+id)
-          }
-     }
-     export function handleIContactResultCallbackWarning(id:number, contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) : void {
-          var callback = registeredIContactResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIContactResultCallback dictionary.");
-          } else {
-               callback.onWarning(contacts, warning);
-               registeredIContactResultCallback.remove(""+id)
-          }
-     }
-     /**
-      *  Callback IContactResultCallback implementation.
-      */
-     export class ContactResultCallback implements IContactResultCallback {
-          description: string;
-          id: number;
-          onErrorFunction : (error: IContactResultCallbackErrorEnum) => Function;
-          onResultFunction : (contacts: Array<Contact>) => Function;
-          onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: IContactResultCallbackErrorEnum) => Function, onResultFunction : (contacts: Array<Contact>) => Function, onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: ContactResultCallback onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: ContactResultCallback onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: ContactResultCallback onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "ContactResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: IContactResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The ContactResultCallback does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(contacts: Array<Contact>) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The ContactResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(contacts);
-               }
-          }
-          onWarning(contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The ContactResultCallback does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(contacts, warning);
-               }
-          }
-     }
-     /**
-      *   Interface definition for ITwitter
-      **/
-     export interface ITwitter extends IBaseSocial {
-
-     }
-
-     /**
-      *   Interface definition for IBrowser
-      **/
-     export interface IBrowser extends IBaseUI {
-
-          /**
-           * Method Declarations for IBrowser
-           */
-           openBrowser(url : string, title : string, buttonText : string) : boolean
-     }
-
-     /**
-      *  Service IBrowser implementation.
-      */
-     export class BrowserBridge implements IBrowser {
-
-          constructor() {}
-
-          openBrowser(url: string, title: string, buttonText: string) : boolean {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseUI/IBrowser/openBrowser", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { url: url, title: title, buttonText: buttonText}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IBrowser.openBrowser incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IBrowser.openBrowser");
-                    return null;
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for IUpdate
-      **/
-     export interface IUpdate extends IBaseApplication {
-
-     }
-
-     /**
-      *   Interface definition for INetworkReachability
-      **/
-     export interface INetworkReachability extends IBaseCommunication {
-
-          /**
-           * Method Declarations for INetworkReachability
-           */
-           isNetworkReachable(host : string, callback : INetworkReachabilityCallback)
-           isNetworkServiceReachable(url : string, callback : INetworkReachabilityCallback)
-     }
-
-     /**
-      *  Service INetworkReachability implementation.
-      */
-     export class NetworkReachabilityBridge implements INetworkReachability {
-
-          constructor() {}
-
-          isNetworkReachable(host: string, callback: INetworkReachabilityCallback) : void {
-               registeredINetworkReachabilityCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkReachable?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { host: host } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response handler.
-               } else {
-                    registeredINetworkReachabilityCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" INetworkReachability.isNetworkReachable");
-               }
-          }
-          isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback) : void {
-               registeredINetworkReachabilityCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkServiceReachable?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { url: url } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response handler.
-               } else {
-                    registeredINetworkReachabilityCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" INetworkReachability.isNetworkServiceReachable");
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for ILinkedIn
-      **/
-     export interface ILinkedIn extends IBaseSocial {
-
-     }
-
-     /**
-      *   Interface definition for ISocket
-      **/
-     export interface ISocket extends IBaseCommunication {
-
-     }
-
-     /**
-      *   Interface definition for IRSS
-      **/
-     export interface IRSS extends IBaseSocial {
-
-     }
-
-     /**
-      *   Interface definition for IBluetooth
-      **/
-     export interface IBluetooth extends IBaseCommunication {
-
-     }
-
-     /**
-      *   Interface definition for IGeolocationListener
-      **/
-     export interface IGeolocationListener extends IBaseListener {
-
-          /**
-           * Method Declarations for IGeolocationListener
-           */
-           onError(error : IGeolocationListenerErrorEnum)
-           onResult(geolocation : Geolocation)
-           onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IGeolocationListener Error
-      **/
-     export class IGeolocationListenerErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Disabled = new IGeolocationListenerErrorEnum("Disabled");
-          static RestrictedAccess = new IGeolocationListenerErrorEnum("RestrictedAccess");
-          static DeniedAccess = new IGeolocationListenerErrorEnum("DeniedAccess");
-          static StatusNotDetermined = new IGeolocationListenerErrorEnum("StatusNotDetermined");
-          static Unknown = new IGeolocationListenerErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IGeolocationListener Warning
-      **/
-     export class IGeolocationListenerWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static HighDoP = new IGeolocationListenerWarningEnum("HighDoP");
-          static StaleData = new IGeolocationListenerWarningEnum("StaleData");
-          static Unknown = new IGeolocationListenerWarningEnum("Unknown");
-     }
-
-     /**
-      *  Listener IGeolocationListener control dictionary.
-      */
-     var registeredIGeolocationListener = new Dictionary<IGeolocationListener>([]);
-
-     /**
-      *  Listener IGeolocationListener onError/onWarning/onResult handlers.
-      */
-     export function handleIGeolocationListenerError(id:number, error: IGeolocationListenerErrorEnum) : void {
-          var listener = registeredIGeolocationListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredIGeolocationListener dictionary.");
-          } else {
-               listener.onError(error);
-          }
-     }
-     export function handleIGeolocationListenerResult(id:number, geolocation: Geolocation) : void {
-          var listener = registeredIGeolocationListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredIGeolocationListener dictionary.");
-          } else {
-               listener.onResult(geolocation);
-          }
-     }
-     export function handleIGeolocationListenerWarning(id:number, geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) : void {
-          var listener = registeredIGeolocationListener[""+id];
-          if (typeof listener === 'undefined' || listener == null) {
-               console.error("ERROR: No listener with id "+id+" registered in registeredIGeolocationListener dictionary.");
-          } else {
-               listener.onWarning(geolocation, warning);
-          }
-     }
-     /**
-      *  Listener IGeolocationListener implementation.
-      */
-     export class GeolocationListener implements IGeolocationListener {
-          description: string;
-          id: number;
-          onErrorFunction : (error: IGeolocationListenerErrorEnum) => Function;
-          onResultFunction : (geolocation: Geolocation) => Function;
-          onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: IGeolocationListenerErrorEnum) => Function, onResultFunction : (geolocation: Geolocation) => Function, onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: GeolocationListener onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: GeolocationListener onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: GeolocationListener onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "GeolocationListener{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: IGeolocationListenerErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The GeolocationListener does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(geolocation: Geolocation) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The GeolocationListener does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(geolocation);
-               }
-          }
-          onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The GeolocationListener does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(geolocation, warning);
-               }
-          }
-     }
-     /**
-      *   Interface definition for IContactPhotoResultCallback
-      **/
-     export interface IContactPhotoResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IContactPhotoResultCallback
-           */
-           onError(error : IContactPhotoResultCallbackErrorEnum)
-           onResult(contactPhoto : Array<number>)
-           onWarning(contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IContactPhotoResultCallback Error
-      **/
-     export class IContactPhotoResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NoPermission = new IContactPhotoResultCallbackErrorEnum("NoPermission");
-          static Wrong_Params = new IContactPhotoResultCallbackErrorEnum("Wrong_Params");
-          static No_Photo = new IContactPhotoResultCallbackErrorEnum("No_Photo");
-          static Unknown = new IContactPhotoResultCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IContactPhotoResultCallback Warning
-      **/
-     export class IContactPhotoResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static LimitExceeded = new IContactPhotoResultCallbackWarningEnum("LimitExceeded");
-          static No_Matches = new IContactPhotoResultCallbackWarningEnum("No_Matches");
-          static Unknown = new IContactPhotoResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *  Callback IContactPhotoResultCallback control dictionary.
-      */
-     var registeredIContactPhotoResultCallback = new Dictionary<IContactPhotoResultCallback>([]);
-
-     /**
-      *  Callback IContactPhotoResultCallback onError/onWarning/onResult handlers.
-      */
-     export function handleIContactPhotoResultCallbackError(id:number, error: IContactPhotoResultCallbackErrorEnum) : void {
-          var callback = registeredIContactPhotoResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIContactPhotoResultCallback dictionary.");
-          } else {
-               callback.onError(error);
-               registeredIContactPhotoResultCallback.remove(""+id)
-          }
-     }
-     export function handleIContactPhotoResultCallbackResult(id:number, contactPhoto: Array<number>) : void {
-          var callback = registeredIContactPhotoResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIContactPhotoResultCallback dictionary.");
-          } else {
-               callback.onResult(contactPhoto);
-               registeredIContactPhotoResultCallback.remove(""+id)
-          }
-     }
-     export function handleIContactPhotoResultCallbackWarning(id:number, contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) : void {
-          var callback = registeredIContactPhotoResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIContactPhotoResultCallback dictionary.");
-          } else {
-               callback.onWarning(contactPhoto, warning);
-               registeredIContactPhotoResultCallback.remove(""+id)
-          }
-     }
-     /**
-      *  Callback IContactPhotoResultCallback implementation.
-      */
-     export class ContactPhotoResultCallback implements IContactPhotoResultCallback {
-          description: string;
-          id: number;
-          onErrorFunction : (error: IContactPhotoResultCallbackErrorEnum) => Function;
-          onResultFunction : (contactPhoto: Array<number>) => Function;
-          onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: IContactPhotoResultCallbackErrorEnum) => Function, onResultFunction : (contactPhoto: Array<number>) => Function, onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: ContactPhotoResultCallback onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: ContactPhotoResultCallback onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: ContactPhotoResultCallback onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "ContactPhotoResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: IContactPhotoResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The ContactPhotoResultCallback does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(contactPhoto: Array<number>) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The ContactPhotoResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(contactPhoto);
-               }
-          }
-          onWarning(contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The ContactPhotoResultCallback does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(contactPhoto, warning);
-               }
-          }
-     }
-     /**
-      *   Interface definition for ILifecycle
-      **/
-     export interface ILifecycle extends IBaseApplication {
-
-          /**
-           * Method Declarations for ILifecycle
-           */
-           addLifecycleListener(listener : ILifecycleListener)
-           isBackground() : boolean
-           removeLifecycleListener(listener : ILifecycleListener)
-           removeLifecycleListeners()
-     }
-
-     /**
-      *  Service ILifecycle implementation.
-      */
-     export class LifecycleBridge implements ILifecycle {
-
-          constructor() {}
-
-          addLifecycleListener(listener: ILifecycleListener) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/addLifecycleListener?id="+listener.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // Listeners only require id included in URL param.
-               if (xhr.status == 200) {
-                    registeredILifecycleListener.add(""+listener.getId(),listener);
-               } else {
-                    console.error("ERROR: "+xhr.status+" ILifecycle.addLifecycleListener");
-               }
-          }
-          isBackground() : boolean {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/isBackground", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: ILifecycle.isBackground incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" ILifecycle.isBackground");
-                    return null;
-               }
-          }
-          removeLifecycleListener(listener: ILifecycleListener) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListener?id="+listener.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // Listeners only require id included in URL param.
-               if (xhr.status == 200) {
-                    registeredILifecycleListener.remove(""+listener.getId());
-               } else {
-                    console.error("ERROR: "+xhr.status+" ILifecycle.removeLifecycleListener");
-               }
-          }
-          removeLifecycleListeners() : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListeners", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // No parameters.
-               if (xhr.status == 200) {
-                    var keys = registeredIAccelerationListener.keys();
-                    for (var key in keys) {
-                         registeredIAccelerationListener.remove(key);
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" ILifecycle.removeLifecycleListeners");
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for IFileSystem
-      **/
-     export interface IFileSystem extends IBaseData {
-
-          /**
-           * Method Declarations for IFileSystem
-           */
-           createWithPathString(path : string, name : string, callback : IFileResultCallback)
-           createWithPath(path : IFilePath, name : string, callback : IFileResultCallback)
-           create(name : string, callback : IFileResultCallback)
-           getApplicationCacheFolder() : IFilePath
-           getApplicationDocumentsFolder() : IFilePath
-           getApplicationFolder() : IFilePath
-           getPathForFile(file : IFile) : string
-           getPathForPath(path : IFilePath) : string
-           getSeparator() : string
-           isSameFile(source : IFile, dest : IFile) : boolean
-           isSamePath(source : IFilePath, dest : IFilePath) : boolean
-           toPath(path : IFile) : IFilePath
-     }
-
-     /**
-      *  Service IFileSystem implementation.
-      */
-     export class FileSystemBridge implements IFileSystem {
-
-          constructor() {}
-
-          create(name: string, callback: IFileResultCallback) : void {
-               registeredIFileResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/create?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { name: name } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
-               } else {
-                    registeredIFileResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IFileSystem.create");
-               }
-          }
-          createWithPath(path: IFilePath, name: string, callback: IFileResultCallback) : void {
-               registeredIFileResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/createWithPath?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { path: path, name: name } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
-               } else {
-                    registeredIFileResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IFileSystem.createWithPath");
-               }
-          }
-          createWithPathString(path: string, name: string, callback: IFileResultCallback) : void {
-               registeredIFileResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/createWithPathString?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { path: path, name: name } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
-               } else {
-                    registeredIFileResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IFileSystem.createWithPathString");
-               }
-          }
-          getApplicationCacheFolder() : IFilePath {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getApplicationCacheFolder", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IFileSystem.getApplicationCacheFolder incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IFileSystem.getApplicationCacheFolder");
-                    return null;
-               }
-          }
-          getApplicationDocumentsFolder() : IFilePath {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getApplicationDocumentsFolder", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IFileSystem.getApplicationDocumentsFolder incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IFileSystem.getApplicationDocumentsFolder");
-                    return null;
-               }
-          }
-          getApplicationFolder() : IFilePath {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getApplicationFolder", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IFileSystem.getApplicationFolder incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IFileSystem.getApplicationFolder");
-                    return null;
-               }
-          }
-          getPathForFile(file: IFile) : string {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getPathForFile", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { file: file}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IFileSystem.getPathForFile incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IFileSystem.getPathForFile");
-                    return null;
-               }
-          }
-          getPathForPath(path: IFilePath) : string {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getPathForPath", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { path: path}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IFileSystem.getPathForPath incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IFileSystem.getPathForPath");
-                    return null;
-               }
-          }
-          getSeparator() : string {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getSeparator", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IFileSystem.getSeparator incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IFileSystem.getSeparator");
-                    return null;
-               }
-          }
-          isSameFile(source: IFile, dest: IFile) : boolean {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/isSameFile", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { source: source, dest: dest}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IFileSystem.isSameFile incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IFileSystem.isSameFile");
-                    return null;
-               }
-          }
-          isSamePath(source: IFilePath, dest: IFilePath) : boolean {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/isSamePath", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { source: source, dest: dest}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IFileSystem.isSamePath incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IFileSystem.isSamePath");
-                    return null;
-               }
-          }
-          toPath(path: IFile) : IFilePath {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/toPath", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { path: path}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IFileSystem.toPath incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IFileSystem.toPath");
-                    return null;
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for INetworkInfo
-      **/
-     export interface INetworkInfo extends IBaseCommunication {
-
-     }
-
-     /**
-      *   Interface definition for IOS
-      **/
-     export interface IOS extends IBaseSystem {
-
-          /**
-           * Method Declarations for IOS
-           */
-           getOSInfo() : OSInfo
-     }
-
-     /**
-      *  Service IOS implementation.
-      */
-     export class OSBridge implements IOS {
-
-          constructor() {}
-
-          getOSInfo() : OSInfo {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IOS/getOSInfo", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IOS.getOSInfo incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IOS.getOSInfo");
-                    return null;
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for IPrinting
-      **/
-     export interface IPrinting extends IBaseApplication {
-
-     }
-
-     /**
-      *   Interface definition for IGooglePlus
-      **/
-     export interface IGooglePlus extends IBaseSocial {
-
-     }
-
-     /**
-      *   Interface definition for IAmbientLight
-      **/
-     export interface IAmbientLight extends IBaseSensor {
-
-     }
-
-     /**
-      *   Interface definition for INotificationLocal
-      **/
-     export interface INotificationLocal extends IBaseNotification {
-
-     }
-
-     /**
-      *   Interface definition for IContact
-      **/
-     export interface IContact extends IBasePIM {
-
-          /**
-           * Method Declarations for IContact
-           */
-           getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback)
-           getContact(contact : ContactUid, callback : IContactResultCallback)
-           getContactsForFields(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>)
-           getContactsWithFilter(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>, filter : Array<IContactFilterEnum>)
-           getContacts(callback : IContactResultCallback)
-           searchContactsWithFilter(term : string, callback : IContactResultCallback, filter : Array<IContactFilterEnum>)
-           searchContacts(term : string, callback : IContactResultCallback)
-           setContactPhoto(contact : ContactUid, pngImage : Array<number>) : boolean
-
-     }
-     /**
-      *  Enumerations for IContact FieldGroup
-      **/
-     export class IContactFieldGroupEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static PERSONAL_INFO = new IContactFieldGroupEnum("PERSONAL_INFO");
-          static PROFESSIONAL_INFO = new IContactFieldGroupEnum("PROFESSIONAL_INFO");
-          static ADDRESSES = new IContactFieldGroupEnum("ADDRESSES");
-          static PHONES = new IContactFieldGroupEnum("PHONES");
-          static EMAILS = new IContactFieldGroupEnum("EMAILS");
-          static WEBSITES = new IContactFieldGroupEnum("WEBSITES");
-          static SOCIALS = new IContactFieldGroupEnum("SOCIALS");
-          static TAGS = new IContactFieldGroupEnum("TAGS");
-          static Unknown = new IContactFieldGroupEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IContact Filter
-      **/
-     export class IContactFilterEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static HAS_PHONE = new IContactFilterEnum("HAS_PHONE");
-          static HAS_EMAIL = new IContactFilterEnum("HAS_EMAIL");
-          static HAS_ADDRESS = new IContactFilterEnum("HAS_ADDRESS");
-          static Unknown = new IContactFilterEnum("Unknown");
-     }
-
-     /**
-      *  Service IContact implementation.
-      */
-     export class ContactBridge implements IContact {
-
-          constructor() {}
-
-          getContact(contact: ContactUid, callback: IContactResultCallback) : void {
-               registeredIContactResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContact?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { contact: contact } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
-               } else {
-                    registeredIContactResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IContact.getContact");
-               }
-          }
-          getContactPhoto(contact: ContactUid, callback: IContactPhotoResultCallback) : void {
-               registeredIContactPhotoResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactPhoto?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { contact: contact } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactPhotoResultCallback' on receiving async response handler.
-               } else {
-                    registeredIContactPhotoResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IContact.getContactPhoto");
-               }
-          }
-          getContacts(callback: IContactResultCallback) : void {
-               registeredIContactResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContacts?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: {  } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
-               } else {
-                    registeredIContactResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IContact.getContacts");
-               }
-          }
-          getContactsForFields(callback: IContactResultCallback, fields: Array<IContactFieldGroupEnum>) : void {
-               registeredIContactResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactsForFields?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { callback: callback } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
-               } else {
-                    registeredIContactResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IContact.getContactsForFields");
-               }
-          }
-          getContactsWithFilter(callback: IContactResultCallback, fields: Array<IContactFieldGroupEnum>, filter: Array<IContactFilterEnum>) : void {
-               registeredIContactResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactsWithFilter?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { callback: callback, fields: fields } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
-               } else {
-                    registeredIContactResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IContact.getContactsWithFilter");
-               }
-          }
-          searchContacts(term: string, callback: IContactResultCallback) : void {
-               registeredIContactResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/searchContacts?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { term: term } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
-               } else {
-                    registeredIContactResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IContact.searchContacts");
-               }
-          }
-          searchContactsWithFilter(term: string, callback: IContactResultCallback, filter: Array<IContactFilterEnum>) : void {
-               registeredIContactResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/searchContactsWithFilter?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { term: term, callback: callback } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
-               } else {
-                    registeredIContactResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IContact.searchContactsWithFilter");
-               }
-          }
-          setContactPhoto(contact: ContactUid, pngImage: Array<number>) : boolean {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/setContactPhoto", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { contact: contact, pngImage: pngImage}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IContact.setContactPhoto incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IContact.setContactPhoto");
-                    return null;
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for ILogging
-      **/
-     export interface ILogging extends IBaseUtil {
-
-          /**
-           * Method Declarations for ILogging
-           */
-           log(level : ILoggingLogLevelEnum, message : string)
-           log(level : ILoggingLogLevelEnum, category : string, message : string)
-
-     }
-     /**
-      *  Enumerations for ILogging LogLevel
-      **/
-     export class ILoggingLogLevelEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static DEBUG = new ILoggingLogLevelEnum("DEBUG");
-          static WARN = new ILoggingLogLevelEnum("WARN");
-          static ERROR = new ILoggingLogLevelEnum("ERROR");
-          static INFO = new ILoggingLogLevelEnum("INFO");
-          static Unknown = new ILoggingLogLevelEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IStore
-      **/
-     export interface IStore extends IBaseCommerce {
-
-     }
-
-     /**
-      *   Interface definition for IRuntime
-      **/
-     export interface IRuntime extends IBaseSystem {
-
-          /**
-           * Method Declarations for IRuntime
-           */
-           dismissApplication()
-           dismissSplashScreen() : boolean
-     }
-
-     /**
-      *  Service IRuntime implementation.
-      */
-     export class RuntimeBridge implements IRuntime {
-
-          constructor() {}
-
-          dismissApplication() : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IRuntime/dismissApplication", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // No parameters.
-               if (xhr.status == 200) {
-               } else {
-                    console.error("ERROR: "+xhr.status+" IRuntime.dismissApplication");
-               }
-          }
-          dismissSplashScreen() : boolean {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IRuntime/dismissSplashScreen", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IRuntime.dismissSplashScreen incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IRuntime.dismissSplashScreen");
-                    return null;
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for IMessagingCallback
-      **/
-     export interface IMessagingCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IMessagingCallback
-           */
-           onError(error : IMessagingCallbackErrorEnum)
-           onResult(success : boolean)
-           onWarning(success : boolean, warning : IMessagingCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IMessagingCallback Error
-      **/
-     export class IMessagingCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static SIMNotPresent = new IMessagingCallbackErrorEnum("SIMNotPresent");
-          static EmailAccountNotFound = new IMessagingCallbackErrorEnum("EmailAccountNotFound");
-          static NotSent = new IMessagingCallbackErrorEnum("NotSent");
-          static WrongParams = new IMessagingCallbackErrorEnum("WrongParams");
-          static NotSupported = new IMessagingCallbackErrorEnum("NotSupported");
-          static Unknown = new IMessagingCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IMessagingCallback Warning
-      **/
-     export class IMessagingCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static UnableToSentAll = new IMessagingCallbackWarningEnum("UnableToSentAll");
-          static UnableToFetchAttachment = new IMessagingCallbackWarningEnum("UnableToFetchAttachment");
-          static Unknown = new IMessagingCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *  Callback IMessagingCallback control dictionary.
-      */
-     var registeredIMessagingCallback = new Dictionary<IMessagingCallback>([]);
-
-     /**
-      *  Callback IMessagingCallback onError/onWarning/onResult handlers.
-      */
-     export function handleIMessagingCallbackError(id:number, error: IMessagingCallbackErrorEnum) : void {
-          var callback = registeredIMessagingCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIMessagingCallback dictionary.");
-          } else {
-               callback.onError(error);
-               registeredIMessagingCallback.remove(""+id)
-          }
-     }
-     export function handleIMessagingCallbackResult(id:number, success: boolean) : void {
-          var callback = registeredIMessagingCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIMessagingCallback dictionary.");
-          } else {
-               callback.onResult(success);
-               registeredIMessagingCallback.remove(""+id)
-          }
-     }
-     export function handleIMessagingCallbackWarning(id:number, success: boolean, warning: IMessagingCallbackWarningEnum) : void {
-          var callback = registeredIMessagingCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIMessagingCallback dictionary.");
-          } else {
-               callback.onWarning(success, warning);
-               registeredIMessagingCallback.remove(""+id)
-          }
-     }
-     /**
-      *  Callback IMessagingCallback implementation.
-      */
-     export class MessagingCallback implements IMessagingCallback {
-          description: string;
-          id: number;
-          onErrorFunction : (error: IMessagingCallbackErrorEnum) => Function;
-          onResultFunction : (success: boolean) => Function;
-          onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: IMessagingCallbackErrorEnum) => Function, onResultFunction : (success: boolean) => Function, onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: MessagingCallback onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: MessagingCallback onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: MessagingCallback onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "MessagingCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: IMessagingCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The MessagingCallback does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(success: boolean) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The MessagingCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(success);
-               }
-          }
-          onWarning(success: boolean, warning: IMessagingCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The MessagingCallback does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(success, warning);
-               }
-          }
-     }
      /**
       *   Interface definition for IDatabaseResultCallback
       **/
@@ -3218,95 +761,154 @@ module Adaptive {
           }
      }
      /**
-      *   Interface definition for ISecurity
+      *   Interface definition for ICamera
       **/
-     export interface ISecurity extends IBaseSecurity {
+     export interface ICamera extends IBaseMedia {
+
+     }
+
+     /**
+      *   Interface definition for INetworkNaming
+      **/
+     export interface INetworkNaming extends IBaseCommunication {
+
+     }
+
+     /**
+      *   Interface definition for IContactPhotoResultCallback
+      **/
+     export interface IContactPhotoResultCallback extends IBaseCallback {
 
           /**
-           * Method Declarations for ISecurity
+           * Method Declarations for IContactPhotoResultCallback
            */
-           deleteSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback)
-           getSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback)
-           isDeviceModified() : boolean
-           setSecureKeyValuePairs(keyValues : Array<SecureKeyPair>, publicAccessName : string, callback : ISecureKVResultCallback)
+           onError(error : IContactPhotoResultCallbackErrorEnum)
+           onResult(contactPhoto : Array<number>)
+           onWarning(contactPhoto : Array<number>, warning : IContactPhotoResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IContactPhotoResultCallback Error
+      **/
+     export class IContactPhotoResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new IContactPhotoResultCallbackErrorEnum("NoPermission");
+          static Wrong_Params = new IContactPhotoResultCallbackErrorEnum("Wrong_Params");
+          static No_Photo = new IContactPhotoResultCallbackErrorEnum("No_Photo");
+          static Unknown = new IContactPhotoResultCallbackErrorEnum("Unknown");
      }
 
      /**
-      *  Service ISecurity implementation.
+      *  Enumerations for IContactPhotoResultCallback Warning
+      **/
+     export class IContactPhotoResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static LimitExceeded = new IContactPhotoResultCallbackWarningEnum("LimitExceeded");
+          static No_Matches = new IContactPhotoResultCallbackWarningEnum("No_Matches");
+          static Unknown = new IContactPhotoResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *  Callback IContactPhotoResultCallback control dictionary.
       */
-     export class SecurityBridge implements ISecurity {
-
-          constructor() {}
-
-          deleteSecureKeyValuePairs(keys: Array<string>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
-               registeredISecureKVResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/deleteSecureKeyValuePairs?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response handler.
-               } else {
-                    registeredISecureKVResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" ISecurity.deleteSecureKeyValuePairs");
-               }
-          }
-          getSecureKeyValuePairs(keys: Array<string>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
-               registeredISecureKVResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/getSecureKeyValuePairs?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response handler.
-               } else {
-                    registeredISecureKVResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" ISecurity.getSecureKeyValuePairs");
-               }
-          }
-          isDeviceModified() : boolean {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/isDeviceModified", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: ISecurity.isDeviceModified incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" ISecurity.isDeviceModified");
-                    return null;
-               }
-          }
-          setSecureKeyValuePairs(keyValues: Array<SecureKeyPair>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
-               registeredISecureKVResultCallback.add(""+callback.getId(),callback);
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/setSecureKeyValuePairs?id="+callback.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { keyValues: keyValues, publicAccessName: publicAccessName } }));
-               if (xhr.status == 200) {
-                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response handler.
-               } else {
-                    registeredISecureKVResultCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" ISecurity.setSecureKeyValuePairs");
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for IOAuth
-      **/
-     export interface IOAuth extends IBaseSecurity {
-
-     }
+     var registeredIContactPhotoResultCallback = new Dictionary<IContactPhotoResultCallback>([]);
 
      /**
-      *   Interface definition for INFC
+      *  Callback IContactPhotoResultCallback onError/onWarning/onResult handlers.
+      */
+     export function handleIContactPhotoResultCallbackError(id:number, error: IContactPhotoResultCallbackErrorEnum) : void {
+          var callback = registeredIContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactPhotoResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIContactPhotoResultCallback.remove(""+id)
+          }
+     }
+     export function handleIContactPhotoResultCallbackResult(id:number, contactPhoto: Array<number>) : void {
+          var callback = registeredIContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactPhotoResultCallback dictionary.");
+          } else {
+               callback.onResult(contactPhoto);
+               registeredIContactPhotoResultCallback.remove(""+id)
+          }
+     }
+     export function handleIContactPhotoResultCallbackWarning(id:number, contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) : void {
+          var callback = registeredIContactPhotoResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactPhotoResultCallback dictionary.");
+          } else {
+               callback.onWarning(contactPhoto, warning);
+               registeredIContactPhotoResultCallback.remove(""+id)
+          }
+     }
+     /**
+      *  Callback IContactPhotoResultCallback implementation.
+      */
+     export class ContactPhotoResultCallback implements IContactPhotoResultCallback {
+          description: string;
+          id: number;
+          onErrorFunction : (error: IContactPhotoResultCallbackErrorEnum) => Function;
+          onResultFunction : (contactPhoto: Array<number>) => Function;
+          onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: IContactPhotoResultCallbackErrorEnum) => Function, onResultFunction : (contactPhoto: Array<number>) => Function, onWarningFunction : (contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: ContactPhotoResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: ContactPhotoResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: ContactPhotoResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "ContactPhotoResultCallback{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: IContactPhotoResultCallbackErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The ContactPhotoResultCallback does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(contactPhoto: Array<number>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The ContactPhotoResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(contactPhoto);
+               }
+          }
+          onWarning(contactPhoto: Array<number>, warning: IContactPhotoResultCallbackWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The ContactPhotoResultCallback does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(contactPhoto, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for ICloud
       **/
-     export interface INFC extends IBaseReader {
+     export interface ICloud extends IBaseData {
 
      }
 
@@ -3559,9 +1161,417 @@ module Adaptive {
 
      }
      /**
-      *   Interface definition for IAnalytics
+      *   Interface definition for IMail
       **/
-     export interface IAnalytics extends IBaseApplication {
+     export interface IMail extends IBasePIM {
+
+          /**
+           * Method Declarations for IMail
+           */
+           sendEmail(data : Email, callback : IMessagingCallback)
+     }
+
+     /**
+      *  Service IMail implementation.
+      */
+     export class MailBridge implements IMail {
+
+          constructor() {}
+
+          sendEmail(data: Email, callback: IMessagingCallback) : void {
+               registeredIMessagingCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IMail/sendEmail?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { data: data } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIMessagingCallback' on receiving async response handler.
+               } else {
+                    registeredIMessagingCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IMail.sendEmail");
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for IGlobalization
+      **/
+     export interface IGlobalization extends IBaseApplication {
+
+          /**
+           * Method Declarations for IGlobalization
+           */
+           getLocaleSupportedDescriptors() : Array<Locale>
+           getResourceLiteral(key : string, locale : Locale) : string
+           getResourceLiterals(locale : Locale) : Dictionary<string>
+     }
+
+     /**
+      *  Service IGlobalization implementation.
+      */
+     export class GlobalizationBridge implements IGlobalization {
+
+          constructor() {}
+
+          getLocaleSupportedDescriptors() : Array<Locale> {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/IGlobalization/getLocaleSupportedDescriptors", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IGlobalization.getLocaleSupportedDescriptors incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IGlobalization.getLocaleSupportedDescriptors");
+                    return null;
+               }
+          }
+          getResourceLiteral(key: string, locale: Locale) : string {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiteral", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { key: key, locale: locale}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IGlobalization.getResourceLiteral incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IGlobalization.getResourceLiteral");
+                    return null;
+               }
+          }
+          getResourceLiterals(locale: Locale) : Dictionary<string> {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiterals", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { locale: locale}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IGlobalization.getResourceLiterals incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IGlobalization.getResourceLiterals");
+                    return null;
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for ICalendar
+      **/
+     export interface ICalendar extends IBasePIM {
+
+     }
+
+     /**
+      *   Interface definition for ISocket
+      **/
+     export interface ISocket extends IBaseCommunication {
+
+     }
+
+     /**
+      *   Interface definition for ILifecycle
+      **/
+     export interface ILifecycle extends IBaseApplication {
+
+          /**
+           * Method Declarations for ILifecycle
+           */
+           addLifecycleListener(listener : ILifecycleListener)
+           isBackground() : boolean
+           removeLifecycleListener(listener : ILifecycleListener)
+           removeLifecycleListeners()
+     }
+
+     /**
+      *  Service ILifecycle implementation.
+      */
+     export class LifecycleBridge implements ILifecycle {
+
+          constructor() {}
+
+          addLifecycleListener(listener: ILifecycleListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/addLifecycleListener?id="+listener.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // Listeners only require id included in URL param.
+               if (xhr.status == 200) {
+                    registeredILifecycleListener.add(""+listener.getId(),listener);
+               } else {
+                    console.error("ERROR: "+xhr.status+" ILifecycle.addLifecycleListener");
+               }
+          }
+          isBackground() : boolean {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/isBackground", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: ILifecycle.isBackground incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" ILifecycle.isBackground");
+                    return null;
+               }
+          }
+          removeLifecycleListener(listener: ILifecycleListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListener?id="+listener.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // Listeners only require id included in URL param.
+               if (xhr.status == 200) {
+                    registeredILifecycleListener.remove(""+listener.getId());
+               } else {
+                    console.error("ERROR: "+xhr.status+" ILifecycle.removeLifecycleListener");
+               }
+          }
+          removeLifecycleListeners() : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListeners", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // No parameters.
+               if (xhr.status == 200) {
+                    var keys = registeredIAccelerationListener.keys();
+                    for (var key in keys) {
+                         registeredIAccelerationListener.remove(key);
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" ILifecycle.removeLifecycleListeners");
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for ILinkedIn
+      **/
+     export interface ILinkedIn extends IBaseSocial {
+
+     }
+
+     /**
+      *   Interface definition for IMessagingCallback
+      **/
+     export interface IMessagingCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IMessagingCallback
+           */
+           onError(error : IMessagingCallbackErrorEnum)
+           onResult(success : boolean)
+           onWarning(success : boolean, warning : IMessagingCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IMessagingCallback Error
+      **/
+     export class IMessagingCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static SIMNotPresent = new IMessagingCallbackErrorEnum("SIMNotPresent");
+          static EmailAccountNotFound = new IMessagingCallbackErrorEnum("EmailAccountNotFound");
+          static NotSent = new IMessagingCallbackErrorEnum("NotSent");
+          static WrongParams = new IMessagingCallbackErrorEnum("WrongParams");
+          static NotSupported = new IMessagingCallbackErrorEnum("NotSupported");
+          static Unknown = new IMessagingCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IMessagingCallback Warning
+      **/
+     export class IMessagingCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static UnableToSentAll = new IMessagingCallbackWarningEnum("UnableToSentAll");
+          static UnableToFetchAttachment = new IMessagingCallbackWarningEnum("UnableToFetchAttachment");
+          static Unknown = new IMessagingCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *  Callback IMessagingCallback control dictionary.
+      */
+     var registeredIMessagingCallback = new Dictionary<IMessagingCallback>([]);
+
+     /**
+      *  Callback IMessagingCallback onError/onWarning/onResult handlers.
+      */
+     export function handleIMessagingCallbackError(id:number, error: IMessagingCallbackErrorEnum) : void {
+          var callback = registeredIMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIMessagingCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIMessagingCallback.remove(""+id)
+          }
+     }
+     export function handleIMessagingCallbackResult(id:number, success: boolean) : void {
+          var callback = registeredIMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIMessagingCallback dictionary.");
+          } else {
+               callback.onResult(success);
+               registeredIMessagingCallback.remove(""+id)
+          }
+     }
+     export function handleIMessagingCallbackWarning(id:number, success: boolean, warning: IMessagingCallbackWarningEnum) : void {
+          var callback = registeredIMessagingCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIMessagingCallback dictionary.");
+          } else {
+               callback.onWarning(success, warning);
+               registeredIMessagingCallback.remove(""+id)
+          }
+     }
+     /**
+      *  Callback IMessagingCallback implementation.
+      */
+     export class MessagingCallback implements IMessagingCallback {
+          description: string;
+          id: number;
+          onErrorFunction : (error: IMessagingCallbackErrorEnum) => Function;
+          onResultFunction : (success: boolean) => Function;
+          onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: IMessagingCallbackErrorEnum) => Function, onResultFunction : (success: boolean) => Function, onWarningFunction : (success: boolean, warning: IMessagingCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: MessagingCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: MessagingCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: MessagingCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "MessagingCallback{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: IMessagingCallbackErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The MessagingCallback does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(success: boolean) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The MessagingCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(success);
+               }
+          }
+          onWarning(success: boolean, warning: IMessagingCallbackWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The MessagingCallback does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(success, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for IAccelerometer
+      **/
+     export interface IAccelerometer extends IBaseSensor {
+
+          /**
+           * Method Declarations for IAccelerometer
+           */
+           addAccelerationListener(listener : IAccelerationListener)
+           removeAccelerationListener(listener : IAccelerationListener)
+           removeAccelerationListeners()
+     }
+
+     /**
+      *  Service IAccelerometer implementation.
+      */
+     export class AccelerometerBridge implements IAccelerometer {
+
+          constructor() {}
+
+          addAccelerationListener(listener: IAccelerationListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/addAccelerationListener?id="+listener.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // Listeners only require id included in URL param.
+               if (xhr.status == 200) {
+                    registeredIAccelerationListener.add(""+listener.getId(),listener);
+               } else {
+                    console.error("ERROR: "+xhr.status+" IAccelerometer.addAccelerationListener");
+               }
+          }
+          removeAccelerationListener(listener: IAccelerationListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListener?id="+listener.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // Listeners only require id included in URL param.
+               if (xhr.status == 200) {
+                    registeredIAccelerationListener.remove(""+listener.getId());
+               } else {
+                    console.error("ERROR: "+xhr.status+" IAccelerometer.removeAccelerationListener");
+               }
+          }
+          removeAccelerationListeners() : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListeners", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // No parameters.
+               if (xhr.status == 200) {
+                    var keys = registeredIAccelerationListener.keys();
+                    for (var key in keys) {
+                         registeredIAccelerationListener.remove(key);
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IAccelerometer.removeAccelerationListeners");
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for IOpenId
+      **/
+     export interface IOpenId extends IBaseSecurity {
+
+     }
+
+     /**
+      *   Interface definition for IConcurrent
+      **/
+     export interface IConcurrent extends IBaseUtil {
+
+     }
+
+     /**
+      *   Interface definition for INetworkInfo
+      **/
+     export interface INetworkInfo extends IBaseCommunication {
 
      }
 
@@ -3624,9 +1634,856 @@ module Adaptive {
 
      }
      /**
-      *   Interface definition for IProximity
+      *   Interface definition for IGeolocationListener
       **/
-     export interface IProximity extends IBaseSensor {
+     export interface IGeolocationListener extends IBaseListener {
+
+          /**
+           * Method Declarations for IGeolocationListener
+           */
+           onError(error : IGeolocationListenerErrorEnum)
+           onResult(geolocation : Geolocation)
+           onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IGeolocationListener Error
+      **/
+     export class IGeolocationListenerErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Disabled = new IGeolocationListenerErrorEnum("Disabled");
+          static RestrictedAccess = new IGeolocationListenerErrorEnum("RestrictedAccess");
+          static DeniedAccess = new IGeolocationListenerErrorEnum("DeniedAccess");
+          static StatusNotDetermined = new IGeolocationListenerErrorEnum("StatusNotDetermined");
+          static Unknown = new IGeolocationListenerErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IGeolocationListener Warning
+      **/
+     export class IGeolocationListenerWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HighDoP = new IGeolocationListenerWarningEnum("HighDoP");
+          static StaleData = new IGeolocationListenerWarningEnum("StaleData");
+          static Unknown = new IGeolocationListenerWarningEnum("Unknown");
+     }
+
+     /**
+      *  Listener IGeolocationListener control dictionary.
+      */
+     var registeredIGeolocationListener = new Dictionary<IGeolocationListener>([]);
+
+     /**
+      *  Listener IGeolocationListener onError/onWarning/onResult handlers.
+      */
+     export function handleIGeolocationListenerError(id:number, error: IGeolocationListenerErrorEnum) : void {
+          var listener = registeredIGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIGeolocationListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleIGeolocationListenerResult(id:number, geolocation: Geolocation) : void {
+          var listener = registeredIGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIGeolocationListener dictionary.");
+          } else {
+               listener.onResult(geolocation);
+          }
+     }
+     export function handleIGeolocationListenerWarning(id:number, geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) : void {
+          var listener = registeredIGeolocationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIGeolocationListener dictionary.");
+          } else {
+               listener.onWarning(geolocation, warning);
+          }
+     }
+     /**
+      *  Listener IGeolocationListener implementation.
+      */
+     export class GeolocationListener implements IGeolocationListener {
+          description: string;
+          id: number;
+          onErrorFunction : (error: IGeolocationListenerErrorEnum) => Function;
+          onResultFunction : (geolocation: Geolocation) => Function;
+          onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: IGeolocationListenerErrorEnum) => Function, onResultFunction : (geolocation: Geolocation) => Function, onWarningFunction : (geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: GeolocationListener onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: GeolocationListener onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: GeolocationListener onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "GeolocationListener{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: IGeolocationListenerErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The GeolocationListener does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(geolocation: Geolocation) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The GeolocationListener does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(geolocation);
+               }
+          }
+          onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The GeolocationListener does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(geolocation, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for IContactResultCallback
+      **/
+     export interface IContactResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IContactResultCallback
+           */
+           onError(error : IContactResultCallbackErrorEnum)
+           onResult(contacts : Array<Contact>)
+           onWarning(contacts : Array<Contact>, warning : IContactResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IContactResultCallback Error
+      **/
+     export class IContactResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new IContactResultCallbackErrorEnum("NoPermission");
+          static Wrong_Params = new IContactResultCallbackErrorEnum("Wrong_Params");
+          static Unknown = new IContactResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IContactResultCallback Warning
+      **/
+     export class IContactResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static LimitExceeded = new IContactResultCallbackWarningEnum("LimitExceeded");
+          static No_Matches = new IContactResultCallbackWarningEnum("No_Matches");
+          static Unknown = new IContactResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *  Callback IContactResultCallback control dictionary.
+      */
+     var registeredIContactResultCallback = new Dictionary<IContactResultCallback>([]);
+
+     /**
+      *  Callback IContactResultCallback onError/onWarning/onResult handlers.
+      */
+     export function handleIContactResultCallbackError(id:number, error: IContactResultCallbackErrorEnum) : void {
+          var callback = registeredIContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIContactResultCallback.remove(""+id)
+          }
+     }
+     export function handleIContactResultCallbackResult(id:number, contacts: Array<Contact>) : void {
+          var callback = registeredIContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactResultCallback dictionary.");
+          } else {
+               callback.onResult(contacts);
+               registeredIContactResultCallback.remove(""+id)
+          }
+     }
+     export function handleIContactResultCallbackWarning(id:number, contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) : void {
+          var callback = registeredIContactResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIContactResultCallback dictionary.");
+          } else {
+               callback.onWarning(contacts, warning);
+               registeredIContactResultCallback.remove(""+id)
+          }
+     }
+     /**
+      *  Callback IContactResultCallback implementation.
+      */
+     export class ContactResultCallback implements IContactResultCallback {
+          description: string;
+          id: number;
+          onErrorFunction : (error: IContactResultCallbackErrorEnum) => Function;
+          onResultFunction : (contacts: Array<Contact>) => Function;
+          onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: IContactResultCallbackErrorEnum) => Function, onResultFunction : (contacts: Array<Contact>) => Function, onWarningFunction : (contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: ContactResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: ContactResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: ContactResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "ContactResultCallback{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: IContactResultCallbackErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The ContactResultCallback does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(contacts: Array<Contact>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The ContactResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(contacts);
+               }
+          }
+          onWarning(contacts: Array<Contact>, warning: IContactResultCallbackWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The ContactResultCallback does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(contacts, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for IMessaging
+      **/
+     export interface IMessaging extends IBasePIM {
+
+          /**
+           * Method Declarations for IMessaging
+           */
+           sendSMS(number : string, text : string, callback : IMessagingCallback)
+     }
+
+     /**
+      *  Service IMessaging implementation.
+      */
+     export class MessagingBridge implements IMessaging {
+
+          constructor() {}
+
+          sendSMS(number: string, text: string, callback: IMessagingCallback) : void {
+               registeredIMessagingCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IMessaging/sendSMS?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { number: number, text: text } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIMessagingCallback' on receiving async response handler.
+               } else {
+                    registeredIMessagingCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IMessaging.sendSMS");
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for IQRCode
+      **/
+     export interface IQRCode extends IBaseReader {
+
+     }
+
+     /**
+      *   Interface definition for IFileResultCallback
+      **/
+     export interface IFileResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IFileResultCallback
+           */
+           onError(error : IFileResultCallbackErrorEnum)
+           onResult(storageFile : IFile)
+           onWarning(sourceFile : IFile, destinationFile : IFile, warning : IFileResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IFileResultCallback Error
+      **/
+     export class IFileResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static FileExists = new IFileResultCallbackErrorEnum("FileExists");
+          static InsufficientSpace = new IFileResultCallbackErrorEnum("InsufficientSpace");
+          static Unauthorized = new IFileResultCallbackErrorEnum("Unauthorized");
+          static Unknown = new IFileResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IFileResultCallback Warning
+      **/
+     export class IFileResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static SourceNotDeleted = new IFileResultCallbackWarningEnum("SourceNotDeleted");
+          static RootDirectory = new IFileResultCallbackWarningEnum("RootDirectory");
+          static Unknown = new IFileResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *  Callback IFileResultCallback control dictionary.
+      */
+     var registeredIFileResultCallback = new Dictionary<IFileResultCallback>([]);
+
+     /**
+      *  Callback IFileResultCallback onError/onWarning/onResult handlers.
+      */
+     export function handleIFileResultCallbackError(id:number, error: IFileResultCallbackErrorEnum) : void {
+          var callback = registeredIFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIFileResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileResultCallbackResult(id:number, storageFile: IFile) : void {
+          var callback = registeredIFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileResultCallback dictionary.");
+          } else {
+               callback.onResult(storageFile);
+               registeredIFileResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileResultCallbackWarning(id:number, sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) : void {
+          var callback = registeredIFileResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileResultCallback dictionary.");
+          } else {
+               callback.onWarning(sourceFile, destinationFile, warning);
+               registeredIFileResultCallback.remove(""+id)
+          }
+     }
+     /**
+      *  Callback IFileResultCallback implementation.
+      */
+     export class FileResultCallback implements IFileResultCallback {
+          description: string;
+          id: number;
+          onErrorFunction : (error: IFileResultCallbackErrorEnum) => Function;
+          onResultFunction : (storageFile: IFile) => Function;
+          onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: IFileResultCallbackErrorEnum) => Function, onResultFunction : (storageFile: IFile) => Function, onWarningFunction : (sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: FileResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: FileResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: FileResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "FileResultCallback{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: IFileResultCallbackErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The FileResultCallback does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(storageFile: IFile) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The FileResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(storageFile);
+               }
+          }
+          onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The FileResultCallback does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(sourceFile, destinationFile, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for IFileListResultCallback
+      **/
+     export interface IFileListResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IFileListResultCallback
+           */
+           onError(error : IFileListResultCallbackErrorEnum)
+           onResult(files : Array<IFile>)
+           onWarning(files : Array<IFile>, warning : IFileListResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IFileListResultCallback Error
+      **/
+     export class IFileListResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static InexistentFile = new IFileListResultCallbackErrorEnum("InexistentFile");
+          static Unauthorized = new IFileListResultCallbackErrorEnum("Unauthorized");
+          static Unknown = new IFileListResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IFileListResultCallback Warning
+      **/
+     export class IFileListResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static PartialResult = new IFileListResultCallbackWarningEnum("PartialResult");
+          static Unknown = new IFileListResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *  Callback IFileListResultCallback control dictionary.
+      */
+     var registeredIFileListResultCallback = new Dictionary<IFileListResultCallback>([]);
+
+     /**
+      *  Callback IFileListResultCallback onError/onWarning/onResult handlers.
+      */
+     export function handleIFileListResultCallbackError(id:number, error: IFileListResultCallbackErrorEnum) : void {
+          var callback = registeredIFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileListResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIFileListResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileListResultCallbackResult(id:number, files: Array<IFile>) : void {
+          var callback = registeredIFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileListResultCallback dictionary.");
+          } else {
+               callback.onResult(files);
+               registeredIFileListResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileListResultCallbackWarning(id:number, files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) : void {
+          var callback = registeredIFileListResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileListResultCallback dictionary.");
+          } else {
+               callback.onWarning(files, warning);
+               registeredIFileListResultCallback.remove(""+id)
+          }
+     }
+     /**
+      *  Callback IFileListResultCallback implementation.
+      */
+     export class FileListResultCallback implements IFileListResultCallback {
+          description: string;
+          id: number;
+          onErrorFunction : (error: IFileListResultCallbackErrorEnum) => Function;
+          onResultFunction : (files: Array<IFile>) => Function;
+          onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: IFileListResultCallbackErrorEnum) => Function, onResultFunction : (files: Array<IFile>) => Function, onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: FileListResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: FileListResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: FileListResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "FileListResultCallback{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: IFileListResultCallbackErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The FileListResultCallback does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(files: Array<IFile>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The FileListResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(files);
+               }
+          }
+          onWarning(files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The FileListResultCallback does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(files, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for ITimer
+      **/
+     export interface ITimer extends IBaseUtil {
+
+     }
+
+     /**
+      *   Interface definition for IInternalStorage
+      **/
+     export interface IInternalStorage extends IBaseData {
+
+     }
+
+     /**
+      *   Interface definition for IRuntime
+      **/
+     export interface IRuntime extends IBaseSystem {
+
+          /**
+           * Method Declarations for IRuntime
+           */
+           dismissApplication()
+           dismissSplashScreen() : boolean
+     }
+
+     /**
+      *  Service IRuntime implementation.
+      */
+     export class RuntimeBridge implements IRuntime {
+
+          constructor() {}
+
+          dismissApplication() : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IRuntime/dismissApplication", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // No parameters.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" IRuntime.dismissApplication");
+               }
+          }
+          dismissSplashScreen() : boolean {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IRuntime/dismissSplashScreen", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IRuntime.dismissSplashScreen incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IRuntime.dismissSplashScreen");
+                    return null;
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for ISession
+      **/
+     export interface ISession extends IBaseCommunication {
+
+          /**
+           * Method Declarations for ISession
+           */
+           getAttribute(name : string) : any
+           getAttributes() : Array<any>
+           getCookies() : Array<Cookie>
+           listAttributeNames() : Array<string>
+           removeAttribute(name : string)
+           removeAttributes()
+           removeCookie(cookie : Cookie)
+           removeCookies(cookies : Array<Cookie>)
+           setAttribute(name : string, value : any)
+           setCookie(cookie : Cookie)
+           setCookies(cookies : Array<Cookie>)
+     }
+
+     /**
+      *  Service ISession implementation.
+      */
+     export class SessionBridge implements ISession {
+
+          constructor() {}
+
+          getAttribute(name: string) : any {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/getAttribute", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { name: name}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: ISession.getAttribute incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISession.getAttribute");
+                    return null;
+               }
+          }
+          getAttributes() : Array<any> {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/getAttributes", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: ISession.getAttributes incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISession.getAttributes");
+                    return null;
+               }
+          }
+          getCookies() : Array<Cookie> {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/getCookies", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: ISession.getCookies incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISession.getCookies");
+                    return null;
+               }
+          }
+          listAttributeNames() : Array<string> {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/listAttributeNames", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: ISession.listAttributeNames incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISession.listAttributeNames");
+                    return null;
+               }
+          }
+          removeAttribute(name: string) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeAttribute", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { name: name}}));
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISession.removeAttribute");
+               }
+          }
+          removeAttributes() : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeAttributes", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // No parameters.
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISession.removeAttributes");
+               }
+          }
+          removeCookie(cookie: Cookie) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeCookie", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { cookie: cookie}}));
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISession.removeCookie");
+               }
+          }
+          removeCookies(cookies: Array<Cookie>) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/removeCookies", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { cookies: cookies}}));
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISession.removeCookies");
+               }
+          }
+          setAttribute(name: string, value: any) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setAttribute", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { name: name, value: value}}));
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISession.setAttribute");
+               }
+          }
+          setCookie(cookie: Cookie) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setCookie", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { cookie: cookie}}));
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISession.setCookie");
+               }
+          }
+          setCookies(cookies: Array<Cookie>) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/ISession/setCookies", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { cookies: cookies}}));
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISession.setCookies");
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for IVideo
+      **/
+     export interface IVideo extends IBaseMedia {
+
+          /**
+           * Method Declarations for IVideo
+           */
+           playStream(url : string)
+     }
+
+     /**
+      *  Service IVideo implementation.
+      */
+     export class VideoBridge implements IVideo {
+
+          constructor() {}
+
+          playStream(url: string) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseMedia/IVideo/playStream", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { url: url}}));
+               if (xhr.status == 200) {
+               } else {
+                    console.error("ERROR: "+xhr.status+" IVideo.playStream");
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for IMap
+      **/
+     export interface IMap extends IBaseUI {
+
+     }
+
+     /**
+      *   Interface definition for IManagement
+      **/
+     export interface IManagement extends IBaseApplication {
+
+     }
+
+     /**
+      *   Interface definition for IOAuth
+      **/
+     export interface IOAuth extends IBaseSecurity {
+
+     }
+
+     /**
+      *   Interface definition for IAds
+      **/
+     export interface IAds extends IBaseCommerce {
+
+     }
+
+     /**
+      *   Interface definition for IGooglePlus
+      **/
+     export interface IGooglePlus extends IBaseSocial {
 
      }
 
@@ -3634,6 +2491,637 @@ module Adaptive {
       *   Interface definition for IWallet
       **/
      export interface IWallet extends IBaseCommerce {
+
+     }
+
+     /**
+      *   Interface definition for IAnalytics
+      **/
+     export interface IAnalytics extends IBaseApplication {
+
+     }
+
+     /**
+      *   Interface definition for ICompression
+      **/
+     export interface ICompression extends IBaseUtil {
+
+     }
+
+     /**
+      *   Interface definition for IBrowser
+      **/
+     export interface IBrowser extends IBaseUI {
+
+          /**
+           * Method Declarations for IBrowser
+           */
+           openBrowser(url : string, title : string, buttonText : string) : boolean
+     }
+
+     /**
+      *  Service IBrowser implementation.
+      */
+     export class BrowserBridge implements IBrowser {
+
+          constructor() {}
+
+          openBrowser(url: string, title: string, buttonText: string) : boolean {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseUI/IBrowser/openBrowser", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { url: url, title: title, buttonText: buttonText}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IBrowser.openBrowser incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IBrowser.openBrowser");
+                    return null;
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for IRSS
+      **/
+     export interface IRSS extends IBaseSocial {
+
+     }
+
+     /**
+      *   Interface definition for IDisplay
+      **/
+     export interface IDisplay extends IBaseSystem {
+
+     }
+
+     /**
+      *   Interface definition for IOCR
+      **/
+     export interface IOCR extends IBaseReader {
+
+     }
+
+     /**
+      *   Interface definition for IDevice
+      **/
+     export interface IDevice extends IBaseSystem {
+
+          /**
+           * Method Declarations for IDevice
+           */
+           addButtonListener(listener : IButtonListener)
+           getDeviceInfo() : DeviceInfo
+           getLocaleCurrent() : Locale
+           removeButtonListener(listener : IButtonListener)
+           removeButtonListeners()
+     }
+
+     /**
+      *  Service IDevice implementation.
+      */
+     export class DeviceBridge implements IDevice {
+
+          constructor() {}
+
+          addButtonListener(listener: IButtonListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/addButtonListener?id="+listener.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // Listeners only require id included in URL param.
+               if (xhr.status == 200) {
+                    registeredIButtonListener.add(""+listener.getId(),listener);
+               } else {
+                    console.error("ERROR: "+xhr.status+" IDevice.addButtonListener");
+               }
+          }
+          getDeviceInfo() : DeviceInfo {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/getDeviceInfo", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IDevice.getDeviceInfo incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IDevice.getDeviceInfo");
+                    return null;
+               }
+          }
+          getLocaleCurrent() : Locale {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/getLocaleCurrent", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IDevice.getLocaleCurrent incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IDevice.getLocaleCurrent");
+                    return null;
+               }
+          }
+          removeButtonListener(listener: IButtonListener) : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListener?id="+listener.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // Listeners only require id included in URL param.
+               if (xhr.status == 200) {
+                    registeredIButtonListener.remove(""+listener.getId());
+               } else {
+                    console.error("ERROR: "+xhr.status+" IDevice.removeButtonListener");
+               }
+          }
+          removeButtonListeners() : void {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListeners", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(); // No parameters.
+               if (xhr.status == 200) {
+                    var keys = registeredIAccelerationListener.keys();
+                    for (var key in keys) {
+                         registeredIAccelerationListener.remove(key);
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IDevice.removeButtonListeners");
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for IAppServerListener
+      **/
+     export interface IAppServerListener extends IBaseListener {
+
+          /**
+           * Method Declarations for IAppServerListener
+           */
+           onPaused(server : IAppServer)
+           onPausing(server : IAppServer)
+           onResumed(server : IAppServer)
+           onResuming(server : IAppServer)
+           onStart(server : IAppServer)
+           onStopped(server : IAppServer)
+           onStopping(server : IAppServer)
+     }
+
+     /**
+      *   Interface definition for IStore
+      **/
+     export interface IStore extends IBaseCommerce {
+
+     }
+
+     /**
+      *   Interface definition for IDatabase
+      **/
+     export interface IDatabase extends IBaseData {
+
+          /**
+           * Method Declarations for IDatabase
+           */
+           createDatabase(database : Database, callback : IDatabaseResultCallback)
+           createTable(database : Database, table : Table, callback : ITableResultCallback)
+           deleteDatabase(database : Database, callback : IDatabaseResultCallback)
+           deleteTable(database : Database, table : Table, callback : ITableResultCallback)
+           executeSqlQuery(database : Database, query : string, replacements : Array<String>, callback : ITableResultCallback)
+           executeSqlStatement(database : Database, statement : string, replacements : Array<String>, callback : ITableResultCallback)
+           executeSqlTransactions(database : Database, statements : Array<String>, rollbackFlag : boolean, callback : ITableResultCallback)
+           existsDatabase(database : Database) : boolean
+           existsTable(database : Database, table : Table) : boolean
+     }
+
+     /**
+      *  Service IDatabase implementation.
+      */
+     export class DatabaseBridge implements IDatabase {
+
+          constructor() {}
+
+          createDatabase(database: Database, callback: IDatabaseResultCallback) : void {
+               registeredIDatabaseResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/createDatabase?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { database: database } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response handler.
+               } else {
+                    registeredIDatabaseResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IDatabase.createDatabase");
+               }
+          }
+          createTable(database: Database, table: Table, callback: ITableResultCallback) : void {
+               registeredITableResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/createTable?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { database: database, table: table } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
+               } else {
+                    registeredITableResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IDatabase.createTable");
+               }
+          }
+          deleteDatabase(database: Database, callback: IDatabaseResultCallback) : void {
+               registeredIDatabaseResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/deleteDatabase?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { database: database } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIDatabaseResultCallback' on receiving async response handler.
+               } else {
+                    registeredIDatabaseResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IDatabase.deleteDatabase");
+               }
+          }
+          deleteTable(database: Database, table: Table, callback: ITableResultCallback) : void {
+               registeredITableResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/deleteTable?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { database: database, table: table } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
+               } else {
+                    registeredITableResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IDatabase.deleteTable");
+               }
+          }
+          executeSqlQuery(database: Database, query: string, replacements: Array<string>, callback: ITableResultCallback) : void {
+               registeredITableResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlQuery?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { database: database, query: query, replacements: replacements } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
+               } else {
+                    registeredITableResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IDatabase.executeSqlQuery");
+               }
+          }
+          executeSqlStatement(database: Database, statement: string, replacements: Array<string>, callback: ITableResultCallback) : void {
+               registeredITableResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlStatement?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { database: database, statement: statement, replacements: replacements } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
+               } else {
+                    registeredITableResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IDatabase.executeSqlStatement");
+               }
+          }
+          executeSqlTransactions(database: Database, statements: Array<string>, rollbackFlag: boolean, callback: ITableResultCallback) : void {
+               registeredITableResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/executeSqlTransactions?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { database: database, statements: statements, rollbackFlag: rollbackFlag } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredITableResultCallback' on receiving async response handler.
+               } else {
+                    registeredITableResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IDatabase.executeSqlTransactions");
+               }
+          }
+          existsDatabase(database: Database) : boolean {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/existsDatabase", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { database: database}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IDatabase.existsDatabase incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IDatabase.existsDatabase");
+                    return null;
+               }
+          }
+          existsTable(database: Database, table: Table) : boolean {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IDatabase/existsTable", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { database: database, table: table}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IDatabase.existsTable incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IDatabase.existsTable");
+                    return null;
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for ISecurity
+      **/
+     export interface ISecurity extends IBaseSecurity {
+
+          /**
+           * Method Declarations for ISecurity
+           */
+           deleteSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback)
+           getSecureKeyValuePairs(keys : Array<String>, publicAccessName : string, callback : ISecureKVResultCallback)
+           isDeviceModified() : boolean
+           setSecureKeyValuePairs(keyValues : Array<SecureKeyPair>, publicAccessName : string, callback : ISecureKVResultCallback)
+     }
+
+     /**
+      *  Service ISecurity implementation.
+      */
+     export class SecurityBridge implements ISecurity {
+
+          constructor() {}
+
+          deleteSecureKeyValuePairs(keys: Array<string>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
+               registeredISecureKVResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/deleteSecureKeyValuePairs?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response handler.
+               } else {
+                    registeredISecureKVResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" ISecurity.deleteSecureKeyValuePairs");
+               }
+          }
+          getSecureKeyValuePairs(keys: Array<string>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
+               registeredISecureKVResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/getSecureKeyValuePairs?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response handler.
+               } else {
+                    registeredISecureKVResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" ISecurity.getSecureKeyValuePairs");
+               }
+          }
+          isDeviceModified() : boolean {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/isDeviceModified", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: ISecurity.isDeviceModified incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" ISecurity.isDeviceModified");
+                    return null;
+               }
+          }
+          setSecureKeyValuePairs(keyValues: Array<SecureKeyPair>, publicAccessName: string, callback: ISecureKVResultCallback) : void {
+               registeredISecureKVResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSecurity/ISecurity/setSecureKeyValuePairs?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { keyValues: keyValues, publicAccessName: publicAccessName } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredISecureKVResultCallback' on receiving async response handler.
+               } else {
+                    registeredISecureKVResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" ISecurity.setSecureKeyValuePairs");
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for IVibration
+      **/
+     export interface IVibration extends IBaseNotification {
+
+     }
+
+     /**
+      *   Interface definition for IBluetooth
+      **/
+     export interface IBluetooth extends IBaseCommunication {
+
+     }
+
+     /**
+      *   Interface definition for ILogging
+      **/
+     export interface ILogging extends IBaseUtil {
+
+          /**
+           * Method Declarations for ILogging
+           */
+           log(level : ILoggingLogLevelEnum, message : string)
+           log(level : ILoggingLogLevelEnum, category : string, message : string)
+
+     }
+     /**
+      *  Enumerations for ILogging LogLevel
+      **/
+     export class ILoggingLogLevelEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static DEBUG = new ILoggingLogLevelEnum("DEBUG");
+          static WARN = new ILoggingLogLevelEnum("WARN");
+          static ERROR = new ILoggingLogLevelEnum("ERROR");
+          static INFO = new ILoggingLogLevelEnum("INFO");
+          static Unknown = new ILoggingLogLevelEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for ITwitter
+      **/
+     export interface ITwitter extends IBaseSocial {
+
+     }
+
+     /**
+      *   Interface definition for ICrypto
+      **/
+     export interface ICrypto extends IBaseUtil {
+
+     }
+
+     /**
+      *   Interface definition for IServiceResultCallback
+      **/
+     export interface IServiceResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IServiceResultCallback
+           */
+           onError(error : IServiceResultCallbackErrorEnum)
+           onResult(response : ServiceResponse)
+           onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IServiceResultCallback Error
+      **/
+     export class IServiceResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Forbidden = new IServiceResultCallbackErrorEnum("Forbidden");
+          static NotFound = new IServiceResultCallbackErrorEnum("NotFound");
+          static MethodNotAllowed = new IServiceResultCallbackErrorEnum("MethodNotAllowed");
+          static NotAllowed = new IServiceResultCallbackErrorEnum("NotAllowed");
+          static NotAuthenticated = new IServiceResultCallbackErrorEnum("NotAuthenticated");
+          static TimeOut = new IServiceResultCallbackErrorEnum("TimeOut");
+          static NoResponse = new IServiceResultCallbackErrorEnum("NoResponse");
+          static ServerError = new IServiceResultCallbackErrorEnum("ServerError");
+          static Unreachable = new IServiceResultCallbackErrorEnum("Unreachable");
+          static MalformedUrl = new IServiceResultCallbackErrorEnum("MalformedUrl");
+          static NotRegisteredService = new IServiceResultCallbackErrorEnum("NotRegisteredService");
+          static Unknown = new IServiceResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IServiceResultCallback Warning
+      **/
+     export class IServiceResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NotSecure = new IServiceResultCallbackWarningEnum("NotSecure");
+          static NotTrusted = new IServiceResultCallbackWarningEnum("NotTrusted");
+          static Redirected = new IServiceResultCallbackWarningEnum("Redirected");
+          static Wrong_Params = new IServiceResultCallbackWarningEnum("Wrong_Params");
+          static Unknown = new IServiceResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *  Callback IServiceResultCallback control dictionary.
+      */
+     var registeredIServiceResultCallback = new Dictionary<IServiceResultCallback>([]);
+
+     /**
+      *  Callback IServiceResultCallback onError/onWarning/onResult handlers.
+      */
+     export function handleIServiceResultCallbackError(id:number, error: IServiceResultCallbackErrorEnum) : void {
+          var callback = registeredIServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIServiceResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIServiceResultCallback.remove(""+id)
+          }
+     }
+     export function handleIServiceResultCallbackResult(id:number, response: ServiceResponse) : void {
+          var callback = registeredIServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIServiceResultCallback dictionary.");
+          } else {
+               callback.onResult(response);
+               registeredIServiceResultCallback.remove(""+id)
+          }
+     }
+     export function handleIServiceResultCallbackWarning(id:number, response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) : void {
+          var callback = registeredIServiceResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIServiceResultCallback dictionary.");
+          } else {
+               callback.onWarning(response, warning);
+               registeredIServiceResultCallback.remove(""+id)
+          }
+     }
+     /**
+      *  Callback IServiceResultCallback implementation.
+      */
+     export class ServiceResultCallback implements IServiceResultCallback {
+          description: string;
+          id: number;
+          onErrorFunction : (error: IServiceResultCallbackErrorEnum) => Function;
+          onResultFunction : (response: ServiceResponse) => Function;
+          onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: IServiceResultCallbackErrorEnum) => Function, onResultFunction : (response: ServiceResponse) => Function, onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: ServiceResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: ServiceResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: ServiceResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "ServiceResultCallback{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: IServiceResultCallbackErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The ServiceResultCallback does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(response: ServiceResponse) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The ServiceResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(response);
+               }
+          }
+          onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The ServiceResultCallback does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(response, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for IMagnetometer
+      **/
+     export interface IMagnetometer extends IBaseSensor {
+
+     }
+
+     /**
+      *   Interface definition for IPrinting
+      **/
+     export interface IPrinting extends IBaseApplication {
 
      }
 
@@ -3687,16 +3175,270 @@ module Adaptive {
 
      }
      /**
-      *   Interface definition for IXML
+      *   Interface definition for IAppResourceCallback
       **/
-     export interface IXML extends IBaseData {
+     export interface IAppResourceCallback extends IBaseCallback {
 
+          /**
+           * Method Declarations for IAppResourceCallback
+           */
+           onError(resource : IAppResource, error : IAppResourceCallbackErrorEnum)
+           onResult(resource : IAppResource)
+           onWarning(resource : IAppResource, warning : IAppResourceCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IAppResourceCallback Error
+      **/
+     export class IAppResourceCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NotFound = new IAppResourceCallbackErrorEnum("NotFound");
+          static NoPermission = new IAppResourceCallbackErrorEnum("NoPermission");
+          static Unknown = new IAppResourceCallbackErrorEnum("Unknown");
      }
 
      /**
-      *   Interface definition for IImaging
+      *  Enumerations for IAppResourceCallback Warning
       **/
-     export interface IImaging extends IBaseMedia {
+     export class IAppResourceCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static PartialContent = new IAppResourceCallbackWarningEnum("PartialContent");
+          static TooLarge = new IAppResourceCallbackWarningEnum("TooLarge");
+          static LinkedResource = new IAppResourceCallbackWarningEnum("LinkedResource");
+          static Unknown = new IAppResourceCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *   Interface definition for IFileSystem
+      **/
+     export interface IFileSystem extends IBaseData {
+
+          /**
+           * Method Declarations for IFileSystem
+           */
+           createWithPathString(path : string, name : string, callback : IFileResultCallback)
+           createWithPath(path : IFilePath, name : string, callback : IFileResultCallback)
+           create(name : string, callback : IFileResultCallback)
+           getApplicationCacheFolder() : IFilePath
+           getApplicationDocumentsFolder() : IFilePath
+           getApplicationFolder() : IFilePath
+           getPathForFile(file : IFile) : string
+           getPathForPath(path : IFilePath) : string
+           getSeparator() : string
+           isSameFile(source : IFile, dest : IFile) : boolean
+           isSamePath(source : IFilePath, dest : IFilePath) : boolean
+           toPath(path : IFile) : IFilePath
+     }
+
+     /**
+      *  Service IFileSystem implementation.
+      */
+     export class FileSystemBridge implements IFileSystem {
+
+          constructor() {}
+
+          create(name: string, callback: IFileResultCallback) : void {
+               registeredIFileResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/create?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { name: name } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
+               } else {
+                    registeredIFileResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IFileSystem.create");
+               }
+          }
+          createWithPath(path: IFilePath, name: string, callback: IFileResultCallback) : void {
+               registeredIFileResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/createWithPath?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { path: path, name: name } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
+               } else {
+                    registeredIFileResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IFileSystem.createWithPath");
+               }
+          }
+          createWithPathString(path: string, name: string, callback: IFileResultCallback) : void {
+               registeredIFileResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/createWithPathString?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { path: path, name: name } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIFileResultCallback' on receiving async response handler.
+               } else {
+                    registeredIFileResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IFileSystem.createWithPathString");
+               }
+          }
+          getApplicationCacheFolder() : IFilePath {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getApplicationCacheFolder", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IFileSystem.getApplicationCacheFolder incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getApplicationCacheFolder");
+                    return null;
+               }
+          }
+          getApplicationDocumentsFolder() : IFilePath {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getApplicationDocumentsFolder", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IFileSystem.getApplicationDocumentsFolder incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getApplicationDocumentsFolder");
+                    return null;
+               }
+          }
+          getApplicationFolder() : IFilePath {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getApplicationFolder", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IFileSystem.getApplicationFolder incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getApplicationFolder");
+                    return null;
+               }
+          }
+          getPathForFile(file: IFile) : string {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getPathForFile", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { file: file}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IFileSystem.getPathForFile incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getPathForFile");
+                    return null;
+               }
+          }
+          getPathForPath(path: IFilePath) : string {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getPathForPath", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { path: path}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IFileSystem.getPathForPath incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getPathForPath");
+                    return null;
+               }
+          }
+          getSeparator() : string {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/getSeparator", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IFileSystem.getSeparator incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IFileSystem.getSeparator");
+                    return null;
+               }
+          }
+          isSameFile(source: IFile, dest: IFile) : boolean {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/isSameFile", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { source: source, dest: dest}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IFileSystem.isSameFile incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IFileSystem.isSameFile");
+                    return null;
+               }
+          }
+          isSamePath(source: IFilePath, dest: IFilePath) : boolean {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/isSamePath", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { source: source, dest: dest}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IFileSystem.isSamePath incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IFileSystem.isSamePath");
+                    return null;
+               }
+          }
+          toPath(path: IFile) : IFilePath {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseData/IFileSystem/toPath", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { path: path}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IFileSystem.toPath incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IFileSystem.toPath");
+                    return null;
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for IDataStream
+      **/
+     export interface IDataStream extends IBaseData {
 
      }
 
@@ -3708,38 +3450,764 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for IMessaging
+      *   Interface definition for ISecureKVResultCallback
       **/
-     export interface IMessaging extends IBasePIM {
+     export interface ISecureKVResultCallback extends IBaseCallback {
 
           /**
-           * Method Declarations for IMessaging
+           * Method Declarations for ISecureKVResultCallback
            */
-           sendSMS(number : string, text : string, callback : IMessagingCallback)
+           onError(error : ISecureKVResultCallbackErrorEnum)
+           onResult(keyValues : Array<SecureKeyPair>)
+           onWarning(keyValues : Array<SecureKeyPair>, warning : ISecureKVResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for ISecureKVResultCallback Error
+      **/
+     export class ISecureKVResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new ISecureKVResultCallbackErrorEnum("NoPermission");
+          static NoMatchesFound = new ISecureKVResultCallbackErrorEnum("NoMatchesFound");
+          static Unknown = new ISecureKVResultCallbackErrorEnum("Unknown");
      }
 
      /**
-      *  Service IMessaging implementation.
+      *  Enumerations for ISecureKVResultCallback Warning
+      **/
+     export class ISecureKVResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static EntryOverride = new ISecureKVResultCallbackWarningEnum("EntryOverride");
+          static Unknown = new ISecureKVResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *  Callback ISecureKVResultCallback control dictionary.
       */
-     export class MessagingBridge implements IMessaging {
+     var registeredISecureKVResultCallback = new Dictionary<ISecureKVResultCallback>([]);
+
+     /**
+      *  Callback ISecureKVResultCallback onError/onWarning/onResult handlers.
+      */
+     export function handleISecureKVResultCallbackError(id:number, error: ISecureKVResultCallbackErrorEnum) : void {
+          var callback = registeredISecureKVResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredISecureKVResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredISecureKVResultCallback.remove(""+id)
+          }
+     }
+     export function handleISecureKVResultCallbackResult(id:number, keyValues: Array<SecureKeyPair>) : void {
+          var callback = registeredISecureKVResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredISecureKVResultCallback dictionary.");
+          } else {
+               callback.onResult(keyValues);
+               registeredISecureKVResultCallback.remove(""+id)
+          }
+     }
+     export function handleISecureKVResultCallbackWarning(id:number, keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) : void {
+          var callback = registeredISecureKVResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredISecureKVResultCallback dictionary.");
+          } else {
+               callback.onWarning(keyValues, warning);
+               registeredISecureKVResultCallback.remove(""+id)
+          }
+     }
+     /**
+      *  Callback ISecureKVResultCallback implementation.
+      */
+     export class SecureKVResultCallback implements ISecureKVResultCallback {
+          description: string;
+          id: number;
+          onErrorFunction : (error: ISecureKVResultCallbackErrorEnum) => Function;
+          onResultFunction : (keyValues: Array<SecureKeyPair>) => Function;
+          onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: ISecureKVResultCallbackErrorEnum) => Function, onResultFunction : (keyValues: Array<SecureKeyPair>) => Function, onWarningFunction : (keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: SecureKVResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: SecureKVResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: SecureKVResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "SecureKVResultCallback{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: ISecureKVResultCallbackErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The SecureKVResultCallback does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(keyValues: Array<SecureKeyPair>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The SecureKVResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(keyValues);
+               }
+          }
+          onWarning(keyValues: Array<SecureKeyPair>, warning: ISecureKVResultCallbackWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The SecureKVResultCallback does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(keyValues, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for IImaging
+      **/
+     export interface IImaging extends IBaseMedia {
+
+     }
+
+     /**
+      *   Interface definition for INetworkReachabilityCallback
+      **/
+     export interface INetworkReachabilityCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for INetworkReachabilityCallback
+           */
+           onError(error : INetworkReachabilityCallbackErrorEnum)
+           onResult(result : string)
+           onWarning(result : string, warning : INetworkReachabilityCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for INetworkReachabilityCallback Error
+      **/
+     export class INetworkReachabilityCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Forbidden = new INetworkReachabilityCallbackErrorEnum("Forbidden");
+          static NotFound = new INetworkReachabilityCallbackErrorEnum("NotFound");
+          static MethodNotAllowed = new INetworkReachabilityCallbackErrorEnum("MethodNotAllowed");
+          static NotAllowed = new INetworkReachabilityCallbackErrorEnum("NotAllowed");
+          static NotAuthenticated = new INetworkReachabilityCallbackErrorEnum("NotAuthenticated");
+          static TimeOut = new INetworkReachabilityCallbackErrorEnum("TimeOut");
+          static NoResponse = new INetworkReachabilityCallbackErrorEnum("NoResponse");
+          static Unreachable = new INetworkReachabilityCallbackErrorEnum("Unreachable");
+          static Wrong_Params = new INetworkReachabilityCallbackErrorEnum("Wrong_Params");
+          static MalformedUrl = new INetworkReachabilityCallbackErrorEnum("MalformedUrl");
+          static DomainUnresolvable = new INetworkReachabilityCallbackErrorEnum("DomainUnresolvable");
+          static Unknown = new INetworkReachabilityCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for INetworkReachabilityCallback Warning
+      **/
+     export class INetworkReachabilityCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static IncorrectScheme = new INetworkReachabilityCallbackWarningEnum("IncorrectScheme");
+          static NotSecure = new INetworkReachabilityCallbackWarningEnum("NotSecure");
+          static NotTrusted = new INetworkReachabilityCallbackWarningEnum("NotTrusted");
+          static Redirected = new INetworkReachabilityCallbackWarningEnum("Redirected");
+          static NotRegisteredService = new INetworkReachabilityCallbackWarningEnum("NotRegisteredService");
+          static Unknown = new INetworkReachabilityCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *  Callback INetworkReachabilityCallback control dictionary.
+      */
+     var registeredINetworkReachabilityCallback = new Dictionary<INetworkReachabilityCallback>([]);
+
+     /**
+      *  Callback INetworkReachabilityCallback onError/onWarning/onResult handlers.
+      */
+     export function handleINetworkReachabilityCallbackError(id:number, error: INetworkReachabilityCallbackErrorEnum) : void {
+          var callback = registeredINetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredINetworkReachabilityCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredINetworkReachabilityCallback.remove(""+id)
+          }
+     }
+     export function handleINetworkReachabilityCallbackResult(id:number, result: string) : void {
+          var callback = registeredINetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredINetworkReachabilityCallback dictionary.");
+          } else {
+               callback.onResult(result);
+               registeredINetworkReachabilityCallback.remove(""+id)
+          }
+     }
+     export function handleINetworkReachabilityCallbackWarning(id:number, result: string, warning: INetworkReachabilityCallbackWarningEnum) : void {
+          var callback = registeredINetworkReachabilityCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredINetworkReachabilityCallback dictionary.");
+          } else {
+               callback.onWarning(result, warning);
+               registeredINetworkReachabilityCallback.remove(""+id)
+          }
+     }
+     /**
+      *  Callback INetworkReachabilityCallback implementation.
+      */
+     export class NetworkReachabilityCallback implements INetworkReachabilityCallback {
+          description: string;
+          id: number;
+          onErrorFunction : (error: INetworkReachabilityCallbackErrorEnum) => Function;
+          onResultFunction : (result: string) => Function;
+          onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: INetworkReachabilityCallbackErrorEnum) => Function, onResultFunction : (result: string) => Function, onWarningFunction : (result: string, warning: INetworkReachabilityCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: NetworkReachabilityCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "NetworkReachabilityCallback{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: INetworkReachabilityCallbackErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The NetworkReachabilityCallback does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(result: string) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The NetworkReachabilityCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(result);
+               }
+          }
+          onWarning(result: string, warning: INetworkReachabilityCallbackWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The NetworkReachabilityCallback does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(result, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for IFileDataResultCallback
+      **/
+     export interface IFileDataResultCallback extends IBaseCallback {
+
+          /**
+           * Method Declarations for IFileDataResultCallback
+           */
+           onError(error : IFileDataResultCallbackErrorEnum)
+           onResult(file : IFile, data : Array<number>)
+           onWarning(file : IFile, warning : IFileDataResultCallbackWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IFileDataResultCallback Error
+      **/
+     export class IFileDataResultCallbackErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static InexistentFile = new IFileDataResultCallbackErrorEnum("InexistentFile");
+          static InsufficientSpace = new IFileDataResultCallbackErrorEnum("InsufficientSpace");
+          static Unauthorized = new IFileDataResultCallbackErrorEnum("Unauthorized");
+          static Unknown = new IFileDataResultCallbackErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IFileDataResultCallback Warning
+      **/
+     export class IFileDataResultCallbackWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static ExceedMaximumSize = new IFileDataResultCallbackWarningEnum("ExceedMaximumSize");
+          static Unknown = new IFileDataResultCallbackWarningEnum("Unknown");
+     }
+
+     /**
+      *  Callback IFileDataResultCallback control dictionary.
+      */
+     var registeredIFileDataResultCallback = new Dictionary<IFileDataResultCallback>([]);
+
+     /**
+      *  Callback IFileDataResultCallback onError/onWarning/onResult handlers.
+      */
+     export function handleIFileDataResultCallbackError(id:number, error: IFileDataResultCallbackErrorEnum) : void {
+          var callback = registeredIFileDataResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileDataResultCallback dictionary.");
+          } else {
+               callback.onError(error);
+               registeredIFileDataResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileDataResultCallbackResult(id:number, file: IFile, data: Array<number>) : void {
+          var callback = registeredIFileDataResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileDataResultCallback dictionary.");
+          } else {
+               callback.onResult(file, data);
+               registeredIFileDataResultCallback.remove(""+id)
+          }
+     }
+     export function handleIFileDataResultCallbackWarning(id:number, file: IFile, warning: IFileDataResultCallbackWarningEnum) : void {
+          var callback = registeredIFileDataResultCallback[""+id];
+          if (typeof callback === 'undefined' || callback == null) {
+               console.error("ERROR: No callback with id "+id+" registered in registeredIFileDataResultCallback dictionary.");
+          } else {
+               callback.onWarning(file, warning);
+               registeredIFileDataResultCallback.remove(""+id)
+          }
+     }
+     /**
+      *  Callback IFileDataResultCallback implementation.
+      */
+     export class FileDataResultCallback implements IFileDataResultCallback {
+          description: string;
+          id: number;
+          onErrorFunction : (error: IFileDataResultCallbackErrorEnum) => Function;
+          onResultFunction : (file: IFile, data: Array<number>) => Function;
+          onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: IFileDataResultCallbackErrorEnum) => Function, onResultFunction : (file: IFile, data: Array<number>) => Function, onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: FileDataResultCallback onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: FileDataResultCallback onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: FileDataResultCallback onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "FileDataResultCallback{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: IFileDataResultCallbackErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The FileDataResultCallback does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(file: IFile, data: Array<number>) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The FileDataResultCallback does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(file, data);
+               }
+          }
+          onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The FileDataResultCallback does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(file, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for IAmbientLight
+      **/
+     export interface IAmbientLight extends IBaseSensor {
+
+     }
+
+     /**
+      *   Interface definition for IAccelerationListener
+      **/
+     export interface IAccelerationListener extends IBaseListener {
+
+          /**
+           * Method Declarations for IAccelerationListener
+           */
+           onError(error : IAccelerationListenerErrorEnum)
+           onResult(acceleration : Acceleration)
+           onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IAccelerationListener Error
+      **/
+     export class IAccelerationListenerErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Unauthorized = new IAccelerationListenerErrorEnum("Unauthorized");
+          static Unavailable = new IAccelerationListenerErrorEnum("Unavailable");
+          static Unknown = new IAccelerationListenerErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IAccelerationListener Warning
+      **/
+     export class IAccelerationListenerWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NeedsCalibration = new IAccelerationListenerWarningEnum("NeedsCalibration");
+          static Stale = new IAccelerationListenerWarningEnum("Stale");
+          static Unknown = new IAccelerationListenerWarningEnum("Unknown");
+     }
+
+     /**
+      *  Listener IAccelerationListener control dictionary.
+      */
+     var registeredIAccelerationListener = new Dictionary<IAccelerationListener>([]);
+
+     /**
+      *  Listener IAccelerationListener onError/onWarning/onResult handlers.
+      */
+     export function handleIAccelerationListenerError(id:number, error: IAccelerationListenerErrorEnum) : void {
+          var listener = registeredIAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIAccelerationListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleIAccelerationListenerResult(id:number, acceleration: Acceleration) : void {
+          var listener = registeredIAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIAccelerationListener dictionary.");
+          } else {
+               listener.onResult(acceleration);
+          }
+     }
+     export function handleIAccelerationListenerWarning(id:number, acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) : void {
+          var listener = registeredIAccelerationListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIAccelerationListener dictionary.");
+          } else {
+               listener.onWarning(acceleration, warning);
+          }
+     }
+     /**
+      *  Listener IAccelerationListener implementation.
+      */
+     export class AccelerationListener implements IAccelerationListener {
+          description: string;
+          id: number;
+          onErrorFunction : (error: IAccelerationListenerErrorEnum) => Function;
+          onResultFunction : (acceleration: Acceleration) => Function;
+          onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: IAccelerationListenerErrorEnum) => Function, onResultFunction : (acceleration: Acceleration) => Function, onWarningFunction : (acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: AccelerationListener onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: AccelerationListener onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: AccelerationListener onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "AccelerationListener{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: IAccelerationListenerErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The AccelerationListener does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(acceleration: Acceleration) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The AccelerationListener does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(acceleration);
+               }
+          }
+          onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The AccelerationListener does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(acceleration, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for IProximity
+      **/
+     export interface IProximity extends IBaseSensor {
+
+     }
+
+     /**
+      *   Interface definition for IGyroscope
+      **/
+     export interface IGyroscope extends IBaseSensor {
+
+     }
+
+     /**
+      *   Interface definition for INetworkReachability
+      **/
+     export interface INetworkReachability extends IBaseCommunication {
+
+          /**
+           * Method Declarations for INetworkReachability
+           */
+           isNetworkReachable(host : string, callback : INetworkReachabilityCallback)
+           isNetworkServiceReachable(url : string, callback : INetworkReachabilityCallback)
+     }
+
+     /**
+      *  Service INetworkReachability implementation.
+      */
+     export class NetworkReachabilityBridge implements INetworkReachability {
 
           constructor() {}
 
-          sendSMS(number: string, text: string, callback: IMessagingCallback) : void {
-               registeredIMessagingCallback.add(""+callback.getId(),callback);
+          isNetworkReachable(host: string, callback: INetworkReachabilityCallback) : void {
+               registeredINetworkReachabilityCallback.add(""+callback.getId(),callback);
                var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IMessaging/sendSMS?id="+callback.getId(), false);
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkReachable?id="+callback.getId(), false);
                xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { number: number, text: text } }));
+               xhr.send(JSON.stringify({ request: { host: host } }));
                if (xhr.status == 200) {
-                    // Callback removed from 'registeredIMessagingCallback' on receiving async response handler.
+                    // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response handler.
                } else {
-                    registeredIMessagingCallback.remove(""+callback.getId());
-                    console.error("ERROR: "+xhr.status+" IMessaging.sendSMS");
+                    registeredINetworkReachabilityCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" INetworkReachability.isNetworkReachable");
+               }
+          }
+          isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback) : void {
+               registeredINetworkReachabilityCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkServiceReachable?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { url: url } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredINetworkReachabilityCallback' on receiving async response handler.
+               } else {
+                    registeredINetworkReachabilityCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" INetworkReachability.isNetworkServiceReachable");
                }
           }
 
      }
+     /**
+      *   Interface definition for ILifecycleListener
+      **/
+     export interface ILifecycleListener extends IBaseListener {
+
+          /**
+           * Method Declarations for ILifecycleListener
+           */
+           onError(error : ILifecycleListenerErrorEnum)
+           onResult(lifecycle : Lifecycle)
+           onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarningEnum)
+
+     }
+     /**
+      *  Enumerations for ILifecycleListener Error
+      **/
+     export class ILifecycleListenerErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Runtime = new ILifecycleListenerErrorEnum("Runtime");
+          static Implementation = new ILifecycleListenerErrorEnum("Implementation");
+          static Killed = new ILifecycleListenerErrorEnum("Killed");
+          static Unknown = new ILifecycleListenerErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for ILifecycleListener Warning
+      **/
+     export class ILifecycleListenerWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static MemoryLow = new ILifecycleListenerWarningEnum("MemoryLow");
+          static BatteryLow = new ILifecycleListenerWarningEnum("BatteryLow");
+          static Unknown = new ILifecycleListenerWarningEnum("Unknown");
+     }
+
+     /**
+      *  Listener ILifecycleListener control dictionary.
+      */
+     var registeredILifecycleListener = new Dictionary<ILifecycleListener>([]);
+
+     /**
+      *  Listener ILifecycleListener onError/onWarning/onResult handlers.
+      */
+     export function handleILifecycleListenerError(id:number, error: ILifecycleListenerErrorEnum) : void {
+          var listener = registeredILifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredILifecycleListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleILifecycleListenerResult(id:number, lifecycle: Lifecycle) : void {
+          var listener = registeredILifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredILifecycleListener dictionary.");
+          } else {
+               listener.onResult(lifecycle);
+          }
+     }
+     export function handleILifecycleListenerWarning(id:number, lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) : void {
+          var listener = registeredILifecycleListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredILifecycleListener dictionary.");
+          } else {
+               listener.onWarning(lifecycle, warning);
+          }
+     }
+     /**
+      *  Listener ILifecycleListener implementation.
+      */
+     export class LifecycleListener implements ILifecycleListener {
+          description: string;
+          id: number;
+          onErrorFunction : (error: ILifecycleListenerErrorEnum) => Function;
+          onResultFunction : (lifecycle: Lifecycle) => Function;
+          onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: ILifecycleListenerErrorEnum) => Function, onResultFunction : (lifecycle: Lifecycle) => Function, onWarningFunction : (lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: LifecycleListener onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: LifecycleListener onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: LifecycleListener onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "LifecycleListener{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: ILifecycleListenerErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The LifecycleListener does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(lifecycle: Lifecycle) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The LifecycleListener does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(lifecycle);
+               }
+          }
+          onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The LifecycleListener does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(lifecycle, warning);
+               }
+          }
+     }
+     /**
+      *   Interface definition for INFC
+      **/
+     export interface INFC extends IBaseReader {
+
+     }
+
+     /**
+      *   Interface definition for IUpdate
+      **/
+     export interface IUpdate extends IBaseApplication {
+
+     }
+
+     /**
+      *   Interface definition for IAudio
+      **/
+     export interface IAudio extends IBaseMedia {
+
+     }
+
+     /**
+      *   Interface definition for IXML
+      **/
+     export interface IXML extends IBaseData {
+
+     }
+
      /**
       *   Interface definition for IFilePath
       **/
@@ -4156,6 +4624,372 @@ module Adaptive {
 
      }
      /**
+      *   Interface definition for IBarcode
+      **/
+     export interface IBarcode extends IBaseReader {
+
+     }
+
+     /**
+      *   Interface definition for IService
+      **/
+     export interface IService extends IBaseCommunication {
+
+          /**
+           * Method Declarations for IService
+           */
+           getService(serviceName : string) : Service
+           invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback)
+           isRegistered(serviceName : string) : boolean
+           isRegistered(service : Service) : boolean
+           registerService(service : Service)
+           unregisterServices()
+           unregisterService(service : Service)
+     }
+
+     /**
+      *   Interface definition for IBarometer
+      **/
+     export interface IBarometer extends IBaseSensor {
+
+     }
+
+     /**
+      *   Interface definition for IAlarm
+      **/
+     export interface IAlarm extends IBaseNotification {
+
+     }
+
+     /**
+      *   Interface definition for IOS
+      **/
+     export interface IOS extends IBaseSystem {
+
+          /**
+           * Method Declarations for IOS
+           */
+           getOSInfo() : OSInfo
+     }
+
+     /**
+      *  Service IOS implementation.
+      */
+     export class OSBridge implements IOS {
+
+          constructor() {}
+
+          getOSInfo() : OSInfo {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSystem/IOS/getOSInfo", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { }}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IOS.getOSInfo incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IOS.getOSInfo");
+                    return null;
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for IContact
+      **/
+     export interface IContact extends IBasePIM {
+
+          /**
+           * Method Declarations for IContact
+           */
+           getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback)
+           getContact(contact : ContactUid, callback : IContactResultCallback)
+           getContactsForFields(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>)
+           getContactsWithFilter(callback : IContactResultCallback, fields : Array<IContactFieldGroupEnum>, filter : Array<IContactFilterEnum>)
+           getContacts(callback : IContactResultCallback)
+           searchContactsWithFilter(term : string, callback : IContactResultCallback, filter : Array<IContactFilterEnum>)
+           searchContacts(term : string, callback : IContactResultCallback)
+           setContactPhoto(contact : ContactUid, pngImage : Array<number>) : boolean
+
+     }
+     /**
+      *  Enumerations for IContact FieldGroup
+      **/
+     export class IContactFieldGroupEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static PERSONAL_INFO = new IContactFieldGroupEnum("PERSONAL_INFO");
+          static PROFESSIONAL_INFO = new IContactFieldGroupEnum("PROFESSIONAL_INFO");
+          static ADDRESSES = new IContactFieldGroupEnum("ADDRESSES");
+          static PHONES = new IContactFieldGroupEnum("PHONES");
+          static EMAILS = new IContactFieldGroupEnum("EMAILS");
+          static WEBSITES = new IContactFieldGroupEnum("WEBSITES");
+          static SOCIALS = new IContactFieldGroupEnum("SOCIALS");
+          static TAGS = new IContactFieldGroupEnum("TAGS");
+          static Unknown = new IContactFieldGroupEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IContact Filter
+      **/
+     export class IContactFilterEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HAS_PHONE = new IContactFilterEnum("HAS_PHONE");
+          static HAS_EMAIL = new IContactFilterEnum("HAS_EMAIL");
+          static HAS_ADDRESS = new IContactFilterEnum("HAS_ADDRESS");
+          static Unknown = new IContactFilterEnum("Unknown");
+     }
+
+     /**
+      *  Service IContact implementation.
+      */
+     export class ContactBridge implements IContact {
+
+          constructor() {}
+
+          getContact(contact: ContactUid, callback: IContactResultCallback) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContact?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { contact: contact } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IContact.getContact");
+               }
+          }
+          getContactPhoto(contact: ContactUid, callback: IContactPhotoResultCallback) : void {
+               registeredIContactPhotoResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactPhoto?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { contact: contact } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactPhotoResultCallback' on receiving async response handler.
+               } else {
+                    registeredIContactPhotoResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IContact.getContactPhoto");
+               }
+          }
+          getContacts(callback: IContactResultCallback) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContacts?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: {  } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IContact.getContacts");
+               }
+          }
+          getContactsForFields(callback: IContactResultCallback, fields: Array<IContactFieldGroupEnum>) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactsForFields?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { callback: callback } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IContact.getContactsForFields");
+               }
+          }
+          getContactsWithFilter(callback: IContactResultCallback, fields: Array<IContactFieldGroupEnum>, filter: Array<IContactFilterEnum>) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/getContactsWithFilter?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { callback: callback, fields: fields } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IContact.getContactsWithFilter");
+               }
+          }
+          searchContacts(term: string, callback: IContactResultCallback) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/searchContacts?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { term: term } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IContact.searchContacts");
+               }
+          }
+          searchContactsWithFilter(term: string, callback: IContactResultCallback, filter: Array<IContactFilterEnum>) : void {
+               registeredIContactResultCallback.add(""+callback.getId(),callback);
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/searchContactsWithFilter?id="+callback.getId(), false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { term: term, callback: callback } }));
+               if (xhr.status == 200) {
+                    // Callback removed from 'registeredIContactResultCallback' on receiving async response handler.
+               } else {
+                    registeredIContactResultCallback.remove(""+callback.getId());
+                    console.error("ERROR: "+xhr.status+" IContact.searchContactsWithFilter");
+               }
+          }
+          setContactPhoto(contact: ContactUid, pngImage: Array<number>) : boolean {
+               var xhr = new XMLHttpRequest();
+               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBasePIM/IContact/setContactPhoto", false);
+               xhr.setRequestHeader("Content-type", "application/json");
+               xhr.send(JSON.stringify({ request: { contact: contact, pngImage: pngImage}}));
+               if (xhr.status == 200) {
+                    if (xhr.responseText != null && xhr.responseText != '') {
+                         return JSON.parse(xhr.responseText);
+                    } else {
+                         console.error("ERROR: IContact.setContactPhoto incorrect response received.");
+                         return null;
+                    }
+               } else {
+                    console.error("ERROR: "+xhr.status+" IContact.setContactPhoto");
+                    return null;
+               }
+          }
+
+     }
+     /**
+      *   Interface definition for IButtonListener
+      **/
+     export interface IButtonListener extends IBaseListener {
+
+          /**
+           * Method Declarations for IButtonListener
+           */
+           onError(error : IButtonListenerErrorEnum)
+           onResult(button : Button)
+           onWarning(button : Button, warning : IButtonListenerWarningEnum)
+
+     }
+     /**
+      *  Enumerations for IButtonListener Error
+      **/
+     export class IButtonListenerErrorEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Not_Present = new IButtonListenerErrorEnum("Not_Present");
+          static Unknown = new IButtonListenerErrorEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for IButtonListener Warning
+      **/
+     export class IButtonListenerWarningEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Not_Implemented = new IButtonListenerWarningEnum("Not_Implemented");
+          static Unknown = new IButtonListenerWarningEnum("Unknown");
+     }
+
+     /**
+      *  Listener IButtonListener control dictionary.
+      */
+     var registeredIButtonListener = new Dictionary<IButtonListener>([]);
+
+     /**
+      *  Listener IButtonListener onError/onWarning/onResult handlers.
+      */
+     export function handleIButtonListenerError(id:number, error: IButtonListenerErrorEnum) : void {
+          var listener = registeredIButtonListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIButtonListener dictionary.");
+          } else {
+               listener.onError(error);
+          }
+     }
+     export function handleIButtonListenerResult(id:number, button: Button) : void {
+          var listener = registeredIButtonListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIButtonListener dictionary.");
+          } else {
+               listener.onResult(button);
+          }
+     }
+     export function handleIButtonListenerWarning(id:number, button: Button, warning: IButtonListenerWarningEnum) : void {
+          var listener = registeredIButtonListener[""+id];
+          if (typeof listener === 'undefined' || listener == null) {
+               console.error("ERROR: No listener with id "+id+" registered in registeredIButtonListener dictionary.");
+          } else {
+               listener.onWarning(button, warning);
+          }
+     }
+     /**
+      *  Listener IButtonListener implementation.
+      */
+     export class ButtonListener implements IButtonListener {
+          description: string;
+          id: number;
+          onErrorFunction : (error: IButtonListenerErrorEnum) => Function;
+          onResultFunction : (button: Button) => Function;
+          onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function;
+
+          constructor(onErrorFunction : (error: IButtonListenerErrorEnum) => Function, onResultFunction : (button: Button) => Function, onWarningFunction : (button: Button, warning: IButtonListenerWarningEnum) => Function) {
+               this.id = ++registeredCounter;
+               if (this.onErrorFunction == null) {
+                    console.error("ERROR: ButtonListener onErrorFunction is not defined.");
+               } else {
+                    this.onErrorFunction = onErrorFunction;
+               }
+               if (this.onResultFunction == null) {
+                    console.error("ERROR: ButtonListener onResultFunction is not defined.");
+               } else {
+                    this.onResultFunction = onResultFunction;
+               }
+               if (this.onWarningFunction == null) {
+                    console.error("ERROR: ButtonListener onWarningFunction is not defined.");
+               } else {
+                    this.onWarningFunction = onWarningFunction;
+               }
+          }
+
+          toString() : string {
+               return "ButtonListener{"+this.id+"}";
+          }
+          getId() : number {
+               return this.id
+          }
+
+          onError(error: IButtonListenerErrorEnum) : void {
+               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                    console.warn("WARNING: The ButtonListener does not define the onErrorFunction.");
+               } else {
+                    this.onErrorFunction(error);
+               }
+          }
+          onResult(button: Button) : void {
+               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                    console.warn("WARNING: The ButtonListener does not define the onResultFunction.");
+               } else {
+                    this.onResultFunction(button);
+               }
+          }
+          onWarning(button: Button, warning: IButtonListenerWarningEnum) : void {
+               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                    console.warn("WARNING: The ButtonListener does not define the onWarningFunction.");
+               } else {
+                    this.onWarningFunction(button, warning);
+               }
+          }
+     }
+     /**
       *   Interface definition for IDesktop
       **/
      export interface IDesktop extends IBaseUI {
@@ -4163,9 +4997,30 @@ module Adaptive {
      }
 
      /**
-      *   Interface definition for ISettings
+      *   Interface definition for INotificationLocal
       **/
-     export interface ISettings extends IBaseApplication {
+     export interface INotificationLocal extends IBaseNotification {
+
+     }
+
+     /**
+      *   Interface definition for INetworkStatus
+      **/
+     export interface INetworkStatus extends IBaseCommunication {
+
+     }
+
+     /**
+      *   Interface definition for IUI
+      **/
+     export interface IUI extends IBaseUI {
+
+     }
+
+     /**
+      *   Interface definition for INotification
+      **/
+     export interface INotification extends IBaseNotification {
 
      }
 
@@ -4304,682 +5159,10 @@ module Adaptive {
           }
      }
      /**
-      *   Interface definition for IGyroscope
+      *   Interface definition for ISettings
       **/
-     export interface IGyroscope extends IBaseSensor {
+     export interface ISettings extends IBaseApplication {
 
-     }
-
-     /**
-      *   Interface definition for ICamera
-      **/
-     export interface ICamera extends IBaseMedia {
-
-     }
-
-     /**
-      *   Interface definition for IMagnetometer
-      **/
-     export interface IMagnetometer extends IBaseSensor {
-
-     }
-
-     /**
-      *   Interface definition for IDisplay
-      **/
-     export interface IDisplay extends IBaseSystem {
-
-     }
-
-     /**
-      *   Interface definition for IFileListResultCallback
-      **/
-     export interface IFileListResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IFileListResultCallback
-           */
-           onError(error : IFileListResultCallbackErrorEnum)
-           onResult(files : Array<IFile>)
-           onWarning(files : Array<IFile>, warning : IFileListResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IFileListResultCallback Error
-      **/
-     export class IFileListResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static InexistentFile = new IFileListResultCallbackErrorEnum("InexistentFile");
-          static Unauthorized = new IFileListResultCallbackErrorEnum("Unauthorized");
-          static Unknown = new IFileListResultCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IFileListResultCallback Warning
-      **/
-     export class IFileListResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static PartialResult = new IFileListResultCallbackWarningEnum("PartialResult");
-          static Unknown = new IFileListResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *  Callback IFileListResultCallback control dictionary.
-      */
-     var registeredIFileListResultCallback = new Dictionary<IFileListResultCallback>([]);
-
-     /**
-      *  Callback IFileListResultCallback onError/onWarning/onResult handlers.
-      */
-     export function handleIFileListResultCallbackError(id:number, error: IFileListResultCallbackErrorEnum) : void {
-          var callback = registeredIFileListResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIFileListResultCallback dictionary.");
-          } else {
-               callback.onError(error);
-               registeredIFileListResultCallback.remove(""+id)
-          }
-     }
-     export function handleIFileListResultCallbackResult(id:number, files: Array<IFile>) : void {
-          var callback = registeredIFileListResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIFileListResultCallback dictionary.");
-          } else {
-               callback.onResult(files);
-               registeredIFileListResultCallback.remove(""+id)
-          }
-     }
-     export function handleIFileListResultCallbackWarning(id:number, files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) : void {
-          var callback = registeredIFileListResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIFileListResultCallback dictionary.");
-          } else {
-               callback.onWarning(files, warning);
-               registeredIFileListResultCallback.remove(""+id)
-          }
-     }
-     /**
-      *  Callback IFileListResultCallback implementation.
-      */
-     export class FileListResultCallback implements IFileListResultCallback {
-          description: string;
-          id: number;
-          onErrorFunction : (error: IFileListResultCallbackErrorEnum) => Function;
-          onResultFunction : (files: Array<IFile>) => Function;
-          onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: IFileListResultCallbackErrorEnum) => Function, onResultFunction : (files: Array<IFile>) => Function, onWarningFunction : (files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: FileListResultCallback onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: FileListResultCallback onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: FileListResultCallback onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "FileListResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: IFileListResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The FileListResultCallback does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(files: Array<IFile>) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The FileListResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(files);
-               }
-          }
-          onWarning(files: Array<IFile>, warning: IFileListResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The FileListResultCallback does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(files, warning);
-               }
-          }
-     }
-     /**
-      *   Interface definition for ICalendar
-      **/
-     export interface ICalendar extends IBasePIM {
-
-     }
-
-     /**
-      *   Interface definition for IMap
-      **/
-     export interface IMap extends IBaseUI {
-
-     }
-
-     /**
-      *   Interface definition for IAccelerometer
-      **/
-     export interface IAccelerometer extends IBaseSensor {
-
-          /**
-           * Method Declarations for IAccelerometer
-           */
-           addAccelerationListener(listener : IAccelerationListener)
-           removeAccelerationListener(listener : IAccelerationListener)
-           removeAccelerationListeners()
-     }
-
-     /**
-      *  Service IAccelerometer implementation.
-      */
-     export class AccelerometerBridge implements IAccelerometer {
-
-          constructor() {}
-
-          addAccelerationListener(listener: IAccelerationListener) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/addAccelerationListener?id="+listener.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // Listeners only require id included in URL param.
-               if (xhr.status == 200) {
-                    registeredIAccelerationListener.add(""+listener.getId(),listener);
-               } else {
-                    console.error("ERROR: "+xhr.status+" IAccelerometer.addAccelerationListener");
-               }
-          }
-          removeAccelerationListener(listener: IAccelerationListener) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListener?id="+listener.getId(), false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // Listeners only require id included in URL param.
-               if (xhr.status == 200) {
-                    registeredIAccelerationListener.remove(""+listener.getId());
-               } else {
-                    console.error("ERROR: "+xhr.status+" IAccelerometer.removeAccelerationListener");
-               }
-          }
-          removeAccelerationListeners() : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListeners", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(); // No parameters.
-               if (xhr.status == 200) {
-                    var keys = registeredIAccelerationListener.keys();
-                    for (var key in keys) {
-                         registeredIAccelerationListener.remove(key);
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IAccelerometer.removeAccelerationListeners");
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for IAlarm
-      **/
-     export interface IAlarm extends IBaseNotification {
-
-     }
-
-     /**
-      *   Interface definition for IOpenId
-      **/
-     export interface IOpenId extends IBaseSecurity {
-
-     }
-
-     /**
-      *   Interface definition for IAppResourceCallback
-      **/
-     export interface IAppResourceCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IAppResourceCallback
-           */
-           onError(resource : IAppResource, error : IAppResourceCallbackErrorEnum)
-           onResult(resource : IAppResource)
-           onWarning(resource : IAppResource, warning : IAppResourceCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IAppResourceCallback Error
-      **/
-     export class IAppResourceCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NotFound = new IAppResourceCallbackErrorEnum("NotFound");
-          static NoPermission = new IAppResourceCallbackErrorEnum("NoPermission");
-          static Unknown = new IAppResourceCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IAppResourceCallback Warning
-      **/
-     export class IAppResourceCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static PartialContent = new IAppResourceCallbackWarningEnum("PartialContent");
-          static TooLarge = new IAppResourceCallbackWarningEnum("TooLarge");
-          static LinkedResource = new IAppResourceCallbackWarningEnum("LinkedResource");
-          static Unknown = new IAppResourceCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *   Interface definition for IGlobalization
-      **/
-     export interface IGlobalization extends IBaseApplication {
-
-          /**
-           * Method Declarations for IGlobalization
-           */
-           getLocaleSupportedDescriptors() : Array<Locale>
-           getResourceLiteral(key : string, locale : Locale) : string
-           getResourceLiterals(locale : Locale) : Dictionary<string>
-     }
-
-     /**
-      *  Service IGlobalization implementation.
-      */
-     export class GlobalizationBridge implements IGlobalization {
-
-          constructor() {}
-
-          getLocaleSupportedDescriptors() : Array<Locale> {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/IGlobalization/getLocaleSupportedDescriptors", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { }}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IGlobalization.getLocaleSupportedDescriptors incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IGlobalization.getLocaleSupportedDescriptors");
-                    return null;
-               }
-          }
-          getResourceLiteral(key: string, locale: Locale) : string {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiteral", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { key: key, locale: locale}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IGlobalization.getResourceLiteral incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IGlobalization.getResourceLiteral");
-                    return null;
-               }
-          }
-          getResourceLiterals(locale: Locale) : Dictionary<string> {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiterals", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { locale: locale}}));
-               if (xhr.status == 200) {
-                    if (xhr.responseText != null && xhr.responseText != '') {
-                         return JSON.parse(xhr.responseText);
-                    } else {
-                         console.error("ERROR: IGlobalization.getResourceLiterals incorrect response received.");
-                         return null;
-                    }
-               } else {
-                    console.error("ERROR: "+xhr.status+" IGlobalization.getResourceLiterals");
-                    return null;
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for IServiceResultCallback
-      **/
-     export interface IServiceResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IServiceResultCallback
-           */
-           onError(error : IServiceResultCallbackErrorEnum)
-           onResult(response : ServiceResponse)
-           onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IServiceResultCallback Error
-      **/
-     export class IServiceResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Forbidden = new IServiceResultCallbackErrorEnum("Forbidden");
-          static NotFound = new IServiceResultCallbackErrorEnum("NotFound");
-          static MethodNotAllowed = new IServiceResultCallbackErrorEnum("MethodNotAllowed");
-          static NotAllowed = new IServiceResultCallbackErrorEnum("NotAllowed");
-          static NotAuthenticated = new IServiceResultCallbackErrorEnum("NotAuthenticated");
-          static TimeOut = new IServiceResultCallbackErrorEnum("TimeOut");
-          static NoResponse = new IServiceResultCallbackErrorEnum("NoResponse");
-          static ServerError = new IServiceResultCallbackErrorEnum("ServerError");
-          static Unreachable = new IServiceResultCallbackErrorEnum("Unreachable");
-          static MalformedUrl = new IServiceResultCallbackErrorEnum("MalformedUrl");
-          static NotRegisteredService = new IServiceResultCallbackErrorEnum("NotRegisteredService");
-          static Unknown = new IServiceResultCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IServiceResultCallback Warning
-      **/
-     export class IServiceResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NotSecure = new IServiceResultCallbackWarningEnum("NotSecure");
-          static NotTrusted = new IServiceResultCallbackWarningEnum("NotTrusted");
-          static Redirected = new IServiceResultCallbackWarningEnum("Redirected");
-          static Wrong_Params = new IServiceResultCallbackWarningEnum("Wrong_Params");
-          static Unknown = new IServiceResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *  Callback IServiceResultCallback control dictionary.
-      */
-     var registeredIServiceResultCallback = new Dictionary<IServiceResultCallback>([]);
-
-     /**
-      *  Callback IServiceResultCallback onError/onWarning/onResult handlers.
-      */
-     export function handleIServiceResultCallbackError(id:number, error: IServiceResultCallbackErrorEnum) : void {
-          var callback = registeredIServiceResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIServiceResultCallback dictionary.");
-          } else {
-               callback.onError(error);
-               registeredIServiceResultCallback.remove(""+id)
-          }
-     }
-     export function handleIServiceResultCallbackResult(id:number, response: ServiceResponse) : void {
-          var callback = registeredIServiceResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIServiceResultCallback dictionary.");
-          } else {
-               callback.onResult(response);
-               registeredIServiceResultCallback.remove(""+id)
-          }
-     }
-     export function handleIServiceResultCallbackWarning(id:number, response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) : void {
-          var callback = registeredIServiceResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIServiceResultCallback dictionary.");
-          } else {
-               callback.onWarning(response, warning);
-               registeredIServiceResultCallback.remove(""+id)
-          }
-     }
-     /**
-      *  Callback IServiceResultCallback implementation.
-      */
-     export class ServiceResultCallback implements IServiceResultCallback {
-          description: string;
-          id: number;
-          onErrorFunction : (error: IServiceResultCallbackErrorEnum) => Function;
-          onResultFunction : (response: ServiceResponse) => Function;
-          onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: IServiceResultCallbackErrorEnum) => Function, onResultFunction : (response: ServiceResponse) => Function, onWarningFunction : (response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: ServiceResultCallback onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: ServiceResultCallback onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: ServiceResultCallback onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "ServiceResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: IServiceResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The ServiceResultCallback does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(response: ServiceResponse) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The ServiceResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(response);
-               }
-          }
-          onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The ServiceResultCallback does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(response, warning);
-               }
-          }
-     }
-     /**
-      *   Interface definition for IFileDataResultCallback
-      **/
-     export interface IFileDataResultCallback extends IBaseCallback {
-
-          /**
-           * Method Declarations for IFileDataResultCallback
-           */
-           onError(error : IFileDataResultCallbackErrorEnum)
-           onResult(file : IFile, data : Array<number>)
-           onWarning(file : IFile, warning : IFileDataResultCallbackWarningEnum)
-
-     }
-     /**
-      *  Enumerations for IFileDataResultCallback Error
-      **/
-     export class IFileDataResultCallbackErrorEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static InexistentFile = new IFileDataResultCallbackErrorEnum("InexistentFile");
-          static InsufficientSpace = new IFileDataResultCallbackErrorEnum("InsufficientSpace");
-          static Unauthorized = new IFileDataResultCallbackErrorEnum("Unauthorized");
-          static Unknown = new IFileDataResultCallbackErrorEnum("Unknown");
-     }
-
-     /**
-      *  Enumerations for IFileDataResultCallback Warning
-      **/
-     export class IFileDataResultCallbackWarningEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static ExceedMaximumSize = new IFileDataResultCallbackWarningEnum("ExceedMaximumSize");
-          static Unknown = new IFileDataResultCallbackWarningEnum("Unknown");
-     }
-
-     /**
-      *  Callback IFileDataResultCallback control dictionary.
-      */
-     var registeredIFileDataResultCallback = new Dictionary<IFileDataResultCallback>([]);
-
-     /**
-      *  Callback IFileDataResultCallback onError/onWarning/onResult handlers.
-      */
-     export function handleIFileDataResultCallbackError(id:number, error: IFileDataResultCallbackErrorEnum) : void {
-          var callback = registeredIFileDataResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIFileDataResultCallback dictionary.");
-          } else {
-               callback.onError(error);
-               registeredIFileDataResultCallback.remove(""+id)
-          }
-     }
-     export function handleIFileDataResultCallbackResult(id:number, file: IFile, data: Array<number>) : void {
-          var callback = registeredIFileDataResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIFileDataResultCallback dictionary.");
-          } else {
-               callback.onResult(file, data);
-               registeredIFileDataResultCallback.remove(""+id)
-          }
-     }
-     export function handleIFileDataResultCallbackWarning(id:number, file: IFile, warning: IFileDataResultCallbackWarningEnum) : void {
-          var callback = registeredIFileDataResultCallback[""+id];
-          if (typeof callback === 'undefined' || callback == null) {
-               console.error("ERROR: No callback with id "+id+" registered in registeredIFileDataResultCallback dictionary.");
-          } else {
-               callback.onWarning(file, warning);
-               registeredIFileDataResultCallback.remove(""+id)
-          }
-     }
-     /**
-      *  Callback IFileDataResultCallback implementation.
-      */
-     export class FileDataResultCallback implements IFileDataResultCallback {
-          description: string;
-          id: number;
-          onErrorFunction : (error: IFileDataResultCallbackErrorEnum) => Function;
-          onResultFunction : (file: IFile, data: Array<number>) => Function;
-          onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function;
-
-          constructor(onErrorFunction : (error: IFileDataResultCallbackErrorEnum) => Function, onResultFunction : (file: IFile, data: Array<number>) => Function, onWarningFunction : (file: IFile, warning: IFileDataResultCallbackWarningEnum) => Function) {
-               this.id = ++registeredCounter;
-               if (this.onErrorFunction == null) {
-                    console.error("ERROR: FileDataResultCallback onErrorFunction is not defined.");
-               } else {
-                    this.onErrorFunction = onErrorFunction;
-               }
-               if (this.onResultFunction == null) {
-                    console.error("ERROR: FileDataResultCallback onResultFunction is not defined.");
-               } else {
-                    this.onResultFunction = onResultFunction;
-               }
-               if (this.onWarningFunction == null) {
-                    console.error("ERROR: FileDataResultCallback onWarningFunction is not defined.");
-               } else {
-                    this.onWarningFunction = onWarningFunction;
-               }
-          }
-
-          toString() : string {
-               return "FileDataResultCallback{"+this.id+"}";
-          }
-          getId() : number {
-               return this.id
-          }
-
-          onError(error: IFileDataResultCallbackErrorEnum) : void {
-               if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                    console.warn("WARNING: The FileDataResultCallback does not define the onErrorFunction.");
-               } else {
-                    this.onErrorFunction(error);
-               }
-          }
-          onResult(file: IFile, data: Array<number>) : void {
-               if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                    console.warn("WARNING: The FileDataResultCallback does not define the onResultFunction.");
-               } else {
-                    this.onResultFunction(file, data);
-               }
-          }
-          onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum) : void {
-               if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                    console.warn("WARNING: The FileDataResultCallback does not define the onWarningFunction.");
-               } else {
-                    this.onWarningFunction(file, warning);
-               }
-          }
-     }
-     /**
-      *   Interface definition for IVideo
-      **/
-     export interface IVideo extends IBaseMedia {
-
-          /**
-           * Method Declarations for IVideo
-           */
-           playStream(url : string)
-     }
-
-     /**
-      *  Service IVideo implementation.
-      */
-     export class VideoBridge implements IVideo {
-
-          constructor() {}
-
-          playStream(url: string) : void {
-               var xhr = new XMLHttpRequest();
-               xhr.open("POST", bridgePath+"/IAdaptiveRP/IBaseMedia/IVideo/playStream", false);
-               xhr.setRequestHeader("Content-type", "application/json");
-               xhr.send(JSON.stringify({ request: { url: url}}));
-               if (xhr.status == 200) {
-               } else {
-                    console.error("ERROR: "+xhr.status+" IVideo.playStream");
-               }
-          }
-
-     }
-     /**
-      *   Interface definition for ITimer
-      **/
-     export interface ITimer extends IBaseUtil {
-
-     }
-
-     /**
-      *   Interface definition for IService
-      **/
-     export interface IService extends IBaseCommunication {
-
-          /**
-           * Method Declarations for IService
-           */
-           getService(serviceName : string) : Service
-           invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback)
-           isRegistered(serviceName : string) : boolean
-           isRegistered(service : Service) : boolean
-           registerService(service : Service)
-           unregisterServices()
-           unregisterService(service : Service)
      }
 
      /**
@@ -5690,72 +5873,291 @@ module Adaptive {
 
      }
      /**
-      *   Class implementation for ContactEmail
+      *   Class implementation for Email
       **/
-     export class ContactEmail {
+     export class Email {
 
           /** Field Declarations **/
-          email : string;
-          primary : boolean;
-          type : ContactEmailEmailTypeEnum;
+          attachmentData : Array<AttachmentData>;
+          bccRecipients : Array<EmailAddress>;
+          ccRecipients : Array<EmailAddress>;
+          messageBody : string;
+          messageBodyMimeType : string;
+          subject : string;
+          toRecipients : Array<EmailAddress>;
 
           /** Initialization **/
-          constructor(type: ContactEmailEmailTypeEnum, primary: boolean, email: string) {
-               this.type = type;
-               this.primary = primary;
-               this.email = email;
+          constructor(toRecipients: Array<EmailAddress>, subject: string, messageBody: string) {
+               this.toRecipients = toRecipients;
+               this.subject = subject;
+               this.messageBody = messageBody;
           }
 
           /**
-           * Method Declarations for ContactEmail
+           * Method Declarations for Email
            */
-          getEmail() : string {
-               return this.email
+          getAttachmentData() : Array<AttachmentData> {
+               return this.attachmentData
           }
 
-          getType() : ContactEmailEmailTypeEnum {
-               return this.type
+          getBccRecipients() : Array<EmailAddress> {
+               return this.bccRecipients
           }
 
-          isPrimary() : boolean {
-               return this.primary
+          getCcRecipients() : Array<EmailAddress> {
+               return this.ccRecipients
           }
 
-          setEmail(email : string) : void {
-               this.email = email
+          getMessageBody() : string {
+               return this.messageBody
           }
 
-          setPrimary(primary : boolean) : void {
-               this.primary = primary
+          getMessageBodyMimeType() : string {
+               return this.messageBodyMimeType
           }
 
-          setType(type : ContactEmailEmailTypeEnum) : void {
-               this.type = type
+          getSubject() : string {
+               return this.subject
+          }
+
+          getToRecipients() : Array<EmailAddress> {
+               return this.toRecipients
+          }
+
+          setAttachmentData(attachmentData : Array<AttachmentData>) : void {
+               this.attachmentData = attachmentData
+          }
+
+          setBccRecipients(bccRecipients : Array<EmailAddress>) : void {
+               this.bccRecipients = bccRecipients
+          }
+
+          setCcRecipients(ccRecipients : Array<EmailAddress>) : void {
+               this.ccRecipients = ccRecipients
+          }
+
+          setMessageBodyMimeType(messageBodyMimeType : string) : void {
+               this.messageBodyMimeType = messageBodyMimeType
+          }
+
+          setMessageBody(messageBody : string) : void {
+               this.messageBody = messageBody
+          }
+
+          setSubject(subject : string) : void {
+               this.subject = subject
+          }
+
+          setToRecipients(toRecipients : Array<EmailAddress>) : void {
+               this.toRecipients = toRecipients
           }
 
      }
 
      /**
-      *  Enumerations for ContactEmail EmailType
+      *   Class implementation for Database
       **/
-     export class ContactEmailEmailTypeEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Personal = new ContactEmailEmailTypeEnum("Personal");
-          static Work = new ContactEmailEmailTypeEnum("Work");
-          static Other = new ContactEmailEmailTypeEnum("Other");
-          static Unknown = new ContactEmailEmailTypeEnum("Unknown");
-     }
-
-     /**
-      *   Class implementation for Header
-      **/
-     export class Header {
+     export class Database {
 
           /** Field Declarations **/
-          data : string;
+          compress : boolean;
           name : string;
+
+          /** Initialization **/
+          constructor(name: string, compress: boolean) {
+               this.name = name;
+               this.compress = compress;
+          }
+
+          /**
+           * Method Declarations for Database
+           */
+          getName() : string {
+               return this.name
+          }
+
+          isCompress() : boolean {
+               return this.compress
+          }
+
+          setCompress(compress : boolean) : void {
+               this.compress = compress
+          }
+
+          setName(name : string) : void {
+               this.name = name
+          }
+
+     }
+
+     /**
+      *   Class implementation for AttachmentData
+      **/
+     export class AttachmentData {
+
+          /** Field Declarations **/
+          data : Array<number>;
+          dataSize : number;
+          fileName : string;
+          mimeType : string;
+          referenceUrl : string;
+
+          /** Initialization **/
+          constructor(data: Array<number>, dataSize: number, fileName: string, mimeType: string, referenceUrl: string) {
+               this.data = data;
+               this.dataSize = dataSize;
+               this.fileName = fileName;
+               this.mimeType = mimeType;
+               this.referenceUrl = referenceUrl;
+          }
+
+          /**
+           * Method Declarations for AttachmentData
+           */
+          getData() : Array<number> {
+               return this.data
+          }
+
+          getDataSize() : number {
+               return this.dataSize
+          }
+
+          getFileName() : string {
+               return this.fileName
+          }
+
+          getMimeType() : string {
+               return this.mimeType
+          }
+
+          getReferenceUrl() : string {
+               return this.referenceUrl
+          }
+
+          setDataSize(dataSize : number) : void {
+               this.dataSize = dataSize
+          }
+
+          setData(data : Array<number>) : void {
+               this.data = data
+          }
+
+          setFileName(fileName : string) : void {
+               this.fileName = fileName
+          }
+
+          setMimeType(mimeType : string) : void {
+               this.mimeType = mimeType
+          }
+
+          setReferenceUrl(referenceUrl : string) : void {
+               this.referenceUrl = referenceUrl
+          }
+
+     }
+
+     /**
+      *   Class implementation for Acceleration
+      **/
+     export class Acceleration {
+
+          /** Field Declarations **/
+          timeStamp : number;
+          x : number;
+          y : number;
+          z : number;
+
+          /** Initialization **/
+          constructor(x: number, y: number, z: number, timeStamp: number) {
+               this.x = x;
+               this.y = y;
+               this.z = z;
+               this.timeStamp = timeStamp;
+          }
+
+          /**
+           * Method Declarations for Acceleration
+           */
+          getX() : number {
+               return this.x
+          }
+
+          getY() : number {
+               return this.y
+          }
+
+          getZ() : number {
+               return this.z
+          }
+
+          setTimeStamp(timeStamp : number) : void {
+               this.timeStamp = timeStamp
+          }
+
+          setX(x : number) : void {
+               this.x = x
+          }
+
+          setY(y : number) : void {
+               this.y = y
+          }
+
+          setZ(z : number) : void {
+               this.z = z
+          }
+
+     }
+
+     /**
+      *   Class implementation for ContactTag
+      **/
+     export class ContactTag {
+
+          /** Field Declarations **/
+          dataValue : string;
+          name : string;
+
+          /** Initialization **/
+          constructor(name: string, dataValue: string) {
+               this.name = name;
+               this.dataValue = dataValue;
+          }
+
+          /**
+           * Method Declarations for ContactTag
+           */
+          getDataValue() : string {
+               return this.dataValue
+          }
+
+          getName() : string {
+               return this.name
+          }
+
+          setDataValue(dataValue : string) : void {
+               this.dataValue = dataValue
+          }
+
+          setName(name : string) : void {
+               this.name = name
+          }
+
+     }
+
+     /**
+      *   Class implementation for Cookie
+      **/
+     export class Cookie {
+
+          /** Field Declarations **/
+          creation : number;
+          data : string;
+          domain : string;
+          expiry : number;
+          name : string;
+          path : string;
+          scheme : string;
+          secure : boolean;
 
           /** Initialization **/
           constructor(name: string, data: string) {
@@ -5764,178 +6166,112 @@ module Adaptive {
           }
 
           /**
-           * Method Declarations for Header
+           * Method Declarations for Cookie
            */
+          getCreation() : number {
+               return this.creation
+          }
+
           getData() : string {
                return this.data
           }
 
+          getDomain() : string {
+               return this.domain
+          }
+
+          getExpiry() : number {
+               return this.expiry
+          }
+
           getName() : string {
                return this.name
+          }
+
+          getPath() : string {
+               return this.path
+          }
+
+          getScheme() : string {
+               return this.scheme
+          }
+
+          isSecure() : boolean {
+               return this.secure
           }
 
           setData(data : string) : void {
                this.data = data
           }
 
-          setName(name : string) : void {
-               this.name = name
+          setDomain(domain : string) : void {
+               this.domain = domain
           }
 
-     }
-
-     /**
-      *   Class implementation for ServiceResponse
-      **/
-     export class ServiceResponse {
-
-          /** Field Declarations **/
-          content : string;
-          contentBinary : Array<number>;
-          contentBinaryLength : number;
-          contentEncoding : string;
-          contentLength : string;
-          contentType : string;
-          headers : Array<Header>;
-          session : ISession;
-
-          /** Initialization **/
-          constructor(content: string, contentType: string, contentLength: string, contentBinary: Array<number>, contentBinaryLength: number, headers: Array<Header>, session: ISession, contentEncoding: string) {
-               this.content = content;
-               this.contentType = contentType;
-               this.contentLength = contentLength;
-               this.contentBinary = contentBinary;
-               this.contentBinaryLength = contentBinaryLength;
-               this.headers = headers;
-               this.session = session;
-               this.contentEncoding = contentEncoding;
-          }
-
-          /**
-           * Method Declarations for ServiceResponse
-           */
-          getContent() : string {
-               return this.content
-          }
-
-          getContentBinary() : Array<number> {
-               return this.contentBinary
-          }
-
-          getContentBinaryLength() : number {
-               return this.contentBinaryLength
-          }
-
-          getContentEncoding() : string {
-               return this.contentEncoding
-          }
-
-          getContentLength() : string {
-               return this.contentLength
-          }
-
-          getContentType() : string {
-               return this.contentType
-          }
-
-          getHeaders() : Array<Header> {
-               return this.headers
-          }
-
-          getSession() : ISession {
-               return this.session
-          }
-
-          setContentBinaryLength(contentBinaryLength : number) : void {
-               this.contentBinaryLength = contentBinaryLength
-          }
-
-          setContentBinary(contentBinary : Array<number>) : void {
-               this.contentBinary = contentBinary
-          }
-
-          setContentEncoding(contentEncoding : string) : void {
-               this.contentEncoding = contentEncoding
-          }
-
-          setContentLength(contentLength : string) : void {
-               this.contentLength = contentLength
-          }
-
-          setContentType(contentType : string) : void {
-               this.contentType = contentType
-          }
-
-          setContent(content : string) : void {
-               this.content = content
-          }
-
-          setHeaders(headers : Array<Header>) : void {
-               this.headers = headers
-          }
-
-          setSession(session : ISession) : void {
-               this.session = session
-          }
-
-     }
-
-     /**
-      *   Class implementation for OSInfo
-      **/
-     export class OSInfo {
-
-          /** Field Declarations **/
-          name : string;
-          vendor : string;
-          version : string;
-
-          /** Initialization **/
-          constructor(name: string, version: string, vendor: string) {
-               this.name = name;
-               this.version = version;
-               this.vendor = vendor;
-          }
-
-          /**
-           * Method Declarations for OSInfo
-           */
-          getName() : string {
-               return this.name
-          }
-
-          getVendor() : string {
-               return this.vendor
-          }
-
-          getVersion() : string {
-               return this.version
-          }
-
-     }
-
-     /**
-      *   Class implementation for Column
-      **/
-     export class Column {
-
-          /** Field Declarations **/
-          name : string;
-
-          /** Initialization **/
-          constructor(name: string) {
-               this.name = name;
-          }
-
-          /**
-           * Method Declarations for Column
-           */
-          getName() : string {
-               return this.name
+          setExpiry(expiry : number) : void {
+               this.expiry = expiry
           }
 
           setName(name : string) : void {
                this.name = name
+          }
+
+          setPath(path : string) : void {
+               this.path = path
+          }
+
+          setScheme(scheme : string) : void {
+               this.scheme = scheme
+          }
+
+          setSecure(secure : boolean) : void {
+               this.secure = secure
+          }
+
+     }
+
+     /**
+      *   Class implementation for ContactProfessionalInfo
+      **/
+     export class ContactProfessionalInfo {
+
+          /** Field Declarations **/
+          company : string;
+          jobDescription : string;
+          jobTitle : string;
+
+          /** Initialization **/
+          constructor(jobTitle: string, jobDescription: string, company: string) {
+               this.jobTitle = jobTitle;
+               this.jobDescription = jobDescription;
+               this.company = company;
+          }
+
+          /**
+           * Method Declarations for ContactProfessionalInfo
+           */
+          getCompany() : string {
+               return this.company
+          }
+
+          getJobDescription() : string {
+               return this.jobDescription
+          }
+
+          getJobTitle() : string {
+               return this.jobTitle
+          }
+
+          setCompany(company : string) : void {
+               this.company = company
+          }
+
+          setJobDescription(jobDescription : string) : void {
+               this.jobDescription = jobDescription
+          }
+
+          setJobTitle(jobTitle : string) : void {
+               this.jobTitle = jobTitle
           }
 
      }
@@ -6059,167 +6395,335 @@ module Adaptive {
      }
 
      /**
-      *   Class implementation for Database
+      *   Class implementation for ContactAddress
       **/
-     export class Database {
+     export class ContactAddress {
 
           /** Field Declarations **/
-          compress : boolean;
-          name : string;
+          address : string;
+          type : ContactAddressAddressTypeEnum;
 
           /** Initialization **/
-          constructor(name: string, compress: boolean) {
-               this.name = name;
-               this.compress = compress;
+          constructor(address: string, type: ContactAddressAddressTypeEnum) {
+               this.address = address;
+               this.type = type;
           }
 
           /**
-           * Method Declarations for Database
+           * Method Declarations for ContactAddress
            */
-          getName() : string {
-               return this.name
+          getAddress() : string {
+               return this.address
           }
 
-          isCompress() : boolean {
-               return this.compress
+          getType() : ContactAddressAddressTypeEnum {
+               return this.type
           }
 
-          setCompress(compress : boolean) : void {
-               this.compress = compress
+          setAddress(address : string) : void {
+               this.address = address
           }
 
-          setName(name : string) : void {
-               this.name = name
+          setType(type : ContactAddressAddressTypeEnum) : void {
+               this.type = type
           }
 
      }
 
      /**
-      *   Class implementation for Cookie
+      *  Enumerations for ContactAddress AddressType
       **/
-     export class Cookie {
+     export class ContactAddressAddressTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Home = new ContactAddressAddressTypeEnum("Home");
+          static Work = new ContactAddressAddressTypeEnum("Work");
+          static Other = new ContactAddressAddressTypeEnum("Other");
+          static Unknown = new ContactAddressAddressTypeEnum("Unknown");
+     }
+
+     /**
+      *   Class implementation for ContactEmail
+      **/
+     export class ContactEmail {
 
           /** Field Declarations **/
-          creation : number;
-          data : string;
-          domain : string;
-          expiry : number;
-          name : string;
-          path : string;
-          scheme : string;
-          secure : boolean;
+          email : string;
+          primary : boolean;
+          type : ContactEmailEmailTypeEnum;
 
           /** Initialization **/
-          constructor(name: string, data: string) {
-               this.name = name;
-               this.data = data;
+          constructor(type: ContactEmailEmailTypeEnum, primary: boolean, email: string) {
+               this.type = type;
+               this.primary = primary;
+               this.email = email;
           }
 
           /**
-           * Method Declarations for Cookie
+           * Method Declarations for ContactEmail
            */
-          getCreation() : number {
-               return this.creation
+          getEmail() : string {
+               return this.email
           }
 
-          getData() : string {
-               return this.data
+          getType() : ContactEmailEmailTypeEnum {
+               return this.type
           }
 
-          getDomain() : string {
-               return this.domain
+          isPrimary() : boolean {
+               return this.primary
           }
 
-          getExpiry() : number {
-               return this.expiry
+          setEmail(email : string) : void {
+               this.email = email
           }
 
-          getName() : string {
-               return this.name
+          setPrimary(primary : boolean) : void {
+               this.primary = primary
+          }
+
+          setType(type : ContactEmailEmailTypeEnum) : void {
+               this.type = type
+          }
+
+     }
+
+     /**
+      *  Enumerations for ContactEmail EmailType
+      **/
+     export class ContactEmailEmailTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Personal = new ContactEmailEmailTypeEnum("Personal");
+          static Work = new ContactEmailEmailTypeEnum("Work");
+          static Other = new ContactEmailEmailTypeEnum("Other");
+          static Unknown = new ContactEmailEmailTypeEnum("Unknown");
+     }
+
+     /**
+      *   Class implementation for Endpoint
+      **/
+     export class Endpoint {
+
+          /** Field Declarations **/
+          host : string;
+          path : string;
+          port : number;
+          proxy : string;
+          scheme : string;
+
+          /** Initialization **/
+          constructor(host: string, path: string, port: number, proxy: string, scheme: string) {
+               this.host = host;
+               this.path = path;
+               this.port = port;
+               this.proxy = proxy;
+               this.scheme = scheme;
+          }
+
+          /**
+           * Method Declarations for Endpoint
+           */
+          getHost() : string {
+               return this.host
           }
 
           getPath() : string {
                return this.path
           }
 
+          getPort() : number {
+               return this.port
+          }
+
+          getProxy() : string {
+               return this.proxy
+          }
+
           getScheme() : string {
                return this.scheme
           }
 
-          isSecure() : boolean {
-               return this.secure
-          }
-
-          setData(data : string) : void {
-               this.data = data
-          }
-
-          setDomain(domain : string) : void {
-               this.domain = domain
-          }
-
-          setExpiry(expiry : number) : void {
-               this.expiry = expiry
-          }
-
-          setName(name : string) : void {
-               this.name = name
+          setHost(host : string) : void {
+               this.host = host
           }
 
           setPath(path : string) : void {
                this.path = path
           }
 
-          setScheme(scheme : string) : void {
-               this.scheme = scheme
+          setPort(port : number) : void {
+               this.port = port
           }
 
-          setSecure(secure : boolean) : void {
-               this.secure = secure
+          setProxy(proxy : string) : void {
+               this.proxy = proxy
+          }
+
+          setScheme(scheme : string) : void {
+               this.scheme = scheme
           }
 
      }
 
      /**
-      *   Class implementation for Locale
+      *   Class implementation for Column
       **/
-     export class Locale {
+     export class Column {
 
           /** Field Declarations **/
-          country : string;
-          language : string;
-          description : string;
+          name : string;
 
           /** Initialization **/
-          constructor(language: string, country: string) {
-               this.language = language;
-               this.country = country;
-               this.description = this.country+"_"+this.language;
+          constructor(name: string) {
+               this.name = name;
           }
 
           /**
-           * Method Declarations for Locale
+           * Method Declarations for Column
            */
-          getCountry() : string {
-               return this.country
+          getName() : string {
+               return this.name
           }
 
-          getLanguage() : string {
-               return this.language
+          setName(name : string) : void {
+               this.name = name
           }
 
-          setCountry(country : string) : void {
-               this.country = country
+     }
+
+     /**
+      *   Class implementation for Service
+      **/
+     export class Service {
+
+          /** Field Declarations **/
+          endpoint : Endpoint;
+          method : ServiceServiceMethodEnum;
+          name : string;
+          type : ServiceServiceTypeEnum;
+
+          /** Initialization **/
+          constructor(endpoint: Endpoint, name: string, method: ServiceServiceMethodEnum, type: ServiceServiceTypeEnum) {
+               this.endpoint = endpoint;
+               this.name = name;
+               this.method = method;
+               this.type = type;
           }
 
-          setLanguage(language : string) : void {
-               this.language = language
+          /**
+           * Method Declarations for Service
+           */
+          getEndpoint() : Endpoint {
+               return this.endpoint
           }
 
-          toString() : string {
-               return this.description
+          getMethod() : ServiceServiceMethodEnum {
+               return this.method
           }
 
+          getName() : string {
+               return this.name
+          }
+
+          getType() : ServiceServiceTypeEnum {
+               return this.type
+          }
+
+          setEndpoint(endpoint : Endpoint) : void {
+               this.endpoint = endpoint
+          }
+
+          setMethod(method : ServiceServiceMethodEnum) : void {
+               this.method = method
+          }
+
+          setName(name : string) : void {
+               this.name = name
+          }
+
+          setType(type : ServiceServiceTypeEnum) : void {
+               this.type = type
+          }
+
+     }
+
+     /**
+      *  Enumerations for Service ServiceMethod
+      **/
+     export class ServiceServiceMethodEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static POST = new ServiceServiceMethodEnum("POST");
+          static GET = new ServiceServiceMethodEnum("GET");
+          static Unknown = new ServiceServiceMethodEnum("Unknown");
+     }
+
+     /**
+      *  Enumerations for Service ServiceType
+      **/
+     export class ServiceServiceTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static SERVICETYPE_AMF_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_AMF_SERIALIZATION");
+          static SERVICETYPE_GWT_RPC = new ServiceServiceTypeEnum("SERVICETYPE_GWT_RPC");
+          static SERVICETYPE_OCTET_BINARY = new ServiceServiceTypeEnum("SERVICETYPE_OCTET_BINARY");
+          static SERVICETYPE_REMOTING_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_REMOTING_SERIALIZATION");
+          static SERVICETYPE_REST_JSON = new ServiceServiceTypeEnum("SERVICETYPE_REST_JSON");
+          static SERVICETYPE_REST_XML = new ServiceServiceTypeEnum("SERVICETYPE_REST_XML");
+          static SERVICETYPE_SOAP_JSON = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_JSON");
+          static SERVICETYPE_SOAP_XML = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_XML");
+          static SERVICETYPE_XMLRPC_JSON = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_JSON");
+          static SERVICETYPE_XMLRPC_XML = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_XML");
+          static Unknown = new ServiceServiceTypeEnum("Unknown");
+     }
+
+     /**
+      *   Class implementation for Lifecycle
+      **/
+     export class Lifecycle {
+
+          /** Field Declarations **/
+          state : LifecycleStateEnum;
+
+          /** Initialization **/
+          constructor(state: LifecycleStateEnum) {
+               this.state = state;
+          }
+
+          /**
+           * Method Declarations for Lifecycle
+           */
+          getState() : LifecycleStateEnum {
+               return this.state
+          }
+
+          setState(state : LifecycleStateEnum) : void {
+               this.state = state
+          }
+
+     }
+
+     /**
+      *  Enumerations for Lifecycle State
+      **/
+     export class LifecycleStateEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Starting = new LifecycleStateEnum("Starting");
+          static Started = new LifecycleStateEnum("Started");
+          static Running = new LifecycleStateEnum("Running");
+          static Paused = new LifecycleStateEnum("Paused");
+          static PausedIdle = new LifecycleStateEnum("PausedIdle");
+          static PausedRun = new LifecycleStateEnum("PausedRun");
+          static Resuming = new LifecycleStateEnum("Resuming");
+          static Stopping = new LifecycleStateEnum("Stopping");
+          static Unknown = new LifecycleStateEnum("Unknown");
      }
 
      /**
@@ -6249,6 +6753,42 @@ module Adaptive {
      }
 
      /**
+      *   Class implementation for SecureKeyPair
+      **/
+     export class SecureKeyPair {
+
+          /** Field Declarations **/
+          secureData : string;
+          secureKey : string;
+
+          /** Initialization **/
+          constructor(secureKey: string, secureData: string) {
+               this.secureKey = secureKey;
+               this.secureData = secureData;
+          }
+
+          /**
+           * Method Declarations for SecureKeyPair
+           */
+          getSecureData() : string {
+               return this.secureData
+          }
+
+          getSecureKey() : string {
+               return this.secureKey
+          }
+
+          setSecureData(secureData : string) : void {
+               this.secureData = secureData
+          }
+
+          setSecureKey(secureKey : string) : void {
+               this.secureKey = secureKey
+          }
+
+     }
+
+     /**
       *   Class implementation for Row
       **/
      export class Row {
@@ -6270,6 +6810,32 @@ module Adaptive {
 
           setValues(values : Array<any>) : void {
                this.values = values
+          }
+
+     }
+
+     /**
+      *   Class implementation for ContactUid
+      **/
+     export class ContactUid {
+
+          /** Field Declarations **/
+          contactId : string;
+
+          /** Initialization **/
+          constructor(contactId: string) {
+               this.contactId = contactId;
+          }
+
+          /**
+           * Method Declarations for ContactUid
+           */
+          getContactId() : string {
+               return this.contactId
+          }
+
+          setContactId(contactId : string) : void {
+               this.contactId = contactId
           }
 
      }
@@ -6345,752 +6911,39 @@ module Adaptive {
      }
 
      /**
-      *   Class implementation for EmailAddress
+      *   Class implementation for Header
       **/
-     export class EmailAddress {
+     export class Header {
 
           /** Field Declarations **/
-          address : string;
-
-          /** Initialization **/
-          constructor(address: string) {
-               this.address = address;
-          }
-
-          /**
-           * Method Declarations for EmailAddress
-           */
-          getAddress() : string {
-               return this.address
-          }
-
-          setAddress(address : string) : void {
-               this.address = address
-          }
-
-     }
-
-     /**
-      *   Class implementation for ContactTag
-      **/
-     export class ContactTag {
-
-          /** Field Declarations **/
-          dataValue : string;
+          data : string;
           name : string;
 
           /** Initialization **/
-          constructor(name: string, dataValue: string) {
+          constructor(name: string, data: string) {
                this.name = name;
-               this.dataValue = dataValue;
-          }
-
-          /**
-           * Method Declarations for ContactTag
-           */
-          getDataValue() : string {
-               return this.dataValue
-          }
-
-          getName() : string {
-               return this.name
-          }
-
-          setDataValue(dataValue : string) : void {
-               this.dataValue = dataValue
-          }
-
-          setName(name : string) : void {
-               this.name = name
-          }
-
-     }
-
-     /**
-      *   Class implementation for Endpoint
-      **/
-     export class Endpoint {
-
-          /** Field Declarations **/
-          host : string;
-          path : string;
-          port : number;
-          proxy : string;
-          scheme : string;
-
-          /** Initialization **/
-          constructor(host: string, path: string, port: number, proxy: string, scheme: string) {
-               this.host = host;
-               this.path = path;
-               this.port = port;
-               this.proxy = proxy;
-               this.scheme = scheme;
-          }
-
-          /**
-           * Method Declarations for Endpoint
-           */
-          getHost() : string {
-               return this.host
-          }
-
-          getPath() : string {
-               return this.path
-          }
-
-          getPort() : number {
-               return this.port
-          }
-
-          getProxy() : string {
-               return this.proxy
-          }
-
-          getScheme() : string {
-               return this.scheme
-          }
-
-          setHost(host : string) : void {
-               this.host = host
-          }
-
-          setPath(path : string) : void {
-               this.path = path
-          }
-
-          setPort(port : number) : void {
-               this.port = port
-          }
-
-          setProxy(proxy : string) : void {
-               this.proxy = proxy
-          }
-
-          setScheme(scheme : string) : void {
-               this.scheme = scheme
-          }
-
-     }
-
-     /**
-      *   Class implementation for Geolocation
-      **/
-     export class Geolocation {
-
-          /** Field Declarations **/
-          altitude : number;
-          latitude : number;
-          longitude : number;
-          xDoP : number;
-          yDoP : number;
-
-          /** Initialization **/
-          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number) {
-               this.latitude = latitude;
-               this.longitude = longitude;
-               this.altitude = altitude;
-               this.xDoP = xDoP;
-               this.yDoP = yDoP;
-          }
-
-          /**
-           * Method Declarations for Geolocation
-           */
-          getAltitude() : number {
-               return this.altitude
-          }
-
-          getLatitude() : number {
-               return this.latitude
-          }
-
-          getLongitude() : number {
-               return this.longitude
-          }
-
-          getXDoP() : number {
-               return this.xDoP
-          }
-
-          getYDoP() : number {
-               return this.yDoP
-          }
-
-          setAltitude(altitude : number) : void {
-               this.altitude = altitude
-          }
-
-          setLatitude(latitude : number) : void {
-               this.latitude = latitude
-          }
-
-          setLongitude(longitude : number) : void {
-               this.longitude = longitude
-          }
-
-     }
-
-     /**
-      *   Class implementation for ContactUid
-      **/
-     export class ContactUid {
-
-          /** Field Declarations **/
-          contactId : string;
-
-          /** Initialization **/
-          constructor(contactId: string) {
-               this.contactId = contactId;
-          }
-
-          /**
-           * Method Declarations for ContactUid
-           */
-          getContactId() : string {
-               return this.contactId
-          }
-
-          setContactId(contactId : string) : void {
-               this.contactId = contactId
-          }
-
-     }
-
-     /**
-      *   Class implementation for Email
-      **/
-     export class Email {
-
-          /** Field Declarations **/
-          attachmentData : Array<AttachmentData>;
-          bccRecipients : Array<EmailAddress>;
-          ccRecipients : Array<EmailAddress>;
-          messageBody : string;
-          messageBodyMimeType : string;
-          subject : string;
-          toRecipients : Array<EmailAddress>;
-
-          /** Initialization **/
-          constructor(toRecipients: Array<EmailAddress>, subject: string, messageBody: string) {
-               this.toRecipients = toRecipients;
-               this.subject = subject;
-               this.messageBody = messageBody;
-          }
-
-          /**
-           * Method Declarations for Email
-           */
-          getAttachmentData() : Array<AttachmentData> {
-               return this.attachmentData
-          }
-
-          getBccRecipients() : Array<EmailAddress> {
-               return this.bccRecipients
-          }
-
-          getCcRecipients() : Array<EmailAddress> {
-               return this.ccRecipients
-          }
-
-          getMessageBody() : string {
-               return this.messageBody
-          }
-
-          getMessageBodyMimeType() : string {
-               return this.messageBodyMimeType
-          }
-
-          getSubject() : string {
-               return this.subject
-          }
-
-          getToRecipients() : Array<EmailAddress> {
-               return this.toRecipients
-          }
-
-          setAttachmentData(attachmentData : Array<AttachmentData>) : void {
-               this.attachmentData = attachmentData
-          }
-
-          setBccRecipients(bccRecipients : Array<EmailAddress>) : void {
-               this.bccRecipients = bccRecipients
-          }
-
-          setCcRecipients(ccRecipients : Array<EmailAddress>) : void {
-               this.ccRecipients = ccRecipients
-          }
-
-          setMessageBodyMimeType(messageBodyMimeType : string) : void {
-               this.messageBodyMimeType = messageBodyMimeType
-          }
-
-          setMessageBody(messageBody : string) : void {
-               this.messageBody = messageBody
-          }
-
-          setSubject(subject : string) : void {
-               this.subject = subject
-          }
-
-          setToRecipients(toRecipients : Array<EmailAddress>) : void {
-               this.toRecipients = toRecipients
-          }
-
-     }
-
-     /**
-      *   Class implementation for AttachmentData
-      **/
-     export class AttachmentData {
-
-          /** Field Declarations **/
-          data : Array<number>;
-          dataSize : number;
-          fileName : string;
-          mimeType : string;
-          referenceUrl : string;
-
-          /** Initialization **/
-          constructor(data: Array<number>, dataSize: number, fileName: string, mimeType: string, referenceUrl: string) {
                this.data = data;
-               this.dataSize = dataSize;
-               this.fileName = fileName;
-               this.mimeType = mimeType;
-               this.referenceUrl = referenceUrl;
           }
 
           /**
-           * Method Declarations for AttachmentData
+           * Method Declarations for Header
            */
-          getData() : Array<number> {
+          getData() : string {
                return this.data
           }
 
-          getDataSize() : number {
-               return this.dataSize
-          }
-
-          getFileName() : string {
-               return this.fileName
-          }
-
-          getMimeType() : string {
-               return this.mimeType
-          }
-
-          getReferenceUrl() : string {
-               return this.referenceUrl
-          }
-
-          setDataSize(dataSize : number) : void {
-               this.dataSize = dataSize
-          }
-
-          setData(data : Array<number>) : void {
-               this.data = data
-          }
-
-          setFileName(fileName : string) : void {
-               this.fileName = fileName
-          }
-
-          setMimeType(mimeType : string) : void {
-               this.mimeType = mimeType
-          }
-
-          setReferenceUrl(referenceUrl : string) : void {
-               this.referenceUrl = referenceUrl
-          }
-
-     }
-
-     /**
-      *   Class implementation for ContactSocial
-      **/
-     export class ContactSocial {
-
-          /** Field Declarations **/
-          profileUrl : string;
-          socialNetwork : ContactSocialSocialNetworkEnum;
-
-          /** Initialization **/
-          constructor(socialNetwork: ContactSocialSocialNetworkEnum, profileUrl: string) {
-               this.socialNetwork = socialNetwork;
-               this.profileUrl = profileUrl;
-          }
-
-          /**
-           * Method Declarations for ContactSocial
-           */
-          getProfileUrl() : string {
-               return this.profileUrl
-          }
-
-          getSocialNetwork() : ContactSocialSocialNetworkEnum {
-               return this.socialNetwork
-          }
-
-          setProfileUrl(profileUrl : string) : void {
-               this.profileUrl = profileUrl
-          }
-
-          setSocialNetwork(socialNetwork : ContactSocialSocialNetworkEnum) : void {
-               this.socialNetwork = socialNetwork
-          }
-
-     }
-
-     /**
-      *  Enumerations for ContactSocial SocialNetwork
-      **/
-     export class ContactSocialSocialNetworkEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Twitter = new ContactSocialSocialNetworkEnum("Twitter");
-          static Facebook = new ContactSocialSocialNetworkEnum("Facebook");
-          static GooglePlus = new ContactSocialSocialNetworkEnum("GooglePlus");
-          static LinkedIn = new ContactSocialSocialNetworkEnum("LinkedIn");
-          static Flickr = new ContactSocialSocialNetworkEnum("Flickr");
-          static Unknown = new ContactSocialSocialNetworkEnum("Unknown");
-     }
-
-     /**
-      *   Class implementation for ContactPhone
-      **/
-     export class ContactPhone {
-
-          /** Field Declarations **/
-          phone : string;
-          phoneType : ContactPhonePhoneTypeEnum;
-
-          /** Initialization **/
-          constructor(phone: string, phoneType: ContactPhonePhoneTypeEnum) {
-               this.phone = phone;
-               this.phoneType = phoneType;
-          }
-
-          /**
-           * Method Declarations for ContactPhone
-           */
-          getPhone() : string {
-               return this.phone
-          }
-
-          getPhoneType() : ContactPhonePhoneTypeEnum {
-               return this.phoneType
-          }
-
-          setPhoneType(phoneType : ContactPhonePhoneTypeEnum) : void {
-               this.phoneType = phoneType
-          }
-
-          setPhone(phone : string) : void {
-               this.phone = phone
-          }
-
-     }
-
-     /**
-      *  Enumerations for ContactPhone PhoneType
-      **/
-     export class ContactPhonePhoneTypeEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Mobile = new ContactPhonePhoneTypeEnum("Mobile");
-          static Work = new ContactPhonePhoneTypeEnum("Work");
-          static Home = new ContactPhonePhoneTypeEnum("Home");
-          static Main = new ContactPhonePhoneTypeEnum("Main");
-          static HomeFax = new ContactPhonePhoneTypeEnum("HomeFax");
-          static WorkFax = new ContactPhonePhoneTypeEnum("WorkFax");
-          static Other = new ContactPhonePhoneTypeEnum("Other");
-          static Unknown = new ContactPhonePhoneTypeEnum("Unknown");
-     }
-
-     /**
-      *   Class implementation for SecureKeyPair
-      **/
-     export class SecureKeyPair {
-
-          /** Field Declarations **/
-          secureData : string;
-          secureKey : string;
-
-          /** Initialization **/
-          constructor(secureKey: string, secureData: string) {
-               this.secureKey = secureKey;
-               this.secureData = secureData;
-          }
-
-          /**
-           * Method Declarations for SecureKeyPair
-           */
-          getSecureData() : string {
-               return this.secureData
-          }
-
-          getSecureKey() : string {
-               return this.secureKey
-          }
-
-          setSecureData(secureData : string) : void {
-               this.secureData = secureData
-          }
-
-          setSecureKey(secureKey : string) : void {
-               this.secureKey = secureKey
-          }
-
-     }
-
-     /**
-      *   Class implementation for Table
-      **/
-     export class Table {
-
-          /** Field Declarations **/
-          columnCount : number;
-          columns : Array<Column>;
-          name : string;
-          rowCount : number;
-          rows : Array<Row>;
-
-          /** Initialization **/
-          constructor(name: string) {
-               this.name = name;
-          }
-
-          /**
-           * Method Declarations for Table
-           */
-          getColumnCount() : number {
-               return this.columnCount
-          }
-
-          getColumns() : Array<Column> {
-               return this.columns
-          }
-
           getName() : string {
                return this.name
           }
 
-          getRowCount() : number {
-               return this.rowCount
-          }
-
-          getRows() : Array<Row> {
-               return this.rows
-          }
-
-          setColumnCount(columnCount : number) : void {
-               this.columnCount = columnCount
-          }
-
-          setColumns(columns : Array<Column>) : void {
-               this.columns = columns
+          setData(data : string) : void {
+               this.data = data
           }
 
           setName(name : string) : void {
                this.name = name
           }
 
-          setRowCount(rowCount : number) : void {
-               this.rowCount = rowCount
-          }
-
-          setRows(rows : Array<Row>) : void {
-               this.rows = rows
-          }
-
-     }
-
-     /**
-      *   Class implementation for ContactProfessionalInfo
-      **/
-     export class ContactProfessionalInfo {
-
-          /** Field Declarations **/
-          company : string;
-          jobDescription : string;
-          jobTitle : string;
-
-          /** Initialization **/
-          constructor(jobTitle: string, jobDescription: string, company: string) {
-               this.jobTitle = jobTitle;
-               this.jobDescription = jobDescription;
-               this.company = company;
-          }
-
-          /**
-           * Method Declarations for ContactProfessionalInfo
-           */
-          getCompany() : string {
-               return this.company
-          }
-
-          getJobDescription() : string {
-               return this.jobDescription
-          }
-
-          getJobTitle() : string {
-               return this.jobTitle
-          }
-
-          setCompany(company : string) : void {
-               this.company = company
-          }
-
-          setJobDescription(jobDescription : string) : void {
-               this.jobDescription = jobDescription
-          }
-
-          setJobTitle(jobTitle : string) : void {
-               this.jobTitle = jobTitle
-          }
-
-     }
-
-     /**
-      *   Class implementation for Acceleration
-      **/
-     export class Acceleration {
-
-          /** Field Declarations **/
-          timeStamp : number;
-          x : number;
-          y : number;
-          z : number;
-
-          /** Initialization **/
-          constructor(x: number, y: number, z: number, timeStamp: number) {
-               this.x = x;
-               this.y = y;
-               this.z = z;
-               this.timeStamp = timeStamp;
-          }
-
-          /**
-           * Method Declarations for Acceleration
-           */
-          getX() : number {
-               return this.x
-          }
-
-          getY() : number {
-               return this.y
-          }
-
-          getZ() : number {
-               return this.z
-          }
-
-          setTimeStamp(timeStamp : number) : void {
-               this.timeStamp = timeStamp
-          }
-
-          setX(x : number) : void {
-               this.x = x
-          }
-
-          setY(y : number) : void {
-               this.y = y
-          }
-
-          setZ(z : number) : void {
-               this.z = z
-          }
-
-     }
-
-     /**
-      *   Class implementation for DeviceInfo
-      **/
-     export class DeviceInfo {
-
-          /** Field Declarations **/
-          model : string;
-          name : string;
-          uuid : string;
-          vendor : string;
-
-          /** Initialization **/
-          constructor(name: string, model: string, vendor: string, uuid: string) {
-               this.name = name;
-               this.model = model;
-               this.vendor = vendor;
-               this.uuid = uuid;
-          }
-
-          /**
-           * Method Declarations for DeviceInfo
-           */
-          getModel() : string {
-               return this.model
-          }
-
-          getName() : string {
-               return this.name
-          }
-
-          getUuid() : string {
-               return this.uuid
-          }
-
-          getVendor() : string {
-               return this.vendor
-          }
-
-     }
-
-     /**
-      *   Class implementation for ContactAddress
-      **/
-     export class ContactAddress {
-
-          /** Field Declarations **/
-          address : string;
-          type : ContactAddressAddressTypeEnum;
-
-          /** Initialization **/
-          constructor(address: string, type: ContactAddressAddressTypeEnum) {
-               this.address = address;
-               this.type = type;
-          }
-
-          /**
-           * Method Declarations for ContactAddress
-           */
-          getAddress() : string {
-               return this.address
-          }
-
-          getType() : ContactAddressAddressTypeEnum {
-               return this.type
-          }
-
-          setAddress(address : string) : void {
-               this.address = address
-          }
-
-          setType(type : ContactAddressAddressTypeEnum) : void {
-               this.type = type
-          }
-
-     }
-
-     /**
-      *  Enumerations for ContactAddress AddressType
-      **/
-     export class ContactAddressAddressTypeEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Home = new ContactAddressAddressTypeEnum("Home");
-          static Work = new ContactAddressAddressTypeEnum("Work");
-          static Other = new ContactAddressAddressTypeEnum("Other");
-          static Unknown = new ContactAddressAddressTypeEnum("Unknown");
      }
 
      /**
@@ -7184,6 +7037,117 @@ module Adaptive {
      }
 
      /**
+      *   Class implementation for ContactPhone
+      **/
+     export class ContactPhone {
+
+          /** Field Declarations **/
+          phone : string;
+          phoneType : ContactPhonePhoneTypeEnum;
+
+          /** Initialization **/
+          constructor(phone: string, phoneType: ContactPhonePhoneTypeEnum) {
+               this.phone = phone;
+               this.phoneType = phoneType;
+          }
+
+          /**
+           * Method Declarations for ContactPhone
+           */
+          getPhone() : string {
+               return this.phone
+          }
+
+          getPhoneType() : ContactPhonePhoneTypeEnum {
+               return this.phoneType
+          }
+
+          setPhoneType(phoneType : ContactPhonePhoneTypeEnum) : void {
+               this.phoneType = phoneType
+          }
+
+          setPhone(phone : string) : void {
+               this.phone = phone
+          }
+
+     }
+
+     /**
+      *  Enumerations for ContactPhone PhoneType
+      **/
+     export class ContactPhonePhoneTypeEnum {
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Mobile = new ContactPhonePhoneTypeEnum("Mobile");
+          static Work = new ContactPhonePhoneTypeEnum("Work");
+          static Home = new ContactPhonePhoneTypeEnum("Home");
+          static Main = new ContactPhonePhoneTypeEnum("Main");
+          static HomeFax = new ContactPhonePhoneTypeEnum("HomeFax");
+          static WorkFax = new ContactPhonePhoneTypeEnum("WorkFax");
+          static Other = new ContactPhonePhoneTypeEnum("Other");
+          static Unknown = new ContactPhonePhoneTypeEnum("Unknown");
+     }
+
+     /**
+      *   Class implementation for Geolocation
+      **/
+     export class Geolocation {
+
+          /** Field Declarations **/
+          altitude : number;
+          latitude : number;
+          longitude : number;
+          xDoP : number;
+          yDoP : number;
+
+          /** Initialization **/
+          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number) {
+               this.latitude = latitude;
+               this.longitude = longitude;
+               this.altitude = altitude;
+               this.xDoP = xDoP;
+               this.yDoP = yDoP;
+          }
+
+          /**
+           * Method Declarations for Geolocation
+           */
+          getAltitude() : number {
+               return this.altitude
+          }
+
+          getLatitude() : number {
+               return this.latitude
+          }
+
+          getLongitude() : number {
+               return this.longitude
+          }
+
+          getXDoP() : number {
+               return this.xDoP
+          }
+
+          getYDoP() : number {
+               return this.yDoP
+          }
+
+          setAltitude(altitude : number) : void {
+               this.altitude = altitude
+          }
+
+          setLatitude(latitude : number) : void {
+               this.latitude = latitude
+          }
+
+          setLongitude(longitude : number) : void {
+               this.longitude = longitude
+          }
+
+     }
+
+     /**
       *   Class implementation for Button
       **/
      export class Button {
@@ -7219,356 +7183,355 @@ module Adaptive {
      }
 
      /**
-      *   Class implementation for Lifecycle
+      *   Class implementation for OSInfo
       **/
-     export class Lifecycle {
+     export class OSInfo {
 
           /** Field Declarations **/
-          state : LifecycleStateEnum;
+          name : string;
+          vendor : string;
+          version : string;
 
           /** Initialization **/
-          constructor(state: LifecycleStateEnum) {
-               this.state = state;
+          constructor(name: string, version: string, vendor: string) {
+               this.name = name;
+               this.version = version;
+               this.vendor = vendor;
           }
 
           /**
-           * Method Declarations for Lifecycle
+           * Method Declarations for OSInfo
            */
-          getState() : LifecycleStateEnum {
-               return this.state
+          getName() : string {
+               return this.name
           }
 
-          setState(state : LifecycleStateEnum) : void {
-               this.state = state
+          getVendor() : string {
+               return this.vendor
+          }
+
+          getVersion() : string {
+               return this.version
           }
 
      }
 
      /**
-      *  Enumerations for Lifecycle State
+      *   Class implementation for Locale
       **/
-     export class LifecycleStateEnum {
+     export class Locale {
+
+          /** Field Declarations **/
+          country : string;
+          language : string;
+          description : string;
+
+          /** Initialization **/
+          constructor(language: string, country: string) {
+               this.language = language;
+               this.country = country;
+               this.description = this.country+"_"+this.language;
+          }
+
+          /**
+           * Method Declarations for Locale
+           */
+          getCountry() : string {
+               return this.country
+          }
+
+          getLanguage() : string {
+               return this.language
+          }
+
+          setCountry(country : string) : void {
+               this.country = country
+          }
+
+          setLanguage(language : string) : void {
+               this.language = language
+          }
+
+          toString() : string {
+               return this.description
+          }
+
+     }
+
+     /**
+      *   Class implementation for ContactSocial
+      **/
+     export class ContactSocial {
+
+          /** Field Declarations **/
+          profileUrl : string;
+          socialNetwork : ContactSocialSocialNetworkEnum;
+
+          /** Initialization **/
+          constructor(socialNetwork: ContactSocialSocialNetworkEnum, profileUrl: string) {
+               this.socialNetwork = socialNetwork;
+               this.profileUrl = profileUrl;
+          }
+
+          /**
+           * Method Declarations for ContactSocial
+           */
+          getProfileUrl() : string {
+               return this.profileUrl
+          }
+
+          getSocialNetwork() : ContactSocialSocialNetworkEnum {
+               return this.socialNetwork
+          }
+
+          setProfileUrl(profileUrl : string) : void {
+               this.profileUrl = profileUrl
+          }
+
+          setSocialNetwork(socialNetwork : ContactSocialSocialNetworkEnum) : void {
+               this.socialNetwork = socialNetwork
+          }
+
+     }
+
+     /**
+      *  Enumerations for ContactSocial SocialNetwork
+      **/
+     export class ContactSocialSocialNetworkEnum {
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Starting = new LifecycleStateEnum("Starting");
-          static Started = new LifecycleStateEnum("Started");
-          static Running = new LifecycleStateEnum("Running");
-          static Paused = new LifecycleStateEnum("Paused");
-          static PausedIdle = new LifecycleStateEnum("PausedIdle");
-          static PausedRun = new LifecycleStateEnum("PausedRun");
-          static Resuming = new LifecycleStateEnum("Resuming");
-          static Stopping = new LifecycleStateEnum("Stopping");
-          static Unknown = new LifecycleStateEnum("Unknown");
+          static Twitter = new ContactSocialSocialNetworkEnum("Twitter");
+          static Facebook = new ContactSocialSocialNetworkEnum("Facebook");
+          static GooglePlus = new ContactSocialSocialNetworkEnum("GooglePlus");
+          static LinkedIn = new ContactSocialSocialNetworkEnum("LinkedIn");
+          static Flickr = new ContactSocialSocialNetworkEnum("Flickr");
+          static Unknown = new ContactSocialSocialNetworkEnum("Unknown");
      }
 
      /**
-      *   Class implementation for Service
+      *   Class implementation for Table
       **/
-     export class Service {
+     export class Table {
 
           /** Field Declarations **/
-          endpoint : Endpoint;
-          method : ServiceServiceMethodEnum;
+          columnCount : number;
+          columns : Array<Column>;
           name : string;
-          type : ServiceServiceTypeEnum;
+          rowCount : number;
+          rows : Array<Row>;
 
           /** Initialization **/
-          constructor(endpoint: Endpoint, name: string, method: ServiceServiceMethodEnum, type: ServiceServiceTypeEnum) {
-               this.endpoint = endpoint;
+          constructor(name: string) {
                this.name = name;
-               this.method = method;
-               this.type = type;
           }
 
           /**
-           * Method Declarations for Service
+           * Method Declarations for Table
            */
-          getEndpoint() : Endpoint {
-               return this.endpoint
+          getColumnCount() : number {
+               return this.columnCount
           }
 
-          getMethod() : ServiceServiceMethodEnum {
-               return this.method
+          getColumns() : Array<Column> {
+               return this.columns
           }
 
           getName() : string {
                return this.name
           }
 
-          getType() : ServiceServiceTypeEnum {
-               return this.type
+          getRowCount() : number {
+               return this.rowCount
           }
 
-          setEndpoint(endpoint : Endpoint) : void {
-               this.endpoint = endpoint
+          getRows() : Array<Row> {
+               return this.rows
           }
 
-          setMethod(method : ServiceServiceMethodEnum) : void {
-               this.method = method
+          setColumnCount(columnCount : number) : void {
+               this.columnCount = columnCount
+          }
+
+          setColumns(columns : Array<Column>) : void {
+               this.columns = columns
           }
 
           setName(name : string) : void {
                this.name = name
           }
 
-          setType(type : ServiceServiceTypeEnum) : void {
-               this.type = type
+          setRowCount(rowCount : number) : void {
+               this.rowCount = rowCount
+          }
+
+          setRows(rows : Array<Row>) : void {
+               this.rows = rows
           }
 
      }
 
      /**
-      *  Enumerations for Service ServiceMethod
+      *   Class implementation for ServiceResponse
       **/
-     export class ServiceServiceMethodEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
+     export class ServiceResponse {
 
-          static POST = new ServiceServiceMethodEnum("POST");
-          static GET = new ServiceServiceMethodEnum("GET");
-          static Unknown = new ServiceServiceMethodEnum("Unknown");
+          /** Field Declarations **/
+          content : string;
+          contentBinary : Array<number>;
+          contentBinaryLength : number;
+          contentEncoding : string;
+          contentLength : string;
+          contentType : string;
+          headers : Array<Header>;
+          session : ISession;
+
+          /** Initialization **/
+          constructor(content: string, contentType: string, contentLength: string, contentBinary: Array<number>, contentBinaryLength: number, headers: Array<Header>, session: ISession, contentEncoding: string) {
+               this.content = content;
+               this.contentType = contentType;
+               this.contentLength = contentLength;
+               this.contentBinary = contentBinary;
+               this.contentBinaryLength = contentBinaryLength;
+               this.headers = headers;
+               this.session = session;
+               this.contentEncoding = contentEncoding;
+          }
+
+          /**
+           * Method Declarations for ServiceResponse
+           */
+          getContent() : string {
+               return this.content
+          }
+
+          getContentBinary() : Array<number> {
+               return this.contentBinary
+          }
+
+          getContentBinaryLength() : number {
+               return this.contentBinaryLength
+          }
+
+          getContentEncoding() : string {
+               return this.contentEncoding
+          }
+
+          getContentLength() : string {
+               return this.contentLength
+          }
+
+          getContentType() : string {
+               return this.contentType
+          }
+
+          getHeaders() : Array<Header> {
+               return this.headers
+          }
+
+          getSession() : ISession {
+               return this.session
+          }
+
+          setContentBinaryLength(contentBinaryLength : number) : void {
+               this.contentBinaryLength = contentBinaryLength
+          }
+
+          setContentBinary(contentBinary : Array<number>) : void {
+               this.contentBinary = contentBinary
+          }
+
+          setContentEncoding(contentEncoding : string) : void {
+               this.contentEncoding = contentEncoding
+          }
+
+          setContentLength(contentLength : string) : void {
+               this.contentLength = contentLength
+          }
+
+          setContentType(contentType : string) : void {
+               this.contentType = contentType
+          }
+
+          setContent(content : string) : void {
+               this.content = content
+          }
+
+          setHeaders(headers : Array<Header>) : void {
+               this.headers = headers
+          }
+
+          setSession(session : ISession) : void {
+               this.session = session
+          }
+
      }
 
      /**
-      *  Enumerations for Service ServiceType
+      *   Class implementation for EmailAddress
       **/
-     export class ServiceServiceTypeEnum {
-          constructor(public value:string){}
-          toString(){return this.value;}
+     export class EmailAddress {
 
-          static SERVICETYPE_AMF_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_AMF_SERIALIZATION");
-          static SERVICETYPE_GWT_RPC = new ServiceServiceTypeEnum("SERVICETYPE_GWT_RPC");
-          static SERVICETYPE_OCTET_BINARY = new ServiceServiceTypeEnum("SERVICETYPE_OCTET_BINARY");
-          static SERVICETYPE_REMOTING_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_REMOTING_SERIALIZATION");
-          static SERVICETYPE_REST_JSON = new ServiceServiceTypeEnum("SERVICETYPE_REST_JSON");
-          static SERVICETYPE_REST_XML = new ServiceServiceTypeEnum("SERVICETYPE_REST_XML");
-          static SERVICETYPE_SOAP_JSON = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_JSON");
-          static SERVICETYPE_SOAP_XML = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_XML");
-          static SERVICETYPE_XMLRPC_JSON = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_JSON");
-          static SERVICETYPE_XMLRPC_XML = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_XML");
-          static Unknown = new ServiceServiceTypeEnum("Unknown");
+          /** Field Declarations **/
+          address : string;
 
-         public static getClassDescription() : string {
-             return "static";
-         }
+          /** Initialization **/
+          constructor(address: string) {
+               this.address = address;
+          }
+
+          /**
+           * Method Declarations for EmailAddress
+           */
+          getAddress() : string {
+               return this.address
+          }
+
+          setAddress(address : string) : void {
+               this.address = address
+          }
+
      }
 
-    export class ReflectionStereotypeEnum {
-        constructor(public value:string){}
-        toString(){return this.value;}
+     /**
+      *   Class implementation for DeviceInfo
+      **/
+     export class DeviceInfo {
 
-        static TypeModule = new ReflectionStereotypeEnum("Module");
-        static TypeCategory = new ReflectionStereotypeEnum("Category");
-        static TypeClass = new ReflectionStereotypeEnum("Class");
-        static TypeFunction = new ReflectionStereotypeEnum("Function");
-        static TypeObject = new ReflectionStereotypeEnum("Object");
-        static TypeDescription = new ReflectionStereotypeEnum("Description");
-    }
+          /** Field Declarations **/
+          model : string;
+          name : string;
+          uuid : string;
+          vendor : string;
 
-    export class ReflectionTypeEnum {
-        constructor(public value:string){}
-        toString(){return this.value;}
+          /** Initialization **/
+          constructor(name: string, model: string, vendor: string, uuid: string) {
+               this.name = name;
+               this.model = model;
+               this.vendor = vendor;
+               this.uuid = uuid;
+          }
 
-        static TypeString = new ReflectionStereotypeEnum("string");
-        static TypeNumber = new ReflectionStereotypeEnum("number");
-        static TypeObject = new ReflectionStereotypeEnum("object");
-        static TypeArray = new ReflectionStereotypeEnum("Array");
-    }
+          /**
+           * Method Declarations for DeviceInfo
+           */
+          getModel() : string {
+               return this.model
+          }
 
-    export interface IReflection {
-        name : string;
-        description: string;
-        stereotype: ReflectionStereotypeEnum;
-        getName() : string;
-        getStereotype() : ReflectionStereotypeEnum;
-        getDescription(): string;
-    }
+          getName() : string {
+               return this.name
+          }
 
-    export class Reflection implements IReflection {
-        name:string;
-        description:string;
-        stereotype: ReflectionStereotypeEnum;
+          getUuid() : string {
+               return this.uuid
+          }
 
-        constructor(name:string, description:string,stereotype:ReflectionStereotypeEnum) {
-            this.name = name;
-            this.description = description;
-            this.stereotype = stereotype;
-        }
+          getVendor() : string {
+               return this.vendor
+          }
 
-        getName():string {
-            return this.name;
-        }
-        getStereotype(): ReflectionStereotypeEnum {
-            return this.stereotype;
-        }
-        getDescription():string {
-            return this.description;
-        }
-    }
+     }
 
-    export class ReflectionModule extends Reflection {
-        categories: Array<ReflectionCategory>;
 
-        constructor(name:string, description:string,categories:Array<ReflectionCategory>) {
-            super(name,description,ReflectionStereotypeEnum.TypeModule)
-            this.categories = categories;
-        }
-
-        getCategories() : Array<ReflectionCategory> {
-            return this.categories;
-        }
-
-        getClasses() : Array<ReflectionClass> {
-            var _array = new Array<ReflectionClass>();
-            for (var i=0; i < this.getCategories().length; i++) {
-                var category:ReflectionCategory = this.getCategories()[i];
-                for (var j=0; j < category.getClasses().length; j++) {
-                    _array.push(category.getClasses()[j]);
-                }
-            }
-            return _array;
-        }
-    }
-
-    export class ReflectionCategory extends Reflection {
-        classes: Array<ReflectionClass>;
-
-        constructor(name:string, description:string, classes:Array<ReflectionClass>) {
-            super(name, description, ReflectionStereotypeEnum.TypeCategory);
-            this.classes = classes;
-        }
-
-        getClasses() : Array<ReflectionClass> {
-            return this.classes;
-        }
-    }
-
-    export class ReflectionClass extends Reflection {
-        functions: Array<ReflectionFunction>;
-        fields:Array<ReflectionObject>;
-
-        constructor(name:string, description:string, functions:Array<ReflectionFunction>, fields:Array<ReflectionObject>) {
-            super(name,description,ReflectionStereotypeEnum.TypeClass);
-            this.functions = functions;
-            if (fields == null) {
-                this.fields = new Array<ReflectionObject>();
-            } else {
-                this.fields = fields;
-            }
-        }
-
-        getFunctions() : Array<ReflectionFunction> {
-            return this.functions;
-        }
-
-        getFields() : Array<ReflectionObject> {
-            return this.fields;
-        }
-    }
-
-    export class ReflectionFunction extends Reflection {
-        parameters: Array<ReflectionObject>;
-        returnType: ReflectionObject;
-
-        constructor(name:string, description:string, parameters:Array<ReflectionObject>, returnType:ReflectionObject) {
-            super(name,description,ReflectionStereotypeEnum.TypeFunction);
-            if (parameters == null) {
-                this.parameters = new Array<ReflectionObject>();
-            } else {
-                this.parameters = parameters;
-            }
-            this.returnType = returnType;
-        }
-
-        getParameters() : Array<ReflectionObject> {
-            return this.parameters;
-        }
-        getReturnType() : ReflectionObject {
-            return this.returnType;
-        }
-    }
-
-    export class ReflectionObject extends Reflection {
-        type: string;
-        componentType: ReflectionObject;
-        fields:Array<ReflectionObject>;
-        primitive: boolean = false;
-        _array:boolean = false;
-        _void:boolean = false;
-
-        constructor(name:string, description:string, type:string, fields:Array<ReflectionObject>) {
-            super(name,description,ReflectionStereotypeEnum.TypeObject);
-            this.type = type;
-            if (fields == null) {
-                this.fields = new Array<ReflectionObject>();
-            } else {
-                this.fields = fields;
-            }
-            this.componentType = null;
-            if (this.type == "number" || this.type == "string" || this.type == "boolean") {
-                this.primitive = true;
-            }
-            if (this.type == null || this.type == "null") {
-                this._void = true;
-            }
-            if (this.type !=null && this.type.indexOf("Array")>-1) {
-                this._array = true;
-                this.componentType = new ReflectionObject(name, "Array component of "+type+".",this.type.substring(5,this.type.length-1), null);
-            }
-        }
-
-        getType() : string {
-            return this.type;
-        }
-        getComponentType():ReflectionObject {
-            return this.componentType;
-        }
-        isPrimitive():boolean {
-            return this.primitive;
-        }
-        isArray():boolean {
-            return this._array;
-        }
-        isVoid():boolean {
-            return this._void;
-        }
-    }
 }
-
-var arrayCategory = new Array<Adaptive.ReflectionCategory>();
-for (var _categories = 0; _categories < 10 ; _categories++) {
-
-    var arrayClasses = new Array<Adaptive.ReflectionClass>();
-    for (var _classes = 0; _classes < 10; _classes++) {
-
-        var arrayFunctions = new Array<Adaptive.ReflectionFunction>();
-        for (var _functions = 0; _functions<5; _functions++) {
-
-            var arrayParameters = new Array<Adaptive.ReflectionObject>();
-            for (var _parameters = 0; _parameters<5;_parameters++) {
-
-                var arrayFields = new Array<Adaptive.ReflectionObject>();
-                for (var _fields = 0; _fields < 2; _fields++) {
-                    arrayFields.push(new Adaptive.ReflectionObject("fieldString"+_fields, "Description fieldString"+_fields,"string", null));
-                    arrayFields.push(new Adaptive.ReflectionObject("fieldNumber"+_fields, "Description fieldNumber"+_fields,"number", null));
-                    arrayFields.push(new Adaptive.ReflectionObject("fieldBoolean"+_fields, "Description fieldBoolean"+_fields,"boolean", null));
-                    arrayFields.push(new Adaptive.ReflectionObject("arrayString"+_fields, "Description arrayString"+_fields,"Array<string>", null));
-                    arrayFields.push(new Adaptive.ReflectionObject("arrayNumber"+_fields, "Description arrayNumber"+_fields,"Array<number>", null));
-                    arrayFields.push(new Adaptive.ReflectionObject("arrayBoolean"+_fields, "Description arrayBoolean"+_fields,"Array<boolean>", null));
-                }
-
-                arrayParameters.push(new Adaptive.ReflectionObject("param"+_parameters,"Description param"+_parameters,"Type"+_parameters,arrayFields));
-            }
-
-            arrayFunctions.push(new Adaptive.ReflectionFunction("setFunction"+_functions, "Description setFunction"+_functions, arrayParameters,new Adaptive.ReflectionObject("void", "void", null, null)));
-        }
-
-        arrayClasses.push(new Adaptive.ReflectionClass("Class"+_classes,"Description Class"+_classes, arrayFunctions,arrayFields));
-    }
-
-    arrayCategory.push(new Adaptive.ReflectionCategory("Category"+_categories,"Description Category"+_categories,arrayClasses));
-}
-var moduleDescription = new Adaptive.ReflectionModule("Adaptive","Adaptive Runtime Platform JS API",arrayCategory);
-
-console.log(moduleDescription.getClasses());

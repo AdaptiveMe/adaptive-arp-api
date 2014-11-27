@@ -119,6 +119,189 @@ public class J2SwiftConverter {
         js.println(5, "var registeredCounter : number = 0;");
         js.println(5, "var bridgePath : string = \"https://adaptiveapp\";");
         js.println();
+        js.println(5,"/**");
+        js.println(5," *   Reflection support classes for metadata documentation.");
+        js.println(5," */");
+        js.println("    export class ReflectionStereotypeEnum {\n" +
+                "        constructor(public value:string){}\n" +
+                "        toString(){return this.value;}\n" +
+                "\n" +
+                "        static TypeModule = new ReflectionStereotypeEnum(\"Module\");\n" +
+                "        static TypeCategory = new ReflectionStereotypeEnum(\"Category\");\n" +
+                "        static TypeClass = new ReflectionStereotypeEnum(\"Class\");\n" +
+                "        static TypeFunction = new ReflectionStereotypeEnum(\"Function\");\n" +
+                "        static TypeObject = new ReflectionStereotypeEnum(\"Object\");\n" +
+                "        static TypeDescription = new ReflectionStereotypeEnum(\"Description\");\n" +
+                "    }\n" +
+                "\n" +
+                "    export class ReflectionTypeEnum {\n" +
+                "        constructor(public value:string){}\n" +
+                "        toString(){return this.value;}\n" +
+                "\n" +
+                "        static TypeString = new ReflectionStereotypeEnum(\"string\");\n" +
+                "        static TypeNumber = new ReflectionStereotypeEnum(\"number\");\n" +
+                "        static TypeObject = new ReflectionStereotypeEnum(\"object\");\n" +
+                "        static TypeArray = new ReflectionStereotypeEnum(\"Array\");\n" +
+                "    }\n" +
+                "\n" +
+                "    export interface IReflection {\n" +
+                "        name : string;\n" +
+                "        description: string;\n" +
+                "        stereotype: ReflectionStereotypeEnum;\n" +
+                "        getName() : string;\n" +
+                "        getStereotype() : ReflectionStereotypeEnum;\n" +
+                "        getDescription(): string;\n" +
+                "    }\n" +
+                "\n" +
+                "    export class Reflection implements IReflection {\n" +
+                "        name:string;\n" +
+                "        description:string;\n" +
+                "        stereotype: ReflectionStereotypeEnum;\n" +
+                "\n" +
+                "        constructor(name:string, description:string,stereotype:ReflectionStereotypeEnum) {\n" +
+                "            this.name = name;\n" +
+                "            this.description = description;\n" +
+                "            this.stereotype = stereotype;\n" +
+                "        }\n" +
+                "\n" +
+                "        getName():string {\n" +
+                "            return this.name;\n" +
+                "        }\n" +
+                "        getStereotype(): ReflectionStereotypeEnum {\n" +
+                "            return this.stereotype;\n" +
+                "        }\n" +
+                "        getDescription():string {\n" +
+                "            return this.description;\n" +
+                "        }\n" +
+                "    }\n" +
+                "\n" +
+                "    export class ReflectionModule extends Reflection {\n" +
+                "        categories: Array<ReflectionCategory>;\n" +
+                "\n" +
+                "        constructor(name:string, description:string,categories:Array<ReflectionCategory>) {\n" +
+                "            super(name,description,ReflectionStereotypeEnum.TypeModule)\n" +
+                "            this.categories = categories;\n" +
+                "        }\n" +
+                "\n" +
+                "        getCategories() : Array<ReflectionCategory> {\n" +
+                "            return this.categories;\n" +
+                "        }\n" +
+                "\n" +
+                "        getClasses() : Array<ReflectionClass> {\n" +
+                "            var _array = new Array<ReflectionClass>();\n" +
+                "            for (var i=0; i < this.getCategories().length; i++) {\n" +
+                "                var category:ReflectionCategory = this.getCategories()[i];\n" +
+                "                for (var j=0; j < category.getClasses().length; j++) {\n" +
+                "                    _array.push(category.getClasses()[j]);\n" +
+                "                }\n" +
+                "            }\n" +
+                "            return _array;\n" +
+                "        }\n" +
+                "    }\n" +
+                "\n" +
+                "    export class ReflectionCategory extends Reflection {\n" +
+                "        classes: Array<ReflectionClass>;\n" +
+                "\n" +
+                "        constructor(name:string, description:string, classes:Array<ReflectionClass>) {\n" +
+                "            super(name, description, ReflectionStereotypeEnum.TypeCategory);\n" +
+                "            this.classes = classes;\n" +
+                "        }\n" +
+                "\n" +
+                "        getClasses() : Array<ReflectionClass> {\n" +
+                "            return this.classes;\n" +
+                "        }\n" +
+                "    }\n" +
+                "\n" +
+                "    export class ReflectionClass extends Reflection {\n" +
+                "        functions: Array<ReflectionFunction>;\n" +
+                "        fields:Array<ReflectionObject>;\n" +
+                "\n" +
+                "        constructor(name:string, description:string, functions:Array<ReflectionFunction>, fields:Array<ReflectionObject>) {\n" +
+                "            super(name,description,ReflectionStereotypeEnum.TypeClass);\n" +
+                "            this.functions = functions;\n" +
+                "            if (fields == null) {\n" +
+                "                this.fields = new Array<ReflectionObject>();\n" +
+                "            } else {\n" +
+                "                this.fields = fields;\n" +
+                "            }\n" +
+                "        }\n" +
+                "\n" +
+                "        getFunctions() : Array<ReflectionFunction> {\n" +
+                "            return this.functions;\n" +
+                "        }\n" +
+                "\n" +
+                "        getFields() : Array<ReflectionObject> {\n" +
+                "            return this.fields;\n" +
+                "        }\n" +
+                "    }\n" +
+                "\n" +
+                "    export class ReflectionFunction extends Reflection {\n" +
+                "        parameters: Array<ReflectionObject>;\n" +
+                "        returnType: ReflectionObject;\n" +
+                "\n" +
+                "        constructor(name:string, description:string, parameters:Array<ReflectionObject>, returnType:ReflectionObject) {\n" +
+                "            super(name,description,ReflectionStereotypeEnum.TypeFunction);\n" +
+                "            if (parameters == null) {\n" +
+                "                this.parameters = new Array<ReflectionObject>();\n" +
+                "            } else {\n" +
+                "                this.parameters = parameters;\n" +
+                "            }\n" +
+                "            this.returnType = returnType;\n" +
+                "        }\n" +
+                "\n" +
+                "        getParameters() : Array<ReflectionObject> {\n" +
+                "            return this.parameters;\n" +
+                "        }\n" +
+                "        getReturnType() : ReflectionObject {\n" +
+                "            return this.returnType;\n" +
+                "        }\n" +
+                "    }\n" +
+                "\n" +
+                "    export class ReflectionObject extends Reflection {\n" +
+                "        type: string;\n" +
+                "        componentType: ReflectionObject;\n" +
+                "        fields:Array<ReflectionObject>;\n" +
+                "        primitive: boolean = false;\n" +
+                "        _array:boolean = false;\n" +
+                "        _void:boolean = false;\n" +
+                "\n" +
+                "        constructor(name:string, description:string, type:string, fields:Array<ReflectionObject>) {\n" +
+                "            super(name,description,ReflectionStereotypeEnum.TypeObject);\n" +
+                "            this.type = type;\n" +
+                "            if (fields == null) {\n" +
+                "                this.fields = new Array<ReflectionObject>();\n" +
+                "            } else {\n" +
+                "                this.fields = fields;\n" +
+                "            }\n" +
+                "            this.componentType = null;\n" +
+                "            if (this.type == \"number\" || this.type == \"string\" || this.type == \"boolean\") {\n" +
+                "                this.primitive = true;\n" +
+                "            }\n" +
+                "            if (this.type == null || this.type == \"null\") {\n" +
+                "                this._void = true;\n" +
+                "            }\n" +
+                "            if (this.type !=null && this.type.indexOf(\"Array\")>-1) {\n" +
+                "                this._array = true;\n" +
+                "                this.componentType = new ReflectionObject(name, \"Array component of \"+type+\".\",this.type.substring(5,this.type.length-1), null);\n" +
+                "            }\n" +
+                "        }\n" +
+                "\n" +
+                "        getType() : string {\n" +
+                "            return this.type;\n" +
+                "        }\n" +
+                "        getComponentType():ReflectionObject {\n" +
+                "            return this.componentType;\n" +
+                "        }\n" +
+                "        isPrimitive():boolean {\n" +
+                "            return this.primitive;\n" +
+                "        }\n" +
+                "        isArray():boolean {\n" +
+                "            return this._array;\n" +
+                "        }\n" +
+                "        isVoid():boolean {\n" +
+                "            return this._void;\n" +
+                "        }\n" +
+                "    }");
 
         long tIn = System.currentTimeMillis();
         List<File> sourceFileList = new ArrayList<File>();
