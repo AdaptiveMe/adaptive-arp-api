@@ -227,37 +227,6 @@ var Adaptive;
     }
     Adaptive.getReflection = getReflection;
     /**
-     *  Listener IBaseListener implementation.
-     */
-    var BaseListener = (function () {
-        function BaseListener() {
-            this.id = ++registeredCounter;
-        }
-        BaseListener.prototype.toString = function () {
-            return "BaseListener{" + this.id + "}";
-        };
-        BaseListener.prototype.getId = function () {
-            return this.id;
-        };
-        BaseListener.getReflection = function () {
-            /** Fields of BaseListener **/
-            var _fields = new Array();
-            /** Methods of BaseListener **/
-            var _methods = new Array();
-            /** Method toString of BaseListener **/
-            var _params_toString = new Array();
-            _methods.push(new ReflectionMethod('toString', 'BaseListener toString', _params_toString, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getId of BaseListener **/
-            var _params_getId = new Array();
-            _methods.push(new ReflectionMethod('getId', 'BaseListener getId', _params_getId, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Class description of IBaseListener **/
-            var clazz = new ReflectionClass('BaseListener', 'Listener/Callback class BaseListener', 'BaseListener', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return BaseListener;
-    })();
-    Adaptive.BaseListener = BaseListener;
-    /**
      *  Enumerations for IAppContext Type
      **/
     var IAppContextTypeEnum = (function () {
@@ -268,7 +237,22 @@ var Adaptive;
             return this.value;
         };
         IAppContextTypeEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IAppContext Type
+            /** Fields of IAppContextTypeEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('iOS', 'Field iOS of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('OSX', 'Field OSX of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Windows', 'Field Windows of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('WindowsPhone', 'Field WindowsPhone of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Android', 'Field Android of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Linux', 'Field Linux of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Blackberry', 'Field Blackberry of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Tizen', 'Field Tizen of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('FirefoxOS', 'Field FirefoxOS of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Chromium', 'Field Chromium of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Unspecified', 'Field Unspecified of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            var clazz = new ReflectionClass('IAppContextTypeEnum', 'Enum class IAppContextTypeEnum', 'IAppContextTypeEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
         IAppContextTypeEnum.iOS = new IAppContextTypeEnum("iOS");
         IAppContextTypeEnum.OSX = new IAppContextTypeEnum("OSX");
@@ -285,73 +269,6 @@ var Adaptive;
         return IAppContextTypeEnum;
     })();
     Adaptive.IAppContextTypeEnum = IAppContextTypeEnum;
-    /**
-     *  Enumerations for IAppResource Payload
-     **/
-    var IAppResourcePayloadEnum = (function () {
-        function IAppResourcePayloadEnum(value) {
-            this.value = value;
-        }
-        IAppResourcePayloadEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IAppResourcePayloadEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IAppResource Payload
-        };
-        IAppResourcePayloadEnum.Default = new IAppResourcePayloadEnum("Default");
-        IAppResourcePayloadEnum.Embedded = new IAppResourcePayloadEnum("Embedded");
-        IAppResourcePayloadEnum.Linked = new IAppResourcePayloadEnum("Linked");
-        IAppResourcePayloadEnum.Unknown = new IAppResourcePayloadEnum("Unknown");
-        return IAppResourcePayloadEnum;
-    })();
-    Adaptive.IAppResourcePayloadEnum = IAppResourcePayloadEnum;
-    /**
-     *  Enumerations for IAppResource Format
-     **/
-    var IAppResourceFormatEnum = (function () {
-        function IAppResourceFormatEnum(value) {
-            this.value = value;
-        }
-        IAppResourceFormatEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IAppResourceFormatEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IAppResource Format
-        };
-        IAppResourceFormatEnum.Raw = new IAppResourceFormatEnum("Raw");
-        IAppResourceFormatEnum.Compressed = new IAppResourceFormatEnum("Compressed");
-        IAppResourceFormatEnum.Encrypted = new IAppResourceFormatEnum("Encrypted");
-        IAppResourceFormatEnum.EncryptedCompressed = new IAppResourceFormatEnum("EncryptedCompressed");
-        IAppResourceFormatEnum.Unknown = new IAppResourceFormatEnum("Unknown");
-        return IAppResourceFormatEnum;
-    })();
-    Adaptive.IAppResourceFormatEnum = IAppResourceFormatEnum;
-    /**
-     *  Enumerations for IAppResource Type
-     **/
-    var IAppResourceTypeEnum = (function () {
-        function IAppResourceTypeEnum(value) {
-            this.value = value;
-        }
-        IAppResourceTypeEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IAppResourceTypeEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IAppResource Type
-        };
-        IAppResourceTypeEnum.Html = new IAppResourceTypeEnum("Html");
-        IAppResourceTypeEnum.Css = new IAppResourceTypeEnum("Css");
-        IAppResourceTypeEnum.JavaScript = new IAppResourceTypeEnum("JavaScript");
-        IAppResourceTypeEnum.Image = new IAppResourceTypeEnum("Image");
-        IAppResourceTypeEnum.Video = new IAppResourceTypeEnum("Video");
-        IAppResourceTypeEnum.Audio = new IAppResourceTypeEnum("Audio");
-        IAppResourceTypeEnum.Property = new IAppResourceTypeEnum("Property");
-        IAppResourceTypeEnum.Database = new IAppResourceTypeEnum("Database");
-        IAppResourceTypeEnum.Other = new IAppResourceTypeEnum("Other");
-        IAppResourceTypeEnum.Unknown = new IAppResourceTypeEnum("Unknown");
-        return IAppResourceTypeEnum;
-    })();
-    Adaptive.IAppResourceTypeEnum = IAppResourceTypeEnum;
     /**
      *  Callback IBaseCallback implementation.
      */
@@ -384,654 +301,243 @@ var Adaptive;
     })();
     Adaptive.BaseCallback = BaseCallback;
     /**
-     *  Enumerations for IDatabaseResultCallback Error
-     **/
-    var IDatabaseResultCallbackErrorEnum = (function () {
-        function IDatabaseResultCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        IDatabaseResultCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IDatabaseResultCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IDatabaseResultCallback Error
-        };
-        IDatabaseResultCallbackErrorEnum.NoSpace = new IDatabaseResultCallbackErrorEnum("NoSpace");
-        IDatabaseResultCallbackErrorEnum.SqlException = new IDatabaseResultCallbackErrorEnum("SqlException");
-        IDatabaseResultCallbackErrorEnum.NotDeleted = new IDatabaseResultCallbackErrorEnum("NotDeleted");
-        IDatabaseResultCallbackErrorEnum.Unknown = new IDatabaseResultCallbackErrorEnum("Unknown");
-        return IDatabaseResultCallbackErrorEnum;
-    })();
-    Adaptive.IDatabaseResultCallbackErrorEnum = IDatabaseResultCallbackErrorEnum;
-    /**
-     *  Enumerations for IDatabaseResultCallback Warning
-     **/
-    var IDatabaseResultCallbackWarningEnum = (function () {
-        function IDatabaseResultCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IDatabaseResultCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IDatabaseResultCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IDatabaseResultCallback Warning
-        };
-        IDatabaseResultCallbackWarningEnum.DatabaseExists = new IDatabaseResultCallbackWarningEnum("DatabaseExists");
-        IDatabaseResultCallbackWarningEnum.IsOpen = new IDatabaseResultCallbackWarningEnum("IsOpen");
-        IDatabaseResultCallbackWarningEnum.Unknown = new IDatabaseResultCallbackWarningEnum("Unknown");
-        return IDatabaseResultCallbackWarningEnum;
-    })();
-    Adaptive.IDatabaseResultCallbackWarningEnum = IDatabaseResultCallbackWarningEnum;
-    /**
-     *  Callback IDatabaseResultCallback control dictionary.
+     *  Listener IBaseListener implementation.
      */
-    var registeredIDatabaseResultCallback = new Dictionary([]);
-    /**
-     *  Callback IDatabaseResultCallback onError/onWarning/onResult handlers.
-     */
-    function handleIDatabaseResultCallbackError(id, error) {
-        var callback = registeredIDatabaseResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIDatabaseResultCallback dictionary.");
-        }
-        else {
-            callback.onError(error);
-            registeredIDatabaseResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIDatabaseResultCallbackError = handleIDatabaseResultCallbackError;
-    function handleIDatabaseResultCallbackResult(id, database) {
-        var callback = registeredIDatabaseResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIDatabaseResultCallback dictionary.");
-        }
-        else {
-            callback.onResult(database);
-            registeredIDatabaseResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIDatabaseResultCallbackResult = handleIDatabaseResultCallbackResult;
-    function handleIDatabaseResultCallbackWarning(id, database, warning) {
-        var callback = registeredIDatabaseResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIDatabaseResultCallback dictionary.");
-        }
-        else {
-            callback.onWarning(database, warning);
-            registeredIDatabaseResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIDatabaseResultCallbackWarning = handleIDatabaseResultCallbackWarning;
-    /**
-     *  Callback IDatabaseResultCallback implementation.
-     */
-    var DatabaseResultCallback = (function () {
-        function DatabaseResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+    var BaseListener = (function () {
+        function BaseListener() {
             this.id = ++registeredCounter;
-            if (this.onErrorFunction == null) {
-                console.error("ERROR: DatabaseResultCallback onErrorFunction is not defined.");
-            }
-            else {
-                this.onErrorFunction = onErrorFunction;
-            }
-            if (this.onResultFunction == null) {
-                console.error("ERROR: DatabaseResultCallback onResultFunction is not defined.");
-            }
-            else {
-                this.onResultFunction = onResultFunction;
-            }
-            if (this.onWarningFunction == null) {
-                console.error("ERROR: DatabaseResultCallback onWarningFunction is not defined.");
-            }
-            else {
-                this.onWarningFunction = onWarningFunction;
-            }
         }
-        DatabaseResultCallback.prototype.toString = function () {
-            return "DatabaseResultCallback{" + this.id + "}";
+        BaseListener.prototype.toString = function () {
+            return "BaseListener{" + this.id + "}";
         };
-        DatabaseResultCallback.prototype.getId = function () {
+        BaseListener.prototype.getId = function () {
             return this.id;
         };
-        DatabaseResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The DatabaseResultCallback does not define the onErrorFunction.");
-            }
-            else {
-                this.onErrorFunction(error);
-            }
-        };
-        DatabaseResultCallback.prototype.onResult = function (database) {
-            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The DatabaseResultCallback does not define the onResultFunction.");
-            }
-            else {
-                this.onResultFunction(database);
-            }
-        };
-        DatabaseResultCallback.prototype.onWarning = function (database, warning) {
-            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The DatabaseResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(database, warning);
-            }
-        };
-        DatabaseResultCallback.getReflection = function () {
-            /** Fields of DatabaseResultCallback **/
+        BaseListener.getReflection = function () {
+            /** Fields of BaseListener **/
             var _fields = new Array();
-            /** Methods of DatabaseResultCallback **/
+            /** Methods of BaseListener **/
             var _methods = new Array();
-            /** Method onError of DatabaseResultCallback **/
-            var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'DatabaseResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'DatabaseResultCallback onError', _params_onError, null));
-            /** Method onWarning of DatabaseResultCallback **/
-            var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('database', 'DatabaseResultCallback onWarning database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'DatabaseResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'DatabaseResultCallback onWarning', _params_onWarning, null));
-            /** Method onResult of DatabaseResultCallback **/
-            var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('database', 'DatabaseResultCallback onResult database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'DatabaseResultCallback onResult', _params_onResult, null));
-            /** Class description of IDatabaseResultCallback **/
-            var clazz = new ReflectionClass('DatabaseResultCallback', 'Listener/Callback class DatabaseResultCallback', 'DatabaseResultCallback', _methods, _fields, Adaptive.getReflection());
+            /** Method toString of BaseListener **/
+            var _params_toString = new Array();
+            _methods.push(new ReflectionMethod('toString', 'BaseListener toString', _params_toString, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getId of BaseListener **/
+            var _params_getId = new Array();
+            _methods.push(new ReflectionMethod('getId', 'BaseListener getId', _params_getId, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Class description of IBaseListener **/
+            var clazz = new ReflectionClass('BaseListener', 'Listener/Callback class BaseListener', 'BaseListener', _methods, _fields, Adaptive.getReflection());
             return clazz;
         };
-        return DatabaseResultCallback;
+        return BaseListener;
     })();
-    Adaptive.DatabaseResultCallback = DatabaseResultCallback;
+    Adaptive.BaseListener = BaseListener;
     /**
-     *  Enumerations for IContactPhotoResultCallback Error
+     *  Enumerations for IAppResource Payload
      **/
-    var IContactPhotoResultCallbackErrorEnum = (function () {
-        function IContactPhotoResultCallbackErrorEnum(value) {
+    var IAppResourcePayloadEnum = (function () {
+        function IAppResourcePayloadEnum(value) {
             this.value = value;
         }
-        IContactPhotoResultCallbackErrorEnum.prototype.toString = function () {
+        IAppResourcePayloadEnum.prototype.toString = function () {
             return this.value;
         };
-        IContactPhotoResultCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IContactPhotoResultCallback Error
-        };
-        IContactPhotoResultCallbackErrorEnum.NoPermission = new IContactPhotoResultCallbackErrorEnum("NoPermission");
-        IContactPhotoResultCallbackErrorEnum.Wrong_Params = new IContactPhotoResultCallbackErrorEnum("Wrong_Params");
-        IContactPhotoResultCallbackErrorEnum.No_Photo = new IContactPhotoResultCallbackErrorEnum("No_Photo");
-        IContactPhotoResultCallbackErrorEnum.Unknown = new IContactPhotoResultCallbackErrorEnum("Unknown");
-        return IContactPhotoResultCallbackErrorEnum;
-    })();
-    Adaptive.IContactPhotoResultCallbackErrorEnum = IContactPhotoResultCallbackErrorEnum;
-    /**
-     *  Enumerations for IContactPhotoResultCallback Warning
-     **/
-    var IContactPhotoResultCallbackWarningEnum = (function () {
-        function IContactPhotoResultCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IContactPhotoResultCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IContactPhotoResultCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IContactPhotoResultCallback Warning
-        };
-        IContactPhotoResultCallbackWarningEnum.LimitExceeded = new IContactPhotoResultCallbackWarningEnum("LimitExceeded");
-        IContactPhotoResultCallbackWarningEnum.No_Matches = new IContactPhotoResultCallbackWarningEnum("No_Matches");
-        IContactPhotoResultCallbackWarningEnum.Unknown = new IContactPhotoResultCallbackWarningEnum("Unknown");
-        return IContactPhotoResultCallbackWarningEnum;
-    })();
-    Adaptive.IContactPhotoResultCallbackWarningEnum = IContactPhotoResultCallbackWarningEnum;
-    /**
-     *  Callback IContactPhotoResultCallback control dictionary.
-     */
-    var registeredIContactPhotoResultCallback = new Dictionary([]);
-    /**
-     *  Callback IContactPhotoResultCallback onError/onWarning/onResult handlers.
-     */
-    function handleIContactPhotoResultCallbackError(id, error) {
-        var callback = registeredIContactPhotoResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIContactPhotoResultCallback dictionary.");
-        }
-        else {
-            callback.onError(error);
-            registeredIContactPhotoResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIContactPhotoResultCallbackError = handleIContactPhotoResultCallbackError;
-    function handleIContactPhotoResultCallbackResult(id, contactPhoto) {
-        var callback = registeredIContactPhotoResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIContactPhotoResultCallback dictionary.");
-        }
-        else {
-            callback.onResult(contactPhoto);
-            registeredIContactPhotoResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIContactPhotoResultCallbackResult = handleIContactPhotoResultCallbackResult;
-    function handleIContactPhotoResultCallbackWarning(id, contactPhoto, warning) {
-        var callback = registeredIContactPhotoResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIContactPhotoResultCallback dictionary.");
-        }
-        else {
-            callback.onWarning(contactPhoto, warning);
-            registeredIContactPhotoResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIContactPhotoResultCallbackWarning = handleIContactPhotoResultCallbackWarning;
-    /**
-     *  Callback IContactPhotoResultCallback implementation.
-     */
-    var ContactPhotoResultCallback = (function () {
-        function ContactPhotoResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = ++registeredCounter;
-            if (this.onErrorFunction == null) {
-                console.error("ERROR: ContactPhotoResultCallback onErrorFunction is not defined.");
-            }
-            else {
-                this.onErrorFunction = onErrorFunction;
-            }
-            if (this.onResultFunction == null) {
-                console.error("ERROR: ContactPhotoResultCallback onResultFunction is not defined.");
-            }
-            else {
-                this.onResultFunction = onResultFunction;
-            }
-            if (this.onWarningFunction == null) {
-                console.error("ERROR: ContactPhotoResultCallback onWarningFunction is not defined.");
-            }
-            else {
-                this.onWarningFunction = onWarningFunction;
-            }
-        }
-        ContactPhotoResultCallback.prototype.toString = function () {
-            return "ContactPhotoResultCallback{" + this.id + "}";
-        };
-        ContactPhotoResultCallback.prototype.getId = function () {
-            return this.id;
-        };
-        ContactPhotoResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The ContactPhotoResultCallback does not define the onErrorFunction.");
-            }
-            else {
-                this.onErrorFunction(error);
-            }
-        };
-        ContactPhotoResultCallback.prototype.onResult = function (contactPhoto) {
-            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The ContactPhotoResultCallback does not define the onResultFunction.");
-            }
-            else {
-                this.onResultFunction(contactPhoto);
-            }
-        };
-        ContactPhotoResultCallback.prototype.onWarning = function (contactPhoto, warning) {
-            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The ContactPhotoResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(contactPhoto, warning);
-            }
-        };
-        ContactPhotoResultCallback.getReflection = function () {
-            /** Fields of ContactPhotoResultCallback **/
+        IAppResourcePayloadEnum.getReflection = function () {
+            /** Fields of IAppResourcePayloadEnum **/
             var _fields = new Array();
-            /** Methods of ContactPhotoResultCallback **/
-            var _methods = new Array();
-            /** Method onError of ContactPhotoResultCallback **/
-            var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'ContactPhotoResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'ContactPhotoResultCallback onError', _params_onError, null));
-            /** Method onWarning of ContactPhotoResultCallback **/
-            var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('contactPhoto', 'ContactPhotoResultCallback onWarning contactPhoto', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'ContactPhotoResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'ContactPhotoResultCallback onWarning', _params_onWarning, null));
-            /** Method onResult of ContactPhotoResultCallback **/
-            var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('contactPhoto', 'ContactPhotoResultCallback onResult contactPhoto', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'ContactPhotoResultCallback onResult', _params_onResult, null));
-            /** Class description of IContactPhotoResultCallback **/
-            var clazz = new ReflectionClass('ContactPhotoResultCallback', 'Listener/Callback class ContactPhotoResultCallback', 'ContactPhotoResultCallback', _methods, _fields, Adaptive.getReflection());
+            _fields.push(new ReflectionField('Default', 'Field Default of class IAppResourcePayloadEnum', IAppResourcePayloadEnum.getReflection()));
+            _fields.push(new ReflectionField('Embedded', 'Field Embedded of class IAppResourcePayloadEnum', IAppResourcePayloadEnum.getReflection()));
+            _fields.push(new ReflectionField('Linked', 'Field Linked of class IAppResourcePayloadEnum', IAppResourcePayloadEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourcePayloadEnum', IAppResourcePayloadEnum.getReflection()));
+            var clazz = new ReflectionClass('IAppResourcePayloadEnum', 'Enum class IAppResourcePayloadEnum', 'IAppResourcePayloadEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
-        return ContactPhotoResultCallback;
+        IAppResourcePayloadEnum.Default = new IAppResourcePayloadEnum("Default");
+        IAppResourcePayloadEnum.Embedded = new IAppResourcePayloadEnum("Embedded");
+        IAppResourcePayloadEnum.Linked = new IAppResourcePayloadEnum("Linked");
+        IAppResourcePayloadEnum.Unknown = new IAppResourcePayloadEnum("Unknown");
+        return IAppResourcePayloadEnum;
     })();
-    Adaptive.ContactPhotoResultCallback = ContactPhotoResultCallback;
+    Adaptive.IAppResourcePayloadEnum = IAppResourcePayloadEnum;
     /**
-     *  Enumerations for ICapabilities Button
+     *  Enumerations for IAppResource Format
      **/
-    var ICapabilitiesButtonEnum = (function () {
-        function ICapabilitiesButtonEnum(value) {
+    var IAppResourceFormatEnum = (function () {
+        function IAppResourceFormatEnum(value) {
             this.value = value;
         }
-        ICapabilitiesButtonEnum.prototype.toString = function () {
+        IAppResourceFormatEnum.prototype.toString = function () {
             return this.value;
         };
-        ICapabilitiesButtonEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ICapabilities Button
-        };
-        ICapabilitiesButtonEnum.HomeButton = new ICapabilitiesButtonEnum("HomeButton");
-        ICapabilitiesButtonEnum.BackButton = new ICapabilitiesButtonEnum("BackButton");
-        ICapabilitiesButtonEnum.OptionButton = new ICapabilitiesButtonEnum("OptionButton");
-        ICapabilitiesButtonEnum.Unknown = new ICapabilitiesButtonEnum("Unknown");
-        return ICapabilitiesButtonEnum;
-    })();
-    Adaptive.ICapabilitiesButtonEnum = ICapabilitiesButtonEnum;
-    /**
-     *  Enumerations for ICapabilities Communication
-     **/
-    var ICapabilitiesCommunicationEnum = (function () {
-        function ICapabilitiesCommunicationEnum(value) {
-            this.value = value;
-        }
-        ICapabilitiesCommunicationEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ICapabilitiesCommunicationEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ICapabilities Communication
-        };
-        ICapabilitiesCommunicationEnum.Calendar = new ICapabilitiesCommunicationEnum("Calendar");
-        ICapabilitiesCommunicationEnum.Contact = new ICapabilitiesCommunicationEnum("Contact");
-        ICapabilitiesCommunicationEnum.Mail = new ICapabilitiesCommunicationEnum("Mail");
-        ICapabilitiesCommunicationEnum.Messaging = new ICapabilitiesCommunicationEnum("Messaging");
-        ICapabilitiesCommunicationEnum.Telephony = new ICapabilitiesCommunicationEnum("Telephony");
-        ICapabilitiesCommunicationEnum.Unknown = new ICapabilitiesCommunicationEnum("Unknown");
-        return ICapabilitiesCommunicationEnum;
-    })();
-    Adaptive.ICapabilitiesCommunicationEnum = ICapabilitiesCommunicationEnum;
-    /**
-     *  Enumerations for ICapabilities Data
-     **/
-    var ICapabilitiesDataEnum = (function () {
-        function ICapabilitiesDataEnum(value) {
-            this.value = value;
-        }
-        ICapabilitiesDataEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ICapabilitiesDataEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ICapabilities Data
-        };
-        ICapabilitiesDataEnum.Database = new ICapabilitiesDataEnum("Database");
-        ICapabilitiesDataEnum.File = new ICapabilitiesDataEnum("File");
-        ICapabilitiesDataEnum.Cloud = new ICapabilitiesDataEnum("Cloud");
-        ICapabilitiesDataEnum.Unknown = new ICapabilitiesDataEnum("Unknown");
-        return ICapabilitiesDataEnum;
-    })();
-    Adaptive.ICapabilitiesDataEnum = ICapabilitiesDataEnum;
-    /**
-     *  Enumerations for ICapabilities Media
-     **/
-    var ICapabilitiesMediaEnum = (function () {
-        function ICapabilitiesMediaEnum(value) {
-            this.value = value;
-        }
-        ICapabilitiesMediaEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ICapabilitiesMediaEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ICapabilities Media
-        };
-        ICapabilitiesMediaEnum.Audio_Playback = new ICapabilitiesMediaEnum("Audio_Playback");
-        ICapabilitiesMediaEnum.Audio_Recording = new ICapabilitiesMediaEnum("Audio_Recording");
-        ICapabilitiesMediaEnum.Camera = new ICapabilitiesMediaEnum("Camera");
-        ICapabilitiesMediaEnum.Video_Playback = new ICapabilitiesMediaEnum("Video_Playback");
-        ICapabilitiesMediaEnum.Video_Recording = new ICapabilitiesMediaEnum("Video_Recording");
-        ICapabilitiesMediaEnum.Unknown = new ICapabilitiesMediaEnum("Unknown");
-        return ICapabilitiesMediaEnum;
-    })();
-    Adaptive.ICapabilitiesMediaEnum = ICapabilitiesMediaEnum;
-    /**
-     *  Enumerations for ICapabilities Net
-     **/
-    var ICapabilitiesNetEnum = (function () {
-        function ICapabilitiesNetEnum(value) {
-            this.value = value;
-        }
-        ICapabilitiesNetEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ICapabilitiesNetEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ICapabilities Net
-        };
-        ICapabilitiesNetEnum.GSM = new ICapabilitiesNetEnum("GSM");
-        ICapabilitiesNetEnum.GPRS = new ICapabilitiesNetEnum("GPRS");
-        ICapabilitiesNetEnum.HSDPA = new ICapabilitiesNetEnum("HSDPA");
-        ICapabilitiesNetEnum.LTE = new ICapabilitiesNetEnum("LTE");
-        ICapabilitiesNetEnum.WIFI = new ICapabilitiesNetEnum("WIFI");
-        ICapabilitiesNetEnum.Ethernet = new ICapabilitiesNetEnum("Ethernet");
-        ICapabilitiesNetEnum.Unknown = new ICapabilitiesNetEnum("Unknown");
-        return ICapabilitiesNetEnum;
-    })();
-    Adaptive.ICapabilitiesNetEnum = ICapabilitiesNetEnum;
-    /**
-     *  Enumerations for ICapabilities Notification
-     **/
-    var ICapabilitiesNotificationEnum = (function () {
-        function ICapabilitiesNotificationEnum(value) {
-            this.value = value;
-        }
-        ICapabilitiesNotificationEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ICapabilitiesNotificationEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ICapabilities Notification
-        };
-        ICapabilitiesNotificationEnum.Alarm = new ICapabilitiesNotificationEnum("Alarm");
-        ICapabilitiesNotificationEnum.LocalNotification = new ICapabilitiesNotificationEnum("LocalNotification");
-        ICapabilitiesNotificationEnum.RemoteNotification = new ICapabilitiesNotificationEnum("RemoteNotification");
-        ICapabilitiesNotificationEnum.Vibration = new ICapabilitiesNotificationEnum("Vibration");
-        ICapabilitiesNotificationEnum.Unknown = new ICapabilitiesNotificationEnum("Unknown");
-        return ICapabilitiesNotificationEnum;
-    })();
-    Adaptive.ICapabilitiesNotificationEnum = ICapabilitiesNotificationEnum;
-    /**
-     *  Enumerations for ICapabilities Sensor
-     **/
-    var ICapabilitiesSensorEnum = (function () {
-        function ICapabilitiesSensorEnum(value) {
-            this.value = value;
-        }
-        ICapabilitiesSensorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ICapabilitiesSensorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ICapabilities Sensor
-        };
-        ICapabilitiesSensorEnum.Accelerometer = new ICapabilitiesSensorEnum("Accelerometer");
-        ICapabilitiesSensorEnum.AmbientLight = new ICapabilitiesSensorEnum("AmbientLight");
-        ICapabilitiesSensorEnum.Barometer = new ICapabilitiesSensorEnum("Barometer");
-        ICapabilitiesSensorEnum.Geolocation = new ICapabilitiesSensorEnum("Geolocation");
-        ICapabilitiesSensorEnum.Gyroscope = new ICapabilitiesSensorEnum("Gyroscope");
-        ICapabilitiesSensorEnum.Magnetometer = new ICapabilitiesSensorEnum("Magnetometer");
-        ICapabilitiesSensorEnum.Proximity = new ICapabilitiesSensorEnum("Proximity");
-        ICapabilitiesSensorEnum.Unknown = new ICapabilitiesSensorEnum("Unknown");
-        return ICapabilitiesSensorEnum;
-    })();
-    Adaptive.ICapabilitiesSensorEnum = ICapabilitiesSensorEnum;
-    /**
-     *  Service ICapabilities implementation.
-     */
-    var CapabilitiesBridge = (function () {
-        function CapabilitiesBridge() {
-        }
-        CapabilitiesBridge.prototype.hasButtonSupport = function (type) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasButtonSupport", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { type: type } }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: ICapabilities.hasButtonSupport incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " ICapabilities.hasButtonSupport");
-                return null;
-            }
-        };
-        CapabilitiesBridge.prototype.hasCommunicationSupport = function (type) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasCommunicationSupport", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { type: type } }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: ICapabilities.hasCommunicationSupport incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " ICapabilities.hasCommunicationSupport");
-                return null;
-            }
-        };
-        CapabilitiesBridge.prototype.hasDataSupport = function (type) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasDataSupport", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { type: type } }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: ICapabilities.hasDataSupport incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " ICapabilities.hasDataSupport");
-                return null;
-            }
-        };
-        CapabilitiesBridge.prototype.hasMediaSupport = function (type) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasMediaSupport", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { type: type } }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: ICapabilities.hasMediaSupport incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " ICapabilities.hasMediaSupport");
-                return null;
-            }
-        };
-        CapabilitiesBridge.prototype.hasNetSupport = function (type) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasNetSupport", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { type: type } }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: ICapabilities.hasNetSupport incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " ICapabilities.hasNetSupport");
-                return null;
-            }
-        };
-        CapabilitiesBridge.prototype.hasNotificationSupport = function (type) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasNotificationSupport", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { type: type } }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: ICapabilities.hasNotificationSupport incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " ICapabilities.hasNotificationSupport");
-                return null;
-            }
-        };
-        CapabilitiesBridge.prototype.hasSensorSupport = function (type) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasSensorSupport", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { type: type } }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: ICapabilities.hasSensorSupport incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " ICapabilities.hasSensorSupport");
-                return null;
-            }
-        };
-        CapabilitiesBridge.getReflection = function () {
-            /** Fields of Capabilities **/
+        IAppResourceFormatEnum.getReflection = function () {
+            /** Fields of IAppResourceFormatEnum **/
             var _fields = new Array();
-            /** Methods of Capabilities **/
-            var _methods = new Array();
-            /** Method hasSensorSupport of Capabilities **/
-            var _params_hasSensorSupport = new Array();
-            _params_hasSensorSupport.push(new ReflectionParameter('type', 'Capabilities hasSensorSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('hasSensorSupport', 'Capabilities hasSensorSupport', _params_hasSensorSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method hasCommunicationSupport of Capabilities **/
-            var _params_hasCommunicationSupport = new Array();
-            _params_hasCommunicationSupport.push(new ReflectionParameter('type', 'Capabilities hasCommunicationSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('hasCommunicationSupport', 'Capabilities hasCommunicationSupport', _params_hasCommunicationSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method hasDataSupport of Capabilities **/
-            var _params_hasDataSupport = new Array();
-            _params_hasDataSupport.push(new ReflectionParameter('type', 'Capabilities hasDataSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('hasDataSupport', 'Capabilities hasDataSupport', _params_hasDataSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method hasMediaSupport of Capabilities **/
-            var _params_hasMediaSupport = new Array();
-            _params_hasMediaSupport.push(new ReflectionParameter('type', 'Capabilities hasMediaSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('hasMediaSupport', 'Capabilities hasMediaSupport', _params_hasMediaSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method hasNetSupport of Capabilities **/
-            var _params_hasNetSupport = new Array();
-            _params_hasNetSupport.push(new ReflectionParameter('type', 'Capabilities hasNetSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('hasNetSupport', 'Capabilities hasNetSupport', _params_hasNetSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method hasNotificationSupport of Capabilities **/
-            var _params_hasNotificationSupport = new Array();
-            _params_hasNotificationSupport.push(new ReflectionParameter('type', 'Capabilities hasNotificationSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('hasNotificationSupport', 'Capabilities hasNotificationSupport', _params_hasNotificationSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method hasButtonSupport of Capabilities **/
-            var _params_hasButtonSupport = new Array();
-            _params_hasButtonSupport.push(new ReflectionParameter('type', 'Capabilities hasButtonSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('hasButtonSupport', 'Capabilities hasButtonSupport', _params_hasButtonSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Class description of ICapabilities **/
-            var clazz = new ReflectionClass('CapabilitiesBridge', 'Bridge class CapabilitiesBridge', 'CapabilitiesBridge', _methods, _fields, Adaptive.getReflection());
+            _fields.push(new ReflectionField('Raw', 'Field Raw of class IAppResourceFormatEnum', IAppResourceFormatEnum.getReflection()));
+            _fields.push(new ReflectionField('Compressed', 'Field Compressed of class IAppResourceFormatEnum', IAppResourceFormatEnum.getReflection()));
+            _fields.push(new ReflectionField('Encrypted', 'Field Encrypted of class IAppResourceFormatEnum', IAppResourceFormatEnum.getReflection()));
+            _fields.push(new ReflectionField('EncryptedCompressed', 'Field EncryptedCompressed of class IAppResourceFormatEnum', IAppResourceFormatEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceFormatEnum', IAppResourceFormatEnum.getReflection()));
+            var clazz = new ReflectionClass('IAppResourceFormatEnum', 'Enum class IAppResourceFormatEnum', 'IAppResourceFormatEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
-        return CapabilitiesBridge;
+        IAppResourceFormatEnum.Raw = new IAppResourceFormatEnum("Raw");
+        IAppResourceFormatEnum.Compressed = new IAppResourceFormatEnum("Compressed");
+        IAppResourceFormatEnum.Encrypted = new IAppResourceFormatEnum("Encrypted");
+        IAppResourceFormatEnum.EncryptedCompressed = new IAppResourceFormatEnum("EncryptedCompressed");
+        IAppResourceFormatEnum.Unknown = new IAppResourceFormatEnum("Unknown");
+        return IAppResourceFormatEnum;
     })();
-    Adaptive.CapabilitiesBridge = CapabilitiesBridge;
+    Adaptive.IAppResourceFormatEnum = IAppResourceFormatEnum;
+    /**
+     *  Enumerations for IAppResource Type
+     **/
+    var IAppResourceTypeEnum = (function () {
+        function IAppResourceTypeEnum(value) {
+            this.value = value;
+        }
+        IAppResourceTypeEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IAppResourceTypeEnum.getReflection = function () {
+            /** Fields of IAppResourceTypeEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Html', 'Field Html of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Css', 'Field Css of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('JavaScript', 'Field JavaScript of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Image', 'Field Image of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Video', 'Field Video of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Audio', 'Field Audio of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Property', 'Field Property of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Database', 'Field Database of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Other', 'Field Other of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
+            var clazz = new ReflectionClass('IAppResourceTypeEnum', 'Enum class IAppResourceTypeEnum', 'IAppResourceTypeEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IAppResourceTypeEnum.Html = new IAppResourceTypeEnum("Html");
+        IAppResourceTypeEnum.Css = new IAppResourceTypeEnum("Css");
+        IAppResourceTypeEnum.JavaScript = new IAppResourceTypeEnum("JavaScript");
+        IAppResourceTypeEnum.Image = new IAppResourceTypeEnum("Image");
+        IAppResourceTypeEnum.Video = new IAppResourceTypeEnum("Video");
+        IAppResourceTypeEnum.Audio = new IAppResourceTypeEnum("Audio");
+        IAppResourceTypeEnum.Property = new IAppResourceTypeEnum("Property");
+        IAppResourceTypeEnum.Database = new IAppResourceTypeEnum("Database");
+        IAppResourceTypeEnum.Other = new IAppResourceTypeEnum("Other");
+        IAppResourceTypeEnum.Unknown = new IAppResourceTypeEnum("Unknown");
+        return IAppResourceTypeEnum;
+    })();
+    Adaptive.IAppResourceTypeEnum = IAppResourceTypeEnum;
+    /**
+     *  Service IDevice implementation.
+     */
+    var DeviceBridge = (function () {
+        function DeviceBridge() {
+        }
+        DeviceBridge.prototype.addButtonListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/addButtonListener?id=" + listener.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // Listeners only require id included in URL param.
+            if (xhr.status == 200) {
+                registeredIButtonListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IDevice.addButtonListener");
+            }
+        };
+        DeviceBridge.prototype.getDeviceInfo = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/getDeviceInfo", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: {} }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: IDevice.getDeviceInfo incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IDevice.getDeviceInfo");
+                return null;
+            }
+        };
+        DeviceBridge.prototype.getLocaleCurrent = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/getLocaleCurrent", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: {} }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: IDevice.getLocaleCurrent incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IDevice.getLocaleCurrent");
+                return null;
+            }
+        };
+        DeviceBridge.prototype.removeButtonListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListener?id=" + listener.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // Listeners only require id included in URL param.
+            if (xhr.status == 200) {
+                registeredIButtonListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IDevice.removeButtonListener");
+            }
+        };
+        DeviceBridge.prototype.removeButtonListeners = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListeners", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // No parameters.
+            if (xhr.status == 200) {
+                var keys = registeredIAccelerationListener.keys();
+                for (var key in keys) {
+                    registeredIAccelerationListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IDevice.removeButtonListeners");
+            }
+        };
+        DeviceBridge.getReflection = function () {
+            /** Fields of Device **/
+            var _fields = new Array();
+            /** Methods of Device **/
+            var _methods = new Array();
+            /** Method getDeviceInfo of Device **/
+            var _params_getDeviceInfo = new Array();
+            _methods.push(new ReflectionMethod('getDeviceInfo', 'Device getDeviceInfo', _params_getDeviceInfo, DeviceInfo.getReflection()));
+            /** Method getLocaleCurrent of Device **/
+            var _params_getLocaleCurrent = new Array();
+            _methods.push(new ReflectionMethod('getLocaleCurrent', 'Device getLocaleCurrent', _params_getLocaleCurrent, Locale.getReflection()));
+            /** Method addButtonListener of Device **/
+            var _params_addButtonListener = new Array();
+            _params_addButtonListener.push(new ReflectionParameter('listener', 'Device addButtonListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('addButtonListener', 'Device addButtonListener', _params_addButtonListener, null));
+            /** Method removeButtonListener of Device **/
+            var _params_removeButtonListener = new Array();
+            _params_removeButtonListener.push(new ReflectionParameter('listener', 'Device removeButtonListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('removeButtonListener', 'Device removeButtonListener', _params_removeButtonListener, null));
+            /** Method removeButtonListeners of Device **/
+            var _params_removeButtonListeners = new Array();
+            _methods.push(new ReflectionMethod('removeButtonListeners', 'Device removeButtonListeners', _params_removeButtonListeners, null));
+            /** Class description of IDevice **/
+            var clazz = new ReflectionClass('DeviceBridge', 'Bridge class DeviceBridge', 'DeviceBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return DeviceBridge;
+    })();
+    Adaptive.DeviceBridge = DeviceBridge;
     /**
      *  Service IMail implementation.
      */
@@ -1069,831 +575,173 @@ var Adaptive;
     })();
     Adaptive.MailBridge = MailBridge;
     /**
-     *  Service IGlobalization implementation.
-     */
-    var GlobalizationBridge = (function () {
-        function GlobalizationBridge() {
-        }
-        GlobalizationBridge.prototype.getLocaleSupportedDescriptors = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getLocaleSupportedDescriptors", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: {} }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: IGlobalization.getLocaleSupportedDescriptors incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IGlobalization.getLocaleSupportedDescriptors");
-                return null;
-            }
-        };
-        GlobalizationBridge.prototype.getResourceLiteral = function (key, locale) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiteral", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { key: key, locale: locale } }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: IGlobalization.getResourceLiteral incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IGlobalization.getResourceLiteral");
-                return null;
-            }
-        };
-        GlobalizationBridge.prototype.getResourceLiterals = function (locale) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiterals", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { locale: locale } }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: IGlobalization.getResourceLiterals incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IGlobalization.getResourceLiterals");
-                return null;
-            }
-        };
-        GlobalizationBridge.getReflection = function () {
-            /** Fields of Globalization **/
-            var _fields = new Array();
-            /** Methods of Globalization **/
-            var _methods = new Array();
-            /** Method getLocaleSupportedDescriptors of Globalization **/
-            var _params_getLocaleSupportedDescriptors = new Array();
-            _methods.push(new ReflectionMethod('getLocaleSupportedDescriptors', 'Globalization getLocaleSupportedDescriptors', _params_getLocaleSupportedDescriptors, new ReflectionClass('Array<Locale>', 'Array of Locale', 'Array<Locale>', null, null, Adaptive.getReflection()).setTypeComponent(Locale.getReflection())));
-            /** Method getResourceLiteral of Globalization **/
-            var _params_getResourceLiteral = new Array();
-            _params_getResourceLiteral.push(new ReflectionParameter('key', 'Globalization getResourceLiteral key', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _params_getResourceLiteral.push(new ReflectionParameter('locale', 'Globalization getResourceLiteral locale', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getResourceLiteral', 'Globalization getResourceLiteral', _params_getResourceLiteral, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getResourceLiterals of Globalization **/
-            var _params_getResourceLiterals = new Array();
-            _params_getResourceLiterals.push(new ReflectionParameter('locale', 'Globalization getResourceLiterals locale', new ReflectionClass('Dictionary', 'Dictionary type string', 'Dictionary<any>', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getResourceLiterals', 'Globalization getResourceLiterals', _params_getResourceLiterals, new ReflectionClass('Dictionary', 'Dictionary type string', 'Dictionary<any>', null, null, Adaptive.getReflection())));
-            /** Class description of IGlobalization **/
-            var clazz = new ReflectionClass('GlobalizationBridge', 'Bridge class GlobalizationBridge', 'GlobalizationBridge', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return GlobalizationBridge;
-    })();
-    Adaptive.GlobalizationBridge = GlobalizationBridge;
-    /**
-     *  Service ILifecycle implementation.
-     */
-    var LifecycleBridge = (function () {
-        function LifecycleBridge() {
-        }
-        LifecycleBridge.prototype.addLifecycleListener = function (listener) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/addLifecycleListener?id=" + listener.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // Listeners only require id included in URL param.
-            if (xhr.status == 200) {
-                registeredILifecycleListener.add("" + listener.getId(), listener);
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " ILifecycle.addLifecycleListener");
-            }
-        };
-        LifecycleBridge.prototype.isBackground = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/isBackground", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: {} }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: ILifecycle.isBackground incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " ILifecycle.isBackground");
-                return null;
-            }
-        };
-        LifecycleBridge.prototype.removeLifecycleListener = function (listener) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListener?id=" + listener.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // Listeners only require id included in URL param.
-            if (xhr.status == 200) {
-                registeredILifecycleListener.remove("" + listener.getId());
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " ILifecycle.removeLifecycleListener");
-            }
-        };
-        LifecycleBridge.prototype.removeLifecycleListeners = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListeners", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // No parameters.
-            if (xhr.status == 200) {
-                var keys = registeredIAccelerationListener.keys();
-                for (var key in keys) {
-                    registeredIAccelerationListener.remove(key);
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " ILifecycle.removeLifecycleListeners");
-            }
-        };
-        LifecycleBridge.getReflection = function () {
-            /** Fields of Lifecycle **/
-            var _fields = new Array();
-            /** Methods of Lifecycle **/
-            var _methods = new Array();
-            /** Method removeLifecycleListeners of Lifecycle **/
-            var _params_removeLifecycleListeners = new Array();
-            _methods.push(new ReflectionMethod('removeLifecycleListeners', 'Lifecycle removeLifecycleListeners', _params_removeLifecycleListeners, null));
-            /** Method isBackground of Lifecycle **/
-            var _params_isBackground = new Array();
-            _methods.push(new ReflectionMethod('isBackground', 'Lifecycle isBackground', _params_isBackground, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method addLifecycleListener of Lifecycle **/
-            var _params_addLifecycleListener = new Array();
-            _params_addLifecycleListener.push(new ReflectionParameter('listener', 'Lifecycle addLifecycleListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('addLifecycleListener', 'Lifecycle addLifecycleListener', _params_addLifecycleListener, null));
-            /** Method removeLifecycleListener of Lifecycle **/
-            var _params_removeLifecycleListener = new Array();
-            _params_removeLifecycleListener.push(new ReflectionParameter('listener', 'Lifecycle removeLifecycleListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('removeLifecycleListener', 'Lifecycle removeLifecycleListener', _params_removeLifecycleListener, null));
-            /** Class description of ILifecycle **/
-            var clazz = new ReflectionClass('LifecycleBridge', 'Bridge class LifecycleBridge', 'LifecycleBridge', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return LifecycleBridge;
-    })();
-    Adaptive.LifecycleBridge = LifecycleBridge;
-    /**
-     *  Enumerations for IMessagingCallback Error
+     *  Enumerations for ISecureKVResultCallback Error
      **/
-    var IMessagingCallbackErrorEnum = (function () {
-        function IMessagingCallbackErrorEnum(value) {
+    var ISecureKVResultCallbackErrorEnum = (function () {
+        function ISecureKVResultCallbackErrorEnum(value) {
             this.value = value;
         }
-        IMessagingCallbackErrorEnum.prototype.toString = function () {
+        ISecureKVResultCallbackErrorEnum.prototype.toString = function () {
             return this.value;
         };
-        IMessagingCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IMessagingCallback Error
+        ISecureKVResultCallbackErrorEnum.getReflection = function () {
+            /** Fields of ISecureKVResultCallbackErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class ISecureKVResultCallbackErrorEnum', ISecureKVResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NoMatchesFound', 'Field NoMatchesFound of class ISecureKVResultCallbackErrorEnum', ISecureKVResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ISecureKVResultCallbackErrorEnum', ISecureKVResultCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('ISecureKVResultCallbackErrorEnum', 'Enum class ISecureKVResultCallbackErrorEnum', 'ISecureKVResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
-        IMessagingCallbackErrorEnum.SIMNotPresent = new IMessagingCallbackErrorEnum("SIMNotPresent");
-        IMessagingCallbackErrorEnum.EmailAccountNotFound = new IMessagingCallbackErrorEnum("EmailAccountNotFound");
-        IMessagingCallbackErrorEnum.NotSent = new IMessagingCallbackErrorEnum("NotSent");
-        IMessagingCallbackErrorEnum.WrongParams = new IMessagingCallbackErrorEnum("WrongParams");
-        IMessagingCallbackErrorEnum.NotSupported = new IMessagingCallbackErrorEnum("NotSupported");
-        IMessagingCallbackErrorEnum.Unknown = new IMessagingCallbackErrorEnum("Unknown");
-        return IMessagingCallbackErrorEnum;
+        ISecureKVResultCallbackErrorEnum.NoPermission = new ISecureKVResultCallbackErrorEnum("NoPermission");
+        ISecureKVResultCallbackErrorEnum.NoMatchesFound = new ISecureKVResultCallbackErrorEnum("NoMatchesFound");
+        ISecureKVResultCallbackErrorEnum.Unknown = new ISecureKVResultCallbackErrorEnum("Unknown");
+        return ISecureKVResultCallbackErrorEnum;
     })();
-    Adaptive.IMessagingCallbackErrorEnum = IMessagingCallbackErrorEnum;
+    Adaptive.ISecureKVResultCallbackErrorEnum = ISecureKVResultCallbackErrorEnum;
     /**
-     *  Enumerations for IMessagingCallback Warning
+     *  Enumerations for ISecureKVResultCallback Warning
      **/
-    var IMessagingCallbackWarningEnum = (function () {
-        function IMessagingCallbackWarningEnum(value) {
+    var ISecureKVResultCallbackWarningEnum = (function () {
+        function ISecureKVResultCallbackWarningEnum(value) {
             this.value = value;
         }
-        IMessagingCallbackWarningEnum.prototype.toString = function () {
+        ISecureKVResultCallbackWarningEnum.prototype.toString = function () {
             return this.value;
         };
-        IMessagingCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IMessagingCallback Warning
+        ISecureKVResultCallbackWarningEnum.getReflection = function () {
+            /** Fields of ISecureKVResultCallbackWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('EntryOverride', 'Field EntryOverride of class ISecureKVResultCallbackWarningEnum', ISecureKVResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ISecureKVResultCallbackWarningEnum', ISecureKVResultCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('ISecureKVResultCallbackWarningEnum', 'Enum class ISecureKVResultCallbackWarningEnum', 'ISecureKVResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
-        IMessagingCallbackWarningEnum.UnableToSentAll = new IMessagingCallbackWarningEnum("UnableToSentAll");
-        IMessagingCallbackWarningEnum.UnableToFetchAttachment = new IMessagingCallbackWarningEnum("UnableToFetchAttachment");
-        IMessagingCallbackWarningEnum.Unknown = new IMessagingCallbackWarningEnum("Unknown");
-        return IMessagingCallbackWarningEnum;
+        ISecureKVResultCallbackWarningEnum.EntryOverride = new ISecureKVResultCallbackWarningEnum("EntryOverride");
+        ISecureKVResultCallbackWarningEnum.Unknown = new ISecureKVResultCallbackWarningEnum("Unknown");
+        return ISecureKVResultCallbackWarningEnum;
     })();
-    Adaptive.IMessagingCallbackWarningEnum = IMessagingCallbackWarningEnum;
+    Adaptive.ISecureKVResultCallbackWarningEnum = ISecureKVResultCallbackWarningEnum;
     /**
-     *  Callback IMessagingCallback control dictionary.
+     *  Callback ISecureKVResultCallback control dictionary.
      */
-    var registeredIMessagingCallback = new Dictionary([]);
+    var registeredISecureKVResultCallback = new Dictionary([]);
     /**
-     *  Callback IMessagingCallback onError/onWarning/onResult handlers.
+     *  Callback ISecureKVResultCallback onError/onWarning/onResult handlers.
      */
-    function handleIMessagingCallbackError(id, error) {
-        var callback = registeredIMessagingCallback["" + id];
+    function handleISecureKVResultCallbackError(id, error) {
+        var callback = registeredISecureKVResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIMessagingCallback dictionary.");
+            console.error("ERROR: No callback with id " + id + " registered in registeredISecureKVResultCallback dictionary.");
         }
         else {
             callback.onError(error);
-            registeredIMessagingCallback.remove("" + id);
+            registeredISecureKVResultCallback.remove("" + id);
         }
     }
-    Adaptive.handleIMessagingCallbackError = handleIMessagingCallbackError;
-    function handleIMessagingCallbackResult(id, success) {
-        var callback = registeredIMessagingCallback["" + id];
+    Adaptive.handleISecureKVResultCallbackError = handleISecureKVResultCallbackError;
+    function handleISecureKVResultCallbackResult(id, keyValues) {
+        var callback = registeredISecureKVResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIMessagingCallback dictionary.");
+            console.error("ERROR: No callback with id " + id + " registered in registeredISecureKVResultCallback dictionary.");
         }
         else {
-            callback.onResult(success);
-            registeredIMessagingCallback.remove("" + id);
+            callback.onResult(keyValues);
+            registeredISecureKVResultCallback.remove("" + id);
         }
     }
-    Adaptive.handleIMessagingCallbackResult = handleIMessagingCallbackResult;
-    function handleIMessagingCallbackWarning(id, success, warning) {
-        var callback = registeredIMessagingCallback["" + id];
+    Adaptive.handleISecureKVResultCallbackResult = handleISecureKVResultCallbackResult;
+    function handleISecureKVResultCallbackWarning(id, keyValues, warning) {
+        var callback = registeredISecureKVResultCallback["" + id];
         if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIMessagingCallback dictionary.");
+            console.error("ERROR: No callback with id " + id + " registered in registeredISecureKVResultCallback dictionary.");
         }
         else {
-            callback.onWarning(success, warning);
-            registeredIMessagingCallback.remove("" + id);
+            callback.onWarning(keyValues, warning);
+            registeredISecureKVResultCallback.remove("" + id);
         }
     }
-    Adaptive.handleIMessagingCallbackWarning = handleIMessagingCallbackWarning;
+    Adaptive.handleISecureKVResultCallbackWarning = handleISecureKVResultCallbackWarning;
     /**
-     *  Callback IMessagingCallback implementation.
+     *  Callback ISecureKVResultCallback implementation.
      */
-    var MessagingCallback = (function () {
-        function MessagingCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+    var SecureKVResultCallback = (function () {
+        function SecureKVResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
             if (this.onErrorFunction == null) {
-                console.error("ERROR: MessagingCallback onErrorFunction is not defined.");
+                console.error("ERROR: SecureKVResultCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (this.onResultFunction == null) {
-                console.error("ERROR: MessagingCallback onResultFunction is not defined.");
+                console.error("ERROR: SecureKVResultCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (this.onWarningFunction == null) {
-                console.error("ERROR: MessagingCallback onWarningFunction is not defined.");
+                console.error("ERROR: SecureKVResultCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
             }
         }
-        MessagingCallback.prototype.toString = function () {
-            return "MessagingCallback{" + this.id + "}";
+        SecureKVResultCallback.prototype.toString = function () {
+            return "SecureKVResultCallback{" + this.id + "}";
         };
-        MessagingCallback.prototype.getId = function () {
+        SecureKVResultCallback.prototype.getId = function () {
             return this.id;
         };
-        MessagingCallback.prototype.onError = function (error) {
+        SecureKVResultCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The MessagingCallback does not define the onErrorFunction.");
+                console.warn("WARNING: The SecureKVResultCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
-        MessagingCallback.prototype.onResult = function (success) {
+        SecureKVResultCallback.prototype.onResult = function (keyValues) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The MessagingCallback does not define the onResultFunction.");
+                console.warn("WARNING: The SecureKVResultCallback does not define the onResultFunction.");
             }
             else {
-                this.onResultFunction(success);
+                this.onResultFunction(keyValues);
             }
         };
-        MessagingCallback.prototype.onWarning = function (success, warning) {
+        SecureKVResultCallback.prototype.onWarning = function (keyValues, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The MessagingCallback does not define the onWarningFunction.");
+                console.warn("WARNING: The SecureKVResultCallback does not define the onWarningFunction.");
             }
             else {
-                this.onWarningFunction(success, warning);
+                this.onWarningFunction(keyValues, warning);
             }
         };
-        MessagingCallback.getReflection = function () {
-            /** Fields of MessagingCallback **/
+        SecureKVResultCallback.getReflection = function () {
+            /** Fields of SecureKVResultCallback **/
             var _fields = new Array();
-            /** Methods of MessagingCallback **/
+            /** Methods of SecureKVResultCallback **/
             var _methods = new Array();
-            /** Method onError of MessagingCallback **/
+            /** Method onError of SecureKVResultCallback **/
             var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'MessagingCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'MessagingCallback onError', _params_onError, null));
-            /** Method onWarning of MessagingCallback **/
+            _params_onError.push(new ReflectionParameter('error', 'SecureKVResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'SecureKVResultCallback onError', _params_onError, null));
+            /** Method onWarning of SecureKVResultCallback **/
             var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('success', 'MessagingCallback onWarning success', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'MessagingCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'MessagingCallback onWarning', _params_onWarning, null));
-            /** Method onResult of MessagingCallback **/
+            _params_onWarning.push(new ReflectionParameter('keyValues', 'SecureKVResultCallback onWarning keyValues', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'SecureKVResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'SecureKVResultCallback onWarning', _params_onWarning, null));
+            /** Method onResult of SecureKVResultCallback **/
             var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('success', 'MessagingCallback onResult success', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'MessagingCallback onResult', _params_onResult, null));
-            /** Class description of IMessagingCallback **/
-            var clazz = new ReflectionClass('MessagingCallback', 'Listener/Callback class MessagingCallback', 'MessagingCallback', _methods, _fields, Adaptive.getReflection());
+            _params_onResult.push(new ReflectionParameter('keyValues', 'SecureKVResultCallback onResult keyValues', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'SecureKVResultCallback onResult', _params_onResult, null));
+            /** Class description of ISecureKVResultCallback **/
+            var clazz = new ReflectionClass('SecureKVResultCallback', 'Listener/Callback class SecureKVResultCallback', 'SecureKVResultCallback', _methods, _fields, Adaptive.getReflection());
             return clazz;
         };
-        return MessagingCallback;
+        return SecureKVResultCallback;
     })();
-    Adaptive.MessagingCallback = MessagingCallback;
-    /**
-     *  Service IAccelerometer implementation.
-     */
-    var AccelerometerBridge = (function () {
-        function AccelerometerBridge() {
-        }
-        AccelerometerBridge.prototype.addAccelerationListener = function (listener) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/addAccelerationListener?id=" + listener.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // Listeners only require id included in URL param.
-            if (xhr.status == 200) {
-                registeredIAccelerationListener.add("" + listener.getId(), listener);
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IAccelerometer.addAccelerationListener");
-            }
-        };
-        AccelerometerBridge.prototype.removeAccelerationListener = function (listener) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListener?id=" + listener.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // Listeners only require id included in URL param.
-            if (xhr.status == 200) {
-                registeredIAccelerationListener.remove("" + listener.getId());
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IAccelerometer.removeAccelerationListener");
-            }
-        };
-        AccelerometerBridge.prototype.removeAccelerationListeners = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListeners", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // No parameters.
-            if (xhr.status == 200) {
-                var keys = registeredIAccelerationListener.keys();
-                for (var key in keys) {
-                    registeredIAccelerationListener.remove(key);
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IAccelerometer.removeAccelerationListeners");
-            }
-        };
-        AccelerometerBridge.getReflection = function () {
-            /** Fields of Accelerometer **/
-            var _fields = new Array();
-            /** Methods of Accelerometer **/
-            var _methods = new Array();
-            /** Method addAccelerationListener of Accelerometer **/
-            var _params_addAccelerationListener = new Array();
-            _params_addAccelerationListener.push(new ReflectionParameter('listener', 'Accelerometer addAccelerationListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('addAccelerationListener', 'Accelerometer addAccelerationListener', _params_addAccelerationListener, null));
-            /** Method removeAccelerationListener of Accelerometer **/
-            var _params_removeAccelerationListener = new Array();
-            _params_removeAccelerationListener.push(new ReflectionParameter('listener', 'Accelerometer removeAccelerationListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('removeAccelerationListener', 'Accelerometer removeAccelerationListener', _params_removeAccelerationListener, null));
-            /** Method removeAccelerationListeners of Accelerometer **/
-            var _params_removeAccelerationListeners = new Array();
-            _methods.push(new ReflectionMethod('removeAccelerationListeners', 'Accelerometer removeAccelerationListeners', _params_removeAccelerationListeners, null));
-            /** Class description of IAccelerometer **/
-            var clazz = new ReflectionClass('AccelerometerBridge', 'Bridge class AccelerometerBridge', 'AccelerometerBridge', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return AccelerometerBridge;
-    })();
-    Adaptive.AccelerometerBridge = AccelerometerBridge;
-    /**
-     *  Service IGeolocation implementation.
-     */
-    var GeolocationBridge = (function () {
-        function GeolocationBridge() {
-        }
-        GeolocationBridge.prototype.addGeolocationListener = function (listener) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/addGeolocationListener?id=" + listener.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // Listeners only require id included in URL param.
-            if (xhr.status == 200) {
-                registeredIGeolocationListener.add("" + listener.getId(), listener);
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IGeolocation.addGeolocationListener");
-            }
-        };
-        GeolocationBridge.prototype.removeGeolocationListener = function (listener) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListener?id=" + listener.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // Listeners only require id included in URL param.
-            if (xhr.status == 200) {
-                registeredIGeolocationListener.remove("" + listener.getId());
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IGeolocation.removeGeolocationListener");
-            }
-        };
-        GeolocationBridge.prototype.removeGeolocationListeners = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListeners", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // No parameters.
-            if (xhr.status == 200) {
-                var keys = registeredIAccelerationListener.keys();
-                for (var key in keys) {
-                    registeredIAccelerationListener.remove(key);
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IGeolocation.removeGeolocationListeners");
-            }
-        };
-        GeolocationBridge.getReflection = function () {
-            /** Fields of Geolocation **/
-            var _fields = new Array();
-            /** Methods of Geolocation **/
-            var _methods = new Array();
-            /** Method removeGeolocationListener of Geolocation **/
-            var _params_removeGeolocationListener = new Array();
-            _params_removeGeolocationListener.push(new ReflectionParameter('listener', 'Geolocation removeGeolocationListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('removeGeolocationListener', 'Geolocation removeGeolocationListener', _params_removeGeolocationListener, null));
-            /** Method removeGeolocationListeners of Geolocation **/
-            var _params_removeGeolocationListeners = new Array();
-            _methods.push(new ReflectionMethod('removeGeolocationListeners', 'Geolocation removeGeolocationListeners', _params_removeGeolocationListeners, null));
-            /** Method addGeolocationListener of Geolocation **/
-            var _params_addGeolocationListener = new Array();
-            _params_addGeolocationListener.push(new ReflectionParameter('listener', 'Geolocation addGeolocationListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('addGeolocationListener', 'Geolocation addGeolocationListener', _params_addGeolocationListener, null));
-            /** Class description of IGeolocation **/
-            var clazz = new ReflectionClass('GeolocationBridge', 'Bridge class GeolocationBridge', 'GeolocationBridge', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return GeolocationBridge;
-    })();
-    Adaptive.GeolocationBridge = GeolocationBridge;
-    /**
-     *  Enumerations for IGeolocationListener Error
-     **/
-    var IGeolocationListenerErrorEnum = (function () {
-        function IGeolocationListenerErrorEnum(value) {
-            this.value = value;
-        }
-        IGeolocationListenerErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IGeolocationListenerErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IGeolocationListener Error
-        };
-        IGeolocationListenerErrorEnum.Disabled = new IGeolocationListenerErrorEnum("Disabled");
-        IGeolocationListenerErrorEnum.RestrictedAccess = new IGeolocationListenerErrorEnum("RestrictedAccess");
-        IGeolocationListenerErrorEnum.DeniedAccess = new IGeolocationListenerErrorEnum("DeniedAccess");
-        IGeolocationListenerErrorEnum.StatusNotDetermined = new IGeolocationListenerErrorEnum("StatusNotDetermined");
-        IGeolocationListenerErrorEnum.Unknown = new IGeolocationListenerErrorEnum("Unknown");
-        return IGeolocationListenerErrorEnum;
-    })();
-    Adaptive.IGeolocationListenerErrorEnum = IGeolocationListenerErrorEnum;
-    /**
-     *  Enumerations for IGeolocationListener Warning
-     **/
-    var IGeolocationListenerWarningEnum = (function () {
-        function IGeolocationListenerWarningEnum(value) {
-            this.value = value;
-        }
-        IGeolocationListenerWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IGeolocationListenerWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IGeolocationListener Warning
-        };
-        IGeolocationListenerWarningEnum.HighDoP = new IGeolocationListenerWarningEnum("HighDoP");
-        IGeolocationListenerWarningEnum.StaleData = new IGeolocationListenerWarningEnum("StaleData");
-        IGeolocationListenerWarningEnum.Unknown = new IGeolocationListenerWarningEnum("Unknown");
-        return IGeolocationListenerWarningEnum;
-    })();
-    Adaptive.IGeolocationListenerWarningEnum = IGeolocationListenerWarningEnum;
-    /**
-     *  Listener IGeolocationListener control dictionary.
-     */
-    var registeredIGeolocationListener = new Dictionary([]);
-    /**
-     *  Listener IGeolocationListener onError/onWarning/onResult handlers.
-     */
-    function handleIGeolocationListenerError(id, error) {
-        var listener = registeredIGeolocationListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredIGeolocationListener dictionary.");
-        }
-        else {
-            listener.onError(error);
-        }
-    }
-    Adaptive.handleIGeolocationListenerError = handleIGeolocationListenerError;
-    function handleIGeolocationListenerResult(id, geolocation) {
-        var listener = registeredIGeolocationListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredIGeolocationListener dictionary.");
-        }
-        else {
-            listener.onResult(geolocation);
-        }
-    }
-    Adaptive.handleIGeolocationListenerResult = handleIGeolocationListenerResult;
-    function handleIGeolocationListenerWarning(id, geolocation, warning) {
-        var listener = registeredIGeolocationListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredIGeolocationListener dictionary.");
-        }
-        else {
-            listener.onWarning(geolocation, warning);
-        }
-    }
-    Adaptive.handleIGeolocationListenerWarning = handleIGeolocationListenerWarning;
-    /**
-     *  Listener IGeolocationListener implementation.
-     */
-    var GeolocationListener = (function () {
-        function GeolocationListener(onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = ++registeredCounter;
-            if (this.onErrorFunction == null) {
-                console.error("ERROR: GeolocationListener onErrorFunction is not defined.");
-            }
-            else {
-                this.onErrorFunction = onErrorFunction;
-            }
-            if (this.onResultFunction == null) {
-                console.error("ERROR: GeolocationListener onResultFunction is not defined.");
-            }
-            else {
-                this.onResultFunction = onResultFunction;
-            }
-            if (this.onWarningFunction == null) {
-                console.error("ERROR: GeolocationListener onWarningFunction is not defined.");
-            }
-            else {
-                this.onWarningFunction = onWarningFunction;
-            }
-        }
-        GeolocationListener.prototype.toString = function () {
-            return "GeolocationListener{" + this.id + "}";
-        };
-        GeolocationListener.prototype.getId = function () {
-            return this.id;
-        };
-        GeolocationListener.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The GeolocationListener does not define the onErrorFunction.");
-            }
-            else {
-                this.onErrorFunction(error);
-            }
-        };
-        GeolocationListener.prototype.onResult = function (geolocation) {
-            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The GeolocationListener does not define the onResultFunction.");
-            }
-            else {
-                this.onResultFunction(geolocation);
-            }
-        };
-        GeolocationListener.prototype.onWarning = function (geolocation, warning) {
-            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The GeolocationListener does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(geolocation, warning);
-            }
-        };
-        GeolocationListener.getReflection = function () {
-            /** Fields of GeolocationListener **/
-            var _fields = new Array();
-            /** Methods of GeolocationListener **/
-            var _methods = new Array();
-            /** Method onError of GeolocationListener **/
-            var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'GeolocationListener onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'GeolocationListener onError', _params_onError, null));
-            /** Method onWarning of GeolocationListener **/
-            var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('geolocation', 'GeolocationListener onWarning geolocation', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'GeolocationListener onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'GeolocationListener onWarning', _params_onWarning, null));
-            /** Method onResult of GeolocationListener **/
-            var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('geolocation', 'GeolocationListener onResult geolocation', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'GeolocationListener onResult', _params_onResult, null));
-            /** Class description of IGeolocationListener **/
-            var clazz = new ReflectionClass('GeolocationListener', 'Listener/Callback class GeolocationListener', 'GeolocationListener', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return GeolocationListener;
-    })();
-    Adaptive.GeolocationListener = GeolocationListener;
-    /**
-     *  Enumerations for IContactResultCallback Error
-     **/
-    var IContactResultCallbackErrorEnum = (function () {
-        function IContactResultCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        IContactResultCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IContactResultCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IContactResultCallback Error
-        };
-        IContactResultCallbackErrorEnum.NoPermission = new IContactResultCallbackErrorEnum("NoPermission");
-        IContactResultCallbackErrorEnum.Wrong_Params = new IContactResultCallbackErrorEnum("Wrong_Params");
-        IContactResultCallbackErrorEnum.Unknown = new IContactResultCallbackErrorEnum("Unknown");
-        return IContactResultCallbackErrorEnum;
-    })();
-    Adaptive.IContactResultCallbackErrorEnum = IContactResultCallbackErrorEnum;
-    /**
-     *  Enumerations for IContactResultCallback Warning
-     **/
-    var IContactResultCallbackWarningEnum = (function () {
-        function IContactResultCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IContactResultCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IContactResultCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IContactResultCallback Warning
-        };
-        IContactResultCallbackWarningEnum.LimitExceeded = new IContactResultCallbackWarningEnum("LimitExceeded");
-        IContactResultCallbackWarningEnum.No_Matches = new IContactResultCallbackWarningEnum("No_Matches");
-        IContactResultCallbackWarningEnum.Unknown = new IContactResultCallbackWarningEnum("Unknown");
-        return IContactResultCallbackWarningEnum;
-    })();
-    Adaptive.IContactResultCallbackWarningEnum = IContactResultCallbackWarningEnum;
-    /**
-     *  Callback IContactResultCallback control dictionary.
-     */
-    var registeredIContactResultCallback = new Dictionary([]);
-    /**
-     *  Callback IContactResultCallback onError/onWarning/onResult handlers.
-     */
-    function handleIContactResultCallbackError(id, error) {
-        var callback = registeredIContactResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIContactResultCallback dictionary.");
-        }
-        else {
-            callback.onError(error);
-            registeredIContactResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIContactResultCallbackError = handleIContactResultCallbackError;
-    function handleIContactResultCallbackResult(id, contacts) {
-        var callback = registeredIContactResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIContactResultCallback dictionary.");
-        }
-        else {
-            callback.onResult(contacts);
-            registeredIContactResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIContactResultCallbackResult = handleIContactResultCallbackResult;
-    function handleIContactResultCallbackWarning(id, contacts, warning) {
-        var callback = registeredIContactResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIContactResultCallback dictionary.");
-        }
-        else {
-            callback.onWarning(contacts, warning);
-            registeredIContactResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIContactResultCallbackWarning = handleIContactResultCallbackWarning;
-    /**
-     *  Callback IContactResultCallback implementation.
-     */
-    var ContactResultCallback = (function () {
-        function ContactResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = ++registeredCounter;
-            if (this.onErrorFunction == null) {
-                console.error("ERROR: ContactResultCallback onErrorFunction is not defined.");
-            }
-            else {
-                this.onErrorFunction = onErrorFunction;
-            }
-            if (this.onResultFunction == null) {
-                console.error("ERROR: ContactResultCallback onResultFunction is not defined.");
-            }
-            else {
-                this.onResultFunction = onResultFunction;
-            }
-            if (this.onWarningFunction == null) {
-                console.error("ERROR: ContactResultCallback onWarningFunction is not defined.");
-            }
-            else {
-                this.onWarningFunction = onWarningFunction;
-            }
-        }
-        ContactResultCallback.prototype.toString = function () {
-            return "ContactResultCallback{" + this.id + "}";
-        };
-        ContactResultCallback.prototype.getId = function () {
-            return this.id;
-        };
-        ContactResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The ContactResultCallback does not define the onErrorFunction.");
-            }
-            else {
-                this.onErrorFunction(error);
-            }
-        };
-        ContactResultCallback.prototype.onResult = function (contacts) {
-            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The ContactResultCallback does not define the onResultFunction.");
-            }
-            else {
-                this.onResultFunction(contacts);
-            }
-        };
-        ContactResultCallback.prototype.onWarning = function (contacts, warning) {
-            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The ContactResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(contacts, warning);
-            }
-        };
-        ContactResultCallback.getReflection = function () {
-            /** Fields of ContactResultCallback **/
-            var _fields = new Array();
-            /** Methods of ContactResultCallback **/
-            var _methods = new Array();
-            /** Method onError of ContactResultCallback **/
-            var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'ContactResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'ContactResultCallback onError', _params_onError, null));
-            /** Method onWarning of ContactResultCallback **/
-            var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('contacts', 'ContactResultCallback onWarning contacts', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'ContactResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'ContactResultCallback onWarning', _params_onWarning, null));
-            /** Method onResult of ContactResultCallback **/
-            var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('contacts', 'ContactResultCallback onResult contacts', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'ContactResultCallback onResult', _params_onResult, null));
-            /** Class description of IContactResultCallback **/
-            var clazz = new ReflectionClass('ContactResultCallback', 'Listener/Callback class ContactResultCallback', 'ContactResultCallback', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ContactResultCallback;
-    })();
-    Adaptive.ContactResultCallback = ContactResultCallback;
-    /**
-     *  Service IMessaging implementation.
-     */
-    var MessagingBridge = (function () {
-        function MessagingBridge() {
-        }
-        MessagingBridge.prototype.sendSMS = function (number, text, callback) {
-            registeredIMessagingCallback.add("" + callback.getId(), callback);
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IMessaging/sendSMS?id=" + callback.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { number: number, text: text } }));
-            if (xhr.status == 200) {
-            }
-            else {
-                registeredIMessagingCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " IMessaging.sendSMS");
-            }
-        };
-        MessagingBridge.getReflection = function () {
-            /** Fields of Messaging **/
-            var _fields = new Array();
-            /** Methods of Messaging **/
-            var _methods = new Array();
-            /** Method sendSMS of Messaging **/
-            var _params_sendSMS = new Array();
-            _params_sendSMS.push(new ReflectionParameter('number', 'Messaging sendSMS number', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_sendSMS.push(new ReflectionParameter('text', 'Messaging sendSMS text', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_sendSMS.push(new ReflectionParameter('callback', 'Messaging sendSMS callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('sendSMS', 'Messaging sendSMS', _params_sendSMS, null));
-            /** Class description of IMessaging **/
-            var clazz = new ReflectionClass('MessagingBridge', 'Bridge class MessagingBridge', 'MessagingBridge', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return MessagingBridge;
-    })();
-    Adaptive.MessagingBridge = MessagingBridge;
+    Adaptive.SecureKVResultCallback = SecureKVResultCallback;
     /**
      *  Enumerations for IFileResultCallback Error
      **/
@@ -1905,7 +753,14 @@ var Adaptive;
             return this.value;
         };
         IFileResultCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IFileResultCallback Error
+            /** Fields of IFileResultCallbackErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('FileExists', 'Field FileExists of class IFileResultCallbackErrorEnum', IFileResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('InsufficientSpace', 'Field InsufficientSpace of class IFileResultCallbackErrorEnum', IFileResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IFileResultCallbackErrorEnum', IFileResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileResultCallbackErrorEnum', IFileResultCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IFileResultCallbackErrorEnum', 'Enum class IFileResultCallbackErrorEnum', 'IFileResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
         IFileResultCallbackErrorEnum.FileExists = new IFileResultCallbackErrorEnum("FileExists");
         IFileResultCallbackErrorEnum.InsufficientSpace = new IFileResultCallbackErrorEnum("InsufficientSpace");
@@ -1925,7 +780,13 @@ var Adaptive;
             return this.value;
         };
         IFileResultCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IFileResultCallback Warning
+            /** Fields of IFileResultCallbackWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('SourceNotDeleted', 'Field SourceNotDeleted of class IFileResultCallbackWarningEnum', IFileResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('RootDirectory', 'Field RootDirectory of class IFileResultCallbackWarningEnum', IFileResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileResultCallbackWarningEnum', IFileResultCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IFileResultCallbackWarningEnum', 'Enum class IFileResultCallbackWarningEnum', 'IFileResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
         IFileResultCallbackWarningEnum.SourceNotDeleted = new IFileResultCallbackWarningEnum("SourceNotDeleted");
         IFileResultCallbackWarningEnum.RootDirectory = new IFileResultCallbackWarningEnum("RootDirectory");
@@ -2055,216 +916,174 @@ var Adaptive;
     })();
     Adaptive.FileResultCallback = FileResultCallback;
     /**
-     *  Enumerations for IFileListResultCallback Error
+     *  Enumerations for ILifecycleListener Error
      **/
-    var IFileListResultCallbackErrorEnum = (function () {
-        function IFileListResultCallbackErrorEnum(value) {
+    var ILifecycleListenerErrorEnum = (function () {
+        function ILifecycleListenerErrorEnum(value) {
             this.value = value;
         }
-        IFileListResultCallbackErrorEnum.prototype.toString = function () {
+        ILifecycleListenerErrorEnum.prototype.toString = function () {
             return this.value;
         };
-        IFileListResultCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IFileListResultCallback Error
+        ILifecycleListenerErrorEnum.getReflection = function () {
+            /** Fields of ILifecycleListenerErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Runtime', 'Field Runtime of class ILifecycleListenerErrorEnum', ILifecycleListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Implementation', 'Field Implementation of class ILifecycleListenerErrorEnum', ILifecycleListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Killed', 'Field Killed of class ILifecycleListenerErrorEnum', ILifecycleListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ILifecycleListenerErrorEnum', ILifecycleListenerErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('ILifecycleListenerErrorEnum', 'Enum class ILifecycleListenerErrorEnum', 'ILifecycleListenerErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
-        IFileListResultCallbackErrorEnum.InexistentFile = new IFileListResultCallbackErrorEnum("InexistentFile");
-        IFileListResultCallbackErrorEnum.Unauthorized = new IFileListResultCallbackErrorEnum("Unauthorized");
-        IFileListResultCallbackErrorEnum.Unknown = new IFileListResultCallbackErrorEnum("Unknown");
-        return IFileListResultCallbackErrorEnum;
+        ILifecycleListenerErrorEnum.Runtime = new ILifecycleListenerErrorEnum("Runtime");
+        ILifecycleListenerErrorEnum.Implementation = new ILifecycleListenerErrorEnum("Implementation");
+        ILifecycleListenerErrorEnum.Killed = new ILifecycleListenerErrorEnum("Killed");
+        ILifecycleListenerErrorEnum.Unknown = new ILifecycleListenerErrorEnum("Unknown");
+        return ILifecycleListenerErrorEnum;
     })();
-    Adaptive.IFileListResultCallbackErrorEnum = IFileListResultCallbackErrorEnum;
+    Adaptive.ILifecycleListenerErrorEnum = ILifecycleListenerErrorEnum;
     /**
-     *  Enumerations for IFileListResultCallback Warning
+     *  Enumerations for ILifecycleListener Warning
      **/
-    var IFileListResultCallbackWarningEnum = (function () {
-        function IFileListResultCallbackWarningEnum(value) {
+    var ILifecycleListenerWarningEnum = (function () {
+        function ILifecycleListenerWarningEnum(value) {
             this.value = value;
         }
-        IFileListResultCallbackWarningEnum.prototype.toString = function () {
+        ILifecycleListenerWarningEnum.prototype.toString = function () {
             return this.value;
         };
-        IFileListResultCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IFileListResultCallback Warning
+        ILifecycleListenerWarningEnum.getReflection = function () {
+            /** Fields of ILifecycleListenerWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('MemoryLow', 'Field MemoryLow of class ILifecycleListenerWarningEnum', ILifecycleListenerWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('BatteryLow', 'Field BatteryLow of class ILifecycleListenerWarningEnum', ILifecycleListenerWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ILifecycleListenerWarningEnum', ILifecycleListenerWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('ILifecycleListenerWarningEnum', 'Enum class ILifecycleListenerWarningEnum', 'ILifecycleListenerWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
-        IFileListResultCallbackWarningEnum.PartialResult = new IFileListResultCallbackWarningEnum("PartialResult");
-        IFileListResultCallbackWarningEnum.Unknown = new IFileListResultCallbackWarningEnum("Unknown");
-        return IFileListResultCallbackWarningEnum;
+        ILifecycleListenerWarningEnum.MemoryLow = new ILifecycleListenerWarningEnum("MemoryLow");
+        ILifecycleListenerWarningEnum.BatteryLow = new ILifecycleListenerWarningEnum("BatteryLow");
+        ILifecycleListenerWarningEnum.Unknown = new ILifecycleListenerWarningEnum("Unknown");
+        return ILifecycleListenerWarningEnum;
     })();
-    Adaptive.IFileListResultCallbackWarningEnum = IFileListResultCallbackWarningEnum;
+    Adaptive.ILifecycleListenerWarningEnum = ILifecycleListenerWarningEnum;
     /**
-     *  Callback IFileListResultCallback control dictionary.
+     *  Listener ILifecycleListener control dictionary.
      */
-    var registeredIFileListResultCallback = new Dictionary([]);
+    var registeredILifecycleListener = new Dictionary([]);
     /**
-     *  Callback IFileListResultCallback onError/onWarning/onResult handlers.
+     *  Listener ILifecycleListener onError/onWarning/onResult handlers.
      */
-    function handleIFileListResultCallbackError(id, error) {
-        var callback = registeredIFileListResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIFileListResultCallback dictionary.");
+    function handleILifecycleListenerError(id, error) {
+        var listener = registeredILifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredILifecycleListener dictionary.");
         }
         else {
-            callback.onError(error);
-            registeredIFileListResultCallback.remove("" + id);
+            listener.onError(error);
         }
     }
-    Adaptive.handleIFileListResultCallbackError = handleIFileListResultCallbackError;
-    function handleIFileListResultCallbackResult(id, files) {
-        var callback = registeredIFileListResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIFileListResultCallback dictionary.");
+    Adaptive.handleILifecycleListenerError = handleILifecycleListenerError;
+    function handleILifecycleListenerResult(id, lifecycle) {
+        var listener = registeredILifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredILifecycleListener dictionary.");
         }
         else {
-            callback.onResult(files);
-            registeredIFileListResultCallback.remove("" + id);
+            listener.onResult(lifecycle);
         }
     }
-    Adaptive.handleIFileListResultCallbackResult = handleIFileListResultCallbackResult;
-    function handleIFileListResultCallbackWarning(id, files, warning) {
-        var callback = registeredIFileListResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIFileListResultCallback dictionary.");
+    Adaptive.handleILifecycleListenerResult = handleILifecycleListenerResult;
+    function handleILifecycleListenerWarning(id, lifecycle, warning) {
+        var listener = registeredILifecycleListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredILifecycleListener dictionary.");
         }
         else {
-            callback.onWarning(files, warning);
-            registeredIFileListResultCallback.remove("" + id);
+            listener.onWarning(lifecycle, warning);
         }
     }
-    Adaptive.handleIFileListResultCallbackWarning = handleIFileListResultCallbackWarning;
+    Adaptive.handleILifecycleListenerWarning = handleILifecycleListenerWarning;
     /**
-     *  Callback IFileListResultCallback implementation.
+     *  Listener ILifecycleListener implementation.
      */
-    var FileListResultCallback = (function () {
-        function FileListResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+    var LifecycleListener = (function () {
+        function LifecycleListener(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
             if (this.onErrorFunction == null) {
-                console.error("ERROR: FileListResultCallback onErrorFunction is not defined.");
+                console.error("ERROR: LifecycleListener onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (this.onResultFunction == null) {
-                console.error("ERROR: FileListResultCallback onResultFunction is not defined.");
+                console.error("ERROR: LifecycleListener onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (this.onWarningFunction == null) {
-                console.error("ERROR: FileListResultCallback onWarningFunction is not defined.");
+                console.error("ERROR: LifecycleListener onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
             }
         }
-        FileListResultCallback.prototype.toString = function () {
-            return "FileListResultCallback{" + this.id + "}";
+        LifecycleListener.prototype.toString = function () {
+            return "LifecycleListener{" + this.id + "}";
         };
-        FileListResultCallback.prototype.getId = function () {
+        LifecycleListener.prototype.getId = function () {
             return this.id;
         };
-        FileListResultCallback.prototype.onError = function (error) {
+        LifecycleListener.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The FileListResultCallback does not define the onErrorFunction.");
+                console.warn("WARNING: The LifecycleListener does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
-        FileListResultCallback.prototype.onResult = function (files) {
+        LifecycleListener.prototype.onResult = function (lifecycle) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The FileListResultCallback does not define the onResultFunction.");
+                console.warn("WARNING: The LifecycleListener does not define the onResultFunction.");
             }
             else {
-                this.onResultFunction(files);
+                this.onResultFunction(lifecycle);
             }
         };
-        FileListResultCallback.prototype.onWarning = function (files, warning) {
+        LifecycleListener.prototype.onWarning = function (lifecycle, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The FileListResultCallback does not define the onWarningFunction.");
+                console.warn("WARNING: The LifecycleListener does not define the onWarningFunction.");
             }
             else {
-                this.onWarningFunction(files, warning);
+                this.onWarningFunction(lifecycle, warning);
             }
         };
-        FileListResultCallback.getReflection = function () {
-            /** Fields of FileListResultCallback **/
+        LifecycleListener.getReflection = function () {
+            /** Fields of LifecycleListener **/
             var _fields = new Array();
-            /** Methods of FileListResultCallback **/
+            /** Methods of LifecycleListener **/
             var _methods = new Array();
-            /** Method onError of FileListResultCallback **/
+            /** Method onError of LifecycleListener **/
             var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'FileListResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'FileListResultCallback onError', _params_onError, null));
-            /** Method onWarning of FileListResultCallback **/
+            _params_onError.push(new ReflectionParameter('error', 'LifecycleListener onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'LifecycleListener onError', _params_onError, null));
+            /** Method onWarning of LifecycleListener **/
             var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('files', 'FileListResultCallback onWarning files', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'FileListResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'FileListResultCallback onWarning', _params_onWarning, null));
-            /** Method onResult of FileListResultCallback **/
+            _params_onWarning.push(new ReflectionParameter('lifecycle', 'LifecycleListener onWarning lifecycle', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'LifecycleListener onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'LifecycleListener onWarning', _params_onWarning, null));
+            /** Method onResult of LifecycleListener **/
             var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('files', 'FileListResultCallback onResult files', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'FileListResultCallback onResult', _params_onResult, null));
-            /** Class description of IFileListResultCallback **/
-            var clazz = new ReflectionClass('FileListResultCallback', 'Listener/Callback class FileListResultCallback', 'FileListResultCallback', _methods, _fields, Adaptive.getReflection());
+            _params_onResult.push(new ReflectionParameter('lifecycle', 'LifecycleListener onResult lifecycle', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'LifecycleListener onResult', _params_onResult, null));
+            /** Class description of ILifecycleListener **/
+            var clazz = new ReflectionClass('LifecycleListener', 'Listener/Callback class LifecycleListener', 'LifecycleListener', _methods, _fields, Adaptive.getReflection());
             return clazz;
         };
-        return FileListResultCallback;
+        return LifecycleListener;
     })();
-    Adaptive.FileListResultCallback = FileListResultCallback;
-    /**
-     *  Service IRuntime implementation.
-     */
-    var RuntimeBridge = (function () {
-        function RuntimeBridge() {
-        }
-        RuntimeBridge.prototype.dismissApplication = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IRuntime/dismissApplication", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // No parameters.
-            if (xhr.status == 200) {
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IRuntime.dismissApplication");
-            }
-        };
-        RuntimeBridge.prototype.dismissSplashScreen = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IRuntime/dismissSplashScreen", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: {} }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: IRuntime.dismissSplashScreen incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IRuntime.dismissSplashScreen");
-                return null;
-            }
-        };
-        RuntimeBridge.getReflection = function () {
-            /** Fields of Runtime **/
-            var _fields = new Array();
-            /** Methods of Runtime **/
-            var _methods = new Array();
-            /** Method dismissApplication of Runtime **/
-            var _params_dismissApplication = new Array();
-            _methods.push(new ReflectionMethod('dismissApplication', 'Runtime dismissApplication', _params_dismissApplication, null));
-            /** Method dismissSplashScreen of Runtime **/
-            var _params_dismissSplashScreen = new Array();
-            _methods.push(new ReflectionMethod('dismissSplashScreen', 'Runtime dismissSplashScreen', _params_dismissSplashScreen, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Class description of IRuntime **/
-            var clazz = new ReflectionClass('RuntimeBridge', 'Bridge class RuntimeBridge', 'RuntimeBridge', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return RuntimeBridge;
-    })();
-    Adaptive.RuntimeBridge = RuntimeBridge;
+    Adaptive.LifecycleListener = LifecycleListener;
     /**
      *  Service ISession implementation.
      */
@@ -2432,15 +1251,6 @@ var Adaptive;
             /** Method getAttributes of Session **/
             var _params_getAttributes = new Array();
             _methods.push(new ReflectionMethod('getAttributes', 'Session getAttributes', _params_getAttributes, new ReflectionClass('Array<any>', 'Array of any', 'Array<any>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection()))));
-            /** Method setAttribute of Session **/
-            var _params_setAttribute = new Array();
-            _params_setAttribute.push(new ReflectionParameter('name', 'Session setAttribute name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_setAttribute.push(new ReflectionParameter('value', 'Session setAttribute value', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setAttribute', 'Session setAttribute', _params_setAttribute, null));
-            /** Method getAttribute of Session **/
-            var _params_getAttribute = new Array();
-            _params_getAttribute.push(new ReflectionParameter('name', 'Session getAttribute name', new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getAttribute', 'Session getAttribute', _params_getAttribute, new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection())));
             /** Method setCookies of Session **/
             var _params_setCookies = new Array();
             _params_setCookies.push(new ReflectionParameter('cookies', 'Session setCookies cookies', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -2470,6 +1280,15 @@ var Adaptive;
             /** Method getCookies of Session **/
             var _params_getCookies = new Array();
             _methods.push(new ReflectionMethod('getCookies', 'Session getCookies', _params_getCookies, new ReflectionClass('Array<Cookie>', 'Array of Cookie', 'Array<Cookie>', null, null, Adaptive.getReflection()).setTypeComponent(Cookie.getReflection())));
+            /** Method setAttribute of Session **/
+            var _params_setAttribute = new Array();
+            _params_setAttribute.push(new ReflectionParameter('name', 'Session setAttribute name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_setAttribute.push(new ReflectionParameter('value', 'Session setAttribute value', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setAttribute', 'Session setAttribute', _params_setAttribute, null));
+            /** Method getAttribute of Session **/
+            var _params_getAttribute = new Array();
+            _params_getAttribute.push(new ReflectionParameter('name', 'Session getAttribute name', new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getAttribute', 'Session getAttribute', _params_getAttribute, new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection())));
             /** Class description of ISession **/
             var clazz = new ReflectionClass('SessionBridge', 'Bridge class SessionBridge', 'SessionBridge', _methods, _fields, Adaptive.getReflection());
             return clazz;
@@ -2478,193 +1297,366 @@ var Adaptive;
     })();
     Adaptive.SessionBridge = SessionBridge;
     /**
-     *  Service IVideo implementation.
-     */
-    var VideoBridge = (function () {
-        function VideoBridge() {
+     *  Enumerations for INetworkReachabilityCallback Error
+     **/
+    var INetworkReachabilityCallbackErrorEnum = (function () {
+        function INetworkReachabilityCallbackErrorEnum(value) {
+            this.value = value;
         }
-        VideoBridge.prototype.playStream = function (url) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseMedia/IVideo/playStream", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { url: url } }));
-            if (xhr.status == 200) {
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IVideo.playStream");
-            }
+        INetworkReachabilityCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
         };
-        VideoBridge.getReflection = function () {
-            /** Fields of Video **/
+        INetworkReachabilityCallbackErrorEnum.getReflection = function () {
+            /** Fields of INetworkReachabilityCallbackErrorEnum **/
             var _fields = new Array();
-            /** Methods of Video **/
-            var _methods = new Array();
-            /** Method playStream of Video **/
-            var _params_playStream = new Array();
-            _params_playStream.push(new ReflectionParameter('url', 'Video playStream url', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('playStream', 'Video playStream', _params_playStream, null));
-            /** Class description of IVideo **/
-            var clazz = new ReflectionClass('VideoBridge', 'Bridge class VideoBridge', 'VideoBridge', _methods, _fields, Adaptive.getReflection());
+            _fields.push(new ReflectionField('Forbidden', 'Field Forbidden of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NotFound', 'Field NotFound of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('MethodNotAllowed', 'Field MethodNotAllowed of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NotAllowed', 'Field NotAllowed of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NotAuthenticated', 'Field NotAuthenticated of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('TimeOut', 'Field TimeOut of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NoResponse', 'Field NoResponse of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unreachable', 'Field Unreachable of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('MalformedUrl', 'Field MalformedUrl of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('DomainUnresolvable', 'Field DomainUnresolvable of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('INetworkReachabilityCallbackErrorEnum', 'Enum class INetworkReachabilityCallbackErrorEnum', 'INetworkReachabilityCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
-        return VideoBridge;
+        INetworkReachabilityCallbackErrorEnum.Forbidden = new INetworkReachabilityCallbackErrorEnum("Forbidden");
+        INetworkReachabilityCallbackErrorEnum.NotFound = new INetworkReachabilityCallbackErrorEnum("NotFound");
+        INetworkReachabilityCallbackErrorEnum.MethodNotAllowed = new INetworkReachabilityCallbackErrorEnum("MethodNotAllowed");
+        INetworkReachabilityCallbackErrorEnum.NotAllowed = new INetworkReachabilityCallbackErrorEnum("NotAllowed");
+        INetworkReachabilityCallbackErrorEnum.NotAuthenticated = new INetworkReachabilityCallbackErrorEnum("NotAuthenticated");
+        INetworkReachabilityCallbackErrorEnum.TimeOut = new INetworkReachabilityCallbackErrorEnum("TimeOut");
+        INetworkReachabilityCallbackErrorEnum.NoResponse = new INetworkReachabilityCallbackErrorEnum("NoResponse");
+        INetworkReachabilityCallbackErrorEnum.Unreachable = new INetworkReachabilityCallbackErrorEnum("Unreachable");
+        INetworkReachabilityCallbackErrorEnum.Wrong_Params = new INetworkReachabilityCallbackErrorEnum("Wrong_Params");
+        INetworkReachabilityCallbackErrorEnum.MalformedUrl = new INetworkReachabilityCallbackErrorEnum("MalformedUrl");
+        INetworkReachabilityCallbackErrorEnum.DomainUnresolvable = new INetworkReachabilityCallbackErrorEnum("DomainUnresolvable");
+        INetworkReachabilityCallbackErrorEnum.Unknown = new INetworkReachabilityCallbackErrorEnum("Unknown");
+        return INetworkReachabilityCallbackErrorEnum;
     })();
-    Adaptive.VideoBridge = VideoBridge;
+    Adaptive.INetworkReachabilityCallbackErrorEnum = INetworkReachabilityCallbackErrorEnum;
     /**
-     *  Service IBrowser implementation.
-     */
-    var BrowserBridge = (function () {
-        function BrowserBridge() {
+     *  Enumerations for INetworkReachabilityCallback Warning
+     **/
+    var INetworkReachabilityCallbackWarningEnum = (function () {
+        function INetworkReachabilityCallbackWarningEnum(value) {
+            this.value = value;
         }
-        BrowserBridge.prototype.openBrowser = function (url, title, buttonText) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseUI/IBrowser/openBrowser", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { url: url, title: title, buttonText: buttonText } }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: IBrowser.openBrowser incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IBrowser.openBrowser");
-                return null;
-            }
+        INetworkReachabilityCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
         };
-        BrowserBridge.getReflection = function () {
-            /** Fields of Browser **/
+        INetworkReachabilityCallbackWarningEnum.getReflection = function () {
+            /** Fields of INetworkReachabilityCallbackWarningEnum **/
             var _fields = new Array();
-            /** Methods of Browser **/
-            var _methods = new Array();
-            /** Method openBrowser of Browser **/
-            var _params_openBrowser = new Array();
-            _params_openBrowser.push(new ReflectionParameter('url', 'Browser openBrowser url', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _params_openBrowser.push(new ReflectionParameter('title', 'Browser openBrowser title', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _params_openBrowser.push(new ReflectionParameter('buttonText', 'Browser openBrowser buttonText', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('openBrowser', 'Browser openBrowser', _params_openBrowser, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Class description of IBrowser **/
-            var clazz = new ReflectionClass('BrowserBridge', 'Bridge class BrowserBridge', 'BrowserBridge', _methods, _fields, Adaptive.getReflection());
+            _fields.push(new ReflectionField('IncorrectScheme', 'Field IncorrectScheme of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('NotSecure', 'Field NotSecure of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('NotTrusted', 'Field NotTrusted of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Redirected', 'Field Redirected of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('NotRegisteredService', 'Field NotRegisteredService of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('INetworkReachabilityCallbackWarningEnum', 'Enum class INetworkReachabilityCallbackWarningEnum', 'INetworkReachabilityCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
-        return BrowserBridge;
+        INetworkReachabilityCallbackWarningEnum.IncorrectScheme = new INetworkReachabilityCallbackWarningEnum("IncorrectScheme");
+        INetworkReachabilityCallbackWarningEnum.NotSecure = new INetworkReachabilityCallbackWarningEnum("NotSecure");
+        INetworkReachabilityCallbackWarningEnum.NotTrusted = new INetworkReachabilityCallbackWarningEnum("NotTrusted");
+        INetworkReachabilityCallbackWarningEnum.Redirected = new INetworkReachabilityCallbackWarningEnum("Redirected");
+        INetworkReachabilityCallbackWarningEnum.NotRegisteredService = new INetworkReachabilityCallbackWarningEnum("NotRegisteredService");
+        INetworkReachabilityCallbackWarningEnum.Unknown = new INetworkReachabilityCallbackWarningEnum("Unknown");
+        return INetworkReachabilityCallbackWarningEnum;
     })();
-    Adaptive.BrowserBridge = BrowserBridge;
+    Adaptive.INetworkReachabilityCallbackWarningEnum = INetworkReachabilityCallbackWarningEnum;
     /**
-     *  Service IDevice implementation.
+     *  Callback INetworkReachabilityCallback control dictionary.
      */
-    var DeviceBridge = (function () {
-        function DeviceBridge() {
+    var registeredINetworkReachabilityCallback = new Dictionary([]);
+    /**
+     *  Callback INetworkReachabilityCallback onError/onWarning/onResult handlers.
+     */
+    function handleINetworkReachabilityCallbackError(id, error) {
+        var callback = registeredINetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredINetworkReachabilityCallback dictionary.");
         }
-        DeviceBridge.prototype.addButtonListener = function (listener) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/addButtonListener?id=" + listener.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // Listeners only require id included in URL param.
-            if (xhr.status == 200) {
-                registeredIButtonListener.add("" + listener.getId(), listener);
+        else {
+            callback.onError(error);
+            registeredINetworkReachabilityCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleINetworkReachabilityCallbackError = handleINetworkReachabilityCallbackError;
+    function handleINetworkReachabilityCallbackResult(id, result) {
+        var callback = registeredINetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredINetworkReachabilityCallback dictionary.");
+        }
+        else {
+            callback.onResult(result);
+            registeredINetworkReachabilityCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleINetworkReachabilityCallbackResult = handleINetworkReachabilityCallbackResult;
+    function handleINetworkReachabilityCallbackWarning(id, result, warning) {
+        var callback = registeredINetworkReachabilityCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredINetworkReachabilityCallback dictionary.");
+        }
+        else {
+            callback.onWarning(result, warning);
+            registeredINetworkReachabilityCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleINetworkReachabilityCallbackWarning = handleINetworkReachabilityCallbackWarning;
+    /**
+     *  Callback INetworkReachabilityCallback implementation.
+     */
+    var NetworkReachabilityCallback = (function () {
+        function NetworkReachabilityCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: NetworkReachabilityCallback onErrorFunction is not defined.");
             }
             else {
-                console.error("ERROR: " + xhr.status + " IDevice.addButtonListener");
+                this.onErrorFunction = onErrorFunction;
             }
-        };
-        DeviceBridge.prototype.getDeviceInfo = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/getDeviceInfo", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: {} }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: IDevice.getDeviceInfo incorrect response received.");
-                    return null;
-                }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: NetworkReachabilityCallback onResultFunction is not defined.");
             }
             else {
-                console.error("ERROR: " + xhr.status + " IDevice.getDeviceInfo");
-                return null;
+                this.onResultFunction = onResultFunction;
             }
-        };
-        DeviceBridge.prototype.getLocaleCurrent = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/getLocaleCurrent", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: {} }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: IDevice.getLocaleCurrent incorrect response received.");
-                    return null;
-                }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: NetworkReachabilityCallback onWarningFunction is not defined.");
             }
             else {
-                console.error("ERROR: " + xhr.status + " IDevice.getLocaleCurrent");
-                return null;
+                this.onWarningFunction = onWarningFunction;
             }
+        }
+        NetworkReachabilityCallback.prototype.toString = function () {
+            return "NetworkReachabilityCallback{" + this.id + "}";
         };
-        DeviceBridge.prototype.removeButtonListener = function (listener) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListener?id=" + listener.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // Listeners only require id included in URL param.
-            if (xhr.status == 200) {
-                registeredIButtonListener.remove("" + listener.getId());
+        NetworkReachabilityCallback.prototype.getId = function () {
+            return this.id;
+        };
+        NetworkReachabilityCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The NetworkReachabilityCallback does not define the onErrorFunction.");
             }
             else {
-                console.error("ERROR: " + xhr.status + " IDevice.removeButtonListener");
+                this.onErrorFunction(error);
             }
         };
-        DeviceBridge.prototype.removeButtonListeners = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IDevice/removeButtonListeners", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(); // No parameters.
-            if (xhr.status == 200) {
-                var keys = registeredIAccelerationListener.keys();
-                for (var key in keys) {
-                    registeredIAccelerationListener.remove(key);
-                }
+        NetworkReachabilityCallback.prototype.onResult = function (result) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The NetworkReachabilityCallback does not define the onResultFunction.");
             }
             else {
-                console.error("ERROR: " + xhr.status + " IDevice.removeButtonListeners");
+                this.onResultFunction(result);
             }
         };
-        DeviceBridge.getReflection = function () {
-            /** Fields of Device **/
+        NetworkReachabilityCallback.prototype.onWarning = function (result, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The NetworkReachabilityCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(result, warning);
+            }
+        };
+        NetworkReachabilityCallback.getReflection = function () {
+            /** Fields of NetworkReachabilityCallback **/
             var _fields = new Array();
-            /** Methods of Device **/
+            /** Methods of NetworkReachabilityCallback **/
             var _methods = new Array();
-            /** Method getDeviceInfo of Device **/
-            var _params_getDeviceInfo = new Array();
-            _methods.push(new ReflectionMethod('getDeviceInfo', 'Device getDeviceInfo', _params_getDeviceInfo, DeviceInfo.getReflection()));
-            /** Method getLocaleCurrent of Device **/
-            var _params_getLocaleCurrent = new Array();
-            _methods.push(new ReflectionMethod('getLocaleCurrent', 'Device getLocaleCurrent', _params_getLocaleCurrent, Locale.getReflection()));
-            /** Method addButtonListener of Device **/
-            var _params_addButtonListener = new Array();
-            _params_addButtonListener.push(new ReflectionParameter('listener', 'Device addButtonListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('addButtonListener', 'Device addButtonListener', _params_addButtonListener, null));
-            /** Method removeButtonListener of Device **/
-            var _params_removeButtonListener = new Array();
-            _params_removeButtonListener.push(new ReflectionParameter('listener', 'Device removeButtonListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('removeButtonListener', 'Device removeButtonListener', _params_removeButtonListener, null));
-            /** Method removeButtonListeners of Device **/
-            var _params_removeButtonListeners = new Array();
-            _methods.push(new ReflectionMethod('removeButtonListeners', 'Device removeButtonListeners', _params_removeButtonListeners, null));
-            /** Class description of IDevice **/
-            var clazz = new ReflectionClass('DeviceBridge', 'Bridge class DeviceBridge', 'DeviceBridge', _methods, _fields, Adaptive.getReflection());
+            /** Method onError of NetworkReachabilityCallback **/
+            var _params_onError = new Array();
+            _params_onError.push(new ReflectionParameter('error', 'NetworkReachabilityCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'NetworkReachabilityCallback onError', _params_onError, null));
+            /** Method onWarning of NetworkReachabilityCallback **/
+            var _params_onWarning = new Array();
+            _params_onWarning.push(new ReflectionParameter('result', 'NetworkReachabilityCallback onWarning result', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'NetworkReachabilityCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'NetworkReachabilityCallback onWarning', _params_onWarning, null));
+            /** Method onResult of NetworkReachabilityCallback **/
+            var _params_onResult = new Array();
+            _params_onResult.push(new ReflectionParameter('result', 'NetworkReachabilityCallback onResult result', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'NetworkReachabilityCallback onResult', _params_onResult, null));
+            /** Class description of INetworkReachabilityCallback **/
+            var clazz = new ReflectionClass('NetworkReachabilityCallback', 'Listener/Callback class NetworkReachabilityCallback', 'NetworkReachabilityCallback', _methods, _fields, Adaptive.getReflection());
             return clazz;
         };
-        return DeviceBridge;
+        return NetworkReachabilityCallback;
     })();
-    Adaptive.DeviceBridge = DeviceBridge;
+    Adaptive.NetworkReachabilityCallback = NetworkReachabilityCallback;
+    /**
+     *  Enumerations for IAccelerationListener Error
+     **/
+    var IAccelerationListenerErrorEnum = (function () {
+        function IAccelerationListenerErrorEnum(value) {
+            this.value = value;
+        }
+        IAccelerationListenerErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IAccelerationListenerErrorEnum.getReflection = function () {
+            /** Fields of IAccelerationListenerErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IAccelerationListenerErrorEnum', IAccelerationListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unavailable', 'Field Unavailable of class IAccelerationListenerErrorEnum', IAccelerationListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAccelerationListenerErrorEnum', IAccelerationListenerErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IAccelerationListenerErrorEnum', 'Enum class IAccelerationListenerErrorEnum', 'IAccelerationListenerErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IAccelerationListenerErrorEnum.Unauthorized = new IAccelerationListenerErrorEnum("Unauthorized");
+        IAccelerationListenerErrorEnum.Unavailable = new IAccelerationListenerErrorEnum("Unavailable");
+        IAccelerationListenerErrorEnum.Unknown = new IAccelerationListenerErrorEnum("Unknown");
+        return IAccelerationListenerErrorEnum;
+    })();
+    Adaptive.IAccelerationListenerErrorEnum = IAccelerationListenerErrorEnum;
+    /**
+     *  Enumerations for IAccelerationListener Warning
+     **/
+    var IAccelerationListenerWarningEnum = (function () {
+        function IAccelerationListenerWarningEnum(value) {
+            this.value = value;
+        }
+        IAccelerationListenerWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IAccelerationListenerWarningEnum.getReflection = function () {
+            /** Fields of IAccelerationListenerWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('NeedsCalibration', 'Field NeedsCalibration of class IAccelerationListenerWarningEnum', IAccelerationListenerWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Stale', 'Field Stale of class IAccelerationListenerWarningEnum', IAccelerationListenerWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAccelerationListenerWarningEnum', IAccelerationListenerWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IAccelerationListenerWarningEnum', 'Enum class IAccelerationListenerWarningEnum', 'IAccelerationListenerWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IAccelerationListenerWarningEnum.NeedsCalibration = new IAccelerationListenerWarningEnum("NeedsCalibration");
+        IAccelerationListenerWarningEnum.Stale = new IAccelerationListenerWarningEnum("Stale");
+        IAccelerationListenerWarningEnum.Unknown = new IAccelerationListenerWarningEnum("Unknown");
+        return IAccelerationListenerWarningEnum;
+    })();
+    Adaptive.IAccelerationListenerWarningEnum = IAccelerationListenerWarningEnum;
+    /**
+     *  Listener IAccelerationListener control dictionary.
+     */
+    var registeredIAccelerationListener = new Dictionary([]);
+    /**
+     *  Listener IAccelerationListener onError/onWarning/onResult handlers.
+     */
+    function handleIAccelerationListenerError(id, error) {
+        var listener = registeredIAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIAccelerationListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleIAccelerationListenerError = handleIAccelerationListenerError;
+    function handleIAccelerationListenerResult(id, acceleration) {
+        var listener = registeredIAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIAccelerationListener dictionary.");
+        }
+        else {
+            listener.onResult(acceleration);
+        }
+    }
+    Adaptive.handleIAccelerationListenerResult = handleIAccelerationListenerResult;
+    function handleIAccelerationListenerWarning(id, acceleration, warning) {
+        var listener = registeredIAccelerationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIAccelerationListener dictionary.");
+        }
+        else {
+            listener.onWarning(acceleration, warning);
+        }
+    }
+    Adaptive.handleIAccelerationListenerWarning = handleIAccelerationListenerWarning;
+    /**
+     *  Listener IAccelerationListener implementation.
+     */
+    var AccelerationListener = (function () {
+        function AccelerationListener(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: AccelerationListener onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: AccelerationListener onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: AccelerationListener onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+        }
+        AccelerationListener.prototype.toString = function () {
+            return "AccelerationListener{" + this.id + "}";
+        };
+        AccelerationListener.prototype.getId = function () {
+            return this.id;
+        };
+        AccelerationListener.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The AccelerationListener does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        AccelerationListener.prototype.onResult = function (acceleration) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The AccelerationListener does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(acceleration);
+            }
+        };
+        AccelerationListener.prototype.onWarning = function (acceleration, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The AccelerationListener does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(acceleration, warning);
+            }
+        };
+        AccelerationListener.getReflection = function () {
+            /** Fields of AccelerationListener **/
+            var _fields = new Array();
+            /** Methods of AccelerationListener **/
+            var _methods = new Array();
+            /** Method onError of AccelerationListener **/
+            var _params_onError = new Array();
+            _params_onError.push(new ReflectionParameter('error', 'AccelerationListener onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'AccelerationListener onError', _params_onError, null));
+            /** Method onWarning of AccelerationListener **/
+            var _params_onWarning = new Array();
+            _params_onWarning.push(new ReflectionParameter('acceleration', 'AccelerationListener onWarning acceleration', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'AccelerationListener onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'AccelerationListener onWarning', _params_onWarning, null));
+            /** Method onResult of AccelerationListener **/
+            var _params_onResult = new Array();
+            _params_onResult.push(new ReflectionParameter('acceleration', 'AccelerationListener onResult acceleration', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'AccelerationListener onResult', _params_onResult, null));
+            /** Class description of IAccelerationListener **/
+            var clazz = new ReflectionClass('AccelerationListener', 'Listener/Callback class AccelerationListener', 'AccelerationListener', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return AccelerationListener;
+    })();
+    Adaptive.AccelerationListener = AccelerationListener;
     /**
      *  Service IDatabase implementation.
      */
@@ -2805,11 +1797,12 @@ var Adaptive;
             var _fields = new Array();
             /** Methods of Database **/
             var _methods = new Array();
-            /** Method createDatabase of Database **/
-            var _params_createDatabase = new Array();
-            _params_createDatabase.push(new ReflectionParameter('database', 'Database createDatabase database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_createDatabase.push(new ReflectionParameter('callback', 'Database createDatabase callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('createDatabase', 'Database createDatabase', _params_createDatabase, null));
+            /** Method createTable of Database **/
+            var _params_createTable = new Array();
+            _params_createTable.push(new ReflectionParameter('database', 'Database createTable database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_createTable.push(new ReflectionParameter('table', 'Database createTable table', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_createTable.push(new ReflectionParameter('callback', 'Database createTable callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('createTable', 'Database createTable', _params_createTable, null));
             /** Method deleteDatabase of Database **/
             var _params_deleteDatabase = new Array();
             _params_deleteDatabase.push(new ReflectionParameter('database', 'Database deleteDatabase database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -2837,6 +1830,11 @@ var Adaptive;
             _params_executeSqlQuery.push(new ReflectionParameter('replacements', 'Database executeSqlQuery replacements', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_executeSqlQuery.push(new ReflectionParameter('callback', 'Database executeSqlQuery callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('executeSqlQuery', 'Database executeSqlQuery', _params_executeSqlQuery, null));
+            /** Method createDatabase of Database **/
+            var _params_createDatabase = new Array();
+            _params_createDatabase.push(new ReflectionParameter('database', 'Database createDatabase database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_createDatabase.push(new ReflectionParameter('callback', 'Database createDatabase callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('createDatabase', 'Database createDatabase', _params_createDatabase, null));
             /** Method executeSqlStatement of Database **/
             var _params_executeSqlStatement = new Array();
             _params_executeSqlStatement.push(new ReflectionParameter('database', 'Database executeSqlStatement database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -2851,12 +1849,6 @@ var Adaptive;
             _params_executeSqlTransactions.push(new ReflectionParameter('rollbackFlag', 'Database executeSqlTransactions rollbackFlag', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_executeSqlTransactions.push(new ReflectionParameter('callback', 'Database executeSqlTransactions callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('executeSqlTransactions', 'Database executeSqlTransactions', _params_executeSqlTransactions, null));
-            /** Method createTable of Database **/
-            var _params_createTable = new Array();
-            _params_createTable.push(new ReflectionParameter('database', 'Database createTable database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_createTable.push(new ReflectionParameter('table', 'Database createTable table', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_createTable.push(new ReflectionParameter('callback', 'Database createTable callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('createTable', 'Database createTable', _params_createTable, null));
             /** Class description of IDatabase **/
             var clazz = new ReflectionClass('DatabaseBridge', 'Bridge class DatabaseBridge', 'DatabaseBridge', _methods, _fields, Adaptive.getReflection());
             return clazz;
@@ -2865,40 +1857,799 @@ var Adaptive;
     })();
     Adaptive.DatabaseBridge = DatabaseBridge;
     /**
-     *  Service ISecurity implementation.
-     */
-    var SecurityBridge = (function () {
-        function SecurityBridge() {
+     *  Enumerations for IButtonListener Error
+     **/
+    var IButtonListenerErrorEnum = (function () {
+        function IButtonListenerErrorEnum(value) {
+            this.value = value;
         }
-        SecurityBridge.prototype.deleteSecureKeyValuePairs = function (keys, publicAccessName, callback) {
-            registeredISecureKVResultCallback.add("" + callback.getId(), callback);
+        IButtonListenerErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IButtonListenerErrorEnum.getReflection = function () {
+            /** Fields of IButtonListenerErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Not_Present', 'Field Not_Present of class IButtonListenerErrorEnum', IButtonListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IButtonListenerErrorEnum', IButtonListenerErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IButtonListenerErrorEnum', 'Enum class IButtonListenerErrorEnum', 'IButtonListenerErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IButtonListenerErrorEnum.Not_Present = new IButtonListenerErrorEnum("Not_Present");
+        IButtonListenerErrorEnum.Unknown = new IButtonListenerErrorEnum("Unknown");
+        return IButtonListenerErrorEnum;
+    })();
+    Adaptive.IButtonListenerErrorEnum = IButtonListenerErrorEnum;
+    /**
+     *  Enumerations for IButtonListener Warning
+     **/
+    var IButtonListenerWarningEnum = (function () {
+        function IButtonListenerWarningEnum(value) {
+            this.value = value;
+        }
+        IButtonListenerWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IButtonListenerWarningEnum.getReflection = function () {
+            /** Fields of IButtonListenerWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Not_Implemented', 'Field Not_Implemented of class IButtonListenerWarningEnum', IButtonListenerWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IButtonListenerWarningEnum', IButtonListenerWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IButtonListenerWarningEnum', 'Enum class IButtonListenerWarningEnum', 'IButtonListenerWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IButtonListenerWarningEnum.Not_Implemented = new IButtonListenerWarningEnum("Not_Implemented");
+        IButtonListenerWarningEnum.Unknown = new IButtonListenerWarningEnum("Unknown");
+        return IButtonListenerWarningEnum;
+    })();
+    Adaptive.IButtonListenerWarningEnum = IButtonListenerWarningEnum;
+    /**
+     *  Listener IButtonListener control dictionary.
+     */
+    var registeredIButtonListener = new Dictionary([]);
+    /**
+     *  Listener IButtonListener onError/onWarning/onResult handlers.
+     */
+    function handleIButtonListenerError(id, error) {
+        var listener = registeredIButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIButtonListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleIButtonListenerError = handleIButtonListenerError;
+    function handleIButtonListenerResult(id, button) {
+        var listener = registeredIButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIButtonListener dictionary.");
+        }
+        else {
+            listener.onResult(button);
+        }
+    }
+    Adaptive.handleIButtonListenerResult = handleIButtonListenerResult;
+    function handleIButtonListenerWarning(id, button, warning) {
+        var listener = registeredIButtonListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIButtonListener dictionary.");
+        }
+        else {
+            listener.onWarning(button, warning);
+        }
+    }
+    Adaptive.handleIButtonListenerWarning = handleIButtonListenerWarning;
+    /**
+     *  Listener IButtonListener implementation.
+     */
+    var ButtonListener = (function () {
+        function ButtonListener(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: ButtonListener onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: ButtonListener onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: ButtonListener onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+        }
+        ButtonListener.prototype.toString = function () {
+            return "ButtonListener{" + this.id + "}";
+        };
+        ButtonListener.prototype.getId = function () {
+            return this.id;
+        };
+        ButtonListener.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The ButtonListener does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        ButtonListener.prototype.onResult = function (button) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The ButtonListener does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(button);
+            }
+        };
+        ButtonListener.prototype.onWarning = function (button, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The ButtonListener does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(button, warning);
+            }
+        };
+        ButtonListener.getReflection = function () {
+            /** Fields of ButtonListener **/
+            var _fields = new Array();
+            /** Methods of ButtonListener **/
+            var _methods = new Array();
+            /** Method onError of ButtonListener **/
+            var _params_onError = new Array();
+            _params_onError.push(new ReflectionParameter('error', 'ButtonListener onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'ButtonListener onError', _params_onError, null));
+            /** Method onWarning of ButtonListener **/
+            var _params_onWarning = new Array();
+            _params_onWarning.push(new ReflectionParameter('button', 'ButtonListener onWarning button', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'ButtonListener onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'ButtonListener onWarning', _params_onWarning, null));
+            /** Method onResult of ButtonListener **/
+            var _params_onResult = new Array();
+            _params_onResult.push(new ReflectionParameter('button', 'ButtonListener onResult button', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'ButtonListener onResult', _params_onResult, null));
+            /** Class description of IButtonListener **/
+            var clazz = new ReflectionClass('ButtonListener', 'Listener/Callback class ButtonListener', 'ButtonListener', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ButtonListener;
+    })();
+    Adaptive.ButtonListener = ButtonListener;
+    /**
+     *  Enumerations for IContactResultCallback Error
+     **/
+    var IContactResultCallbackErrorEnum = (function () {
+        function IContactResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        IContactResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IContactResultCallbackErrorEnum.getReflection = function () {
+            /** Fields of IContactResultCallbackErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class IContactResultCallbackErrorEnum', IContactResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class IContactResultCallbackErrorEnum', IContactResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactResultCallbackErrorEnum', IContactResultCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IContactResultCallbackErrorEnum', 'Enum class IContactResultCallbackErrorEnum', 'IContactResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IContactResultCallbackErrorEnum.NoPermission = new IContactResultCallbackErrorEnum("NoPermission");
+        IContactResultCallbackErrorEnum.Wrong_Params = new IContactResultCallbackErrorEnum("Wrong_Params");
+        IContactResultCallbackErrorEnum.Unknown = new IContactResultCallbackErrorEnum("Unknown");
+        return IContactResultCallbackErrorEnum;
+    })();
+    Adaptive.IContactResultCallbackErrorEnum = IContactResultCallbackErrorEnum;
+    /**
+     *  Enumerations for IContactResultCallback Warning
+     **/
+    var IContactResultCallbackWarningEnum = (function () {
+        function IContactResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IContactResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IContactResultCallbackWarningEnum.getReflection = function () {
+            /** Fields of IContactResultCallbackWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('LimitExceeded', 'Field LimitExceeded of class IContactResultCallbackWarningEnum', IContactResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('No_Matches', 'Field No_Matches of class IContactResultCallbackWarningEnum', IContactResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactResultCallbackWarningEnum', IContactResultCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IContactResultCallbackWarningEnum', 'Enum class IContactResultCallbackWarningEnum', 'IContactResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IContactResultCallbackWarningEnum.LimitExceeded = new IContactResultCallbackWarningEnum("LimitExceeded");
+        IContactResultCallbackWarningEnum.No_Matches = new IContactResultCallbackWarningEnum("No_Matches");
+        IContactResultCallbackWarningEnum.Unknown = new IContactResultCallbackWarningEnum("Unknown");
+        return IContactResultCallbackWarningEnum;
+    })();
+    Adaptive.IContactResultCallbackWarningEnum = IContactResultCallbackWarningEnum;
+    /**
+     *  Callback IContactResultCallback control dictionary.
+     */
+    var registeredIContactResultCallback = new Dictionary([]);
+    /**
+     *  Callback IContactResultCallback onError/onWarning/onResult handlers.
+     */
+    function handleIContactResultCallbackError(id, error) {
+        var callback = registeredIContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIContactResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIContactResultCallbackError = handleIContactResultCallbackError;
+    function handleIContactResultCallbackResult(id, contacts) {
+        var callback = registeredIContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(contacts);
+            registeredIContactResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIContactResultCallbackResult = handleIContactResultCallbackResult;
+    function handleIContactResultCallbackWarning(id, contacts, warning) {
+        var callback = registeredIContactResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(contacts, warning);
+            registeredIContactResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIContactResultCallbackWarning = handleIContactResultCallbackWarning;
+    /**
+     *  Callback IContactResultCallback implementation.
+     */
+    var ContactResultCallback = (function () {
+        function ContactResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: ContactResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: ContactResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: ContactResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+        }
+        ContactResultCallback.prototype.toString = function () {
+            return "ContactResultCallback{" + this.id + "}";
+        };
+        ContactResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        ContactResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The ContactResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        ContactResultCallback.prototype.onResult = function (contacts) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The ContactResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(contacts);
+            }
+        };
+        ContactResultCallback.prototype.onWarning = function (contacts, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The ContactResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(contacts, warning);
+            }
+        };
+        ContactResultCallback.getReflection = function () {
+            /** Fields of ContactResultCallback **/
+            var _fields = new Array();
+            /** Methods of ContactResultCallback **/
+            var _methods = new Array();
+            /** Method onError of ContactResultCallback **/
+            var _params_onError = new Array();
+            _params_onError.push(new ReflectionParameter('error', 'ContactResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'ContactResultCallback onError', _params_onError, null));
+            /** Method onWarning of ContactResultCallback **/
+            var _params_onWarning = new Array();
+            _params_onWarning.push(new ReflectionParameter('contacts', 'ContactResultCallback onWarning contacts', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'ContactResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'ContactResultCallback onWarning', _params_onWarning, null));
+            /** Method onResult of ContactResultCallback **/
+            var _params_onResult = new Array();
+            _params_onResult.push(new ReflectionParameter('contacts', 'ContactResultCallback onResult contacts', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'ContactResultCallback onResult', _params_onResult, null));
+            /** Class description of IContactResultCallback **/
+            var clazz = new ReflectionClass('ContactResultCallback', 'Listener/Callback class ContactResultCallback', 'ContactResultCallback', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ContactResultCallback;
+    })();
+    Adaptive.ContactResultCallback = ContactResultCallback;
+    /**
+     *  Service IBrowser implementation.
+     */
+    var BrowserBridge = (function () {
+        function BrowserBridge() {
+        }
+        BrowserBridge.prototype.openBrowser = function (url, title, buttonText) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/deleteSecureKeyValuePairs?id=" + callback.getId(), false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseUI/IBrowser/openBrowser", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
+            xhr.send(JSON.stringify({ request: { url: url, title: title, buttonText: buttonText } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: IBrowser.openBrowser incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IBrowser.openBrowser");
+                return null;
+            }
+        };
+        BrowserBridge.getReflection = function () {
+            /** Fields of Browser **/
+            var _fields = new Array();
+            /** Methods of Browser **/
+            var _methods = new Array();
+            /** Method openBrowser of Browser **/
+            var _params_openBrowser = new Array();
+            _params_openBrowser.push(new ReflectionParameter('url', 'Browser openBrowser url', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _params_openBrowser.push(new ReflectionParameter('title', 'Browser openBrowser title', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _params_openBrowser.push(new ReflectionParameter('buttonText', 'Browser openBrowser buttonText', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('openBrowser', 'Browser openBrowser', _params_openBrowser, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Class description of IBrowser **/
+            var clazz = new ReflectionClass('BrowserBridge', 'Bridge class BrowserBridge', 'BrowserBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return BrowserBridge;
+    })();
+    Adaptive.BrowserBridge = BrowserBridge;
+    /**
+     *  Service INetworkReachability implementation.
+     */
+    var NetworkReachabilityBridge = (function () {
+        function NetworkReachabilityBridge() {
+        }
+        NetworkReachabilityBridge.prototype.isNetworkReachable = function (host, callback) {
+            registeredINetworkReachabilityCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkReachable?id=" + callback.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { host: host } }));
             if (xhr.status == 200) {
             }
             else {
-                registeredISecureKVResultCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " ISecurity.deleteSecureKeyValuePairs");
+                registeredINetworkReachabilityCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " INetworkReachability.isNetworkReachable");
             }
         };
-        SecurityBridge.prototype.getSecureKeyValuePairs = function (keys, publicAccessName, callback) {
-            registeredISecureKVResultCallback.add("" + callback.getId(), callback);
+        NetworkReachabilityBridge.prototype.isNetworkServiceReachable = function (url, callback) {
+            registeredINetworkReachabilityCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/getSecureKeyValuePairs?id=" + callback.getId(), false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkServiceReachable?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
+            xhr.send(JSON.stringify({ request: { url: url } }));
             if (xhr.status == 200) {
             }
             else {
-                registeredISecureKVResultCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " ISecurity.getSecureKeyValuePairs");
+                registeredINetworkReachabilityCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " INetworkReachability.isNetworkServiceReachable");
             }
         };
-        SecurityBridge.prototype.isDeviceModified = function () {
+        NetworkReachabilityBridge.getReflection = function () {
+            /** Fields of NetworkReachability **/
+            var _fields = new Array();
+            /** Methods of NetworkReachability **/
+            var _methods = new Array();
+            /** Method isNetworkReachable of NetworkReachability **/
+            var _params_isNetworkReachable = new Array();
+            _params_isNetworkReachable.push(new ReflectionParameter('host', 'NetworkReachability isNetworkReachable host', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_isNetworkReachable.push(new ReflectionParameter('callback', 'NetworkReachability isNetworkReachable callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('isNetworkReachable', 'NetworkReachability isNetworkReachable', _params_isNetworkReachable, null));
+            /** Method isNetworkServiceReachable of NetworkReachability **/
+            var _params_isNetworkServiceReachable = new Array();
+            _params_isNetworkServiceReachable.push(new ReflectionParameter('url', 'NetworkReachability isNetworkServiceReachable url', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_isNetworkServiceReachable.push(new ReflectionParameter('callback', 'NetworkReachability isNetworkServiceReachable callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('isNetworkServiceReachable', 'NetworkReachability isNetworkServiceReachable', _params_isNetworkServiceReachable, null));
+            /** Class description of INetworkReachability **/
+            var clazz = new ReflectionClass('NetworkReachabilityBridge', 'Bridge class NetworkReachabilityBridge', 'NetworkReachabilityBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return NetworkReachabilityBridge;
+    })();
+    Adaptive.NetworkReachabilityBridge = NetworkReachabilityBridge;
+    /**
+     *  Enumerations for IGeolocationListener Error
+     **/
+    var IGeolocationListenerErrorEnum = (function () {
+        function IGeolocationListenerErrorEnum(value) {
+            this.value = value;
+        }
+        IGeolocationListenerErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IGeolocationListenerErrorEnum.getReflection = function () {
+            /** Fields of IGeolocationListenerErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Disabled', 'Field Disabled of class IGeolocationListenerErrorEnum', IGeolocationListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('RestrictedAccess', 'Field RestrictedAccess of class IGeolocationListenerErrorEnum', IGeolocationListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('DeniedAccess', 'Field DeniedAccess of class IGeolocationListenerErrorEnum', IGeolocationListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('StatusNotDetermined', 'Field StatusNotDetermined of class IGeolocationListenerErrorEnum', IGeolocationListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IGeolocationListenerErrorEnum', IGeolocationListenerErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IGeolocationListenerErrorEnum', 'Enum class IGeolocationListenerErrorEnum', 'IGeolocationListenerErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IGeolocationListenerErrorEnum.Disabled = new IGeolocationListenerErrorEnum("Disabled");
+        IGeolocationListenerErrorEnum.RestrictedAccess = new IGeolocationListenerErrorEnum("RestrictedAccess");
+        IGeolocationListenerErrorEnum.DeniedAccess = new IGeolocationListenerErrorEnum("DeniedAccess");
+        IGeolocationListenerErrorEnum.StatusNotDetermined = new IGeolocationListenerErrorEnum("StatusNotDetermined");
+        IGeolocationListenerErrorEnum.Unknown = new IGeolocationListenerErrorEnum("Unknown");
+        return IGeolocationListenerErrorEnum;
+    })();
+    Adaptive.IGeolocationListenerErrorEnum = IGeolocationListenerErrorEnum;
+    /**
+     *  Enumerations for IGeolocationListener Warning
+     **/
+    var IGeolocationListenerWarningEnum = (function () {
+        function IGeolocationListenerWarningEnum(value) {
+            this.value = value;
+        }
+        IGeolocationListenerWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IGeolocationListenerWarningEnum.getReflection = function () {
+            /** Fields of IGeolocationListenerWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('HighDoP', 'Field HighDoP of class IGeolocationListenerWarningEnum', IGeolocationListenerWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('StaleData', 'Field StaleData of class IGeolocationListenerWarningEnum', IGeolocationListenerWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IGeolocationListenerWarningEnum', IGeolocationListenerWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IGeolocationListenerWarningEnum', 'Enum class IGeolocationListenerWarningEnum', 'IGeolocationListenerWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IGeolocationListenerWarningEnum.HighDoP = new IGeolocationListenerWarningEnum("HighDoP");
+        IGeolocationListenerWarningEnum.StaleData = new IGeolocationListenerWarningEnum("StaleData");
+        IGeolocationListenerWarningEnum.Unknown = new IGeolocationListenerWarningEnum("Unknown");
+        return IGeolocationListenerWarningEnum;
+    })();
+    Adaptive.IGeolocationListenerWarningEnum = IGeolocationListenerWarningEnum;
+    /**
+     *  Listener IGeolocationListener control dictionary.
+     */
+    var registeredIGeolocationListener = new Dictionary([]);
+    /**
+     *  Listener IGeolocationListener onError/onWarning/onResult handlers.
+     */
+    function handleIGeolocationListenerError(id, error) {
+        var listener = registeredIGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIGeolocationListener dictionary.");
+        }
+        else {
+            listener.onError(error);
+        }
+    }
+    Adaptive.handleIGeolocationListenerError = handleIGeolocationListenerError;
+    function handleIGeolocationListenerResult(id, geolocation) {
+        var listener = registeredIGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIGeolocationListener dictionary.");
+        }
+        else {
+            listener.onResult(geolocation);
+        }
+    }
+    Adaptive.handleIGeolocationListenerResult = handleIGeolocationListenerResult;
+    function handleIGeolocationListenerWarning(id, geolocation, warning) {
+        var listener = registeredIGeolocationListener["" + id];
+        if (typeof listener === 'undefined' || listener == null) {
+            console.error("ERROR: No listener with id " + id + " registered in registeredIGeolocationListener dictionary.");
+        }
+        else {
+            listener.onWarning(geolocation, warning);
+        }
+    }
+    Adaptive.handleIGeolocationListenerWarning = handleIGeolocationListenerWarning;
+    /**
+     *  Listener IGeolocationListener implementation.
+     */
+    var GeolocationListener = (function () {
+        function GeolocationListener(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: GeolocationListener onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: GeolocationListener onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: GeolocationListener onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+        }
+        GeolocationListener.prototype.toString = function () {
+            return "GeolocationListener{" + this.id + "}";
+        };
+        GeolocationListener.prototype.getId = function () {
+            return this.id;
+        };
+        GeolocationListener.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The GeolocationListener does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        GeolocationListener.prototype.onResult = function (geolocation) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The GeolocationListener does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(geolocation);
+            }
+        };
+        GeolocationListener.prototype.onWarning = function (geolocation, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The GeolocationListener does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(geolocation, warning);
+            }
+        };
+        GeolocationListener.getReflection = function () {
+            /** Fields of GeolocationListener **/
+            var _fields = new Array();
+            /** Methods of GeolocationListener **/
+            var _methods = new Array();
+            /** Method onError of GeolocationListener **/
+            var _params_onError = new Array();
+            _params_onError.push(new ReflectionParameter('error', 'GeolocationListener onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'GeolocationListener onError', _params_onError, null));
+            /** Method onWarning of GeolocationListener **/
+            var _params_onWarning = new Array();
+            _params_onWarning.push(new ReflectionParameter('geolocation', 'GeolocationListener onWarning geolocation', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'GeolocationListener onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'GeolocationListener onWarning', _params_onWarning, null));
+            /** Method onResult of GeolocationListener **/
+            var _params_onResult = new Array();
+            _params_onResult.push(new ReflectionParameter('geolocation', 'GeolocationListener onResult geolocation', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'GeolocationListener onResult', _params_onResult, null));
+            /** Class description of IGeolocationListener **/
+            var clazz = new ReflectionClass('GeolocationListener', 'Listener/Callback class GeolocationListener', 'GeolocationListener', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return GeolocationListener;
+    })();
+    Adaptive.GeolocationListener = GeolocationListener;
+    /**
+     *  Enumerations for IContactPhotoResultCallback Error
+     **/
+    var IContactPhotoResultCallbackErrorEnum = (function () {
+        function IContactPhotoResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        IContactPhotoResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IContactPhotoResultCallbackErrorEnum.getReflection = function () {
+            /** Fields of IContactPhotoResultCallbackErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class IContactPhotoResultCallbackErrorEnum', IContactPhotoResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class IContactPhotoResultCallbackErrorEnum', IContactPhotoResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('No_Photo', 'Field No_Photo of class IContactPhotoResultCallbackErrorEnum', IContactPhotoResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactPhotoResultCallbackErrorEnum', IContactPhotoResultCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IContactPhotoResultCallbackErrorEnum', 'Enum class IContactPhotoResultCallbackErrorEnum', 'IContactPhotoResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IContactPhotoResultCallbackErrorEnum.NoPermission = new IContactPhotoResultCallbackErrorEnum("NoPermission");
+        IContactPhotoResultCallbackErrorEnum.Wrong_Params = new IContactPhotoResultCallbackErrorEnum("Wrong_Params");
+        IContactPhotoResultCallbackErrorEnum.No_Photo = new IContactPhotoResultCallbackErrorEnum("No_Photo");
+        IContactPhotoResultCallbackErrorEnum.Unknown = new IContactPhotoResultCallbackErrorEnum("Unknown");
+        return IContactPhotoResultCallbackErrorEnum;
+    })();
+    Adaptive.IContactPhotoResultCallbackErrorEnum = IContactPhotoResultCallbackErrorEnum;
+    /**
+     *  Enumerations for IContactPhotoResultCallback Warning
+     **/
+    var IContactPhotoResultCallbackWarningEnum = (function () {
+        function IContactPhotoResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IContactPhotoResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IContactPhotoResultCallbackWarningEnum.getReflection = function () {
+            /** Fields of IContactPhotoResultCallbackWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('LimitExceeded', 'Field LimitExceeded of class IContactPhotoResultCallbackWarningEnum', IContactPhotoResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('No_Matches', 'Field No_Matches of class IContactPhotoResultCallbackWarningEnum', IContactPhotoResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactPhotoResultCallbackWarningEnum', IContactPhotoResultCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IContactPhotoResultCallbackWarningEnum', 'Enum class IContactPhotoResultCallbackWarningEnum', 'IContactPhotoResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IContactPhotoResultCallbackWarningEnum.LimitExceeded = new IContactPhotoResultCallbackWarningEnum("LimitExceeded");
+        IContactPhotoResultCallbackWarningEnum.No_Matches = new IContactPhotoResultCallbackWarningEnum("No_Matches");
+        IContactPhotoResultCallbackWarningEnum.Unknown = new IContactPhotoResultCallbackWarningEnum("Unknown");
+        return IContactPhotoResultCallbackWarningEnum;
+    })();
+    Adaptive.IContactPhotoResultCallbackWarningEnum = IContactPhotoResultCallbackWarningEnum;
+    /**
+     *  Callback IContactPhotoResultCallback control dictionary.
+     */
+    var registeredIContactPhotoResultCallback = new Dictionary([]);
+    /**
+     *  Callback IContactPhotoResultCallback onError/onWarning/onResult handlers.
+     */
+    function handleIContactPhotoResultCallbackError(id, error) {
+        var callback = registeredIContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactPhotoResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIContactPhotoResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIContactPhotoResultCallbackError = handleIContactPhotoResultCallbackError;
+    function handleIContactPhotoResultCallbackResult(id, contactPhoto) {
+        var callback = registeredIContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactPhotoResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(contactPhoto);
+            registeredIContactPhotoResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIContactPhotoResultCallbackResult = handleIContactPhotoResultCallbackResult;
+    function handleIContactPhotoResultCallbackWarning(id, contactPhoto, warning) {
+        var callback = registeredIContactPhotoResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIContactPhotoResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(contactPhoto, warning);
+            registeredIContactPhotoResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIContactPhotoResultCallbackWarning = handleIContactPhotoResultCallbackWarning;
+    /**
+     *  Callback IContactPhotoResultCallback implementation.
+     */
+    var ContactPhotoResultCallback = (function () {
+        function ContactPhotoResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: ContactPhotoResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: ContactPhotoResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: ContactPhotoResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+        }
+        ContactPhotoResultCallback.prototype.toString = function () {
+            return "ContactPhotoResultCallback{" + this.id + "}";
+        };
+        ContactPhotoResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        ContactPhotoResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The ContactPhotoResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        ContactPhotoResultCallback.prototype.onResult = function (contactPhoto) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The ContactPhotoResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(contactPhoto);
+            }
+        };
+        ContactPhotoResultCallback.prototype.onWarning = function (contactPhoto, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The ContactPhotoResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(contactPhoto, warning);
+            }
+        };
+        ContactPhotoResultCallback.getReflection = function () {
+            /** Fields of ContactPhotoResultCallback **/
+            var _fields = new Array();
+            /** Methods of ContactPhotoResultCallback **/
+            var _methods = new Array();
+            /** Method onError of ContactPhotoResultCallback **/
+            var _params_onError = new Array();
+            _params_onError.push(new ReflectionParameter('error', 'ContactPhotoResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'ContactPhotoResultCallback onError', _params_onError, null));
+            /** Method onWarning of ContactPhotoResultCallback **/
+            var _params_onWarning = new Array();
+            _params_onWarning.push(new ReflectionParameter('contactPhoto', 'ContactPhotoResultCallback onWarning contactPhoto', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'ContactPhotoResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'ContactPhotoResultCallback onWarning', _params_onWarning, null));
+            /** Method onResult of ContactPhotoResultCallback **/
+            var _params_onResult = new Array();
+            _params_onResult.push(new ReflectionParameter('contactPhoto', 'ContactPhotoResultCallback onResult contactPhoto', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'ContactPhotoResultCallback onResult', _params_onResult, null));
+            /** Class description of IContactPhotoResultCallback **/
+            var clazz = new ReflectionClass('ContactPhotoResultCallback', 'Listener/Callback class ContactPhotoResultCallback', 'ContactPhotoResultCallback', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ContactPhotoResultCallback;
+    })();
+    Adaptive.ContactPhotoResultCallback = ContactPhotoResultCallback;
+    /**
+     *  Service ILifecycle implementation.
+     */
+    var LifecycleBridge = (function () {
+        function LifecycleBridge() {
+        }
+        LifecycleBridge.prototype.addLifecycleListener = function (listener) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/isDeviceModified", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/addLifecycleListener?id=" + listener.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // Listeners only require id included in URL param.
+            if (xhr.status == 200) {
+                registeredILifecycleListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " ILifecycle.addLifecycleListener");
+            }
+        };
+        LifecycleBridge.prototype.isBackground = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/isBackground", false);
             xhr.setRequestHeader("Content-type", "application/json");
             xhr.send(JSON.stringify({ request: {} }));
             if (xhr.status == 200) {
@@ -2906,350 +2657,68 @@ var Adaptive;
                     return JSON.parse(xhr.responseText);
                 }
                 else {
-                    console.error("ERROR: ISecurity.isDeviceModified incorrect response received.");
+                    console.error("ERROR: ILifecycle.isBackground incorrect response received.");
                     return null;
                 }
             }
             else {
-                console.error("ERROR: " + xhr.status + " ISecurity.isDeviceModified");
+                console.error("ERROR: " + xhr.status + " ILifecycle.isBackground");
                 return null;
             }
         };
-        SecurityBridge.prototype.setSecureKeyValuePairs = function (keyValues, publicAccessName, callback) {
-            registeredISecureKVResultCallback.add("" + callback.getId(), callback);
+        LifecycleBridge.prototype.removeLifecycleListener = function (listener) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/setSecureKeyValuePairs?id=" + callback.getId(), false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListener?id=" + listener.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { keyValues: keyValues, publicAccessName: publicAccessName } }));
+            xhr.send(); // Listeners only require id included in URL param.
             if (xhr.status == 200) {
+                registeredILifecycleListener.remove("" + listener.getId());
             }
             else {
-                registeredISecureKVResultCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " ISecurity.setSecureKeyValuePairs");
+                console.error("ERROR: " + xhr.status + " ILifecycle.removeLifecycleListener");
             }
         };
-        SecurityBridge.getReflection = function () {
-            /** Fields of Security **/
-            var _fields = new Array();
-            /** Methods of Security **/
-            var _methods = new Array();
-            /** Method isDeviceModified of Security **/
-            var _params_isDeviceModified = new Array();
-            _methods.push(new ReflectionMethod('isDeviceModified', 'Security isDeviceModified', _params_isDeviceModified, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method setSecureKeyValuePairs of Security **/
-            var _params_setSecureKeyValuePairs = new Array();
-            _params_setSecureKeyValuePairs.push(new ReflectionParameter('keyValues', 'Security setSecureKeyValuePairs keyValues', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_setSecureKeyValuePairs.push(new ReflectionParameter('publicAccessName', 'Security setSecureKeyValuePairs publicAccessName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_setSecureKeyValuePairs.push(new ReflectionParameter('callback', 'Security setSecureKeyValuePairs callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setSecureKeyValuePairs', 'Security setSecureKeyValuePairs', _params_setSecureKeyValuePairs, null));
-            /** Method getSecureKeyValuePairs of Security **/
-            var _params_getSecureKeyValuePairs = new Array();
-            _params_getSecureKeyValuePairs.push(new ReflectionParameter('keys', 'Security getSecureKeyValuePairs keys', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_getSecureKeyValuePairs.push(new ReflectionParameter('publicAccessName', 'Security getSecureKeyValuePairs publicAccessName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_getSecureKeyValuePairs.push(new ReflectionParameter('callback', 'Security getSecureKeyValuePairs callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getSecureKeyValuePairs', 'Security getSecureKeyValuePairs', _params_getSecureKeyValuePairs, null));
-            /** Method deleteSecureKeyValuePairs of Security **/
-            var _params_deleteSecureKeyValuePairs = new Array();
-            _params_deleteSecureKeyValuePairs.push(new ReflectionParameter('keys', 'Security deleteSecureKeyValuePairs keys', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_deleteSecureKeyValuePairs.push(new ReflectionParameter('publicAccessName', 'Security deleteSecureKeyValuePairs publicAccessName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_deleteSecureKeyValuePairs.push(new ReflectionParameter('callback', 'Security deleteSecureKeyValuePairs callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('deleteSecureKeyValuePairs', 'Security deleteSecureKeyValuePairs', _params_deleteSecureKeyValuePairs, null));
-            /** Class description of ISecurity **/
-            var clazz = new ReflectionClass('SecurityBridge', 'Bridge class SecurityBridge', 'SecurityBridge', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return SecurityBridge;
-    })();
-    Adaptive.SecurityBridge = SecurityBridge;
-    /**
-     *  Enumerations for ILogging LogLevel
-     **/
-    var ILoggingLogLevelEnum = (function () {
-        function ILoggingLogLevelEnum(value) {
-            this.value = value;
-        }
-        ILoggingLogLevelEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ILoggingLogLevelEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ILogging LogLevel
-        };
-        ILoggingLogLevelEnum.DEBUG = new ILoggingLogLevelEnum("DEBUG");
-        ILoggingLogLevelEnum.WARN = new ILoggingLogLevelEnum("WARN");
-        ILoggingLogLevelEnum.ERROR = new ILoggingLogLevelEnum("ERROR");
-        ILoggingLogLevelEnum.INFO = new ILoggingLogLevelEnum("INFO");
-        ILoggingLogLevelEnum.Unknown = new ILoggingLogLevelEnum("Unknown");
-        return ILoggingLogLevelEnum;
-    })();
-    Adaptive.ILoggingLogLevelEnum = ILoggingLogLevelEnum;
-    /**
-     *  Enumerations for IServiceResultCallback Error
-     **/
-    var IServiceResultCallbackErrorEnum = (function () {
-        function IServiceResultCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        IServiceResultCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IServiceResultCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IServiceResultCallback Error
-        };
-        IServiceResultCallbackErrorEnum.Forbidden = new IServiceResultCallbackErrorEnum("Forbidden");
-        IServiceResultCallbackErrorEnum.NotFound = new IServiceResultCallbackErrorEnum("NotFound");
-        IServiceResultCallbackErrorEnum.MethodNotAllowed = new IServiceResultCallbackErrorEnum("MethodNotAllowed");
-        IServiceResultCallbackErrorEnum.NotAllowed = new IServiceResultCallbackErrorEnum("NotAllowed");
-        IServiceResultCallbackErrorEnum.NotAuthenticated = new IServiceResultCallbackErrorEnum("NotAuthenticated");
-        IServiceResultCallbackErrorEnum.TimeOut = new IServiceResultCallbackErrorEnum("TimeOut");
-        IServiceResultCallbackErrorEnum.NoResponse = new IServiceResultCallbackErrorEnum("NoResponse");
-        IServiceResultCallbackErrorEnum.ServerError = new IServiceResultCallbackErrorEnum("ServerError");
-        IServiceResultCallbackErrorEnum.Unreachable = new IServiceResultCallbackErrorEnum("Unreachable");
-        IServiceResultCallbackErrorEnum.MalformedUrl = new IServiceResultCallbackErrorEnum("MalformedUrl");
-        IServiceResultCallbackErrorEnum.NotRegisteredService = new IServiceResultCallbackErrorEnum("NotRegisteredService");
-        IServiceResultCallbackErrorEnum.Unknown = new IServiceResultCallbackErrorEnum("Unknown");
-        return IServiceResultCallbackErrorEnum;
-    })();
-    Adaptive.IServiceResultCallbackErrorEnum = IServiceResultCallbackErrorEnum;
-    /**
-     *  Enumerations for IServiceResultCallback Warning
-     **/
-    var IServiceResultCallbackWarningEnum = (function () {
-        function IServiceResultCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IServiceResultCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IServiceResultCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IServiceResultCallback Warning
-        };
-        IServiceResultCallbackWarningEnum.NotSecure = new IServiceResultCallbackWarningEnum("NotSecure");
-        IServiceResultCallbackWarningEnum.NotTrusted = new IServiceResultCallbackWarningEnum("NotTrusted");
-        IServiceResultCallbackWarningEnum.Redirected = new IServiceResultCallbackWarningEnum("Redirected");
-        IServiceResultCallbackWarningEnum.Wrong_Params = new IServiceResultCallbackWarningEnum("Wrong_Params");
-        IServiceResultCallbackWarningEnum.Unknown = new IServiceResultCallbackWarningEnum("Unknown");
-        return IServiceResultCallbackWarningEnum;
-    })();
-    Adaptive.IServiceResultCallbackWarningEnum = IServiceResultCallbackWarningEnum;
-    /**
-     *  Callback IServiceResultCallback control dictionary.
-     */
-    var registeredIServiceResultCallback = new Dictionary([]);
-    /**
-     *  Callback IServiceResultCallback onError/onWarning/onResult handlers.
-     */
-    function handleIServiceResultCallbackError(id, error) {
-        var callback = registeredIServiceResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIServiceResultCallback dictionary.");
-        }
-        else {
-            callback.onError(error);
-            registeredIServiceResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIServiceResultCallbackError = handleIServiceResultCallbackError;
-    function handleIServiceResultCallbackResult(id, response) {
-        var callback = registeredIServiceResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIServiceResultCallback dictionary.");
-        }
-        else {
-            callback.onResult(response);
-            registeredIServiceResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIServiceResultCallbackResult = handleIServiceResultCallbackResult;
-    function handleIServiceResultCallbackWarning(id, response, warning) {
-        var callback = registeredIServiceResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIServiceResultCallback dictionary.");
-        }
-        else {
-            callback.onWarning(response, warning);
-            registeredIServiceResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIServiceResultCallbackWarning = handleIServiceResultCallbackWarning;
-    /**
-     *  Callback IServiceResultCallback implementation.
-     */
-    var ServiceResultCallback = (function () {
-        function ServiceResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = ++registeredCounter;
-            if (this.onErrorFunction == null) {
-                console.error("ERROR: ServiceResultCallback onErrorFunction is not defined.");
-            }
-            else {
-                this.onErrorFunction = onErrorFunction;
-            }
-            if (this.onResultFunction == null) {
-                console.error("ERROR: ServiceResultCallback onResultFunction is not defined.");
-            }
-            else {
-                this.onResultFunction = onResultFunction;
-            }
-            if (this.onWarningFunction == null) {
-                console.error("ERROR: ServiceResultCallback onWarningFunction is not defined.");
-            }
-            else {
-                this.onWarningFunction = onWarningFunction;
-            }
-        }
-        ServiceResultCallback.prototype.toString = function () {
-            return "ServiceResultCallback{" + this.id + "}";
-        };
-        ServiceResultCallback.prototype.getId = function () {
-            return this.id;
-        };
-        ServiceResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The ServiceResultCallback does not define the onErrorFunction.");
-            }
-            else {
-                this.onErrorFunction(error);
-            }
-        };
-        ServiceResultCallback.prototype.onResult = function (response) {
-            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The ServiceResultCallback does not define the onResultFunction.");
-            }
-            else {
-                this.onResultFunction(response);
-            }
-        };
-        ServiceResultCallback.prototype.onWarning = function (response, warning) {
-            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The ServiceResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(response, warning);
-            }
-        };
-        ServiceResultCallback.getReflection = function () {
-            /** Fields of ServiceResultCallback **/
-            var _fields = new Array();
-            /** Methods of ServiceResultCallback **/
-            var _methods = new Array();
-            /** Method onError of ServiceResultCallback **/
-            var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'ServiceResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'ServiceResultCallback onError', _params_onError, null));
-            /** Method onWarning of ServiceResultCallback **/
-            var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('response', 'ServiceResultCallback onWarning response', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'ServiceResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'ServiceResultCallback onWarning', _params_onWarning, null));
-            /** Method onResult of ServiceResultCallback **/
-            var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('response', 'ServiceResultCallback onResult response', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'ServiceResultCallback onResult', _params_onResult, null));
-            /** Class description of IServiceResultCallback **/
-            var clazz = new ReflectionClass('ServiceResultCallback', 'Listener/Callback class ServiceResultCallback', 'ServiceResultCallback', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ServiceResultCallback;
-    })();
-    Adaptive.ServiceResultCallback = ServiceResultCallback;
-    /**
-     *  Enumerations for ITelephony Status
-     **/
-    var ITelephonyStatusEnum = (function () {
-        function ITelephonyStatusEnum(value) {
-            this.value = value;
-        }
-        ITelephonyStatusEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ITelephonyStatusEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ITelephony Status
-        };
-        ITelephonyStatusEnum.Dialing = new ITelephonyStatusEnum("Dialing");
-        ITelephonyStatusEnum.Failed = new ITelephonyStatusEnum("Failed");
-        ITelephonyStatusEnum.Unknown = new ITelephonyStatusEnum("Unknown");
-        return ITelephonyStatusEnum;
-    })();
-    Adaptive.ITelephonyStatusEnum = ITelephonyStatusEnum;
-    /**
-     *  Service ITelephony implementation.
-     */
-    var TelephonyBridge = (function () {
-        function TelephonyBridge() {
-        }
-        TelephonyBridge.prototype.call = function (number) {
+        LifecycleBridge.prototype.removeLifecycleListeners = function () {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ITelephony/call", false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/ILifecycle/removeLifecycleListeners", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { number: number } }));
+            xhr.send(); // No parameters.
             if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: ITelephony.call incorrect response received.");
-                    return null;
+                var keys = registeredIAccelerationListener.keys();
+                for (var key in keys) {
+                    registeredIAccelerationListener.remove(key);
                 }
             }
             else {
-                console.error("ERROR: " + xhr.status + " ITelephony.call");
-                return null;
+                console.error("ERROR: " + xhr.status + " ILifecycle.removeLifecycleListeners");
             }
         };
-        TelephonyBridge.getReflection = function () {
-            /** Fields of Telephony **/
+        LifecycleBridge.getReflection = function () {
+            /** Fields of Lifecycle **/
             var _fields = new Array();
-            /** Methods of Telephony **/
+            /** Methods of Lifecycle **/
             var _methods = new Array();
-            /** Method call of Telephony **/
-            var _params_call = new Array();
-            _params_call.push(new ReflectionParameter('number', 'Telephony call number', ITelephonyStatusEnum.getReflection()));
-            _methods.push(new ReflectionMethod('call', 'Telephony call', _params_call, ITelephonyStatusEnum.getReflection()));
-            /** Class description of ITelephony **/
-            var clazz = new ReflectionClass('TelephonyBridge', 'Bridge class TelephonyBridge', 'TelephonyBridge', _methods, _fields, Adaptive.getReflection());
+            /** Method addLifecycleListener of Lifecycle **/
+            var _params_addLifecycleListener = new Array();
+            _params_addLifecycleListener.push(new ReflectionParameter('listener', 'Lifecycle addLifecycleListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('addLifecycleListener', 'Lifecycle addLifecycleListener', _params_addLifecycleListener, null));
+            /** Method removeLifecycleListener of Lifecycle **/
+            var _params_removeLifecycleListener = new Array();
+            _params_removeLifecycleListener.push(new ReflectionParameter('listener', 'Lifecycle removeLifecycleListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('removeLifecycleListener', 'Lifecycle removeLifecycleListener', _params_removeLifecycleListener, null));
+            /** Method removeLifecycleListeners of Lifecycle **/
+            var _params_removeLifecycleListeners = new Array();
+            _methods.push(new ReflectionMethod('removeLifecycleListeners', 'Lifecycle removeLifecycleListeners', _params_removeLifecycleListeners, null));
+            /** Method isBackground of Lifecycle **/
+            var _params_isBackground = new Array();
+            _methods.push(new ReflectionMethod('isBackground', 'Lifecycle isBackground', _params_isBackground, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Class description of ILifecycle **/
+            var clazz = new ReflectionClass('LifecycleBridge', 'Bridge class LifecycleBridge', 'LifecycleBridge', _methods, _fields, Adaptive.getReflection());
             return clazz;
         };
-        return TelephonyBridge;
+        return LifecycleBridge;
     })();
-    Adaptive.TelephonyBridge = TelephonyBridge;
-    /**
-     *  Enumerations for IAppResourceCallback Error
-     **/
-    var IAppResourceCallbackErrorEnum = (function () {
-        function IAppResourceCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        IAppResourceCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IAppResourceCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IAppResourceCallback Error
-        };
-        IAppResourceCallbackErrorEnum.NotFound = new IAppResourceCallbackErrorEnum("NotFound");
-        IAppResourceCallbackErrorEnum.NoPermission = new IAppResourceCallbackErrorEnum("NoPermission");
-        IAppResourceCallbackErrorEnum.Unknown = new IAppResourceCallbackErrorEnum("Unknown");
-        return IAppResourceCallbackErrorEnum;
-    })();
-    Adaptive.IAppResourceCallbackErrorEnum = IAppResourceCallbackErrorEnum;
-    /**
-     *  Enumerations for IAppResourceCallback Warning
-     **/
-    var IAppResourceCallbackWarningEnum = (function () {
-        function IAppResourceCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IAppResourceCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IAppResourceCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IAppResourceCallback Warning
-        };
-        IAppResourceCallbackWarningEnum.PartialContent = new IAppResourceCallbackWarningEnum("PartialContent");
-        IAppResourceCallbackWarningEnum.TooLarge = new IAppResourceCallbackWarningEnum("TooLarge");
-        IAppResourceCallbackWarningEnum.LinkedResource = new IAppResourceCallbackWarningEnum("LinkedResource");
-        IAppResourceCallbackWarningEnum.Unknown = new IAppResourceCallbackWarningEnum("Unknown");
-        return IAppResourceCallbackWarningEnum;
-    })();
-    Adaptive.IAppResourceCallbackWarningEnum = IAppResourceCallbackWarningEnum;
+    Adaptive.LifecycleBridge = LifecycleBridge;
     /**
      *  Service IFileSystem implementation.
      */
@@ -3483,10 +2952,6 @@ var Adaptive;
             _params_create.push(new ReflectionParameter('name', 'FileSystem create name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_create.push(new ReflectionParameter('callback', 'FileSystem create callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('create', 'FileSystem create', _params_create, null));
-            /** Method getPathForPath of FileSystem **/
-            var _params_getPathForPath = new Array();
-            _params_getPathForPath.push(new ReflectionParameter('path', 'FileSystem getPathForPath path', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getPathForPath', 'FileSystem getPathForPath', _params_getPathForPath, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method getPathForFile of FileSystem **/
             var _params_getPathForFile = new Array();
             _params_getPathForFile.push(new ReflectionParameter('file', 'FileSystem getPathForFile file', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
@@ -3496,6 +2961,10 @@ var Adaptive;
             _params_isSamePath.push(new ReflectionParameter('source', 'FileSystem isSamePath source', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
             _params_isSamePath.push(new ReflectionParameter('dest', 'FileSystem isSamePath dest', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('isSamePath', 'FileSystem isSamePath', _params_isSamePath, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method getPathForPath of FileSystem **/
+            var _params_getPathForPath = new Array();
+            _params_getPathForPath.push(new ReflectionParameter('path', 'FileSystem getPathForPath path', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getPathForPath', 'FileSystem getPathForPath', _params_getPathForPath, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method createWithPathString of FileSystem **/
             var _params_createWithPathString = new Array();
             _params_createWithPathString.push(new ReflectionParameter('path', 'FileSystem createWithPathString path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -3530,856 +2999,1369 @@ var Adaptive;
     })();
     Adaptive.FileSystemBridge = FileSystemBridge;
     /**
-     *  Enumerations for ISecureKVResultCallback Error
-     **/
-    var ISecureKVResultCallbackErrorEnum = (function () {
-        function ISecureKVResultCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        ISecureKVResultCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ISecureKVResultCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ISecureKVResultCallback Error
-        };
-        ISecureKVResultCallbackErrorEnum.NoPermission = new ISecureKVResultCallbackErrorEnum("NoPermission");
-        ISecureKVResultCallbackErrorEnum.NoMatchesFound = new ISecureKVResultCallbackErrorEnum("NoMatchesFound");
-        ISecureKVResultCallbackErrorEnum.Unknown = new ISecureKVResultCallbackErrorEnum("Unknown");
-        return ISecureKVResultCallbackErrorEnum;
-    })();
-    Adaptive.ISecureKVResultCallbackErrorEnum = ISecureKVResultCallbackErrorEnum;
-    /**
-     *  Enumerations for ISecureKVResultCallback Warning
-     **/
-    var ISecureKVResultCallbackWarningEnum = (function () {
-        function ISecureKVResultCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        ISecureKVResultCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ISecureKVResultCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ISecureKVResultCallback Warning
-        };
-        ISecureKVResultCallbackWarningEnum.EntryOverride = new ISecureKVResultCallbackWarningEnum("EntryOverride");
-        ISecureKVResultCallbackWarningEnum.Unknown = new ISecureKVResultCallbackWarningEnum("Unknown");
-        return ISecureKVResultCallbackWarningEnum;
-    })();
-    Adaptive.ISecureKVResultCallbackWarningEnum = ISecureKVResultCallbackWarningEnum;
-    /**
-     *  Callback ISecureKVResultCallback control dictionary.
+     *  Service IOS implementation.
      */
-    var registeredISecureKVResultCallback = new Dictionary([]);
-    /**
-     *  Callback ISecureKVResultCallback onError/onWarning/onResult handlers.
-     */
-    function handleISecureKVResultCallbackError(id, error) {
-        var callback = registeredISecureKVResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredISecureKVResultCallback dictionary.");
+    var OSBridge = (function () {
+        function OSBridge() {
         }
-        else {
-            callback.onError(error);
-            registeredISecureKVResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleISecureKVResultCallbackError = handleISecureKVResultCallbackError;
-    function handleISecureKVResultCallbackResult(id, keyValues) {
-        var callback = registeredISecureKVResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredISecureKVResultCallback dictionary.");
-        }
-        else {
-            callback.onResult(keyValues);
-            registeredISecureKVResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleISecureKVResultCallbackResult = handleISecureKVResultCallbackResult;
-    function handleISecureKVResultCallbackWarning(id, keyValues, warning) {
-        var callback = registeredISecureKVResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredISecureKVResultCallback dictionary.");
-        }
-        else {
-            callback.onWarning(keyValues, warning);
-            registeredISecureKVResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleISecureKVResultCallbackWarning = handleISecureKVResultCallbackWarning;
-    /**
-     *  Callback ISecureKVResultCallback implementation.
-     */
-    var SecureKVResultCallback = (function () {
-        function SecureKVResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = ++registeredCounter;
-            if (this.onErrorFunction == null) {
-                console.error("ERROR: SecureKVResultCallback onErrorFunction is not defined.");
-            }
-            else {
-                this.onErrorFunction = onErrorFunction;
-            }
-            if (this.onResultFunction == null) {
-                console.error("ERROR: SecureKVResultCallback onResultFunction is not defined.");
-            }
-            else {
-                this.onResultFunction = onResultFunction;
-            }
-            if (this.onWarningFunction == null) {
-                console.error("ERROR: SecureKVResultCallback onWarningFunction is not defined.");
-            }
-            else {
-                this.onWarningFunction = onWarningFunction;
-            }
-        }
-        SecureKVResultCallback.prototype.toString = function () {
-            return "SecureKVResultCallback{" + this.id + "}";
-        };
-        SecureKVResultCallback.prototype.getId = function () {
-            return this.id;
-        };
-        SecureKVResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The SecureKVResultCallback does not define the onErrorFunction.");
-            }
-            else {
-                this.onErrorFunction(error);
-            }
-        };
-        SecureKVResultCallback.prototype.onResult = function (keyValues) {
-            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The SecureKVResultCallback does not define the onResultFunction.");
-            }
-            else {
-                this.onResultFunction(keyValues);
-            }
-        };
-        SecureKVResultCallback.prototype.onWarning = function (keyValues, warning) {
-            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The SecureKVResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(keyValues, warning);
-            }
-        };
-        SecureKVResultCallback.getReflection = function () {
-            /** Fields of SecureKVResultCallback **/
-            var _fields = new Array();
-            /** Methods of SecureKVResultCallback **/
-            var _methods = new Array();
-            /** Method onError of SecureKVResultCallback **/
-            var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'SecureKVResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'SecureKVResultCallback onError', _params_onError, null));
-            /** Method onWarning of SecureKVResultCallback **/
-            var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('keyValues', 'SecureKVResultCallback onWarning keyValues', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'SecureKVResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'SecureKVResultCallback onWarning', _params_onWarning, null));
-            /** Method onResult of SecureKVResultCallback **/
-            var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('keyValues', 'SecureKVResultCallback onResult keyValues', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'SecureKVResultCallback onResult', _params_onResult, null));
-            /** Class description of ISecureKVResultCallback **/
-            var clazz = new ReflectionClass('SecureKVResultCallback', 'Listener/Callback class SecureKVResultCallback', 'SecureKVResultCallback', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return SecureKVResultCallback;
-    })();
-    Adaptive.SecureKVResultCallback = SecureKVResultCallback;
-    /**
-     *  Enumerations for INetworkReachabilityCallback Error
-     **/
-    var INetworkReachabilityCallbackErrorEnum = (function () {
-        function INetworkReachabilityCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        INetworkReachabilityCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        INetworkReachabilityCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> INetworkReachabilityCallback Error
-        };
-        INetworkReachabilityCallbackErrorEnum.Forbidden = new INetworkReachabilityCallbackErrorEnum("Forbidden");
-        INetworkReachabilityCallbackErrorEnum.NotFound = new INetworkReachabilityCallbackErrorEnum("NotFound");
-        INetworkReachabilityCallbackErrorEnum.MethodNotAllowed = new INetworkReachabilityCallbackErrorEnum("MethodNotAllowed");
-        INetworkReachabilityCallbackErrorEnum.NotAllowed = new INetworkReachabilityCallbackErrorEnum("NotAllowed");
-        INetworkReachabilityCallbackErrorEnum.NotAuthenticated = new INetworkReachabilityCallbackErrorEnum("NotAuthenticated");
-        INetworkReachabilityCallbackErrorEnum.TimeOut = new INetworkReachabilityCallbackErrorEnum("TimeOut");
-        INetworkReachabilityCallbackErrorEnum.NoResponse = new INetworkReachabilityCallbackErrorEnum("NoResponse");
-        INetworkReachabilityCallbackErrorEnum.Unreachable = new INetworkReachabilityCallbackErrorEnum("Unreachable");
-        INetworkReachabilityCallbackErrorEnum.Wrong_Params = new INetworkReachabilityCallbackErrorEnum("Wrong_Params");
-        INetworkReachabilityCallbackErrorEnum.MalformedUrl = new INetworkReachabilityCallbackErrorEnum("MalformedUrl");
-        INetworkReachabilityCallbackErrorEnum.DomainUnresolvable = new INetworkReachabilityCallbackErrorEnum("DomainUnresolvable");
-        INetworkReachabilityCallbackErrorEnum.Unknown = new INetworkReachabilityCallbackErrorEnum("Unknown");
-        return INetworkReachabilityCallbackErrorEnum;
-    })();
-    Adaptive.INetworkReachabilityCallbackErrorEnum = INetworkReachabilityCallbackErrorEnum;
-    /**
-     *  Enumerations for INetworkReachabilityCallback Warning
-     **/
-    var INetworkReachabilityCallbackWarningEnum = (function () {
-        function INetworkReachabilityCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        INetworkReachabilityCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        INetworkReachabilityCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> INetworkReachabilityCallback Warning
-        };
-        INetworkReachabilityCallbackWarningEnum.IncorrectScheme = new INetworkReachabilityCallbackWarningEnum("IncorrectScheme");
-        INetworkReachabilityCallbackWarningEnum.NotSecure = new INetworkReachabilityCallbackWarningEnum("NotSecure");
-        INetworkReachabilityCallbackWarningEnum.NotTrusted = new INetworkReachabilityCallbackWarningEnum("NotTrusted");
-        INetworkReachabilityCallbackWarningEnum.Redirected = new INetworkReachabilityCallbackWarningEnum("Redirected");
-        INetworkReachabilityCallbackWarningEnum.NotRegisteredService = new INetworkReachabilityCallbackWarningEnum("NotRegisteredService");
-        INetworkReachabilityCallbackWarningEnum.Unknown = new INetworkReachabilityCallbackWarningEnum("Unknown");
-        return INetworkReachabilityCallbackWarningEnum;
-    })();
-    Adaptive.INetworkReachabilityCallbackWarningEnum = INetworkReachabilityCallbackWarningEnum;
-    /**
-     *  Callback INetworkReachabilityCallback control dictionary.
-     */
-    var registeredINetworkReachabilityCallback = new Dictionary([]);
-    /**
-     *  Callback INetworkReachabilityCallback onError/onWarning/onResult handlers.
-     */
-    function handleINetworkReachabilityCallbackError(id, error) {
-        var callback = registeredINetworkReachabilityCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredINetworkReachabilityCallback dictionary.");
-        }
-        else {
-            callback.onError(error);
-            registeredINetworkReachabilityCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleINetworkReachabilityCallbackError = handleINetworkReachabilityCallbackError;
-    function handleINetworkReachabilityCallbackResult(id, result) {
-        var callback = registeredINetworkReachabilityCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredINetworkReachabilityCallback dictionary.");
-        }
-        else {
-            callback.onResult(result);
-            registeredINetworkReachabilityCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleINetworkReachabilityCallbackResult = handleINetworkReachabilityCallbackResult;
-    function handleINetworkReachabilityCallbackWarning(id, result, warning) {
-        var callback = registeredINetworkReachabilityCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredINetworkReachabilityCallback dictionary.");
-        }
-        else {
-            callback.onWarning(result, warning);
-            registeredINetworkReachabilityCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleINetworkReachabilityCallbackWarning = handleINetworkReachabilityCallbackWarning;
-    /**
-     *  Callback INetworkReachabilityCallback implementation.
-     */
-    var NetworkReachabilityCallback = (function () {
-        function NetworkReachabilityCallback(onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = ++registeredCounter;
-            if (this.onErrorFunction == null) {
-                console.error("ERROR: NetworkReachabilityCallback onErrorFunction is not defined.");
-            }
-            else {
-                this.onErrorFunction = onErrorFunction;
-            }
-            if (this.onResultFunction == null) {
-                console.error("ERROR: NetworkReachabilityCallback onResultFunction is not defined.");
-            }
-            else {
-                this.onResultFunction = onResultFunction;
-            }
-            if (this.onWarningFunction == null) {
-                console.error("ERROR: NetworkReachabilityCallback onWarningFunction is not defined.");
-            }
-            else {
-                this.onWarningFunction = onWarningFunction;
-            }
-        }
-        NetworkReachabilityCallback.prototype.toString = function () {
-            return "NetworkReachabilityCallback{" + this.id + "}";
-        };
-        NetworkReachabilityCallback.prototype.getId = function () {
-            return this.id;
-        };
-        NetworkReachabilityCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The NetworkReachabilityCallback does not define the onErrorFunction.");
-            }
-            else {
-                this.onErrorFunction(error);
-            }
-        };
-        NetworkReachabilityCallback.prototype.onResult = function (result) {
-            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The NetworkReachabilityCallback does not define the onResultFunction.");
-            }
-            else {
-                this.onResultFunction(result);
-            }
-        };
-        NetworkReachabilityCallback.prototype.onWarning = function (result, warning) {
-            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The NetworkReachabilityCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(result, warning);
-            }
-        };
-        NetworkReachabilityCallback.getReflection = function () {
-            /** Fields of NetworkReachabilityCallback **/
-            var _fields = new Array();
-            /** Methods of NetworkReachabilityCallback **/
-            var _methods = new Array();
-            /** Method onError of NetworkReachabilityCallback **/
-            var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'NetworkReachabilityCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'NetworkReachabilityCallback onError', _params_onError, null));
-            /** Method onWarning of NetworkReachabilityCallback **/
-            var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('result', 'NetworkReachabilityCallback onWarning result', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'NetworkReachabilityCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'NetworkReachabilityCallback onWarning', _params_onWarning, null));
-            /** Method onResult of NetworkReachabilityCallback **/
-            var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('result', 'NetworkReachabilityCallback onResult result', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'NetworkReachabilityCallback onResult', _params_onResult, null));
-            /** Class description of INetworkReachabilityCallback **/
-            var clazz = new ReflectionClass('NetworkReachabilityCallback', 'Listener/Callback class NetworkReachabilityCallback', 'NetworkReachabilityCallback', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return NetworkReachabilityCallback;
-    })();
-    Adaptive.NetworkReachabilityCallback = NetworkReachabilityCallback;
-    /**
-     *  Enumerations for IFileDataResultCallback Error
-     **/
-    var IFileDataResultCallbackErrorEnum = (function () {
-        function IFileDataResultCallbackErrorEnum(value) {
-            this.value = value;
-        }
-        IFileDataResultCallbackErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IFileDataResultCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IFileDataResultCallback Error
-        };
-        IFileDataResultCallbackErrorEnum.InexistentFile = new IFileDataResultCallbackErrorEnum("InexistentFile");
-        IFileDataResultCallbackErrorEnum.InsufficientSpace = new IFileDataResultCallbackErrorEnum("InsufficientSpace");
-        IFileDataResultCallbackErrorEnum.Unauthorized = new IFileDataResultCallbackErrorEnum("Unauthorized");
-        IFileDataResultCallbackErrorEnum.Unknown = new IFileDataResultCallbackErrorEnum("Unknown");
-        return IFileDataResultCallbackErrorEnum;
-    })();
-    Adaptive.IFileDataResultCallbackErrorEnum = IFileDataResultCallbackErrorEnum;
-    /**
-     *  Enumerations for IFileDataResultCallback Warning
-     **/
-    var IFileDataResultCallbackWarningEnum = (function () {
-        function IFileDataResultCallbackWarningEnum(value) {
-            this.value = value;
-        }
-        IFileDataResultCallbackWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IFileDataResultCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IFileDataResultCallback Warning
-        };
-        IFileDataResultCallbackWarningEnum.ExceedMaximumSize = new IFileDataResultCallbackWarningEnum("ExceedMaximumSize");
-        IFileDataResultCallbackWarningEnum.Unknown = new IFileDataResultCallbackWarningEnum("Unknown");
-        return IFileDataResultCallbackWarningEnum;
-    })();
-    Adaptive.IFileDataResultCallbackWarningEnum = IFileDataResultCallbackWarningEnum;
-    /**
-     *  Callback IFileDataResultCallback control dictionary.
-     */
-    var registeredIFileDataResultCallback = new Dictionary([]);
-    /**
-     *  Callback IFileDataResultCallback onError/onWarning/onResult handlers.
-     */
-    function handleIFileDataResultCallbackError(id, error) {
-        var callback = registeredIFileDataResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIFileDataResultCallback dictionary.");
-        }
-        else {
-            callback.onError(error);
-            registeredIFileDataResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIFileDataResultCallbackError = handleIFileDataResultCallbackError;
-    function handleIFileDataResultCallbackResult(id, file, data) {
-        var callback = registeredIFileDataResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIFileDataResultCallback dictionary.");
-        }
-        else {
-            callback.onResult(file, data);
-            registeredIFileDataResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIFileDataResultCallbackResult = handleIFileDataResultCallbackResult;
-    function handleIFileDataResultCallbackWarning(id, file, warning) {
-        var callback = registeredIFileDataResultCallback["" + id];
-        if (typeof callback === 'undefined' || callback == null) {
-            console.error("ERROR: No callback with id " + id + " registered in registeredIFileDataResultCallback dictionary.");
-        }
-        else {
-            callback.onWarning(file, warning);
-            registeredIFileDataResultCallback.remove("" + id);
-        }
-    }
-    Adaptive.handleIFileDataResultCallbackWarning = handleIFileDataResultCallbackWarning;
-    /**
-     *  Callback IFileDataResultCallback implementation.
-     */
-    var FileDataResultCallback = (function () {
-        function FileDataResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = ++registeredCounter;
-            if (this.onErrorFunction == null) {
-                console.error("ERROR: FileDataResultCallback onErrorFunction is not defined.");
-            }
-            else {
-                this.onErrorFunction = onErrorFunction;
-            }
-            if (this.onResultFunction == null) {
-                console.error("ERROR: FileDataResultCallback onResultFunction is not defined.");
-            }
-            else {
-                this.onResultFunction = onResultFunction;
-            }
-            if (this.onWarningFunction == null) {
-                console.error("ERROR: FileDataResultCallback onWarningFunction is not defined.");
-            }
-            else {
-                this.onWarningFunction = onWarningFunction;
-            }
-        }
-        FileDataResultCallback.prototype.toString = function () {
-            return "FileDataResultCallback{" + this.id + "}";
-        };
-        FileDataResultCallback.prototype.getId = function () {
-            return this.id;
-        };
-        FileDataResultCallback.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The FileDataResultCallback does not define the onErrorFunction.");
-            }
-            else {
-                this.onErrorFunction(error);
-            }
-        };
-        FileDataResultCallback.prototype.onResult = function (file, data) {
-            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The FileDataResultCallback does not define the onResultFunction.");
-            }
-            else {
-                this.onResultFunction(file, data);
-            }
-        };
-        FileDataResultCallback.prototype.onWarning = function (file, warning) {
-            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The FileDataResultCallback does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(file, warning);
-            }
-        };
-        FileDataResultCallback.getReflection = function () {
-            /** Fields of FileDataResultCallback **/
-            var _fields = new Array();
-            /** Methods of FileDataResultCallback **/
-            var _methods = new Array();
-            /** Method onError of FileDataResultCallback **/
-            var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'FileDataResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'FileDataResultCallback onError', _params_onError, null));
-            /** Method onWarning of FileDataResultCallback **/
-            var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('file', 'FileDataResultCallback onWarning file', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'FileDataResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'FileDataResultCallback onWarning', _params_onWarning, null));
-            /** Method onResult of FileDataResultCallback **/
-            var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('file', 'FileDataResultCallback onResult file', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onResult.push(new ReflectionParameter('data', 'FileDataResultCallback onResult data', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'FileDataResultCallback onResult', _params_onResult, null));
-            /** Class description of IFileDataResultCallback **/
-            var clazz = new ReflectionClass('FileDataResultCallback', 'Listener/Callback class FileDataResultCallback', 'FileDataResultCallback', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return FileDataResultCallback;
-    })();
-    Adaptive.FileDataResultCallback = FileDataResultCallback;
-    /**
-     *  Enumerations for IAccelerationListener Error
-     **/
-    var IAccelerationListenerErrorEnum = (function () {
-        function IAccelerationListenerErrorEnum(value) {
-            this.value = value;
-        }
-        IAccelerationListenerErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IAccelerationListenerErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IAccelerationListener Error
-        };
-        IAccelerationListenerErrorEnum.Unauthorized = new IAccelerationListenerErrorEnum("Unauthorized");
-        IAccelerationListenerErrorEnum.Unavailable = new IAccelerationListenerErrorEnum("Unavailable");
-        IAccelerationListenerErrorEnum.Unknown = new IAccelerationListenerErrorEnum("Unknown");
-        return IAccelerationListenerErrorEnum;
-    })();
-    Adaptive.IAccelerationListenerErrorEnum = IAccelerationListenerErrorEnum;
-    /**
-     *  Enumerations for IAccelerationListener Warning
-     **/
-    var IAccelerationListenerWarningEnum = (function () {
-        function IAccelerationListenerWarningEnum(value) {
-            this.value = value;
-        }
-        IAccelerationListenerWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IAccelerationListenerWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IAccelerationListener Warning
-        };
-        IAccelerationListenerWarningEnum.NeedsCalibration = new IAccelerationListenerWarningEnum("NeedsCalibration");
-        IAccelerationListenerWarningEnum.Stale = new IAccelerationListenerWarningEnum("Stale");
-        IAccelerationListenerWarningEnum.Unknown = new IAccelerationListenerWarningEnum("Unknown");
-        return IAccelerationListenerWarningEnum;
-    })();
-    Adaptive.IAccelerationListenerWarningEnum = IAccelerationListenerWarningEnum;
-    /**
-     *  Listener IAccelerationListener control dictionary.
-     */
-    var registeredIAccelerationListener = new Dictionary([]);
-    /**
-     *  Listener IAccelerationListener onError/onWarning/onResult handlers.
-     */
-    function handleIAccelerationListenerError(id, error) {
-        var listener = registeredIAccelerationListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredIAccelerationListener dictionary.");
-        }
-        else {
-            listener.onError(error);
-        }
-    }
-    Adaptive.handleIAccelerationListenerError = handleIAccelerationListenerError;
-    function handleIAccelerationListenerResult(id, acceleration) {
-        var listener = registeredIAccelerationListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredIAccelerationListener dictionary.");
-        }
-        else {
-            listener.onResult(acceleration);
-        }
-    }
-    Adaptive.handleIAccelerationListenerResult = handleIAccelerationListenerResult;
-    function handleIAccelerationListenerWarning(id, acceleration, warning) {
-        var listener = registeredIAccelerationListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredIAccelerationListener dictionary.");
-        }
-        else {
-            listener.onWarning(acceleration, warning);
-        }
-    }
-    Adaptive.handleIAccelerationListenerWarning = handleIAccelerationListenerWarning;
-    /**
-     *  Listener IAccelerationListener implementation.
-     */
-    var AccelerationListener = (function () {
-        function AccelerationListener(onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = ++registeredCounter;
-            if (this.onErrorFunction == null) {
-                console.error("ERROR: AccelerationListener onErrorFunction is not defined.");
-            }
-            else {
-                this.onErrorFunction = onErrorFunction;
-            }
-            if (this.onResultFunction == null) {
-                console.error("ERROR: AccelerationListener onResultFunction is not defined.");
-            }
-            else {
-                this.onResultFunction = onResultFunction;
-            }
-            if (this.onWarningFunction == null) {
-                console.error("ERROR: AccelerationListener onWarningFunction is not defined.");
-            }
-            else {
-                this.onWarningFunction = onWarningFunction;
-            }
-        }
-        AccelerationListener.prototype.toString = function () {
-            return "AccelerationListener{" + this.id + "}";
-        };
-        AccelerationListener.prototype.getId = function () {
-            return this.id;
-        };
-        AccelerationListener.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The AccelerationListener does not define the onErrorFunction.");
-            }
-            else {
-                this.onErrorFunction(error);
-            }
-        };
-        AccelerationListener.prototype.onResult = function (acceleration) {
-            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The AccelerationListener does not define the onResultFunction.");
-            }
-            else {
-                this.onResultFunction(acceleration);
-            }
-        };
-        AccelerationListener.prototype.onWarning = function (acceleration, warning) {
-            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The AccelerationListener does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(acceleration, warning);
-            }
-        };
-        AccelerationListener.getReflection = function () {
-            /** Fields of AccelerationListener **/
-            var _fields = new Array();
-            /** Methods of AccelerationListener **/
-            var _methods = new Array();
-            /** Method onError of AccelerationListener **/
-            var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'AccelerationListener onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'AccelerationListener onError', _params_onError, null));
-            /** Method onWarning of AccelerationListener **/
-            var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('acceleration', 'AccelerationListener onWarning acceleration', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'AccelerationListener onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'AccelerationListener onWarning', _params_onWarning, null));
-            /** Method onResult of AccelerationListener **/
-            var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('acceleration', 'AccelerationListener onResult acceleration', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'AccelerationListener onResult', _params_onResult, null));
-            /** Class description of IAccelerationListener **/
-            var clazz = new ReflectionClass('AccelerationListener', 'Listener/Callback class AccelerationListener', 'AccelerationListener', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return AccelerationListener;
-    })();
-    Adaptive.AccelerationListener = AccelerationListener;
-    /**
-     *  Service INetworkReachability implementation.
-     */
-    var NetworkReachabilityBridge = (function () {
-        function NetworkReachabilityBridge() {
-        }
-        NetworkReachabilityBridge.prototype.isNetworkReachable = function (host, callback) {
-            registeredINetworkReachabilityCallback.add("" + callback.getId(), callback);
+        OSBridge.prototype.getOSInfo = function () {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkReachable?id=" + callback.getId(), false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IOS/getOSInfo", false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { host: host } }));
+            xhr.send(JSON.stringify({ request: {} }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: IOS.getOSInfo incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IOS.getOSInfo");
+                return null;
+            }
+        };
+        OSBridge.getReflection = function () {
+            /** Fields of OS **/
+            var _fields = new Array();
+            /** Methods of OS **/
+            var _methods = new Array();
+            /** Method getOSInfo of OS **/
+            var _params_getOSInfo = new Array();
+            _methods.push(new ReflectionMethod('getOSInfo', 'OS getOSInfo', _params_getOSInfo, OSInfo.getReflection()));
+            /** Class description of IOS **/
+            var clazz = new ReflectionClass('OSBridge', 'Bridge class OSBridge', 'OSBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return OSBridge;
+    })();
+    Adaptive.OSBridge = OSBridge;
+    /**
+     *  Enumerations for IContact FieldGroup
+     **/
+    var IContactFieldGroupEnum = (function () {
+        function IContactFieldGroupEnum(value) {
+            this.value = value;
+        }
+        IContactFieldGroupEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IContactFieldGroupEnum.getReflection = function () {
+            /** Fields of IContactFieldGroupEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('PERSONAL_INFO', 'Field PERSONAL_INFO of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
+            _fields.push(new ReflectionField('PROFESSIONAL_INFO', 'Field PROFESSIONAL_INFO of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
+            _fields.push(new ReflectionField('ADDRESSES', 'Field ADDRESSES of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
+            _fields.push(new ReflectionField('PHONES', 'Field PHONES of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
+            _fields.push(new ReflectionField('EMAILS', 'Field EMAILS of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
+            _fields.push(new ReflectionField('WEBSITES', 'Field WEBSITES of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
+            _fields.push(new ReflectionField('SOCIALS', 'Field SOCIALS of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
+            _fields.push(new ReflectionField('TAGS', 'Field TAGS of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
+            var clazz = new ReflectionClass('IContactFieldGroupEnum', 'Enum class IContactFieldGroupEnum', 'IContactFieldGroupEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IContactFieldGroupEnum.PERSONAL_INFO = new IContactFieldGroupEnum("PERSONAL_INFO");
+        IContactFieldGroupEnum.PROFESSIONAL_INFO = new IContactFieldGroupEnum("PROFESSIONAL_INFO");
+        IContactFieldGroupEnum.ADDRESSES = new IContactFieldGroupEnum("ADDRESSES");
+        IContactFieldGroupEnum.PHONES = new IContactFieldGroupEnum("PHONES");
+        IContactFieldGroupEnum.EMAILS = new IContactFieldGroupEnum("EMAILS");
+        IContactFieldGroupEnum.WEBSITES = new IContactFieldGroupEnum("WEBSITES");
+        IContactFieldGroupEnum.SOCIALS = new IContactFieldGroupEnum("SOCIALS");
+        IContactFieldGroupEnum.TAGS = new IContactFieldGroupEnum("TAGS");
+        IContactFieldGroupEnum.Unknown = new IContactFieldGroupEnum("Unknown");
+        return IContactFieldGroupEnum;
+    })();
+    Adaptive.IContactFieldGroupEnum = IContactFieldGroupEnum;
+    /**
+     *  Enumerations for IContact Filter
+     **/
+    var IContactFilterEnum = (function () {
+        function IContactFilterEnum(value) {
+            this.value = value;
+        }
+        IContactFilterEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IContactFilterEnum.getReflection = function () {
+            /** Fields of IContactFilterEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('HAS_PHONE', 'Field HAS_PHONE of class IContactFilterEnum', IContactFilterEnum.getReflection()));
+            _fields.push(new ReflectionField('HAS_EMAIL', 'Field HAS_EMAIL of class IContactFilterEnum', IContactFilterEnum.getReflection()));
+            _fields.push(new ReflectionField('HAS_ADDRESS', 'Field HAS_ADDRESS of class IContactFilterEnum', IContactFilterEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactFilterEnum', IContactFilterEnum.getReflection()));
+            var clazz = new ReflectionClass('IContactFilterEnum', 'Enum class IContactFilterEnum', 'IContactFilterEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IContactFilterEnum.HAS_PHONE = new IContactFilterEnum("HAS_PHONE");
+        IContactFilterEnum.HAS_EMAIL = new IContactFilterEnum("HAS_EMAIL");
+        IContactFilterEnum.HAS_ADDRESS = new IContactFilterEnum("HAS_ADDRESS");
+        IContactFilterEnum.Unknown = new IContactFilterEnum("Unknown");
+        return IContactFilterEnum;
+    })();
+    Adaptive.IContactFilterEnum = IContactFilterEnum;
+    /**
+     *  Service IContact implementation.
+     */
+    var ContactBridge = (function () {
+        function ContactBridge() {
+        }
+        ContactBridge.prototype.getContact = function (contact, callback) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContact?id=" + callback.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { contact: contact } }));
             if (xhr.status == 200) {
             }
             else {
-                registeredINetworkReachabilityCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " INetworkReachability.isNetworkReachable");
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " IContact.getContact");
             }
         };
-        NetworkReachabilityBridge.prototype.isNetworkServiceReachable = function (url, callback) {
-            registeredINetworkReachabilityCallback.add("" + callback.getId(), callback);
+        ContactBridge.prototype.getContactPhoto = function (contact, callback) {
+            registeredIContactPhotoResultCallback.add("" + callback.getId(), callback);
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/INetworkReachability/isNetworkServiceReachable?id=" + callback.getId(), false);
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactPhoto?id=" + callback.getId(), false);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { url: url } }));
+            xhr.send(JSON.stringify({ request: { contact: contact } }));
             if (xhr.status == 200) {
             }
             else {
-                registeredINetworkReachabilityCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " INetworkReachability.isNetworkServiceReachable");
+                registeredIContactPhotoResultCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " IContact.getContactPhoto");
             }
         };
-        NetworkReachabilityBridge.getReflection = function () {
-            /** Fields of NetworkReachability **/
+        ContactBridge.prototype.getContacts = function (callback) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContacts?id=" + callback.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: {} }));
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " IContact.getContacts");
+            }
+        };
+        ContactBridge.prototype.getContactsForFields = function (callback, fields) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactsForFields?id=" + callback.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { callback: callback } }));
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " IContact.getContactsForFields");
+            }
+        };
+        ContactBridge.prototype.getContactsWithFilter = function (callback, fields, filter) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactsWithFilter?id=" + callback.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { callback: callback, fields: fields } }));
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " IContact.getContactsWithFilter");
+            }
+        };
+        ContactBridge.prototype.searchContacts = function (term, callback) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/searchContacts?id=" + callback.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { term: term } }));
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " IContact.searchContacts");
+            }
+        };
+        ContactBridge.prototype.searchContactsWithFilter = function (term, callback, filter) {
+            registeredIContactResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/searchContactsWithFilter?id=" + callback.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { term: term, callback: callback } }));
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIContactResultCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " IContact.searchContactsWithFilter");
+            }
+        };
+        ContactBridge.prototype.setContactPhoto = function (contact, pngImage) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/setContactPhoto", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { contact: contact, pngImage: pngImage } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: IContact.setContactPhoto incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IContact.setContactPhoto");
+                return null;
+            }
+        };
+        ContactBridge.getReflection = function () {
+            /** Fields of Contact **/
             var _fields = new Array();
-            /** Methods of NetworkReachability **/
+            /** Methods of Contact **/
             var _methods = new Array();
-            /** Method isNetworkReachable of NetworkReachability **/
-            var _params_isNetworkReachable = new Array();
-            _params_isNetworkReachable.push(new ReflectionParameter('host', 'NetworkReachability isNetworkReachable host', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_isNetworkReachable.push(new ReflectionParameter('callback', 'NetworkReachability isNetworkReachable callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('isNetworkReachable', 'NetworkReachability isNetworkReachable', _params_isNetworkReachable, null));
-            /** Method isNetworkServiceReachable of NetworkReachability **/
-            var _params_isNetworkServiceReachable = new Array();
-            _params_isNetworkServiceReachable.push(new ReflectionParameter('url', 'NetworkReachability isNetworkServiceReachable url', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_isNetworkServiceReachable.push(new ReflectionParameter('callback', 'NetworkReachability isNetworkServiceReachable callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('isNetworkServiceReachable', 'NetworkReachability isNetworkServiceReachable', _params_isNetworkServiceReachable, null));
-            /** Class description of INetworkReachability **/
-            var clazz = new ReflectionClass('NetworkReachabilityBridge', 'Bridge class NetworkReachabilityBridge', 'NetworkReachabilityBridge', _methods, _fields, Adaptive.getReflection());
+            /** Method searchContacts of Contact **/
+            var _params_searchContacts = new Array();
+            _params_searchContacts.push(new ReflectionParameter('term', 'Contact searchContacts term', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_searchContacts.push(new ReflectionParameter('callback', 'Contact searchContacts callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('searchContacts', 'Contact searchContacts', _params_searchContacts, null));
+            /** Method searchContactsWithFilter of Contact **/
+            var _params_searchContactsWithFilter = new Array();
+            _params_searchContactsWithFilter.push(new ReflectionParameter('term', 'Contact searchContactsWithFilter term', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_searchContactsWithFilter.push(new ReflectionParameter('callback', 'Contact searchContactsWithFilter callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_searchContactsWithFilter.push(new ReflectionParameter('filter', 'Contact searchContactsWithFilter filter', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('searchContactsWithFilter', 'Contact searchContactsWithFilter', _params_searchContactsWithFilter, null));
+            /** Method getContact of Contact **/
+            var _params_getContact = new Array();
+            _params_getContact.push(new ReflectionParameter('contact', 'Contact getContact contact', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_getContact.push(new ReflectionParameter('callback', 'Contact getContact callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getContact', 'Contact getContact', _params_getContact, null));
+            /** Method getContactPhoto of Contact **/
+            var _params_getContactPhoto = new Array();
+            _params_getContactPhoto.push(new ReflectionParameter('contact', 'Contact getContactPhoto contact', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_getContactPhoto.push(new ReflectionParameter('callback', 'Contact getContactPhoto callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getContactPhoto', 'Contact getContactPhoto', _params_getContactPhoto, null));
+            /** Method setContactPhoto of Contact **/
+            var _params_setContactPhoto = new Array();
+            _params_setContactPhoto.push(new ReflectionParameter('contact', 'Contact setContactPhoto contact', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _params_setContactPhoto.push(new ReflectionParameter('pngImage', 'Contact setContactPhoto pngImage', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContactPhoto', 'Contact setContactPhoto', _params_setContactPhoto, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method getContacts of Contact **/
+            var _params_getContacts = new Array();
+            _params_getContacts.push(new ReflectionParameter('callback', 'Contact getContacts callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getContacts', 'Contact getContacts', _params_getContacts, null));
+            /** Method getContactsForFields of Contact **/
+            var _params_getContactsForFields = new Array();
+            _params_getContactsForFields.push(new ReflectionParameter('callback', 'Contact getContactsForFields callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_getContactsForFields.push(new ReflectionParameter('fields', 'Contact getContactsForFields fields', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getContactsForFields', 'Contact getContactsForFields', _params_getContactsForFields, null));
+            /** Method getContactsWithFilter of Contact **/
+            var _params_getContactsWithFilter = new Array();
+            _params_getContactsWithFilter.push(new ReflectionParameter('callback', 'Contact getContactsWithFilter callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_getContactsWithFilter.push(new ReflectionParameter('fields', 'Contact getContactsWithFilter fields', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_getContactsWithFilter.push(new ReflectionParameter('filter', 'Contact getContactsWithFilter filter', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getContactsWithFilter', 'Contact getContactsWithFilter', _params_getContactsWithFilter, null));
+            /** Class description of IContact **/
+            var clazz = new ReflectionClass('ContactBridge', 'Bridge class ContactBridge', 'ContactBridge', _methods, _fields, Adaptive.getReflection());
             return clazz;
         };
-        return NetworkReachabilityBridge;
+        return ContactBridge;
     })();
-    Adaptive.NetworkReachabilityBridge = NetworkReachabilityBridge;
+    Adaptive.ContactBridge = ContactBridge;
     /**
-     *  Enumerations for ILifecycleListener Error
+     *  Enumerations for ILogging LogLevel
      **/
-    var ILifecycleListenerErrorEnum = (function () {
-        function ILifecycleListenerErrorEnum(value) {
+    var ILoggingLogLevelEnum = (function () {
+        function ILoggingLogLevelEnum(value) {
             this.value = value;
         }
-        ILifecycleListenerErrorEnum.prototype.toString = function () {
+        ILoggingLogLevelEnum.prototype.toString = function () {
             return this.value;
         };
-        ILifecycleListenerErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ILifecycleListener Error
+        ILoggingLogLevelEnum.getReflection = function () {
+            /** Fields of ILoggingLogLevelEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('DEBUG', 'Field DEBUG of class ILoggingLogLevelEnum', ILoggingLogLevelEnum.getReflection()));
+            _fields.push(new ReflectionField('WARN', 'Field WARN of class ILoggingLogLevelEnum', ILoggingLogLevelEnum.getReflection()));
+            _fields.push(new ReflectionField('ERROR', 'Field ERROR of class ILoggingLogLevelEnum', ILoggingLogLevelEnum.getReflection()));
+            _fields.push(new ReflectionField('INFO', 'Field INFO of class ILoggingLogLevelEnum', ILoggingLogLevelEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ILoggingLogLevelEnum', ILoggingLogLevelEnum.getReflection()));
+            var clazz = new ReflectionClass('ILoggingLogLevelEnum', 'Enum class ILoggingLogLevelEnum', 'ILoggingLogLevelEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
-        ILifecycleListenerErrorEnum.Runtime = new ILifecycleListenerErrorEnum("Runtime");
-        ILifecycleListenerErrorEnum.Implementation = new ILifecycleListenerErrorEnum("Implementation");
-        ILifecycleListenerErrorEnum.Killed = new ILifecycleListenerErrorEnum("Killed");
-        ILifecycleListenerErrorEnum.Unknown = new ILifecycleListenerErrorEnum("Unknown");
-        return ILifecycleListenerErrorEnum;
+        ILoggingLogLevelEnum.DEBUG = new ILoggingLogLevelEnum("DEBUG");
+        ILoggingLogLevelEnum.WARN = new ILoggingLogLevelEnum("WARN");
+        ILoggingLogLevelEnum.ERROR = new ILoggingLogLevelEnum("ERROR");
+        ILoggingLogLevelEnum.INFO = new ILoggingLogLevelEnum("INFO");
+        ILoggingLogLevelEnum.Unknown = new ILoggingLogLevelEnum("Unknown");
+        return ILoggingLogLevelEnum;
     })();
-    Adaptive.ILifecycleListenerErrorEnum = ILifecycleListenerErrorEnum;
+    Adaptive.ILoggingLogLevelEnum = ILoggingLogLevelEnum;
     /**
-     *  Enumerations for ILifecycleListener Warning
+     *  Service IRuntime implementation.
+     */
+    var RuntimeBridge = (function () {
+        function RuntimeBridge() {
+        }
+        RuntimeBridge.prototype.dismissApplication = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IRuntime/dismissApplication", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // No parameters.
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IRuntime.dismissApplication");
+            }
+        };
+        RuntimeBridge.prototype.dismissSplashScreen = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IRuntime/dismissSplashScreen", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: {} }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: IRuntime.dismissSplashScreen incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IRuntime.dismissSplashScreen");
+                return null;
+            }
+        };
+        RuntimeBridge.getReflection = function () {
+            /** Fields of Runtime **/
+            var _fields = new Array();
+            /** Methods of Runtime **/
+            var _methods = new Array();
+            /** Method dismissApplication of Runtime **/
+            var _params_dismissApplication = new Array();
+            _methods.push(new ReflectionMethod('dismissApplication', 'Runtime dismissApplication', _params_dismissApplication, null));
+            /** Method dismissSplashScreen of Runtime **/
+            var _params_dismissSplashScreen = new Array();
+            _methods.push(new ReflectionMethod('dismissSplashScreen', 'Runtime dismissSplashScreen', _params_dismissSplashScreen, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Class description of IRuntime **/
+            var clazz = new ReflectionClass('RuntimeBridge', 'Bridge class RuntimeBridge', 'RuntimeBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return RuntimeBridge;
+    })();
+    Adaptive.RuntimeBridge = RuntimeBridge;
+    /**
+     *  Enumerations for IMessagingCallback Error
      **/
-    var ILifecycleListenerWarningEnum = (function () {
-        function ILifecycleListenerWarningEnum(value) {
+    var IMessagingCallbackErrorEnum = (function () {
+        function IMessagingCallbackErrorEnum(value) {
             this.value = value;
         }
-        ILifecycleListenerWarningEnum.prototype.toString = function () {
+        IMessagingCallbackErrorEnum.prototype.toString = function () {
             return this.value;
         };
-        ILifecycleListenerWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ILifecycleListener Warning
+        IMessagingCallbackErrorEnum.getReflection = function () {
+            /** Fields of IMessagingCallbackErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('SIMNotPresent', 'Field SIMNotPresent of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('EmailAccountNotFound', 'Field EmailAccountNotFound of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NotSent', 'Field NotSent of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('WrongParams', 'Field WrongParams of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NotSupported', 'Field NotSupported of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IMessagingCallbackErrorEnum', 'Enum class IMessagingCallbackErrorEnum', 'IMessagingCallbackErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
-        ILifecycleListenerWarningEnum.MemoryLow = new ILifecycleListenerWarningEnum("MemoryLow");
-        ILifecycleListenerWarningEnum.BatteryLow = new ILifecycleListenerWarningEnum("BatteryLow");
-        ILifecycleListenerWarningEnum.Unknown = new ILifecycleListenerWarningEnum("Unknown");
-        return ILifecycleListenerWarningEnum;
+        IMessagingCallbackErrorEnum.SIMNotPresent = new IMessagingCallbackErrorEnum("SIMNotPresent");
+        IMessagingCallbackErrorEnum.EmailAccountNotFound = new IMessagingCallbackErrorEnum("EmailAccountNotFound");
+        IMessagingCallbackErrorEnum.NotSent = new IMessagingCallbackErrorEnum("NotSent");
+        IMessagingCallbackErrorEnum.WrongParams = new IMessagingCallbackErrorEnum("WrongParams");
+        IMessagingCallbackErrorEnum.NotSupported = new IMessagingCallbackErrorEnum("NotSupported");
+        IMessagingCallbackErrorEnum.Unknown = new IMessagingCallbackErrorEnum("Unknown");
+        return IMessagingCallbackErrorEnum;
     })();
-    Adaptive.ILifecycleListenerWarningEnum = ILifecycleListenerWarningEnum;
+    Adaptive.IMessagingCallbackErrorEnum = IMessagingCallbackErrorEnum;
     /**
-     *  Listener ILifecycleListener control dictionary.
-     */
-    var registeredILifecycleListener = new Dictionary([]);
+     *  Enumerations for IMessagingCallback Warning
+     **/
+    var IMessagingCallbackWarningEnum = (function () {
+        function IMessagingCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IMessagingCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IMessagingCallbackWarningEnum.getReflection = function () {
+            /** Fields of IMessagingCallbackWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('UnableToSentAll', 'Field UnableToSentAll of class IMessagingCallbackWarningEnum', IMessagingCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('UnableToFetchAttachment', 'Field UnableToFetchAttachment of class IMessagingCallbackWarningEnum', IMessagingCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IMessagingCallbackWarningEnum', IMessagingCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IMessagingCallbackWarningEnum', 'Enum class IMessagingCallbackWarningEnum', 'IMessagingCallbackWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IMessagingCallbackWarningEnum.UnableToSentAll = new IMessagingCallbackWarningEnum("UnableToSentAll");
+        IMessagingCallbackWarningEnum.UnableToFetchAttachment = new IMessagingCallbackWarningEnum("UnableToFetchAttachment");
+        IMessagingCallbackWarningEnum.Unknown = new IMessagingCallbackWarningEnum("Unknown");
+        return IMessagingCallbackWarningEnum;
+    })();
+    Adaptive.IMessagingCallbackWarningEnum = IMessagingCallbackWarningEnum;
     /**
-     *  Listener ILifecycleListener onError/onWarning/onResult handlers.
+     *  Callback IMessagingCallback control dictionary.
      */
-    function handleILifecycleListenerError(id, error) {
-        var listener = registeredILifecycleListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredILifecycleListener dictionary.");
+    var registeredIMessagingCallback = new Dictionary([]);
+    /**
+     *  Callback IMessagingCallback onError/onWarning/onResult handlers.
+     */
+    function handleIMessagingCallbackError(id, error) {
+        var callback = registeredIMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIMessagingCallback dictionary.");
         }
         else {
-            listener.onError(error);
+            callback.onError(error);
+            registeredIMessagingCallback.remove("" + id);
         }
     }
-    Adaptive.handleILifecycleListenerError = handleILifecycleListenerError;
-    function handleILifecycleListenerResult(id, lifecycle) {
-        var listener = registeredILifecycleListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredILifecycleListener dictionary.");
+    Adaptive.handleIMessagingCallbackError = handleIMessagingCallbackError;
+    function handleIMessagingCallbackResult(id, success) {
+        var callback = registeredIMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIMessagingCallback dictionary.");
         }
         else {
-            listener.onResult(lifecycle);
+            callback.onResult(success);
+            registeredIMessagingCallback.remove("" + id);
         }
     }
-    Adaptive.handleILifecycleListenerResult = handleILifecycleListenerResult;
-    function handleILifecycleListenerWarning(id, lifecycle, warning) {
-        var listener = registeredILifecycleListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredILifecycleListener dictionary.");
+    Adaptive.handleIMessagingCallbackResult = handleIMessagingCallbackResult;
+    function handleIMessagingCallbackWarning(id, success, warning) {
+        var callback = registeredIMessagingCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIMessagingCallback dictionary.");
         }
         else {
-            listener.onWarning(lifecycle, warning);
+            callback.onWarning(success, warning);
+            registeredIMessagingCallback.remove("" + id);
         }
     }
-    Adaptive.handleILifecycleListenerWarning = handleILifecycleListenerWarning;
+    Adaptive.handleIMessagingCallbackWarning = handleIMessagingCallbackWarning;
     /**
-     *  Listener ILifecycleListener implementation.
+     *  Callback IMessagingCallback implementation.
      */
-    var LifecycleListener = (function () {
-        function LifecycleListener(onErrorFunction, onResultFunction, onWarningFunction) {
+    var MessagingCallback = (function () {
+        function MessagingCallback(onErrorFunction, onResultFunction, onWarningFunction) {
             this.id = ++registeredCounter;
             if (this.onErrorFunction == null) {
-                console.error("ERROR: LifecycleListener onErrorFunction is not defined.");
+                console.error("ERROR: MessagingCallback onErrorFunction is not defined.");
             }
             else {
                 this.onErrorFunction = onErrorFunction;
             }
             if (this.onResultFunction == null) {
-                console.error("ERROR: LifecycleListener onResultFunction is not defined.");
+                console.error("ERROR: MessagingCallback onResultFunction is not defined.");
             }
             else {
                 this.onResultFunction = onResultFunction;
             }
             if (this.onWarningFunction == null) {
-                console.error("ERROR: LifecycleListener onWarningFunction is not defined.");
+                console.error("ERROR: MessagingCallback onWarningFunction is not defined.");
             }
             else {
                 this.onWarningFunction = onWarningFunction;
             }
         }
-        LifecycleListener.prototype.toString = function () {
-            return "LifecycleListener{" + this.id + "}";
+        MessagingCallback.prototype.toString = function () {
+            return "MessagingCallback{" + this.id + "}";
         };
-        LifecycleListener.prototype.getId = function () {
+        MessagingCallback.prototype.getId = function () {
             return this.id;
         };
-        LifecycleListener.prototype.onError = function (error) {
+        MessagingCallback.prototype.onError = function (error) {
             if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The LifecycleListener does not define the onErrorFunction.");
+                console.warn("WARNING: The MessagingCallback does not define the onErrorFunction.");
             }
             else {
                 this.onErrorFunction(error);
             }
         };
-        LifecycleListener.prototype.onResult = function (lifecycle) {
+        MessagingCallback.prototype.onResult = function (success) {
             if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The LifecycleListener does not define the onResultFunction.");
+                console.warn("WARNING: The MessagingCallback does not define the onResultFunction.");
             }
             else {
-                this.onResultFunction(lifecycle);
+                this.onResultFunction(success);
             }
         };
-        LifecycleListener.prototype.onWarning = function (lifecycle, warning) {
+        MessagingCallback.prototype.onWarning = function (success, warning) {
             if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The LifecycleListener does not define the onWarningFunction.");
+                console.warn("WARNING: The MessagingCallback does not define the onWarningFunction.");
             }
             else {
-                this.onWarningFunction(lifecycle, warning);
+                this.onWarningFunction(success, warning);
             }
         };
-        LifecycleListener.getReflection = function () {
-            /** Fields of LifecycleListener **/
+        MessagingCallback.getReflection = function () {
+            /** Fields of MessagingCallback **/
             var _fields = new Array();
-            /** Methods of LifecycleListener **/
+            /** Methods of MessagingCallback **/
             var _methods = new Array();
-            /** Method onError of LifecycleListener **/
+            /** Method onError of MessagingCallback **/
             var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'LifecycleListener onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'LifecycleListener onError', _params_onError, null));
-            /** Method onWarning of LifecycleListener **/
+            _params_onError.push(new ReflectionParameter('error', 'MessagingCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'MessagingCallback onError', _params_onError, null));
+            /** Method onWarning of MessagingCallback **/
             var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('lifecycle', 'LifecycleListener onWarning lifecycle', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'LifecycleListener onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'LifecycleListener onWarning', _params_onWarning, null));
-            /** Method onResult of LifecycleListener **/
+            _params_onWarning.push(new ReflectionParameter('success', 'MessagingCallback onWarning success', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'MessagingCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'MessagingCallback onWarning', _params_onWarning, null));
+            /** Method onResult of MessagingCallback **/
             var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('lifecycle', 'LifecycleListener onResult lifecycle', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'LifecycleListener onResult', _params_onResult, null));
-            /** Class description of ILifecycleListener **/
-            var clazz = new ReflectionClass('LifecycleListener', 'Listener/Callback class LifecycleListener', 'LifecycleListener', _methods, _fields, Adaptive.getReflection());
+            _params_onResult.push(new ReflectionParameter('success', 'MessagingCallback onResult success', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'MessagingCallback onResult', _params_onResult, null));
+            /** Class description of IMessagingCallback **/
+            var clazz = new ReflectionClass('MessagingCallback', 'Listener/Callback class MessagingCallback', 'MessagingCallback', _methods, _fields, Adaptive.getReflection());
             return clazz;
         };
-        return LifecycleListener;
+        return MessagingCallback;
     })();
-    Adaptive.LifecycleListener = LifecycleListener;
+    Adaptive.MessagingCallback = MessagingCallback;
+    /**
+     *  Enumerations for IDatabaseResultCallback Error
+     **/
+    var IDatabaseResultCallbackErrorEnum = (function () {
+        function IDatabaseResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        IDatabaseResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IDatabaseResultCallbackErrorEnum.getReflection = function () {
+            /** Fields of IDatabaseResultCallbackErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('NoSpace', 'Field NoSpace of class IDatabaseResultCallbackErrorEnum', IDatabaseResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('SqlException', 'Field SqlException of class IDatabaseResultCallbackErrorEnum', IDatabaseResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NotDeleted', 'Field NotDeleted of class IDatabaseResultCallbackErrorEnum', IDatabaseResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IDatabaseResultCallbackErrorEnum', IDatabaseResultCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IDatabaseResultCallbackErrorEnum', 'Enum class IDatabaseResultCallbackErrorEnum', 'IDatabaseResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IDatabaseResultCallbackErrorEnum.NoSpace = new IDatabaseResultCallbackErrorEnum("NoSpace");
+        IDatabaseResultCallbackErrorEnum.SqlException = new IDatabaseResultCallbackErrorEnum("SqlException");
+        IDatabaseResultCallbackErrorEnum.NotDeleted = new IDatabaseResultCallbackErrorEnum("NotDeleted");
+        IDatabaseResultCallbackErrorEnum.Unknown = new IDatabaseResultCallbackErrorEnum("Unknown");
+        return IDatabaseResultCallbackErrorEnum;
+    })();
+    Adaptive.IDatabaseResultCallbackErrorEnum = IDatabaseResultCallbackErrorEnum;
+    /**
+     *  Enumerations for IDatabaseResultCallback Warning
+     **/
+    var IDatabaseResultCallbackWarningEnum = (function () {
+        function IDatabaseResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IDatabaseResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IDatabaseResultCallbackWarningEnum.getReflection = function () {
+            /** Fields of IDatabaseResultCallbackWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('DatabaseExists', 'Field DatabaseExists of class IDatabaseResultCallbackWarningEnum', IDatabaseResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('IsOpen', 'Field IsOpen of class IDatabaseResultCallbackWarningEnum', IDatabaseResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IDatabaseResultCallbackWarningEnum', IDatabaseResultCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IDatabaseResultCallbackWarningEnum', 'Enum class IDatabaseResultCallbackWarningEnum', 'IDatabaseResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IDatabaseResultCallbackWarningEnum.DatabaseExists = new IDatabaseResultCallbackWarningEnum("DatabaseExists");
+        IDatabaseResultCallbackWarningEnum.IsOpen = new IDatabaseResultCallbackWarningEnum("IsOpen");
+        IDatabaseResultCallbackWarningEnum.Unknown = new IDatabaseResultCallbackWarningEnum("Unknown");
+        return IDatabaseResultCallbackWarningEnum;
+    })();
+    Adaptive.IDatabaseResultCallbackWarningEnum = IDatabaseResultCallbackWarningEnum;
+    /**
+     *  Callback IDatabaseResultCallback control dictionary.
+     */
+    var registeredIDatabaseResultCallback = new Dictionary([]);
+    /**
+     *  Callback IDatabaseResultCallback onError/onWarning/onResult handlers.
+     */
+    function handleIDatabaseResultCallbackError(id, error) {
+        var callback = registeredIDatabaseResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIDatabaseResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIDatabaseResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIDatabaseResultCallbackError = handleIDatabaseResultCallbackError;
+    function handleIDatabaseResultCallbackResult(id, database) {
+        var callback = registeredIDatabaseResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIDatabaseResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(database);
+            registeredIDatabaseResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIDatabaseResultCallbackResult = handleIDatabaseResultCallbackResult;
+    function handleIDatabaseResultCallbackWarning(id, database, warning) {
+        var callback = registeredIDatabaseResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIDatabaseResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(database, warning);
+            registeredIDatabaseResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIDatabaseResultCallbackWarning = handleIDatabaseResultCallbackWarning;
+    /**
+     *  Callback IDatabaseResultCallback implementation.
+     */
+    var DatabaseResultCallback = (function () {
+        function DatabaseResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: DatabaseResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: DatabaseResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: DatabaseResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+        }
+        DatabaseResultCallback.prototype.toString = function () {
+            return "DatabaseResultCallback{" + this.id + "}";
+        };
+        DatabaseResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        DatabaseResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The DatabaseResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        DatabaseResultCallback.prototype.onResult = function (database) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The DatabaseResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(database);
+            }
+        };
+        DatabaseResultCallback.prototype.onWarning = function (database, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The DatabaseResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(database, warning);
+            }
+        };
+        DatabaseResultCallback.getReflection = function () {
+            /** Fields of DatabaseResultCallback **/
+            var _fields = new Array();
+            /** Methods of DatabaseResultCallback **/
+            var _methods = new Array();
+            /** Method onError of DatabaseResultCallback **/
+            var _params_onError = new Array();
+            _params_onError.push(new ReflectionParameter('error', 'DatabaseResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'DatabaseResultCallback onError', _params_onError, null));
+            /** Method onWarning of DatabaseResultCallback **/
+            var _params_onWarning = new Array();
+            _params_onWarning.push(new ReflectionParameter('database', 'DatabaseResultCallback onWarning database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'DatabaseResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'DatabaseResultCallback onWarning', _params_onWarning, null));
+            /** Method onResult of DatabaseResultCallback **/
+            var _params_onResult = new Array();
+            _params_onResult.push(new ReflectionParameter('database', 'DatabaseResultCallback onResult database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'DatabaseResultCallback onResult', _params_onResult, null));
+            /** Class description of IDatabaseResultCallback **/
+            var clazz = new ReflectionClass('DatabaseResultCallback', 'Listener/Callback class DatabaseResultCallback', 'DatabaseResultCallback', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return DatabaseResultCallback;
+    })();
+    Adaptive.DatabaseResultCallback = DatabaseResultCallback;
+    /**
+     *  Service ISecurity implementation.
+     */
+    var SecurityBridge = (function () {
+        function SecurityBridge() {
+        }
+        SecurityBridge.prototype.deleteSecureKeyValuePairs = function (keys, publicAccessName, callback) {
+            registeredISecureKVResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/deleteSecureKeyValuePairs?id=" + callback.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredISecureKVResultCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " ISecurity.deleteSecureKeyValuePairs");
+            }
+        };
+        SecurityBridge.prototype.getSecureKeyValuePairs = function (keys, publicAccessName, callback) {
+            registeredISecureKVResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/getSecureKeyValuePairs?id=" + callback.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { keys: keys, publicAccessName: publicAccessName } }));
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredISecureKVResultCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " ISecurity.getSecureKeyValuePairs");
+            }
+        };
+        SecurityBridge.prototype.isDeviceModified = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/isDeviceModified", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: {} }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: ISecurity.isDeviceModified incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " ISecurity.isDeviceModified");
+                return null;
+            }
+        };
+        SecurityBridge.prototype.setSecureKeyValuePairs = function (keyValues, publicAccessName, callback) {
+            registeredISecureKVResultCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSecurity/ISecurity/setSecureKeyValuePairs?id=" + callback.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { keyValues: keyValues, publicAccessName: publicAccessName } }));
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredISecureKVResultCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " ISecurity.setSecureKeyValuePairs");
+            }
+        };
+        SecurityBridge.getReflection = function () {
+            /** Fields of Security **/
+            var _fields = new Array();
+            /** Methods of Security **/
+            var _methods = new Array();
+            /** Method setSecureKeyValuePairs of Security **/
+            var _params_setSecureKeyValuePairs = new Array();
+            _params_setSecureKeyValuePairs.push(new ReflectionParameter('keyValues', 'Security setSecureKeyValuePairs keyValues', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_setSecureKeyValuePairs.push(new ReflectionParameter('publicAccessName', 'Security setSecureKeyValuePairs publicAccessName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_setSecureKeyValuePairs.push(new ReflectionParameter('callback', 'Security setSecureKeyValuePairs callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setSecureKeyValuePairs', 'Security setSecureKeyValuePairs', _params_setSecureKeyValuePairs, null));
+            /** Method getSecureKeyValuePairs of Security **/
+            var _params_getSecureKeyValuePairs = new Array();
+            _params_getSecureKeyValuePairs.push(new ReflectionParameter('keys', 'Security getSecureKeyValuePairs keys', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_getSecureKeyValuePairs.push(new ReflectionParameter('publicAccessName', 'Security getSecureKeyValuePairs publicAccessName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_getSecureKeyValuePairs.push(new ReflectionParameter('callback', 'Security getSecureKeyValuePairs callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getSecureKeyValuePairs', 'Security getSecureKeyValuePairs', _params_getSecureKeyValuePairs, null));
+            /** Method deleteSecureKeyValuePairs of Security **/
+            var _params_deleteSecureKeyValuePairs = new Array();
+            _params_deleteSecureKeyValuePairs.push(new ReflectionParameter('keys', 'Security deleteSecureKeyValuePairs keys', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_deleteSecureKeyValuePairs.push(new ReflectionParameter('publicAccessName', 'Security deleteSecureKeyValuePairs publicAccessName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_deleteSecureKeyValuePairs.push(new ReflectionParameter('callback', 'Security deleteSecureKeyValuePairs callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('deleteSecureKeyValuePairs', 'Security deleteSecureKeyValuePairs', _params_deleteSecureKeyValuePairs, null));
+            /** Method isDeviceModified of Security **/
+            var _params_isDeviceModified = new Array();
+            _methods.push(new ReflectionMethod('isDeviceModified', 'Security isDeviceModified', _params_isDeviceModified, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Class description of ISecurity **/
+            var clazz = new ReflectionClass('SecurityBridge', 'Bridge class SecurityBridge', 'SecurityBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return SecurityBridge;
+    })();
+    Adaptive.SecurityBridge = SecurityBridge;
+    /**
+     *  Enumerations for ICapabilities Button
+     **/
+    var ICapabilitiesButtonEnum = (function () {
+        function ICapabilitiesButtonEnum(value) {
+            this.value = value;
+        }
+        ICapabilitiesButtonEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesButtonEnum.getReflection = function () {
+            /** Fields of ICapabilitiesButtonEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('HomeButton', 'Field HomeButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
+            _fields.push(new ReflectionField('BackButton', 'Field BackButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
+            _fields.push(new ReflectionField('OptionButton', 'Field OptionButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
+            var clazz = new ReflectionClass('ICapabilitiesButtonEnum', 'Enum class ICapabilitiesButtonEnum', 'ICapabilitiesButtonEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ICapabilitiesButtonEnum.HomeButton = new ICapabilitiesButtonEnum("HomeButton");
+        ICapabilitiesButtonEnum.BackButton = new ICapabilitiesButtonEnum("BackButton");
+        ICapabilitiesButtonEnum.OptionButton = new ICapabilitiesButtonEnum("OptionButton");
+        ICapabilitiesButtonEnum.Unknown = new ICapabilitiesButtonEnum("Unknown");
+        return ICapabilitiesButtonEnum;
+    })();
+    Adaptive.ICapabilitiesButtonEnum = ICapabilitiesButtonEnum;
+    /**
+     *  Enumerations for ICapabilities Communication
+     **/
+    var ICapabilitiesCommunicationEnum = (function () {
+        function ICapabilitiesCommunicationEnum(value) {
+            this.value = value;
+        }
+        ICapabilitiesCommunicationEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesCommunicationEnum.getReflection = function () {
+            /** Fields of ICapabilitiesCommunicationEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Calendar', 'Field Calendar of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
+            _fields.push(new ReflectionField('Contact', 'Field Contact of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
+            _fields.push(new ReflectionField('Mail', 'Field Mail of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
+            _fields.push(new ReflectionField('Messaging', 'Field Messaging of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
+            _fields.push(new ReflectionField('Telephony', 'Field Telephony of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
+            var clazz = new ReflectionClass('ICapabilitiesCommunicationEnum', 'Enum class ICapabilitiesCommunicationEnum', 'ICapabilitiesCommunicationEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ICapabilitiesCommunicationEnum.Calendar = new ICapabilitiesCommunicationEnum("Calendar");
+        ICapabilitiesCommunicationEnum.Contact = new ICapabilitiesCommunicationEnum("Contact");
+        ICapabilitiesCommunicationEnum.Mail = new ICapabilitiesCommunicationEnum("Mail");
+        ICapabilitiesCommunicationEnum.Messaging = new ICapabilitiesCommunicationEnum("Messaging");
+        ICapabilitiesCommunicationEnum.Telephony = new ICapabilitiesCommunicationEnum("Telephony");
+        ICapabilitiesCommunicationEnum.Unknown = new ICapabilitiesCommunicationEnum("Unknown");
+        return ICapabilitiesCommunicationEnum;
+    })();
+    Adaptive.ICapabilitiesCommunicationEnum = ICapabilitiesCommunicationEnum;
+    /**
+     *  Enumerations for ICapabilities Data
+     **/
+    var ICapabilitiesDataEnum = (function () {
+        function ICapabilitiesDataEnum(value) {
+            this.value = value;
+        }
+        ICapabilitiesDataEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesDataEnum.getReflection = function () {
+            /** Fields of ICapabilitiesDataEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Database', 'Field Database of class ICapabilitiesDataEnum', ICapabilitiesDataEnum.getReflection()));
+            _fields.push(new ReflectionField('File', 'Field File of class ICapabilitiesDataEnum', ICapabilitiesDataEnum.getReflection()));
+            _fields.push(new ReflectionField('Cloud', 'Field Cloud of class ICapabilitiesDataEnum', ICapabilitiesDataEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesDataEnum', ICapabilitiesDataEnum.getReflection()));
+            var clazz = new ReflectionClass('ICapabilitiesDataEnum', 'Enum class ICapabilitiesDataEnum', 'ICapabilitiesDataEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ICapabilitiesDataEnum.Database = new ICapabilitiesDataEnum("Database");
+        ICapabilitiesDataEnum.File = new ICapabilitiesDataEnum("File");
+        ICapabilitiesDataEnum.Cloud = new ICapabilitiesDataEnum("Cloud");
+        ICapabilitiesDataEnum.Unknown = new ICapabilitiesDataEnum("Unknown");
+        return ICapabilitiesDataEnum;
+    })();
+    Adaptive.ICapabilitiesDataEnum = ICapabilitiesDataEnum;
+    /**
+     *  Enumerations for ICapabilities Media
+     **/
+    var ICapabilitiesMediaEnum = (function () {
+        function ICapabilitiesMediaEnum(value) {
+            this.value = value;
+        }
+        ICapabilitiesMediaEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesMediaEnum.getReflection = function () {
+            /** Fields of ICapabilitiesMediaEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Audio_Playback', 'Field Audio_Playback of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
+            _fields.push(new ReflectionField('Audio_Recording', 'Field Audio_Recording of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
+            _fields.push(new ReflectionField('Camera', 'Field Camera of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
+            _fields.push(new ReflectionField('Video_Playback', 'Field Video_Playback of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
+            _fields.push(new ReflectionField('Video_Recording', 'Field Video_Recording of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
+            var clazz = new ReflectionClass('ICapabilitiesMediaEnum', 'Enum class ICapabilitiesMediaEnum', 'ICapabilitiesMediaEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ICapabilitiesMediaEnum.Audio_Playback = new ICapabilitiesMediaEnum("Audio_Playback");
+        ICapabilitiesMediaEnum.Audio_Recording = new ICapabilitiesMediaEnum("Audio_Recording");
+        ICapabilitiesMediaEnum.Camera = new ICapabilitiesMediaEnum("Camera");
+        ICapabilitiesMediaEnum.Video_Playback = new ICapabilitiesMediaEnum("Video_Playback");
+        ICapabilitiesMediaEnum.Video_Recording = new ICapabilitiesMediaEnum("Video_Recording");
+        ICapabilitiesMediaEnum.Unknown = new ICapabilitiesMediaEnum("Unknown");
+        return ICapabilitiesMediaEnum;
+    })();
+    Adaptive.ICapabilitiesMediaEnum = ICapabilitiesMediaEnum;
+    /**
+     *  Enumerations for ICapabilities Net
+     **/
+    var ICapabilitiesNetEnum = (function () {
+        function ICapabilitiesNetEnum(value) {
+            this.value = value;
+        }
+        ICapabilitiesNetEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesNetEnum.getReflection = function () {
+            /** Fields of ICapabilitiesNetEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('GSM', 'Field GSM of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
+            _fields.push(new ReflectionField('GPRS', 'Field GPRS of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
+            _fields.push(new ReflectionField('HSDPA', 'Field HSDPA of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
+            _fields.push(new ReflectionField('LTE', 'Field LTE of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
+            _fields.push(new ReflectionField('WIFI', 'Field WIFI of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
+            _fields.push(new ReflectionField('Ethernet', 'Field Ethernet of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
+            var clazz = new ReflectionClass('ICapabilitiesNetEnum', 'Enum class ICapabilitiesNetEnum', 'ICapabilitiesNetEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ICapabilitiesNetEnum.GSM = new ICapabilitiesNetEnum("GSM");
+        ICapabilitiesNetEnum.GPRS = new ICapabilitiesNetEnum("GPRS");
+        ICapabilitiesNetEnum.HSDPA = new ICapabilitiesNetEnum("HSDPA");
+        ICapabilitiesNetEnum.LTE = new ICapabilitiesNetEnum("LTE");
+        ICapabilitiesNetEnum.WIFI = new ICapabilitiesNetEnum("WIFI");
+        ICapabilitiesNetEnum.Ethernet = new ICapabilitiesNetEnum("Ethernet");
+        ICapabilitiesNetEnum.Unknown = new ICapabilitiesNetEnum("Unknown");
+        return ICapabilitiesNetEnum;
+    })();
+    Adaptive.ICapabilitiesNetEnum = ICapabilitiesNetEnum;
+    /**
+     *  Enumerations for ICapabilities Notification
+     **/
+    var ICapabilitiesNotificationEnum = (function () {
+        function ICapabilitiesNotificationEnum(value) {
+            this.value = value;
+        }
+        ICapabilitiesNotificationEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesNotificationEnum.getReflection = function () {
+            /** Fields of ICapabilitiesNotificationEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Alarm', 'Field Alarm of class ICapabilitiesNotificationEnum', ICapabilitiesNotificationEnum.getReflection()));
+            _fields.push(new ReflectionField('LocalNotification', 'Field LocalNotification of class ICapabilitiesNotificationEnum', ICapabilitiesNotificationEnum.getReflection()));
+            _fields.push(new ReflectionField('RemoteNotification', 'Field RemoteNotification of class ICapabilitiesNotificationEnum', ICapabilitiesNotificationEnum.getReflection()));
+            _fields.push(new ReflectionField('Vibration', 'Field Vibration of class ICapabilitiesNotificationEnum', ICapabilitiesNotificationEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesNotificationEnum', ICapabilitiesNotificationEnum.getReflection()));
+            var clazz = new ReflectionClass('ICapabilitiesNotificationEnum', 'Enum class ICapabilitiesNotificationEnum', 'ICapabilitiesNotificationEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ICapabilitiesNotificationEnum.Alarm = new ICapabilitiesNotificationEnum("Alarm");
+        ICapabilitiesNotificationEnum.LocalNotification = new ICapabilitiesNotificationEnum("LocalNotification");
+        ICapabilitiesNotificationEnum.RemoteNotification = new ICapabilitiesNotificationEnum("RemoteNotification");
+        ICapabilitiesNotificationEnum.Vibration = new ICapabilitiesNotificationEnum("Vibration");
+        ICapabilitiesNotificationEnum.Unknown = new ICapabilitiesNotificationEnum("Unknown");
+        return ICapabilitiesNotificationEnum;
+    })();
+    Adaptive.ICapabilitiesNotificationEnum = ICapabilitiesNotificationEnum;
+    /**
+     *  Enumerations for ICapabilities Sensor
+     **/
+    var ICapabilitiesSensorEnum = (function () {
+        function ICapabilitiesSensorEnum(value) {
+            this.value = value;
+        }
+        ICapabilitiesSensorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesSensorEnum.getReflection = function () {
+            /** Fields of ICapabilitiesSensorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Accelerometer', 'Field Accelerometer of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
+            _fields.push(new ReflectionField('AmbientLight', 'Field AmbientLight of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
+            _fields.push(new ReflectionField('Barometer', 'Field Barometer of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
+            _fields.push(new ReflectionField('Geolocation', 'Field Geolocation of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
+            _fields.push(new ReflectionField('Gyroscope', 'Field Gyroscope of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
+            _fields.push(new ReflectionField('Magnetometer', 'Field Magnetometer of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
+            _fields.push(new ReflectionField('Proximity', 'Field Proximity of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
+            var clazz = new ReflectionClass('ICapabilitiesSensorEnum', 'Enum class ICapabilitiesSensorEnum', 'ICapabilitiesSensorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ICapabilitiesSensorEnum.Accelerometer = new ICapabilitiesSensorEnum("Accelerometer");
+        ICapabilitiesSensorEnum.AmbientLight = new ICapabilitiesSensorEnum("AmbientLight");
+        ICapabilitiesSensorEnum.Barometer = new ICapabilitiesSensorEnum("Barometer");
+        ICapabilitiesSensorEnum.Geolocation = new ICapabilitiesSensorEnum("Geolocation");
+        ICapabilitiesSensorEnum.Gyroscope = new ICapabilitiesSensorEnum("Gyroscope");
+        ICapabilitiesSensorEnum.Magnetometer = new ICapabilitiesSensorEnum("Magnetometer");
+        ICapabilitiesSensorEnum.Proximity = new ICapabilitiesSensorEnum("Proximity");
+        ICapabilitiesSensorEnum.Unknown = new ICapabilitiesSensorEnum("Unknown");
+        return ICapabilitiesSensorEnum;
+    })();
+    Adaptive.ICapabilitiesSensorEnum = ICapabilitiesSensorEnum;
+    /**
+     *  Service ICapabilities implementation.
+     */
+    var CapabilitiesBridge = (function () {
+        function CapabilitiesBridge() {
+        }
+        CapabilitiesBridge.prototype.hasButtonSupport = function (type) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasButtonSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { type: type } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: ICapabilities.hasButtonSupport incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasButtonSupport");
+                return null;
+            }
+        };
+        CapabilitiesBridge.prototype.hasCommunicationSupport = function (type) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasCommunicationSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { type: type } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: ICapabilities.hasCommunicationSupport incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasCommunicationSupport");
+                return null;
+            }
+        };
+        CapabilitiesBridge.prototype.hasDataSupport = function (type) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasDataSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { type: type } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: ICapabilities.hasDataSupport incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasDataSupport");
+                return null;
+            }
+        };
+        CapabilitiesBridge.prototype.hasMediaSupport = function (type) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasMediaSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { type: type } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: ICapabilities.hasMediaSupport incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasMediaSupport");
+                return null;
+            }
+        };
+        CapabilitiesBridge.prototype.hasNetSupport = function (type) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasNetSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { type: type } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: ICapabilities.hasNetSupport incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasNetSupport");
+                return null;
+            }
+        };
+        CapabilitiesBridge.prototype.hasNotificationSupport = function (type) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasNotificationSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { type: type } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: ICapabilities.hasNotificationSupport incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasNotificationSupport");
+                return null;
+            }
+        };
+        CapabilitiesBridge.prototype.hasSensorSupport = function (type) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/ICapabilities/hasSensorSupport", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { type: type } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: ICapabilities.hasSensorSupport incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " ICapabilities.hasSensorSupport");
+                return null;
+            }
+        };
+        CapabilitiesBridge.getReflection = function () {
+            /** Fields of Capabilities **/
+            var _fields = new Array();
+            /** Methods of Capabilities **/
+            var _methods = new Array();
+            /** Method hasSensorSupport of Capabilities **/
+            var _params_hasSensorSupport = new Array();
+            _params_hasSensorSupport.push(new ReflectionParameter('type', 'Capabilities hasSensorSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('hasSensorSupport', 'Capabilities hasSensorSupport', _params_hasSensorSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method hasCommunicationSupport of Capabilities **/
+            var _params_hasCommunicationSupport = new Array();
+            _params_hasCommunicationSupport.push(new ReflectionParameter('type', 'Capabilities hasCommunicationSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('hasCommunicationSupport', 'Capabilities hasCommunicationSupport', _params_hasCommunicationSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method hasDataSupport of Capabilities **/
+            var _params_hasDataSupport = new Array();
+            _params_hasDataSupport.push(new ReflectionParameter('type', 'Capabilities hasDataSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('hasDataSupport', 'Capabilities hasDataSupport', _params_hasDataSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method hasMediaSupport of Capabilities **/
+            var _params_hasMediaSupport = new Array();
+            _params_hasMediaSupport.push(new ReflectionParameter('type', 'Capabilities hasMediaSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('hasMediaSupport', 'Capabilities hasMediaSupport', _params_hasMediaSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method hasNetSupport of Capabilities **/
+            var _params_hasNetSupport = new Array();
+            _params_hasNetSupport.push(new ReflectionParameter('type', 'Capabilities hasNetSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('hasNetSupport', 'Capabilities hasNetSupport', _params_hasNetSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method hasNotificationSupport of Capabilities **/
+            var _params_hasNotificationSupport = new Array();
+            _params_hasNotificationSupport.push(new ReflectionParameter('type', 'Capabilities hasNotificationSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('hasNotificationSupport', 'Capabilities hasNotificationSupport', _params_hasNotificationSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method hasButtonSupport of Capabilities **/
+            var _params_hasButtonSupport = new Array();
+            _params_hasButtonSupport.push(new ReflectionParameter('type', 'Capabilities hasButtonSupport type', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('hasButtonSupport', 'Capabilities hasButtonSupport', _params_hasButtonSupport, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Class description of ICapabilities **/
+            var clazz = new ReflectionClass('CapabilitiesBridge', 'Bridge class CapabilitiesBridge', 'CapabilitiesBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return CapabilitiesBridge;
+    })();
+    Adaptive.CapabilitiesBridge = CapabilitiesBridge;
+    /**
+     *  Service IGeolocation implementation.
+     */
+    var GeolocationBridge = (function () {
+        function GeolocationBridge() {
+        }
+        GeolocationBridge.prototype.addGeolocationListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/addGeolocationListener?id=" + listener.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // Listeners only require id included in URL param.
+            if (xhr.status == 200) {
+                registeredIGeolocationListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IGeolocation.addGeolocationListener");
+            }
+        };
+        GeolocationBridge.prototype.removeGeolocationListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListener?id=" + listener.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // Listeners only require id included in URL param.
+            if (xhr.status == 200) {
+                registeredIGeolocationListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IGeolocation.removeGeolocationListener");
+            }
+        };
+        GeolocationBridge.prototype.removeGeolocationListeners = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IGeolocation/removeGeolocationListeners", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // No parameters.
+            if (xhr.status == 200) {
+                var keys = registeredIAccelerationListener.keys();
+                for (var key in keys) {
+                    registeredIAccelerationListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IGeolocation.removeGeolocationListeners");
+            }
+        };
+        GeolocationBridge.getReflection = function () {
+            /** Fields of Geolocation **/
+            var _fields = new Array();
+            /** Methods of Geolocation **/
+            var _methods = new Array();
+            /** Method removeGeolocationListener of Geolocation **/
+            var _params_removeGeolocationListener = new Array();
+            _params_removeGeolocationListener.push(new ReflectionParameter('listener', 'Geolocation removeGeolocationListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('removeGeolocationListener', 'Geolocation removeGeolocationListener', _params_removeGeolocationListener, null));
+            /** Method removeGeolocationListeners of Geolocation **/
+            var _params_removeGeolocationListeners = new Array();
+            _methods.push(new ReflectionMethod('removeGeolocationListeners', 'Geolocation removeGeolocationListeners', _params_removeGeolocationListeners, null));
+            /** Method addGeolocationListener of Geolocation **/
+            var _params_addGeolocationListener = new Array();
+            _params_addGeolocationListener.push(new ReflectionParameter('listener', 'Geolocation addGeolocationListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('addGeolocationListener', 'Geolocation addGeolocationListener', _params_addGeolocationListener, null));
+            /** Class description of IGeolocation **/
+            var clazz = new ReflectionClass('GeolocationBridge', 'Bridge class GeolocationBridge', 'GeolocationBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return GeolocationBridge;
+    })();
+    Adaptive.GeolocationBridge = GeolocationBridge;
+    /**
+     *  Enumerations for ITelephony Status
+     **/
+    var ITelephonyStatusEnum = (function () {
+        function ITelephonyStatusEnum(value) {
+            this.value = value;
+        }
+        ITelephonyStatusEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ITelephonyStatusEnum.getReflection = function () {
+            /** Fields of ITelephonyStatusEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Dialing', 'Field Dialing of class ITelephonyStatusEnum', ITelephonyStatusEnum.getReflection()));
+            _fields.push(new ReflectionField('Failed', 'Field Failed of class ITelephonyStatusEnum', ITelephonyStatusEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ITelephonyStatusEnum', ITelephonyStatusEnum.getReflection()));
+            var clazz = new ReflectionClass('ITelephonyStatusEnum', 'Enum class ITelephonyStatusEnum', 'ITelephonyStatusEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ITelephonyStatusEnum.Dialing = new ITelephonyStatusEnum("Dialing");
+        ITelephonyStatusEnum.Failed = new ITelephonyStatusEnum("Failed");
+        ITelephonyStatusEnum.Unknown = new ITelephonyStatusEnum("Unknown");
+        return ITelephonyStatusEnum;
+    })();
+    Adaptive.ITelephonyStatusEnum = ITelephonyStatusEnum;
+    /**
+     *  Service ITelephony implementation.
+     */
+    var TelephonyBridge = (function () {
+        function TelephonyBridge() {
+        }
+        TelephonyBridge.prototype.call = function (number) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseCommunication/ITelephony/call", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { number: number } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: ITelephony.call incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " ITelephony.call");
+                return null;
+            }
+        };
+        TelephonyBridge.getReflection = function () {
+            /** Fields of Telephony **/
+            var _fields = new Array();
+            /** Methods of Telephony **/
+            var _methods = new Array();
+            /** Method call of Telephony **/
+            var _params_call = new Array();
+            _params_call.push(new ReflectionParameter('number', 'Telephony call number', ITelephonyStatusEnum.getReflection()));
+            _methods.push(new ReflectionMethod('call', 'Telephony call', _params_call, ITelephonyStatusEnum.getReflection()));
+            /** Class description of ITelephony **/
+            var clazz = new ReflectionClass('TelephonyBridge', 'Bridge class TelephonyBridge', 'TelephonyBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return TelephonyBridge;
+    })();
+    Adaptive.TelephonyBridge = TelephonyBridge;
+    /**
+     *  Service IMessaging implementation.
+     */
+    var MessagingBridge = (function () {
+        function MessagingBridge() {
+        }
+        MessagingBridge.prototype.sendSMS = function (number, text, callback) {
+            registeredIMessagingCallback.add("" + callback.getId(), callback);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IMessaging/sendSMS?id=" + callback.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { number: number, text: text } }));
+            if (xhr.status == 200) {
+            }
+            else {
+                registeredIMessagingCallback.remove("" + callback.getId());
+                console.error("ERROR: " + xhr.status + " IMessaging.sendSMS");
+            }
+        };
+        MessagingBridge.getReflection = function () {
+            /** Fields of Messaging **/
+            var _fields = new Array();
+            /** Methods of Messaging **/
+            var _methods = new Array();
+            /** Method sendSMS of Messaging **/
+            var _params_sendSMS = new Array();
+            _params_sendSMS.push(new ReflectionParameter('number', 'Messaging sendSMS number', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_sendSMS.push(new ReflectionParameter('text', 'Messaging sendSMS text', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_sendSMS.push(new ReflectionParameter('callback', 'Messaging sendSMS callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('sendSMS', 'Messaging sendSMS', _params_sendSMS, null));
+            /** Class description of IMessaging **/
+            var clazz = new ReflectionClass('MessagingBridge', 'Bridge class MessagingBridge', 'MessagingBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return MessagingBridge;
+    })();
+    Adaptive.MessagingBridge = MessagingBridge;
     /**
      *  Service IFilePath implementation.
      */
@@ -4834,18 +4816,18 @@ var Adaptive;
             var _params_resolve = new Array();
             _params_resolve.push(new ReflectionParameter('other', 'FilePath resolve other', FilePathBridge.getReflection()));
             _methods.push(new ReflectionMethod('resolve', 'FilePath resolve', _params_resolve, FilePathBridge.getReflection()));
-            /** Method getRoot of FilePath **/
-            var _params_getRoot = new Array();
-            _methods.push(new ReflectionMethod('getRoot', 'FilePath getRoot', _params_getRoot, FilePathBridge.getReflection()));
             /** Method normalize of FilePath **/
             var _params_normalize = new Array();
             _methods.push(new ReflectionMethod('normalize', 'FilePath normalize', _params_normalize, FilePathBridge.getReflection()));
-            /** Method getFileSystem of FilePath **/
-            var _params_getFileSystem = new Array();
-            _methods.push(new ReflectionMethod('getFileSystem', 'FilePath getFileSystem', _params_getFileSystem, FileSystemBridge.getReflection()));
             /** Method getFileName of FilePath **/
             var _params_getFileName = new Array();
             _methods.push(new ReflectionMethod('getFileName', 'FilePath getFileName', _params_getFileName, FilePathBridge.getReflection()));
+            /** Method getFileSystem of FilePath **/
+            var _params_getFileSystem = new Array();
+            _methods.push(new ReflectionMethod('getFileSystem', 'FilePath getFileSystem', _params_getFileSystem, FileSystemBridge.getReflection()));
+            /** Method getRoot of FilePath **/
+            var _params_getRoot = new Array();
+            _methods.push(new ReflectionMethod('getRoot', 'FilePath getRoot', _params_getRoot, FilePathBridge.getReflection()));
             /** Method getNameCount of FilePath **/
             var _params_getNameCount = new Array();
             _methods.push(new ReflectionMethod('getNameCount', 'FilePath getNameCount', _params_getNameCount, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
@@ -4895,413 +4877,6 @@ var Adaptive;
     })();
     Adaptive.FilePathBridge = FilePathBridge;
     /**
-     *  Service IOS implementation.
-     */
-    var OSBridge = (function () {
-        function OSBridge() {
-        }
-        OSBridge.prototype.getOSInfo = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSystem/IOS/getOSInfo", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: {} }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: IOS.getOSInfo incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IOS.getOSInfo");
-                return null;
-            }
-        };
-        OSBridge.getReflection = function () {
-            /** Fields of OS **/
-            var _fields = new Array();
-            /** Methods of OS **/
-            var _methods = new Array();
-            /** Method getOSInfo of OS **/
-            var _params_getOSInfo = new Array();
-            _methods.push(new ReflectionMethod('getOSInfo', 'OS getOSInfo', _params_getOSInfo, OSInfo.getReflection()));
-            /** Class description of IOS **/
-            var clazz = new ReflectionClass('OSBridge', 'Bridge class OSBridge', 'OSBridge', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return OSBridge;
-    })();
-    Adaptive.OSBridge = OSBridge;
-    /**
-     *  Enumerations for IContact FieldGroup
-     **/
-    var IContactFieldGroupEnum = (function () {
-        function IContactFieldGroupEnum(value) {
-            this.value = value;
-        }
-        IContactFieldGroupEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IContactFieldGroupEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IContact FieldGroup
-        };
-        IContactFieldGroupEnum.PERSONAL_INFO = new IContactFieldGroupEnum("PERSONAL_INFO");
-        IContactFieldGroupEnum.PROFESSIONAL_INFO = new IContactFieldGroupEnum("PROFESSIONAL_INFO");
-        IContactFieldGroupEnum.ADDRESSES = new IContactFieldGroupEnum("ADDRESSES");
-        IContactFieldGroupEnum.PHONES = new IContactFieldGroupEnum("PHONES");
-        IContactFieldGroupEnum.EMAILS = new IContactFieldGroupEnum("EMAILS");
-        IContactFieldGroupEnum.WEBSITES = new IContactFieldGroupEnum("WEBSITES");
-        IContactFieldGroupEnum.SOCIALS = new IContactFieldGroupEnum("SOCIALS");
-        IContactFieldGroupEnum.TAGS = new IContactFieldGroupEnum("TAGS");
-        IContactFieldGroupEnum.Unknown = new IContactFieldGroupEnum("Unknown");
-        return IContactFieldGroupEnum;
-    })();
-    Adaptive.IContactFieldGroupEnum = IContactFieldGroupEnum;
-    /**
-     *  Enumerations for IContact Filter
-     **/
-    var IContactFilterEnum = (function () {
-        function IContactFilterEnum(value) {
-            this.value = value;
-        }
-        IContactFilterEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IContactFilterEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IContact Filter
-        };
-        IContactFilterEnum.HAS_PHONE = new IContactFilterEnum("HAS_PHONE");
-        IContactFilterEnum.HAS_EMAIL = new IContactFilterEnum("HAS_EMAIL");
-        IContactFilterEnum.HAS_ADDRESS = new IContactFilterEnum("HAS_ADDRESS");
-        IContactFilterEnum.Unknown = new IContactFilterEnum("Unknown");
-        return IContactFilterEnum;
-    })();
-    Adaptive.IContactFilterEnum = IContactFilterEnum;
-    /**
-     *  Service IContact implementation.
-     */
-    var ContactBridge = (function () {
-        function ContactBridge() {
-        }
-        ContactBridge.prototype.getContact = function (contact, callback) {
-            registeredIContactResultCallback.add("" + callback.getId(), callback);
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContact?id=" + callback.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { contact: contact } }));
-            if (xhr.status == 200) {
-            }
-            else {
-                registeredIContactResultCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " IContact.getContact");
-            }
-        };
-        ContactBridge.prototype.getContactPhoto = function (contact, callback) {
-            registeredIContactPhotoResultCallback.add("" + callback.getId(), callback);
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactPhoto?id=" + callback.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { contact: contact } }));
-            if (xhr.status == 200) {
-            }
-            else {
-                registeredIContactPhotoResultCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " IContact.getContactPhoto");
-            }
-        };
-        ContactBridge.prototype.getContacts = function (callback) {
-            registeredIContactResultCallback.add("" + callback.getId(), callback);
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContacts?id=" + callback.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: {} }));
-            if (xhr.status == 200) {
-            }
-            else {
-                registeredIContactResultCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " IContact.getContacts");
-            }
-        };
-        ContactBridge.prototype.getContactsForFields = function (callback, fields) {
-            registeredIContactResultCallback.add("" + callback.getId(), callback);
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactsForFields?id=" + callback.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { callback: callback } }));
-            if (xhr.status == 200) {
-            }
-            else {
-                registeredIContactResultCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " IContact.getContactsForFields");
-            }
-        };
-        ContactBridge.prototype.getContactsWithFilter = function (callback, fields, filter) {
-            registeredIContactResultCallback.add("" + callback.getId(), callback);
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/getContactsWithFilter?id=" + callback.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { callback: callback, fields: fields } }));
-            if (xhr.status == 200) {
-            }
-            else {
-                registeredIContactResultCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " IContact.getContactsWithFilter");
-            }
-        };
-        ContactBridge.prototype.searchContacts = function (term, callback) {
-            registeredIContactResultCallback.add("" + callback.getId(), callback);
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/searchContacts?id=" + callback.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { term: term } }));
-            if (xhr.status == 200) {
-            }
-            else {
-                registeredIContactResultCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " IContact.searchContacts");
-            }
-        };
-        ContactBridge.prototype.searchContactsWithFilter = function (term, callback, filter) {
-            registeredIContactResultCallback.add("" + callback.getId(), callback);
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/searchContactsWithFilter?id=" + callback.getId(), false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { term: term, callback: callback } }));
-            if (xhr.status == 200) {
-            }
-            else {
-                registeredIContactResultCallback.remove("" + callback.getId());
-                console.error("ERROR: " + xhr.status + " IContact.searchContactsWithFilter");
-            }
-        };
-        ContactBridge.prototype.setContactPhoto = function (contact, pngImage) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBasePIM/IContact/setContactPhoto", false);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify({ request: { contact: contact, pngImage: pngImage } }));
-            if (xhr.status == 200) {
-                if (xhr.responseText != null && xhr.responseText != '') {
-                    return JSON.parse(xhr.responseText);
-                }
-                else {
-                    console.error("ERROR: IContact.setContactPhoto incorrect response received.");
-                    return null;
-                }
-            }
-            else {
-                console.error("ERROR: " + xhr.status + " IContact.setContactPhoto");
-                return null;
-            }
-        };
-        ContactBridge.getReflection = function () {
-            /** Fields of Contact **/
-            var _fields = new Array();
-            /** Methods of Contact **/
-            var _methods = new Array();
-            /** Method searchContactsWithFilter of Contact **/
-            var _params_searchContactsWithFilter = new Array();
-            _params_searchContactsWithFilter.push(new ReflectionParameter('term', 'Contact searchContactsWithFilter term', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_searchContactsWithFilter.push(new ReflectionParameter('callback', 'Contact searchContactsWithFilter callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_searchContactsWithFilter.push(new ReflectionParameter('filter', 'Contact searchContactsWithFilter filter', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('searchContactsWithFilter', 'Contact searchContactsWithFilter', _params_searchContactsWithFilter, null));
-            /** Method getContact of Contact **/
-            var _params_getContact = new Array();
-            _params_getContact.push(new ReflectionParameter('contact', 'Contact getContact contact', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_getContact.push(new ReflectionParameter('callback', 'Contact getContact callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getContact', 'Contact getContact', _params_getContact, null));
-            /** Method searchContacts of Contact **/
-            var _params_searchContacts = new Array();
-            _params_searchContacts.push(new ReflectionParameter('term', 'Contact searchContacts term', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_searchContacts.push(new ReflectionParameter('callback', 'Contact searchContacts callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('searchContacts', 'Contact searchContacts', _params_searchContacts, null));
-            /** Method getContactPhoto of Contact **/
-            var _params_getContactPhoto = new Array();
-            _params_getContactPhoto.push(new ReflectionParameter('contact', 'Contact getContactPhoto contact', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_getContactPhoto.push(new ReflectionParameter('callback', 'Contact getContactPhoto callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getContactPhoto', 'Contact getContactPhoto', _params_getContactPhoto, null));
-            /** Method setContactPhoto of Contact **/
-            var _params_setContactPhoto = new Array();
-            _params_setContactPhoto.push(new ReflectionParameter('contact', 'Contact setContactPhoto contact', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _params_setContactPhoto.push(new ReflectionParameter('pngImage', 'Contact setContactPhoto pngImage', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContactPhoto', 'Contact setContactPhoto', _params_setContactPhoto, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method getContacts of Contact **/
-            var _params_getContacts = new Array();
-            _params_getContacts.push(new ReflectionParameter('callback', 'Contact getContacts callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getContacts', 'Contact getContacts', _params_getContacts, null));
-            /** Method getContactsForFields of Contact **/
-            var _params_getContactsForFields = new Array();
-            _params_getContactsForFields.push(new ReflectionParameter('callback', 'Contact getContactsForFields callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_getContactsForFields.push(new ReflectionParameter('fields', 'Contact getContactsForFields fields', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getContactsForFields', 'Contact getContactsForFields', _params_getContactsForFields, null));
-            /** Method getContactsWithFilter of Contact **/
-            var _params_getContactsWithFilter = new Array();
-            _params_getContactsWithFilter.push(new ReflectionParameter('callback', 'Contact getContactsWithFilter callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_getContactsWithFilter.push(new ReflectionParameter('fields', 'Contact getContactsWithFilter fields', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_getContactsWithFilter.push(new ReflectionParameter('filter', 'Contact getContactsWithFilter filter', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getContactsWithFilter', 'Contact getContactsWithFilter', _params_getContactsWithFilter, null));
-            /** Class description of IContact **/
-            var clazz = new ReflectionClass('ContactBridge', 'Bridge class ContactBridge', 'ContactBridge', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ContactBridge;
-    })();
-    Adaptive.ContactBridge = ContactBridge;
-    /**
-     *  Enumerations for IButtonListener Error
-     **/
-    var IButtonListenerErrorEnum = (function () {
-        function IButtonListenerErrorEnum(value) {
-            this.value = value;
-        }
-        IButtonListenerErrorEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IButtonListenerErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IButtonListener Error
-        };
-        IButtonListenerErrorEnum.Not_Present = new IButtonListenerErrorEnum("Not_Present");
-        IButtonListenerErrorEnum.Unknown = new IButtonListenerErrorEnum("Unknown");
-        return IButtonListenerErrorEnum;
-    })();
-    Adaptive.IButtonListenerErrorEnum = IButtonListenerErrorEnum;
-    /**
-     *  Enumerations for IButtonListener Warning
-     **/
-    var IButtonListenerWarningEnum = (function () {
-        function IButtonListenerWarningEnum(value) {
-            this.value = value;
-        }
-        IButtonListenerWarningEnum.prototype.toString = function () {
-            return this.value;
-        };
-        IButtonListenerWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IButtonListener Warning
-        };
-        IButtonListenerWarningEnum.Not_Implemented = new IButtonListenerWarningEnum("Not_Implemented");
-        IButtonListenerWarningEnum.Unknown = new IButtonListenerWarningEnum("Unknown");
-        return IButtonListenerWarningEnum;
-    })();
-    Adaptive.IButtonListenerWarningEnum = IButtonListenerWarningEnum;
-    /**
-     *  Listener IButtonListener control dictionary.
-     */
-    var registeredIButtonListener = new Dictionary([]);
-    /**
-     *  Listener IButtonListener onError/onWarning/onResult handlers.
-     */
-    function handleIButtonListenerError(id, error) {
-        var listener = registeredIButtonListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredIButtonListener dictionary.");
-        }
-        else {
-            listener.onError(error);
-        }
-    }
-    Adaptive.handleIButtonListenerError = handleIButtonListenerError;
-    function handleIButtonListenerResult(id, button) {
-        var listener = registeredIButtonListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredIButtonListener dictionary.");
-        }
-        else {
-            listener.onResult(button);
-        }
-    }
-    Adaptive.handleIButtonListenerResult = handleIButtonListenerResult;
-    function handleIButtonListenerWarning(id, button, warning) {
-        var listener = registeredIButtonListener["" + id];
-        if (typeof listener === 'undefined' || listener == null) {
-            console.error("ERROR: No listener with id " + id + " registered in registeredIButtonListener dictionary.");
-        }
-        else {
-            listener.onWarning(button, warning);
-        }
-    }
-    Adaptive.handleIButtonListenerWarning = handleIButtonListenerWarning;
-    /**
-     *  Listener IButtonListener implementation.
-     */
-    var ButtonListener = (function () {
-        function ButtonListener(onErrorFunction, onResultFunction, onWarningFunction) {
-            this.id = ++registeredCounter;
-            if (this.onErrorFunction == null) {
-                console.error("ERROR: ButtonListener onErrorFunction is not defined.");
-            }
-            else {
-                this.onErrorFunction = onErrorFunction;
-            }
-            if (this.onResultFunction == null) {
-                console.error("ERROR: ButtonListener onResultFunction is not defined.");
-            }
-            else {
-                this.onResultFunction = onResultFunction;
-            }
-            if (this.onWarningFunction == null) {
-                console.error("ERROR: ButtonListener onWarningFunction is not defined.");
-            }
-            else {
-                this.onWarningFunction = onWarningFunction;
-            }
-        }
-        ButtonListener.prototype.toString = function () {
-            return "ButtonListener{" + this.id + "}";
-        };
-        ButtonListener.prototype.getId = function () {
-            return this.id;
-        };
-        ButtonListener.prototype.onError = function (error) {
-            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
-                console.warn("WARNING: The ButtonListener does not define the onErrorFunction.");
-            }
-            else {
-                this.onErrorFunction(error);
-            }
-        };
-        ButtonListener.prototype.onResult = function (button) {
-            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
-                console.warn("WARNING: The ButtonListener does not define the onResultFunction.");
-            }
-            else {
-                this.onResultFunction(button);
-            }
-        };
-        ButtonListener.prototype.onWarning = function (button, warning) {
-            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
-                console.warn("WARNING: The ButtonListener does not define the onWarningFunction.");
-            }
-            else {
-                this.onWarningFunction(button, warning);
-            }
-        };
-        ButtonListener.getReflection = function () {
-            /** Fields of ButtonListener **/
-            var _fields = new Array();
-            /** Methods of ButtonListener **/
-            var _methods = new Array();
-            /** Method onError of ButtonListener **/
-            var _params_onError = new Array();
-            _params_onError.push(new ReflectionParameter('error', 'ButtonListener onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onError', 'ButtonListener onError', _params_onError, null));
-            /** Method onWarning of ButtonListener **/
-            var _params_onWarning = new Array();
-            _params_onWarning.push(new ReflectionParameter('button', 'ButtonListener onWarning button', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_onWarning.push(new ReflectionParameter('warning', 'ButtonListener onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onWarning', 'ButtonListener onWarning', _params_onWarning, null));
-            /** Method onResult of ButtonListener **/
-            var _params_onResult = new Array();
-            _params_onResult.push(new ReflectionParameter('button', 'ButtonListener onResult button', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('onResult', 'ButtonListener onResult', _params_onResult, null));
-            /** Class description of IButtonListener **/
-            var clazz = new ReflectionClass('ButtonListener', 'Listener/Callback class ButtonListener', 'ButtonListener', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ButtonListener;
-    })();
-    Adaptive.ButtonListener = ButtonListener;
-    /**
      *  Enumerations for ITableResultCallback Error
      **/
     var ITableResultCallbackErrorEnum = (function () {
@@ -5312,7 +4887,16 @@ var Adaptive;
             return this.value;
         };
         ITableResultCallbackErrorEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ITableResultCallback Error
+            /** Fields of ITableResultCallbackErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('NoSpace', 'Field NoSpace of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('ReadOnlyTable', 'Field ReadOnlyTable of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('SqlException', 'Field SqlException of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('DatabaseNotFound', 'Field DatabaseNotFound of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NoTableFound', 'Field NoTableFound of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('ITableResultCallbackErrorEnum', 'Enum class ITableResultCallbackErrorEnum', 'ITableResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
         ITableResultCallbackErrorEnum.NoSpace = new ITableResultCallbackErrorEnum("NoSpace");
         ITableResultCallbackErrorEnum.ReadOnlyTable = new ITableResultCallbackErrorEnum("ReadOnlyTable");
@@ -5334,7 +4918,14 @@ var Adaptive;
             return this.value;
         };
         ITableResultCallbackWarningEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ITableResultCallback Warning
+            /** Fields of ITableResultCallbackWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('TableExists', 'Field TableExists of class ITableResultCallbackWarningEnum', ITableResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('TableLocked', 'Field TableLocked of class ITableResultCallbackWarningEnum', ITableResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('NoResults', 'Field NoResults of class ITableResultCallbackWarningEnum', ITableResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ITableResultCallbackWarningEnum', ITableResultCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('ITableResultCallbackWarningEnum', 'Enum class ITableResultCallbackWarningEnum', 'ITableResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
         ITableResultCallbackWarningEnum.TableExists = new ITableResultCallbackWarningEnum("TableExists");
         ITableResultCallbackWarningEnum.TableLocked = new ITableResultCallbackWarningEnum("TableLocked");
@@ -5463,6 +5054,777 @@ var Adaptive;
         return TableResultCallback;
     })();
     Adaptive.TableResultCallback = TableResultCallback;
+    /**
+     *  Enumerations for IFileListResultCallback Error
+     **/
+    var IFileListResultCallbackErrorEnum = (function () {
+        function IFileListResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        IFileListResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IFileListResultCallbackErrorEnum.getReflection = function () {
+            /** Fields of IFileListResultCallbackErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('InexistentFile', 'Field InexistentFile of class IFileListResultCallbackErrorEnum', IFileListResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IFileListResultCallbackErrorEnum', IFileListResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileListResultCallbackErrorEnum', IFileListResultCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IFileListResultCallbackErrorEnum', 'Enum class IFileListResultCallbackErrorEnum', 'IFileListResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IFileListResultCallbackErrorEnum.InexistentFile = new IFileListResultCallbackErrorEnum("InexistentFile");
+        IFileListResultCallbackErrorEnum.Unauthorized = new IFileListResultCallbackErrorEnum("Unauthorized");
+        IFileListResultCallbackErrorEnum.Unknown = new IFileListResultCallbackErrorEnum("Unknown");
+        return IFileListResultCallbackErrorEnum;
+    })();
+    Adaptive.IFileListResultCallbackErrorEnum = IFileListResultCallbackErrorEnum;
+    /**
+     *  Enumerations for IFileListResultCallback Warning
+     **/
+    var IFileListResultCallbackWarningEnum = (function () {
+        function IFileListResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IFileListResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IFileListResultCallbackWarningEnum.getReflection = function () {
+            /** Fields of IFileListResultCallbackWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('PartialResult', 'Field PartialResult of class IFileListResultCallbackWarningEnum', IFileListResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileListResultCallbackWarningEnum', IFileListResultCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IFileListResultCallbackWarningEnum', 'Enum class IFileListResultCallbackWarningEnum', 'IFileListResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IFileListResultCallbackWarningEnum.PartialResult = new IFileListResultCallbackWarningEnum("PartialResult");
+        IFileListResultCallbackWarningEnum.Unknown = new IFileListResultCallbackWarningEnum("Unknown");
+        return IFileListResultCallbackWarningEnum;
+    })();
+    Adaptive.IFileListResultCallbackWarningEnum = IFileListResultCallbackWarningEnum;
+    /**
+     *  Callback IFileListResultCallback control dictionary.
+     */
+    var registeredIFileListResultCallback = new Dictionary([]);
+    /**
+     *  Callback IFileListResultCallback onError/onWarning/onResult handlers.
+     */
+    function handleIFileListResultCallbackError(id, error) {
+        var callback = registeredIFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileListResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIFileListResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileListResultCallbackError = handleIFileListResultCallbackError;
+    function handleIFileListResultCallbackResult(id, files) {
+        var callback = registeredIFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileListResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(files);
+            registeredIFileListResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileListResultCallbackResult = handleIFileListResultCallbackResult;
+    function handleIFileListResultCallbackWarning(id, files, warning) {
+        var callback = registeredIFileListResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileListResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(files, warning);
+            registeredIFileListResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileListResultCallbackWarning = handleIFileListResultCallbackWarning;
+    /**
+     *  Callback IFileListResultCallback implementation.
+     */
+    var FileListResultCallback = (function () {
+        function FileListResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: FileListResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: FileListResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: FileListResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+        }
+        FileListResultCallback.prototype.toString = function () {
+            return "FileListResultCallback{" + this.id + "}";
+        };
+        FileListResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        FileListResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The FileListResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        FileListResultCallback.prototype.onResult = function (files) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The FileListResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(files);
+            }
+        };
+        FileListResultCallback.prototype.onWarning = function (files, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The FileListResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(files, warning);
+            }
+        };
+        FileListResultCallback.getReflection = function () {
+            /** Fields of FileListResultCallback **/
+            var _fields = new Array();
+            /** Methods of FileListResultCallback **/
+            var _methods = new Array();
+            /** Method onError of FileListResultCallback **/
+            var _params_onError = new Array();
+            _params_onError.push(new ReflectionParameter('error', 'FileListResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'FileListResultCallback onError', _params_onError, null));
+            /** Method onWarning of FileListResultCallback **/
+            var _params_onWarning = new Array();
+            _params_onWarning.push(new ReflectionParameter('files', 'FileListResultCallback onWarning files', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'FileListResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'FileListResultCallback onWarning', _params_onWarning, null));
+            /** Method onResult of FileListResultCallback **/
+            var _params_onResult = new Array();
+            _params_onResult.push(new ReflectionParameter('files', 'FileListResultCallback onResult files', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'FileListResultCallback onResult', _params_onResult, null));
+            /** Class description of IFileListResultCallback **/
+            var clazz = new ReflectionClass('FileListResultCallback', 'Listener/Callback class FileListResultCallback', 'FileListResultCallback', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return FileListResultCallback;
+    })();
+    Adaptive.FileListResultCallback = FileListResultCallback;
+    /**
+     *  Service IAccelerometer implementation.
+     */
+    var AccelerometerBridge = (function () {
+        function AccelerometerBridge() {
+        }
+        AccelerometerBridge.prototype.addAccelerationListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/addAccelerationListener?id=" + listener.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // Listeners only require id included in URL param.
+            if (xhr.status == 200) {
+                registeredIAccelerationListener.add("" + listener.getId(), listener);
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IAccelerometer.addAccelerationListener");
+            }
+        };
+        AccelerometerBridge.prototype.removeAccelerationListener = function (listener) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListener?id=" + listener.getId(), false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // Listeners only require id included in URL param.
+            if (xhr.status == 200) {
+                registeredIAccelerationListener.remove("" + listener.getId());
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IAccelerometer.removeAccelerationListener");
+            }
+        };
+        AccelerometerBridge.prototype.removeAccelerationListeners = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseSensor/IAccelerometer/removeAccelerationListeners", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(); // No parameters.
+            if (xhr.status == 200) {
+                var keys = registeredIAccelerationListener.keys();
+                for (var key in keys) {
+                    registeredIAccelerationListener.remove(key);
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IAccelerometer.removeAccelerationListeners");
+            }
+        };
+        AccelerometerBridge.getReflection = function () {
+            /** Fields of Accelerometer **/
+            var _fields = new Array();
+            /** Methods of Accelerometer **/
+            var _methods = new Array();
+            /** Method addAccelerationListener of Accelerometer **/
+            var _params_addAccelerationListener = new Array();
+            _params_addAccelerationListener.push(new ReflectionParameter('listener', 'Accelerometer addAccelerationListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('addAccelerationListener', 'Accelerometer addAccelerationListener', _params_addAccelerationListener, null));
+            /** Method removeAccelerationListener of Accelerometer **/
+            var _params_removeAccelerationListener = new Array();
+            _params_removeAccelerationListener.push(new ReflectionParameter('listener', 'Accelerometer removeAccelerationListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('removeAccelerationListener', 'Accelerometer removeAccelerationListener', _params_removeAccelerationListener, null));
+            /** Method removeAccelerationListeners of Accelerometer **/
+            var _params_removeAccelerationListeners = new Array();
+            _methods.push(new ReflectionMethod('removeAccelerationListeners', 'Accelerometer removeAccelerationListeners', _params_removeAccelerationListeners, null));
+            /** Class description of IAccelerometer **/
+            var clazz = new ReflectionClass('AccelerometerBridge', 'Bridge class AccelerometerBridge', 'AccelerometerBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return AccelerometerBridge;
+    })();
+    Adaptive.AccelerometerBridge = AccelerometerBridge;
+    /**
+     *  Enumerations for IAppResourceCallback Error
+     **/
+    var IAppResourceCallbackErrorEnum = (function () {
+        function IAppResourceCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        IAppResourceCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IAppResourceCallbackErrorEnum.getReflection = function () {
+            /** Fields of IAppResourceCallbackErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('NotFound', 'Field NotFound of class IAppResourceCallbackErrorEnum', IAppResourceCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class IAppResourceCallbackErrorEnum', IAppResourceCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceCallbackErrorEnum', IAppResourceCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IAppResourceCallbackErrorEnum', 'Enum class IAppResourceCallbackErrorEnum', 'IAppResourceCallbackErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IAppResourceCallbackErrorEnum.NotFound = new IAppResourceCallbackErrorEnum("NotFound");
+        IAppResourceCallbackErrorEnum.NoPermission = new IAppResourceCallbackErrorEnum("NoPermission");
+        IAppResourceCallbackErrorEnum.Unknown = new IAppResourceCallbackErrorEnum("Unknown");
+        return IAppResourceCallbackErrorEnum;
+    })();
+    Adaptive.IAppResourceCallbackErrorEnum = IAppResourceCallbackErrorEnum;
+    /**
+     *  Enumerations for IAppResourceCallback Warning
+     **/
+    var IAppResourceCallbackWarningEnum = (function () {
+        function IAppResourceCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IAppResourceCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IAppResourceCallbackWarningEnum.getReflection = function () {
+            /** Fields of IAppResourceCallbackWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('PartialContent', 'Field PartialContent of class IAppResourceCallbackWarningEnum', IAppResourceCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('TooLarge', 'Field TooLarge of class IAppResourceCallbackWarningEnum', IAppResourceCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('LinkedResource', 'Field LinkedResource of class IAppResourceCallbackWarningEnum', IAppResourceCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceCallbackWarningEnum', IAppResourceCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IAppResourceCallbackWarningEnum', 'Enum class IAppResourceCallbackWarningEnum', 'IAppResourceCallbackWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IAppResourceCallbackWarningEnum.PartialContent = new IAppResourceCallbackWarningEnum("PartialContent");
+        IAppResourceCallbackWarningEnum.TooLarge = new IAppResourceCallbackWarningEnum("TooLarge");
+        IAppResourceCallbackWarningEnum.LinkedResource = new IAppResourceCallbackWarningEnum("LinkedResource");
+        IAppResourceCallbackWarningEnum.Unknown = new IAppResourceCallbackWarningEnum("Unknown");
+        return IAppResourceCallbackWarningEnum;
+    })();
+    Adaptive.IAppResourceCallbackWarningEnum = IAppResourceCallbackWarningEnum;
+    /**
+     *  Service IGlobalization implementation.
+     */
+    var GlobalizationBridge = (function () {
+        function GlobalizationBridge() {
+        }
+        GlobalizationBridge.prototype.getLocaleSupportedDescriptors = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getLocaleSupportedDescriptors", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: {} }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: IGlobalization.getLocaleSupportedDescriptors incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IGlobalization.getLocaleSupportedDescriptors");
+                return null;
+            }
+        };
+        GlobalizationBridge.prototype.getResourceLiteral = function (key, locale) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiteral", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { key: key, locale: locale } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: IGlobalization.getResourceLiteral incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IGlobalization.getResourceLiteral");
+                return null;
+            }
+        };
+        GlobalizationBridge.prototype.getResourceLiterals = function (locale) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseApplication/IGlobalization/getResourceLiterals", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { locale: locale } }));
+            if (xhr.status == 200) {
+                if (xhr.responseText != null && xhr.responseText != '') {
+                    return JSON.parse(xhr.responseText);
+                }
+                else {
+                    console.error("ERROR: IGlobalization.getResourceLiterals incorrect response received.");
+                    return null;
+                }
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IGlobalization.getResourceLiterals");
+                return null;
+            }
+        };
+        GlobalizationBridge.getReflection = function () {
+            /** Fields of Globalization **/
+            var _fields = new Array();
+            /** Methods of Globalization **/
+            var _methods = new Array();
+            /** Method getLocaleSupportedDescriptors of Globalization **/
+            var _params_getLocaleSupportedDescriptors = new Array();
+            _methods.push(new ReflectionMethod('getLocaleSupportedDescriptors', 'Globalization getLocaleSupportedDescriptors', _params_getLocaleSupportedDescriptors, new ReflectionClass('Array<Locale>', 'Array of Locale', 'Array<Locale>', null, null, Adaptive.getReflection()).setTypeComponent(Locale.getReflection())));
+            /** Method getResourceLiteral of Globalization **/
+            var _params_getResourceLiteral = new Array();
+            _params_getResourceLiteral.push(new ReflectionParameter('key', 'Globalization getResourceLiteral key', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _params_getResourceLiteral.push(new ReflectionParameter('locale', 'Globalization getResourceLiteral locale', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getResourceLiteral', 'Globalization getResourceLiteral', _params_getResourceLiteral, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getResourceLiterals of Globalization **/
+            var _params_getResourceLiterals = new Array();
+            _params_getResourceLiterals.push(new ReflectionParameter('locale', 'Globalization getResourceLiterals locale', new ReflectionClass('Dictionary', 'Dictionary type string', 'Dictionary<any>', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getResourceLiterals', 'Globalization getResourceLiterals', _params_getResourceLiterals, new ReflectionClass('Dictionary', 'Dictionary type string', 'Dictionary<any>', null, null, Adaptive.getReflection())));
+            /** Class description of IGlobalization **/
+            var clazz = new ReflectionClass('GlobalizationBridge', 'Bridge class GlobalizationBridge', 'GlobalizationBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return GlobalizationBridge;
+    })();
+    Adaptive.GlobalizationBridge = GlobalizationBridge;
+    /**
+     *  Enumerations for IServiceResultCallback Error
+     **/
+    var IServiceResultCallbackErrorEnum = (function () {
+        function IServiceResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        IServiceResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IServiceResultCallbackErrorEnum.getReflection = function () {
+            /** Fields of IServiceResultCallbackErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Forbidden', 'Field Forbidden of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NotFound', 'Field NotFound of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('MethodNotAllowed', 'Field MethodNotAllowed of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NotAllowed', 'Field NotAllowed of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NotAuthenticated', 'Field NotAuthenticated of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('TimeOut', 'Field TimeOut of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NoResponse', 'Field NoResponse of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('ServerError', 'Field ServerError of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unreachable', 'Field Unreachable of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('MalformedUrl', 'Field MalformedUrl of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NotRegisteredService', 'Field NotRegisteredService of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IServiceResultCallbackErrorEnum', 'Enum class IServiceResultCallbackErrorEnum', 'IServiceResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IServiceResultCallbackErrorEnum.Forbidden = new IServiceResultCallbackErrorEnum("Forbidden");
+        IServiceResultCallbackErrorEnum.NotFound = new IServiceResultCallbackErrorEnum("NotFound");
+        IServiceResultCallbackErrorEnum.MethodNotAllowed = new IServiceResultCallbackErrorEnum("MethodNotAllowed");
+        IServiceResultCallbackErrorEnum.NotAllowed = new IServiceResultCallbackErrorEnum("NotAllowed");
+        IServiceResultCallbackErrorEnum.NotAuthenticated = new IServiceResultCallbackErrorEnum("NotAuthenticated");
+        IServiceResultCallbackErrorEnum.TimeOut = new IServiceResultCallbackErrorEnum("TimeOut");
+        IServiceResultCallbackErrorEnum.NoResponse = new IServiceResultCallbackErrorEnum("NoResponse");
+        IServiceResultCallbackErrorEnum.ServerError = new IServiceResultCallbackErrorEnum("ServerError");
+        IServiceResultCallbackErrorEnum.Unreachable = new IServiceResultCallbackErrorEnum("Unreachable");
+        IServiceResultCallbackErrorEnum.MalformedUrl = new IServiceResultCallbackErrorEnum("MalformedUrl");
+        IServiceResultCallbackErrorEnum.NotRegisteredService = new IServiceResultCallbackErrorEnum("NotRegisteredService");
+        IServiceResultCallbackErrorEnum.Unknown = new IServiceResultCallbackErrorEnum("Unknown");
+        return IServiceResultCallbackErrorEnum;
+    })();
+    Adaptive.IServiceResultCallbackErrorEnum = IServiceResultCallbackErrorEnum;
+    /**
+     *  Enumerations for IServiceResultCallback Warning
+     **/
+    var IServiceResultCallbackWarningEnum = (function () {
+        function IServiceResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IServiceResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IServiceResultCallbackWarningEnum.getReflection = function () {
+            /** Fields of IServiceResultCallbackWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('NotSecure', 'Field NotSecure of class IServiceResultCallbackWarningEnum', IServiceResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('NotTrusted', 'Field NotTrusted of class IServiceResultCallbackWarningEnum', IServiceResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Redirected', 'Field Redirected of class IServiceResultCallbackWarningEnum', IServiceResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class IServiceResultCallbackWarningEnum', IServiceResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceResultCallbackWarningEnum', IServiceResultCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IServiceResultCallbackWarningEnum', 'Enum class IServiceResultCallbackWarningEnum', 'IServiceResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IServiceResultCallbackWarningEnum.NotSecure = new IServiceResultCallbackWarningEnum("NotSecure");
+        IServiceResultCallbackWarningEnum.NotTrusted = new IServiceResultCallbackWarningEnum("NotTrusted");
+        IServiceResultCallbackWarningEnum.Redirected = new IServiceResultCallbackWarningEnum("Redirected");
+        IServiceResultCallbackWarningEnum.Wrong_Params = new IServiceResultCallbackWarningEnum("Wrong_Params");
+        IServiceResultCallbackWarningEnum.Unknown = new IServiceResultCallbackWarningEnum("Unknown");
+        return IServiceResultCallbackWarningEnum;
+    })();
+    Adaptive.IServiceResultCallbackWarningEnum = IServiceResultCallbackWarningEnum;
+    /**
+     *  Callback IServiceResultCallback control dictionary.
+     */
+    var registeredIServiceResultCallback = new Dictionary([]);
+    /**
+     *  Callback IServiceResultCallback onError/onWarning/onResult handlers.
+     */
+    function handleIServiceResultCallbackError(id, error) {
+        var callback = registeredIServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIServiceResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIServiceResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIServiceResultCallbackError = handleIServiceResultCallbackError;
+    function handleIServiceResultCallbackResult(id, response) {
+        var callback = registeredIServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIServiceResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(response);
+            registeredIServiceResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIServiceResultCallbackResult = handleIServiceResultCallbackResult;
+    function handleIServiceResultCallbackWarning(id, response, warning) {
+        var callback = registeredIServiceResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIServiceResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(response, warning);
+            registeredIServiceResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIServiceResultCallbackWarning = handleIServiceResultCallbackWarning;
+    /**
+     *  Callback IServiceResultCallback implementation.
+     */
+    var ServiceResultCallback = (function () {
+        function ServiceResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: ServiceResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: ServiceResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: ServiceResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+        }
+        ServiceResultCallback.prototype.toString = function () {
+            return "ServiceResultCallback{" + this.id + "}";
+        };
+        ServiceResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        ServiceResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The ServiceResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        ServiceResultCallback.prototype.onResult = function (response) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The ServiceResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(response);
+            }
+        };
+        ServiceResultCallback.prototype.onWarning = function (response, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The ServiceResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(response, warning);
+            }
+        };
+        ServiceResultCallback.getReflection = function () {
+            /** Fields of ServiceResultCallback **/
+            var _fields = new Array();
+            /** Methods of ServiceResultCallback **/
+            var _methods = new Array();
+            /** Method onError of ServiceResultCallback **/
+            var _params_onError = new Array();
+            _params_onError.push(new ReflectionParameter('error', 'ServiceResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'ServiceResultCallback onError', _params_onError, null));
+            /** Method onWarning of ServiceResultCallback **/
+            var _params_onWarning = new Array();
+            _params_onWarning.push(new ReflectionParameter('response', 'ServiceResultCallback onWarning response', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'ServiceResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'ServiceResultCallback onWarning', _params_onWarning, null));
+            /** Method onResult of ServiceResultCallback **/
+            var _params_onResult = new Array();
+            _params_onResult.push(new ReflectionParameter('response', 'ServiceResultCallback onResult response', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'ServiceResultCallback onResult', _params_onResult, null));
+            /** Class description of IServiceResultCallback **/
+            var clazz = new ReflectionClass('ServiceResultCallback', 'Listener/Callback class ServiceResultCallback', 'ServiceResultCallback', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ServiceResultCallback;
+    })();
+    Adaptive.ServiceResultCallback = ServiceResultCallback;
+    /**
+     *  Enumerations for IFileDataResultCallback Error
+     **/
+    var IFileDataResultCallbackErrorEnum = (function () {
+        function IFileDataResultCallbackErrorEnum(value) {
+            this.value = value;
+        }
+        IFileDataResultCallbackErrorEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IFileDataResultCallbackErrorEnum.getReflection = function () {
+            /** Fields of IFileDataResultCallbackErrorEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('InexistentFile', 'Field InexistentFile of class IFileDataResultCallbackErrorEnum', IFileDataResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('InsufficientSpace', 'Field InsufficientSpace of class IFileDataResultCallbackErrorEnum', IFileDataResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IFileDataResultCallbackErrorEnum', IFileDataResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileDataResultCallbackErrorEnum', IFileDataResultCallbackErrorEnum.getReflection()));
+            var clazz = new ReflectionClass('IFileDataResultCallbackErrorEnum', 'Enum class IFileDataResultCallbackErrorEnum', 'IFileDataResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IFileDataResultCallbackErrorEnum.InexistentFile = new IFileDataResultCallbackErrorEnum("InexistentFile");
+        IFileDataResultCallbackErrorEnum.InsufficientSpace = new IFileDataResultCallbackErrorEnum("InsufficientSpace");
+        IFileDataResultCallbackErrorEnum.Unauthorized = new IFileDataResultCallbackErrorEnum("Unauthorized");
+        IFileDataResultCallbackErrorEnum.Unknown = new IFileDataResultCallbackErrorEnum("Unknown");
+        return IFileDataResultCallbackErrorEnum;
+    })();
+    Adaptive.IFileDataResultCallbackErrorEnum = IFileDataResultCallbackErrorEnum;
+    /**
+     *  Enumerations for IFileDataResultCallback Warning
+     **/
+    var IFileDataResultCallbackWarningEnum = (function () {
+        function IFileDataResultCallbackWarningEnum(value) {
+            this.value = value;
+        }
+        IFileDataResultCallbackWarningEnum.prototype.toString = function () {
+            return this.value;
+        };
+        IFileDataResultCallbackWarningEnum.getReflection = function () {
+            /** Fields of IFileDataResultCallbackWarningEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('ExceedMaximumSize', 'Field ExceedMaximumSize of class IFileDataResultCallbackWarningEnum', IFileDataResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileDataResultCallbackWarningEnum', IFileDataResultCallbackWarningEnum.getReflection()));
+            var clazz = new ReflectionClass('IFileDataResultCallbackWarningEnum', 'Enum class IFileDataResultCallbackWarningEnum', 'IFileDataResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        IFileDataResultCallbackWarningEnum.ExceedMaximumSize = new IFileDataResultCallbackWarningEnum("ExceedMaximumSize");
+        IFileDataResultCallbackWarningEnum.Unknown = new IFileDataResultCallbackWarningEnum("Unknown");
+        return IFileDataResultCallbackWarningEnum;
+    })();
+    Adaptive.IFileDataResultCallbackWarningEnum = IFileDataResultCallbackWarningEnum;
+    /**
+     *  Callback IFileDataResultCallback control dictionary.
+     */
+    var registeredIFileDataResultCallback = new Dictionary([]);
+    /**
+     *  Callback IFileDataResultCallback onError/onWarning/onResult handlers.
+     */
+    function handleIFileDataResultCallbackError(id, error) {
+        var callback = registeredIFileDataResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileDataResultCallback dictionary.");
+        }
+        else {
+            callback.onError(error);
+            registeredIFileDataResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileDataResultCallbackError = handleIFileDataResultCallbackError;
+    function handleIFileDataResultCallbackResult(id, file, data) {
+        var callback = registeredIFileDataResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileDataResultCallback dictionary.");
+        }
+        else {
+            callback.onResult(file, data);
+            registeredIFileDataResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileDataResultCallbackResult = handleIFileDataResultCallbackResult;
+    function handleIFileDataResultCallbackWarning(id, file, warning) {
+        var callback = registeredIFileDataResultCallback["" + id];
+        if (typeof callback === 'undefined' || callback == null) {
+            console.error("ERROR: No callback with id " + id + " registered in registeredIFileDataResultCallback dictionary.");
+        }
+        else {
+            callback.onWarning(file, warning);
+            registeredIFileDataResultCallback.remove("" + id);
+        }
+    }
+    Adaptive.handleIFileDataResultCallbackWarning = handleIFileDataResultCallbackWarning;
+    /**
+     *  Callback IFileDataResultCallback implementation.
+     */
+    var FileDataResultCallback = (function () {
+        function FileDataResultCallback(onErrorFunction, onResultFunction, onWarningFunction) {
+            this.id = ++registeredCounter;
+            if (this.onErrorFunction == null) {
+                console.error("ERROR: FileDataResultCallback onErrorFunction is not defined.");
+            }
+            else {
+                this.onErrorFunction = onErrorFunction;
+            }
+            if (this.onResultFunction == null) {
+                console.error("ERROR: FileDataResultCallback onResultFunction is not defined.");
+            }
+            else {
+                this.onResultFunction = onResultFunction;
+            }
+            if (this.onWarningFunction == null) {
+                console.error("ERROR: FileDataResultCallback onWarningFunction is not defined.");
+            }
+            else {
+                this.onWarningFunction = onWarningFunction;
+            }
+        }
+        FileDataResultCallback.prototype.toString = function () {
+            return "FileDataResultCallback{" + this.id + "}";
+        };
+        FileDataResultCallback.prototype.getId = function () {
+            return this.id;
+        };
+        FileDataResultCallback.prototype.onError = function (error) {
+            if (typeof this.onErrorFunction === 'undefined' || this.onErrorFunction == null) {
+                console.warn("WARNING: The FileDataResultCallback does not define the onErrorFunction.");
+            }
+            else {
+                this.onErrorFunction(error);
+            }
+        };
+        FileDataResultCallback.prototype.onResult = function (file, data) {
+            if (typeof this.onResultFunction === 'undefined' || this.onResultFunction == null) {
+                console.warn("WARNING: The FileDataResultCallback does not define the onResultFunction.");
+            }
+            else {
+                this.onResultFunction(file, data);
+            }
+        };
+        FileDataResultCallback.prototype.onWarning = function (file, warning) {
+            if (typeof this.onWarningFunction === 'undefined' || this.onWarningFunction == null) {
+                console.warn("WARNING: The FileDataResultCallback does not define the onWarningFunction.");
+            }
+            else {
+                this.onWarningFunction(file, warning);
+            }
+        };
+        FileDataResultCallback.getReflection = function () {
+            /** Fields of FileDataResultCallback **/
+            var _fields = new Array();
+            /** Methods of FileDataResultCallback **/
+            var _methods = new Array();
+            /** Method onError of FileDataResultCallback **/
+            var _params_onError = new Array();
+            _params_onError.push(new ReflectionParameter('error', 'FileDataResultCallback onError error', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onError', 'FileDataResultCallback onError', _params_onError, null));
+            /** Method onWarning of FileDataResultCallback **/
+            var _params_onWarning = new Array();
+            _params_onWarning.push(new ReflectionParameter('file', 'FileDataResultCallback onWarning file', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onWarning.push(new ReflectionParameter('warning', 'FileDataResultCallback onWarning warning', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onWarning', 'FileDataResultCallback onWarning', _params_onWarning, null));
+            /** Method onResult of FileDataResultCallback **/
+            var _params_onResult = new Array();
+            _params_onResult.push(new ReflectionParameter('file', 'FileDataResultCallback onResult file', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_onResult.push(new ReflectionParameter('data', 'FileDataResultCallback onResult data', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('onResult', 'FileDataResultCallback onResult', _params_onResult, null));
+            /** Class description of IFileDataResultCallback **/
+            var clazz = new ReflectionClass('FileDataResultCallback', 'Listener/Callback class FileDataResultCallback', 'FileDataResultCallback', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return FileDataResultCallback;
+    })();
+    Adaptive.FileDataResultCallback = FileDataResultCallback;
+    /**
+     *  Service IVideo implementation.
+     */
+    var VideoBridge = (function () {
+        function VideoBridge() {
+        }
+        VideoBridge.prototype.playStream = function (url) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", bridgePath + "/IAdaptiveRP/IBaseMedia/IVideo/playStream", false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify({ request: { url: url } }));
+            if (xhr.status == 200) {
+            }
+            else {
+                console.error("ERROR: " + xhr.status + " IVideo.playStream");
+            }
+        };
+        VideoBridge.getReflection = function () {
+            /** Fields of Video **/
+            var _fields = new Array();
+            /** Methods of Video **/
+            var _methods = new Array();
+            /** Method playStream of Video **/
+            var _params_playStream = new Array();
+            _params_playStream.push(new ReflectionParameter('url', 'Video playStream url', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('playStream', 'Video playStream', _params_playStream, null));
+            /** Class description of IVideo **/
+            var clazz = new ReflectionClass('VideoBridge', 'Bridge class VideoBridge', 'VideoBridge', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return VideoBridge;
+    })();
+    Adaptive.VideoBridge = VideoBridge;
     /**
      *  Service IFile implementation.
      */
@@ -6243,35 +6605,15 @@ var Adaptive;
             /** Method toPath of File **/
             var _params_toPath = new Array();
             _methods.push(new ReflectionMethod('toPath', 'File toPath', _params_toPath, FilePathBridge.getReflection()));
-            /** Method getContent of File **/
-            var _params_getContent = new Array();
-            _params_getContent.push(new ReflectionParameter('callback', 'File getContent callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getContent', 'File getContent', _params_getContent, null));
             /** Method create of File **/
             var _params_create = new Array();
             _params_create.push(new ReflectionParameter('name', 'File create name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_create.push(new ReflectionParameter('callback', 'File create callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('create', 'File create', _params_create, null));
-            /** Method getDateCreated of File **/
-            var _params_getDateCreated = new Array();
-            _methods.push(new ReflectionMethod('getDateCreated', 'File getDateCreated', _params_getDateCreated, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method getDateModified of File **/
-            var _params_getDateModified = new Array();
-            _methods.push(new ReflectionMethod('getDateModified', 'File getDateModified', _params_getDateModified, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setContent of File **/
-            var _params_setContent = new Array();
-            _params_setContent.push(new ReflectionParameter('content', 'File setContent content', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_setContent.push(new ReflectionParameter('callback', 'File setContent callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContent', 'File setContent', _params_setContent, null));
-            /** Method mkDir of File **/
-            var _params_mkDir = new Array();
-            _params_mkDir.push(new ReflectionParameter('recursive', 'File mkDir recursive', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('mkDir', 'File mkDir', _params_mkDir, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method listFilesForRegex of File **/
-            var _params_listFilesForRegex = new Array();
-            _params_listFilesForRegex.push(new ReflectionParameter('regex', 'File listFilesForRegex regex', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_listFilesForRegex.push(new ReflectionParameter('callback', 'File listFilesForRegex callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('listFilesForRegex', 'File listFilesForRegex', _params_listFilesForRegex, null));
+            /** Method getContent of File **/
+            var _params_getContent = new Array();
+            _params_getContent.push(new ReflectionParameter('callback', 'File getContent callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getContent', 'File getContent', _params_getContent, null));
             /** Method move of File **/
             var _params_move = new Array();
             _params_move.push(new ReflectionParameter('newFile', 'File move newFile', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -6285,6 +6627,26 @@ var Adaptive;
             _params_createWithPath.push(new ReflectionParameter('name', 'File createWithPath name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_createWithPath.push(new ReflectionParameter('callback', 'File createWithPath callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('createWithPath', 'File createWithPath', _params_createWithPath, null));
+            /** Method mkDir of File **/
+            var _params_mkDir = new Array();
+            _params_mkDir.push(new ReflectionParameter('recursive', 'File mkDir recursive', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('mkDir', 'File mkDir', _params_mkDir, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method listFilesForRegex of File **/
+            var _params_listFilesForRegex = new Array();
+            _params_listFilesForRegex.push(new ReflectionParameter('regex', 'File listFilesForRegex regex', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_listFilesForRegex.push(new ReflectionParameter('callback', 'File listFilesForRegex callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('listFilesForRegex', 'File listFilesForRegex', _params_listFilesForRegex, null));
+            /** Method getDateCreated of File **/
+            var _params_getDateCreated = new Array();
+            _methods.push(new ReflectionMethod('getDateCreated', 'File getDateCreated', _params_getDateCreated, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method getDateModified of File **/
+            var _params_getDateModified = new Array();
+            _methods.push(new ReflectionMethod('getDateModified', 'File getDateModified', _params_getDateModified, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setContent of File **/
+            var _params_setContent = new Array();
+            _params_setContent.push(new ReflectionParameter('content', 'File setContent content', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_setContent.push(new ReflectionParameter('callback', 'File setContent callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContent', 'File setContent', _params_setContent, null));
             /** Class description of IFile **/
             var clazz = new ReflectionClass('FileBridge', 'Bridge class FileBridge', 'FileBridge', _methods, _fields, Adaptive.getReflection());
             return clazz;
@@ -6292,850 +6654,6 @@ var Adaptive;
         return FileBridge;
     })();
     Adaptive.FileBridge = FileBridge;
-    /**
-     *   Class implementation for Email
-     **/
-    var Email = (function () {
-        /** Initialization **/
-        function Email(toRecipients, subject, messageBody) {
-            this.toRecipients = toRecipients;
-            this.subject = subject;
-            this.messageBody = messageBody;
-        }
-        /**
-         * Method Declarations for Email
-         */
-        Email.prototype.getAttachmentData = function () {
-            return this.attachmentData;
-        };
-        Email.prototype.getBccRecipients = function () {
-            return this.bccRecipients;
-        };
-        Email.prototype.getCcRecipients = function () {
-            return this.ccRecipients;
-        };
-        Email.prototype.getMessageBody = function () {
-            return this.messageBody;
-        };
-        Email.prototype.getMessageBodyMimeType = function () {
-            return this.messageBodyMimeType;
-        };
-        Email.prototype.getSubject = function () {
-            return this.subject;
-        };
-        Email.prototype.getToRecipients = function () {
-            return this.toRecipients;
-        };
-        Email.prototype.setAttachmentData = function (attachmentData) {
-            this.attachmentData = attachmentData;
-        };
-        Email.prototype.setBccRecipients = function (bccRecipients) {
-            this.bccRecipients = bccRecipients;
-        };
-        Email.prototype.setCcRecipients = function (ccRecipients) {
-            this.ccRecipients = ccRecipients;
-        };
-        Email.prototype.setMessageBodyMimeType = function (messageBodyMimeType) {
-            this.messageBodyMimeType = messageBodyMimeType;
-        };
-        Email.prototype.setMessageBody = function (messageBody) {
-            this.messageBody = messageBody;
-        };
-        Email.prototype.setSubject = function (subject) {
-            this.subject = subject;
-        };
-        Email.prototype.setToRecipients = function (toRecipients) {
-            this.toRecipients = toRecipients;
-        };
-        Email.getReflection = function () {
-            /** Fields of Email **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('toRecipients', 'Field toRecipients of class Email', new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
-            _fields.push(new ReflectionField('ccRecipients', 'Field ccRecipients of class Email', new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
-            _fields.push(new ReflectionField('bccRecipients', 'Field bccRecipients of class Email', new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
-            _fields.push(new ReflectionField('attachmentData', 'Field attachmentData of class Email', new ReflectionClass('Array<AttachmentData>', 'Array of AttachmentData', 'Array<AttachmentData>', null, null, Adaptive.getReflection()).setTypeComponent(AttachmentData.getReflection())));
-            _fields.push(new ReflectionField('messageBody', 'Field messageBody of class Email', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('messageBodyMimeType', 'Field messageBodyMimeType of class Email', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('subject', 'Field subject of class Email', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of Email **/
-            var _methods = new Array();
-            /** Method getToRecipients of Email **/
-            var _params_getToRecipients = new Array();
-            _methods.push(new ReflectionMethod('getToRecipients', 'Email getToRecipients', _params_getToRecipients, new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
-            /** Method setToRecipients of Email **/
-            var _params_setToRecipients = new Array();
-            _params_setToRecipients.push(new ReflectionParameter('toRecipients', 'Email setToRecipients toRecipients', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setToRecipients', 'Email setToRecipients', _params_setToRecipients, null));
-            /** Method getCcRecipients of Email **/
-            var _params_getCcRecipients = new Array();
-            _methods.push(new ReflectionMethod('getCcRecipients', 'Email getCcRecipients', _params_getCcRecipients, new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
-            /** Method setCcRecipients of Email **/
-            var _params_setCcRecipients = new Array();
-            _params_setCcRecipients.push(new ReflectionParameter('ccRecipients', 'Email setCcRecipients ccRecipients', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setCcRecipients', 'Email setCcRecipients', _params_setCcRecipients, null));
-            /** Method getBccRecipients of Email **/
-            var _params_getBccRecipients = new Array();
-            _methods.push(new ReflectionMethod('getBccRecipients', 'Email getBccRecipients', _params_getBccRecipients, new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
-            /** Method setBccRecipients of Email **/
-            var _params_setBccRecipients = new Array();
-            _params_setBccRecipients.push(new ReflectionParameter('bccRecipients', 'Email setBccRecipients bccRecipients', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setBccRecipients', 'Email setBccRecipients', _params_setBccRecipients, null));
-            /** Method getAttachmentData of Email **/
-            var _params_getAttachmentData = new Array();
-            _methods.push(new ReflectionMethod('getAttachmentData', 'Email getAttachmentData', _params_getAttachmentData, new ReflectionClass('Array<AttachmentData>', 'Array of AttachmentData', 'Array<AttachmentData>', null, null, Adaptive.getReflection()).setTypeComponent(AttachmentData.getReflection())));
-            /** Method setAttachmentData of Email **/
-            var _params_setAttachmentData = new Array();
-            _params_setAttachmentData.push(new ReflectionParameter('attachmentData', 'Email setAttachmentData attachmentData', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setAttachmentData', 'Email setAttachmentData', _params_setAttachmentData, null));
-            /** Method getMessageBody of Email **/
-            var _params_getMessageBody = new Array();
-            _methods.push(new ReflectionMethod('getMessageBody', 'Email getMessageBody', _params_getMessageBody, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setMessageBody of Email **/
-            var _params_setMessageBody = new Array();
-            _params_setMessageBody.push(new ReflectionParameter('messageBody', 'Email setMessageBody messageBody', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setMessageBody', 'Email setMessageBody', _params_setMessageBody, null));
-            /** Method getMessageBodyMimeType of Email **/
-            var _params_getMessageBodyMimeType = new Array();
-            _methods.push(new ReflectionMethod('getMessageBodyMimeType', 'Email getMessageBodyMimeType', _params_getMessageBodyMimeType, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setMessageBodyMimeType of Email **/
-            var _params_setMessageBodyMimeType = new Array();
-            _params_setMessageBodyMimeType.push(new ReflectionParameter('messageBodyMimeType', 'Email setMessageBodyMimeType messageBodyMimeType', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setMessageBodyMimeType', 'Email setMessageBodyMimeType', _params_setMessageBodyMimeType, null));
-            /** Method getSubject of Email **/
-            var _params_getSubject = new Array();
-            _methods.push(new ReflectionMethod('getSubject', 'Email getSubject', _params_getSubject, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setSubject of Email **/
-            var _params_setSubject = new Array();
-            _params_setSubject.push(new ReflectionParameter('subject', 'Email setSubject subject', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setSubject', 'Email setSubject', _params_setSubject, null));
-            /** Class description of Email **/
-            var clazz = new ReflectionClass('Email', 'Bean class Email', 'Email', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Email;
-    })();
-    Adaptive.Email = Email;
-    /**
-     *   Class implementation for Database
-     **/
-    var Database = (function () {
-        /** Initialization **/
-        function Database(name, compress) {
-            this.name = name;
-            this.compress = compress;
-        }
-        /**
-         * Method Declarations for Database
-         */
-        Database.prototype.getName = function () {
-            return this.name;
-        };
-        Database.prototype.isCompress = function () {
-            return this.compress;
-        };
-        Database.prototype.setCompress = function (compress) {
-            this.compress = compress;
-        };
-        Database.prototype.setName = function (name) {
-            this.name = name;
-        };
-        Database.getReflection = function () {
-            /** Fields of Database **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('name', 'Field name of class Database', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('compress', 'Field compress of class Database', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Methods of Database **/
-            var _methods = new Array();
-            /** Method getName of Database **/
-            var _params_getName = new Array();
-            _methods.push(new ReflectionMethod('getName', 'Database getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setName of Database **/
-            var _params_setName = new Array();
-            _params_setName.push(new ReflectionParameter('name', 'Database setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setName', 'Database setName', _params_setName, null));
-            /** Method setCompress of Database **/
-            var _params_setCompress = new Array();
-            _params_setCompress.push(new ReflectionParameter('compress', 'Database setCompress compress', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setCompress', 'Database setCompress', _params_setCompress, null));
-            /** Method isCompress of Database **/
-            var _params_isCompress = new Array();
-            _methods.push(new ReflectionMethod('isCompress', 'Database isCompress', _params_isCompress, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Class description of Database **/
-            var clazz = new ReflectionClass('Database', 'Bean class Database', 'Database', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Database;
-    })();
-    Adaptive.Database = Database;
-    /**
-     *   Class implementation for AttachmentData
-     **/
-    var AttachmentData = (function () {
-        /** Initialization **/
-        function AttachmentData(data, dataSize, fileName, mimeType, referenceUrl) {
-            this.data = data;
-            this.dataSize = dataSize;
-            this.fileName = fileName;
-            this.mimeType = mimeType;
-            this.referenceUrl = referenceUrl;
-        }
-        /**
-         * Method Declarations for AttachmentData
-         */
-        AttachmentData.prototype.getData = function () {
-            return this.data;
-        };
-        AttachmentData.prototype.getDataSize = function () {
-            return this.dataSize;
-        };
-        AttachmentData.prototype.getFileName = function () {
-            return this.fileName;
-        };
-        AttachmentData.prototype.getMimeType = function () {
-            return this.mimeType;
-        };
-        AttachmentData.prototype.getReferenceUrl = function () {
-            return this.referenceUrl;
-        };
-        AttachmentData.prototype.setDataSize = function (dataSize) {
-            this.dataSize = dataSize;
-        };
-        AttachmentData.prototype.setData = function (data) {
-            this.data = data;
-        };
-        AttachmentData.prototype.setFileName = function (fileName) {
-            this.fileName = fileName;
-        };
-        AttachmentData.prototype.setMimeType = function (mimeType) {
-            this.mimeType = mimeType;
-        };
-        AttachmentData.prototype.setReferenceUrl = function (referenceUrl) {
-            this.referenceUrl = referenceUrl;
-        };
-        AttachmentData.getReflection = function () {
-            /** Fields of AttachmentData **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('data', 'Field data of class AttachmentData', new ReflectionClass('Array<number>', 'Array of number', 'Array<number>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection()))));
-            _fields.push(new ReflectionField('dataSize', 'Field dataSize of class AttachmentData', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('fileName', 'Field fileName of class AttachmentData', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('mimeType', 'Field mimeType of class AttachmentData', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('referenceUrl', 'Field referenceUrl of class AttachmentData', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of AttachmentData **/
-            var _methods = new Array();
-            /** Method getFileName of AttachmentData **/
-            var _params_getFileName = new Array();
-            _methods.push(new ReflectionMethod('getFileName', 'AttachmentData getFileName', _params_getFileName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getData of AttachmentData **/
-            var _params_getData = new Array();
-            _methods.push(new ReflectionMethod('getData', 'AttachmentData getData', _params_getData, new ReflectionClass('Array<number>', 'Array of number', 'Array<number>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection()))));
-            /** Method setData of AttachmentData **/
-            var _params_setData = new Array();
-            _params_setData.push(new ReflectionParameter('data', 'AttachmentData setData data', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setData', 'AttachmentData setData', _params_setData, null));
-            /** Method getDataSize of AttachmentData **/
-            var _params_getDataSize = new Array();
-            _methods.push(new ReflectionMethod('getDataSize', 'AttachmentData getDataSize', _params_getDataSize, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setDataSize of AttachmentData **/
-            var _params_setDataSize = new Array();
-            _params_setDataSize.push(new ReflectionParameter('dataSize', 'AttachmentData setDataSize dataSize', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setDataSize', 'AttachmentData setDataSize', _params_setDataSize, null));
-            /** Method setFileName of AttachmentData **/
-            var _params_setFileName = new Array();
-            _params_setFileName.push(new ReflectionParameter('fileName', 'AttachmentData setFileName fileName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setFileName', 'AttachmentData setFileName', _params_setFileName, null));
-            /** Method getMimeType of AttachmentData **/
-            var _params_getMimeType = new Array();
-            _methods.push(new ReflectionMethod('getMimeType', 'AttachmentData getMimeType', _params_getMimeType, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setMimeType of AttachmentData **/
-            var _params_setMimeType = new Array();
-            _params_setMimeType.push(new ReflectionParameter('mimeType', 'AttachmentData setMimeType mimeType', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setMimeType', 'AttachmentData setMimeType', _params_setMimeType, null));
-            /** Method getReferenceUrl of AttachmentData **/
-            var _params_getReferenceUrl = new Array();
-            _methods.push(new ReflectionMethod('getReferenceUrl', 'AttachmentData getReferenceUrl', _params_getReferenceUrl, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setReferenceUrl of AttachmentData **/
-            var _params_setReferenceUrl = new Array();
-            _params_setReferenceUrl.push(new ReflectionParameter('referenceUrl', 'AttachmentData setReferenceUrl referenceUrl', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setReferenceUrl', 'AttachmentData setReferenceUrl', _params_setReferenceUrl, null));
-            /** Class description of AttachmentData **/
-            var clazz = new ReflectionClass('AttachmentData', 'Bean class AttachmentData', 'AttachmentData', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return AttachmentData;
-    })();
-    Adaptive.AttachmentData = AttachmentData;
-    /**
-     *   Class implementation for Acceleration
-     **/
-    var Acceleration = (function () {
-        /** Initialization **/
-        function Acceleration(x, y, z, timeStamp) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.timeStamp = timeStamp;
-        }
-        /**
-         * Method Declarations for Acceleration
-         */
-        Acceleration.prototype.getX = function () {
-            return this.x;
-        };
-        Acceleration.prototype.getY = function () {
-            return this.y;
-        };
-        Acceleration.prototype.getZ = function () {
-            return this.z;
-        };
-        Acceleration.prototype.setTimeStamp = function (timeStamp) {
-            this.timeStamp = timeStamp;
-        };
-        Acceleration.prototype.setX = function (x) {
-            this.x = x;
-        };
-        Acceleration.prototype.setY = function (y) {
-            this.y = y;
-        };
-        Acceleration.prototype.setZ = function (z) {
-            this.z = z;
-        };
-        Acceleration.getReflection = function () {
-            /** Fields of Acceleration **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('x', 'Field x of class Acceleration', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('y', 'Field y of class Acceleration', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('z', 'Field z of class Acceleration', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('timeStamp', 'Field timeStamp of class Acceleration', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Methods of Acceleration **/
-            var _methods = new Array();
-            /** Method getX of Acceleration **/
-            var _params_getX = new Array();
-            _methods.push(new ReflectionMethod('getX', 'Acceleration getX', _params_getX, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setX of Acceleration **/
-            var _params_setX = new Array();
-            _params_setX.push(new ReflectionParameter('x', 'Acceleration setX x', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setX', 'Acceleration setX', _params_setX, null));
-            /** Method getY of Acceleration **/
-            var _params_getY = new Array();
-            _methods.push(new ReflectionMethod('getY', 'Acceleration getY', _params_getY, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setY of Acceleration **/
-            var _params_setY = new Array();
-            _params_setY.push(new ReflectionParameter('y', 'Acceleration setY y', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setY', 'Acceleration setY', _params_setY, null));
-            /** Method getZ of Acceleration **/
-            var _params_getZ = new Array();
-            _methods.push(new ReflectionMethod('getZ', 'Acceleration getZ', _params_getZ, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setZ of Acceleration **/
-            var _params_setZ = new Array();
-            _params_setZ.push(new ReflectionParameter('z', 'Acceleration setZ z', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setZ', 'Acceleration setZ', _params_setZ, null));
-            /** Method setTimeStamp of Acceleration **/
-            var _params_setTimeStamp = new Array();
-            _params_setTimeStamp.push(new ReflectionParameter('timeStamp', 'Acceleration setTimeStamp timeStamp', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setTimeStamp', 'Acceleration setTimeStamp', _params_setTimeStamp, null));
-            /** Class description of Acceleration **/
-            var clazz = new ReflectionClass('Acceleration', 'Bean class Acceleration', 'Acceleration', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Acceleration;
-    })();
-    Adaptive.Acceleration = Acceleration;
-    /**
-     *   Class implementation for ContactTag
-     **/
-    var ContactTag = (function () {
-        /** Initialization **/
-        function ContactTag(name, dataValue) {
-            this.name = name;
-            this.dataValue = dataValue;
-        }
-        /**
-         * Method Declarations for ContactTag
-         */
-        ContactTag.prototype.getDataValue = function () {
-            return this.dataValue;
-        };
-        ContactTag.prototype.getName = function () {
-            return this.name;
-        };
-        ContactTag.prototype.setDataValue = function (dataValue) {
-            this.dataValue = dataValue;
-        };
-        ContactTag.prototype.setName = function (name) {
-            this.name = name;
-        };
-        ContactTag.getReflection = function () {
-            /** Fields of ContactTag **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('name', 'Field name of class ContactTag', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('dataValue', 'Field dataValue of class ContactTag', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of ContactTag **/
-            var _methods = new Array();
-            /** Method getName of ContactTag **/
-            var _params_getName = new Array();
-            _methods.push(new ReflectionMethod('getName', 'ContactTag getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setName of ContactTag **/
-            var _params_setName = new Array();
-            _params_setName.push(new ReflectionParameter('name', 'ContactTag setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setName', 'ContactTag setName', _params_setName, null));
-            /** Method getDataValue of ContactTag **/
-            var _params_getDataValue = new Array();
-            _methods.push(new ReflectionMethod('getDataValue', 'ContactTag getDataValue', _params_getDataValue, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setDataValue of ContactTag **/
-            var _params_setDataValue = new Array();
-            _params_setDataValue.push(new ReflectionParameter('dataValue', 'ContactTag setDataValue dataValue', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setDataValue', 'ContactTag setDataValue', _params_setDataValue, null));
-            /** Class description of ContactTag **/
-            var clazz = new ReflectionClass('ContactTag', 'Bean class ContactTag', 'ContactTag', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ContactTag;
-    })();
-    Adaptive.ContactTag = ContactTag;
-    /**
-     *   Class implementation for Cookie
-     **/
-    var Cookie = (function () {
-        /** Initialization **/
-        function Cookie(name, data) {
-            this.name = name;
-            this.data = data;
-        }
-        /**
-         * Method Declarations for Cookie
-         */
-        Cookie.prototype.getCreation = function () {
-            return this.creation;
-        };
-        Cookie.prototype.getData = function () {
-            return this.data;
-        };
-        Cookie.prototype.getDomain = function () {
-            return this.domain;
-        };
-        Cookie.prototype.getExpiry = function () {
-            return this.expiry;
-        };
-        Cookie.prototype.getName = function () {
-            return this.name;
-        };
-        Cookie.prototype.getPath = function () {
-            return this.path;
-        };
-        Cookie.prototype.getScheme = function () {
-            return this.scheme;
-        };
-        Cookie.prototype.isSecure = function () {
-            return this.secure;
-        };
-        Cookie.prototype.setData = function (data) {
-            this.data = data;
-        };
-        Cookie.prototype.setDomain = function (domain) {
-            this.domain = domain;
-        };
-        Cookie.prototype.setExpiry = function (expiry) {
-            this.expiry = expiry;
-        };
-        Cookie.prototype.setName = function (name) {
-            this.name = name;
-        };
-        Cookie.prototype.setPath = function (path) {
-            this.path = path;
-        };
-        Cookie.prototype.setScheme = function (scheme) {
-            this.scheme = scheme;
-        };
-        Cookie.prototype.setSecure = function (secure) {
-            this.secure = secure;
-        };
-        Cookie.getReflection = function () {
-            /** Fields of Cookie **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('name', 'Field name of class Cookie', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('data', 'Field data of class Cookie', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('domain', 'Field domain of class Cookie', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('path', 'Field path of class Cookie', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('scheme', 'Field scheme of class Cookie', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('secure', 'Field secure of class Cookie', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('expiry', 'Field expiry of class Cookie', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('creation', 'Field creation of class Cookie', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Methods of Cookie **/
-            var _methods = new Array();
-            /** Method getName of Cookie **/
-            var _params_getName = new Array();
-            _methods.push(new ReflectionMethod('getName', 'Cookie getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setName of Cookie **/
-            var _params_setName = new Array();
-            _params_setName.push(new ReflectionParameter('name', 'Cookie setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setName', 'Cookie setName', _params_setName, null));
-            /** Method getPath of Cookie **/
-            var _params_getPath = new Array();
-            _methods.push(new ReflectionMethod('getPath', 'Cookie getPath', _params_getPath, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getScheme of Cookie **/
-            var _params_getScheme = new Array();
-            _methods.push(new ReflectionMethod('getScheme', 'Cookie getScheme', _params_getScheme, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setPath of Cookie **/
-            var _params_setPath = new Array();
-            _params_setPath.push(new ReflectionParameter('path', 'Cookie setPath path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setPath', 'Cookie setPath', _params_setPath, null));
-            /** Method setScheme of Cookie **/
-            var _params_setScheme = new Array();
-            _params_setScheme.push(new ReflectionParameter('scheme', 'Cookie setScheme scheme', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setScheme', 'Cookie setScheme', _params_setScheme, null));
-            /** Method getData of Cookie **/
-            var _params_getData = new Array();
-            _methods.push(new ReflectionMethod('getData', 'Cookie getData', _params_getData, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setData of Cookie **/
-            var _params_setData = new Array();
-            _params_setData.push(new ReflectionParameter('data', 'Cookie setData data', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setData', 'Cookie setData', _params_setData, null));
-            /** Method getDomain of Cookie **/
-            var _params_getDomain = new Array();
-            _methods.push(new ReflectionMethod('getDomain', 'Cookie getDomain', _params_getDomain, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setDomain of Cookie **/
-            var _params_setDomain = new Array();
-            _params_setDomain.push(new ReflectionParameter('domain', 'Cookie setDomain domain', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setDomain', 'Cookie setDomain', _params_setDomain, null));
-            /** Method isSecure of Cookie **/
-            var _params_isSecure = new Array();
-            _methods.push(new ReflectionMethod('isSecure', 'Cookie isSecure', _params_isSecure, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method setSecure of Cookie **/
-            var _params_setSecure = new Array();
-            _params_setSecure.push(new ReflectionParameter('secure', 'Cookie setSecure secure', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setSecure', 'Cookie setSecure', _params_setSecure, null));
-            /** Method getExpiry of Cookie **/
-            var _params_getExpiry = new Array();
-            _methods.push(new ReflectionMethod('getExpiry', 'Cookie getExpiry', _params_getExpiry, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setExpiry of Cookie **/
-            var _params_setExpiry = new Array();
-            _params_setExpiry.push(new ReflectionParameter('expiry', 'Cookie setExpiry expiry', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setExpiry', 'Cookie setExpiry', _params_setExpiry, null));
-            /** Method getCreation of Cookie **/
-            var _params_getCreation = new Array();
-            _methods.push(new ReflectionMethod('getCreation', 'Cookie getCreation', _params_getCreation, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Class description of Cookie **/
-            var clazz = new ReflectionClass('Cookie', 'Bean class Cookie', 'Cookie', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Cookie;
-    })();
-    Adaptive.Cookie = Cookie;
-    /**
-     *   Class implementation for ContactProfessionalInfo
-     **/
-    var ContactProfessionalInfo = (function () {
-        /** Initialization **/
-        function ContactProfessionalInfo(jobTitle, jobDescription, company) {
-            this.jobTitle = jobTitle;
-            this.jobDescription = jobDescription;
-            this.company = company;
-        }
-        /**
-         * Method Declarations for ContactProfessionalInfo
-         */
-        ContactProfessionalInfo.prototype.getCompany = function () {
-            return this.company;
-        };
-        ContactProfessionalInfo.prototype.getJobDescription = function () {
-            return this.jobDescription;
-        };
-        ContactProfessionalInfo.prototype.getJobTitle = function () {
-            return this.jobTitle;
-        };
-        ContactProfessionalInfo.prototype.setCompany = function (company) {
-            this.company = company;
-        };
-        ContactProfessionalInfo.prototype.setJobDescription = function (jobDescription) {
-            this.jobDescription = jobDescription;
-        };
-        ContactProfessionalInfo.prototype.setJobTitle = function (jobTitle) {
-            this.jobTitle = jobTitle;
-        };
-        ContactProfessionalInfo.getReflection = function () {
-            /** Fields of ContactProfessionalInfo **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('company', 'Field company of class ContactProfessionalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('jobTitle', 'Field jobTitle of class ContactProfessionalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('jobDescription', 'Field jobDescription of class ContactProfessionalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of ContactProfessionalInfo **/
-            var _methods = new Array();
-            /** Method getCompany of ContactProfessionalInfo **/
-            var _params_getCompany = new Array();
-            _methods.push(new ReflectionMethod('getCompany', 'ContactProfessionalInfo getCompany', _params_getCompany, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setCompany of ContactProfessionalInfo **/
-            var _params_setCompany = new Array();
-            _params_setCompany.push(new ReflectionParameter('company', 'ContactProfessionalInfo setCompany company', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setCompany', 'ContactProfessionalInfo setCompany', _params_setCompany, null));
-            /** Method getJobTitle of ContactProfessionalInfo **/
-            var _params_getJobTitle = new Array();
-            _methods.push(new ReflectionMethod('getJobTitle', 'ContactProfessionalInfo getJobTitle', _params_getJobTitle, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setJobTitle of ContactProfessionalInfo **/
-            var _params_setJobTitle = new Array();
-            _params_setJobTitle.push(new ReflectionParameter('jobTitle', 'ContactProfessionalInfo setJobTitle jobTitle', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setJobTitle', 'ContactProfessionalInfo setJobTitle', _params_setJobTitle, null));
-            /** Method getJobDescription of ContactProfessionalInfo **/
-            var _params_getJobDescription = new Array();
-            _methods.push(new ReflectionMethod('getJobDescription', 'ContactProfessionalInfo getJobDescription', _params_getJobDescription, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setJobDescription of ContactProfessionalInfo **/
-            var _params_setJobDescription = new Array();
-            _params_setJobDescription.push(new ReflectionParameter('jobDescription', 'ContactProfessionalInfo setJobDescription jobDescription', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setJobDescription', 'ContactProfessionalInfo setJobDescription', _params_setJobDescription, null));
-            /** Class description of ContactProfessionalInfo **/
-            var clazz = new ReflectionClass('ContactProfessionalInfo', 'Bean class ContactProfessionalInfo', 'ContactProfessionalInfo', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ContactProfessionalInfo;
-    })();
-    Adaptive.ContactProfessionalInfo = ContactProfessionalInfo;
-    /**
-     *   Class implementation for ServiceRequest
-     **/
-    var ServiceRequest = (function () {
-        /** Initialization **/
-        function ServiceRequest(content, contentType, contentLength, rawContent, headers, method, protocolVersion, session, contentEncoding) {
-            this.content = content;
-            this.contentType = contentType;
-            this.contentLength = contentLength;
-            this.rawContent = rawContent;
-            this.headers = headers;
-            this.method = method;
-            this.protocolVersion = protocolVersion;
-            this.session = session;
-            this.contentEncoding = contentEncoding;
-        }
-        /**
-         * Method Declarations for ServiceRequest
-         */
-        ServiceRequest.prototype.getContent = function () {
-            return this.content;
-        };
-        ServiceRequest.prototype.getContentEncoding = function () {
-            return this.contentEncoding;
-        };
-        ServiceRequest.prototype.getContentLength = function () {
-            return this.contentLength;
-        };
-        ServiceRequest.prototype.getContentType = function () {
-            return this.contentType;
-        };
-        ServiceRequest.prototype.getHeaders = function () {
-            return this.headers;
-        };
-        ServiceRequest.prototype.getMethod = function () {
-            return this.method;
-        };
-        ServiceRequest.prototype.getProtocolVersion = function () {
-            return this.protocolVersion;
-        };
-        ServiceRequest.prototype.getRawContent = function () {
-            return this.rawContent;
-        };
-        ServiceRequest.prototype.getSession = function () {
-            return this.session;
-        };
-        ServiceRequest.prototype.setContentEncoding = function (contentEncoding) {
-            this.contentEncoding = contentEncoding;
-        };
-        ServiceRequest.prototype.setContentLength = function (contentLength) {
-            this.contentLength = contentLength;
-        };
-        ServiceRequest.prototype.setContentType = function (contentType) {
-            this.contentType = contentType;
-        };
-        ServiceRequest.prototype.setContent = function (content) {
-            this.content = content;
-        };
-        ServiceRequest.prototype.setHeaders = function (headers) {
-            this.headers = headers;
-        };
-        ServiceRequest.prototype.setMethod = function (method) {
-            this.method = method;
-        };
-        ServiceRequest.prototype.setProtocolVersion = function (protocolVersion) {
-            this.protocolVersion = protocolVersion;
-        };
-        ServiceRequest.prototype.setRawContent = function (rawContent) {
-            this.rawContent = rawContent;
-        };
-        ServiceRequest.prototype.setSession = function (session) {
-            this.session = session;
-        };
-        ServiceRequest.getReflection = function () {
-            /** Fields of ServiceRequest **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('content', 'Field content of class ServiceRequest', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('contentType', 'Field contentType of class ServiceRequest', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('contentLength', 'Field contentLength of class ServiceRequest', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('rawContent', 'Field rawContent of class ServiceRequest', new ReflectionClass('Array<number>', 'Array of number', 'Array<number>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection()))));
-            _fields.push(new ReflectionField('headers', 'Field headers of class ServiceRequest', new ReflectionClass('Array<Header>', 'Array of Header', 'Array<Header>', null, null, Adaptive.getReflection()).setTypeComponent(Header.getReflection())));
-            _fields.push(new ReflectionField('method', 'Field method of class ServiceRequest', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('protocolVersion', 'Field protocolVersion of class ServiceRequest', ServiceRequestProtocolVersionEnum.getReflection()));
-            _fields.push(new ReflectionField('session', 'Field session of class ServiceRequest', SessionBridge.getReflection()));
-            _fields.push(new ReflectionField('contentEncoding', 'Field contentEncoding of class ServiceRequest', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of ServiceRequest **/
-            var _methods = new Array();
-            /** Method getMethod of ServiceRequest **/
-            var _params_getMethod = new Array();
-            _methods.push(new ReflectionMethod('getMethod', 'ServiceRequest getMethod', _params_getMethod, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getContent of ServiceRequest **/
-            var _params_getContent = new Array();
-            _methods.push(new ReflectionMethod('getContent', 'ServiceRequest getContent', _params_getContent, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setHeaders of ServiceRequest **/
-            var _params_setHeaders = new Array();
-            _params_setHeaders.push(new ReflectionParameter('headers', 'ServiceRequest setHeaders headers', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setHeaders', 'ServiceRequest setHeaders', _params_setHeaders, null));
-            /** Method getSession of ServiceRequest **/
-            var _params_getSession = new Array();
-            _methods.push(new ReflectionMethod('getSession', 'ServiceRequest getSession', _params_getSession, SessionBridge.getReflection()));
-            /** Method setSession of ServiceRequest **/
-            var _params_setSession = new Array();
-            _params_setSession.push(new ReflectionParameter('session', 'ServiceRequest setSession session', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setSession', 'ServiceRequest setSession', _params_setSession, null));
-            /** Method setContentEncoding of ServiceRequest **/
-            var _params_setContentEncoding = new Array();
-            _params_setContentEncoding.push(new ReflectionParameter('contentEncoding', 'ServiceRequest setContentEncoding contentEncoding', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContentEncoding', 'ServiceRequest setContentEncoding', _params_setContentEncoding, null));
-            /** Method setContent of ServiceRequest **/
-            var _params_setContent = new Array();
-            _params_setContent.push(new ReflectionParameter('content', 'ServiceRequest setContent content', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContent', 'ServiceRequest setContent', _params_setContent, null));
-            /** Method getProtocolVersion of ServiceRequest **/
-            var _params_getProtocolVersion = new Array();
-            _methods.push(new ReflectionMethod('getProtocolVersion', 'ServiceRequest getProtocolVersion', _params_getProtocolVersion, ServiceRequestProtocolVersionEnum.getReflection()));
-            /** Method setProtocolVersion of ServiceRequest **/
-            var _params_setProtocolVersion = new Array();
-            _params_setProtocolVersion.push(new ReflectionParameter('protocolVersion', 'ServiceRequest setProtocolVersion protocolVersion', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setProtocolVersion', 'ServiceRequest setProtocolVersion', _params_setProtocolVersion, null));
-            /** Method getRawContent of ServiceRequest **/
-            var _params_getRawContent = new Array();
-            _methods.push(new ReflectionMethod('getRawContent', 'ServiceRequest getRawContent', _params_getRawContent, new ReflectionClass('Array<number>', 'Array of number', 'Array<number>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection()))));
-            /** Method setRawContent of ServiceRequest **/
-            var _params_setRawContent = new Array();
-            _params_setRawContent.push(new ReflectionParameter('rawContent', 'ServiceRequest setRawContent rawContent', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setRawContent', 'ServiceRequest setRawContent', _params_setRawContent, null));
-            /** Method getContentLength of ServiceRequest **/
-            var _params_getContentLength = new Array();
-            _methods.push(new ReflectionMethod('getContentLength', 'ServiceRequest getContentLength', _params_getContentLength, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setMethod of ServiceRequest **/
-            var _params_setMethod = new Array();
-            _params_setMethod.push(new ReflectionParameter('method', 'ServiceRequest setMethod method', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setMethod', 'ServiceRequest setMethod', _params_setMethod, null));
-            /** Method getContentType of ServiceRequest **/
-            var _params_getContentType = new Array();
-            _methods.push(new ReflectionMethod('getContentType', 'ServiceRequest getContentType', _params_getContentType, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setContentType of ServiceRequest **/
-            var _params_setContentType = new Array();
-            _params_setContentType.push(new ReflectionParameter('contentType', 'ServiceRequest setContentType contentType', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContentType', 'ServiceRequest setContentType', _params_setContentType, null));
-            /** Method setContentLength of ServiceRequest **/
-            var _params_setContentLength = new Array();
-            _params_setContentLength.push(new ReflectionParameter('contentLength', 'ServiceRequest setContentLength contentLength', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContentLength', 'ServiceRequest setContentLength', _params_setContentLength, null));
-            /** Method getContentEncoding of ServiceRequest **/
-            var _params_getContentEncoding = new Array();
-            _methods.push(new ReflectionMethod('getContentEncoding', 'ServiceRequest getContentEncoding', _params_getContentEncoding, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getHeaders of ServiceRequest **/
-            var _params_getHeaders = new Array();
-            _methods.push(new ReflectionMethod('getHeaders', 'ServiceRequest getHeaders', _params_getHeaders, new ReflectionClass('Array<Header>', 'Array of Header', 'Array<Header>', null, null, Adaptive.getReflection()).setTypeComponent(Header.getReflection())));
-            /** Class description of ServiceRequest **/
-            var clazz = new ReflectionClass('ServiceRequest', 'Bean class ServiceRequest', 'ServiceRequest', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ServiceRequest;
-    })();
-    Adaptive.ServiceRequest = ServiceRequest;
-    /**
-     *  Enumerations for ServiceRequest ProtocolVersion
-     **/
-    var ServiceRequestProtocolVersionEnum = (function () {
-        function ServiceRequestProtocolVersionEnum(value) {
-            this.value = value;
-        }
-        ServiceRequestProtocolVersionEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ServiceRequestProtocolVersionEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IService ProtocolVersion
-        };
-        ServiceRequestProtocolVersionEnum.HTTP_PROTOCOL_VERSION_1_0 = new ServiceRequestProtocolVersionEnum("HTTP_PROTOCOL_VERSION_1_0");
-        ServiceRequestProtocolVersionEnum.HTTP_PROTOCOL_VERSION_1_1 = new ServiceRequestProtocolVersionEnum("HTTP_PROTOCOL_VERSION_1_1");
-        ServiceRequestProtocolVersionEnum.Unknown = new ServiceRequestProtocolVersionEnum("Unknown");
-        return ServiceRequestProtocolVersionEnum;
-    })();
-    Adaptive.ServiceRequestProtocolVersionEnum = ServiceRequestProtocolVersionEnum;
-    /**
-     *   Class implementation for ContactAddress
-     **/
-    var ContactAddress = (function () {
-        /** Initialization **/
-        function ContactAddress(address, type) {
-            this.address = address;
-            this.type = type;
-        }
-        /**
-         * Method Declarations for ContactAddress
-         */
-        ContactAddress.prototype.getAddress = function () {
-            return this.address;
-        };
-        ContactAddress.prototype.getType = function () {
-            return this.type;
-        };
-        ContactAddress.prototype.setAddress = function (address) {
-            this.address = address;
-        };
-        ContactAddress.prototype.setType = function (type) {
-            this.type = type;
-        };
-        ContactAddress.getReflection = function () {
-            /** Fields of ContactAddress **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('address', 'Field address of class ContactAddress', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('type', 'Field type of class ContactAddress', ContactAddressAddressTypeEnum.getReflection()));
-            /** Methods of ContactAddress **/
-            var _methods = new Array();
-            /** Method getAddress of ContactAddress **/
-            var _params_getAddress = new Array();
-            _methods.push(new ReflectionMethod('getAddress', 'ContactAddress getAddress', _params_getAddress, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getType of ContactAddress **/
-            var _params_getType = new Array();
-            _methods.push(new ReflectionMethod('getType', 'ContactAddress getType', _params_getType, ContactAddressAddressTypeEnum.getReflection()));
-            /** Method setType of ContactAddress **/
-            var _params_setType = new Array();
-            _params_setType.push(new ReflectionParameter('type', 'ContactAddress setType type', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setType', 'ContactAddress setType', _params_setType, null));
-            /** Method setAddress of ContactAddress **/
-            var _params_setAddress = new Array();
-            _params_setAddress.push(new ReflectionParameter('address', 'ContactAddress setAddress address', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setAddress', 'ContactAddress setAddress', _params_setAddress, null));
-            /** Class description of ContactAddress **/
-            var clazz = new ReflectionClass('ContactAddress', 'Bean class ContactAddress', 'ContactAddress', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ContactAddress;
-    })();
-    Adaptive.ContactAddress = ContactAddress;
-    /**
-     *  Enumerations for ContactAddress AddressType
-     **/
-    var ContactAddressAddressTypeEnum = (function () {
-        function ContactAddressAddressTypeEnum(value) {
-            this.value = value;
-        }
-        ContactAddressAddressTypeEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ContactAddressAddressTypeEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ContactAddress AddressType
-        };
-        ContactAddressAddressTypeEnum.Home = new ContactAddressAddressTypeEnum("Home");
-        ContactAddressAddressTypeEnum.Work = new ContactAddressAddressTypeEnum("Work");
-        ContactAddressAddressTypeEnum.Other = new ContactAddressAddressTypeEnum("Other");
-        ContactAddressAddressTypeEnum.Unknown = new ContactAddressAddressTypeEnum("Unknown");
-        return ContactAddressAddressTypeEnum;
-    })();
-    Adaptive.ContactAddressAddressTypeEnum = ContactAddressAddressTypeEnum;
     /**
      *   Class implementation for ContactEmail
      **/
@@ -7182,6 +6700,9 @@ var Adaptive;
             var _params_setType = new Array();
             _params_setType.push(new ReflectionParameter('type', 'ContactEmail setType type', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setType', 'ContactEmail setType', _params_setType, null));
+            /** Method getEmail of ContactEmail **/
+            var _params_getEmail = new Array();
+            _methods.push(new ReflectionMethod('getEmail', 'ContactEmail getEmail', _params_getEmail, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method isPrimary of ContactEmail **/
             var _params_isPrimary = new Array();
             _methods.push(new ReflectionMethod('isPrimary', 'ContactEmail isPrimary', _params_isPrimary, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
@@ -7189,9 +6710,6 @@ var Adaptive;
             var _params_setPrimary = new Array();
             _params_setPrimary.push(new ReflectionParameter('primary', 'ContactEmail setPrimary primary', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setPrimary', 'ContactEmail setPrimary', _params_setPrimary, null));
-            /** Method getEmail of ContactEmail **/
-            var _params_getEmail = new Array();
-            _methods.push(new ReflectionMethod('getEmail', 'ContactEmail getEmail', _params_getEmail, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method setEmail of ContactEmail **/
             var _params_setEmail = new Array();
             _params_setEmail.push(new ReflectionParameter('email', 'ContactEmail setEmail email', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -7214,7 +6732,14 @@ var Adaptive;
             return this.value;
         };
         ContactEmailEmailTypeEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ContactEmail EmailType
+            /** Fields of ContactEmailEmailTypeEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Personal', 'Field Personal of class ContactEmailEmailTypeEnum', ContactEmailEmailTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Work', 'Field Work of class ContactEmailEmailTypeEnum', ContactEmailEmailTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Other', 'Field Other of class ContactEmailEmailTypeEnum', ContactEmailEmailTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactEmailEmailTypeEnum', ContactEmailEmailTypeEnum.getReflection()));
+            var clazz = new ReflectionClass('ContactEmailEmailTypeEnum', 'Enum class ContactEmailEmailTypeEnum', 'ContactEmailEmailTypeEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
         };
         ContactEmailEmailTypeEnum.Personal = new ContactEmailEmailTypeEnum("Personal");
         ContactEmailEmailTypeEnum.Work = new ContactEmailEmailTypeEnum("Work");
@@ -7223,596 +6748,6 @@ var Adaptive;
         return ContactEmailEmailTypeEnum;
     })();
     Adaptive.ContactEmailEmailTypeEnum = ContactEmailEmailTypeEnum;
-    /**
-     *   Class implementation for Endpoint
-     **/
-    var Endpoint = (function () {
-        /** Initialization **/
-        function Endpoint(host, path, port, proxy, scheme) {
-            this.host = host;
-            this.path = path;
-            this.port = port;
-            this.proxy = proxy;
-            this.scheme = scheme;
-        }
-        /**
-         * Method Declarations for Endpoint
-         */
-        Endpoint.prototype.getHost = function () {
-            return this.host;
-        };
-        Endpoint.prototype.getPath = function () {
-            return this.path;
-        };
-        Endpoint.prototype.getPort = function () {
-            return this.port;
-        };
-        Endpoint.prototype.getProxy = function () {
-            return this.proxy;
-        };
-        Endpoint.prototype.getScheme = function () {
-            return this.scheme;
-        };
-        Endpoint.prototype.setHost = function (host) {
-            this.host = host;
-        };
-        Endpoint.prototype.setPath = function (path) {
-            this.path = path;
-        };
-        Endpoint.prototype.setPort = function (port) {
-            this.port = port;
-        };
-        Endpoint.prototype.setProxy = function (proxy) {
-            this.proxy = proxy;
-        };
-        Endpoint.prototype.setScheme = function (scheme) {
-            this.scheme = scheme;
-        };
-        Endpoint.getReflection = function () {
-            /** Fields of Endpoint **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('host', 'Field host of class Endpoint', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('path', 'Field path of class Endpoint', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('port', 'Field port of class Endpoint', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('proxy', 'Field proxy of class Endpoint', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('scheme', 'Field scheme of class Endpoint', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of Endpoint **/
-            var _methods = new Array();
-            /** Method getPath of Endpoint **/
-            var _params_getPath = new Array();
-            _methods.push(new ReflectionMethod('getPath', 'Endpoint getPath', _params_getPath, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getScheme of Endpoint **/
-            var _params_getScheme = new Array();
-            _methods.push(new ReflectionMethod('getScheme', 'Endpoint getScheme', _params_getScheme, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getHost of Endpoint **/
-            var _params_getHost = new Array();
-            _methods.push(new ReflectionMethod('getHost', 'Endpoint getHost', _params_getHost, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getPort of Endpoint **/
-            var _params_getPort = new Array();
-            _methods.push(new ReflectionMethod('getPort', 'Endpoint getPort', _params_getPort, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setHost of Endpoint **/
-            var _params_setHost = new Array();
-            _params_setHost.push(new ReflectionParameter('host', 'Endpoint setHost host', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setHost', 'Endpoint setHost', _params_setHost, null));
-            /** Method setPath of Endpoint **/
-            var _params_setPath = new Array();
-            _params_setPath.push(new ReflectionParameter('path', 'Endpoint setPath path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setPath', 'Endpoint setPath', _params_setPath, null));
-            /** Method getProxy of Endpoint **/
-            var _params_getProxy = new Array();
-            _methods.push(new ReflectionMethod('getProxy', 'Endpoint getProxy', _params_getProxy, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setProxy of Endpoint **/
-            var _params_setProxy = new Array();
-            _params_setProxy.push(new ReflectionParameter('proxy', 'Endpoint setProxy proxy', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setProxy', 'Endpoint setProxy', _params_setProxy, null));
-            /** Method setScheme of Endpoint **/
-            var _params_setScheme = new Array();
-            _params_setScheme.push(new ReflectionParameter('scheme', 'Endpoint setScheme scheme', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setScheme', 'Endpoint setScheme', _params_setScheme, null));
-            /** Method setPort of Endpoint **/
-            var _params_setPort = new Array();
-            _params_setPort.push(new ReflectionParameter('port', 'Endpoint setPort port', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setPort', 'Endpoint setPort', _params_setPort, null));
-            /** Class description of Endpoint **/
-            var clazz = new ReflectionClass('Endpoint', 'Bean class Endpoint', 'Endpoint', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Endpoint;
-    })();
-    Adaptive.Endpoint = Endpoint;
-    /**
-     *   Class implementation for Column
-     **/
-    var Column = (function () {
-        /** Initialization **/
-        function Column(name) {
-            this.name = name;
-        }
-        /**
-         * Method Declarations for Column
-         */
-        Column.prototype.getName = function () {
-            return this.name;
-        };
-        Column.prototype.setName = function (name) {
-            this.name = name;
-        };
-        Column.getReflection = function () {
-            /** Fields of Column **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('name', 'Field name of class Column', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of Column **/
-            var _methods = new Array();
-            /** Method getName of Column **/
-            var _params_getName = new Array();
-            _methods.push(new ReflectionMethod('getName', 'Column getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setName of Column **/
-            var _params_setName = new Array();
-            _params_setName.push(new ReflectionParameter('name', 'Column setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setName', 'Column setName', _params_setName, null));
-            /** Class description of Column **/
-            var clazz = new ReflectionClass('Column', 'Bean class Column', 'Column', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Column;
-    })();
-    Adaptive.Column = Column;
-    /**
-     *   Class implementation for Service
-     **/
-    var Service = (function () {
-        /** Initialization **/
-        function Service(endpoint, name, method, type) {
-            this.endpoint = endpoint;
-            this.name = name;
-            this.method = method;
-            this.type = type;
-        }
-        /**
-         * Method Declarations for Service
-         */
-        Service.prototype.getEndpoint = function () {
-            return this.endpoint;
-        };
-        Service.prototype.getMethod = function () {
-            return this.method;
-        };
-        Service.prototype.getName = function () {
-            return this.name;
-        };
-        Service.prototype.getType = function () {
-            return this.type;
-        };
-        Service.prototype.setEndpoint = function (endpoint) {
-            this.endpoint = endpoint;
-        };
-        Service.prototype.setMethod = function (method) {
-            this.method = method;
-        };
-        Service.prototype.setName = function (name) {
-            this.name = name;
-        };
-        Service.prototype.setType = function (type) {
-            this.type = type;
-        };
-        Service.getReflection = function () {
-            /** Fields of Service **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('endpoint', 'Field endpoint of class Service', Endpoint.getReflection()));
-            _fields.push(new ReflectionField('name', 'Field name of class Service', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('method', 'Field method of class Service', ServiceServiceMethodEnum.getReflection()));
-            _fields.push(new ReflectionField('type', 'Field type of class Service', ServiceServiceTypeEnum.getReflection()));
-            /** Methods of Service **/
-            var _methods = new Array();
-            /** Method getName of Service **/
-            var _params_getName = new Array();
-            _methods.push(new ReflectionMethod('getName', 'Service getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getMethod of Service **/
-            var _params_getMethod = new Array();
-            _methods.push(new ReflectionMethod('getMethod', 'Service getMethod', _params_getMethod, ServiceServiceMethodEnum.getReflection()));
-            /** Method setName of Service **/
-            var _params_setName = new Array();
-            _params_setName.push(new ReflectionParameter('name', 'Service setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setName', 'Service setName', _params_setName, null));
-            /** Method getType of Service **/
-            var _params_getType = new Array();
-            _methods.push(new ReflectionMethod('getType', 'Service getType', _params_getType, ServiceServiceTypeEnum.getReflection()));
-            /** Method setType of Service **/
-            var _params_setType = new Array();
-            _params_setType.push(new ReflectionParameter('type', 'Service setType type', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setType', 'Service setType', _params_setType, null));
-            /** Method getEndpoint of Service **/
-            var _params_getEndpoint = new Array();
-            _methods.push(new ReflectionMethod('getEndpoint', 'Service getEndpoint', _params_getEndpoint, Endpoint.getReflection()));
-            /** Method setEndpoint of Service **/
-            var _params_setEndpoint = new Array();
-            _params_setEndpoint.push(new ReflectionParameter('endpoint', 'Service setEndpoint endpoint', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setEndpoint', 'Service setEndpoint', _params_setEndpoint, null));
-            /** Method setMethod of Service **/
-            var _params_setMethod = new Array();
-            _params_setMethod.push(new ReflectionParameter('method', 'Service setMethod method', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setMethod', 'Service setMethod', _params_setMethod, null));
-            /** Class description of Service **/
-            var clazz = new ReflectionClass('Service', 'Bean class Service', 'Service', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Service;
-    })();
-    Adaptive.Service = Service;
-    /**
-     *  Enumerations for Service ServiceMethod
-     **/
-    var ServiceServiceMethodEnum = (function () {
-        function ServiceServiceMethodEnum(value) {
-            this.value = value;
-        }
-        ServiceServiceMethodEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ServiceServiceMethodEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IService ServiceMethod
-        };
-        ServiceServiceMethodEnum.POST = new ServiceServiceMethodEnum("POST");
-        ServiceServiceMethodEnum.GET = new ServiceServiceMethodEnum("GET");
-        ServiceServiceMethodEnum.Unknown = new ServiceServiceMethodEnum("Unknown");
-        return ServiceServiceMethodEnum;
-    })();
-    Adaptive.ServiceServiceMethodEnum = ServiceServiceMethodEnum;
-    /**
-     *  Enumerations for Service ServiceType
-     **/
-    var ServiceServiceTypeEnum = (function () {
-        function ServiceServiceTypeEnum(value) {
-            this.value = value;
-        }
-        ServiceServiceTypeEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ServiceServiceTypeEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> IService ServiceType
-        };
-        ServiceServiceTypeEnum.SERVICETYPE_AMF_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_AMF_SERIALIZATION");
-        ServiceServiceTypeEnum.SERVICETYPE_GWT_RPC = new ServiceServiceTypeEnum("SERVICETYPE_GWT_RPC");
-        ServiceServiceTypeEnum.SERVICETYPE_OCTET_BINARY = new ServiceServiceTypeEnum("SERVICETYPE_OCTET_BINARY");
-        ServiceServiceTypeEnum.SERVICETYPE_REMOTING_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_REMOTING_SERIALIZATION");
-        ServiceServiceTypeEnum.SERVICETYPE_REST_JSON = new ServiceServiceTypeEnum("SERVICETYPE_REST_JSON");
-        ServiceServiceTypeEnum.SERVICETYPE_REST_XML = new ServiceServiceTypeEnum("SERVICETYPE_REST_XML");
-        ServiceServiceTypeEnum.SERVICETYPE_SOAP_JSON = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_JSON");
-        ServiceServiceTypeEnum.SERVICETYPE_SOAP_XML = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_XML");
-        ServiceServiceTypeEnum.SERVICETYPE_XMLRPC_JSON = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_JSON");
-        ServiceServiceTypeEnum.SERVICETYPE_XMLRPC_XML = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_XML");
-        ServiceServiceTypeEnum.Unknown = new ServiceServiceTypeEnum("Unknown");
-        return ServiceServiceTypeEnum;
-    })();
-    Adaptive.ServiceServiceTypeEnum = ServiceServiceTypeEnum;
-    /**
-     *   Class implementation for Lifecycle
-     **/
-    var Lifecycle = (function () {
-        /** Initialization **/
-        function Lifecycle(state) {
-            this.state = state;
-        }
-        /**
-         * Method Declarations for Lifecycle
-         */
-        Lifecycle.prototype.getState = function () {
-            return this.state;
-        };
-        Lifecycle.prototype.setState = function (state) {
-            this.state = state;
-        };
-        Lifecycle.getReflection = function () {
-            /** Fields of Lifecycle **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('state', 'Field state of class Lifecycle', LifecycleStateEnum.getReflection()));
-            /** Methods of Lifecycle **/
-            var _methods = new Array();
-            /** Method getState of Lifecycle **/
-            var _params_getState = new Array();
-            _methods.push(new ReflectionMethod('getState', 'Lifecycle getState', _params_getState, LifecycleStateEnum.getReflection()));
-            /** Method setState of Lifecycle **/
-            var _params_setState = new Array();
-            _params_setState.push(new ReflectionParameter('state', 'Lifecycle setState state', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setState', 'Lifecycle setState', _params_setState, null));
-            /** Class description of Lifecycle **/
-            var clazz = new ReflectionClass('Lifecycle', 'Bean class Lifecycle', 'Lifecycle', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Lifecycle;
-    })();
-    Adaptive.Lifecycle = Lifecycle;
-    /**
-     *  Enumerations for Lifecycle State
-     **/
-    var LifecycleStateEnum = (function () {
-        function LifecycleStateEnum(value) {
-            this.value = value;
-        }
-        LifecycleStateEnum.prototype.toString = function () {
-            return this.value;
-        };
-        LifecycleStateEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> Lifecycle State
-        };
-        LifecycleStateEnum.Starting = new LifecycleStateEnum("Starting");
-        LifecycleStateEnum.Started = new LifecycleStateEnum("Started");
-        LifecycleStateEnum.Running = new LifecycleStateEnum("Running");
-        LifecycleStateEnum.Paused = new LifecycleStateEnum("Paused");
-        LifecycleStateEnum.PausedIdle = new LifecycleStateEnum("PausedIdle");
-        LifecycleStateEnum.PausedRun = new LifecycleStateEnum("PausedRun");
-        LifecycleStateEnum.Resuming = new LifecycleStateEnum("Resuming");
-        LifecycleStateEnum.Stopping = new LifecycleStateEnum("Stopping");
-        LifecycleStateEnum.Unknown = new LifecycleStateEnum("Unknown");
-        return LifecycleStateEnum;
-    })();
-    Adaptive.LifecycleStateEnum = LifecycleStateEnum;
-    /**
-     *   Class implementation for ContactWebsite
-     **/
-    var ContactWebsite = (function () {
-        /** Initialization **/
-        function ContactWebsite(url) {
-            this.url = url;
-        }
-        /**
-         * Method Declarations for ContactWebsite
-         */
-        ContactWebsite.prototype.getUrl = function () {
-            return this.url;
-        };
-        ContactWebsite.prototype.setUrl = function (url) {
-            this.url = url;
-        };
-        ContactWebsite.getReflection = function () {
-            /** Fields of ContactWebsite **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('url', 'Field url of class ContactWebsite', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of ContactWebsite **/
-            var _methods = new Array();
-            /** Method setUrl of ContactWebsite **/
-            var _params_setUrl = new Array();
-            _params_setUrl.push(new ReflectionParameter('url', 'ContactWebsite setUrl url', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setUrl', 'ContactWebsite setUrl', _params_setUrl, null));
-            /** Method getUrl of ContactWebsite **/
-            var _params_getUrl = new Array();
-            _methods.push(new ReflectionMethod('getUrl', 'ContactWebsite getUrl', _params_getUrl, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Class description of ContactWebsite **/
-            var clazz = new ReflectionClass('ContactWebsite', 'Bean class ContactWebsite', 'ContactWebsite', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ContactWebsite;
-    })();
-    Adaptive.ContactWebsite = ContactWebsite;
-    /**
-     *   Class implementation for SecureKeyPair
-     **/
-    var SecureKeyPair = (function () {
-        /** Initialization **/
-        function SecureKeyPair(secureKey, secureData) {
-            this.secureKey = secureKey;
-            this.secureData = secureData;
-        }
-        /**
-         * Method Declarations for SecureKeyPair
-         */
-        SecureKeyPair.prototype.getSecureData = function () {
-            return this.secureData;
-        };
-        SecureKeyPair.prototype.getSecureKey = function () {
-            return this.secureKey;
-        };
-        SecureKeyPair.prototype.setSecureData = function (secureData) {
-            this.secureData = secureData;
-        };
-        SecureKeyPair.prototype.setSecureKey = function (secureKey) {
-            this.secureKey = secureKey;
-        };
-        SecureKeyPair.getReflection = function () {
-            /** Fields of SecureKeyPair **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('secureKey', 'Field secureKey of class SecureKeyPair', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('secureData', 'Field secureData of class SecureKeyPair', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of SecureKeyPair **/
-            var _methods = new Array();
-            /** Method getSecureKey of SecureKeyPair **/
-            var _params_getSecureKey = new Array();
-            _methods.push(new ReflectionMethod('getSecureKey', 'SecureKeyPair getSecureKey', _params_getSecureKey, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setSecureKey of SecureKeyPair **/
-            var _params_setSecureKey = new Array();
-            _params_setSecureKey.push(new ReflectionParameter('secureKey', 'SecureKeyPair setSecureKey secureKey', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setSecureKey', 'SecureKeyPair setSecureKey', _params_setSecureKey, null));
-            /** Method getSecureData of SecureKeyPair **/
-            var _params_getSecureData = new Array();
-            _methods.push(new ReflectionMethod('getSecureData', 'SecureKeyPair getSecureData', _params_getSecureData, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setSecureData of SecureKeyPair **/
-            var _params_setSecureData = new Array();
-            _params_setSecureData.push(new ReflectionParameter('secureData', 'SecureKeyPair setSecureData secureData', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setSecureData', 'SecureKeyPair setSecureData', _params_setSecureData, null));
-            /** Class description of SecureKeyPair **/
-            var clazz = new ReflectionClass('SecureKeyPair', 'Bean class SecureKeyPair', 'SecureKeyPair', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return SecureKeyPair;
-    })();
-    Adaptive.SecureKeyPair = SecureKeyPair;
-    /**
-     *   Class implementation for Row
-     **/
-    var Row = (function () {
-        /** Initialization **/
-        function Row(values) {
-            this.values = values;
-        }
-        /**
-         * Method Declarations for Row
-         */
-        Row.prototype.getValues = function () {
-            return this.values;
-        };
-        Row.prototype.setValues = function (values) {
-            this.values = values;
-        };
-        Row.getReflection = function () {
-            /** Fields of Row **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('values', 'Field values of class Row', new ReflectionClass('Array<any>', 'Array of any', 'Array<any>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection()))));
-            /** Methods of Row **/
-            var _methods = new Array();
-            /** Method getValues of Row **/
-            var _params_getValues = new Array();
-            _methods.push(new ReflectionMethod('getValues', 'Row getValues', _params_getValues, new ReflectionClass('Array<any>', 'Array of any', 'Array<any>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection()))));
-            /** Method setValues of Row **/
-            var _params_setValues = new Array();
-            _params_setValues.push(new ReflectionParameter('values', 'Row setValues values', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setValues', 'Row setValues', _params_setValues, null));
-            /** Class description of Row **/
-            var clazz = new ReflectionClass('Row', 'Bean class Row', 'Row', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Row;
-    })();
-    Adaptive.Row = Row;
-    /**
-     *   Class implementation for ContactUid
-     **/
-    var ContactUid = (function () {
-        /** Initialization **/
-        function ContactUid(contactId) {
-            this.contactId = contactId;
-        }
-        /**
-         * Method Declarations for ContactUid
-         */
-        ContactUid.prototype.getContactId = function () {
-            return this.contactId;
-        };
-        ContactUid.prototype.setContactId = function (contactId) {
-            this.contactId = contactId;
-        };
-        ContactUid.getReflection = function () {
-            /** Fields of ContactUid **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('contactId', 'Field contactId of class ContactUid', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of ContactUid **/
-            var _methods = new Array();
-            /** Method getContactId of ContactUid **/
-            var _params_getContactId = new Array();
-            _methods.push(new ReflectionMethod('getContactId', 'ContactUid getContactId', _params_getContactId, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setContactId of ContactUid **/
-            var _params_setContactId = new Array();
-            _params_setContactId.push(new ReflectionParameter('contactId', 'ContactUid setContactId contactId', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContactId', 'ContactUid setContactId', _params_setContactId, null));
-            /** Class description of ContactUid **/
-            var clazz = new ReflectionClass('ContactUid', 'Bean class ContactUid', 'ContactUid', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ContactUid;
-    })();
-    Adaptive.ContactUid = ContactUid;
-    /**
-     *   Class implementation for ContactPersonalInfo
-     **/
-    var ContactPersonalInfo = (function () {
-        /** Initialization **/
-        function ContactPersonalInfo(name, middleName, lastName, title) {
-            this.name = name;
-            this.middleName = middleName;
-            this.lastName = lastName;
-            this.title = title;
-        }
-        /**
-         * Method Declarations for ContactPersonalInfo
-         */
-        ContactPersonalInfo.prototype.getLastName = function () {
-            return this.lastName;
-        };
-        ContactPersonalInfo.prototype.getMiddleName = function () {
-            return this.middleName;
-        };
-        ContactPersonalInfo.prototype.getName = function () {
-            return this.name;
-        };
-        ContactPersonalInfo.prototype.getTitle = function () {
-            return this.title;
-        };
-        ContactPersonalInfo.prototype.setLastName = function (lastName) {
-            this.lastName = lastName;
-        };
-        ContactPersonalInfo.prototype.setMiddleName = function (middleName) {
-            this.middleName = middleName;
-        };
-        ContactPersonalInfo.prototype.setName = function (name) {
-            this.name = name;
-        };
-        ContactPersonalInfo.prototype.setTitle = function (title) {
-            this.title = title;
-        };
-        ContactPersonalInfo.getReflection = function () {
-            /** Fields of ContactPersonalInfo **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('name', 'Field name of class ContactPersonalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('middleName', 'Field middleName of class ContactPersonalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('lastName', 'Field lastName of class ContactPersonalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('title', 'Field title of class ContactPersonalInfo', ContactPersonalInfoTitleEnum.getReflection()));
-            /** Methods of ContactPersonalInfo **/
-            var _methods = new Array();
-            /** Method getName of ContactPersonalInfo **/
-            var _params_getName = new Array();
-            _methods.push(new ReflectionMethod('getName', 'ContactPersonalInfo getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setName of ContactPersonalInfo **/
-            var _params_setName = new Array();
-            _params_setName.push(new ReflectionParameter('name', 'ContactPersonalInfo setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setName', 'ContactPersonalInfo setName', _params_setName, null));
-            /** Method setMiddleName of ContactPersonalInfo **/
-            var _params_setMiddleName = new Array();
-            _params_setMiddleName.push(new ReflectionParameter('middleName', 'ContactPersonalInfo setMiddleName middleName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setMiddleName', 'ContactPersonalInfo setMiddleName', _params_setMiddleName, null));
-            /** Method getMiddleName of ContactPersonalInfo **/
-            var _params_getMiddleName = new Array();
-            _methods.push(new ReflectionMethod('getMiddleName', 'ContactPersonalInfo getMiddleName', _params_getMiddleName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getTitle of ContactPersonalInfo **/
-            var _params_getTitle = new Array();
-            _methods.push(new ReflectionMethod('getTitle', 'ContactPersonalInfo getTitle', _params_getTitle, ContactPersonalInfoTitleEnum.getReflection()));
-            /** Method getLastName of ContactPersonalInfo **/
-            var _params_getLastName = new Array();
-            _methods.push(new ReflectionMethod('getLastName', 'ContactPersonalInfo getLastName', _params_getLastName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setLastName of ContactPersonalInfo **/
-            var _params_setLastName = new Array();
-            _params_setLastName.push(new ReflectionParameter('lastName', 'ContactPersonalInfo setLastName lastName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setLastName', 'ContactPersonalInfo setLastName', _params_setLastName, null));
-            /** Method setTitle of ContactPersonalInfo **/
-            var _params_setTitle = new Array();
-            _params_setTitle.push(new ReflectionParameter('title', 'ContactPersonalInfo setTitle title', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setTitle', 'ContactPersonalInfo setTitle', _params_setTitle, null));
-            /** Class description of ContactPersonalInfo **/
-            var clazz = new ReflectionClass('ContactPersonalInfo', 'Bean class ContactPersonalInfo', 'ContactPersonalInfo', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ContactPersonalInfo;
-    })();
-    Adaptive.ContactPersonalInfo = ContactPersonalInfo;
-    /**
-     *  Enumerations for ContactPersonalInfo Title
-     **/
-    var ContactPersonalInfoTitleEnum = (function () {
-        function ContactPersonalInfoTitleEnum(value) {
-            this.value = value;
-        }
-        ContactPersonalInfoTitleEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ContactPersonalInfoTitleEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ContactPersonalInfo Title
-        };
-        ContactPersonalInfoTitleEnum.Mr = new ContactPersonalInfoTitleEnum("Mr");
-        ContactPersonalInfoTitleEnum.Mrs = new ContactPersonalInfoTitleEnum("Mrs");
-        ContactPersonalInfoTitleEnum.Ms = new ContactPersonalInfoTitleEnum("Ms");
-        ContactPersonalInfoTitleEnum.Dr = new ContactPersonalInfoTitleEnum("Dr");
-        ContactPersonalInfoTitleEnum.Unknown = new ContactPersonalInfoTitleEnum("Unknown");
-        return ContactPersonalInfoTitleEnum;
-    })();
-    Adaptive.ContactPersonalInfoTitleEnum = ContactPersonalInfoTitleEnum;
     /**
      *   Class implementation for Header
      **/
@@ -7851,13 +6786,13 @@ var Adaptive;
             var _params_setName = new Array();
             _params_setName.push(new ReflectionParameter('name', 'Header setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setName', 'Header setName', _params_setName, null));
-            /** Method getData of Header **/
-            var _params_getData = new Array();
-            _methods.push(new ReflectionMethod('getData', 'Header getData', _params_getData, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method setData of Header **/
             var _params_setData = new Array();
             _params_setData.push(new ReflectionParameter('data', 'Header setData data', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setData', 'Header setData', _params_setData, null));
+            /** Method getData of Header **/
+            var _params_getData = new Array();
+            _methods.push(new ReflectionMethod('getData', 'Header getData', _params_getData, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Class description of Header **/
             var clazz = new ReflectionClass('Header', 'Bean class Header', 'Header', _methods, _fields, Adaptive.getReflection());
             return clazz;
@@ -7865,624 +6800,6 @@ var Adaptive;
         return Header;
     })();
     Adaptive.Header = Header;
-    /**
-     *   Class implementation for Contact
-     **/
-    var Contact = (function (_super) {
-        __extends(Contact, _super);
-        /** Initialization **/
-        function Contact(contactId) {
-            _super.call(this, contactId);
-            this.contactId = contactId;
-        }
-        /**
-         * Method Declarations for Contact
-         */
-        Contact.prototype.getContactAddresses = function () {
-            return this.contactAddresses;
-        };
-        Contact.prototype.getContactEmails = function () {
-            return this.contactEmails;
-        };
-        Contact.prototype.getContactPhones = function () {
-            return this.contactPhones;
-        };
-        Contact.prototype.getContactSocials = function () {
-            return this.contactSocials;
-        };
-        Contact.prototype.getContactTags = function () {
-            return this.contactTags;
-        };
-        Contact.prototype.getContactWebsites = function () {
-            return this.contactWebsites;
-        };
-        Contact.prototype.getPersonalInfo = function () {
-            return this.personalInfo;
-        };
-        Contact.prototype.getProfessionalInfo = function () {
-            return this.professionalInfo;
-        };
-        Contact.prototype.setContactAddresses = function (contactAddresses) {
-            this.contactAddresses = contactAddresses;
-        };
-        Contact.prototype.setContactEmails = function (contactEmails) {
-            this.contactEmails = contactEmails;
-        };
-        Contact.prototype.setContactPhones = function (contactPhones) {
-            this.contactPhones = contactPhones;
-        };
-        Contact.prototype.setContactSocials = function (contactSocials) {
-            this.contactSocials = contactSocials;
-        };
-        Contact.prototype.setContactTags = function (contactTags) {
-            this.contactTags = contactTags;
-        };
-        Contact.prototype.setContactWebsites = function (contactWebsites) {
-            this.contactWebsites = contactWebsites;
-        };
-        Contact.prototype.setPersonalInfo = function (personalInfo) {
-            this.personalInfo = personalInfo;
-        };
-        Contact.prototype.setProfessionalInfo = function (professionalInfo) {
-            this.professionalInfo = professionalInfo;
-        };
-        Contact.getReflection = function () {
-            /** Fields of Contact **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('personalInfo', 'Field personalInfo of class Contact', ContactPersonalInfo.getReflection()));
-            _fields.push(new ReflectionField('professionalInfo', 'Field professionalInfo of class Contact', ContactProfessionalInfo.getReflection()));
-            _fields.push(new ReflectionField('contactAddresses', 'Field contactAddresses of class Contact', new ReflectionClass('Array<ContactAddress>', 'Array of ContactAddress', 'Array<ContactAddress>', null, null, Adaptive.getReflection()).setTypeComponent(ContactAddress.getReflection())));
-            _fields.push(new ReflectionField('contactPhones', 'Field contactPhones of class Contact', new ReflectionClass('Array<ContactPhone>', 'Array of ContactPhone', 'Array<ContactPhone>', null, null, Adaptive.getReflection()).setTypeComponent(ContactPhone.getReflection())));
-            _fields.push(new ReflectionField('contactEmails', 'Field contactEmails of class Contact', new ReflectionClass('Array<ContactEmail>', 'Array of ContactEmail', 'Array<ContactEmail>', null, null, Adaptive.getReflection()).setTypeComponent(ContactEmail.getReflection())));
-            _fields.push(new ReflectionField('contactWebsites', 'Field contactWebsites of class Contact', new ReflectionClass('Array<ContactWebsite>', 'Array of ContactWebsite', 'Array<ContactWebsite>', null, null, Adaptive.getReflection()).setTypeComponent(ContactWebsite.getReflection())));
-            _fields.push(new ReflectionField('contactSocials', 'Field contactSocials of class Contact', new ReflectionClass('Array<ContactSocial>', 'Array of ContactSocial', 'Array<ContactSocial>', null, null, Adaptive.getReflection()).setTypeComponent(ContactSocial.getReflection())));
-            _fields.push(new ReflectionField('contactTags', 'Field contactTags of class Contact', new ReflectionClass('Array<ContactTag>', 'Array of ContactTag', 'Array<ContactTag>', null, null, Adaptive.getReflection()).setTypeComponent(ContactTag.getReflection())));
-            /** Methods of Contact **/
-            var _methods = new Array();
-            /** Method getPersonalInfo of Contact **/
-            var _params_getPersonalInfo = new Array();
-            _methods.push(new ReflectionMethod('getPersonalInfo', 'Contact getPersonalInfo', _params_getPersonalInfo, ContactPersonalInfo.getReflection()));
-            /** Method setPersonalInfo of Contact **/
-            var _params_setPersonalInfo = new Array();
-            _params_setPersonalInfo.push(new ReflectionParameter('personalInfo', 'Contact setPersonalInfo personalInfo', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setPersonalInfo', 'Contact setPersonalInfo', _params_setPersonalInfo, null));
-            /** Method getProfessionalInfo of Contact **/
-            var _params_getProfessionalInfo = new Array();
-            _methods.push(new ReflectionMethod('getProfessionalInfo', 'Contact getProfessionalInfo', _params_getProfessionalInfo, ContactProfessionalInfo.getReflection()));
-            /** Method setProfessionalInfo of Contact **/
-            var _params_setProfessionalInfo = new Array();
-            _params_setProfessionalInfo.push(new ReflectionParameter('professionalInfo', 'Contact setProfessionalInfo professionalInfo', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setProfessionalInfo', 'Contact setProfessionalInfo', _params_setProfessionalInfo, null));
-            /** Method getContactAddresses of Contact **/
-            var _params_getContactAddresses = new Array();
-            _methods.push(new ReflectionMethod('getContactAddresses', 'Contact getContactAddresses', _params_getContactAddresses, new ReflectionClass('Array<ContactAddress>', 'Array of ContactAddress', 'Array<ContactAddress>', null, null, Adaptive.getReflection()).setTypeComponent(ContactAddress.getReflection())));
-            /** Method setContactAddresses of Contact **/
-            var _params_setContactAddresses = new Array();
-            _params_setContactAddresses.push(new ReflectionParameter('contactAddresses', 'Contact setContactAddresses contactAddresses', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContactAddresses', 'Contact setContactAddresses', _params_setContactAddresses, null));
-            /** Method getContactPhones of Contact **/
-            var _params_getContactPhones = new Array();
-            _methods.push(new ReflectionMethod('getContactPhones', 'Contact getContactPhones', _params_getContactPhones, new ReflectionClass('Array<ContactPhone>', 'Array of ContactPhone', 'Array<ContactPhone>', null, null, Adaptive.getReflection()).setTypeComponent(ContactPhone.getReflection())));
-            /** Method setContactPhones of Contact **/
-            var _params_setContactPhones = new Array();
-            _params_setContactPhones.push(new ReflectionParameter('contactPhones', 'Contact setContactPhones contactPhones', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContactPhones', 'Contact setContactPhones', _params_setContactPhones, null));
-            /** Method getContactEmails of Contact **/
-            var _params_getContactEmails = new Array();
-            _methods.push(new ReflectionMethod('getContactEmails', 'Contact getContactEmails', _params_getContactEmails, new ReflectionClass('Array<ContactEmail>', 'Array of ContactEmail', 'Array<ContactEmail>', null, null, Adaptive.getReflection()).setTypeComponent(ContactEmail.getReflection())));
-            /** Method setContactEmails of Contact **/
-            var _params_setContactEmails = new Array();
-            _params_setContactEmails.push(new ReflectionParameter('contactEmails', 'Contact setContactEmails contactEmails', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContactEmails', 'Contact setContactEmails', _params_setContactEmails, null));
-            /** Method getContactWebsites of Contact **/
-            var _params_getContactWebsites = new Array();
-            _methods.push(new ReflectionMethod('getContactWebsites', 'Contact getContactWebsites', _params_getContactWebsites, new ReflectionClass('Array<ContactWebsite>', 'Array of ContactWebsite', 'Array<ContactWebsite>', null, null, Adaptive.getReflection()).setTypeComponent(ContactWebsite.getReflection())));
-            /** Method setContactWebsites of Contact **/
-            var _params_setContactWebsites = new Array();
-            _params_setContactWebsites.push(new ReflectionParameter('contactWebsites', 'Contact setContactWebsites contactWebsites', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContactWebsites', 'Contact setContactWebsites', _params_setContactWebsites, null));
-            /** Method getContactSocials of Contact **/
-            var _params_getContactSocials = new Array();
-            _methods.push(new ReflectionMethod('getContactSocials', 'Contact getContactSocials', _params_getContactSocials, new ReflectionClass('Array<ContactSocial>', 'Array of ContactSocial', 'Array<ContactSocial>', null, null, Adaptive.getReflection()).setTypeComponent(ContactSocial.getReflection())));
-            /** Method setContactSocials of Contact **/
-            var _params_setContactSocials = new Array();
-            _params_setContactSocials.push(new ReflectionParameter('contactSocials', 'Contact setContactSocials contactSocials', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContactSocials', 'Contact setContactSocials', _params_setContactSocials, null));
-            /** Method getContactTags of Contact **/
-            var _params_getContactTags = new Array();
-            _methods.push(new ReflectionMethod('getContactTags', 'Contact getContactTags', _params_getContactTags, new ReflectionClass('Array<ContactTag>', 'Array of ContactTag', 'Array<ContactTag>', null, null, Adaptive.getReflection()).setTypeComponent(ContactTag.getReflection())));
-            /** Method setContactTags of Contact **/
-            var _params_setContactTags = new Array();
-            _params_setContactTags.push(new ReflectionParameter('contactTags', 'Contact setContactTags contactTags', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setContactTags', 'Contact setContactTags', _params_setContactTags, null));
-            /** Class description of Contact **/
-            var clazz = new ReflectionClass('Contact', 'Bean class Contact', 'Contact', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Contact;
-    })(ContactUid);
-    Adaptive.Contact = Contact;
-    /**
-     *   Class implementation for ContactPhone
-     **/
-    var ContactPhone = (function () {
-        /** Initialization **/
-        function ContactPhone(phone, phoneType) {
-            this.phone = phone;
-            this.phoneType = phoneType;
-        }
-        /**
-         * Method Declarations for ContactPhone
-         */
-        ContactPhone.prototype.getPhone = function () {
-            return this.phone;
-        };
-        ContactPhone.prototype.getPhoneType = function () {
-            return this.phoneType;
-        };
-        ContactPhone.prototype.setPhoneType = function (phoneType) {
-            this.phoneType = phoneType;
-        };
-        ContactPhone.prototype.setPhone = function (phone) {
-            this.phone = phone;
-        };
-        ContactPhone.getReflection = function () {
-            /** Fields of ContactPhone **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('phone', 'Field phone of class ContactPhone', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('phoneType', 'Field phoneType of class ContactPhone', ContactPhonePhoneTypeEnum.getReflection()));
-            /** Methods of ContactPhone **/
-            var _methods = new Array();
-            /** Method getPhone of ContactPhone **/
-            var _params_getPhone = new Array();
-            _methods.push(new ReflectionMethod('getPhone', 'ContactPhone getPhone', _params_getPhone, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setPhone of ContactPhone **/
-            var _params_setPhone = new Array();
-            _params_setPhone.push(new ReflectionParameter('phone', 'ContactPhone setPhone phone', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setPhone', 'ContactPhone setPhone', _params_setPhone, null));
-            /** Method getPhoneType of ContactPhone **/
-            var _params_getPhoneType = new Array();
-            _methods.push(new ReflectionMethod('getPhoneType', 'ContactPhone getPhoneType', _params_getPhoneType, ContactPhonePhoneTypeEnum.getReflection()));
-            /** Method setPhoneType of ContactPhone **/
-            var _params_setPhoneType = new Array();
-            _params_setPhoneType.push(new ReflectionParameter('phoneType', 'ContactPhone setPhoneType phoneType', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setPhoneType', 'ContactPhone setPhoneType', _params_setPhoneType, null));
-            /** Class description of ContactPhone **/
-            var clazz = new ReflectionClass('ContactPhone', 'Bean class ContactPhone', 'ContactPhone', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ContactPhone;
-    })();
-    Adaptive.ContactPhone = ContactPhone;
-    /**
-     *  Enumerations for ContactPhone PhoneType
-     **/
-    var ContactPhonePhoneTypeEnum = (function () {
-        function ContactPhonePhoneTypeEnum(value) {
-            this.value = value;
-        }
-        ContactPhonePhoneTypeEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ContactPhonePhoneTypeEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ContactPhone PhoneType
-        };
-        ContactPhonePhoneTypeEnum.Mobile = new ContactPhonePhoneTypeEnum("Mobile");
-        ContactPhonePhoneTypeEnum.Work = new ContactPhonePhoneTypeEnum("Work");
-        ContactPhonePhoneTypeEnum.Home = new ContactPhonePhoneTypeEnum("Home");
-        ContactPhonePhoneTypeEnum.Main = new ContactPhonePhoneTypeEnum("Main");
-        ContactPhonePhoneTypeEnum.HomeFax = new ContactPhonePhoneTypeEnum("HomeFax");
-        ContactPhonePhoneTypeEnum.WorkFax = new ContactPhonePhoneTypeEnum("WorkFax");
-        ContactPhonePhoneTypeEnum.Other = new ContactPhonePhoneTypeEnum("Other");
-        ContactPhonePhoneTypeEnum.Unknown = new ContactPhonePhoneTypeEnum("Unknown");
-        return ContactPhonePhoneTypeEnum;
-    })();
-    Adaptive.ContactPhonePhoneTypeEnum = ContactPhonePhoneTypeEnum;
-    /**
-     *   Class implementation for Geolocation
-     **/
-    var Geolocation = (function () {
-        /** Initialization **/
-        function Geolocation(latitude, longitude, altitude, xDoP, yDoP) {
-            this.latitude = latitude;
-            this.longitude = longitude;
-            this.altitude = altitude;
-            this.xDoP = xDoP;
-            this.yDoP = yDoP;
-        }
-        /**
-         * Method Declarations for Geolocation
-         */
-        Geolocation.prototype.getAltitude = function () {
-            return this.altitude;
-        };
-        Geolocation.prototype.getLatitude = function () {
-            return this.latitude;
-        };
-        Geolocation.prototype.getLongitude = function () {
-            return this.longitude;
-        };
-        Geolocation.prototype.getXDoP = function () {
-            return this.xDoP;
-        };
-        Geolocation.prototype.getYDoP = function () {
-            return this.yDoP;
-        };
-        Geolocation.prototype.setAltitude = function (altitude) {
-            this.altitude = altitude;
-        };
-        Geolocation.prototype.setLatitude = function (latitude) {
-            this.latitude = latitude;
-        };
-        Geolocation.prototype.setLongitude = function (longitude) {
-            this.longitude = longitude;
-        };
-        Geolocation.getReflection = function () {
-            /** Fields of Geolocation **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('latitude', 'Field latitude of class Geolocation', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('longitude', 'Field longitude of class Geolocation', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('altitude', 'Field altitude of class Geolocation', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('xDoP', 'Field xDoP of class Geolocation', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('yDoP', 'Field yDoP of class Geolocation', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Methods of Geolocation **/
-            var _methods = new Array();
-            /** Method getXDoP of Geolocation **/
-            var _params_getXDoP = new Array();
-            _methods.push(new ReflectionMethod('getXDoP', 'Geolocation getXDoP', _params_getXDoP, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method getYDoP of Geolocation **/
-            var _params_getYDoP = new Array();
-            _methods.push(new ReflectionMethod('getYDoP', 'Geolocation getYDoP', _params_getYDoP, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method getLatitude of Geolocation **/
-            var _params_getLatitude = new Array();
-            _methods.push(new ReflectionMethod('getLatitude', 'Geolocation getLatitude', _params_getLatitude, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setLatitude of Geolocation **/
-            var _params_setLatitude = new Array();
-            _params_setLatitude.push(new ReflectionParameter('latitude', 'Geolocation setLatitude latitude', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setLatitude', 'Geolocation setLatitude', _params_setLatitude, null));
-            /** Method getLongitude of Geolocation **/
-            var _params_getLongitude = new Array();
-            _methods.push(new ReflectionMethod('getLongitude', 'Geolocation getLongitude', _params_getLongitude, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setLongitude of Geolocation **/
-            var _params_setLongitude = new Array();
-            _params_setLongitude.push(new ReflectionParameter('longitude', 'Geolocation setLongitude longitude', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setLongitude', 'Geolocation setLongitude', _params_setLongitude, null));
-            /** Method getAltitude of Geolocation **/
-            var _params_getAltitude = new Array();
-            _methods.push(new ReflectionMethod('getAltitude', 'Geolocation getAltitude', _params_getAltitude, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setAltitude of Geolocation **/
-            var _params_setAltitude = new Array();
-            _params_setAltitude.push(new ReflectionParameter('altitude', 'Geolocation setAltitude altitude', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setAltitude', 'Geolocation setAltitude', _params_setAltitude, null));
-            /** Class description of Geolocation **/
-            var clazz = new ReflectionClass('Geolocation', 'Bean class Geolocation', 'Geolocation', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Geolocation;
-    })();
-    Adaptive.Geolocation = Geolocation;
-    /**
-     *   Class implementation for Button
-     **/
-    var Button = (function () {
-        /** Initialization **/
-        function Button(type) {
-            this.type = type;
-        }
-        /**
-         * Method Declarations for Button
-         */
-        Button.prototype.getType = function () {
-            return this.type;
-        };
-        Button.getReflection = function () {
-            /** Fields of Button **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('type', 'Field type of class Button', ButtonButtonEnum.getReflection()));
-            /** Methods of Button **/
-            var _methods = new Array();
-            /** Method getType of Button **/
-            var _params_getType = new Array();
-            _methods.push(new ReflectionMethod('getType', 'Button getType', _params_getType, ButtonButtonEnum.getReflection()));
-            /** Class description of Button **/
-            var clazz = new ReflectionClass('Button', 'Bean class Button', 'Button', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Button;
-    })();
-    Adaptive.Button = Button;
-    /**
-     *  Enumerations for Button Button
-     **/
-    var ButtonButtonEnum = (function () {
-        function ButtonButtonEnum(value) {
-            this.value = value;
-        }
-        ButtonButtonEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ButtonButtonEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ICapabilities Button
-        };
-        ButtonButtonEnum.HomeButton = new ButtonButtonEnum("HomeButton");
-        ButtonButtonEnum.BackButton = new ButtonButtonEnum("BackButton");
-        ButtonButtonEnum.OptionButton = new ButtonButtonEnum("OptionButton");
-        ButtonButtonEnum.Unknown = new ButtonButtonEnum("Unknown");
-        return ButtonButtonEnum;
-    })();
-    Adaptive.ButtonButtonEnum = ButtonButtonEnum;
-    /**
-     *   Class implementation for OSInfo
-     **/
-    var OSInfo = (function () {
-        /** Initialization **/
-        function OSInfo(name, version, vendor) {
-            this.name = name;
-            this.version = version;
-            this.vendor = vendor;
-        }
-        /**
-         * Method Declarations for OSInfo
-         */
-        OSInfo.prototype.getName = function () {
-            return this.name;
-        };
-        OSInfo.prototype.getVendor = function () {
-            return this.vendor;
-        };
-        OSInfo.prototype.getVersion = function () {
-            return this.version;
-        };
-        OSInfo.getReflection = function () {
-            /** Fields of OSInfo **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('name', 'Field name of class OSInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('version', 'Field version of class OSInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('vendor', 'Field vendor of class OSInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of OSInfo **/
-            var _methods = new Array();
-            /** Method getName of OSInfo **/
-            var _params_getName = new Array();
-            _methods.push(new ReflectionMethod('getName', 'OSInfo getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getVendor of OSInfo **/
-            var _params_getVendor = new Array();
-            _methods.push(new ReflectionMethod('getVendor', 'OSInfo getVendor', _params_getVendor, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getVersion of OSInfo **/
-            var _params_getVersion = new Array();
-            _methods.push(new ReflectionMethod('getVersion', 'OSInfo getVersion', _params_getVersion, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Class description of OSInfo **/
-            var clazz = new ReflectionClass('OSInfo', 'Bean class OSInfo', 'OSInfo', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return OSInfo;
-    })();
-    Adaptive.OSInfo = OSInfo;
-    /**
-     *   Class implementation for Locale
-     **/
-    var Locale = (function () {
-        /** Initialization **/
-        function Locale(language, country) {
-            this.language = language;
-            this.country = country;
-            this.description = this.country + "_" + this.language;
-        }
-        /**
-         * Method Declarations for Locale
-         */
-        Locale.prototype.getCountry = function () {
-            return this.country;
-        };
-        Locale.prototype.getLanguage = function () {
-            return this.language;
-        };
-        Locale.prototype.setCountry = function (country) {
-            this.country = country;
-        };
-        Locale.prototype.setLanguage = function (language) {
-            this.language = language;
-        };
-        Locale.prototype.toString = function () {
-            return this.description;
-        };
-        Locale.getReflection = function () {
-            /** Fields of Locale **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('country', 'Field country of class Locale', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('language', 'Field language of class Locale', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of Locale **/
-            var _methods = new Array();
-            /** Method toString of Locale **/
-            var _params_toString = new Array();
-            _methods.push(new ReflectionMethod('toString', 'Locale toString', _params_toString, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getLanguage of Locale **/
-            var _params_getLanguage = new Array();
-            _methods.push(new ReflectionMethod('getLanguage', 'Locale getLanguage', _params_getLanguage, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getCountry of Locale **/
-            var _params_getCountry = new Array();
-            _methods.push(new ReflectionMethod('getCountry', 'Locale getCountry', _params_getCountry, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setCountry of Locale **/
-            var _params_setCountry = new Array();
-            _params_setCountry.push(new ReflectionParameter('country', 'Locale setCountry country', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setCountry', 'Locale setCountry', _params_setCountry, null));
-            /** Method setLanguage of Locale **/
-            var _params_setLanguage = new Array();
-            _params_setLanguage.push(new ReflectionParameter('language', 'Locale setLanguage language', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setLanguage', 'Locale setLanguage', _params_setLanguage, null));
-            /** Class description of Locale **/
-            var clazz = new ReflectionClass('Locale', 'Bean class Locale', 'Locale', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Locale;
-    })();
-    Adaptive.Locale = Locale;
-    /**
-     *   Class implementation for ContactSocial
-     **/
-    var ContactSocial = (function () {
-        /** Initialization **/
-        function ContactSocial(socialNetwork, profileUrl) {
-            this.socialNetwork = socialNetwork;
-            this.profileUrl = profileUrl;
-        }
-        /**
-         * Method Declarations for ContactSocial
-         */
-        ContactSocial.prototype.getProfileUrl = function () {
-            return this.profileUrl;
-        };
-        ContactSocial.prototype.getSocialNetwork = function () {
-            return this.socialNetwork;
-        };
-        ContactSocial.prototype.setProfileUrl = function (profileUrl) {
-            this.profileUrl = profileUrl;
-        };
-        ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
-            this.socialNetwork = socialNetwork;
-        };
-        ContactSocial.getReflection = function () {
-            /** Fields of ContactSocial **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('socialNetwork', 'Field socialNetwork of class ContactSocial', ContactSocialSocialNetworkEnum.getReflection()));
-            _fields.push(new ReflectionField('profileUrl', 'Field profileUrl of class ContactSocial', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Methods of ContactSocial **/
-            var _methods = new Array();
-            /** Method getSocialNetwork of ContactSocial **/
-            var _params_getSocialNetwork = new Array();
-            _methods.push(new ReflectionMethod('getSocialNetwork', 'ContactSocial getSocialNetwork', _params_getSocialNetwork, ContactSocialSocialNetworkEnum.getReflection()));
-            /** Method setSocialNetwork of ContactSocial **/
-            var _params_setSocialNetwork = new Array();
-            _params_setSocialNetwork.push(new ReflectionParameter('socialNetwork', 'ContactSocial setSocialNetwork socialNetwork', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setSocialNetwork', 'ContactSocial setSocialNetwork', _params_setSocialNetwork, null));
-            /** Method getProfileUrl of ContactSocial **/
-            var _params_getProfileUrl = new Array();
-            _methods.push(new ReflectionMethod('getProfileUrl', 'ContactSocial getProfileUrl', _params_getProfileUrl, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setProfileUrl of ContactSocial **/
-            var _params_setProfileUrl = new Array();
-            _params_setProfileUrl.push(new ReflectionParameter('profileUrl', 'ContactSocial setProfileUrl profileUrl', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setProfileUrl', 'ContactSocial setProfileUrl', _params_setProfileUrl, null));
-            /** Class description of ContactSocial **/
-            var clazz = new ReflectionClass('ContactSocial', 'Bean class ContactSocial', 'ContactSocial', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return ContactSocial;
-    })();
-    Adaptive.ContactSocial = ContactSocial;
-    /**
-     *  Enumerations for ContactSocial SocialNetwork
-     **/
-    var ContactSocialSocialNetworkEnum = (function () {
-        function ContactSocialSocialNetworkEnum(value) {
-            this.value = value;
-        }
-        ContactSocialSocialNetworkEnum.prototype.toString = function () {
-            return this.value;
-        };
-        ContactSocialSocialNetworkEnum.getReflection = function () {
-            return null; // TODO: Implement reflection -> ContactSocial SocialNetwork
-        };
-        ContactSocialSocialNetworkEnum.Twitter = new ContactSocialSocialNetworkEnum("Twitter");
-        ContactSocialSocialNetworkEnum.Facebook = new ContactSocialSocialNetworkEnum("Facebook");
-        ContactSocialSocialNetworkEnum.GooglePlus = new ContactSocialSocialNetworkEnum("GooglePlus");
-        ContactSocialSocialNetworkEnum.LinkedIn = new ContactSocialSocialNetworkEnum("LinkedIn");
-        ContactSocialSocialNetworkEnum.Flickr = new ContactSocialSocialNetworkEnum("Flickr");
-        ContactSocialSocialNetworkEnum.Unknown = new ContactSocialSocialNetworkEnum("Unknown");
-        return ContactSocialSocialNetworkEnum;
-    })();
-    Adaptive.ContactSocialSocialNetworkEnum = ContactSocialSocialNetworkEnum;
-    /**
-     *   Class implementation for Table
-     **/
-    var Table = (function () {
-        /** Initialization **/
-        function Table(name) {
-            this.name = name;
-        }
-        /**
-         * Method Declarations for Table
-         */
-        Table.prototype.getColumnCount = function () {
-            return this.columnCount;
-        };
-        Table.prototype.getColumns = function () {
-            return this.columns;
-        };
-        Table.prototype.getName = function () {
-            return this.name;
-        };
-        Table.prototype.getRowCount = function () {
-            return this.rowCount;
-        };
-        Table.prototype.getRows = function () {
-            return this.rows;
-        };
-        Table.prototype.setColumnCount = function (columnCount) {
-            this.columnCount = columnCount;
-        };
-        Table.prototype.setColumns = function (columns) {
-            this.columns = columns;
-        };
-        Table.prototype.setName = function (name) {
-            this.name = name;
-        };
-        Table.prototype.setRowCount = function (rowCount) {
-            this.rowCount = rowCount;
-        };
-        Table.prototype.setRows = function (rows) {
-            this.rows = rows;
-        };
-        Table.getReflection = function () {
-            /** Fields of Table **/
-            var _fields = new Array();
-            _fields.push(new ReflectionField('name', 'Field name of class Table', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('columnCount', 'Field columnCount of class Table', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('rowCount', 'Field rowCount of class Table', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            _fields.push(new ReflectionField('columns', 'Field columns of class Table', new ReflectionClass('Array<Column>', 'Array of Column', 'Array<Column>', null, null, Adaptive.getReflection()).setTypeComponent(Column.getReflection())));
-            _fields.push(new ReflectionField('rows', 'Field rows of class Table', new ReflectionClass('Array<Row>', 'Array of Row', 'Array<Row>', null, null, Adaptive.getReflection()).setTypeComponent(Row.getReflection())));
-            /** Methods of Table **/
-            var _methods = new Array();
-            /** Method getName of Table **/
-            var _params_getName = new Array();
-            _methods.push(new ReflectionMethod('getName', 'Table getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method setName of Table **/
-            var _params_setName = new Array();
-            _params_setName.push(new ReflectionParameter('name', 'Table setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setName', 'Table setName', _params_setName, null));
-            /** Method setRows of Table **/
-            var _params_setRows = new Array();
-            _params_setRows.push(new ReflectionParameter('rows', 'Table setRows rows', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setRows', 'Table setRows', _params_setRows, null));
-            /** Method getColumnCount of Table **/
-            var _params_getColumnCount = new Array();
-            _methods.push(new ReflectionMethod('getColumnCount', 'Table getColumnCount', _params_getColumnCount, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setColumnCount of Table **/
-            var _params_setColumnCount = new Array();
-            _params_setColumnCount.push(new ReflectionParameter('columnCount', 'Table setColumnCount columnCount', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setColumnCount', 'Table setColumnCount', _params_setColumnCount, null));
-            /** Method getRowCount of Table **/
-            var _params_getRowCount = new Array();
-            _methods.push(new ReflectionMethod('getRowCount', 'Table getRowCount', _params_getRowCount, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method getRows of Table **/
-            var _params_getRows = new Array();
-            _methods.push(new ReflectionMethod('getRows', 'Table getRows', _params_getRows, new ReflectionClass('Array<Row>', 'Array of Row', 'Array<Row>', null, null, Adaptive.getReflection()).setTypeComponent(Row.getReflection())));
-            /** Method setRowCount of Table **/
-            var _params_setRowCount = new Array();
-            _params_setRowCount.push(new ReflectionParameter('rowCount', 'Table setRowCount rowCount', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setRowCount', 'Table setRowCount', _params_setRowCount, null));
-            /** Method getColumns of Table **/
-            var _params_getColumns = new Array();
-            _methods.push(new ReflectionMethod('getColumns', 'Table getColumns', _params_getColumns, new ReflectionClass('Array<Column>', 'Array of Column', 'Array<Column>', null, null, Adaptive.getReflection()).setTypeComponent(Column.getReflection())));
-            /** Method setColumns of Table **/
-            var _params_setColumns = new Array();
-            _params_setColumns.push(new ReflectionParameter('columns', 'Table setColumns columns', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setColumns', 'Table setColumns', _params_setColumns, null));
-            /** Class description of Table **/
-            var clazz = new ReflectionClass('Table', 'Bean class Table', 'Table', _methods, _fields, Adaptive.getReflection());
-            return clazz;
-        };
-        return Table;
-    })();
-    Adaptive.Table = Table;
     /**
      *   Class implementation for ServiceResponse
      **/
@@ -8626,6 +6943,696 @@ var Adaptive;
     })();
     Adaptive.ServiceResponse = ServiceResponse;
     /**
+     *   Class implementation for OSInfo
+     **/
+    var OSInfo = (function () {
+        /** Initialization **/
+        function OSInfo(name, version, vendor) {
+            this.name = name;
+            this.version = version;
+            this.vendor = vendor;
+        }
+        /**
+         * Method Declarations for OSInfo
+         */
+        OSInfo.prototype.getName = function () {
+            return this.name;
+        };
+        OSInfo.prototype.getVendor = function () {
+            return this.vendor;
+        };
+        OSInfo.prototype.getVersion = function () {
+            return this.version;
+        };
+        OSInfo.getReflection = function () {
+            /** Fields of OSInfo **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('name', 'Field name of class OSInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('version', 'Field version of class OSInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('vendor', 'Field vendor of class OSInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of OSInfo **/
+            var _methods = new Array();
+            /** Method getName of OSInfo **/
+            var _params_getName = new Array();
+            _methods.push(new ReflectionMethod('getName', 'OSInfo getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getVendor of OSInfo **/
+            var _params_getVendor = new Array();
+            _methods.push(new ReflectionMethod('getVendor', 'OSInfo getVendor', _params_getVendor, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getVersion of OSInfo **/
+            var _params_getVersion = new Array();
+            _methods.push(new ReflectionMethod('getVersion', 'OSInfo getVersion', _params_getVersion, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Class description of OSInfo **/
+            var clazz = new ReflectionClass('OSInfo', 'Bean class OSInfo', 'OSInfo', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return OSInfo;
+    })();
+    Adaptive.OSInfo = OSInfo;
+    /**
+     *   Class implementation for Column
+     **/
+    var Column = (function () {
+        /** Initialization **/
+        function Column(name) {
+            this.name = name;
+        }
+        /**
+         * Method Declarations for Column
+         */
+        Column.prototype.getName = function () {
+            return this.name;
+        };
+        Column.prototype.setName = function (name) {
+            this.name = name;
+        };
+        Column.getReflection = function () {
+            /** Fields of Column **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('name', 'Field name of class Column', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of Column **/
+            var _methods = new Array();
+            /** Method getName of Column **/
+            var _params_getName = new Array();
+            _methods.push(new ReflectionMethod('getName', 'Column getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setName of Column **/
+            var _params_setName = new Array();
+            _params_setName.push(new ReflectionParameter('name', 'Column setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setName', 'Column setName', _params_setName, null));
+            /** Class description of Column **/
+            var clazz = new ReflectionClass('Column', 'Bean class Column', 'Column', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Column;
+    })();
+    Adaptive.Column = Column;
+    /**
+     *   Class implementation for ServiceRequest
+     **/
+    var ServiceRequest = (function () {
+        /** Initialization **/
+        function ServiceRequest(content, contentType, contentLength, rawContent, headers, method, protocolVersion, session, contentEncoding) {
+            this.content = content;
+            this.contentType = contentType;
+            this.contentLength = contentLength;
+            this.rawContent = rawContent;
+            this.headers = headers;
+            this.method = method;
+            this.protocolVersion = protocolVersion;
+            this.session = session;
+            this.contentEncoding = contentEncoding;
+        }
+        /**
+         * Method Declarations for ServiceRequest
+         */
+        ServiceRequest.prototype.getContent = function () {
+            return this.content;
+        };
+        ServiceRequest.prototype.getContentEncoding = function () {
+            return this.contentEncoding;
+        };
+        ServiceRequest.prototype.getContentLength = function () {
+            return this.contentLength;
+        };
+        ServiceRequest.prototype.getContentType = function () {
+            return this.contentType;
+        };
+        ServiceRequest.prototype.getHeaders = function () {
+            return this.headers;
+        };
+        ServiceRequest.prototype.getMethod = function () {
+            return this.method;
+        };
+        ServiceRequest.prototype.getProtocolVersion = function () {
+            return this.protocolVersion;
+        };
+        ServiceRequest.prototype.getRawContent = function () {
+            return this.rawContent;
+        };
+        ServiceRequest.prototype.getSession = function () {
+            return this.session;
+        };
+        ServiceRequest.prototype.setContentEncoding = function (contentEncoding) {
+            this.contentEncoding = contentEncoding;
+        };
+        ServiceRequest.prototype.setContentLength = function (contentLength) {
+            this.contentLength = contentLength;
+        };
+        ServiceRequest.prototype.setContentType = function (contentType) {
+            this.contentType = contentType;
+        };
+        ServiceRequest.prototype.setContent = function (content) {
+            this.content = content;
+        };
+        ServiceRequest.prototype.setHeaders = function (headers) {
+            this.headers = headers;
+        };
+        ServiceRequest.prototype.setMethod = function (method) {
+            this.method = method;
+        };
+        ServiceRequest.prototype.setProtocolVersion = function (protocolVersion) {
+            this.protocolVersion = protocolVersion;
+        };
+        ServiceRequest.prototype.setRawContent = function (rawContent) {
+            this.rawContent = rawContent;
+        };
+        ServiceRequest.prototype.setSession = function (session) {
+            this.session = session;
+        };
+        ServiceRequest.getReflection = function () {
+            /** Fields of ServiceRequest **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('content', 'Field content of class ServiceRequest', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('contentType', 'Field contentType of class ServiceRequest', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('contentLength', 'Field contentLength of class ServiceRequest', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('rawContent', 'Field rawContent of class ServiceRequest', new ReflectionClass('Array<number>', 'Array of number', 'Array<number>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection()))));
+            _fields.push(new ReflectionField('headers', 'Field headers of class ServiceRequest', new ReflectionClass('Array<Header>', 'Array of Header', 'Array<Header>', null, null, Adaptive.getReflection()).setTypeComponent(Header.getReflection())));
+            _fields.push(new ReflectionField('method', 'Field method of class ServiceRequest', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('protocolVersion', 'Field protocolVersion of class ServiceRequest', ServiceRequestProtocolVersionEnum.getReflection()));
+            _fields.push(new ReflectionField('session', 'Field session of class ServiceRequest', SessionBridge.getReflection()));
+            _fields.push(new ReflectionField('contentEncoding', 'Field contentEncoding of class ServiceRequest', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of ServiceRequest **/
+            var _methods = new Array();
+            /** Method getMethod of ServiceRequest **/
+            var _params_getMethod = new Array();
+            _methods.push(new ReflectionMethod('getMethod', 'ServiceRequest getMethod', _params_getMethod, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getContent of ServiceRequest **/
+            var _params_getContent = new Array();
+            _methods.push(new ReflectionMethod('getContent', 'ServiceRequest getContent', _params_getContent, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setHeaders of ServiceRequest **/
+            var _params_setHeaders = new Array();
+            _params_setHeaders.push(new ReflectionParameter('headers', 'ServiceRequest setHeaders headers', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setHeaders', 'ServiceRequest setHeaders', _params_setHeaders, null));
+            /** Method getSession of ServiceRequest **/
+            var _params_getSession = new Array();
+            _methods.push(new ReflectionMethod('getSession', 'ServiceRequest getSession', _params_getSession, SessionBridge.getReflection()));
+            /** Method setSession of ServiceRequest **/
+            var _params_setSession = new Array();
+            _params_setSession.push(new ReflectionParameter('session', 'ServiceRequest setSession session', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setSession', 'ServiceRequest setSession', _params_setSession, null));
+            /** Method setContentEncoding of ServiceRequest **/
+            var _params_setContentEncoding = new Array();
+            _params_setContentEncoding.push(new ReflectionParameter('contentEncoding', 'ServiceRequest setContentEncoding contentEncoding', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContentEncoding', 'ServiceRequest setContentEncoding', _params_setContentEncoding, null));
+            /** Method getProtocolVersion of ServiceRequest **/
+            var _params_getProtocolVersion = new Array();
+            _methods.push(new ReflectionMethod('getProtocolVersion', 'ServiceRequest getProtocolVersion', _params_getProtocolVersion, ServiceRequestProtocolVersionEnum.getReflection()));
+            /** Method setProtocolVersion of ServiceRequest **/
+            var _params_setProtocolVersion = new Array();
+            _params_setProtocolVersion.push(new ReflectionParameter('protocolVersion', 'ServiceRequest setProtocolVersion protocolVersion', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setProtocolVersion', 'ServiceRequest setProtocolVersion', _params_setProtocolVersion, null));
+            /** Method getRawContent of ServiceRequest **/
+            var _params_getRawContent = new Array();
+            _methods.push(new ReflectionMethod('getRawContent', 'ServiceRequest getRawContent', _params_getRawContent, new ReflectionClass('Array<number>', 'Array of number', 'Array<number>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection()))));
+            /** Method setRawContent of ServiceRequest **/
+            var _params_setRawContent = new Array();
+            _params_setRawContent.push(new ReflectionParameter('rawContent', 'ServiceRequest setRawContent rawContent', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setRawContent', 'ServiceRequest setRawContent', _params_setRawContent, null));
+            /** Method setContent of ServiceRequest **/
+            var _params_setContent = new Array();
+            _params_setContent.push(new ReflectionParameter('content', 'ServiceRequest setContent content', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContent', 'ServiceRequest setContent', _params_setContent, null));
+            /** Method getContentLength of ServiceRequest **/
+            var _params_getContentLength = new Array();
+            _methods.push(new ReflectionMethod('getContentLength', 'ServiceRequest getContentLength', _params_getContentLength, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method getContentType of ServiceRequest **/
+            var _params_getContentType = new Array();
+            _methods.push(new ReflectionMethod('getContentType', 'ServiceRequest getContentType', _params_getContentType, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setContentType of ServiceRequest **/
+            var _params_setContentType = new Array();
+            _params_setContentType.push(new ReflectionParameter('contentType', 'ServiceRequest setContentType contentType', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContentType', 'ServiceRequest setContentType', _params_setContentType, null));
+            /** Method setContentLength of ServiceRequest **/
+            var _params_setContentLength = new Array();
+            _params_setContentLength.push(new ReflectionParameter('contentLength', 'ServiceRequest setContentLength contentLength', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContentLength', 'ServiceRequest setContentLength', _params_setContentLength, null));
+            /** Method getContentEncoding of ServiceRequest **/
+            var _params_getContentEncoding = new Array();
+            _methods.push(new ReflectionMethod('getContentEncoding', 'ServiceRequest getContentEncoding', _params_getContentEncoding, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getHeaders of ServiceRequest **/
+            var _params_getHeaders = new Array();
+            _methods.push(new ReflectionMethod('getHeaders', 'ServiceRequest getHeaders', _params_getHeaders, new ReflectionClass('Array<Header>', 'Array of Header', 'Array<Header>', null, null, Adaptive.getReflection()).setTypeComponent(Header.getReflection())));
+            /** Method setMethod of ServiceRequest **/
+            var _params_setMethod = new Array();
+            _params_setMethod.push(new ReflectionParameter('method', 'ServiceRequest setMethod method', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setMethod', 'ServiceRequest setMethod', _params_setMethod, null));
+            /** Class description of ServiceRequest **/
+            var clazz = new ReflectionClass('ServiceRequest', 'Bean class ServiceRequest', 'ServiceRequest', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ServiceRequest;
+    })();
+    Adaptive.ServiceRequest = ServiceRequest;
+    /**
+     *  Enumerations for ServiceRequest ProtocolVersion
+     **/
+    var ServiceRequestProtocolVersionEnum = (function () {
+        function ServiceRequestProtocolVersionEnum(value) {
+            this.value = value;
+        }
+        ServiceRequestProtocolVersionEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ServiceRequestProtocolVersionEnum.getReflection = function () {
+            /** Fields of IServiceProtocolVersionEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('HTTP_PROTOCOL_VERSION_1_0', 'Field HTTP_PROTOCOL_VERSION_1_0 of class IServiceProtocolVersionEnum', ServiceRequestProtocolVersionEnum.getReflection()));
+            _fields.push(new ReflectionField('HTTP_PROTOCOL_VERSION_1_1', 'Field HTTP_PROTOCOL_VERSION_1_1 of class IServiceProtocolVersionEnum', ServiceRequestProtocolVersionEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceProtocolVersionEnum', ServiceRequestProtocolVersionEnum.getReflection()));
+            var clazz = new ReflectionClass('IServiceProtocolVersionEnum', 'Enum class IServiceProtocolVersionEnum', 'IServiceProtocolVersionEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ServiceRequestProtocolVersionEnum.HTTP_PROTOCOL_VERSION_1_0 = new ServiceRequestProtocolVersionEnum("HTTP_PROTOCOL_VERSION_1_0");
+        ServiceRequestProtocolVersionEnum.HTTP_PROTOCOL_VERSION_1_1 = new ServiceRequestProtocolVersionEnum("HTTP_PROTOCOL_VERSION_1_1");
+        ServiceRequestProtocolVersionEnum.Unknown = new ServiceRequestProtocolVersionEnum("Unknown");
+        return ServiceRequestProtocolVersionEnum;
+    })();
+    Adaptive.ServiceRequestProtocolVersionEnum = ServiceRequestProtocolVersionEnum;
+    /**
+     *   Class implementation for Database
+     **/
+    var Database = (function () {
+        /** Initialization **/
+        function Database(name, compress) {
+            this.name = name;
+            this.compress = compress;
+        }
+        /**
+         * Method Declarations for Database
+         */
+        Database.prototype.getName = function () {
+            return this.name;
+        };
+        Database.prototype.isCompress = function () {
+            return this.compress;
+        };
+        Database.prototype.setCompress = function (compress) {
+            this.compress = compress;
+        };
+        Database.prototype.setName = function (name) {
+            this.name = name;
+        };
+        Database.getReflection = function () {
+            /** Fields of Database **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('name', 'Field name of class Database', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('compress', 'Field compress of class Database', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Methods of Database **/
+            var _methods = new Array();
+            /** Method getName of Database **/
+            var _params_getName = new Array();
+            _methods.push(new ReflectionMethod('getName', 'Database getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setName of Database **/
+            var _params_setName = new Array();
+            _params_setName.push(new ReflectionParameter('name', 'Database setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setName', 'Database setName', _params_setName, null));
+            /** Method isCompress of Database **/
+            var _params_isCompress = new Array();
+            _methods.push(new ReflectionMethod('isCompress', 'Database isCompress', _params_isCompress, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method setCompress of Database **/
+            var _params_setCompress = new Array();
+            _params_setCompress.push(new ReflectionParameter('compress', 'Database setCompress compress', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setCompress', 'Database setCompress', _params_setCompress, null));
+            /** Class description of Database **/
+            var clazz = new ReflectionClass('Database', 'Bean class Database', 'Database', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Database;
+    })();
+    Adaptive.Database = Database;
+    /**
+     *   Class implementation for Cookie
+     **/
+    var Cookie = (function () {
+        /** Initialization **/
+        function Cookie(name, data) {
+            this.name = name;
+            this.data = data;
+        }
+        /**
+         * Method Declarations for Cookie
+         */
+        Cookie.prototype.getCreation = function () {
+            return this.creation;
+        };
+        Cookie.prototype.getData = function () {
+            return this.data;
+        };
+        Cookie.prototype.getDomain = function () {
+            return this.domain;
+        };
+        Cookie.prototype.getExpiry = function () {
+            return this.expiry;
+        };
+        Cookie.prototype.getName = function () {
+            return this.name;
+        };
+        Cookie.prototype.getPath = function () {
+            return this.path;
+        };
+        Cookie.prototype.getScheme = function () {
+            return this.scheme;
+        };
+        Cookie.prototype.isSecure = function () {
+            return this.secure;
+        };
+        Cookie.prototype.setData = function (data) {
+            this.data = data;
+        };
+        Cookie.prototype.setDomain = function (domain) {
+            this.domain = domain;
+        };
+        Cookie.prototype.setExpiry = function (expiry) {
+            this.expiry = expiry;
+        };
+        Cookie.prototype.setName = function (name) {
+            this.name = name;
+        };
+        Cookie.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        Cookie.prototype.setScheme = function (scheme) {
+            this.scheme = scheme;
+        };
+        Cookie.prototype.setSecure = function (secure) {
+            this.secure = secure;
+        };
+        Cookie.getReflection = function () {
+            /** Fields of Cookie **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('name', 'Field name of class Cookie', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('data', 'Field data of class Cookie', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('domain', 'Field domain of class Cookie', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('path', 'Field path of class Cookie', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('scheme', 'Field scheme of class Cookie', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('secure', 'Field secure of class Cookie', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('expiry', 'Field expiry of class Cookie', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('creation', 'Field creation of class Cookie', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Methods of Cookie **/
+            var _methods = new Array();
+            /** Method getName of Cookie **/
+            var _params_getName = new Array();
+            _methods.push(new ReflectionMethod('getName', 'Cookie getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setName of Cookie **/
+            var _params_setName = new Array();
+            _params_setName.push(new ReflectionParameter('name', 'Cookie setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setName', 'Cookie setName', _params_setName, null));
+            /** Method getPath of Cookie **/
+            var _params_getPath = new Array();
+            _methods.push(new ReflectionMethod('getPath', 'Cookie getPath', _params_getPath, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getScheme of Cookie **/
+            var _params_getScheme = new Array();
+            _methods.push(new ReflectionMethod('getScheme', 'Cookie getScheme', _params_getScheme, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setData of Cookie **/
+            var _params_setData = new Array();
+            _params_setData.push(new ReflectionParameter('data', 'Cookie setData data', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setData', 'Cookie setData', _params_setData, null));
+            /** Method isSecure of Cookie **/
+            var _params_isSecure = new Array();
+            _methods.push(new ReflectionMethod('isSecure', 'Cookie isSecure', _params_isSecure, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method getDomain of Cookie **/
+            var _params_getDomain = new Array();
+            _methods.push(new ReflectionMethod('getDomain', 'Cookie getDomain', _params_getDomain, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setDomain of Cookie **/
+            var _params_setDomain = new Array();
+            _params_setDomain.push(new ReflectionParameter('domain', 'Cookie setDomain domain', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setDomain', 'Cookie setDomain', _params_setDomain, null));
+            /** Method setSecure of Cookie **/
+            var _params_setSecure = new Array();
+            _params_setSecure.push(new ReflectionParameter('secure', 'Cookie setSecure secure', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setSecure', 'Cookie setSecure', _params_setSecure, null));
+            /** Method getExpiry of Cookie **/
+            var _params_getExpiry = new Array();
+            _methods.push(new ReflectionMethod('getExpiry', 'Cookie getExpiry', _params_getExpiry, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setExpiry of Cookie **/
+            var _params_setExpiry = new Array();
+            _params_setExpiry.push(new ReflectionParameter('expiry', 'Cookie setExpiry expiry', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setExpiry', 'Cookie setExpiry', _params_setExpiry, null));
+            /** Method getCreation of Cookie **/
+            var _params_getCreation = new Array();
+            _methods.push(new ReflectionMethod('getCreation', 'Cookie getCreation', _params_getCreation, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setPath of Cookie **/
+            var _params_setPath = new Array();
+            _params_setPath.push(new ReflectionParameter('path', 'Cookie setPath path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setPath', 'Cookie setPath', _params_setPath, null));
+            /** Method setScheme of Cookie **/
+            var _params_setScheme = new Array();
+            _params_setScheme.push(new ReflectionParameter('scheme', 'Cookie setScheme scheme', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setScheme', 'Cookie setScheme', _params_setScheme, null));
+            /** Method getData of Cookie **/
+            var _params_getData = new Array();
+            _methods.push(new ReflectionMethod('getData', 'Cookie getData', _params_getData, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Class description of Cookie **/
+            var clazz = new ReflectionClass('Cookie', 'Bean class Cookie', 'Cookie', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Cookie;
+    })();
+    Adaptive.Cookie = Cookie;
+    /**
+     *   Class implementation for Locale
+     **/
+    var Locale = (function () {
+        /** Initialization **/
+        function Locale(language, country) {
+            this.language = language;
+            this.country = country;
+            this.description = this.country + "_" + this.language;
+        }
+        /**
+         * Method Declarations for Locale
+         */
+        Locale.prototype.getCountry = function () {
+            return this.country;
+        };
+        Locale.prototype.getLanguage = function () {
+            return this.language;
+        };
+        Locale.prototype.setCountry = function (country) {
+            this.country = country;
+        };
+        Locale.prototype.setLanguage = function (language) {
+            this.language = language;
+        };
+        Locale.prototype.toString = function () {
+            return this.description;
+        };
+        Locale.getReflection = function () {
+            /** Fields of Locale **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('country', 'Field country of class Locale', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('language', 'Field language of class Locale', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of Locale **/
+            var _methods = new Array();
+            /** Method toString of Locale **/
+            var _params_toString = new Array();
+            _methods.push(new ReflectionMethod('toString', 'Locale toString', _params_toString, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getLanguage of Locale **/
+            var _params_getLanguage = new Array();
+            _methods.push(new ReflectionMethod('getLanguage', 'Locale getLanguage', _params_getLanguage, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getCountry of Locale **/
+            var _params_getCountry = new Array();
+            _methods.push(new ReflectionMethod('getCountry', 'Locale getCountry', _params_getCountry, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setCountry of Locale **/
+            var _params_setCountry = new Array();
+            _params_setCountry.push(new ReflectionParameter('country', 'Locale setCountry country', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setCountry', 'Locale setCountry', _params_setCountry, null));
+            /** Method setLanguage of Locale **/
+            var _params_setLanguage = new Array();
+            _params_setLanguage.push(new ReflectionParameter('language', 'Locale setLanguage language', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setLanguage', 'Locale setLanguage', _params_setLanguage, null));
+            /** Class description of Locale **/
+            var clazz = new ReflectionClass('Locale', 'Bean class Locale', 'Locale', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Locale;
+    })();
+    Adaptive.Locale = Locale;
+    /**
+     *   Class implementation for ContactWebsite
+     **/
+    var ContactWebsite = (function () {
+        /** Initialization **/
+        function ContactWebsite(url) {
+            this.url = url;
+        }
+        /**
+         * Method Declarations for ContactWebsite
+         */
+        ContactWebsite.prototype.getUrl = function () {
+            return this.url;
+        };
+        ContactWebsite.prototype.setUrl = function (url) {
+            this.url = url;
+        };
+        ContactWebsite.getReflection = function () {
+            /** Fields of ContactWebsite **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('url', 'Field url of class ContactWebsite', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of ContactWebsite **/
+            var _methods = new Array();
+            /** Method getUrl of ContactWebsite **/
+            var _params_getUrl = new Array();
+            _methods.push(new ReflectionMethod('getUrl', 'ContactWebsite getUrl', _params_getUrl, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setUrl of ContactWebsite **/
+            var _params_setUrl = new Array();
+            _params_setUrl.push(new ReflectionParameter('url', 'ContactWebsite setUrl url', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setUrl', 'ContactWebsite setUrl', _params_setUrl, null));
+            /** Class description of ContactWebsite **/
+            var clazz = new ReflectionClass('ContactWebsite', 'Bean class ContactWebsite', 'ContactWebsite', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ContactWebsite;
+    })();
+    Adaptive.ContactWebsite = ContactWebsite;
+    /**
+     *   Class implementation for Row
+     **/
+    var Row = (function () {
+        /** Initialization **/
+        function Row(values) {
+            this.values = values;
+        }
+        /**
+         * Method Declarations for Row
+         */
+        Row.prototype.getValues = function () {
+            return this.values;
+        };
+        Row.prototype.setValues = function (values) {
+            this.values = values;
+        };
+        Row.getReflection = function () {
+            /** Fields of Row **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('values', 'Field values of class Row', new ReflectionClass('Array<any>', 'Array of any', 'Array<any>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection()))));
+            /** Methods of Row **/
+            var _methods = new Array();
+            /** Method getValues of Row **/
+            var _params_getValues = new Array();
+            _methods.push(new ReflectionMethod('getValues', 'Row getValues', _params_getValues, new ReflectionClass('Array<any>', 'Array of any', 'Array<any>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection()))));
+            /** Method setValues of Row **/
+            var _params_setValues = new Array();
+            _params_setValues.push(new ReflectionParameter('values', 'Row setValues values', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setValues', 'Row setValues', _params_setValues, null));
+            /** Class description of Row **/
+            var clazz = new ReflectionClass('Row', 'Bean class Row', 'Row', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Row;
+    })();
+    Adaptive.Row = Row;
+    /**
+     *   Class implementation for ContactPersonalInfo
+     **/
+    var ContactPersonalInfo = (function () {
+        /** Initialization **/
+        function ContactPersonalInfo(name, middleName, lastName, title) {
+            this.name = name;
+            this.middleName = middleName;
+            this.lastName = lastName;
+            this.title = title;
+        }
+        /**
+         * Method Declarations for ContactPersonalInfo
+         */
+        ContactPersonalInfo.prototype.getLastName = function () {
+            return this.lastName;
+        };
+        ContactPersonalInfo.prototype.getMiddleName = function () {
+            return this.middleName;
+        };
+        ContactPersonalInfo.prototype.getName = function () {
+            return this.name;
+        };
+        ContactPersonalInfo.prototype.getTitle = function () {
+            return this.title;
+        };
+        ContactPersonalInfo.prototype.setLastName = function (lastName) {
+            this.lastName = lastName;
+        };
+        ContactPersonalInfo.prototype.setMiddleName = function (middleName) {
+            this.middleName = middleName;
+        };
+        ContactPersonalInfo.prototype.setName = function (name) {
+            this.name = name;
+        };
+        ContactPersonalInfo.prototype.setTitle = function (title) {
+            this.title = title;
+        };
+        ContactPersonalInfo.getReflection = function () {
+            /** Fields of ContactPersonalInfo **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('name', 'Field name of class ContactPersonalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('middleName', 'Field middleName of class ContactPersonalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('lastName', 'Field lastName of class ContactPersonalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('title', 'Field title of class ContactPersonalInfo', ContactPersonalInfoTitleEnum.getReflection()));
+            /** Methods of ContactPersonalInfo **/
+            var _methods = new Array();
+            /** Method getName of ContactPersonalInfo **/
+            var _params_getName = new Array();
+            _methods.push(new ReflectionMethod('getName', 'ContactPersonalInfo getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setName of ContactPersonalInfo **/
+            var _params_setName = new Array();
+            _params_setName.push(new ReflectionParameter('name', 'ContactPersonalInfo setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setName', 'ContactPersonalInfo setName', _params_setName, null));
+            /** Method getTitle of ContactPersonalInfo **/
+            var _params_getTitle = new Array();
+            _methods.push(new ReflectionMethod('getTitle', 'ContactPersonalInfo getTitle', _params_getTitle, ContactPersonalInfoTitleEnum.getReflection()));
+            /** Method setTitle of ContactPersonalInfo **/
+            var _params_setTitle = new Array();
+            _params_setTitle.push(new ReflectionParameter('title', 'ContactPersonalInfo setTitle title', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setTitle', 'ContactPersonalInfo setTitle', _params_setTitle, null));
+            /** Method setMiddleName of ContactPersonalInfo **/
+            var _params_setMiddleName = new Array();
+            _params_setMiddleName.push(new ReflectionParameter('middleName', 'ContactPersonalInfo setMiddleName middleName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setMiddleName', 'ContactPersonalInfo setMiddleName', _params_setMiddleName, null));
+            /** Method getMiddleName of ContactPersonalInfo **/
+            var _params_getMiddleName = new Array();
+            _methods.push(new ReflectionMethod('getMiddleName', 'ContactPersonalInfo getMiddleName', _params_getMiddleName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getLastName of ContactPersonalInfo **/
+            var _params_getLastName = new Array();
+            _methods.push(new ReflectionMethod('getLastName', 'ContactPersonalInfo getLastName', _params_getLastName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setLastName of ContactPersonalInfo **/
+            var _params_setLastName = new Array();
+            _params_setLastName.push(new ReflectionParameter('lastName', 'ContactPersonalInfo setLastName lastName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setLastName', 'ContactPersonalInfo setLastName', _params_setLastName, null));
+            /** Class description of ContactPersonalInfo **/
+            var clazz = new ReflectionClass('ContactPersonalInfo', 'Bean class ContactPersonalInfo', 'ContactPersonalInfo', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ContactPersonalInfo;
+    })();
+    Adaptive.ContactPersonalInfo = ContactPersonalInfo;
+    /**
+     *  Enumerations for ContactPersonalInfo Title
+     **/
+    var ContactPersonalInfoTitleEnum = (function () {
+        function ContactPersonalInfoTitleEnum(value) {
+            this.value = value;
+        }
+        ContactPersonalInfoTitleEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ContactPersonalInfoTitleEnum.getReflection = function () {
+            /** Fields of ContactPersonalInfoTitleEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Mr', 'Field Mr of class ContactPersonalInfoTitleEnum', ContactPersonalInfoTitleEnum.getReflection()));
+            _fields.push(new ReflectionField('Mrs', 'Field Mrs of class ContactPersonalInfoTitleEnum', ContactPersonalInfoTitleEnum.getReflection()));
+            _fields.push(new ReflectionField('Ms', 'Field Ms of class ContactPersonalInfoTitleEnum', ContactPersonalInfoTitleEnum.getReflection()));
+            _fields.push(new ReflectionField('Dr', 'Field Dr of class ContactPersonalInfoTitleEnum', ContactPersonalInfoTitleEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactPersonalInfoTitleEnum', ContactPersonalInfoTitleEnum.getReflection()));
+            var clazz = new ReflectionClass('ContactPersonalInfoTitleEnum', 'Enum class ContactPersonalInfoTitleEnum', 'ContactPersonalInfoTitleEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ContactPersonalInfoTitleEnum.Mr = new ContactPersonalInfoTitleEnum("Mr");
+        ContactPersonalInfoTitleEnum.Mrs = new ContactPersonalInfoTitleEnum("Mrs");
+        ContactPersonalInfoTitleEnum.Ms = new ContactPersonalInfoTitleEnum("Ms");
+        ContactPersonalInfoTitleEnum.Dr = new ContactPersonalInfoTitleEnum("Dr");
+        ContactPersonalInfoTitleEnum.Unknown = new ContactPersonalInfoTitleEnum("Unknown");
+        return ContactPersonalInfoTitleEnum;
+    })();
+    Adaptive.ContactPersonalInfoTitleEnum = ContactPersonalInfoTitleEnum;
+    /**
      *   Class implementation for EmailAddress
      **/
     var EmailAddress = (function () {
@@ -8662,6 +7669,953 @@ var Adaptive;
         return EmailAddress;
     })();
     Adaptive.EmailAddress = EmailAddress;
+    /**
+     *   Class implementation for ContactTag
+     **/
+    var ContactTag = (function () {
+        /** Initialization **/
+        function ContactTag(name, dataValue) {
+            this.name = name;
+            this.dataValue = dataValue;
+        }
+        /**
+         * Method Declarations for ContactTag
+         */
+        ContactTag.prototype.getDataValue = function () {
+            return this.dataValue;
+        };
+        ContactTag.prototype.getName = function () {
+            return this.name;
+        };
+        ContactTag.prototype.setDataValue = function (dataValue) {
+            this.dataValue = dataValue;
+        };
+        ContactTag.prototype.setName = function (name) {
+            this.name = name;
+        };
+        ContactTag.getReflection = function () {
+            /** Fields of ContactTag **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('name', 'Field name of class ContactTag', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('dataValue', 'Field dataValue of class ContactTag', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of ContactTag **/
+            var _methods = new Array();
+            /** Method getName of ContactTag **/
+            var _params_getName = new Array();
+            _methods.push(new ReflectionMethod('getName', 'ContactTag getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setName of ContactTag **/
+            var _params_setName = new Array();
+            _params_setName.push(new ReflectionParameter('name', 'ContactTag setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setName', 'ContactTag setName', _params_setName, null));
+            /** Method getDataValue of ContactTag **/
+            var _params_getDataValue = new Array();
+            _methods.push(new ReflectionMethod('getDataValue', 'ContactTag getDataValue', _params_getDataValue, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setDataValue of ContactTag **/
+            var _params_setDataValue = new Array();
+            _params_setDataValue.push(new ReflectionParameter('dataValue', 'ContactTag setDataValue dataValue', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setDataValue', 'ContactTag setDataValue', _params_setDataValue, null));
+            /** Class description of ContactTag **/
+            var clazz = new ReflectionClass('ContactTag', 'Bean class ContactTag', 'ContactTag', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ContactTag;
+    })();
+    Adaptive.ContactTag = ContactTag;
+    /**
+     *   Class implementation for Endpoint
+     **/
+    var Endpoint = (function () {
+        /** Initialization **/
+        function Endpoint(host, path, port, proxy, scheme) {
+            this.host = host;
+            this.path = path;
+            this.port = port;
+            this.proxy = proxy;
+            this.scheme = scheme;
+        }
+        /**
+         * Method Declarations for Endpoint
+         */
+        Endpoint.prototype.getHost = function () {
+            return this.host;
+        };
+        Endpoint.prototype.getPath = function () {
+            return this.path;
+        };
+        Endpoint.prototype.getPort = function () {
+            return this.port;
+        };
+        Endpoint.prototype.getProxy = function () {
+            return this.proxy;
+        };
+        Endpoint.prototype.getScheme = function () {
+            return this.scheme;
+        };
+        Endpoint.prototype.setHost = function (host) {
+            this.host = host;
+        };
+        Endpoint.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        Endpoint.prototype.setPort = function (port) {
+            this.port = port;
+        };
+        Endpoint.prototype.setProxy = function (proxy) {
+            this.proxy = proxy;
+        };
+        Endpoint.prototype.setScheme = function (scheme) {
+            this.scheme = scheme;
+        };
+        Endpoint.getReflection = function () {
+            /** Fields of Endpoint **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('host', 'Field host of class Endpoint', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('path', 'Field path of class Endpoint', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('port', 'Field port of class Endpoint', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('proxy', 'Field proxy of class Endpoint', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('scheme', 'Field scheme of class Endpoint', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of Endpoint **/
+            var _methods = new Array();
+            /** Method getPath of Endpoint **/
+            var _params_getPath = new Array();
+            _methods.push(new ReflectionMethod('getPath', 'Endpoint getPath', _params_getPath, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getScheme of Endpoint **/
+            var _params_getScheme = new Array();
+            _methods.push(new ReflectionMethod('getScheme', 'Endpoint getScheme', _params_getScheme, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getHost of Endpoint **/
+            var _params_getHost = new Array();
+            _methods.push(new ReflectionMethod('getHost', 'Endpoint getHost', _params_getHost, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getPort of Endpoint **/
+            var _params_getPort = new Array();
+            _methods.push(new ReflectionMethod('getPort', 'Endpoint getPort', _params_getPort, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setPath of Endpoint **/
+            var _params_setPath = new Array();
+            _params_setPath.push(new ReflectionParameter('path', 'Endpoint setPath path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setPath', 'Endpoint setPath', _params_setPath, null));
+            /** Method setHost of Endpoint **/
+            var _params_setHost = new Array();
+            _params_setHost.push(new ReflectionParameter('host', 'Endpoint setHost host', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setHost', 'Endpoint setHost', _params_setHost, null));
+            /** Method getProxy of Endpoint **/
+            var _params_getProxy = new Array();
+            _methods.push(new ReflectionMethod('getProxy', 'Endpoint getProxy', _params_getProxy, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setProxy of Endpoint **/
+            var _params_setProxy = new Array();
+            _params_setProxy.push(new ReflectionParameter('proxy', 'Endpoint setProxy proxy', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setProxy', 'Endpoint setProxy', _params_setProxy, null));
+            /** Method setScheme of Endpoint **/
+            var _params_setScheme = new Array();
+            _params_setScheme.push(new ReflectionParameter('scheme', 'Endpoint setScheme scheme', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setScheme', 'Endpoint setScheme', _params_setScheme, null));
+            /** Method setPort of Endpoint **/
+            var _params_setPort = new Array();
+            _params_setPort.push(new ReflectionParameter('port', 'Endpoint setPort port', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setPort', 'Endpoint setPort', _params_setPort, null));
+            /** Class description of Endpoint **/
+            var clazz = new ReflectionClass('Endpoint', 'Bean class Endpoint', 'Endpoint', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Endpoint;
+    })();
+    Adaptive.Endpoint = Endpoint;
+    /**
+     *   Class implementation for Geolocation
+     **/
+    var Geolocation = (function () {
+        /** Initialization **/
+        function Geolocation(latitude, longitude, altitude, xDoP, yDoP) {
+            this.latitude = latitude;
+            this.longitude = longitude;
+            this.altitude = altitude;
+            this.xDoP = xDoP;
+            this.yDoP = yDoP;
+        }
+        /**
+         * Method Declarations for Geolocation
+         */
+        Geolocation.prototype.getAltitude = function () {
+            return this.altitude;
+        };
+        Geolocation.prototype.getLatitude = function () {
+            return this.latitude;
+        };
+        Geolocation.prototype.getLongitude = function () {
+            return this.longitude;
+        };
+        Geolocation.prototype.getXDoP = function () {
+            return this.xDoP;
+        };
+        Geolocation.prototype.getYDoP = function () {
+            return this.yDoP;
+        };
+        Geolocation.prototype.setAltitude = function (altitude) {
+            this.altitude = altitude;
+        };
+        Geolocation.prototype.setLatitude = function (latitude) {
+            this.latitude = latitude;
+        };
+        Geolocation.prototype.setLongitude = function (longitude) {
+            this.longitude = longitude;
+        };
+        Geolocation.getReflection = function () {
+            /** Fields of Geolocation **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('latitude', 'Field latitude of class Geolocation', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('longitude', 'Field longitude of class Geolocation', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('altitude', 'Field altitude of class Geolocation', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('xDoP', 'Field xDoP of class Geolocation', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('yDoP', 'Field yDoP of class Geolocation', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Methods of Geolocation **/
+            var _methods = new Array();
+            /** Method getLatitude of Geolocation **/
+            var _params_getLatitude = new Array();
+            _methods.push(new ReflectionMethod('getLatitude', 'Geolocation getLatitude', _params_getLatitude, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setLatitude of Geolocation **/
+            var _params_setLatitude = new Array();
+            _params_setLatitude.push(new ReflectionParameter('latitude', 'Geolocation setLatitude latitude', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setLatitude', 'Geolocation setLatitude', _params_setLatitude, null));
+            /** Method getLongitude of Geolocation **/
+            var _params_getLongitude = new Array();
+            _methods.push(new ReflectionMethod('getLongitude', 'Geolocation getLongitude', _params_getLongitude, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setLongitude of Geolocation **/
+            var _params_setLongitude = new Array();
+            _params_setLongitude.push(new ReflectionParameter('longitude', 'Geolocation setLongitude longitude', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setLongitude', 'Geolocation setLongitude', _params_setLongitude, null));
+            /** Method getAltitude of Geolocation **/
+            var _params_getAltitude = new Array();
+            _methods.push(new ReflectionMethod('getAltitude', 'Geolocation getAltitude', _params_getAltitude, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setAltitude of Geolocation **/
+            var _params_setAltitude = new Array();
+            _params_setAltitude.push(new ReflectionParameter('altitude', 'Geolocation setAltitude altitude', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setAltitude', 'Geolocation setAltitude', _params_setAltitude, null));
+            /** Method getXDoP of Geolocation **/
+            var _params_getXDoP = new Array();
+            _methods.push(new ReflectionMethod('getXDoP', 'Geolocation getXDoP', _params_getXDoP, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method getYDoP of Geolocation **/
+            var _params_getYDoP = new Array();
+            _methods.push(new ReflectionMethod('getYDoP', 'Geolocation getYDoP', _params_getYDoP, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Class description of Geolocation **/
+            var clazz = new ReflectionClass('Geolocation', 'Bean class Geolocation', 'Geolocation', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Geolocation;
+    })();
+    Adaptive.Geolocation = Geolocation;
+    /**
+     *   Class implementation for ContactUid
+     **/
+    var ContactUid = (function () {
+        /** Initialization **/
+        function ContactUid(contactId) {
+            this.contactId = contactId;
+        }
+        /**
+         * Method Declarations for ContactUid
+         */
+        ContactUid.prototype.getContactId = function () {
+            return this.contactId;
+        };
+        ContactUid.prototype.setContactId = function (contactId) {
+            this.contactId = contactId;
+        };
+        ContactUid.getReflection = function () {
+            /** Fields of ContactUid **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('contactId', 'Field contactId of class ContactUid', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of ContactUid **/
+            var _methods = new Array();
+            /** Method getContactId of ContactUid **/
+            var _params_getContactId = new Array();
+            _methods.push(new ReflectionMethod('getContactId', 'ContactUid getContactId', _params_getContactId, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setContactId of ContactUid **/
+            var _params_setContactId = new Array();
+            _params_setContactId.push(new ReflectionParameter('contactId', 'ContactUid setContactId contactId', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContactId', 'ContactUid setContactId', _params_setContactId, null));
+            /** Class description of ContactUid **/
+            var clazz = new ReflectionClass('ContactUid', 'Bean class ContactUid', 'ContactUid', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ContactUid;
+    })();
+    Adaptive.ContactUid = ContactUid;
+    /**
+     *   Class implementation for Email
+     **/
+    var Email = (function () {
+        /** Initialization **/
+        function Email(toRecipients, subject, messageBody) {
+            this.toRecipients = toRecipients;
+            this.subject = subject;
+            this.messageBody = messageBody;
+        }
+        /**
+         * Method Declarations for Email
+         */
+        Email.prototype.getAttachmentData = function () {
+            return this.attachmentData;
+        };
+        Email.prototype.getBccRecipients = function () {
+            return this.bccRecipients;
+        };
+        Email.prototype.getCcRecipients = function () {
+            return this.ccRecipients;
+        };
+        Email.prototype.getMessageBody = function () {
+            return this.messageBody;
+        };
+        Email.prototype.getMessageBodyMimeType = function () {
+            return this.messageBodyMimeType;
+        };
+        Email.prototype.getSubject = function () {
+            return this.subject;
+        };
+        Email.prototype.getToRecipients = function () {
+            return this.toRecipients;
+        };
+        Email.prototype.setAttachmentData = function (attachmentData) {
+            this.attachmentData = attachmentData;
+        };
+        Email.prototype.setBccRecipients = function (bccRecipients) {
+            this.bccRecipients = bccRecipients;
+        };
+        Email.prototype.setCcRecipients = function (ccRecipients) {
+            this.ccRecipients = ccRecipients;
+        };
+        Email.prototype.setMessageBodyMimeType = function (messageBodyMimeType) {
+            this.messageBodyMimeType = messageBodyMimeType;
+        };
+        Email.prototype.setMessageBody = function (messageBody) {
+            this.messageBody = messageBody;
+        };
+        Email.prototype.setSubject = function (subject) {
+            this.subject = subject;
+        };
+        Email.prototype.setToRecipients = function (toRecipients) {
+            this.toRecipients = toRecipients;
+        };
+        Email.getReflection = function () {
+            /** Fields of Email **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('toRecipients', 'Field toRecipients of class Email', new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
+            _fields.push(new ReflectionField('ccRecipients', 'Field ccRecipients of class Email', new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
+            _fields.push(new ReflectionField('bccRecipients', 'Field bccRecipients of class Email', new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
+            _fields.push(new ReflectionField('attachmentData', 'Field attachmentData of class Email', new ReflectionClass('Array<AttachmentData>', 'Array of AttachmentData', 'Array<AttachmentData>', null, null, Adaptive.getReflection()).setTypeComponent(AttachmentData.getReflection())));
+            _fields.push(new ReflectionField('messageBody', 'Field messageBody of class Email', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('messageBodyMimeType', 'Field messageBodyMimeType of class Email', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('subject', 'Field subject of class Email', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of Email **/
+            var _methods = new Array();
+            /** Method getToRecipients of Email **/
+            var _params_getToRecipients = new Array();
+            _methods.push(new ReflectionMethod('getToRecipients', 'Email getToRecipients', _params_getToRecipients, new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
+            /** Method setToRecipients of Email **/
+            var _params_setToRecipients = new Array();
+            _params_setToRecipients.push(new ReflectionParameter('toRecipients', 'Email setToRecipients toRecipients', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setToRecipients', 'Email setToRecipients', _params_setToRecipients, null));
+            /** Method getCcRecipients of Email **/
+            var _params_getCcRecipients = new Array();
+            _methods.push(new ReflectionMethod('getCcRecipients', 'Email getCcRecipients', _params_getCcRecipients, new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
+            /** Method setCcRecipients of Email **/
+            var _params_setCcRecipients = new Array();
+            _params_setCcRecipients.push(new ReflectionParameter('ccRecipients', 'Email setCcRecipients ccRecipients', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setCcRecipients', 'Email setCcRecipients', _params_setCcRecipients, null));
+            /** Method getBccRecipients of Email **/
+            var _params_getBccRecipients = new Array();
+            _methods.push(new ReflectionMethod('getBccRecipients', 'Email getBccRecipients', _params_getBccRecipients, new ReflectionClass('Array<EmailAddress>', 'Array of EmailAddress', 'Array<EmailAddress>', null, null, Adaptive.getReflection()).setTypeComponent(EmailAddress.getReflection())));
+            /** Method setBccRecipients of Email **/
+            var _params_setBccRecipients = new Array();
+            _params_setBccRecipients.push(new ReflectionParameter('bccRecipients', 'Email setBccRecipients bccRecipients', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setBccRecipients', 'Email setBccRecipients', _params_setBccRecipients, null));
+            /** Method getAttachmentData of Email **/
+            var _params_getAttachmentData = new Array();
+            _methods.push(new ReflectionMethod('getAttachmentData', 'Email getAttachmentData', _params_getAttachmentData, new ReflectionClass('Array<AttachmentData>', 'Array of AttachmentData', 'Array<AttachmentData>', null, null, Adaptive.getReflection()).setTypeComponent(AttachmentData.getReflection())));
+            /** Method setAttachmentData of Email **/
+            var _params_setAttachmentData = new Array();
+            _params_setAttachmentData.push(new ReflectionParameter('attachmentData', 'Email setAttachmentData attachmentData', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setAttachmentData', 'Email setAttachmentData', _params_setAttachmentData, null));
+            /** Method getMessageBody of Email **/
+            var _params_getMessageBody = new Array();
+            _methods.push(new ReflectionMethod('getMessageBody', 'Email getMessageBody', _params_getMessageBody, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setMessageBody of Email **/
+            var _params_setMessageBody = new Array();
+            _params_setMessageBody.push(new ReflectionParameter('messageBody', 'Email setMessageBody messageBody', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setMessageBody', 'Email setMessageBody', _params_setMessageBody, null));
+            /** Method getMessageBodyMimeType of Email **/
+            var _params_getMessageBodyMimeType = new Array();
+            _methods.push(new ReflectionMethod('getMessageBodyMimeType', 'Email getMessageBodyMimeType', _params_getMessageBodyMimeType, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setMessageBodyMimeType of Email **/
+            var _params_setMessageBodyMimeType = new Array();
+            _params_setMessageBodyMimeType.push(new ReflectionParameter('messageBodyMimeType', 'Email setMessageBodyMimeType messageBodyMimeType', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setMessageBodyMimeType', 'Email setMessageBodyMimeType', _params_setMessageBodyMimeType, null));
+            /** Method getSubject of Email **/
+            var _params_getSubject = new Array();
+            _methods.push(new ReflectionMethod('getSubject', 'Email getSubject', _params_getSubject, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setSubject of Email **/
+            var _params_setSubject = new Array();
+            _params_setSubject.push(new ReflectionParameter('subject', 'Email setSubject subject', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setSubject', 'Email setSubject', _params_setSubject, null));
+            /** Class description of Email **/
+            var clazz = new ReflectionClass('Email', 'Bean class Email', 'Email', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Email;
+    })();
+    Adaptive.Email = Email;
+    /**
+     *   Class implementation for AttachmentData
+     **/
+    var AttachmentData = (function () {
+        /** Initialization **/
+        function AttachmentData(data, dataSize, fileName, mimeType, referenceUrl) {
+            this.data = data;
+            this.dataSize = dataSize;
+            this.fileName = fileName;
+            this.mimeType = mimeType;
+            this.referenceUrl = referenceUrl;
+        }
+        /**
+         * Method Declarations for AttachmentData
+         */
+        AttachmentData.prototype.getData = function () {
+            return this.data;
+        };
+        AttachmentData.prototype.getDataSize = function () {
+            return this.dataSize;
+        };
+        AttachmentData.prototype.getFileName = function () {
+            return this.fileName;
+        };
+        AttachmentData.prototype.getMimeType = function () {
+            return this.mimeType;
+        };
+        AttachmentData.prototype.getReferenceUrl = function () {
+            return this.referenceUrl;
+        };
+        AttachmentData.prototype.setDataSize = function (dataSize) {
+            this.dataSize = dataSize;
+        };
+        AttachmentData.prototype.setData = function (data) {
+            this.data = data;
+        };
+        AttachmentData.prototype.setFileName = function (fileName) {
+            this.fileName = fileName;
+        };
+        AttachmentData.prototype.setMimeType = function (mimeType) {
+            this.mimeType = mimeType;
+        };
+        AttachmentData.prototype.setReferenceUrl = function (referenceUrl) {
+            this.referenceUrl = referenceUrl;
+        };
+        AttachmentData.getReflection = function () {
+            /** Fields of AttachmentData **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('data', 'Field data of class AttachmentData', new ReflectionClass('Array<number>', 'Array of number', 'Array<number>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection()))));
+            _fields.push(new ReflectionField('dataSize', 'Field dataSize of class AttachmentData', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('fileName', 'Field fileName of class AttachmentData', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('mimeType', 'Field mimeType of class AttachmentData', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('referenceUrl', 'Field referenceUrl of class AttachmentData', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of AttachmentData **/
+            var _methods = new Array();
+            /** Method getFileName of AttachmentData **/
+            var _params_getFileName = new Array();
+            _methods.push(new ReflectionMethod('getFileName', 'AttachmentData getFileName', _params_getFileName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setData of AttachmentData **/
+            var _params_setData = new Array();
+            _params_setData.push(new ReflectionParameter('data', 'AttachmentData setData data', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setData', 'AttachmentData setData', _params_setData, null));
+            /** Method getDataSize of AttachmentData **/
+            var _params_getDataSize = new Array();
+            _methods.push(new ReflectionMethod('getDataSize', 'AttachmentData getDataSize', _params_getDataSize, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setDataSize of AttachmentData **/
+            var _params_setDataSize = new Array();
+            _params_setDataSize.push(new ReflectionParameter('dataSize', 'AttachmentData setDataSize dataSize', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setDataSize', 'AttachmentData setDataSize', _params_setDataSize, null));
+            /** Method setFileName of AttachmentData **/
+            var _params_setFileName = new Array();
+            _params_setFileName.push(new ReflectionParameter('fileName', 'AttachmentData setFileName fileName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setFileName', 'AttachmentData setFileName', _params_setFileName, null));
+            /** Method getMimeType of AttachmentData **/
+            var _params_getMimeType = new Array();
+            _methods.push(new ReflectionMethod('getMimeType', 'AttachmentData getMimeType', _params_getMimeType, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setMimeType of AttachmentData **/
+            var _params_setMimeType = new Array();
+            _params_setMimeType.push(new ReflectionParameter('mimeType', 'AttachmentData setMimeType mimeType', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setMimeType', 'AttachmentData setMimeType', _params_setMimeType, null));
+            /** Method getReferenceUrl of AttachmentData **/
+            var _params_getReferenceUrl = new Array();
+            _methods.push(new ReflectionMethod('getReferenceUrl', 'AttachmentData getReferenceUrl', _params_getReferenceUrl, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setReferenceUrl of AttachmentData **/
+            var _params_setReferenceUrl = new Array();
+            _params_setReferenceUrl.push(new ReflectionParameter('referenceUrl', 'AttachmentData setReferenceUrl referenceUrl', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setReferenceUrl', 'AttachmentData setReferenceUrl', _params_setReferenceUrl, null));
+            /** Method getData of AttachmentData **/
+            var _params_getData = new Array();
+            _methods.push(new ReflectionMethod('getData', 'AttachmentData getData', _params_getData, new ReflectionClass('Array<number>', 'Array of number', 'Array<number>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection()))));
+            /** Class description of AttachmentData **/
+            var clazz = new ReflectionClass('AttachmentData', 'Bean class AttachmentData', 'AttachmentData', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return AttachmentData;
+    })();
+    Adaptive.AttachmentData = AttachmentData;
+    /**
+     *   Class implementation for ContactSocial
+     **/
+    var ContactSocial = (function () {
+        /** Initialization **/
+        function ContactSocial(socialNetwork, profileUrl) {
+            this.socialNetwork = socialNetwork;
+            this.profileUrl = profileUrl;
+        }
+        /**
+         * Method Declarations for ContactSocial
+         */
+        ContactSocial.prototype.getProfileUrl = function () {
+            return this.profileUrl;
+        };
+        ContactSocial.prototype.getSocialNetwork = function () {
+            return this.socialNetwork;
+        };
+        ContactSocial.prototype.setProfileUrl = function (profileUrl) {
+            this.profileUrl = profileUrl;
+        };
+        ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
+            this.socialNetwork = socialNetwork;
+        };
+        ContactSocial.getReflection = function () {
+            /** Fields of ContactSocial **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('socialNetwork', 'Field socialNetwork of class ContactSocial', ContactSocialSocialNetworkEnum.getReflection()));
+            _fields.push(new ReflectionField('profileUrl', 'Field profileUrl of class ContactSocial', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of ContactSocial **/
+            var _methods = new Array();
+            /** Method getSocialNetwork of ContactSocial **/
+            var _params_getSocialNetwork = new Array();
+            _methods.push(new ReflectionMethod('getSocialNetwork', 'ContactSocial getSocialNetwork', _params_getSocialNetwork, ContactSocialSocialNetworkEnum.getReflection()));
+            /** Method setSocialNetwork of ContactSocial **/
+            var _params_setSocialNetwork = new Array();
+            _params_setSocialNetwork.push(new ReflectionParameter('socialNetwork', 'ContactSocial setSocialNetwork socialNetwork', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setSocialNetwork', 'ContactSocial setSocialNetwork', _params_setSocialNetwork, null));
+            /** Method getProfileUrl of ContactSocial **/
+            var _params_getProfileUrl = new Array();
+            _methods.push(new ReflectionMethod('getProfileUrl', 'ContactSocial getProfileUrl', _params_getProfileUrl, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setProfileUrl of ContactSocial **/
+            var _params_setProfileUrl = new Array();
+            _params_setProfileUrl.push(new ReflectionParameter('profileUrl', 'ContactSocial setProfileUrl profileUrl', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setProfileUrl', 'ContactSocial setProfileUrl', _params_setProfileUrl, null));
+            /** Class description of ContactSocial **/
+            var clazz = new ReflectionClass('ContactSocial', 'Bean class ContactSocial', 'ContactSocial', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ContactSocial;
+    })();
+    Adaptive.ContactSocial = ContactSocial;
+    /**
+     *  Enumerations for ContactSocial SocialNetwork
+     **/
+    var ContactSocialSocialNetworkEnum = (function () {
+        function ContactSocialSocialNetworkEnum(value) {
+            this.value = value;
+        }
+        ContactSocialSocialNetworkEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ContactSocialSocialNetworkEnum.getReflection = function () {
+            /** Fields of ContactSocialSocialNetworkEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Twitter', 'Field Twitter of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
+            _fields.push(new ReflectionField('Facebook', 'Field Facebook of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
+            _fields.push(new ReflectionField('GooglePlus', 'Field GooglePlus of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
+            _fields.push(new ReflectionField('LinkedIn', 'Field LinkedIn of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
+            _fields.push(new ReflectionField('Flickr', 'Field Flickr of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
+            var clazz = new ReflectionClass('ContactSocialSocialNetworkEnum', 'Enum class ContactSocialSocialNetworkEnum', 'ContactSocialSocialNetworkEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ContactSocialSocialNetworkEnum.Twitter = new ContactSocialSocialNetworkEnum("Twitter");
+        ContactSocialSocialNetworkEnum.Facebook = new ContactSocialSocialNetworkEnum("Facebook");
+        ContactSocialSocialNetworkEnum.GooglePlus = new ContactSocialSocialNetworkEnum("GooglePlus");
+        ContactSocialSocialNetworkEnum.LinkedIn = new ContactSocialSocialNetworkEnum("LinkedIn");
+        ContactSocialSocialNetworkEnum.Flickr = new ContactSocialSocialNetworkEnum("Flickr");
+        ContactSocialSocialNetworkEnum.Unknown = new ContactSocialSocialNetworkEnum("Unknown");
+        return ContactSocialSocialNetworkEnum;
+    })();
+    Adaptive.ContactSocialSocialNetworkEnum = ContactSocialSocialNetworkEnum;
+    /**
+     *   Class implementation for ContactPhone
+     **/
+    var ContactPhone = (function () {
+        /** Initialization **/
+        function ContactPhone(phone, phoneType) {
+            this.phone = phone;
+            this.phoneType = phoneType;
+        }
+        /**
+         * Method Declarations for ContactPhone
+         */
+        ContactPhone.prototype.getPhone = function () {
+            return this.phone;
+        };
+        ContactPhone.prototype.getPhoneType = function () {
+            return this.phoneType;
+        };
+        ContactPhone.prototype.setPhoneType = function (phoneType) {
+            this.phoneType = phoneType;
+        };
+        ContactPhone.prototype.setPhone = function (phone) {
+            this.phone = phone;
+        };
+        ContactPhone.getReflection = function () {
+            /** Fields of ContactPhone **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('phone', 'Field phone of class ContactPhone', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('phoneType', 'Field phoneType of class ContactPhone', ContactPhonePhoneTypeEnum.getReflection()));
+            /** Methods of ContactPhone **/
+            var _methods = new Array();
+            /** Method getPhone of ContactPhone **/
+            var _params_getPhone = new Array();
+            _methods.push(new ReflectionMethod('getPhone', 'ContactPhone getPhone', _params_getPhone, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setPhone of ContactPhone **/
+            var _params_setPhone = new Array();
+            _params_setPhone.push(new ReflectionParameter('phone', 'ContactPhone setPhone phone', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setPhone', 'ContactPhone setPhone', _params_setPhone, null));
+            /** Method getPhoneType of ContactPhone **/
+            var _params_getPhoneType = new Array();
+            _methods.push(new ReflectionMethod('getPhoneType', 'ContactPhone getPhoneType', _params_getPhoneType, ContactPhonePhoneTypeEnum.getReflection()));
+            /** Method setPhoneType of ContactPhone **/
+            var _params_setPhoneType = new Array();
+            _params_setPhoneType.push(new ReflectionParameter('phoneType', 'ContactPhone setPhoneType phoneType', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setPhoneType', 'ContactPhone setPhoneType', _params_setPhoneType, null));
+            /** Class description of ContactPhone **/
+            var clazz = new ReflectionClass('ContactPhone', 'Bean class ContactPhone', 'ContactPhone', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ContactPhone;
+    })();
+    Adaptive.ContactPhone = ContactPhone;
+    /**
+     *  Enumerations for ContactPhone PhoneType
+     **/
+    var ContactPhonePhoneTypeEnum = (function () {
+        function ContactPhonePhoneTypeEnum(value) {
+            this.value = value;
+        }
+        ContactPhonePhoneTypeEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ContactPhonePhoneTypeEnum.getReflection = function () {
+            /** Fields of ContactPhonePhoneTypeEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Mobile', 'Field Mobile of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Work', 'Field Work of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Home', 'Field Home of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Main', 'Field Main of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('HomeFax', 'Field HomeFax of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('WorkFax', 'Field WorkFax of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Other', 'Field Other of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
+            var clazz = new ReflectionClass('ContactPhonePhoneTypeEnum', 'Enum class ContactPhonePhoneTypeEnum', 'ContactPhonePhoneTypeEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ContactPhonePhoneTypeEnum.Mobile = new ContactPhonePhoneTypeEnum("Mobile");
+        ContactPhonePhoneTypeEnum.Work = new ContactPhonePhoneTypeEnum("Work");
+        ContactPhonePhoneTypeEnum.Home = new ContactPhonePhoneTypeEnum("Home");
+        ContactPhonePhoneTypeEnum.Main = new ContactPhonePhoneTypeEnum("Main");
+        ContactPhonePhoneTypeEnum.HomeFax = new ContactPhonePhoneTypeEnum("HomeFax");
+        ContactPhonePhoneTypeEnum.WorkFax = new ContactPhonePhoneTypeEnum("WorkFax");
+        ContactPhonePhoneTypeEnum.Other = new ContactPhonePhoneTypeEnum("Other");
+        ContactPhonePhoneTypeEnum.Unknown = new ContactPhonePhoneTypeEnum("Unknown");
+        return ContactPhonePhoneTypeEnum;
+    })();
+    Adaptive.ContactPhonePhoneTypeEnum = ContactPhonePhoneTypeEnum;
+    /**
+     *   Class implementation for SecureKeyPair
+     **/
+    var SecureKeyPair = (function () {
+        /** Initialization **/
+        function SecureKeyPair(secureKey, secureData) {
+            this.secureKey = secureKey;
+            this.secureData = secureData;
+        }
+        /**
+         * Method Declarations for SecureKeyPair
+         */
+        SecureKeyPair.prototype.getSecureData = function () {
+            return this.secureData;
+        };
+        SecureKeyPair.prototype.getSecureKey = function () {
+            return this.secureKey;
+        };
+        SecureKeyPair.prototype.setSecureData = function (secureData) {
+            this.secureData = secureData;
+        };
+        SecureKeyPair.prototype.setSecureKey = function (secureKey) {
+            this.secureKey = secureKey;
+        };
+        SecureKeyPair.getReflection = function () {
+            /** Fields of SecureKeyPair **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('secureKey', 'Field secureKey of class SecureKeyPair', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('secureData', 'Field secureData of class SecureKeyPair', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of SecureKeyPair **/
+            var _methods = new Array();
+            /** Method getSecureKey of SecureKeyPair **/
+            var _params_getSecureKey = new Array();
+            _methods.push(new ReflectionMethod('getSecureKey', 'SecureKeyPair getSecureKey', _params_getSecureKey, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setSecureKey of SecureKeyPair **/
+            var _params_setSecureKey = new Array();
+            _params_setSecureKey.push(new ReflectionParameter('secureKey', 'SecureKeyPair setSecureKey secureKey', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setSecureKey', 'SecureKeyPair setSecureKey', _params_setSecureKey, null));
+            /** Method getSecureData of SecureKeyPair **/
+            var _params_getSecureData = new Array();
+            _methods.push(new ReflectionMethod('getSecureData', 'SecureKeyPair getSecureData', _params_getSecureData, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setSecureData of SecureKeyPair **/
+            var _params_setSecureData = new Array();
+            _params_setSecureData.push(new ReflectionParameter('secureData', 'SecureKeyPair setSecureData secureData', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setSecureData', 'SecureKeyPair setSecureData', _params_setSecureData, null));
+            /** Class description of SecureKeyPair **/
+            var clazz = new ReflectionClass('SecureKeyPair', 'Bean class SecureKeyPair', 'SecureKeyPair', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return SecureKeyPair;
+    })();
+    Adaptive.SecureKeyPair = SecureKeyPair;
+    /**
+     *   Class implementation for Table
+     **/
+    var Table = (function () {
+        /** Initialization **/
+        function Table(name) {
+            this.name = name;
+        }
+        /**
+         * Method Declarations for Table
+         */
+        Table.prototype.getColumnCount = function () {
+            return this.columnCount;
+        };
+        Table.prototype.getColumns = function () {
+            return this.columns;
+        };
+        Table.prototype.getName = function () {
+            return this.name;
+        };
+        Table.prototype.getRowCount = function () {
+            return this.rowCount;
+        };
+        Table.prototype.getRows = function () {
+            return this.rows;
+        };
+        Table.prototype.setColumnCount = function (columnCount) {
+            this.columnCount = columnCount;
+        };
+        Table.prototype.setColumns = function (columns) {
+            this.columns = columns;
+        };
+        Table.prototype.setName = function (name) {
+            this.name = name;
+        };
+        Table.prototype.setRowCount = function (rowCount) {
+            this.rowCount = rowCount;
+        };
+        Table.prototype.setRows = function (rows) {
+            this.rows = rows;
+        };
+        Table.getReflection = function () {
+            /** Fields of Table **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('name', 'Field name of class Table', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('columnCount', 'Field columnCount of class Table', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('rowCount', 'Field rowCount of class Table', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('columns', 'Field columns of class Table', new ReflectionClass('Array<Column>', 'Array of Column', 'Array<Column>', null, null, Adaptive.getReflection()).setTypeComponent(Column.getReflection())));
+            _fields.push(new ReflectionField('rows', 'Field rows of class Table', new ReflectionClass('Array<Row>', 'Array of Row', 'Array<Row>', null, null, Adaptive.getReflection()).setTypeComponent(Row.getReflection())));
+            /** Methods of Table **/
+            var _methods = new Array();
+            /** Method getName of Table **/
+            var _params_getName = new Array();
+            _methods.push(new ReflectionMethod('getName', 'Table getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setName of Table **/
+            var _params_setName = new Array();
+            _params_setName.push(new ReflectionParameter('name', 'Table setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setName', 'Table setName', _params_setName, null));
+            /** Method setRows of Table **/
+            var _params_setRows = new Array();
+            _params_setRows.push(new ReflectionParameter('rows', 'Table setRows rows', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setRows', 'Table setRows', _params_setRows, null));
+            /** Method getRows of Table **/
+            var _params_getRows = new Array();
+            _methods.push(new ReflectionMethod('getRows', 'Table getRows', _params_getRows, new ReflectionClass('Array<Row>', 'Array of Row', 'Array<Row>', null, null, Adaptive.getReflection()).setTypeComponent(Row.getReflection())));
+            /** Method getColumnCount of Table **/
+            var _params_getColumnCount = new Array();
+            _methods.push(new ReflectionMethod('getColumnCount', 'Table getColumnCount', _params_getColumnCount, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setColumnCount of Table **/
+            var _params_setColumnCount = new Array();
+            _params_setColumnCount.push(new ReflectionParameter('columnCount', 'Table setColumnCount columnCount', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setColumnCount', 'Table setColumnCount', _params_setColumnCount, null));
+            /** Method getRowCount of Table **/
+            var _params_getRowCount = new Array();
+            _methods.push(new ReflectionMethod('getRowCount', 'Table getRowCount', _params_getRowCount, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setRowCount of Table **/
+            var _params_setRowCount = new Array();
+            _params_setRowCount.push(new ReflectionParameter('rowCount', 'Table setRowCount rowCount', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setRowCount', 'Table setRowCount', _params_setRowCount, null));
+            /** Method getColumns of Table **/
+            var _params_getColumns = new Array();
+            _methods.push(new ReflectionMethod('getColumns', 'Table getColumns', _params_getColumns, new ReflectionClass('Array<Column>', 'Array of Column', 'Array<Column>', null, null, Adaptive.getReflection()).setTypeComponent(Column.getReflection())));
+            /** Method setColumns of Table **/
+            var _params_setColumns = new Array();
+            _params_setColumns.push(new ReflectionParameter('columns', 'Table setColumns columns', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setColumns', 'Table setColumns', _params_setColumns, null));
+            /** Class description of Table **/
+            var clazz = new ReflectionClass('Table', 'Bean class Table', 'Table', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Table;
+    })();
+    Adaptive.Table = Table;
+    /**
+     *   Class implementation for ContactProfessionalInfo
+     **/
+    var ContactProfessionalInfo = (function () {
+        /** Initialization **/
+        function ContactProfessionalInfo(jobTitle, jobDescription, company) {
+            this.jobTitle = jobTitle;
+            this.jobDescription = jobDescription;
+            this.company = company;
+        }
+        /**
+         * Method Declarations for ContactProfessionalInfo
+         */
+        ContactProfessionalInfo.prototype.getCompany = function () {
+            return this.company;
+        };
+        ContactProfessionalInfo.prototype.getJobDescription = function () {
+            return this.jobDescription;
+        };
+        ContactProfessionalInfo.prototype.getJobTitle = function () {
+            return this.jobTitle;
+        };
+        ContactProfessionalInfo.prototype.setCompany = function (company) {
+            this.company = company;
+        };
+        ContactProfessionalInfo.prototype.setJobDescription = function (jobDescription) {
+            this.jobDescription = jobDescription;
+        };
+        ContactProfessionalInfo.prototype.setJobTitle = function (jobTitle) {
+            this.jobTitle = jobTitle;
+        };
+        ContactProfessionalInfo.getReflection = function () {
+            /** Fields of ContactProfessionalInfo **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('company', 'Field company of class ContactProfessionalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('jobTitle', 'Field jobTitle of class ContactProfessionalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('jobDescription', 'Field jobDescription of class ContactProfessionalInfo', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Methods of ContactProfessionalInfo **/
+            var _methods = new Array();
+            /** Method getCompany of ContactProfessionalInfo **/
+            var _params_getCompany = new Array();
+            _methods.push(new ReflectionMethod('getCompany', 'ContactProfessionalInfo getCompany', _params_getCompany, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setCompany of ContactProfessionalInfo **/
+            var _params_setCompany = new Array();
+            _params_setCompany.push(new ReflectionParameter('company', 'ContactProfessionalInfo setCompany company', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setCompany', 'ContactProfessionalInfo setCompany', _params_setCompany, null));
+            /** Method getJobTitle of ContactProfessionalInfo **/
+            var _params_getJobTitle = new Array();
+            _methods.push(new ReflectionMethod('getJobTitle', 'ContactProfessionalInfo getJobTitle', _params_getJobTitle, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setJobTitle of ContactProfessionalInfo **/
+            var _params_setJobTitle = new Array();
+            _params_setJobTitle.push(new ReflectionParameter('jobTitle', 'ContactProfessionalInfo setJobTitle jobTitle', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setJobTitle', 'ContactProfessionalInfo setJobTitle', _params_setJobTitle, null));
+            /** Method getJobDescription of ContactProfessionalInfo **/
+            var _params_getJobDescription = new Array();
+            _methods.push(new ReflectionMethod('getJobDescription', 'ContactProfessionalInfo getJobDescription', _params_getJobDescription, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method setJobDescription of ContactProfessionalInfo **/
+            var _params_setJobDescription = new Array();
+            _params_setJobDescription.push(new ReflectionParameter('jobDescription', 'ContactProfessionalInfo setJobDescription jobDescription', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setJobDescription', 'ContactProfessionalInfo setJobDescription', _params_setJobDescription, null));
+            /** Class description of ContactProfessionalInfo **/
+            var clazz = new ReflectionClass('ContactProfessionalInfo', 'Bean class ContactProfessionalInfo', 'ContactProfessionalInfo', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ContactProfessionalInfo;
+    })();
+    Adaptive.ContactProfessionalInfo = ContactProfessionalInfo;
+    /**
+     *   Class implementation for Acceleration
+     **/
+    var Acceleration = (function () {
+        /** Initialization **/
+        function Acceleration(x, y, z, timeStamp) {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            this.timeStamp = timeStamp;
+        }
+        /**
+         * Method Declarations for Acceleration
+         */
+        Acceleration.prototype.getX = function () {
+            return this.x;
+        };
+        Acceleration.prototype.getY = function () {
+            return this.y;
+        };
+        Acceleration.prototype.getZ = function () {
+            return this.z;
+        };
+        Acceleration.prototype.setTimeStamp = function (timeStamp) {
+            this.timeStamp = timeStamp;
+        };
+        Acceleration.prototype.setX = function (x) {
+            this.x = x;
+        };
+        Acceleration.prototype.setY = function (y) {
+            this.y = y;
+        };
+        Acceleration.prototype.setZ = function (z) {
+            this.z = z;
+        };
+        Acceleration.getReflection = function () {
+            /** Fields of Acceleration **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('x', 'Field x of class Acceleration', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('y', 'Field y of class Acceleration', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('z', 'Field z of class Acceleration', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('timeStamp', 'Field timeStamp of class Acceleration', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Methods of Acceleration **/
+            var _methods = new Array();
+            /** Method getX of Acceleration **/
+            var _params_getX = new Array();
+            _methods.push(new ReflectionMethod('getX', 'Acceleration getX', _params_getX, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setX of Acceleration **/
+            var _params_setX = new Array();
+            _params_setX.push(new ReflectionParameter('x', 'Acceleration setX x', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setX', 'Acceleration setX', _params_setX, null));
+            /** Method getY of Acceleration **/
+            var _params_getY = new Array();
+            _methods.push(new ReflectionMethod('getY', 'Acceleration getY', _params_getY, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setY of Acceleration **/
+            var _params_setY = new Array();
+            _params_setY.push(new ReflectionParameter('y', 'Acceleration setY y', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setY', 'Acceleration setY', _params_setY, null));
+            /** Method getZ of Acceleration **/
+            var _params_getZ = new Array();
+            _methods.push(new ReflectionMethod('getZ', 'Acceleration getZ', _params_getZ, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method setZ of Acceleration **/
+            var _params_setZ = new Array();
+            _params_setZ.push(new ReflectionParameter('z', 'Acceleration setZ z', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setZ', 'Acceleration setZ', _params_setZ, null));
+            /** Method setTimeStamp of Acceleration **/
+            var _params_setTimeStamp = new Array();
+            _params_setTimeStamp.push(new ReflectionParameter('timeStamp', 'Acceleration setTimeStamp timeStamp', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setTimeStamp', 'Acceleration setTimeStamp', _params_setTimeStamp, null));
+            /** Class description of Acceleration **/
+            var clazz = new ReflectionClass('Acceleration', 'Bean class Acceleration', 'Acceleration', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Acceleration;
+    })();
+    Adaptive.Acceleration = Acceleration;
     /**
      *   Class implementation for DeviceInfo
      **/
@@ -8700,15 +8654,15 @@ var Adaptive;
             /** Method getName of DeviceInfo **/
             var _params_getName = new Array();
             _methods.push(new ReflectionMethod('getName', 'DeviceInfo getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getVendor of DeviceInfo **/
-            var _params_getVendor = new Array();
-            _methods.push(new ReflectionMethod('getVendor', 'DeviceInfo getVendor', _params_getVendor, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getUuid of DeviceInfo **/
-            var _params_getUuid = new Array();
-            _methods.push(new ReflectionMethod('getUuid', 'DeviceInfo getUuid', _params_getUuid, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method getModel of DeviceInfo **/
             var _params_getModel = new Array();
             _methods.push(new ReflectionMethod('getModel', 'DeviceInfo getModel', _params_getModel, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getUuid of DeviceInfo **/
+            var _params_getUuid = new Array();
+            _methods.push(new ReflectionMethod('getUuid', 'DeviceInfo getUuid', _params_getUuid, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getVendor of DeviceInfo **/
+            var _params_getVendor = new Array();
+            _methods.push(new ReflectionMethod('getVendor', 'DeviceInfo getVendor', _params_getVendor, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Class description of DeviceInfo **/
             var clazz = new ReflectionClass('DeviceInfo', 'Bean class DeviceInfo', 'DeviceInfo', _methods, _fields, Adaptive.getReflection());
             return clazz;
@@ -8716,5 +8670,500 @@ var Adaptive;
         return DeviceInfo;
     })();
     Adaptive.DeviceInfo = DeviceInfo;
+    /**
+     *   Class implementation for ContactAddress
+     **/
+    var ContactAddress = (function () {
+        /** Initialization **/
+        function ContactAddress(address, type) {
+            this.address = address;
+            this.type = type;
+        }
+        /**
+         * Method Declarations for ContactAddress
+         */
+        ContactAddress.prototype.getAddress = function () {
+            return this.address;
+        };
+        ContactAddress.prototype.getType = function () {
+            return this.type;
+        };
+        ContactAddress.prototype.setAddress = function (address) {
+            this.address = address;
+        };
+        ContactAddress.prototype.setType = function (type) {
+            this.type = type;
+        };
+        ContactAddress.getReflection = function () {
+            /** Fields of ContactAddress **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('address', 'Field address of class ContactAddress', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('type', 'Field type of class ContactAddress', ContactAddressAddressTypeEnum.getReflection()));
+            /** Methods of ContactAddress **/
+            var _methods = new Array();
+            /** Method getAddress of ContactAddress **/
+            var _params_getAddress = new Array();
+            _methods.push(new ReflectionMethod('getAddress', 'ContactAddress getAddress', _params_getAddress, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getType of ContactAddress **/
+            var _params_getType = new Array();
+            _methods.push(new ReflectionMethod('getType', 'ContactAddress getType', _params_getType, ContactAddressAddressTypeEnum.getReflection()));
+            /** Method setType of ContactAddress **/
+            var _params_setType = new Array();
+            _params_setType.push(new ReflectionParameter('type', 'ContactAddress setType type', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setType', 'ContactAddress setType', _params_setType, null));
+            /** Method setAddress of ContactAddress **/
+            var _params_setAddress = new Array();
+            _params_setAddress.push(new ReflectionParameter('address', 'ContactAddress setAddress address', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setAddress', 'ContactAddress setAddress', _params_setAddress, null));
+            /** Class description of ContactAddress **/
+            var clazz = new ReflectionClass('ContactAddress', 'Bean class ContactAddress', 'ContactAddress', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return ContactAddress;
+    })();
+    Adaptive.ContactAddress = ContactAddress;
+    /**
+     *  Enumerations for ContactAddress AddressType
+     **/
+    var ContactAddressAddressTypeEnum = (function () {
+        function ContactAddressAddressTypeEnum(value) {
+            this.value = value;
+        }
+        ContactAddressAddressTypeEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ContactAddressAddressTypeEnum.getReflection = function () {
+            /** Fields of ContactAddressAddressTypeEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Home', 'Field Home of class ContactAddressAddressTypeEnum', ContactAddressAddressTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Work', 'Field Work of class ContactAddressAddressTypeEnum', ContactAddressAddressTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Other', 'Field Other of class ContactAddressAddressTypeEnum', ContactAddressAddressTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactAddressAddressTypeEnum', ContactAddressAddressTypeEnum.getReflection()));
+            var clazz = new ReflectionClass('ContactAddressAddressTypeEnum', 'Enum class ContactAddressAddressTypeEnum', 'ContactAddressAddressTypeEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ContactAddressAddressTypeEnum.Home = new ContactAddressAddressTypeEnum("Home");
+        ContactAddressAddressTypeEnum.Work = new ContactAddressAddressTypeEnum("Work");
+        ContactAddressAddressTypeEnum.Other = new ContactAddressAddressTypeEnum("Other");
+        ContactAddressAddressTypeEnum.Unknown = new ContactAddressAddressTypeEnum("Unknown");
+        return ContactAddressAddressTypeEnum;
+    })();
+    Adaptive.ContactAddressAddressTypeEnum = ContactAddressAddressTypeEnum;
+    /**
+     *   Class implementation for Contact
+     **/
+    var Contact = (function (_super) {
+        __extends(Contact, _super);
+        /** Initialization **/
+        function Contact(contactId) {
+            _super.call(this, contactId);
+            this.contactId = contactId;
+        }
+        /**
+         * Method Declarations for Contact
+         */
+        Contact.prototype.getContactAddresses = function () {
+            return this.contactAddresses;
+        };
+        Contact.prototype.getContactEmails = function () {
+            return this.contactEmails;
+        };
+        Contact.prototype.getContactPhones = function () {
+            return this.contactPhones;
+        };
+        Contact.prototype.getContactSocials = function () {
+            return this.contactSocials;
+        };
+        Contact.prototype.getContactTags = function () {
+            return this.contactTags;
+        };
+        Contact.prototype.getContactWebsites = function () {
+            return this.contactWebsites;
+        };
+        Contact.prototype.getPersonalInfo = function () {
+            return this.personalInfo;
+        };
+        Contact.prototype.getProfessionalInfo = function () {
+            return this.professionalInfo;
+        };
+        Contact.prototype.setContactAddresses = function (contactAddresses) {
+            this.contactAddresses = contactAddresses;
+        };
+        Contact.prototype.setContactEmails = function (contactEmails) {
+            this.contactEmails = contactEmails;
+        };
+        Contact.prototype.setContactPhones = function (contactPhones) {
+            this.contactPhones = contactPhones;
+        };
+        Contact.prototype.setContactSocials = function (contactSocials) {
+            this.contactSocials = contactSocials;
+        };
+        Contact.prototype.setContactTags = function (contactTags) {
+            this.contactTags = contactTags;
+        };
+        Contact.prototype.setContactWebsites = function (contactWebsites) {
+            this.contactWebsites = contactWebsites;
+        };
+        Contact.prototype.setPersonalInfo = function (personalInfo) {
+            this.personalInfo = personalInfo;
+        };
+        Contact.prototype.setProfessionalInfo = function (professionalInfo) {
+            this.professionalInfo = professionalInfo;
+        };
+        Contact.getReflection = function () {
+            /** Fields of Contact **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('personalInfo', 'Field personalInfo of class Contact', ContactPersonalInfo.getReflection()));
+            _fields.push(new ReflectionField('professionalInfo', 'Field professionalInfo of class Contact', ContactProfessionalInfo.getReflection()));
+            _fields.push(new ReflectionField('contactAddresses', 'Field contactAddresses of class Contact', new ReflectionClass('Array<ContactAddress>', 'Array of ContactAddress', 'Array<ContactAddress>', null, null, Adaptive.getReflection()).setTypeComponent(ContactAddress.getReflection())));
+            _fields.push(new ReflectionField('contactPhones', 'Field contactPhones of class Contact', new ReflectionClass('Array<ContactPhone>', 'Array of ContactPhone', 'Array<ContactPhone>', null, null, Adaptive.getReflection()).setTypeComponent(ContactPhone.getReflection())));
+            _fields.push(new ReflectionField('contactEmails', 'Field contactEmails of class Contact', new ReflectionClass('Array<ContactEmail>', 'Array of ContactEmail', 'Array<ContactEmail>', null, null, Adaptive.getReflection()).setTypeComponent(ContactEmail.getReflection())));
+            _fields.push(new ReflectionField('contactWebsites', 'Field contactWebsites of class Contact', new ReflectionClass('Array<ContactWebsite>', 'Array of ContactWebsite', 'Array<ContactWebsite>', null, null, Adaptive.getReflection()).setTypeComponent(ContactWebsite.getReflection())));
+            _fields.push(new ReflectionField('contactSocials', 'Field contactSocials of class Contact', new ReflectionClass('Array<ContactSocial>', 'Array of ContactSocial', 'Array<ContactSocial>', null, null, Adaptive.getReflection()).setTypeComponent(ContactSocial.getReflection())));
+            _fields.push(new ReflectionField('contactTags', 'Field contactTags of class Contact', new ReflectionClass('Array<ContactTag>', 'Array of ContactTag', 'Array<ContactTag>', null, null, Adaptive.getReflection()).setTypeComponent(ContactTag.getReflection())));
+            /** Methods of Contact **/
+            var _methods = new Array();
+            /** Method getPersonalInfo of Contact **/
+            var _params_getPersonalInfo = new Array();
+            _methods.push(new ReflectionMethod('getPersonalInfo', 'Contact getPersonalInfo', _params_getPersonalInfo, ContactPersonalInfo.getReflection()));
+            /** Method setPersonalInfo of Contact **/
+            var _params_setPersonalInfo = new Array();
+            _params_setPersonalInfo.push(new ReflectionParameter('personalInfo', 'Contact setPersonalInfo personalInfo', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setPersonalInfo', 'Contact setPersonalInfo', _params_setPersonalInfo, null));
+            /** Method getProfessionalInfo of Contact **/
+            var _params_getProfessionalInfo = new Array();
+            _methods.push(new ReflectionMethod('getProfessionalInfo', 'Contact getProfessionalInfo', _params_getProfessionalInfo, ContactProfessionalInfo.getReflection()));
+            /** Method setProfessionalInfo of Contact **/
+            var _params_setProfessionalInfo = new Array();
+            _params_setProfessionalInfo.push(new ReflectionParameter('professionalInfo', 'Contact setProfessionalInfo professionalInfo', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setProfessionalInfo', 'Contact setProfessionalInfo', _params_setProfessionalInfo, null));
+            /** Method getContactAddresses of Contact **/
+            var _params_getContactAddresses = new Array();
+            _methods.push(new ReflectionMethod('getContactAddresses', 'Contact getContactAddresses', _params_getContactAddresses, new ReflectionClass('Array<ContactAddress>', 'Array of ContactAddress', 'Array<ContactAddress>', null, null, Adaptive.getReflection()).setTypeComponent(ContactAddress.getReflection())));
+            /** Method setContactAddresses of Contact **/
+            var _params_setContactAddresses = new Array();
+            _params_setContactAddresses.push(new ReflectionParameter('contactAddresses', 'Contact setContactAddresses contactAddresses', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContactAddresses', 'Contact setContactAddresses', _params_setContactAddresses, null));
+            /** Method getContactPhones of Contact **/
+            var _params_getContactPhones = new Array();
+            _methods.push(new ReflectionMethod('getContactPhones', 'Contact getContactPhones', _params_getContactPhones, new ReflectionClass('Array<ContactPhone>', 'Array of ContactPhone', 'Array<ContactPhone>', null, null, Adaptive.getReflection()).setTypeComponent(ContactPhone.getReflection())));
+            /** Method setContactPhones of Contact **/
+            var _params_setContactPhones = new Array();
+            _params_setContactPhones.push(new ReflectionParameter('contactPhones', 'Contact setContactPhones contactPhones', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContactPhones', 'Contact setContactPhones', _params_setContactPhones, null));
+            /** Method getContactEmails of Contact **/
+            var _params_getContactEmails = new Array();
+            _methods.push(new ReflectionMethod('getContactEmails', 'Contact getContactEmails', _params_getContactEmails, new ReflectionClass('Array<ContactEmail>', 'Array of ContactEmail', 'Array<ContactEmail>', null, null, Adaptive.getReflection()).setTypeComponent(ContactEmail.getReflection())));
+            /** Method setContactEmails of Contact **/
+            var _params_setContactEmails = new Array();
+            _params_setContactEmails.push(new ReflectionParameter('contactEmails', 'Contact setContactEmails contactEmails', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContactEmails', 'Contact setContactEmails', _params_setContactEmails, null));
+            /** Method getContactWebsites of Contact **/
+            var _params_getContactWebsites = new Array();
+            _methods.push(new ReflectionMethod('getContactWebsites', 'Contact getContactWebsites', _params_getContactWebsites, new ReflectionClass('Array<ContactWebsite>', 'Array of ContactWebsite', 'Array<ContactWebsite>', null, null, Adaptive.getReflection()).setTypeComponent(ContactWebsite.getReflection())));
+            /** Method setContactWebsites of Contact **/
+            var _params_setContactWebsites = new Array();
+            _params_setContactWebsites.push(new ReflectionParameter('contactWebsites', 'Contact setContactWebsites contactWebsites', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContactWebsites', 'Contact setContactWebsites', _params_setContactWebsites, null));
+            /** Method getContactSocials of Contact **/
+            var _params_getContactSocials = new Array();
+            _methods.push(new ReflectionMethod('getContactSocials', 'Contact getContactSocials', _params_getContactSocials, new ReflectionClass('Array<ContactSocial>', 'Array of ContactSocial', 'Array<ContactSocial>', null, null, Adaptive.getReflection()).setTypeComponent(ContactSocial.getReflection())));
+            /** Method setContactSocials of Contact **/
+            var _params_setContactSocials = new Array();
+            _params_setContactSocials.push(new ReflectionParameter('contactSocials', 'Contact setContactSocials contactSocials', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContactSocials', 'Contact setContactSocials', _params_setContactSocials, null));
+            /** Method getContactTags of Contact **/
+            var _params_getContactTags = new Array();
+            _methods.push(new ReflectionMethod('getContactTags', 'Contact getContactTags', _params_getContactTags, new ReflectionClass('Array<ContactTag>', 'Array of ContactTag', 'Array<ContactTag>', null, null, Adaptive.getReflection()).setTypeComponent(ContactTag.getReflection())));
+            /** Method setContactTags of Contact **/
+            var _params_setContactTags = new Array();
+            _params_setContactTags.push(new ReflectionParameter('contactTags', 'Contact setContactTags contactTags', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setContactTags', 'Contact setContactTags', _params_setContactTags, null));
+            /** Class description of Contact **/
+            var clazz = new ReflectionClass('Contact', 'Bean class Contact', 'Contact', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Contact;
+    })(ContactUid);
+    Adaptive.Contact = Contact;
+    /**
+     *   Class implementation for Button
+     **/
+    var Button = (function () {
+        /** Initialization **/
+        function Button(type) {
+            this.type = type;
+        }
+        /**
+         * Method Declarations for Button
+         */
+        Button.prototype.getType = function () {
+            return this.type;
+        };
+        Button.getReflection = function () {
+            /** Fields of Button **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('type', 'Field type of class Button', ButtonButtonEnum.getReflection()));
+            /** Methods of Button **/
+            var _methods = new Array();
+            /** Method getType of Button **/
+            var _params_getType = new Array();
+            _methods.push(new ReflectionMethod('getType', 'Button getType', _params_getType, ButtonButtonEnum.getReflection()));
+            /** Class description of Button **/
+            var clazz = new ReflectionClass('Button', 'Bean class Button', 'Button', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Button;
+    })();
+    Adaptive.Button = Button;
+    /**
+     *  Enumerations for Button Button
+     **/
+    var ButtonButtonEnum = (function () {
+        function ButtonButtonEnum(value) {
+            this.value = value;
+        }
+        ButtonButtonEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ButtonButtonEnum.getReflection = function () {
+            /** Fields of ICapabilitiesButtonEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('HomeButton', 'Field HomeButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
+            _fields.push(new ReflectionField('BackButton', 'Field BackButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
+            _fields.push(new ReflectionField('OptionButton', 'Field OptionButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
+            var clazz = new ReflectionClass('ICapabilitiesButtonEnum', 'Enum class ICapabilitiesButtonEnum', 'ICapabilitiesButtonEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ButtonButtonEnum.HomeButton = new ButtonButtonEnum("HomeButton");
+        ButtonButtonEnum.BackButton = new ButtonButtonEnum("BackButton");
+        ButtonButtonEnum.OptionButton = new ButtonButtonEnum("OptionButton");
+        ButtonButtonEnum.Unknown = new ButtonButtonEnum("Unknown");
+        return ButtonButtonEnum;
+    })();
+    Adaptive.ButtonButtonEnum = ButtonButtonEnum;
+    /**
+     *   Class implementation for Lifecycle
+     **/
+    var Lifecycle = (function () {
+        /** Initialization **/
+        function Lifecycle(state) {
+            this.state = state;
+        }
+        /**
+         * Method Declarations for Lifecycle
+         */
+        Lifecycle.prototype.getState = function () {
+            return this.state;
+        };
+        Lifecycle.prototype.setState = function (state) {
+            this.state = state;
+        };
+        Lifecycle.getReflection = function () {
+            /** Fields of Lifecycle **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('state', 'Field state of class Lifecycle', LifecycleStateEnum.getReflection()));
+            /** Methods of Lifecycle **/
+            var _methods = new Array();
+            /** Method getState of Lifecycle **/
+            var _params_getState = new Array();
+            _methods.push(new ReflectionMethod('getState', 'Lifecycle getState', _params_getState, LifecycleStateEnum.getReflection()));
+            /** Method setState of Lifecycle **/
+            var _params_setState = new Array();
+            _params_setState.push(new ReflectionParameter('state', 'Lifecycle setState state', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setState', 'Lifecycle setState', _params_setState, null));
+            /** Class description of Lifecycle **/
+            var clazz = new ReflectionClass('Lifecycle', 'Bean class Lifecycle', 'Lifecycle', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Lifecycle;
+    })();
+    Adaptive.Lifecycle = Lifecycle;
+    /**
+     *  Enumerations for Lifecycle State
+     **/
+    var LifecycleStateEnum = (function () {
+        function LifecycleStateEnum(value) {
+            this.value = value;
+        }
+        LifecycleStateEnum.prototype.toString = function () {
+            return this.value;
+        };
+        LifecycleStateEnum.getReflection = function () {
+            /** Fields of LifecycleStateEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('Starting', 'Field Starting of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
+            _fields.push(new ReflectionField('Started', 'Field Started of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
+            _fields.push(new ReflectionField('Running', 'Field Running of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
+            _fields.push(new ReflectionField('Paused', 'Field Paused of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
+            _fields.push(new ReflectionField('PausedIdle', 'Field PausedIdle of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
+            _fields.push(new ReflectionField('PausedRun', 'Field PausedRun of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
+            _fields.push(new ReflectionField('Resuming', 'Field Resuming of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
+            _fields.push(new ReflectionField('Stopping', 'Field Stopping of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
+            var clazz = new ReflectionClass('LifecycleStateEnum', 'Enum class LifecycleStateEnum', 'LifecycleStateEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        LifecycleStateEnum.Starting = new LifecycleStateEnum("Starting");
+        LifecycleStateEnum.Started = new LifecycleStateEnum("Started");
+        LifecycleStateEnum.Running = new LifecycleStateEnum("Running");
+        LifecycleStateEnum.Paused = new LifecycleStateEnum("Paused");
+        LifecycleStateEnum.PausedIdle = new LifecycleStateEnum("PausedIdle");
+        LifecycleStateEnum.PausedRun = new LifecycleStateEnum("PausedRun");
+        LifecycleStateEnum.Resuming = new LifecycleStateEnum("Resuming");
+        LifecycleStateEnum.Stopping = new LifecycleStateEnum("Stopping");
+        LifecycleStateEnum.Unknown = new LifecycleStateEnum("Unknown");
+        return LifecycleStateEnum;
+    })();
+    Adaptive.LifecycleStateEnum = LifecycleStateEnum;
+    /**
+     *   Class implementation for Service
+     **/
+    var Service = (function () {
+        /** Initialization **/
+        function Service(endpoint, name, method, type) {
+            this.endpoint = endpoint;
+            this.name = name;
+            this.method = method;
+            this.type = type;
+        }
+        /**
+         * Method Declarations for Service
+         */
+        Service.prototype.getEndpoint = function () {
+            return this.endpoint;
+        };
+        Service.prototype.getMethod = function () {
+            return this.method;
+        };
+        Service.prototype.getName = function () {
+            return this.name;
+        };
+        Service.prototype.getType = function () {
+            return this.type;
+        };
+        Service.prototype.setEndpoint = function (endpoint) {
+            this.endpoint = endpoint;
+        };
+        Service.prototype.setMethod = function (method) {
+            this.method = method;
+        };
+        Service.prototype.setName = function (name) {
+            this.name = name;
+        };
+        Service.prototype.setType = function (type) {
+            this.type = type;
+        };
+        Service.getReflection = function () {
+            /** Fields of Service **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('endpoint', 'Field endpoint of class Service', Endpoint.getReflection()));
+            _fields.push(new ReflectionField('name', 'Field name of class Service', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('method', 'Field method of class Service', ServiceServiceMethodEnum.getReflection()));
+            _fields.push(new ReflectionField('type', 'Field type of class Service', ServiceServiceTypeEnum.getReflection()));
+            /** Methods of Service **/
+            var _methods = new Array();
+            /** Method getName of Service **/
+            var _params_getName = new Array();
+            _methods.push(new ReflectionMethod('getName', 'Service getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getMethod of Service **/
+            var _params_getMethod = new Array();
+            _methods.push(new ReflectionMethod('getMethod', 'Service getMethod', _params_getMethod, ServiceServiceMethodEnum.getReflection()));
+            /** Method setName of Service **/
+            var _params_setName = new Array();
+            _params_setName.push(new ReflectionParameter('name', 'Service setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setName', 'Service setName', _params_setName, null));
+            /** Method getType of Service **/
+            var _params_getType = new Array();
+            _methods.push(new ReflectionMethod('getType', 'Service getType', _params_getType, ServiceServiceTypeEnum.getReflection()));
+            /** Method setType of Service **/
+            var _params_setType = new Array();
+            _params_setType.push(new ReflectionParameter('type', 'Service setType type', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setType', 'Service setType', _params_setType, null));
+            /** Method setEndpoint of Service **/
+            var _params_setEndpoint = new Array();
+            _params_setEndpoint.push(new ReflectionParameter('endpoint', 'Service setEndpoint endpoint', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setEndpoint', 'Service setEndpoint', _params_setEndpoint, null));
+            /** Method getEndpoint of Service **/
+            var _params_getEndpoint = new Array();
+            _methods.push(new ReflectionMethod('getEndpoint', 'Service getEndpoint', _params_getEndpoint, Endpoint.getReflection()));
+            /** Method setMethod of Service **/
+            var _params_setMethod = new Array();
+            _params_setMethod.push(new ReflectionParameter('method', 'Service setMethod method', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setMethod', 'Service setMethod', _params_setMethod, null));
+            /** Class description of Service **/
+            var clazz = new ReflectionClass('Service', 'Bean class Service', 'Service', _methods, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        return Service;
+    })();
+    Adaptive.Service = Service;
+    /**
+     *  Enumerations for Service ServiceMethod
+     **/
+    var ServiceServiceMethodEnum = (function () {
+        function ServiceServiceMethodEnum(value) {
+            this.value = value;
+        }
+        ServiceServiceMethodEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ServiceServiceMethodEnum.getReflection = function () {
+            /** Fields of IServiceServiceMethodEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('POST', 'Field POST of class IServiceServiceMethodEnum', ServiceServiceMethodEnum.getReflection()));
+            _fields.push(new ReflectionField('GET', 'Field GET of class IServiceServiceMethodEnum', ServiceServiceMethodEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceServiceMethodEnum', ServiceServiceMethodEnum.getReflection()));
+            var clazz = new ReflectionClass('IServiceServiceMethodEnum', 'Enum class IServiceServiceMethodEnum', 'IServiceServiceMethodEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ServiceServiceMethodEnum.POST = new ServiceServiceMethodEnum("POST");
+        ServiceServiceMethodEnum.GET = new ServiceServiceMethodEnum("GET");
+        ServiceServiceMethodEnum.Unknown = new ServiceServiceMethodEnum("Unknown");
+        return ServiceServiceMethodEnum;
+    })();
+    Adaptive.ServiceServiceMethodEnum = ServiceServiceMethodEnum;
+    /**
+     *  Enumerations for Service ServiceType
+     **/
+    var ServiceServiceTypeEnum = (function () {
+        function ServiceServiceTypeEnum(value) {
+            this.value = value;
+        }
+        ServiceServiceTypeEnum.prototype.toString = function () {
+            return this.value;
+        };
+        ServiceServiceTypeEnum.getReflection = function () {
+            /** Fields of IServiceServiceTypeEnum **/
+            var _fields = new Array();
+            _fields.push(new ReflectionField('SERVICETYPE_AMF_SERIALIZATION', 'Field SERVICETYPE_AMF_SERIALIZATION of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('SERVICETYPE_GWT_RPC', 'Field SERVICETYPE_GWT_RPC of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('SERVICETYPE_OCTET_BINARY', 'Field SERVICETYPE_OCTET_BINARY of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('SERVICETYPE_REMOTING_SERIALIZATION', 'Field SERVICETYPE_REMOTING_SERIALIZATION of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('SERVICETYPE_REST_JSON', 'Field SERVICETYPE_REST_JSON of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('SERVICETYPE_REST_XML', 'Field SERVICETYPE_REST_XML of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('SERVICETYPE_SOAP_JSON', 'Field SERVICETYPE_SOAP_JSON of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('SERVICETYPE_SOAP_XML', 'Field SERVICETYPE_SOAP_XML of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('SERVICETYPE_XMLRPC_JSON', 'Field SERVICETYPE_XMLRPC_JSON of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('SERVICETYPE_XMLRPC_XML', 'Field SERVICETYPE_XMLRPC_XML of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            var clazz = new ReflectionClass('IServiceServiceTypeEnum', 'Enum class IServiceServiceTypeEnum', 'IServiceServiceTypeEnum', null, _fields, Adaptive.getReflection());
+            return clazz;
+        };
+        ServiceServiceTypeEnum.SERVICETYPE_AMF_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_AMF_SERIALIZATION");
+        ServiceServiceTypeEnum.SERVICETYPE_GWT_RPC = new ServiceServiceTypeEnum("SERVICETYPE_GWT_RPC");
+        ServiceServiceTypeEnum.SERVICETYPE_OCTET_BINARY = new ServiceServiceTypeEnum("SERVICETYPE_OCTET_BINARY");
+        ServiceServiceTypeEnum.SERVICETYPE_REMOTING_SERIALIZATION = new ServiceServiceTypeEnum("SERVICETYPE_REMOTING_SERIALIZATION");
+        ServiceServiceTypeEnum.SERVICETYPE_REST_JSON = new ServiceServiceTypeEnum("SERVICETYPE_REST_JSON");
+        ServiceServiceTypeEnum.SERVICETYPE_REST_XML = new ServiceServiceTypeEnum("SERVICETYPE_REST_XML");
+        ServiceServiceTypeEnum.SERVICETYPE_SOAP_JSON = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_JSON");
+        ServiceServiceTypeEnum.SERVICETYPE_SOAP_XML = new ServiceServiceTypeEnum("SERVICETYPE_SOAP_XML");
+        ServiceServiceTypeEnum.SERVICETYPE_XMLRPC_JSON = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_JSON");
+        ServiceServiceTypeEnum.SERVICETYPE_XMLRPC_XML = new ServiceServiceTypeEnum("SERVICETYPE_XMLRPC_XML");
+        ServiceServiceTypeEnum.Unknown = new ServiceServiceTypeEnum("Unknown");
+        return ServiceServiceTypeEnum;
+    })();
+    Adaptive.ServiceServiceTypeEnum = ServiceServiceTypeEnum;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=adaptive.js.map

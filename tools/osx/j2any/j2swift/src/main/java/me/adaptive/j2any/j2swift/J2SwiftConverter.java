@@ -1433,13 +1433,22 @@ public class J2SwiftConverter {
             }
             js.println(initialIndent + 5,"return clazz;");
         } else if (clazz.isEnum()) {
-            js.println(initialIndent + 5, "return null; // TODO: Implement reflection -> " + clazz.getDeclaringClass().getSimpleName()+" "+clazz.getSimpleName());
+            js.println();
+            js.println(initialIndent + 5,"/** Fields of "+clazz.getDeclaringClass().getSimpleName()+clazz.getSimpleName()+"Enum **/");
+            js.println(initialIndent + 5,"var _fields = new Array<ReflectionField>();");
+            for (Field field : clazz.getDeclaredFields()) {
+                if (!field.getName().equals("$VALUES")) {
+                    js.println(initialIndent + 5, "_fields.push(new ReflectionField('" + field.getName() + "','Field " + field.getName() + " of class " + clazz.getDeclaringClass().getSimpleName() + clazz.getSimpleName() + "Enum', " + processJSReflectionDescription(field.getType(), clazz.getDeclaringClass()) + "));");
+                }
+            }
+            js.println(initialIndent + 5,"var clazz = new ReflectionClass('"+clazz.getDeclaringClass().getSimpleName()+clazz.getSimpleName()+"Enum','Enum class "+clazz.getDeclaringClass().getSimpleName()+clazz.getSimpleName()+"Enum', '"+clazz.getDeclaringClass().getSimpleName()+clazz.getSimpleName()+"Enum', null, _fields, Adaptive.getReflection());");
+            js.println(initialIndent + 5,"return clazz;");
         } else {
             js.println();
             js.println(initialIndent + 5,"/** Fields of "+clazz.getSimpleName()+" **/");
             js.println(initialIndent + 5,"var _fields = new Array<ReflectionField>();");
             for (Field field : clazz.getDeclaredFields()) {
-                js.println(initialIndent + 5,"_fields.push(new ReflectionField('"+field.getName()+"','Field "+field.getName()+" of class "+clazz.getSimpleName()+"', "+processJSReflectionDescription(field.getType(),clazz)+"));");
+                js.println(initialIndent + 5, "_fields.push(new ReflectionField('"+field.getName()+"','Field "+field.getName()+" of class "+clazz.getSimpleName()+"', "+processJSReflectionDescription(field.getType(),clazz)+"));");
             }
             js.println();
             js.println(initialIndent + 5,"/** Methods of "+clazz.getSimpleName()+" **/");
@@ -1477,7 +1486,15 @@ public class J2SwiftConverter {
             String result = "new ReflectionClass('Array<"+getPrimitiveTypeTS(component)+">', 'Array of "+getPrimitiveTypeTS(component)+"', 'Array<"+getPrimitiveTypeTS(component)+">', null, null, Adaptive.getReflection())";
             return result+".setTypeComponent("+processJSReflectionDescription(component, clazz)+")";
         } else if (clazz.isEnum()) {
-            return parent.getSimpleName() + clazz.getSimpleName() + "Enum.getReflection()";
+            if (clazz.getName().equals("me.adaptive.arp.api.IService$ProtocolVersion")) {
+                return "ServiceRequestProtocolVersionEnum.getReflection()";
+            } else if (clazz.getName().equals("me.adaptive.arp.api.IService$ServiceMethod")) {
+                return "ServiceServiceMethodEnum.getReflection()";
+            } else if (clazz.getName().equals("me.adaptive.arp.api.IService$ServiceType")) {
+                return "ServiceServiceTypeEnum.getReflection()";
+            } else {
+                return parent.getSimpleName() + clazz.getSimpleName() + "Enum.getReflection()";
+            }
         } else if (clazz.getSimpleName().equals("Map")) {
             return "new ReflectionClass('Dictionary', 'Dictionary type string', 'Dictionary<any>', null, null, Adaptive.getReflection())";
         } else if (clazz.isInterface()) {

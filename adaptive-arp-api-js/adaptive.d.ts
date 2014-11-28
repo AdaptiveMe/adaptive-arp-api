@@ -22,6 +22,60 @@ declare module Adaptive {
         toLookup(): IDictionary<V>;
     }
     /**
+     *   Reflection support classes for metadata documentation.
+     */
+    class ReflectionBase {
+        name: string;
+        description: string;
+        constructor(name: string, description: string);
+        getName(): string;
+        getDescription(): string;
+    }
+    class ReflectionPackage extends ReflectionBase {
+        _classes: ReflectionClass[];
+        constructor(name: string, description: string);
+        addClass(clazz: ReflectionClass): void;
+        getClasses(): ReflectionClass[];
+    }
+    class ReflectionMember extends ReflectionBase {
+    }
+    class ReflectionClass extends ReflectionBase {
+        _isarray: boolean;
+        _isprimitive: boolean;
+        _isenum: boolean;
+        _fields: ReflectionField[];
+        _methods: ReflectionMethod[];
+        _package: ReflectionPackage;
+        _type: string;
+        _typeComponent: ReflectionClass;
+        constructor(name: string, description: string, type: string, _methods: ReflectionMethod[], _fields: ReflectionField[], _package: ReflectionPackage);
+        setTypeComponent(typeComponent: ReflectionClass): ReflectionClass;
+        getFields(): ReflectionField[];
+        getMethods(): ReflectionMethod[];
+        getType(): string;
+    }
+    class ReflectionMethod extends ReflectionBase {
+        _returnType: ReflectionClass;
+        _isvoid: boolean;
+        _parameters: ReflectionParameter[];
+        constructor(name: string, description: string, _parameters: ReflectionParameter[], _returnType: ReflectionClass);
+        isVoid(): boolean;
+        getParameters(): ReflectionParameter[];
+        getParameterCount(): number;
+        getReturnType(): ReflectionClass;
+    }
+    class ReflectionParameter extends ReflectionBase {
+        _type: ReflectionClass;
+        constructor(name: string, description: string, _type: ReflectionClass);
+        getType(): ReflectionClass;
+    }
+    class ReflectionField extends ReflectionBase {
+        type: ReflectionClass;
+        constructor(name: string, description: string, type: ReflectionClass);
+        getType(): ReflectionClass;
+    }
+    function getReflection(): ReflectionPackage;
+    /**
      *   Interface definition for IAdaptiveRP
      **/
     interface IAdaptiveRP {
@@ -143,6 +197,7 @@ declare module Adaptive {
         static Chromium: IAppContextTypeEnum;
         static Unspecified: IAppContextTypeEnum;
         static Unknown: IAppContextTypeEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IBaseCommerce
@@ -190,6 +245,7 @@ declare module Adaptive {
         constructor();
         toString(): string;
         getId(): number;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IBaseMedia
@@ -232,6 +288,7 @@ declare module Adaptive {
         constructor();
         toString(): string;
         getId(): number;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IBaseUtil
@@ -276,6 +333,7 @@ declare module Adaptive {
         static Embedded: IAppResourcePayloadEnum;
         static Linked: IAppResourcePayloadEnum;
         static Unknown: IAppResourcePayloadEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IAppResource Format
@@ -289,6 +347,7 @@ declare module Adaptive {
         static Encrypted: IAppResourceFormatEnum;
         static EncryptedCompressed: IAppResourceFormatEnum;
         static Unknown: IAppResourceFormatEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IAppResource Type
@@ -307,6 +366,7 @@ declare module Adaptive {
         static Database: IAppResourceTypeEnum;
         static Other: IAppResourceTypeEnum;
         static Unknown: IAppResourceTypeEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IDevice
@@ -331,6 +391,7 @@ declare module Adaptive {
         getLocaleCurrent(): Locale;
         removeButtonListener(listener: IButtonListener): void;
         removeButtonListeners(): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IMail
@@ -347,6 +408,7 @@ declare module Adaptive {
     class MailBridge implements IMail {
         constructor();
         sendEmail(data: Email, callback: IMessagingCallback): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for ISecureKVResultCallback
@@ -369,6 +431,7 @@ declare module Adaptive {
         static NoPermission: ISecureKVResultCallbackErrorEnum;
         static NoMatchesFound: ISecureKVResultCallbackErrorEnum;
         static Unknown: ISecureKVResultCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ISecureKVResultCallback Warning
@@ -379,6 +442,7 @@ declare module Adaptive {
         toString(): string;
         static EntryOverride: ISecureKVResultCallbackWarningEnum;
         static Unknown: ISecureKVResultCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Callback ISecureKVResultCallback onError/onWarning/onResult handlers.
@@ -401,6 +465,7 @@ declare module Adaptive {
         onError(error: ISecureKVResultCallbackErrorEnum): void;
         onResult(keyValues: SecureKeyPair[]): void;
         onWarning(keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for INetworkStatus
@@ -439,6 +504,7 @@ declare module Adaptive {
         static InsufficientSpace: IFileResultCallbackErrorEnum;
         static Unauthorized: IFileResultCallbackErrorEnum;
         static Unknown: IFileResultCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IFileResultCallback Warning
@@ -450,6 +516,7 @@ declare module Adaptive {
         static SourceNotDeleted: IFileResultCallbackWarningEnum;
         static RootDirectory: IFileResultCallbackWarningEnum;
         static Unknown: IFileResultCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Callback IFileResultCallback onError/onWarning/onResult handlers.
@@ -472,6 +539,7 @@ declare module Adaptive {
         onError(error: IFileResultCallbackErrorEnum): void;
         onResult(storageFile: IFile): void;
         onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IManagement
@@ -525,6 +593,7 @@ declare module Adaptive {
         static Implementation: ILifecycleListenerErrorEnum;
         static Killed: ILifecycleListenerErrorEnum;
         static Unknown: ILifecycleListenerErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ILifecycleListener Warning
@@ -536,6 +605,7 @@ declare module Adaptive {
         static MemoryLow: ILifecycleListenerWarningEnum;
         static BatteryLow: ILifecycleListenerWarningEnum;
         static Unknown: ILifecycleListenerWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Listener ILifecycleListener onError/onWarning/onResult handlers.
@@ -558,6 +628,7 @@ declare module Adaptive {
         onError(error: ILifecycleListenerErrorEnum): void;
         onResult(lifecycle: Lifecycle): void;
         onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for ICloud
@@ -614,6 +685,7 @@ declare module Adaptive {
         setAttribute(name: string, value: any): void;
         setCookie(cookie: Cookie): void;
         setCookies(cookies: Cookie[]): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IAppServerListener
@@ -660,6 +732,7 @@ declare module Adaptive {
         static MalformedUrl: INetworkReachabilityCallbackErrorEnum;
         static DomainUnresolvable: INetworkReachabilityCallbackErrorEnum;
         static Unknown: INetworkReachabilityCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for INetworkReachabilityCallback Warning
@@ -674,6 +747,7 @@ declare module Adaptive {
         static Redirected: INetworkReachabilityCallbackWarningEnum;
         static NotRegisteredService: INetworkReachabilityCallbackWarningEnum;
         static Unknown: INetworkReachabilityCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Callback INetworkReachabilityCallback onError/onWarning/onResult handlers.
@@ -696,6 +770,7 @@ declare module Adaptive {
         onError(error: INetworkReachabilityCallbackErrorEnum): void;
         onResult(result: string): void;
         onWarning(result: string, warning: INetworkReachabilityCallbackWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IAccelerationListener
@@ -718,6 +793,7 @@ declare module Adaptive {
         static Unauthorized: IAccelerationListenerErrorEnum;
         static Unavailable: IAccelerationListenerErrorEnum;
         static Unknown: IAccelerationListenerErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IAccelerationListener Warning
@@ -729,6 +805,7 @@ declare module Adaptive {
         static NeedsCalibration: IAccelerationListenerWarningEnum;
         static Stale: IAccelerationListenerWarningEnum;
         static Unknown: IAccelerationListenerWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Listener IAccelerationListener onError/onWarning/onResult handlers.
@@ -751,6 +828,7 @@ declare module Adaptive {
         onError(error: IAccelerationListenerErrorEnum): void;
         onResult(acceleration: Acceleration): void;
         onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IDatabase
@@ -783,6 +861,7 @@ declare module Adaptive {
         executeSqlTransactions(database: Database, statements: string[], rollbackFlag: boolean, callback: ITableResultCallback): void;
         existsDatabase(database: Database): boolean;
         existsTable(database: Database, table: Table): boolean;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for INetworkNaming
@@ -809,6 +888,7 @@ declare module Adaptive {
         toString(): string;
         static Not_Present: IButtonListenerErrorEnum;
         static Unknown: IButtonListenerErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IButtonListener Warning
@@ -819,6 +899,7 @@ declare module Adaptive {
         toString(): string;
         static Not_Implemented: IButtonListenerWarningEnum;
         static Unknown: IButtonListenerWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Listener IButtonListener onError/onWarning/onResult handlers.
@@ -841,6 +922,7 @@ declare module Adaptive {
         onError(error: IButtonListenerErrorEnum): void;
         onResult(button: Button): void;
         onWarning(button: Button, warning: IButtonListenerWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IBarometer
@@ -883,6 +965,7 @@ declare module Adaptive {
         static NoPermission: IContactResultCallbackErrorEnum;
         static Wrong_Params: IContactResultCallbackErrorEnum;
         static Unknown: IContactResultCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IContactResultCallback Warning
@@ -894,6 +977,7 @@ declare module Adaptive {
         static LimitExceeded: IContactResultCallbackWarningEnum;
         static No_Matches: IContactResultCallbackWarningEnum;
         static Unknown: IContactResultCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Callback IContactResultCallback onError/onWarning/onResult handlers.
@@ -916,6 +1000,7 @@ declare module Adaptive {
         onError(error: IContactResultCallbackErrorEnum): void;
         onResult(contacts: Contact[]): void;
         onWarning(contacts: Contact[], warning: IContactResultCallbackWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for ITwitter
@@ -937,6 +1022,7 @@ declare module Adaptive {
     class BrowserBridge implements IBrowser {
         constructor();
         openBrowser(url: string, title: string, buttonText: string): boolean;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IUpdate
@@ -960,6 +1046,7 @@ declare module Adaptive {
         constructor();
         isNetworkReachable(host: string, callback: INetworkReachabilityCallback): void;
         isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for ILinkedIn
@@ -1004,6 +1091,7 @@ declare module Adaptive {
         static DeniedAccess: IGeolocationListenerErrorEnum;
         static StatusNotDetermined: IGeolocationListenerErrorEnum;
         static Unknown: IGeolocationListenerErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IGeolocationListener Warning
@@ -1015,6 +1103,7 @@ declare module Adaptive {
         static HighDoP: IGeolocationListenerWarningEnum;
         static StaleData: IGeolocationListenerWarningEnum;
         static Unknown: IGeolocationListenerWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Listener IGeolocationListener onError/onWarning/onResult handlers.
@@ -1037,6 +1126,7 @@ declare module Adaptive {
         onError(error: IGeolocationListenerErrorEnum): void;
         onResult(geolocation: Geolocation): void;
         onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IContactPhotoResultCallback
@@ -1060,6 +1150,7 @@ declare module Adaptive {
         static Wrong_Params: IContactPhotoResultCallbackErrorEnum;
         static No_Photo: IContactPhotoResultCallbackErrorEnum;
         static Unknown: IContactPhotoResultCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IContactPhotoResultCallback Warning
@@ -1071,6 +1162,7 @@ declare module Adaptive {
         static LimitExceeded: IContactPhotoResultCallbackWarningEnum;
         static No_Matches: IContactPhotoResultCallbackWarningEnum;
         static Unknown: IContactPhotoResultCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Callback IContactPhotoResultCallback onError/onWarning/onResult handlers.
@@ -1093,6 +1185,7 @@ declare module Adaptive {
         onError(error: IContactPhotoResultCallbackErrorEnum): void;
         onResult(contactPhoto: number[]): void;
         onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for ILifecycle
@@ -1115,6 +1208,7 @@ declare module Adaptive {
         isBackground(): boolean;
         removeLifecycleListener(listener: ILifecycleListener): void;
         removeLifecycleListeners(): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IFileSystem
@@ -1153,6 +1247,7 @@ declare module Adaptive {
         isSameFile(source: IFile, dest: IFile): boolean;
         isSamePath(source: IFilePath, dest: IFilePath): boolean;
         toPath(path: IFile): IFilePath;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for INetworkInfo
@@ -1174,6 +1269,7 @@ declare module Adaptive {
     class OSBridge implements IOS {
         constructor();
         getOSInfo(): OSInfo;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IPrinting
@@ -1227,6 +1323,7 @@ declare module Adaptive {
         static SOCIALS: IContactFieldGroupEnum;
         static TAGS: IContactFieldGroupEnum;
         static Unknown: IContactFieldGroupEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IContact Filter
@@ -1239,6 +1336,7 @@ declare module Adaptive {
         static HAS_EMAIL: IContactFilterEnum;
         static HAS_ADDRESS: IContactFilterEnum;
         static Unknown: IContactFilterEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Service IContact implementation.
@@ -1253,6 +1351,7 @@ declare module Adaptive {
         searchContacts(term: string, callback: IContactResultCallback): void;
         searchContactsWithFilter(term: string, callback: IContactResultCallback, filter: IContactFilterEnum[]): void;
         setContactPhoto(contact: ContactUid, pngImage: number[]): boolean;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for ILogging
@@ -1276,6 +1375,7 @@ declare module Adaptive {
         static ERROR: ILoggingLogLevelEnum;
         static INFO: ILoggingLogLevelEnum;
         static Unknown: ILoggingLogLevelEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IStore
@@ -1299,6 +1399,7 @@ declare module Adaptive {
         constructor();
         dismissApplication(): void;
         dismissSplashScreen(): boolean;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IMessagingCallback
@@ -1324,6 +1425,7 @@ declare module Adaptive {
         static WrongParams: IMessagingCallbackErrorEnum;
         static NotSupported: IMessagingCallbackErrorEnum;
         static Unknown: IMessagingCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IMessagingCallback Warning
@@ -1335,6 +1437,7 @@ declare module Adaptive {
         static UnableToSentAll: IMessagingCallbackWarningEnum;
         static UnableToFetchAttachment: IMessagingCallbackWarningEnum;
         static Unknown: IMessagingCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Callback IMessagingCallback onError/onWarning/onResult handlers.
@@ -1357,6 +1460,7 @@ declare module Adaptive {
         onError(error: IMessagingCallbackErrorEnum): void;
         onResult(success: boolean): void;
         onWarning(success: boolean, warning: IMessagingCallbackWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IDatabaseResultCallback
@@ -1380,6 +1484,7 @@ declare module Adaptive {
         static SqlException: IDatabaseResultCallbackErrorEnum;
         static NotDeleted: IDatabaseResultCallbackErrorEnum;
         static Unknown: IDatabaseResultCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IDatabaseResultCallback Warning
@@ -1391,6 +1496,7 @@ declare module Adaptive {
         static DatabaseExists: IDatabaseResultCallbackWarningEnum;
         static IsOpen: IDatabaseResultCallbackWarningEnum;
         static Unknown: IDatabaseResultCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Callback IDatabaseResultCallback onError/onWarning/onResult handlers.
@@ -1413,6 +1519,7 @@ declare module Adaptive {
         onError(error: IDatabaseResultCallbackErrorEnum): void;
         onResult(database: Database): void;
         onWarning(database: Database, warning: IDatabaseResultCallbackWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for ISecurity
@@ -1435,6 +1542,7 @@ declare module Adaptive {
         getSecureKeyValuePairs(keys: string[], publicAccessName: string, callback: ISecureKVResultCallback): void;
         isDeviceModified(): boolean;
         setSecureKeyValuePairs(keyValues: SecureKeyPair[], publicAccessName: string, callback: ISecureKVResultCallback): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IOAuth
@@ -1472,6 +1580,7 @@ declare module Adaptive {
         static BackButton: ICapabilitiesButtonEnum;
         static OptionButton: ICapabilitiesButtonEnum;
         static Unknown: ICapabilitiesButtonEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ICapabilities Communication
@@ -1486,6 +1595,7 @@ declare module Adaptive {
         static Messaging: ICapabilitiesCommunicationEnum;
         static Telephony: ICapabilitiesCommunicationEnum;
         static Unknown: ICapabilitiesCommunicationEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ICapabilities Data
@@ -1498,6 +1608,7 @@ declare module Adaptive {
         static File: ICapabilitiesDataEnum;
         static Cloud: ICapabilitiesDataEnum;
         static Unknown: ICapabilitiesDataEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ICapabilities Media
@@ -1512,6 +1623,7 @@ declare module Adaptive {
         static Video_Playback: ICapabilitiesMediaEnum;
         static Video_Recording: ICapabilitiesMediaEnum;
         static Unknown: ICapabilitiesMediaEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ICapabilities Net
@@ -1527,6 +1639,7 @@ declare module Adaptive {
         static WIFI: ICapabilitiesNetEnum;
         static Ethernet: ICapabilitiesNetEnum;
         static Unknown: ICapabilitiesNetEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ICapabilities Notification
@@ -1540,6 +1653,7 @@ declare module Adaptive {
         static RemoteNotification: ICapabilitiesNotificationEnum;
         static Vibration: ICapabilitiesNotificationEnum;
         static Unknown: ICapabilitiesNotificationEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ICapabilities Sensor
@@ -1556,6 +1670,7 @@ declare module Adaptive {
         static Magnetometer: ICapabilitiesSensorEnum;
         static Proximity: ICapabilitiesSensorEnum;
         static Unknown: ICapabilitiesSensorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Service ICapabilities implementation.
@@ -1569,6 +1684,7 @@ declare module Adaptive {
         hasNetSupport(type: ICapabilitiesNetEnum): boolean;
         hasNotificationSupport(type: ICapabilitiesNotificationEnum): boolean;
         hasSensorSupport(type: ICapabilitiesSensorEnum): boolean;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IAnalytics
@@ -1594,6 +1710,7 @@ declare module Adaptive {
         addGeolocationListener(listener: IGeolocationListener): void;
         removeGeolocationListener(listener: IGeolocationListener): void;
         removeGeolocationListeners(): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IProximity
@@ -1624,6 +1741,7 @@ declare module Adaptive {
         static Dialing: ITelephonyStatusEnum;
         static Failed: ITelephonyStatusEnum;
         static Unknown: ITelephonyStatusEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Service ITelephony implementation.
@@ -1631,6 +1749,7 @@ declare module Adaptive {
     class TelephonyBridge implements ITelephony {
         constructor();
         call(number: string): ITelephonyStatusEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IXML
@@ -1662,6 +1781,7 @@ declare module Adaptive {
     class MessagingBridge implements IMessaging {
         constructor();
         sendSMS(number: string, text: string, callback: IMessagingCallback): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IFilePath
@@ -1720,6 +1840,7 @@ declare module Adaptive {
         toAbsolutePath(): IFilePath;
         toFile(): IFile;
         toString(): string;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IDesktop
@@ -1755,6 +1876,7 @@ declare module Adaptive {
         static DatabaseNotFound: ITableResultCallbackErrorEnum;
         static NoTableFound: ITableResultCallbackErrorEnum;
         static Unknown: ITableResultCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ITableResultCallback Warning
@@ -1767,6 +1889,7 @@ declare module Adaptive {
         static TableLocked: ITableResultCallbackWarningEnum;
         static NoResults: ITableResultCallbackWarningEnum;
         static Unknown: ITableResultCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Callback ITableResultCallback onError/onWarning/onResult handlers.
@@ -1789,6 +1912,7 @@ declare module Adaptive {
         onError(error: ITableResultCallbackErrorEnum): void;
         onResult(table: Table): void;
         onWarning(table: Table, warning: ITableResultCallbackWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IGyroscope
@@ -1831,6 +1955,7 @@ declare module Adaptive {
         static InexistentFile: IFileListResultCallbackErrorEnum;
         static Unauthorized: IFileListResultCallbackErrorEnum;
         static Unknown: IFileListResultCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IFileListResultCallback Warning
@@ -1841,6 +1966,7 @@ declare module Adaptive {
         toString(): string;
         static PartialResult: IFileListResultCallbackWarningEnum;
         static Unknown: IFileListResultCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Callback IFileListResultCallback onError/onWarning/onResult handlers.
@@ -1863,6 +1989,7 @@ declare module Adaptive {
         onError(error: IFileListResultCallbackErrorEnum): void;
         onResult(files: IFile[]): void;
         onWarning(files: IFile[], warning: IFileListResultCallbackWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for ICalendar
@@ -1893,6 +2020,7 @@ declare module Adaptive {
         addAccelerationListener(listener: IAccelerationListener): void;
         removeAccelerationListener(listener: IAccelerationListener): void;
         removeAccelerationListeners(): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IAlarm
@@ -1925,6 +2053,7 @@ declare module Adaptive {
         static NotFound: IAppResourceCallbackErrorEnum;
         static NoPermission: IAppResourceCallbackErrorEnum;
         static Unknown: IAppResourceCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IAppResourceCallback Warning
@@ -1937,6 +2066,7 @@ declare module Adaptive {
         static TooLarge: IAppResourceCallbackWarningEnum;
         static LinkedResource: IAppResourceCallbackWarningEnum;
         static Unknown: IAppResourceCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IGlobalization
@@ -1957,6 +2087,7 @@ declare module Adaptive {
         getLocaleSupportedDescriptors(): Locale[];
         getResourceLiteral(key: string, locale: Locale): string;
         getResourceLiterals(locale: Locale): Dictionary<string>;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IServiceResultCallback
@@ -1988,6 +2119,7 @@ declare module Adaptive {
         static MalformedUrl: IServiceResultCallbackErrorEnum;
         static NotRegisteredService: IServiceResultCallbackErrorEnum;
         static Unknown: IServiceResultCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IServiceResultCallback Warning
@@ -2001,6 +2133,7 @@ declare module Adaptive {
         static Redirected: IServiceResultCallbackWarningEnum;
         static Wrong_Params: IServiceResultCallbackWarningEnum;
         static Unknown: IServiceResultCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Callback IServiceResultCallback onError/onWarning/onResult handlers.
@@ -2023,6 +2156,7 @@ declare module Adaptive {
         onError(error: IServiceResultCallbackErrorEnum): void;
         onResult(response: ServiceResponse): void;
         onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IFileDataResultCallback
@@ -2046,6 +2180,7 @@ declare module Adaptive {
         static InsufficientSpace: IFileDataResultCallbackErrorEnum;
         static Unauthorized: IFileDataResultCallbackErrorEnum;
         static Unknown: IFileDataResultCallbackErrorEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for IFileDataResultCallback Warning
@@ -2056,6 +2191,7 @@ declare module Adaptive {
         toString(): string;
         static ExceedMaximumSize: IFileDataResultCallbackWarningEnum;
         static Unknown: IFileDataResultCallbackWarningEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Callback IFileDataResultCallback onError/onWarning/onResult handlers.
@@ -2078,6 +2214,7 @@ declare module Adaptive {
         onError(error: IFileDataResultCallbackErrorEnum): void;
         onResult(file: IFile, data: number[]): void;
         onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for IVideo
@@ -2094,6 +2231,7 @@ declare module Adaptive {
     class VideoBridge implements IVideo {
         constructor();
         playStream(url: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Interface definition for ITimer
@@ -2188,6 +2326,7 @@ declare module Adaptive {
         toFile(): IFile;
         toPath(): IFilePath;
         toString(): string;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for ContactEmail
@@ -2208,6 +2347,7 @@ declare module Adaptive {
         setEmail(email: string): void;
         setPrimary(primary: boolean): void;
         setType(type: ContactEmailEmailTypeEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ContactEmail EmailType
@@ -2220,6 +2360,7 @@ declare module Adaptive {
         static Work: ContactEmailEmailTypeEnum;
         static Other: ContactEmailEmailTypeEnum;
         static Unknown: ContactEmailEmailTypeEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Header
@@ -2237,6 +2378,7 @@ declare module Adaptive {
         getName(): string;
         setData(data: string): void;
         setName(name: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for ServiceResponse
@@ -2272,6 +2414,7 @@ declare module Adaptive {
         setContent(content: string): void;
         setHeaders(headers: Header[]): void;
         setSession(session: ISession): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for OSInfo
@@ -2289,6 +2432,7 @@ declare module Adaptive {
         getName(): string;
         getVendor(): string;
         getVersion(): string;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Column
@@ -2303,6 +2447,7 @@ declare module Adaptive {
          */
         getName(): string;
         setName(name: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for ServiceRequest
@@ -2341,6 +2486,7 @@ declare module Adaptive {
         setProtocolVersion(protocolVersion: ServiceRequestProtocolVersionEnum): void;
         setRawContent(rawContent: number[]): void;
         setSession(session: ISession): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ServiceRequest ProtocolVersion
@@ -2352,6 +2498,7 @@ declare module Adaptive {
         static HTTP_PROTOCOL_VERSION_1_0: ServiceRequestProtocolVersionEnum;
         static HTTP_PROTOCOL_VERSION_1_1: ServiceRequestProtocolVersionEnum;
         static Unknown: ServiceRequestProtocolVersionEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Database
@@ -2369,6 +2516,7 @@ declare module Adaptive {
         isCompress(): boolean;
         setCompress(compress: boolean): void;
         setName(name: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Cookie
@@ -2403,6 +2551,7 @@ declare module Adaptive {
         setPath(path: string): void;
         setScheme(scheme: string): void;
         setSecure(secure: boolean): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Locale
@@ -2422,6 +2571,7 @@ declare module Adaptive {
         setCountry(country: string): void;
         setLanguage(language: string): void;
         toString(): string;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for ContactWebsite
@@ -2436,6 +2586,7 @@ declare module Adaptive {
          */
         getUrl(): string;
         setUrl(url: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Row
@@ -2450,6 +2601,7 @@ declare module Adaptive {
          */
         getValues(): any[];
         setValues(values: any[]): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for ContactPersonalInfo
@@ -2473,6 +2625,7 @@ declare module Adaptive {
         setMiddleName(middleName: string): void;
         setName(name: string): void;
         setTitle(title: ContactPersonalInfoTitleEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ContactPersonalInfo Title
@@ -2486,6 +2639,7 @@ declare module Adaptive {
         static Ms: ContactPersonalInfoTitleEnum;
         static Dr: ContactPersonalInfoTitleEnum;
         static Unknown: ContactPersonalInfoTitleEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for EmailAddress
@@ -2500,6 +2654,7 @@ declare module Adaptive {
          */
         getAddress(): string;
         setAddress(address: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for ContactTag
@@ -2517,6 +2672,7 @@ declare module Adaptive {
         getName(): string;
         setDataValue(dataValue: string): void;
         setName(name: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Endpoint
@@ -2543,6 +2699,7 @@ declare module Adaptive {
         setPort(port: number): void;
         setProxy(proxy: string): void;
         setScheme(scheme: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Geolocation
@@ -2567,6 +2724,7 @@ declare module Adaptive {
         setAltitude(altitude: number): void;
         setLatitude(latitude: number): void;
         setLongitude(longitude: number): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for ContactUid
@@ -2581,6 +2739,7 @@ declare module Adaptive {
          */
         getContactId(): string;
         setContactId(contactId: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Email
@@ -2613,6 +2772,7 @@ declare module Adaptive {
         setMessageBody(messageBody: string): void;
         setSubject(subject: string): void;
         setToRecipients(toRecipients: EmailAddress[]): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for AttachmentData
@@ -2639,6 +2799,7 @@ declare module Adaptive {
         setFileName(fileName: string): void;
         setMimeType(mimeType: string): void;
         setReferenceUrl(referenceUrl: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for ContactSocial
@@ -2656,6 +2817,7 @@ declare module Adaptive {
         getSocialNetwork(): ContactSocialSocialNetworkEnum;
         setProfileUrl(profileUrl: string): void;
         setSocialNetwork(socialNetwork: ContactSocialSocialNetworkEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ContactSocial SocialNetwork
@@ -2670,6 +2832,7 @@ declare module Adaptive {
         static LinkedIn: ContactSocialSocialNetworkEnum;
         static Flickr: ContactSocialSocialNetworkEnum;
         static Unknown: ContactSocialSocialNetworkEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for ContactPhone
@@ -2687,6 +2850,7 @@ declare module Adaptive {
         getPhoneType(): ContactPhonePhoneTypeEnum;
         setPhoneType(phoneType: ContactPhonePhoneTypeEnum): void;
         setPhone(phone: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ContactPhone PhoneType
@@ -2703,6 +2867,7 @@ declare module Adaptive {
         static WorkFax: ContactPhonePhoneTypeEnum;
         static Other: ContactPhonePhoneTypeEnum;
         static Unknown: ContactPhonePhoneTypeEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for SecureKeyPair
@@ -2720,6 +2885,7 @@ declare module Adaptive {
         getSecureKey(): string;
         setSecureData(secureData: string): void;
         setSecureKey(secureKey: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Table
@@ -2746,6 +2912,7 @@ declare module Adaptive {
         setName(name: string): void;
         setRowCount(rowCount: number): void;
         setRows(rows: Row[]): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for ContactProfessionalInfo
@@ -2766,6 +2933,7 @@ declare module Adaptive {
         setCompany(company: string): void;
         setJobDescription(jobDescription: string): void;
         setJobTitle(jobTitle: string): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Acceleration
@@ -2788,6 +2956,7 @@ declare module Adaptive {
         setX(x: number): void;
         setY(y: number): void;
         setZ(z: number): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for DeviceInfo
@@ -2807,6 +2976,7 @@ declare module Adaptive {
         getName(): string;
         getUuid(): string;
         getVendor(): string;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for ContactAddress
@@ -2824,6 +2994,7 @@ declare module Adaptive {
         getType(): ContactAddressAddressTypeEnum;
         setAddress(address: string): void;
         setType(type: ContactAddressAddressTypeEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for ContactAddress AddressType
@@ -2836,6 +3007,7 @@ declare module Adaptive {
         static Work: ContactAddressAddressTypeEnum;
         static Other: ContactAddressAddressTypeEnum;
         static Unknown: ContactAddressAddressTypeEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Contact
@@ -2871,6 +3043,7 @@ declare module Adaptive {
         setContactWebsites(contactWebsites: ContactWebsite[]): void;
         setPersonalInfo(personalInfo: ContactPersonalInfo): void;
         setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Button
@@ -2884,6 +3057,7 @@ declare module Adaptive {
          * Method Declarations for Button
          */
         getType(): ButtonButtonEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for Button Button
@@ -2896,6 +3070,7 @@ declare module Adaptive {
         static BackButton: ButtonButtonEnum;
         static OptionButton: ButtonButtonEnum;
         static Unknown: ButtonButtonEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Lifecycle
@@ -2910,6 +3085,7 @@ declare module Adaptive {
          */
         getState(): LifecycleStateEnum;
         setState(state: LifecycleStateEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for Lifecycle State
@@ -2927,6 +3103,7 @@ declare module Adaptive {
         static Resuming: LifecycleStateEnum;
         static Stopping: LifecycleStateEnum;
         static Unknown: LifecycleStateEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *   Class implementation for Service
@@ -2950,6 +3127,7 @@ declare module Adaptive {
         setMethod(method: ServiceServiceMethodEnum): void;
         setName(name: string): void;
         setType(type: ServiceServiceTypeEnum): void;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for Service ServiceMethod
@@ -2961,6 +3139,7 @@ declare module Adaptive {
         static POST: ServiceServiceMethodEnum;
         static GET: ServiceServiceMethodEnum;
         static Unknown: ServiceServiceMethodEnum;
+        static getReflection(): ReflectionClass;
     }
     /**
      *  Enumerations for Service ServiceType
@@ -2980,84 +3159,6 @@ declare module Adaptive {
         static SERVICETYPE_XMLRPC_JSON: ServiceServiceTypeEnum;
         static SERVICETYPE_XMLRPC_XML: ServiceServiceTypeEnum;
         static Unknown: ServiceServiceTypeEnum;
-        static getClassDescription(): string;
-    }
-    class ReflectionStereotypeEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static TypeModule: ReflectionStereotypeEnum;
-        static TypeCategory: ReflectionStereotypeEnum;
-        static TypeClass: ReflectionStereotypeEnum;
-        static TypeFunction: ReflectionStereotypeEnum;
-        static TypeObject: ReflectionStereotypeEnum;
-        static TypeDescription: ReflectionStereotypeEnum;
-    }
-    class ReflectionTypeEnum {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static TypeString: ReflectionStereotypeEnum;
-        static TypeNumber: ReflectionStereotypeEnum;
-        static TypeObject: ReflectionStereotypeEnum;
-        static TypeArray: ReflectionStereotypeEnum;
-    }
-    interface IReflection {
-        name: string;
-        description: string;
-        stereotype: ReflectionStereotypeEnum;
-        getName(): string;
-        getStereotype(): ReflectionStereotypeEnum;
-        getDescription(): string;
-    }
-    class Reflection implements IReflection {
-        name: string;
-        description: string;
-        stereotype: ReflectionStereotypeEnum;
-        constructor(name: string, description: string, stereotype: ReflectionStereotypeEnum);
-        getName(): string;
-        getStereotype(): ReflectionStereotypeEnum;
-        getDescription(): string;
-    }
-    class ReflectionModule extends Reflection {
-        categories: ReflectionCategory[];
-        constructor(name: string, description: string, categories: ReflectionCategory[]);
-        getCategories(): ReflectionCategory[];
-        getClasses(): ReflectionClass[];
-    }
-    class ReflectionCategory extends Reflection {
-        classes: ReflectionClass[];
-        constructor(name: string, description: string, classes: ReflectionClass[]);
-        getClasses(): ReflectionClass[];
-    }
-    class ReflectionClass extends Reflection {
-        functions: ReflectionFunction[];
-        fields: ReflectionObject[];
-        constructor(name: string, description: string, functions: ReflectionFunction[], fields: ReflectionObject[]);
-        getFunctions(): ReflectionFunction[];
-        getFields(): ReflectionObject[];
-    }
-    class ReflectionFunction extends Reflection {
-        parameters: ReflectionObject[];
-        returnType: ReflectionObject;
-        constructor(name: string, description: string, parameters: ReflectionObject[], returnType: ReflectionObject);
-        getParameters(): ReflectionObject[];
-        getReturnType(): ReflectionObject;
-    }
-    class ReflectionObject extends Reflection {
-        type: string;
-        componentType: ReflectionObject;
-        fields: ReflectionObject[];
-        primitive: boolean;
-        _array: boolean;
-        _void: boolean;
-        constructor(name: string, description: string, type: string, fields: ReflectionObject[]);
-        getType(): string;
-        getComponentType(): ReflectionObject;
-        isPrimitive(): boolean;
-        isArray(): boolean;
-        isVoid(): boolean;
+        static getReflection(): ReflectionClass;
     }
 }
-declare var arrayCategory: Adaptive.ReflectionCategory[];
-declare var moduleDescription: Adaptive.ReflectionModule;
