@@ -197,6 +197,7 @@ declare module Adaptive {
         static Chromium: IAppContextTypeEnum;
         static Unspecified: IAppContextTypeEnum;
         static Unknown: IAppContextTypeEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -245,6 +246,7 @@ declare module Adaptive {
         constructor();
         toString(): string;
         getId(): number;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -288,6 +290,7 @@ declare module Adaptive {
         constructor();
         toString(): string;
         getId(): number;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -333,6 +336,7 @@ declare module Adaptive {
         static Embedded: IAppResourcePayloadEnum;
         static Linked: IAppResourcePayloadEnum;
         static Unknown: IAppResourcePayloadEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -347,6 +351,7 @@ declare module Adaptive {
         static Encrypted: IAppResourceFormatEnum;
         static EncryptedCompressed: IAppResourceFormatEnum;
         static Unknown: IAppResourceFormatEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -366,6 +371,7 @@ declare module Adaptive {
         static Database: IAppResourceTypeEnum;
         static Other: IAppResourceTypeEnum;
         static Unknown: IAppResourceTypeEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -391,6 +397,7 @@ declare module Adaptive {
         getLocaleCurrent(): Locale;
         removeButtonListener(listener: IButtonListener): void;
         removeButtonListeners(): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -408,6 +415,7 @@ declare module Adaptive {
     class MailBridge implements IMail {
         constructor();
         sendEmail(data: Email, callback: IMessagingCallback): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -431,6 +439,7 @@ declare module Adaptive {
         static NoPermission: ISecureKVResultCallbackErrorEnum;
         static NoMatchesFound: ISecureKVResultCallbackErrorEnum;
         static Unknown: ISecureKVResultCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -442,6 +451,7 @@ declare module Adaptive {
         toString(): string;
         static EntryOverride: ISecureKVResultCallbackWarningEnum;
         static Unknown: ISecureKVResultCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -465,6 +475,7 @@ declare module Adaptive {
         onError(error: ISecureKVResultCallbackErrorEnum): void;
         onResult(keyValues: SecureKeyPair[]): void;
         onWarning(keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -504,6 +515,7 @@ declare module Adaptive {
         static InsufficientSpace: IFileResultCallbackErrorEnum;
         static Unauthorized: IFileResultCallbackErrorEnum;
         static Unknown: IFileResultCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -516,6 +528,7 @@ declare module Adaptive {
         static SourceNotDeleted: IFileResultCallbackWarningEnum;
         static RootDirectory: IFileResultCallbackWarningEnum;
         static Unknown: IFileResultCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -539,6 +552,7 @@ declare module Adaptive {
         onError(error: IFileResultCallbackErrorEnum): void;
         onResult(storageFile: IFile): void;
         onWarning(sourceFile: IFile, destinationFile: IFile, warning: IFileResultCallbackWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -593,6 +607,7 @@ declare module Adaptive {
         static Implementation: ILifecycleListenerErrorEnum;
         static Killed: ILifecycleListenerErrorEnum;
         static Unknown: ILifecycleListenerErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -605,6 +620,7 @@ declare module Adaptive {
         static MemoryLow: ILifecycleListenerWarningEnum;
         static BatteryLow: ILifecycleListenerWarningEnum;
         static Unknown: ILifecycleListenerWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -628,6 +644,7 @@ declare module Adaptive {
         onError(error: ILifecycleListenerErrorEnum): void;
         onResult(lifecycle: Lifecycle): void;
         onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -685,6 +702,7 @@ declare module Adaptive {
         setAttribute(name: string, value: any): void;
         setCookie(cookie: Cookie): void;
         setCookies(cookies: Cookie[]): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -732,6 +750,7 @@ declare module Adaptive {
         static MalformedUrl: INetworkReachabilityCallbackErrorEnum;
         static DomainUnresolvable: INetworkReachabilityCallbackErrorEnum;
         static Unknown: INetworkReachabilityCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -747,6 +766,7 @@ declare module Adaptive {
         static Redirected: INetworkReachabilityCallbackWarningEnum;
         static NotRegisteredService: INetworkReachabilityCallbackWarningEnum;
         static Unknown: INetworkReachabilityCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -770,6 +790,7 @@ declare module Adaptive {
         onError(error: INetworkReachabilityCallbackErrorEnum): void;
         onResult(result: string): void;
         onWarning(result: string, warning: INetworkReachabilityCallbackWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -793,6 +814,7 @@ declare module Adaptive {
         static Unauthorized: IAccelerationListenerErrorEnum;
         static Unavailable: IAccelerationListenerErrorEnum;
         static Unknown: IAccelerationListenerErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -805,6 +827,7 @@ declare module Adaptive {
         static NeedsCalibration: IAccelerationListenerWarningEnum;
         static Stale: IAccelerationListenerWarningEnum;
         static Unknown: IAccelerationListenerWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -828,6 +851,7 @@ declare module Adaptive {
         onError(error: IAccelerationListenerErrorEnum): void;
         onResult(acceleration: Acceleration): void;
         onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -861,6 +885,7 @@ declare module Adaptive {
         executeSqlTransactions(database: Database, statements: string[], rollbackFlag: boolean, callback: ITableResultCallback): void;
         existsDatabase(database: Database): boolean;
         existsTable(database: Database, table: Table): boolean;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -888,6 +913,7 @@ declare module Adaptive {
         toString(): string;
         static Not_Present: IButtonListenerErrorEnum;
         static Unknown: IButtonListenerErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -899,6 +925,7 @@ declare module Adaptive {
         toString(): string;
         static Not_Implemented: IButtonListenerWarningEnum;
         static Unknown: IButtonListenerWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -922,6 +949,7 @@ declare module Adaptive {
         onError(error: IButtonListenerErrorEnum): void;
         onResult(button: Button): void;
         onWarning(button: Button, warning: IButtonListenerWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -965,6 +993,7 @@ declare module Adaptive {
         static NoPermission: IContactResultCallbackErrorEnum;
         static Wrong_Params: IContactResultCallbackErrorEnum;
         static Unknown: IContactResultCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -977,6 +1006,7 @@ declare module Adaptive {
         static LimitExceeded: IContactResultCallbackWarningEnum;
         static No_Matches: IContactResultCallbackWarningEnum;
         static Unknown: IContactResultCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1000,6 +1030,7 @@ declare module Adaptive {
         onError(error: IContactResultCallbackErrorEnum): void;
         onResult(contacts: Contact[]): void;
         onWarning(contacts: Contact[], warning: IContactResultCallbackWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1022,6 +1053,7 @@ declare module Adaptive {
     class BrowserBridge implements IBrowser {
         constructor();
         openBrowser(url: string, title: string, buttonText: string): boolean;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1046,6 +1078,7 @@ declare module Adaptive {
         constructor();
         isNetworkReachable(host: string, callback: INetworkReachabilityCallback): void;
         isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1091,6 +1124,7 @@ declare module Adaptive {
         static DeniedAccess: IGeolocationListenerErrorEnum;
         static StatusNotDetermined: IGeolocationListenerErrorEnum;
         static Unknown: IGeolocationListenerErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1103,6 +1137,7 @@ declare module Adaptive {
         static HighDoP: IGeolocationListenerWarningEnum;
         static StaleData: IGeolocationListenerWarningEnum;
         static Unknown: IGeolocationListenerWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1126,6 +1161,7 @@ declare module Adaptive {
         onError(error: IGeolocationListenerErrorEnum): void;
         onResult(geolocation: Geolocation): void;
         onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1150,6 +1186,7 @@ declare module Adaptive {
         static Wrong_Params: IContactPhotoResultCallbackErrorEnum;
         static No_Photo: IContactPhotoResultCallbackErrorEnum;
         static Unknown: IContactPhotoResultCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1162,6 +1199,7 @@ declare module Adaptive {
         static LimitExceeded: IContactPhotoResultCallbackWarningEnum;
         static No_Matches: IContactPhotoResultCallbackWarningEnum;
         static Unknown: IContactPhotoResultCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1185,6 +1223,7 @@ declare module Adaptive {
         onError(error: IContactPhotoResultCallbackErrorEnum): void;
         onResult(contactPhoto: number[]): void;
         onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1208,6 +1247,7 @@ declare module Adaptive {
         isBackground(): boolean;
         removeLifecycleListener(listener: ILifecycleListener): void;
         removeLifecycleListeners(): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1247,6 +1287,7 @@ declare module Adaptive {
         isSameFile(source: IFile, dest: IFile): boolean;
         isSamePath(source: IFilePath, dest: IFilePath): boolean;
         toPath(path: IFile): IFilePath;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1269,6 +1310,7 @@ declare module Adaptive {
     class OSBridge implements IOS {
         constructor();
         getOSInfo(): OSInfo;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1323,6 +1365,7 @@ declare module Adaptive {
         static SOCIALS: IContactFieldGroupEnum;
         static TAGS: IContactFieldGroupEnum;
         static Unknown: IContactFieldGroupEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1336,6 +1379,7 @@ declare module Adaptive {
         static HAS_EMAIL: IContactFilterEnum;
         static HAS_ADDRESS: IContactFilterEnum;
         static Unknown: IContactFilterEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1351,6 +1395,7 @@ declare module Adaptive {
         searchContacts(term: string, callback: IContactResultCallback): void;
         searchContactsWithFilter(term: string, callback: IContactResultCallback, filter: IContactFilterEnum[]): void;
         setContactPhoto(contact: ContactUid, pngImage: number[]): boolean;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1375,6 +1420,7 @@ declare module Adaptive {
         static ERROR: ILoggingLogLevelEnum;
         static INFO: ILoggingLogLevelEnum;
         static Unknown: ILoggingLogLevelEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1399,6 +1445,7 @@ declare module Adaptive {
         constructor();
         dismissApplication(): void;
         dismissSplashScreen(): boolean;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1425,6 +1472,7 @@ declare module Adaptive {
         static WrongParams: IMessagingCallbackErrorEnum;
         static NotSupported: IMessagingCallbackErrorEnum;
         static Unknown: IMessagingCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1437,6 +1485,7 @@ declare module Adaptive {
         static UnableToSentAll: IMessagingCallbackWarningEnum;
         static UnableToFetchAttachment: IMessagingCallbackWarningEnum;
         static Unknown: IMessagingCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1460,6 +1509,7 @@ declare module Adaptive {
         onError(error: IMessagingCallbackErrorEnum): void;
         onResult(success: boolean): void;
         onWarning(success: boolean, warning: IMessagingCallbackWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1484,6 +1534,7 @@ declare module Adaptive {
         static SqlException: IDatabaseResultCallbackErrorEnum;
         static NotDeleted: IDatabaseResultCallbackErrorEnum;
         static Unknown: IDatabaseResultCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1496,6 +1547,7 @@ declare module Adaptive {
         static DatabaseExists: IDatabaseResultCallbackWarningEnum;
         static IsOpen: IDatabaseResultCallbackWarningEnum;
         static Unknown: IDatabaseResultCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1519,6 +1571,7 @@ declare module Adaptive {
         onError(error: IDatabaseResultCallbackErrorEnum): void;
         onResult(database: Database): void;
         onWarning(database: Database, warning: IDatabaseResultCallbackWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1542,6 +1595,7 @@ declare module Adaptive {
         getSecureKeyValuePairs(keys: string[], publicAccessName: string, callback: ISecureKVResultCallback): void;
         isDeviceModified(): boolean;
         setSecureKeyValuePairs(keyValues: SecureKeyPair[], publicAccessName: string, callback: ISecureKVResultCallback): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1580,6 +1634,7 @@ declare module Adaptive {
         static BackButton: ICapabilitiesButtonEnum;
         static OptionButton: ICapabilitiesButtonEnum;
         static Unknown: ICapabilitiesButtonEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1595,6 +1650,7 @@ declare module Adaptive {
         static Messaging: ICapabilitiesCommunicationEnum;
         static Telephony: ICapabilitiesCommunicationEnum;
         static Unknown: ICapabilitiesCommunicationEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1608,6 +1664,7 @@ declare module Adaptive {
         static File: ICapabilitiesDataEnum;
         static Cloud: ICapabilitiesDataEnum;
         static Unknown: ICapabilitiesDataEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1623,6 +1680,7 @@ declare module Adaptive {
         static Video_Playback: ICapabilitiesMediaEnum;
         static Video_Recording: ICapabilitiesMediaEnum;
         static Unknown: ICapabilitiesMediaEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1639,6 +1697,7 @@ declare module Adaptive {
         static WIFI: ICapabilitiesNetEnum;
         static Ethernet: ICapabilitiesNetEnum;
         static Unknown: ICapabilitiesNetEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1653,6 +1712,7 @@ declare module Adaptive {
         static RemoteNotification: ICapabilitiesNotificationEnum;
         static Vibration: ICapabilitiesNotificationEnum;
         static Unknown: ICapabilitiesNotificationEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1670,6 +1730,7 @@ declare module Adaptive {
         static Magnetometer: ICapabilitiesSensorEnum;
         static Proximity: ICapabilitiesSensorEnum;
         static Unknown: ICapabilitiesSensorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1684,6 +1745,7 @@ declare module Adaptive {
         hasNetSupport(type: ICapabilitiesNetEnum): boolean;
         hasNotificationSupport(type: ICapabilitiesNotificationEnum): boolean;
         hasSensorSupport(type: ICapabilitiesSensorEnum): boolean;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1710,6 +1772,7 @@ declare module Adaptive {
         addGeolocationListener(listener: IGeolocationListener): void;
         removeGeolocationListener(listener: IGeolocationListener): void;
         removeGeolocationListeners(): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1741,6 +1804,7 @@ declare module Adaptive {
         static Dialing: ITelephonyStatusEnum;
         static Failed: ITelephonyStatusEnum;
         static Unknown: ITelephonyStatusEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1749,6 +1813,7 @@ declare module Adaptive {
     class TelephonyBridge implements ITelephony {
         constructor();
         call(number: string): ITelephonyStatusEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1781,6 +1846,7 @@ declare module Adaptive {
     class MessagingBridge implements IMessaging {
         constructor();
         sendSMS(number: string, text: string, callback: IMessagingCallback): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1840,6 +1906,7 @@ declare module Adaptive {
         toAbsolutePath(): IFilePath;
         toFile(): IFile;
         toString(): string;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1876,6 +1943,7 @@ declare module Adaptive {
         static DatabaseNotFound: ITableResultCallbackErrorEnum;
         static NoTableFound: ITableResultCallbackErrorEnum;
         static Unknown: ITableResultCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1889,6 +1957,7 @@ declare module Adaptive {
         static TableLocked: ITableResultCallbackWarningEnum;
         static NoResults: ITableResultCallbackWarningEnum;
         static Unknown: ITableResultCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1912,6 +1981,7 @@ declare module Adaptive {
         onError(error: ITableResultCallbackErrorEnum): void;
         onResult(table: Table): void;
         onWarning(table: Table, warning: ITableResultCallbackWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1955,6 +2025,7 @@ declare module Adaptive {
         static InexistentFile: IFileListResultCallbackErrorEnum;
         static Unauthorized: IFileListResultCallbackErrorEnum;
         static Unknown: IFileListResultCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1966,6 +2037,7 @@ declare module Adaptive {
         toString(): string;
         static PartialResult: IFileListResultCallbackWarningEnum;
         static Unknown: IFileListResultCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -1989,6 +2061,7 @@ declare module Adaptive {
         onError(error: IFileListResultCallbackErrorEnum): void;
         onResult(files: IFile[]): void;
         onWarning(files: IFile[], warning: IFileListResultCallbackWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2020,6 +2093,7 @@ declare module Adaptive {
         addAccelerationListener(listener: IAccelerationListener): void;
         removeAccelerationListener(listener: IAccelerationListener): void;
         removeAccelerationListeners(): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2053,6 +2127,7 @@ declare module Adaptive {
         static NotFound: IAppResourceCallbackErrorEnum;
         static NoPermission: IAppResourceCallbackErrorEnum;
         static Unknown: IAppResourceCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2066,6 +2141,7 @@ declare module Adaptive {
         static TooLarge: IAppResourceCallbackWarningEnum;
         static LinkedResource: IAppResourceCallbackWarningEnum;
         static Unknown: IAppResourceCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2087,6 +2163,7 @@ declare module Adaptive {
         getLocaleSupportedDescriptors(): Locale[];
         getResourceLiteral(key: string, locale: Locale): string;
         getResourceLiterals(locale: Locale): Dictionary<string>;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2119,6 +2196,7 @@ declare module Adaptive {
         static MalformedUrl: IServiceResultCallbackErrorEnum;
         static NotRegisteredService: IServiceResultCallbackErrorEnum;
         static Unknown: IServiceResultCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2133,6 +2211,7 @@ declare module Adaptive {
         static Redirected: IServiceResultCallbackWarningEnum;
         static Wrong_Params: IServiceResultCallbackWarningEnum;
         static Unknown: IServiceResultCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2156,6 +2235,7 @@ declare module Adaptive {
         onError(error: IServiceResultCallbackErrorEnum): void;
         onResult(response: ServiceResponse): void;
         onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2180,6 +2260,7 @@ declare module Adaptive {
         static InsufficientSpace: IFileDataResultCallbackErrorEnum;
         static Unauthorized: IFileDataResultCallbackErrorEnum;
         static Unknown: IFileDataResultCallbackErrorEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2191,6 +2272,7 @@ declare module Adaptive {
         toString(): string;
         static ExceedMaximumSize: IFileDataResultCallbackWarningEnum;
         static Unknown: IFileDataResultCallbackWarningEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2214,6 +2296,7 @@ declare module Adaptive {
         onError(error: IFileDataResultCallbackErrorEnum): void;
         onResult(file: IFile, data: number[]): void;
         onWarning(file: IFile, warning: IFileDataResultCallbackWarningEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2231,6 +2314,7 @@ declare module Adaptive {
     class VideoBridge implements IVideo {
         constructor();
         playStream(url: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2326,6 +2410,7 @@ declare module Adaptive {
         toFile(): IFile;
         toPath(): IFilePath;
         toString(): string;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2347,6 +2432,7 @@ declare module Adaptive {
         setEmail(email: string): void;
         setPrimary(primary: boolean): void;
         setType(type: ContactEmailEmailTypeEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2360,6 +2446,7 @@ declare module Adaptive {
         static Work: ContactEmailEmailTypeEnum;
         static Other: ContactEmailEmailTypeEnum;
         static Unknown: ContactEmailEmailTypeEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2378,6 +2465,7 @@ declare module Adaptive {
         getName(): string;
         setData(data: string): void;
         setName(name: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2414,6 +2502,7 @@ declare module Adaptive {
         setContent(content: string): void;
         setHeaders(headers: Header[]): void;
         setSession(session: ISession): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2432,6 +2521,7 @@ declare module Adaptive {
         getName(): string;
         getVendor(): string;
         getVersion(): string;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2447,6 +2537,7 @@ declare module Adaptive {
          */
         getName(): string;
         setName(name: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2486,6 +2577,7 @@ declare module Adaptive {
         setProtocolVersion(protocolVersion: ServiceRequestProtocolVersionEnum): void;
         setRawContent(rawContent: number[]): void;
         setSession(session: ISession): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2498,6 +2590,7 @@ declare module Adaptive {
         static HTTP_PROTOCOL_VERSION_1_0: ServiceRequestProtocolVersionEnum;
         static HTTP_PROTOCOL_VERSION_1_1: ServiceRequestProtocolVersionEnum;
         static Unknown: ServiceRequestProtocolVersionEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2516,6 +2609,7 @@ declare module Adaptive {
         isCompress(): boolean;
         setCompress(compress: boolean): void;
         setName(name: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2551,6 +2645,7 @@ declare module Adaptive {
         setPath(path: string): void;
         setScheme(scheme: string): void;
         setSecure(secure: boolean): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2571,6 +2666,7 @@ declare module Adaptive {
         setCountry(country: string): void;
         setLanguage(language: string): void;
         toString(): string;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2586,6 +2682,7 @@ declare module Adaptive {
          */
         getUrl(): string;
         setUrl(url: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2601,6 +2698,7 @@ declare module Adaptive {
          */
         getValues(): any[];
         setValues(values: any[]): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2625,6 +2723,7 @@ declare module Adaptive {
         setMiddleName(middleName: string): void;
         setName(name: string): void;
         setTitle(title: ContactPersonalInfoTitleEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2639,6 +2738,7 @@ declare module Adaptive {
         static Ms: ContactPersonalInfoTitleEnum;
         static Dr: ContactPersonalInfoTitleEnum;
         static Unknown: ContactPersonalInfoTitleEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2654,6 +2754,7 @@ declare module Adaptive {
          */
         getAddress(): string;
         setAddress(address: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2672,6 +2773,7 @@ declare module Adaptive {
         getName(): string;
         setDataValue(dataValue: string): void;
         setName(name: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2699,6 +2801,7 @@ declare module Adaptive {
         setPort(port: number): void;
         setProxy(proxy: string): void;
         setScheme(scheme: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2724,6 +2827,7 @@ declare module Adaptive {
         setAltitude(altitude: number): void;
         setLatitude(latitude: number): void;
         setLongitude(longitude: number): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2739,6 +2843,7 @@ declare module Adaptive {
          */
         getContactId(): string;
         setContactId(contactId: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2772,6 +2877,7 @@ declare module Adaptive {
         setMessageBody(messageBody: string): void;
         setSubject(subject: string): void;
         setToRecipients(toRecipients: EmailAddress[]): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2799,6 +2905,7 @@ declare module Adaptive {
         setFileName(fileName: string): void;
         setMimeType(mimeType: string): void;
         setReferenceUrl(referenceUrl: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2817,6 +2924,7 @@ declare module Adaptive {
         getSocialNetwork(): ContactSocialSocialNetworkEnum;
         setProfileUrl(profileUrl: string): void;
         setSocialNetwork(socialNetwork: ContactSocialSocialNetworkEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2832,6 +2940,7 @@ declare module Adaptive {
         static LinkedIn: ContactSocialSocialNetworkEnum;
         static Flickr: ContactSocialSocialNetworkEnum;
         static Unknown: ContactSocialSocialNetworkEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2850,6 +2959,7 @@ declare module Adaptive {
         getPhoneType(): ContactPhonePhoneTypeEnum;
         setPhoneType(phoneType: ContactPhonePhoneTypeEnum): void;
         setPhone(phone: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2867,6 +2977,7 @@ declare module Adaptive {
         static WorkFax: ContactPhonePhoneTypeEnum;
         static Other: ContactPhonePhoneTypeEnum;
         static Unknown: ContactPhonePhoneTypeEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2885,6 +2996,7 @@ declare module Adaptive {
         getSecureKey(): string;
         setSecureData(secureData: string): void;
         setSecureKey(secureKey: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2912,6 +3024,7 @@ declare module Adaptive {
         setName(name: string): void;
         setRowCount(rowCount: number): void;
         setRows(rows: Row[]): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2933,6 +3046,7 @@ declare module Adaptive {
         setCompany(company: string): void;
         setJobDescription(jobDescription: string): void;
         setJobTitle(jobTitle: string): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2956,6 +3070,7 @@ declare module Adaptive {
         setX(x: number): void;
         setY(y: number): void;
         setZ(z: number): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2976,6 +3091,7 @@ declare module Adaptive {
         getName(): string;
         getUuid(): string;
         getVendor(): string;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -2994,6 +3110,7 @@ declare module Adaptive {
         getType(): ContactAddressAddressTypeEnum;
         setAddress(address: string): void;
         setType(type: ContactAddressAddressTypeEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -3007,6 +3124,7 @@ declare module Adaptive {
         static Work: ContactAddressAddressTypeEnum;
         static Other: ContactAddressAddressTypeEnum;
         static Unknown: ContactAddressAddressTypeEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -3043,6 +3161,7 @@ declare module Adaptive {
         setContactWebsites(contactWebsites: ContactWebsite[]): void;
         setPersonalInfo(personalInfo: ContactPersonalInfo): void;
         setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -3057,6 +3176,7 @@ declare module Adaptive {
          * Method Declarations for Button
          */
         getType(): ButtonButtonEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -3070,6 +3190,7 @@ declare module Adaptive {
         static BackButton: ButtonButtonEnum;
         static OptionButton: ButtonButtonEnum;
         static Unknown: ButtonButtonEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -3085,6 +3206,7 @@ declare module Adaptive {
          */
         getState(): LifecycleStateEnum;
         setState(state: LifecycleStateEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -3103,6 +3225,7 @@ declare module Adaptive {
         static Resuming: LifecycleStateEnum;
         static Stopping: LifecycleStateEnum;
         static Unknown: LifecycleStateEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -3127,6 +3250,7 @@ declare module Adaptive {
         setMethod(method: ServiceServiceMethodEnum): void;
         setName(name: string): void;
         setType(type: ServiceServiceTypeEnum): void;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -3139,6 +3263,7 @@ declare module Adaptive {
         static POST: ServiceServiceMethodEnum;
         static GET: ServiceServiceMethodEnum;
         static Unknown: ServiceServiceMethodEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     /**
@@ -3159,8 +3284,8 @@ declare module Adaptive {
         static SERVICETYPE_XMLRPC_JSON: ServiceServiceTypeEnum;
         static SERVICETYPE_XMLRPC_XML: ServiceServiceTypeEnum;
         static Unknown: ServiceServiceTypeEnum;
+        static _clazz: ReflectionClass;
         static getReflection(): ReflectionClass;
     }
     function initializeReflection(): void;
 }
-declare var database: Adaptive.Database;
