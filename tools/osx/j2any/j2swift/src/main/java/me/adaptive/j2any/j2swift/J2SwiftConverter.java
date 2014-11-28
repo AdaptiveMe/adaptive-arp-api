@@ -367,8 +367,23 @@ public class J2SwiftConverter {
                 System.out.println("Class Size: " + allClasses.size());
             }
         }
+        js.println(5, "var _initializedReflection:boolean = false");
         js.println();
+        js.println(5, "export function initializeReflection() : void {");
+        js.println(10, "if (!_initializedReflection) {");
+        for (String name : tsClassList) {
+            if (name.indexOf("File")==-1) {
+                js.println(15, "getReflection().addClass(" + name + ".getReflection());");
+            } else {
+                js.println(15, "// getReflection().addClass(" + name + ".getReflection()); // TODO: Circular references.");
+            }
+        }
+        js.println(15, "_initializedReflection = true;");
+        js.println(10, "}");
+        js.println(5, "}");
         js.println("}");
+        js.println();
+        js.println("Adaptive.initializeReflection();");
         js.close();
         System.out.println("Processing: " + (System.currentTimeMillis() - tIn) + " ms.");
 
@@ -1400,6 +1415,8 @@ public class J2SwiftConverter {
         js.close();
     }
 
+    private static List<String> tsClassList = new ArrayList<>();
+
     private static void processJSReflection(Class clazz, IndentPrintStream js, int initialIndent) {
         js.println(initialIndent, "static getReflection() : ReflectionClass {");
         if (clazz.isInterface()) {
@@ -1407,7 +1424,13 @@ public class J2SwiftConverter {
             js.println(initialIndent + 5,"/** Fields of "+clazz.getSimpleName().substring(1)+" **/");
             js.println(initialIndent + 5,"var _fields = new Array<ReflectionField>();");
             for (Field field : clazz.getDeclaredFields()) {
+                if (field.getType().equals(clazz)) {
+                    js.println(initialIndent + 5, "/**");
+                }
                 js.println(initialIndent + 5,"_fields.push(new ReflectionField('"+field.getName()+"','Field "+field.getName()+" of class "+clazz.getSimpleName().substring(1)+"', "+processJSReflectionDescription(field.getType(),clazz)+"));");
+                if (field.getType().equals(clazz)) {
+                    js.println(initialIndent + 5, "**/");
+                }
             }
             js.println();
             js.println(initialIndent + 5,"/** Methods of "+clazz.getSimpleName().substring(1)+" **/");
@@ -1416,12 +1439,30 @@ public class J2SwiftConverter {
                 js.println(initialIndent + 5,"/** Method "+method.getName()+" of "+clazz.getSimpleName().substring(1)+" **/");
                 js.println(initialIndent+5, "var _params_"+method.getName()+": Array<ReflectionParameter> = new Array<ReflectionParameter>();");
                 for (Parameter parameter : method.getParameters()) {
-                    js.println(initialIndent+5, "_params_"+method.getName()+".push(new ReflectionParameter('"+parameter.getName()+"', '"+clazz.getSimpleName().substring(1)+" "+method.getName()+" "+parameter.getName()+"', "+processJSReflectionDescription(method.getReturnType(), clazz)+"));");
+                    if (parameter.getType().equals(clazz)) {
+                        js.println(initialIndent + 5, "/**");
+                    }
+                    js.println(initialIndent + 5, "_params_" + method.getName() + ".push(new ReflectionParameter('" + parameter.getName() + "', '" + clazz.getSimpleName().substring(1) + " " + method.getName() + " " + parameter.getName() + "', " + processJSReflectionDescription(method.getReturnType(), clazz) + "));");
+                    if (parameter.getType().equals(clazz)) {
+                        js.println(initialIndent+5, "**/");
+                    }
                 }
                 if (method.getReturnType().equals(Void.TYPE)) {
+                    if (method.getReturnType().equals(clazz)) {
+                        js.println(initialIndent + 5, "/**");
+                    }
                     js.println(initialIndent + 5, " _methods.push(new ReflectionMethod('" + method.getName() + "','" + clazz.getSimpleName().substring(1) + " " + method.getName() + "', _params_"+method.getName()+", null));");
+                    if (method.getReturnType().equals(clazz)) {
+                        js.println(initialIndent + 5, "**/");
+                    }
                 } else {
+                    if (method.getReturnType().equals(clazz)) {
+                        js.println(initialIndent + 5, "/**");
+                    }
                     js.println(initialIndent+5," _methods.push(new ReflectionMethod('"+method.getName()+"','"+clazz.getSimpleName().substring(1)+" "+method.getName()+"', _params_"+method.getName()+", "+processJSReflectionDescription(method.getReturnType(), clazz)+"));");
+                    if (method.getReturnType().equals(clazz)) {
+                        js.println(initialIndent + 5, "**/");
+                    }
                 }
             }
             js.println();
@@ -1431,6 +1472,11 @@ public class J2SwiftConverter {
             } else {
                 js.println(initialIndent + 5, "var clazz = new ReflectionClass('" + clazz.getSimpleName().substring(1) + "Bridge','Bridge class " + clazz.getSimpleName().substring(1) + "Bridge', '" + clazz.getSimpleName().substring(1) + "Bridge', _methods, _fields, Adaptive.getReflection());");
             }
+            if (clazz.getSimpleName().endsWith("Listener") || clazz.getSimpleName().endsWith("Callback")) {
+                tsClassList.add(clazz.getSimpleName().substring(1));
+            } else {
+                tsClassList.add(clazz.getSimpleName().substring(1)+ "Bridge");
+            }
             js.println(initialIndent + 5,"return clazz;");
         } else if (clazz.isEnum()) {
             js.println();
@@ -1438,17 +1484,33 @@ public class J2SwiftConverter {
             js.println(initialIndent + 5,"var _fields = new Array<ReflectionField>();");
             for (Field field : clazz.getDeclaredFields()) {
                 if (!field.getName().equals("$VALUES")) {
-                    js.println(initialIndent + 5, "_fields.push(new ReflectionField('" + field.getName() + "','Field " + field.getName() + " of class " + clazz.getDeclaringClass().getSimpleName() + clazz.getSimpleName() + "Enum', " + processJSReflectionDescription(field.getType(), clazz.getDeclaringClass()) + "));");
+                    js.println(initialIndent + 5, "_fields.push(new ReflectionField('" + field.getName() + "','Field " + field.getName() + " of class " + clazz.getDeclaringClass().getSimpleName() + clazz.getSimpleName() + "Enum', " + processJSReflectionDescription(String.class, clazz) + "));");
                 }
             }
             js.println(initialIndent + 5,"var clazz = new ReflectionClass('"+clazz.getDeclaringClass().getSimpleName()+clazz.getSimpleName()+"Enum','Enum class "+clazz.getDeclaringClass().getSimpleName()+clazz.getSimpleName()+"Enum', '"+clazz.getDeclaringClass().getSimpleName()+clazz.getSimpleName()+"Enum', null, _fields, Adaptive.getReflection());");
-            js.println(initialIndent + 5,"return clazz;");
+            if (clazz.getName().equals("me.adaptive.arp.api.IService$ProtocolVersion")) {
+                tsClassList.add("ServiceRequestProtocolVersionEnum");
+            } else if (clazz.getName().equals("me.adaptive.arp.api.IService$ServiceMethod")) {
+                tsClassList.add("ServiceServiceMethodEnum");
+            } else if (clazz.getName().equals("me.adaptive.arp.api.IService$ServiceType")) {
+                tsClassList.add("ServiceServiceTypeEnum");
+            } else {
+                tsClassList.add(clazz.getDeclaringClass().getSimpleName() + clazz.getSimpleName() + "Enum");
+            }
+
+            js.println(initialIndent + 5, "return clazz;");
         } else {
             js.println();
             js.println(initialIndent + 5,"/** Fields of "+clazz.getSimpleName()+" **/");
             js.println(initialIndent + 5,"var _fields = new Array<ReflectionField>();");
             for (Field field : clazz.getDeclaredFields()) {
+                if (field.getType().equals(clazz)) {
+                    js.println(initialIndent + 5, "/**");
+                }
                 js.println(initialIndent + 5, "_fields.push(new ReflectionField('"+field.getName()+"','Field "+field.getName()+" of class "+clazz.getSimpleName()+"', "+processJSReflectionDescription(field.getType(),clazz)+"));");
+                if (field.getType().equals(clazz)) {
+                    js.println(initialIndent + 5, "**/");
+                }
             }
             js.println();
             js.println(initialIndent + 5,"/** Methods of "+clazz.getSimpleName()+" **/");
@@ -1457,20 +1519,36 @@ public class J2SwiftConverter {
                 js.println(initialIndent + 5,"/** Method "+method.getName()+" of "+clazz.getSimpleName()+" **/");
                 js.println(initialIndent+5, "var _params_"+method.getName()+": Array<ReflectionParameter> = new Array<ReflectionParameter>();");
                 for (Parameter parameter : method.getParameters()) {
+                    if (parameter.getType().equals(clazz)) {
+                        js.println(initialIndent + 5, "/**");
+                    }
                     js.println(initialIndent+5, "_params_"+method.getName()+".push(new ReflectionParameter('"+parameter.getName()+"', '"+clazz.getSimpleName()+" "+method.getName()+" "+parameter.getName()+"', "+processJSReflectionDescription(method.getReturnType(), clazz)+"));");
+                    if (parameter.getType().equals(clazz)) {
+                        js.println(initialIndent + 5, "**/");
+                    }
                 }
                 if (method.getReturnType().equals(Void.TYPE)) {
                     js.println(initialIndent + 5, " _methods.push(new ReflectionMethod('" + method.getName() + "','" + clazz.getSimpleName() + " " + method.getName() + "', _params_"+method.getName()+", null));");
                 } else {
+                    if (method.getReturnType().equals(clazz)) {
+                        js.println(initialIndent + 5, "/**");
+                    }
                     js.println(initialIndent+5," _methods.push(new ReflectionMethod('"+method.getName()+"','"+clazz.getSimpleName()+" "+method.getName()+"', _params_"+method.getName()+", "+processJSReflectionDescription(method.getReturnType(), clazz)+"));");
+                    if (method.getReturnType().equals(clazz)) {
+                        js.println(initialIndent + 5, "**/");
+                    }
                 }
             }
             js.println();
             js.println(initialIndent + 5,"/** Class description of "+clazz.getSimpleName()+" **/");
             js.println(initialIndent + 5,"var clazz = new ReflectionClass('"+clazz.getSimpleName()+"','Bean class "+clazz.getSimpleName()+"', '"+clazz.getSimpleName()+"', _methods, _fields, Adaptive.getReflection());");
+            js.println(initialIndent + 5, "Adaptive.getReflection().addClass(clazz);");
+            tsClassList.add(clazz.getSimpleName());
             js.println(initialIndent + 5,"return clazz;");
         }
         js.println(initialIndent, "}");
+
+
 
     }
 

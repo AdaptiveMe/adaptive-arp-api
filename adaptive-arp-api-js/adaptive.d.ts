@@ -3161,4 +3161,6 @@ declare module Adaptive {
         static Unknown: ServiceServiceTypeEnum;
         static getReflection(): ReflectionClass;
     }
+    function initializeReflection(): void;
 }
+declare var database: Adaptive.Database;

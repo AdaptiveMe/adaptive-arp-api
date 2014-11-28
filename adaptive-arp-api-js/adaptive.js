@@ -239,18 +239,18 @@ var Adaptive;
         IAppContextTypeEnum.getReflection = function () {
             /** Fields of IAppContextTypeEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('iOS', 'Field iOS of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('OSX', 'Field OSX of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Windows', 'Field Windows of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('WindowsPhone', 'Field WindowsPhone of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Android', 'Field Android of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Linux', 'Field Linux of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Blackberry', 'Field Blackberry of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Tizen', 'Field Tizen of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('FirefoxOS', 'Field FirefoxOS of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Chromium', 'Field Chromium of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Unspecified', 'Field Unspecified of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppContextTypeEnum', IAppContextTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('iOS', 'Field iOS of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('OSX', 'Field OSX of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Windows', 'Field Windows of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('WindowsPhone', 'Field WindowsPhone of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Android', 'Field Android of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Linux', 'Field Linux of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Blackberry', 'Field Blackberry of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Tizen', 'Field Tizen of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('FirefoxOS', 'Field FirefoxOS of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Chromium', 'Field Chromium of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unspecified', 'Field Unspecified of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppContextTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IAppContextTypeEnum', 'Enum class IAppContextTypeEnum', 'IAppContextTypeEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -344,10 +344,10 @@ var Adaptive;
         IAppResourcePayloadEnum.getReflection = function () {
             /** Fields of IAppResourcePayloadEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Default', 'Field Default of class IAppResourcePayloadEnum', IAppResourcePayloadEnum.getReflection()));
-            _fields.push(new ReflectionField('Embedded', 'Field Embedded of class IAppResourcePayloadEnum', IAppResourcePayloadEnum.getReflection()));
-            _fields.push(new ReflectionField('Linked', 'Field Linked of class IAppResourcePayloadEnum', IAppResourcePayloadEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourcePayloadEnum', IAppResourcePayloadEnum.getReflection()));
+            _fields.push(new ReflectionField('Default', 'Field Default of class IAppResourcePayloadEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Embedded', 'Field Embedded of class IAppResourcePayloadEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Linked', 'Field Linked of class IAppResourcePayloadEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourcePayloadEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IAppResourcePayloadEnum', 'Enum class IAppResourcePayloadEnum', 'IAppResourcePayloadEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -371,11 +371,11 @@ var Adaptive;
         IAppResourceFormatEnum.getReflection = function () {
             /** Fields of IAppResourceFormatEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Raw', 'Field Raw of class IAppResourceFormatEnum', IAppResourceFormatEnum.getReflection()));
-            _fields.push(new ReflectionField('Compressed', 'Field Compressed of class IAppResourceFormatEnum', IAppResourceFormatEnum.getReflection()));
-            _fields.push(new ReflectionField('Encrypted', 'Field Encrypted of class IAppResourceFormatEnum', IAppResourceFormatEnum.getReflection()));
-            _fields.push(new ReflectionField('EncryptedCompressed', 'Field EncryptedCompressed of class IAppResourceFormatEnum', IAppResourceFormatEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceFormatEnum', IAppResourceFormatEnum.getReflection()));
+            _fields.push(new ReflectionField('Raw', 'Field Raw of class IAppResourceFormatEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Compressed', 'Field Compressed of class IAppResourceFormatEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Encrypted', 'Field Encrypted of class IAppResourceFormatEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('EncryptedCompressed', 'Field EncryptedCompressed of class IAppResourceFormatEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceFormatEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IAppResourceFormatEnum', 'Enum class IAppResourceFormatEnum', 'IAppResourceFormatEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -400,16 +400,16 @@ var Adaptive;
         IAppResourceTypeEnum.getReflection = function () {
             /** Fields of IAppResourceTypeEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Html', 'Field Html of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Css', 'Field Css of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('JavaScript', 'Field JavaScript of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Image', 'Field Image of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Video', 'Field Video of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Audio', 'Field Audio of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Property', 'Field Property of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Database', 'Field Database of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Other', 'Field Other of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceTypeEnum', IAppResourceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Html', 'Field Html of class IAppResourceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Css', 'Field Css of class IAppResourceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('JavaScript', 'Field JavaScript of class IAppResourceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Image', 'Field Image of class IAppResourceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Video', 'Field Video of class IAppResourceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Audio', 'Field Audio of class IAppResourceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Property', 'Field Property of class IAppResourceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Database', 'Field Database of class IAppResourceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Other', 'Field Other of class IAppResourceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IAppResourceTypeEnum', 'Enum class IAppResourceTypeEnum', 'IAppResourceTypeEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -514,16 +514,16 @@ var Adaptive;
             var _fields = new Array();
             /** Methods of Device **/
             var _methods = new Array();
-            /** Method getDeviceInfo of Device **/
-            var _params_getDeviceInfo = new Array();
-            _methods.push(new ReflectionMethod('getDeviceInfo', 'Device getDeviceInfo', _params_getDeviceInfo, DeviceInfo.getReflection()));
-            /** Method getLocaleCurrent of Device **/
-            var _params_getLocaleCurrent = new Array();
-            _methods.push(new ReflectionMethod('getLocaleCurrent', 'Device getLocaleCurrent', _params_getLocaleCurrent, Locale.getReflection()));
             /** Method addButtonListener of Device **/
             var _params_addButtonListener = new Array();
             _params_addButtonListener.push(new ReflectionParameter('listener', 'Device addButtonListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('addButtonListener', 'Device addButtonListener', _params_addButtonListener, null));
+            /** Method getLocaleCurrent of Device **/
+            var _params_getLocaleCurrent = new Array();
+            _methods.push(new ReflectionMethod('getLocaleCurrent', 'Device getLocaleCurrent', _params_getLocaleCurrent, Locale.getReflection()));
+            /** Method getDeviceInfo of Device **/
+            var _params_getDeviceInfo = new Array();
+            _methods.push(new ReflectionMethod('getDeviceInfo', 'Device getDeviceInfo', _params_getDeviceInfo, DeviceInfo.getReflection()));
             /** Method removeButtonListener of Device **/
             var _params_removeButtonListener = new Array();
             _params_removeButtonListener.push(new ReflectionParameter('listener', 'Device removeButtonListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -587,9 +587,9 @@ var Adaptive;
         ISecureKVResultCallbackErrorEnum.getReflection = function () {
             /** Fields of ISecureKVResultCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class ISecureKVResultCallbackErrorEnum', ISecureKVResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NoMatchesFound', 'Field NoMatchesFound of class ISecureKVResultCallbackErrorEnum', ISecureKVResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ISecureKVResultCallbackErrorEnum', ISecureKVResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class ISecureKVResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NoMatchesFound', 'Field NoMatchesFound of class ISecureKVResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ISecureKVResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ISecureKVResultCallbackErrorEnum', 'Enum class ISecureKVResultCallbackErrorEnum', 'ISecureKVResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -612,8 +612,8 @@ var Adaptive;
         ISecureKVResultCallbackWarningEnum.getReflection = function () {
             /** Fields of ISecureKVResultCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('EntryOverride', 'Field EntryOverride of class ISecureKVResultCallbackWarningEnum', ISecureKVResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ISecureKVResultCallbackWarningEnum', ISecureKVResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('EntryOverride', 'Field EntryOverride of class ISecureKVResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ISecureKVResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ISecureKVResultCallbackWarningEnum', 'Enum class ISecureKVResultCallbackWarningEnum', 'ISecureKVResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -755,10 +755,10 @@ var Adaptive;
         IFileResultCallbackErrorEnum.getReflection = function () {
             /** Fields of IFileResultCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('FileExists', 'Field FileExists of class IFileResultCallbackErrorEnum', IFileResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('InsufficientSpace', 'Field InsufficientSpace of class IFileResultCallbackErrorEnum', IFileResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IFileResultCallbackErrorEnum', IFileResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileResultCallbackErrorEnum', IFileResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('FileExists', 'Field FileExists of class IFileResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('InsufficientSpace', 'Field InsufficientSpace of class IFileResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IFileResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IFileResultCallbackErrorEnum', 'Enum class IFileResultCallbackErrorEnum', 'IFileResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -782,9 +782,9 @@ var Adaptive;
         IFileResultCallbackWarningEnum.getReflection = function () {
             /** Fields of IFileResultCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('SourceNotDeleted', 'Field SourceNotDeleted of class IFileResultCallbackWarningEnum', IFileResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('RootDirectory', 'Field RootDirectory of class IFileResultCallbackWarningEnum', IFileResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileResultCallbackWarningEnum', IFileResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('SourceNotDeleted', 'Field SourceNotDeleted of class IFileResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('RootDirectory', 'Field RootDirectory of class IFileResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IFileResultCallbackWarningEnum', 'Enum class IFileResultCallbackWarningEnum', 'IFileResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -928,10 +928,10 @@ var Adaptive;
         ILifecycleListenerErrorEnum.getReflection = function () {
             /** Fields of ILifecycleListenerErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Runtime', 'Field Runtime of class ILifecycleListenerErrorEnum', ILifecycleListenerErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Implementation', 'Field Implementation of class ILifecycleListenerErrorEnum', ILifecycleListenerErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Killed', 'Field Killed of class ILifecycleListenerErrorEnum', ILifecycleListenerErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ILifecycleListenerErrorEnum', ILifecycleListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Runtime', 'Field Runtime of class ILifecycleListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Implementation', 'Field Implementation of class ILifecycleListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Killed', 'Field Killed of class ILifecycleListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ILifecycleListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ILifecycleListenerErrorEnum', 'Enum class ILifecycleListenerErrorEnum', 'ILifecycleListenerErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -955,9 +955,9 @@ var Adaptive;
         ILifecycleListenerWarningEnum.getReflection = function () {
             /** Fields of ILifecycleListenerWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('MemoryLow', 'Field MemoryLow of class ILifecycleListenerWarningEnum', ILifecycleListenerWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('BatteryLow', 'Field BatteryLow of class ILifecycleListenerWarningEnum', ILifecycleListenerWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ILifecycleListenerWarningEnum', ILifecycleListenerWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('MemoryLow', 'Field MemoryLow of class ILifecycleListenerWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('BatteryLow', 'Field BatteryLow of class ILifecycleListenerWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ILifecycleListenerWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ILifecycleListenerWarningEnum', 'Enum class ILifecycleListenerWarningEnum', 'ILifecycleListenerWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -1251,6 +1251,11 @@ var Adaptive;
             /** Method getAttributes of Session **/
             var _params_getAttributes = new Array();
             _methods.push(new ReflectionMethod('getAttributes', 'Session getAttributes', _params_getAttributes, new ReflectionClass('Array<any>', 'Array of any', 'Array<any>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection()))));
+            /** Method setAttribute of Session **/
+            var _params_setAttribute = new Array();
+            _params_setAttribute.push(new ReflectionParameter('name', 'Session setAttribute name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_setAttribute.push(new ReflectionParameter('value', 'Session setAttribute value', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setAttribute', 'Session setAttribute', _params_setAttribute, null));
             /** Method setCookies of Session **/
             var _params_setCookies = new Array();
             _params_setCookies.push(new ReflectionParameter('cookies', 'Session setCookies cookies', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -1280,11 +1285,6 @@ var Adaptive;
             /** Method getCookies of Session **/
             var _params_getCookies = new Array();
             _methods.push(new ReflectionMethod('getCookies', 'Session getCookies', _params_getCookies, new ReflectionClass('Array<Cookie>', 'Array of Cookie', 'Array<Cookie>', null, null, Adaptive.getReflection()).setTypeComponent(Cookie.getReflection())));
-            /** Method setAttribute of Session **/
-            var _params_setAttribute = new Array();
-            _params_setAttribute.push(new ReflectionParameter('name', 'Session setAttribute name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_setAttribute.push(new ReflectionParameter('value', 'Session setAttribute value', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setAttribute', 'Session setAttribute', _params_setAttribute, null));
             /** Method getAttribute of Session **/
             var _params_getAttribute = new Array();
             _params_getAttribute.push(new ReflectionParameter('name', 'Session getAttribute name', new ReflectionClass('any', 'Primitive type any', 'any', null, null, Adaptive.getReflection())));
@@ -1309,18 +1309,18 @@ var Adaptive;
         INetworkReachabilityCallbackErrorEnum.getReflection = function () {
             /** Fields of INetworkReachabilityCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Forbidden', 'Field Forbidden of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NotFound', 'Field NotFound of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('MethodNotAllowed', 'Field MethodNotAllowed of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NotAllowed', 'Field NotAllowed of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NotAuthenticated', 'Field NotAuthenticated of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('TimeOut', 'Field TimeOut of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NoResponse', 'Field NoResponse of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unreachable', 'Field Unreachable of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('MalformedUrl', 'Field MalformedUrl of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('DomainUnresolvable', 'Field DomainUnresolvable of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class INetworkReachabilityCallbackErrorEnum', INetworkReachabilityCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Forbidden', 'Field Forbidden of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotFound', 'Field NotFound of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('MethodNotAllowed', 'Field MethodNotAllowed of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotAllowed', 'Field NotAllowed of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotAuthenticated', 'Field NotAuthenticated of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('TimeOut', 'Field TimeOut of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NoResponse', 'Field NoResponse of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unreachable', 'Field Unreachable of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('MalformedUrl', 'Field MalformedUrl of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('DomainUnresolvable', 'Field DomainUnresolvable of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class INetworkReachabilityCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('INetworkReachabilityCallbackErrorEnum', 'Enum class INetworkReachabilityCallbackErrorEnum', 'INetworkReachabilityCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -1352,12 +1352,12 @@ var Adaptive;
         INetworkReachabilityCallbackWarningEnum.getReflection = function () {
             /** Fields of INetworkReachabilityCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('IncorrectScheme', 'Field IncorrectScheme of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('NotSecure', 'Field NotSecure of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('NotTrusted', 'Field NotTrusted of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Redirected', 'Field Redirected of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('NotRegisteredService', 'Field NotRegisteredService of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class INetworkReachabilityCallbackWarningEnum', INetworkReachabilityCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('IncorrectScheme', 'Field IncorrectScheme of class INetworkReachabilityCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotSecure', 'Field NotSecure of class INetworkReachabilityCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotTrusted', 'Field NotTrusted of class INetworkReachabilityCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Redirected', 'Field Redirected of class INetworkReachabilityCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotRegisteredService', 'Field NotRegisteredService of class INetworkReachabilityCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class INetworkReachabilityCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('INetworkReachabilityCallbackWarningEnum', 'Enum class INetworkReachabilityCallbackWarningEnum', 'INetworkReachabilityCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -1503,9 +1503,9 @@ var Adaptive;
         IAccelerationListenerErrorEnum.getReflection = function () {
             /** Fields of IAccelerationListenerErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IAccelerationListenerErrorEnum', IAccelerationListenerErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unavailable', 'Field Unavailable of class IAccelerationListenerErrorEnum', IAccelerationListenerErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAccelerationListenerErrorEnum', IAccelerationListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IAccelerationListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unavailable', 'Field Unavailable of class IAccelerationListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAccelerationListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IAccelerationListenerErrorEnum', 'Enum class IAccelerationListenerErrorEnum', 'IAccelerationListenerErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -1528,9 +1528,9 @@ var Adaptive;
         IAccelerationListenerWarningEnum.getReflection = function () {
             /** Fields of IAccelerationListenerWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('NeedsCalibration', 'Field NeedsCalibration of class IAccelerationListenerWarningEnum', IAccelerationListenerWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Stale', 'Field Stale of class IAccelerationListenerWarningEnum', IAccelerationListenerWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAccelerationListenerWarningEnum', IAccelerationListenerWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('NeedsCalibration', 'Field NeedsCalibration of class IAccelerationListenerWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Stale', 'Field Stale of class IAccelerationListenerWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAccelerationListenerWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IAccelerationListenerWarningEnum', 'Enum class IAccelerationListenerWarningEnum', 'IAccelerationListenerWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -1803,15 +1803,6 @@ var Adaptive;
             _params_createTable.push(new ReflectionParameter('table', 'Database createTable table', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_createTable.push(new ReflectionParameter('callback', 'Database createTable callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('createTable', 'Database createTable', _params_createTable, null));
-            /** Method deleteDatabase of Database **/
-            var _params_deleteDatabase = new Array();
-            _params_deleteDatabase.push(new ReflectionParameter('database', 'Database deleteDatabase database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_deleteDatabase.push(new ReflectionParameter('callback', 'Database deleteDatabase callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('deleteDatabase', 'Database deleteDatabase', _params_deleteDatabase, null));
-            /** Method existsDatabase of Database **/
-            var _params_existsDatabase = new Array();
-            _params_existsDatabase.push(new ReflectionParameter('database', 'Database existsDatabase database', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('existsDatabase', 'Database existsDatabase', _params_existsDatabase, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
             /** Method deleteTable of Database **/
             var _params_deleteTable = new Array();
             _params_deleteTable.push(new ReflectionParameter('database', 'Database deleteTable database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -1830,11 +1821,6 @@ var Adaptive;
             _params_executeSqlQuery.push(new ReflectionParameter('replacements', 'Database executeSqlQuery replacements', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_executeSqlQuery.push(new ReflectionParameter('callback', 'Database executeSqlQuery callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('executeSqlQuery', 'Database executeSqlQuery', _params_executeSqlQuery, null));
-            /** Method createDatabase of Database **/
-            var _params_createDatabase = new Array();
-            _params_createDatabase.push(new ReflectionParameter('database', 'Database createDatabase database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_createDatabase.push(new ReflectionParameter('callback', 'Database createDatabase callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('createDatabase', 'Database createDatabase', _params_createDatabase, null));
             /** Method executeSqlStatement of Database **/
             var _params_executeSqlStatement = new Array();
             _params_executeSqlStatement.push(new ReflectionParameter('database', 'Database executeSqlStatement database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -1849,6 +1835,20 @@ var Adaptive;
             _params_executeSqlTransactions.push(new ReflectionParameter('rollbackFlag', 'Database executeSqlTransactions rollbackFlag', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_executeSqlTransactions.push(new ReflectionParameter('callback', 'Database executeSqlTransactions callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('executeSqlTransactions', 'Database executeSqlTransactions', _params_executeSqlTransactions, null));
+            /** Method createDatabase of Database **/
+            var _params_createDatabase = new Array();
+            _params_createDatabase.push(new ReflectionParameter('database', 'Database createDatabase database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_createDatabase.push(new ReflectionParameter('callback', 'Database createDatabase callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('createDatabase', 'Database createDatabase', _params_createDatabase, null));
+            /** Method deleteDatabase of Database **/
+            var _params_deleteDatabase = new Array();
+            _params_deleteDatabase.push(new ReflectionParameter('database', 'Database deleteDatabase database', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_deleteDatabase.push(new ReflectionParameter('callback', 'Database deleteDatabase callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('deleteDatabase', 'Database deleteDatabase', _params_deleteDatabase, null));
+            /** Method existsDatabase of Database **/
+            var _params_existsDatabase = new Array();
+            _params_existsDatabase.push(new ReflectionParameter('database', 'Database existsDatabase database', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('existsDatabase', 'Database existsDatabase', _params_existsDatabase, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
             /** Class description of IDatabase **/
             var clazz = new ReflectionClass('DatabaseBridge', 'Bridge class DatabaseBridge', 'DatabaseBridge', _methods, _fields, Adaptive.getReflection());
             return clazz;
@@ -1869,8 +1869,8 @@ var Adaptive;
         IButtonListenerErrorEnum.getReflection = function () {
             /** Fields of IButtonListenerErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Not_Present', 'Field Not_Present of class IButtonListenerErrorEnum', IButtonListenerErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IButtonListenerErrorEnum', IButtonListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Not_Present', 'Field Not_Present of class IButtonListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IButtonListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IButtonListenerErrorEnum', 'Enum class IButtonListenerErrorEnum', 'IButtonListenerErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -1892,8 +1892,8 @@ var Adaptive;
         IButtonListenerWarningEnum.getReflection = function () {
             /** Fields of IButtonListenerWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Not_Implemented', 'Field Not_Implemented of class IButtonListenerWarningEnum', IButtonListenerWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IButtonListenerWarningEnum', IButtonListenerWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('Not_Implemented', 'Field Not_Implemented of class IButtonListenerWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IButtonListenerWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IButtonListenerWarningEnum', 'Enum class IButtonListenerWarningEnum', 'IButtonListenerWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -2032,9 +2032,9 @@ var Adaptive;
         IContactResultCallbackErrorEnum.getReflection = function () {
             /** Fields of IContactResultCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class IContactResultCallbackErrorEnum', IContactResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class IContactResultCallbackErrorEnum', IContactResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactResultCallbackErrorEnum', IContactResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class IContactResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class IContactResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IContactResultCallbackErrorEnum', 'Enum class IContactResultCallbackErrorEnum', 'IContactResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -2057,9 +2057,9 @@ var Adaptive;
         IContactResultCallbackWarningEnum.getReflection = function () {
             /** Fields of IContactResultCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('LimitExceeded', 'Field LimitExceeded of class IContactResultCallbackWarningEnum', IContactResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('No_Matches', 'Field No_Matches of class IContactResultCallbackWarningEnum', IContactResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactResultCallbackWarningEnum', IContactResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('LimitExceeded', 'Field LimitExceeded of class IContactResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('No_Matches', 'Field No_Matches of class IContactResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IContactResultCallbackWarningEnum', 'Enum class IContactResultCallbackWarningEnum', 'IContactResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -2269,16 +2269,16 @@ var Adaptive;
             var _fields = new Array();
             /** Methods of NetworkReachability **/
             var _methods = new Array();
-            /** Method isNetworkReachable of NetworkReachability **/
-            var _params_isNetworkReachable = new Array();
-            _params_isNetworkReachable.push(new ReflectionParameter('host', 'NetworkReachability isNetworkReachable host', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_isNetworkReachable.push(new ReflectionParameter('callback', 'NetworkReachability isNetworkReachable callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('isNetworkReachable', 'NetworkReachability isNetworkReachable', _params_isNetworkReachable, null));
             /** Method isNetworkServiceReachable of NetworkReachability **/
             var _params_isNetworkServiceReachable = new Array();
             _params_isNetworkServiceReachable.push(new ReflectionParameter('url', 'NetworkReachability isNetworkServiceReachable url', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_isNetworkServiceReachable.push(new ReflectionParameter('callback', 'NetworkReachability isNetworkServiceReachable callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('isNetworkServiceReachable', 'NetworkReachability isNetworkServiceReachable', _params_isNetworkServiceReachable, null));
+            /** Method isNetworkReachable of NetworkReachability **/
+            var _params_isNetworkReachable = new Array();
+            _params_isNetworkReachable.push(new ReflectionParameter('host', 'NetworkReachability isNetworkReachable host', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_isNetworkReachable.push(new ReflectionParameter('callback', 'NetworkReachability isNetworkReachable callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('isNetworkReachable', 'NetworkReachability isNetworkReachable', _params_isNetworkReachable, null));
             /** Class description of INetworkReachability **/
             var clazz = new ReflectionClass('NetworkReachabilityBridge', 'Bridge class NetworkReachabilityBridge', 'NetworkReachabilityBridge', _methods, _fields, Adaptive.getReflection());
             return clazz;
@@ -2299,11 +2299,11 @@ var Adaptive;
         IGeolocationListenerErrorEnum.getReflection = function () {
             /** Fields of IGeolocationListenerErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Disabled', 'Field Disabled of class IGeolocationListenerErrorEnum', IGeolocationListenerErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('RestrictedAccess', 'Field RestrictedAccess of class IGeolocationListenerErrorEnum', IGeolocationListenerErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('DeniedAccess', 'Field DeniedAccess of class IGeolocationListenerErrorEnum', IGeolocationListenerErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('StatusNotDetermined', 'Field StatusNotDetermined of class IGeolocationListenerErrorEnum', IGeolocationListenerErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IGeolocationListenerErrorEnum', IGeolocationListenerErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Disabled', 'Field Disabled of class IGeolocationListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('RestrictedAccess', 'Field RestrictedAccess of class IGeolocationListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('DeniedAccess', 'Field DeniedAccess of class IGeolocationListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('StatusNotDetermined', 'Field StatusNotDetermined of class IGeolocationListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IGeolocationListenerErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IGeolocationListenerErrorEnum', 'Enum class IGeolocationListenerErrorEnum', 'IGeolocationListenerErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -2328,9 +2328,9 @@ var Adaptive;
         IGeolocationListenerWarningEnum.getReflection = function () {
             /** Fields of IGeolocationListenerWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('HighDoP', 'Field HighDoP of class IGeolocationListenerWarningEnum', IGeolocationListenerWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('StaleData', 'Field StaleData of class IGeolocationListenerWarningEnum', IGeolocationListenerWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IGeolocationListenerWarningEnum', IGeolocationListenerWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('HighDoP', 'Field HighDoP of class IGeolocationListenerWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('StaleData', 'Field StaleData of class IGeolocationListenerWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IGeolocationListenerWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IGeolocationListenerWarningEnum', 'Enum class IGeolocationListenerWarningEnum', 'IGeolocationListenerWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -2470,10 +2470,10 @@ var Adaptive;
         IContactPhotoResultCallbackErrorEnum.getReflection = function () {
             /** Fields of IContactPhotoResultCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class IContactPhotoResultCallbackErrorEnum', IContactPhotoResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class IContactPhotoResultCallbackErrorEnum', IContactPhotoResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('No_Photo', 'Field No_Photo of class IContactPhotoResultCallbackErrorEnum', IContactPhotoResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactPhotoResultCallbackErrorEnum', IContactPhotoResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class IContactPhotoResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class IContactPhotoResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('No_Photo', 'Field No_Photo of class IContactPhotoResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactPhotoResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IContactPhotoResultCallbackErrorEnum', 'Enum class IContactPhotoResultCallbackErrorEnum', 'IContactPhotoResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -2497,9 +2497,9 @@ var Adaptive;
         IContactPhotoResultCallbackWarningEnum.getReflection = function () {
             /** Fields of IContactPhotoResultCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('LimitExceeded', 'Field LimitExceeded of class IContactPhotoResultCallbackWarningEnum', IContactPhotoResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('No_Matches', 'Field No_Matches of class IContactPhotoResultCallbackWarningEnum', IContactPhotoResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactPhotoResultCallbackWarningEnum', IContactPhotoResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('LimitExceeded', 'Field LimitExceeded of class IContactPhotoResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('No_Matches', 'Field No_Matches of class IContactPhotoResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactPhotoResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IContactPhotoResultCallbackWarningEnum', 'Enum class IContactPhotoResultCallbackWarningEnum', 'IContactPhotoResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -2952,6 +2952,10 @@ var Adaptive;
             _params_create.push(new ReflectionParameter('name', 'FileSystem create name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_create.push(new ReflectionParameter('callback', 'FileSystem create callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('create', 'FileSystem create', _params_create, null));
+            /** Method getPathForPath of FileSystem **/
+            var _params_getPathForPath = new Array();
+            _params_getPathForPath.push(new ReflectionParameter('path', 'FileSystem getPathForPath path', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('getPathForPath', 'FileSystem getPathForPath', _params_getPathForPath, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method getPathForFile of FileSystem **/
             var _params_getPathForFile = new Array();
             _params_getPathForFile.push(new ReflectionParameter('file', 'FileSystem getPathForFile file', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
@@ -2961,10 +2965,6 @@ var Adaptive;
             _params_isSamePath.push(new ReflectionParameter('source', 'FileSystem isSamePath source', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
             _params_isSamePath.push(new ReflectionParameter('dest', 'FileSystem isSamePath dest', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('isSamePath', 'FileSystem isSamePath', _params_isSamePath, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
-            /** Method getPathForPath of FileSystem **/
-            var _params_getPathForPath = new Array();
-            _params_getPathForPath.push(new ReflectionParameter('path', 'FileSystem getPathForPath path', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('getPathForPath', 'FileSystem getPathForPath', _params_getPathForPath, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method createWithPathString of FileSystem **/
             var _params_createWithPathString = new Array();
             _params_createWithPathString.push(new ReflectionParameter('path', 'FileSystem createWithPathString path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -3051,15 +3051,15 @@ var Adaptive;
         IContactFieldGroupEnum.getReflection = function () {
             /** Fields of IContactFieldGroupEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('PERSONAL_INFO', 'Field PERSONAL_INFO of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
-            _fields.push(new ReflectionField('PROFESSIONAL_INFO', 'Field PROFESSIONAL_INFO of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
-            _fields.push(new ReflectionField('ADDRESSES', 'Field ADDRESSES of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
-            _fields.push(new ReflectionField('PHONES', 'Field PHONES of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
-            _fields.push(new ReflectionField('EMAILS', 'Field EMAILS of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
-            _fields.push(new ReflectionField('WEBSITES', 'Field WEBSITES of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
-            _fields.push(new ReflectionField('SOCIALS', 'Field SOCIALS of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
-            _fields.push(new ReflectionField('TAGS', 'Field TAGS of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactFieldGroupEnum', IContactFieldGroupEnum.getReflection()));
+            _fields.push(new ReflectionField('PERSONAL_INFO', 'Field PERSONAL_INFO of class IContactFieldGroupEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('PROFESSIONAL_INFO', 'Field PROFESSIONAL_INFO of class IContactFieldGroupEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('ADDRESSES', 'Field ADDRESSES of class IContactFieldGroupEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('PHONES', 'Field PHONES of class IContactFieldGroupEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('EMAILS', 'Field EMAILS of class IContactFieldGroupEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('WEBSITES', 'Field WEBSITES of class IContactFieldGroupEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SOCIALS', 'Field SOCIALS of class IContactFieldGroupEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('TAGS', 'Field TAGS of class IContactFieldGroupEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactFieldGroupEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IContactFieldGroupEnum', 'Enum class IContactFieldGroupEnum', 'IContactFieldGroupEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3088,10 +3088,10 @@ var Adaptive;
         IContactFilterEnum.getReflection = function () {
             /** Fields of IContactFilterEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('HAS_PHONE', 'Field HAS_PHONE of class IContactFilterEnum', IContactFilterEnum.getReflection()));
-            _fields.push(new ReflectionField('HAS_EMAIL', 'Field HAS_EMAIL of class IContactFilterEnum', IContactFilterEnum.getReflection()));
-            _fields.push(new ReflectionField('HAS_ADDRESS', 'Field HAS_ADDRESS of class IContactFilterEnum', IContactFilterEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactFilterEnum', IContactFilterEnum.getReflection()));
+            _fields.push(new ReflectionField('HAS_PHONE', 'Field HAS_PHONE of class IContactFilterEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('HAS_EMAIL', 'Field HAS_EMAIL of class IContactFilterEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('HAS_ADDRESS', 'Field HAS_ADDRESS of class IContactFilterEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IContactFilterEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IContactFilterEnum', 'Enum class IContactFilterEnum', 'IContactFilterEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3284,11 +3284,11 @@ var Adaptive;
         ILoggingLogLevelEnum.getReflection = function () {
             /** Fields of ILoggingLogLevelEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('DEBUG', 'Field DEBUG of class ILoggingLogLevelEnum', ILoggingLogLevelEnum.getReflection()));
-            _fields.push(new ReflectionField('WARN', 'Field WARN of class ILoggingLogLevelEnum', ILoggingLogLevelEnum.getReflection()));
-            _fields.push(new ReflectionField('ERROR', 'Field ERROR of class ILoggingLogLevelEnum', ILoggingLogLevelEnum.getReflection()));
-            _fields.push(new ReflectionField('INFO', 'Field INFO of class ILoggingLogLevelEnum', ILoggingLogLevelEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ILoggingLogLevelEnum', ILoggingLogLevelEnum.getReflection()));
+            _fields.push(new ReflectionField('DEBUG', 'Field DEBUG of class ILoggingLogLevelEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('WARN', 'Field WARN of class ILoggingLogLevelEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('ERROR', 'Field ERROR of class ILoggingLogLevelEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('INFO', 'Field INFO of class ILoggingLogLevelEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ILoggingLogLevelEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ILoggingLogLevelEnum', 'Enum class ILoggingLogLevelEnum', 'ILoggingLogLevelEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3341,12 +3341,12 @@ var Adaptive;
             var _fields = new Array();
             /** Methods of Runtime **/
             var _methods = new Array();
-            /** Method dismissApplication of Runtime **/
-            var _params_dismissApplication = new Array();
-            _methods.push(new ReflectionMethod('dismissApplication', 'Runtime dismissApplication', _params_dismissApplication, null));
             /** Method dismissSplashScreen of Runtime **/
             var _params_dismissSplashScreen = new Array();
             _methods.push(new ReflectionMethod('dismissSplashScreen', 'Runtime dismissSplashScreen', _params_dismissSplashScreen, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            /** Method dismissApplication of Runtime **/
+            var _params_dismissApplication = new Array();
+            _methods.push(new ReflectionMethod('dismissApplication', 'Runtime dismissApplication', _params_dismissApplication, null));
             /** Class description of IRuntime **/
             var clazz = new ReflectionClass('RuntimeBridge', 'Bridge class RuntimeBridge', 'RuntimeBridge', _methods, _fields, Adaptive.getReflection());
             return clazz;
@@ -3367,12 +3367,12 @@ var Adaptive;
         IMessagingCallbackErrorEnum.getReflection = function () {
             /** Fields of IMessagingCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('SIMNotPresent', 'Field SIMNotPresent of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('EmailAccountNotFound', 'Field EmailAccountNotFound of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NotSent', 'Field NotSent of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('WrongParams', 'Field WrongParams of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NotSupported', 'Field NotSupported of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IMessagingCallbackErrorEnum', IMessagingCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('SIMNotPresent', 'Field SIMNotPresent of class IMessagingCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('EmailAccountNotFound', 'Field EmailAccountNotFound of class IMessagingCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotSent', 'Field NotSent of class IMessagingCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('WrongParams', 'Field WrongParams of class IMessagingCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotSupported', 'Field NotSupported of class IMessagingCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IMessagingCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IMessagingCallbackErrorEnum', 'Enum class IMessagingCallbackErrorEnum', 'IMessagingCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3398,9 +3398,9 @@ var Adaptive;
         IMessagingCallbackWarningEnum.getReflection = function () {
             /** Fields of IMessagingCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('UnableToSentAll', 'Field UnableToSentAll of class IMessagingCallbackWarningEnum', IMessagingCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('UnableToFetchAttachment', 'Field UnableToFetchAttachment of class IMessagingCallbackWarningEnum', IMessagingCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IMessagingCallbackWarningEnum', IMessagingCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('UnableToSentAll', 'Field UnableToSentAll of class IMessagingCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('UnableToFetchAttachment', 'Field UnableToFetchAttachment of class IMessagingCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IMessagingCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IMessagingCallbackWarningEnum', 'Enum class IMessagingCallbackWarningEnum', 'IMessagingCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3543,10 +3543,10 @@ var Adaptive;
         IDatabaseResultCallbackErrorEnum.getReflection = function () {
             /** Fields of IDatabaseResultCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('NoSpace', 'Field NoSpace of class IDatabaseResultCallbackErrorEnum', IDatabaseResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('SqlException', 'Field SqlException of class IDatabaseResultCallbackErrorEnum', IDatabaseResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NotDeleted', 'Field NotDeleted of class IDatabaseResultCallbackErrorEnum', IDatabaseResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IDatabaseResultCallbackErrorEnum', IDatabaseResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NoSpace', 'Field NoSpace of class IDatabaseResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SqlException', 'Field SqlException of class IDatabaseResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotDeleted', 'Field NotDeleted of class IDatabaseResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IDatabaseResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IDatabaseResultCallbackErrorEnum', 'Enum class IDatabaseResultCallbackErrorEnum', 'IDatabaseResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3570,9 +3570,9 @@ var Adaptive;
         IDatabaseResultCallbackWarningEnum.getReflection = function () {
             /** Fields of IDatabaseResultCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('DatabaseExists', 'Field DatabaseExists of class IDatabaseResultCallbackWarningEnum', IDatabaseResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('IsOpen', 'Field IsOpen of class IDatabaseResultCallbackWarningEnum', IDatabaseResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IDatabaseResultCallbackWarningEnum', IDatabaseResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('DatabaseExists', 'Field DatabaseExists of class IDatabaseResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('IsOpen', 'Field IsOpen of class IDatabaseResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IDatabaseResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IDatabaseResultCallbackWarningEnum', 'Enum class IDatabaseResultCallbackWarningEnum', 'IDatabaseResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3812,10 +3812,10 @@ var Adaptive;
         ICapabilitiesButtonEnum.getReflection = function () {
             /** Fields of ICapabilitiesButtonEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('HomeButton', 'Field HomeButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
-            _fields.push(new ReflectionField('BackButton', 'Field BackButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
-            _fields.push(new ReflectionField('OptionButton', 'Field OptionButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
+            _fields.push(new ReflectionField('HomeButton', 'Field HomeButton of class ICapabilitiesButtonEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('BackButton', 'Field BackButton of class ICapabilitiesButtonEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('OptionButton', 'Field OptionButton of class ICapabilitiesButtonEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesButtonEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ICapabilitiesButtonEnum', 'Enum class ICapabilitiesButtonEnum', 'ICapabilitiesButtonEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3839,12 +3839,12 @@ var Adaptive;
         ICapabilitiesCommunicationEnum.getReflection = function () {
             /** Fields of ICapabilitiesCommunicationEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Calendar', 'Field Calendar of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
-            _fields.push(new ReflectionField('Contact', 'Field Contact of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
-            _fields.push(new ReflectionField('Mail', 'Field Mail of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
-            _fields.push(new ReflectionField('Messaging', 'Field Messaging of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
-            _fields.push(new ReflectionField('Telephony', 'Field Telephony of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesCommunicationEnum', ICapabilitiesCommunicationEnum.getReflection()));
+            _fields.push(new ReflectionField('Calendar', 'Field Calendar of class ICapabilitiesCommunicationEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Contact', 'Field Contact of class ICapabilitiesCommunicationEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Mail', 'Field Mail of class ICapabilitiesCommunicationEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Messaging', 'Field Messaging of class ICapabilitiesCommunicationEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Telephony', 'Field Telephony of class ICapabilitiesCommunicationEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesCommunicationEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ICapabilitiesCommunicationEnum', 'Enum class ICapabilitiesCommunicationEnum', 'ICapabilitiesCommunicationEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3870,10 +3870,10 @@ var Adaptive;
         ICapabilitiesDataEnum.getReflection = function () {
             /** Fields of ICapabilitiesDataEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Database', 'Field Database of class ICapabilitiesDataEnum', ICapabilitiesDataEnum.getReflection()));
-            _fields.push(new ReflectionField('File', 'Field File of class ICapabilitiesDataEnum', ICapabilitiesDataEnum.getReflection()));
-            _fields.push(new ReflectionField('Cloud', 'Field Cloud of class ICapabilitiesDataEnum', ICapabilitiesDataEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesDataEnum', ICapabilitiesDataEnum.getReflection()));
+            _fields.push(new ReflectionField('Database', 'Field Database of class ICapabilitiesDataEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('File', 'Field File of class ICapabilitiesDataEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Cloud', 'Field Cloud of class ICapabilitiesDataEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesDataEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ICapabilitiesDataEnum', 'Enum class ICapabilitiesDataEnum', 'ICapabilitiesDataEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3897,12 +3897,12 @@ var Adaptive;
         ICapabilitiesMediaEnum.getReflection = function () {
             /** Fields of ICapabilitiesMediaEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Audio_Playback', 'Field Audio_Playback of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
-            _fields.push(new ReflectionField('Audio_Recording', 'Field Audio_Recording of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
-            _fields.push(new ReflectionField('Camera', 'Field Camera of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
-            _fields.push(new ReflectionField('Video_Playback', 'Field Video_Playback of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
-            _fields.push(new ReflectionField('Video_Recording', 'Field Video_Recording of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesMediaEnum', ICapabilitiesMediaEnum.getReflection()));
+            _fields.push(new ReflectionField('Audio_Playback', 'Field Audio_Playback of class ICapabilitiesMediaEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Audio_Recording', 'Field Audio_Recording of class ICapabilitiesMediaEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Camera', 'Field Camera of class ICapabilitiesMediaEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Video_Playback', 'Field Video_Playback of class ICapabilitiesMediaEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Video_Recording', 'Field Video_Recording of class ICapabilitiesMediaEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesMediaEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ICapabilitiesMediaEnum', 'Enum class ICapabilitiesMediaEnum', 'ICapabilitiesMediaEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3928,13 +3928,13 @@ var Adaptive;
         ICapabilitiesNetEnum.getReflection = function () {
             /** Fields of ICapabilitiesNetEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('GSM', 'Field GSM of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
-            _fields.push(new ReflectionField('GPRS', 'Field GPRS of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
-            _fields.push(new ReflectionField('HSDPA', 'Field HSDPA of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
-            _fields.push(new ReflectionField('LTE', 'Field LTE of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
-            _fields.push(new ReflectionField('WIFI', 'Field WIFI of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
-            _fields.push(new ReflectionField('Ethernet', 'Field Ethernet of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesNetEnum', ICapabilitiesNetEnum.getReflection()));
+            _fields.push(new ReflectionField('GSM', 'Field GSM of class ICapabilitiesNetEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('GPRS', 'Field GPRS of class ICapabilitiesNetEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('HSDPA', 'Field HSDPA of class ICapabilitiesNetEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('LTE', 'Field LTE of class ICapabilitiesNetEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('WIFI', 'Field WIFI of class ICapabilitiesNetEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Ethernet', 'Field Ethernet of class ICapabilitiesNetEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesNetEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ICapabilitiesNetEnum', 'Enum class ICapabilitiesNetEnum', 'ICapabilitiesNetEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3961,11 +3961,11 @@ var Adaptive;
         ICapabilitiesNotificationEnum.getReflection = function () {
             /** Fields of ICapabilitiesNotificationEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Alarm', 'Field Alarm of class ICapabilitiesNotificationEnum', ICapabilitiesNotificationEnum.getReflection()));
-            _fields.push(new ReflectionField('LocalNotification', 'Field LocalNotification of class ICapabilitiesNotificationEnum', ICapabilitiesNotificationEnum.getReflection()));
-            _fields.push(new ReflectionField('RemoteNotification', 'Field RemoteNotification of class ICapabilitiesNotificationEnum', ICapabilitiesNotificationEnum.getReflection()));
-            _fields.push(new ReflectionField('Vibration', 'Field Vibration of class ICapabilitiesNotificationEnum', ICapabilitiesNotificationEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesNotificationEnum', ICapabilitiesNotificationEnum.getReflection()));
+            _fields.push(new ReflectionField('Alarm', 'Field Alarm of class ICapabilitiesNotificationEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('LocalNotification', 'Field LocalNotification of class ICapabilitiesNotificationEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('RemoteNotification', 'Field RemoteNotification of class ICapabilitiesNotificationEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Vibration', 'Field Vibration of class ICapabilitiesNotificationEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesNotificationEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ICapabilitiesNotificationEnum', 'Enum class ICapabilitiesNotificationEnum', 'ICapabilitiesNotificationEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -3990,14 +3990,14 @@ var Adaptive;
         ICapabilitiesSensorEnum.getReflection = function () {
             /** Fields of ICapabilitiesSensorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Accelerometer', 'Field Accelerometer of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
-            _fields.push(new ReflectionField('AmbientLight', 'Field AmbientLight of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
-            _fields.push(new ReflectionField('Barometer', 'Field Barometer of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
-            _fields.push(new ReflectionField('Geolocation', 'Field Geolocation of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
-            _fields.push(new ReflectionField('Gyroscope', 'Field Gyroscope of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
-            _fields.push(new ReflectionField('Magnetometer', 'Field Magnetometer of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
-            _fields.push(new ReflectionField('Proximity', 'Field Proximity of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesSensorEnum', ICapabilitiesSensorEnum.getReflection()));
+            _fields.push(new ReflectionField('Accelerometer', 'Field Accelerometer of class ICapabilitiesSensorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('AmbientLight', 'Field AmbientLight of class ICapabilitiesSensorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Barometer', 'Field Barometer of class ICapabilitiesSensorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Geolocation', 'Field Geolocation of class ICapabilitiesSensorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Gyroscope', 'Field Gyroscope of class ICapabilitiesSensorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Magnetometer', 'Field Magnetometer of class ICapabilitiesSensorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Proximity', 'Field Proximity of class ICapabilitiesSensorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesSensorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ICapabilitiesSensorEnum', 'Enum class ICapabilitiesSensorEnum', 'ICapabilitiesSensorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -4272,9 +4272,9 @@ var Adaptive;
         ITelephonyStatusEnum.getReflection = function () {
             /** Fields of ITelephonyStatusEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Dialing', 'Field Dialing of class ITelephonyStatusEnum', ITelephonyStatusEnum.getReflection()));
-            _fields.push(new ReflectionField('Failed', 'Field Failed of class ITelephonyStatusEnum', ITelephonyStatusEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ITelephonyStatusEnum', ITelephonyStatusEnum.getReflection()));
+            _fields.push(new ReflectionField('Dialing', 'Field Dialing of class ITelephonyStatusEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Failed', 'Field Failed of class ITelephonyStatusEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ITelephonyStatusEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ITelephonyStatusEnum', 'Enum class ITelephonyStatusEnum', 'ITelephonyStatusEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -4808,40 +4808,58 @@ var Adaptive;
             _methods.push(new ReflectionMethod('endsWith', 'FilePath endsWith', _params_endsWith, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
             /** Method getParent of FilePath **/
             var _params_getParent = new Array();
-            _methods.push(new ReflectionMethod('getParent', 'FilePath getParent', _params_getParent, FilePathBridge.getReflection()));
+            /**
+             _methods.push(new ReflectionMethod('getParent','FilePath getParent', _params_getParent, FilePathBridge.getReflection()));
+            **/
             /** Method isAbsolute of FilePath **/
             var _params_isAbsolute = new Array();
             _methods.push(new ReflectionMethod('isAbsolute', 'FilePath isAbsolute', _params_isAbsolute, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
             /** Method resolve of FilePath **/
             var _params_resolve = new Array();
             _params_resolve.push(new ReflectionParameter('other', 'FilePath resolve other', FilePathBridge.getReflection()));
-            _methods.push(new ReflectionMethod('resolve', 'FilePath resolve', _params_resolve, FilePathBridge.getReflection()));
+            /**
+             _methods.push(new ReflectionMethod('resolve','FilePath resolve', _params_resolve, FilePathBridge.getReflection()));
+            **/
             /** Method normalize of FilePath **/
             var _params_normalize = new Array();
-            _methods.push(new ReflectionMethod('normalize', 'FilePath normalize', _params_normalize, FilePathBridge.getReflection()));
+            /**
+             _methods.push(new ReflectionMethod('normalize','FilePath normalize', _params_normalize, FilePathBridge.getReflection()));
+            **/
             /** Method getFileName of FilePath **/
             var _params_getFileName = new Array();
-            _methods.push(new ReflectionMethod('getFileName', 'FilePath getFileName', _params_getFileName, FilePathBridge.getReflection()));
+            /**
+             _methods.push(new ReflectionMethod('getFileName','FilePath getFileName', _params_getFileName, FilePathBridge.getReflection()));
+            **/
             /** Method getFileSystem of FilePath **/
             var _params_getFileSystem = new Array();
             _methods.push(new ReflectionMethod('getFileSystem', 'FilePath getFileSystem', _params_getFileSystem, FileSystemBridge.getReflection()));
             /** Method getRoot of FilePath **/
             var _params_getRoot = new Array();
-            _methods.push(new ReflectionMethod('getRoot', 'FilePath getRoot', _params_getRoot, FilePathBridge.getReflection()));
+            /**
+             _methods.push(new ReflectionMethod('getRoot','FilePath getRoot', _params_getRoot, FilePathBridge.getReflection()));
+            **/
             /** Method getNameCount of FilePath **/
             var _params_getNameCount = new Array();
             _methods.push(new ReflectionMethod('getNameCount', 'FilePath getNameCount', _params_getNameCount, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
             /** Method resolveSibling of FilePath **/
             var _params_resolveSibling = new Array();
             _params_resolveSibling.push(new ReflectionParameter('other', 'FilePath resolveSibling other', FilePathBridge.getReflection()));
-            _methods.push(new ReflectionMethod('resolveSibling', 'FilePath resolveSibling', _params_resolveSibling, FilePathBridge.getReflection()));
+            /**
+             _methods.push(new ReflectionMethod('resolveSibling','FilePath resolveSibling', _params_resolveSibling, FilePathBridge.getReflection()));
+            **/
             /** Method relativize of FilePath **/
             var _params_relativize = new Array();
+            /**
             _params_relativize.push(new ReflectionParameter('other', 'FilePath relativize other', FilePathBridge.getReflection()));
-            _methods.push(new ReflectionMethod('relativize', 'FilePath relativize', _params_relativize, FilePathBridge.getReflection()));
+            **/
+            /**
+             _methods.push(new ReflectionMethod('relativize','FilePath relativize', _params_relativize, FilePathBridge.getReflection()));
+            **/
             /** Method toAbsolutePath of FilePath **/
             var _params_toAbsolutePath = new Array();
-            _methods.push(new ReflectionMethod('toAbsolutePath', 'FilePath toAbsolutePath', _params_toAbsolutePath, FilePathBridge.getReflection()));
+            /**
+             _methods.push(new ReflectionMethod('toAbsolutePath','FilePath toAbsolutePath', _params_toAbsolutePath, FilePathBridge.getReflection()));
+            **/
             /** Method toFile of FilePath **/
             var _params_toFile = new Array();
             _methods.push(new ReflectionMethod('toFile', 'FilePath toFile', _params_toFile, FileBridge.getReflection()));
@@ -4851,24 +4869,38 @@ var Adaptive;
             _methods.push(new ReflectionMethod('getNameAtIndex', 'FilePath getNameAtIndex', _params_getNameAtIndex, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method startsWithPath of FilePath **/
             var _params_startsWithPath = new Array();
+            /**
             _params_startsWithPath.push(new ReflectionParameter('other', 'FilePath startsWithPath other', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            **/
             _methods.push(new ReflectionMethod('startsWithPath', 'FilePath startsWithPath', _params_startsWithPath, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
             /** Method endsWithPath of FilePath **/
             var _params_endsWithPath = new Array();
+            /**
             _params_endsWithPath.push(new ReflectionParameter('other', 'FilePath endsWithPath other', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            **/
             _methods.push(new ReflectionMethod('endsWithPath', 'FilePath endsWithPath', _params_endsWithPath, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
             /** Method resolveSiblingPath of FilePath **/
             var _params_resolveSiblingPath = new Array();
+            /**
             _params_resolveSiblingPath.push(new ReflectionParameter('other', 'FilePath resolveSiblingPath other', FilePathBridge.getReflection()));
-            _methods.push(new ReflectionMethod('resolveSiblingPath', 'FilePath resolveSiblingPath', _params_resolveSiblingPath, FilePathBridge.getReflection()));
+            **/
+            /**
+             _methods.push(new ReflectionMethod('resolveSiblingPath','FilePath resolveSiblingPath', _params_resolveSiblingPath, FilePathBridge.getReflection()));
+            **/
             /** Method equalPath of FilePath **/
             var _params_equalPath = new Array();
+            /**
             _params_equalPath.push(new ReflectionParameter('other', 'FilePath equalPath other', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
+            **/
             _methods.push(new ReflectionMethod('equalPath', 'FilePath equalPath', _params_equalPath, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
             /** Method resolvePath of FilePath **/
             var _params_resolvePath = new Array();
+            /**
             _params_resolvePath.push(new ReflectionParameter('other', 'FilePath resolvePath other', FilePathBridge.getReflection()));
-            _methods.push(new ReflectionMethod('resolvePath', 'FilePath resolvePath', _params_resolvePath, FilePathBridge.getReflection()));
+            **/
+            /**
+             _methods.push(new ReflectionMethod('resolvePath','FilePath resolvePath', _params_resolvePath, FilePathBridge.getReflection()));
+            **/
             /** Class description of IFilePath **/
             var clazz = new ReflectionClass('FilePathBridge', 'Bridge class FilePathBridge', 'FilePathBridge', _methods, _fields, Adaptive.getReflection());
             return clazz;
@@ -4889,12 +4921,12 @@ var Adaptive;
         ITableResultCallbackErrorEnum.getReflection = function () {
             /** Fields of ITableResultCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('NoSpace', 'Field NoSpace of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('ReadOnlyTable', 'Field ReadOnlyTable of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('SqlException', 'Field SqlException of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('DatabaseNotFound', 'Field DatabaseNotFound of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NoTableFound', 'Field NoTableFound of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ITableResultCallbackErrorEnum', ITableResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NoSpace', 'Field NoSpace of class ITableResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('ReadOnlyTable', 'Field ReadOnlyTable of class ITableResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SqlException', 'Field SqlException of class ITableResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('DatabaseNotFound', 'Field DatabaseNotFound of class ITableResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NoTableFound', 'Field NoTableFound of class ITableResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ITableResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ITableResultCallbackErrorEnum', 'Enum class ITableResultCallbackErrorEnum', 'ITableResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -4920,10 +4952,10 @@ var Adaptive;
         ITableResultCallbackWarningEnum.getReflection = function () {
             /** Fields of ITableResultCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('TableExists', 'Field TableExists of class ITableResultCallbackWarningEnum', ITableResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('TableLocked', 'Field TableLocked of class ITableResultCallbackWarningEnum', ITableResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('NoResults', 'Field NoResults of class ITableResultCallbackWarningEnum', ITableResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ITableResultCallbackWarningEnum', ITableResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('TableExists', 'Field TableExists of class ITableResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('TableLocked', 'Field TableLocked of class ITableResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NoResults', 'Field NoResults of class ITableResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ITableResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ITableResultCallbackWarningEnum', 'Enum class ITableResultCallbackWarningEnum', 'ITableResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -5067,9 +5099,9 @@ var Adaptive;
         IFileListResultCallbackErrorEnum.getReflection = function () {
             /** Fields of IFileListResultCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('InexistentFile', 'Field InexistentFile of class IFileListResultCallbackErrorEnum', IFileListResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IFileListResultCallbackErrorEnum', IFileListResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileListResultCallbackErrorEnum', IFileListResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('InexistentFile', 'Field InexistentFile of class IFileListResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IFileListResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileListResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IFileListResultCallbackErrorEnum', 'Enum class IFileListResultCallbackErrorEnum', 'IFileListResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -5092,8 +5124,8 @@ var Adaptive;
         IFileListResultCallbackWarningEnum.getReflection = function () {
             /** Fields of IFileListResultCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('PartialResult', 'Field PartialResult of class IFileListResultCallbackWarningEnum', IFileListResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileListResultCallbackWarningEnum', IFileListResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('PartialResult', 'Field PartialResult of class IFileListResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileListResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IFileListResultCallbackWarningEnum', 'Enum class IFileListResultCallbackWarningEnum', 'IFileListResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -5272,10 +5304,6 @@ var Adaptive;
             var _fields = new Array();
             /** Methods of Accelerometer **/
             var _methods = new Array();
-            /** Method addAccelerationListener of Accelerometer **/
-            var _params_addAccelerationListener = new Array();
-            _params_addAccelerationListener.push(new ReflectionParameter('listener', 'Accelerometer addAccelerationListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('addAccelerationListener', 'Accelerometer addAccelerationListener', _params_addAccelerationListener, null));
             /** Method removeAccelerationListener of Accelerometer **/
             var _params_removeAccelerationListener = new Array();
             _params_removeAccelerationListener.push(new ReflectionParameter('listener', 'Accelerometer removeAccelerationListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
@@ -5283,6 +5311,10 @@ var Adaptive;
             /** Method removeAccelerationListeners of Accelerometer **/
             var _params_removeAccelerationListeners = new Array();
             _methods.push(new ReflectionMethod('removeAccelerationListeners', 'Accelerometer removeAccelerationListeners', _params_removeAccelerationListeners, null));
+            /** Method addAccelerationListener of Accelerometer **/
+            var _params_addAccelerationListener = new Array();
+            _params_addAccelerationListener.push(new ReflectionParameter('listener', 'Accelerometer addAccelerationListener listener', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('addAccelerationListener', 'Accelerometer addAccelerationListener', _params_addAccelerationListener, null));
             /** Class description of IAccelerometer **/
             var clazz = new ReflectionClass('AccelerometerBridge', 'Bridge class AccelerometerBridge', 'AccelerometerBridge', _methods, _fields, Adaptive.getReflection());
             return clazz;
@@ -5303,9 +5335,9 @@ var Adaptive;
         IAppResourceCallbackErrorEnum.getReflection = function () {
             /** Fields of IAppResourceCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('NotFound', 'Field NotFound of class IAppResourceCallbackErrorEnum', IAppResourceCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class IAppResourceCallbackErrorEnum', IAppResourceCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceCallbackErrorEnum', IAppResourceCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('NotFound', 'Field NotFound of class IAppResourceCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NoPermission', 'Field NoPermission of class IAppResourceCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IAppResourceCallbackErrorEnum', 'Enum class IAppResourceCallbackErrorEnum', 'IAppResourceCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -5328,10 +5360,10 @@ var Adaptive;
         IAppResourceCallbackWarningEnum.getReflection = function () {
             /** Fields of IAppResourceCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('PartialContent', 'Field PartialContent of class IAppResourceCallbackWarningEnum', IAppResourceCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('TooLarge', 'Field TooLarge of class IAppResourceCallbackWarningEnum', IAppResourceCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('LinkedResource', 'Field LinkedResource of class IAppResourceCallbackWarningEnum', IAppResourceCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceCallbackWarningEnum', IAppResourceCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('PartialContent', 'Field PartialContent of class IAppResourceCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('TooLarge', 'Field TooLarge of class IAppResourceCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('LinkedResource', 'Field LinkedResource of class IAppResourceCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IAppResourceCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IAppResourceCallbackWarningEnum', 'Enum class IAppResourceCallbackWarningEnum', 'IAppResourceCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -5410,14 +5442,14 @@ var Adaptive;
             var _fields = new Array();
             /** Methods of Globalization **/
             var _methods = new Array();
-            /** Method getLocaleSupportedDescriptors of Globalization **/
-            var _params_getLocaleSupportedDescriptors = new Array();
-            _methods.push(new ReflectionMethod('getLocaleSupportedDescriptors', 'Globalization getLocaleSupportedDescriptors', _params_getLocaleSupportedDescriptors, new ReflectionClass('Array<Locale>', 'Array of Locale', 'Array<Locale>', null, null, Adaptive.getReflection()).setTypeComponent(Locale.getReflection())));
             /** Method getResourceLiteral of Globalization **/
             var _params_getResourceLiteral = new Array();
             _params_getResourceLiteral.push(new ReflectionParameter('key', 'Globalization getResourceLiteral key', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             _params_getResourceLiteral.push(new ReflectionParameter('locale', 'Globalization getResourceLiteral locale', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('getResourceLiteral', 'Globalization getResourceLiteral', _params_getResourceLiteral, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getLocaleSupportedDescriptors of Globalization **/
+            var _params_getLocaleSupportedDescriptors = new Array();
+            _methods.push(new ReflectionMethod('getLocaleSupportedDescriptors', 'Globalization getLocaleSupportedDescriptors', _params_getLocaleSupportedDescriptors, new ReflectionClass('Array<Locale>', 'Array of Locale', 'Array<Locale>', null, null, Adaptive.getReflection()).setTypeComponent(Locale.getReflection())));
             /** Method getResourceLiterals of Globalization **/
             var _params_getResourceLiterals = new Array();
             _params_getResourceLiterals.push(new ReflectionParameter('locale', 'Globalization getResourceLiterals locale', new ReflectionClass('Dictionary', 'Dictionary type string', 'Dictionary<any>', null, null, Adaptive.getReflection())));
@@ -5442,18 +5474,18 @@ var Adaptive;
         IServiceResultCallbackErrorEnum.getReflection = function () {
             /** Fields of IServiceResultCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Forbidden', 'Field Forbidden of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NotFound', 'Field NotFound of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('MethodNotAllowed', 'Field MethodNotAllowed of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NotAllowed', 'Field NotAllowed of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NotAuthenticated', 'Field NotAuthenticated of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('TimeOut', 'Field TimeOut of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NoResponse', 'Field NoResponse of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('ServerError', 'Field ServerError of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unreachable', 'Field Unreachable of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('MalformedUrl', 'Field MalformedUrl of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('NotRegisteredService', 'Field NotRegisteredService of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceResultCallbackErrorEnum', IServiceResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('Forbidden', 'Field Forbidden of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotFound', 'Field NotFound of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('MethodNotAllowed', 'Field MethodNotAllowed of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotAllowed', 'Field NotAllowed of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotAuthenticated', 'Field NotAuthenticated of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('TimeOut', 'Field TimeOut of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NoResponse', 'Field NoResponse of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('ServerError', 'Field ServerError of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unreachable', 'Field Unreachable of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('MalformedUrl', 'Field MalformedUrl of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotRegisteredService', 'Field NotRegisteredService of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IServiceResultCallbackErrorEnum', 'Enum class IServiceResultCallbackErrorEnum', 'IServiceResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -5485,11 +5517,11 @@ var Adaptive;
         IServiceResultCallbackWarningEnum.getReflection = function () {
             /** Fields of IServiceResultCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('NotSecure', 'Field NotSecure of class IServiceResultCallbackWarningEnum', IServiceResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('NotTrusted', 'Field NotTrusted of class IServiceResultCallbackWarningEnum', IServiceResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Redirected', 'Field Redirected of class IServiceResultCallbackWarningEnum', IServiceResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class IServiceResultCallbackWarningEnum', IServiceResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceResultCallbackWarningEnum', IServiceResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('NotSecure', 'Field NotSecure of class IServiceResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('NotTrusted', 'Field NotTrusted of class IServiceResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Redirected', 'Field Redirected of class IServiceResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Wrong_Params', 'Field Wrong_Params of class IServiceResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IServiceResultCallbackWarningEnum', 'Enum class IServiceResultCallbackWarningEnum', 'IServiceResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -5634,10 +5666,10 @@ var Adaptive;
         IFileDataResultCallbackErrorEnum.getReflection = function () {
             /** Fields of IFileDataResultCallbackErrorEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('InexistentFile', 'Field InexistentFile of class IFileDataResultCallbackErrorEnum', IFileDataResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('InsufficientSpace', 'Field InsufficientSpace of class IFileDataResultCallbackErrorEnum', IFileDataResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IFileDataResultCallbackErrorEnum', IFileDataResultCallbackErrorEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileDataResultCallbackErrorEnum', IFileDataResultCallbackErrorEnum.getReflection()));
+            _fields.push(new ReflectionField('InexistentFile', 'Field InexistentFile of class IFileDataResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('InsufficientSpace', 'Field InsufficientSpace of class IFileDataResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unauthorized', 'Field Unauthorized of class IFileDataResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileDataResultCallbackErrorEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IFileDataResultCallbackErrorEnum', 'Enum class IFileDataResultCallbackErrorEnum', 'IFileDataResultCallbackErrorEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -5661,8 +5693,8 @@ var Adaptive;
         IFileDataResultCallbackWarningEnum.getReflection = function () {
             /** Fields of IFileDataResultCallbackWarningEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('ExceedMaximumSize', 'Field ExceedMaximumSize of class IFileDataResultCallbackWarningEnum', IFileDataResultCallbackWarningEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileDataResultCallbackWarningEnum', IFileDataResultCallbackWarningEnum.getReflection()));
+            _fields.push(new ReflectionField('ExceedMaximumSize', 'Field ExceedMaximumSize of class IFileDataResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IFileDataResultCallbackWarningEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IFileDataResultCallbackWarningEnum', 'Enum class IFileDataResultCallbackWarningEnum', 'IFileDataResultCallbackWarningEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -6616,17 +6648,13 @@ var Adaptive;
             _methods.push(new ReflectionMethod('getContent', 'File getContent', _params_getContent, null));
             /** Method move of File **/
             var _params_move = new Array();
+            /**
             _params_move.push(new ReflectionParameter('newFile', 'File move newFile', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            **/
             _params_move.push(new ReflectionParameter('createPath', 'File move createPath', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_move.push(new ReflectionParameter('callback', 'File move callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_move.push(new ReflectionParameter('overwrite', 'File move overwrite', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('move', 'File move', _params_move, null));
-            /** Method createWithPath of File **/
-            var _params_createWithPath = new Array();
-            _params_createWithPath.push(new ReflectionParameter('path', 'File createWithPath path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_createWithPath.push(new ReflectionParameter('name', 'File createWithPath name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _params_createWithPath.push(new ReflectionParameter('callback', 'File createWithPath callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('createWithPath', 'File createWithPath', _params_createWithPath, null));
             /** Method mkDir of File **/
             var _params_mkDir = new Array();
             _params_mkDir.push(new ReflectionParameter('recursive', 'File mkDir recursive', new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
@@ -6647,6 +6675,12 @@ var Adaptive;
             _params_setContent.push(new ReflectionParameter('content', 'File setContent content', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _params_setContent.push(new ReflectionParameter('callback', 'File setContent callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setContent', 'File setContent', _params_setContent, null));
+            /** Method createWithPath of File **/
+            var _params_createWithPath = new Array();
+            _params_createWithPath.push(new ReflectionParameter('path', 'File createWithPath path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_createWithPath.push(new ReflectionParameter('name', 'File createWithPath name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _params_createWithPath.push(new ReflectionParameter('callback', 'File createWithPath callback', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('createWithPath', 'File createWithPath', _params_createWithPath, null));
             /** Class description of IFile **/
             var clazz = new ReflectionClass('FileBridge', 'Bridge class FileBridge', 'FileBridge', _methods, _fields, Adaptive.getReflection());
             return clazz;
@@ -6696,10 +6730,6 @@ var Adaptive;
             /** Method getType of ContactEmail **/
             var _params_getType = new Array();
             _methods.push(new ReflectionMethod('getType', 'ContactEmail getType', _params_getType, ContactEmailEmailTypeEnum.getReflection()));
-            /** Method setType of ContactEmail **/
-            var _params_setType = new Array();
-            _params_setType.push(new ReflectionParameter('type', 'ContactEmail setType type', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setType', 'ContactEmail setType', _params_setType, null));
             /** Method getEmail of ContactEmail **/
             var _params_getEmail = new Array();
             _methods.push(new ReflectionMethod('getEmail', 'ContactEmail getEmail', _params_getEmail, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
@@ -6714,8 +6744,13 @@ var Adaptive;
             var _params_setEmail = new Array();
             _params_setEmail.push(new ReflectionParameter('email', 'ContactEmail setEmail email', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setEmail', 'ContactEmail setEmail', _params_setEmail, null));
+            /** Method setType of ContactEmail **/
+            var _params_setType = new Array();
+            _params_setType.push(new ReflectionParameter('type', 'ContactEmail setType type', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setType', 'ContactEmail setType', _params_setType, null));
             /** Class description of ContactEmail **/
             var clazz = new ReflectionClass('ContactEmail', 'Bean class ContactEmail', 'ContactEmail', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return ContactEmail;
@@ -6734,10 +6769,10 @@ var Adaptive;
         ContactEmailEmailTypeEnum.getReflection = function () {
             /** Fields of ContactEmailEmailTypeEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Personal', 'Field Personal of class ContactEmailEmailTypeEnum', ContactEmailEmailTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Work', 'Field Work of class ContactEmailEmailTypeEnum', ContactEmailEmailTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Other', 'Field Other of class ContactEmailEmailTypeEnum', ContactEmailEmailTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactEmailEmailTypeEnum', ContactEmailEmailTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Personal', 'Field Personal of class ContactEmailEmailTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Work', 'Field Work of class ContactEmailEmailTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Other', 'Field Other of class ContactEmailEmailTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactEmailEmailTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ContactEmailEmailTypeEnum', 'Enum class ContactEmailEmailTypeEnum', 'ContactEmailEmailTypeEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -6795,6 +6830,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('getData', 'Header getData', _params_getData, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Class description of Header **/
             var clazz = new ReflectionClass('Header', 'Bean class Header', 'Header', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Header;
@@ -6937,6 +6973,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('getHeaders', 'ServiceResponse getHeaders', _params_getHeaders, new ReflectionClass('Array<Header>', 'Array of Header', 'Array<Header>', null, null, Adaptive.getReflection()).setTypeComponent(Header.getReflection())));
             /** Class description of ServiceResponse **/
             var clazz = new ReflectionClass('ServiceResponse', 'Bean class ServiceResponse', 'ServiceResponse', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return ServiceResponse;
@@ -6983,6 +7020,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('getVersion', 'OSInfo getVersion', _params_getVersion, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Class description of OSInfo **/
             var clazz = new ReflectionClass('OSInfo', 'Bean class OSInfo', 'OSInfo', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return OSInfo;
@@ -7020,6 +7058,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setName', 'Column setName', _params_setName, null));
             /** Class description of Column **/
             var clazz = new ReflectionClass('Column', 'Bean class Column', 'Column', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Column;
@@ -7151,6 +7190,10 @@ var Adaptive;
             var _params_setContent = new Array();
             _params_setContent.push(new ReflectionParameter('content', 'ServiceRequest setContent content', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setContent', 'ServiceRequest setContent', _params_setContent, null));
+            /** Method setMethod of ServiceRequest **/
+            var _params_setMethod = new Array();
+            _params_setMethod.push(new ReflectionParameter('method', 'ServiceRequest setMethod method', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setMethod', 'ServiceRequest setMethod', _params_setMethod, null));
             /** Method getContentLength of ServiceRequest **/
             var _params_getContentLength = new Array();
             _methods.push(new ReflectionMethod('getContentLength', 'ServiceRequest getContentLength', _params_getContentLength, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
@@ -7171,12 +7214,9 @@ var Adaptive;
             /** Method getHeaders of ServiceRequest **/
             var _params_getHeaders = new Array();
             _methods.push(new ReflectionMethod('getHeaders', 'ServiceRequest getHeaders', _params_getHeaders, new ReflectionClass('Array<Header>', 'Array of Header', 'Array<Header>', null, null, Adaptive.getReflection()).setTypeComponent(Header.getReflection())));
-            /** Method setMethod of ServiceRequest **/
-            var _params_setMethod = new Array();
-            _params_setMethod.push(new ReflectionParameter('method', 'ServiceRequest setMethod method', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setMethod', 'ServiceRequest setMethod', _params_setMethod, null));
             /** Class description of ServiceRequest **/
             var clazz = new ReflectionClass('ServiceRequest', 'Bean class ServiceRequest', 'ServiceRequest', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return ServiceRequest;
@@ -7195,9 +7235,9 @@ var Adaptive;
         ServiceRequestProtocolVersionEnum.getReflection = function () {
             /** Fields of IServiceProtocolVersionEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('HTTP_PROTOCOL_VERSION_1_0', 'Field HTTP_PROTOCOL_VERSION_1_0 of class IServiceProtocolVersionEnum', ServiceRequestProtocolVersionEnum.getReflection()));
-            _fields.push(new ReflectionField('HTTP_PROTOCOL_VERSION_1_1', 'Field HTTP_PROTOCOL_VERSION_1_1 of class IServiceProtocolVersionEnum', ServiceRequestProtocolVersionEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceProtocolVersionEnum', ServiceRequestProtocolVersionEnum.getReflection()));
+            _fields.push(new ReflectionField('HTTP_PROTOCOL_VERSION_1_0', 'Field HTTP_PROTOCOL_VERSION_1_0 of class IServiceProtocolVersionEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('HTTP_PROTOCOL_VERSION_1_1', 'Field HTTP_PROTOCOL_VERSION_1_1 of class IServiceProtocolVersionEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceProtocolVersionEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IServiceProtocolVersionEnum', 'Enum class IServiceProtocolVersionEnum', 'IServiceProtocolVersionEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -7254,6 +7294,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setCompress', 'Database setCompress', _params_setCompress, null));
             /** Class description of Database **/
             var clazz = new ReflectionClass('Database', 'Bean class Database', 'Database', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Database;
@@ -7346,6 +7387,14 @@ var Adaptive;
             var _params_setData = new Array();
             _params_setData.push(new ReflectionParameter('data', 'Cookie setData data', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setData', 'Cookie setData', _params_setData, null));
+            /** Method setScheme of Cookie **/
+            var _params_setScheme = new Array();
+            _params_setScheme.push(new ReflectionParameter('scheme', 'Cookie setScheme scheme', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setScheme', 'Cookie setScheme', _params_setScheme, null));
+            /** Method setPath of Cookie **/
+            var _params_setPath = new Array();
+            _params_setPath.push(new ReflectionParameter('path', 'Cookie setPath path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setPath', 'Cookie setPath', _params_setPath, null));
             /** Method isSecure of Cookie **/
             var _params_isSecure = new Array();
             _methods.push(new ReflectionMethod('isSecure', 'Cookie isSecure', _params_isSecure, new ReflectionClass('boolean', 'Primitive type boolean', 'boolean', null, null, Adaptive.getReflection())));
@@ -7370,19 +7419,12 @@ var Adaptive;
             /** Method getCreation of Cookie **/
             var _params_getCreation = new Array();
             _methods.push(new ReflectionMethod('getCreation', 'Cookie getCreation', _params_getCreation, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setPath of Cookie **/
-            var _params_setPath = new Array();
-            _params_setPath.push(new ReflectionParameter('path', 'Cookie setPath path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setPath', 'Cookie setPath', _params_setPath, null));
-            /** Method setScheme of Cookie **/
-            var _params_setScheme = new Array();
-            _params_setScheme.push(new ReflectionParameter('scheme', 'Cookie setScheme scheme', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setScheme', 'Cookie setScheme', _params_setScheme, null));
             /** Method getData of Cookie **/
             var _params_getData = new Array();
             _methods.push(new ReflectionMethod('getData', 'Cookie getData', _params_getData, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Class description of Cookie **/
             var clazz = new ReflectionClass('Cookie', 'Bean class Cookie', 'Cookie', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Cookie;
@@ -7442,6 +7484,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setLanguage', 'Locale setLanguage', _params_setLanguage, null));
             /** Class description of Locale **/
             var clazz = new ReflectionClass('Locale', 'Bean class Locale', 'Locale', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Locale;
@@ -7470,15 +7513,16 @@ var Adaptive;
             _fields.push(new ReflectionField('url', 'Field url of class ContactWebsite', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Methods of ContactWebsite **/
             var _methods = new Array();
-            /** Method getUrl of ContactWebsite **/
-            var _params_getUrl = new Array();
-            _methods.push(new ReflectionMethod('getUrl', 'ContactWebsite getUrl', _params_getUrl, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method setUrl of ContactWebsite **/
             var _params_setUrl = new Array();
             _params_setUrl.push(new ReflectionParameter('url', 'ContactWebsite setUrl url', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setUrl', 'ContactWebsite setUrl', _params_setUrl, null));
+            /** Method getUrl of ContactWebsite **/
+            var _params_getUrl = new Array();
+            _methods.push(new ReflectionMethod('getUrl', 'ContactWebsite getUrl', _params_getUrl, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Class description of ContactWebsite **/
             var clazz = new ReflectionClass('ContactWebsite', 'Bean class ContactWebsite', 'ContactWebsite', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return ContactWebsite;
@@ -7516,6 +7560,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setValues', 'Row setValues', _params_setValues, null));
             /** Class description of Row **/
             var clazz = new ReflectionClass('Row', 'Bean class Row', 'Row', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Row;
@@ -7575,6 +7620,9 @@ var Adaptive;
             var _params_setName = new Array();
             _params_setName.push(new ReflectionParameter('name', 'ContactPersonalInfo setName name', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setName', 'ContactPersonalInfo setName', _params_setName, null));
+            /** Method getMiddleName of ContactPersonalInfo **/
+            var _params_getMiddleName = new Array();
+            _methods.push(new ReflectionMethod('getMiddleName', 'ContactPersonalInfo getMiddleName', _params_getMiddleName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method getTitle of ContactPersonalInfo **/
             var _params_getTitle = new Array();
             _methods.push(new ReflectionMethod('getTitle', 'ContactPersonalInfo getTitle', _params_getTitle, ContactPersonalInfoTitleEnum.getReflection()));
@@ -7586,9 +7634,6 @@ var Adaptive;
             var _params_setMiddleName = new Array();
             _params_setMiddleName.push(new ReflectionParameter('middleName', 'ContactPersonalInfo setMiddleName middleName', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setMiddleName', 'ContactPersonalInfo setMiddleName', _params_setMiddleName, null));
-            /** Method getMiddleName of ContactPersonalInfo **/
-            var _params_getMiddleName = new Array();
-            _methods.push(new ReflectionMethod('getMiddleName', 'ContactPersonalInfo getMiddleName', _params_getMiddleName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method getLastName of ContactPersonalInfo **/
             var _params_getLastName = new Array();
             _methods.push(new ReflectionMethod('getLastName', 'ContactPersonalInfo getLastName', _params_getLastName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
@@ -7598,6 +7643,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setLastName', 'ContactPersonalInfo setLastName', _params_setLastName, null));
             /** Class description of ContactPersonalInfo **/
             var clazz = new ReflectionClass('ContactPersonalInfo', 'Bean class ContactPersonalInfo', 'ContactPersonalInfo', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return ContactPersonalInfo;
@@ -7616,11 +7662,11 @@ var Adaptive;
         ContactPersonalInfoTitleEnum.getReflection = function () {
             /** Fields of ContactPersonalInfoTitleEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Mr', 'Field Mr of class ContactPersonalInfoTitleEnum', ContactPersonalInfoTitleEnum.getReflection()));
-            _fields.push(new ReflectionField('Mrs', 'Field Mrs of class ContactPersonalInfoTitleEnum', ContactPersonalInfoTitleEnum.getReflection()));
-            _fields.push(new ReflectionField('Ms', 'Field Ms of class ContactPersonalInfoTitleEnum', ContactPersonalInfoTitleEnum.getReflection()));
-            _fields.push(new ReflectionField('Dr', 'Field Dr of class ContactPersonalInfoTitleEnum', ContactPersonalInfoTitleEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactPersonalInfoTitleEnum', ContactPersonalInfoTitleEnum.getReflection()));
+            _fields.push(new ReflectionField('Mr', 'Field Mr of class ContactPersonalInfoTitleEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Mrs', 'Field Mrs of class ContactPersonalInfoTitleEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Ms', 'Field Ms of class ContactPersonalInfoTitleEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Dr', 'Field Dr of class ContactPersonalInfoTitleEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactPersonalInfoTitleEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ContactPersonalInfoTitleEnum', 'Enum class ContactPersonalInfoTitleEnum', 'ContactPersonalInfoTitleEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -7664,6 +7710,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setAddress', 'EmailAddress setAddress', _params_setAddress, null));
             /** Class description of EmailAddress **/
             var clazz = new ReflectionClass('EmailAddress', 'Bean class EmailAddress', 'EmailAddress', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return EmailAddress;
@@ -7716,6 +7763,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setDataValue', 'ContactTag setDataValue', _params_setDataValue, null));
             /** Class description of ContactTag **/
             var clazz = new ReflectionClass('ContactTag', 'Bean class ContactTag', 'ContactTag', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return ContactTag;
@@ -7788,31 +7836,32 @@ var Adaptive;
             /** Method getPort of Endpoint **/
             var _params_getPort = new Array();
             _methods.push(new ReflectionMethod('getPort', 'Endpoint getPort', _params_getPort, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method setPath of Endpoint **/
-            var _params_setPath = new Array();
-            _params_setPath.push(new ReflectionParameter('path', 'Endpoint setPath path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setPath', 'Endpoint setPath', _params_setPath, null));
-            /** Method setHost of Endpoint **/
-            var _params_setHost = new Array();
-            _params_setHost.push(new ReflectionParameter('host', 'Endpoint setHost host', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
-            _methods.push(new ReflectionMethod('setHost', 'Endpoint setHost', _params_setHost, null));
-            /** Method getProxy of Endpoint **/
-            var _params_getProxy = new Array();
-            _methods.push(new ReflectionMethod('getProxy', 'Endpoint getProxy', _params_getProxy, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method setProxy of Endpoint **/
             var _params_setProxy = new Array();
             _params_setProxy.push(new ReflectionParameter('proxy', 'Endpoint setProxy proxy', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setProxy', 'Endpoint setProxy', _params_setProxy, null));
+            /** Method setHost of Endpoint **/
+            var _params_setHost = new Array();
+            _params_setHost.push(new ReflectionParameter('host', 'Endpoint setHost host', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setHost', 'Endpoint setHost', _params_setHost, null));
             /** Method setScheme of Endpoint **/
             var _params_setScheme = new Array();
             _params_setScheme.push(new ReflectionParameter('scheme', 'Endpoint setScheme scheme', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setScheme', 'Endpoint setScheme', _params_setScheme, null));
+            /** Method setPath of Endpoint **/
+            var _params_setPath = new Array();
+            _params_setPath.push(new ReflectionParameter('path', 'Endpoint setPath path', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
+            _methods.push(new ReflectionMethod('setPath', 'Endpoint setPath', _params_setPath, null));
+            /** Method getProxy of Endpoint **/
+            var _params_getProxy = new Array();
+            _methods.push(new ReflectionMethod('getProxy', 'Endpoint getProxy', _params_getProxy, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method setPort of Endpoint **/
             var _params_setPort = new Array();
             _params_setPort.push(new ReflectionParameter('port', 'Endpoint setPort port', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setPort', 'Endpoint setPort', _params_setPort, null));
             /** Class description of Endpoint **/
             var clazz = new ReflectionClass('Endpoint', 'Bean class Endpoint', 'Endpoint', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Endpoint;
@@ -7867,6 +7916,12 @@ var Adaptive;
             _fields.push(new ReflectionField('yDoP', 'Field yDoP of class Geolocation', new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
             /** Methods of Geolocation **/
             var _methods = new Array();
+            /** Method getXDoP of Geolocation **/
+            var _params_getXDoP = new Array();
+            _methods.push(new ReflectionMethod('getXDoP', 'Geolocation getXDoP', _params_getXDoP, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
+            /** Method getYDoP of Geolocation **/
+            var _params_getYDoP = new Array();
+            _methods.push(new ReflectionMethod('getYDoP', 'Geolocation getYDoP', _params_getYDoP, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
             /** Method getLatitude of Geolocation **/
             var _params_getLatitude = new Array();
             _methods.push(new ReflectionMethod('getLatitude', 'Geolocation getLatitude', _params_getLatitude, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
@@ -7888,14 +7943,9 @@ var Adaptive;
             var _params_setAltitude = new Array();
             _params_setAltitude.push(new ReflectionParameter('altitude', 'Geolocation setAltitude altitude', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setAltitude', 'Geolocation setAltitude', _params_setAltitude, null));
-            /** Method getXDoP of Geolocation **/
-            var _params_getXDoP = new Array();
-            _methods.push(new ReflectionMethod('getXDoP', 'Geolocation getXDoP', _params_getXDoP, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
-            /** Method getYDoP of Geolocation **/
-            var _params_getYDoP = new Array();
-            _methods.push(new ReflectionMethod('getYDoP', 'Geolocation getYDoP', _params_getYDoP, new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection())));
             /** Class description of Geolocation **/
             var clazz = new ReflectionClass('Geolocation', 'Bean class Geolocation', 'Geolocation', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Geolocation;
@@ -7924,15 +7974,16 @@ var Adaptive;
             _fields.push(new ReflectionField('contactId', 'Field contactId of class ContactUid', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Methods of ContactUid **/
             var _methods = new Array();
-            /** Method getContactId of ContactUid **/
-            var _params_getContactId = new Array();
-            _methods.push(new ReflectionMethod('getContactId', 'ContactUid getContactId', _params_getContactId, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method setContactId of ContactUid **/
             var _params_setContactId = new Array();
             _params_setContactId.push(new ReflectionParameter('contactId', 'ContactUid setContactId contactId', new ReflectionClass('void', 'Primitive type void', 'void', null, null, Adaptive.getReflection())));
             _methods.push(new ReflectionMethod('setContactId', 'ContactUid setContactId', _params_setContactId, null));
+            /** Method getContactId of ContactUid **/
+            var _params_getContactId = new Array();
+            _methods.push(new ReflectionMethod('getContactId', 'ContactUid getContactId', _params_getContactId, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Class description of ContactUid **/
             var clazz = new ReflectionClass('ContactUid', 'Bean class ContactUid', 'ContactUid', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return ContactUid;
@@ -8056,6 +8107,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setSubject', 'Email setSubject', _params_setSubject, null));
             /** Class description of Email **/
             var clazz = new ReflectionClass('Email', 'Bean class Email', 'Email', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Email;
@@ -8153,6 +8205,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('getData', 'AttachmentData getData', _params_getData, new ReflectionClass('Array<number>', 'Array of number', 'Array<number>', null, null, Adaptive.getReflection()).setTypeComponent(new ReflectionClass('number', 'Primitive type number', 'number', null, null, Adaptive.getReflection()))));
             /** Class description of AttachmentData **/
             var clazz = new ReflectionClass('AttachmentData', 'Bean class AttachmentData', 'AttachmentData', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return AttachmentData;
@@ -8205,6 +8258,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setProfileUrl', 'ContactSocial setProfileUrl', _params_setProfileUrl, null));
             /** Class description of ContactSocial **/
             var clazz = new ReflectionClass('ContactSocial', 'Bean class ContactSocial', 'ContactSocial', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return ContactSocial;
@@ -8223,12 +8277,12 @@ var Adaptive;
         ContactSocialSocialNetworkEnum.getReflection = function () {
             /** Fields of ContactSocialSocialNetworkEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Twitter', 'Field Twitter of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
-            _fields.push(new ReflectionField('Facebook', 'Field Facebook of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
-            _fields.push(new ReflectionField('GooglePlus', 'Field GooglePlus of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
-            _fields.push(new ReflectionField('LinkedIn', 'Field LinkedIn of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
-            _fields.push(new ReflectionField('Flickr', 'Field Flickr of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactSocialSocialNetworkEnum', ContactSocialSocialNetworkEnum.getReflection()));
+            _fields.push(new ReflectionField('Twitter', 'Field Twitter of class ContactSocialSocialNetworkEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Facebook', 'Field Facebook of class ContactSocialSocialNetworkEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('GooglePlus', 'Field GooglePlus of class ContactSocialSocialNetworkEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('LinkedIn', 'Field LinkedIn of class ContactSocialSocialNetworkEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Flickr', 'Field Flickr of class ContactSocialSocialNetworkEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactSocialSocialNetworkEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ContactSocialSocialNetworkEnum', 'Enum class ContactSocialSocialNetworkEnum', 'ContactSocialSocialNetworkEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -8288,6 +8342,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setPhoneType', 'ContactPhone setPhoneType', _params_setPhoneType, null));
             /** Class description of ContactPhone **/
             var clazz = new ReflectionClass('ContactPhone', 'Bean class ContactPhone', 'ContactPhone', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return ContactPhone;
@@ -8306,14 +8361,14 @@ var Adaptive;
         ContactPhonePhoneTypeEnum.getReflection = function () {
             /** Fields of ContactPhonePhoneTypeEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Mobile', 'Field Mobile of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Work', 'Field Work of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Home', 'Field Home of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Main', 'Field Main of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('HomeFax', 'Field HomeFax of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('WorkFax', 'Field WorkFax of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Other', 'Field Other of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactPhonePhoneTypeEnum', ContactPhonePhoneTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Mobile', 'Field Mobile of class ContactPhonePhoneTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Work', 'Field Work of class ContactPhonePhoneTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Home', 'Field Home of class ContactPhonePhoneTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Main', 'Field Main of class ContactPhonePhoneTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('HomeFax', 'Field HomeFax of class ContactPhonePhoneTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('WorkFax', 'Field WorkFax of class ContactPhonePhoneTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Other', 'Field Other of class ContactPhonePhoneTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactPhonePhoneTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ContactPhonePhoneTypeEnum', 'Enum class ContactPhonePhoneTypeEnum', 'ContactPhonePhoneTypeEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -8375,6 +8430,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setSecureData', 'SecureKeyPair setSecureData', _params_setSecureData, null));
             /** Class description of SecureKeyPair **/
             var clazz = new ReflectionClass('SecureKeyPair', 'Bean class SecureKeyPair', 'SecureKeyPair', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return SecureKeyPair;
@@ -8468,6 +8524,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setColumns', 'Table setColumns', _params_setColumns, null));
             /** Class description of Table **/
             var clazz = new ReflectionClass('Table', 'Bean class Table', 'Table', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Table;
@@ -8535,6 +8592,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setJobDescription', 'ContactProfessionalInfo setJobDescription', _params_setJobDescription, null));
             /** Class description of ContactProfessionalInfo **/
             var clazz = new ReflectionClass('ContactProfessionalInfo', 'Bean class ContactProfessionalInfo', 'ContactProfessionalInfo', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return ContactProfessionalInfo;
@@ -8611,6 +8669,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setTimeStamp', 'Acceleration setTimeStamp', _params_setTimeStamp, null));
             /** Class description of Acceleration **/
             var clazz = new ReflectionClass('Acceleration', 'Bean class Acceleration', 'Acceleration', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Acceleration;
@@ -8654,17 +8713,18 @@ var Adaptive;
             /** Method getName of DeviceInfo **/
             var _params_getName = new Array();
             _methods.push(new ReflectionMethod('getName', 'DeviceInfo getName', _params_getName, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            /** Method getVendor of DeviceInfo **/
+            var _params_getVendor = new Array();
+            _methods.push(new ReflectionMethod('getVendor', 'DeviceInfo getVendor', _params_getVendor, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method getModel of DeviceInfo **/
             var _params_getModel = new Array();
             _methods.push(new ReflectionMethod('getModel', 'DeviceInfo getModel', _params_getModel, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Method getUuid of DeviceInfo **/
             var _params_getUuid = new Array();
             _methods.push(new ReflectionMethod('getUuid', 'DeviceInfo getUuid', _params_getUuid, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
-            /** Method getVendor of DeviceInfo **/
-            var _params_getVendor = new Array();
-            _methods.push(new ReflectionMethod('getVendor', 'DeviceInfo getVendor', _params_getVendor, new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             /** Class description of DeviceInfo **/
             var clazz = new ReflectionClass('DeviceInfo', 'Bean class DeviceInfo', 'DeviceInfo', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return DeviceInfo;
@@ -8717,6 +8777,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setAddress', 'ContactAddress setAddress', _params_setAddress, null));
             /** Class description of ContactAddress **/
             var clazz = new ReflectionClass('ContactAddress', 'Bean class ContactAddress', 'ContactAddress', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return ContactAddress;
@@ -8735,10 +8796,10 @@ var Adaptive;
         ContactAddressAddressTypeEnum.getReflection = function () {
             /** Fields of ContactAddressAddressTypeEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Home', 'Field Home of class ContactAddressAddressTypeEnum', ContactAddressAddressTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Work', 'Field Work of class ContactAddressAddressTypeEnum', ContactAddressAddressTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Other', 'Field Other of class ContactAddressAddressTypeEnum', ContactAddressAddressTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactAddressAddressTypeEnum', ContactAddressAddressTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('Home', 'Field Home of class ContactAddressAddressTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Work', 'Field Work of class ContactAddressAddressTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Other', 'Field Other of class ContactAddressAddressTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ContactAddressAddressTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ContactAddressAddressTypeEnum', 'Enum class ContactAddressAddressTypeEnum', 'ContactAddressAddressTypeEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -8881,6 +8942,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setContactTags', 'Contact setContactTags', _params_setContactTags, null));
             /** Class description of Contact **/
             var clazz = new ReflectionClass('Contact', 'Bean class Contact', 'Contact', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Contact;
@@ -8911,6 +8973,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('getType', 'Button getType', _params_getType, ButtonButtonEnum.getReflection()));
             /** Class description of Button **/
             var clazz = new ReflectionClass('Button', 'Bean class Button', 'Button', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Button;
@@ -8929,10 +8992,10 @@ var Adaptive;
         ButtonButtonEnum.getReflection = function () {
             /** Fields of ICapabilitiesButtonEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('HomeButton', 'Field HomeButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
-            _fields.push(new ReflectionField('BackButton', 'Field BackButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
-            _fields.push(new ReflectionField('OptionButton', 'Field OptionButton of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesButtonEnum', ICapabilitiesButtonEnum.getReflection()));
+            _fields.push(new ReflectionField('HomeButton', 'Field HomeButton of class ICapabilitiesButtonEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('BackButton', 'Field BackButton of class ICapabilitiesButtonEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('OptionButton', 'Field OptionButton of class ICapabilitiesButtonEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class ICapabilitiesButtonEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('ICapabilitiesButtonEnum', 'Enum class ICapabilitiesButtonEnum', 'ICapabilitiesButtonEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -8975,6 +9038,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setState', 'Lifecycle setState', _params_setState, null));
             /** Class description of Lifecycle **/
             var clazz = new ReflectionClass('Lifecycle', 'Bean class Lifecycle', 'Lifecycle', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Lifecycle;
@@ -8993,15 +9057,15 @@ var Adaptive;
         LifecycleStateEnum.getReflection = function () {
             /** Fields of LifecycleStateEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('Starting', 'Field Starting of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
-            _fields.push(new ReflectionField('Started', 'Field Started of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
-            _fields.push(new ReflectionField('Running', 'Field Running of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
-            _fields.push(new ReflectionField('Paused', 'Field Paused of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
-            _fields.push(new ReflectionField('PausedIdle', 'Field PausedIdle of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
-            _fields.push(new ReflectionField('PausedRun', 'Field PausedRun of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
-            _fields.push(new ReflectionField('Resuming', 'Field Resuming of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
-            _fields.push(new ReflectionField('Stopping', 'Field Stopping of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class LifecycleStateEnum', LifecycleStateEnum.getReflection()));
+            _fields.push(new ReflectionField('Starting', 'Field Starting of class LifecycleStateEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Started', 'Field Started of class LifecycleStateEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Running', 'Field Running of class LifecycleStateEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Paused', 'Field Paused of class LifecycleStateEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('PausedIdle', 'Field PausedIdle of class LifecycleStateEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('PausedRun', 'Field PausedRun of class LifecycleStateEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Resuming', 'Field Resuming of class LifecycleStateEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Stopping', 'Field Stopping of class LifecycleStateEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class LifecycleStateEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('LifecycleStateEnum', 'Enum class LifecycleStateEnum', 'LifecycleStateEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -9094,6 +9158,7 @@ var Adaptive;
             _methods.push(new ReflectionMethod('setMethod', 'Service setMethod', _params_setMethod, null));
             /** Class description of Service **/
             var clazz = new ReflectionClass('Service', 'Bean class Service', 'Service', _methods, _fields, Adaptive.getReflection());
+            Adaptive.getReflection().addClass(clazz);
             return clazz;
         };
         return Service;
@@ -9112,9 +9177,9 @@ var Adaptive;
         ServiceServiceMethodEnum.getReflection = function () {
             /** Fields of IServiceServiceMethodEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('POST', 'Field POST of class IServiceServiceMethodEnum', ServiceServiceMethodEnum.getReflection()));
-            _fields.push(new ReflectionField('GET', 'Field GET of class IServiceServiceMethodEnum', ServiceServiceMethodEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceServiceMethodEnum', ServiceServiceMethodEnum.getReflection()));
+            _fields.push(new ReflectionField('POST', 'Field POST of class IServiceServiceMethodEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('GET', 'Field GET of class IServiceServiceMethodEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceServiceMethodEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IServiceServiceMethodEnum', 'Enum class IServiceServiceMethodEnum', 'IServiceServiceMethodEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -9137,17 +9202,17 @@ var Adaptive;
         ServiceServiceTypeEnum.getReflection = function () {
             /** Fields of IServiceServiceTypeEnum **/
             var _fields = new Array();
-            _fields.push(new ReflectionField('SERVICETYPE_AMF_SERIALIZATION', 'Field SERVICETYPE_AMF_SERIALIZATION of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('SERVICETYPE_GWT_RPC', 'Field SERVICETYPE_GWT_RPC of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('SERVICETYPE_OCTET_BINARY', 'Field SERVICETYPE_OCTET_BINARY of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('SERVICETYPE_REMOTING_SERIALIZATION', 'Field SERVICETYPE_REMOTING_SERIALIZATION of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('SERVICETYPE_REST_JSON', 'Field SERVICETYPE_REST_JSON of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('SERVICETYPE_REST_XML', 'Field SERVICETYPE_REST_XML of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('SERVICETYPE_SOAP_JSON', 'Field SERVICETYPE_SOAP_JSON of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('SERVICETYPE_SOAP_XML', 'Field SERVICETYPE_SOAP_XML of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('SERVICETYPE_XMLRPC_JSON', 'Field SERVICETYPE_XMLRPC_JSON of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('SERVICETYPE_XMLRPC_XML', 'Field SERVICETYPE_XMLRPC_XML of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
-            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceServiceTypeEnum', ServiceServiceTypeEnum.getReflection()));
+            _fields.push(new ReflectionField('SERVICETYPE_AMF_SERIALIZATION', 'Field SERVICETYPE_AMF_SERIALIZATION of class IServiceServiceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SERVICETYPE_GWT_RPC', 'Field SERVICETYPE_GWT_RPC of class IServiceServiceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SERVICETYPE_OCTET_BINARY', 'Field SERVICETYPE_OCTET_BINARY of class IServiceServiceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SERVICETYPE_REMOTING_SERIALIZATION', 'Field SERVICETYPE_REMOTING_SERIALIZATION of class IServiceServiceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SERVICETYPE_REST_JSON', 'Field SERVICETYPE_REST_JSON of class IServiceServiceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SERVICETYPE_REST_XML', 'Field SERVICETYPE_REST_XML of class IServiceServiceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SERVICETYPE_SOAP_JSON', 'Field SERVICETYPE_SOAP_JSON of class IServiceServiceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SERVICETYPE_SOAP_XML', 'Field SERVICETYPE_SOAP_XML of class IServiceServiceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SERVICETYPE_XMLRPC_JSON', 'Field SERVICETYPE_XMLRPC_JSON of class IServiceServiceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('SERVICETYPE_XMLRPC_XML', 'Field SERVICETYPE_XMLRPC_XML of class IServiceServiceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
+            _fields.push(new ReflectionField('Unknown', 'Field Unknown of class IServiceServiceTypeEnum', new ReflectionClass('string', 'Primitive type string', 'string', null, null, Adaptive.getReflection())));
             var clazz = new ReflectionClass('IServiceServiceTypeEnum', 'Enum class IServiceServiceTypeEnum', 'IServiceServiceTypeEnum', null, _fields, Adaptive.getReflection());
             return clazz;
         };
@@ -9165,5 +9230,141 @@ var Adaptive;
         return ServiceServiceTypeEnum;
     })();
     Adaptive.ServiceServiceTypeEnum = ServiceServiceTypeEnum;
+    var _initializedReflection = false;
+    function initializeReflection() {
+        if (!_initializedReflection) {
+            getReflection().addClass(IAppContextTypeEnum.getReflection());
+            getReflection().addClass(BaseCallback.getReflection());
+            getReflection().addClass(BaseListener.getReflection());
+            getReflection().addClass(IAppResourcePayloadEnum.getReflection());
+            getReflection().addClass(IAppResourceFormatEnum.getReflection());
+            getReflection().addClass(IAppResourceTypeEnum.getReflection());
+            getReflection().addClass(DeviceBridge.getReflection());
+            getReflection().addClass(MailBridge.getReflection());
+            getReflection().addClass(ISecureKVResultCallbackErrorEnum.getReflection());
+            getReflection().addClass(ISecureKVResultCallbackWarningEnum.getReflection());
+            getReflection().addClass(SecureKVResultCallback.getReflection());
+            // getReflection().addClass(IFileResultCallbackErrorEnum.getReflection());
+            // getReflection().addClass(IFileResultCallbackWarningEnum.getReflection());
+            // getReflection().addClass(FileResultCallback.getReflection());
+            getReflection().addClass(ILifecycleListenerErrorEnum.getReflection());
+            getReflection().addClass(ILifecycleListenerWarningEnum.getReflection());
+            getReflection().addClass(LifecycleListener.getReflection());
+            getReflection().addClass(SessionBridge.getReflection());
+            getReflection().addClass(INetworkReachabilityCallbackErrorEnum.getReflection());
+            getReflection().addClass(INetworkReachabilityCallbackWarningEnum.getReflection());
+            getReflection().addClass(NetworkReachabilityCallback.getReflection());
+            getReflection().addClass(IAccelerationListenerErrorEnum.getReflection());
+            getReflection().addClass(IAccelerationListenerWarningEnum.getReflection());
+            getReflection().addClass(AccelerationListener.getReflection());
+            getReflection().addClass(DatabaseBridge.getReflection());
+            getReflection().addClass(IButtonListenerErrorEnum.getReflection());
+            getReflection().addClass(IButtonListenerWarningEnum.getReflection());
+            getReflection().addClass(ButtonListener.getReflection());
+            getReflection().addClass(IContactResultCallbackErrorEnum.getReflection());
+            getReflection().addClass(IContactResultCallbackWarningEnum.getReflection());
+            getReflection().addClass(ContactResultCallback.getReflection());
+            getReflection().addClass(BrowserBridge.getReflection());
+            getReflection().addClass(NetworkReachabilityBridge.getReflection());
+            getReflection().addClass(IGeolocationListenerErrorEnum.getReflection());
+            getReflection().addClass(IGeolocationListenerWarningEnum.getReflection());
+            getReflection().addClass(GeolocationListener.getReflection());
+            getReflection().addClass(IContactPhotoResultCallbackErrorEnum.getReflection());
+            getReflection().addClass(IContactPhotoResultCallbackWarningEnum.getReflection());
+            getReflection().addClass(ContactPhotoResultCallback.getReflection());
+            getReflection().addClass(LifecycleBridge.getReflection());
+            // getReflection().addClass(FileSystemBridge.getReflection());
+            getReflection().addClass(OSBridge.getReflection());
+            getReflection().addClass(IContactFieldGroupEnum.getReflection());
+            getReflection().addClass(IContactFilterEnum.getReflection());
+            getReflection().addClass(ContactBridge.getReflection());
+            getReflection().addClass(ILoggingLogLevelEnum.getReflection());
+            getReflection().addClass(RuntimeBridge.getReflection());
+            getReflection().addClass(IMessagingCallbackErrorEnum.getReflection());
+            getReflection().addClass(IMessagingCallbackWarningEnum.getReflection());
+            getReflection().addClass(MessagingCallback.getReflection());
+            getReflection().addClass(IDatabaseResultCallbackErrorEnum.getReflection());
+            getReflection().addClass(IDatabaseResultCallbackWarningEnum.getReflection());
+            getReflection().addClass(DatabaseResultCallback.getReflection());
+            getReflection().addClass(SecurityBridge.getReflection());
+            getReflection().addClass(ICapabilitiesButtonEnum.getReflection());
+            getReflection().addClass(ICapabilitiesCommunicationEnum.getReflection());
+            getReflection().addClass(ICapabilitiesDataEnum.getReflection());
+            getReflection().addClass(ICapabilitiesMediaEnum.getReflection());
+            getReflection().addClass(ICapabilitiesNetEnum.getReflection());
+            getReflection().addClass(ICapabilitiesNotificationEnum.getReflection());
+            getReflection().addClass(ICapabilitiesSensorEnum.getReflection());
+            getReflection().addClass(CapabilitiesBridge.getReflection());
+            getReflection().addClass(GeolocationBridge.getReflection());
+            getReflection().addClass(ITelephonyStatusEnum.getReflection());
+            getReflection().addClass(TelephonyBridge.getReflection());
+            getReflection().addClass(MessagingBridge.getReflection());
+            // getReflection().addClass(FilePathBridge.getReflection());
+            getReflection().addClass(ITableResultCallbackErrorEnum.getReflection());
+            getReflection().addClass(ITableResultCallbackWarningEnum.getReflection());
+            getReflection().addClass(TableResultCallback.getReflection());
+            // getReflection().addClass(IFileListResultCallbackErrorEnum.getReflection());
+            // getReflection().addClass(IFileListResultCallbackWarningEnum.getReflection());
+            // getReflection().addClass(FileListResultCallback.getReflection());
+            getReflection().addClass(AccelerometerBridge.getReflection());
+            getReflection().addClass(IAppResourceCallbackErrorEnum.getReflection());
+            getReflection().addClass(IAppResourceCallbackWarningEnum.getReflection());
+            getReflection().addClass(GlobalizationBridge.getReflection());
+            getReflection().addClass(IServiceResultCallbackErrorEnum.getReflection());
+            getReflection().addClass(IServiceResultCallbackWarningEnum.getReflection());
+            getReflection().addClass(ServiceResultCallback.getReflection());
+            // getReflection().addClass(IFileDataResultCallbackErrorEnum.getReflection());
+            // getReflection().addClass(IFileDataResultCallbackWarningEnum.getReflection());
+            // getReflection().addClass(FileDataResultCallback.getReflection());
+            getReflection().addClass(VideoBridge.getReflection());
+            // getReflection().addClass(FileBridge.getReflection());
+            getReflection().addClass(ContactEmail.getReflection());
+            getReflection().addClass(ContactEmailEmailTypeEnum.getReflection());
+            getReflection().addClass(Header.getReflection());
+            getReflection().addClass(ServiceResponse.getReflection());
+            getReflection().addClass(OSInfo.getReflection());
+            getReflection().addClass(Column.getReflection());
+            getReflection().addClass(ServiceRequest.getReflection());
+            getReflection().addClass(ServiceRequestProtocolVersionEnum.getReflection());
+            getReflection().addClass(Database.getReflection());
+            getReflection().addClass(Cookie.getReflection());
+            getReflection().addClass(Locale.getReflection());
+            getReflection().addClass(ContactWebsite.getReflection());
+            getReflection().addClass(Row.getReflection());
+            getReflection().addClass(ContactPersonalInfo.getReflection());
+            getReflection().addClass(ContactPersonalInfoTitleEnum.getReflection());
+            getReflection().addClass(EmailAddress.getReflection());
+            getReflection().addClass(ContactTag.getReflection());
+            getReflection().addClass(Endpoint.getReflection());
+            getReflection().addClass(Geolocation.getReflection());
+            getReflection().addClass(ContactUid.getReflection());
+            getReflection().addClass(Email.getReflection());
+            getReflection().addClass(AttachmentData.getReflection());
+            getReflection().addClass(ContactSocial.getReflection());
+            getReflection().addClass(ContactSocialSocialNetworkEnum.getReflection());
+            getReflection().addClass(ContactPhone.getReflection());
+            getReflection().addClass(ContactPhonePhoneTypeEnum.getReflection());
+            getReflection().addClass(SecureKeyPair.getReflection());
+            getReflection().addClass(Table.getReflection());
+            getReflection().addClass(ContactProfessionalInfo.getReflection());
+            getReflection().addClass(Acceleration.getReflection());
+            getReflection().addClass(DeviceInfo.getReflection());
+            getReflection().addClass(ContactAddress.getReflection());
+            getReflection().addClass(ContactAddressAddressTypeEnum.getReflection());
+            getReflection().addClass(Contact.getReflection());
+            getReflection().addClass(Button.getReflection());
+            getReflection().addClass(ICapabilitiesButtonEnum.getReflection());
+            getReflection().addClass(Lifecycle.getReflection());
+            getReflection().addClass(LifecycleStateEnum.getReflection());
+            getReflection().addClass(Service.getReflection());
+            getReflection().addClass(ServiceServiceMethodEnum.getReflection());
+            getReflection().addClass(ServiceServiceTypeEnum.getReflection());
+            _initializedReflection = true;
+        }
+    }
+    Adaptive.initializeReflection = initializeReflection;
 })(Adaptive || (Adaptive = {}));
+//Adaptive.initializeReflection();
+var database = new Adaptive.Database("testDatabase", false);
+console.log(JSON.stringify({ request: { database: database } }));
 //# sourceMappingURL=adaptive.js.map
