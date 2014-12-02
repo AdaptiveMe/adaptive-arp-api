@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="" />
+    <ignored path="TypeScriptValidation.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="TypeScriptValidation" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Adaptive.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10545">
+              <caret line="489" column="66" selection-start-line="489" selection-start-column="66" selection-end-line="489" selection-end-column="66" />
+              <folding>
+                <marker date="1417545363000" expanded="true" signature="1112:17575" placeholder="..." />
+                <marker date="1417545363000" expanded="true" signature="916:1273" placeholder="/**Represents the basic information about the operating system. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="1530:1718" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="2093:2211" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="3756:3875" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="3923:3968" placeholder="/**Timestamp of the acceleration reading. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="5007:5126" placeholder="/**Structure representing the data elements of an email addressee. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="5193:5234" placeholder="/**The Email address ...*/" />
+                <marker date="1417545363000" expanded="true" signature="5342:5603" placeholder="/**Structure representing the website data elements of a contact. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="6065:6149" placeholder="/**The length in bytes for the binary Content. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="6190:6258" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="6299:6367" placeholder="/**The length in bytes for the Content field. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="6726:7387" placeholder="/**Structure representing the column specification of a data table. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="7454:7497" placeholder="/**Name of the column ...*/" />
+                <marker date="1417545363000" expanded="true" signature="7597:7750" placeholder="/**Structure representing the assigned tags data elements of a contact. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="9235:9285" placeholder="/**Definition of columns. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="9309:9361" placeholder="/**Name of the table. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="9429:9473" placeholder="/**Number of rows. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="9701:9913" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="10727:11322" placeholder="/**Structure representing the data of a http request or response header. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="11366:11384" placeholder="/**Value of the header ...*/" />
+                <marker date="1417545363000" expanded="true" signature="11457:11507" placeholder="/**Name ot the header ...*/" />
+                <marker date="1417545363000" expanded="true" signature="11566:11739" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="12442:12892" placeholder="/**Structure representing a database reference. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="13243:13481" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="14372:14390" placeholder="/**A valid ISO Language Code. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="14686:15206" placeholder="/**Represents a row for a data table. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="15242:15278" placeholder="/**The values of the row. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="15524:15606" placeholder="/**Array of Email Blind Carbon Copy recipients ...*/" />
+                <marker date="1417545363000" expanded="true" signature="15637:15673" placeholder="/**Array of Email Carbon Copy recipients ...*/" />
+                <marker date="1417545363000" expanded="true" signature="16390:16398" placeholder="..." />
+                <marker date="1417545363000" expanded="true" signature="15835:15901" placeholder="/**Domain for which the cookie is valid. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="15935:16001" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="16035:16101" placeholder="/**Name ot the cookie ...*/" />
+                <marker date="1417545363000" expanded="true" signature="16128:16207" placeholder="/**URI path for which the cookie is valid. ...*/" />
+                <marker date="1417545363000" expanded="true" signature="16238:16274" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Service.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35105067" vertical-offset="106" max-vertical-offset="915">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Adaptive.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-2540" />
+    <option name="y" value="23" />
+    <option name="width" value="2238" />
+    <option name="height" value="1344" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypeScriptValidation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypeScriptValidation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypeScriptValidation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypeScriptValidation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypeScriptValidation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Adaptive.ts" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="watcher.settings" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="" />
+      <created>1417545264189</created>
+      <option name="number" value="Default" />
+      <updated>1417545264189</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-2540" y="23" width="2238" height="1344" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24977659" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298639" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Adaptive.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10545">
+          <caret line="489" column="66" selection-start-line="489" selection-start-column="66" selection-end-line="489" selection-end-column="66" />
+          <folding>
+            <marker date="1417545363000" expanded="true" signature="1112:17575" placeholder="..." />
+            <marker date="1417545363000" expanded="true" signature="916:1273" placeholder="/**Represents the basic information about the operating system. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="1530:1718" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="2093:2211" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="3756:3875" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="3923:3968" placeholder="/**Timestamp of the acceleration reading. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="5007:5126" placeholder="/**Structure representing the data elements of an email addressee. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="5193:5234" placeholder="/**The Email address ...*/" />
+            <marker date="1417545363000" expanded="true" signature="5342:5603" placeholder="/**Structure representing the website data elements of a contact. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="6065:6149" placeholder="/**The length in bytes for the binary Content. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="6190:6258" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="6299:6367" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="6726:7387" placeholder="/**Structure representing the column specification of a data table. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="7454:7497" placeholder="/**Name of the column ...*/" />
+            <marker date="1417545363000" expanded="true" signature="7597:7750" placeholder="/**Structure representing the assigned tags data elements of a contact. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="9235:9285" placeholder="/**Definition of columns. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="9309:9361" placeholder="/**Name of the table. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="9429:9473" placeholder="/**Number of rows. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="9701:9913" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="10727:11322" placeholder="/**Structure representing the data of a http request or response header. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="11366:11384" placeholder="/**Value of the header ...*/" />
+            <marker date="1417545363000" expanded="true" signature="11457:11507" placeholder="/**Name ot the header ...*/" />
+            <marker date="1417545363000" expanded="true" signature="11566:11739" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="12442:12892" placeholder="/**Structure representing a database reference. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="13243:13481" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="14372:14390" placeholder="/**A valid ISO Language Code. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="14686:15206" placeholder="/**Represents a row for a data table. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="15242:15278" placeholder="/**The values of the row. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="15524:15606" placeholder="/**Array of Email Blind Carbon Copy recipients ...*/" />
+            <marker date="1417545363000" expanded="true" signature="15637:15673" placeholder="/**Array of Email Carbon Copy recipients ...*/" />
+            <marker date="1417545363000" expanded="true" signature="16390:16398" placeholder="..." />
+            <marker date="1417545363000" expanded="true" signature="15835:15901" placeholder="/**Domain for which the cookie is valid. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="15935:16001" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="16035:16101" placeholder="/**Name ot the cookie ...*/" />
+            <marker date="1417545363000" expanded="true" signature="16128:16207" placeholder="/**URI path for which the cookie is valid. ...*/" />
+            <marker date="1417545363000" expanded="true" signature="16238:16274" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35105067" vertical-offset="106" max-vertical-offset="915">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
