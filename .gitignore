@@ -84,3 +84,6 @@ tools/osx/jenerator/build/
 out/SwiftValidation/DerivedData/
 out/SwiftValidation/SwiftValidation.xcodeproj/project.xcworkspace/xcuserdata/clozano.xcuserdatad/
 out/SwiftValidation/SwiftValidation.xcodeproj/xcuserdata/clozano.xcuserdatad/
+out/ObjCValidation/DerivedData/
+out/ObjCValidation/ObjCValidation.xcodeproj/project.xcworkspace/xcuserdata/clozano.xcuserdatad/
+out/ObjCValidation/ObjCValidation.xcodeproj/xcuserdata/clozano.xcuserdatad/

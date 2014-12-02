@@ -1,0 +1,1117 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4E24900A1A2E371A0076821A /* ObjCValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490091A2E371A0076821A /* ObjCValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4E2490101A2E371A0076821A /* ObjCValidation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2490041A2E371A0076821A /* ObjCValidation.framework */; };
+		4E2490171A2E371A0076821A /* ObjCValidationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490161A2E371A0076821A /* ObjCValidationTests.m */; };
+		4E2490D01A2E37750076821A /* Acceleration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490211A2E37750076821A /* Acceleration.h */; };
+		4E2490D11A2E37750076821A /* Acceleration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490221A2E37750076821A /* Acceleration.m */; };
+		4E2490D21A2E37750076821A /* AttachmentData.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490231A2E37750076821A /* AttachmentData.h */; };
+		4E2490D31A2E37750076821A /* AttachmentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490241A2E37750076821A /* AttachmentData.m */; };
+		4E2490D41A2E37750076821A /* Button.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490251A2E37750076821A /* Button.h */; };
+		4E2490D51A2E37750076821A /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490261A2E37750076821A /* Button.m */; };
+		4E2490D61A2E37750076821A /* Column.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490271A2E37750076821A /* Column.h */; };
+		4E2490D71A2E37750076821A /* Column.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490281A2E37750076821A /* Column.m */; };
+		4E2490D81A2E37750076821A /* Contact.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490291A2E37750076821A /* Contact.h */; };
+		4E2490D91A2E37750076821A /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E24902A1A2E37750076821A /* Contact.m */; };
+		4E2490DA1A2E37750076821A /* ContactAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24902B1A2E37750076821A /* ContactAddress.h */; };
+		4E2490DB1A2E37750076821A /* ContactAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E24902C1A2E37750076821A /* ContactAddress.m */; };
+		4E2490DC1A2E37750076821A /* ContactEmail.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24902D1A2E37750076821A /* ContactEmail.h */; };
+		4E2490DD1A2E37750076821A /* ContactEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E24902E1A2E37750076821A /* ContactEmail.m */; };
+		4E2490DE1A2E37750076821A /* ContactPersonalInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24902F1A2E37750076821A /* ContactPersonalInfo.h */; };
+		4E2490DF1A2E37750076821A /* ContactPersonalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490301A2E37750076821A /* ContactPersonalInfo.m */; };
+		4E2490E01A2E37750076821A /* ContactPhone.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490311A2E37750076821A /* ContactPhone.h */; };
+		4E2490E11A2E37750076821A /* ContactPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490321A2E37750076821A /* ContactPhone.m */; };
+		4E2490E21A2E37750076821A /* ContactProfessionalInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490331A2E37750076821A /* ContactProfessionalInfo.h */; };
+		4E2490E31A2E37750076821A /* ContactProfessionalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490341A2E37750076821A /* ContactProfessionalInfo.m */; };
+		4E2490E41A2E37750076821A /* ContactSocial.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490351A2E37750076821A /* ContactSocial.h */; };
+		4E2490E51A2E37750076821A /* ContactSocial.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490361A2E37750076821A /* ContactSocial.m */; };
+		4E2490E61A2E37750076821A /* ContactTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490371A2E37750076821A /* ContactTag.h */; };
+		4E2490E71A2E37750076821A /* ContactTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490381A2E37750076821A /* ContactTag.m */; };
+		4E2490E81A2E37750076821A /* ContactUid.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490391A2E37750076821A /* ContactUid.h */; };
+		4E2490E91A2E37750076821A /* ContactUid.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E24903A1A2E37750076821A /* ContactUid.m */; };
+		4E2490EA1A2E37750076821A /* ContactWebsite.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24903B1A2E37750076821A /* ContactWebsite.h */; };
+		4E2490EB1A2E37750076821A /* ContactWebsite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E24903C1A2E37750076821A /* ContactWebsite.m */; };
+		4E2490EC1A2E37750076821A /* Cookie.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24903D1A2E37750076821A /* Cookie.h */; };
+		4E2490ED1A2E37750076821A /* Cookie.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E24903E1A2E37750076821A /* Cookie.m */; };
+		4E2490EE1A2E37750076821A /* Database.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24903F1A2E37750076821A /* Database.h */; };
+		4E2490EF1A2E37750076821A /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490401A2E37750076821A /* Database.m */; };
+		4E2490F01A2E37750076821A /* DeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490411A2E37750076821A /* DeviceInfo.h */; };
+		4E2490F11A2E37750076821A /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490421A2E37750076821A /* DeviceInfo.m */; };
+		4E2490F21A2E37750076821A /* Email.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490431A2E37750076821A /* Email.h */; };
+		4E2490F31A2E37750076821A /* Email.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490441A2E37750076821A /* Email.m */; };
+		4E2490F41A2E37750076821A /* EmailAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490451A2E37750076821A /* EmailAddress.h */; };
+		4E2490F51A2E37750076821A /* EmailAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490461A2E37750076821A /* EmailAddress.m */; };
+		4E2490F61A2E37750076821A /* Endpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490471A2E37750076821A /* Endpoint.h */; };
+		4E2490F71A2E37750076821A /* Endpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490481A2E37750076821A /* Endpoint.m */; };
+		4E2490F81A2E37750076821A /* Geolocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490491A2E37750076821A /* Geolocation.h */; };
+		4E2490F91A2E37750076821A /* Geolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E24904A1A2E37750076821A /* Geolocation.m */; };
+		4E2490FA1A2E37750076821A /* Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24904B1A2E37750076821A /* Header.h */; };
+		4E2490FB1A2E37750076821A /* Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E24904C1A2E37750076821A /* Header.m */; };
+		4E2490FC1A2E37750076821A /* IAccelerationListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24904D1A2E37750076821A /* IAccelerationListener.h */; };
+		4E2490FD1A2E37750076821A /* IAccelerometer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24904E1A2E37750076821A /* IAccelerometer.h */; };
+		4E2490FE1A2E37750076821A /* IAdaptiveRP.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24904F1A2E37750076821A /* IAdaptiveRP.h */; };
+		4E2490FF1A2E37750076821A /* IAds.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490501A2E37750076821A /* IAds.h */; };
+		4E2491001A2E37750076821A /* IAlarm.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490511A2E37750076821A /* IAlarm.h */; };
+		4E2491011A2E37750076821A /* IAmbientLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490521A2E37750076821A /* IAmbientLight.h */; };
+		4E2491021A2E37750076821A /* IAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490531A2E37750076821A /* IAnalytics.h */; };
+		4E2491031A2E37750076821A /* IAppContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490541A2E37750076821A /* IAppContext.h */; };
+		4E2491041A2E37750076821A /* IAppContextWebview.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490551A2E37750076821A /* IAppContextWebview.h */; };
+		4E2491051A2E37750076821A /* IAppRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490561A2E37750076821A /* IAppRegistry.h */; };
+		4E2491061A2E37750076821A /* IAppResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490571A2E37750076821A /* IAppResource.h */; };
+		4E2491071A2E37750076821A /* IAppResourceCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490581A2E37750076821A /* IAppResourceCallback.h */; };
+		4E2491081A2E37750076821A /* IAppResourceHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490591A2E37750076821A /* IAppResourceHandler.h */; };
+		4E2491091A2E37750076821A /* IAppServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24905A1A2E37750076821A /* IAppServer.h */; };
+		4E24910A1A2E37750076821A /* IAppServerListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24905B1A2E37750076821A /* IAppServerListener.h */; };
+		4E24910B1A2E37750076821A /* IAppServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24905C1A2E37750076821A /* IAppServerManager.h */; };
+		4E24910C1A2E37750076821A /* IAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24905D1A2E37750076821A /* IAudio.h */; };
+		4E24910D1A2E37750076821A /* IBarcode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24905E1A2E37750076821A /* IBarcode.h */; };
+		4E24910E1A2E37750076821A /* IBarometer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24905F1A2E37750076821A /* IBarometer.h */; };
+		4E24910F1A2E37750076821A /* IBaseApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490601A2E37750076821A /* IBaseApplication.h */; };
+		4E2491101A2E37750076821A /* IBaseCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490611A2E37750076821A /* IBaseCallback.h */; };
+		4E2491111A2E37750076821A /* IBaseCommerce.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490621A2E37750076821A /* IBaseCommerce.h */; };
+		4E2491121A2E37750076821A /* IBaseCommunication.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490631A2E37750076821A /* IBaseCommunication.h */; };
+		4E2491131A2E37750076821A /* IBaseData.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490641A2E37750076821A /* IBaseData.h */; };
+		4E2491141A2E37750076821A /* IBaseListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490651A2E37750076821A /* IBaseListener.h */; };
+		4E2491151A2E37750076821A /* IBaseMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490661A2E37750076821A /* IBaseMedia.h */; };
+		4E2491161A2E37750076821A /* IBaseNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490671A2E37750076821A /* IBaseNotification.h */; };
+		4E2491171A2E37750076821A /* IBasePIM.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490681A2E37750076821A /* IBasePIM.h */; };
+		4E2491181A2E37750076821A /* IBaseReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490691A2E37750076821A /* IBaseReader.h */; };
+		4E2491191A2E37750076821A /* IBaseSecurity.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24906A1A2E37750076821A /* IBaseSecurity.h */; };
+		4E24911A1A2E37750076821A /* IBaseSensor.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24906B1A2E37750076821A /* IBaseSensor.h */; };
+		4E24911B1A2E37750076821A /* IBaseSocial.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24906C1A2E37750076821A /* IBaseSocial.h */; };
+		4E24911C1A2E37750076821A /* IBaseSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24906D1A2E37750076821A /* IBaseSystem.h */; };
+		4E24911D1A2E37750076821A /* IBaseUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24906E1A2E37750076821A /* IBaseUI.h */; };
+		4E24911E1A2E37750076821A /* IBaseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24906F1A2E37750076821A /* IBaseUtil.h */; };
+		4E24911F1A2E37750076821A /* IBluetooth.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490701A2E37750076821A /* IBluetooth.h */; };
+		4E2491201A2E37750076821A /* IBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490711A2E37750076821A /* IBrowser.h */; };
+		4E2491211A2E37750076821A /* IButtonListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490721A2E37750076821A /* IButtonListener.h */; };
+		4E2491221A2E37750076821A /* ICalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490731A2E37750076821A /* ICalendar.h */; };
+		4E2491231A2E37750076821A /* ICamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490741A2E37750076821A /* ICamera.h */; };
+		4E2491241A2E37750076821A /* ICapabilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490751A2E37750076821A /* ICapabilities.h */; };
+		4E2491251A2E37750076821A /* ICloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490761A2E37750076821A /* ICloud.h */; };
+		4E2491261A2E37750076821A /* ICompression.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490771A2E37750076821A /* ICompression.h */; };
+		4E2491271A2E37750076821A /* IConcurrent.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490781A2E37750076821A /* IConcurrent.h */; };
+		4E2491281A2E37750076821A /* IContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490791A2E37750076821A /* IContact.h */; };
+		4E2491291A2E37750076821A /* IContactPhotoResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24907A1A2E37750076821A /* IContactPhotoResultCallback.h */; };
+		4E24912A1A2E37750076821A /* IContactResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24907B1A2E37750076821A /* IContactResultCallback.h */; };
+		4E24912B1A2E37750076821A /* ICrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24907C1A2E37750076821A /* ICrypto.h */; };
+		4E24912C1A2E37750076821A /* IDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24907D1A2E37750076821A /* IDatabase.h */; };
+		4E24912D1A2E37750076821A /* IDatabaseResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24907E1A2E37750076821A /* IDatabaseResultCallback.h */; };
+		4E24912E1A2E37750076821A /* IDataStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24907F1A2E37750076821A /* IDataStream.h */; };
+		4E24912F1A2E37750076821A /* IDesktop.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490801A2E37750076821A /* IDesktop.h */; };
+		4E2491301A2E37750076821A /* IDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490811A2E37750076821A /* IDevice.h */; };
+		4E2491311A2E37750076821A /* IDisplay.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490821A2E37750076821A /* IDisplay.h */; };
+		4E2491321A2E37750076821A /* IFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490831A2E37750076821A /* IFacebook.h */; };
+		4E2491331A2E37750076821A /* IFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490841A2E37750076821A /* IFile.h */; };
+		4E2491341A2E37750076821A /* IFileDataResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490851A2E37750076821A /* IFileDataResultCallback.h */; };
+		4E2491351A2E37750076821A /* IFileListResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490861A2E37750076821A /* IFileListResultCallback.h */; };
+		4E2491361A2E37750076821A /* IFilePath.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490871A2E37750076821A /* IFilePath.h */; };
+		4E2491371A2E37750076821A /* IFileResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490881A2E37750076821A /* IFileResultCallback.h */; };
+		4E2491381A2E37750076821A /* IFileSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490891A2E37750076821A /* IFileSystem.h */; };
+		4E2491391A2E37750076821A /* IGeolocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24908A1A2E37750076821A /* IGeolocation.h */; };
+		4E24913A1A2E37750076821A /* IGeolocationListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24908B1A2E37750076821A /* IGeolocationListener.h */; };
+		4E24913B1A2E37750076821A /* IGlobalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24908C1A2E37750076821A /* IGlobalization.h */; };
+		4E24913C1A2E37750076821A /* IGooglePlus.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24908D1A2E37750076821A /* IGooglePlus.h */; };
+		4E24913D1A2E37750076821A /* IGyroscope.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24908E1A2E37750076821A /* IGyroscope.h */; };
+		4E24913E1A2E37750076821A /* IImaging.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24908F1A2E37750076821A /* IImaging.h */; };
+		4E24913F1A2E37750076821A /* IInternalStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490901A2E37750076821A /* IInternalStorage.h */; };
+		4E2491401A2E37750076821A /* ILifecycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490911A2E37750076821A /* ILifecycle.h */; };
+		4E2491411A2E37750076821A /* ILifecycleListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490921A2E37750076821A /* ILifecycleListener.h */; };
+		4E2491421A2E37750076821A /* ILinkedIn.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490931A2E37750076821A /* ILinkedIn.h */; };
+		4E2491431A2E37750076821A /* ILogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490941A2E37750076821A /* ILogging.h */; };
+		4E2491441A2E37750076821A /* IMagnetometer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490951A2E37750076821A /* IMagnetometer.h */; };
+		4E2491451A2E37750076821A /* IMail.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490961A2E37750076821A /* IMail.h */; };
+		4E2491461A2E37750076821A /* IManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490971A2E37750076821A /* IManagement.h */; };
+		4E2491471A2E37750076821A /* IMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490981A2E37750076821A /* IMap.h */; };
+		4E2491481A2E37750076821A /* IMessaging.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490991A2E37750076821A /* IMessaging.h */; };
+		4E2491491A2E37750076821A /* IMessagingCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24909A1A2E37750076821A /* IMessagingCallback.h */; };
+		4E24914A1A2E37750076821A /* INetworkInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24909B1A2E37750076821A /* INetworkInfo.h */; };
+		4E24914B1A2E37750076821A /* INetworkNaming.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24909C1A2E37750076821A /* INetworkNaming.h */; };
+		4E24914C1A2E37750076821A /* INetworkReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24909D1A2E37750076821A /* INetworkReachability.h */; };
+		4E24914D1A2E37750076821A /* INetworkReachabilityCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24909E1A2E37750076821A /* INetworkReachabilityCallback.h */; };
+		4E24914E1A2E37750076821A /* INetworkStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24909F1A2E37750076821A /* INetworkStatus.h */; };
+		4E24914F1A2E37750076821A /* INFC.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490A01A2E37750076821A /* INFC.h */; };
+		4E2491501A2E37750076821A /* INotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490A11A2E37750076821A /* INotification.h */; };
+		4E2491511A2E37750076821A /* INotificationLocal.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490A21A2E37750076821A /* INotificationLocal.h */; };
+		4E2491521A2E37750076821A /* IOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490A31A2E37750076821A /* IOAuth.h */; };
+		4E2491531A2E37750076821A /* IOCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490A41A2E37750076821A /* IOCR.h */; };
+		4E2491541A2E37750076821A /* IOpenId.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490A51A2E37750076821A /* IOpenId.h */; };
+		4E2491551A2E37750076821A /* IOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490A61A2E37750076821A /* IOS.h */; };
+		4E2491561A2E37750076821A /* IPrinting.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490A71A2E37750076821A /* IPrinting.h */; };
+		4E2491571A2E37750076821A /* IProximity.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490A81A2E37750076821A /* IProximity.h */; };
+		4E2491581A2E37750076821A /* IQRCode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490A91A2E37750076821A /* IQRCode.h */; };
+		4E2491591A2E37750076821A /* IRSS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490AA1A2E37750076821A /* IRSS.h */; };
+		4E24915A1A2E37750076821A /* IRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490AB1A2E37750076821A /* IRuntime.h */; };
+		4E24915B1A2E37750076821A /* ISecureKVResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490AC1A2E37750076821A /* ISecureKVResultCallback.h */; };
+		4E24915C1A2E37750076821A /* ISecurity.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490AD1A2E37750076821A /* ISecurity.h */; };
+		4E24915D1A2E37750076821A /* IService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490AE1A2E37750076821A /* IService.h */; };
+		4E24915E1A2E37750076821A /* IServiceResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490AF1A2E37750076821A /* IServiceResultCallback.h */; };
+		4E24915F1A2E37750076821A /* ISession.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490B01A2E37750076821A /* ISession.h */; };
+		4E2491601A2E37750076821A /* ISettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490B11A2E37750076821A /* ISettings.h */; };
+		4E2491611A2E37750076821A /* ISocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490B21A2E37750076821A /* ISocket.h */; };
+		4E2491621A2E37750076821A /* IStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490B31A2E37750076821A /* IStore.h */; };
+		4E2491631A2E37750076821A /* ITableResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490B41A2E37750076821A /* ITableResultCallback.h */; };
+		4E2491641A2E37750076821A /* ITelephony.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490B51A2E37750076821A /* ITelephony.h */; };
+		4E2491651A2E37750076821A /* ITimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490B61A2E37750076821A /* ITimer.h */; };
+		4E2491661A2E37750076821A /* ITwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490B71A2E37750076821A /* ITwitter.h */; };
+		4E2491671A2E37750076821A /* IUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490B81A2E37750076821A /* IUI.h */; };
+		4E2491681A2E37750076821A /* IUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490B91A2E37750076821A /* IUpdate.h */; };
+		4E2491691A2E37750076821A /* IVibration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490BA1A2E37750076821A /* IVibration.h */; };
+		4E24916A1A2E37750076821A /* IVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490BB1A2E37750076821A /* IVideo.h */; };
+		4E24916B1A2E37750076821A /* IWallet.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490BC1A2E37750076821A /* IWallet.h */; };
+		4E24916C1A2E37750076821A /* IXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490BD1A2E37750076821A /* IXML.h */; };
+		4E24916D1A2E37750076821A /* Lifecycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490BE1A2E37750076821A /* Lifecycle.h */; };
+		4E24916E1A2E37750076821A /* Lifecycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490BF1A2E37750076821A /* Lifecycle.m */; };
+		4E2491701A2E37750076821A /* Locale.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490C11A2E37750076821A /* Locale.m */; };
+		4E2491711A2E37750076821A /* OSInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490C21A2E37750076821A /* OSInfo.h */; };
+		4E2491721A2E37750076821A /* OSInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490C31A2E37750076821A /* OSInfo.m */; };
+		4E2491731A2E37750076821A /* Row.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490C41A2E37750076821A /* Row.h */; };
+		4E2491741A2E37750076821A /* Row.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490C51A2E37750076821A /* Row.m */; };
+		4E2491751A2E37750076821A /* SecureKeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490C61A2E37750076821A /* SecureKeyPair.h */; };
+		4E2491761A2E37750076821A /* SecureKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490C71A2E37750076821A /* SecureKeyPair.m */; };
+		4E2491771A2E37750076821A /* Service.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490C81A2E37750076821A /* Service.h */; };
+		4E2491781A2E37750076821A /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490C91A2E37750076821A /* Service.m */; };
+		4E2491791A2E37750076821A /* ServiceRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490CA1A2E37750076821A /* ServiceRequest.h */; };
+		4E24917A1A2E37750076821A /* ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490CB1A2E37750076821A /* ServiceRequest.m */; };
+		4E24917B1A2E37750076821A /* ServiceResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490CC1A2E37750076821A /* ServiceResponse.h */; };
+		4E24917C1A2E37750076821A /* ServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490CD1A2E37750076821A /* ServiceResponse.m */; };
+		4E24917D1A2E37750076821A /* Table.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490CE1A2E37750076821A /* Table.h */; };
+		4E24917E1A2E37750076821A /* Table.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490CF1A2E37750076821A /* Table.m */; };
+		4E2491801A2E394C0076821A /* Locale.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24917F1A2E394B0076821A /* Locale.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4E2490111A2E371A0076821A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E248FFB1A2E371A0076821A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E2490031A2E371A0076821A;
+			remoteInfo = ObjCValidation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4E2490041A2E371A0076821A /* ObjCValidation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCValidation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E2490081A2E371A0076821A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E2490091A2E371A0076821A /* ObjCValidation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCValidation.h; sourceTree = "<group>"; };
+		4E24900F1A2E371A0076821A /* ObjCValidationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCValidationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E2490151A2E371A0076821A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E2490161A2E371A0076821A /* ObjCValidationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCValidationTests.m; sourceTree = "<group>"; };
+		4E2490211A2E37750076821A /* Acceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Acceleration.h; sourceTree = "<group>"; };
+		4E2490221A2E37750076821A /* Acceleration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Acceleration.m; sourceTree = "<group>"; };
+		4E2490231A2E37750076821A /* AttachmentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentData.h; sourceTree = "<group>"; };
+		4E2490241A2E37750076821A /* AttachmentData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachmentData.m; sourceTree = "<group>"; };
+		4E2490251A2E37750076821A /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
+		4E2490261A2E37750076821A /* Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Button.m; sourceTree = "<group>"; };
+		4E2490271A2E37750076821A /* Column.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Column.h; sourceTree = "<group>"; };
+		4E2490281A2E37750076821A /* Column.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Column.m; sourceTree = "<group>"; };
+		4E2490291A2E37750076821A /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		4E24902A1A2E37750076821A /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		4E24902B1A2E37750076821A /* ContactAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactAddress.h; sourceTree = "<group>"; };
+		4E24902C1A2E37750076821A /* ContactAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactAddress.m; sourceTree = "<group>"; };
+		4E24902D1A2E37750076821A /* ContactEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactEmail.h; sourceTree = "<group>"; };
+		4E24902E1A2E37750076821A /* ContactEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactEmail.m; sourceTree = "<group>"; };
+		4E24902F1A2E37750076821A /* ContactPersonalInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactPersonalInfo.h; sourceTree = "<group>"; };
+		4E2490301A2E37750076821A /* ContactPersonalInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactPersonalInfo.m; sourceTree = "<group>"; };
+		4E2490311A2E37750076821A /* ContactPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactPhone.h; sourceTree = "<group>"; };
+		4E2490321A2E37750076821A /* ContactPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactPhone.m; sourceTree = "<group>"; };
+		4E2490331A2E37750076821A /* ContactProfessionalInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactProfessionalInfo.h; sourceTree = "<group>"; };
+		4E2490341A2E37750076821A /* ContactProfessionalInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactProfessionalInfo.m; sourceTree = "<group>"; };
+		4E2490351A2E37750076821A /* ContactSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactSocial.h; sourceTree = "<group>"; };
+		4E2490361A2E37750076821A /* ContactSocial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactSocial.m; sourceTree = "<group>"; };
+		4E2490371A2E37750076821A /* ContactTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTag.h; sourceTree = "<group>"; };
+		4E2490381A2E37750076821A /* ContactTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTag.m; sourceTree = "<group>"; };
+		4E2490391A2E37750076821A /* ContactUid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUid.h; sourceTree = "<group>"; };
+		4E24903A1A2E37750076821A /* ContactUid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUid.m; sourceTree = "<group>"; };
+		4E24903B1A2E37750076821A /* ContactWebsite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactWebsite.h; sourceTree = "<group>"; };
+		4E24903C1A2E37750076821A /* ContactWebsite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactWebsite.m; sourceTree = "<group>"; };
+		4E24903D1A2E37750076821A /* Cookie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cookie.h; sourceTree = "<group>"; };
+		4E24903E1A2E37750076821A /* Cookie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cookie.m; sourceTree = "<group>"; };
+		4E24903F1A2E37750076821A /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		4E2490401A2E37750076821A /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
+		4E2490411A2E37750076821A /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
+		4E2490421A2E37750076821A /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
+		4E2490431A2E37750076821A /* Email.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Email.h; sourceTree = "<group>"; };
+		4E2490441A2E37750076821A /* Email.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Email.m; sourceTree = "<group>"; };
+		4E2490451A2E37750076821A /* EmailAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailAddress.h; sourceTree = "<group>"; };
+		4E2490461A2E37750076821A /* EmailAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailAddress.m; sourceTree = "<group>"; };
+		4E2490471A2E37750076821A /* Endpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Endpoint.h; sourceTree = "<group>"; };
+		4E2490481A2E37750076821A /* Endpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Endpoint.m; sourceTree = "<group>"; };
+		4E2490491A2E37750076821A /* Geolocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geolocation.h; sourceTree = "<group>"; };
+		4E24904A1A2E37750076821A /* Geolocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geolocation.m; sourceTree = "<group>"; };
+		4E24904B1A2E37750076821A /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		4E24904C1A2E37750076821A /* Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Header.m; sourceTree = "<group>"; };
+		4E24904D1A2E37750076821A /* IAccelerationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAccelerationListener.h; sourceTree = "<group>"; };
+		4E24904E1A2E37750076821A /* IAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAccelerometer.h; sourceTree = "<group>"; };
+		4E24904F1A2E37750076821A /* IAdaptiveRP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAdaptiveRP.h; sourceTree = "<group>"; };
+		4E2490501A2E37750076821A /* IAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAds.h; sourceTree = "<group>"; };
+		4E2490511A2E37750076821A /* IAlarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAlarm.h; sourceTree = "<group>"; };
+		4E2490521A2E37750076821A /* IAmbientLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAmbientLight.h; sourceTree = "<group>"; };
+		4E2490531A2E37750076821A /* IAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAnalytics.h; sourceTree = "<group>"; };
+		4E2490541A2E37750076821A /* IAppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppContext.h; sourceTree = "<group>"; };
+		4E2490551A2E37750076821A /* IAppContextWebview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppContextWebview.h; sourceTree = "<group>"; };
+		4E2490561A2E37750076821A /* IAppRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppRegistry.h; sourceTree = "<group>"; };
+		4E2490571A2E37750076821A /* IAppResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppResource.h; sourceTree = "<group>"; };
+		4E2490581A2E37750076821A /* IAppResourceCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppResourceCallback.h; sourceTree = "<group>"; };
+		4E2490591A2E37750076821A /* IAppResourceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppResourceHandler.h; sourceTree = "<group>"; };
+		4E24905A1A2E37750076821A /* IAppServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppServer.h; sourceTree = "<group>"; };
+		4E24905B1A2E37750076821A /* IAppServerListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppServerListener.h; sourceTree = "<group>"; };
+		4E24905C1A2E37750076821A /* IAppServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAppServerManager.h; sourceTree = "<group>"; };
+		4E24905D1A2E37750076821A /* IAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAudio.h; sourceTree = "<group>"; };
+		4E24905E1A2E37750076821A /* IBarcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBarcode.h; sourceTree = "<group>"; };
+		4E24905F1A2E37750076821A /* IBarometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBarometer.h; sourceTree = "<group>"; };
+		4E2490601A2E37750076821A /* IBaseApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseApplication.h; sourceTree = "<group>"; };
+		4E2490611A2E37750076821A /* IBaseCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseCallback.h; sourceTree = "<group>"; };
+		4E2490621A2E37750076821A /* IBaseCommerce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseCommerce.h; sourceTree = "<group>"; };
+		4E2490631A2E37750076821A /* IBaseCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseCommunication.h; sourceTree = "<group>"; };
+		4E2490641A2E37750076821A /* IBaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseData.h; sourceTree = "<group>"; };
+		4E2490651A2E37750076821A /* IBaseListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseListener.h; sourceTree = "<group>"; };
+		4E2490661A2E37750076821A /* IBaseMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseMedia.h; sourceTree = "<group>"; };
+		4E2490671A2E37750076821A /* IBaseNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseNotification.h; sourceTree = "<group>"; };
+		4E2490681A2E37750076821A /* IBasePIM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBasePIM.h; sourceTree = "<group>"; };
+		4E2490691A2E37750076821A /* IBaseReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseReader.h; sourceTree = "<group>"; };
+		4E24906A1A2E37750076821A /* IBaseSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseSecurity.h; sourceTree = "<group>"; };
+		4E24906B1A2E37750076821A /* IBaseSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseSensor.h; sourceTree = "<group>"; };
+		4E24906C1A2E37750076821A /* IBaseSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseSocial.h; sourceTree = "<group>"; };
+		4E24906D1A2E37750076821A /* IBaseSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseSystem.h; sourceTree = "<group>"; };
+		4E24906E1A2E37750076821A /* IBaseUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseUI.h; sourceTree = "<group>"; };
+		4E24906F1A2E37750076821A /* IBaseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBaseUtil.h; sourceTree = "<group>"; };
+		4E2490701A2E37750076821A /* IBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBluetooth.h; sourceTree = "<group>"; };
+		4E2490711A2E37750076821A /* IBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBrowser.h; sourceTree = "<group>"; };
+		4E2490721A2E37750076821A /* IButtonListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IButtonListener.h; sourceTree = "<group>"; };
+		4E2490731A2E37750076821A /* ICalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICalendar.h; sourceTree = "<group>"; };
+		4E2490741A2E37750076821A /* ICamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICamera.h; sourceTree = "<group>"; };
+		4E2490751A2E37750076821A /* ICapabilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICapabilities.h; sourceTree = "<group>"; };
+		4E2490761A2E37750076821A /* ICloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICloud.h; sourceTree = "<group>"; };
+		4E2490771A2E37750076821A /* ICompression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICompression.h; sourceTree = "<group>"; };
+		4E2490781A2E37750076821A /* IConcurrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IConcurrent.h; sourceTree = "<group>"; };
+		4E2490791A2E37750076821A /* IContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IContact.h; sourceTree = "<group>"; };
+		4E24907A1A2E37750076821A /* IContactPhotoResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IContactPhotoResultCallback.h; sourceTree = "<group>"; };
+		4E24907B1A2E37750076821A /* IContactResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IContactResultCallback.h; sourceTree = "<group>"; };
+		4E24907C1A2E37750076821A /* ICrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICrypto.h; sourceTree = "<group>"; };
+		4E24907D1A2E37750076821A /* IDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDatabase.h; sourceTree = "<group>"; };
+		4E24907E1A2E37750076821A /* IDatabaseResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDatabaseResultCallback.h; sourceTree = "<group>"; };
+		4E24907F1A2E37750076821A /* IDataStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDataStream.h; sourceTree = "<group>"; };
+		4E2490801A2E37750076821A /* IDesktop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDesktop.h; sourceTree = "<group>"; };
+		4E2490811A2E37750076821A /* IDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDevice.h; sourceTree = "<group>"; };
+		4E2490821A2E37750076821A /* IDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDisplay.h; sourceTree = "<group>"; };
+		4E2490831A2E37750076821A /* IFacebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFacebook.h; sourceTree = "<group>"; };
+		4E2490841A2E37750076821A /* IFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFile.h; sourceTree = "<group>"; };
+		4E2490851A2E37750076821A /* IFileDataResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFileDataResultCallback.h; sourceTree = "<group>"; };
+		4E2490861A2E37750076821A /* IFileListResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFileListResultCallback.h; sourceTree = "<group>"; };
+		4E2490871A2E37750076821A /* IFilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFilePath.h; sourceTree = "<group>"; };
+		4E2490881A2E37750076821A /* IFileResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFileResultCallback.h; sourceTree = "<group>"; };
+		4E2490891A2E37750076821A /* IFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFileSystem.h; sourceTree = "<group>"; };
+		4E24908A1A2E37750076821A /* IGeolocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGeolocation.h; sourceTree = "<group>"; };
+		4E24908B1A2E37750076821A /* IGeolocationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGeolocationListener.h; sourceTree = "<group>"; };
+		4E24908C1A2E37750076821A /* IGlobalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGlobalization.h; sourceTree = "<group>"; };
+		4E24908D1A2E37750076821A /* IGooglePlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGooglePlus.h; sourceTree = "<group>"; };
+		4E24908E1A2E37750076821A /* IGyroscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGyroscope.h; sourceTree = "<group>"; };
+		4E24908F1A2E37750076821A /* IImaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IImaging.h; sourceTree = "<group>"; };
+		4E2490901A2E37750076821A /* IInternalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IInternalStorage.h; sourceTree = "<group>"; };
+		4E2490911A2E37750076821A /* ILifecycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILifecycle.h; sourceTree = "<group>"; };
+		4E2490921A2E37750076821A /* ILifecycleListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILifecycleListener.h; sourceTree = "<group>"; };
+		4E2490931A2E37750076821A /* ILinkedIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILinkedIn.h; sourceTree = "<group>"; };
+		4E2490941A2E37750076821A /* ILogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILogging.h; sourceTree = "<group>"; };
+		4E2490951A2E37750076821A /* IMagnetometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMagnetometer.h; sourceTree = "<group>"; };
+		4E2490961A2E37750076821A /* IMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMail.h; sourceTree = "<group>"; };
+		4E2490971A2E37750076821A /* IManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IManagement.h; sourceTree = "<group>"; };
+		4E2490981A2E37750076821A /* IMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMap.h; sourceTree = "<group>"; };
+		4E2490991A2E37750076821A /* IMessaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMessaging.h; sourceTree = "<group>"; };
+		4E24909A1A2E37750076821A /* IMessagingCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMessagingCallback.h; sourceTree = "<group>"; };
+		4E24909B1A2E37750076821A /* INetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetworkInfo.h; sourceTree = "<group>"; };
+		4E24909C1A2E37750076821A /* INetworkNaming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetworkNaming.h; sourceTree = "<group>"; };
+		4E24909D1A2E37750076821A /* INetworkReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetworkReachability.h; sourceTree = "<group>"; };
+		4E24909E1A2E37750076821A /* INetworkReachabilityCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetworkReachabilityCallback.h; sourceTree = "<group>"; };
+		4E24909F1A2E37750076821A /* INetworkStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetworkStatus.h; sourceTree = "<group>"; };
+		4E2490A01A2E37750076821A /* INFC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INFC.h; sourceTree = "<group>"; };
+		4E2490A11A2E37750076821A /* INotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INotification.h; sourceTree = "<group>"; };
+		4E2490A21A2E37750076821A /* INotificationLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INotificationLocal.h; sourceTree = "<group>"; };
+		4E2490A31A2E37750076821A /* IOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOAuth.h; sourceTree = "<group>"; };
+		4E2490A41A2E37750076821A /* IOCR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOCR.h; sourceTree = "<group>"; };
+		4E2490A51A2E37750076821A /* IOpenId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOpenId.h; sourceTree = "<group>"; };
+		4E2490A61A2E37750076821A /* IOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOS.h; sourceTree = "<group>"; };
+		4E2490A71A2E37750076821A /* IPrinting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPrinting.h; sourceTree = "<group>"; };
+		4E2490A81A2E37750076821A /* IProximity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IProximity.h; sourceTree = "<group>"; };
+		4E2490A91A2E37750076821A /* IQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQRCode.h; sourceTree = "<group>"; };
+		4E2490AA1A2E37750076821A /* IRSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRSS.h; sourceTree = "<group>"; };
+		4E2490AB1A2E37750076821A /* IRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRuntime.h; sourceTree = "<group>"; };
+		4E2490AC1A2E37750076821A /* ISecureKVResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISecureKVResultCallback.h; sourceTree = "<group>"; };
+		4E2490AD1A2E37750076821A /* ISecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISecurity.h; sourceTree = "<group>"; };
+		4E2490AE1A2E37750076821A /* IService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IService.h; sourceTree = "<group>"; };
+		4E2490AF1A2E37750076821A /* IServiceResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IServiceResultCallback.h; sourceTree = "<group>"; };
+		4E2490B01A2E37750076821A /* ISession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISession.h; sourceTree = "<group>"; };
+		4E2490B11A2E37750076821A /* ISettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISettings.h; sourceTree = "<group>"; };
+		4E2490B21A2E37750076821A /* ISocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISocket.h; sourceTree = "<group>"; };
+		4E2490B31A2E37750076821A /* IStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IStore.h; sourceTree = "<group>"; };
+		4E2490B41A2E37750076821A /* ITableResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITableResultCallback.h; sourceTree = "<group>"; };
+		4E2490B51A2E37750076821A /* ITelephony.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITelephony.h; sourceTree = "<group>"; };
+		4E2490B61A2E37750076821A /* ITimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITimer.h; sourceTree = "<group>"; };
+		4E2490B71A2E37750076821A /* ITwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITwitter.h; sourceTree = "<group>"; };
+		4E2490B81A2E37750076821A /* IUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUI.h; sourceTree = "<group>"; };
+		4E2490B91A2E37750076821A /* IUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUpdate.h; sourceTree = "<group>"; };
+		4E2490BA1A2E37750076821A /* IVibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVibration.h; sourceTree = "<group>"; };
+		4E2490BB1A2E37750076821A /* IVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVideo.h; sourceTree = "<group>"; };
+		4E2490BC1A2E37750076821A /* IWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWallet.h; sourceTree = "<group>"; };
+		4E2490BD1A2E37750076821A /* IXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IXML.h; sourceTree = "<group>"; };
+		4E2490BE1A2E37750076821A /* Lifecycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lifecycle.h; sourceTree = "<group>"; };
+		4E2490BF1A2E37750076821A /* Lifecycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lifecycle.m; sourceTree = "<group>"; };
+		4E2490C11A2E37750076821A /* Locale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Locale.m; sourceTree = "<group>"; };
+		4E2490C21A2E37750076821A /* OSInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSInfo.h; sourceTree = "<group>"; };
+		4E2490C31A2E37750076821A /* OSInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSInfo.m; sourceTree = "<group>"; };
+		4E2490C41A2E37750076821A /* Row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Row.h; sourceTree = "<group>"; };
+		4E2490C51A2E37750076821A /* Row.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Row.m; sourceTree = "<group>"; };
+		4E2490C61A2E37750076821A /* SecureKeyPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecureKeyPair.h; sourceTree = "<group>"; };
+		4E2490C71A2E37750076821A /* SecureKeyPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecureKeyPair.m; sourceTree = "<group>"; };
+		4E2490C81A2E37750076821A /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
+		4E2490C91A2E37750076821A /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
+		4E2490CA1A2E37750076821A /* ServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceRequest.h; sourceTree = "<group>"; };
+		4E2490CB1A2E37750076821A /* ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceRequest.m; sourceTree = "<group>"; };
+		4E2490CC1A2E37750076821A /* ServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceResponse.h; sourceTree = "<group>"; };
+		4E2490CD1A2E37750076821A /* ServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceResponse.m; sourceTree = "<group>"; };
+		4E2490CE1A2E37750076821A /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
+		4E2490CF1A2E37750076821A /* Table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Table.m; sourceTree = "<group>"; };
+		4E24917F1A2E394B0076821A /* Locale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Locale.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E2490001A2E371A0076821A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E24900C1A2E371A0076821A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2490101A2E371A0076821A /* ObjCValidation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E248FFA1A2E371A0076821A = {
+			isa = PBXGroup;
+			children = (
+				4E2490201A2E37750076821A /* Sources */,
+				4E2490061A2E371A0076821A /* ObjCValidation */,
+				4E2490131A2E371A0076821A /* ObjCValidationTests */,
+				4E2490051A2E371A0076821A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4E2490051A2E371A0076821A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E2490041A2E371A0076821A /* ObjCValidation.framework */,
+				4E24900F1A2E371A0076821A /* ObjCValidationTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E2490061A2E371A0076821A /* ObjCValidation */ = {
+			isa = PBXGroup;
+			children = (
+				4E2490091A2E371A0076821A /* ObjCValidation.h */,
+				4E2490071A2E371A0076821A /* Supporting Files */,
+			);
+			path = ObjCValidation;
+			sourceTree = "<group>";
+		};
+		4E2490071A2E371A0076821A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E2490081A2E371A0076821A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E2490131A2E371A0076821A /* ObjCValidationTests */ = {
+			isa = PBXGroup;
+			children = (
+				4E2490161A2E371A0076821A /* ObjCValidationTests.m */,
+				4E2490141A2E371A0076821A /* Supporting Files */,
+			);
+			path = ObjCValidationTests;
+			sourceTree = "<group>";
+		};
+		4E2490141A2E371A0076821A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E2490151A2E371A0076821A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E2490201A2E37750076821A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4E2490211A2E37750076821A /* Acceleration.h */,
+				4E2490221A2E37750076821A /* Acceleration.m */,
+				4E2490231A2E37750076821A /* AttachmentData.h */,
+				4E2490241A2E37750076821A /* AttachmentData.m */,
+				4E2490251A2E37750076821A /* Button.h */,
+				4E2490261A2E37750076821A /* Button.m */,
+				4E2490271A2E37750076821A /* Column.h */,
+				4E2490281A2E37750076821A /* Column.m */,
+				4E2490291A2E37750076821A /* Contact.h */,
+				4E24902A1A2E37750076821A /* Contact.m */,
+				4E24902B1A2E37750076821A /* ContactAddress.h */,
+				4E24902C1A2E37750076821A /* ContactAddress.m */,
+				4E24902D1A2E37750076821A /* ContactEmail.h */,
+				4E24902E1A2E37750076821A /* ContactEmail.m */,
+				4E24902F1A2E37750076821A /* ContactPersonalInfo.h */,
+				4E2490301A2E37750076821A /* ContactPersonalInfo.m */,
+				4E2490311A2E37750076821A /* ContactPhone.h */,
+				4E2490321A2E37750076821A /* ContactPhone.m */,
+				4E2490331A2E37750076821A /* ContactProfessionalInfo.h */,
+				4E2490341A2E37750076821A /* ContactProfessionalInfo.m */,
+				4E2490351A2E37750076821A /* ContactSocial.h */,
+				4E2490361A2E37750076821A /* ContactSocial.m */,
+				4E2490371A2E37750076821A /* ContactTag.h */,
+				4E2490381A2E37750076821A /* ContactTag.m */,
+				4E2490391A2E37750076821A /* ContactUid.h */,
+				4E24903A1A2E37750076821A /* ContactUid.m */,
+				4E24903B1A2E37750076821A /* ContactWebsite.h */,
+				4E24903C1A2E37750076821A /* ContactWebsite.m */,
+				4E24903D1A2E37750076821A /* Cookie.h */,
+				4E24903E1A2E37750076821A /* Cookie.m */,
+				4E24903F1A2E37750076821A /* Database.h */,
+				4E2490401A2E37750076821A /* Database.m */,
+				4E2490411A2E37750076821A /* DeviceInfo.h */,
+				4E2490421A2E37750076821A /* DeviceInfo.m */,
+				4E2490431A2E37750076821A /* Email.h */,
+				4E2490441A2E37750076821A /* Email.m */,
+				4E2490451A2E37750076821A /* EmailAddress.h */,
+				4E2490461A2E37750076821A /* EmailAddress.m */,
+				4E2490471A2E37750076821A /* Endpoint.h */,
+				4E2490481A2E37750076821A /* Endpoint.m */,
+				4E2490491A2E37750076821A /* Geolocation.h */,
+				4E24904A1A2E37750076821A /* Geolocation.m */,
+				4E24904B1A2E37750076821A /* Header.h */,
+				4E24904C1A2E37750076821A /* Header.m */,
+				4E24904D1A2E37750076821A /* IAccelerationListener.h */,
+				4E24904E1A2E37750076821A /* IAccelerometer.h */,
+				4E24904F1A2E37750076821A /* IAdaptiveRP.h */,
+				4E2490501A2E37750076821A /* IAds.h */,
+				4E2490511A2E37750076821A /* IAlarm.h */,
+				4E2490521A2E37750076821A /* IAmbientLight.h */,
+				4E2490531A2E37750076821A /* IAnalytics.h */,
+				4E2490541A2E37750076821A /* IAppContext.h */,
+				4E2490551A2E37750076821A /* IAppContextWebview.h */,
+				4E2490561A2E37750076821A /* IAppRegistry.h */,
+				4E2490571A2E37750076821A /* IAppResource.h */,
+				4E2490581A2E37750076821A /* IAppResourceCallback.h */,
+				4E2490591A2E37750076821A /* IAppResourceHandler.h */,
+				4E24905A1A2E37750076821A /* IAppServer.h */,
+				4E24905B1A2E37750076821A /* IAppServerListener.h */,
+				4E24905C1A2E37750076821A /* IAppServerManager.h */,
+				4E24905D1A2E37750076821A /* IAudio.h */,
+				4E24905E1A2E37750076821A /* IBarcode.h */,
+				4E24905F1A2E37750076821A /* IBarometer.h */,
+				4E2490601A2E37750076821A /* IBaseApplication.h */,
+				4E2490611A2E37750076821A /* IBaseCallback.h */,
+				4E2490621A2E37750076821A /* IBaseCommerce.h */,
+				4E2490631A2E37750076821A /* IBaseCommunication.h */,
+				4E2490641A2E37750076821A /* IBaseData.h */,
+				4E2490651A2E37750076821A /* IBaseListener.h */,
+				4E2490661A2E37750076821A /* IBaseMedia.h */,
+				4E2490671A2E37750076821A /* IBaseNotification.h */,
+				4E2490681A2E37750076821A /* IBasePIM.h */,
+				4E2490691A2E37750076821A /* IBaseReader.h */,
+				4E24906A1A2E37750076821A /* IBaseSecurity.h */,
+				4E24906B1A2E37750076821A /* IBaseSensor.h */,
+				4E24906C1A2E37750076821A /* IBaseSocial.h */,
+				4E24906D1A2E37750076821A /* IBaseSystem.h */,
+				4E24906E1A2E37750076821A /* IBaseUI.h */,
+				4E24906F1A2E37750076821A /* IBaseUtil.h */,
+				4E2490701A2E37750076821A /* IBluetooth.h */,
+				4E2490711A2E37750076821A /* IBrowser.h */,
+				4E2490721A2E37750076821A /* IButtonListener.h */,
+				4E2490731A2E37750076821A /* ICalendar.h */,
+				4E2490741A2E37750076821A /* ICamera.h */,
+				4E2490751A2E37750076821A /* ICapabilities.h */,
+				4E2490761A2E37750076821A /* ICloud.h */,
+				4E2490771A2E37750076821A /* ICompression.h */,
+				4E2490781A2E37750076821A /* IConcurrent.h */,
+				4E2490791A2E37750076821A /* IContact.h */,
+				4E24907A1A2E37750076821A /* IContactPhotoResultCallback.h */,
+				4E24907B1A2E37750076821A /* IContactResultCallback.h */,
+				4E24907C1A2E37750076821A /* ICrypto.h */,
+				4E24907D1A2E37750076821A /* IDatabase.h */,
+				4E24907E1A2E37750076821A /* IDatabaseResultCallback.h */,
+				4E24907F1A2E37750076821A /* IDataStream.h */,
+				4E2490801A2E37750076821A /* IDesktop.h */,
+				4E2490811A2E37750076821A /* IDevice.h */,
+				4E2490821A2E37750076821A /* IDisplay.h */,
+				4E2490831A2E37750076821A /* IFacebook.h */,
+				4E2490841A2E37750076821A /* IFile.h */,
+				4E2490851A2E37750076821A /* IFileDataResultCallback.h */,
+				4E2490861A2E37750076821A /* IFileListResultCallback.h */,
+				4E2490871A2E37750076821A /* IFilePath.h */,
+				4E2490881A2E37750076821A /* IFileResultCallback.h */,
+				4E2490891A2E37750076821A /* IFileSystem.h */,
+				4E24908A1A2E37750076821A /* IGeolocation.h */,
+				4E24908B1A2E37750076821A /* IGeolocationListener.h */,
+				4E24908C1A2E37750076821A /* IGlobalization.h */,
+				4E24908D1A2E37750076821A /* IGooglePlus.h */,
+				4E24908E1A2E37750076821A /* IGyroscope.h */,
+				4E24908F1A2E37750076821A /* IImaging.h */,
+				4E2490901A2E37750076821A /* IInternalStorage.h */,
+				4E2490911A2E37750076821A /* ILifecycle.h */,
+				4E2490921A2E37750076821A /* ILifecycleListener.h */,
+				4E2490931A2E37750076821A /* ILinkedIn.h */,
+				4E2490941A2E37750076821A /* ILogging.h */,
+				4E2490951A2E37750076821A /* IMagnetometer.h */,
+				4E2490961A2E37750076821A /* IMail.h */,
+				4E2490971A2E37750076821A /* IManagement.h */,
+				4E2490981A2E37750076821A /* IMap.h */,
+				4E2490991A2E37750076821A /* IMessaging.h */,
+				4E24909A1A2E37750076821A /* IMessagingCallback.h */,
+				4E24909B1A2E37750076821A /* INetworkInfo.h */,
+				4E24909C1A2E37750076821A /* INetworkNaming.h */,
+				4E24909D1A2E37750076821A /* INetworkReachability.h */,
+				4E24909E1A2E37750076821A /* INetworkReachabilityCallback.h */,
+				4E24909F1A2E37750076821A /* INetworkStatus.h */,
+				4E2490A01A2E37750076821A /* INFC.h */,
+				4E2490A11A2E37750076821A /* INotification.h */,
+				4E2490A21A2E37750076821A /* INotificationLocal.h */,
+				4E2490A31A2E37750076821A /* IOAuth.h */,
+				4E2490A41A2E37750076821A /* IOCR.h */,
+				4E2490A51A2E37750076821A /* IOpenId.h */,
+				4E2490A61A2E37750076821A /* IOS.h */,
+				4E2490A71A2E37750076821A /* IPrinting.h */,
+				4E2490A81A2E37750076821A /* IProximity.h */,
+				4E2490A91A2E37750076821A /* IQRCode.h */,
+				4E2490AA1A2E37750076821A /* IRSS.h */,
+				4E2490AB1A2E37750076821A /* IRuntime.h */,
+				4E2490AC1A2E37750076821A /* ISecureKVResultCallback.h */,
+				4E2490AD1A2E37750076821A /* ISecurity.h */,
+				4E2490AE1A2E37750076821A /* IService.h */,
+				4E2490AF1A2E37750076821A /* IServiceResultCallback.h */,
+				4E2490B01A2E37750076821A /* ISession.h */,
+				4E2490B11A2E37750076821A /* ISettings.h */,
+				4E2490B21A2E37750076821A /* ISocket.h */,
+				4E2490B31A2E37750076821A /* IStore.h */,
+				4E2490B41A2E37750076821A /* ITableResultCallback.h */,
+				4E2490B51A2E37750076821A /* ITelephony.h */,
+				4E2490B61A2E37750076821A /* ITimer.h */,
+				4E2490B71A2E37750076821A /* ITwitter.h */,
+				4E2490B81A2E37750076821A /* IUI.h */,
+				4E2490B91A2E37750076821A /* IUpdate.h */,
+				4E2490BA1A2E37750076821A /* IVibration.h */,
+				4E2490BB1A2E37750076821A /* IVideo.h */,
+				4E2490BC1A2E37750076821A /* IWallet.h */,
+				4E2490BD1A2E37750076821A /* IXML.h */,
+				4E2490BE1A2E37750076821A /* Lifecycle.h */,
+				4E2490BF1A2E37750076821A /* Lifecycle.m */,
+				4E24917F1A2E394B0076821A /* Locale.h */,
+				4E2490C11A2E37750076821A /* Locale.m */,
+				4E2490C21A2E37750076821A /* OSInfo.h */,
+				4E2490C31A2E37750076821A /* OSInfo.m */,
+				4E2490C41A2E37750076821A /* Row.h */,
+				4E2490C51A2E37750076821A /* Row.m */,
+				4E2490C61A2E37750076821A /* SecureKeyPair.h */,
+				4E2490C71A2E37750076821A /* SecureKeyPair.m */,
+				4E2490C81A2E37750076821A /* Service.h */,
+				4E2490C91A2E37750076821A /* Service.m */,
+				4E2490CA1A2E37750076821A /* ServiceRequest.h */,
+				4E2490CB1A2E37750076821A /* ServiceRequest.m */,
+				4E2490CC1A2E37750076821A /* ServiceResponse.h */,
+				4E2490CD1A2E37750076821A /* ServiceResponse.m */,
+				4E2490CE1A2E37750076821A /* Table.h */,
+				4E2490CF1A2E37750076821A /* Table.m */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4E2490011A2E371A0076821A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2491571A2E37750076821A /* IProximity.h in Headers */,
+				4E2491301A2E37750076821A /* IDevice.h in Headers */,
+				4E24910B1A2E37750076821A /* IAppServerManager.h in Headers */,
+				4E24911E1A2E37750076821A /* IBaseUtil.h in Headers */,
+				4E2491561A2E37750076821A /* IPrinting.h in Headers */,
+				4E2491061A2E37750076821A /* IAppResource.h in Headers */,
+				4E2491391A2E37750076821A /* IGeolocation.h in Headers */,
+				4E2491491A2E37750076821A /* IMessagingCallback.h in Headers */,
+				4E2491771A2E37750076821A /* Service.h in Headers */,
+				4E2491311A2E37750076821A /* IDisplay.h in Headers */,
+				4E24910F1A2E37750076821A /* IBaseApplication.h in Headers */,
+				4E2491471A2E37750076821A /* IMap.h in Headers */,
+				4E2491071A2E37750076821A /* IAppResourceCallback.h in Headers */,
+				4E24915E1A2E37750076821A /* IServiceResultCallback.h in Headers */,
+				4E2491001A2E37750076821A /* IAlarm.h in Headers */,
+				4E24916C1A2E37750076821A /* IXML.h in Headers */,
+				4E2491051A2E37750076821A /* IAppRegistry.h in Headers */,
+				4E2491121A2E37750076821A /* IBaseCommunication.h in Headers */,
+				4E2490E21A2E37750076821A /* ContactProfessionalInfo.h in Headers */,
+				4E2491751A2E37750076821A /* SecureKeyPair.h in Headers */,
+				4E2491521A2E37750076821A /* IOAuth.h in Headers */,
+				4E2491281A2E37750076821A /* IContact.h in Headers */,
+				4E2491151A2E37750076821A /* IBaseMedia.h in Headers */,
+				4E2490FF1A2E37750076821A /* IAds.h in Headers */,
+				4E2491341A2E37750076821A /* IFileDataResultCallback.h in Headers */,
+				4E2491161A2E37750076821A /* IBaseNotification.h in Headers */,
+				4E24914D1A2E37750076821A /* INetworkReachabilityCallback.h in Headers */,
+				4E2490DC1A2E37750076821A /* ContactEmail.h in Headers */,
+				4E2491791A2E37750076821A /* ServiceRequest.h in Headers */,
+				4E2491031A2E37750076821A /* IAppContext.h in Headers */,
+				4E2491401A2E37750076821A /* ILifecycle.h in Headers */,
+				4E24910C1A2E37750076821A /* IAudio.h in Headers */,
+				4E24914F1A2E37750076821A /* INFC.h in Headers */,
+				4E2490E61A2E37750076821A /* ContactTag.h in Headers */,
+				4E2491441A2E37750076821A /* IMagnetometer.h in Headers */,
+				4E24916D1A2E37750076821A /* Lifecycle.h in Headers */,
+				4E24914A1A2E37750076821A /* INetworkInfo.h in Headers */,
+				4E2490F21A2E37750076821A /* Email.h in Headers */,
+				4E2491651A2E37750076821A /* ITimer.h in Headers */,
+				4E24910D1A2E37750076821A /* IBarcode.h in Headers */,
+				4E2491251A2E37750076821A /* ICloud.h in Headers */,
+				4E2491641A2E37750076821A /* ITelephony.h in Headers */,
+				4E2491801A2E394C0076821A /* Locale.h in Headers */,
+				4E2491261A2E37750076821A /* ICompression.h in Headers */,
+				4E2491141A2E37750076821A /* IBaseListener.h in Headers */,
+				4E2491371A2E37750076821A /* IFileResultCallback.h in Headers */,
+				4E24915A1A2E37750076821A /* IRuntime.h in Headers */,
+				4E2490FA1A2E37750076821A /* Header.h in Headers */,
+				4E24911D1A2E37750076821A /* IBaseUI.h in Headers */,
+				4E24912B1A2E37750076821A /* ICrypto.h in Headers */,
+				4E2491111A2E37750076821A /* IBaseCommerce.h in Headers */,
+				4E2491021A2E37750076821A /* IAnalytics.h in Headers */,
+				4E2490FD1A2E37750076821A /* IAccelerometer.h in Headers */,
+				4E2491461A2E37750076821A /* IManagement.h in Headers */,
+				4E24913E1A2E37750076821A /* IImaging.h in Headers */,
+				4E24913F1A2E37750076821A /* IInternalStorage.h in Headers */,
+				4E2491581A2E37750076821A /* IQRCode.h in Headers */,
+				4E2490EA1A2E37750076821A /* ContactWebsite.h in Headers */,
+				4E2490FC1A2E37750076821A /* IAccelerationListener.h in Headers */,
+				4E24915C1A2E37750076821A /* ISecurity.h in Headers */,
+				4E2491421A2E37750076821A /* ILinkedIn.h in Headers */,
+				4E2491081A2E37750076821A /* IAppResourceHandler.h in Headers */,
+				4E2490DA1A2E37750076821A /* ContactAddress.h in Headers */,
+				4E2490E81A2E37750076821A /* ContactUid.h in Headers */,
+				4E2491291A2E37750076821A /* IContactPhotoResultCallback.h in Headers */,
+				4E24911B1A2E37750076821A /* IBaseSocial.h in Headers */,
+				4E2491631A2E37750076821A /* ITableResultCallback.h in Headers */,
+				4E2490DE1A2E37750076821A /* ContactPersonalInfo.h in Headers */,
+				4E2491231A2E37750076821A /* ICamera.h in Headers */,
+				4E2490D61A2E37750076821A /* Column.h in Headers */,
+				4E24916A1A2E37750076821A /* IVideo.h in Headers */,
+				4E24913A1A2E37750076821A /* IGeolocationListener.h in Headers */,
+				4E2490EC1A2E37750076821A /* Cookie.h in Headers */,
+				4E24912C1A2E37750076821A /* IDatabase.h in Headers */,
+				4E2491681A2E37750076821A /* IUpdate.h in Headers */,
+				4E24912F1A2E37750076821A /* IDesktop.h in Headers */,
+				4E24915D1A2E37750076821A /* IService.h in Headers */,
+				4E2491381A2E37750076821A /* IFileSystem.h in Headers */,
+				4E24910E1A2E37750076821A /* IBarometer.h in Headers */,
+				4E2491171A2E37750076821A /* IBasePIM.h in Headers */,
+				4E2491671A2E37750076821A /* IUI.h in Headers */,
+				4E2491591A2E37750076821A /* IRSS.h in Headers */,
+				4E24910A1A2E37750076821A /* IAppServerListener.h in Headers */,
+				4E24912A1A2E37750076821A /* IContactResultCallback.h in Headers */,
+				4E2491411A2E37750076821A /* ILifecycleListener.h in Headers */,
+				4E2491221A2E37750076821A /* ICalendar.h in Headers */,
+				4E24915F1A2E37750076821A /* ISession.h in Headers */,
+				4E24917B1A2E37750076821A /* ServiceResponse.h in Headers */,
+				4E24917D1A2E37750076821A /* Table.h in Headers */,
+				4E2491661A2E37750076821A /* ITwitter.h in Headers */,
+				4E2490E01A2E37750076821A /* ContactPhone.h in Headers */,
+				4E2491511A2E37750076821A /* INotificationLocal.h in Headers */,
+				4E2491201A2E37750076821A /* IBrowser.h in Headers */,
+				4E24916B1A2E37750076821A /* IWallet.h in Headers */,
+				4E24913B1A2E37750076821A /* IGlobalization.h in Headers */,
+				4E2491601A2E37750076821A /* ISettings.h in Headers */,
+				4E2491181A2E37750076821A /* IBaseReader.h in Headers */,
+				4E2491541A2E37750076821A /* IOpenId.h in Headers */,
+				4E2491451A2E37750076821A /* IMail.h in Headers */,
+				4E24914E1A2E37750076821A /* INetworkStatus.h in Headers */,
+				4E2491041A2E37750076821A /* IAppContextWebview.h in Headers */,
+				4E2490F61A2E37750076821A /* Endpoint.h in Headers */,
+				4E2491431A2E37750076821A /* ILogging.h in Headers */,
+				4E2491481A2E37750076821A /* IMessaging.h in Headers */,
+				4E24914C1A2E37750076821A /* INetworkReachability.h in Headers */,
+				4E2491011A2E37750076821A /* IAmbientLight.h in Headers */,
+				4E2490D81A2E37750076821A /* Contact.h in Headers */,
+				4E24913D1A2E37750076821A /* IGyroscope.h in Headers */,
+				4E2491621A2E37750076821A /* IStore.h in Headers */,
+				4E2490F81A2E37750076821A /* Geolocation.h in Headers */,
+				4E2490D01A2E37750076821A /* Acceleration.h in Headers */,
+				4E24912D1A2E37750076821A /* IDatabaseResultCallback.h in Headers */,
+				4E2491321A2E37750076821A /* IFacebook.h in Headers */,
+				4E2491691A2E37750076821A /* IVibration.h in Headers */,
+				4E2491101A2E37750076821A /* IBaseCallback.h in Headers */,
+				4E2490E41A2E37750076821A /* ContactSocial.h in Headers */,
+				4E24914B1A2E37750076821A /* INetworkNaming.h in Headers */,
+				4E2491271A2E37750076821A /* IConcurrent.h in Headers */,
+				4E2491091A2E37750076821A /* IAppServer.h in Headers */,
+				4E2490F41A2E37750076821A /* EmailAddress.h in Headers */,
+				4E2491611A2E37750076821A /* ISocket.h in Headers */,
+				4E2491191A2E37750076821A /* IBaseSecurity.h in Headers */,
+				4E2491331A2E37750076821A /* IFile.h in Headers */,
+				4E2490D21A2E37750076821A /* AttachmentData.h in Headers */,
+				4E2490F01A2E37750076821A /* DeviceInfo.h in Headers */,
+				4E2491501A2E37750076821A /* INotification.h in Headers */,
+				4E2491711A2E37750076821A /* OSInfo.h in Headers */,
+				4E2490FE1A2E37750076821A /* IAdaptiveRP.h in Headers */,
+				4E24911F1A2E37750076821A /* IBluetooth.h in Headers */,
+				4E2491351A2E37750076821A /* IFileListResultCallback.h in Headers */,
+				4E2491241A2E37750076821A /* ICapabilities.h in Headers */,
+				4E24911A1A2E37750076821A /* IBaseSensor.h in Headers */,
+				4E2490D41A2E37750076821A /* Button.h in Headers */,
+				4E24912E1A2E37750076821A /* IDataStream.h in Headers */,
+				4E24911C1A2E37750076821A /* IBaseSystem.h in Headers */,
+				4E2491551A2E37750076821A /* IOS.h in Headers */,
+				4E2491731A2E37750076821A /* Row.h in Headers */,
+				4E2491361A2E37750076821A /* IFilePath.h in Headers */,
+				4E24915B1A2E37750076821A /* ISecureKVResultCallback.h in Headers */,
+				4E2491131A2E37750076821A /* IBaseData.h in Headers */,
+				4E2491211A2E37750076821A /* IButtonListener.h in Headers */,
+				4E2491531A2E37750076821A /* IOCR.h in Headers */,
+				4E24913C1A2E37750076821A /* IGooglePlus.h in Headers */,
+				4E2490EE1A2E37750076821A /* Database.h in Headers */,
+				4E24900A1A2E371A0076821A /* ObjCValidation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4E2490031A2E371A0076821A /* ObjCValidation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E24901A1A2E371A0076821A /* Build configuration list for PBXNativeTarget "ObjCValidation" */;
+			buildPhases = (
+				4E248FFF1A2E371A0076821A /* Sources */,
+				4E2490001A2E371A0076821A /* Frameworks */,
+				4E2490011A2E371A0076821A /* Headers */,
+				4E2490021A2E371A0076821A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjCValidation;
+			productName = ObjCValidation;
+			productReference = 4E2490041A2E371A0076821A /* ObjCValidation.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4E24900E1A2E371A0076821A /* ObjCValidationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E24901D1A2E371A0076821A /* Build configuration list for PBXNativeTarget "ObjCValidationTests" */;
+			buildPhases = (
+				4E24900B1A2E371A0076821A /* Sources */,
+				4E24900C1A2E371A0076821A /* Frameworks */,
+				4E24900D1A2E371A0076821A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4E2490121A2E371A0076821A /* PBXTargetDependency */,
+			);
+			name = ObjCValidationTests;
+			productName = ObjCValidationTests;
+			productReference = 4E24900F1A2E371A0076821A /* ObjCValidationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E248FFB1A2E371A0076821A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Carlos Lozano Diez";
+				TargetAttributes = {
+					4E2490031A2E371A0076821A = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					4E24900E1A2E371A0076821A = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 4E248FFE1A2E371A0076821A /* Build configuration list for PBXProject "ObjCValidation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4E248FFA1A2E371A0076821A;
+			productRefGroup = 4E2490051A2E371A0076821A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E2490031A2E371A0076821A /* ObjCValidation */,
+				4E24900E1A2E371A0076821A /* ObjCValidationTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E2490021A2E371A0076821A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E24900D1A2E371A0076821A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E248FFF1A2E371A0076821A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2490F31A2E37750076821A /* Email.m in Sources */,
+				4E2491721A2E37750076821A /* OSInfo.m in Sources */,
+				4E2490D51A2E37750076821A /* Button.m in Sources */,
+				4E2490DB1A2E37750076821A /* ContactAddress.m in Sources */,
+				4E2491701A2E37750076821A /* Locale.m in Sources */,
+				4E2491781A2E37750076821A /* Service.m in Sources */,
+				4E2490F51A2E37750076821A /* EmailAddress.m in Sources */,
+				4E2490D71A2E37750076821A /* Column.m in Sources */,
+				4E24917E1A2E37750076821A /* Table.m in Sources */,
+				4E24917A1A2E37750076821A /* ServiceRequest.m in Sources */,
+				4E2490F11A2E37750076821A /* DeviceInfo.m in Sources */,
+				4E2490E31A2E37750076821A /* ContactProfessionalInfo.m in Sources */,
+				4E2490EB1A2E37750076821A /* ContactWebsite.m in Sources */,
+				4E2490D91A2E37750076821A /* Contact.m in Sources */,
+				4E2490DF1A2E37750076821A /* ContactPersonalInfo.m in Sources */,
+				4E2490DD1A2E37750076821A /* ContactEmail.m in Sources */,
+				4E2490D31A2E37750076821A /* AttachmentData.m in Sources */,
+				4E2490FB1A2E37750076821A /* Header.m in Sources */,
+				4E2490ED1A2E37750076821A /* Cookie.m in Sources */,
+				4E2491741A2E37750076821A /* Row.m in Sources */,
+				4E2490EF1A2E37750076821A /* Database.m in Sources */,
+				4E2490F71A2E37750076821A /* Endpoint.m in Sources */,
+				4E24916E1A2E37750076821A /* Lifecycle.m in Sources */,
+				4E2490E91A2E37750076821A /* ContactUid.m in Sources */,
+				4E2490E11A2E37750076821A /* ContactPhone.m in Sources */,
+				4E24917C1A2E37750076821A /* ServiceResponse.m in Sources */,
+				4E2490D11A2E37750076821A /* Acceleration.m in Sources */,
+				4E2490F91A2E37750076821A /* Geolocation.m in Sources */,
+				4E2491761A2E37750076821A /* SecureKeyPair.m in Sources */,
+				4E2490E51A2E37750076821A /* ContactSocial.m in Sources */,
+				4E2490E71A2E37750076821A /* ContactTag.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E24900B1A2E371A0076821A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2490171A2E371A0076821A /* ObjCValidationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4E2490121A2E371A0076821A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E2490031A2E371A0076821A /* ObjCValidation */;
+			targetProxy = 4E2490111A2E371A0076821A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4E2490181A2E371A0076821A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4E2490191A2E371A0076821A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4E24901B1A2E371A0076821A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ObjCValidation/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4E24901C1A2E371A0076821A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ObjCValidation/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4E24901E1A2E371A0076821A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ObjCValidationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4E24901F1A2E371A0076821A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ObjCValidationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E248FFE1A2E371A0076821A /* Build configuration list for PBXProject "ObjCValidation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E2490181A2E371A0076821A /* Debug */,
+				4E2490191A2E371A0076821A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E24901A1A2E371A0076821A /* Build configuration list for PBXNativeTarget "ObjCValidation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E24901B1A2E371A0076821A /* Debug */,
+				4E24901C1A2E371A0076821A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4E24901D1A2E371A0076821A /* Build configuration list for PBXNativeTarget "ObjCValidationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E24901E1A2E371A0076821A /* Debug */,
+				4E24901F1A2E371A0076821A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4E248FFB1A2E371A0076821A /* Project object */;
+}
