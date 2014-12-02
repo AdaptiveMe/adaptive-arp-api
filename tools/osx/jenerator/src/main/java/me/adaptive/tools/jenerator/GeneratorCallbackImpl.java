@@ -25,13 +25,26 @@ Contributors:
 package me.adaptive.tools.jenerator;
 
 /**
- * Created by clozano on 01/12/14.
+ * Created by clozano on 02/12/14.
  */
-public interface GeneratorCallback {
+class GeneratorCallbackImpl implements GeneratorCallback {
 
-    void onSuccess(GeneratorBase source, Class clazz);
+    public GeneratorCallbackImpl() {
 
-    void onWarning(GeneratorBase source, Class clazz, String warning);
+    }
 
-    void onException(GeneratorBase source, Class clazz, Throwable ex);
+    @Override
+    public void onSuccess(GeneratorBase source, Class clazz) {
+
+    }
+
+    @Override
+    public void onWarning(GeneratorBase source, Class clazz, String warning) {
+
+    }
+
+    @Override
+    public void onException(GeneratorBase source, Class clazz, Throwable ex) {
+
+    }
 }

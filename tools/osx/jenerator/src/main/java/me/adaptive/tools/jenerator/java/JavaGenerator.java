@@ -22,7 +22,7 @@ Contributors:
 
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
  */
-package me.adaptive.tools.jenerator.swift;
+package me.adaptive.tools.jenerator.java;
 
 import com.thoughtworks.qdox.model.DocletTag;
 import com.thoughtworks.qdox.model.JavaClass;
@@ -37,14 +37,13 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 /**
- * Created by clozano on 01/12/14.
+ * Created by clozano on 02/12/14.
  */
-public class SwiftGenerator extends GeneratorBase {
-
+public class JavaGenerator extends GeneratorBase {
     private File currentFile;
     private IndentPrintStream indentPrintStream;
 
-    public SwiftGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
+    public JavaGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
     }
 
@@ -69,57 +68,19 @@ public class SwiftGenerator extends GeneratorBase {
     }
 
     @Override
-    protected String convertJavaToNativeType(Class classType) {
-        String type = "Unknown";
-        if (classType.isArray()) {
-            return "[" + convertJavaToNativeType(classType.getComponentType()) + "]";
-        } else if (classType.isPrimitive()) {
-            if (classType.equals(Double.TYPE)) {
-                return "Double";
-            } else if (classType.equals(Integer.TYPE)) {
-                return "Int";
-            } else if (classType.equals(Long.TYPE)) {
-                return "Int64";
-            } else if (classType.equals(Byte.TYPE)) {
-                return "Byte";
-            } else if (classType.equals(Float.TYPE)) {
-                return "Float";
-            } else if (classType.equals(Boolean.TYPE)) {
-                return "Bool";
-            } else if (classType.equals(Character.TYPE)) {
-                return "Character";
-            }
-        } else if (classType.isEnum()) {
-
-        } else if (classType.equals(Object.class)) {
-            return "AnyObject";
-        } else if (classType.equals(String.class)) {
-            return "string";
-        } else {
-            type = classType.getSimpleName();
-        }
-        return type;
-    }
-
-    private String optionalOrMandatory(Class clazzType) {
-        return "?";
+    protected String convertJavaToNativeType(Class clazzType) {
+        return null;
     }
 
     @Override
     protected void declareField(Class clazz, Field field, JavaField fieldByName) {
-        if (fieldByName.getComment() != null && fieldByName.getComment().length() > 0) {
-            startComment(5);
-            println(8, fieldByName.getComment());
-            endComment(5);
-        }
-        println(5, "var " + field.getName() + " : " + convertJavaToNativeType(field.getType()) + optionalOrMandatory(field.getType()));
+
     }
 
     @Override
     protected IndentPrintStream getIndentStream() {
         return this.indentPrintStream;
     }
-
 
     @Override
     protected void endBean(String simpleName, Class clazz) {
@@ -128,6 +89,8 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void startBean(String simpleName, Class clazz, String comment, List<DocletTag> tagList) {
+        println("package " + clazz.getPackage().getName() + ";");
+        println();
         startComment(0);
         println(comment);
         if (tagList.size() > 0) {
@@ -138,15 +101,18 @@ public class SwiftGenerator extends GeneratorBase {
         }
         endComment(0);
         if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
-            println("public class " + simpleName + " : " + clazz.getSuperclass().getSimpleName() + " {");
+            println("public class " + simpleName + " extends " + clazz.getSuperclass().getSimpleName() + " {");
         } else {
-            println("public class " + simpleName + " : NSObject {");
+            println("public class " + simpleName + " {");
         }
     }
 
+
     @Override
     protected void startClass(Class clazz) {
-        currentFile = new File(getOutputRootDirectory(), clazz.getSimpleName() + ".swift");
+
+        currentFile = new File(getOutputRootDirectory(), clazz.getPackage().getName().replace('.',File.separatorChar)+File.separatorChar+clazz.getSimpleName() + ".java");
+        currentFile.mkdirs();
         if (currentFile.exists()) {
             currentFile.delete();
         }

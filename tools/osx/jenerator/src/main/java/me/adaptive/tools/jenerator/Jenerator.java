@@ -25,7 +25,11 @@ Contributors:
 package me.adaptive.tools.jenerator;
 
 import com.thoughtworks.qdox.model.JavaClass;
+import me.adaptive.tools.jenerator.csharp.CSharpGenerator;
+import me.adaptive.tools.jenerator.java.JavaGenerator;
+import me.adaptive.tools.jenerator.objc.ObjCGenerator;
 import me.adaptive.tools.jenerator.swift.SwiftGenerator;
+import me.adaptive.tools.jenerator.typescript.TypeScriptGenerator;
 
 import java.io.File;
 import java.util.Collections;
@@ -48,22 +52,18 @@ public class Jenerator {
         List<Class> targetClasses = GeneratorCompiler.compileSources(new File(sourcePath), packages);
         List<Class> unmodifiableClassList = Collections.unmodifiableList(targetClasses);
 
-        GeneratorBase generator = new SwiftGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-api/out/swift"), unmodifiableClassList, unmodifiableSourceList);
-        generator.generateSourceCode(new GeneratorCallback() {
-            @Override
-            public void onSuccess(Class clazz) {
-
-            }
-
-            @Override
-            public void onWarning(Class clazz, String warning) {
-
-            }
-
-            @Override
-            public void onException(Class clazz, Throwable ex) {
-
-            }
-        });
+        GeneratorBase[] generators = new GeneratorBase[]{
+                new CSharpGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-api/out/CSharpValidation/CSharpValidation/Sources"), unmodifiableClassList, unmodifiableSourceList),
+                new JavaGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-api/out/JavaValidation/src/main/java"), unmodifiableClassList, unmodifiableSourceList),
+                new ObjCGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-api/out/ObjCValidation/Sources"), unmodifiableClassList, unmodifiableSourceList),
+                new SwiftGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-api/out/SwiftValidation/Sources"), unmodifiableClassList, unmodifiableSourceList),
+                new TypeScriptGenerator(new File("/Users/clozano/Github/Runtime/adaptive-arp-api/out/TypeScriptValidation"), unmodifiableClassList, unmodifiableSourceList)
+        };
+        GeneratorCallback callback = new GeneratorCallbackImpl();
+        for (GeneratorBase generator : generators) {
+            generator.generateSourceCode(callback);
+        }
     }
+
+
 }

@@ -106,7 +106,9 @@ public class GeneratorCompiler {
                         if (c1.equals(c2)) {
                             return 0;
                         }
-                        if (c1.isAssignableFrom(c2)) {
+                        if (c1.getSuperclass().equals(Object.class) && !c2.getSuperclass().equals(Object.class)) {
+                            return -1;
+                        } else if (c1.isAssignableFrom(c2)) {
                             return -1;
                         } else {
                             if (!c2.isAssignableFrom(c2)) {

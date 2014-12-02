@@ -28,6 +28,7 @@ import com.thoughtworks.qdox.model.DocletTag;
 import com.thoughtworks.qdox.model.JavaAnnotatedElement;
 import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaField;
+import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 
 import java.io.*;
 import java.lang.reflect.Field;
@@ -256,6 +257,7 @@ public abstract class GeneratorBase {
         }
         outRootPath.mkdirs();
 
+        startGeneration();
         for (Class clazz : classList) {
             /**
              * START - Class
@@ -350,9 +352,15 @@ public abstract class GeneratorBase {
              * END - Class
              */
             endClass(clazz);
-            callback.onSuccess(clazz);
+            callback.onSuccess(this, clazz);
         }
+        endGeneration();
+        callback.onSuccess(this, this.getClass());
     }
+
+    protected abstract void endGeneration();
+
+    protected abstract void startGeneration();
 
     protected abstract void endFields(String simpleName, Class clazz);
 
@@ -362,37 +370,57 @@ public abstract class GeneratorBase {
 
     protected abstract void declareField(Class clazz, Field field, JavaField fieldByName);
 
-    protected abstract void print(String literal);
+    protected abstract IndentPrintStream getIndentStream();
 
-    protected abstract void print(int indent, String literal);
+    protected void print(String literal) {
+        print(0, literal);
+    }
 
-    protected abstract void println();
+    protected void print(int indent, String literal) {
+        getIndentStream().print(indent, literal);
+    }
 
-    protected abstract void println(String literal);
+    protected void println() {
+        println("");
+    }
 
-    protected abstract void println(int indent, String literal);
+    protected void println(String literal) {
+        println(0, literal);
+    }
+
+    protected void println(int indent, String literal) {
+        getIndentStream().println(indent, literal);
+    }
 
     protected abstract void endBean(String simpleName, Class clazz);
 
     protected abstract void startBean(String simpleName, Class clazz, String comment, List<DocletTag> tagList);
 
-    protected abstract void endComment(int indent);
+    protected void endComment(int indent) {
+        println(indent, "*/");
+    }
 
-    protected abstract void startComment(int indent);
+    protected void startComment(int indent) {
+        println(indent, "/**");
+    }
+
+    protected void applyClassFooter(Class clazz, String sourceFooter) {
+        println(sourceFooter);
+    }
+
+    protected void applyClassHeader(Class clazz, String sourceHeader) {
+        println(sourceHeader);
+    }
 
     protected final File getOutputRootDirectory() {
         return this.outRootPath;
     }
 
-    protected abstract void applyClassFooter(Class clazz, String sourceFooter);
-
-    protected abstract void applyClassHeader(Class clazz, String sourceHeader);
-
     protected abstract void startClass(Class clazz);
 
     protected abstract void endClass(Class clazz);
 
-    private final String getSourceHeader() {
+    protected final String getSourceHeader() {
         String result = "Undefined.";
         try {
             InputStream is = getResourceStream("defaultHeader");
@@ -405,7 +433,7 @@ public abstract class GeneratorBase {
         return result;
     }
 
-    private final String getSourceFooter() {
+    protected final String getSourceFooter() {
         String result = "Undefined.";
         try {
             InputStream is = getResourceStream("defaultFooter");

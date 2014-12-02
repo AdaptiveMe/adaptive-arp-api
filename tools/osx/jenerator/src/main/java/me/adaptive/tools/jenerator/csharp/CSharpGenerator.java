@@ -22,7 +22,7 @@ Contributors:
 
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
  */
-package me.adaptive.tools.jenerator.swift;
+package me.adaptive.tools.jenerator.csharp;
 
 import com.thoughtworks.qdox.model.DocletTag;
 import com.thoughtworks.qdox.model.JavaClass;
@@ -37,14 +37,14 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 /**
- * Created by clozano on 01/12/14.
+ * Created by clozano on 02/12/14.
  */
-public class SwiftGenerator extends GeneratorBase {
+public class CSharpGenerator extends GeneratorBase {
 
     private File currentFile;
     private IndentPrintStream indentPrintStream;
 
-    public SwiftGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
+    public CSharpGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
     }
 
@@ -72,27 +72,27 @@ public class SwiftGenerator extends GeneratorBase {
     protected String convertJavaToNativeType(Class classType) {
         String type = "Unknown";
         if (classType.isArray()) {
-            return "[" + convertJavaToNativeType(classType.getComponentType()) + "]";
+            return convertJavaToNativeType(classType.getComponentType()) + "[]";
         } else if (classType.isPrimitive()) {
             if (classType.equals(Double.TYPE)) {
-                return "Double";
+                return "double";
             } else if (classType.equals(Integer.TYPE)) {
-                return "Int";
+                return "int";
             } else if (classType.equals(Long.TYPE)) {
-                return "Int64";
+                return "long";
             } else if (classType.equals(Byte.TYPE)) {
-                return "Byte";
+                return "byte";
             } else if (classType.equals(Float.TYPE)) {
-                return "Float";
+                return "float";
             } else if (classType.equals(Boolean.TYPE)) {
-                return "Bool";
+                return "bool";
             } else if (classType.equals(Character.TYPE)) {
-                return "Character";
+                return "char";
             }
         } else if (classType.isEnum()) {
 
         } else if (classType.equals(Object.class)) {
-            return "AnyObject";
+            return "Object";
         } else if (classType.equals(String.class)) {
             return "string";
         } else {
@@ -101,18 +101,14 @@ public class SwiftGenerator extends GeneratorBase {
         return type;
     }
 
-    private String optionalOrMandatory(Class clazzType) {
-        return "?";
-    }
-
     @Override
     protected void declareField(Class clazz, Field field, JavaField fieldByName) {
         if (fieldByName.getComment() != null && fieldByName.getComment().length() > 0) {
-            startComment(5);
-            println(8, fieldByName.getComment());
-            endComment(5);
+            startComment(10);
+            println(13, fieldByName.getComment());
+            endComment(10);
         }
-        println(5, "var " + field.getName() + " : " + convertJavaToNativeType(field.getType()) + optionalOrMandatory(field.getType()));
+        println(10, "public "+convertJavaToNativeType(field.getType())+" " + camelCase(field.getName()) + " { get; set; }");
     }
 
     @Override
@@ -120,33 +116,40 @@ public class SwiftGenerator extends GeneratorBase {
         return this.indentPrintStream;
     }
 
-
     @Override
     protected void endBean(String simpleName, Class clazz) {
+        println(5, "}");
         println("}");
     }
 
     @Override
     protected void startBean(String simpleName, Class clazz, String comment, List<DocletTag> tagList) {
-        startComment(0);
-        println(comment);
+        println("using System;");
+        println();
+        println("namespace " + camelCase(clazz.getPackage()));
+        println("{");
+        startComment(5);
+        println(5, comment);
         if (tagList.size() > 0) {
             println();
             for (DocletTag tag : tagList) {
-                println("@" + tag.getName() + " " + tag.getValue());
+                println(5, "@" + tag.getName() + " " + tag.getValue());
             }
         }
-        endComment(0);
+        endComment(5);
         if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
-            println("public class " + simpleName + " : " + clazz.getSuperclass().getSimpleName() + " {");
+            println(5, "public class " + simpleName + " : " + clazz.getSuperclass().getSimpleName());
+            println(5, "{");
         } else {
-            println("public class " + simpleName + " : NSObject {");
+            println(5, "public class " + simpleName);
+            println(5, "{");
         }
     }
 
     @Override
     protected void startClass(Class clazz) {
-        currentFile = new File(getOutputRootDirectory(), clazz.getSimpleName() + ".swift");
+        currentFile = new File(getOutputRootDirectory(), camelCase(clazz.getPackage())+File.separator+clazz.getSimpleName() + ".cs");
+        currentFile.mkdirs();
         if (currentFile.exists()) {
             currentFile.delete();
         }
@@ -161,5 +164,27 @@ public class SwiftGenerator extends GeneratorBase {
     protected void endClass(Class clazz) {
         indentPrintStream.flush();
         indentPrintStream.close();
+    }
+
+    private static String camelCase(Package _package) {
+        StringBuffer out = new StringBuffer();
+        boolean capitalize = true;
+        // Strip first part of package name
+        for (char c : _package.getName().substring(_package.getName().indexOf('.')+1).toCharArray()) {
+            if (capitalize) {
+                out.append(Character.toUpperCase(c));
+                capitalize = false;
+            } else {
+                if (c == '.') {
+                    capitalize = true;
+                }
+                out.append(c);
+            }
+        }
+        return out.toString();
+    }
+
+    private static String camelCase(String name) {
+        return Character.toUpperCase(name.charAt(0))+name.substring(1);
     }
 }
