@@ -80,3 +80,7 @@ adaptive-arp-api-js/.idea/
 tools/osx/jenerator/.idea/
 tools/osx/jenerator/build/
 
+
+out/SwiftValidation/DerivedData/
+out/SwiftValidation/SwiftValidation.xcodeproj/project.xcworkspace/xcuserdata/clozano.xcuserdatad/
+out/SwiftValidation/SwiftValidation.xcodeproj/xcuserdata/clozano.xcuserdatad/
