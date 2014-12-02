@@ -28,44 +28,66 @@
         <entry file="file://$PROJECT_DIR$/Adaptive.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10545">
-              <caret line="489" column="66" selection-start-line="489" selection-start-column="66" selection-end-line="489" selection-end-column="66" />
+              <caret line="488" column="66" selection-start-line="488" selection-start-column="66" selection-end-line="488" selection-end-column="66" />
               <folding>
-                <marker date="1417545363000" expanded="true" signature="1112:17575" placeholder="..." />
-                <marker date="1417545363000" expanded="true" signature="916:1273" placeholder="/**Represents the basic information about the operating system. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="1530:1718" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="2093:2211" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="3756:3875" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="3923:3968" placeholder="/**Timestamp of the acceleration reading. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="5007:5126" placeholder="/**Structure representing the data elements of an email addressee. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="5193:5234" placeholder="/**The Email address ...*/" />
-                <marker date="1417545363000" expanded="true" signature="5342:5603" placeholder="/**Structure representing the website data elements of a contact. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="6065:6149" placeholder="/**The length in bytes for the binary Content. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="6190:6258" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="6299:6367" placeholder="/**The length in bytes for the Content field. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="6726:7387" placeholder="/**Structure representing the column specification of a data table. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="7454:7497" placeholder="/**Name of the column ...*/" />
-                <marker date="1417545363000" expanded="true" signature="7597:7750" placeholder="/**Structure representing the assigned tags data elements of a contact. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="9235:9285" placeholder="/**Definition of columns. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="9309:9361" placeholder="/**Name of the table. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="9429:9473" placeholder="/**Number of rows. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="9701:9913" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="10727:11322" placeholder="/**Structure representing the data of a http request or response header. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="11366:11384" placeholder="/**Value of the header ...*/" />
-                <marker date="1417545363000" expanded="true" signature="11457:11507" placeholder="/**Name ot the header ...*/" />
-                <marker date="1417545363000" expanded="true" signature="11566:11739" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="12442:12892" placeholder="/**Structure representing a database reference. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="13243:13481" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="14372:14390" placeholder="/**A valid ISO Language Code. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="14686:15206" placeholder="/**Represents a row for a data table. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="15242:15278" placeholder="/**The values of the row. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="15524:15606" placeholder="/**Array of Email Blind Carbon Copy recipients ...*/" />
-                <marker date="1417545363000" expanded="true" signature="15637:15673" placeholder="/**Array of Email Carbon Copy recipients ...*/" />
-                <marker date="1417545363000" expanded="true" signature="16390:16398" placeholder="..." />
-                <marker date="1417545363000" expanded="true" signature="15835:15901" placeholder="/**Domain for which the cookie is valid. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="15935:16001" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="16035:16101" placeholder="/**Name ot the cookie ...*/" />
-                <marker date="1417545363000" expanded="true" signature="16128:16207" placeholder="/**URI path for which the cookie is valid. ...*/" />
-                <marker date="1417545363000" expanded="true" signature="16238:16274" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="1112:17575" placeholder="..." />
+                <marker date="1417545541000" expanded="true" signature="1120:1264" placeholder="/**Represents the basic information about the operating system. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="1622:1774" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="2131:2266" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="4696:4845" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="4889:4957" placeholder="/**Timestamp of the acceleration reading. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="5578:5725" placeholder="/**Structure representing the data elements of an email addressee. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="5769:5816" placeholder="/**The Email address ...*/" />
+                <marker date="1417545541000" expanded="true" signature="5857:6003" placeholder="/**Structure representing the website data elements of a contact. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="6049:6101" placeholder="/**The url of the website ...*/" />
+                <marker date="1417545541000" expanded="true" signature="6138:6272" placeholder="/**Structure representing the binary attachment data. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="7359:7432" placeholder="/**The length in bytes for the binary Content. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="7483:7576" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="7623:7695" placeholder="/**The length in bytes for the Content field. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="8132:8280" placeholder="/**Structure representing the column specification of a data table. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="8318:8366" placeholder="/**Name of the column ...*/" />
+                <marker date="1417545541000" expanded="true" signature="8404:8556" placeholder="/**Structure representing the assigned tags data elements of a contact. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="8598:8648" placeholder="/**The value of the Tag ...*/" />
+                <marker date="1417545541000" expanded="true" signature="8689:8738" placeholder="/**The name of the Tag ...*/" />
+                <marker date="1417545541000" expanded="true" signature="8776:8905" placeholder="/**Represents a local or remote service request. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="8951:9024" placeholder="/**Request/Response data content (plain text). ...*/" />
+                <marker date="1417545541000" expanded="true" signature="9063:9156" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="9203:9275" placeholder="/**The length in bytes for the Content field. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="9320:9396" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
+                <marker date="1417545541000" expanded="true" signature="9439:9548" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="9594:9642" placeholder="/**The request method ...*/" />
+                <marker date="1417545541000" expanded="true" signature="9680:9752" placeholder="/**The byte[] representing the Content field. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="9801:9876" placeholder="/**The session context for the Request/Response. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="10184:10236" placeholder="/**Definition of columns. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="10282:10330" placeholder="/**Name of the table. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="10366:10411" placeholder="/**Number of rows. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="10561:10717" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="10772:10824" placeholder="/**The company of the job ...*/" />
+                <marker date="1417545541000" expanded="true" signature="10863:10912" placeholder="/**The job description ...*/" />
+                <marker date="1417545541000" expanded="true" signature="10958:11001" placeholder="/**The job title ...*/" />
+                <marker date="1417545541000" expanded="true" signature="11043:11163" placeholder="/**Represents an instance of a service. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="11380:11533" placeholder="/**Structure representing the data of a http request or response header. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="11571:11620" placeholder="/**Value of the header ...*/" />
+                <marker date="1417545541000" expanded="true" signature="11656:11704" placeholder="/**Name ot the header ...*/" />
+                <marker date="1417545541000" expanded="true" signature="11742:11886" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="11930:11976" placeholder="/**The phone number ...*/" />
+                <marker date="1417545541000" expanded="true" signature="12015:12160" placeholder="/**Structure representing the data a single geolocation reading. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="12203:12299" placeholder="/**The current device altitude (or Z coordinate). Measured in meters. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="12339:12421" placeholder="/**The Y coordinate (or latitude). Measured in degrees. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="12845:12973" placeholder="/**Structure representing a database reference. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="13266:13410" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="13916:13972" placeholder="/**A valid ISO Language Code. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="14206:14324" placeholder="/**Represents a row for a data table. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="14359:14411" placeholder="/**The values of the row. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="14741:14814" placeholder="/**Array of Email Blind Carbon Copy recipients ...*/" />
+                <marker date="1417545541000" expanded="true" signature="14872:14939" placeholder="/**Array of Email Carbon Copy recipients ...*/" />
+                <marker date="1417545541000" expanded="true" signature="16390:16398" placeholder="..." />
+                <marker date="1417545541000" expanded="true" signature="15755:15822" placeholder="/**Domain for which the cookie is valid. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="15860:15943" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="15981:16029" placeholder="/**Name ot the cookie ...*/" />
+                <marker date="1417545541000" expanded="true" signature="16065:16134" placeholder="/**URI path for which the cookie is valid. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="16170:16266" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
+                <marker date="1417545541000" expanded="true" signature="16304:16363" placeholder="/**Cookie is secure (https only) ...*/" />
               </folding>
             </state>
           </provider>
@@ -87,6 +109,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Adaptive.ts" />
+        <option value="$PROJECT_DIR$/Service.ts" />
       </list>
     </option>
   </component>
@@ -191,7 +214,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24977659" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298639" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298639" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -227,44 +250,66 @@
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10545">
-          <caret line="489" column="66" selection-start-line="489" selection-start-column="66" selection-end-line="489" selection-end-column="66" />
+          <caret line="488" column="66" selection-start-line="488" selection-start-column="66" selection-end-line="488" selection-end-column="66" />
           <folding>
-            <marker date="1417545363000" expanded="true" signature="1112:17575" placeholder="..." />
-            <marker date="1417545363000" expanded="true" signature="916:1273" placeholder="/**Represents the basic information about the operating system. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="1530:1718" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="2093:2211" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="3756:3875" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="3923:3968" placeholder="/**Timestamp of the acceleration reading. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="5007:5126" placeholder="/**Structure representing the data elements of an email addressee. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="5193:5234" placeholder="/**The Email address ...*/" />
-            <marker date="1417545363000" expanded="true" signature="5342:5603" placeholder="/**Structure representing the website data elements of a contact. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="6065:6149" placeholder="/**The length in bytes for the binary Content. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="6190:6258" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="6299:6367" placeholder="/**The length in bytes for the Content field. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="6726:7387" placeholder="/**Structure representing the column specification of a data table. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="7454:7497" placeholder="/**Name of the column ...*/" />
-            <marker date="1417545363000" expanded="true" signature="7597:7750" placeholder="/**Structure representing the assigned tags data elements of a contact. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="9235:9285" placeholder="/**Definition of columns. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="9309:9361" placeholder="/**Name of the table. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="9429:9473" placeholder="/**Number of rows. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="9701:9913" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="10727:11322" placeholder="/**Structure representing the data of a http request or response header. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="11366:11384" placeholder="/**Value of the header ...*/" />
-            <marker date="1417545363000" expanded="true" signature="11457:11507" placeholder="/**Name ot the header ...*/" />
-            <marker date="1417545363000" expanded="true" signature="11566:11739" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="12442:12892" placeholder="/**Structure representing a database reference. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="13243:13481" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="14372:14390" placeholder="/**A valid ISO Language Code. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="14686:15206" placeholder="/**Represents a row for a data table. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="15242:15278" placeholder="/**The values of the row. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="15524:15606" placeholder="/**Array of Email Blind Carbon Copy recipients ...*/" />
-            <marker date="1417545363000" expanded="true" signature="15637:15673" placeholder="/**Array of Email Carbon Copy recipients ...*/" />
-            <marker date="1417545363000" expanded="true" signature="16390:16398" placeholder="..." />
-            <marker date="1417545363000" expanded="true" signature="15835:15901" placeholder="/**Domain for which the cookie is valid. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="15935:16001" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="16035:16101" placeholder="/**Name ot the cookie ...*/" />
-            <marker date="1417545363000" expanded="true" signature="16128:16207" placeholder="/**URI path for which the cookie is valid. ...*/" />
-            <marker date="1417545363000" expanded="true" signature="16238:16274" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="1112:17575" placeholder="..." />
+            <marker date="1417545541000" expanded="true" signature="1120:1264" placeholder="/**Represents the basic information about the operating system. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="1622:1774" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="2131:2266" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="4696:4845" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="4889:4957" placeholder="/**Timestamp of the acceleration reading. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="5578:5725" placeholder="/**Structure representing the data elements of an email addressee. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="5769:5816" placeholder="/**The Email address ...*/" />
+            <marker date="1417545541000" expanded="true" signature="5857:6003" placeholder="/**Structure representing the website data elements of a contact. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="6049:6101" placeholder="/**The url of the website ...*/" />
+            <marker date="1417545541000" expanded="true" signature="6138:6272" placeholder="/**Structure representing the binary attachment data. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="7359:7432" placeholder="/**The length in bytes for the binary Content. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="7483:7576" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="7623:7695" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="8132:8280" placeholder="/**Structure representing the column specification of a data table. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="8318:8366" placeholder="/**Name of the column ...*/" />
+            <marker date="1417545541000" expanded="true" signature="8404:8556" placeholder="/**Structure representing the assigned tags data elements of a contact. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="8598:8648" placeholder="/**The value of the Tag ...*/" />
+            <marker date="1417545541000" expanded="true" signature="8689:8738" placeholder="/**The name of the Tag ...*/" />
+            <marker date="1417545541000" expanded="true" signature="8776:8905" placeholder="/**Represents a local or remote service request. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="8951:9024" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1417545541000" expanded="true" signature="9063:9156" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="9203:9275" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="9320:9396" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
+            <marker date="1417545541000" expanded="true" signature="9439:9548" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="9594:9642" placeholder="/**The request method ...*/" />
+            <marker date="1417545541000" expanded="true" signature="9680:9752" placeholder="/**The byte[] representing the Content field. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="9801:9876" placeholder="/**The session context for the Request/Response. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="10184:10236" placeholder="/**Definition of columns. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="10282:10330" placeholder="/**Name of the table. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="10366:10411" placeholder="/**Number of rows. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="10561:10717" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="10772:10824" placeholder="/**The company of the job ...*/" />
+            <marker date="1417545541000" expanded="true" signature="10863:10912" placeholder="/**The job description ...*/" />
+            <marker date="1417545541000" expanded="true" signature="10958:11001" placeholder="/**The job title ...*/" />
+            <marker date="1417545541000" expanded="true" signature="11043:11163" placeholder="/**Represents an instance of a service. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="11380:11533" placeholder="/**Structure representing the data of a http request or response header. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="11571:11620" placeholder="/**Value of the header ...*/" />
+            <marker date="1417545541000" expanded="true" signature="11656:11704" placeholder="/**Name ot the header ...*/" />
+            <marker date="1417545541000" expanded="true" signature="11742:11886" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="11930:11976" placeholder="/**The phone number ...*/" />
+            <marker date="1417545541000" expanded="true" signature="12015:12160" placeholder="/**Structure representing the data a single geolocation reading. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="12203:12299" placeholder="/**The current device altitude (or Z coordinate). Measured in meters. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="12339:12421" placeholder="/**The Y coordinate (or latitude). Measured in degrees. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="12845:12973" placeholder="/**Structure representing a database reference. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="13266:13410" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="13916:13972" placeholder="/**A valid ISO Language Code. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="14206:14324" placeholder="/**Represents a row for a data table. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="14359:14411" placeholder="/**The values of the row. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="14741:14814" placeholder="/**Array of Email Blind Carbon Copy recipients ...*/" />
+            <marker date="1417545541000" expanded="true" signature="14872:14939" placeholder="/**Array of Email Carbon Copy recipients ...*/" />
+            <marker date="1417545541000" expanded="true" signature="16390:16398" placeholder="..." />
+            <marker date="1417545541000" expanded="true" signature="15755:15822" placeholder="/**Domain for which the cookie is valid. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="15860:15943" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="15981:16029" placeholder="/**Name ot the cookie ...*/" />
+            <marker date="1417545541000" expanded="true" signature="16065:16134" placeholder="/**URI path for which the cookie is valid. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="16170:16266" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
+            <marker date="1417545541000" expanded="true" signature="16304:16363" placeholder="/**Cookie is secure (https only) ...*/" />
           </folding>
         </state>
       </provider>
