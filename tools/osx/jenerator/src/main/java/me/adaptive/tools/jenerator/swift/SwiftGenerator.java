@@ -196,6 +196,36 @@ public class SwiftGenerator extends GeneratorBase {
             println(5, "case " + field.getName());
         }
         println();
+        startComment(5);
+        println(5, "Convert current enum to its string representation value.");
+        endComment(5);
+        println(5,"public func toString() -> String {");
+        println(10,"switch self {");
+        for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
+            Field field = clazz.getDeclaredFields()[i];
+            println(15, "case ." + field.getName()+": return \""+field.getName()+"\"");
+        }
+        println(10,"}");
+        println(5,"}");
+        println();
+
+        startComment(5);
+        println(5, "Create enum from its string representation value.");
+        endComment(5);
+        println(5, "public static func toEnum(string:String?) -> "+generateEnumClassName(clazz) + " {");
+        println(10, "if let validString = string {");
+        println(15, "switch validString {");
+        for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
+            Field field = clazz.getDeclaredFields()[i];
+            println(15, "case \"" + field.getName()+"\": return ."+field.getName());
+        }
+        println(15, "default: return .Unknown");
+        println(15, "}");
+        println(10, "} else {");
+        println(15, "return .Unknown");
+        println(10, "}");
+        println(5,  "}");
+        println();
         endBean(generateEnumClassName(clazz), clazz);
 
 

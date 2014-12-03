@@ -37,4 +37,41 @@ public enum ContactPhoneType {
      case Other
      case Unknown
 
+     /**
+     Convert current enum to its string representation value.
+     */
+     public func toString() -> String {
+          switch self {
+               case .Mobile: return "Mobile"
+               case .Work: return "Work"
+               case .Home: return "Home"
+               case .Main: return "Main"
+               case .HomeFax: return "HomeFax"
+               case .WorkFax: return "WorkFax"
+               case .Other: return "Other"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /**
+     Create enum from its string representation value.
+     */
+     public static func toEnum(string:String?) -> ContactPhoneType {
+          if let validString = string {
+               switch validString {
+               case "Mobile": return .Mobile
+               case "Work": return .Work
+               case "Home": return .Home
+               case "Main": return .Main
+               case "HomeFax": return .HomeFax
+               case "WorkFax": return .WorkFax
+               case "Other": return .Other
+               case "Unknown": return .Unknown
+               default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
 }

@@ -34,4 +34,35 @@ public enum ContactPersonalInfoTitle {
      case Dr
      case Unknown
 
+     /**
+     Convert current enum to its string representation value.
+     */
+     public func toString() -> String {
+          switch self {
+               case .Mr: return "Mr"
+               case .Mrs: return "Mrs"
+               case .Ms: return "Ms"
+               case .Dr: return "Dr"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /**
+     Create enum from its string representation value.
+     */
+     public static func toEnum(string:String?) -> ContactPersonalInfoTitle {
+          if let validString = string {
+               switch validString {
+               case "Mr": return .Mr
+               case "Mrs": return .Mrs
+               case "Ms": return .Ms
+               case "Dr": return .Dr
+               case "Unknown": return .Unknown
+               default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
 }

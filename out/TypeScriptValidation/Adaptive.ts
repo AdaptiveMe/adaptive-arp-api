@@ -25,258 +25,6 @@ Contributors:
 module Adaptive {
 
      /**
-     Represents the basic information about the operating system.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class OSInfo {
-          /**
-             The name of the operating system.
-          */
-          name : string;
-          /**
-             The vendor of the operating system.
-          */
-          vendor : string;
-          /**
-             The version/identifier of the operating system.
-          */
-          version : string;
-     }
-     /**
-     Structure representing the personal info data elements of a contact.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class ContactPersonalInfo {
-          /**
-             The title of the Contact
-          */
-          title : ContactPersonalInfoTitle;
-          /**
-             The last name of the Contact
-          */
-          lastName : string;
-          /**
-             The middle name of the Contact if it proceeds
-          */
-          middleName : string;
-          /**
-             The name of the Contact
-          */
-          name : string;
-     }
-     /**
-     Represents a specific application life-cycle stage.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Lifecycle {
-          /**
-             Represent the state of the app
-          */
-          state : LifecycleState;
-     }
-     /**
-     Structure representing a remote or local service access end-point.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Endpoint {
-          /**
-             The remote serice host (alias or IP).
-          */
-          host : string;
-          /**
-             The remote service path (to be added to the host and port url).
-          */
-          path : string;
-          /**
-             The remote service accessible port.
-          */
-          port : number;
-          /**
-             The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
-          */
-          proxy : string;
-          /**
-             The remote service scheme.
-          */
-          scheme : string;
-     }
-     /**
-     Represents a single secureKey-value pair.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class SecureKeyPair {
-          secureData : string;
-          secureKey : string;
-     }
-     /**
-     Structure representing the internal unique identifier data elements of a contact.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class ContactUid {
-          /**
-             The id of the Contact
-          */
-          contactId : string;
-     }
-     /**
-     Structure representing the address data elements of a contact.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class ContactAddress {
-          /**
-             The address type
-          */
-          type : ContactAddressType;
-          /**
-             The Contact address
-          */
-          address : string;
-     }
-     /**
-     Structure representing the basic device information.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class DeviceInfo {
-          /**
-             Model of device - equivalent to device release or version.
-          */
-          model : string;
-          /**
-             Name of device - equivalent to brand.
-          */
-          name : string;
-          /**
-             Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
-be unique for a specific instance of an application on a specific device.
-          */
-          uuid : string;
-          /**
-             Vendor of the device hardware.
-          */
-          vendor : string;
-     }
-     /**
-     Structure representing the data of a single acceleration reading.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Acceleration {
-          /**
-             Timestamp of the acceleration reading.
-          */
-          timeStamp : number;
-          /**
-             X-axis component of the acceleration.
-          */
-          x : number;
-          /**
-             Y-axis component of the acceleration.
-          */
-          y : number;
-          /**
-             Z-axis component of the acceleration.
-          */
-          z : number;
-     }
-     /**
-     Structure representing the social data elements of a contact.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class ContactSocial {
-          /**
-             The social network
-          */
-          socialNetwork : ContactSocialNetwork;
-          /**
-             The profileUrl
-          */
-          profileUrl : string;
-     }
-     /**
-     Structure representing the data elements of an email addressee.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class EmailAddress {
-          /**
-             The Email address
-          */
-          address : string;
-     }
-     /**
-     Structure representing the website data elements of a contact.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class ContactWebsite {
-          /**
-             The url of the website
-          */
-          url : string;
-     }
-     /**
-     Structure representing the binary attachment data.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class AttachmentData {
-          /**
-             The raw data for the current file attachment (byte array)
-          */
-          data : Array<number>;
-          /**
-             The data size (in bytes) of the current file attachment
-          */
-          dataSize : number;
-          /**
-             The name of the current file attachment
-          */
-          fileName : string;
-          /**
-             The mime type of the current attachment
-          */
-          mimeType : string;
-          /**
-             The relative path where the contents for the attachment file could be located.
-          */
-          referenceUrl : string;
-     }
-     /**
      Represents a local or remote service response.
 
      @author Carlos Lozano Diez
@@ -318,6 +66,141 @@ be unique for a specific instance of an application on a specific device.
           session : ISession;
      }
      /**
+     Structure representing the address data elements of a contact.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class ContactAddress {
+          /**
+             The address type
+          */
+          type : ContactAddressType;
+          /**
+             The Contact address
+          */
+          address : string;
+     }
+     /**
+     Structure representing the website data elements of a contact.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class ContactWebsite {
+          /**
+             The url of the website
+          */
+          url : string;
+     }
+     /**
+     Represents a specific application life-cycle stage.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class Lifecycle {
+          /**
+             Represent the state of the app
+          */
+          state : LifecycleState;
+     }
+     /**
+     Represents an instance of a service.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class Service {
+          /**
+             The method used
+          */
+          method : IServiceMethod;
+          /**
+             The type of the service
+          */
+          type : IServiceType;
+          /**
+             Enpoint of the service
+          */
+          endpoint : Endpoint;
+          /**
+             The service name
+          */
+          name : string;
+     }
+     /**
+     Structure representing the social data elements of a contact.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class ContactSocial {
+          /**
+             The social network
+          */
+          socialNetwork : ContactSocialNetwork;
+          /**
+             The profileUrl
+          */
+          profileUrl : string;
+     }
+     /**
+     Structure representing the binary attachment data.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class AttachmentData {
+          /**
+             The raw data for the current file attachment (byte array)
+          */
+          data : Array<number>;
+          /**
+             The data size (in bytes) of the current file attachment
+          */
+          dataSize : number;
+          /**
+             The name of the current file attachment
+          */
+          fileName : string;
+          /**
+             The mime type of the current attachment
+          */
+          mimeType : string;
+          /**
+             The relative path where the contents for the attachment file could be located.
+          */
+          referenceUrl : string;
+     }
+     /**
+     Represents the basic information about the operating system.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class OSInfo {
+          /**
+             The name of the operating system.
+          */
+          name : string;
+          /**
+             The vendor of the operating system.
+          */
+          vendor : string;
+          /**
+             The version/identifier of the operating system.
+          */
+          version : string;
+     }
+     /**
      Structure representing the column specification of a data table.
 
      @author Carlos Lozano Diez
@@ -331,19 +214,19 @@ be unique for a specific instance of an application on a specific device.
           name : string;
      }
      /**
-     Structure representing the assigned tags data elements of a contact.
+     Structure representing a database reference.
 
      @author Carlos Lozano Diez
      @since 1.0
      @version 1.0
      */
-     export class ContactTag {
+     export class Database {
           /**
-             The value of the Tag
+             Indicates if database was created or needs to be created as Compressed.
           */
-          dataValue : string;
+          compress : boolean;
           /**
-             The name of the Tag
+             Database Name (name of the .db local file).
           */
           name : string;
      }
@@ -393,262 +276,6 @@ be unique for a specific instance of an application on a specific device.
           session : ISession;
      }
      /**
-     Represents a data table composed of columns and rows.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Table {
-          /**
-             Number of columns.
-          */
-          columnCount : number;
-          /**
-             Definition of columns.
-          */
-          columns : Array<Column>;
-          /**
-             Name of the table.
-          */
-          name : string;
-          /**
-             Number of rows.
-          */
-          rowCount : number;
-          /**
-             Rows of the table containing the data.
-          */
-          rows : Array<Row>;
-     }
-     /**
-     Structure representing the professional info data elements of a contact.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class ContactProfessionalInfo {
-          /**
-             The company of the job
-          */
-          company : string;
-          /**
-             The job description
-          */
-          jobDescription : string;
-          /**
-             The job title
-          */
-          jobTitle : string;
-     }
-     /**
-     Represents an instance of a service.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Service {
-          /**
-             The method used
-          */
-          method : IServiceMethod;
-          /**
-             The type of the service
-          */
-          type : IServiceType;
-          /**
-             Enpoint of the service
-          */
-          endpoint : Endpoint;
-          /**
-             The service name
-          */
-          name : string;
-     }
-     /**
-     Structure representing the data of a http request or response header.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Header {
-          /**
-             Value of the header
-          */
-          data : string;
-          /**
-             Name ot the header
-          */
-          name : string;
-     }
-     /**
-     Structure representing the phone data elements of a contact.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class ContactPhone {
-          /**
-             The phone number phoneType
-          */
-          phoneType : ContactPhoneType;
-          /**
-             The phone number
-          */
-          phone : string;
-     }
-     /**
-     Structure representing the data a single geolocation reading.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Geolocation {
-          /**
-             The current device altitude (or Z coordinate). Measured in meters.
-          */
-          altitude : number;
-          /**
-             The Y coordinate (or latitude). Measured in degrees.
-          */
-          latitude : number;
-          /**
-             The X coordinate (or longitude). Measured in degrees.
-          */
-          longitude : number;
-          /**
-             Dilution of precision on the X measurement. Measured in meters.
-          */
-          xDoP : number;
-          /**
-             Dilution of precision on the Y measurement. Measured in meters.
-          */
-          yDoP : number;
-     }
-     /**
-     Structure representing a database reference.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Database {
-          /**
-             Indicates if database was created or needs to be created as Compressed.
-          */
-          compress : boolean;
-          /**
-             Database Name (name of the .db local file).
-          */
-          name : string;
-     }
-     /**
-     Structure representing the email data elements of a contact.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class ContactEmail {
-          /**
-             The type of the email
-          */
-          type : ContactEmailType;
-          /**
-             Email of the Contact
-          */
-          email : string;
-          /**
-             Whether the email is the primary one or not
-          */
-          primary : boolean;
-     }
-     /**
-     Represents a specific user or system locate.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Locale {
-          /**
-             A valid ISO Country Code.
-          */
-          country : string;
-          /**
-             A valid ISO Language Code.
-          */
-          language : string;
-     }
-     /**
-     Structure representing the a physical or logical button on a device.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Button {
-          /**
-             Button type
-          */
-          type : ICapabilitiesButton;
-     }
-     /**
-     Represents a row for a data table.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Row {
-          /**
-             The values of the row.
-          */
-          values : Array<any>;
-     }
-     /**
-     Structure representing the data elements of an email.
-
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
-     */
-     export class Email {
-          /**
-             Array of attatchments
-          */
-          attachmentData : Array<AttachmentData>;
-          /**
-             Array of Email Blind Carbon Copy recipients
-          */
-          bccRecipients : Array<EmailAddress>;
-          /**
-             Array of Email Carbon Copy recipients
-          */
-          ccRecipients : Array<EmailAddress>;
-          /**
-             Message body
-          */
-          messageBody : string;
-          /**
-             Message body mime type
-          */
-          messageBodyMimeType : string;
-          /**
-             Subject of the email
-          */
-          subject : string;
-          /**
-             Array of Email recipients
-          */
-          toRecipients : Array<EmailAddress>;
-     }
-     /**
      Structure representing the data of a http cookie.
 
      @author Carlos Lozano Diez
@@ -688,6 +315,379 @@ be unique for a specific instance of an application on a specific device.
              Cookie is secure (https only)
           */
           secure : boolean;
+     }
+     /**
+     Structure representing the data elements of an email addressee.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class EmailAddress {
+          /**
+             The Email address
+          */
+          address : string;
+     }
+     /**
+     Structure representing the phone data elements of a contact.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class ContactPhone {
+          /**
+             The phone number phoneType
+          */
+          phoneType : ContactPhoneType;
+          /**
+             The phone number
+          */
+          phone : string;
+     }
+     /**
+     Structure representing the personal info data elements of a contact.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class ContactPersonalInfo {
+          /**
+             The title of the Contact
+          */
+          title : ContactPersonalInfoTitle;
+          /**
+             The last name of the Contact
+          */
+          lastName : string;
+          /**
+             The middle name of the Contact if it proceeds
+          */
+          middleName : string;
+          /**
+             The name of the Contact
+          */
+          name : string;
+     }
+     /**
+     Structure representing the a physical or logical button on a device.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class Button {
+          /**
+             Button type
+          */
+          type : ICapabilitiesButton;
+     }
+     /**
+     Structure representing a remote or local service access end-point.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class Endpoint {
+          /**
+             The remote serice host (alias or IP).
+          */
+          host : string;
+          /**
+             The remote service path (to be added to the host and port url).
+          */
+          path : string;
+          /**
+             The remote service accessible port.
+          */
+          port : number;
+          /**
+             The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
+          */
+          proxy : string;
+          /**
+             The remote service scheme.
+          */
+          scheme : string;
+     }
+     /**
+     Represents a data table composed of columns and rows.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class Table {
+          /**
+             Number of columns.
+          */
+          columnCount : number;
+          /**
+             Definition of columns.
+          */
+          columns : Array<Column>;
+          /**
+             Name of the table.
+          */
+          name : string;
+          /**
+             Number of rows.
+          */
+          rowCount : number;
+          /**
+             Rows of the table containing the data.
+          */
+          rows : Array<Row>;
+     }
+     /**
+     Structure representing the data elements of an email.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class Email {
+          /**
+             Array of attatchments
+          */
+          attachmentData : Array<AttachmentData>;
+          /**
+             Array of Email Blind Carbon Copy recipients
+          */
+          bccRecipients : Array<EmailAddress>;
+          /**
+             Array of Email Carbon Copy recipients
+          */
+          ccRecipients : Array<EmailAddress>;
+          /**
+             Message body
+          */
+          messageBody : string;
+          /**
+             Message body mime type
+          */
+          messageBodyMimeType : string;
+          /**
+             Subject of the email
+          */
+          subject : string;
+          /**
+             Array of Email recipients
+          */
+          toRecipients : Array<EmailAddress>;
+     }
+     /**
+     Structure representing the internal unique identifier data elements of a contact.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class ContactUid {
+          /**
+             The id of the Contact
+          */
+          contactId : string;
+     }
+     /**
+     Structure representing the data of a http request or response header.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class Header {
+          /**
+             Value of the header
+          */
+          data : string;
+          /**
+             Name ot the header
+          */
+          name : string;
+     }
+     /**
+     Represents a single secureKey-value pair.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class SecureKeyPair {
+          secureData : string;
+          secureKey : string;
+     }
+     /**
+     Structure representing the data of a single acceleration reading.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class Acceleration {
+          /**
+             Timestamp of the acceleration reading.
+          */
+          timeStamp : number;
+          /**
+             X-axis component of the acceleration.
+          */
+          x : number;
+          /**
+             Y-axis component of the acceleration.
+          */
+          y : number;
+          /**
+             Z-axis component of the acceleration.
+          */
+          z : number;
+     }
+     /**
+     Structure representing the data a single geolocation reading.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class Geolocation {
+          /**
+             The current device altitude (or Z coordinate). Measured in meters.
+          */
+          altitude : number;
+          /**
+             The Y coordinate (or latitude). Measured in degrees.
+          */
+          latitude : number;
+          /**
+             The X coordinate (or longitude). Measured in degrees.
+          */
+          longitude : number;
+          /**
+             Dilution of precision on the X measurement. Measured in meters.
+          */
+          xDoP : number;
+          /**
+             Dilution of precision on the Y measurement. Measured in meters.
+          */
+          yDoP : number;
+     }
+     /**
+     Represents a specific user or system locate.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class Locale {
+          /**
+             A valid ISO Country Code.
+          */
+          country : string;
+          /**
+             A valid ISO Language Code.
+          */
+          language : string;
+     }
+     /**
+     Structure representing the professional info data elements of a contact.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class ContactProfessionalInfo {
+          /**
+             The company of the job
+          */
+          company : string;
+          /**
+             The job description
+          */
+          jobDescription : string;
+          /**
+             The job title
+          */
+          jobTitle : string;
+     }
+     /**
+     Structure representing the email data elements of a contact.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class ContactEmail {
+          /**
+             The type of the email
+          */
+          type : ContactEmailType;
+          /**
+             Email of the Contact
+          */
+          email : string;
+          /**
+             Whether the email is the primary one or not
+          */
+          primary : boolean;
+     }
+     /**
+     Represents a row for a data table.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class Row {
+          /**
+             The values of the row.
+          */
+          values : Array<any>;
+     }
+     /**
+     Structure representing the basic device information.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class DeviceInfo {
+          /**
+             Model of device - equivalent to device release or version.
+          */
+          model : string;
+          /**
+             Name of device - equivalent to brand.
+          */
+          name : string;
+          /**
+             Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+          */
+          uuid : string;
+          /**
+             Vendor of the device hardware.
+          */
+          vendor : string;
+     }
+     /**
+     Structure representing the assigned tags data elements of a contact.
+
+     @author Carlos Lozano Diez
+     @since 1.0
+     @version 1.0
+     */
+     export class ContactTag {
+          /**
+             The value of the Tag
+          */
+          dataValue : string;
+          /**
+             The name of the Tag
+          */
+          name : string;
      }
      /**
      Structure representing the data elements of a contact.
@@ -731,18 +731,17 @@ be unique for a specific instance of an application on a specific device.
           professionalInfo : ContactProfessionalInfo;
      }
      /**
-     Enumeration ContactPersonalInfoTitle
+     Enumeration ContactAddressType
      */
-     export class ContactPersonalInfoTitle {
+     export class ContactAddressType {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Mr = new ContactPersonalInfoTitle("Mr");
-          static Mrs = new ContactPersonalInfoTitle("Mrs");
-          static Ms = new ContactPersonalInfoTitle("Ms");
-          static Dr = new ContactPersonalInfoTitle("Dr");
-          static Unknown = new ContactPersonalInfoTitle("Unknown");
+          static Home = new ContactAddressType("Home");
+          static Work = new ContactAddressType("Work");
+          static Other = new ContactAddressType("Other");
+          static Unknown = new ContactAddressType("Unknown");
 
      }
      /**
@@ -762,49 +761,6 @@ be unique for a specific instance of an application on a specific device.
           static Resuming = new LifecycleState("Resuming");
           static Stopping = new LifecycleState("Stopping");
           static Unknown = new LifecycleState("Unknown");
-
-     }
-     /**
-     Enumeration ContactAddressType
-     */
-     export class ContactAddressType {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Home = new ContactAddressType("Home");
-          static Work = new ContactAddressType("Work");
-          static Other = new ContactAddressType("Other");
-          static Unknown = new ContactAddressType("Unknown");
-
-     }
-     /**
-     Enumeration ContactSocialNetwork
-     */
-     export class ContactSocialNetwork {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Twitter = new ContactSocialNetwork("Twitter");
-          static Facebook = new ContactSocialNetwork("Facebook");
-          static GooglePlus = new ContactSocialNetwork("GooglePlus");
-          static LinkedIn = new ContactSocialNetwork("LinkedIn");
-          static Flickr = new ContactSocialNetwork("Flickr");
-          static Unknown = new ContactSocialNetwork("Unknown");
-
-     }
-     /**
-     Enumeration IServiceProtocolVersion
-     */
-     export class IServiceProtocolVersion {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static HTTP_PROTOCOL_VERSION_1_0 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_0");
-          static HTTP_PROTOCOL_VERSION_1_1 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_1");
-          static Unknown = new IServiceProtocolVersion("Unknown");
 
      }
      /**
@@ -842,6 +798,35 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
+     Enumeration ContactSocialNetwork
+     */
+     export class ContactSocialNetwork {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Twitter = new ContactSocialNetwork("Twitter");
+          static Facebook = new ContactSocialNetwork("Facebook");
+          static GooglePlus = new ContactSocialNetwork("GooglePlus");
+          static LinkedIn = new ContactSocialNetwork("LinkedIn");
+          static Flickr = new ContactSocialNetwork("Flickr");
+          static Unknown = new ContactSocialNetwork("Unknown");
+
+     }
+     /**
+     Enumeration IServiceProtocolVersion
+     */
+     export class IServiceProtocolVersion {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HTTP_PROTOCOL_VERSION_1_0 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_0");
+          static HTTP_PROTOCOL_VERSION_1_1 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_1");
+          static Unknown = new IServiceProtocolVersion("Unknown");
+
+     }
+     /**
      Enumeration ContactPhoneType
      */
      export class ContactPhoneType {
@@ -860,17 +845,18 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-     Enumeration ContactEmailType
+     Enumeration ContactPersonalInfoTitle
      */
-     export class ContactEmailType {
+     export class ContactPersonalInfoTitle {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Personal = new ContactEmailType("Personal");
-          static Work = new ContactEmailType("Work");
-          static Other = new ContactEmailType("Other");
-          static Unknown = new ContactEmailType("Unknown");
+          static Mr = new ContactPersonalInfoTitle("Mr");
+          static Mrs = new ContactPersonalInfoTitle("Mrs");
+          static Ms = new ContactPersonalInfoTitle("Ms");
+          static Dr = new ContactPersonalInfoTitle("Dr");
+          static Unknown = new ContactPersonalInfoTitle("Unknown");
 
      }
      /**
@@ -885,6 +871,20 @@ be unique for a specific instance of an application on a specific device.
           static BackButton = new ICapabilitiesButton("BackButton");
           static OptionButton = new ICapabilitiesButton("OptionButton");
           static Unknown = new ICapabilitiesButton("Unknown");
+
+     }
+     /**
+     Enumeration ContactEmailType
+     */
+     export class ContactEmailType {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Personal = new ContactEmailType("Personal");
+          static Work = new ContactEmailType("Work");
+          static Other = new ContactEmailType("Other");
+          static Unknown = new ContactEmailType("Unknown");
 
      }
 

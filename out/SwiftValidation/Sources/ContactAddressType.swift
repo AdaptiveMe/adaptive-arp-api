@@ -33,4 +33,33 @@ public enum ContactAddressType {
      case Other
      case Unknown
 
+     /**
+     Convert current enum to its string representation value.
+     */
+     public func toString() -> String {
+          switch self {
+               case .Home: return "Home"
+               case .Work: return "Work"
+               case .Other: return "Other"
+               case .Unknown: return "Unknown"
+          }
+     }
+
+     /**
+     Create enum from its string representation value.
+     */
+     public static func toEnum(string:String?) -> ContactAddressType {
+          if let validString = string {
+               switch validString {
+               case "Home": return .Home
+               case "Work": return .Work
+               case "Other": return .Other
+               case "Unknown": return .Unknown
+               default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
 }
