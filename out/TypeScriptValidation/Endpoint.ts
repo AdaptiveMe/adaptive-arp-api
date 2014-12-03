@@ -54,6 +54,23 @@ module Adaptive {
              The remote service scheme.
           */
           scheme : string;
+          /**
+             Constructor used by the implementation
+
+             @param host
+             @param path
+             @param port
+             @param proxy
+             @param scheme
+             @since ARP1.0
+          */
+          constructor(host: string, path: string, port: number, proxy: string, scheme: string) {
+               this.host = host
+               this.path = path
+               this.port = port
+               this.proxy = proxy
+               this.scheme = scheme
+          }
 
      }
 }

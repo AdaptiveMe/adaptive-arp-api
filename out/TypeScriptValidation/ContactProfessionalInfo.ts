@@ -46,6 +46,19 @@ module Adaptive {
              The job title
           */
           jobTitle : string;
+          /**
+             Constructor used by implementation to set the ContactProfessionalInfo.
+
+             @param jobTitle
+             @param jobDescription
+             @param company
+             @since ARP1.0
+          */
+          constructor(jobTitle: string, jobDescription: string, company: string) {
+               this.jobTitle = jobTitle
+               this.jobDescription = jobDescription
+               this.company = company
+          }
 
      }
 }

@@ -38,6 +38,15 @@ module Adaptive {
              The id of the Contact
           */
           contactId : string;
+          /**
+             Constructor used by implementation to set the Contact id.
+
+             @param contactId Internal unique contact id.
+             @since ARP1.0
+          */
+          constructor(contactId: string) {
+               this.contactId = contactId
+          }
 
      }
 }

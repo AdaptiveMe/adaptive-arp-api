@@ -25,63 +25,56 @@ Contributors:
 module Adaptive {
 
      /**
-        Represents the basic information about the operating system.
+        Structure representing the data of a http cookie.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class OSInfo {
+     export class Cookie {
           /**
-             The name of the operating system.
+             Cookie creation timestamp in milliseconds.
+          */
+          creation : number;
+          /**
+             Value of the Cookie
+          */
+          data : string;
+          /**
+             Domain for which the cookie is valid.
+          */
+          domain : string;
+          /**
+             Cookie expiry in milliseconds or -1 for session only.
+          */
+          expiry : number;
+          /**
+             Name ot the cookie
           */
           name : string;
           /**
-             The vendor of the operating system.
+             URI path for which the cookie is valid.
           */
-          vendor : string;
+          path : string;
           /**
-             The version/identifier of the operating system.
+             Scheme of the domain - http/https - for which the cookie is valid.
           */
-          version : string;
-     }
-     /**
-        Structure representing the personal info data elements of a contact.
+          scheme : string;
+          /**
+             Cookie is secure (https only)
+          */
+          secure : boolean;
+          /**
+             Constructor used by the implementation
 
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactPersonalInfo {
-          /**
-             The title of the Contact
+             @param name
+             @param data
+             @since ARP1.0
           */
-          title : ContactPersonalInfoTitle;
-          /**
-             The last name of the Contact
-          */
-          lastName : string;
-          /**
-             The middle name of the Contact if it proceeds
-          */
-          middleName : string;
-          /**
-             The name of the Contact
-          */
-          name : string;
-     }
-     /**
-        Represents a specific application life-cycle stage.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Lifecycle {
-          /**
-             Represent the state of the app
-          */
-          state : LifecycleState;
+          constructor(name: string, data: string) {
+               this.name = name
+               this.data = data
+          }
      }
      /**
         Structure representing a remote or local service access end-point.
@@ -111,47 +104,103 @@ module Adaptive {
              The remote service scheme.
           */
           scheme : string;
+          /**
+             Constructor used by the implementation
+
+             @param host
+             @param path
+             @param port
+             @param proxy
+             @param scheme
+             @since ARP1.0
+          */
+          constructor(host: string, path: string, port: number, proxy: string, scheme: string) {
+               this.host = host
+               this.path = path
+               this.port = port
+               this.proxy = proxy
+               this.scheme = scheme
+          }
      }
      /**
-        Represents a single secureKey-value pair.
+        Structure representing the data a single geolocation reading.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class SecureKeyPair {
-          secureData : string;
-          secureKey : string;
+     export class Geolocation {
+          /**
+             The current device altitude (or Z coordinate). Measured in meters.
+          */
+          altitude : number;
+          /**
+             The Y coordinate (or latitude). Measured in degrees.
+          */
+          latitude : number;
+          /**
+             The X coordinate (or longitude). Measured in degrees.
+          */
+          longitude : number;
+          /**
+             Dilution of precision on the X measurement. Measured in meters.
+          */
+          xDoP : number;
+          /**
+             Dilution of precision on the Y measurement. Measured in meters.
+          */
+          yDoP : number;
+          /**
+             Constructor used by the implementation
+
+             @param latitude
+             @param longitude
+             @param altitude
+             @param xDoP
+             @param yDoP
+             @since ARP1.0
+          */
+          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number) {
+               this.latitude = latitude
+               this.longitude = longitude
+               this.altitude = altitude
+               this.xDoP = xDoP
+               this.yDoP = yDoP
+          }
      }
      /**
-        Structure representing the internal unique identifier data elements of a contact.
+        Structure representing the email data elements of a contact.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class ContactUid {
+     export class ContactEmail {
           /**
-             The id of the Contact
+             The type of the email
           */
-          contactId : string;
-     }
-     /**
-        Structure representing the address data elements of a contact.
+          type : ContactEmailType;
+          /**
+             Email of the Contact
+          */
+          email : string;
+          /**
+             Whether the email is the primary one or not
+          */
+          primary : boolean;
+          /**
+             Constructor used by the implementation
 
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactAddress {
-          /**
-             The address type
+             @param type
+             @param primary
+             @param email
+             @since ARP1.0
           */
-          type : ContactAddressType;
-          /**
-             The Contact address
-          */
-          address : string;
+          constructor(type: ContactEmailType, primary: boolean, email: string) {
+               this.type = type
+               this.primary = primary
+               this.email = email
+          }
      }
      /**
         Structure representing the basic device information.
@@ -178,74 +227,121 @@ be unique for a specific instance of an application on a specific device.
              Vendor of the device hardware.
           */
           vendor : string;
+          /**
+             Constructor for the implementation of the platform.
+
+             @param name   or brand of the device.
+             @param model  of the device.
+             @param vendor of the device.
+             @param uuid   unique* identifier (* platform dependent).
+          */
+          constructor(name: string, model: string, vendor: string, uuid: string) {
+               this.name = name
+               this.model = model
+               this.vendor = vendor
+               this.uuid = uuid
+          }
      }
      /**
-        Structure representing the data of a single acceleration reading.
+        Structure representing a database reference.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class Acceleration {
+     export class Database {
           /**
-             Timestamp of the acceleration reading.
+             Indicates if database was created or needs to be created as Compressed.
           */
-          timeStamp : number;
+          compress : boolean;
           /**
-             X-axis component of the acceleration.
+             Database Name (name of the .db local file).
           */
-          x : number;
+          name : string;
           /**
-             Y-axis component of the acceleration.
+             Constructor using fields.
+
+             @param name     Name of the Table.
+             @param compress Compress enbaled or not.
+             @author Ferran Vila Conesa
+             @since ARP1.0
           */
-          y : number;
-          /**
-             Z-axis component of the acceleration.
-          */
-          z : number;
+          constructor(name: string, compress: boolean) {
+               this.name = name
+               this.compress = compress
+          }
      }
      /**
-        Structure representing the social data elements of a contact.
+        Structure representing the internal unique identifier data elements of a contact.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class ContactSocial {
+     export class ContactUid {
           /**
-             The social network
+             The id of the Contact
           */
-          socialNetwork : ContactSocialNetwork;
+          contactId : string;
           /**
-             The profileUrl
+             Constructor used by implementation to set the Contact id.
+
+             @param contactId Internal unique contact id.
+             @since ARP1.0
           */
-          profileUrl : string;
+          constructor(contactId: string) {
+               this.contactId = contactId
+          }
      }
      /**
-        Structure representing the data elements of an email addressee.
+        Structure representing the assigned tags data elements of a contact.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class EmailAddress {
+     export class ContactTag {
           /**
-             The Email address
+             The value of the Tag
           */
-          address : string;
+          dataValue : string;
+          /**
+             The name of the Tag
+          */
+          name : string;
+          /**
+             Constructor used by the implementation
+
+             @param dataValue
+             @param name
+             @since ARP1.0
+          */
+          constructor(name: string, dataValue: string) {
+               this.name = name
+               this.dataValue = dataValue
+          }
      }
      /**
-        Structure representing the website data elements of a contact.
+        Represents a single secureKey-value pair.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class ContactWebsite {
+     export class SecureKeyPair {
+          secureData : string;
+          secureKey : string;
           /**
-             The url of the website
+             Constructor with parameters
+
+             @param secureKey   name of the keypair
+             @param secureData value of the keypair
+             @since ARP1.0
           */
-          url : string;
+          constructor(secureKey: string, secureData: string) {
+               this.secureKey = secureKey
+               this.secureData = secureData
+          }
      }
      /**
         Structure representing the binary attachment data.
@@ -275,77 +371,208 @@ be unique for a specific instance of an application on a specific device.
              The relative path where the contents for the attachment file could be located.
           */
           referenceUrl : string;
+          /**
+             Constructor used by the implementation
+
+             @param data         raw data of the file attachment
+             @param dataSize     size of the file attachment
+             @param fileName     name of the file attachment
+             @param mimeType     mime type of the file attachment
+             @param referenceUrl relative url of the file attachment
+             @since ARP1.0
+          */
+          constructor(data: Array<number>, dataSize: number, fileName: string, mimeType: string, referenceUrl: string) {
+               this.data = data
+               this.dataSize = dataSize
+               this.fileName = fileName
+               this.mimeType = mimeType
+               this.referenceUrl = referenceUrl
+          }
      }
      /**
-        Represents a local or remote service response.
+        Represents a specific application life-cycle stage.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class ServiceResponse {
+     export class Lifecycle {
           /**
-             Request/Response data content (plain text).
+             Represent the state of the app
           */
-          content : string;
+          state : LifecycleState;
           /**
-             The byte[] representing the binary Content.
+             Constructor used by the implementation
+
+             @param state
+             @since ARP1.0
           */
-          contentBinary : Array<number>;
-          /**
-             The length in bytes for the binary Content.
-          */
-          contentBinaryLength : number;
-          /**
-             Encoding of the binary payload - by default assumed to be UTF8.
-          */
-          contentEncoding : string;
-          /**
-             The length in bytes for the Content field.
-          */
-          contentLength : string;
-          /**
-             The request/response content type (MIME TYPE).
-          */
-          contentType : string;
-          /**
-             The headers array (name,value pairs) to be included on the I/O service request.
-          */
-          headers : Array<Header>;
-          /**
-             The session context for the Request/Response.
-          */
-          session : ISession;
+          constructor(state: LifecycleState) {
+               this.state = state
+          }
      }
      /**
-        Structure representing the column specification of a data table.
+        Represents a specific user or system locate.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class Column {
+     export class Locale {
           /**
-             Name of the column
+             A valid ISO Country Code.
+          */
+          country : string;
+          /**
+             A valid ISO Language Code.
+          */
+          language : string;
+          /**
+             Constructor used by the implementation
+
+             @param country
+             @param language
+             @since ARP1.0
+          */
+          constructor(language: string, country: string) {
+               this.language = language
+               this.country = country
+          }
+     }
+     /**
+        Structure representing the personal info data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactPersonalInfo {
+          /**
+             The title of the Contact
+          */
+          title : ContactPersonalInfoTitle;
+          /**
+             The last name of the Contact
+          */
+          lastName : string;
+          /**
+             The middle name of the Contact if it proceeds
+          */
+          middleName : string;
+          /**
+             The name of the Contact
           */
           name : string;
+          /**
+             The Constructor used by the implementation
+
+             @param name       of the Contact
+             @param middleName of the Contact
+             @param lastName   of the Contact
+             @param title      of the Contact
+             @since ARP1.0
+          */
+          constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitle) {
+               this.name = name
+               this.middleName = middleName
+               this.lastName = lastName
+               this.title = title
+          }
      }
      /**
-        Structure representing the assigned tags data elements of a contact.
+        Structure representing the professional info data elements of a contact.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class ContactTag {
+     export class ContactProfessionalInfo {
           /**
-             The value of the Tag
+             The company of the job
           */
-          dataValue : string;
+          company : string;
           /**
-             The name of the Tag
+             The job description
+          */
+          jobDescription : string;
+          /**
+             The job title
+          */
+          jobTitle : string;
+          /**
+             Constructor used by implementation to set the ContactProfessionalInfo.
+
+             @param jobTitle
+             @param jobDescription
+             @param company
+             @since ARP1.0
+          */
+          constructor(jobTitle: string, jobDescription: string, company: string) {
+               this.jobTitle = jobTitle
+               this.jobDescription = jobDescription
+               this.company = company
+          }
+     }
+     /**
+        Represents a row for a data table.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Row {
+          /**
+             The values of the row.
+          */
+          values : Array<any>;
+          /**
+             Constructor for implementation using.
+
+             @param values The values of the row
+          */
+          constructor(values: Array<any>) {
+               this.values = values
+          }
+     }
+     /**
+        Represents an instance of a service.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Service {
+          /**
+             The method used
+          */
+          method : IServiceMethod;
+          /**
+             The type of the service
+          */
+          type : IServiceType;
+          /**
+             Enpoint of the service
+          */
+          endpoint : Endpoint;
+          /**
+             The service name
           */
           name : string;
+          /**
+             Constructor used by the implementation
+
+             @param endpoint
+             @param name
+             @param method
+             @param type
+             @since ARP1.0
+          */
+          constructor(endpoint: Endpoint, name: string, method: IServiceMethod, type: IServiceType) {
+               this.endpoint = endpoint
+               this.name = name
+               this.method = method
+               this.type = type
+          }
      }
      /**
         Represents a local or remote service request.
@@ -391,81 +618,113 @@ be unique for a specific instance of an application on a specific device.
              The session context for the Request/Response.
           */
           session : ISession;
+          /**
+             Contructor used by the implementation
+
+             @param content
+             @param contentType
+             @param contentLength
+             @param rawContent
+             @param headers
+             @param method
+             @param protocolVersion
+             @param session
+             @param contentEncoding
+             @since ARP1.0
+          */
+          constructor(content: string, contentType: string, contentLength: number, rawContent: Array<number>, headers: Array<Header>, method: string, protocolVersion: IServiceProtocolVersion, session: ISession, contentEncoding: string) {
+               this.content = content
+               this.contentType = contentType
+               this.contentLength = contentLength
+               this.rawContent = rawContent
+               this.headers = headers
+               this.method = method
+               this.protocolVersion = protocolVersion
+               this.session = session
+               this.contentEncoding = contentEncoding
+          }
      }
      /**
-        Represents a data table composed of columns and rows.
+        Structure representing the column specification of a data table.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class Table {
+     export class Column {
           /**
-             Number of columns.
-          */
-          columnCount : number;
-          /**
-             Definition of columns.
-          */
-          columns : Array<Column>;
-          /**
-             Name of the table.
+             Name of the column
           */
           name : string;
           /**
-             Number of rows.
+             Constructor for implementation using.
+
+             @param name Name of the column
           */
-          rowCount : number;
-          /**
-             Rows of the table containing the data.
-          */
-          rows : Array<Row>;
+          constructor(name: string) {
+               this.name = name
+          }
      }
      /**
-        Structure representing the professional info data elements of a contact.
+        Structure representing the social data elements of a contact.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class ContactProfessionalInfo {
+     export class ContactSocial {
           /**
-             The company of the job
+             The social network
           */
-          company : string;
+          socialNetwork : ContactSocialNetwork;
           /**
-             The job description
+             The profileUrl
           */
-          jobDescription : string;
+          profileUrl : string;
           /**
-             The job title
+             Constructor used by the implementation
+
+             @param socialNetwork of the profile
+             @param profileUrl    of the user
+             @since ARP1.0
           */
-          jobTitle : string;
+          constructor(socialNetwork: ContactSocialNetwork, profileUrl: string) {
+               this.socialNetwork = socialNetwork
+               this.profileUrl = profileUrl
+          }
      }
      /**
-        Represents an instance of a service.
+        Represents the basic information about the operating system.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class Service {
+     export class OSInfo {
           /**
-             The method used
-          */
-          method : IServiceMethod;
-          /**
-             The type of the service
-          */
-          type : IServiceType;
-          /**
-             Enpoint of the service
-          */
-          endpoint : Endpoint;
-          /**
-             The service name
+             The name of the operating system.
           */
           name : string;
+          /**
+             The vendor of the operating system.
+          */
+          vendor : string;
+          /**
+             The version/identifier of the operating system.
+          */
+          version : string;
+          /**
+             Constructor used by implementation to set the OS information.
+
+             @param name    of the OS.
+             @param version of the OS.
+             @param vendor  of the OS.
+          */
+          constructor(name: string, version: string, vendor: string) {
+               this.name = name
+               this.version = version
+               this.vendor = vendor
+          }
      }
      /**
         Structure representing the data of a http request or response header.
@@ -483,6 +742,61 @@ be unique for a specific instance of an application on a specific device.
              Name ot the header
           */
           name : string;
+          /**
+             Constructor used by the implementation
+
+             @param name
+             @param data
+             @since ARP1.0
+          */
+          constructor(name: string, data: string) {
+               this.name = name
+               this.data = data
+          }
+     }
+     /**
+        Structure representing the data elements of an email addressee.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class EmailAddress {
+          /**
+             The Email address
+          */
+          address : string;
+          /**
+             Constructor used by implementation
+
+             @param address
+             @since ARP1.0
+          */
+          constructor(address: string) {
+               this.address = address
+          }
+     }
+     /**
+        Structure representing the website data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactWebsite {
+          /**
+             The url of the website
+          */
+          url : string;
+          /**
+             Constructor used by the implementation
+
+             @param url
+             @since ARP1.0
+          */
+          constructor(url: string) {
+               this.url = url
+          }
      }
      /**
         Structure representing the phone data elements of a contact.
@@ -500,116 +814,17 @@ be unique for a specific instance of an application on a specific device.
              The phone number
           */
           phone : string;
-     }
-     /**
-        Structure representing the data a single geolocation reading.
+          /**
+             Constructor used by implementation to set the contact Phone
 
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Geolocation {
-          /**
-             The current device altitude (or Z coordinate). Measured in meters.
+             @param phone
+             @param phoneType
+             @since ARP1.0
           */
-          altitude : number;
-          /**
-             The Y coordinate (or latitude). Measured in degrees.
-          */
-          latitude : number;
-          /**
-             The X coordinate (or longitude). Measured in degrees.
-          */
-          longitude : number;
-          /**
-             Dilution of precision on the X measurement. Measured in meters.
-          */
-          xDoP : number;
-          /**
-             Dilution of precision on the Y measurement. Measured in meters.
-          */
-          yDoP : number;
-     }
-     /**
-        Structure representing a database reference.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Database {
-          /**
-             Indicates if database was created or needs to be created as Compressed.
-          */
-          compress : boolean;
-          /**
-             Database Name (name of the .db local file).
-          */
-          name : string;
-     }
-     /**
-        Structure representing the email data elements of a contact.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactEmail {
-          /**
-             The type of the email
-          */
-          type : ContactEmailType;
-          /**
-             Email of the Contact
-          */
-          email : string;
-          /**
-             Whether the email is the primary one or not
-          */
-          primary : boolean;
-     }
-     /**
-        Represents a specific user or system locate.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Locale {
-          /**
-             A valid ISO Country Code.
-          */
-          country : string;
-          /**
-             A valid ISO Language Code.
-          */
-          language : string;
-     }
-     /**
-        Structure representing the a physical or logical button on a device.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Button {
-          /**
-             Button type
-          */
-          type : ICapabilitiesButton;
-     }
-     /**
-        Represents a row for a data table.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Row {
-          /**
-             The values of the row.
-          */
-          values : Array<any>;
+          constructor(phone: string, phoneType: ContactPhoneType) {
+               this.phone = phone
+               this.phoneType = phoneType
+          }
      }
      /**
         Structure representing the data elements of an email.
@@ -647,47 +862,217 @@ be unique for a specific instance of an application on a specific device.
              Array of Email recipients
           */
           toRecipients : Array<EmailAddress>;
+          /**
+             Constructor used by the implementation
+
+             @param toRecipients        array of recipients
+             @param ccRecipients        array of cc recipients
+             @param bccRecipients       array of bcc recipients
+             @param attachmentData      array of attatchments
+             @param messageBody         body of the email
+             @param messageBodyMimeType mime type of the body
+             @param subject             of the email
+             @since ARP1.0
+          */
+          constructor(toRecipients: Array<EmailAddress>, ccRecipients: Array<EmailAddress>, bccRecipients: Array<EmailAddress>, attachmentData: Array<AttachmentData>, messageBody: string, messageBodyMimeType: string, subject: string) {
+               this.toRecipients = toRecipients
+               this.ccRecipients = ccRecipients
+               this.bccRecipients = bccRecipients
+               this.attachmentData = attachmentData
+               this.messageBody = messageBody
+               this.messageBodyMimeType = messageBodyMimeType
+               this.subject = subject
+          }
      }
      /**
-        Structure representing the data of a http cookie.
+        Structure representing the a physical or logical button on a device.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export class Cookie {
+     export class Button {
           /**
-             Cookie creation timestamp in milliseconds.
+             Button type
           */
-          creation : number;
+          type : ICapabilitiesButton;
           /**
-             Value of the Cookie
+             Constructor used by the implementation
+
+             @param type Button type.
+             @since ARP1.0
           */
-          data : string;
+          constructor(type: ICapabilitiesButton) {
+               this.type = type
+          }
+     }
+     /**
+        Structure representing the address data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactAddress {
           /**
-             Domain for which the cookie is valid.
+             The address type
           */
-          domain : string;
+          type : ContactAddressType;
           /**
-             Cookie expiry in milliseconds or -1 for session only.
+             The Contact address
           */
-          expiry : number;
+          address : string;
           /**
-             Name ot the cookie
+             Constructor used by the implementation
+
+             @param address Address data.
+             @param type    Address type.
+             @since ARP1.0
+          */
+          constructor(address: string, type: ContactAddressType) {
+               this.address = address
+               this.type = type
+          }
+     }
+     /**
+        Represents a data table composed of columns and rows.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Table {
+          /**
+             Number of columns.
+          */
+          columnCount : number;
+          /**
+             Definition of columns.
+          */
+          columns : Array<Column>;
+          /**
+             Name of the table.
           */
           name : string;
           /**
-             URI path for which the cookie is valid.
+             Number of rows.
           */
-          path : string;
+          rowCount : number;
           /**
-             Scheme of the domain - http/https - for which the cookie is valid.
+             Rows of the table containing the data.
           */
-          scheme : string;
+          rows : Array<Row>;
           /**
-             Cookie is secure (https only)
+             Constructor by default
+
+             @param name The name of the table
           */
-          secure : boolean;
+          constructor(name: string) {
+               this.name = name
+          }
+     }
+     /**
+        Represents a local or remote service response.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ServiceResponse {
+          /**
+             Request/Response data content (plain text).
+          */
+          content : string;
+          /**
+             The byte[] representing the binary Content.
+          */
+          contentBinary : Array<number>;
+          /**
+             The length in bytes for the binary Content.
+          */
+          contentBinaryLength : number;
+          /**
+             Encoding of the binary payload - by default assumed to be UTF8.
+          */
+          contentEncoding : string;
+          /**
+             The length in bytes for the Content field.
+          */
+          contentLength : string;
+          /**
+             The request/response content type (MIME TYPE).
+          */
+          contentType : string;
+          /**
+             The headers array (name,value pairs) to be included on the I/O service request.
+          */
+          headers : Array<Header>;
+          /**
+             The session context for the Request/Response.
+          */
+          session : ISession;
+          /**
+             Constructor used by the implementation
+
+             @param content
+             @param contentType
+             @param contentLength
+             @param contentBinary
+             @param contentBinaryLength
+             @param headers
+             @param session
+             @param contentEncoding
+             @since ARP1.0
+          */
+          constructor(content: string, contentType: string, contentLength: string, contentBinary: Array<number>, contentBinaryLength: number, headers: Array<Header>, session: ISession, contentEncoding: string) {
+               this.content = content
+               this.contentType = contentType
+               this.contentLength = contentLength
+               this.contentBinary = contentBinary
+               this.contentBinaryLength = contentBinaryLength
+               this.headers = headers
+               this.session = session
+               this.contentEncoding = contentEncoding
+          }
+     }
+     /**
+        Structure representing the data of a single acceleration reading.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Acceleration {
+          /**
+             Timestamp of the acceleration reading.
+          */
+          timeStamp : number;
+          /**
+             X-axis component of the acceleration.
+          */
+          x : number;
+          /**
+             Y-axis component of the acceleration.
+          */
+          y : number;
+          /**
+             Z-axis component of the acceleration.
+          */
+          z : number;
+          /**
+             Constructor.
+             @param x X Coordinate
+             @param y Y Coordinate
+             @param z Z Coordinate
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          constructor(x: number, y: number, z: number, timeStamp: number) {
+               this.x = x
+               this.y = y
+               this.z = z
+               this.timeStamp = timeStamp
+          }
      }
      /**
         Structure representing the data elements of a contact.
@@ -729,20 +1114,28 @@ be unique for a specific instance of an application on a specific device.
              The professional info from the contact
           */
           professionalInfo : ContactProfessionalInfo;
+          /**
+             Constructor used by implementation to set the Contact.
+
+             @param contactId of the Contact
+             @since ARP1.0
+          */
+          constructor(contactId: string) {
+               this.contactId = contactId
+          }
      }
      /**
-        Enumeration ContactPersonalInfoTitle
+        Enumeration ContactEmailType
      */
-     export class ContactPersonalInfoTitle {
+     export class ContactEmailType {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Mr = new ContactPersonalInfoTitle("Mr");
-          static Mrs = new ContactPersonalInfoTitle("Mrs");
-          static Ms = new ContactPersonalInfoTitle("Ms");
-          static Dr = new ContactPersonalInfoTitle("Dr");
-          static Unknown = new ContactPersonalInfoTitle("Unknown");
+          static Personal = new ContactEmailType("Personal");
+          static Work = new ContactEmailType("Work");
+          static Other = new ContactEmailType("Other");
+          static Unknown = new ContactEmailType("Unknown");
 
      }
      /**
@@ -765,46 +1158,18 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-        Enumeration ContactAddressType
+        Enumeration ContactPersonalInfoTitle
      */
-     export class ContactAddressType {
+     export class ContactPersonalInfoTitle {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Home = new ContactAddressType("Home");
-          static Work = new ContactAddressType("Work");
-          static Other = new ContactAddressType("Other");
-          static Unknown = new ContactAddressType("Unknown");
-
-     }
-     /**
-        Enumeration ContactSocialNetwork
-     */
-     export class ContactSocialNetwork {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Twitter = new ContactSocialNetwork("Twitter");
-          static Facebook = new ContactSocialNetwork("Facebook");
-          static GooglePlus = new ContactSocialNetwork("GooglePlus");
-          static LinkedIn = new ContactSocialNetwork("LinkedIn");
-          static Flickr = new ContactSocialNetwork("Flickr");
-          static Unknown = new ContactSocialNetwork("Unknown");
-
-     }
-     /**
-        Enumeration IServiceProtocolVersion
-     */
-     export class IServiceProtocolVersion {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static HTTP_PROTOCOL_VERSION_1_0 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_0");
-          static HTTP_PROTOCOL_VERSION_1_1 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_1");
-          static Unknown = new IServiceProtocolVersion("Unknown");
+          static Mr = new ContactPersonalInfoTitle("Mr");
+          static Mrs = new ContactPersonalInfoTitle("Mrs");
+          static Ms = new ContactPersonalInfoTitle("Ms");
+          static Dr = new ContactPersonalInfoTitle("Dr");
+          static Unknown = new ContactPersonalInfoTitle("Unknown");
 
      }
      /**
@@ -842,6 +1207,35 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
+        Enumeration IServiceProtocolVersion
+     */
+     export class IServiceProtocolVersion {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HTTP_PROTOCOL_VERSION_1_0 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_0");
+          static HTTP_PROTOCOL_VERSION_1_1 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_1");
+          static Unknown = new IServiceProtocolVersion("Unknown");
+
+     }
+     /**
+        Enumeration ContactSocialNetwork
+     */
+     export class ContactSocialNetwork {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Twitter = new ContactSocialNetwork("Twitter");
+          static Facebook = new ContactSocialNetwork("Facebook");
+          static GooglePlus = new ContactSocialNetwork("GooglePlus");
+          static LinkedIn = new ContactSocialNetwork("LinkedIn");
+          static Flickr = new ContactSocialNetwork("Flickr");
+          static Unknown = new ContactSocialNetwork("Unknown");
+
+     }
+     /**
         Enumeration ContactPhoneType
      */
      export class ContactPhoneType {
@@ -860,20 +1254,6 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-        Enumeration ContactEmailType
-     */
-     export class ContactEmailType {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Personal = new ContactEmailType("Personal");
-          static Work = new ContactEmailType("Work");
-          static Other = new ContactEmailType("Other");
-          static Unknown = new ContactEmailType("Unknown");
-
-     }
-     /**
         Enumeration ICapabilitiesButton
      */
      export class ICapabilitiesButton {
@@ -885,6 +1265,20 @@ be unique for a specific instance of an application on a specific device.
           static BackButton = new ICapabilitiesButton("BackButton");
           static OptionButton = new ICapabilitiesButton("OptionButton");
           static Unknown = new ICapabilitiesButton("Unknown");
+
+     }
+     /**
+        Enumeration ContactAddressType
+     */
+     export class ContactAddressType {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Home = new ContactAddressType("Home");
+          static Work = new ContactAddressType("Work");
+          static Other = new ContactAddressType("Other");
+          static Unknown = new ContactAddressType("Unknown");
 
      }
 

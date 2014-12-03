@@ -42,6 +42,17 @@ module Adaptive {
              Name ot the header
           */
           name : string;
+          /**
+             Constructor used by the implementation
+
+             @param name
+             @param data
+             @since ARP1.0
+          */
+          constructor(name: string, data: string) {
+               this.name = name
+               this.data = data
+          }
 
      }
 }

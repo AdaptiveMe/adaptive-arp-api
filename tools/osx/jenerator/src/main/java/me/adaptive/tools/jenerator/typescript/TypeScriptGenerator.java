@@ -36,6 +36,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -63,7 +64,59 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void declareConstructors(String simpleName, Class clazz, List<Constructor> javaConstructors, List<JavaConstructor> docConstructors) {
+        // TS can only have one constructor - pick most complete convenience constructor.
+        int selectedIndex = 0;
+        int selectedCount = 0;
+        for (int i = 0; i < javaConstructors.size(); i++) {
+            Constructor constructor = javaConstructors.get(i);
+            if (constructor.getParameterCount() > selectedCount) {
+                selectedCount = constructor.getParameterCount();
+                selectedIndex = i;
+            }
+        }
+        Constructor c = javaConstructors.get(selectedIndex);
+        JavaConstructor d = docConstructors.get(selectedIndex);
 
+        startComment(10);
+        startCommentGlobal(10);
+        if (d.getComment() != null && d.getComment().trim().length() > 0) {
+            println(13, d.getComment());
+            printlnGlobal(13, d.getComment());
+        } else {
+            println(13, "Constructor.");
+            printGlobal(13, "Constructor.");
+        }
+        if (d.getTags().size() > 0) {
+            println();
+            printlnGlobal();
+        }
+        for (DocletTag tag : d.getTags()) {
+            println(13, "@" + tag.getName() + " " + tag.getValue());
+            printlnGlobal(13, "@" + tag.getName() + " " + tag.getValue());
+        }
+        endComment(10);
+        endCommentGlobal(10);
+
+        print(10, "constructor(");
+        printGlobal(10, "constructor(");
+        for (int i = 0; i < c.getParameterCount(); i++) {
+            Parameter p = c.getParameters()[i];
+            print(p.getName() + ": " + convertJavaToNativeType(p.getType()));
+            printGlobal(0,p.getName() + ": " + convertJavaToNativeType(p.getType()));
+            if (i < c.getParameterCount() - 1) {
+                print(", ");
+                printGlobal(0,", ");
+            }
+        }
+        println(") {");
+        printlnGlobal(0,") {");
+        for (int i = 0; i < c.getParameterCount(); i++) {
+            Parameter p = c.getParameters()[i];
+            println(15, "this." + p.getName() + " = " + p.getName());
+            printlnGlobal(15, "this." + p.getName() + " = " + p.getName());
+        }
+        println(10, "}");
+        printlnGlobal(10, "}");
     }
 
     @Override

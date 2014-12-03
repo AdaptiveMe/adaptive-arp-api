@@ -74,6 +74,31 @@ module Adaptive {
              The session context for the Request/Response.
           */
           session : ISession;
+          /**
+             Contructor used by the implementation
+
+             @param content
+             @param contentType
+             @param contentLength
+             @param rawContent
+             @param headers
+             @param method
+             @param protocolVersion
+             @param session
+             @param contentEncoding
+             @since ARP1.0
+          */
+          constructor(content: string, contentType: string, contentLength: number, rawContent: Array<number>, headers: Array<Header>, method: string, protocolVersion: IServiceProtocolVersion, session: ISession, contentEncoding: string) {
+               this.content = content
+               this.contentType = contentType
+               this.contentLength = contentLength
+               this.rawContent = rawContent
+               this.headers = headers
+               this.method = method
+               this.protocolVersion = protocolVersion
+               this.session = session
+               this.contentEncoding = contentEncoding
+          }
 
      }
 }

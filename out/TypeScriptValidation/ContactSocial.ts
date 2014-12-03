@@ -44,6 +44,17 @@ module Adaptive {
              The profileUrl
           */
           profileUrl : string;
+          /**
+             Constructor used by the implementation
+
+             @param socialNetwork of the profile
+             @param profileUrl    of the user
+             @since ARP1.0
+          */
+          constructor(socialNetwork: ContactSocialNetwork, profileUrl: string) {
+               this.socialNetwork = socialNetwork
+               this.profileUrl = profileUrl
+          }
 
      }
 }

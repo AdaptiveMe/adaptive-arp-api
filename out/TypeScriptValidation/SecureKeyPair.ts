@@ -36,6 +36,17 @@ module Adaptive {
 
           secureData : string;
           secureKey : string;
+          /**
+             Constructor with parameters
+
+             @param secureKey   name of the keypair
+             @param secureData value of the keypair
+             @since ARP1.0
+          */
+          constructor(secureKey: string, secureData: string) {
+               this.secureKey = secureKey
+               this.secureData = secureData
+          }
 
      }
 }

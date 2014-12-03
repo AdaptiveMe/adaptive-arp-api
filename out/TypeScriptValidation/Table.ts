@@ -57,6 +57,14 @@ module Adaptive {
              Rows of the table containing the data.
           */
           rows : Array<Row>;
+          /**
+             Constructor by default
+
+             @param name The name of the table
+          */
+          constructor(name: string) {
+               this.name = name
+          }
 
      }
 }

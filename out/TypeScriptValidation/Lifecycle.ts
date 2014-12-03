@@ -40,6 +40,15 @@ module Adaptive {
              Represent the state of the app
           */
           state : LifecycleState;
+          /**
+             Constructor used by the implementation
+
+             @param state
+             @since ARP1.0
+          */
+          constructor(state: LifecycleState) {
+               this.state = state
+          }
 
      }
 }

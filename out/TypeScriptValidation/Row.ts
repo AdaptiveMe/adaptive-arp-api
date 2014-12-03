@@ -38,6 +38,14 @@ module Adaptive {
              The values of the row.
           */
           values : Array<any>;
+          /**
+             Constructor for implementation using.
+
+             @param values The values of the row
+          */
+          constructor(values: Array<any>) {
+               this.values = values
+          }
 
      }
 }

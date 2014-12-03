@@ -42,6 +42,17 @@ module Adaptive {
              The name of the Tag
           */
           name : string;
+          /**
+             Constructor used by the implementation
+
+             @param dataValue
+             @param name
+             @since ARP1.0
+          */
+          constructor(name: string, dataValue: string) {
+               this.name = name
+               this.dataValue = dataValue
+          }
 
      }
 }

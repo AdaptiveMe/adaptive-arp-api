@@ -50,6 +50,21 @@ module Adaptive {
              Z-axis component of the acceleration.
           */
           z : number;
+          /**
+             Constructor.
+
+             @param x X Coordinate
+             @param y Y Coordinate
+             @param z Z Coordinate
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          constructor(x: number, y: number, z: number, timeStamp: number) {
+               this.x = x
+               this.y = y
+               this.z = z
+               this.timeStamp = timeStamp
+          }
 
      }
 }

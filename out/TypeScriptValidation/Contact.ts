@@ -76,6 +76,15 @@ module Adaptive {
              The professional info from the contact
           */
           professionalInfo : ContactProfessionalInfo;
+          /**
+             Constructor used by implementation to set the Contact.
+
+             @param contactId of the Contact
+             @since ARP1.0
+          */
+          constructor(contactId: string) {
+               this.contactId = contactId
+          }
 
      }
 }

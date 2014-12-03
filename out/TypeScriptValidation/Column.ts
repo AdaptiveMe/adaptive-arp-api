@@ -38,6 +38,14 @@ module Adaptive {
              Name of the column
           */
           name : string;
+          /**
+             Constructor for implementation using.
+
+             @param name Name of the column
+          */
+          constructor(name: string) {
+               this.name = name
+          }
 
      }
 }

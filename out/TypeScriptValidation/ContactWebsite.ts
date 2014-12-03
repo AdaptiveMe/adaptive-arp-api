@@ -38,6 +38,15 @@ module Adaptive {
              The url of the website
           */
           url : string;
+          /**
+             Constructor used by the implementation
+
+             @param url
+             @since ARP1.0
+          */
+          constructor(url: string) {
+               this.url = url
+          }
 
      }
 }

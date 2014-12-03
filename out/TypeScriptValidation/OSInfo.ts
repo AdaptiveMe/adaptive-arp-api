@@ -46,6 +46,18 @@ module Adaptive {
              The version/identifier of the operating system.
           */
           version : string;
+          /**
+             Constructor used by implementation to set the OS information.
+
+             @param name    of the OS.
+             @param version of the OS.
+             @param vendor  of the OS.
+          */
+          constructor(name: string, version: string, vendor: string) {
+               this.name = name
+               this.version = version
+               this.vendor = vendor
+          }
 
      }
 }

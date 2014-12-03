@@ -65,6 +65,27 @@ module Adaptive {
              Array of Email recipients
           */
           toRecipients : Array<EmailAddress>;
+          /**
+             Constructor used by the implementation
+
+             @param toRecipients        array of recipients
+             @param ccRecipients        array of cc recipients
+             @param bccRecipients       array of bcc recipients
+             @param attachmentData      array of attatchments
+             @param messageBody         body of the email
+             @param messageBodyMimeType mime type of the body
+             @param subject             of the email
+             @since ARP1.0
+          */
+          constructor(toRecipients: Array<EmailAddress>, ccRecipients: Array<EmailAddress>, bccRecipients: Array<EmailAddress>, attachmentData: Array<AttachmentData>, messageBody: string, messageBodyMimeType: string, subject: string) {
+               this.toRecipients = toRecipients
+               this.ccRecipients = ccRecipients
+               this.bccRecipients = bccRecipients
+               this.attachmentData = attachmentData
+               this.messageBody = messageBody
+               this.messageBodyMimeType = messageBodyMimeType
+               this.subject = subject
+          }
 
      }
 }

@@ -54,6 +54,23 @@ module Adaptive {
              Dilution of precision on the Y measurement. Measured in meters.
           */
           yDoP : number;
+          /**
+             Constructor used by the implementation
+
+             @param latitude
+             @param longitude
+             @param altitude
+             @param xDoP
+             @param yDoP
+             @since ARP1.0
+          */
+          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number) {
+               this.latitude = latitude
+               this.longitude = longitude
+               this.altitude = altitude
+               this.xDoP = xDoP
+               this.yDoP = yDoP
+          }
 
      }
 }

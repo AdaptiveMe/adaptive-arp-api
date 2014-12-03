@@ -51,6 +51,20 @@ be unique for a specific instance of an application on a specific device.
              Vendor of the device hardware.
           */
           vendor : string;
+          /**
+             Constructor for the implementation of the platform.
+
+             @param name   or brand of the device.
+             @param model  of the device.
+             @param vendor of the device.
+             @param uuid   unique* identifier (* platform dependent).
+          */
+          constructor(name: string, model: string, vendor: string, uuid: string) {
+               this.name = name
+               this.model = model
+               this.vendor = vendor
+               this.uuid = uuid
+          }
 
      }
 }
