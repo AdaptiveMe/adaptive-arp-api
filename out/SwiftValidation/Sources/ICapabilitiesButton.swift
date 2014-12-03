@@ -24,7 +24,7 @@ Contributors:
 */
 
 /**
-Enumeration ICapabilitiesButton
+   Enumeration ICapabilitiesButton
 */
 public enum ICapabilitiesButton {
 

@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Represents the basic information about the operating system.
+   Represents the basic information about the operating system.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class OSInfo : NSObject {
 
@@ -44,6 +44,26 @@ public class OSInfo : NSObject {
         The version/identifier of the operating system.
      */
      var version : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by implementation to set the OS information.
+
+        @param name    of the OS.
+        @param version of the OS.
+        @param vendor  of the OS.
+     */
+     public convenience init(name: String, version: String, vendor: String) {
+          self.init()
+          self.name = name
+          self.version = version
+          self.vendor = vendor
+     }
 
 }
 

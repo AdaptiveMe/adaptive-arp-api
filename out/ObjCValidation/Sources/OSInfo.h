@@ -47,6 +47,20 @@ Represents the basic information about the operating system.
      */
      @property NSString *version;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by implementation to set the OS information.
+
+        @param name    of the OS.
+        @param version of the OS.
+        @param vendor  of the OS.
+     */
+     - (id) initWithNameVersionVendor:(NSString*)name version:(NSString*)version vendor:(NSString*)vendor;
+
 @end
 
 /**

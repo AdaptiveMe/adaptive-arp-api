@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the professional info data elements of a contact.
+        Structure representing the professional info data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class ContactProfessionalInfo
      {
@@ -49,6 +49,26 @@ namespace Adaptive.Arp.Api
              The job title
           */
           public string JobTitle { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public ContactProfessionalInfo()  {
+          }
+
+          /**
+             Constructor used by implementation to set the ContactProfessionalInfo.
+
+             @param JobTitle
+             @param JobDescription
+             @param Company
+             @since ARP1.0
+          */
+          public ContactProfessionalInfo(string JobTitle, string JobDescription, string Company) : base () {
+               this.JobTitle = JobTitle;
+               this.JobDescription = JobDescription;
+               this.Company = Company;
+          }
 
      }
 }

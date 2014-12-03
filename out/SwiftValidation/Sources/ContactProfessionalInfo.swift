@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the professional info data elements of a contact.
+   Structure representing the professional info data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactProfessionalInfo : NSObject {
 
@@ -44,6 +44,27 @@ public class ContactProfessionalInfo : NSObject {
         The job title
      */
      var jobTitle : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by implementation to set the ContactProfessionalInfo.
+
+        @param jobTitle
+        @param jobDescription
+        @param company
+        @since ARP1.0
+     */
+     public convenience init(jobTitle: String, jobDescription: String, company: String) {
+          self.init()
+          self.jobTitle = jobTitle
+          self.jobDescription = jobDescription
+          self.company = company
+     }
 
 }
 

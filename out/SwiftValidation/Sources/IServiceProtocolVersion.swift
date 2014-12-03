@@ -24,7 +24,7 @@ Contributors:
 */
 
 /**
-Enumeration IServiceProtocolVersion
+   Enumeration IServiceProtocolVersion
 */
 public enum IServiceProtocolVersion {
 

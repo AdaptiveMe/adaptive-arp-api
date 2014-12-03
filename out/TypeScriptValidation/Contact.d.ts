@@ -35,9 +35,9 @@ declare module Adaptive {
     /**
     Structure representing the data elements of a contact.
 
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
     */
     class Contact extends ContactUid {
         /**

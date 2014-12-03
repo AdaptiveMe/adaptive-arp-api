@@ -29,9 +29,9 @@ declare module Adaptive {
     /**
     Represents an instance of a service.
 
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
     */
     class Service {
         /**

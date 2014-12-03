@@ -24,7 +24,7 @@ Contributors:
 */
 
 /**
-Enumeration LifecycleState
+   Enumeration LifecycleState
 */
 public enum LifecycleState {
 

@@ -43,6 +43,20 @@ Structure representing the data of a http request or response header.
      */
      @property NSString *name;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param name
+        @param data
+        @since ARP1.0
+     */
+     - (id) initWithNameData:(NSString*)name data:(NSString*)data;
+
 @end
 
 /**

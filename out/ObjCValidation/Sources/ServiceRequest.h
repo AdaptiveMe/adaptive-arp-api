@@ -81,6 +81,27 @@ Represents a local or remote service request.
      */
      @property ISession *session;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Contructor used by the implementation
+
+        @param content
+        @param contentType
+        @param contentLength
+        @param rawContent
+        @param headers
+        @param method
+        @param protocolVersion
+        @param session
+        @param contentEncoding
+        @since ARP1.0
+     */
+     - (id) initWithContentContentTypeContentLengthRawContentHeadersMethodProtocolVersionSessionContentEncoding:(NSString*)content contentType:(NSString*)contentType contentLength:(int*)contentLength rawContent:(NSArray*)rawContent headers:(NSArray*)headers method:(NSString*)method protocolVersion:(IServiceProtocolVersion*)protocolVersion session:(ISession*)session contentEncoding:(NSString*)contentEncoding;
+
 @end
 
 /**

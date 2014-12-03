@@ -24,7 +24,7 @@ Contributors:
 */
 
 /**
-Enumeration ContactPersonalInfoTitle
+   Enumeration ContactPersonalInfoTitle
 */
 public enum ContactPersonalInfoTitle {
 

@@ -51,6 +51,19 @@ Represents a specific application life-cycle stage.
 
      @property LifecycleState *state;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param state
+        @since ARP1.0
+     */
+     - (id) initWithState:(LifecycleState*)state;
+
 @end
 
 /**

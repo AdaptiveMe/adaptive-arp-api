@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the data elements of an email addressee.
+   Structure representing the data elements of an email addressee.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class EmailAddress : NSObject {
 
@@ -36,6 +36,23 @@ public class EmailAddress : NSObject {
         The Email address
      */
      var address : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by implementation
+
+        @param address
+        @since ARP1.0
+     */
+     public convenience init(address: String) {
+          self.init()
+          self.address = address
+     }
 
 }
 

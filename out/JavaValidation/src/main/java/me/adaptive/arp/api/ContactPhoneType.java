@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Enumeration ContactPhoneType
+   Enumeration ContactPhoneType
 */
 public enum ContactPhoneType {
 

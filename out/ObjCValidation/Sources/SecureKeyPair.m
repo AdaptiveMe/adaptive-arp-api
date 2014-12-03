@@ -34,6 +34,30 @@ Contributors:
 @implementation SecureKeyPair {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor with parameters
+
+        @param secureKey   name of the keypair
+        @param secureData value of the keypair
+        @since ARP1.0
+     */
+     - (id) initWithSecureKeySecureData:(NSString*)secureKey secureData:(NSString*)secureData {
+          self = [self init];
+          if (self) {
+               [self setSecureKey:secureKey];
+               [self setSecureData:secureData];
+          }
+          return self;
+     }
+
 }
 @end
 

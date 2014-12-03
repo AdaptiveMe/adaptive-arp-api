@@ -34,6 +34,27 @@ Contributors:
 @implementation Row {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor for implementation using.
+
+        @param values The values of the row
+     */
+     - (id) initWithValues:(NSArray*)values {
+          self = [self init];
+          if (self) {
+               [self setValues:values];
+          }
+          return self;
+     }
+
 }
 @end
 

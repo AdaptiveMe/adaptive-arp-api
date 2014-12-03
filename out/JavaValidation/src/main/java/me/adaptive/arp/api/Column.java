@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the column specification of a data table.
+   Structure representing the column specification of a data table.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Column {
 
@@ -38,6 +38,22 @@ public class Column {
         Name of the column
      */
      private String name;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Column() {
+     }
+
+     /**
+        Constructor for implementation using.
+
+        @param name Name of the column
+     */
+     public Column(String name) {
+          this();
+          this.name = name;
+     }
 
 }
 

@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Represents an instance of a service.
+   Represents an instance of a service.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Service {
 
@@ -50,6 +50,29 @@ public class Service {
         The service name
      */
      private String name;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Service() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param endpoint
+        @param name
+        @param method
+        @param type
+        @since ARP1.0
+     */
+     public Service(Endpoint endpoint, String name, IServiceMethod method, IServiceType type) {
+          this();
+          this.endpoint = endpoint;
+          this.name = name;
+          this.method = method;
+          this.type = type;
+     }
 
 }
 

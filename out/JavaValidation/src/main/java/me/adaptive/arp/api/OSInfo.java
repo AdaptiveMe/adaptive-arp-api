@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Represents the basic information about the operating system.
+   Represents the basic information about the operating system.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class OSInfo {
 
@@ -46,6 +46,26 @@ public class OSInfo {
         The version/identifier of the operating system.
      */
      private String version;
+
+     /**
+        Constructor used by the implementation
+     */
+     public OSInfo() {
+     }
+
+     /**
+        Constructor used by implementation to set the OS information.
+
+        @param name    of the OS.
+        @param version of the OS.
+        @param vendor  of the OS.
+     */
+     public OSInfo(String name, String version, String vendor) {
+          this();
+          this.name = name;
+          this.version = version;
+          this.vendor = vendor;
+     }
 
 }
 

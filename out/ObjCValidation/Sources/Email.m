@@ -34,6 +34,58 @@ Contributors:
 @implementation Email {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param toRecipients        array of recipients
+        @param ccRecipients        array of cc recipients
+        @param bccRecipients       array of bcc recipients
+        @param attachmentData      array of attatchments
+        @param messageBody         body of the email
+        @param messageBodyMimeType mime type of the body
+        @param subject             of the email
+        @since ARP1.0
+     */
+     - (id) initWithToRecipientsCcRecipientsBccRecipientsAttachmentDataMessageBodyMessageBodyMimeTypeSubject:(NSArray*)toRecipients ccRecipients:(NSArray*)ccRecipients bccRecipients:(NSArray*)bccRecipients attachmentData:(NSArray*)attachmentData messageBody:(NSString*)messageBody messageBodyMimeType:(NSString*)messageBodyMimeType subject:(NSString*)subject {
+          self = [self init];
+          if (self) {
+               [self setToRecipients:toRecipients];
+               [self setCcRecipients:ccRecipients];
+               [self setBccRecipients:bccRecipients];
+               [self setAttachmentData:attachmentData];
+               [self setMessageBody:messageBody];
+               [self setMessageBodyMimeType:messageBodyMimeType];
+               [self setSubject:subject];
+          }
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param toRecipients array of recipients
+        @param subject      of the email
+        @param messageBody  body of the email
+        @since ARP1.0
+     */
+     - (id) initWithToRecipientsSubjectMessageBody:(NSArray*)toRecipients subject:(NSString*)subject messageBody:(NSString*)messageBody {
+          self = [self init];
+          if (self) {
+               [self setToRecipients:toRecipients];
+               [self setSubject:subject];
+               [self setMessageBody:messageBody];
+          }
+          return self;
+     }
+
 }
 @end
 

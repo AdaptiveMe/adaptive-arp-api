@@ -27,9 +27,9 @@ var Adaptive;
     /**
     Structure representing a remote or local service access end-point.
 
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
     */
     var Endpoint = (function () {
         function Endpoint() {

@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Represents a specific user or system locate.
+   Represents a specific user or system locate.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Locale : NSObject {
 
@@ -40,6 +40,25 @@ public class Locale : NSObject {
         A valid ISO Language Code.
      */
      var language : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param country
+        @param language
+        @since ARP1.0
+     */
+     public convenience init(language: String, country: String) {
+          self.init()
+          self.language = language
+          self.country = country
+     }
 
 }
 

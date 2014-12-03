@@ -47,6 +47,21 @@ Structure representing the professional info data elements of a contact.
      */
      @property NSString *jobTitle;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by implementation to set the ContactProfessionalInfo.
+
+        @param jobTitle
+        @param jobDescription
+        @param company
+        @since ARP1.0
+     */
+     - (id) initWithJobTitleJobDescriptionCompany:(NSString*)jobTitle jobDescription:(NSString*)jobDescription company:(NSString*)company;
+
 @end
 
 /**

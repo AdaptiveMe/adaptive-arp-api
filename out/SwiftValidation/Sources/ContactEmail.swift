@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the email data elements of a contact.
+   Structure representing the email data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactEmail : NSObject {
 
@@ -44,6 +44,27 @@ public class ContactEmail : NSObject {
         Whether the email is the primary one or not
      */
      var primary : Bool?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param type
+        @param primary
+        @param email
+        @since ARP1.0
+     */
+     public convenience init(type: ContactEmailType, primary: Bool, email: String) {
+          self.init()
+          self.type = type
+          self.primary = primary
+          self.email = email
+     }
 
 }
 

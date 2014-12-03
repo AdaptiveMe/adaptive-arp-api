@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Enumeration LifecycleState
+   Enumeration LifecycleState
 */
 public enum LifecycleState {
 

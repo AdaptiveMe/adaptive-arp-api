@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the data elements of an email addressee.
+        Structure representing the data elements of an email addressee.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class EmailAddress
      {
@@ -41,6 +41,22 @@ namespace Adaptive.Arp.Api
              The Email address
           */
           public string Address { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public EmailAddress()  {
+          }
+
+          /**
+             Constructor used by implementation
+
+             @param Address
+             @since ARP1.0
+          */
+          public EmailAddress(string Address) : base () {
+               this.Address = Address;
+          }
 
      }
 }

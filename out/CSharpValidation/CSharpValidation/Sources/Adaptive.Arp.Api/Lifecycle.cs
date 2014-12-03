@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Represents a specific application life-cycle stage.
+        Represents a specific application life-cycle stage.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Lifecycle
      {
@@ -41,6 +41,22 @@ namespace Adaptive.Arp.Api
              Represent the state of the app
           */
           public LifecycleState State { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Lifecycle()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param State
+             @since ARP1.0
+          */
+          public Lifecycle(LifecycleState State) : base () {
+               this.State = State;
+          }
 
      }
 }

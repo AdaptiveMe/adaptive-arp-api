@@ -34,6 +34,42 @@ Contributors:
 @implementation ServiceResponse {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param content
+        @param contentType
+        @param contentLength
+        @param contentBinary
+        @param contentBinaryLength
+        @param headers
+        @param session
+        @param contentEncoding
+        @since ARP1.0
+     */
+     - (id) initWithContentContentTypeContentLengthContentBinaryContentBinaryLengthHeadersSessionContentEncoding:(NSString*)content contentType:(NSString*)contentType contentLength:(NSString*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength headers:(NSArray*)headers session:(ISession*)session contentEncoding:(NSString*)contentEncoding {
+          self = [self init];
+          if (self) {
+               [self setContent:content];
+               [self setContentType:contentType];
+               [self setContentLength:contentLength];
+               [self setContentBinary:contentBinary];
+               [self setContentBinaryLength:contentBinaryLength];
+               [self setHeaders:headers];
+               [self setSession:session];
+               [self setContentEncoding:contentEncoding];
+          }
+          return self;
+     }
+
 }
 @end
 

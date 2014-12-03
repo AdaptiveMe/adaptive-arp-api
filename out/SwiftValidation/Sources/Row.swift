@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Represents a row for a data table.
+   Represents a row for a data table.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Row : NSObject {
 
@@ -36,6 +36,22 @@ public class Row : NSObject {
         The values of the row.
      */
      var values : [AnyObject]?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor for implementation using.
+
+        @param values The values of the row
+     */
+     public convenience init(values: [AnyObject]) {
+          self.init()
+          self.values = values
+     }
 
 }
 

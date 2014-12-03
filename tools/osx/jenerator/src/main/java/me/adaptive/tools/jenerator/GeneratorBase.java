@@ -24,14 +24,13 @@ Contributors:
  */
 package me.adaptive.tools.jenerator;
 
-import com.thoughtworks.qdox.model.DocletTag;
-import com.thoughtworks.qdox.model.JavaAnnotatedElement;
-import com.thoughtworks.qdox.model.JavaClass;
-import com.thoughtworks.qdox.model.JavaField;
+import com.thoughtworks.qdox.model.*;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 
 import java.io.*;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Parameter;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
@@ -303,7 +302,7 @@ public abstract class GeneratorBase {
             println();
 
             if (clazz.isEnum()) {
-                System.out.println("Enumeration: " + clazz);
+                System.out.println("Unhandled: " + clazz);
             } else if (clazz.isInterface()) {
 
             } else {
@@ -366,6 +365,74 @@ public abstract class GeneratorBase {
                 endFields(clazz.getSimpleName(), clazz);
 
                 /**
+                 * Prepare constructors.
+                 */
+                List<JavaConstructor> docConstructors = mapClassSource.get(clazz).getConstructors();
+                docConstructors.sort(new Comparator<JavaConstructor>() {
+                    @Override
+                    public int compare(JavaConstructor o1, JavaConstructor o2) {
+                        StringBuffer a = new StringBuffer();
+                        StringBuffer b = new StringBuffer();
+
+                        a.append(o1.getName());
+                        for (JavaParameter p : o1.getParameters()) {
+                            a.append(p.getName());
+                            a.append(p.getType());
+                            a.append(",");
+                        }
+
+                        b.append(o2.getName());
+                        for (JavaParameter p : o2.getParameters()) {
+                            b.append(p.getName());
+                            b.append(p.getType());
+                            b.append(",");
+                        }
+
+                        return a.toString().compareTo(b.toString());
+                    }
+                });
+
+                List<Constructor> javaConstructors = new ArrayList<>();
+                for (Constructor c : clazz.getConstructors()) {
+                    javaConstructors.add(c);
+                }
+                javaConstructors.sort(new Comparator<Constructor>() {
+                    @Override
+                    public int compare(Constructor o1, Constructor o2) {
+                        StringBuffer a = new StringBuffer();
+                        StringBuffer b = new StringBuffer();
+
+                        a.append(o1.getName());
+                        for (Parameter p : o1.getParameters()) {
+                            a.append(p.getName());
+                            a.append(p.getType());
+                            a.append(",");
+                        }
+
+                        b.append(o2.getName());
+                        for (Parameter p : o2.getParameters()) {
+                            b.append(p.getName());
+                            b.append(p.getType());
+                            b.append(",");
+                        }
+
+                        return a.toString().compareTo(b.toString());
+                    }
+                });
+                /**
+                 * Start constructors.
+                 */
+                startConstructors(clazz.getSimpleName(), clazz);
+                /**
+                 * Process constructors.
+                 */
+                declareConstructors(clazz.getSimpleName(), clazz, javaConstructors, docConstructors);
+                /**
+                 * End constructors.
+                 */
+                endConstructors(clazz.getSimpleName(), clazz);
+
+                /**
                  * End class.
                  */
                 println();
@@ -388,6 +455,12 @@ public abstract class GeneratorBase {
         endGeneration();
         callback.onSuccess(this, this.getClass());
     }
+
+    protected abstract void endConstructors(String simpleName, Class clazz);
+
+    protected abstract void declareConstructors(String simpleName, Class clazz, List<Constructor> javaConstructors, List<JavaConstructor> docConstructors);
+
+    protected abstract void startConstructors(String simpleName, Class clazz);
 
     protected abstract void endGeneration();
 

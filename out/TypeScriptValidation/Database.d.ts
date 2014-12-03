@@ -26,9 +26,9 @@ declare module Adaptive {
     /**
     Structure representing a database reference.
 
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
     */
     class Database {
         /**

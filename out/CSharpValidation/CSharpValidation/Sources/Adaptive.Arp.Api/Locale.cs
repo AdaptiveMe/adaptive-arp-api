@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Represents a specific user or system locate.
+        Represents a specific user or system locate.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Locale
      {
@@ -45,6 +45,24 @@ namespace Adaptive.Arp.Api
              A valid ISO Language Code.
           */
           public string Language { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Locale()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param Country
+             @param Language
+             @since ARP1.0
+          */
+          public Locale(string Language, string Country) : base () {
+               this.Language = Language;
+               this.Country = Country;
+          }
 
      }
 }

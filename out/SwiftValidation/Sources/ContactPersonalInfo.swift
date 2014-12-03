@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the personal info data elements of a contact.
+   Structure representing the personal info data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactPersonalInfo : NSObject {
 
@@ -48,6 +48,29 @@ public class ContactPersonalInfo : NSObject {
         The name of the Contact
      */
      var name : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        The Constructor used by the implementation
+
+        @param name       of the Contact
+        @param middleName of the Contact
+        @param lastName   of the Contact
+        @param title      of the Contact
+        @since ARP1.0
+     */
+     public convenience init(name: String, middleName: String, lastName: String, title: ContactPersonalInfoTitle) {
+          self.init()
+          self.name = name
+          self.middleName = middleName
+          self.lastName = lastName
+          self.title = title
+     }
 
 }
 

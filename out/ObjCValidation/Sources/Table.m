@@ -34,6 +34,27 @@ Contributors:
 @implementation Table {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor by default
+
+        @param name The name of the table
+     */
+     - (id) initWithName:(NSString*)name {
+          self = [self init];
+          if (self) {
+               [self setName:name];
+          }
+          return self;
+     }
+
 }
 @end
 

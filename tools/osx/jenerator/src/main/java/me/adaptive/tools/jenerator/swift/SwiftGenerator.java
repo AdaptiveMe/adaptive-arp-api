@@ -26,6 +26,7 @@ package me.adaptive.tools.jenerator.swift;
 
 import com.thoughtworks.qdox.model.DocletTag;
 import com.thoughtworks.qdox.model.JavaClass;
+import com.thoughtworks.qdox.model.JavaConstructor;
 import com.thoughtworks.qdox.model.JavaField;
 import me.adaptive.tools.jenerator.GeneratorBase;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
@@ -33,7 +34,9 @@ import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +51,80 @@ public class SwiftGenerator extends GeneratorBase {
 
     public SwiftGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
+    }
+
+    @Override
+    protected void endConstructors(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void declareConstructors(String simpleName, Class clazz, List<Constructor> javaConstructors, List<JavaConstructor> docConstructors) {
+        for (int i = 0; i < javaConstructors.size(); i++) {
+            Constructor c = javaConstructors.get(i);
+            JavaConstructor d = docConstructors.get(i);
+            println();
+
+            startComment(5);
+            if (d.getComment() != null && d.getComment().trim().length() > 0) {
+                println(8, d.getComment());
+            } else {
+                println(8, "Convenience constructor.");
+            }
+            if (d.getTags().size() > 0) {
+                println();
+            }
+            for (DocletTag tag : d.getTags()) {
+                println(8, "@" + tag.getName() + " " + tag.getValue());
+            }
+            endComment(5);
+
+            if (c.getParameters().length == 0) {
+                println(5, "public override init() {");
+            } else {
+                print(5, "public convenience init(");
+                for (int j=0;j<c.getParameters().length;j++) {
+                    Parameter parameter = c.getParameters()[j];
+                    print(parameter.getName()+": "+convertJavaToNativeType(parameter.getType()));
+                    if (j<c.getParameters().length-1) {
+                        print(", ");
+                    }
+                }
+                println(") {");
+
+                if (!clazz.getSuperclass().equals(Object.class)) {
+                    print(10, "super.init(");
+                    for (int j=0;j<c.getParameters().length;j++) {
+                        Parameter parameter = c.getParameters()[j];
+                        print(parameter.getName());
+                        if (j<c.getParameters().length-1) {
+                            print(", ");
+                        }
+                    }
+                    println(")");
+                } else {
+                    println(10, "self.init()");
+                }
+
+                for (int j = 0; j < c.getParameters().length; j++) {
+                    Parameter parameter = c.getParameters()[j];
+                    boolean thisField = false;
+                    for (Field field : clazz.getDeclaredFields()) {
+                        if (parameter.getName().equals(field.getName())) {
+                            thisField = true;
+                            break;
+                        }
+                    }
+                    if (thisField) println(10, "self." + parameter.getName() + " = " + parameter.getName());
+                }
+            }
+            println(5,"}");
+        }
+    }
+
+    @Override
+    protected void startConstructors(String simpleName, Class clazz) {
+
     }
 
     @Override
@@ -136,11 +213,11 @@ public class SwiftGenerator extends GeneratorBase {
     @Override
     protected void startBean(String simpleName, Class clazz, String comment, List<DocletTag> tagList) {
         startComment(0);
-        println(comment);
+        println(3, comment);
         if (tagList.size() > 0) {
             println();
             for (DocletTag tag : tagList) {
-                println("@" + tag.getName() + " " + tag.getValue());
+                println(3,"@" + tag.getName() + " " + tag.getValue());
             }
         }
         endComment(0);
@@ -199,32 +276,32 @@ public class SwiftGenerator extends GeneratorBase {
         startComment(5);
         println(5, "Convert current enum to its string representation value.");
         endComment(5);
-        println(5,"public func toString() -> String {");
-        println(10,"switch self {");
+        println(5, "public func toString() -> String {");
+        println(10, "switch self {");
         for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
             Field field = clazz.getDeclaredFields()[i];
-            println(15, "case ." + field.getName()+": return \""+field.getName()+"\"");
+            println(15, "case ." + field.getName() + ": return \"" + field.getName() + "\"");
         }
-        println(10,"}");
-        println(5,"}");
+        println(10, "}");
+        println(5, "}");
         println();
 
         startComment(5);
         println(5, "Create enum from its string representation value.");
         endComment(5);
-        println(5, "public static func toEnum(string:String?) -> "+generateEnumClassName(clazz) + " {");
+        println(5, "public static func toEnum(string:String?) -> " + generateEnumClassName(clazz) + " {");
         println(10, "if let validString = string {");
         println(15, "switch validString {");
         for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
             Field field = clazz.getDeclaredFields()[i];
-            println(20, "case \"" + field.getName()+"\": return ."+field.getName());
+            println(20, "case \"" + field.getName() + "\": return ." + field.getName());
         }
         println(15, "default: return .Unknown");
         println(15, "}");
         println(10, "} else {");
         println(15, "return .Unknown");
         println(10, "}");
-        println(5,  "}");
+        println(5, "}");
         println();
         endBean(generateEnumClassName(clazz), clazz);
 

@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the data elements of an email.
+   Structure representing the data elements of an email.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Email : NSObject {
 
@@ -60,6 +60,50 @@ public class Email : NSObject {
         Array of Email recipients
      */
      var toRecipients : [EmailAddress]?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param toRecipients        array of recipients
+        @param ccRecipients        array of cc recipients
+        @param bccRecipients       array of bcc recipients
+        @param attachmentData      array of attatchments
+        @param messageBody         body of the email
+        @param messageBodyMimeType mime type of the body
+        @param subject             of the email
+        @since ARP1.0
+     */
+     public convenience init(toRecipients: [EmailAddress], ccRecipients: [EmailAddress], bccRecipients: [EmailAddress], attachmentData: [AttachmentData], messageBody: String, messageBodyMimeType: String, subject: String) {
+          self.init()
+          self.toRecipients = toRecipients
+          self.ccRecipients = ccRecipients
+          self.bccRecipients = bccRecipients
+          self.attachmentData = attachmentData
+          self.messageBody = messageBody
+          self.messageBodyMimeType = messageBodyMimeType
+          self.subject = subject
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param toRecipients array of recipients
+        @param subject      of the email
+        @param messageBody  body of the email
+        @since ARP1.0
+     */
+     public convenience init(toRecipients: [EmailAddress], subject: String, messageBody: String) {
+          self.init()
+          self.toRecipients = toRecipients
+          self.subject = subject
+          self.messageBody = messageBody
+     }
 
 }
 

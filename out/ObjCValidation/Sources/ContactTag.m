@@ -34,6 +34,30 @@ Contributors:
 @implementation ContactTag {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param dataValue
+        @param name
+        @since ARP1.0
+     */
+     - (id) initWithNameDataValue:(NSString*)name dataValue:(NSString*)dataValue {
+          self = [self init];
+          if (self) {
+               [self setName:name];
+               [self setDataValue:dataValue];
+          }
+          return self;
+     }
+
 }
 @end
 

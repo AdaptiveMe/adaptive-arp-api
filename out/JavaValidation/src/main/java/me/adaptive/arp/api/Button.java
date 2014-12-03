@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the a physical or logical button on a device.
+   Structure representing the a physical or logical button on a device.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Button {
 
@@ -38,6 +38,23 @@ public class Button {
         Button type
      */
      private ICapabilitiesButton type;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Button() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param type Button type.
+        @since ARP1.0
+     */
+     public Button(ICapabilitiesButton type) {
+          this();
+          this.type = type;
+     }
 
 }
 

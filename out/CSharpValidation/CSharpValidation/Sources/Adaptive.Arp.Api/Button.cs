@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the a physical or logical button on a device.
+        Structure representing the a physical or logical button on a device.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Button
      {
@@ -41,6 +41,22 @@ namespace Adaptive.Arp.Api
              Button type
           */
           public ICapabilitiesButton Type { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Button()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param Type Button type.
+             @since ARP1.0
+          */
+          public Button(ICapabilitiesButton Type) : base () {
+               this.Type = Type;
+          }
 
      }
 }

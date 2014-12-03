@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the binary attachment data.
+   Structure representing the binary attachment data.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class AttachmentData : NSObject {
 
@@ -52,6 +52,31 @@ public class AttachmentData : NSObject {
         The relative path where the contents for the attachment file could be located.
      */
      var referenceUrl : String?
+
+     /**
+        Convenience constructor.
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param data         raw data of the file attachment
+        @param dataSize     size of the file attachment
+        @param fileName     name of the file attachment
+        @param mimeType     mime type of the file attachment
+        @param referenceUrl relative url of the file attachment
+        @since ARP1.0
+     */
+     public convenience init(data: [Byte], dataSize: Int64, fileName: String, mimeType: String, referenceUrl: String) {
+          self.init()
+          self.data = data
+          self.dataSize = dataSize
+          self.fileName = fileName
+          self.mimeType = mimeType
+          self.referenceUrl = referenceUrl
+     }
 
 }
 

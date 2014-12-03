@@ -54,6 +54,20 @@ Structure representing the phone data elements of a contact.
      */
      @property NSString *phone;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by implementation to set the contact Phone
+
+        @param phone
+        @param phoneType
+        @since ARP1.0
+     */
+     - (id) initWithPhonePhoneType:(NSString*)phone phoneType:(ContactPhoneType*)phoneType;
+
 @end
 
 /**

@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Represents a specific user or system locate.
+   Represents a specific user or system locate.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Locale {
 
@@ -42,6 +42,25 @@ public class Locale {
         A valid ISO Language Code.
      */
      private String language;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Locale() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param country
+        @param language
+        @since ARP1.0
+     */
+     public Locale(String language, String country) {
+          this();
+          this.language = language;
+          this.country = country;
+     }
 
 }
 

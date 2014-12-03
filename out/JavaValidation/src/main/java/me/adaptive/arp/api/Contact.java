@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the data elements of a contact.
+   Structure representing the data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Contact extends ContactUid {
 
@@ -66,6 +66,22 @@ public class Contact extends ContactUid {
         The professional info from the contact
      */
      private ContactProfessionalInfo professionalInfo;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Contact() {
+     }
+
+     /**
+        Constructor used by implementation to set the Contact.
+
+        @param contactId of the Contact
+        @since ARP1.0
+     */
+     public Contact(String contactId) {
+          super(contactId);
+     }
 
 }
 

@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the social data elements of a contact.
+   Structure representing the social data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactSocial {
 
@@ -42,6 +42,25 @@ public class ContactSocial {
         The profileUrl
      */
      private String profileUrl;
+
+     /**
+        Constructor used by the implementation
+     */
+     public ContactSocial() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param socialNetwork of the profile
+        @param profileUrl    of the user
+        @since ARP1.0
+     */
+     public ContactSocial(ContactSocialNetwork socialNetwork, String profileUrl) {
+          this();
+          this.socialNetwork = socialNetwork;
+          this.profileUrl = profileUrl;
+     }
 
 }
 

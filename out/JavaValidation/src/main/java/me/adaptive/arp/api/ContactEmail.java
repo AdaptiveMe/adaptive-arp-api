@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the email data elements of a contact.
+   Structure representing the email data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactEmail {
 
@@ -46,6 +46,27 @@ public class ContactEmail {
         Whether the email is the primary one or not
      */
      private boolean primary;
+
+     /**
+        Constructor used by the implementation
+     */
+     public ContactEmail() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param type
+        @param primary
+        @param email
+        @since ARP1.0
+     */
+     public ContactEmail(ContactEmailType type, boolean primary, String email) {
+          this();
+          this.type = type;
+          this.primary = primary;
+          this.email = email;
+     }
 
 }
 

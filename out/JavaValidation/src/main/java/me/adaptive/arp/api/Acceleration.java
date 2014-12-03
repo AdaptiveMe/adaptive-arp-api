@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the data of a single acceleration reading.
+   Structure representing the data of a single acceleration reading.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Acceleration {
 
@@ -50,6 +50,29 @@ public class Acceleration {
         Z-axis component of the acceleration.
      */
      private double z;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Acceleration() {
+     }
+
+     /**
+        Convenience constructor.
+
+        @param x X Coordinate
+        @param y Y Coordinate
+        @param z Z Coordinate
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     public Acceleration(double x, double y, double z, long timeStamp) {
+          this();
+          this.x = x;
+          this.y = y;
+          this.z = z;
+          this.timeStamp = timeStamp;
+     }
 
 }
 

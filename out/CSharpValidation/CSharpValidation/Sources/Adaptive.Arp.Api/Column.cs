@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the column specification of a data table.
+        Structure representing the column specification of a data table.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Column
      {
@@ -41,6 +41,21 @@ namespace Adaptive.Arp.Api
              Name of the column
           */
           public string Name { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Column()  {
+          }
+
+          /**
+             Constructor for implementation using.
+
+             @param Name Name of the column
+          */
+          public Column(string Name) : base () {
+               this.Name = Name;
+          }
 
      }
 }

@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the email data elements of a contact.
+        Structure representing the email data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class ContactEmail
      {
@@ -49,6 +49,26 @@ namespace Adaptive.Arp.Api
              Whether the email is the primary one or not
           */
           public bool Primary { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public ContactEmail()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param Type
+             @param Primary
+             @param Email
+             @since ARP1.0
+          */
+          public ContactEmail(ContactEmailType Type, bool Primary, string Email) : base () {
+               this.Type = Type;
+               this.Primary = Primary;
+               this.Email = Email;
+          }
 
      }
 }

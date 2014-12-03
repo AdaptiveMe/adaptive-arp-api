@@ -25,11 +25,11 @@ Contributors:
 module Adaptive {
 
      /**
-     Represents the basic information about the operating system.
+        Represents the basic information about the operating system.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class OSInfo {
           /**
@@ -46,11 +46,11 @@ module Adaptive {
           version : string;
      }
      /**
-     Structure representing the personal info data elements of a contact.
+        Structure representing the personal info data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ContactPersonalInfo {
           /**
@@ -71,11 +71,11 @@ module Adaptive {
           name : string;
      }
      /**
-     Represents a specific application life-cycle stage.
+        Represents a specific application life-cycle stage.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Lifecycle {
           /**
@@ -84,11 +84,11 @@ module Adaptive {
           state : LifecycleState;
      }
      /**
-     Structure representing a remote or local service access end-point.
+        Structure representing a remote or local service access end-point.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Endpoint {
           /**
@@ -113,22 +113,22 @@ module Adaptive {
           scheme : string;
      }
      /**
-     Represents a single secureKey-value pair.
+        Represents a single secureKey-value pair.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class SecureKeyPair {
           secureData : string;
           secureKey : string;
      }
      /**
-     Structure representing the internal unique identifier data elements of a contact.
+        Structure representing the internal unique identifier data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ContactUid {
           /**
@@ -137,11 +137,11 @@ module Adaptive {
           contactId : string;
      }
      /**
-     Structure representing the address data elements of a contact.
+        Structure representing the address data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ContactAddress {
           /**
@@ -154,11 +154,11 @@ module Adaptive {
           address : string;
      }
      /**
-     Structure representing the basic device information.
+        Structure representing the basic device information.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class DeviceInfo {
           /**
@@ -180,11 +180,11 @@ be unique for a specific instance of an application on a specific device.
           vendor : string;
      }
      /**
-     Structure representing the data of a single acceleration reading.
+        Structure representing the data of a single acceleration reading.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Acceleration {
           /**
@@ -205,11 +205,11 @@ be unique for a specific instance of an application on a specific device.
           z : number;
      }
      /**
-     Structure representing the social data elements of a contact.
+        Structure representing the social data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ContactSocial {
           /**
@@ -222,11 +222,11 @@ be unique for a specific instance of an application on a specific device.
           profileUrl : string;
      }
      /**
-     Structure representing the data elements of an email addressee.
+        Structure representing the data elements of an email addressee.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class EmailAddress {
           /**
@@ -235,11 +235,11 @@ be unique for a specific instance of an application on a specific device.
           address : string;
      }
      /**
-     Structure representing the website data elements of a contact.
+        Structure representing the website data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ContactWebsite {
           /**
@@ -248,11 +248,11 @@ be unique for a specific instance of an application on a specific device.
           url : string;
      }
      /**
-     Structure representing the binary attachment data.
+        Structure representing the binary attachment data.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class AttachmentData {
           /**
@@ -277,11 +277,11 @@ be unique for a specific instance of an application on a specific device.
           referenceUrl : string;
      }
      /**
-     Represents a local or remote service response.
+        Represents a local or remote service response.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ServiceResponse {
           /**
@@ -318,11 +318,11 @@ be unique for a specific instance of an application on a specific device.
           session : ISession;
      }
      /**
-     Structure representing the column specification of a data table.
+        Structure representing the column specification of a data table.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Column {
           /**
@@ -331,11 +331,11 @@ be unique for a specific instance of an application on a specific device.
           name : string;
      }
      /**
-     Structure representing the assigned tags data elements of a contact.
+        Structure representing the assigned tags data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ContactTag {
           /**
@@ -348,11 +348,11 @@ be unique for a specific instance of an application on a specific device.
           name : string;
      }
      /**
-     Represents a local or remote service request.
+        Represents a local or remote service request.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ServiceRequest {
           /**
@@ -393,11 +393,11 @@ be unique for a specific instance of an application on a specific device.
           session : ISession;
      }
      /**
-     Represents a data table composed of columns and rows.
+        Represents a data table composed of columns and rows.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Table {
           /**
@@ -422,11 +422,11 @@ be unique for a specific instance of an application on a specific device.
           rows : Array<Row>;
      }
      /**
-     Structure representing the professional info data elements of a contact.
+        Structure representing the professional info data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ContactProfessionalInfo {
           /**
@@ -443,11 +443,11 @@ be unique for a specific instance of an application on a specific device.
           jobTitle : string;
      }
      /**
-     Represents an instance of a service.
+        Represents an instance of a service.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Service {
           /**
@@ -468,11 +468,11 @@ be unique for a specific instance of an application on a specific device.
           name : string;
      }
      /**
-     Structure representing the data of a http request or response header.
+        Structure representing the data of a http request or response header.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Header {
           /**
@@ -485,11 +485,11 @@ be unique for a specific instance of an application on a specific device.
           name : string;
      }
      /**
-     Structure representing the phone data elements of a contact.
+        Structure representing the phone data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ContactPhone {
           /**
@@ -502,11 +502,11 @@ be unique for a specific instance of an application on a specific device.
           phone : string;
      }
      /**
-     Structure representing the data a single geolocation reading.
+        Structure representing the data a single geolocation reading.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Geolocation {
           /**
@@ -531,11 +531,11 @@ be unique for a specific instance of an application on a specific device.
           yDoP : number;
      }
      /**
-     Structure representing a database reference.
+        Structure representing a database reference.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Database {
           /**
@@ -548,11 +548,11 @@ be unique for a specific instance of an application on a specific device.
           name : string;
      }
      /**
-     Structure representing the email data elements of a contact.
+        Structure representing the email data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ContactEmail {
           /**
@@ -569,11 +569,11 @@ be unique for a specific instance of an application on a specific device.
           primary : boolean;
      }
      /**
-     Represents a specific user or system locate.
+        Represents a specific user or system locate.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Locale {
           /**
@@ -586,11 +586,11 @@ be unique for a specific instance of an application on a specific device.
           language : string;
      }
      /**
-     Structure representing the a physical or logical button on a device.
+        Structure representing the a physical or logical button on a device.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Button {
           /**
@@ -599,11 +599,11 @@ be unique for a specific instance of an application on a specific device.
           type : ICapabilitiesButton;
      }
      /**
-     Represents a row for a data table.
+        Represents a row for a data table.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Row {
           /**
@@ -612,11 +612,11 @@ be unique for a specific instance of an application on a specific device.
           values : Array<any>;
      }
      /**
-     Structure representing the data elements of an email.
+        Structure representing the data elements of an email.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Email {
           /**
@@ -649,11 +649,11 @@ be unique for a specific instance of an application on a specific device.
           toRecipients : Array<EmailAddress>;
      }
      /**
-     Structure representing the data of a http cookie.
+        Structure representing the data of a http cookie.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Cookie {
           /**
@@ -690,11 +690,11 @@ be unique for a specific instance of an application on a specific device.
           secure : boolean;
      }
      /**
-     Structure representing the data elements of a contact.
+        Structure representing the data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Contact extends ContactUid {
           /**
@@ -731,7 +731,7 @@ be unique for a specific instance of an application on a specific device.
           professionalInfo : ContactProfessionalInfo;
      }
      /**
-     Enumeration ContactPersonalInfoTitle
+        Enumeration ContactPersonalInfoTitle
      */
      export class ContactPersonalInfoTitle {
 
@@ -746,7 +746,7 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-     Enumeration LifecycleState
+        Enumeration LifecycleState
      */
      export class LifecycleState {
 
@@ -765,7 +765,7 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-     Enumeration ContactAddressType
+        Enumeration ContactAddressType
      */
      export class ContactAddressType {
 
@@ -779,7 +779,7 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-     Enumeration ContactSocialNetwork
+        Enumeration ContactSocialNetwork
      */
      export class ContactSocialNetwork {
 
@@ -795,7 +795,7 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-     Enumeration IServiceProtocolVersion
+        Enumeration IServiceProtocolVersion
      */
      export class IServiceProtocolVersion {
 
@@ -808,7 +808,7 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-     Enumeration IServiceMethod
+        Enumeration IServiceMethod
      */
      export class IServiceMethod {
 
@@ -821,7 +821,7 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-     Enumeration IServiceType
+        Enumeration IServiceType
      */
      export class IServiceType {
 
@@ -842,7 +842,7 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-     Enumeration ContactPhoneType
+        Enumeration ContactPhoneType
      */
      export class ContactPhoneType {
 
@@ -860,7 +860,7 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-     Enumeration ContactEmailType
+        Enumeration ContactEmailType
      */
      export class ContactEmailType {
 
@@ -874,7 +874,7 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-     Enumeration ICapabilitiesButton
+        Enumeration ICapabilitiesButton
      */
      export class ICapabilitiesButton {
 

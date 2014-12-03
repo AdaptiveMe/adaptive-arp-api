@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the basic device information.
+   Structure representing the basic device information.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class DeviceInfo {
 
@@ -51,6 +51,28 @@ be unique for a specific instance of an application on a specific device.
         Vendor of the device hardware.
      */
      private String vendor;
+
+     /**
+        Constructor used by the implementation
+     */
+     public DeviceInfo() {
+     }
+
+     /**
+        Constructor for the implementation of the platform.
+
+        @param name   or brand of the device.
+        @param model  of the device.
+        @param vendor of the device.
+        @param uuid   unique* identifier (* platform dependent).
+     */
+     public DeviceInfo(String name, String model, String vendor, String uuid) {
+          this();
+          this.name = name;
+          this.model = model;
+          this.vendor = vendor;
+          this.uuid = uuid;
+     }
 
 }
 

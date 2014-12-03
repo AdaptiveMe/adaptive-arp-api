@@ -72,6 +72,22 @@ Represents an instance of a service.
      */
      @property NSString *name;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param endpoint
+        @param name
+        @param method
+        @param type
+        @since ARP1.0
+     */
+     - (id) initWithEndpointNameMethodType:(Endpoint*)endpoint name:(NSString*)name method:(IServiceMethod*)method type:(IServiceType*)type;
+
 @end
 
 /**

@@ -43,6 +43,30 @@ Structure representing a database reference.
      */
      @property NSString *name;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Default constructor. The compress param is setted to false.
+
+        @param name Name of the table.
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     - (id) initWithName:(NSString*)name;
+
+     /**
+        Constructor using fields.
+
+        @param name     Name of the Table.
+        @param compress Compress enbaled or not.
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     - (id) initWithNameCompress:(NSString*)name compress:(bool*)compress;
+
 @end
 
 /**

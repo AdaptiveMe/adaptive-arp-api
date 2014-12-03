@@ -24,7 +24,7 @@ Contributors:
 */
 
 /**
-Enumeration IServiceType
+   Enumeration IServiceType
 */
 public enum IServiceType {
 

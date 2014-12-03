@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Enumeration ICapabilitiesButton
+   Enumeration ICapabilitiesButton
 */
 public enum ICapabilitiesButton {
 

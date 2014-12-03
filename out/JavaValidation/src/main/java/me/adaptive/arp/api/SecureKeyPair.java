@@ -26,16 +26,35 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Represents a single secureKey-value pair.
+   Represents a single secureKey-value pair.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class SecureKeyPair {
 
      private String secureData;
      private String secureKey;
+
+     /**
+        Constructor used by the implementation
+     */
+     public SecureKeyPair() {
+     }
+
+     /**
+        Constructor with parameters
+
+        @param secureKey   name of the keypair
+        @param secureData value of the keypair
+        @since ARP1.0
+     */
+     public SecureKeyPair(String secureKey, String secureData) {
+          this();
+          this.secureKey = secureKey;
+          this.secureData = secureData;
+     }
 
 }
 

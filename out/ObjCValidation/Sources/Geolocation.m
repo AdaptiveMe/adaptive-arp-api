@@ -34,6 +34,36 @@ Contributors:
 @implementation Geolocation {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param latitude
+        @param longitude
+        @param altitude
+        @param xDoP
+        @param yDoP
+        @since ARP1.0
+     */
+     - (id) initWithLatitudeLongitudeAltitudeXDoPYDoP:(double*)latitude longitude:(double*)longitude altitude:(double*)altitude xDoP:(float*)xDoP yDoP:(float*)yDoP {
+          self = [self init];
+          if (self) {
+               [self setLatitude:latitude];
+               [self setLongitude:longitude];
+               [self setAltitude:altitude];
+               [self setXDoP:xDoP];
+               [self setYDoP:yDoP];
+          }
+          return self;
+     }
+
 }
 @end
 

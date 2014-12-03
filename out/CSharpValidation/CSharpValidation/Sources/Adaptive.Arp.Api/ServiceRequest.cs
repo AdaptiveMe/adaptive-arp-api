@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Represents a local or remote service request.
+        Represents a local or remote service request.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class ServiceRequest
      {
@@ -73,6 +73,38 @@ namespace Adaptive.Arp.Api
              The session context for the Request/Response.
           */
           public ISession Session { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public ServiceRequest()  {
+          }
+
+          /**
+             Contructor used by the implementation
+
+             @param Content
+             @param ContentType
+             @param ContentLength
+             @param RawContent
+             @param Headers
+             @param Method
+             @param ProtocolVersion
+             @param Session
+             @param ContentEncoding
+             @since ARP1.0
+          */
+          public ServiceRequest(string Content, string ContentType, int ContentLength, byte[] RawContent, Header[] Headers, string Method, IServiceProtocolVersion ProtocolVersion, ISession Session, string ContentEncoding) : base () {
+               this.Content = Content;
+               this.ContentType = ContentType;
+               this.ContentLength = ContentLength;
+               this.RawContent = RawContent;
+               this.Headers = Headers;
+               this.Method = Method;
+               this.ProtocolVersion = ProtocolVersion;
+               this.Session = Session;
+               this.ContentEncoding = ContentEncoding;
+          }
 
      }
 }

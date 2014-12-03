@@ -28,9 +28,9 @@ module Adaptive {
      /**
      Represents a row for a data table.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Row {
 

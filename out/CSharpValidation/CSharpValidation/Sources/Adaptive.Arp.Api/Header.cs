@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the data of a http request or response header.
+        Structure representing the data of a http request or response header.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Header
      {
@@ -45,6 +45,24 @@ namespace Adaptive.Arp.Api
              Name ot the header
           */
           public string Name { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Header()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param Name
+             @param Data
+             @since ARP1.0
+          */
+          public Header(string Name, string Data) : base () {
+               this.Name = Name;
+               this.Data = Data;
+          }
 
      }
 }

@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the data a single geolocation reading.
+   Structure representing the data a single geolocation reading.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Geolocation : NSObject {
 
@@ -52,6 +52,31 @@ public class Geolocation : NSObject {
         Dilution of precision on the Y measurement. Measured in meters.
      */
      var yDoP : Float?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param latitude
+        @param longitude
+        @param altitude
+        @param xDoP
+        @param yDoP
+        @since ARP1.0
+     */
+     public convenience init(latitude: Double, longitude: Double, altitude: Double, xDoP: Float, yDoP: Float) {
+          self.init()
+          self.latitude = latitude
+          self.longitude = longitude
+          self.altitude = altitude
+          self.xDoP = xDoP
+          self.yDoP = yDoP
+     }
 
 }
 

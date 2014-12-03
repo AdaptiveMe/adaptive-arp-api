@@ -34,6 +34,30 @@ Contributors:
 @implementation LocalLocale {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param country
+        @param language
+        @since ARP1.0
+     */
+     - (id) initWithLanguageCountry:(NSString*)language country:(NSString*)country {
+          self = [self init];
+          if (self) {
+               [self setLanguage:language];
+               [self setCountry:country];
+          }
+          return self;
+     }
+
 }
 @end
 

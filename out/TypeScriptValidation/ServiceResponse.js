@@ -29,9 +29,9 @@ var Adaptive;
     /**
     Represents a local or remote service response.
 
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
     */
     var ServiceResponse = (function () {
         function ServiceResponse() {

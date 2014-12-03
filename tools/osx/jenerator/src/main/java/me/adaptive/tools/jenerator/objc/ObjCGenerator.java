@@ -26,6 +26,7 @@ package me.adaptive.tools.jenerator.objc;
 
 import com.thoughtworks.qdox.model.DocletTag;
 import com.thoughtworks.qdox.model.JavaClass;
+import com.thoughtworks.qdox.model.JavaConstructor;
 import com.thoughtworks.qdox.model.JavaField;
 import me.adaptive.tools.jenerator.GeneratorBase;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
@@ -33,7 +34,9 @@ import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -50,6 +53,102 @@ public class ObjCGenerator extends GeneratorBase {
 
     public ObjCGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
+    }
+
+    @Override
+    protected void endConstructors(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void declareConstructors(String simpleName, Class clazz, List<Constructor> javaConstructors, List<JavaConstructor> docConstructors) {
+        for (int i = 0; i < javaConstructors.size(); i++) {
+            Constructor c = javaConstructors.get(i);
+            JavaConstructor d = docConstructors.get(i);
+            println();
+
+            startComment(5);
+            if (d.getComment() != null && d.getComment().trim().length() > 0) {
+                println(8, d.getComment());
+            } else {
+                println(8, "Convenience constructor.");
+            }
+            if (d.getTags().size() > 0) {
+                println();
+            }
+            for (DocletTag tag : d.getTags()) {
+                println(8, "@" + tag.getName() + " " + tag.getValue());
+            }
+            endComment(5);
+
+            if (c.getParameters().length == 0) {
+                indentPrintStream.println(5, "- (id) init {");
+                indentPrintStream.println(10, "self = [self init];");
+                indentPrintStream.println(10, "return self;");
+                indentPrintStreamH.println(5,"- (id) init;");
+            } else {
+                indentPrintStream.print(5, "- (id) initWith");
+                indentPrintStreamH.print(5, "- (id) initWith");
+                for (int j=0;j<c.getParameters().length;j++) {
+                    Parameter parameter = c.getParameters()[j];
+                    indentPrintStream.print(camelCase(parameter.getName()));
+                    indentPrintStreamH.print(camelCase(parameter.getName()));
+                }
+                indentPrintStream.print(":");
+                indentPrintStreamH.print(":");
+                for (int j=0;j<c.getParameters().length;j++) {
+                    Parameter parameter = c.getParameters()[j];
+                    if (j == 0) {
+                        indentPrintStream.print("(" + convertJavaToNativeType(parameter.getType()) + "*)" + parameter.getName());
+                        indentPrintStreamH.print("(" + convertJavaToNativeType(parameter.getType()) + "*)" + parameter.getName());
+                    } else {
+                        indentPrintStream.print(parameter.getName() + ":(" + convertJavaToNativeType(parameter.getType()) + "*)" + parameter.getName());
+                        indentPrintStreamH.print(parameter.getName() + ":(" + convertJavaToNativeType(parameter.getType()) + "*)" + parameter.getName());
+                    }
+                    if (j<c.getParameters().length-1) {
+                        indentPrintStream.print(" ");
+                        indentPrintStreamH.print(" ");
+                    }
+                }
+                indentPrintStream.println(" {");
+                indentPrintStreamH.println(";");
+
+                if (!clazz.getSuperclass().equals(Object.class)) {
+                    indentPrintStream.print(10, "super.init(");
+                    for (int j=0;j<c.getParameters().length;j++) {
+                        Parameter parameter = c.getParameters()[j];
+                        indentPrintStream.print(parameter.getName());
+                        if (j<c.getParameters().length-1) {
+                            indentPrintStream.print(", ");
+                        }
+                    }
+                    indentPrintStream.println(")");
+                } else {
+                    indentPrintStream.println(10, "self = [self init];");
+                    indentPrintStream.println(10, "if (self) {");
+                }
+
+                for (int j = 0; j < c.getParameters().length; j++) {
+                    Parameter parameter = c.getParameters()[j];
+                    boolean thisField = false;
+                    for (Field field : clazz.getDeclaredFields()) {
+                        if (parameter.getName().equals(field.getName())) {
+                            thisField = true;
+                            break;
+                        }
+                    }
+                    if (thisField) indentPrintStream.println(15, "[self set" + camelCase(parameter.getName()) + ":" + parameter.getName()+"];");
+                }
+                indentPrintStream.println(10, "}");
+                indentPrintStream.println(10, "return self;");
+            }
+            indentPrintStream.println(5,"}");
+        }
+    }
+
+    @Override
+    protected void startConstructors(String simpleName, Class clazz) {
+
     }
 
     private static String filterClassName(String simpleName) {
@@ -296,5 +395,8 @@ public class ObjCGenerator extends GeneratorBase {
         if (indentPrintStreamH != null) indentPrintStreamH.println(indent, literal);
     }
 
+    private static String camelCase(String name) {
+        return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+    }
 
 }

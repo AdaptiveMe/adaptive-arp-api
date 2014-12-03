@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the data of a http request or response header.
+   Structure representing the data of a http request or response header.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Header : NSObject {
 
@@ -40,6 +40,25 @@ public class Header : NSObject {
         Name ot the header
      */
      var name : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param name
+        @param data
+        @since ARP1.0
+     */
+     public convenience init(name: String, data: String) {
+          self.init()
+          self.name = name
+          self.data = data
+     }
 
 }
 

@@ -26,9 +26,9 @@ declare module Adaptive {
     /**
     Represents the basic information about the operating system.
 
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
     */
     class OSInfo {
         /**

@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the basic device information.
+        Structure representing the basic device information.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class DeviceInfo
      {
@@ -54,6 +54,27 @@ be unique for a specific instance of an application on a specific device.
              Vendor of the device hardware.
           */
           public string Vendor { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public DeviceInfo()  {
+          }
+
+          /**
+             Constructor for the implementation of the platform.
+
+             @param Name   or brand of the device.
+             @param Model  of the device.
+             @param Vendor of the device.
+             @param Uuid   unique* identifier (* platform dependent).
+          */
+          public DeviceInfo(string Name, string Model, string Vendor, string Uuid) : base () {
+               this.Name = Name;
+               this.Model = Model;
+               this.Vendor = Vendor;
+               this.Uuid = Uuid;
+          }
 
      }
 }

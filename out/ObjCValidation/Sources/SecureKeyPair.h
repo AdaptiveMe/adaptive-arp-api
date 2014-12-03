@@ -37,6 +37,20 @@ Represents a single secureKey-value pair.
      @property NSString *secureData;
      @property NSString *secureKey;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor with parameters
+
+        @param secureKey   name of the keypair
+        @param secureData value of the keypair
+        @since ARP1.0
+     */
+     - (id) initWithSecureKeySecureData:(NSString*)secureKey secureData:(NSString*)secureData;
+
 @end
 
 /**

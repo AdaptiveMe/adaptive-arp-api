@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Enumeration IServiceMethod
+   Enumeration IServiceMethod
 */
 public enum IServiceMethod {
 

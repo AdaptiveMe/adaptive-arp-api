@@ -34,6 +34,28 @@ Contributors:
 @implementation EmailAddress {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by implementation
+
+        @param address
+        @since ARP1.0
+     */
+     - (id) initWithAddress:(NSString*)address {
+          self = [self init];
+          if (self) {
+               [self setAddress:address];
+          }
+          return self;
+     }
+
 }
 @end
 

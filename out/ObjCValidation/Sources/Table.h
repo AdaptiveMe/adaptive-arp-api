@@ -59,6 +59,18 @@ Represents a data table composed of columns and rows.
      */
      @property NSArray *rows;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor by default
+
+        @param name The name of the table
+     */
+     - (id) initWithName:(NSString*)name;
+
 @end
 
 /**

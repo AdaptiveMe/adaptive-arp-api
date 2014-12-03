@@ -26,6 +26,7 @@ package me.adaptive.tools.jenerator.java;
 
 import com.thoughtworks.qdox.model.DocletTag;
 import com.thoughtworks.qdox.model.JavaClass;
+import com.thoughtworks.qdox.model.JavaConstructor;
 import com.thoughtworks.qdox.model.JavaField;
 import me.adaptive.tools.jenerator.GeneratorBase;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
@@ -33,7 +34,9 @@ import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +50,78 @@ public class JavaGenerator extends GeneratorBase {
 
     public JavaGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
+    }
+
+    @Override
+    protected void endConstructors(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void declareConstructors(String simpleName, Class clazz, List<Constructor> javaConstructors, List<JavaConstructor> docConstructors) {
+        for (int i = 0; i < javaConstructors.size(); i++) {
+            Constructor c = javaConstructors.get(i);
+            JavaConstructor d = docConstructors.get(i);
+            println();
+
+            startComment(5);
+            if (d.getComment() != null && d.getComment().trim().length() > 0) {
+                println(8, d.getComment());
+            } else {
+                println(8, "Convenience constructor.");
+            }
+            if (d.getTags().size() > 0) {
+                println();
+            }
+            for (DocletTag tag : d.getTags()) {
+                println(8, "@" + tag.getName() + " " + tag.getValue());
+            }
+            endComment(5);
+
+
+            print(5, "public " + clazz.getSimpleName() + "(");
+            for (int j = 0; j < c.getParameters().length; j++) {
+                Parameter parameter = c.getParameters()[j];
+                print(convertJavaToNativeType(parameter.getType()) + " " + parameter.getName());
+                if (j < c.getParameters().length - 1) {
+                    print(", ");
+                }
+            }
+            println(") {");
+            if (c.getParameters().length > 0) {
+                if (!clazz.getSuperclass().equals(Object.class)) {
+                    print(10, "super(");
+                    for (int j = 0; j < c.getParameters().length; j++) {
+                        Parameter parameter = c.getParameters()[j];
+                        print(parameter.getName());
+                        if (j < c.getParameters().length - 1) {
+                            print(", ");
+                        }
+                    }
+                    println(");");
+                } else {
+                    println(10, "this();");
+                }
+            }
+
+            for (int j = 0; j < c.getParameters().length; j++) {
+                Parameter parameter = c.getParameters()[j];
+                boolean thisField = false;
+                for (Field field : clazz.getDeclaredFields()) {
+                    if (parameter.getName().equals(field.getName())) {
+                        thisField = true;
+                        break;
+                    }
+                }
+                if (thisField) println(10, "this." + parameter.getName() + " = " + parameter.getName() + ";");
+            }
+            println(5, "}");
+        }
+    }
+
+    @Override
+    protected void startConstructors(String simpleName, Class clazz) {
+
     }
 
     @Override
@@ -132,11 +207,11 @@ public class JavaGenerator extends GeneratorBase {
         println("package " + clazz.getPackage().getName() + ";");
         println();
         startComment(0);
-        println(comment);
+        println(3, comment);
         if (tagList.size() > 0) {
             println();
             for (DocletTag tag : tagList) {
-                println("@" + tag.getName() + " " + tag.getValue());
+                println(3, "@" + tag.getName() + " " + tag.getValue());
             }
         }
         endComment(0);

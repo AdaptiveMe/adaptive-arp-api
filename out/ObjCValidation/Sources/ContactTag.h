@@ -43,6 +43,20 @@ Structure representing the assigned tags data elements of a contact.
      */
      @property NSString *name;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param dataValue
+        @param name
+        @since ARP1.0
+     */
+     - (id) initWithNameDataValue:(NSString*)name dataValue:(NSString*)dataValue;
+
 @end
 
 /**

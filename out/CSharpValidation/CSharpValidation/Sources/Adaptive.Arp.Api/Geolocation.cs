@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the data a single geolocation reading.
+        Structure representing the data a single geolocation reading.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Geolocation
      {
@@ -57,6 +57,30 @@ namespace Adaptive.Arp.Api
              Dilution of precision on the Y measurement. Measured in meters.
           */
           public float YDoP { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Geolocation()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param Latitude
+             @param Longitude
+             @param Altitude
+             @param XDoP
+             @param YDoP
+             @since ARP1.0
+          */
+          public Geolocation(double Latitude, double Longitude, double Altitude, float XDoP, float YDoP) : base () {
+               this.Latitude = Latitude;
+               this.Longitude = Longitude;
+               this.Altitude = Altitude;
+               this.XDoP = XDoP;
+               this.YDoP = YDoP;
+          }
 
      }
 }

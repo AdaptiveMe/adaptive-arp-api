@@ -34,6 +34,33 @@ Contributors:
 @implementation DeviceInfo {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor for the implementation of the platform.
+
+        @param name   or brand of the device.
+        @param model  of the device.
+        @param vendor of the device.
+        @param uuid   unique* identifier (* platform dependent).
+     */
+     - (id) initWithNameModelVendorUuid:(NSString*)name model:(NSString*)model vendor:(NSString*)vendor uuid:(NSString*)uuid {
+          self = [self init];
+          if (self) {
+               [self setName:name];
+               [self setModel:model];
+               [self setVendor:vendor];
+               [self setUuid:uuid];
+          }
+          return self;
+     }
+
 }
 @end
 

@@ -39,6 +39,19 @@ Structure representing the internal unique identifier data elements of a contact
      */
      @property NSString *contactId;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by implementation to set the Contact id.
+
+        @param contactId Internal unique contact id.
+        @since ARP1.0
+     */
+     - (id) initWithContactId:(NSString*)contactId;
+
 @end
 
 /**

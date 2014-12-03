@@ -24,7 +24,7 @@ Contributors:
 */
 
 /**
-Enumeration IServiceMethod
+   Enumeration IServiceMethod
 */
 public enum IServiceMethod {
 

@@ -34,6 +34,26 @@ Contributors:
 @implementation Contact {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by implementation to set the Contact.
+
+        @param contactId of the Contact
+        @since ARP1.0
+     */
+     - (id) initWithContactId:(NSString*)contactId {
+          super.init(contactId)
+          }
+          return self;
+     }
+
 }
 @end
 

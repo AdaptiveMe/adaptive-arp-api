@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Represents a specific application life-cycle stage.
+   Represents a specific application life-cycle stage.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Lifecycle : NSObject {
 
@@ -36,6 +36,23 @@ public class Lifecycle : NSObject {
         Represent the state of the app
      */
      var state : LifecycleState?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param state
+        @since ARP1.0
+     */
+     public convenience init(state: LifecycleState) {
+          self.init()
+          self.state = state
+     }
 
 }
 

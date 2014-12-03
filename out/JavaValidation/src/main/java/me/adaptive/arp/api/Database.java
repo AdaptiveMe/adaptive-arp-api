@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing a database reference.
+   Structure representing a database reference.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Database {
 
@@ -42,6 +42,38 @@ public class Database {
         Database Name (name of the .db local file).
      */
      private String name;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Database() {
+     }
+
+     /**
+        Default constructor. The compress param is setted to false.
+
+        @param name Name of the table.
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     public Database(String name) {
+          this();
+          this.name = name;
+     }
+
+     /**
+        Constructor using fields.
+
+        @param name     Name of the Table.
+        @param compress Compress enbaled or not.
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     public Database(String name, boolean compress) {
+          this();
+          this.name = name;
+          this.compress = compress;
+     }
 
 }
 

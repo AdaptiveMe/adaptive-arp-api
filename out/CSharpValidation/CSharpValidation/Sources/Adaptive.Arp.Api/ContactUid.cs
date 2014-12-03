@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the internal unique identifier data elements of a contact.
+        Structure representing the internal unique identifier data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class ContactUid
      {
@@ -41,6 +41,22 @@ namespace Adaptive.Arp.Api
              The id of the Contact
           */
           public string ContactId { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public ContactUid()  {
+          }
+
+          /**
+             Constructor used by implementation to set the Contact id.
+
+             @param ContactId Internal unique contact id.
+             @since ARP1.0
+          */
+          public ContactUid(string ContactId) : base () {
+               this.ContactId = ContactId;
+          }
 
      }
 }

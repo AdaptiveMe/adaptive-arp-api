@@ -34,6 +34,34 @@ Contributors:
 @implementation Acceleration {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Convenience constructor.
+
+        @param x X Coordinate
+        @param y Y Coordinate
+        @param z Z Coordinate
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     - (id) initWithXYZTimeStamp:(double*)x y:(double*)y z:(double*)z timeStamp:(long*)timeStamp {
+          self = [self init];
+          if (self) {
+               [self setX:x];
+               [self setY:y];
+               [self setZ:z];
+               [self setTimeStamp:timeStamp];
+          }
+          return self;
+     }
+
 }
 @end
 

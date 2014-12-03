@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the data of a single acceleration reading.
+   Structure representing the data of a single acceleration reading.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Acceleration : NSObject {
 
@@ -48,6 +48,29 @@ public class Acceleration : NSObject {
         Z-axis component of the acceleration.
      */
      var z : Double?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Convenience constructor.
+
+        @param x X Coordinate
+        @param y Y Coordinate
+        @param z Z Coordinate
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     public convenience init(x: Double, y: Double, z: Double, timeStamp: Int64) {
+          self.init()
+          self.x = x
+          self.y = y
+          self.z = z
+          self.timeStamp = timeStamp
+     }
 
 }
 

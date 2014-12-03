@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the data a single geolocation reading.
+   Structure representing the data a single geolocation reading.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Geolocation {
 
@@ -54,6 +54,31 @@ public class Geolocation {
         Dilution of precision on the Y measurement. Measured in meters.
      */
      private float yDoP;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Geolocation() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param latitude
+        @param longitude
+        @param altitude
+        @param xDoP
+        @param yDoP
+        @since ARP1.0
+     */
+     public Geolocation(double latitude, double longitude, double altitude, float xDoP, float yDoP) {
+          this();
+          this.latitude = latitude;
+          this.longitude = longitude;
+          this.altitude = altitude;
+          this.xDoP = xDoP;
+          this.yDoP = yDoP;
+     }
 
 }
 

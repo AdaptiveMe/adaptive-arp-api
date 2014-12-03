@@ -39,6 +39,19 @@ Structure representing the data elements of an email addressee.
      */
      @property NSString *address;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by implementation
+
+        @param address
+        @since ARP1.0
+     */
+     - (id) initWithAddress:(NSString*)address;
+
 @end
 
 /**

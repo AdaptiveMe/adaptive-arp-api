@@ -28,7 +28,7 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Enumeration LifecycleState
+        Enumeration LifecycleState
      */
      public enum LifecycleState {
 

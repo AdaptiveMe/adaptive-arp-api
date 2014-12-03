@@ -50,6 +50,20 @@ Structure representing the address data elements of a contact.
      */
      @property NSString *address;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param address Address data.
+        @param type    Address type.
+        @since ARP1.0
+     */
+     - (id) initWithAddressType:(NSString*)address type:(ContactAddressType*)type;
+
 @end
 
 /**

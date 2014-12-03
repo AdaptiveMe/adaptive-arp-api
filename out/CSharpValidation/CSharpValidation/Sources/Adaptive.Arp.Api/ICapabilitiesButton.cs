@@ -28,7 +28,7 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Enumeration ICapabilitiesButton
+        Enumeration ICapabilitiesButton
      */
      public enum ICapabilitiesButton {
 

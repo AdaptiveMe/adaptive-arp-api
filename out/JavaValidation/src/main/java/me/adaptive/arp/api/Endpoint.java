@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing a remote or local service access end-point.
+   Structure representing a remote or local service access end-point.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Endpoint {
 
@@ -54,6 +54,31 @@ public class Endpoint {
         The remote service scheme.
      */
      private String scheme;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Endpoint() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param host
+        @param path
+        @param port
+        @param proxy
+        @param scheme
+        @since ARP1.0
+     */
+     public Endpoint(String host, String path, int port, String proxy, String scheme) {
+          this();
+          this.host = host;
+          this.path = path;
+          this.port = port;
+          this.proxy = proxy;
+          this.scheme = scheme;
+     }
 
 }
 

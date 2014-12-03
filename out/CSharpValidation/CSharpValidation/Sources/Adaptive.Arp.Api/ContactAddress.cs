@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the address data elements of a contact.
+        Structure representing the address data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class ContactAddress
      {
@@ -45,6 +45,24 @@ namespace Adaptive.Arp.Api
              The Contact address
           */
           public string Address { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public ContactAddress()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param Address Address data.
+             @param Type    Address type.
+             @since ARP1.0
+          */
+          public ContactAddress(string Address, ContactAddressType Type) : base () {
+               this.Address = Address;
+               this.Type = Type;
+          }
 
      }
 }

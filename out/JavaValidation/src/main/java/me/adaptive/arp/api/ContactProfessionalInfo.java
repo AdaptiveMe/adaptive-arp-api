@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the professional info data elements of a contact.
+   Structure representing the professional info data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactProfessionalInfo {
 
@@ -46,6 +46,27 @@ public class ContactProfessionalInfo {
         The job title
      */
      private String jobTitle;
+
+     /**
+        Constructor used by the implementation
+     */
+     public ContactProfessionalInfo() {
+     }
+
+     /**
+        Constructor used by implementation to set the ContactProfessionalInfo.
+
+        @param jobTitle
+        @param jobDescription
+        @param company
+        @since ARP1.0
+     */
+     public ContactProfessionalInfo(String jobTitle, String jobDescription, String company) {
+          this();
+          this.jobTitle = jobTitle;
+          this.jobDescription = jobDescription;
+          this.company = company;
+     }
 
 }
 

@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Represents the basic information about the operating system.
+        Represents the basic information about the operating system.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class OSInfo
      {
@@ -49,6 +49,25 @@ namespace Adaptive.Arp.Api
              The version/identifier of the operating system.
           */
           public string Version { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public OSInfo()  {
+          }
+
+          /**
+             Constructor used by implementation to set the OS information.
+
+             @param Name    of the OS.
+             @param Version of the OS.
+             @param Vendor  of the OS.
+          */
+          public OSInfo(string Name, string Version, string Vendor) : base () {
+               this.Name = Name;
+               this.Version = Version;
+               this.Vendor = Vendor;
+          }
 
      }
 }

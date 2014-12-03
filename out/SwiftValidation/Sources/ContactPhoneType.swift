@@ -24,7 +24,7 @@ Contributors:
 */
 
 /**
-Enumeration ContactPhoneType
+   Enumeration ContactPhoneType
 */
 public enum ContactPhoneType {
 

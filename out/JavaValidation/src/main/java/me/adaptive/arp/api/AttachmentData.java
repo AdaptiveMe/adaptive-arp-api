@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the binary attachment data.
+   Structure representing the binary attachment data.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class AttachmentData {
 
@@ -54,6 +54,31 @@ public class AttachmentData {
         The relative path where the contents for the attachment file could be located.
      */
      private String referenceUrl;
+
+     /**
+        Convenience constructor.
+     */
+     public AttachmentData() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param data         raw data of the file attachment
+        @param dataSize     size of the file attachment
+        @param fileName     name of the file attachment
+        @param mimeType     mime type of the file attachment
+        @param referenceUrl relative url of the file attachment
+        @since ARP1.0
+     */
+     public AttachmentData(byte[] data, long dataSize, String fileName, String mimeType, String referenceUrl) {
+          this();
+          this.data = data;
+          this.dataSize = dataSize;
+          this.fileName = fileName;
+          this.mimeType = mimeType;
+          this.referenceUrl = referenceUrl;
+     }
 
 }
 

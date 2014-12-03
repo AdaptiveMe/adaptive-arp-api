@@ -34,6 +34,31 @@ Contributors:
 @implementation OSInfo {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by implementation to set the OS information.
+
+        @param name    of the OS.
+        @param version of the OS.
+        @param vendor  of the OS.
+     */
+     - (id) initWithNameVersionVendor:(NSString*)name version:(NSString*)version vendor:(NSString*)vendor {
+          self = [self init];
+          if (self) {
+               [self setName:name];
+               [self setVersion:version];
+               [self setVendor:vendor];
+          }
+          return self;
+     }
+
 }
 @end
 

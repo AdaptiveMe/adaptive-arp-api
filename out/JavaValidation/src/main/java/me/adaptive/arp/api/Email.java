@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the data elements of an email.
+   Structure representing the data elements of an email.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Email {
 
@@ -62,6 +62,50 @@ public class Email {
         Array of Email recipients
      */
      private EmailAddress[] toRecipients;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Email() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param toRecipients        array of recipients
+        @param ccRecipients        array of cc recipients
+        @param bccRecipients       array of bcc recipients
+        @param attachmentData      array of attatchments
+        @param messageBody         body of the email
+        @param messageBodyMimeType mime type of the body
+        @param subject             of the email
+        @since ARP1.0
+     */
+     public Email(EmailAddress[] toRecipients, EmailAddress[] ccRecipients, EmailAddress[] bccRecipients, AttachmentData[] attachmentData, String messageBody, String messageBodyMimeType, String subject) {
+          this();
+          this.toRecipients = toRecipients;
+          this.ccRecipients = ccRecipients;
+          this.bccRecipients = bccRecipients;
+          this.attachmentData = attachmentData;
+          this.messageBody = messageBody;
+          this.messageBodyMimeType = messageBodyMimeType;
+          this.subject = subject;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param toRecipients array of recipients
+        @param subject      of the email
+        @param messageBody  body of the email
+        @since ARP1.0
+     */
+     public Email(EmailAddress[] toRecipients, String subject, String messageBody) {
+          this();
+          this.toRecipients = toRecipients;
+          this.subject = subject;
+          this.messageBody = messageBody;
+     }
 
 }
 

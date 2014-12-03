@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the data of a http request or response header.
+   Structure representing the data of a http request or response header.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Header {
 
@@ -42,6 +42,25 @@ public class Header {
         Name ot the header
      */
      private String name;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Header() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param name
+        @param data
+        @since ARP1.0
+     */
+     public Header(String name, String data) {
+          this();
+          this.name = name;
+          this.data = data;
+     }
 
 }
 

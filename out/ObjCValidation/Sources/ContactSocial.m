@@ -34,6 +34,30 @@ Contributors:
 @implementation ContactSocial {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param socialNetwork of the profile
+        @param profileUrl    of the user
+        @since ARP1.0
+     */
+     - (id) initWithSocialNetworkProfileUrl:(ContactSocialNetwork*)socialNetwork profileUrl:(NSString*)profileUrl {
+          self = [self init];
+          if (self) {
+               [self setSocialNetwork:socialNetwork];
+               [self setProfileUrl:profileUrl];
+          }
+          return self;
+     }
+
 }
 @end
 

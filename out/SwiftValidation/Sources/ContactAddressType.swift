@@ -24,7 +24,7 @@ Contributors:
 */
 
 /**
-Enumeration ContactAddressType
+   Enumeration ContactAddressType
 */
 public enum ContactAddressType {
 

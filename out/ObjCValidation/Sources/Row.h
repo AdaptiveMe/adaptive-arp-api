@@ -40,6 +40,18 @@ Represents a row for a data table.
      */
      @property NSArray *values;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor for implementation using.
+
+        @param values The values of the row
+     */
+     - (id) initWithValues:(NSArray*)values;
+
 @end
 
 /**

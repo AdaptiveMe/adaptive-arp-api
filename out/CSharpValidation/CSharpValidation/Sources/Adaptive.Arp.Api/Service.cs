@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Represents an instance of a service.
+        Represents an instance of a service.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Service
      {
@@ -53,6 +53,28 @@ namespace Adaptive.Arp.Api
              The service name
           */
           public string Name { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Service()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param Endpoint
+             @param Name
+             @param Method
+             @param Type
+             @since ARP1.0
+          */
+          public Service(Endpoint Endpoint, string Name, IServiceMethod Method, IServiceType Type) : base () {
+               this.Endpoint = Endpoint;
+               this.Name = Name;
+               this.Method = Method;
+               this.Type = Type;
+          }
 
      }
 }

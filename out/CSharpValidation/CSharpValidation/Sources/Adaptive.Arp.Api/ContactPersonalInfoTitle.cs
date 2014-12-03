@@ -28,7 +28,7 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Enumeration ContactPersonalInfoTitle
+        Enumeration ContactPersonalInfoTitle
      */
      public enum ContactPersonalInfoTitle {
 

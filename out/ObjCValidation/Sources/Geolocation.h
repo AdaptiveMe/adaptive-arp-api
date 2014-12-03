@@ -55,6 +55,23 @@ Structure representing the data a single geolocation reading.
      */
      @property float *yDoP;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param latitude
+        @param longitude
+        @param altitude
+        @param xDoP
+        @param yDoP
+        @since ARP1.0
+     */
+     - (id) initWithLatitudeLongitudeAltitudeXDoPYDoP:(double*)latitude longitude:(double*)longitude altitude:(double*)altitude xDoP:(float*)xDoP yDoP:(float*)yDoP;
+
 @end
 
 /**

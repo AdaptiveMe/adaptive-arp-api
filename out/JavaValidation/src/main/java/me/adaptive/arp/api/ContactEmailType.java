@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Enumeration ContactEmailType
+   Enumeration ContactEmailType
 */
 public enum ContactEmailType {
 

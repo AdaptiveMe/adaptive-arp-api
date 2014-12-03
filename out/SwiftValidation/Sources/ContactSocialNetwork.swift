@@ -24,7 +24,7 @@ Contributors:
 */
 
 /**
-Enumeration ContactSocialNetwork
+   Enumeration ContactSocialNetwork
 */
 public enum ContactSocialNetwork {
 

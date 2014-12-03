@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the personal info data elements of a contact.
+        Structure representing the personal info data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class ContactPersonalInfo
      {
@@ -53,6 +53,28 @@ namespace Adaptive.Arp.Api
              The name of the Contact
           */
           public string Name { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public ContactPersonalInfo()  {
+          }
+
+          /**
+             The Constructor used by the implementation
+
+             @param Name       of the Contact
+             @param MiddleName of the Contact
+             @param LastName   of the Contact
+             @param Title      of the Contact
+             @since ARP1.0
+          */
+          public ContactPersonalInfo(string Name, string MiddleName, string LastName, ContactPersonalInfoTitle Title) : base () {
+               this.Name = Name;
+               this.MiddleName = MiddleName;
+               this.LastName = LastName;
+               this.Title = Title;
+          }
 
      }
 }

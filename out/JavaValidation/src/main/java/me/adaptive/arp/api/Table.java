@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Represents a data table composed of columns and rows.
+   Represents a data table composed of columns and rows.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Table {
 
@@ -54,6 +54,22 @@ public class Table {
         Rows of the table containing the data.
      */
      private Row[] rows;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Table() {
+     }
+
+     /**
+        Constructor by default
+
+        @param name The name of the table
+     */
+     public Table(String name) {
+          this();
+          this.name = name;
+     }
 
 }
 

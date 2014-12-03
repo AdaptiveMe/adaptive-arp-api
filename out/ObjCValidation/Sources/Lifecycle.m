@@ -34,6 +34,28 @@ Contributors:
 @implementation Lifecycle {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param state
+        @since ARP1.0
+     */
+     - (id) initWithState:(LifecycleState*)state {
+          self = [self init];
+          if (self) {
+               [self setState:state];
+          }
+          return self;
+     }
+
 }
 @end
 

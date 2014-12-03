@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the personal info data elements of a contact.
+   Structure representing the personal info data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactPersonalInfo {
 
@@ -50,6 +50,29 @@ public class ContactPersonalInfo {
         The name of the Contact
      */
      private String name;
+
+     /**
+        Constructor used by the implementation
+     */
+     public ContactPersonalInfo() {
+     }
+
+     /**
+        The Constructor used by the implementation
+
+        @param name       of the Contact
+        @param middleName of the Contact
+        @param lastName   of the Contact
+        @param title      of the Contact
+        @since ARP1.0
+     */
+     public ContactPersonalInfo(String name, String middleName, String lastName, ContactPersonalInfoTitle title) {
+          this();
+          this.name = name;
+          this.middleName = middleName;
+          this.lastName = lastName;
+          this.title = title;
+     }
 
 }
 

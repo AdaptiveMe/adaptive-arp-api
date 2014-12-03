@@ -34,6 +34,30 @@ Contributors:
 @implementation ContactAddress {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param address Address data.
+        @param type    Address type.
+        @since ARP1.0
+     */
+     - (id) initWithAddressType:(NSString*)address type:(ContactAddressType*)type {
+          self = [self init];
+          if (self) {
+               [self setAddress:address];
+               [self setType:type];
+          }
+          return self;
+     }
+
 }
 @end
 

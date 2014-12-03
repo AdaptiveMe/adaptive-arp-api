@@ -28,9 +28,9 @@ module Adaptive {
      /**
      Structure representing the assigned tags data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ContactTag {
 

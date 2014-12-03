@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the a physical or logical button on a device.
+   Structure representing the a physical or logical button on a device.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Button : NSObject {
 
@@ -36,6 +36,23 @@ public class Button : NSObject {
         Button type
      */
      var type : ICapabilitiesButton?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param type Button type.
+        @since ARP1.0
+     */
+     public convenience init(type: ICapabilitiesButton) {
+          self.init()
+          self.type = type
+     }
 
 }
 

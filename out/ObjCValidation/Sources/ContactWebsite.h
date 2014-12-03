@@ -39,6 +39,19 @@ Structure representing the website data elements of a contact.
      */
      @property NSString *url;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param url
+        @since ARP1.0
+     */
+     - (id) initWithUrl:(NSString*)url;
+
 @end
 
 /**

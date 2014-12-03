@@ -28,7 +28,7 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Enumeration IServiceType
+        Enumeration IServiceType
      */
      public enum IServiceType {
 

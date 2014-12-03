@@ -51,6 +51,22 @@ Structure representing the data of a single acceleration reading.
      */
      @property double *z;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Convenience constructor.
+
+        @param x X Coordinate
+        @param y Y Coordinate
+        @param z Z Coordinate
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     - (id) initWithXYZTimeStamp:(double*)x y:(double*)y z:(double*)z timeStamp:(long*)timeStamp;
+
 @end
 
 /**

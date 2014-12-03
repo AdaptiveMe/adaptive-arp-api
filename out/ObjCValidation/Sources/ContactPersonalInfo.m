@@ -34,6 +34,34 @@ Contributors:
 @implementation ContactPersonalInfo {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        The Constructor used by the implementation
+
+        @param name       of the Contact
+        @param middleName of the Contact
+        @param lastName   of the Contact
+        @param title      of the Contact
+        @since ARP1.0
+     */
+     - (id) initWithNameMiddleNameLastNameTitle:(NSString*)name middleName:(NSString*)middleName lastName:(NSString*)lastName title:(ContactPersonalInfoTitle*)title {
+          self = [self init];
+          if (self) {
+               [self setName:name];
+               [self setMiddleName:middleName];
+               [self setLastName:lastName];
+               [self setTitle:title];
+          }
+          return self;
+     }
+
 }
 @end
 

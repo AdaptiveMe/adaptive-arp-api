@@ -52,6 +52,20 @@ Structure representing the social data elements of a contact.
      */
      @property NSString *profileUrl;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param socialNetwork of the profile
+        @param profileUrl    of the user
+        @since ARP1.0
+     */
+     - (id) initWithSocialNetworkProfileUrl:(ContactSocialNetwork*)socialNetwork profileUrl:(NSString*)profileUrl;
+
 @end
 
 /**

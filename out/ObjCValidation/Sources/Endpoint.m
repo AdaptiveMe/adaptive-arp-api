@@ -34,6 +34,36 @@ Contributors:
 @implementation Endpoint {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param host
+        @param path
+        @param port
+        @param proxy
+        @param scheme
+        @since ARP1.0
+     */
+     - (id) initWithHostPathPortProxyScheme:(NSString*)host path:(NSString*)path port:(int*)port proxy:(NSString*)proxy scheme:(NSString*)scheme {
+          self = [self init];
+          if (self) {
+               [self setHost:host];
+               [self setPath:path];
+               [self setPort:port];
+               [self setProxy:proxy];
+               [self setScheme:scheme];
+          }
+          return self;
+     }
+
 }
 @end
 

@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Represents a local or remote service request.
+   Represents a local or remote service request.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ServiceRequest {
 
@@ -70,6 +70,39 @@ public class ServiceRequest {
         The session context for the Request/Response.
      */
      private ISession session;
+
+     /**
+        Constructor used by the implementation
+     */
+     public ServiceRequest() {
+     }
+
+     /**
+        Contructor used by the implementation
+
+        @param content
+        @param contentType
+        @param contentLength
+        @param rawContent
+        @param headers
+        @param method
+        @param protocolVersion
+        @param session
+        @param contentEncoding
+        @since ARP1.0
+     */
+     public ServiceRequest(String content, String contentType, int contentLength, byte[] rawContent, Header[] headers, String method, IServiceProtocolVersion protocolVersion, ISession session, String contentEncoding) {
+          this();
+          this.content = content;
+          this.contentType = contentType;
+          this.contentLength = contentLength;
+          this.rawContent = rawContent;
+          this.headers = headers;
+          this.method = method;
+          this.protocolVersion = protocolVersion;
+          this.session = session;
+          this.contentEncoding = contentEncoding;
+     }
 
 }
 

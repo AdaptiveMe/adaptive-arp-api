@@ -34,6 +34,28 @@ Contributors:
 @implementation ContactUid {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by implementation to set the Contact id.
+
+        @param contactId Internal unique contact id.
+        @since ARP1.0
+     */
+     - (id) initWithContactId:(NSString*)contactId {
+          self = [self init];
+          if (self) {
+               [self setContactId:contactId];
+          }
+          return self;
+     }
+
 }
 @end
 

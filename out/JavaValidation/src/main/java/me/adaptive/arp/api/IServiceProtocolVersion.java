@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Enumeration IServiceProtocolVersion
+   Enumeration IServiceProtocolVersion
 */
 public enum IServiceProtocolVersion {
 

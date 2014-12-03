@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing a remote or local service access end-point.
+        Structure representing a remote or local service access end-point.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Endpoint
      {
@@ -57,6 +57,30 @@ namespace Adaptive.Arp.Api
              The remote service scheme.
           */
           public string Scheme { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Endpoint()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param Host
+             @param Path
+             @param Port
+             @param Proxy
+             @param Scheme
+             @since ARP1.0
+          */
+          public Endpoint(string Host, string Path, int Port, string Proxy, string Scheme) : base () {
+               this.Host = Host;
+               this.Path = Path;
+               this.Port = Port;
+               this.Proxy = Proxy;
+               this.Scheme = Scheme;
+          }
 
      }
 }

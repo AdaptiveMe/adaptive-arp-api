@@ -34,6 +34,28 @@ Contributors:
 @implementation Button {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param type Button type.
+        @since ARP1.0
+     */
+     - (id) initWithType:(ICapabilitiesButton*)type {
+          self = [self init];
+          if (self) {
+               [self setType:type];
+          }
+          return self;
+     }
+
 }
 @end
 

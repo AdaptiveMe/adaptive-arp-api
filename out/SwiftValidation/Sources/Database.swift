@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing a database reference.
+   Structure representing a database reference.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Database : NSObject {
 
@@ -40,6 +40,38 @@ public class Database : NSObject {
         Database Name (name of the .db local file).
      */
      var name : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Default constructor. The compress param is setted to false.
+
+        @param name Name of the table.
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     public convenience init(name: String) {
+          self.init()
+          self.name = name
+     }
+
+     /**
+        Constructor using fields.
+
+        @param name     Name of the Table.
+        @param compress Compress enbaled or not.
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     public convenience init(name: String, compress: Bool) {
+          self.init()
+          self.name = name
+          self.compress = compress
+     }
 
 }
 

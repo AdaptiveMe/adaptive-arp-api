@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing a remote or local service access end-point.
+   Structure representing a remote or local service access end-point.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Endpoint : NSObject {
 
@@ -52,6 +52,31 @@ public class Endpoint : NSObject {
         The remote service scheme.
      */
      var scheme : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param host
+        @param path
+        @param port
+        @param proxy
+        @param scheme
+        @since ARP1.0
+     */
+     public convenience init(host: String, path: String, port: Int, proxy: String, scheme: String) {
+          self.init()
+          self.host = host
+          self.path = path
+          self.port = port
+          self.proxy = proxy
+          self.scheme = scheme
+     }
 
 }
 

@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the internal unique identifier data elements of a contact.
+   Structure representing the internal unique identifier data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactUid : NSObject {
 
@@ -36,6 +36,23 @@ public class ContactUid : NSObject {
         The id of the Contact
      */
      var contactId : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by implementation to set the Contact id.
+
+        @param contactId Internal unique contact id.
+        @since ARP1.0
+     */
+     public convenience init(contactId: String) {
+          self.init()
+          self.contactId = contactId
+     }
 
 }
 

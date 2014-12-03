@@ -34,6 +34,34 @@ Contributors:
 @implementation Service {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param endpoint
+        @param name
+        @param method
+        @param type
+        @since ARP1.0
+     */
+     - (id) initWithEndpointNameMethodType:(Endpoint*)endpoint name:(NSString*)name method:(IServiceMethod*)method type:(IServiceType*)type {
+          self = [self init];
+          if (self) {
+               [self setEndpoint:endpoint];
+               [self setName:name];
+               [self setMethod:method];
+               [self setType:type];
+          }
+          return self;
+     }
+
 }
 @end
 

@@ -34,6 +34,30 @@ Contributors:
 @implementation Header {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param name
+        @param data
+        @since ARP1.0
+     */
+     - (id) initWithNameData:(NSString*)name data:(NSString*)data {
+          self = [self init];
+          if (self) {
+               [self setName:name];
+               [self setData:data];
+          }
+          return self;
+     }
+
 }
 @end
 

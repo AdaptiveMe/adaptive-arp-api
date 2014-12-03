@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the column specification of a data table.
+   Structure representing the column specification of a data table.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Column : NSObject {
 
@@ -36,6 +36,22 @@ public class Column : NSObject {
         Name of the column
      */
      var name : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor for implementation using.
+
+        @param name Name of the column
+     */
+     public convenience init(name: String) {
+          self.init()
+          self.name = name
+     }
 
 }
 

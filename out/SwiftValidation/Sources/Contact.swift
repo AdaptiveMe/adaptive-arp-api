@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the data elements of a contact.
+   Structure representing the data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Contact : ContactUid {
 
@@ -64,6 +64,22 @@ public class Contact : ContactUid {
         The professional info from the contact
      */
      var professionalInfo : ContactProfessionalInfo?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by implementation to set the Contact.
+
+        @param contactId of the Contact
+        @since ARP1.0
+     */
+     public convenience init(contactId: String) {
+          super.init(contactId)
+     }
 
 }
 

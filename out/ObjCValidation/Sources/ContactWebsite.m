@@ -34,6 +34,28 @@ Contributors:
 @implementation ContactWebsite {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param url
+        @since ARP1.0
+     */
+     - (id) initWithUrl:(NSString*)url {
+          self = [self init];
+          if (self) {
+               [self setUrl:url];
+          }
+          return self;
+     }
+
 }
 @end
 

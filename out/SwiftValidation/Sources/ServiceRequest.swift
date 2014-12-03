@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Represents a local or remote service request.
+   Represents a local or remote service request.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ServiceRequest : NSObject {
 
@@ -68,6 +68,39 @@ public class ServiceRequest : NSObject {
         The session context for the Request/Response.
      */
      var session : ISession?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Contructor used by the implementation
+
+        @param content
+        @param contentType
+        @param contentLength
+        @param rawContent
+        @param headers
+        @param method
+        @param protocolVersion
+        @param session
+        @param contentEncoding
+        @since ARP1.0
+     */
+     public convenience init(content: String, contentType: String, contentLength: Int, rawContent: [Byte], headers: [Header], method: String, protocolVersion: IServiceProtocolVersion, session: ISession, contentEncoding: String) {
+          self.init()
+          self.content = content
+          self.contentType = contentType
+          self.contentLength = contentLength
+          self.rawContent = rawContent
+          self.headers = headers
+          self.method = method
+          self.protocolVersion = protocolVersion
+          self.session = session
+          self.contentEncoding = contentEncoding
+     }
 
 }
 

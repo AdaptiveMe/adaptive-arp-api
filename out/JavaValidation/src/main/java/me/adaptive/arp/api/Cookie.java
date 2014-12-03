@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the data of a http cookie.
+   Structure representing the data of a http cookie.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Cookie {
 
@@ -66,6 +66,25 @@ public class Cookie {
         Cookie is secure (https only)
      */
      private boolean secure;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Cookie() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param name
+        @param data
+        @since ARP1.0
+     */
+     public Cookie(String name, String data) {
+          this();
+          this.name = name;
+          this.data = data;
+     }
 
 }
 

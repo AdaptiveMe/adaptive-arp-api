@@ -34,6 +34,27 @@ Contributors:
 @implementation Column {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor for implementation using.
+
+        @param name Name of the column
+     */
+     - (id) initWithName:(NSString*)name {
+          self = [self init];
+          if (self) {
+               [self setName:name];
+          }
+          return self;
+     }
+
 }
 @end
 

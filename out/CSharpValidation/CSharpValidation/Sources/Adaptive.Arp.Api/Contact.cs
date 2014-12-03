@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the data elements of a contact.
+        Structure representing the data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Contact : ContactUid
      {
@@ -69,6 +69,21 @@ namespace Adaptive.Arp.Api
              The professional info from the contact
           */
           public ContactProfessionalInfo ProfessionalInfo { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Contact()  {
+          }
+
+          /**
+             Constructor used by implementation to set the Contact.
+
+             @param ContactId of the Contact
+             @since ARP1.0
+          */
+          public Contact(string ContactId) : base(ContactId) {
+          }
 
      }
 }

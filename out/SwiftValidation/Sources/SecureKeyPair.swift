@@ -24,16 +24,35 @@ Contributors:
 */
 
 /**
-Represents a single secureKey-value pair.
+   Represents a single secureKey-value pair.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class SecureKeyPair : NSObject {
 
      var secureData : String?
      var secureKey : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor with parameters
+
+        @param secureKey   name of the keypair
+        @param secureData value of the keypair
+        @since ARP1.0
+     */
+     public convenience init(secureKey: String, secureData: String) {
+          self.init()
+          self.secureKey = secureKey
+          self.secureData = secureData
+     }
 
 }
 

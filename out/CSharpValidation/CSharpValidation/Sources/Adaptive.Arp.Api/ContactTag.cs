@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the assigned tags data elements of a contact.
+        Structure representing the assigned tags data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class ContactTag
      {
@@ -45,6 +45,24 @@ namespace Adaptive.Arp.Api
              The name of the Tag
           */
           public string Name { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public ContactTag()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param DataValue
+             @param Name
+             @since ARP1.0
+          */
+          public ContactTag(string Name, string DataValue) : base () {
+               this.Name = Name;
+               this.DataValue = DataValue;
+          }
 
      }
 }

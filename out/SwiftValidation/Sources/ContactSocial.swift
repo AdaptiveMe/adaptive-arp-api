@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the social data elements of a contact.
+   Structure representing the social data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactSocial : NSObject {
 
@@ -40,6 +40,25 @@ public class ContactSocial : NSObject {
         The profileUrl
      */
      var profileUrl : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param socialNetwork of the profile
+        @param profileUrl    of the user
+        @since ARP1.0
+     */
+     public convenience init(socialNetwork: ContactSocialNetwork, profileUrl: String) {
+          self.init()
+          self.socialNetwork = socialNetwork
+          self.profileUrl = profileUrl
+     }
 
 }
 

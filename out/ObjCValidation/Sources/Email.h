@@ -69,6 +69,35 @@ Structure representing the data elements of an email.
      */
      @property NSArray *toRecipients;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param toRecipients        array of recipients
+        @param ccRecipients        array of cc recipients
+        @param bccRecipients       array of bcc recipients
+        @param attachmentData      array of attatchments
+        @param messageBody         body of the email
+        @param messageBodyMimeType mime type of the body
+        @param subject             of the email
+        @since ARP1.0
+     */
+     - (id) initWithToRecipientsCcRecipientsBccRecipientsAttachmentDataMessageBodyMessageBodyMimeTypeSubject:(NSArray*)toRecipients ccRecipients:(NSArray*)ccRecipients bccRecipients:(NSArray*)bccRecipients attachmentData:(NSArray*)attachmentData messageBody:(NSString*)messageBody messageBodyMimeType:(NSString*)messageBodyMimeType subject:(NSString*)subject;
+
+     /**
+        Constructor used by the implementation
+
+        @param toRecipients array of recipients
+        @param subject      of the email
+        @param messageBody  body of the email
+        @since ARP1.0
+     */
+     - (id) initWithToRecipientsSubjectMessageBody:(NSArray*)toRecipients subject:(NSString*)subject messageBody:(NSString*)messageBody;
+
 @end
 
 /**

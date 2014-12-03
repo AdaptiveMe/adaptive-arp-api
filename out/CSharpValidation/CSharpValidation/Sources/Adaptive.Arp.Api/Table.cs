@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Represents a data table composed of columns and rows.
+        Represents a data table composed of columns and rows.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Table
      {
@@ -57,6 +57,21 @@ namespace Adaptive.Arp.Api
              Rows of the table containing the data.
           */
           public Row[] Rows { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Table()  {
+          }
+
+          /**
+             Constructor by default
+
+             @param Name The name of the table
+          */
+          public Table(string Name) : base () {
+               this.Name = Name;
+          }
 
      }
 }

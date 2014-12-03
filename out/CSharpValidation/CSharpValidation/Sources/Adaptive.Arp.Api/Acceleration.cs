@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the data of a single acceleration reading.
+        Structure representing the data of a single acceleration reading.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Acceleration
      {
@@ -53,6 +53,28 @@ namespace Adaptive.Arp.Api
              Z-axis component of the acceleration.
           */
           public double Z { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Acceleration()  {
+          }
+
+          /**
+             Convenience constructor.
+
+             @param X X Coordinate
+             @param Y Y Coordinate
+             @param Z Z Coordinate
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          public Acceleration(double X, double Y, double Z, long TimeStamp) : base () {
+               this.X = X;
+               this.Y = Y;
+               this.Z = Z;
+               this.TimeStamp = TimeStamp;
+          }
 
      }
 }

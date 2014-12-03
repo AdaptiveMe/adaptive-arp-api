@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the address data elements of a contact.
+   Structure representing the address data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactAddress : NSObject {
 
@@ -40,6 +40,25 @@ public class ContactAddress : NSObject {
         The Contact address
      */
      var address : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param address Address data.
+        @param type    Address type.
+        @since ARP1.0
+     */
+     public convenience init(address: String, type: ContactAddressType) {
+          self.init()
+          self.address = address
+          self.type = type
+     }
 
 }
 

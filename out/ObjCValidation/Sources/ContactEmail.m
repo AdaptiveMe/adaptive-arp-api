@@ -34,6 +34,32 @@ Contributors:
 @implementation ContactEmail {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param type
+        @param primary
+        @param email
+        @since ARP1.0
+     */
+     - (id) initWithTypePrimaryEmail:(ContactEmailType*)type primary:(bool*)primary email:(NSString*)email {
+          self = [self init];
+          if (self) {
+               [self setType:type];
+               [self setPrimary:primary];
+               [self setEmail:email];
+          }
+          return self;
+     }
+
 }
 @end
 

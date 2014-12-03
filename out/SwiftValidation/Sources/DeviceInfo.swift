@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the basic device information.
+   Structure representing the basic device information.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class DeviceInfo : NSObject {
 
@@ -49,6 +49,28 @@ be unique for a specific instance of an application on a specific device.
         Vendor of the device hardware.
      */
      var vendor : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor for the implementation of the platform.
+
+        @param name   or brand of the device.
+        @param model  of the device.
+        @param vendor of the device.
+        @param uuid   unique* identifier (* platform dependent).
+     */
+     public convenience init(name: String, model: String, vendor: String, uuid: String) {
+          self.init()
+          self.name = name
+          self.model = model
+          self.vendor = vendor
+          self.uuid = uuid
+     }
 
 }
 

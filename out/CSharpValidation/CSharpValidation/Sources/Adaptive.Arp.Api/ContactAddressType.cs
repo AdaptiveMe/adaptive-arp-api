@@ -28,7 +28,7 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Enumeration ContactAddressType
+        Enumeration ContactAddressType
      */
      public enum ContactAddressType {
 

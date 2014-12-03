@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Enumeration ContactPersonalInfoTitle
+   Enumeration ContactPersonalInfoTitle
 */
 public enum ContactPersonalInfoTitle {
 

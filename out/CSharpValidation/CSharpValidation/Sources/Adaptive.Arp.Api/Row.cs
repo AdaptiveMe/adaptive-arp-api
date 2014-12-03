@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Represents a row for a data table.
+        Represents a row for a data table.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Row
      {
@@ -41,6 +41,21 @@ namespace Adaptive.Arp.Api
              The values of the row.
           */
           public Object[] Values { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Row()  {
+          }
+
+          /**
+             Constructor for implementation using.
+
+             @param Values The values of the row
+          */
+          public Row(Object[] Values) : base () {
+               this.Values = Values;
+          }
 
      }
 }

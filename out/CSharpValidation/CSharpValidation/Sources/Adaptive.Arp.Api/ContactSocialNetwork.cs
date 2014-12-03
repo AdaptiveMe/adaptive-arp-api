@@ -28,7 +28,7 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Enumeration ContactSocialNetwork
+        Enumeration ContactSocialNetwork
      */
      public enum ContactSocialNetwork {
 

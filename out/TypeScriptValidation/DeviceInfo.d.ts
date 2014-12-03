@@ -26,9 +26,9 @@ declare module Adaptive {
     /**
     Structure representing the basic device information.
 
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
     */
     class DeviceInfo {
         /**

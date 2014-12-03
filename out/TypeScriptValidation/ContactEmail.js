@@ -28,9 +28,9 @@ var Adaptive;
     /**
     Structure representing the email data elements of a contact.
 
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
     */
     var ContactEmail = (function () {
         function ContactEmail() {

@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the data of a http cookie.
+        Structure representing the data of a http cookie.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Cookie
      {
@@ -69,6 +69,24 @@ namespace Adaptive.Arp.Api
              Cookie is secure (https only)
           */
           public bool Secure { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Cookie()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param Name
+             @param Data
+             @since ARP1.0
+          */
+          public Cookie(string Name, string Data) : base () {
+               this.Name = Name;
+               this.Data = Data;
+          }
 
      }
 }

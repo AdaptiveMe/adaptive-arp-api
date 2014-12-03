@@ -43,6 +43,20 @@ Represents a specific user or system locate.
      */
      @property NSString *language;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param country
+        @param language
+        @since ARP1.0
+     */
+     - (id) initWithLanguageCountry:(NSString*)language country:(NSString*)country;
+
 @end
 
 /**

@@ -32,9 +32,9 @@ module Adaptive {
      /**
      Represents a local or remote service request.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class ServiceRequest {
 

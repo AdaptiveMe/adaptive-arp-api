@@ -82,6 +82,19 @@ Structure representing the data elements of a contact.
      */
      @property ContactProfessionalInfo *professionalInfo;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by implementation to set the Contact.
+
+        @param contactId of the Contact
+        @since ARP1.0
+     */
+     - (id) initWithContactId:(NSString*)contactId;
+
 @end
 
 /**

@@ -39,6 +39,18 @@ Structure representing the column specification of a data table.
      */
      @property NSString *name;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor for implementation using.
+
+        @param name Name of the column
+     */
+     - (id) initWithName:(NSString*)name;
+
 @end
 
 /**

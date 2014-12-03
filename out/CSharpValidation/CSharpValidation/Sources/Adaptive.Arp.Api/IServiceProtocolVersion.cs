@@ -28,7 +28,7 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Enumeration IServiceProtocolVersion
+        Enumeration IServiceProtocolVersion
      */
      public enum IServiceProtocolVersion {
 

@@ -30,9 +30,9 @@ module Adaptive {
      /**
      Structure representing the a physical or logical button on a device.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      export class Button {
 

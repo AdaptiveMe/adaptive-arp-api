@@ -34,6 +34,30 @@ Contributors:
 @implementation ContactPhone {
 
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init {
+          self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor used by implementation to set the contact Phone
+
+        @param phone
+        @param phoneType
+        @since ARP1.0
+     */
+     - (id) initWithPhonePhoneType:(NSString*)phone phoneType:(ContactPhoneType*)phoneType {
+          self = [self init];
+          if (self) {
+               [self setPhone:phone];
+               [self setPhoneType:phoneType];
+          }
+          return self;
+     }
+
 }
 @end
 

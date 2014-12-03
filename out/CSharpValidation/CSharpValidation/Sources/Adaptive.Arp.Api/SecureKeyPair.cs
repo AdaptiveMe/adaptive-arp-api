@@ -28,17 +28,35 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Represents a single secureKey-value pair.
+        Represents a single secureKey-value pair.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class SecureKeyPair
      {
 
           public string SecureData { get; set; }
           public string SecureKey { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public SecureKeyPair()  {
+          }
+
+          /**
+             Constructor with parameters
+
+             @param SecureKey   name of the keypair
+             @param SecureData value of the keypair
+             @since ARP1.0
+          */
+          public SecureKeyPair(string SecureKey, string SecureData) : base () {
+               this.SecureKey = SecureKey;
+               this.SecureData = SecureData;
+          }
 
      }
 }

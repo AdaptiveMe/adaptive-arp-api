@@ -55,6 +55,23 @@ Structure representing a remote or local service access end-point.
      */
      @property NSString *scheme;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param host
+        @param path
+        @param port
+        @param proxy
+        @param scheme
+        @since ARP1.0
+     */
+     - (id) initWithHostPathPortProxyScheme:(NSString*)host path:(NSString*)path port:(int*)port proxy:(NSString*)proxy scheme:(NSString*)scheme;
+
 @end
 
 /**

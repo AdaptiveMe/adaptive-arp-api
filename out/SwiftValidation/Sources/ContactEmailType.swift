@@ -24,7 +24,7 @@ Contributors:
 */
 
 /**
-Enumeration ContactEmailType
+   Enumeration ContactEmailType
 */
 public enum ContactEmailType {
 

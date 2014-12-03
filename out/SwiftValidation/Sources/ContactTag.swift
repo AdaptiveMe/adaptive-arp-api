@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the assigned tags data elements of a contact.
+   Structure representing the assigned tags data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactTag : NSObject {
 
@@ -40,6 +40,25 @@ public class ContactTag : NSObject {
         The name of the Tag
      */
      var name : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param dataValue
+        @param name
+        @since ARP1.0
+     */
+     public convenience init(name: String, dataValue: String) {
+          self.init()
+          self.name = name
+          self.dataValue = dataValue
+     }
 
 }
 

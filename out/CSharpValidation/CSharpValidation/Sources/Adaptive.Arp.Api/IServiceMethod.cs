@@ -28,7 +28,7 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Enumeration IServiceMethod
+        Enumeration IServiceMethod
      */
      public enum IServiceMethod {
 

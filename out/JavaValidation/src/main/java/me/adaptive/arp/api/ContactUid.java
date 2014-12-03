@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Structure representing the internal unique identifier data elements of a contact.
+   Structure representing the internal unique identifier data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactUid {
 
@@ -38,6 +38,23 @@ public class ContactUid {
         The id of the Contact
      */
      private String contactId;
+
+     /**
+        Constructor used by the implementation
+     */
+     public ContactUid() {
+     }
+
+     /**
+        Constructor used by implementation to set the Contact id.
+
+        @param contactId Internal unique contact id.
+        @since ARP1.0
+     */
+     public ContactUid(String contactId) {
+          this();
+          this.contactId = contactId;
+     }
 
 }
 

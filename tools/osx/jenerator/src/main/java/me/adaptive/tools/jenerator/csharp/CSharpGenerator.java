@@ -26,6 +26,7 @@ package me.adaptive.tools.jenerator.csharp;
 
 import com.thoughtworks.qdox.model.DocletTag;
 import com.thoughtworks.qdox.model.JavaClass;
+import com.thoughtworks.qdox.model.JavaConstructor;
 import com.thoughtworks.qdox.model.JavaField;
 import me.adaptive.tools.jenerator.GeneratorBase;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
@@ -33,7 +34,9 @@ import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +51,80 @@ public class CSharpGenerator extends GeneratorBase {
 
     public CSharpGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
+    }
+
+    @Override
+    protected void endConstructors(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void declareConstructors(String simpleName, Class clazz, List<Constructor> javaConstructors, List<JavaConstructor> docConstructors) {
+        for (int i = 0; i < javaConstructors.size(); i++) {
+            Constructor c = javaConstructors.get(i);
+            JavaConstructor d = docConstructors.get(i);
+            println();
+
+            startComment(10);
+            if (d.getComment() != null && d.getComment().trim().length() > 0) {
+                println(13, d.getComment());
+            } else {
+                println(13, "Convenience constructor.");
+            }
+            if (d.getTags().size() > 0) {
+                println();
+            }
+            for (DocletTag tag : d.getTags()) {
+                println(13, "@" + tag.getName() + " " + camelCase(tag.getValue()));
+            }
+            endComment(10);
+
+
+            print(10, "public " + clazz.getSimpleName() + "(");
+            for (int j = 0; j < c.getParameters().length; j++) {
+                Parameter parameter = c.getParameters()[j];
+                print(convertJavaToNativeType(parameter.getType()) + " " + camelCase(parameter.getName()));
+                if (j < c.getParameters().length - 1) {
+                    print(", ");
+                }
+            }
+            print(") ");
+            if (c.getParameters().length > 0) {
+                if (!clazz.getSuperclass().equals(Object.class)) {
+                    print(": base(");
+                    for (int j = 0; j < c.getParameters().length; j++) {
+                        Parameter parameter = c.getParameters()[j];
+                        print(camelCase(parameter.getName()));
+                        if (j < c.getParameters().length - 1) {
+                            print(", ");
+                        }
+                    }
+                    println(") {");
+                } else {
+                    println(": base () {");
+                }
+            } else {
+                println(" {");
+            }
+
+            for (int j = 0; j < c.getParameters().length; j++) {
+                Parameter parameter = c.getParameters()[j];
+                boolean thisField = false;
+                for (Field field : clazz.getDeclaredFields()) {
+                    if (parameter.getName().equals(field.getName())) {
+                        thisField = true;
+                        break;
+                    }
+                }
+                if (thisField) println(15, "this." + camelCase(parameter.getName()) + " = " + camelCase(parameter.getName()) + ";");
+            }
+            println(10, "}");
+        }
+    }
+
+    @Override
+    protected void startConstructors(String simpleName, Class clazz) {
+
     }
 
     private static String camelCase(Package _package) {
@@ -158,11 +235,11 @@ public class CSharpGenerator extends GeneratorBase {
         println("namespace " + camelCase(clazz.getPackage()));
         println("{");
         startComment(5);
-        println(5, comment);
+        println(8, comment);
         if (tagList.size() > 0) {
             println();
             for (DocletTag tag : tagList) {
-                println(5, "@" + tag.getName() + " " + tag.getValue());
+                println(8, "@" + tag.getName() + " " + tag.getValue());
             }
         }
         endComment(5);

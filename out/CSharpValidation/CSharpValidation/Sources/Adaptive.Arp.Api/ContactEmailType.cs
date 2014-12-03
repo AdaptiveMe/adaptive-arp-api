@@ -28,7 +28,7 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Enumeration ContactEmailType
+        Enumeration ContactEmailType
      */
      public enum ContactEmailType {
 

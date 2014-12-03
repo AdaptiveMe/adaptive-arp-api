@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Structure representing the website data elements of a contact.
+   Structure representing the website data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ContactWebsite : NSObject {
 
@@ -36,6 +36,23 @@ public class ContactWebsite : NSObject {
         The url of the website
      */
      var url : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param url
+        @since ARP1.0
+     */
+     public convenience init(url: String) {
+          self.init()
+          self.url = url
+     }
 
 }
 

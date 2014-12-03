@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Represents a specific application life-cycle stage.
+   Represents a specific application life-cycle stage.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Lifecycle {
 
@@ -38,6 +38,23 @@ public class Lifecycle {
         Represent the state of the app
      */
      private LifecycleState state;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Lifecycle() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param state
+        @since ARP1.0
+     */
+     public Lifecycle(LifecycleState state) {
+          this();
+          this.state = state;
+     }
 
 }
 

@@ -46,6 +46,19 @@ Structure representing the a physical or logical button on a device.
 
      @property ICapabilitiesButton *type;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param type Button type.
+        @since ARP1.0
+     */
+     - (id) initWithType:(ICapabilitiesButton*)type;
+
 @end
 
 /**

@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the website data elements of a contact.
+        Structure representing the website data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class ContactWebsite
      {
@@ -41,6 +41,22 @@ namespace Adaptive.Arp.Api
              The url of the website
           */
           public string Url { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public ContactWebsite()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param Url
+             @since ARP1.0
+          */
+          public ContactWebsite(string Url) : base () {
+               this.Url = Url;
+          }
 
      }
 }

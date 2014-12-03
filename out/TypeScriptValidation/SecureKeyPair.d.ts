@@ -26,9 +26,9 @@ declare module Adaptive {
     /**
     Represents a single secureKey-value pair.
 
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
     */
     class SecureKeyPair {
         secureData: string;

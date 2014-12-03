@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing a database reference.
+        Structure representing a database reference.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Database
      {
@@ -45,6 +45,36 @@ namespace Adaptive.Arp.Api
              Database Name (name of the .db local file).
           */
           public string Name { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Database()  {
+          }
+
+          /**
+             Default constructor. The compress param is setted to false.
+
+             @param Name Name of the table.
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          public Database(string Name) : base () {
+               this.Name = Name;
+          }
+
+          /**
+             Constructor using fields.
+
+             @param Name     Name of the Table.
+             @param Compress Compress enbaled or not.
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          public Database(string Name, bool Compress) : base () {
+               this.Name = Name;
+               this.Compress = Compress;
+          }
 
      }
 }

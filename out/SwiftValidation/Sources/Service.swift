@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Represents an instance of a service.
+   Represents an instance of a service.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Service : NSObject {
 
@@ -48,6 +48,29 @@ public class Service : NSObject {
         The service name
      */
      var name : String?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param endpoint
+        @param name
+        @param method
+        @param type
+        @since ARP1.0
+     */
+     public convenience init(endpoint: Endpoint, name: String, method: IServiceMethod, type: IServiceType) {
+          self.init()
+          self.endpoint = endpoint
+          self.name = name
+          self.method = method
+          self.type = type
+     }
 
 }
 

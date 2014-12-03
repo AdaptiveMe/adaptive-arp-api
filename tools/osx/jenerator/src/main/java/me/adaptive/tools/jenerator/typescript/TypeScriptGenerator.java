@@ -26,6 +26,7 @@ package me.adaptive.tools.jenerator.typescript;
 
 import com.thoughtworks.qdox.model.DocletTag;
 import com.thoughtworks.qdox.model.JavaClass;
+import com.thoughtworks.qdox.model.JavaConstructor;
 import com.thoughtworks.qdox.model.JavaField;
 import me.adaptive.tools.jenerator.GeneratorBase;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
@@ -33,6 +34,7 @@ import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -52,6 +54,21 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     public TypeScriptGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
+    }
+
+    @Override
+    protected void endConstructors(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void declareConstructors(String simpleName, Class clazz, List<Constructor> javaConstructors, List<JavaConstructor> docConstructors) {
+
+    }
+
+    @Override
+    protected void startConstructors(String simpleName, Class clazz) {
+
     }
 
     @Override
@@ -215,13 +232,13 @@ public class TypeScriptGenerator extends GeneratorBase {
         startComment(5);
         startCommentGlobal(5);
         println(5, comment);
-        printlnGlobal(5, comment);
+        printlnGlobal(8, comment);
         if (tagList.size() > 0) {
             println();
             printlnGlobal();
             for (DocletTag tag : tagList) {
-                println(5, "@" + tag.getName() + " " + tag.getValue());
-                printlnGlobal(5, "@" + tag.getName() + " " + tag.getValue());
+                println(8, "@" + tag.getName() + " " + tag.getValue());
+                printlnGlobal(8, "@" + tag.getName() + " " + tag.getValue());
             }
         }
         endComment(5);

@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the binary attachment data.
+        Structure representing the binary attachment data.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class AttachmentData
      {
@@ -57,6 +57,30 @@ namespace Adaptive.Arp.Api
              The relative path where the contents for the attachment file could be located.
           */
           public string ReferenceUrl { get; set; }
+
+          /**
+             Convenience constructor.
+          */
+          public AttachmentData()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param Data         raw data of the file attachment
+             @param DataSize     size of the file attachment
+             @param FileName     name of the file attachment
+             @param MimeType     mime type of the file attachment
+             @param ReferenceUrl relative url of the file attachment
+             @since ARP1.0
+          */
+          public AttachmentData(byte[] Data, long DataSize, string FileName, string MimeType, string ReferenceUrl) : base () {
+               this.Data = Data;
+               this.DataSize = DataSize;
+               this.FileName = FileName;
+               this.MimeType = MimeType;
+               this.ReferenceUrl = ReferenceUrl;
+          }
 
      }
 }

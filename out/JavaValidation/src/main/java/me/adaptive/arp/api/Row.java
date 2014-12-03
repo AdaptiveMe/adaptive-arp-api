@@ -26,11 +26,11 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-Represents a row for a data table.
+   Represents a row for a data table.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class Row {
 
@@ -38,6 +38,22 @@ public class Row {
         The values of the row.
      */
      private Object[] values;
+
+     /**
+        Constructor used by the implementation
+     */
+     public Row() {
+     }
+
+     /**
+        Constructor for implementation using.
+
+        @param values The values of the row
+     */
+     public Row(Object[] values) {
+          this();
+          this.values = values;
+     }
 
 }
 

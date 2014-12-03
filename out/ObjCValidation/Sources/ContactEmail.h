@@ -54,6 +54,21 @@ Structure representing the email data elements of a contact.
      */
      @property bool *primary;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        Constructor used by the implementation
+
+        @param type
+        @param primary
+        @param email
+        @since ARP1.0
+     */
+     - (id) initWithTypePrimaryEmail:(ContactEmailType*)type primary:(bool*)primary email:(NSString*)email;
+
 @end
 
 /**

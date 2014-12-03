@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the data elements of an email.
+        Structure representing the data elements of an email.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class Email
      {
@@ -65,6 +65,48 @@ namespace Adaptive.Arp.Api
              Array of Email recipients
           */
           public EmailAddress[] ToRecipients { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public Email()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param ToRecipients        array of recipients
+             @param CcRecipients        array of cc recipients
+             @param BccRecipients       array of bcc recipients
+             @param AttachmentData      array of attatchments
+             @param MessageBody         body of the email
+             @param MessageBodyMimeType mime type of the body
+             @param Subject             of the email
+             @since ARP1.0
+          */
+          public Email(EmailAddress[] ToRecipients, EmailAddress[] CcRecipients, EmailAddress[] BccRecipients, AttachmentData[] AttachmentData, string MessageBody, string MessageBodyMimeType, string Subject) : base () {
+               this.ToRecipients = ToRecipients;
+               this.CcRecipients = CcRecipients;
+               this.BccRecipients = BccRecipients;
+               this.AttachmentData = AttachmentData;
+               this.MessageBody = MessageBody;
+               this.MessageBodyMimeType = MessageBodyMimeType;
+               this.Subject = Subject;
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param ToRecipients array of recipients
+             @param Subject      of the email
+             @param MessageBody  body of the email
+             @since ARP1.0
+          */
+          public Email(EmailAddress[] ToRecipients, string Subject, string MessageBody) : base () {
+               this.ToRecipients = ToRecipients;
+               this.Subject = Subject;
+               this.MessageBody = MessageBody;
+          }
 
      }
 }

@@ -24,11 +24,11 @@ Contributors:
 */
 
 /**
-Represents a local or remote service response.
+   Represents a local or remote service response.
 
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
 */
 public class ServiceResponse : NSObject {
 
@@ -64,6 +64,37 @@ public class ServiceResponse : NSObject {
         The session context for the Request/Response.
      */
      var session : ISession?
+
+     /**
+        Constructor used by the implementation
+     */
+     public override init() {
+     }
+
+     /**
+        Constructor used by the implementation
+
+        @param content
+        @param contentType
+        @param contentLength
+        @param contentBinary
+        @param contentBinaryLength
+        @param headers
+        @param session
+        @param contentEncoding
+        @since ARP1.0
+     */
+     public convenience init(content: String, contentType: String, contentLength: String, contentBinary: [Byte], contentBinaryLength: Int, headers: [Header], session: ISession, contentEncoding: String) {
+          self.init()
+          self.content = content
+          self.contentType = contentType
+          self.contentLength = contentLength
+          self.contentBinary = contentBinary
+          self.contentBinaryLength = contentBinaryLength
+          self.headers = headers
+          self.session = session
+          self.contentEncoding = contentEncoding
+     }
 
 }
 

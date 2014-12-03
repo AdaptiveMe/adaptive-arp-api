@@ -59,6 +59,22 @@ Structure representing the personal info data elements of a contact.
      */
      @property NSString *name;
 
+     /**
+        Constructor used by the implementation
+     */
+     - (id) init;
+
+     /**
+        The Constructor used by the implementation
+
+        @param name       of the Contact
+        @param middleName of the Contact
+        @param lastName   of the Contact
+        @param title      of the Contact
+        @since ARP1.0
+     */
+     - (id) initWithNameMiddleNameLastNameTitle:(NSString*)name middleName:(NSString*)middleName lastName:(NSString*)lastName title:(ContactPersonalInfoTitle*)title;
+
 @end
 
 /**

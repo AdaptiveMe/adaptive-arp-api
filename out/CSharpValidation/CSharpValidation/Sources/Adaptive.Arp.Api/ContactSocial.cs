@@ -28,11 +28,11 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-     Structure representing the social data elements of a contact.
+        Structure representing the social data elements of a contact.
 
-     @author Carlos Lozano Diez
-     @since 1.0
-     @version 1.0
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
      */
      public class ContactSocial
      {
@@ -45,6 +45,24 @@ namespace Adaptive.Arp.Api
              The profileUrl
           */
           public string ProfileUrl { get; set; }
+
+          /**
+             Constructor used by the implementation
+          */
+          public ContactSocial()  {
+          }
+
+          /**
+             Constructor used by the implementation
+
+             @param SocialNetwork of the profile
+             @param ProfileUrl    of the user
+             @since ARP1.0
+          */
+          public ContactSocial(ContactSocialNetwork SocialNetwork, string ProfileUrl) : base () {
+               this.SocialNetwork = SocialNetwork;
+               this.ProfileUrl = ProfileUrl;
+          }
 
      }
 }

@@ -28,9 +28,9 @@ declare module Adaptive {
     /**
     Represents a data table composed of columns and rows.
 
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
     */
     class Table {
         /**
