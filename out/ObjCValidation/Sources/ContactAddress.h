@@ -35,6 +35,17 @@ Structure representing the address data elements of a contact.
 @interface ContactAddress : NSObject
 
      /**
+        The address type
+     */
+     typedef NS_OPTIONS(NSUInteger, ContactAddressType) {
+          ContactAddressType_Home = 0,
+          ContactAddressType_Work = 1,
+          ContactAddressType_Other = 2,
+          ContactAddressType_Unknown = 3
+     };
+
+     @property ContactAddressType *type;
+     /**
         The Contact address
      */
      @property NSString *address;

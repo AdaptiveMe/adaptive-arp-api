@@ -38,6 +38,10 @@ namespace Adaptive.Arp.Api
      {
 
           /**
+             The title of the Contact
+          */
+          public ContactPersonalInfoTitle Title { get; set; }
+          /**
              The last name of the Contact
           */
           public string LastName { get; set; }

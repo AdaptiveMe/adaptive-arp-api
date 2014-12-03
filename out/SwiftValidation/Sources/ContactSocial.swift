@@ -33,6 +33,10 @@ Structure representing the social data elements of a contact.
 public class ContactSocial : NSObject {
 
      /**
+        The social network
+     */
+     var socialNetwork : ContactSocialNetwork?
+     /**
         The profileUrl
      */
      var profileUrl : String?

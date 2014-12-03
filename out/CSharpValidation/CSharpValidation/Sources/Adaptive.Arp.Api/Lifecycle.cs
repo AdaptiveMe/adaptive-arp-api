@@ -37,6 +37,10 @@ namespace Adaptive.Arp.Api
      public class Lifecycle
      {
 
+          /**
+             Represent the state of the app
+          */
+          public LifecycleState State { get; set; }
 
      }
 }

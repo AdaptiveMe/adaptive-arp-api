@@ -23,7 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="PhoneType.ts"/>
+///<reference path="ContactPhoneType.ts"/>
 
 module Adaptive {
 
@@ -36,6 +36,10 @@ module Adaptive {
      */
      export class ContactPhone {
 
+          /**
+             The phone number phoneType
+          */
+          phoneType : ContactPhoneType;
           /**
              The phone number
           */

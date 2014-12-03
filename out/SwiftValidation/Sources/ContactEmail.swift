@@ -33,6 +33,10 @@ Structure representing the email data elements of a contact.
 public class ContactEmail : NSObject {
 
      /**
+        The type of the email
+     */
+     var type : ContactEmailType?
+     /**
         Email of the Contact
      */
      var email : String?

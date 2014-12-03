@@ -48,6 +48,7 @@ public class TypeScriptGenerator extends GeneratorBase {
     private File currentFileGlobal;
     private IndentPrintStream indentPrintStreamGlobal;
     private List<String> arrayOfClasses = new ArrayList<>();
+    private List<Class> enumClassList = new ArrayList<>();
 
     public TypeScriptGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
@@ -80,6 +81,10 @@ public class TypeScriptGenerator extends GeneratorBase {
 
         indentPrintStream.flush();
         indentPrintStream.close();
+        for (Class enumClass : enumClassList) {
+            generateEnumClass(enumClass);
+        }
+
         indentPrintStreamGlobal.println();
         indentPrintStreamGlobal.println("}");
         indentPrintStreamGlobal.println("/**");
@@ -126,7 +131,10 @@ public class TypeScriptGenerator extends GeneratorBase {
                 return "string";
             }
         } else if (classType.isEnum()) {
-
+            if (!enumClassList.contains(classType)) {
+                enumClassList.add(classType);
+            }
+            return generateEnumClassName(classType);
         } else if (classType.equals(Object.class)) {
             return "any";
         } else if (classType.equals(String.class)) {
@@ -147,8 +155,8 @@ public class TypeScriptGenerator extends GeneratorBase {
             endComment(10);
             endCommentGlobal(10);
         }
-        println(10, field.getName() + " : " + convertJavaToNativeType(field.getType())+";");
-        printlnGlobal(10, field.getName() + " : " + convertJavaToNativeType(field.getType())+";");
+        println(10, field.getName() + " : " + convertJavaToNativeType(field.getType()) + ";");
+        printlnGlobal(10, field.getName() + " : " + convertJavaToNativeType(field.getType()) + ";");
     }
 
     @Override
@@ -166,34 +174,40 @@ public class TypeScriptGenerator extends GeneratorBase {
     @Override
     protected void startBean(String simpleName, Class clazz, String comment, List<DocletTag> tagList) {
         List<String> referenceList = new ArrayList<>();
-        if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
-            referenceList.add(clazz.getSuperclass().getSimpleName());
-        }
-        for (Field field : clazz.getDeclaredFields()) {
-            if (field.getType().isArray()) {
-                if (!field.getType().getComponentType().isPrimitive() && !field.getType().getComponentType().equals(String.class) && !field.getType().getComponentType().equals(Object.class)) {
-                    if (!referenceList.contains(field.getType().getComponentType().getSimpleName())) {
-                        referenceList.add(field.getType().getComponentType().getSimpleName());
+        if (!clazz.isEnum()) {
+            if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class) && !clazz.getSuperclass().equals(Enum.class)) {
+                referenceList.add(clazz.getSuperclass().getSimpleName());
+            }
+            for (Field field : clazz.getDeclaredFields()) {
+                if (field.getType().isArray()) {
+                    if (!field.getType().getComponentType().isPrimitive() && !field.getType().getComponentType().equals(String.class) && !field.getType().getComponentType().equals(Object.class)) {
+                        if (!referenceList.contains(field.getType().getComponentType().getSimpleName())) {
+                            referenceList.add(field.getType().getComponentType().getSimpleName());
+                        }
+                    }
+                } else if (field.getType().isEnum()) {
+                    if (!referenceList.contains(generateEnumClassName(field.getType()))) {
+                        referenceList.add(generateEnumClassName(field.getType()));
+                    }
+                } else if (!field.getType().isPrimitive() && !field.getType().equals(String.class) && !field.getType().equals(Object.class) && !field.getType().equals(clazz)) {
+                    if (!referenceList.contains(field.getType().getSimpleName())) {
+                        referenceList.add(field.getType().getSimpleName());
                     }
                 }
-            } else if (!field.getType().isPrimitive() && !field.getType().equals(String.class) && !field.getType().equals(Object.class) && !field.getType().equals(clazz)) {
-                if (!referenceList.contains(field.getType().getSimpleName())) {
-                    referenceList.add(field.getType().getSimpleName());
+            }
+            referenceList.sort(new Comparator<String>() {
+                @Override
+                public int compare(String o1, String o2) {
+                    return o1.compareTo(o2);
                 }
-            }
-        }
-        referenceList.sort(new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.compareTo(o2);
-            }
-        });
+            });
 
-        if (referenceList.size()>0) {
-            for (String reference : referenceList) {
-                println("///<reference path=\"" + reference + ".ts\"/>");
+            if (referenceList.size() > 0) {
+                for (String reference : referenceList) {
+                    println("///<reference path=\"" + reference + ".ts\"/>");
+                }
+                println();
             }
-            println();
         }
 
         println("module Adaptive {"); // Module
@@ -212,7 +226,10 @@ public class TypeScriptGenerator extends GeneratorBase {
         }
         endComment(5);
         endCommentGlobal(5);
-        if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
+        if (clazz.isEnum()) {
+            println(5, "export class " + generateEnumClassName(clazz) + " {");
+            printlnGlobal(5, "export class " + generateEnumClassName(clazz) + " {");
+        } else if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
             println(5, "export class " + simpleName + " extends " + clazz.getSuperclass().getSimpleName() + " {");
             printlnGlobal(5, "export class " + simpleName + " extends " + clazz.getSuperclass().getSimpleName() + " {");
         } else {
@@ -289,6 +306,46 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void endClass(Class clazz) {
+        indentPrintStream.flush();
+        indentPrintStream.close();
+    }
+
+    private void generateEnumClass(Class clazz) {
+        currentFile = new File(getOutputRootDirectory(), generateEnumClassName(clazz) + ".ts");
+        currentFile.mkdirs();
+        if (currentFile.exists()) {
+            currentFile.delete();
+        }
+        try {
+            indentPrintStream = new IndentPrintStream(new FileOutputStream(currentFile));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        startComment(0);
+        applyClassHeader(clazz, getSourceHeader());
+        endComment(0);
+        println();
+
+        startBean(generateEnumClassName(clazz), clazz, "Enumeration " + generateEnumClassName(clazz), new ArrayList<DocletTag>());
+        println();
+        printlnGlobal();
+        println(10, "constructor(public value:string){}");
+        println(10, "toString(){return this.value;}");
+        printlnGlobal(10, "constructor(public value:string){}");
+        printlnGlobal(10, "toString(){return this.value;}");
+        println();
+        printlnGlobal();
+        for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
+            Field field = clazz.getDeclaredFields()[i];
+            println(10, "static " + field.getName() + " = new " + generateEnumClassName(clazz) + "(\"" + field.getName() + "\");");
+            printlnGlobal(10, "static " + field.getName() + " = new " + generateEnumClassName(clazz) + "(\"" + field.getName() + "\");");
+        }
+        println();
+        printlnGlobal();
+        endBean(generateEnumClassName(clazz), clazz);
+
+
         indentPrintStream.flush();
         indentPrintStream.close();
     }

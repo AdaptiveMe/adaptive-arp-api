@@ -36,6 +36,34 @@ Represents an instance of a service.
 @interface Service : NSObject
 
      /**
+        The method used
+     */
+     typedef NS_OPTIONS(NSUInteger, IServiceMethod) {
+          IServiceMethod_POST = 0,
+          IServiceMethod_GET = 1,
+          IServiceMethod_Unknown = 2
+     };
+
+     @property IServiceMethod *method;
+     /**
+        The type of the service
+     */
+     typedef NS_OPTIONS(NSUInteger, IServiceType) {
+          IServiceType_SERVICETYPE_AMF_SERIALIZATION = 0,
+          IServiceType_SERVICETYPE_GWT_RPC = 1,
+          IServiceType_SERVICETYPE_OCTET_BINARY = 2,
+          IServiceType_SERVICETYPE_REMOTING_SERIALIZATION = 3,
+          IServiceType_SERVICETYPE_REST_JSON = 4,
+          IServiceType_SERVICETYPE_REST_XML = 5,
+          IServiceType_SERVICETYPE_SOAP_JSON = 6,
+          IServiceType_SERVICETYPE_SOAP_XML = 7,
+          IServiceType_SERVICETYPE_XMLRPC_JSON = 8,
+          IServiceType_SERVICETYPE_XMLRPC_XML = 9,
+          IServiceType_Unknown = 10
+     };
+
+     @property IServiceType *type;
+     /**
         Enpoint of the service
      */
      @property Endpoint *endpoint;

@@ -35,6 +35,19 @@ Structure representing the social data elements of a contact.
 @interface ContactSocial : NSObject
 
      /**
+        The social network
+     */
+     typedef NS_OPTIONS(NSUInteger, ContactSocialNetwork) {
+          ContactSocialNetwork_Twitter = 0,
+          ContactSocialNetwork_Facebook = 1,
+          ContactSocialNetwork_GooglePlus = 2,
+          ContactSocialNetwork_LinkedIn = 3,
+          ContactSocialNetwork_Flickr = 4,
+          ContactSocialNetwork_Unknown = 5
+     };
+
+     @property ContactSocialNetwork *socialNetwork;
+     /**
         The profileUrl
      */
      @property NSString *profileUrl;

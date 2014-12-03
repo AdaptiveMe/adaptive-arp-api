@@ -38,6 +38,10 @@ namespace Adaptive.Arp.Api
      {
 
           /**
+             The social network
+          */
+          public ContactSocialNetwork SocialNetwork { get; set; }
+          /**
              The profileUrl
           */
           public string ProfileUrl { get; set; }

@@ -84,7 +84,7 @@ public class ObjCGenerator extends GeneratorBase {
     protected String convertJavaToNativeType(Class classType) {
         String type = "Unknown";
         if (classType.isArray()) {
-            return "NSArray";//convertJavaToNativeType(classType.getComponentType()) + "[]";
+            return "NSArray";
         } else if (classType.isPrimitive()) {
             if (classType.equals(Double.TYPE)) {
                 return "double";
@@ -102,7 +102,7 @@ public class ObjCGenerator extends GeneratorBase {
                 return "char";
             }
         } else if (classType.isEnum()) {
-
+            return generateEnumClassName(classType);
         } else if (classType.equals(Object.class)) {
             return "NSObject";
         } else if (classType.equals(String.class)) {
@@ -119,9 +119,31 @@ public class ObjCGenerator extends GeneratorBase {
             indentPrintStreamH.println(5, "/**");
             indentPrintStreamH.println(8, fieldByName.getComment());
             if (field.getType().isArray()) {
-                indentPrintStreamH.println(8, "Array objects must be of "+filterClassName(field.getType().getComponentType().getSimpleName())+" type.");
+                indentPrintStreamH.println(8, "Array objects must be of " + filterClassName(field.getType().getComponentType().getSimpleName()) + " type.");
             }
             indentPrintStreamH.println(5, "*/");
+        }
+
+        boolean fieldIsEnum = false;
+        if (field.getType().isArray() && field.getType().getComponentType().isEnum()) {
+            fieldIsEnum = true;
+        } else if (field.getType().isEnum()) {
+            fieldIsEnum = true;
+        }
+
+        if (fieldIsEnum) {
+            indentPrintStreamH.println(5, "typedef NS_OPTIONS(NSUInteger, " + convertJavaToNativeType(field.getType()) + ") {");
+            for (int i = 0; i < field.getType().getDeclaredFields().length - 1; i++) {
+                Field ef = field.getType().getDeclaredFields()[i];
+                indentPrintStreamH.print(10, convertJavaToNativeType(field.getType()) + "_" + ef.getName() + " = " + i);
+                if (i < field.getType().getDeclaredFields().length - 2) {
+                    indentPrintStreamH.println(",");
+                } else {
+                    indentPrintStreamH.println();
+                }
+            }
+            indentPrintStreamH.println(5, "};");
+            indentPrintStreamH.println();
         }
         indentPrintStreamH.println(5, "@property " + convertJavaToNativeType(field.getType()) + " *" + field.getName() + ";");
     }
@@ -134,8 +156,10 @@ public class ObjCGenerator extends GeneratorBase {
     @Override
     protected void endBean(String simpleName, Class clazz) {
         indentPrintStreamH.println("@end");
-        indentPrintStream.println("}");
-        indentPrintStream.println("@end");
+        if (!clazz.isEnum()) {
+            indentPrintStream.println("}");
+            indentPrintStream.println("@end");
+        }
     }
 
     @Override
@@ -143,7 +167,7 @@ public class ObjCGenerator extends GeneratorBase {
         List<String> referenceList = new ArrayList<>();
         referenceList.add("Foundation/Foundation");
 
-        if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
+        if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class) && !clazz.getSuperclass().equals(Enum.class)) {
             referenceList.add(filterClassName(clazz.getSuperclass().getSimpleName()));
         }
         for (Field field : clazz.getDeclaredFields()) {
@@ -185,25 +209,27 @@ public class ObjCGenerator extends GeneratorBase {
             }
         }
         indentPrintStreamH.println("*/");
-
-        if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
+        if (clazz.isEnum()) {
+            indentPrintStreamH.println("@interface " + filterClassName(simpleName) + " : NSObject");
+        } else if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
             indentPrintStreamH.println("@interface " + filterClassName(simpleName) + " : " + filterClassName(clazz.getSuperclass().getSimpleName()));
         } else {
             indentPrintStreamH.println("@interface " + filterClassName(simpleName) + " : NSObject");
         }
 
-
-        indentPrintStream.println("#import <" + filterClassName(simpleName) + ".h>");
-        indentPrintStream.println("");
-        indentPrintStream.println("/**");
-        if (tagList.size() > 0) {
-            indentPrintStream.println();
-            for (DocletTag tag : tagList) {
-                indentPrintStream.println("@" + tag.getName() + " " + tag.getValue());
+        if (!clazz.isEnum()) {
+            indentPrintStream.println("#import <" + filterClassName(simpleName) + ".h>");
+            indentPrintStream.println("");
+            indentPrintStream.println("/**");
+            if (tagList.size() > 0) {
+                indentPrintStream.println();
+                for (DocletTag tag : tagList) {
+                    indentPrintStream.println("@" + tag.getName() + " " + tag.getValue());
+                }
             }
+            indentPrintStream.println("*/");
+            indentPrintStream.println("@implementation " + filterClassName(simpleName) + " {");
         }
-        indentPrintStream.println("*/");
-        indentPrintStream.println("@implementation " + filterClassName(simpleName) + " {");
     }
 
     @Override
@@ -269,4 +295,6 @@ public class ObjCGenerator extends GeneratorBase {
         if (indentPrintStream != null) indentPrintStream.println(indent, literal);
         if (indentPrintStreamH != null) indentPrintStreamH.println(indent, literal);
     }
+
+
 }

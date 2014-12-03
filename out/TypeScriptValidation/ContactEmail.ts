@@ -23,7 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="EmailType.ts"/>
+///<reference path="ContactEmailType.ts"/>
 
 module Adaptive {
 
@@ -36,6 +36,10 @@ module Adaptive {
      */
      export class ContactEmail {
 
+          /**
+             The type of the email
+          */
+          type : ContactEmailType;
           /**
              Email of the Contact
           */

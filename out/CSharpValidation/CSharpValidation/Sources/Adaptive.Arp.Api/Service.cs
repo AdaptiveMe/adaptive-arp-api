@@ -38,6 +38,14 @@ namespace Adaptive.Arp.Api
      {
 
           /**
+             The method used
+          */
+          public IServiceMethod Method { get; set; }
+          /**
+             The type of the service
+          */
+          public IServiceType Type { get; set; }
+          /**
              Enpoint of the service
           */
           public Endpoint Endpoint { get; set; }

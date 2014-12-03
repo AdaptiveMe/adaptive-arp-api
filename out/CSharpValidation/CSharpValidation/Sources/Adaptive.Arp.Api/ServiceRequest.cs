@@ -38,6 +38,10 @@ namespace Adaptive.Arp.Api
      {
 
           /**
+             The HTTP procotol version to be used for this request.
+          */
+          public IServiceProtocolVersion ProtocolVersion { get; set; }
+          /**
              Request/Response data content (plain text).
           */
           public string Content { get; set; }

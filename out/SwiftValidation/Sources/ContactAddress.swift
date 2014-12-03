@@ -33,6 +33,10 @@ Structure representing the address data elements of a contact.
 public class ContactAddress : NSObject {
 
      /**
+        The address type
+     */
+     var type : ContactAddressType?
+     /**
         The Contact address
      */
      var address : String?

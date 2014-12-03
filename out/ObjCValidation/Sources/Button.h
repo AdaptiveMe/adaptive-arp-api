@@ -34,6 +34,17 @@ Structure representing the a physical or logical button on a device.
 */
 @interface Button : NSObject
 
+     /**
+        Button type
+     */
+     typedef NS_OPTIONS(NSUInteger, ICapabilitiesButton) {
+          ICapabilitiesButton_HomeButton = 0,
+          ICapabilitiesButton_BackButton = 1,
+          ICapabilitiesButton_OptionButton = 2,
+          ICapabilitiesButton_Unknown = 3
+     };
+
+     @property ICapabilitiesButton *type;
 
 @end
 

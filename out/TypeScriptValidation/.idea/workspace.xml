@@ -2,102 +2,215 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Locale.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/LocalLocale.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Locale.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/LocalLocale.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Acceleration.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Acceleration.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Acceleration.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Acceleration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactAddressType.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactEmailType.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactPersonalInfoTitle.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactPhoneType.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactPhoneType.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactSocialNetwork.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactSocialNetwork.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ICapabilitiesButton.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ICapabilitiesButton.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/IServiceMethod.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/IServiceProtocolVersion.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/IServiceProtocolVersion.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/IServiceType.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/LifecycleState.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/LifecycleState.swift" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Acceleration.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AttachmentData.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Column.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Contact.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactAddress.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactEmail.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPersonalInfo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactProfessionalInfo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactSocial.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactTag.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactUid.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactWebsite.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Cookie.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Database.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/DeviceInfo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Email.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/EmailAddress.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Endpoint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Geolocation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Header.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAlarm.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAmbientLight.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAnalytics.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppContext.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppContextWebview.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppRegistry.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppResource.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppResourceCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppResourceHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppServer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppServerListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAppServerManager.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAudio.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBarcode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBarometer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseApplication.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseCommerce.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseCommunication.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseData.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseMedia.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseNotification.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBasePIM.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseReader.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseSecurity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseSensor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseSocial.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseSystem.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseUI.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBaseUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBluetooth.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IBrowser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IButtonListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ICalendar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ICamera.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ICapabilities.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ICloud.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ICompression.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IConcurrent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IContact.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IContactPhotoResultCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IContactResultCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ICrypto.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IDataStream.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IDatabase.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IDatabaseResultCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IDesktop.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IDevice.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IDisplay.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IFacebook.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IFile.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IFileDataResultCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IFileListResultCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IFilePath.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IFileResultCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IFileSystem.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IGeolocation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IGeolocationListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IGlobalization.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IGooglePlus.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IGyroscope.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IImaging.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IInternalStorage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ILifecycle.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ILifecycleListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ILinkedIn.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ILogging.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IMagnetometer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IMail.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IManagement.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IMap.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IMessaging.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IMessagingCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/INFC.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/INetworkInfo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/INetworkNaming.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/INetworkReachability.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/INetworkReachabilityCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/INetworkStatus.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/INotification.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/INotificationLocal.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IOAuth.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IOCR.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IOS.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IOpenId.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IPrinting.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IProximity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IQRCode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IRSS.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IRuntime.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ISecureKVResultCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ISecurity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IServiceResultCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ISession.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ISettings.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ISocket.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IStore.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ITableResultCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ITelephony.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ITimer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ITwitter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IUI.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IUpdate.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IVibration.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IVideo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IWallet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IXML.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Lifecycle.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Locale.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/OSInfo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Row.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/SecureKeyPair.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Service.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceResponse.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Table.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/IServiceType.h" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Button.java" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/IServiceType.swift" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAccelerationListener.java" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactAddressType.swift" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAccelerometer.java" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactPersonalInfoTitle.swift" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAdaptiveRP.java" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactEmailType.swift" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/IAds.java" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/IServiceMethod.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/AttachmentData.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/AttachmentData.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AttachmentData.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AttachmentData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/AttachmentData.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/AttachmentData.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Column.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Column.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Column.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Column.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Column.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Column.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Contact.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Contact.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Contact.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Contact.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Button.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Button.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Button.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Button.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Button.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Button.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Button.ts" afterPath="$PROJECT_DIR$/Button.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/csharp/CSharpGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/csharp/CSharpGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/CSharpValidation.csproj" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/CSharpValidation.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactAddress.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactAddress.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactAddress.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactAddress.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactAddress.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactAddress.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactAddress.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactAddress.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactAddress.ts" afterPath="$PROJECT_DIR$/ContactAddress.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactEmail.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactEmail.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactEmail.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactEmail.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactEmail.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactEmail.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactEmail.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactEmail.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactEmail.ts" afterPath="$PROJECT_DIR$/ContactEmail.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactPersonalInfo.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactPersonalInfo.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPersonalInfo.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPersonalInfo.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPersonalInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPersonalInfo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactPersonalInfo.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactPersonalInfo.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPersonalInfo.ts" afterPath="$PROJECT_DIR$/ContactPersonalInfo.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactPhone.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactPhone.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPhone.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPhone.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPhone.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPhone.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactPhone.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactPhone.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactProfessionalInfo.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactProfessionalInfo.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactProfessionalInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactProfessionalInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactProfessionalInfo.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactProfessionalInfo.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhone.ts" afterPath="$PROJECT_DIR$/ContactPhone.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactSocial.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactSocial.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactSocial.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactSocial.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactSocial.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactSocial.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactSocial.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactSocial.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactTag.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactTag.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactTag.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactTag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactTag.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactTag.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactUid.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactUid.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactUid.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactUid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactUid.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactUid.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactWebsite.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactWebsite.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactWebsite.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactWebsite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactWebsite.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactWebsite.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Cookie.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Cookie.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Cookie.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Cookie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Cookie.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Cookie.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Database.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Database.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Database.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Database.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Database.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Database.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/DeviceInfo.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/DeviceInfo.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/DeviceInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/DeviceInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/DeviceInfo.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/DeviceInfo.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Email.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Email.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Email.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Email.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Email.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Email.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/EmailAddress.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/EmailAddress.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/EmailAddress.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/EmailAddress.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/EmailAddress.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/EmailAddress.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Endpoint.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Endpoint.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Endpoint.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Endpoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Endpoint.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Endpoint.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactSocial.ts" afterPath="$PROJECT_DIR$/ContactSocial.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Geolocation.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Geolocation.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Geolocation.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Geolocation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Header.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Header.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Header.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Header.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Header.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Header.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/java/JavaGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/java/JavaGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Locale.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Locale.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Locale.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Locale.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/OSInfo.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/OSInfo.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/OSInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/OSInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/OSInfo.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/OSInfo.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Lifecycle.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Lifecycle.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Lifecycle.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Lifecycle.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Lifecycle.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Lifecycle.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lifecycle.ts" afterPath="$PROJECT_DIR$/Lifecycle.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/objc/ObjCGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/objc/ObjCGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Row.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Row.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Row.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Row.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Row.ts" afterPath="$PROJECT_DIR$/Row.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/SecureKeyPair.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/SecureKeyPair.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/SecureKeyPair.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/SecureKeyPair.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/SecureKeyPair.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/SecureKeyPair.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Service.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Service.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Service.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Service.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Service.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Service.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Service.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Service.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.ts" afterPath="$PROJECT_DIR$/Service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ServiceRequest.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ServiceRequest.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceRequest.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceRequest.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceRequest.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceRequest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ServiceRequest.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ServiceRequest.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceResponse.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceResponse.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceResponse.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ServiceResponse.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ServiceResponse.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceRequest.ts" afterPath="$PROJECT_DIR$/ServiceRequest.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Table.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Table.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Table.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Table.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Table.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Table.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/join.sh" afterPath="$PROJECT_DIR$/join.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/ObjCValidation.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../ObjCValidation/ObjCValidation.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/SwiftValidation.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../SwiftValidation/SwiftValidation.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TypeScriptValidation.iws" />
@@ -125,10 +238,53 @@
       <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Adaptive.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8576052" vertical-offset="8718" max-vertical-offset="10530">
-              <caret line="696" column="2" selection-start-line="696" selection-start-column="2" selection-end-line="696" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.91909385" vertical-offset="12558" max-vertical-offset="13500">
+              <caret line="894" column="0" selection-start-line="894" selection-start-column="0" selection-end-line="894" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceResponse.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ServiceResponse.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="1260">
+              <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Button.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Button.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="825">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
-                <marker date="1417601071000" expanded="true" signature="16390:16398" placeholder="..." />
+                <marker date="1417610550000" expanded="true" signature="1160:1448" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Lifecycle.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Lifecycle.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+              <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactSocialNetwork.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ContactSocialNetwork.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="750">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <marker date="1417610550000" expanded="true" signature="1113:1701" placeholder="..." />
+                <marker date="1417610550000" expanded="true" signature="1210:1699" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -147,9 +303,16 @@
       <file leaf-file-name="Service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1035">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding>
+                <marker date="1417610550000" expanded="true" signature="1229:1758" placeholder="..." />
+                <marker date="1417610550000" expanded="true" signature="1237:1357" placeholder="/**Represents an instance of a service. ...*/" />
+                <marker date="1417610550000" expanded="true" signature="1384:1756" placeholder="..." />
+                <marker date="1417610550000" expanded="true" signature="1397:1635" placeholder="/**Enpoint of the service ...*/" />
+                <marker date="1417610550000" expanded="true" signature="1677:1723" placeholder="/**The service name ...*/" />
+                <marker date="1417610550000" expanded="true" signature="1760:1886" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,6 +327,8 @@
       <list>
         <option value="$PROJECT_DIR$/Service.ts" />
         <option value="$PROJECT_DIR$/Row.ts" />
+        <option value="$PROJECT_DIR$/ContactSocialNetwork.ts" />
+        <option value="$PROJECT_DIR$/Lifecycle.ts" />
         <option value="$PROJECT_DIR$/Adaptive.ts" />
       </list>
     </option>
@@ -328,9 +493,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="7320" max-vertical-offset="10545">
           <caret line="488" column="66" selection-start-line="488" selection-start-column="66" selection-end-line="488" selection-end-column="66" />
-          <folding>
-            <marker date="1417601071000" expanded="true" signature="16390:16398" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -338,15 +501,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1417610550000" expanded="true" signature="1229:1758" placeholder="..." />
+            <marker date="1417610550000" expanded="true" signature="1237:1357" placeholder="/**Represents an instance of a service. ...*/" />
+            <marker date="1417610550000" expanded="true" signature="1384:1756" placeholder="..." />
+            <marker date="1417610550000" expanded="true" signature="1397:1635" placeholder="/**Enpoint of the service ...*/" />
+            <marker date="1417610550000" expanded="true" signature="1677:1723" placeholder="/**The service name ...*/" />
+            <marker date="1417610550000" expanded="true" signature="1760:1886" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1035">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <marker date="1417610550000" expanded="true" signature="1229:1758" placeholder="..." />
+            <marker date="1417610550000" expanded="true" signature="1237:1357" placeholder="/**Represents an instance of a service. ...*/" />
+            <marker date="1417610550000" expanded="true" signature="1384:1756" placeholder="..." />
+            <marker date="1417610550000" expanded="true" signature="1397:1635" placeholder="/**Enpoint of the service ...*/" />
+            <marker date="1417610550000" expanded="true" signature="1677:1723" placeholder="/**The service name ...*/" />
+            <marker date="1417610550000" expanded="true" signature="1760:1886" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -358,13 +535,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ContactSocialNetwork.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="750">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <marker date="1417610550000" expanded="true" signature="1113:1701" placeholder="..." />
+            <marker date="1417610550000" expanded="true" signature="1210:1699" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Button.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="825">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <marker date="1417610550000" expanded="true" signature="1160:1448" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lifecycle.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ServiceResponse.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="1260">
+          <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8576052" vertical-offset="8718" max-vertical-offset="10530">
-          <caret line="696" column="2" selection-start-line="696" selection-start-column="2" selection-end-line="696" selection-end-column="2" />
-          <folding>
-            <marker date="1417601071000" expanded="true" signature="16390:16398" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.91909385" vertical-offset="12558" max-vertical-offset="13500">
+          <caret line="894" column="0" selection-start-line="894" selection-start-column="0" selection-end-line="894" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -37,11 +37,16 @@
     <Compile Include="Sources\Adaptive.Arp.Api\Column.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Contact.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactAddress.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ContactAddressType.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactEmail.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ContactEmailType.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactPersonalInfo.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ContactPersonalInfoTitle.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactPhone.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ContactPhoneType.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactProfessionalInfo.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactSocial.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ContactSocialNetwork.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactTag.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactUid.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactWebsite.cs" />
@@ -94,6 +99,7 @@
     <Compile Include="Sources\Adaptive.Arp.Api\ICalendar.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ICamera.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ICapabilities.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ICapabilitiesButton.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ICloud.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ICompression.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IConcurrent.cs" />
@@ -151,7 +157,10 @@
     <Compile Include="Sources\Adaptive.Arp.Api\ISecureKVResultCallback.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ISecurity.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IService.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IServiceMethod.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IServiceProtocolVersion.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IServiceResultCallback.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IServiceType.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ISession.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ISettings.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ISocket.cs" />
@@ -167,6 +176,7 @@
     <Compile Include="Sources\Adaptive.Arp.Api\IWallet.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IXML.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Lifecycle.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\LifecycleState.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Locale.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\OSInfo.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Row.cs" />
@@ -179,5 +189,6 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Sources\" />
+    <Folder Include="Sources\Adaptive.Arp.Api\" />
   </ItemGroup>
 </Project>

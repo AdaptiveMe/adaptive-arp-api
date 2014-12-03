@@ -23,7 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="Button.ts"/>
+///<reference path="ICapabilitiesButton.ts"/>
 
 module Adaptive {
 
@@ -36,6 +36,10 @@ module Adaptive {
      */
      export class Button {
 
+          /**
+             Button type
+          */
+          type : ICapabilitiesButton;
 
      }
 }

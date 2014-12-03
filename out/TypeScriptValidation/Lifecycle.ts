@@ -23,7 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="State.ts"/>
+///<reference path="LifecycleState.ts"/>
 
 module Adaptive {
 
@@ -36,6 +36,10 @@ module Adaptive {
      */
      export class Lifecycle {
 
+          /**
+             Represent the state of the app
+          */
+          state : LifecycleState;
 
      }
 }

@@ -251,6 +251,37 @@ public abstract class GeneratorBase {
         return tagList;
     }
 
+    protected static String generateEnumClassName(Class clazz) {
+        List<String> nameComponents = new ArrayList<>();
+        StringBuffer word = null;
+        for (char c : (clazz.getDeclaringClass().getSimpleName() + clazz.getSimpleName()).toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                if (word == null) {
+                    word = new StringBuffer();
+                    word.append(c);
+                } else {
+                    if (!nameComponents.contains(word.toString())) {
+                        nameComponents.add(word.toString());
+                    }
+                    word = new StringBuffer();
+                    word.append(c);
+                }
+            } else {
+                word.append(c);
+            }
+        }
+
+        if (!nameComponents.contains(word.toString())) {
+            nameComponents.add(word.toString());
+        }
+
+        word = new StringBuffer();
+        for (String name : nameComponents) {
+            word.append(name);
+        }
+        return word.toString();
+    }
+
     public void generateSourceCode(GeneratorCallback callback) throws Exception {
         if (outRootPath.exists()) {
             outRootPath.delete();
@@ -272,7 +303,7 @@ public abstract class GeneratorBase {
             println();
 
             if (clazz.isEnum()) {
-
+                System.out.println("Enumeration: " + clazz);
             } else if (clazz.isInterface()) {
 
             } else {
@@ -322,7 +353,7 @@ public abstract class GeneratorBase {
                     }
                 });
                 for (Field field : enumFields) {
-                    System.out.println(clazz + " " + field);
+                    declareField(clazz, field, mapClassSource.get(clazz).getFieldByName(field.getName()));
                 }
 
                 for (Field field : normalFields) {

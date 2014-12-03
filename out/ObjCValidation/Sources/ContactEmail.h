@@ -35,6 +35,17 @@ Structure representing the email data elements of a contact.
 @interface ContactEmail : NSObject
 
      /**
+        The type of the email
+     */
+     typedef NS_OPTIONS(NSUInteger, ContactEmailType) {
+          ContactEmailType_Personal = 0,
+          ContactEmailType_Work = 1,
+          ContactEmailType_Other = 2,
+          ContactEmailType_Unknown = 3
+     };
+
+     @property ContactEmailType *type;
+     /**
         Email of the Contact
      */
      @property NSString *email;

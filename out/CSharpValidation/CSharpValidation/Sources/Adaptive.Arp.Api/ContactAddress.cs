@@ -38,6 +38,10 @@ namespace Adaptive.Arp.Api
      {
 
           /**
+             The address type
+          */
+          public ContactAddressType Type { get; set; }
+          /**
              The Contact address
           */
           public string Address { get; set; }

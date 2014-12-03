@@ -34,6 +34,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,14 +44,39 @@ public class CSharpGenerator extends GeneratorBase {
 
     private File currentFile;
     private IndentPrintStream indentPrintStream;
+    private List<Class> enumClassList = new ArrayList<>();
 
     public CSharpGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
     }
 
+    private static String camelCase(Package _package) {
+        StringBuffer out = new StringBuffer();
+        boolean capitalize = true;
+        // Strip first part of package name
+        for (char c : _package.getName().substring(_package.getName().indexOf('.') + 1).toCharArray()) {
+            if (capitalize) {
+                out.append(Character.toUpperCase(c));
+                capitalize = false;
+            } else {
+                if (c == '.') {
+                    capitalize = true;
+                }
+                out.append(c);
+            }
+        }
+        return out.toString();
+    }
+
+    private static String camelCase(String name) {
+        return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+    }
+
     @Override
     protected void endGeneration() {
-
+        for (Class enumClass : enumClassList) {
+            generateEnumClass(enumClass);
+        }
     }
 
     @Override
@@ -90,7 +116,10 @@ public class CSharpGenerator extends GeneratorBase {
                 return "char";
             }
         } else if (classType.isEnum()) {
-
+            if (!enumClassList.contains(classType)) {
+                enumClassList.add(classType);
+            }
+            return generateEnumClassName(classType);
         } else if (classType.equals(Object.class)) {
             return "Object";
         } else if (classType.equals(String.class)) {
@@ -108,7 +137,7 @@ public class CSharpGenerator extends GeneratorBase {
             println(13, fieldByName.getComment());
             endComment(10);
         }
-        println(10, "public "+convertJavaToNativeType(field.getType())+" " + camelCase(field.getName()) + " { get; set; }");
+        println(10, "public " + convertJavaToNativeType(field.getType()) + " " + camelCase(field.getName()) + " { get; set; }");
     }
 
     @Override
@@ -137,7 +166,9 @@ public class CSharpGenerator extends GeneratorBase {
             }
         }
         endComment(5);
-        if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
+        if (clazz.isEnum()) {
+            println(5, "public enum " + generateEnumClassName(clazz) + " {");
+        } else if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
             println(5, "public class " + simpleName + " : " + clazz.getSuperclass().getSimpleName());
             println(5, "{");
         } else {
@@ -148,7 +179,7 @@ public class CSharpGenerator extends GeneratorBase {
 
     @Override
     protected void startClass(Class clazz) {
-        currentFile = new File(getOutputRootDirectory(), camelCase(clazz.getPackage())+File.separator+clazz.getSimpleName() + ".cs");
+        currentFile = new File(getOutputRootDirectory(), camelCase(clazz.getPackage()) + File.separator + clazz.getSimpleName() + ".cs");
         currentFile.mkdirs();
         if (currentFile.exists()) {
             currentFile.delete();
@@ -166,25 +197,39 @@ public class CSharpGenerator extends GeneratorBase {
         indentPrintStream.close();
     }
 
-    private static String camelCase(Package _package) {
-        StringBuffer out = new StringBuffer();
-        boolean capitalize = true;
-        // Strip first part of package name
-        for (char c : _package.getName().substring(_package.getName().indexOf('.')+1).toCharArray()) {
-            if (capitalize) {
-                out.append(Character.toUpperCase(c));
-                capitalize = false;
-            } else {
-                if (c == '.') {
-                    capitalize = true;
-                }
-                out.append(c);
+    private void generateEnumClass(Class clazz) {
+        currentFile = new File(getOutputRootDirectory(), camelCase(clazz.getPackage()) + File.separator + generateEnumClassName(clazz) + ".cs");
+        currentFile.mkdirs();
+        if (currentFile.exists()) {
+            currentFile.delete();
+        }
+        try {
+            indentPrintStream = new IndentPrintStream(new FileOutputStream(currentFile));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        startComment(0);
+        applyClassHeader(clazz, getSourceHeader());
+        endComment(0);
+        println();
+
+        startBean(generateEnumClassName(clazz), clazz, "Enumeration " + generateEnumClassName(clazz), new ArrayList<DocletTag>());
+        println();
+        for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
+            Field field = clazz.getDeclaredFields()[i];
+            print(10, field.getName());
+            if (i < clazz.getDeclaredFields().length - 2) {
+                println(",");
             }
         }
-        return out.toString();
+        println();
+        println();
+        endBean(generateEnumClassName(clazz), clazz);
+
+
+        indentPrintStream.flush();
+        indentPrintStream.close();
     }
 
-    private static String camelCase(String name) {
-        return Character.toUpperCase(name.charAt(0))+name.substring(1);
-    }
 }

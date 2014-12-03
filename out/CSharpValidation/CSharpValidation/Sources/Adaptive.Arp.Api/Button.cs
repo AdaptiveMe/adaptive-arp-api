@@ -37,6 +37,10 @@ namespace Adaptive.Arp.Api
      public class Button
      {
 
+          /**
+             Button type
+          */
+          public ICapabilitiesButton Type { get; set; }
 
      }
 }

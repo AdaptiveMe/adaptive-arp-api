@@ -38,6 +38,10 @@ namespace Adaptive.Arp.Api
      {
 
           /**
+             The type of the email
+          */
+          public ContactEmailType Type { get; set; }
+          /**
              Email of the Contact
           */
           public string Email { get; set; }

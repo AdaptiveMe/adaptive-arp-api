@@ -35,6 +35,21 @@ Structure representing the phone data elements of a contact.
 @interface ContactPhone : NSObject
 
      /**
+        The phone number phoneType
+     */
+     typedef NS_OPTIONS(NSUInteger, ContactPhoneType) {
+          ContactPhoneType_Mobile = 0,
+          ContactPhoneType_Work = 1,
+          ContactPhoneType_Home = 2,
+          ContactPhoneType_Main = 3,
+          ContactPhoneType_HomeFax = 4,
+          ContactPhoneType_WorkFax = 5,
+          ContactPhoneType_Other = 6,
+          ContactPhoneType_Unknown = 7
+     };
+
+     @property ContactPhoneType *phoneType;
+     /**
         The phone number
      */
      @property NSString *phone;

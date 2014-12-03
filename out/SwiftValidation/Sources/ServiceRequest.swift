@@ -33,6 +33,10 @@ Represents a local or remote service request.
 public class ServiceRequest : NSObject {
 
      /**
+        The HTTP procotol version to be used for this request.
+     */
+     var protocolVersion : IServiceProtocolVersion?
+     /**
         Request/Response data content (plain text).
      */
      var content : String?

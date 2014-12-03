@@ -34,6 +34,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,6 +43,7 @@ import java.util.List;
 public class JavaGenerator extends GeneratorBase {
     private File currentFile;
     private IndentPrintStream indentPrintStream;
+    private List<Class> enumClassList = new ArrayList<>();
 
     public JavaGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
@@ -49,7 +51,9 @@ public class JavaGenerator extends GeneratorBase {
 
     @Override
     protected void endGeneration() {
-
+        for (Class enumClass : enumClassList) {
+            generateEnumClass(enumClass);
+        }
     }
 
     @Override
@@ -89,7 +93,10 @@ public class JavaGenerator extends GeneratorBase {
                 return "char";
             }
         } else if (classType.isEnum()) {
-
+            if (!enumClassList.contains(classType)) {
+                enumClassList.add(classType);
+            }
+            return generateEnumClassName(classType);
         } else if (classType.equals(Object.class)) {
             return "Object";
         } else if (classType.equals(String.class)) {
@@ -102,12 +109,12 @@ public class JavaGenerator extends GeneratorBase {
 
     @Override
     protected void declareField(Class clazz, Field field, JavaField fieldByName) {
-        if (fieldByName.getComment() != null && fieldByName.getComment().length() > 0) {
+        if (fieldByName != null && fieldByName.getComment() != null && fieldByName.getComment().length() > 0) {
             startComment(5);
             println(8, fieldByName.getComment());
             endComment(5);
         }
-        println(5, "private " + convertJavaToNativeType(field.getType())+" "+field.getName()+";");
+        println(5, "private " + convertJavaToNativeType(field.getType()) + " " + field.getName() + ";");
     }
 
     @Override
@@ -133,7 +140,9 @@ public class JavaGenerator extends GeneratorBase {
             }
         }
         endComment(0);
-        if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
+        if (clazz.isEnum()) {
+            println("public enum " + generateEnumClassName(clazz) + " {");
+        } else if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
             println("public class " + simpleName + " extends " + clazz.getSuperclass().getSimpleName() + " {");
         } else {
             println("public class " + simpleName + " {");
@@ -144,7 +153,7 @@ public class JavaGenerator extends GeneratorBase {
     @Override
     protected void startClass(Class clazz) {
 
-        currentFile = new File(getOutputRootDirectory(), clazz.getPackage().getName().replace('.',File.separatorChar)+File.separatorChar+clazz.getSimpleName() + ".java");
+        currentFile = new File(getOutputRootDirectory(), clazz.getPackage().getName().replace('.', File.separatorChar) + File.separatorChar + clazz.getSimpleName() + ".java");
         currentFile.mkdirs();
         if (currentFile.exists()) {
             currentFile.delete();
@@ -158,6 +167,41 @@ public class JavaGenerator extends GeneratorBase {
 
     @Override
     protected void endClass(Class clazz) {
+        indentPrintStream.flush();
+        indentPrintStream.close();
+    }
+
+    private void generateEnumClass(Class clazz) {
+        currentFile = new File(getOutputRootDirectory(), clazz.getPackage().getName().replace('.', File.separatorChar) + File.separatorChar + generateEnumClassName(clazz) + ".java");
+        currentFile.mkdirs();
+        if (currentFile.exists()) {
+            currentFile.delete();
+        }
+        try {
+            indentPrintStream = new IndentPrintStream(new FileOutputStream(currentFile));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        startComment(0);
+        applyClassHeader(clazz, getSourceHeader());
+        endComment(0);
+        println();
+
+        startBean(generateEnumClassName(clazz), clazz, "Enumeration " + generateEnumClassName(clazz), new ArrayList<DocletTag>());
+        println();
+        for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
+            Field field = clazz.getDeclaredFields()[i];
+            print(5, field.getName());
+            if (i < clazz.getDeclaredFields().length - 2) {
+                println(",");
+            }
+        }
+        println();
+        println();
+        endBean(generateEnumClassName(clazz), clazz);
+
+
         indentPrintStream.flush();
         indentPrintStream.close();
     }

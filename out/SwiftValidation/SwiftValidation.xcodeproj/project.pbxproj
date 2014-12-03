@@ -154,6 +154,16 @@
 		4E248FF71A2E36BB0076821A /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E248F671A2E36BB0076821A /* ServiceRequest.swift */; };
 		4E248FF81A2E36BB0076821A /* ServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E248F681A2E36BB0076821A /* ServiceResponse.swift */; };
 		4E248FF91A2E36BB0076821A /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E248F691A2E36BB0076821A /* Table.swift */; };
+		4E5507311A2F31BD001CEBD0 /* ContactAddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5507271A2F31BD001CEBD0 /* ContactAddressType.swift */; };
+		4E5507321A2F31BD001CEBD0 /* ContactEmailType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5507281A2F31BD001CEBD0 /* ContactEmailType.swift */; };
+		4E5507331A2F31BD001CEBD0 /* ContactPersonalInfoTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5507291A2F31BD001CEBD0 /* ContactPersonalInfoTitle.swift */; };
+		4E5507341A2F31BD001CEBD0 /* ContactPhoneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55072A1A2F31BD001CEBD0 /* ContactPhoneType.swift */; };
+		4E5507351A2F31BD001CEBD0 /* ContactSocialNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55072B1A2F31BD001CEBD0 /* ContactSocialNetwork.swift */; };
+		4E5507361A2F31BD001CEBD0 /* ICapabilitiesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55072C1A2F31BD001CEBD0 /* ICapabilitiesButton.swift */; };
+		4E5507371A2F31BD001CEBD0 /* IServiceMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55072D1A2F31BD001CEBD0 /* IServiceMethod.swift */; };
+		4E5507381A2F31BD001CEBD0 /* IServiceProtocolVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55072E1A2F31BD001CEBD0 /* IServiceProtocolVersion.swift */; };
+		4E5507391A2F31BD001CEBD0 /* IServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55072F1A2F31BD001CEBD0 /* IServiceType.swift */; };
+		4E55073A1A2F31BD001CEBD0 /* LifecycleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5507301A2F31BD001CEBD0 /* LifecycleState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,6 +327,16 @@
 		4E248F671A2E36BB0076821A /* ServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
 		4E248F681A2E36BB0076821A /* ServiceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceResponse.swift; sourceTree = "<group>"; };
 		4E248F691A2E36BB0076821A /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		4E5507271A2F31BD001CEBD0 /* ContactAddressType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactAddressType.swift; sourceTree = "<group>"; };
+		4E5507281A2F31BD001CEBD0 /* ContactEmailType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactEmailType.swift; sourceTree = "<group>"; };
+		4E5507291A2F31BD001CEBD0 /* ContactPersonalInfoTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPersonalInfoTitle.swift; sourceTree = "<group>"; };
+		4E55072A1A2F31BD001CEBD0 /* ContactPhoneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPhoneType.swift; sourceTree = "<group>"; };
+		4E55072B1A2F31BD001CEBD0 /* ContactSocialNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSocialNetwork.swift; sourceTree = "<group>"; };
+		4E55072C1A2F31BD001CEBD0 /* ICapabilitiesButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICapabilitiesButton.swift; sourceTree = "<group>"; };
+		4E55072D1A2F31BD001CEBD0 /* IServiceMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServiceMethod.swift; sourceTree = "<group>"; };
+		4E55072E1A2F31BD001CEBD0 /* IServiceProtocolVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServiceProtocolVersion.swift; sourceTree = "<group>"; };
+		4E55072F1A2F31BD001CEBD0 /* IServiceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServiceType.swift; sourceTree = "<group>"; };
+		4E5507301A2F31BD001CEBD0 /* LifecycleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,11 +420,16 @@
 				4E248EDD1A2E36BB0076821A /* Column.swift */,
 				4E248EDE1A2E36BB0076821A /* Contact.swift */,
 				4E248EDF1A2E36BB0076821A /* ContactAddress.swift */,
+				4E5507271A2F31BD001CEBD0 /* ContactAddressType.swift */,
 				4E248EE01A2E36BB0076821A /* ContactEmail.swift */,
+				4E5507281A2F31BD001CEBD0 /* ContactEmailType.swift */,
 				4E248EE11A2E36BB0076821A /* ContactPersonalInfo.swift */,
+				4E5507291A2F31BD001CEBD0 /* ContactPersonalInfoTitle.swift */,
 				4E248EE21A2E36BB0076821A /* ContactPhone.swift */,
+				4E55072A1A2F31BD001CEBD0 /* ContactPhoneType.swift */,
 				4E248EE31A2E36BB0076821A /* ContactProfessionalInfo.swift */,
 				4E248EE41A2E36BB0076821A /* ContactSocial.swift */,
+				4E55072B1A2F31BD001CEBD0 /* ContactSocialNetwork.swift */,
 				4E248EE51A2E36BB0076821A /* ContactTag.swift */,
 				4E248EE61A2E36BB0076821A /* ContactUid.swift */,
 				4E248EE71A2E36BB0076821A /* ContactWebsite.swift */,
@@ -457,6 +482,7 @@
 				4E248F161A2E36BB0076821A /* ICalendar.swift */,
 				4E248F171A2E36BB0076821A /* ICamera.swift */,
 				4E248F181A2E36BB0076821A /* ICapabilities.swift */,
+				4E55072C1A2F31BD001CEBD0 /* ICapabilitiesButton.swift */,
 				4E248F191A2E36BB0076821A /* ICloud.swift */,
 				4E248F1A1A2E36BB0076821A /* ICompression.swift */,
 				4E248F1B1A2E36BB0076821A /* IConcurrent.swift */,
@@ -514,7 +540,10 @@
 				4E248F4F1A2E36BB0076821A /* ISecureKVResultCallback.swift */,
 				4E248F501A2E36BB0076821A /* ISecurity.swift */,
 				4E248F511A2E36BB0076821A /* IService.swift */,
+				4E55072D1A2F31BD001CEBD0 /* IServiceMethod.swift */,
+				4E55072E1A2F31BD001CEBD0 /* IServiceProtocolVersion.swift */,
 				4E248F521A2E36BB0076821A /* IServiceResultCallback.swift */,
+				4E55072F1A2F31BD001CEBD0 /* IServiceType.swift */,
 				4E248F531A2E36BB0076821A /* ISession.swift */,
 				4E248F541A2E36BB0076821A /* ISettings.swift */,
 				4E248F551A2E36BB0076821A /* ISocket.swift */,
@@ -530,6 +559,7 @@
 				4E248F5F1A2E36BB0076821A /* IWallet.swift */,
 				4E248F601A2E36BB0076821A /* IXML.swift */,
 				4E248F611A2E36BB0076821A /* Lifecycle.swift */,
+				4E5507301A2F31BD001CEBD0 /* LifecycleState.swift */,
 				4E248F621A2E36BB0076821A /* Locale.swift */,
 				4E248F631A2E36BB0076821A /* OSInfo.swift */,
 				4E248F641A2E36BB0076821A /* Row.swift */,
@@ -666,6 +696,7 @@
 				4E248F811A2E36BB0076821A /* IAccelerometer.swift in Sources */,
 				4E248F8A1A2E36BB0076821A /* IAppResource.swift in Sources */,
 				4E248F771A2E36BB0076821A /* ContactWebsite.swift in Sources */,
+				4E5507331A2F31BD001CEBD0 /* ContactPersonalInfoTitle.swift in Sources */,
 				4E248FF61A2E36BB0076821A /* Service.swift in Sources */,
 				4E248F9B1A2E36BB0076821A /* IBasePIM.swift in Sources */,
 				4E248FAE1A2E36BB0076821A /* IContactResultCallback.swift in Sources */,
@@ -680,6 +711,7 @@
 				4E248FED1A2E36BB0076821A /* IVibration.swift in Sources */,
 				4E248FA71A2E36BB0076821A /* ICamera.swift in Sources */,
 				4E248FF91A2E36BB0076821A /* Table.swift in Sources */,
+				4E5507351A2F31BD001CEBD0 /* ContactSocialNetwork.swift in Sources */,
 				4E248FEB1A2E36BB0076821A /* IUI.swift in Sources */,
 				4E248F861A2E36BB0076821A /* IAnalytics.swift in Sources */,
 				4E248F841A2E36BB0076821A /* IAlarm.swift in Sources */,
@@ -691,6 +723,7 @@
 				4E248FE21A2E36BB0076821A /* IServiceResultCallback.swift in Sources */,
 				4E248F921A2E36BB0076821A /* IBarometer.swift in Sources */,
 				4E248FF01A2E36BB0076821A /* IXML.swift in Sources */,
+				4E55073A1A2F31BD001CEBD0 /* LifecycleState.swift in Sources */,
 				4E248FF31A2E36BB0076821A /* OSInfo.swift in Sources */,
 				4E248FB71A2E36BB0076821A /* IFile.swift in Sources */,
 				4E248FDF1A2E36BB0076821A /* ISecureKVResultCallback.swift in Sources */,
@@ -705,6 +738,7 @@
 				4E248F8B1A2E36BB0076821A /* IAppResourceCallback.swift in Sources */,
 				4E248FBA1A2E36BB0076821A /* IFilePath.swift in Sources */,
 				4E248FA81A2E36BB0076821A /* ICapabilities.swift in Sources */,
+				4E5507381A2F31BD001CEBD0 /* IServiceProtocolVersion.swift in Sources */,
 				4E248FEC1A2E36BB0076821A /* IUpdate.swift in Sources */,
 				4E248FBC1A2E36BB0076821A /* IFileSystem.swift in Sources */,
 				4E248FCE1A2E36BB0076821A /* INetworkInfo.swift in Sources */,
@@ -717,6 +751,7 @@
 				4E248F731A2E36BB0076821A /* ContactProfessionalInfo.swift in Sources */,
 				4E248F981A2E36BB0076821A /* IBaseListener.swift in Sources */,
 				4E248FCB1A2E36BB0076821A /* IMap.swift in Sources */,
+				4E5507341A2F31BD001CEBD0 /* ContactPhoneType.swift in Sources */,
 				4E248F831A2E36BB0076821A /* IAds.swift in Sources */,
 				4E248FD31A2E36BB0076821A /* INFC.swift in Sources */,
 				4E248FD41A2E36BB0076821A /* INotification.swift in Sources */,
@@ -747,18 +782,21 @@
 				4E248F9F1A2E36BB0076821A /* IBaseSocial.swift in Sources */,
 				4E248FC41A2E36BB0076821A /* ILifecycle.swift in Sources */,
 				4E248FAD1A2E36BB0076821A /* IContactPhotoResultCallback.swift in Sources */,
+				4E5507371A2F31BD001CEBD0 /* IServiceMethod.swift in Sources */,
 				4E248FA41A2E36BB0076821A /* IBrowser.swift in Sources */,
 				4E248FB11A2E36BB0076821A /* IDatabaseResultCallback.swift in Sources */,
 				4E248FB51A2E36BB0076821A /* IDisplay.swift in Sources */,
 				4E248F6E1A2E36BB0076821A /* Contact.swift in Sources */,
 				4E248FB91A2E36BB0076821A /* IFileListResultCallback.swift in Sources */,
 				4E248FDA1A2E36BB0076821A /* IPrinting.swift in Sources */,
+				4E5507361A2F31BD001CEBD0 /* ICapabilitiesButton.swift in Sources */,
 				4E248F971A2E36BB0076821A /* IBaseData.swift in Sources */,
 				4E248FE31A2E36BB0076821A /* ISession.swift in Sources */,
 				4E248F9C1A2E36BB0076821A /* IBaseReader.swift in Sources */,
 				4E248F821A2E36BB0076821A /* IAdaptiveRP.swift in Sources */,
 				4E248F6C1A2E36BB0076821A /* Button.swift in Sources */,
 				4E248FEA1A2E36BB0076821A /* ITwitter.swift in Sources */,
+				4E5507311A2F31BD001CEBD0 /* ContactAddressType.swift in Sources */,
 				4E248F7D1A2E36BB0076821A /* Endpoint.swift in Sources */,
 				4E248F941A2E36BB0076821A /* IBaseCallback.swift in Sources */,
 				4E248FB31A2E36BB0076821A /* IDesktop.swift in Sources */,
@@ -785,6 +823,8 @@
 				4E248FC61A2E36BB0076821A /* ILinkedIn.swift in Sources */,
 				4E248F8D1A2E36BB0076821A /* IAppServer.swift in Sources */,
 				4E248F6A1A2E36BB0076821A /* Acceleration.swift in Sources */,
+				4E5507321A2F31BD001CEBD0 /* ContactEmailType.swift in Sources */,
+				4E5507391A2F31BD001CEBD0 /* IServiceType.swift in Sources */,
 				4E248FE71A2E36BB0076821A /* ITableResultCallback.swift in Sources */,
 				4E248F791A2E36BB0076821A /* Database.swift in Sources */,
 				4E248FCA1A2E36BB0076821A /* IManagement.swift in Sources */,
@@ -979,6 +1019,7 @@
 				4E248ED51A2E36180076821A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E248ED61A2E36180076821A /* Build configuration list for PBXNativeTarget "SwiftValidationTests" */ = {
 			isa = XCConfigurationList;
@@ -987,6 +1028,7 @@
 				4E248ED81A2E36180076821A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

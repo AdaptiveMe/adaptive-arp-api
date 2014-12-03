@@ -35,6 +35,18 @@ Structure representing the personal info data elements of a contact.
 @interface ContactPersonalInfo : NSObject
 
      /**
+        The title of the Contact
+     */
+     typedef NS_OPTIONS(NSUInteger, ContactPersonalInfoTitle) {
+          ContactPersonalInfoTitle_Mr = 0,
+          ContactPersonalInfoTitle_Mrs = 1,
+          ContactPersonalInfoTitle_Ms = 2,
+          ContactPersonalInfoTitle_Dr = 3,
+          ContactPersonalInfoTitle_Unknown = 4
+     };
+
+     @property ContactPersonalInfoTitle *title;
+     /**
         The last name of the Contact
      */
      @property NSString *lastName;

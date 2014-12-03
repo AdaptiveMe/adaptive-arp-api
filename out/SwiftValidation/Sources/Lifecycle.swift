@@ -32,6 +32,10 @@ Represents a specific application life-cycle stage.
 */
 public class Lifecycle : NSObject {
 
+     /**
+        Represent the state of the app
+     */
+     var state : LifecycleState?
 
 }
 

@@ -24,8 +24,8 @@ Contributors:
 */
 
 ///<reference path="Header.ts"/>
+///<reference path="IServiceProtocolVersion.ts"/>
 ///<reference path="ISession.ts"/>
-///<reference path="ProtocolVersion.ts"/>
 
 module Adaptive {
 
@@ -38,6 +38,10 @@ module Adaptive {
      */
      export class ServiceRequest {
 
+          /**
+             The HTTP procotol version to be used for this request.
+          */
+          protocolVersion : IServiceProtocolVersion;
           /**
              Request/Response data content (plain text).
           */

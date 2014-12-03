@@ -37,6 +37,16 @@ Represents a local or remote service request.
 @interface ServiceRequest : NSObject
 
      /**
+        The HTTP procotol version to be used for this request.
+     */
+     typedef NS_OPTIONS(NSUInteger, IServiceProtocolVersion) {
+          IServiceProtocolVersion_HTTP_PROTOCOL_VERSION_1_0 = 0,
+          IServiceProtocolVersion_HTTP_PROTOCOL_VERSION_1_1 = 1,
+          IServiceProtocolVersion_Unknown = 2
+     };
+
+     @property IServiceProtocolVersion *protocolVersion;
+     /**
         Request/Response data content (plain text).
      */
      @property NSString *content;

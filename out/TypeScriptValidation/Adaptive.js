@@ -31,6 +31,123 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
+    Represents the basic information about the operating system.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var OSInfo = (function () {
+        function OSInfo() {
+        }
+        return OSInfo;
+    })();
+    Adaptive.OSInfo = OSInfo;
+    /**
+    Structure representing the personal info data elements of a contact.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var ContactPersonalInfo = (function () {
+        function ContactPersonalInfo() {
+        }
+        return ContactPersonalInfo;
+    })();
+    Adaptive.ContactPersonalInfo = ContactPersonalInfo;
+    /**
+    Represents a specific application life-cycle stage.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var Lifecycle = (function () {
+        function Lifecycle() {
+        }
+        return Lifecycle;
+    })();
+    Adaptive.Lifecycle = Lifecycle;
+    /**
+    Structure representing a remote or local service access end-point.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var Endpoint = (function () {
+        function Endpoint() {
+        }
+        return Endpoint;
+    })();
+    Adaptive.Endpoint = Endpoint;
+    /**
+    Represents a single secureKey-value pair.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var SecureKeyPair = (function () {
+        function SecureKeyPair() {
+        }
+        return SecureKeyPair;
+    })();
+    Adaptive.SecureKeyPair = SecureKeyPair;
+    /**
+    Structure representing the internal unique identifier data elements of a contact.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var ContactUid = (function () {
+        function ContactUid() {
+        }
+        return ContactUid;
+    })();
+    Adaptive.ContactUid = ContactUid;
+    /**
+    Structure representing the address data elements of a contact.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var ContactAddress = (function () {
+        function ContactAddress() {
+        }
+        return ContactAddress;
+    })();
+    Adaptive.ContactAddress = ContactAddress;
+    /**
+    Structure representing the basic device information.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var DeviceInfo = (function () {
+        function DeviceInfo() {
+        }
+        return DeviceInfo;
+    })();
+    Adaptive.DeviceInfo = DeviceInfo;
+    /**
+    Structure representing the data of a single acceleration reading.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var Acceleration = (function () {
+        function Acceleration() {
+        }
+        return Acceleration;
+    })();
+    Adaptive.Acceleration = Acceleration;
+    /**
     Structure representing the social data elements of a contact.
 
     @author Carlos Lozano Diez
@@ -44,57 +161,57 @@ var Adaptive;
     })();
     Adaptive.ContactSocial = ContactSocial;
     /**
-    Structure representing the a physical or logical button on a device.
+    Structure representing the data elements of an email addressee.
 
     @author Carlos Lozano Diez
     @since 1.0
     @version 1.0
     */
-    var Button = (function () {
-        function Button() {
+    var EmailAddress = (function () {
+        function EmailAddress() {
         }
-        return Button;
+        return EmailAddress;
     })();
-    Adaptive.Button = Button;
+    Adaptive.EmailAddress = EmailAddress;
     /**
-    Structure representing a database reference.
+    Structure representing the website data elements of a contact.
 
     @author Carlos Lozano Diez
     @since 1.0
     @version 1.0
     */
-    var Database = (function () {
-        function Database() {
+    var ContactWebsite = (function () {
+        function ContactWebsite() {
         }
-        return Database;
+        return ContactWebsite;
     })();
-    Adaptive.Database = Database;
+    Adaptive.ContactWebsite = ContactWebsite;
     /**
-    Represents a row for a data table.
+    Structure representing the binary attachment data.
 
     @author Carlos Lozano Diez
     @since 1.0
     @version 1.0
     */
-    var Row = (function () {
-        function Row() {
+    var AttachmentData = (function () {
+        function AttachmentData() {
         }
-        return Row;
+        return AttachmentData;
     })();
-    Adaptive.Row = Row;
+    Adaptive.AttachmentData = AttachmentData;
     /**
-    Represents a data table composed of columns and rows.
+    Represents a local or remote service response.
 
     @author Carlos Lozano Diez
     @since 1.0
     @version 1.0
     */
-    var Table = (function () {
-        function Table() {
+    var ServiceResponse = (function () {
+        function ServiceResponse() {
         }
-        return Table;
+        return ServiceResponse;
     })();
-    Adaptive.Table = Table;
+    Adaptive.ServiceResponse = ServiceResponse;
     /**
     Structure representing the column specification of a data table.
 
@@ -108,6 +225,45 @@ var Adaptive;
         return Column;
     })();
     Adaptive.Column = Column;
+    /**
+    Structure representing the assigned tags data elements of a contact.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var ContactTag = (function () {
+        function ContactTag() {
+        }
+        return ContactTag;
+    })();
+    Adaptive.ContactTag = ContactTag;
+    /**
+    Represents a local or remote service request.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var ServiceRequest = (function () {
+        function ServiceRequest() {
+        }
+        return ServiceRequest;
+    })();
+    Adaptive.ServiceRequest = ServiceRequest;
+    /**
+    Represents a data table composed of columns and rows.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var Table = (function () {
+        function Table() {
+        }
+        return Table;
+    })();
+    Adaptive.Table = Table;
     /**
     Structure representing the professional info data elements of a contact.
 
@@ -135,149 +291,6 @@ var Adaptive;
     })();
     Adaptive.Service = Service;
     /**
-    Structure representing the phone data elements of a contact.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var ContactPhone = (function () {
-        function ContactPhone() {
-        }
-        return ContactPhone;
-    })();
-    Adaptive.ContactPhone = ContactPhone;
-    /**
-    Structure representing the internal unique identifier data elements of a contact.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var ContactUid = (function () {
-        function ContactUid() {
-        }
-        return ContactUid;
-    })();
-    Adaptive.ContactUid = ContactUid;
-    /**
-    Represents a specific user or system locate.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var Locale = (function () {
-        function Locale() {
-        }
-        return Locale;
-    })();
-    Adaptive.Locale = Locale;
-    /**
-    Structure representing a remote or local service access end-point.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var Endpoint = (function () {
-        function Endpoint() {
-        }
-        return Endpoint;
-    })();
-    Adaptive.Endpoint = Endpoint;
-    /**
-    Structure representing the binary attachment data.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var AttachmentData = (function () {
-        function AttachmentData() {
-        }
-        return AttachmentData;
-    })();
-    Adaptive.AttachmentData = AttachmentData;
-    /**
-    Represents a specific application life-cycle stage.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var Lifecycle = (function () {
-        function Lifecycle() {
-        }
-        return Lifecycle;
-    })();
-    Adaptive.Lifecycle = Lifecycle;
-    /**
-    Structure representing the address data elements of a contact.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var ContactAddress = (function () {
-        function ContactAddress() {
-        }
-        return ContactAddress;
-    })();
-    Adaptive.ContactAddress = ContactAddress;
-    /**
-    Structure representing the data of a http cookie.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var Cookie = (function () {
-        function Cookie() {
-        }
-        return Cookie;
-    })();
-    Adaptive.Cookie = Cookie;
-    /**
-    Represents a local or remote service request.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var ServiceRequest = (function () {
-        function ServiceRequest() {
-        }
-        return ServiceRequest;
-    })();
-    Adaptive.ServiceRequest = ServiceRequest;
-    /**
-    Represents a local or remote service response.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var ServiceResponse = (function () {
-        function ServiceResponse() {
-        }
-        return ServiceResponse;
-    })();
-    Adaptive.ServiceResponse = ServiceResponse;
-    /**
-    Structure representing the assigned tags data elements of a contact.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var ContactTag = (function () {
-        function ContactTag() {
-        }
-        return ContactTag;
-    })();
-    Adaptive.ContactTag = ContactTag;
-    /**
     Structure representing the data of a http request or response header.
 
     @author Carlos Lozano Diez
@@ -291,31 +304,18 @@ var Adaptive;
     })();
     Adaptive.Header = Header;
     /**
-    Structure representing the data elements of an email addressee.
+    Structure representing the phone data elements of a contact.
 
     @author Carlos Lozano Diez
     @since 1.0
     @version 1.0
     */
-    var EmailAddress = (function () {
-        function EmailAddress() {
+    var ContactPhone = (function () {
+        function ContactPhone() {
         }
-        return EmailAddress;
+        return ContactPhone;
     })();
-    Adaptive.EmailAddress = EmailAddress;
-    /**
-    Structure representing the personal info data elements of a contact.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var ContactPersonalInfo = (function () {
-        function ContactPersonalInfo() {
-        }
-        return ContactPersonalInfo;
-    })();
-    Adaptive.ContactPersonalInfo = ContactPersonalInfo;
+    Adaptive.ContactPhone = ContactPhone;
     /**
     Structure representing the data a single geolocation reading.
 
@@ -330,57 +330,18 @@ var Adaptive;
     })();
     Adaptive.Geolocation = Geolocation;
     /**
-    Structure representing the data elements of an email.
+    Structure representing a database reference.
 
     @author Carlos Lozano Diez
     @since 1.0
     @version 1.0
     */
-    var Email = (function () {
-        function Email() {
+    var Database = (function () {
+        function Database() {
         }
-        return Email;
+        return Database;
     })();
-    Adaptive.Email = Email;
-    /**
-    Represents the basic information about the operating system.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var OSInfo = (function () {
-        function OSInfo() {
-        }
-        return OSInfo;
-    })();
-    Adaptive.OSInfo = OSInfo;
-    /**
-    Represents a single secureKey-value pair.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var SecureKeyPair = (function () {
-        function SecureKeyPair() {
-        }
-        return SecureKeyPair;
-    })();
-    Adaptive.SecureKeyPair = SecureKeyPair;
-    /**
-    Structure representing the basic device information.
-
-    @author Carlos Lozano Diez
-    @since 1.0
-    @version 1.0
-    */
-    var DeviceInfo = (function () {
-        function DeviceInfo() {
-        }
-        return DeviceInfo;
-    })();
-    Adaptive.DeviceInfo = DeviceInfo;
+    Adaptive.Database = Database;
     /**
     Structure representing the email data elements of a contact.
 
@@ -395,31 +356,70 @@ var Adaptive;
     })();
     Adaptive.ContactEmail = ContactEmail;
     /**
-    Structure representing the data of a single acceleration reading.
+    Represents a specific user or system locate.
 
     @author Carlos Lozano Diez
     @since 1.0
     @version 1.0
     */
-    var Acceleration = (function () {
-        function Acceleration() {
+    var Locale = (function () {
+        function Locale() {
         }
-        return Acceleration;
+        return Locale;
     })();
-    Adaptive.Acceleration = Acceleration;
+    Adaptive.Locale = Locale;
     /**
-    Structure representing the website data elements of a contact.
+    Structure representing the a physical or logical button on a device.
 
     @author Carlos Lozano Diez
     @since 1.0
     @version 1.0
     */
-    var ContactWebsite = (function () {
-        function ContactWebsite() {
+    var Button = (function () {
+        function Button() {
         }
-        return ContactWebsite;
+        return Button;
     })();
-    Adaptive.ContactWebsite = ContactWebsite;
+    Adaptive.Button = Button;
+    /**
+    Represents a row for a data table.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var Row = (function () {
+        function Row() {
+        }
+        return Row;
+    })();
+    Adaptive.Row = Row;
+    /**
+    Structure representing the data elements of an email.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var Email = (function () {
+        function Email() {
+        }
+        return Email;
+    })();
+    Adaptive.Email = Email;
+    /**
+    Structure representing the data of a http cookie.
+
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var Cookie = (function () {
+        function Cookie() {
+        }
+        return Cookie;
+    })();
+    Adaptive.Cookie = Cookie;
     /**
     Structure representing the data elements of a contact.
 
@@ -435,5 +435,192 @@ var Adaptive;
         return Contact;
     })(ContactUid);
     Adaptive.Contact = Contact;
+    /**
+    Enumeration ContactPersonalInfoTitle
+    */
+    var ContactPersonalInfoTitle = (function () {
+        function ContactPersonalInfoTitle(value) {
+            this.value = value;
+        }
+        ContactPersonalInfoTitle.prototype.toString = function () {
+            return this.value;
+        };
+        ContactPersonalInfoTitle.Mr = new ContactPersonalInfoTitle("Mr");
+        ContactPersonalInfoTitle.Mrs = new ContactPersonalInfoTitle("Mrs");
+        ContactPersonalInfoTitle.Ms = new ContactPersonalInfoTitle("Ms");
+        ContactPersonalInfoTitle.Dr = new ContactPersonalInfoTitle("Dr");
+        ContactPersonalInfoTitle.Unknown = new ContactPersonalInfoTitle("Unknown");
+        return ContactPersonalInfoTitle;
+    })();
+    Adaptive.ContactPersonalInfoTitle = ContactPersonalInfoTitle;
+    /**
+    Enumeration LifecycleState
+    */
+    var LifecycleState = (function () {
+        function LifecycleState(value) {
+            this.value = value;
+        }
+        LifecycleState.prototype.toString = function () {
+            return this.value;
+        };
+        LifecycleState.Starting = new LifecycleState("Starting");
+        LifecycleState.Started = new LifecycleState("Started");
+        LifecycleState.Running = new LifecycleState("Running");
+        LifecycleState.Paused = new LifecycleState("Paused");
+        LifecycleState.PausedIdle = new LifecycleState("PausedIdle");
+        LifecycleState.PausedRun = new LifecycleState("PausedRun");
+        LifecycleState.Resuming = new LifecycleState("Resuming");
+        LifecycleState.Stopping = new LifecycleState("Stopping");
+        LifecycleState.Unknown = new LifecycleState("Unknown");
+        return LifecycleState;
+    })();
+    Adaptive.LifecycleState = LifecycleState;
+    /**
+    Enumeration ContactAddressType
+    */
+    var ContactAddressType = (function () {
+        function ContactAddressType(value) {
+            this.value = value;
+        }
+        ContactAddressType.prototype.toString = function () {
+            return this.value;
+        };
+        ContactAddressType.Home = new ContactAddressType("Home");
+        ContactAddressType.Work = new ContactAddressType("Work");
+        ContactAddressType.Other = new ContactAddressType("Other");
+        ContactAddressType.Unknown = new ContactAddressType("Unknown");
+        return ContactAddressType;
+    })();
+    Adaptive.ContactAddressType = ContactAddressType;
+    /**
+    Enumeration ContactSocialNetwork
+    */
+    var ContactSocialNetwork = (function () {
+        function ContactSocialNetwork(value) {
+            this.value = value;
+        }
+        ContactSocialNetwork.prototype.toString = function () {
+            return this.value;
+        };
+        ContactSocialNetwork.Twitter = new ContactSocialNetwork("Twitter");
+        ContactSocialNetwork.Facebook = new ContactSocialNetwork("Facebook");
+        ContactSocialNetwork.GooglePlus = new ContactSocialNetwork("GooglePlus");
+        ContactSocialNetwork.LinkedIn = new ContactSocialNetwork("LinkedIn");
+        ContactSocialNetwork.Flickr = new ContactSocialNetwork("Flickr");
+        ContactSocialNetwork.Unknown = new ContactSocialNetwork("Unknown");
+        return ContactSocialNetwork;
+    })();
+    Adaptive.ContactSocialNetwork = ContactSocialNetwork;
+    /**
+    Enumeration IServiceProtocolVersion
+    */
+    var IServiceProtocolVersion = (function () {
+        function IServiceProtocolVersion(value) {
+            this.value = value;
+        }
+        IServiceProtocolVersion.prototype.toString = function () {
+            return this.value;
+        };
+        IServiceProtocolVersion.HTTP_PROTOCOL_VERSION_1_0 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_0");
+        IServiceProtocolVersion.HTTP_PROTOCOL_VERSION_1_1 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_1");
+        IServiceProtocolVersion.Unknown = new IServiceProtocolVersion("Unknown");
+        return IServiceProtocolVersion;
+    })();
+    Adaptive.IServiceProtocolVersion = IServiceProtocolVersion;
+    /**
+    Enumeration IServiceMethod
+    */
+    var IServiceMethod = (function () {
+        function IServiceMethod(value) {
+            this.value = value;
+        }
+        IServiceMethod.prototype.toString = function () {
+            return this.value;
+        };
+        IServiceMethod.POST = new IServiceMethod("POST");
+        IServiceMethod.GET = new IServiceMethod("GET");
+        IServiceMethod.Unknown = new IServiceMethod("Unknown");
+        return IServiceMethod;
+    })();
+    Adaptive.IServiceMethod = IServiceMethod;
+    /**
+    Enumeration IServiceType
+    */
+    var IServiceType = (function () {
+        function IServiceType(value) {
+            this.value = value;
+        }
+        IServiceType.prototype.toString = function () {
+            return this.value;
+        };
+        IServiceType.SERVICETYPE_AMF_SERIALIZATION = new IServiceType("SERVICETYPE_AMF_SERIALIZATION");
+        IServiceType.SERVICETYPE_GWT_RPC = new IServiceType("SERVICETYPE_GWT_RPC");
+        IServiceType.SERVICETYPE_OCTET_BINARY = new IServiceType("SERVICETYPE_OCTET_BINARY");
+        IServiceType.SERVICETYPE_REMOTING_SERIALIZATION = new IServiceType("SERVICETYPE_REMOTING_SERIALIZATION");
+        IServiceType.SERVICETYPE_REST_JSON = new IServiceType("SERVICETYPE_REST_JSON");
+        IServiceType.SERVICETYPE_REST_XML = new IServiceType("SERVICETYPE_REST_XML");
+        IServiceType.SERVICETYPE_SOAP_JSON = new IServiceType("SERVICETYPE_SOAP_JSON");
+        IServiceType.SERVICETYPE_SOAP_XML = new IServiceType("SERVICETYPE_SOAP_XML");
+        IServiceType.SERVICETYPE_XMLRPC_JSON = new IServiceType("SERVICETYPE_XMLRPC_JSON");
+        IServiceType.SERVICETYPE_XMLRPC_XML = new IServiceType("SERVICETYPE_XMLRPC_XML");
+        IServiceType.Unknown = new IServiceType("Unknown");
+        return IServiceType;
+    })();
+    Adaptive.IServiceType = IServiceType;
+    /**
+    Enumeration ContactPhoneType
+    */
+    var ContactPhoneType = (function () {
+        function ContactPhoneType(value) {
+            this.value = value;
+        }
+        ContactPhoneType.prototype.toString = function () {
+            return this.value;
+        };
+        ContactPhoneType.Mobile = new ContactPhoneType("Mobile");
+        ContactPhoneType.Work = new ContactPhoneType("Work");
+        ContactPhoneType.Home = new ContactPhoneType("Home");
+        ContactPhoneType.Main = new ContactPhoneType("Main");
+        ContactPhoneType.HomeFax = new ContactPhoneType("HomeFax");
+        ContactPhoneType.WorkFax = new ContactPhoneType("WorkFax");
+        ContactPhoneType.Other = new ContactPhoneType("Other");
+        ContactPhoneType.Unknown = new ContactPhoneType("Unknown");
+        return ContactPhoneType;
+    })();
+    Adaptive.ContactPhoneType = ContactPhoneType;
+    /**
+    Enumeration ContactEmailType
+    */
+    var ContactEmailType = (function () {
+        function ContactEmailType(value) {
+            this.value = value;
+        }
+        ContactEmailType.prototype.toString = function () {
+            return this.value;
+        };
+        ContactEmailType.Personal = new ContactEmailType("Personal");
+        ContactEmailType.Work = new ContactEmailType("Work");
+        ContactEmailType.Other = new ContactEmailType("Other");
+        ContactEmailType.Unknown = new ContactEmailType("Unknown");
+        return ContactEmailType;
+    })();
+    Adaptive.ContactEmailType = ContactEmailType;
+    /**
+    Enumeration ICapabilitiesButton
+    */
+    var ICapabilitiesButton = (function () {
+        function ICapabilitiesButton(value) {
+            this.value = value;
+        }
+        ICapabilitiesButton.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesButton.HomeButton = new ICapabilitiesButton("HomeButton");
+        ICapabilitiesButton.BackButton = new ICapabilitiesButton("BackButton");
+        ICapabilitiesButton.OptionButton = new ICapabilitiesButton("OptionButton");
+        ICapabilitiesButton.Unknown = new ICapabilitiesButton("Unknown");
+        return ICapabilitiesButton;
+    })();
+    Adaptive.ICapabilitiesButton = ICapabilitiesButton;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=Adaptive.js.map

@@ -33,6 +33,14 @@ Represents an instance of a service.
 public class Service : NSObject {
 
      /**
+        The method used
+     */
+     var method : IServiceMethod?
+     /**
+        The type of the service
+     */
+     var type : IServiceType?
+     /**
         Enpoint of the service
      */
      var endpoint : Endpoint?

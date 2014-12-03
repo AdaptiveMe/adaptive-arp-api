@@ -34,6 +34,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,6 +44,7 @@ public class SwiftGenerator extends GeneratorBase {
 
     private File currentFile;
     private IndentPrintStream indentPrintStream;
+    private List<Class> enumClassList = new ArrayList<>();
 
     public SwiftGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
@@ -50,7 +52,9 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void endGeneration() {
-
+        for (Class enumClass : enumClassList) {
+            generateEnumClass(enumClass);
+        }
     }
 
     @Override
@@ -90,7 +94,10 @@ public class SwiftGenerator extends GeneratorBase {
                 return "Character";
             }
         } else if (classType.isEnum()) {
-
+            if (!enumClassList.contains(classType)) {
+                enumClassList.add(classType);
+            }
+            return generateEnumClassName(classType);
         } else if (classType.equals(Object.class)) {
             return "AnyObject";
         } else if (classType.equals(String.class)) {
@@ -137,7 +144,9 @@ public class SwiftGenerator extends GeneratorBase {
             }
         }
         endComment(0);
-        if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
+        if (clazz.isEnum()) {
+            println("public enum " + generateEnumClassName(clazz) + " {");
+        } else if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
             println("public class " + simpleName + " : " + clazz.getSuperclass().getSimpleName() + " {");
         } else {
             println("public class " + simpleName + " : NSObject {");
@@ -159,6 +168,37 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void endClass(Class clazz) {
+        indentPrintStream.flush();
+        indentPrintStream.close();
+    }
+
+    private void generateEnumClass(Class clazz) {
+        currentFile = new File(getOutputRootDirectory(), generateEnumClassName(clazz) + ".swift");
+        currentFile.mkdirs();
+        if (currentFile.exists()) {
+            currentFile.delete();
+        }
+        try {
+            indentPrintStream = new IndentPrintStream(new FileOutputStream(currentFile));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        startComment(0);
+        applyClassHeader(clazz, getSourceHeader());
+        endComment(0);
+        println();
+
+        startBean(generateEnumClassName(clazz), clazz, "Enumeration " + generateEnumClassName(clazz), new ArrayList<DocletTag>());
+        println();
+        for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
+            Field field = clazz.getDeclaredFields()[i];
+            println(5, "case " + field.getName());
+        }
+        println();
+        endBean(generateEnumClassName(clazz), clazz);
+
+
         indentPrintStream.flush();
         indentPrintStream.close();
     }

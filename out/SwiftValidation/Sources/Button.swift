@@ -32,6 +32,10 @@ Structure representing the a physical or logical button on a device.
 */
 public class Button : NSObject {
 
+     /**
+        Button type
+     */
+     var type : ICapabilitiesButton?
 
 }
 

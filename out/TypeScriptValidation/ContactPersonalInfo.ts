@@ -23,7 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="Title.ts"/>
+///<reference path="ContactPersonalInfoTitle.ts"/>
 
 module Adaptive {
 
@@ -36,6 +36,10 @@ module Adaptive {
      */
      export class ContactPersonalInfo {
 
+          /**
+             The title of the Contact
+          */
+          title : ContactPersonalInfoTitle;
           /**
              The last name of the Contact
           */

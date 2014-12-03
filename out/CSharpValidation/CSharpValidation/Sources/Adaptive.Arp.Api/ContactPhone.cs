@@ -38,6 +38,10 @@ namespace Adaptive.Arp.Api
      {
 
           /**
+             The phone number phoneType
+          */
+          public ContactPhoneType PhoneType { get; set; }
+          /**
              The phone number
           */
           public string Phone { get; set; }

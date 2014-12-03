@@ -33,6 +33,10 @@ Structure representing the phone data elements of a contact.
 public class ContactPhone : NSObject {
 
      /**
+        The phone number phoneType
+     */
+     var phoneType : ContactPhoneType?
+     /**
         The phone number
      */
      var phone : String?

@@ -34,6 +34,22 @@ Represents a specific application life-cycle stage.
 */
 @interface Lifecycle : NSObject
 
+     /**
+        Represent the state of the app
+     */
+     typedef NS_OPTIONS(NSUInteger, LifecycleState) {
+          LifecycleState_Starting = 0,
+          LifecycleState_Started = 1,
+          LifecycleState_Running = 2,
+          LifecycleState_Paused = 3,
+          LifecycleState_PausedIdle = 4,
+          LifecycleState_PausedRun = 5,
+          LifecycleState_Resuming = 6,
+          LifecycleState_Stopping = 7,
+          LifecycleState_Unknown = 8
+     };
+
+     @property LifecycleState *state;
 
 @end
 

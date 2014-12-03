@@ -23,7 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="SocialNetwork.ts"/>
+///<reference path="ContactSocialNetwork.ts"/>
 
 module Adaptive {
 
@@ -36,6 +36,10 @@ module Adaptive {
      */
      export class ContactSocial {
 
+          /**
+             The social network
+          */
+          socialNetwork : ContactSocialNetwork;
           /**
              The profileUrl
           */

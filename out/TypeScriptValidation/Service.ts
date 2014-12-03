@@ -24,8 +24,8 @@ Contributors:
 */
 
 ///<reference path="Endpoint.ts"/>
-///<reference path="ServiceMethod.ts"/>
-///<reference path="ServiceType.ts"/>
+///<reference path="IServiceMethod.ts"/>
+///<reference path="IServiceType.ts"/>
 
 module Adaptive {
 
@@ -38,6 +38,14 @@ module Adaptive {
      */
      export class Service {
 
+          /**
+             The method used
+          */
+          method : IServiceMethod;
+          /**
+             The type of the service
+          */
+          type : IServiceType;
           /**
              Enpoint of the service
           */

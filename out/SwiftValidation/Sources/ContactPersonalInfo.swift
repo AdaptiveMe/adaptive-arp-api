@@ -33,6 +33,10 @@ Structure representing the personal info data elements of a contact.
 public class ContactPersonalInfo : NSObject {
 
      /**
+        The title of the Contact
+     */
+     var title : ContactPersonalInfoTitle?
+     /**
         The last name of the Contact
      */
      var lastName : String?
