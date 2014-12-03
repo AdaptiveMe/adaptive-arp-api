@@ -34,6 +34,26 @@ Structure representing the data a single geolocation reading.
 */
 @interface Geolocation : NSObject
 
+     /**
+        The current device altitude (or Z coordinate). Measured in meters.
+     */
+     @property double *altitude;
+     /**
+        The Y coordinate (or latitude). Measured in degrees.
+     */
+     @property double *latitude;
+     /**
+        The X coordinate (or longitude). Measured in degrees.
+     */
+     @property double *longitude;
+     /**
+        Dilution of precision on the X measurement. Measured in meters.
+     */
+     @property float *xDoP;
+     /**
+        Dilution of precision on the Y measurement. Measured in meters.
+     */
+     @property float *yDoP;
 
 @end
 

@@ -34,6 +34,14 @@ Structure representing the assigned tags data elements of a contact.
 */
 @interface ContactTag : NSObject
 
+     /**
+        The value of the Tag
+     */
+     @property NSString *dataValue;
+     /**
+        The name of the Tag
+     */
+     @property NSString *name;
 
 @end
 

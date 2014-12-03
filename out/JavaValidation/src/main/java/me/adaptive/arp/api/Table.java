@@ -34,6 +34,26 @@ Represents a data table composed of columns and rows.
 */
 public class Table {
 
+     /**
+        Number of columns.
+     */
+     private int columnCount;
+     /**
+        Definition of columns.
+     */
+     private Column[] columns;
+     /**
+        Name of the table.
+     */
+     private String name;
+     /**
+        Number of rows.
+     */
+     private int rowCount;
+     /**
+        Rows of the table containing the data.
+     */
+     private Row[] rows;
 
 }
 

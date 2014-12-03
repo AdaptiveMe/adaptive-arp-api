@@ -34,6 +34,38 @@ Structure representing the data elements of a contact.
 */
 public class Contact extends ContactUid {
 
+     /**
+        The adresses from the contact
+     */
+     private ContactAddress[] contactAddresses;
+     /**
+        The emails from the contact
+     */
+     private ContactEmail[] contactEmails;
+     /**
+        The phones from the contact
+     */
+     private ContactPhone[] contactPhones;
+     /**
+        The social network info from the contact
+     */
+     private ContactSocial[] contactSocials;
+     /**
+        The aditional tags from the contact
+     */
+     private ContactTag[] contactTags;
+     /**
+        The websites from the contact
+     */
+     private ContactWebsite[] contactWebsites;
+     /**
+        The personal info from the contact
+     */
+     private ContactPersonalInfo personalInfo;
+     /**
+        The professional info from the contact
+     */
+     private ContactProfessionalInfo professionalInfo;
 
 }
 

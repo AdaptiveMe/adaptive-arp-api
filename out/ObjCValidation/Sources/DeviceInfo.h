@@ -34,6 +34,23 @@ Structure representing the basic device information.
 */
 @interface DeviceInfo : NSObject
 
+     /**
+        Model of device - equivalent to device release or version.
+     */
+     @property NSString *model;
+     /**
+        Name of device - equivalent to brand.
+     */
+     @property NSString *name;
+     /**
+        Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+     */
+     @property NSString *uuid;
+     /**
+        Vendor of the device hardware.
+     */
+     @property NSString *vendor;
 
 @end
 

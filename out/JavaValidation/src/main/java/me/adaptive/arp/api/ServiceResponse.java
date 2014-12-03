@@ -34,6 +34,38 @@ Represents a local or remote service response.
 */
 public class ServiceResponse {
 
+     /**
+        Request/Response data content (plain text).
+     */
+     private String content;
+     /**
+        The byte[] representing the binary Content.
+     */
+     private byte[] contentBinary;
+     /**
+        The length in bytes for the binary Content.
+     */
+     private int contentBinaryLength;
+     /**
+        Encoding of the binary payload - by default assumed to be UTF8.
+     */
+     private String contentEncoding;
+     /**
+        The length in bytes for the Content field.
+     */
+     private String contentLength;
+     /**
+        The request/response content type (MIME TYPE).
+     */
+     private String contentType;
+     /**
+        The headers array (name,value pairs) to be included on the I/O service request.
+     */
+     private Header[] headers;
+     /**
+        The session context for the Request/Response.
+     */
+     private ISession session;
 
 }
 

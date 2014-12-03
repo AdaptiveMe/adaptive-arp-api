@@ -34,6 +34,8 @@ Represents a single secureKey-value pair.
 */
 @interface SecureKeyPair : NSObject
 
+     @property NSString *secureData;
+     @property NSString *secureKey;
 
 @end
 

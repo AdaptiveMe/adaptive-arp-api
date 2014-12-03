@@ -34,6 +34,10 @@ Structure representing the social data elements of a contact.
 */
 public class ContactSocial {
 
+     /**
+        The profileUrl
+     */
+     private String profileUrl;
 
 }
 

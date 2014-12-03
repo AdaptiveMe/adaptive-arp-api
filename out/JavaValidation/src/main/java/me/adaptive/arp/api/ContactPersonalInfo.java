@@ -34,6 +34,18 @@ Structure representing the personal info data elements of a contact.
 */
 public class ContactPersonalInfo {
 
+     /**
+        The last name of the Contact
+     */
+     private String lastName;
+     /**
+        The middle name of the Contact if it proceeds
+     */
+     private String middleName;
+     /**
+        The name of the Contact
+     */
+     private String name;
 
 }
 

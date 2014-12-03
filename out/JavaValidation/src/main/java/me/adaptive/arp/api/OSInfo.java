@@ -34,6 +34,18 @@ Represents the basic information about the operating system.
 */
 public class OSInfo {
 
+     /**
+        The name of the operating system.
+     */
+     private String name;
+     /**
+        The vendor of the operating system.
+     */
+     private String vendor;
+     /**
+        The version/identifier of the operating system.
+     */
+     private String version;
 
 }
 

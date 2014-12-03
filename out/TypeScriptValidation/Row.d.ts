@@ -22,25 +22,18 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+declare module Adaptive {
+    /**
+    Represents a row for a data table.
 
-package me.adaptive.arp.api;
-
-/**
-Represents a row for a data table.
-
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
-*/
-public class Row {
-
-     /**
-        The values of the row.
-     */
-     private Object[] values;
-
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    class Row {
+        /**
+           The values of the row.
+        */
+        values: any[];
+    }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

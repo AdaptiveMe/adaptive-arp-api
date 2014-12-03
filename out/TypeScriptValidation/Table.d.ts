@@ -1,3 +1,5 @@
+/// <reference path="Column.d.ts" />
+/// <reference path="Row.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -22,25 +24,34 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+declare module Adaptive {
+    /**
+    Represents a data table composed of columns and rows.
 
-package me.adaptive.arp.api;
-
-/**
-Represents a row for a data table.
-
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
-*/
-public class Row {
-
-     /**
-        The values of the row.
-     */
-     private Object[] values;
-
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    class Table {
+        /**
+           Number of columns.
+        */
+        columnCount: number;
+        /**
+           Definition of columns.
+        */
+        columns: Column[];
+        /**
+           Name of the table.
+        */
+        name: string;
+        /**
+           Number of rows.
+        */
+        rowCount: number;
+        /**
+           Rows of the table containing the data.
+        */
+        rows: Row[];
+    }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

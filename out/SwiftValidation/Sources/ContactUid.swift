@@ -35,7 +35,7 @@ public class ContactUid : NSObject {
      /**
         The id of the Contact
      */
-     var contactId : string?
+     var contactId : String?
 
 }
 

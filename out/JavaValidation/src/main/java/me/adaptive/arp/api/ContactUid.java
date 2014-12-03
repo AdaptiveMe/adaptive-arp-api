@@ -34,6 +34,10 @@ Structure representing the internal unique identifier data elements of a contact
 */
 public class ContactUid {
 
+     /**
+        The id of the Contact
+     */
+     private String contactId;
 
 }
 

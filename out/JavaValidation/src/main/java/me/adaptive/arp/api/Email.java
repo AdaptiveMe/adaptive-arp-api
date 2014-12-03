@@ -34,6 +34,34 @@ Structure representing the data elements of an email.
 */
 public class Email {
 
+     /**
+        Array of attatchments
+     */
+     private AttachmentData[] attachmentData;
+     /**
+        Array of Email Blind Carbon Copy recipients
+     */
+     private EmailAddress[] bccRecipients;
+     /**
+        Array of Email Carbon Copy recipients
+     */
+     private EmailAddress[] ccRecipients;
+     /**
+        Message body
+     */
+     private String messageBody;
+     /**
+        Message body mime type
+     */
+     private String messageBodyMimeType;
+     /**
+        Subject of the email
+     */
+     private String subject;
+     /**
+        Array of Email recipients
+     */
+     private EmailAddress[] toRecipients;
 
 }
 

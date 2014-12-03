@@ -35,15 +35,15 @@ public class OSInfo : NSObject {
      /**
         The name of the operating system.
      */
-     var name : string?
+     var name : String?
      /**
         The vendor of the operating system.
      */
-     var vendor : string?
+     var vendor : String?
      /**
         The version/identifier of the operating system.
      */
-     var version : string?
+     var version : String?
 
 }
 

@@ -34,6 +34,14 @@ Structure representing the email data elements of a contact.
 */
 @interface ContactEmail : NSObject
 
+     /**
+        Email of the Contact
+     */
+     @property NSString *email;
+     /**
+        Whether the email is the primary one or not
+     */
+     @property bool *primary;
 
 @end
 

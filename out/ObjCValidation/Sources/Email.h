@@ -23,6 +23,8 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <AttachmentData.h>
+#import <EmailAddress.h>
 #import <Foundation/Foundation.h>
 
 /**
@@ -34,6 +36,38 @@ Structure representing the data elements of an email.
 */
 @interface Email : NSObject
 
+     /**
+        Array of attatchments
+        Array objects must be of AttachmentData type.
+     */
+     @property NSArray *attachmentData;
+     /**
+        Array of Email Blind Carbon Copy recipients
+        Array objects must be of EmailAddress type.
+     */
+     @property NSArray *bccRecipients;
+     /**
+        Array of Email Carbon Copy recipients
+        Array objects must be of EmailAddress type.
+     */
+     @property NSArray *ccRecipients;
+     /**
+        Message body
+     */
+     @property NSString *messageBody;
+     /**
+        Message body mime type
+     */
+     @property NSString *messageBodyMimeType;
+     /**
+        Subject of the email
+     */
+     @property NSString *subject;
+     /**
+        Array of Email recipients
+        Array objects must be of EmailAddress type.
+     */
+     @property NSArray *toRecipients;
 
 @end
 

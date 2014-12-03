@@ -34,6 +34,10 @@ Structure representing the phone data elements of a contact.
 */
 public class ContactPhone {
 
+     /**
+        The phone number
+     */
+     private String phone;
 
 }
 

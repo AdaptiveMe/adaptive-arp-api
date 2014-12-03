@@ -34,6 +34,27 @@ Structure representing the binary attachment data.
 */
 @interface AttachmentData : NSObject
 
+     /**
+        The raw data for the current file attachment (byte array)
+        Array objects must be of byte type.
+     */
+     @property NSArray *data;
+     /**
+        The data size (in bytes) of the current file attachment
+     */
+     @property long *dataSize;
+     /**
+        The name of the current file attachment
+     */
+     @property NSString *fileName;
+     /**
+        The mime type of the current attachment
+     */
+     @property NSString *mimeType;
+     /**
+        The relative path where the contents for the attachment file could be located.
+     */
+     @property NSString *referenceUrl;
 
 @end
 

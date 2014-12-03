@@ -35,7 +35,7 @@ public class ContactAddress : NSObject {
      /**
         The Contact address
      */
-     var address : string?
+     var address : String?
 
 }
 

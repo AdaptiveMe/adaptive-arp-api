@@ -34,6 +34,22 @@ Structure representing the data of a single acceleration reading.
 */
 @interface Acceleration : NSObject
 
+     /**
+        Timestamp of the acceleration reading.
+     */
+     @property long *timeStamp;
+     /**
+        X-axis component of the acceleration.
+     */
+     @property double *x;
+     /**
+        Y-axis component of the acceleration.
+     */
+     @property double *y;
+     /**
+        Z-axis component of the acceleration.
+     */
+     @property double *z;
 
 @end
 

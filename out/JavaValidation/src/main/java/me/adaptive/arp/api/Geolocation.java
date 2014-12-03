@@ -34,6 +34,26 @@ Structure representing the data a single geolocation reading.
 */
 public class Geolocation {
 
+     /**
+        The current device altitude (or Z coordinate). Measured in meters.
+     */
+     private double altitude;
+     /**
+        The Y coordinate (or latitude). Measured in degrees.
+     */
+     private double latitude;
+     /**
+        The X coordinate (or longitude). Measured in degrees.
+     */
+     private double longitude;
+     /**
+        Dilution of precision on the X measurement. Measured in meters.
+     */
+     private float xDoP;
+     /**
+        Dilution of precision on the Y measurement. Measured in meters.
+     */
+     private float yDoP;
 
 }
 

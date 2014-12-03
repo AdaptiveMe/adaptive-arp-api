@@ -34,6 +34,10 @@ Structure representing the social data elements of a contact.
 */
 @interface ContactSocial : NSObject
 
+     /**
+        The profileUrl
+     */
+     @property NSString *profileUrl;
 
 @end
 

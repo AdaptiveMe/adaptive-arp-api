@@ -34,6 +34,10 @@ Structure representing the phone data elements of a contact.
 */
 @interface ContactPhone : NSObject
 
+     /**
+        The phone number
+     */
+     @property NSString *phone;
 
 @end
 

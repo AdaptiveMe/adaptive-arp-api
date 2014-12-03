@@ -34,6 +34,18 @@ Structure representing the personal info data elements of a contact.
 */
 @interface ContactPersonalInfo : NSObject
 
+     /**
+        The last name of the Contact
+     */
+     @property NSString *lastName;
+     /**
+        The middle name of the Contact if it proceeds
+     */
+     @property NSString *middleName;
+     /**
+        The name of the Contact
+     */
+     @property NSString *name;
 
 @end
 

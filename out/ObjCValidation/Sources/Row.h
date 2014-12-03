@@ -34,6 +34,11 @@ Represents a row for a data table.
 */
 @interface Row : NSObject
 
+     /**
+        The values of the row.
+        Array objects must be of Object type.
+     */
+     @property NSArray *values;
 
 @end
 

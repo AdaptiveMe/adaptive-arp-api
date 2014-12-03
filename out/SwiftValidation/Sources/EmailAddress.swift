@@ -35,7 +35,7 @@ public class EmailAddress : NSObject {
      /**
         The Email address
      */
-     var address : string?
+     var address : String?
 
 }
 

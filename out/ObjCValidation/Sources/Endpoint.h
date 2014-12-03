@@ -34,6 +34,26 @@ Structure representing a remote or local service access end-point.
 */
 @interface Endpoint : NSObject
 
+     /**
+        The remote serice host (alias or IP).
+     */
+     @property NSString *host;
+     /**
+        The remote service path (to be added to the host and port url).
+     */
+     @property NSString *path;
+     /**
+        The remote service accessible port.
+     */
+     @property int *port;
+     /**
+        The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
+     */
+     @property NSString *proxy;
+     /**
+        The remote service scheme.
+     */
+     @property NSString *scheme;
 
 @end
 

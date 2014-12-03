@@ -34,6 +34,18 @@ Structure representing the professional info data elements of a contact.
 */
 public class ContactProfessionalInfo {
 
+     /**
+        The company of the job
+     */
+     private String company;
+     /**
+        The job description
+     */
+     private String jobDescription;
+     /**
+        The job title
+     */
+     private String jobTitle;
 
 }
 

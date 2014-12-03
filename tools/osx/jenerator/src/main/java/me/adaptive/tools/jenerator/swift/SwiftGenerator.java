@@ -94,7 +94,7 @@ public class SwiftGenerator extends GeneratorBase {
         } else if (classType.equals(Object.class)) {
             return "AnyObject";
         } else if (classType.equals(String.class)) {
-            return "string";
+            return "String";
         } else {
             type = classType.getSimpleName();
         }

@@ -34,6 +34,18 @@ Represents the basic information about the operating system.
 */
 @interface OSInfo : NSObject
 
+     /**
+        The name of the operating system.
+     */
+     @property NSString *name;
+     /**
+        The vendor of the operating system.
+     */
+     @property NSString *vendor;
+     /**
+        The version/identifier of the operating system.
+     */
+     @property NSString *version;
 
 @end
 

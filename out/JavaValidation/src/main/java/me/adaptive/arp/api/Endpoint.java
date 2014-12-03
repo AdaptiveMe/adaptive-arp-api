@@ -34,6 +34,26 @@ Structure representing a remote or local service access end-point.
 */
 public class Endpoint {
 
+     /**
+        The remote serice host (alias or IP).
+     */
+     private String host;
+     /**
+        The remote service path (to be added to the host and port url).
+     */
+     private String path;
+     /**
+        The remote service accessible port.
+     */
+     private int port;
+     /**
+        The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
+     */
+     private String proxy;
+     /**
+        The remote service scheme.
+     */
+     private String scheme;
 
 }
 

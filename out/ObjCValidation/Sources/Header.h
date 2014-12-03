@@ -34,6 +34,14 @@ Structure representing the data of a http request or response header.
 */
 @interface Header : NSObject
 
+     /**
+        Value of the header
+     */
+     @property NSString *data;
+     /**
+        Name ot the header
+     */
+     @property NSString *name;
 
 @end
 

@@ -35,11 +35,11 @@ public class Header : NSObject {
      /**
         Value of the header
      */
-     var data : string?
+     var data : String?
      /**
         Name ot the header
      */
-     var name : string?
+     var name : String?
 
 }
 

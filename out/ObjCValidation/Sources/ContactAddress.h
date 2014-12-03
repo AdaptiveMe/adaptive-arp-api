@@ -34,6 +34,10 @@ Structure representing the address data elements of a contact.
 */
 @interface ContactAddress : NSObject
 
+     /**
+        The Contact address
+     */
+     @property NSString *address;
 
 @end
 

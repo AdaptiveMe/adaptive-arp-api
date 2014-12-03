@@ -23,6 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <Endpoint.h>
 #import <Foundation/Foundation.h>
 
 /**
@@ -34,6 +35,14 @@ Represents an instance of a service.
 */
 @interface Service : NSObject
 
+     /**
+        Enpoint of the service
+     */
+     @property Endpoint *endpoint;
+     /**
+        The service name
+     */
+     @property NSString *name;
 
 @end
 

@@ -35,7 +35,7 @@ public class ServiceResponse : NSObject {
      /**
         Request/Response data content (plain text).
      */
-     var content : string?
+     var content : String?
      /**
         The byte[] representing the binary Content.
      */
@@ -47,15 +47,15 @@ public class ServiceResponse : NSObject {
      /**
         Encoding of the binary payload - by default assumed to be UTF8.
      */
-     var contentEncoding : string?
+     var contentEncoding : String?
      /**
         The length in bytes for the Content field.
      */
-     var contentLength : string?
+     var contentLength : String?
      /**
         The request/response content type (MIME TYPE).
      */
-     var contentType : string?
+     var contentType : String?
      /**
         The headers array (name,value pairs) to be included on the I/O service request.
      */

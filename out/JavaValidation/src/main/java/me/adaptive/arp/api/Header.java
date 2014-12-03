@@ -34,6 +34,14 @@ Structure representing the data of a http request or response header.
 */
 public class Header {
 
+     /**
+        Value of the header
+     */
+     private String data;
+     /**
+        Name ot the header
+     */
+     private String name;
 
 }
 

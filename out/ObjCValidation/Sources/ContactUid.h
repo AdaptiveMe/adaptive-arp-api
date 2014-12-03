@@ -34,6 +34,10 @@ Structure representing the internal unique identifier data elements of a contact
 */
 @interface ContactUid : NSObject
 
+     /**
+        The id of the Contact
+     */
+     @property NSString *contactId;
 
 @end
 

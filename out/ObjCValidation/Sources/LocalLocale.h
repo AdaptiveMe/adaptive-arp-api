@@ -32,8 +32,16 @@ Represents a specific user or system locate.
 @since 1.0
 @version 1.0
 */
-@interface Locale : NSObject
+@interface LocalLocale : NSObject
 
+     /**
+        A valid ISO Country Code.
+     */
+     @property NSString *country;
+     /**
+        A valid ISO Language Code.
+     */
+     @property NSString *language;
 
 @end
 

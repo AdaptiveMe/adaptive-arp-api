@@ -34,6 +34,14 @@ Represents a specific user or system locate.
 */
 public class Locale {
 
+     /**
+        A valid ISO Country Code.
+     */
+     private String country;
+     /**
+        A valid ISO Language Code.
+     */
+     private String language;
 
 }
 

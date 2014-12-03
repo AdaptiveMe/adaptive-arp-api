@@ -23,7 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-#import <Locale.h>
+#import <LocalLocale.h>
 
 /**
 
@@ -31,7 +31,7 @@ Contributors:
 @since 1.0
 @version 1.0
 */
-@implementation Locale {
+@implementation LocalLocale {
 
 
 }

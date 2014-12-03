@@ -34,6 +34,10 @@ Structure representing the address data elements of a contact.
 */
 public class ContactAddress {
 
+     /**
+        The Contact address
+     */
+     private String address;
 
 }
 

@@ -47,15 +47,15 @@ public class Email : NSObject {
      /**
         Message body
      */
-     var messageBody : string?
+     var messageBody : String?
      /**
         Message body mime type
      */
-     var messageBodyMimeType : string?
+     var messageBodyMimeType : String?
      /**
         Subject of the email
      */
-     var subject : string?
+     var subject : String?
      /**
         Array of Email recipients
      */

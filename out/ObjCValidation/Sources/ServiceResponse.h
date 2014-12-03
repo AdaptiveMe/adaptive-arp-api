@@ -24,6 +24,8 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <Header.h>
+#import <ISession.h>
 
 /**
 Represents a local or remote service response.
@@ -34,6 +36,40 @@ Represents a local or remote service response.
 */
 @interface ServiceResponse : NSObject
 
+     /**
+        Request/Response data content (plain text).
+     */
+     @property NSString *content;
+     /**
+        The byte[] representing the binary Content.
+        Array objects must be of byte type.
+     */
+     @property NSArray *contentBinary;
+     /**
+        The length in bytes for the binary Content.
+     */
+     @property int *contentBinaryLength;
+     /**
+        Encoding of the binary payload - by default assumed to be UTF8.
+     */
+     @property NSString *contentEncoding;
+     /**
+        The length in bytes for the Content field.
+     */
+     @property NSString *contentLength;
+     /**
+        The request/response content type (MIME TYPE).
+     */
+     @property NSString *contentType;
+     /**
+        The headers array (name,value pairs) to be included on the I/O service request.
+        Array objects must be of Header type.
+     */
+     @property NSArray *headers;
+     /**
+        The session context for the Request/Response.
+     */
+     @property ISession *session;
 
 @end
 

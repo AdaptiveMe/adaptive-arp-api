@@ -34,6 +34,26 @@ Structure representing the binary attachment data.
 */
 public class AttachmentData {
 
+     /**
+        The raw data for the current file attachment (byte array)
+     */
+     private byte[] data;
+     /**
+        The data size (in bytes) of the current file attachment
+     */
+     private long dataSize;
+     /**
+        The name of the current file attachment
+     */
+     private String fileName;
+     /**
+        The mime type of the current attachment
+     */
+     private String mimeType;
+     /**
+        The relative path where the contents for the attachment file could be located.
+     */
+     private String referenceUrl;
 
 }
 

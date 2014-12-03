@@ -23,8 +23,6 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="Object.ts"/>
-
 module Adaptive {
 
      /**

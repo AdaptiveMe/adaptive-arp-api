@@ -35,11 +35,11 @@ public class Endpoint : NSObject {
      /**
         The remote serice host (alias or IP).
      */
-     var host : string?
+     var host : String?
      /**
         The remote service path (to be added to the host and port url).
      */
-     var path : string?
+     var path : String?
      /**
         The remote service accessible port.
      */
@@ -47,11 +47,11 @@ public class Endpoint : NSObject {
      /**
         The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
      */
-     var proxy : string?
+     var proxy : String?
      /**
         The remote service scheme.
      */
-     var scheme : string?
+     var scheme : String?
 
 }
 

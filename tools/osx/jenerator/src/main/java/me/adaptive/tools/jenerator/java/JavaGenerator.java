@@ -68,13 +68,46 @@ public class JavaGenerator extends GeneratorBase {
     }
 
     @Override
-    protected String convertJavaToNativeType(Class clazzType) {
-        return null;
+    protected String convertJavaToNativeType(Class classType) {
+        String type = "Unknown";
+        if (classType.isArray()) {
+            return convertJavaToNativeType(classType.getComponentType()) + "[]";
+        } else if (classType.isPrimitive()) {
+            if (classType.equals(Double.TYPE)) {
+                return "double";
+            } else if (classType.equals(Integer.TYPE)) {
+                return "int";
+            } else if (classType.equals(Long.TYPE)) {
+                return "long";
+            } else if (classType.equals(Byte.TYPE)) {
+                return "byte";
+            } else if (classType.equals(Float.TYPE)) {
+                return "float";
+            } else if (classType.equals(Boolean.TYPE)) {
+                return "boolean";
+            } else if (classType.equals(Character.TYPE)) {
+                return "char";
+            }
+        } else if (classType.isEnum()) {
+
+        } else if (classType.equals(Object.class)) {
+            return "Object";
+        } else if (classType.equals(String.class)) {
+            return "String";
+        } else {
+            type = classType.getSimpleName();
+        }
+        return type;
     }
 
     @Override
     protected void declareField(Class clazz, Field field, JavaField fieldByName) {
-
+        if (fieldByName.getComment() != null && fieldByName.getComment().length() > 0) {
+            startComment(5);
+            println(8, fieldByName.getComment());
+            endComment(5);
+        }
+        println(5, "private " + convertJavaToNativeType(field.getType())+" "+field.getName()+";");
     }
 
     @Override

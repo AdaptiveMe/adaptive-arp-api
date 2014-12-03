@@ -34,6 +34,8 @@ Represents a single secureKey-value pair.
 */
 public class SecureKeyPair {
 
+     private String secureData;
+     private String secureKey;
 
 }
 

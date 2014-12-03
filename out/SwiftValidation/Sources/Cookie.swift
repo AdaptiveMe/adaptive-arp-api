@@ -39,11 +39,11 @@ public class Cookie : NSObject {
      /**
         Value of the Cookie
      */
-     var data : string?
+     var data : String?
      /**
         Domain for which the cookie is valid.
      */
-     var domain : string?
+     var domain : String?
      /**
         Cookie expiry in milliseconds or -1 for session only.
      */
@@ -51,15 +51,15 @@ public class Cookie : NSObject {
      /**
         Name ot the cookie
      */
-     var name : string?
+     var name : String?
      /**
         URI path for which the cookie is valid.
      */
-     var path : string?
+     var path : String?
      /**
         Scheme of the domain - http/https - for which the cookie is valid.
      */
-     var scheme : string?
+     var scheme : String?
      /**
         Cookie is secure (https only)
      */

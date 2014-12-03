@@ -35,7 +35,7 @@ public class ContactWebsite : NSObject {
      /**
         The url of the website
      */
-     var url : string?
+     var url : String?
 
 }
 

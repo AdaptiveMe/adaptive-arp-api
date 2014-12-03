@@ -1,7 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="" />
+    <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Locale.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/LocalLocale.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Locale.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/LocalLocale.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Acceleration.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Acceleration.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Acceleration.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Acceleration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/AttachmentData.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/AttachmentData.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AttachmentData.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AttachmentData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/AttachmentData.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/AttachmentData.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Column.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Column.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Column.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Column.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Column.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Column.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Contact.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Contact.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Contact.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Contact.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactAddress.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactAddress.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactAddress.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactAddress.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactAddress.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactAddress.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactEmail.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactEmail.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactEmail.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactEmail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactEmail.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactEmail.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPersonalInfo.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPersonalInfo.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPersonalInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPersonalInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactPersonalInfo.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactPersonalInfo.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPhone.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPhone.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPhone.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPhone.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactPhone.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactPhone.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactProfessionalInfo.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactProfessionalInfo.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactProfessionalInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactProfessionalInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactProfessionalInfo.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactProfessionalInfo.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactSocial.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactSocial.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactSocial.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactSocial.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactSocial.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactSocial.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactTag.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactTag.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactTag.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactTag.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactTag.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactTag.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactUid.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactUid.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactUid.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactUid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactUid.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactUid.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactWebsite.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactWebsite.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactWebsite.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactWebsite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactWebsite.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ContactWebsite.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Cookie.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Cookie.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Cookie.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Cookie.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Cookie.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Cookie.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Database.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Database.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Database.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Database.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Database.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Database.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/DeviceInfo.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/DeviceInfo.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/DeviceInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/DeviceInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/DeviceInfo.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/DeviceInfo.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Email.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Email.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Email.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Email.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Email.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Email.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/EmailAddress.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/EmailAddress.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/EmailAddress.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/EmailAddress.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/EmailAddress.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/EmailAddress.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Endpoint.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Endpoint.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Endpoint.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Endpoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Endpoint.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Endpoint.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Geolocation.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Geolocation.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Geolocation.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Geolocation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Header.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Header.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Header.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Header.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Header.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Header.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/java/JavaGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/java/JavaGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Locale.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Locale.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Locale.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Locale.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/OSInfo.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/OSInfo.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/OSInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/OSInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/OSInfo.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/OSInfo.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/objc/ObjCGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/objc/ObjCGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Row.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Row.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Row.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Row.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Row.ts" afterPath="$PROJECT_DIR$/Row.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/SecureKeyPair.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/SecureKeyPair.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/SecureKeyPair.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/SecureKeyPair.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/SecureKeyPair.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/SecureKeyPair.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Service.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Service.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Service.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Service.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Service.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Service.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceRequest.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceRequest.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceRequest.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ServiceRequest.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ServiceRequest.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceResponse.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceResponse.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceResponse.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceResponse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/ServiceResponse.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/ServiceResponse.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Table.h" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Table.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Table.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Table.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Table.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Table.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/join.sh" afterPath="$PROJECT_DIR$/join.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/ObjCValidation.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../ObjCValidation/ObjCValidation.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="TypeScriptValidation.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,79 +122,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Adaptive.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10545">
-              <caret line="488" column="66" selection-start-line="488" selection-start-column="66" selection-end-line="488" selection-end-column="66" />
+            <state vertical-scroll-proportion="1.8576052" vertical-offset="8718" max-vertical-offset="10530">
+              <caret line="696" column="2" selection-start-line="696" selection-start-column="2" selection-end-line="696" selection-end-column="2" />
               <folding>
-                <marker date="1417545541000" expanded="true" signature="1112:17575" placeholder="..." />
-                <marker date="1417545541000" expanded="true" signature="1120:1264" placeholder="/**Represents the basic information about the operating system. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="1622:1774" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="2131:2266" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="4696:4845" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="4889:4957" placeholder="/**Timestamp of the acceleration reading. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="5578:5725" placeholder="/**Structure representing the data elements of an email addressee. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="5769:5816" placeholder="/**The Email address ...*/" />
-                <marker date="1417545541000" expanded="true" signature="5857:6003" placeholder="/**Structure representing the website data elements of a contact. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="6049:6101" placeholder="/**The url of the website ...*/" />
-                <marker date="1417545541000" expanded="true" signature="6138:6272" placeholder="/**Structure representing the binary attachment data. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="7359:7432" placeholder="/**The length in bytes for the binary Content. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="7483:7576" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="7623:7695" placeholder="/**The length in bytes for the Content field. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="8132:8280" placeholder="/**Structure representing the column specification of a data table. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="8318:8366" placeholder="/**Name of the column ...*/" />
-                <marker date="1417545541000" expanded="true" signature="8404:8556" placeholder="/**Structure representing the assigned tags data elements of a contact. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="8598:8648" placeholder="/**The value of the Tag ...*/" />
-                <marker date="1417545541000" expanded="true" signature="8689:8738" placeholder="/**The name of the Tag ...*/" />
-                <marker date="1417545541000" expanded="true" signature="8776:8905" placeholder="/**Represents a local or remote service request. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="8951:9024" placeholder="/**Request/Response data content (plain text). ...*/" />
-                <marker date="1417545541000" expanded="true" signature="9063:9156" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="9203:9275" placeholder="/**The length in bytes for the Content field. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="9320:9396" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
-                <marker date="1417545541000" expanded="true" signature="9439:9548" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="9594:9642" placeholder="/**The request method ...*/" />
-                <marker date="1417545541000" expanded="true" signature="9680:9752" placeholder="/**The byte[] representing the Content field. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="9801:9876" placeholder="/**The session context for the Request/Response. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="10184:10236" placeholder="/**Definition of columns. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="10282:10330" placeholder="/**Name of the table. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="10366:10411" placeholder="/**Number of rows. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="10561:10717" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="10772:10824" placeholder="/**The company of the job ...*/" />
-                <marker date="1417545541000" expanded="true" signature="10863:10912" placeholder="/**The job description ...*/" />
-                <marker date="1417545541000" expanded="true" signature="10958:11001" placeholder="/**The job title ...*/" />
-                <marker date="1417545541000" expanded="true" signature="11043:11163" placeholder="/**Represents an instance of a service. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="11380:11533" placeholder="/**Structure representing the data of a http request or response header. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="11571:11620" placeholder="/**Value of the header ...*/" />
-                <marker date="1417545541000" expanded="true" signature="11656:11704" placeholder="/**Name ot the header ...*/" />
-                <marker date="1417545541000" expanded="true" signature="11742:11886" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="11930:11976" placeholder="/**The phone number ...*/" />
-                <marker date="1417545541000" expanded="true" signature="12015:12160" placeholder="/**Structure representing the data a single geolocation reading. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="12203:12299" placeholder="/**The current device altitude (or Z coordinate). Measured in meters. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="12339:12421" placeholder="/**The Y coordinate (or latitude). Measured in degrees. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="12845:12973" placeholder="/**Structure representing a database reference. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="13266:13410" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="13916:13972" placeholder="/**A valid ISO Language Code. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="14206:14324" placeholder="/**Represents a row for a data table. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="14359:14411" placeholder="/**The values of the row. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="14741:14814" placeholder="/**Array of Email Blind Carbon Copy recipients ...*/" />
-                <marker date="1417545541000" expanded="true" signature="14872:14939" placeholder="/**Array of Email Carbon Copy recipients ...*/" />
-                <marker date="1417545541000" expanded="true" signature="16390:16398" placeholder="..." />
-                <marker date="1417545541000" expanded="true" signature="15755:15822" placeholder="/**Domain for which the cookie is valid. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="15860:15943" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="15981:16029" placeholder="/**Name ot the cookie ...*/" />
-                <marker date="1417545541000" expanded="true" signature="16065:16134" placeholder="/**URI path for which the cookie is valid. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="16170:16266" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
-                <marker date="1417545541000" expanded="true" signature="16304:16363" placeholder="/**Cookie is secure (https only) ...*/" />
+                <marker date="1417601071000" expanded="true" signature="16390:16398" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Service.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Row.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Row.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35105067" vertical-offset="106" max-vertical-offset="915">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
               <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
@@ -105,11 +156,15 @@
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Adaptive.ts" />
         <option value="$PROJECT_DIR$/Service.ts" />
+        <option value="$PROJECT_DIR$/Row.ts" />
+        <option value="$PROJECT_DIR$/Adaptive.ts" />
       </list>
     </option>
   </component>
@@ -117,12 +172,11 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2540" />
-    <option name="y" value="23" />
-    <option name="width" value="2238" />
-    <option name="height" value="1344" />
+    <option name="x" value="-2560" />
+    <option name="width" value="2560" />
+    <option name="height" value="1440" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -145,6 +199,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -163,36 +218,58 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TypeScriptValidation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TypeScriptValidation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adaptive.ts" />
-              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="watcher.settings" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FullScreen" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="Object.ts&#9;FILE&#9;file:///Users/clozano/Github/Runtime/adaptive-arp-api/out/TypeScriptValidation/Adaptive.ts" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="" />
@@ -203,21 +280,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2540" y="23" width="2238" height="1344" extended-state="0" />
+    <frame x="-2560" y="0" width="2560" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991952" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24977659" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21835938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298639" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3013899" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -249,76 +326,45 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10545">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7320" max-vertical-offset="10545">
           <caret line="488" column="66" selection-start-line="488" selection-start-column="66" selection-end-line="488" selection-end-column="66" />
           <folding>
-            <marker date="1417545541000" expanded="true" signature="1112:17575" placeholder="..." />
-            <marker date="1417545541000" expanded="true" signature="1120:1264" placeholder="/**Represents the basic information about the operating system. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="1622:1774" placeholder="/**Structure representing the personal info data elements of a contact. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="2131:2266" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="4696:4845" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="4889:4957" placeholder="/**Timestamp of the acceleration reading. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="5578:5725" placeholder="/**Structure representing the data elements of an email addressee. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="5769:5816" placeholder="/**The Email address ...*/" />
-            <marker date="1417545541000" expanded="true" signature="5857:6003" placeholder="/**Structure representing the website data elements of a contact. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="6049:6101" placeholder="/**The url of the website ...*/" />
-            <marker date="1417545541000" expanded="true" signature="6138:6272" placeholder="/**Structure representing the binary attachment data. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="7359:7432" placeholder="/**The length in bytes for the binary Content. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="7483:7576" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="7623:7695" placeholder="/**The length in bytes for the Content field. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="8132:8280" placeholder="/**Structure representing the column specification of a data table. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="8318:8366" placeholder="/**Name of the column ...*/" />
-            <marker date="1417545541000" expanded="true" signature="8404:8556" placeholder="/**Structure representing the assigned tags data elements of a contact. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="8598:8648" placeholder="/**The value of the Tag ...*/" />
-            <marker date="1417545541000" expanded="true" signature="8689:8738" placeholder="/**The name of the Tag ...*/" />
-            <marker date="1417545541000" expanded="true" signature="8776:8905" placeholder="/**Represents a local or remote service request. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="8951:9024" placeholder="/**Request/Response data content (plain text). ...*/" />
-            <marker date="1417545541000" expanded="true" signature="9063:9156" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="9203:9275" placeholder="/**The length in bytes for the Content field. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="9320:9396" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
-            <marker date="1417545541000" expanded="true" signature="9439:9548" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="9594:9642" placeholder="/**The request method ...*/" />
-            <marker date="1417545541000" expanded="true" signature="9680:9752" placeholder="/**The byte[] representing the Content field. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="9801:9876" placeholder="/**The session context for the Request/Response. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="10184:10236" placeholder="/**Definition of columns. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="10282:10330" placeholder="/**Name of the table. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="10366:10411" placeholder="/**Number of rows. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="10561:10717" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="10772:10824" placeholder="/**The company of the job ...*/" />
-            <marker date="1417545541000" expanded="true" signature="10863:10912" placeholder="/**The job description ...*/" />
-            <marker date="1417545541000" expanded="true" signature="10958:11001" placeholder="/**The job title ...*/" />
-            <marker date="1417545541000" expanded="true" signature="11043:11163" placeholder="/**Represents an instance of a service. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="11380:11533" placeholder="/**Structure representing the data of a http request or response header. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="11571:11620" placeholder="/**Value of the header ...*/" />
-            <marker date="1417545541000" expanded="true" signature="11656:11704" placeholder="/**Name ot the header ...*/" />
-            <marker date="1417545541000" expanded="true" signature="11742:11886" placeholder="/**Structure representing the phone data elements of a contact. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="11930:11976" placeholder="/**The phone number ...*/" />
-            <marker date="1417545541000" expanded="true" signature="12015:12160" placeholder="/**Structure representing the data a single geolocation reading. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="12203:12299" placeholder="/**The current device altitude (or Z coordinate). Measured in meters. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="12339:12421" placeholder="/**The Y coordinate (or latitude). Measured in degrees. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="12845:12973" placeholder="/**Structure representing a database reference. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="13266:13410" placeholder="/**Structure representing the email data elements of a contact. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="13916:13972" placeholder="/**A valid ISO Language Code. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="14206:14324" placeholder="/**Represents a row for a data table. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="14359:14411" placeholder="/**The values of the row. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="14741:14814" placeholder="/**Array of Email Blind Carbon Copy recipients ...*/" />
-            <marker date="1417545541000" expanded="true" signature="14872:14939" placeholder="/**Array of Email Carbon Copy recipients ...*/" />
-            <marker date="1417545541000" expanded="true" signature="16390:16398" placeholder="..." />
-            <marker date="1417545541000" expanded="true" signature="15755:15822" placeholder="/**Domain for which the cookie is valid. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="15860:15943" placeholder="/**Cookie expiry in milliseconds or -1 for session only. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="15981:16029" placeholder="/**Name ot the cookie ...*/" />
-            <marker date="1417545541000" expanded="true" signature="16065:16134" placeholder="/**URI path for which the cookie is valid. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="16170:16266" placeholder="/**Scheme of the domain - http/https - for which the cookie is valid. ...*/" />
-            <marker date="1417545541000" expanded="true" signature="16304:16363" placeholder="/**Cookie is secure (https only) ...*/" />
+            <marker date="1417601071000" expanded="true" signature="16390:16398" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35105067" vertical-offset="106" max-vertical-offset="915">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Row.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8576052" vertical-offset="8718" max-vertical-offset="10530">
+          <caret line="696" column="2" selection-start-line="696" selection-start-column="2" selection-end-line="696" selection-end-column="2" />
+          <folding>
+            <marker date="1417601071000" expanded="true" signature="16390:16398" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -34,6 +34,23 @@ Structure representing the basic device information.
 */
 public class DeviceInfo {
 
+     /**
+        Model of device - equivalent to device release or version.
+     */
+     private String model;
+     /**
+        Name of device - equivalent to brand.
+     */
+     private String name;
+     /**
+        Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+     */
+     private String uuid;
+     /**
+        Vendor of the device hardware.
+     */
+     private String vendor;
 
 }
 

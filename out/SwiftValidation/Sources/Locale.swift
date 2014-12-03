@@ -35,11 +35,11 @@ public class Locale : NSObject {
      /**
         A valid ISO Country Code.
      */
-     var country : string?
+     var country : String?
      /**
         A valid ISO Language Code.
      */
-     var language : string?
+     var language : String?
 
 }
 

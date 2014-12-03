@@ -35,7 +35,7 @@ public class ContactEmail : NSObject {
      /**
         Email of the Contact
      */
-     var email : string?
+     var email : String?
      /**
         Whether the email is the primary one or not
      */

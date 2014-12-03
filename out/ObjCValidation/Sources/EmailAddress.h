@@ -34,6 +34,10 @@ Structure representing the data elements of an email addressee.
 */
 @interface EmailAddress : NSObject
 
+     /**
+        The Email address
+     */
+     @property NSString *address;
 
 @end
 

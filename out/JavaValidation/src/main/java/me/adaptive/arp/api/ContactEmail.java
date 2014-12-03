@@ -34,6 +34,14 @@ Structure representing the email data elements of a contact.
 */
 public class ContactEmail {
 
+     /**
+        Email of the Contact
+     */
+     private String email;
+     /**
+        Whether the email is the primary one or not
+     */
+     private boolean primary;
 
 }
 

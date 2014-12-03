@@ -34,6 +34,14 @@ Structure representing a database reference.
 */
 @interface Database : NSObject
 
+     /**
+        Indicates if database was created or needs to be created as Compressed.
+     */
+     @property bool *compress;
+     /**
+        Database Name (name of the .db local file).
+     */
+     @property NSString *name;
 
 @end
 

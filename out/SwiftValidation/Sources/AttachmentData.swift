@@ -43,15 +43,15 @@ public class AttachmentData : NSObject {
      /**
         The name of the current file attachment
      */
-     var fileName : string?
+     var fileName : String?
      /**
         The mime type of the current attachment
      */
-     var mimeType : string?
+     var mimeType : String?
      /**
         The relative path where the contents for the attachment file could be located.
      */
-     var referenceUrl : string?
+     var referenceUrl : String?
 
 }
 

@@ -35,7 +35,7 @@ public class Column : NSObject {
      /**
         Name of the column
      */
-     var name : string?
+     var name : String?
 
 }
 

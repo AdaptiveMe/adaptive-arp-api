@@ -23,8 +23,16 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-#import <Foundation/Foundation.h>
+#import <ContactAddress.h>
+#import <ContactEmail.h>
+#import <ContactPersonalInfo.h>
+#import <ContactPhone.h>
+#import <ContactProfessionalInfo.h>
+#import <ContactSocial.h>
+#import <ContactTag.h>
 #import <ContactUid.h>
+#import <ContactWebsite.h>
+#import <Foundation/Foundation.h>
 
 /**
 Structure representing the data elements of a contact.
@@ -35,6 +43,44 @@ Structure representing the data elements of a contact.
 */
 @interface Contact : ContactUid
 
+     /**
+        The adresses from the contact
+        Array objects must be of ContactAddress type.
+     */
+     @property NSArray *contactAddresses;
+     /**
+        The emails from the contact
+        Array objects must be of ContactEmail type.
+     */
+     @property NSArray *contactEmails;
+     /**
+        The phones from the contact
+        Array objects must be of ContactPhone type.
+     */
+     @property NSArray *contactPhones;
+     /**
+        The social network info from the contact
+        Array objects must be of ContactSocial type.
+     */
+     @property NSArray *contactSocials;
+     /**
+        The aditional tags from the contact
+        Array objects must be of ContactTag type.
+     */
+     @property NSArray *contactTags;
+     /**
+        The websites from the contact
+        Array objects must be of ContactWebsite type.
+     */
+     @property NSArray *contactWebsites;
+     /**
+        The personal info from the contact
+     */
+     @property ContactPersonalInfo *personalInfo;
+     /**
+        The professional info from the contact
+     */
+     @property ContactProfessionalInfo *professionalInfo;
 
 @end
 

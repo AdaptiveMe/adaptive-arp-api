@@ -35,20 +35,20 @@ public class DeviceInfo : NSObject {
      /**
         Model of device - equivalent to device release or version.
      */
-     var model : string?
+     var model : String?
      /**
         Name of device - equivalent to brand.
      */
-     var name : string?
+     var name : String?
      /**
         Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
 be unique for a specific instance of an application on a specific device.
      */
-     var uuid : string?
+     var uuid : String?
      /**
         Vendor of the device hardware.
      */
-     var vendor : string?
+     var vendor : String?
 
 }
 

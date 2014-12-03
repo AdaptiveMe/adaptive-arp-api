@@ -32,8 +32,8 @@ Represents a single secureKey-value pair.
 */
 public class SecureKeyPair : NSObject {
 
-     var secureData : string?
-     var secureKey : string?
+     var secureData : String?
+     var secureKey : String?
 
 }
 

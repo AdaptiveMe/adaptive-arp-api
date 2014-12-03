@@ -39,7 +39,7 @@ public class Database : NSObject {
      /**
         Database Name (name of the .db local file).
      */
-     var name : string?
+     var name : String?
 
 }
 

@@ -43,7 +43,7 @@ public class Table : NSObject {
      /**
         Name of the table.
      */
-     var name : string?
+     var name : String?
      /**
         Number of rows.
      */

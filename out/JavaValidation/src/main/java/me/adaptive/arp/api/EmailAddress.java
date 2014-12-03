@@ -34,6 +34,10 @@ Structure representing the data elements of an email addressee.
 */
 public class EmailAddress {
 
+     /**
+        The Email address
+     */
+     private String address;
 
 }
 

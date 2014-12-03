@@ -35,7 +35,7 @@ public class ContactSocial : NSObject {
      /**
         The profileUrl
      */
-     var profileUrl : string?
+     var profileUrl : String?
 
 }
 

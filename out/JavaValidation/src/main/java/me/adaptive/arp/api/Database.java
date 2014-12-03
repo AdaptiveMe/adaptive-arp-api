@@ -34,6 +34,14 @@ Structure representing a database reference.
 */
 public class Database {
 
+     /**
+        Indicates if database was created or needs to be created as Compressed.
+     */
+     private boolean compress;
+     /**
+        Database Name (name of the .db local file).
+     */
+     private String name;
 
 }
 

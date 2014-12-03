@@ -34,6 +34,22 @@ Structure representing the data of a single acceleration reading.
 */
 public class Acceleration {
 
+     /**
+        Timestamp of the acceleration reading.
+     */
+     private long timeStamp;
+     /**
+        X-axis component of the acceleration.
+     */
+     private double x;
+     /**
+        Y-axis component of the acceleration.
+     */
+     private double y;
+     /**
+        Z-axis component of the acceleration.
+     */
+     private double z;
 
 }
 

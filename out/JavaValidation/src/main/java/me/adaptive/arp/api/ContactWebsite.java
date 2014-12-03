@@ -34,6 +34,10 @@ Structure representing the website data elements of a contact.
 */
 public class ContactWebsite {
 
+     /**
+        The url of the website
+     */
+     private String url;
 
 }
 

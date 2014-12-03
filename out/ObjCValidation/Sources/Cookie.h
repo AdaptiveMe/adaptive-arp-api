@@ -34,6 +34,38 @@ Structure representing the data of a http cookie.
 */
 @interface Cookie : NSObject
 
+     /**
+        Cookie creation timestamp in milliseconds.
+     */
+     @property long *creation;
+     /**
+        Value of the Cookie
+     */
+     @property NSString *data;
+     /**
+        Domain for which the cookie is valid.
+     */
+     @property NSString *domain;
+     /**
+        Cookie expiry in milliseconds or -1 for session only.
+     */
+     @property long *expiry;
+     /**
+        Name ot the cookie
+     */
+     @property NSString *name;
+     /**
+        URI path for which the cookie is valid.
+     */
+     @property NSString *path;
+     /**
+        Scheme of the domain - http/https - for which the cookie is valid.
+     */
+     @property NSString *scheme;
+     /**
+        Cookie is secure (https only)
+     */
+     @property bool *secure;
 
 @end
 

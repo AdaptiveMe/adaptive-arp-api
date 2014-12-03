@@ -34,6 +34,10 @@ Structure representing the column specification of a data table.
 */
 public class Column {
 
+     /**
+        Name of the column
+     */
+     private String name;
 
 }
 

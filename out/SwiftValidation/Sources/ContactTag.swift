@@ -35,11 +35,11 @@ public class ContactTag : NSObject {
      /**
         The value of the Tag
      */
-     var dataValue : string?
+     var dataValue : String?
      /**
         The name of the Tag
      */
-     var name : string?
+     var name : String?
 
 }
 

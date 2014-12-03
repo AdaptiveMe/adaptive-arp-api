@@ -34,6 +34,10 @@ Structure representing the column specification of a data table.
 */
 @interface Column : NSObject
 
+     /**
+        Name of the column
+     */
+     @property NSString *name;
 
 @end
 

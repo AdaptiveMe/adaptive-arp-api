@@ -23,7 +23,9 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <Column.h>
 #import <Foundation/Foundation.h>
+#import <Row.h>
 
 /**
 Represents a data table composed of columns and rows.
@@ -34,6 +36,28 @@ Represents a data table composed of columns and rows.
 */
 @interface Table : NSObject
 
+     /**
+        Number of columns.
+     */
+     @property int *columnCount;
+     /**
+        Definition of columns.
+        Array objects must be of Column type.
+     */
+     @property NSArray *columns;
+     /**
+        Name of the table.
+     */
+     @property NSString *name;
+     /**
+        Number of rows.
+     */
+     @property int *rowCount;
+     /**
+        Rows of the table containing the data.
+        Array objects must be of Row type.
+     */
+     @property NSArray *rows;
 
 @end
 

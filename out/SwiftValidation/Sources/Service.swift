@@ -39,7 +39,7 @@ public class Service : NSObject {
      /**
         The service name
      */
-     var name : string?
+     var name : String?
 
 }
 

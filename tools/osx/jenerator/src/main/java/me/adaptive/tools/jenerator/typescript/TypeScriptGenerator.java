@@ -171,12 +171,12 @@ public class TypeScriptGenerator extends GeneratorBase {
         }
         for (Field field : clazz.getDeclaredFields()) {
             if (field.getType().isArray()) {
-                if (!field.getType().getComponentType().isPrimitive() && !field.getType().getComponentType().equals(String.class)) {
+                if (!field.getType().getComponentType().isPrimitive() && !field.getType().getComponentType().equals(String.class) && !field.getType().getComponentType().equals(Object.class)) {
                     if (!referenceList.contains(field.getType().getComponentType().getSimpleName())) {
                         referenceList.add(field.getType().getComponentType().getSimpleName());
                     }
                 }
-            } else if (!field.getType().isPrimitive() && !field.getType().equals(String.class) && !field.getType().equals(clazz)) {
+            } else if (!field.getType().isPrimitive() && !field.getType().equals(String.class) && !field.getType().equals(Object.class) && !field.getType().equals(clazz)) {
                 if (!referenceList.contains(field.getType().getSimpleName())) {
                     referenceList.add(field.getType().getSimpleName());
                 }

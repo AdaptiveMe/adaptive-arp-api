@@ -35,15 +35,15 @@ public class ContactProfessionalInfo : NSObject {
      /**
         The company of the job
      */
-     var company : string?
+     var company : String?
      /**
         The job description
      */
-     var jobDescription : string?
+     var jobDescription : String?
      /**
         The job title
      */
-     var jobTitle : string?
+     var jobTitle : String?
 
 }
 

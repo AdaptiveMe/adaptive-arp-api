@@ -35,7 +35,7 @@ public class ContactPhone : NSObject {
      /**
         The phone number
      */
-     var phone : string?
+     var phone : String?
 
 }
 

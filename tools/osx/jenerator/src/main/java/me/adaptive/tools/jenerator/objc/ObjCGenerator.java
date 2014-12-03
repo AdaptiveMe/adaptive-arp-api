@@ -34,6 +34,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -48,6 +50,14 @@ public class ObjCGenerator extends GeneratorBase {
 
     public ObjCGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
+    }
+
+    private static String filterClassName(String simpleName) {
+        if (simpleName.equals("Locale")) {
+            simpleName = "Local" + simpleName;
+        }
+
+        return simpleName;
     }
 
     @Override
@@ -71,13 +81,49 @@ public class ObjCGenerator extends GeneratorBase {
     }
 
     @Override
-    protected String convertJavaToNativeType(Class clazzType) {
-        return null;
+    protected String convertJavaToNativeType(Class classType) {
+        String type = "Unknown";
+        if (classType.isArray()) {
+            return "NSArray";//convertJavaToNativeType(classType.getComponentType()) + "[]";
+        } else if (classType.isPrimitive()) {
+            if (classType.equals(Double.TYPE)) {
+                return "double";
+            } else if (classType.equals(Integer.TYPE)) {
+                return "int";
+            } else if (classType.equals(Long.TYPE)) {
+                return "long";
+            } else if (classType.equals(Byte.TYPE)) {
+                return "byte";
+            } else if (classType.equals(Float.TYPE)) {
+                return "float";
+            } else if (classType.equals(Boolean.TYPE)) {
+                return "bool";
+            } else if (classType.equals(Character.TYPE)) {
+                return "char";
+            }
+        } else if (classType.isEnum()) {
+
+        } else if (classType.equals(Object.class)) {
+            return "NSObject";
+        } else if (classType.equals(String.class)) {
+            return "NSString";
+        } else {
+            type = classType.getSimpleName();
+        }
+        return type;
     }
 
     @Override
     protected void declareField(Class clazz, Field field, JavaField fieldByName) {
-
+        if (fieldByName.getComment() != null && fieldByName.getComment().length() > 0) {
+            indentPrintStreamH.println(5, "/**");
+            indentPrintStreamH.println(8, fieldByName.getComment());
+            if (field.getType().isArray()) {
+                indentPrintStreamH.println(8, "Array objects must be of "+filterClassName(field.getType().getComponentType().getSimpleName())+" type.");
+            }
+            indentPrintStreamH.println(5, "*/");
+        }
+        indentPrintStreamH.println(5, "@property " + convertJavaToNativeType(field.getType()) + " *" + field.getName() + ";");
     }
 
     @Override
@@ -94,34 +140,60 @@ public class ObjCGenerator extends GeneratorBase {
 
     @Override
     protected void startBean(String simpleName, Class clazz, String comment, List<DocletTag> tagList) {
-        indentPrintStreamH.println("#import <Foundation/Foundation.h>");
+        List<String> referenceList = new ArrayList<>();
+        referenceList.add("Foundation/Foundation");
+
         if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
-            indentPrintStreamH.println("#import <"+clazz.getSuperclass().getSimpleName()+".h>");
-            indentPrintStreamH.println();
-            indentPrintStreamH.println("/**");
-            indentPrintStreamH.println(comment);
-            if (tagList.size() > 0) {
-                indentPrintStreamH.println();
-                for (DocletTag tag : tagList) {
-                    indentPrintStreamH.println("@" + tag.getName() + " " + tag.getValue());
-                }
-            }
-            indentPrintStreamH.println("*/");
-            indentPrintStreamH.println("@interface "+simpleName+" : "+ clazz.getSuperclass().getSimpleName());
-        } else {
-            indentPrintStreamH.println();
-            indentPrintStreamH.println("/**");
-            indentPrintStreamH.println(comment);
-            if (tagList.size() > 0) {
-                indentPrintStreamH.println();
-                for (DocletTag tag : tagList) {
-                    indentPrintStreamH.println("@" + tag.getName() + " " + tag.getValue());
-                }
-            }
-            indentPrintStreamH.println("*/");
-            indentPrintStreamH.println("@interface "+simpleName+" : NSObject");
+            referenceList.add(filterClassName(clazz.getSuperclass().getSimpleName()));
         }
-        indentPrintStream.println("#import <"+simpleName+".h>");
+        for (Field field : clazz.getDeclaredFields()) {
+            Class type = field.getType();
+            if (!type.isPrimitive() && !type.equals(Object.class) && !type.equals(String.class) && !type.isArray() && !type.isEnum()) {
+                if (!referenceList.contains(filterClassName(type.getSimpleName()))) {
+                    referenceList.add(filterClassName(type.getSimpleName()));
+                }
+            } else if (type.isArray()) {
+                Class component = type.getComponentType();
+                if (!component.isPrimitive() && !component.equals(Object.class) && !component.equals(String.class) && !component.isArray() && !type.isEnum()) {
+                    if (!referenceList.contains(filterClassName(component.getSimpleName()))) {
+                        referenceList.add(filterClassName(component.getSimpleName()));
+                    }
+                }
+            } else if (type.isEnum()) {
+                // TODO: Process enum references.
+            }
+        }
+
+        referenceList.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+
+        for (String reference : referenceList) {
+            indentPrintStreamH.println("#import <" + reference + ".h>");
+        }
+
+        indentPrintStreamH.println();
+        indentPrintStreamH.println("/**");
+        indentPrintStreamH.println(comment);
+        if (tagList.size() > 0) {
+            indentPrintStreamH.println();
+            for (DocletTag tag : tagList) {
+                indentPrintStreamH.println("@" + tag.getName() + " " + tag.getValue());
+            }
+        }
+        indentPrintStreamH.println("*/");
+
+        if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
+            indentPrintStreamH.println("@interface " + filterClassName(simpleName) + " : " + filterClassName(clazz.getSuperclass().getSimpleName()));
+        } else {
+            indentPrintStreamH.println("@interface " + filterClassName(simpleName) + " : NSObject");
+        }
+
+
+        indentPrintStream.println("#import <" + filterClassName(simpleName) + ".h>");
         indentPrintStream.println("");
         indentPrintStream.println("/**");
         if (tagList.size() > 0) {
@@ -131,13 +203,14 @@ public class ObjCGenerator extends GeneratorBase {
             }
         }
         indentPrintStream.println("*/");
-        indentPrintStream.println("@implementation "+simpleName+" {");
+        indentPrintStream.println("@implementation " + filterClassName(simpleName) + " {");
     }
 
     @Override
     protected void startClass(Class clazz) {
+        String className = filterClassName(clazz.getSimpleName());
         if (clazz.isInterface()) {
-            currentFileH = new File(getOutputRootDirectory(), clazz.getSimpleName() + ".h");
+            currentFileH = new File(getOutputRootDirectory(), className + ".h");
             if (currentFileH.exists()) {
                 currentFileH.delete();
             }
@@ -149,7 +222,7 @@ public class ObjCGenerator extends GeneratorBase {
             currentFile = null;
             indentPrintStream = null;
         } else {
-            currentFileH = new File(getOutputRootDirectory(), clazz.getSimpleName() + ".h");
+            currentFileH = new File(getOutputRootDirectory(), className + ".h");
             if (currentFileH.exists()) {
                 currentFileH.delete();
             }
@@ -158,7 +231,7 @@ public class ObjCGenerator extends GeneratorBase {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            currentFile = new File(getOutputRootDirectory(), clazz.getSimpleName() + ".m");
+            currentFile = new File(getOutputRootDirectory(), className + ".m");
             if (currentFile.exists()) {
                 currentFile.delete();
             }
@@ -187,13 +260,13 @@ public class ObjCGenerator extends GeneratorBase {
 
     @Override
     protected void print(int indent, String literal) {
-        if (indentPrintStream!=null) indentPrintStream.print(indent, literal);
-        if (indentPrintStreamH!=null) indentPrintStreamH.print(indent, literal);
+        if (indentPrintStream != null) indentPrintStream.print(indent, literal);
+        if (indentPrintStreamH != null) indentPrintStreamH.print(indent, literal);
     }
 
     @Override
     protected final void println(int indent, String literal) {
-        if (indentPrintStream!=null) indentPrintStream.println(indent, literal);
-        if (indentPrintStreamH!=null) indentPrintStreamH.println(indent, literal);
+        if (indentPrintStream != null) indentPrintStream.println(indent, literal);
+        if (indentPrintStreamH != null) indentPrintStreamH.println(indent, literal);
     }
 }

@@ -34,6 +34,14 @@ Structure representing the assigned tags data elements of a contact.
 */
 public class ContactTag {
 
+     /**
+        The value of the Tag
+     */
+     private String dataValue;
+     /**
+        The name of the Tag
+     */
+     private String name;
 
 }
 

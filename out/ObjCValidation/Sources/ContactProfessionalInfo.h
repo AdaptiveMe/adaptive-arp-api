@@ -34,6 +34,18 @@ Structure representing the professional info data elements of a contact.
 */
 @interface ContactProfessionalInfo : NSObject
 
+     /**
+        The company of the job
+     */
+     @property NSString *company;
+     /**
+        The job description
+     */
+     @property NSString *jobDescription;
+     /**
+        The job title
+     */
+     @property NSString *jobTitle;
 
 @end
 

@@ -22,25 +22,20 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var Adaptive;
+(function (Adaptive) {
+    /**
+    Represents a row for a data table.
 
-package me.adaptive.arp.api;
-
-/**
-Represents a row for a data table.
-
-@author Carlos Lozano Diez
-@since 1.0
-@version 1.0
-*/
-public class Row {
-
-     /**
-        The values of the row.
-     */
-     private Object[] values;
-
-}
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/
+    @author Carlos Lozano Diez
+    @since 1.0
+    @version 1.0
+    */
+    var Row = (function () {
+        function Row() {
+        }
+        return Row;
+    })();
+    Adaptive.Row = Row;
+})(Adaptive || (Adaptive = {}));
+//# sourceMappingURL=Row.js.map

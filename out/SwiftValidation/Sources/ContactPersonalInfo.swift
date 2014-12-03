@@ -35,15 +35,15 @@ public class ContactPersonalInfo : NSObject {
      /**
         The last name of the Contact
      */
-     var lastName : string?
+     var lastName : String?
      /**
         The middle name of the Contact if it proceeds
      */
-     var middleName : string?
+     var middleName : String?
      /**
         The name of the Contact
      */
-     var name : string?
+     var name : String?
 
 }
 

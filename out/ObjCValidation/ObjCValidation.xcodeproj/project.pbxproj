@@ -169,7 +169,6 @@
 		4E24916C1A2E37750076821A /* IXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490BD1A2E37750076821A /* IXML.h */; };
 		4E24916D1A2E37750076821A /* Lifecycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490BE1A2E37750076821A /* Lifecycle.h */; };
 		4E24916E1A2E37750076821A /* Lifecycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490BF1A2E37750076821A /* Lifecycle.m */; };
-		4E2491701A2E37750076821A /* Locale.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490C11A2E37750076821A /* Locale.m */; };
 		4E2491711A2E37750076821A /* OSInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490C21A2E37750076821A /* OSInfo.h */; };
 		4E2491721A2E37750076821A /* OSInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490C31A2E37750076821A /* OSInfo.m */; };
 		4E2491731A2E37750076821A /* Row.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490C41A2E37750076821A /* Row.h */; };
@@ -184,7 +183,8 @@
 		4E24917C1A2E37750076821A /* ServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490CD1A2E37750076821A /* ServiceResponse.m */; };
 		4E24917D1A2E37750076821A /* Table.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2490CE1A2E37750076821A /* Table.h */; };
 		4E24917E1A2E37750076821A /* Table.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2490CF1A2E37750076821A /* Table.m */; };
-		4E2491801A2E394C0076821A /* Locale.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E24917F1A2E394B0076821A /* Locale.h */; };
+		4E5507251A2F0E67001CEBD0 /* LocalLocale.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E5507231A2F0E67001CEBD0 /* LocalLocale.h */; };
+		4E5507261A2F0E67001CEBD0 /* LocalLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5507241A2F0E67001CEBD0 /* LocalLocale.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -363,7 +363,6 @@
 		4E2490BD1A2E37750076821A /* IXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IXML.h; sourceTree = "<group>"; };
 		4E2490BE1A2E37750076821A /* Lifecycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lifecycle.h; sourceTree = "<group>"; };
 		4E2490BF1A2E37750076821A /* Lifecycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lifecycle.m; sourceTree = "<group>"; };
-		4E2490C11A2E37750076821A /* Locale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Locale.m; sourceTree = "<group>"; };
 		4E2490C21A2E37750076821A /* OSInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSInfo.h; sourceTree = "<group>"; };
 		4E2490C31A2E37750076821A /* OSInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSInfo.m; sourceTree = "<group>"; };
 		4E2490C41A2E37750076821A /* Row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Row.h; sourceTree = "<group>"; };
@@ -378,7 +377,8 @@
 		4E2490CD1A2E37750076821A /* ServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceResponse.m; sourceTree = "<group>"; };
 		4E2490CE1A2E37750076821A /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		4E2490CF1A2E37750076821A /* Table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Table.m; sourceTree = "<group>"; };
-		4E24917F1A2E394B0076821A /* Locale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Locale.h; sourceTree = "<group>"; };
+		4E5507231A2F0E67001CEBD0 /* LocalLocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalLocale.h; sourceTree = "<group>"; };
+		4E5507241A2F0E67001CEBD0 /* LocalLocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalLocale.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -615,8 +615,8 @@
 				4E2490BD1A2E37750076821A /* IXML.h */,
 				4E2490BE1A2E37750076821A /* Lifecycle.h */,
 				4E2490BF1A2E37750076821A /* Lifecycle.m */,
-				4E24917F1A2E394B0076821A /* Locale.h */,
-				4E2490C11A2E37750076821A /* Locale.m */,
+				4E5507231A2F0E67001CEBD0 /* LocalLocale.h */,
+				4E5507241A2F0E67001CEBD0 /* LocalLocale.m */,
 				4E2490C21A2E37750076821A /* OSInfo.h */,
 				4E2490C31A2E37750076821A /* OSInfo.m */,
 				4E2490C41A2E37750076821A /* Row.h */,
@@ -684,7 +684,6 @@
 				4E24910D1A2E37750076821A /* IBarcode.h in Headers */,
 				4E2491251A2E37750076821A /* ICloud.h in Headers */,
 				4E2491641A2E37750076821A /* ITelephony.h in Headers */,
-				4E2491801A2E394C0076821A /* Locale.h in Headers */,
 				4E2491261A2E37750076821A /* ICompression.h in Headers */,
 				4E2491141A2E37750076821A /* IBaseListener.h in Headers */,
 				4E2491371A2E37750076821A /* IFileResultCallback.h in Headers */,
@@ -725,6 +724,7 @@
 				4E2491671A2E37750076821A /* IUI.h in Headers */,
 				4E2491591A2E37750076821A /* IRSS.h in Headers */,
 				4E24910A1A2E37750076821A /* IAppServerListener.h in Headers */,
+				4E5507251A2F0E67001CEBD0 /* LocalLocale.h in Headers */,
 				4E24912A1A2E37750076821A /* IContactResultCallback.h in Headers */,
 				4E2491411A2E37750076821A /* ILifecycleListener.h in Headers */,
 				4E2491221A2E37750076821A /* ICalendar.h in Headers */,
@@ -890,7 +890,7 @@
 				4E2491721A2E37750076821A /* OSInfo.m in Sources */,
 				4E2490D51A2E37750076821A /* Button.m in Sources */,
 				4E2490DB1A2E37750076821A /* ContactAddress.m in Sources */,
-				4E2491701A2E37750076821A /* Locale.m in Sources */,
+				4E5507261A2F0E67001CEBD0 /* LocalLocale.m in Sources */,
 				4E2491781A2E37750076821A /* Service.m in Sources */,
 				4E2490F51A2E37750076821A /* EmailAddress.m in Sources */,
 				4E2490D71A2E37750076821A /* Column.m in Sources */,
@@ -1102,6 +1102,7 @@
 				4E24901C1A2E371A0076821A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E24901D1A2E371A0076821A /* Build configuration list for PBXNativeTarget "ObjCValidationTests" */ = {
 			isa = XCConfigurationList;
@@ -1110,6 +1111,7 @@
 				4E24901F1A2E371A0076821A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

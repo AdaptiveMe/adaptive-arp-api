@@ -34,6 +34,14 @@ Represents an instance of a service.
 */
 public class Service {
 
+     /**
+        Enpoint of the service
+     */
+     private Endpoint endpoint;
+     /**
+        The service name
+     */
+     private String name;
 
 }
 

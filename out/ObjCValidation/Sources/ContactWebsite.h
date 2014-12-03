@@ -34,6 +34,10 @@ Structure representing the website data elements of a contact.
 */
 @interface ContactWebsite : NSObject
 
+     /**
+        The url of the website
+     */
+     @property NSString *url;
 
 @end
 

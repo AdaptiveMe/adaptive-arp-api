@@ -34,6 +34,38 @@ Structure representing the data of a http cookie.
 */
 public class Cookie {
 
+     /**
+        Cookie creation timestamp in milliseconds.
+     */
+     private long creation;
+     /**
+        Value of the Cookie
+     */
+     private String data;
+     /**
+        Domain for which the cookie is valid.
+     */
+     private String domain;
+     /**
+        Cookie expiry in milliseconds or -1 for session only.
+     */
+     private long expiry;
+     /**
+        Name ot the cookie
+     */
+     private String name;
+     /**
+        URI path for which the cookie is valid.
+     */
+     private String path;
+     /**
+        Scheme of the domain - http/https - for which the cookie is valid.
+     */
+     private String scheme;
+     /**
+        Cookie is secure (https only)
+     */
+     private boolean secure;
 
 }
 
