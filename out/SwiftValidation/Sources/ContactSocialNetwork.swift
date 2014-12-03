@@ -55,12 +55,12 @@ public enum ContactSocialNetwork {
      public static func toEnum(string:String?) -> ContactSocialNetwork {
           if let validString = string {
                switch validString {
-               case "Twitter": return .Twitter
-               case "Facebook": return .Facebook
-               case "GooglePlus": return .GooglePlus
-               case "LinkedIn": return .LinkedIn
-               case "Flickr": return .Flickr
-               case "Unknown": return .Unknown
+                    case "Twitter": return .Twitter
+                    case "Facebook": return .Facebook
+                    case "GooglePlus": return .GooglePlus
+                    case "LinkedIn": return .LinkedIn
+                    case "Flickr": return .Flickr
+                    case "Unknown": return .Unknown
                default: return .Unknown
                }
           } else {

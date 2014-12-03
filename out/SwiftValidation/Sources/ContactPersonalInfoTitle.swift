@@ -53,11 +53,11 @@ public enum ContactPersonalInfoTitle {
      public static func toEnum(string:String?) -> ContactPersonalInfoTitle {
           if let validString = string {
                switch validString {
-               case "Mr": return .Mr
-               case "Mrs": return .Mrs
-               case "Ms": return .Ms
-               case "Dr": return .Dr
-               case "Unknown": return .Unknown
+                    case "Mr": return .Mr
+                    case "Mrs": return .Mrs
+                    case "Ms": return .Ms
+                    case "Dr": return .Dr
+                    case "Unknown": return .Unknown
                default: return .Unknown
                }
           } else {

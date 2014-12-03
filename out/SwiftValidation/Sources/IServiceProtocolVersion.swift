@@ -49,9 +49,9 @@ public enum IServiceProtocolVersion {
      public static func toEnum(string:String?) -> IServiceProtocolVersion {
           if let validString = string {
                switch validString {
-               case "HTTP_PROTOCOL_VERSION_1_0": return .HTTP_PROTOCOL_VERSION_1_0
-               case "HTTP_PROTOCOL_VERSION_1_1": return .HTTP_PROTOCOL_VERSION_1_1
-               case "Unknown": return .Unknown
+                    case "HTTP_PROTOCOL_VERSION_1_0": return .HTTP_PROTOCOL_VERSION_1_0
+                    case "HTTP_PROTOCOL_VERSION_1_1": return .HTTP_PROTOCOL_VERSION_1_1
+                    case "Unknown": return .Unknown
                default: return .Unknown
                }
           } else {

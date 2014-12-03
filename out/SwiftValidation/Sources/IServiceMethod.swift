@@ -49,9 +49,9 @@ public enum IServiceMethod {
      public static func toEnum(string:String?) -> IServiceMethod {
           if let validString = string {
                switch validString {
-               case "POST": return .POST
-               case "GET": return .GET
-               case "Unknown": return .Unknown
+                    case "POST": return .POST
+                    case "GET": return .GET
+                    case "Unknown": return .Unknown
                default: return .Unknown
                }
           } else {

@@ -217,7 +217,7 @@ public class SwiftGenerator extends GeneratorBase {
         println(15, "switch validString {");
         for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
             Field field = clazz.getDeclaredFields()[i];
-            println(15, "case \"" + field.getName()+"\": return ."+field.getName());
+            println(20, "case \"" + field.getName()+"\": return ."+field.getName());
         }
         println(15, "default: return .Unknown");
         println(15, "}");

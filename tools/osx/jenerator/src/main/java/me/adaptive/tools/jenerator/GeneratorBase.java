@@ -319,12 +319,12 @@ public abstract class GeneratorBase {
                  */
                 List<DocletTag> tagList = enrichTags(mapClassSource.get(clazz).getTags());
                 /**
-                 * Bean Class start.
+                 * Start bean
                  */
                 startBean(clazz.getSimpleName(), clazz, classComment, tagList);
                 println();
                 /**
-                 * Start declaring fields.
+                 * Start fields.
                  */
                 startFields(clazz.getSimpleName(), clazz);
 
@@ -361,12 +361,12 @@ public abstract class GeneratorBase {
                 }
 
                 /**
-                 * Start declaring fields.
+                 * End fields.
                  */
                 endFields(clazz.getSimpleName(), clazz);
 
                 /**
-                 * Bean Class end.
+                 * End class.
                  */
                 println();
                 endBean(clazz.getSimpleName(), clazz);

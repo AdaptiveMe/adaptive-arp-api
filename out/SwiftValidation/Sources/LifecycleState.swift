@@ -61,15 +61,15 @@ public enum LifecycleState {
      public static func toEnum(string:String?) -> LifecycleState {
           if let validString = string {
                switch validString {
-               case "Starting": return .Starting
-               case "Started": return .Started
-               case "Running": return .Running
-               case "Paused": return .Paused
-               case "PausedIdle": return .PausedIdle
-               case "PausedRun": return .PausedRun
-               case "Resuming": return .Resuming
-               case "Stopping": return .Stopping
-               case "Unknown": return .Unknown
+                    case "Starting": return .Starting
+                    case "Started": return .Started
+                    case "Running": return .Running
+                    case "Paused": return .Paused
+                    case "PausedIdle": return .PausedIdle
+                    case "PausedRun": return .PausedRun
+                    case "Resuming": return .Resuming
+                    case "Stopping": return .Stopping
+                    case "Unknown": return .Unknown
                default: return .Unknown
                }
           } else {

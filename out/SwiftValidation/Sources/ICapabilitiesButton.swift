@@ -51,10 +51,10 @@ public enum ICapabilitiesButton {
      public static func toEnum(string:String?) -> ICapabilitiesButton {
           if let validString = string {
                switch validString {
-               case "HomeButton": return .HomeButton
-               case "BackButton": return .BackButton
-               case "OptionButton": return .OptionButton
-               case "Unknown": return .Unknown
+                    case "HomeButton": return .HomeButton
+                    case "BackButton": return .BackButton
+                    case "OptionButton": return .OptionButton
+                    case "Unknown": return .Unknown
                default: return .Unknown
                }
           } else {

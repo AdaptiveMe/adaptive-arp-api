@@ -59,14 +59,14 @@ public enum ContactPhoneType {
      public static func toEnum(string:String?) -> ContactPhoneType {
           if let validString = string {
                switch validString {
-               case "Mobile": return .Mobile
-               case "Work": return .Work
-               case "Home": return .Home
-               case "Main": return .Main
-               case "HomeFax": return .HomeFax
-               case "WorkFax": return .WorkFax
-               case "Other": return .Other
-               case "Unknown": return .Unknown
+                    case "Mobile": return .Mobile
+                    case "Work": return .Work
+                    case "Home": return .Home
+                    case "Main": return .Main
+                    case "HomeFax": return .HomeFax
+                    case "WorkFax": return .WorkFax
+                    case "Other": return .Other
+                    case "Unknown": return .Unknown
                default: return .Unknown
                }
           } else {

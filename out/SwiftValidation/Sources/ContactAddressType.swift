@@ -51,10 +51,10 @@ public enum ContactAddressType {
      public static func toEnum(string:String?) -> ContactAddressType {
           if let validString = string {
                switch validString {
-               case "Home": return .Home
-               case "Work": return .Work
-               case "Other": return .Other
-               case "Unknown": return .Unknown
+                    case "Home": return .Home
+                    case "Work": return .Work
+                    case "Other": return .Other
+                    case "Unknown": return .Unknown
                default: return .Unknown
                }
           } else {
