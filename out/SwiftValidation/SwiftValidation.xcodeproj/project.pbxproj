@@ -164,6 +164,47 @@
 		4E5507381A2F31BD001CEBD0 /* IServiceProtocolVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55072E1A2F31BD001CEBD0 /* IServiceProtocolVersion.swift */; };
 		4E5507391A2F31BD001CEBD0 /* IServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E55072F1A2F31BD001CEBD0 /* IServiceType.swift */; };
 		4E55073A1A2F31BD001CEBD0 /* LifecycleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5507301A2F31BD001CEBD0 /* LifecycleState.swift */; };
+		4E616CE51A30CE01009BE475 /* IAccelerationListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CBC1A30CE00009BE475 /* IAccelerationListenerError.swift */; };
+		4E616CE61A30CE01009BE475 /* IAccelerationListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CBD1A30CE00009BE475 /* IAccelerationListenerWarning.swift */; };
+		4E616CE71A30CE01009BE475 /* IAppResourceCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CBE1A30CE00009BE475 /* IAppResourceCallbackError.swift */; };
+		4E616CE81A30CE01009BE475 /* IAppResourceCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CBF1A30CE00009BE475 /* IAppResourceCallbackWarning.swift */; };
+		4E616CE91A30CE01009BE475 /* IButtonListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CC01A30CE00009BE475 /* IButtonListenerError.swift */; };
+		4E616CEA1A30CE01009BE475 /* IButtonListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CC11A30CE00009BE475 /* IButtonListenerWarning.swift */; };
+		4E616CEB1A30CE01009BE475 /* ICapabilitiesCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CC21A30CE00009BE475 /* ICapabilitiesCommunication.swift */; };
+		4E616CEC1A30CE01009BE475 /* ICapabilitiesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CC31A30CE00009BE475 /* ICapabilitiesData.swift */; };
+		4E616CED1A30CE01009BE475 /* ICapabilitiesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CC41A30CE00009BE475 /* ICapabilitiesMedia.swift */; };
+		4E616CEE1A30CE01009BE475 /* ICapabilitiesNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CC51A30CE00009BE475 /* ICapabilitiesNet.swift */; };
+		4E616CEF1A30CE01009BE475 /* ICapabilitiesNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CC61A30CE01009BE475 /* ICapabilitiesNotification.swift */; };
+		4E616CF01A30CE01009BE475 /* ICapabilitiesSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CC71A30CE01009BE475 /* ICapabilitiesSensor.swift */; };
+		4E616CF11A30CE01009BE475 /* IContactFieldGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CC81A30CE01009BE475 /* IContactFieldGroup.swift */; };
+		4E616CF21A30CE01009BE475 /* IContactFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CC91A30CE01009BE475 /* IContactFilter.swift */; };
+		4E616CF31A30CE01009BE475 /* IContactPhotoResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CCA1A30CE01009BE475 /* IContactPhotoResultCallbackError.swift */; };
+		4E616CF41A30CE01009BE475 /* IContactPhotoResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CCB1A30CE01009BE475 /* IContactPhotoResultCallbackWarning.swift */; };
+		4E616CF51A30CE01009BE475 /* IContactResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CCC1A30CE01009BE475 /* IContactResultCallbackError.swift */; };
+		4E616CF61A30CE01009BE475 /* IContactResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CCD1A30CE01009BE475 /* IContactResultCallbackWarning.swift */; };
+		4E616CF71A30CE01009BE475 /* IDatabaseResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CCE1A30CE01009BE475 /* IDatabaseResultCallbackError.swift */; };
+		4E616CF81A30CE01009BE475 /* IDatabaseResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CCF1A30CE01009BE475 /* IDatabaseResultCallbackWarning.swift */; };
+		4E616CF91A30CE01009BE475 /* IFileDataResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CD01A30CE01009BE475 /* IFileDataResultCallbackError.swift */; };
+		4E616CFA1A30CE01009BE475 /* IFileDataResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CD11A30CE01009BE475 /* IFileDataResultCallbackWarning.swift */; };
+		4E616CFB1A30CE01009BE475 /* IFileListResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CD21A30CE01009BE475 /* IFileListResultCallbackError.swift */; };
+		4E616CFC1A30CE01009BE475 /* IFileListResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CD31A30CE01009BE475 /* IFileListResultCallbackWarning.swift */; };
+		4E616CFD1A30CE01009BE475 /* IFileResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CD41A30CE01009BE475 /* IFileResultCallbackError.swift */; };
+		4E616CFE1A30CE01009BE475 /* IFileResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CD51A30CE01009BE475 /* IFileResultCallbackWarning.swift */; };
+		4E616CFF1A30CE01009BE475 /* IGeolocationListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CD61A30CE01009BE475 /* IGeolocationListenerError.swift */; };
+		4E616D001A30CE01009BE475 /* IGeolocationListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CD71A30CE01009BE475 /* IGeolocationListenerWarning.swift */; };
+		4E616D011A30CE01009BE475 /* ILifecycleListenerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CD81A30CE01009BE475 /* ILifecycleListenerError.swift */; };
+		4E616D021A30CE01009BE475 /* ILifecycleListenerWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CD91A30CE01009BE475 /* ILifecycleListenerWarning.swift */; };
+		4E616D031A30CE01009BE475 /* ILoggingLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CDA1A30CE01009BE475 /* ILoggingLogLevel.swift */; };
+		4E616D041A30CE01009BE475 /* IMessagingCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CDB1A30CE01009BE475 /* IMessagingCallbackError.swift */; };
+		4E616D051A30CE01009BE475 /* IMessagingCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CDC1A30CE01009BE475 /* IMessagingCallbackWarning.swift */; };
+		4E616D061A30CE01009BE475 /* INetworkReachabilityCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CDD1A30CE01009BE475 /* INetworkReachabilityCallbackError.swift */; };
+		4E616D071A30CE01009BE475 /* INetworkReachabilityCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CDE1A30CE01009BE475 /* INetworkReachabilityCallbackWarning.swift */; };
+		4E616D081A30CE01009BE475 /* ISecureKVResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CDF1A30CE01009BE475 /* ISecureKVResultCallbackError.swift */; };
+		4E616D091A30CE01009BE475 /* ISecureKVResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CE01A30CE01009BE475 /* ISecureKVResultCallbackWarning.swift */; };
+		4E616D0A1A30CE01009BE475 /* IServiceResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CE11A30CE01009BE475 /* IServiceResultCallbackError.swift */; };
+		4E616D0B1A30CE01009BE475 /* IServiceResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CE21A30CE01009BE475 /* IServiceResultCallbackWarning.swift */; };
+		4E616D0C1A30CE01009BE475 /* ITableResultCallbackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CE31A30CE01009BE475 /* ITableResultCallbackError.swift */; };
+		4E616D0D1A30CE01009BE475 /* ITableResultCallbackWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E616CE41A30CE01009BE475 /* ITableResultCallbackWarning.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -337,6 +378,47 @@
 		4E55072E1A2F31BD001CEBD0 /* IServiceProtocolVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServiceProtocolVersion.swift; sourceTree = "<group>"; };
 		4E55072F1A2F31BD001CEBD0 /* IServiceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServiceType.swift; sourceTree = "<group>"; };
 		4E5507301A2F31BD001CEBD0 /* LifecycleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleState.swift; sourceTree = "<group>"; };
+		4E616CBC1A30CE00009BE475 /* IAccelerationListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccelerationListenerError.swift; sourceTree = "<group>"; };
+		4E616CBD1A30CE00009BE475 /* IAccelerationListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAccelerationListenerWarning.swift; sourceTree = "<group>"; };
+		4E616CBE1A30CE00009BE475 /* IAppResourceCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceCallbackError.swift; sourceTree = "<group>"; };
+		4E616CBF1A30CE00009BE475 /* IAppResourceCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAppResourceCallbackWarning.swift; sourceTree = "<group>"; };
+		4E616CC01A30CE00009BE475 /* IButtonListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IButtonListenerError.swift; sourceTree = "<group>"; };
+		4E616CC11A30CE00009BE475 /* IButtonListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IButtonListenerWarning.swift; sourceTree = "<group>"; };
+		4E616CC21A30CE00009BE475 /* ICapabilitiesCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICapabilitiesCommunication.swift; sourceTree = "<group>"; };
+		4E616CC31A30CE00009BE475 /* ICapabilitiesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICapabilitiesData.swift; sourceTree = "<group>"; };
+		4E616CC41A30CE00009BE475 /* ICapabilitiesMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICapabilitiesMedia.swift; sourceTree = "<group>"; };
+		4E616CC51A30CE00009BE475 /* ICapabilitiesNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICapabilitiesNet.swift; sourceTree = "<group>"; };
+		4E616CC61A30CE01009BE475 /* ICapabilitiesNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICapabilitiesNotification.swift; sourceTree = "<group>"; };
+		4E616CC71A30CE01009BE475 /* ICapabilitiesSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICapabilitiesSensor.swift; sourceTree = "<group>"; };
+		4E616CC81A30CE01009BE475 /* IContactFieldGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IContactFieldGroup.swift; sourceTree = "<group>"; };
+		4E616CC91A30CE01009BE475 /* IContactFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IContactFilter.swift; sourceTree = "<group>"; };
+		4E616CCA1A30CE01009BE475 /* IContactPhotoResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IContactPhotoResultCallbackError.swift; sourceTree = "<group>"; };
+		4E616CCB1A30CE01009BE475 /* IContactPhotoResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IContactPhotoResultCallbackWarning.swift; sourceTree = "<group>"; };
+		4E616CCC1A30CE01009BE475 /* IContactResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IContactResultCallbackError.swift; sourceTree = "<group>"; };
+		4E616CCD1A30CE01009BE475 /* IContactResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IContactResultCallbackWarning.swift; sourceTree = "<group>"; };
+		4E616CCE1A30CE01009BE475 /* IDatabaseResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDatabaseResultCallbackError.swift; sourceTree = "<group>"; };
+		4E616CCF1A30CE01009BE475 /* IDatabaseResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDatabaseResultCallbackWarning.swift; sourceTree = "<group>"; };
+		4E616CD01A30CE01009BE475 /* IFileDataResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFileDataResultCallbackError.swift; sourceTree = "<group>"; };
+		4E616CD11A30CE01009BE475 /* IFileDataResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFileDataResultCallbackWarning.swift; sourceTree = "<group>"; };
+		4E616CD21A30CE01009BE475 /* IFileListResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFileListResultCallbackError.swift; sourceTree = "<group>"; };
+		4E616CD31A30CE01009BE475 /* IFileListResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFileListResultCallbackWarning.swift; sourceTree = "<group>"; };
+		4E616CD41A30CE01009BE475 /* IFileResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFileResultCallbackError.swift; sourceTree = "<group>"; };
+		4E616CD51A30CE01009BE475 /* IFileResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFileResultCallbackWarning.swift; sourceTree = "<group>"; };
+		4E616CD61A30CE01009BE475 /* IGeolocationListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGeolocationListenerError.swift; sourceTree = "<group>"; };
+		4E616CD71A30CE01009BE475 /* IGeolocationListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGeolocationListenerWarning.swift; sourceTree = "<group>"; };
+		4E616CD81A30CE01009BE475 /* ILifecycleListenerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILifecycleListenerError.swift; sourceTree = "<group>"; };
+		4E616CD91A30CE01009BE475 /* ILifecycleListenerWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILifecycleListenerWarning.swift; sourceTree = "<group>"; };
+		4E616CDA1A30CE01009BE475 /* ILoggingLogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoggingLogLevel.swift; sourceTree = "<group>"; };
+		4E616CDB1A30CE01009BE475 /* IMessagingCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMessagingCallbackError.swift; sourceTree = "<group>"; };
+		4E616CDC1A30CE01009BE475 /* IMessagingCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMessagingCallbackWarning.swift; sourceTree = "<group>"; };
+		4E616CDD1A30CE01009BE475 /* INetworkReachabilityCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INetworkReachabilityCallbackError.swift; sourceTree = "<group>"; };
+		4E616CDE1A30CE01009BE475 /* INetworkReachabilityCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INetworkReachabilityCallbackWarning.swift; sourceTree = "<group>"; };
+		4E616CDF1A30CE01009BE475 /* ISecureKVResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISecureKVResultCallbackError.swift; sourceTree = "<group>"; };
+		4E616CE01A30CE01009BE475 /* ISecureKVResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISecureKVResultCallbackWarning.swift; sourceTree = "<group>"; };
+		4E616CE11A30CE01009BE475 /* IServiceResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServiceResultCallbackError.swift; sourceTree = "<group>"; };
+		4E616CE21A30CE01009BE475 /* IServiceResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IServiceResultCallbackWarning.swift; sourceTree = "<group>"; };
+		4E616CE31A30CE01009BE475 /* ITableResultCallbackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITableResultCallbackError.swift; sourceTree = "<group>"; };
+		4E616CE41A30CE01009BE475 /* ITableResultCallbackWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITableResultCallbackWarning.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,6 +524,8 @@
 				4E248EEE1A2E36BB0076821A /* Geolocation.swift */,
 				4E248EEF1A2E36BB0076821A /* Header.swift */,
 				4E248EF01A2E36BB0076821A /* IAccelerationListener.swift */,
+				4E616CBC1A30CE00009BE475 /* IAccelerationListenerError.swift */,
+				4E616CBD1A30CE00009BE475 /* IAccelerationListenerWarning.swift */,
 				4E248EF11A2E36BB0076821A /* IAccelerometer.swift */,
 				4E248EF21A2E36BB0076821A /* IAdaptiveRP.swift */,
 				4E248EF31A2E36BB0076821A /* IAds.swift */,
@@ -453,6 +537,8 @@
 				4E248EF91A2E36BB0076821A /* IAppRegistry.swift */,
 				4E248EFA1A2E36BB0076821A /* IAppResource.swift */,
 				4E248EFB1A2E36BB0076821A /* IAppResourceCallback.swift */,
+				4E616CBE1A30CE00009BE475 /* IAppResourceCallbackError.swift */,
+				4E616CBF1A30CE00009BE475 /* IAppResourceCallbackWarning.swift */,
 				4E248EFC1A2E36BB0076821A /* IAppResourceHandler.swift */,
 				4E248EFD1A2E36BB0076821A /* IAppServer.swift */,
 				4E248EFE1A2E36BB0076821A /* IAppServerListener.swift */,
@@ -479,19 +565,35 @@
 				4E248F131A2E36BB0076821A /* IBluetooth.swift */,
 				4E248F141A2E36BB0076821A /* IBrowser.swift */,
 				4E248F151A2E36BB0076821A /* IButtonListener.swift */,
+				4E616CC01A30CE00009BE475 /* IButtonListenerError.swift */,
+				4E616CC11A30CE00009BE475 /* IButtonListenerWarning.swift */,
 				4E248F161A2E36BB0076821A /* ICalendar.swift */,
 				4E248F171A2E36BB0076821A /* ICamera.swift */,
 				4E248F181A2E36BB0076821A /* ICapabilities.swift */,
 				4E55072C1A2F31BD001CEBD0 /* ICapabilitiesButton.swift */,
+				4E616CC21A30CE00009BE475 /* ICapabilitiesCommunication.swift */,
+				4E616CC31A30CE00009BE475 /* ICapabilitiesData.swift */,
+				4E616CC41A30CE00009BE475 /* ICapabilitiesMedia.swift */,
+				4E616CC51A30CE00009BE475 /* ICapabilitiesNet.swift */,
+				4E616CC61A30CE01009BE475 /* ICapabilitiesNotification.swift */,
+				4E616CC71A30CE01009BE475 /* ICapabilitiesSensor.swift */,
 				4E248F191A2E36BB0076821A /* ICloud.swift */,
 				4E248F1A1A2E36BB0076821A /* ICompression.swift */,
 				4E248F1B1A2E36BB0076821A /* IConcurrent.swift */,
 				4E248F1C1A2E36BB0076821A /* IContact.swift */,
+				4E616CC81A30CE01009BE475 /* IContactFieldGroup.swift */,
+				4E616CC91A30CE01009BE475 /* IContactFilter.swift */,
 				4E248F1D1A2E36BB0076821A /* IContactPhotoResultCallback.swift */,
+				4E616CCA1A30CE01009BE475 /* IContactPhotoResultCallbackError.swift */,
+				4E616CCB1A30CE01009BE475 /* IContactPhotoResultCallbackWarning.swift */,
 				4E248F1E1A2E36BB0076821A /* IContactResultCallback.swift */,
+				4E616CCC1A30CE01009BE475 /* IContactResultCallbackError.swift */,
+				4E616CCD1A30CE01009BE475 /* IContactResultCallbackWarning.swift */,
 				4E248F1F1A2E36BB0076821A /* ICrypto.swift */,
 				4E248F201A2E36BB0076821A /* IDatabase.swift */,
 				4E248F211A2E36BB0076821A /* IDatabaseResultCallback.swift */,
+				4E616CCE1A30CE01009BE475 /* IDatabaseResultCallbackError.swift */,
+				4E616CCF1A30CE01009BE475 /* IDatabaseResultCallbackWarning.swift */,
 				4E248F221A2E36BB0076821A /* IDataStream.swift */,
 				4E248F231A2E36BB0076821A /* IDesktop.swift */,
 				4E248F241A2E36BB0076821A /* IDevice.swift */,
@@ -499,12 +601,20 @@
 				4E248F261A2E36BB0076821A /* IFacebook.swift */,
 				4E248F271A2E36BB0076821A /* IFile.swift */,
 				4E248F281A2E36BB0076821A /* IFileDataResultCallback.swift */,
+				4E616CD01A30CE01009BE475 /* IFileDataResultCallbackError.swift */,
+				4E616CD11A30CE01009BE475 /* IFileDataResultCallbackWarning.swift */,
 				4E248F291A2E36BB0076821A /* IFileListResultCallback.swift */,
+				4E616CD21A30CE01009BE475 /* IFileListResultCallbackError.swift */,
+				4E616CD31A30CE01009BE475 /* IFileListResultCallbackWarning.swift */,
 				4E248F2A1A2E36BB0076821A /* IFilePath.swift */,
 				4E248F2B1A2E36BB0076821A /* IFileResultCallback.swift */,
+				4E616CD41A30CE01009BE475 /* IFileResultCallbackError.swift */,
+				4E616CD51A30CE01009BE475 /* IFileResultCallbackWarning.swift */,
 				4E248F2C1A2E36BB0076821A /* IFileSystem.swift */,
 				4E248F2D1A2E36BB0076821A /* IGeolocation.swift */,
 				4E248F2E1A2E36BB0076821A /* IGeolocationListener.swift */,
+				4E616CD61A30CE01009BE475 /* IGeolocationListenerError.swift */,
+				4E616CD71A30CE01009BE475 /* IGeolocationListenerWarning.swift */,
 				4E248F2F1A2E36BB0076821A /* IGlobalization.swift */,
 				4E248F301A2E36BB0076821A /* IGooglePlus.swift */,
 				4E248F311A2E36BB0076821A /* IGyroscope.swift */,
@@ -512,18 +622,25 @@
 				4E248F331A2E36BB0076821A /* IInternalStorage.swift */,
 				4E248F341A2E36BB0076821A /* ILifecycle.swift */,
 				4E248F351A2E36BB0076821A /* ILifecycleListener.swift */,
+				4E616CD81A30CE01009BE475 /* ILifecycleListenerError.swift */,
+				4E616CD91A30CE01009BE475 /* ILifecycleListenerWarning.swift */,
 				4E248F361A2E36BB0076821A /* ILinkedIn.swift */,
 				4E248F371A2E36BB0076821A /* ILogging.swift */,
+				4E616CDA1A30CE01009BE475 /* ILoggingLogLevel.swift */,
 				4E248F381A2E36BB0076821A /* IMagnetometer.swift */,
 				4E248F391A2E36BB0076821A /* IMail.swift */,
 				4E248F3A1A2E36BB0076821A /* IManagement.swift */,
 				4E248F3B1A2E36BB0076821A /* IMap.swift */,
 				4E248F3C1A2E36BB0076821A /* IMessaging.swift */,
 				4E248F3D1A2E36BB0076821A /* IMessagingCallback.swift */,
+				4E616CDB1A30CE01009BE475 /* IMessagingCallbackError.swift */,
+				4E616CDC1A30CE01009BE475 /* IMessagingCallbackWarning.swift */,
 				4E248F3E1A2E36BB0076821A /* INetworkInfo.swift */,
 				4E248F3F1A2E36BB0076821A /* INetworkNaming.swift */,
 				4E248F401A2E36BB0076821A /* INetworkReachability.swift */,
 				4E248F411A2E36BB0076821A /* INetworkReachabilityCallback.swift */,
+				4E616CDD1A30CE01009BE475 /* INetworkReachabilityCallbackError.swift */,
+				4E616CDE1A30CE01009BE475 /* INetworkReachabilityCallbackWarning.swift */,
 				4E248F421A2E36BB0076821A /* INetworkStatus.swift */,
 				4E248F431A2E36BB0076821A /* INFC.swift */,
 				4E248F441A2E36BB0076821A /* INotification.swift */,
@@ -538,17 +655,23 @@
 				4E248F4D1A2E36BB0076821A /* IRSS.swift */,
 				4E248F4E1A2E36BB0076821A /* IRuntime.swift */,
 				4E248F4F1A2E36BB0076821A /* ISecureKVResultCallback.swift */,
+				4E616CDF1A30CE01009BE475 /* ISecureKVResultCallbackError.swift */,
+				4E616CE01A30CE01009BE475 /* ISecureKVResultCallbackWarning.swift */,
 				4E248F501A2E36BB0076821A /* ISecurity.swift */,
 				4E248F511A2E36BB0076821A /* IService.swift */,
 				4E55072D1A2F31BD001CEBD0 /* IServiceMethod.swift */,
 				4E55072E1A2F31BD001CEBD0 /* IServiceProtocolVersion.swift */,
 				4E248F521A2E36BB0076821A /* IServiceResultCallback.swift */,
+				4E616CE11A30CE01009BE475 /* IServiceResultCallbackError.swift */,
+				4E616CE21A30CE01009BE475 /* IServiceResultCallbackWarning.swift */,
 				4E55072F1A2F31BD001CEBD0 /* IServiceType.swift */,
 				4E248F531A2E36BB0076821A /* ISession.swift */,
 				4E248F541A2E36BB0076821A /* ISettings.swift */,
 				4E248F551A2E36BB0076821A /* ISocket.swift */,
 				4E248F561A2E36BB0076821A /* IStore.swift */,
 				4E248F571A2E36BB0076821A /* ITableResultCallback.swift */,
+				4E616CE31A30CE01009BE475 /* ITableResultCallbackError.swift */,
+				4E616CE41A30CE01009BE475 /* ITableResultCallbackWarning.swift */,
 				4E248F581A2E36BB0076821A /* ITelephony.swift */,
 				4E248F591A2E36BB0076821A /* ITimer.swift */,
 				4E248F5A1A2E36BB0076821A /* ITwitter.swift */,
@@ -688,15 +811,19 @@
 				4E248FF51A2E36BB0076821A /* SecureKeyPair.swift in Sources */,
 				4E248FCC1A2E36BB0076821A /* IMessaging.swift in Sources */,
 				4E248FEE1A2E36BB0076821A /* IVideo.swift in Sources */,
+				4E616CF81A30CE01009BE475 /* IDatabaseResultCallbackWarning.swift in Sources */,
 				4E248F761A2E36BB0076821A /* ContactUid.swift in Sources */,
+				4E616CF21A30CE01009BE475 /* IContactFilter.swift in Sources */,
 				4E248F801A2E36BB0076821A /* IAccelerationListener.swift in Sources */,
 				4E248F871A2E36BB0076821A /* IAppContext.swift in Sources */,
 				4E248FAB1A2E36BB0076821A /* IConcurrent.swift in Sources */,
 				4E248FAA1A2E36BB0076821A /* ICompression.swift in Sources */,
 				4E248F811A2E36BB0076821A /* IAccelerometer.swift in Sources */,
+				4E616D011A30CE01009BE475 /* ILifecycleListenerError.swift in Sources */,
 				4E248F8A1A2E36BB0076821A /* IAppResource.swift in Sources */,
 				4E248F771A2E36BB0076821A /* ContactWebsite.swift in Sources */,
 				4E5507331A2F31BD001CEBD0 /* ContactPersonalInfoTitle.swift in Sources */,
+				4E616D071A30CE01009BE475 /* INetworkReachabilityCallbackWarning.swift in Sources */,
 				4E248FF61A2E36BB0076821A /* Service.swift in Sources */,
 				4E248F9B1A2E36BB0076821A /* IBasePIM.swift in Sources */,
 				4E248FAE1A2E36BB0076821A /* IContactResultCallback.swift in Sources */,
@@ -706,6 +833,7 @@
 				4E248FA51A2E36BB0076821A /* IButtonListener.swift in Sources */,
 				4E248F951A2E36BB0076821A /* IBaseCommerce.swift in Sources */,
 				4E248F961A2E36BB0076821A /* IBaseCommunication.swift in Sources */,
+				4E616CF51A30CE01009BE475 /* IContactResultCallbackError.swift in Sources */,
 				4E248FB81A2E36BB0076821A /* IFileDataResultCallback.swift in Sources */,
 				4E248FC91A2E36BB0076821A /* IMail.swift in Sources */,
 				4E248FED1A2E36BB0076821A /* IVibration.swift in Sources */,
@@ -726,21 +854,33 @@
 				4E55073A1A2F31BD001CEBD0 /* LifecycleState.swift in Sources */,
 				4E248FF31A2E36BB0076821A /* OSInfo.swift in Sources */,
 				4E248FB71A2E36BB0076821A /* IFile.swift in Sources */,
+				4E616D081A30CE01009BE475 /* ISecureKVResultCallbackError.swift in Sources */,
 				4E248FDF1A2E36BB0076821A /* ISecureKVResultCallback.swift in Sources */,
 				4E248F6B1A2E36BB0076821A /* AttachmentData.swift in Sources */,
+				4E616CFA1A30CE01009BE475 /* IFileDataResultCallbackWarning.swift in Sources */,
 				4E248FD91A2E36BB0076821A /* IOS.swift in Sources */,
 				4E248F7A1A2E36BB0076821A /* DeviceInfo.swift in Sources */,
 				4E248F8E1A2E36BB0076821A /* IAppServerListener.swift in Sources */,
+				4E616D061A30CE01009BE475 /* INetworkReachabilityCallbackError.swift in Sources */,
 				4E248FF11A2E36BB0076821A /* Lifecycle.swift in Sources */,
+				4E616CEC1A30CE01009BE475 /* ICapabilitiesData.swift in Sources */,
 				4E248FB41A2E36BB0076821A /* IDevice.swift in Sources */,
+				4E616D051A30CE01009BE475 /* IMessagingCallbackWarning.swift in Sources */,
+				4E616CFF1A30CE01009BE475 /* IGeolocationListenerError.swift in Sources */,
 				4E248FB01A2E36BB0076821A /* IDatabase.swift in Sources */,
+				4E616CF91A30CE01009BE475 /* IFileDataResultCallbackError.swift in Sources */,
 				4E248FC81A2E36BB0076821A /* IMagnetometer.swift in Sources */,
+				4E616D0A1A30CE01009BE475 /* IServiceResultCallbackError.swift in Sources */,
 				4E248F8B1A2E36BB0076821A /* IAppResourceCallback.swift in Sources */,
 				4E248FBA1A2E36BB0076821A /* IFilePath.swift in Sources */,
 				4E248FA81A2E36BB0076821A /* ICapabilities.swift in Sources */,
 				4E5507381A2F31BD001CEBD0 /* IServiceProtocolVersion.swift in Sources */,
 				4E248FEC1A2E36BB0076821A /* IUpdate.swift in Sources */,
 				4E248FBC1A2E36BB0076821A /* IFileSystem.swift in Sources */,
+				4E616D031A30CE01009BE475 /* ILoggingLogLevel.swift in Sources */,
+				4E616CFB1A30CE01009BE475 /* IFileListResultCallbackError.swift in Sources */,
+				4E616D0B1A30CE01009BE475 /* IServiceResultCallbackWarning.swift in Sources */,
+				4E616D091A30CE01009BE475 /* ISecureKVResultCallbackWarning.swift in Sources */,
 				4E248FCE1A2E36BB0076821A /* INetworkInfo.swift in Sources */,
 				4E248FCD1A2E36BB0076821A /* IMessagingCallback.swift in Sources */,
 				4E248FD81A2E36BB0076821A /* IOpenId.swift in Sources */,
@@ -750,7 +890,9 @@
 				4E248F9E1A2E36BB0076821A /* IBaseSensor.swift in Sources */,
 				4E248F731A2E36BB0076821A /* ContactProfessionalInfo.swift in Sources */,
 				4E248F981A2E36BB0076821A /* IBaseListener.swift in Sources */,
+				4E616D001A30CE01009BE475 /* IGeolocationListenerWarning.swift in Sources */,
 				4E248FCB1A2E36BB0076821A /* IMap.swift in Sources */,
+				4E616CED1A30CE01009BE475 /* ICapabilitiesMedia.swift in Sources */,
 				4E5507341A2F31BD001CEBD0 /* ContactPhoneType.swift in Sources */,
 				4E248F831A2E36BB0076821A /* IAds.swift in Sources */,
 				4E248FD31A2E36BB0076821A /* INFC.swift in Sources */,
@@ -763,21 +905,30 @@
 				4E248F8C1A2E36BB0076821A /* IAppResourceHandler.swift in Sources */,
 				4E248F891A2E36BB0076821A /* IAppRegistry.swift in Sources */,
 				4E248FAC1A2E36BB0076821A /* IContact.swift in Sources */,
+				4E616D041A30CE01009BE475 /* IMessagingCallbackError.swift in Sources */,
 				4E248FE01A2E36BB0076821A /* ISecurity.swift in Sources */,
 				4E248FB61A2E36BB0076821A /* IFacebook.swift in Sources */,
 				4E248FD71A2E36BB0076821A /* IOCR.swift in Sources */,
 				4E248FA61A2E36BB0076821A /* ICalendar.swift in Sources */,
+				4E616CF11A30CE01009BE475 /* IContactFieldGroup.swift in Sources */,
 				4E248FC51A2E36BB0076821A /* ILifecycleListener.swift in Sources */,
 				4E248F741A2E36BB0076821A /* ContactSocial.swift in Sources */,
 				4E248F9A1A2E36BB0076821A /* IBaseNotification.swift in Sources */,
 				4E248FBE1A2E36BB0076821A /* IGeolocationListener.swift in Sources */,
+				4E616CF31A30CE01009BE475 /* IContactPhotoResultCallbackError.swift in Sources */,
+				4E616CE61A30CE01009BE475 /* IAccelerationListenerWarning.swift in Sources */,
+				4E616D0C1A30CE01009BE475 /* ITableResultCallbackError.swift in Sources */,
+				4E616CE91A30CE01009BE475 /* IButtonListenerError.swift in Sources */,
 				4E248FCF1A2E36BB0076821A /* INetworkNaming.swift in Sources */,
+				4E616CEF1A30CE01009BE475 /* ICapabilitiesNotification.swift in Sources */,
 				4E248F851A2E36BB0076821A /* IAmbientLight.swift in Sources */,
 				4E248FE81A2E36BB0076821A /* ITelephony.swift in Sources */,
 				4E248F6D1A2E36BB0076821A /* Column.swift in Sources */,
+				4E616CE71A30CE01009BE475 /* IAppResourceCallbackError.swift in Sources */,
 				4E248FA91A2E36BB0076821A /* ICloud.swift in Sources */,
 				4E248FF41A2E36BB0076821A /* Row.swift in Sources */,
 				4E248FC71A2E36BB0076821A /* ILogging.swift in Sources */,
+				4E616CF41A30CE01009BE475 /* IContactPhotoResultCallbackWarning.swift in Sources */,
 				4E248FA11A2E36BB0076821A /* IBaseUI.swift in Sources */,
 				4E248F9F1A2E36BB0076821A /* IBaseSocial.swift in Sources */,
 				4E248FC41A2E36BB0076821A /* ILifecycle.swift in Sources */,
@@ -793,23 +944,33 @@
 				4E248F971A2E36BB0076821A /* IBaseData.swift in Sources */,
 				4E248FE31A2E36BB0076821A /* ISession.swift in Sources */,
 				4E248F9C1A2E36BB0076821A /* IBaseReader.swift in Sources */,
+				4E616CF71A30CE01009BE475 /* IDatabaseResultCallbackError.swift in Sources */,
 				4E248F821A2E36BB0076821A /* IAdaptiveRP.swift in Sources */,
+				4E616CFD1A30CE01009BE475 /* IFileResultCallbackError.swift in Sources */,
 				4E248F6C1A2E36BB0076821A /* Button.swift in Sources */,
 				4E248FEA1A2E36BB0076821A /* ITwitter.swift in Sources */,
+				4E616CEA1A30CE01009BE475 /* IButtonListenerWarning.swift in Sources */,
 				4E5507311A2F31BD001CEBD0 /* ContactAddressType.swift in Sources */,
 				4E248F7D1A2E36BB0076821A /* Endpoint.swift in Sources */,
 				4E248F941A2E36BB0076821A /* IBaseCallback.swift in Sources */,
 				4E248FB31A2E36BB0076821A /* IDesktop.swift in Sources */,
 				4E248F881A2E36BB0076821A /* IAppContextWebview.swift in Sources */,
+				4E616CFE1A30CE01009BE475 /* IFileResultCallbackWarning.swift in Sources */,
 				4E248F721A2E36BB0076821A /* ContactPhone.swift in Sources */,
 				4E248FB21A2E36BB0076821A /* IDataStream.swift in Sources */,
 				4E248FE61A2E36BB0076821A /* IStore.swift in Sources */,
+				4E616CF61A30CE01009BE475 /* IContactResultCallbackWarning.swift in Sources */,
+				4E616CEE1A30CE01009BE475 /* ICapabilitiesNet.swift in Sources */,
 				4E248FD61A2E36BB0076821A /* IOAuth.swift in Sources */,
 				4E248FBD1A2E36BB0076821A /* IGeolocation.swift in Sources */,
+				4E616CF01A30CE01009BE475 /* ICapabilitiesSensor.swift in Sources */,
 				4E248FD01A2E36BB0076821A /* INetworkReachability.swift in Sources */,
 				4E248FBB1A2E36BB0076821A /* IFileResultCallback.swift in Sources */,
+				4E616CEB1A30CE01009BE475 /* ICapabilitiesCommunication.swift in Sources */,
 				4E248FE51A2E36BB0076821A /* ISocket.swift in Sources */,
+				4E616D0D1A30CE01009BE475 /* ITableResultCallbackWarning.swift in Sources */,
 				4E248FBF1A2E36BB0076821A /* IGlobalization.swift in Sources */,
+				4E616CE81A30CE01009BE475 /* IAppResourceCallbackWarning.swift in Sources */,
 				4E248F7F1A2E36BB0076821A /* Header.swift in Sources */,
 				4E248F7E1A2E36BB0076821A /* Geolocation.swift in Sources */,
 				4E248FDC1A2E36BB0076821A /* IQRCode.swift in Sources */,
@@ -818,6 +979,7 @@
 				4E248FD21A2E36BB0076821A /* INetworkStatus.swift in Sources */,
 				4E248FC11A2E36BB0076821A /* IGyroscope.swift in Sources */,
 				4E248F7B1A2E36BB0076821A /* Email.swift in Sources */,
+				4E616CE51A30CE01009BE475 /* IAccelerationListenerError.swift in Sources */,
 				4E248FE41A2E36BB0076821A /* ISettings.swift in Sources */,
 				4E248FD11A2E36BB0076821A /* INetworkReachabilityCallback.swift in Sources */,
 				4E248FC61A2E36BB0076821A /* ILinkedIn.swift in Sources */,
@@ -826,6 +988,7 @@
 				4E5507321A2F31BD001CEBD0 /* ContactEmailType.swift in Sources */,
 				4E5507391A2F31BD001CEBD0 /* IServiceType.swift in Sources */,
 				4E248FE71A2E36BB0076821A /* ITableResultCallback.swift in Sources */,
+				4E616CFC1A30CE01009BE475 /* IFileListResultCallbackWarning.swift in Sources */,
 				4E248F791A2E36BB0076821A /* Database.swift in Sources */,
 				4E248FCA1A2E36BB0076821A /* IManagement.swift in Sources */,
 				4E248F6F1A2E36BB0076821A /* ContactAddress.swift in Sources */,
@@ -833,6 +996,7 @@
 				4E248FDB1A2E36BB0076821A /* IProximity.swift in Sources */,
 				4E248F9D1A2E36BB0076821A /* IBaseSecurity.swift in Sources */,
 				4E248F991A2E36BB0076821A /* IBaseMedia.swift in Sources */,
+				4E616D021A30CE01009BE475 /* ILifecycleListenerWarning.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

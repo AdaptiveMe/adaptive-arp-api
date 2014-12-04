@@ -23,6 +23,15 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+/**
+   Definition of IGeolocationListener interface/protocol.
+
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
+*/
+public protocol IGeolocationListener : IBaseListener {
+}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

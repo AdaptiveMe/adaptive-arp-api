@@ -518,9 +518,9 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="1260">
               <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding>
-                <marker date="1417711473000" expanded="true" signature="1160:2109" placeholder="..." />
-                <marker date="1417711473000" expanded="true" signature="1358:2100" placeholder="..." />
-                <marker date="1417711473000" expanded="true" signature="1933:2016" placeholder="/**Sets Button type ...*/" />
+                <marker date="1417714135000" expanded="true" signature="1160:2109" placeholder="..." />
+                <marker date="1417714135000" expanded="true" signature="1358:2100" placeholder="..." />
+                <marker date="1417714135000" expanded="true" signature="1933:2016" placeholder="/**Sets Button type ...*/" />
               </folding>
             </state>
           </provider>
@@ -532,9 +532,9 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="3915">
               <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
               <folding>
-                <marker date="1417711473000" expanded="true" signature="1484:7189" placeholder="..." />
-                <marker date="1417711473000" expanded="true" signature="1688:7187" placeholder="..." />
-                <marker date="1417711473000" expanded="true" signature="2876:7178" placeholder="{...}" />
+                <marker date="1417714135000" expanded="true" signature="1484:7189" placeholder="..." />
+                <marker date="1417714135000" expanded="true" signature="1688:7187" placeholder="..." />
+                <marker date="1417714135000" expanded="true" signature="2876:7178" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -546,8 +546,8 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="1065" max-vertical-offset="2130">
               <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding>
-                <marker date="1417711518000" expanded="true" signature="1120:4509" placeholder="..." />
-                <marker date="1417711518000" expanded="true" signature="1293:4507" placeholder="..." />
+                <marker date="1417711581000" expanded="true" signature="1120:4509" placeholder="..." />
+                <marker date="1417711581000" expanded="true" signature="1293:4507" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -573,21 +573,21 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="695" max-vertical-offset="2295">
               <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
               <folding>
-                <marker date="1417711473000" expanded="true" signature="1113:3952" placeholder="..." />
-                <marker date="1417711473000" expanded="true" signature="1314:2412" placeholder="..." />
-                <marker date="1417711473000" expanded="true" signature="2426:2568" placeholder="/**Sets Timestamp of the acceleration reading. ...*/" />
-                <marker date="1417711473000" expanded="true" signature="2685:2818" placeholder="/**Gets X-axis component of the acceleration. ...*/" />
-                <marker date="1417711473000" expanded="true" signature="2860:2887" placeholder="{...}" />
-                <marker date="1417711473000" expanded="true" signature="2896:3028" placeholder="/**Sets X-axis component of the acceleration. ...*/" />
-                <marker date="1417711473000" expanded="true" signature="3081:3094" placeholder="{...}" />
-                <marker date="1417711473000" expanded="true" signature="3113:3246" placeholder="/**Gets Y-axis component of the acceleration. ...*/" />
-                <marker date="1417711473000" expanded="true" signature="3288:3315" placeholder="{...}" />
-                <marker date="1417711473000" expanded="true" signature="3324:3456" placeholder="/**Sets Y-axis component of the acceleration. ...*/" />
-                <marker date="1417711473000" expanded="true" signature="3509:3522" placeholder="{...}" />
-                <marker date="1417711473000" expanded="true" signature="3541:3674" placeholder="/**Gets Z-axis component of the acceleration. ...*/" />
-                <marker date="1417711473000" expanded="true" signature="3716:3743" placeholder="{...}" />
-                <marker date="1417711473000" expanded="true" signature="3752:3884" placeholder="/**Sets Z-axis component of the acceleration. ...*/" />
-                <marker date="1417711473000" expanded="true" signature="3937:3950" placeholder="{...}" />
+                <marker date="1417714135000" expanded="true" signature="1113:3952" placeholder="..." />
+                <marker date="1417714135000" expanded="true" signature="1314:2412" placeholder="..." />
+                <marker date="1417714135000" expanded="true" signature="2426:2568" placeholder="/**Sets Timestamp of the acceleration reading. ...*/" />
+                <marker date="1417714135000" expanded="true" signature="2685:2818" placeholder="/**Gets X-axis component of the acceleration. ...*/" />
+                <marker date="1417714135000" expanded="true" signature="2860:2887" placeholder="{...}" />
+                <marker date="1417714135000" expanded="true" signature="2896:3028" placeholder="/**Sets X-axis component of the acceleration. ...*/" />
+                <marker date="1417714135000" expanded="true" signature="3081:3094" placeholder="{...}" />
+                <marker date="1417714135000" expanded="true" signature="3113:3246" placeholder="/**Gets Y-axis component of the acceleration. ...*/" />
+                <marker date="1417714135000" expanded="true" signature="3288:3315" placeholder="{...}" />
+                <marker date="1417714135000" expanded="true" signature="3324:3456" placeholder="/**Sets Y-axis component of the acceleration. ...*/" />
+                <marker date="1417714135000" expanded="true" signature="3509:3522" placeholder="{...}" />
+                <marker date="1417714135000" expanded="true" signature="3541:3674" placeholder="/**Gets Z-axis component of the acceleration. ...*/" />
+                <marker date="1417714135000" expanded="true" signature="3716:3743" placeholder="{...}" />
+                <marker date="1417714135000" expanded="true" signature="3752:3884" placeholder="/**Sets Z-axis component of the acceleration. ...*/" />
+                <marker date="1417714135000" expanded="true" signature="3937:3950" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -599,21 +599,21 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2805">
               <caret line="81" column="27" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
               <folding>
-                <marker date="1417711473000" expanded="true" signature="1113:5447" placeholder="..." />
-                <marker date="1417711473000" expanded="true" signature="1301:2702" placeholder="..." />
-                <marker date="1417711473000" expanded="true" signature="2702:2864" placeholder="/**Returns the raw data in byte[] ...*/" />
-                <marker date="1417711473000" expanded="true" signature="3303:3456" placeholder="/**Returns the size of the attachment as a long ...*/" />
-                <marker date="1417711473000" expanded="true" signature="3572:3770" placeholder="/**Set the size of the attachment as a long ...*/" />
-                <marker date="1417711473000" expanded="true" signature="3833:3836" placeholder="{...}" />
-                <marker date="1417711473000" expanded="true" signature="3888:4020" placeholder="/**Returns the filename of the attachment ...*/" />
-                <marker date="1417711473000" expanded="true" signature="4131:4269" placeholder="/**Set the name of the file attachment ...*/" />
-                <marker date="1417711473000" expanded="true" signature="4332:4335" placeholder="{...}" />
-                <marker date="1417711473000" expanded="true" signature="4388:4496" placeholder="/**Returns the mime type of the attachment ...*/" />
-                <marker date="1417711473000" expanded="true" signature="4607:4750" placeholder="/**Set the mime type of the attachment ...*/" />
-                <marker date="1417711473000" expanded="true" signature="4813:4816" placeholder="{...}" />
-                <marker date="1417711473000" expanded="true" signature="4877:5067" placeholder="/**Returns the absolute url of the file attachment ...*/" />
-                <marker date="1417711473000" expanded="true" signature="5133:5335" placeholder="/**Set the absolute url of the attachment ...*/" />
-                <marker date="1417711473000" expanded="true" signature="5432:5445" placeholder="{...}" />
+                <marker date="1417714135000" expanded="true" signature="1113:5447" placeholder="..." />
+                <marker date="1417714135000" expanded="true" signature="1301:2702" placeholder="..." />
+                <marker date="1417714135000" expanded="true" signature="2702:2864" placeholder="/**Returns the raw data in byte[] ...*/" />
+                <marker date="1417714135000" expanded="true" signature="3303:3456" placeholder="/**Returns the size of the attachment as a long ...*/" />
+                <marker date="1417714135000" expanded="true" signature="3572:3770" placeholder="/**Set the size of the attachment as a long ...*/" />
+                <marker date="1417714135000" expanded="true" signature="3833:3836" placeholder="{...}" />
+                <marker date="1417714135000" expanded="true" signature="3888:4020" placeholder="/**Returns the filename of the attachment ...*/" />
+                <marker date="1417714135000" expanded="true" signature="4131:4269" placeholder="/**Set the name of the file attachment ...*/" />
+                <marker date="1417714135000" expanded="true" signature="4332:4335" placeholder="{...}" />
+                <marker date="1417714135000" expanded="true" signature="4388:4496" placeholder="/**Returns the mime type of the attachment ...*/" />
+                <marker date="1417714135000" expanded="true" signature="4607:4750" placeholder="/**Set the mime type of the attachment ...*/" />
+                <marker date="1417714135000" expanded="true" signature="4813:4816" placeholder="{...}" />
+                <marker date="1417714135000" expanded="true" signature="4877:5067" placeholder="/**Returns the absolute url of the file attachment ...*/" />
+                <marker date="1417714135000" expanded="true" signature="5133:5335" placeholder="/**Set the absolute url of the attachment ...*/" />
+                <marker date="1417714135000" expanded="true" signature="5432:5445" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -882,20 +882,20 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1065" max-vertical-offset="1605">
           <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service response. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The byte[] representing the binary Content. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the binary Content. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The session context for the Request/Response. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Constructor used by the implementation ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service response. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The byte[] representing the binary Content. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the binary Content. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The session context for the Request/Response. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Constructor used by the implementation ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
           </folding>
         </state>
       </provider>
@@ -905,9 +905,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="960">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <marker date="1417711473000" expanded="true" signature="1160:2109" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="1358:2100" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="1933:2016" placeholder="/**Sets Button type ...*/" />
+            <marker date="1417714135000" expanded="true" signature="1160:2109" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="1358:2100" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="1933:2016" placeholder="/**Sets Button type ...*/" />
           </folding>
         </state>
       </provider>
@@ -917,13 +917,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="960">
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Represent the state of the app ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Constructor used by the implementation ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Represent the state of the app ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Constructor used by the implementation ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
           </folding>
         </state>
       </provider>
@@ -997,13 +997,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="1275">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Represent the state of the app ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Constructor used by the implementation ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Represent the state of the app ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Constructor used by the implementation ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
           </folding>
         </state>
       </provider>
@@ -1013,20 +1013,20 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3510" max-vertical-offset="4020">
           <caret line="234" column="0" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
           <folding>
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service response. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The byte[] representing the binary Content. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the binary Content. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**The session context for the Request/Response. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**Constructor used by the implementation ...*/" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="-1:-1" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Represents a local or remote service response. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The byte[] representing the binary Content. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the binary Content. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**The session context for the Request/Response. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**Constructor used by the implementation ...*/" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="-1:-1" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
           </folding>
         </state>
       </provider>
@@ -1036,34 +1036,34 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9465">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data elements of a contact. ...*/" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPersonalInfoTitle ...*/" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="/**Enumeration IServiceProtocolVersion ...*/" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="/**Enumeration IServiceType ...*/" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1417711485000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the data elements of a contact. ...*/" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="/**Enumeration ContactPersonalInfoTitle ...*/" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="/**Enumeration IServiceProtocolVersion ...*/" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="/**Enumeration IServiceType ...*/" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1417714151000" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1104,9 +1104,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="3915">
           <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
           <folding>
-            <marker date="1417711473000" expanded="true" signature="1484:7189" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="1688:7187" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="2876:7178" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="1484:7189" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="1688:7187" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="2876:7178" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1116,8 +1116,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1065" max-vertical-offset="2130">
           <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
-            <marker date="1417711518000" expanded="true" signature="1120:4509" placeholder="..." />
-            <marker date="1417711518000" expanded="true" signature="1293:4507" placeholder="..." />
+            <marker date="1417711581000" expanded="true" signature="1120:4509" placeholder="..." />
+            <marker date="1417711581000" expanded="true" signature="1293:4507" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1127,21 +1127,21 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2805">
           <caret line="81" column="27" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
           <folding>
-            <marker date="1417711473000" expanded="true" signature="1113:5447" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="1301:2702" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="2702:2864" placeholder="/**Returns the raw data in byte[] ...*/" />
-            <marker date="1417711473000" expanded="true" signature="3303:3456" placeholder="/**Returns the size of the attachment as a long ...*/" />
-            <marker date="1417711473000" expanded="true" signature="3572:3770" placeholder="/**Set the size of the attachment as a long ...*/" />
-            <marker date="1417711473000" expanded="true" signature="3833:3836" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="3888:4020" placeholder="/**Returns the filename of the attachment ...*/" />
-            <marker date="1417711473000" expanded="true" signature="4131:4269" placeholder="/**Set the name of the file attachment ...*/" />
-            <marker date="1417711473000" expanded="true" signature="4332:4335" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="4388:4496" placeholder="/**Returns the mime type of the attachment ...*/" />
-            <marker date="1417711473000" expanded="true" signature="4607:4750" placeholder="/**Set the mime type of the attachment ...*/" />
-            <marker date="1417711473000" expanded="true" signature="4813:4816" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="4877:5067" placeholder="/**Returns the absolute url of the file attachment ...*/" />
-            <marker date="1417711473000" expanded="true" signature="5133:5335" placeholder="/**Set the absolute url of the attachment ...*/" />
-            <marker date="1417711473000" expanded="true" signature="5432:5445" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="1113:5447" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="1301:2702" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="2702:2864" placeholder="/**Returns the raw data in byte[] ...*/" />
+            <marker date="1417714135000" expanded="true" signature="3303:3456" placeholder="/**Returns the size of the attachment as a long ...*/" />
+            <marker date="1417714135000" expanded="true" signature="3572:3770" placeholder="/**Set the size of the attachment as a long ...*/" />
+            <marker date="1417714135000" expanded="true" signature="3833:3836" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="3888:4020" placeholder="/**Returns the filename of the attachment ...*/" />
+            <marker date="1417714135000" expanded="true" signature="4131:4269" placeholder="/**Set the name of the file attachment ...*/" />
+            <marker date="1417714135000" expanded="true" signature="4332:4335" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="4388:4496" placeholder="/**Returns the mime type of the attachment ...*/" />
+            <marker date="1417714135000" expanded="true" signature="4607:4750" placeholder="/**Set the mime type of the attachment ...*/" />
+            <marker date="1417714135000" expanded="true" signature="4813:4816" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="4877:5067" placeholder="/**Returns the absolute url of the file attachment ...*/" />
+            <marker date="1417714135000" expanded="true" signature="5133:5335" placeholder="/**Set the absolute url of the attachment ...*/" />
+            <marker date="1417714135000" expanded="true" signature="5432:5445" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1151,21 +1151,21 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="695" max-vertical-offset="2295">
           <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
           <folding>
-            <marker date="1417711473000" expanded="true" signature="1113:3952" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="1314:2412" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="2426:2568" placeholder="/**Sets Timestamp of the acceleration reading. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="2685:2818" placeholder="/**Gets X-axis component of the acceleration. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="2860:2887" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="2896:3028" placeholder="/**Sets X-axis component of the acceleration. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="3081:3094" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="3113:3246" placeholder="/**Gets Y-axis component of the acceleration. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="3288:3315" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="3324:3456" placeholder="/**Sets Y-axis component of the acceleration. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="3509:3522" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="3541:3674" placeholder="/**Gets Z-axis component of the acceleration. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="3716:3743" placeholder="{...}" />
-            <marker date="1417711473000" expanded="true" signature="3752:3884" placeholder="/**Sets Z-axis component of the acceleration. ...*/" />
-            <marker date="1417711473000" expanded="true" signature="3937:3950" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="1113:3952" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="1314:2412" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="2426:2568" placeholder="/**Sets Timestamp of the acceleration reading. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="2685:2818" placeholder="/**Gets X-axis component of the acceleration. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="2860:2887" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="2896:3028" placeholder="/**Sets X-axis component of the acceleration. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="3081:3094" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="3113:3246" placeholder="/**Gets Y-axis component of the acceleration. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="3288:3315" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="3324:3456" placeholder="/**Sets Y-axis component of the acceleration. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="3509:3522" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="3541:3674" placeholder="/**Gets Z-axis component of the acceleration. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="3716:3743" placeholder="{...}" />
+            <marker date="1417714135000" expanded="true" signature="3752:3884" placeholder="/**Sets Z-axis component of the acceleration. ...*/" />
+            <marker date="1417714135000" expanded="true" signature="3937:3950" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1175,9 +1175,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="1260">
           <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
-            <marker date="1417711473000" expanded="true" signature="1160:2109" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="1358:2100" placeholder="..." />
-            <marker date="1417711473000" expanded="true" signature="1933:2016" placeholder="/**Sets Button type ...*/" />
+            <marker date="1417714135000" expanded="true" signature="1160:2109" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="1358:2100" placeholder="..." />
+            <marker date="1417714135000" expanded="true" signature="1933:2016" placeholder="/**Sets Button type ...*/" />
           </folding>
         </state>
       </provider>

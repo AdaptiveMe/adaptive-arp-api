@@ -33,6 +33,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -53,12 +54,39 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void endInterface(String simpleName, Class clazz) {
-
+        println("}");
     }
 
     @Override
     protected void startInterface(String simpleName, Class clazz, String classComment, List<DocletTag> tagList) {
-
+        startComment(0);
+        println(3, classComment);
+        if (tagList.size() > 0) {
+            println();
+            for (DocletTag tag : tagList) {
+                println(3,"@" + tag.getName() + " " + tag.getValue());
+            }
+        }
+        endComment(0);
+        if (clazz.isEnum()) {
+            println("public enum " + generateEnumClassName(clazz) + " {");
+        } else if (clazz.getInterfaces() != null && clazz.getInterfaces().length == 1) {
+            println("public protocol " + simpleName + " : " + clazz.getInterfaces()[0].getSimpleName() + " {");
+        } else {
+            println("public protocol " + simpleName + " : NSObjectProtocol {");
+        }
+        /**
+         * Process all enums.
+         */
+        for (Method method : clazz.getDeclaredMethods()) {
+            for (Parameter parameter : method.getParameters()) {
+                if (parameter.getType().isEnum()) {
+                    convertJavaToNativeType(parameter.getType());
+                } else if (parameter.getType().isArray() && parameter.getType().getComponentType().isEnum()) {
+                    convertJavaToNativeType(parameter.getType().getComponentType());
+                }
+            }
+        }
     }
 
     @Override

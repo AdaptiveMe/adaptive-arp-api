@@ -33,13 +33,49 @@ declare module Adaptive {
     interface IAdaptiveRP {
     }
     /**
-       Definition of IBaseApplication interface/protocol.
+       Definition of IBaseSecurity interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IBaseApplication extends IAdaptiveRP {
+    interface IBaseSecurity extends IAdaptiveRP {
+    }
+    /**
+       Definition of IBaseSystem interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBaseSystem extends IAdaptiveRP {
+    }
+    /**
+       Definition of IBaseCommerce interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBaseCommerce extends IAdaptiveRP {
+    }
+    /**
+       Definition of IBaseSensor interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBaseSensor extends IAdaptiveRP {
+    }
+    /**
+       Definition of IBaseListener interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBaseListener extends IAdaptiveRP {
     }
     /**
        Created by clozano on 05/09/2014.
@@ -51,6 +87,15 @@ declare module Adaptive {
     interface IAppContext extends IAdaptiveRP {
     }
     /**
+       Created by clozano on 05/09/2014.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IAppRegistry extends IAdaptiveRP {
+    }
+    /**
        Definition of IBasePIM interface/protocol.
 
        @author Carlos Lozano Diez
@@ -60,22 +105,13 @@ declare module Adaptive {
     interface IBasePIM extends IAdaptiveRP {
     }
     /**
-       Created by clozano on 05/09/2014.
+       Definition of IBaseCallback interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IAppResourceHandler extends IAdaptiveRP {
-    }
-    /**
-       Created by clozano on 05/09/2014.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IAppRegistry extends IAdaptiveRP {
+    interface IBaseCallback extends IAdaptiveRP {
     }
     /**
        Created by clozano on 05/09/2014.
@@ -87,14 +123,76 @@ declare module Adaptive {
     interface IAppResource extends IAdaptiveRP {
     }
     /**
-       Provides support for multiple listeners to be started for any application and manages the delivery of listening
-server lifecycle events to registered listeners.
+       Created by clozano on 05/09/2014.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IAppServerManager extends IAdaptiveRP {
+    interface IAppResourceHandler extends IAdaptiveRP {
+    }
+    /**
+       Definition of IBaseUI interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBaseUI extends IAdaptiveRP {
+    }
+    /**
+       Definition of IBaseReader interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBaseReader extends IAdaptiveRP {
+    }
+    /**
+       Definition of IBaseNotification interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBaseNotification extends IAdaptiveRP {
+    }
+    /**
+       Definition of IBaseApplication interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBaseApplication extends IAdaptiveRP {
+    }
+    /**
+       Definition of IBaseSocial interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBaseSocial extends IAdaptiveRP {
+    }
+    /**
+       Definition of IBaseMedia interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBaseMedia extends IAdaptiveRP {
+    }
+    /**
+       Definition of IBaseCommunication interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBaseCommunication extends IAdaptiveRP {
     }
     /**
        This interfaces represents a specific instance of a listener on the platform. Listeners are generally http or https
@@ -107,40 +205,13 @@ and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content 
     interface IAppServer extends IAdaptiveRP {
     }
     /**
-       Definition of IBaseListener interface/protocol.
+       Created by clozano on 09/09/14.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IBaseListener extends IAdaptiveRP {
-    }
-    /**
-       Definition of IBaseSystem interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IBaseSystem extends IAdaptiveRP {
-    }
-    /**
-       Definition of IBaseSocial interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IBaseSocial extends IAdaptiveRP {
-    }
-    /**
-       Definition of IBaseNotification interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IBaseNotification extends IAdaptiveRP {
+    interface IAppContextWebview extends IAdaptiveRP {
     }
     /**
        Definition of IBaseData interface/protocol.
@@ -152,24 +223,6 @@ and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content 
     interface IBaseData extends IAdaptiveRP {
     }
     /**
-       Definition of IBaseCommerce interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IBaseCommerce extends IAdaptiveRP {
-    }
-    /**
-       Definition of IBaseCommunication interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IBaseCommunication extends IAdaptiveRP {
-    }
-    /**
        Definition of IBaseUtil interface/protocol.
 
        @author Carlos Lozano Diez
@@ -179,211 +232,95 @@ and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content 
     interface IBaseUtil extends IAdaptiveRP {
     }
     /**
-       Created by clozano on 09/09/14.
+       Provides support for multiple listeners to be started for any application and manages the delivery of listening
+server lifecycle events to registered listeners.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IAppContextWebview extends IAdaptiveRP {
+    interface IAppServerManager extends IAdaptiveRP {
     }
     /**
-       Definition of IBaseReader interface/protocol.
+       Definition of IInternalStorage interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IBaseReader extends IAdaptiveRP {
+    interface IInternalStorage extends IBaseData {
     }
     /**
-       Definition of IBaseSecurity interface/protocol.
+       Definition of IButtonListener interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IBaseSecurity extends IAdaptiveRP {
+    interface IButtonListener extends IBaseListener {
     }
     /**
-       Definition of IBaseSensor interface/protocol.
+       Created by FRMI on 25/08/2014.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IBaseSensor extends IAdaptiveRP {
+    interface IContactPhotoResultCallback extends IBaseCallback {
     }
     /**
-       Definition of IBaseMedia interface/protocol.
+       Definition of IGlobalization interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IBaseMedia extends IAdaptiveRP {
+    interface IGlobalization extends IBaseApplication {
     }
     /**
-       Definition of IBaseUI interface/protocol.
+       Definition of IFileSystem interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IBaseUI extends IAdaptiveRP {
+    interface IFileSystem extends IBaseData {
     }
     /**
-       Definition of IBaseCallback interface/protocol.
+       Definition of IStore interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IBaseCallback extends IAdaptiveRP {
+    interface IStore extends IBaseCommerce {
     }
     /**
-       Definition of IGeolocationListener interface/protocol.
+       Definition of IQRCode interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IGeolocationListener extends IBaseListener {
+    interface IQRCode extends IBaseReader {
     }
     /**
-       Definition of IService interface/protocol.
+       Definition of IOpenId interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IService extends IBaseCommunication {
+    interface IOpenId extends IBaseSecurity {
     }
     /**
-       Definition of IContact interface/protocol.
+       Definition of INetworkStatus interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IContact extends IBasePIM {
-    }
-    /**
-       Definition of IOS interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IOS extends IBaseSystem {
-    }
-    /**
-       Definition of IDatabase interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IDatabase extends IBaseData {
-    }
-    /**
-       Created by clozano on 05/09/2014.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IAppResourceCallback extends IBaseCallback {
-    }
-    /**
-       Definition of ICalendar interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ICalendar extends IBasePIM {
-    }
-    /**
-       Definition of IVibration interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IVibration extends IBaseNotification {
-    }
-    /**
-       Definition of IUI interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IUI extends IBaseUI {
-    }
-    /**
-       Definition of IImaging interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IImaging extends IBaseMedia {
-    }
-    /**
-       Definition of ITwitter interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ITwitter extends IBaseSocial {
-    }
-    /**
-       Definition of IGooglePlus interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IGooglePlus extends IBaseSocial {
-    }
-    /**
-       Definition of IProximity interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IProximity extends IBaseSensor {
-    }
-    /**
-       Definition of ICamera interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ICamera extends IBaseMedia {
-    }
-    /**
-       Definition of IWallet interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IWallet extends IBaseCommerce {
-    }
-    /**
-       Definition of IDisplay interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IDisplay extends IBaseSystem {
+    interface INetworkStatus extends IBaseCommunication {
     }
     /**
        Definition of ICrypto interface/protocol.
@@ -395,85 +332,31 @@ and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content 
     interface ICrypto extends IBaseUtil {
     }
     /**
-       Definition of IAccelerationListener interface/protocol.
+       Definition of IUpdate interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IAccelerationListener extends IBaseListener {
+    interface IUpdate extends IBaseApplication {
     }
     /**
-       Definition of ILinkedIn interface/protocol.
+       Definition of IBarometer interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface ILinkedIn extends IBaseSocial {
+    interface IBarometer extends IBaseSensor {
     }
     /**
-       Definition of IRSS interface/protocol.
+       Definition of IProximity interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IRSS extends IBaseSocial {
-    }
-    /**
-       Definition of IOAuth interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IOAuth extends IBaseSecurity {
-    }
-    /**
-       Definition of ILifecycle interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ILifecycle extends IBaseApplication {
-    }
-    /**
-       Definition of IMessagingCallback interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IMessagingCallback extends IBaseCallback {
-    }
-    /**
-       Definition of IBluetooth interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IBluetooth extends IBaseCommunication {
-    }
-    /**
-       Definition of ISocket interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ISocket extends IBaseCommunication {
-    }
-    /**
-       Definition of INotificationLocal interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface INotificationLocal extends IBaseNotification {
+    interface IProximity extends IBaseSensor {
     }
     /**
        Definition of IMail interface/protocol.
@@ -485,13 +368,76 @@ and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content 
     interface IMail extends IBasePIM {
     }
     /**
-       Definition of IAnalytics interface/protocol.
+       Definition of IDataStream interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IAnalytics extends IBaseApplication {
+    interface IDataStream extends IBaseData {
+    }
+    /**
+       Definition of IGyroscope interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IGyroscope extends IBaseSensor {
+    }
+    /**
+       Definition of IFileResultCallback interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IFileResultCallback extends IBaseCallback {
+    }
+    /**
+       Definition of ICompression interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ICompression extends IBaseUtil {
+    }
+    /**
+       Definition of ILogging interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ILogging extends IBaseUtil {
+    }
+    /**
+       Definition of IVibration interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IVibration extends IBaseNotification {
+    }
+    /**
+       Definition of IOCR interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IOCR extends IBaseReader {
+    }
+    /**
+       Definition of IOS interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IOS extends IBaseSystem {
     }
     /**
        Definition of IFileDataResultCallback interface/protocol.
@@ -503,22 +449,31 @@ and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content 
     interface IFileDataResultCallback extends IBaseCallback {
     }
     /**
-       Definition of IAds interface/protocol.
+       Definition of ISettings interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IAds extends IBaseCommerce {
+    interface ISettings extends IBaseApplication {
     }
     /**
-       Definition of IDataStream interface/protocol.
+       Definition of IManagement interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IDataStream extends IBaseData {
+    interface IManagement extends IBaseApplication {
+    }
+    /**
+       Definition of IBluetooth interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBluetooth extends IBaseCommunication {
     }
     /**
        Definition of IDevice interface/protocol.
@@ -528,6 +483,339 @@ and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content 
        @version 1.0
     */
     interface IDevice extends IBaseSystem {
+    }
+    /**
+       Definition of IMessaging interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IMessaging extends IBasePIM {
+    }
+    /**
+       Definition of INetworkReachability interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface INetworkReachability extends IBaseCommunication {
+    }
+    /**
+       Definition of IImaging interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IImaging extends IBaseMedia {
+    }
+    /**
+       Definition of IFacebook interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IFacebook extends IBaseSocial {
+    }
+    /**
+       Definition of ILinkedIn interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ILinkedIn extends IBaseSocial {
+    }
+    /**
+       Definition of IRuntime interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IRuntime extends IBaseSystem {
+    }
+    /**
+       Definition of ICamera interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ICamera extends IBaseMedia {
+    }
+    /**
+       Definition of INetworkInfo interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface INetworkInfo extends IBaseCommunication {
+    }
+    /**
+       Definition of INotification interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface INotification extends IBaseNotification {
+    }
+    /**
+       Definition of IMessagingCallback interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IMessagingCallback extends IBaseCallback {
+    }
+    /**
+       Definition of IWallet interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IWallet extends IBaseCommerce {
+    }
+    /**
+       Definition of ISession interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ISession extends IBaseCommunication {
+    }
+    /**
+       Definition of INFC interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface INFC extends IBaseReader {
+    }
+    /**
+       Definition of IDatabaseResultCallback interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IDatabaseResultCallback extends IBaseCallback {
+    }
+    /**
+       Definition of IConcurrent interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IConcurrent extends IBaseUtil {
+    }
+    /**
+       Definition of IMap interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IMap extends IBaseUI {
+    }
+    /**
+       Definition of IContact interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IContact extends IBasePIM {
+    }
+    /**
+       Definition of IBarcode interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBarcode extends IBaseReader {
+    }
+    /**
+       Definition of IContactResultCallback interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IContactResultCallback extends IBaseCallback {
+    }
+    /**
+       Definition of IAudio interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IAudio extends IBaseMedia {
+    }
+    /**
+       Definition of IServiceResultCallback interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IServiceResultCallback extends IBaseCallback {
+    }
+    /**
+       Definition of IBrowser interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IBrowser extends IBaseUI {
+    }
+    /**
+       Definition of ICalendar interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ICalendar extends IBasePIM {
+    }
+    /**
+       Definition of IAccelerationListener interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IAccelerationListener extends IBaseListener {
+    }
+    /**
+       Definition of IFileListResultCallback interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IFileListResultCallback extends IBaseCallback {
+    }
+    /**
+       Definition of IDatabase interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IDatabase extends IBaseData {
+    }
+    /**
+       Definition of IAlarm interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IAlarm extends IBaseNotification {
+    }
+    /**
+       Definition of ISocket interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ISocket extends IBaseCommunication {
+    }
+    /**
+       Definition of IOAuth interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IOAuth extends IBaseSecurity {
+    }
+    /**
+       Definition of IService interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IService extends IBaseCommunication {
+    }
+    /**
+       Definition of IAds interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IAds extends IBaseCommerce {
+    }
+    /**
+       Definition of ISecurity interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ISecurity extends IBaseSecurity {
+    }
+    /**
+       Definition of IRSS interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IRSS extends IBaseSocial {
+    }
+    /**
+       Definition of IUI interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IUI extends IBaseUI {
+    }
+    /**
+       Definition of ISecureKVResultCallback interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ISecureKVResultCallback extends IBaseCallback {
+    }
+    /**
+       Definition of INotificationLocal interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface INotificationLocal extends IBaseNotification {
+    }
+    /**
+       Definition of IGeolocationListener interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IGeolocationListener extends IBaseListener {
     }
     /**
        An object that may be used to locate a file in a file system. It will
@@ -575,58 +863,13 @@ multiple concurrent threads.
     interface IFilePath extends IBaseData {
     }
     /**
-       Definition of IDesktop interface/protocol.
+       Definition of ILifecycleListener interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IDesktop extends IBaseUI {
-    }
-    /**
-       Definition of IBrowser interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IBrowser extends IBaseUI {
-    }
-    /**
-       Definition of IMessaging interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IMessaging extends IBasePIM {
-    }
-    /**
-       Definition of IGyroscope interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IGyroscope extends IBaseSensor {
-    }
-    /**
-       Definition of ILogging interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ILogging extends IBaseUtil {
-    }
-    /**
-       Definition of IConcurrent interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IConcurrent extends IBaseUtil {
+    interface ILifecycleListener extends IBaseListener {
     }
     /**
        Definition of ITelephony interface/protocol.
@@ -638,400 +881,22 @@ multiple concurrent threads.
     interface ITelephony extends IBaseCommunication {
     }
     /**
-       Definition of IManagement interface/protocol.
+       Definition of IDesktop interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IManagement extends IBaseApplication {
+    interface IDesktop extends IBaseUI {
     }
     /**
-       Definition of IPrinting interface/protocol.
+       Definition of ITwitter interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IPrinting extends IBaseApplication {
-    }
-    /**
-       Definition of IAudio interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IAudio extends IBaseMedia {
-    }
-    /**
-       Definition of INetworkNaming interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface INetworkNaming extends IBaseCommunication {
-    }
-    /**
-       Definition of IUpdate interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IUpdate extends IBaseApplication {
-    }
-    /**
-       Definition of IStore interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IStore extends IBaseCommerce {
-    }
-    /**
-       Definition of IAccelerometer interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IAccelerometer extends IBaseSensor {
-    }
-    /**
-       Definition of INetworkStatus interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface INetworkStatus extends IBaseCommunication {
-    }
-    /**
-       Definition of IBarometer interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IBarometer extends IBaseSensor {
-    }
-    /**
-       Definition of INFC interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface INFC extends IBaseReader {
-    }
-    /**
-       Created by FRMI on 25/08/2014.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IContactPhotoResultCallback extends IBaseCallback {
-    }
-    /**
-       Definition of IBarcode interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IBarcode extends IBaseReader {
-    }
-    /**
-       Definition of IServiceResultCallback interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IServiceResultCallback extends IBaseCallback {
-    }
-    /**
-       Definition of ISecureKVResultCallback interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ISecureKVResultCallback extends IBaseCallback {
-    }
-    /**
-       Definition of ICapabilities interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ICapabilities extends IBaseSystem {
-    }
-    /**
-       Definition of ITimer interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ITimer extends IBaseUtil {
-    }
-    /**
-       Definition of INotification interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface INotification extends IBaseNotification {
-    }
-    /**
-       Definition of ISession interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ISession extends IBaseCommunication {
-    }
-    /**
-       Definition of IFileSystem interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IFileSystem extends IBaseData {
-    }
-    /**
-       Definition of ISettings interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ISettings extends IBaseApplication {
-    }
-    /**
-       Definition of IButtonListener interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IButtonListener extends IBaseListener {
-    }
-    /**
-       Definition of ILifecycleListener interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ILifecycleListener extends IBaseListener {
-    }
-    /**
-       Definition of INetworkReachability interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface INetworkReachability extends IBaseCommunication {
-    }
-    /**
-       Definition of IDatabaseResultCallback interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IDatabaseResultCallback extends IBaseCallback {
-    }
-    /**
-       Definition of IGlobalization interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IGlobalization extends IBaseApplication {
-    }
-    /**
-       Definition of IVideo interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IVideo extends IBaseMedia {
-    }
-    /**
-       Definition of IXML interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IXML extends IBaseData {
-    }
-    /**
-       Definition of IAppServerListener interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IAppServerListener extends IBaseListener {
-    }
-    /**
-       Definition of IOpenId interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IOpenId extends IBaseSecurity {
-    }
-    /**
-       Definition of IGeolocation interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IGeolocation extends IBaseSensor {
-    }
-    /**
-       Definition of IMagnetometer interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IMagnetometer extends IBaseSensor {
-    }
-    /**
-       Created by FRMI on 28/08/2014.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface INetworkReachabilityCallback extends IBaseCallback {
-    }
-    /**
-       Definition of IFileListResultCallback interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IFileListResultCallback extends IBaseCallback {
-    }
-    /**
-       Definition of IRuntime interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IRuntime extends IBaseSystem {
-    }
-    /**
-       Definition of IInternalStorage interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IInternalStorage extends IBaseData {
-    }
-    /**
-       Definition of IOCR interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IOCR extends IBaseReader {
-    }
-    /**
-       Definition of IContactResultCallback interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IContactResultCallback extends IBaseCallback {
-    }
-    /**
-       Definition of IFileResultCallback interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IFileResultCallback extends IBaseCallback {
-    }
-    /**
-       Definition of ITableResultCallback interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ITableResultCallback extends IBaseCallback {
-    }
-    /**
-       Definition of IMap interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IMap extends IBaseUI {
-    }
-    /**
-       Definition of IAlarm interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IAlarm extends IBaseNotification {
-    }
-    /**
-       Definition of IFacebook interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface IFacebook extends IBaseSocial {
-    }
-    /**
-       Definition of INetworkInfo interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface INetworkInfo extends IBaseCommunication {
-    }
-    /**
-       Definition of ICompression interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    interface ICompression extends IBaseUtil {
+    interface ITwitter extends IBaseSocial {
     }
     /**
        Definition of ICloud interface/protocol.
@@ -1043,13 +908,139 @@ multiple concurrent threads.
     interface ICloud extends IBaseData {
     }
     /**
-       Definition of IQRCode interface/protocol.
+       Definition of ICapabilities interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface IQRCode extends IBaseReader {
+    interface ICapabilities extends IBaseSystem {
+    }
+    /**
+       Definition of IGeolocation interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IGeolocation extends IBaseSensor {
+    }
+    /**
+       Definition of IAppServerListener interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IAppServerListener extends IBaseListener {
+    }
+    /**
+       Definition of IPrinting interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IPrinting extends IBaseApplication {
+    }
+    /**
+       Definition of IDisplay interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IDisplay extends IBaseSystem {
+    }
+    /**
+       Definition of ILifecycle interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ILifecycle extends IBaseApplication {
+    }
+    /**
+       Definition of IXML interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IXML extends IBaseData {
+    }
+    /**
+       Definition of IAccelerometer interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IAccelerometer extends IBaseSensor {
+    }
+    /**
+       Definition of IVideo interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IVideo extends IBaseMedia {
+    }
+    /**
+       Definition of IGooglePlus interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IGooglePlus extends IBaseSocial {
+    }
+    /**
+       Created by clozano on 05/09/2014.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IAppResourceCallback extends IBaseCallback {
+    }
+    /**
+       Definition of IMagnetometer interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface IMagnetometer extends IBaseSensor {
+    }
+    /**
+       Definition of ITimer interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ITimer extends IBaseUtil {
+    }
+    /**
+       Created by FRMI on 28/08/2014.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface INetworkReachabilityCallback extends IBaseCallback {
+    }
+    /**
+       Definition of ITableResultCallback interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface ITableResultCallback extends IBaseCallback {
     }
     /**
        Definition of IAmbientLight interface/protocol.
@@ -1061,13 +1052,22 @@ multiple concurrent threads.
     interface IAmbientLight extends IBaseSensor {
     }
     /**
-       Definition of ISecurity interface/protocol.
+       Definition of IAnalytics interface/protocol.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    interface ISecurity extends IBaseSecurity {
+    interface IAnalytics extends IBaseApplication {
+    }
+    /**
+       Definition of INetworkNaming interface/protocol.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    interface INetworkNaming extends IBaseCommunication {
     }
     /**
        Definition of IFile interface/protocol.
@@ -1079,725 +1079,436 @@ multiple concurrent threads.
     interface IFile extends IFilePath {
     }
     /**
-       Structure representing the data of a http cookie.
+       Represents a local or remote service response.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    class Cookie {
+    class ServiceResponse {
         /**
-           Cookie creation timestamp in milliseconds.
+           Request/Response data content (plain text).
         */
-        creation: number;
+        content: string;
         /**
-           Value of the Cookie
+           The byte[] representing the binary Content.
         */
-        data: string;
+        contentBinary: number[];
         /**
-           Domain for which the cookie is valid.
+           The length in bytes for the binary Content.
         */
-        domain: string;
+        contentBinaryLength: number;
         /**
-           Cookie expiry in milliseconds or -1 for session only.
+           Encoding of the binary payload - by default assumed to be UTF8.
         */
-        expiry: number;
+        contentEncoding: string;
         /**
-           Name ot the cookie
+           The length in bytes for the Content field.
         */
-        name: string;
+        contentLength: string;
         /**
-           URI path for which the cookie is valid.
+           The request/response content type (MIME TYPE).
         */
-        path: string;
+        contentType: string;
         /**
-           Scheme of the domain - http/https - for which the cookie is valid.
+           The headers array (name,value pairs) to be included on the I/O service request.
         */
-        scheme: string;
+        headers: Header[];
         /**
-           Cookie is secure (https only)
+           The session context for the Request/Response.
         */
-        secure: boolean;
+        session: ISession;
         /**
            Constructor used by the implementation
 
+           @param content
+           @param contentType
+           @param contentLength
+           @param contentBinary
+           @param contentBinaryLength
+           @param headers
+           @param session
+           @param contentEncoding
+           @since ARP1.0
+        */
+        constructor(content: string, contentType: string, contentLength: string, contentBinary: number[], contentBinaryLength: number, headers: Header[], session: ISession, contentEncoding: string);
+        /**
+           Returns the content
+
+           @return content
+           @since ARP1.0
+        */
+        getContent(): string;
+        /**
+           Set the content
+
+           @param content
+           @since ARP1.0
+        */
+        setContent(content: string): void;
+        /**
+           Returns the binary content
+
+           @return contentBinary
+           @since ARP1.0
+        */
+        getContentBinary(): number[];
+        /**
+           Set the binary content
+
+           @param contentBinary
+           @since ARP1.0
+        */
+        setContentBinary(contentBinary: number[]): void;
+        /**
+           Retrusn the binary content length
+
+           @return contentBinaryLength
+           @since ARP1.0
+        */
+        getContentBinaryLength(): number;
+        /**
+           Set the binary content length
+
+           @param contentBinaryLength
+           @since ARP1.0
+        */
+        setContentBinaryLength(contentBinaryLength: number): void;
+        /**
+           Returns the content encoding
+
+           @return contentEncoding
+           @since ARP1.0
+        */
+        getContentEncoding(): string;
+        /**
+           Set the content encoding
+
+           @param contentEncoding
+           @since ARP1.0
+        */
+        setContentEncoding(contentEncoding: string): void;
+        /**
+           Returns the content length
+
+           @return contentLength
+           @since ARP1.0
+        */
+        getContentLength(): string;
+        /**
+           Set the content length
+
+           @param contentLength
+           @since ARP1.0
+        */
+        setContentLength(contentLength: string): void;
+        /**
+           Returns the content type
+
+           @return contentType
+           @since ARP1.0
+        */
+        getContentType(): string;
+        /**
+           Set the content type
+
+           @param contentType
+           @since ARP1.0
+        */
+        setContentType(contentType: string): void;
+        /**
+           Returns the array of Header
+
+           @return headers
+           @since ARP1.0
+        */
+        getHeaders(): Header[];
+        /**
+           Set the array of Header
+
+           @param headers
+           @since ARP1.0
+        */
+        setHeaders(headers: Header[]): void;
+        /**
+           Returns the method
+
+           @return method
+           @since ARP1.0
+        */
+        getSession(): ISession;
+        /**
+           Set the method
+
+           @param session
+           @since ARP1.0
+        */
+        setSession(session: ISession): void;
+    }
+    /**
+       Structure representing the address data elements of a contact.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class ContactAddress {
+        /**
+           The address type
+        */
+        type: ContactAddressType;
+        /**
+           The Contact address
+        */
+        address: string;
+        /**
+           Constructor used by the implementation
+
+           @param address Address data.
+           @param type    Address type.
+           @since ARP1.0
+        */
+        constructor(address: string, type: ContactAddressType);
+        /**
+           Returns the type of the address
+
+           @return AddressType Address type.
+           @since ARP1.0
+        */
+        getType(): ContactAddressType;
+        /**
+           Set the address type
+
+           @param type Address type.
+           @since ARP1.0
+        */
+        setType(type: ContactAddressType): void;
+        /**
+           Returns the Contact address
+
+           @return address Address data.
+           @since ARP1.0
+        */
+        getAddress(): string;
+        /**
+           Set the address of the Contact
+
+           @param address Address data.
+           @since ARP1.0
+        */
+        setAddress(address: string): void;
+    }
+    /**
+       Structure representing the website data elements of a contact.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class ContactWebsite {
+        /**
+           The url of the website
+        */
+        url: string;
+        /**
+           Constructor used by the implementation
+
+           @param url
+           @since ARP1.0
+        */
+        constructor(url: string);
+        /**
+           Returns the url of the website
+
+           @return website url
+           @since ARP1.0
+        */
+        getUrl(): string;
+        /**
+           Set the url of the website
+
+           @param url
+           @since ARP1.0
+        */
+        setUrl(url: string): void;
+    }
+    /**
+       Represents a specific application life-cycle stage.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class Lifecycle {
+        /**
+           Represent the state of the app
+        */
+        state: LifecycleState;
+        /**
+           Constructor used by the implementation
+
+           @param state
+           @since ARP1.0
+        */
+        constructor(state: LifecycleState);
+        /**
+           Returns the state of the application
+
+           @return state of the app
+           @since ARP1.0
+        */
+        getState(): LifecycleState;
+        /**
+           Set the State of the application
+
+           @param state of the app
+           @since ARP1.0
+        */
+        setState(state: LifecycleState): void;
+    }
+    /**
+       Represents an instance of a service.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class Service {
+        /**
+           The method used
+        */
+        method: IServiceMethod;
+        /**
+           The type of the service
+        */
+        type: IServiceType;
+        /**
+           Enpoint of the service
+        */
+        endpoint: Endpoint;
+        /**
+           The service name
+        */
+        name: string;
+        /**
+           Constructor used by the implementation
+
+           @param endpoint
            @param name
-           @param data
+           @param method
+           @param type
            @since ARP1.0
         */
-        constructor(name: string, data: string);
+        constructor(endpoint: Endpoint, name: string, method: IServiceMethod, type: IServiceType);
         /**
-           Gets Cookie creation timestamp in milliseconds.
+           Returns the method
 
-           @return creation Cookie creation timestamp in milliseconds.
-        */
-        getCreation(): number;
-        /**
-           Sets Cookie creation timestamp in milliseconds.
-
-           @param creation Cookie creation timestamp in milliseconds.
-        */
-        setCreation(creation: number): void;
-        /**
-           Returns the cookie value
-
-           @return
+           @return method
            @since ARP1.0
         */
-        getData(): string;
+        getMethod(): IServiceMethod;
         /**
-           Set the cookie value
+           Set the method
 
-           @param data
+           @param method
            @since ARP1.0
         */
-        setData(data: string): void;
+        setMethod(method: IServiceMethod): void;
         /**
-           Returns the domain
+           Returns the type
 
-           @return domain
+           @return type
            @since ARP1.0
         */
-        getDomain(): string;
+        getType(): IServiceType;
         /**
-           Set the domain
+           Set the type
 
-           @param domain
-        */
-        setDomain(domain: string): void;
-        /**
-           Returns the expiration date in milis
-
-           @return expiry
+           @param type
            @since ARP1.0
         */
-        getExpiry(): number;
+        setType(type: IServiceType): void;
         /**
-           Set the expiration date in milis
+           Returns the endpoint
 
-           @param expiry
+           @return endpoint
+           @since ARP1.0
         */
-        setExpiry(expiry: number): void;
+        getEndpoint(): Endpoint;
         /**
-           Returns the cookie name
+           Set the endpoint
+
+           @param endpoint
+           @since ARP1.0
+        */
+        setEndpoint(endpoint: Endpoint): void;
+        /**
+           Returns the name
 
            @return name
            @since ARP1.0
         */
         getName(): string;
         /**
-           Set the cookie name
+           Set the name
 
            @param name
            @since ARP1.0
         */
         setName(name: string): void;
-        /**
-           Returns the path
-
-           @return path
-           @since ARP1.0
-        */
-        getPath(): string;
-        /**
-           Set the path
-
-           @param path
-        */
-        setPath(path: string): void;
-        /**
-           Returns the scheme
-
-           @return scheme
-           @since ARP1.0
-        */
-        getScheme(): string;
-        /**
-           Set the scheme
-
-           @param scheme
-        */
-        setScheme(scheme: string): void;
-        /**
-           Returns whether the cookie is secure or not
-
-           @return true if the cookie is secure; false otherwise
-           @since ARP1.0
-        */
-        getSecure(): boolean;
-        /**
-           Set whether the cookie is secure or not
-
-           @param secure
-        */
-        setSecure(secure: boolean): void;
     }
     /**
-       Structure representing a remote or local service access end-point.
+       Structure representing the social data elements of a contact.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    class Endpoint {
+    class ContactSocial {
         /**
-           The remote serice host (alias or IP).
+           The social network
         */
-        host: string;
+        socialNetwork: ContactSocialNetwork;
         /**
-           The remote service path (to be added to the host and port url).
+           The profileUrl
         */
-        path: string;
-        /**
-           The remote service accessible port.
-        */
-        port: number;
-        /**
-           The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
-        */
-        proxy: string;
-        /**
-           The remote service scheme.
-        */
-        scheme: string;
+        profileUrl: string;
         /**
            Constructor used by the implementation
 
-           @param host
-           @param path
-           @param port
-           @param proxy
-           @param scheme
+           @param socialNetwork of the profile
+           @param profileUrl    of the user
            @since ARP1.0
         */
-        constructor(host: string, path: string, port: number, proxy: string, scheme: string);
+        constructor(socialNetwork: ContactSocialNetwork, profileUrl: string);
         /**
-           Returns the host
+           Returns the social network
 
-           @return host
+           @return socialNetwork
            @since ARP1.0
         */
-        getHost(): string;
+        getSocialNetwork(): ContactSocialNetwork;
         /**
-           Set the host
+           Set the social network
 
-           @param host
+           @param socialNetwork
            @since ARP1.0
         */
-        setHost(host: string): void;
+        setSocialNetwork(socialNetwork: ContactSocialNetwork): void;
         /**
-           Returns the path
+           Returns the profile url of the user
 
-           @return path
+           @return profileUrl
            @since ARP1.0
         */
-        getPath(): string;
+        getProfileUrl(): string;
         /**
-           Set the path
+           Set the profile url of the iser
 
-           @param path
+           @param profileUrl
            @since ARP1.0
         */
-        setPath(path: string): void;
-        /**
-           Returns the port
-
-           @return port
-           @since ARP1.0
-        */
-        getPort(): number;
-        /**
-           Set the port
-
-           @param port
-           @since ARP1.0
-        */
-        setPort(port: number): void;
-        /**
-           Return the proxy
-
-           @return proxy
-           @since ARP1.0
-        */
-        getProxy(): string;
-        /**
-           Set the proxy
-
-           @param proxy
-           @since ARP1.0
-        */
-        setProxy(proxy: string): void;
-        /**
-           Returns the scheme
-
-           @return scheme
-           @since ARP1.0
-        */
-        getScheme(): string;
-        /**
-           Set the scheme
-
-           @param scheme
-           @since ARP1.0
-        */
-        setScheme(scheme: string): void;
-    }
-    /**
-       Structure representing the data a single geolocation reading.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class Geolocation {
-        /**
-           The current device altitude (or Z coordinate). Measured in meters.
-        */
-        altitude: number;
-        /**
-           The Y coordinate (or latitude). Measured in degrees.
-        */
-        latitude: number;
-        /**
-           The X coordinate (or longitude). Measured in degrees.
-        */
-        longitude: number;
-        /**
-           Dilution of precision on the X measurement. Measured in meters.
-        */
-        xDoP: number;
-        /**
-           Dilution of precision on the Y measurement. Measured in meters.
-        */
-        yDoP: number;
-        /**
-           Constructor used by the implementation
-
-           @param latitude
-           @param longitude
-           @param altitude
-           @param xDoP
-           @param yDoP
-           @since ARP1.0
-        */
-        constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number);
-        /**
-           Returns altitude in meters
-
-           @return altitude
-           @since ARP1.0
-        */
-        getAltitude(): number;
-        /**
-           Set altitude in meters
-
-           @param altitude
-           @since ARP1.0
-        */
-        setAltitude(altitude: number): void;
-        /**
-           Returns the latitude in degrees
-
-           @return latitude
-           @since ARP1.0
-        */
-        getLatitude(): number;
-        /**
-           Set the latitude in degrees
-
-           @param latitude
-           @since ARP1.0
-        */
-        setLatitude(latitude: number): void;
-        /**
-           Returns the longitude in degrees
-
-           @return longitude
-           @since ARP1.0
-        */
-        getLongitude(): number;
-        /**
-           Returns the latitude in degrees
-
-           @param longitude
-           @since ARP1.0
-        */
-        setLongitude(longitude: number): void;
-        /**
-           Returns the Dilution of Position in the X axis (longitude)
-
-           @return xDoP
-           @since ARP1.0
-        */
-        getXDoP(): number;
-        /**
-           Sets Dilution of precision on the X measurement. Measured in meters.
-
-           @param xDoP Dilution of precision on the X measurement. Measured in meters.
-        */
-        setXDoP(xDoP: number): void;
-        /**
-           Returns the Dilution of Position in the Y axis (latitude)
-
-           @return yDoP
-           @since ARP1.0
-        */
-        getYDoP(): number;
-        /**
-           Sets Dilution of precision on the Y measurement. Measured in meters.
-
-           @param yDoP Dilution of precision on the Y measurement. Measured in meters.
-        */
-        setYDoP(yDoP: number): void;
-    }
-    /**
-       Structure representing the email data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class ContactEmail {
-        /**
-           The type of the email
-        */
-        type: ContactEmailType;
-        /**
-           Email of the Contact
-        */
-        email: string;
-        /**
-           Whether the email is the primary one or not
-        */
-        primary: boolean;
-        /**
-           Constructor used by the implementation
-
-           @param type
-           @param primary
-           @param email
-           @since ARP1.0
-        */
-        constructor(type: ContactEmailType, primary: boolean, email: string);
-        /**
-           Returns the type of the email
-
-           @return EmailType
-           @since ARP1.0
-        */
-        getType(): ContactEmailType;
-        /**
-           Set the type of the email
-
-           @param type
-           @since ARP1.0
-        */
-        setType(type: ContactEmailType): void;
-        /**
-           Returns the email of the Contact
-
-           @return email
-           @since ARP1.0
-        */
-        getEmail(): string;
-        /**
-           Set the email of the Contact
-
-           @param email
-           @since ARP1.0
-        */
-        setEmail(email: string): void;
-        /**
-           Returns if the email is primary
-
-           @return true if the email is primary; false otherwise
-           @since ARP1.0
-        */
-        getPrimary(): boolean;
-        /**
-           Set if the email
-
-           @param primary true if the email is primary; false otherwise
-           @since ARP1.0
-        */
-        setPrimary(primary: boolean): void;
-    }
-    /**
-       Structure representing the basic device information.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class DeviceInfo {
-        /**
-           Model of device - equivalent to device release or version.
-        */
-        model: string;
-        /**
-           Name of device - equivalent to brand.
-        */
-        name: string;
-        /**
-           Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
-be unique for a specific instance of an application on a specific device.
-        */
-        uuid: string;
-        /**
-           Vendor of the device hardware.
-        */
-        vendor: string;
-        /**
-           Constructor for the implementation of the platform.
-
-           @param name   or brand of the device.
-           @param model  of the device.
-           @param vendor of the device.
-           @param uuid   unique* identifier (* platform dependent).
-        */
-        constructor(name: string, model: string, vendor: string, uuid: string);
-        /**
-           Returns the model of the device.
-
-           @return String with the model of the device.
-        */
-        getModel(): string;
-        /**
-           Sets Model of device - equivalent to device release or version.
-
-           @param model Model of device - equivalent to device release or version.
-        */
-        setModel(model: string): void;
-        /**
-           Returns the name of the device.
-
-           @return String with device name.
-        */
-        getName(): string;
-        /**
-           Sets Name of device - equivalent to brand.
-
-           @param name Name of device - equivalent to brand.
-        */
-        setName(name: string): void;
-        /**
-           Returns the platform dependent UUID of the device.
-
-           @return String with the 128-bit device identifier.
-        */
-        getUuid(): string;
-        /**
-           Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
-be unique for a specific instance of an application on a specific device.
-
-           @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
-be unique for a specific instance of an application on a specific device.
-        */
-        setUuid(uuid: string): void;
-        /**
-           Returns the vendor of the device.
-
-           @return String with the vendor name.
-        */
-        getVendor(): string;
-        /**
-           Sets Vendor of the device hardware.
-
-           @param vendor Vendor of the device hardware.
-        */
-        setVendor(vendor: string): void;
-    }
-    /**
-       Structure representing a database reference.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class Database {
-        /**
-           Indicates if database was created or needs to be created as Compressed.
-        */
-        compress: boolean;
-        /**
-           Database Name (name of the .db local file).
-        */
-        name: string;
-        /**
-           Constructor using fields.
-
-           @param name     Name of the Table.
-           @param compress Compress enbaled or not.
-           @author Ferran Vila Conesa
-           @since ARP1.0
-        */
-        constructor(name: string, compress: boolean);
-        /**
-           Returns if the table is compressed
-
-           @return Compression enabled
-           @author Ferran Vila Conesa
-           @since ARP1.0
-        */
-        getCompress(): boolean;
-        /**
-           Sets if the table is compressed or not.
-
-           @param compress Compression enabled
-           @author Ferran Vila Conesa
-           @since ARP1.0
-        */
-        setCompress(compress: boolean): void;
-        /**
-           Returns the name.
-
-           @return The name of the table.
-           @author Ferran Vila Conesa
-           @since ARP1.0
-        */
-        getName(): string;
-        /**
-           Sets the name of the table.
-
-           @param name The name of the table.
-           @author Ferran Vila Conesa
-           @since ARP1.0
-        */
-        setName(name: string): void;
-    }
-    /**
-       Structure representing the internal unique identifier data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class ContactUid {
-        /**
-           The id of the Contact
-        */
-        contactId: string;
-        /**
-           Constructor used by implementation to set the Contact id.
-
-           @param contactId Internal unique contact id.
-           @since ARP1.0
-        */
-        constructor(contactId: string);
-        /**
-           Returns the contact id
-
-           @return Contactid Internal unique contact id.
-           @since ARP1.0
-        */
-        getContactId(): string;
-        /**
-           Set the id of the Contact
-
-           @param contactId Internal unique contact id.
-           @since ARP1.0
-        */
-        setContactId(contactId: string): void;
-    }
-    /**
-       Structure representing the assigned tags data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class ContactTag {
-        /**
-           The value of the Tag
-        */
-        dataValue: string;
-        /**
-           The name of the Tag
-        */
-        name: string;
-        /**
-           Constructor used by the implementation
-
-           @param dataValue
-           @param name
-           @since ARP1.0
-        */
-        constructor(name: string, dataValue: string);
-        /**
-           Returns the value of the Tag
-
-           @return value
-           @since ARP1.0
-        */
-        getDataValue(): string;
-        /**
-           Set the value of the Tag
-
-           @param dataValue
-           @since ARP1.0
-        */
-        setDataValue(dataValue: string): void;
-        /**
-           Returns the name of the Tag
-
-           @return name
-           @since ARP1.0
-        */
-        getName(): string;
-        /**
-           Set the name of the Tag
-
-           @param name
-           @since ARP1.0
-        */
-        setName(name: string): void;
-    }
-    /**
-       Represents a single secureKey-value pair.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class SecureKeyPair {
-        secureData: string;
-        secureKey: string;
-        /**
-           Constructor with parameters
-
-           @param secureKey   name of the keypair
-           @param secureData value of the keypair
-           @since ARP1.0
-        */
-        constructor(secureKey: string, secureData: string);
-        /**
-           Returns the object value
-
-           @return Value.
-           @since ARP 1.0
-        */
-        getSecureData(): string;
-        /**
-           Sets the value for this object
-
-           @param secureData value to set.
-           @since ARP 1.0
-        */
-        setSecureData(secureData: string): void;
-        /**
-           Returns the object secureKey name.
-
-           @return Key name.
-           @since ARP 1.0
-        */
-        getSecureKey(): string;
-        /**
-           Sets the secureKey name for this object.
-
-           @param secureKey Key name.
-           @since ARP 1.0
-        */
-        setSecureKey(secureKey: string): void;
+        setProfileUrl(profileUrl: string): void;
     }
     /**
        Structure representing the binary attachment data.
@@ -1910,373 +1621,155 @@ be unique for a specific instance of an application on a specific device.
         setReferenceUrl(referenceUrl: string): void;
     }
     /**
-       Represents a specific application life-cycle stage.
+       Represents the basic information about the operating system.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    class Lifecycle {
+    class OSInfo {
         /**
-           Represent the state of the app
-        */
-        state: LifecycleState;
-        /**
-           Constructor used by the implementation
-
-           @param state
-           @since ARP1.0
-        */
-        constructor(state: LifecycleState);
-        /**
-           Returns the state of the application
-
-           @return state of the app
-           @since ARP1.0
-        */
-        getState(): LifecycleState;
-        /**
-           Set the State of the application
-
-           @param state of the app
-           @since ARP1.0
-        */
-        setState(state: LifecycleState): void;
-    }
-    /**
-       Represents a specific user or system locate.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class Locale {
-        /**
-           A valid ISO Country Code.
-        */
-        country: string;
-        /**
-           A valid ISO Language Code.
-        */
-        language: string;
-        /**
-           Constructor used by the implementation
-
-           @param country
-           @param language
-           @since ARP1.0
-        */
-        constructor(language: string, country: string);
-        /**
-           Returns the country code
-
-           @return country code
-           @since ARP1.0
-        */
-        getCountry(): string;
-        /**
-           Set the country code
-
-           @param country code
-           @since ARP1.0
-        */
-        setCountry(country: string): void;
-        /**
-           Returns the language code
-
-           @return language code
-           @since ARP1.0
-        */
-        getLanguage(): string;
-        /**
-           Set the language code
-
-           @param language code
-           @since ARP1.0
-        */
-        setLanguage(language: string): void;
-    }
-    /**
-       Structure representing the personal info data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class ContactPersonalInfo {
-        /**
-           The title of the Contact
-        */
-        title: ContactPersonalInfoTitle;
-        /**
-           The last name of the Contact
-        */
-        lastName: string;
-        /**
-           The middle name of the Contact if it proceeds
-        */
-        middleName: string;
-        /**
-           The name of the Contact
+           The name of the operating system.
         */
         name: string;
         /**
-           The Constructor used by the implementation
-
-           @param name       of the Contact
-           @param middleName of the Contact
-           @param lastName   of the Contact
-           @param title      of the Contact
-           @since ARP1.0
+           The vendor of the operating system.
         */
-        constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitle);
+        vendor: string;
         /**
-           Returns the title of the Contact
-
-           @return Title
-           @since ARP1.0
+           The version/identifier of the operating system.
         */
-        getTitle(): ContactPersonalInfoTitle;
+        version: string;
         /**
-           Set the Title of the Contact
+           Constructor used by implementation to set the OS information.
 
-           @param title
-           @since ARP1.0
+           @param name    of the OS.
+           @param version of the OS.
+           @param vendor  of the OS.
         */
-        setTitle(title: ContactPersonalInfoTitle): void;
+        constructor(name: string, version: string, vendor: string);
         /**
-           Returns the last name of the Contact
+           Returns the name of the operating system.
 
-           @return lastName
-           @since ARP1.0
-        */
-        getLastName(): string;
-        /**
-           Set the last name of the Contact
-
-           @param lastName
-           @since ARP1.0
-        */
-        setLastName(lastName: string): void;
-        /**
-           Returns the middle name of the Contact
-
-           @return middelName
-           @since ARP1.0
-        */
-        getMiddleName(): string;
-        /**
-           Set the middle name of the Contact
-
-           @param middleName
-           @since ARP1.0
-        */
-        setMiddleName(middleName: string): void;
-        /**
-           Returns the name of the Contact
-
-           @return name
-           @since ARP1.0
+           @return OS name.
         */
         getName(): string;
         /**
-           Set the name of the Contact
+           Sets The name of the operating system.
 
-           @param name
-           @since ARP1.0
+           @param name The name of the operating system.
+        */
+        setName(name: string): void;
+        /**
+           Returns the vendor of the operating system.
+
+           @return OS vendor.
+        */
+        getVendor(): string;
+        /**
+           Sets The vendor of the operating system.
+
+           @param vendor The vendor of the operating system.
+        */
+        setVendor(vendor: string): void;
+        /**
+           Returns the version of the operating system.
+
+           @return OS version.
+        */
+        getVersion(): string;
+        /**
+           Sets The version/identifier of the operating system.
+
+           @param version The version/identifier of the operating system.
+        */
+        setVersion(version: string): void;
+    }
+    /**
+       Structure representing the column specification of a data table.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class Column {
+        /**
+           Name of the column
+        */
+        name: string;
+        /**
+           Constructor for implementation using.
+
+           @param name Name of the column
+        */
+        constructor(name: string);
+        /**
+           Returns the name of the column.
+
+           @return The name of the column.
+        */
+        getName(): string;
+        /**
+           Sets the name of the column.
+
+           @param name The name of the column.
         */
         setName(name: string): void;
     }
     /**
-       Structure representing the professional info data elements of a contact.
+       Structure representing a database reference.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    class ContactProfessionalInfo {
+    class Database {
         /**
-           The company of the job
+           Indicates if database was created or needs to be created as Compressed.
         */
-        company: string;
+        compress: boolean;
         /**
-           The job description
-        */
-        jobDescription: string;
-        /**
-           The job title
-        */
-        jobTitle: string;
-        /**
-           Constructor used by implementation to set the ContactProfessionalInfo.
-
-           @param jobTitle
-           @param jobDescription
-           @param company
-           @since ARP1.0
-        */
-        constructor(jobTitle: string, jobDescription: string, company: string);
-        /**
-           Returns the company of the job
-
-           @return company
-           @since ARP1.0
-        */
-        getCompany(): string;
-        /**
-           Set the company of the job
-
-           @param company
-           @since ARP1.0
-        */
-        setCompany(company: string): void;
-        /**
-           Returns the description of the job
-
-           @return description
-           @since ARP1.0
-        */
-        getJobDescription(): string;
-        /**
-           Set the description of the job
-
-           @param jobDescription
-           @since ARP1.0
-        */
-        setJobDescription(jobDescription: string): void;
-        /**
-           Returns the title of the job
-
-           @return title
-           @since ARP1.0
-        */
-        getJobTitle(): string;
-        /**
-           Set the title of the job
-
-           @param jobTitle
-           @since ARP1.0
-        */
-        setJobTitle(jobTitle: string): void;
-    }
-    /**
-       Represents a row for a data table.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class Row {
-        /**
-           The values of the row.
-        */
-        values: any[];
-        /**
-           Constructor for implementation using.
-
-           @param values The values of the row
-        */
-        constructor(values: any[]);
-        /**
-           Returns the values of the row.
-
-           @return The values of the row.
-        */
-        getValues(): any[];
-        /**
-           Sets the values of the row.
-
-           @param values The values of the row.
-        */
-        setValues(values: any[]): void;
-    }
-    /**
-       Represents an instance of a service.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class Service {
-        /**
-           The method used
-        */
-        method: IServiceMethod;
-        /**
-           The type of the service
-        */
-        type: IServiceType;
-        /**
-           Enpoint of the service
-        */
-        endpoint: Endpoint;
-        /**
-           The service name
+           Database Name (name of the .db local file).
         */
         name: string;
         /**
-           Constructor used by the implementation
+           Constructor using fields.
 
-           @param endpoint
-           @param name
-           @param method
-           @param type
+           @param name     Name of the Table.
+           @param compress Compress enbaled or not.
+           @author Ferran Vila Conesa
            @since ARP1.0
         */
-        constructor(endpoint: Endpoint, name: string, method: IServiceMethod, type: IServiceType);
+        constructor(name: string, compress: boolean);
         /**
-           Returns the method
+           Returns if the table is compressed
 
-           @return method
+           @return Compression enabled
+           @author Ferran Vila Conesa
            @since ARP1.0
         */
-        getMethod(): IServiceMethod;
+        getCompress(): boolean;
         /**
-           Set the method
+           Sets if the table is compressed or not.
 
-           @param method
+           @param compress Compression enabled
+           @author Ferran Vila Conesa
            @since ARP1.0
         */
-        setMethod(method: IServiceMethod): void;
+        setCompress(compress: boolean): void;
         /**
-           Returns the type
+           Returns the name.
 
-           @return type
-           @since ARP1.0
-        */
-        getType(): IServiceType;
-        /**
-           Set the type
-
-           @param type
-           @since ARP1.0
-        */
-        setType(type: IServiceType): void;
-        /**
-           Returns the endpoint
-
-           @return endpoint
-           @since ARP1.0
-        */
-        getEndpoint(): Endpoint;
-        /**
-           Set the endpoint
-
-           @param endpoint
-           @since ARP1.0
-        */
-        setEndpoint(endpoint: Endpoint): void;
-        /**
-           Returns the name
-
-           @return name
+           @return The name of the table.
+           @author Ferran Vila Conesa
            @since ARP1.0
         */
         getName(): string;
         /**
-           Set the name
+           Sets the name of the table.
 
-           @param name
+           @param name The name of the table.
+           @author Ferran Vila Conesa
            @since ARP1.0
         */
         setName(name: string): void;
@@ -2468,170 +1961,45 @@ be unique for a specific instance of an application on a specific device.
         setSession(session: ISession): void;
     }
     /**
-       Structure representing the column specification of a data table.
+       Structure representing the data of a http cookie.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    class Column {
+    class Cookie {
         /**
-           Name of the column
+           Cookie creation timestamp in milliseconds.
         */
-        name: string;
+        creation: number;
         /**
-           Constructor for implementation using.
-
-           @param name Name of the column
-        */
-        constructor(name: string);
-        /**
-           Returns the name of the column.
-
-           @return The name of the column.
-        */
-        getName(): string;
-        /**
-           Sets the name of the column.
-
-           @param name The name of the column.
-        */
-        setName(name: string): void;
-    }
-    /**
-       Structure representing the social data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class ContactSocial {
-        /**
-           The social network
-        */
-        socialNetwork: ContactSocialNetwork;
-        /**
-           The profileUrl
-        */
-        profileUrl: string;
-        /**
-           Constructor used by the implementation
-
-           @param socialNetwork of the profile
-           @param profileUrl    of the user
-           @since ARP1.0
-        */
-        constructor(socialNetwork: ContactSocialNetwork, profileUrl: string);
-        /**
-           Returns the social network
-
-           @return socialNetwork
-           @since ARP1.0
-        */
-        getSocialNetwork(): ContactSocialNetwork;
-        /**
-           Set the social network
-
-           @param socialNetwork
-           @since ARP1.0
-        */
-        setSocialNetwork(socialNetwork: ContactSocialNetwork): void;
-        /**
-           Returns the profile url of the user
-
-           @return profileUrl
-           @since ARP1.0
-        */
-        getProfileUrl(): string;
-        /**
-           Set the profile url of the iser
-
-           @param profileUrl
-           @since ARP1.0
-        */
-        setProfileUrl(profileUrl: string): void;
-    }
-    /**
-       Represents the basic information about the operating system.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class OSInfo {
-        /**
-           The name of the operating system.
-        */
-        name: string;
-        /**
-           The vendor of the operating system.
-        */
-        vendor: string;
-        /**
-           The version/identifier of the operating system.
-        */
-        version: string;
-        /**
-           Constructor used by implementation to set the OS information.
-
-           @param name    of the OS.
-           @param version of the OS.
-           @param vendor  of the OS.
-        */
-        constructor(name: string, version: string, vendor: string);
-        /**
-           Returns the name of the operating system.
-
-           @return OS name.
-        */
-        getName(): string;
-        /**
-           Sets The name of the operating system.
-
-           @param name The name of the operating system.
-        */
-        setName(name: string): void;
-        /**
-           Returns the vendor of the operating system.
-
-           @return OS vendor.
-        */
-        getVendor(): string;
-        /**
-           Sets The vendor of the operating system.
-
-           @param vendor The vendor of the operating system.
-        */
-        setVendor(vendor: string): void;
-        /**
-           Returns the version of the operating system.
-
-           @return OS version.
-        */
-        getVersion(): string;
-        /**
-           Sets The version/identifier of the operating system.
-
-           @param version The version/identifier of the operating system.
-        */
-        setVersion(version: string): void;
-    }
-    /**
-       Structure representing the data of a http request or response header.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class Header {
-        /**
-           Value of the header
+           Value of the Cookie
         */
         data: string;
         /**
-           Name ot the header
+           Domain for which the cookie is valid.
+        */
+        domain: string;
+        /**
+           Cookie expiry in milliseconds or -1 for session only.
+        */
+        expiry: number;
+        /**
+           Name ot the cookie
         */
         name: string;
+        /**
+           URI path for which the cookie is valid.
+        */
+        path: string;
+        /**
+           Scheme of the domain - http/https - for which the cookie is valid.
+        */
+        scheme: string;
+        /**
+           Cookie is secure (https only)
+        */
+        secure: boolean;
         /**
            Constructor used by the implementation
 
@@ -2641,33 +2009,110 @@ be unique for a specific instance of an application on a specific device.
         */
         constructor(name: string, data: string);
         /**
-           Returns the header value
+           Gets Cookie creation timestamp in milliseconds.
+
+           @return creation Cookie creation timestamp in milliseconds.
+        */
+        getCreation(): number;
+        /**
+           Sets Cookie creation timestamp in milliseconds.
+
+           @param creation Cookie creation timestamp in milliseconds.
+        */
+        setCreation(creation: number): void;
+        /**
+           Returns the cookie value
 
            @return
            @since ARP1.0
         */
         getData(): string;
         /**
-           Set the header value
+           Set the cookie value
 
            @param data
            @since ARP1.0
         */
         setData(data: string): void;
         /**
-           Returns the header name
+           Returns the domain
+
+           @return domain
+           @since ARP1.0
+        */
+        getDomain(): string;
+        /**
+           Set the domain
+
+           @param domain
+        */
+        setDomain(domain: string): void;
+        /**
+           Returns the expiration date in milis
+
+           @return expiry
+           @since ARP1.0
+        */
+        getExpiry(): number;
+        /**
+           Set the expiration date in milis
+
+           @param expiry
+        */
+        setExpiry(expiry: number): void;
+        /**
+           Returns the cookie name
 
            @return name
            @since ARP1.0
         */
         getName(): string;
         /**
-           Set the header name
+           Set the cookie name
 
            @param name
            @since ARP1.0
         */
         setName(name: string): void;
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        getPath(): string;
+        /**
+           Set the path
+
+           @param path
+        */
+        setPath(path: string): void;
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        getScheme(): string;
+        /**
+           Set the scheme
+
+           @param scheme
+        */
+        setScheme(scheme: string): void;
+        /**
+           Returns whether the cookie is secure or not
+
+           @return true if the cookie is secure; false otherwise
+           @since ARP1.0
+        */
+        getSecure(): boolean;
+        /**
+           Set whether the cookie is secure or not
+
+           @param secure
+        */
+        setSecure(secure: boolean): void;
     }
     /**
        Structure representing the data elements of an email addressee.
@@ -2702,40 +2147,6 @@ be unique for a specific instance of an application on a specific device.
            @since ARP1.0
         */
         setAddress(address: string): void;
-    }
-    /**
-       Structure representing the website data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class ContactWebsite {
-        /**
-           The url of the website
-        */
-        url: string;
-        /**
-           Constructor used by the implementation
-
-           @param url
-           @since ARP1.0
-        */
-        constructor(url: string);
-        /**
-           Returns the url of the website
-
-           @return website url
-           @since ARP1.0
-        */
-        getUrl(): string;
-        /**
-           Set the url of the website
-
-           @param url
-           @since ARP1.0
-        */
-        setUrl(url: string): void;
     }
     /**
        Structure representing the phone data elements of a contact.
@@ -2789,6 +2200,335 @@ be unique for a specific instance of an application on a specific device.
            @since ARP1.0
         */
         setPhone(phone: string): void;
+    }
+    /**
+       Structure representing the personal info data elements of a contact.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class ContactPersonalInfo {
+        /**
+           The title of the Contact
+        */
+        title: ContactPersonalInfoTitle;
+        /**
+           The last name of the Contact
+        */
+        lastName: string;
+        /**
+           The middle name of the Contact if it proceeds
+        */
+        middleName: string;
+        /**
+           The name of the Contact
+        */
+        name: string;
+        /**
+           The Constructor used by the implementation
+
+           @param name       of the Contact
+           @param middleName of the Contact
+           @param lastName   of the Contact
+           @param title      of the Contact
+           @since ARP1.0
+        */
+        constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitle);
+        /**
+           Returns the title of the Contact
+
+           @return Title
+           @since ARP1.0
+        */
+        getTitle(): ContactPersonalInfoTitle;
+        /**
+           Set the Title of the Contact
+
+           @param title
+           @since ARP1.0
+        */
+        setTitle(title: ContactPersonalInfoTitle): void;
+        /**
+           Returns the last name of the Contact
+
+           @return lastName
+           @since ARP1.0
+        */
+        getLastName(): string;
+        /**
+           Set the last name of the Contact
+
+           @param lastName
+           @since ARP1.0
+        */
+        setLastName(lastName: string): void;
+        /**
+           Returns the middle name of the Contact
+
+           @return middelName
+           @since ARP1.0
+        */
+        getMiddleName(): string;
+        /**
+           Set the middle name of the Contact
+
+           @param middleName
+           @since ARP1.0
+        */
+        setMiddleName(middleName: string): void;
+        /**
+           Returns the name of the Contact
+
+           @return name
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Set the name of the Contact
+
+           @param name
+           @since ARP1.0
+        */
+        setName(name: string): void;
+    }
+    /**
+       Structure representing the a physical or logical button on a device.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class Button {
+        /**
+           Button type
+        */
+        type: ICapabilitiesButton;
+        /**
+           Constructor used by the implementation
+
+           @param type Button type.
+           @since ARP1.0
+        */
+        constructor(type: ICapabilitiesButton);
+        /**
+           Returns the button type
+
+           @return type Button type.
+           @since ARP1.0
+        */
+        getType(): ICapabilitiesButton;
+        /**
+           Sets Button type
+
+           @param type Button type
+        */
+        setType(type: ICapabilitiesButton): void;
+    }
+    /**
+       Structure representing a remote or local service access end-point.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class Endpoint {
+        /**
+           The remote serice host (alias or IP).
+        */
+        host: string;
+        /**
+           The remote service path (to be added to the host and port url).
+        */
+        path: string;
+        /**
+           The remote service accessible port.
+        */
+        port: number;
+        /**
+           The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
+        */
+        proxy: string;
+        /**
+           The remote service scheme.
+        */
+        scheme: string;
+        /**
+           Constructor used by the implementation
+
+           @param host
+           @param path
+           @param port
+           @param proxy
+           @param scheme
+           @since ARP1.0
+        */
+        constructor(host: string, path: string, port: number, proxy: string, scheme: string);
+        /**
+           Returns the host
+
+           @return host
+           @since ARP1.0
+        */
+        getHost(): string;
+        /**
+           Set the host
+
+           @param host
+           @since ARP1.0
+        */
+        setHost(host: string): void;
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        getPath(): string;
+        /**
+           Set the path
+
+           @param path
+           @since ARP1.0
+        */
+        setPath(path: string): void;
+        /**
+           Returns the port
+
+           @return port
+           @since ARP1.0
+        */
+        getPort(): number;
+        /**
+           Set the port
+
+           @param port
+           @since ARP1.0
+        */
+        setPort(port: number): void;
+        /**
+           Return the proxy
+
+           @return proxy
+           @since ARP1.0
+        */
+        getProxy(): string;
+        /**
+           Set the proxy
+
+           @param proxy
+           @since ARP1.0
+        */
+        setProxy(proxy: string): void;
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        getScheme(): string;
+        /**
+           Set the scheme
+
+           @param scheme
+           @since ARP1.0
+        */
+        setScheme(scheme: string): void;
+    }
+    /**
+       Represents a data table composed of columns and rows.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class Table {
+        /**
+           Number of columns.
+        */
+        columnCount: number;
+        /**
+           Definition of columns.
+        */
+        columns: Column[];
+        /**
+           Name of the table.
+        */
+        name: string;
+        /**
+           Number of rows.
+        */
+        rowCount: number;
+        /**
+           Rows of the table containing the data.
+        */
+        rows: Row[];
+        /**
+           Constructor by default
+
+           @param name The name of the table
+        */
+        constructor(name: string);
+        /**
+           Get the number of columns
+
+           @return The number of columns
+        */
+        getColumnCount(): number;
+        /**
+           Sets the number of columns
+
+           @param columnCount The number of columns
+        */
+        setColumnCount(columnCount: number): void;
+        /**
+           Get the columns
+
+           @return The columns
+        */
+        getColumns(): Column[];
+        /**
+           Sets the columns of the table
+
+           @param columns The columns of the table
+        */
+        setColumns(columns: Column[]): void;
+        /**
+           Returns the name of the table
+
+           @return The name of the table
+        */
+        getName(): string;
+        /**
+           Sets the name of the table
+
+           @param name The name of the table
+        */
+        setName(name: string): void;
+        /**
+           Get the number of rows
+
+           @return The number of rows
+        */
+        getRowCount(): number;
+        /**
+           Sets the number of rows
+
+           @param rowCount The number of rows
+        */
+        setRowCount(rowCount: number): void;
+        /**
+           Get the rows of the table
+
+           @return The rows of the table
+        */
+        getRows(): Row[];
+        /**
+           Sets the rows of the table
+
+           @param rows The rows of the table
+        */
+        setRows(rows: Row[]): void;
     }
     /**
        Structure representing the data elements of an email.
@@ -2938,352 +2678,138 @@ be unique for a specific instance of an application on a specific device.
         setToRecipients(toRecipients: EmailAddress[]): void;
     }
     /**
-       Structure representing the a physical or logical button on a device.
+       Structure representing the internal unique identifier data elements of a contact.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    class Button {
+    class ContactUid {
         /**
-           Button type
+           The id of the Contact
         */
-        type: ICapabilitiesButton;
+        contactId: string;
         /**
-           Constructor used by the implementation
+           Constructor used by implementation to set the Contact id.
 
-           @param type Button type.
+           @param contactId Internal unique contact id.
            @since ARP1.0
         */
-        constructor(type: ICapabilitiesButton);
+        constructor(contactId: string);
         /**
-           Returns the button type
+           Returns the contact id
 
-           @return type Button type.
+           @return Contactid Internal unique contact id.
            @since ARP1.0
         */
-        getType(): ICapabilitiesButton;
+        getContactId(): string;
         /**
-           Sets Button type
+           Set the id of the Contact
 
-           @param type Button type
+           @param contactId Internal unique contact id.
+           @since ARP1.0
         */
-        setType(type: ICapabilitiesButton): void;
+        setContactId(contactId: string): void;
     }
     /**
-       Structure representing the address data elements of a contact.
+       Structure representing the data of a http request or response header.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    class ContactAddress {
+    class Header {
         /**
-           The address type
+           Value of the header
         */
-        type: ContactAddressType;
+        data: string;
         /**
-           The Contact address
-        */
-        address: string;
-        /**
-           Constructor used by the implementation
-
-           @param address Address data.
-           @param type    Address type.
-           @since ARP1.0
-        */
-        constructor(address: string, type: ContactAddressType);
-        /**
-           Returns the type of the address
-
-           @return AddressType Address type.
-           @since ARP1.0
-        */
-        getType(): ContactAddressType;
-        /**
-           Set the address type
-
-           @param type Address type.
-           @since ARP1.0
-        */
-        setType(type: ContactAddressType): void;
-        /**
-           Returns the Contact address
-
-           @return address Address data.
-           @since ARP1.0
-        */
-        getAddress(): string;
-        /**
-           Set the address of the Contact
-
-           @param address Address data.
-           @since ARP1.0
-        */
-        setAddress(address: string): void;
-    }
-    /**
-       Represents a data table composed of columns and rows.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    class Table {
-        /**
-           Number of columns.
-        */
-        columnCount: number;
-        /**
-           Definition of columns.
-        */
-        columns: Column[];
-        /**
-           Name of the table.
+           Name ot the header
         */
         name: string;
         /**
-           Number of rows.
-        */
-        rowCount: number;
-        /**
-           Rows of the table containing the data.
-        */
-        rows: Row[];
-        /**
-           Constructor by default
+           Constructor used by the implementation
 
-           @param name The name of the table
+           @param name
+           @param data
+           @since ARP1.0
         */
-        constructor(name: string);
+        constructor(name: string, data: string);
         /**
-           Get the number of columns
+           Returns the header value
 
-           @return The number of columns
+           @return
+           @since ARP1.0
         */
-        getColumnCount(): number;
+        getData(): string;
         /**
-           Sets the number of columns
+           Set the header value
 
-           @param columnCount The number of columns
+           @param data
+           @since ARP1.0
         */
-        setColumnCount(columnCount: number): void;
+        setData(data: string): void;
         /**
-           Get the columns
+           Returns the header name
 
-           @return The columns
-        */
-        getColumns(): Column[];
-        /**
-           Sets the columns of the table
-
-           @param columns The columns of the table
-        */
-        setColumns(columns: Column[]): void;
-        /**
-           Returns the name of the table
-
-           @return The name of the table
+           @return name
+           @since ARP1.0
         */
         getName(): string;
         /**
-           Sets the name of the table
+           Set the header name
 
-           @param name The name of the table
+           @param name
+           @since ARP1.0
         */
         setName(name: string): void;
-        /**
-           Get the number of rows
-
-           @return The number of rows
-        */
-        getRowCount(): number;
-        /**
-           Sets the number of rows
-
-           @param rowCount The number of rows
-        */
-        setRowCount(rowCount: number): void;
-        /**
-           Get the rows of the table
-
-           @return The rows of the table
-        */
-        getRows(): Row[];
-        /**
-           Sets the rows of the table
-
-           @param rows The rows of the table
-        */
-        setRows(rows: Row[]): void;
     }
     /**
-       Represents a local or remote service response.
+       Represents a single secureKey-value pair.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    class ServiceResponse {
+    class SecureKeyPair {
+        secureData: string;
+        secureKey: string;
         /**
-           Request/Response data content (plain text).
-        */
-        content: string;
-        /**
-           The byte[] representing the binary Content.
-        */
-        contentBinary: number[];
-        /**
-           The length in bytes for the binary Content.
-        */
-        contentBinaryLength: number;
-        /**
-           Encoding of the binary payload - by default assumed to be UTF8.
-        */
-        contentEncoding: string;
-        /**
-           The length in bytes for the Content field.
-        */
-        contentLength: string;
-        /**
-           The request/response content type (MIME TYPE).
-        */
-        contentType: string;
-        /**
-           The headers array (name,value pairs) to be included on the I/O service request.
-        */
-        headers: Header[];
-        /**
-           The session context for the Request/Response.
-        */
-        session: ISession;
-        /**
-           Constructor used by the implementation
+           Constructor with parameters
 
-           @param content
-           @param contentType
-           @param contentLength
-           @param contentBinary
-           @param contentBinaryLength
-           @param headers
-           @param session
-           @param contentEncoding
+           @param secureKey   name of the keypair
+           @param secureData value of the keypair
            @since ARP1.0
         */
-        constructor(content: string, contentType: string, contentLength: string, contentBinary: number[], contentBinaryLength: number, headers: Header[], session: ISession, contentEncoding: string);
+        constructor(secureKey: string, secureData: string);
         /**
-           Returns the content
+           Returns the object value
 
-           @return content
-           @since ARP1.0
+           @return Value.
+           @since ARP 1.0
         */
-        getContent(): string;
+        getSecureData(): string;
         /**
-           Set the content
+           Sets the value for this object
 
-           @param content
-           @since ARP1.0
+           @param secureData value to set.
+           @since ARP 1.0
         */
-        setContent(content: string): void;
+        setSecureData(secureData: string): void;
         /**
-           Returns the binary content
+           Returns the object secureKey name.
 
-           @return contentBinary
-           @since ARP1.0
+           @return Key name.
+           @since ARP 1.0
         */
-        getContentBinary(): number[];
+        getSecureKey(): string;
         /**
-           Set the binary content
+           Sets the secureKey name for this object.
 
-           @param contentBinary
-           @since ARP1.0
+           @param secureKey Key name.
+           @since ARP 1.0
         */
-        setContentBinary(contentBinary: number[]): void;
-        /**
-           Retrusn the binary content length
-
-           @return contentBinaryLength
-           @since ARP1.0
-        */
-        getContentBinaryLength(): number;
-        /**
-           Set the binary content length
-
-           @param contentBinaryLength
-           @since ARP1.0
-        */
-        setContentBinaryLength(contentBinaryLength: number): void;
-        /**
-           Returns the content encoding
-
-           @return contentEncoding
-           @since ARP1.0
-        */
-        getContentEncoding(): string;
-        /**
-           Set the content encoding
-
-           @param contentEncoding
-           @since ARP1.0
-        */
-        setContentEncoding(contentEncoding: string): void;
-        /**
-           Returns the content length
-
-           @return contentLength
-           @since ARP1.0
-        */
-        getContentLength(): string;
-        /**
-           Set the content length
-
-           @param contentLength
-           @since ARP1.0
-        */
-        setContentLength(contentLength: string): void;
-        /**
-           Returns the content type
-
-           @return contentType
-           @since ARP1.0
-        */
-        getContentType(): string;
-        /**
-           Set the content type
-
-           @param contentType
-           @since ARP1.0
-        */
-        setContentType(contentType: string): void;
-        /**
-           Returns the array of Header
-
-           @return headers
-           @since ARP1.0
-        */
-        getHeaders(): Header[];
-        /**
-           Set the array of Header
-
-           @param headers
-           @since ARP1.0
-        */
-        setHeaders(headers: Header[]): void;
-        /**
-           Returns the method
-
-           @return method
-           @since ARP1.0
-        */
-        getSession(): ISession;
-        /**
-           Set the method
-
-           @param session
-           @since ARP1.0
-        */
-        setSession(session: ISession): void;
+        setSecureKey(secureKey: string): void;
     }
     /**
        Structure representing the data of a single acceleration reading.
@@ -3366,6 +2892,480 @@ be unique for a specific instance of an application on a specific device.
            @param z Z-axis component of the acceleration.
         */
         setZ(z: number): void;
+    }
+    /**
+       Structure representing the data a single geolocation reading.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class Geolocation {
+        /**
+           The current device altitude (or Z coordinate). Measured in meters.
+        */
+        altitude: number;
+        /**
+           The Y coordinate (or latitude). Measured in degrees.
+        */
+        latitude: number;
+        /**
+           The X coordinate (or longitude). Measured in degrees.
+        */
+        longitude: number;
+        /**
+           Dilution of precision on the X measurement. Measured in meters.
+        */
+        xDoP: number;
+        /**
+           Dilution of precision on the Y measurement. Measured in meters.
+        */
+        yDoP: number;
+        /**
+           Constructor used by the implementation
+
+           @param latitude
+           @param longitude
+           @param altitude
+           @param xDoP
+           @param yDoP
+           @since ARP1.0
+        */
+        constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number);
+        /**
+           Returns altitude in meters
+
+           @return altitude
+           @since ARP1.0
+        */
+        getAltitude(): number;
+        /**
+           Set altitude in meters
+
+           @param altitude
+           @since ARP1.0
+        */
+        setAltitude(altitude: number): void;
+        /**
+           Returns the latitude in degrees
+
+           @return latitude
+           @since ARP1.0
+        */
+        getLatitude(): number;
+        /**
+           Set the latitude in degrees
+
+           @param latitude
+           @since ARP1.0
+        */
+        setLatitude(latitude: number): void;
+        /**
+           Returns the longitude in degrees
+
+           @return longitude
+           @since ARP1.0
+        */
+        getLongitude(): number;
+        /**
+           Returns the latitude in degrees
+
+           @param longitude
+           @since ARP1.0
+        */
+        setLongitude(longitude: number): void;
+        /**
+           Returns the Dilution of Position in the X axis (longitude)
+
+           @return xDoP
+           @since ARP1.0
+        */
+        getXDoP(): number;
+        /**
+           Sets Dilution of precision on the X measurement. Measured in meters.
+
+           @param xDoP Dilution of precision on the X measurement. Measured in meters.
+        */
+        setXDoP(xDoP: number): void;
+        /**
+           Returns the Dilution of Position in the Y axis (latitude)
+
+           @return yDoP
+           @since ARP1.0
+        */
+        getYDoP(): number;
+        /**
+           Sets Dilution of precision on the Y measurement. Measured in meters.
+
+           @param yDoP Dilution of precision on the Y measurement. Measured in meters.
+        */
+        setYDoP(yDoP: number): void;
+    }
+    /**
+       Represents a specific user or system locate.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class Locale {
+        /**
+           A valid ISO Country Code.
+        */
+        country: string;
+        /**
+           A valid ISO Language Code.
+        */
+        language: string;
+        /**
+           Constructor used by the implementation
+
+           @param country
+           @param language
+           @since ARP1.0
+        */
+        constructor(language: string, country: string);
+        /**
+           Returns the country code
+
+           @return country code
+           @since ARP1.0
+        */
+        getCountry(): string;
+        /**
+           Set the country code
+
+           @param country code
+           @since ARP1.0
+        */
+        setCountry(country: string): void;
+        /**
+           Returns the language code
+
+           @return language code
+           @since ARP1.0
+        */
+        getLanguage(): string;
+        /**
+           Set the language code
+
+           @param language code
+           @since ARP1.0
+        */
+        setLanguage(language: string): void;
+    }
+    /**
+       Structure representing the professional info data elements of a contact.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class ContactProfessionalInfo {
+        /**
+           The company of the job
+        */
+        company: string;
+        /**
+           The job description
+        */
+        jobDescription: string;
+        /**
+           The job title
+        */
+        jobTitle: string;
+        /**
+           Constructor used by implementation to set the ContactProfessionalInfo.
+
+           @param jobTitle
+           @param jobDescription
+           @param company
+           @since ARP1.0
+        */
+        constructor(jobTitle: string, jobDescription: string, company: string);
+        /**
+           Returns the company of the job
+
+           @return company
+           @since ARP1.0
+        */
+        getCompany(): string;
+        /**
+           Set the company of the job
+
+           @param company
+           @since ARP1.0
+        */
+        setCompany(company: string): void;
+        /**
+           Returns the description of the job
+
+           @return description
+           @since ARP1.0
+        */
+        getJobDescription(): string;
+        /**
+           Set the description of the job
+
+           @param jobDescription
+           @since ARP1.0
+        */
+        setJobDescription(jobDescription: string): void;
+        /**
+           Returns the title of the job
+
+           @return title
+           @since ARP1.0
+        */
+        getJobTitle(): string;
+        /**
+           Set the title of the job
+
+           @param jobTitle
+           @since ARP1.0
+        */
+        setJobTitle(jobTitle: string): void;
+    }
+    /**
+       Structure representing the email data elements of a contact.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class ContactEmail {
+        /**
+           The type of the email
+        */
+        type: ContactEmailType;
+        /**
+           Email of the Contact
+        */
+        email: string;
+        /**
+           Whether the email is the primary one or not
+        */
+        primary: boolean;
+        /**
+           Constructor used by the implementation
+
+           @param type
+           @param primary
+           @param email
+           @since ARP1.0
+        */
+        constructor(type: ContactEmailType, primary: boolean, email: string);
+        /**
+           Returns the type of the email
+
+           @return EmailType
+           @since ARP1.0
+        */
+        getType(): ContactEmailType;
+        /**
+           Set the type of the email
+
+           @param type
+           @since ARP1.0
+        */
+        setType(type: ContactEmailType): void;
+        /**
+           Returns the email of the Contact
+
+           @return email
+           @since ARP1.0
+        */
+        getEmail(): string;
+        /**
+           Set the email of the Contact
+
+           @param email
+           @since ARP1.0
+        */
+        setEmail(email: string): void;
+        /**
+           Returns if the email is primary
+
+           @return true if the email is primary; false otherwise
+           @since ARP1.0
+        */
+        getPrimary(): boolean;
+        /**
+           Set if the email
+
+           @param primary true if the email is primary; false otherwise
+           @since ARP1.0
+        */
+        setPrimary(primary: boolean): void;
+    }
+    /**
+       Represents a row for a data table.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class Row {
+        /**
+           The values of the row.
+        */
+        values: any[];
+        /**
+           Constructor for implementation using.
+
+           @param values The values of the row
+        */
+        constructor(values: any[]);
+        /**
+           Returns the values of the row.
+
+           @return The values of the row.
+        */
+        getValues(): any[];
+        /**
+           Sets the values of the row.
+
+           @param values The values of the row.
+        */
+        setValues(values: any[]): void;
+    }
+    /**
+       Structure representing the basic device information.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class DeviceInfo {
+        /**
+           Model of device - equivalent to device release or version.
+        */
+        model: string;
+        /**
+           Name of device - equivalent to brand.
+        */
+        name: string;
+        /**
+           Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+        */
+        uuid: string;
+        /**
+           Vendor of the device hardware.
+        */
+        vendor: string;
+        /**
+           Constructor for the implementation of the platform.
+
+           @param name   or brand of the device.
+           @param model  of the device.
+           @param vendor of the device.
+           @param uuid   unique* identifier (* platform dependent).
+        */
+        constructor(name: string, model: string, vendor: string, uuid: string);
+        /**
+           Returns the model of the device.
+
+           @return String with the model of the device.
+        */
+        getModel(): string;
+        /**
+           Sets Model of device - equivalent to device release or version.
+
+           @param model Model of device - equivalent to device release or version.
+        */
+        setModel(model: string): void;
+        /**
+           Returns the name of the device.
+
+           @return String with device name.
+        */
+        getName(): string;
+        /**
+           Sets Name of device - equivalent to brand.
+
+           @param name Name of device - equivalent to brand.
+        */
+        setName(name: string): void;
+        /**
+           Returns the platform dependent UUID of the device.
+
+           @return String with the 128-bit device identifier.
+        */
+        getUuid(): string;
+        /**
+           Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+
+           @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+        */
+        setUuid(uuid: string): void;
+        /**
+           Returns the vendor of the device.
+
+           @return String with the vendor name.
+        */
+        getVendor(): string;
+        /**
+           Sets Vendor of the device hardware.
+
+           @param vendor Vendor of the device hardware.
+        */
+        setVendor(vendor: string): void;
+    }
+    /**
+       Structure representing the assigned tags data elements of a contact.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    class ContactTag {
+        /**
+           The value of the Tag
+        */
+        dataValue: string;
+        /**
+           The name of the Tag
+        */
+        name: string;
+        /**
+           Constructor used by the implementation
+
+           @param dataValue
+           @param name
+           @since ARP1.0
+        */
+        constructor(name: string, dataValue: string);
+        /**
+           Returns the value of the Tag
+
+           @return value
+           @since ARP1.0
+        */
+        getDataValue(): string;
+        /**
+           Set the value of the Tag
+
+           @param dataValue
+           @since ARP1.0
+        */
+        setDataValue(dataValue: string): void;
+        /**
+           Returns the name of the Tag
+
+           @return name
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Set the name of the Tag
+
+           @param name
+           @since ARP1.0
+        */
+        setName(name: string): void;
     }
     /**
        Structure representing the data elements of a contact.
@@ -3528,57 +3528,104 @@ be unique for a specific instance of an application on a specific device.
         setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
     }
     /**
-       Enumeration IGeolocationListenerWarning
+       Enumeration ContactAddressType
     */
-    class IGeolocationListenerWarning {
+    class ContactAddressType {
         value: string;
         constructor(value: string);
         toString(): string;
-        static HighDoP: IGeolocationListenerWarning;
-        static StaleData: IGeolocationListenerWarning;
-        static Unknown: IGeolocationListenerWarning;
+        static Home: ContactAddressType;
+        static Work: ContactAddressType;
+        static Other: ContactAddressType;
+        static Unknown: ContactAddressType;
     }
     /**
-       Enumeration IGeolocationListenerError
+       Enumeration ContactEmailType
     */
-    class IGeolocationListenerError {
+    class ContactEmailType {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Disabled: IGeolocationListenerError;
-        static RestrictedAccess: IGeolocationListenerError;
-        static DeniedAccess: IGeolocationListenerError;
-        static StatusNotDetermined: IGeolocationListenerError;
-        static Unknown: IGeolocationListenerError;
+        static Personal: ContactEmailType;
+        static Work: ContactEmailType;
+        static Other: ContactEmailType;
+        static Unknown: ContactEmailType;
     }
     /**
-       Enumeration IContactFilter
+       Enumeration ContactPersonalInfoTitle
     */
-    class IContactFilter {
+    class ContactPersonalInfoTitle {
         value: string;
         constructor(value: string);
         toString(): string;
-        static HAS_PHONE: IContactFilter;
-        static HAS_EMAIL: IContactFilter;
-        static HAS_ADDRESS: IContactFilter;
-        static Unknown: IContactFilter;
+        static Mr: ContactPersonalInfoTitle;
+        static Mrs: ContactPersonalInfoTitle;
+        static Ms: ContactPersonalInfoTitle;
+        static Dr: ContactPersonalInfoTitle;
+        static Unknown: ContactPersonalInfoTitle;
     }
     /**
-       Enumeration IContactFieldGroup
+       Enumeration ContactPhoneType
     */
-    class IContactFieldGroup {
+    class ContactPhoneType {
         value: string;
         constructor(value: string);
         toString(): string;
-        static PERSONAL_INFO: IContactFieldGroup;
-        static PROFESSIONAL_INFO: IContactFieldGroup;
-        static ADDRESSES: IContactFieldGroup;
-        static PHONES: IContactFieldGroup;
-        static EMAILS: IContactFieldGroup;
-        static WEBSITES: IContactFieldGroup;
-        static SOCIALS: IContactFieldGroup;
-        static TAGS: IContactFieldGroup;
-        static Unknown: IContactFieldGroup;
+        static Mobile: ContactPhoneType;
+        static Work: ContactPhoneType;
+        static Home: ContactPhoneType;
+        static Main: ContactPhoneType;
+        static HomeFax: ContactPhoneType;
+        static WorkFax: ContactPhoneType;
+        static Other: ContactPhoneType;
+        static Unknown: ContactPhoneType;
+    }
+    /**
+       Enumeration ContactSocialNetwork
+    */
+    class ContactSocialNetwork {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Twitter: ContactSocialNetwork;
+        static Facebook: ContactSocialNetwork;
+        static GooglePlus: ContactSocialNetwork;
+        static LinkedIn: ContactSocialNetwork;
+        static Flickr: ContactSocialNetwork;
+        static Unknown: ContactSocialNetwork;
+    }
+    /**
+       Enumeration IAccelerationListenerError
+    */
+    class IAccelerationListenerError {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Unauthorized: IAccelerationListenerError;
+        static Unavailable: IAccelerationListenerError;
+        static Unknown: IAccelerationListenerError;
+    }
+    /**
+       Enumeration IAccelerationListenerWarning
+    */
+    class IAccelerationListenerWarning {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static NeedsCalibration: IAccelerationListenerWarning;
+        static Stale: IAccelerationListenerWarning;
+        static Unknown: IAccelerationListenerWarning;
+    }
+    /**
+       Enumeration IAppResourceCallbackError
+    */
+    class IAppResourceCallbackError {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static NotFound: IAppResourceCallbackError;
+        static NoPermission: IAppResourceCallbackError;
+        static Unknown: IAppResourceCallbackError;
     }
     /**
        Enumeration IAppResourceCallbackWarning
@@ -3593,190 +3640,36 @@ be unique for a specific instance of an application on a specific device.
         static Unknown: IAppResourceCallbackWarning;
     }
     /**
-       Enumeration IAppResourceCallbackError
+       Enumeration IButtonListenerError
     */
-    class IAppResourceCallbackError {
+    class IButtonListenerError {
         value: string;
         constructor(value: string);
         toString(): string;
-        static NotFound: IAppResourceCallbackError;
-        static NoPermission: IAppResourceCallbackError;
-        static Unknown: IAppResourceCallbackError;
+        static Not_Present: IButtonListenerError;
+        static Unknown: IButtonListenerError;
     }
     /**
-       Enumeration IAccelerationListenerWarning
+       Enumeration IButtonListenerWarning
     */
-    class IAccelerationListenerWarning {
+    class IButtonListenerWarning {
         value: string;
         constructor(value: string);
         toString(): string;
-        static NeedsCalibration: IAccelerationListenerWarning;
-        static Stale: IAccelerationListenerWarning;
-        static Unknown: IAccelerationListenerWarning;
+        static Not_Implemented: IButtonListenerWarning;
+        static Unknown: IButtonListenerWarning;
     }
     /**
-       Enumeration IAccelerationListenerError
+       Enumeration ICapabilitiesButton
     */
-    class IAccelerationListenerError {
+    class ICapabilitiesButton {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Unauthorized: IAccelerationListenerError;
-        static Unavailable: IAccelerationListenerError;
-        static Unknown: IAccelerationListenerError;
-    }
-    /**
-       Enumeration IMessagingCallbackWarning
-    */
-    class IMessagingCallbackWarning {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static UnableToSentAll: IMessagingCallbackWarning;
-        static UnableToFetchAttachment: IMessagingCallbackWarning;
-        static Unknown: IMessagingCallbackWarning;
-    }
-    /**
-       Enumeration IMessagingCallbackError
-    */
-    class IMessagingCallbackError {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static SIMNotPresent: IMessagingCallbackError;
-        static EmailAccountNotFound: IMessagingCallbackError;
-        static NotSent: IMessagingCallbackError;
-        static WrongParams: IMessagingCallbackError;
-        static NotSupported: IMessagingCallbackError;
-        static Unknown: IMessagingCallbackError;
-    }
-    /**
-       Enumeration IFileDataResultCallbackWarning
-    */
-    class IFileDataResultCallbackWarning {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static ExceedMaximumSize: IFileDataResultCallbackWarning;
-        static Unknown: IFileDataResultCallbackWarning;
-    }
-    /**
-       Enumeration IFileDataResultCallbackError
-    */
-    class IFileDataResultCallbackError {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static InexistentFile: IFileDataResultCallbackError;
-        static InsufficientSpace: IFileDataResultCallbackError;
-        static Unauthorized: IFileDataResultCallbackError;
-        static Unknown: IFileDataResultCallbackError;
-    }
-    /**
-       Enumeration ILoggingLogLevel
-    */
-    class ILoggingLogLevel {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static DEBUG: ILoggingLogLevel;
-        static WARN: ILoggingLogLevel;
-        static ERROR: ILoggingLogLevel;
-        static INFO: ILoggingLogLevel;
-        static Unknown: ILoggingLogLevel;
-    }
-    /**
-       Enumeration IContactPhotoResultCallbackWarning
-    */
-    class IContactPhotoResultCallbackWarning {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static LimitExceeded: IContactPhotoResultCallbackWarning;
-        static No_Matches: IContactPhotoResultCallbackWarning;
-        static Unknown: IContactPhotoResultCallbackWarning;
-    }
-    /**
-       Enumeration IContactPhotoResultCallbackError
-    */
-    class IContactPhotoResultCallbackError {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static NoPermission: IContactPhotoResultCallbackError;
-        static Wrong_Params: IContactPhotoResultCallbackError;
-        static No_Photo: IContactPhotoResultCallbackError;
-        static Unknown: IContactPhotoResultCallbackError;
-    }
-    /**
-       Enumeration IServiceResultCallbackWarning
-    */
-    class IServiceResultCallbackWarning {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static NotSecure: IServiceResultCallbackWarning;
-        static NotTrusted: IServiceResultCallbackWarning;
-        static Redirected: IServiceResultCallbackWarning;
-        static Wrong_Params: IServiceResultCallbackWarning;
-        static Unknown: IServiceResultCallbackWarning;
-    }
-    /**
-       Enumeration IServiceResultCallbackError
-    */
-    class IServiceResultCallbackError {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Forbidden: IServiceResultCallbackError;
-        static NotFound: IServiceResultCallbackError;
-        static MethodNotAllowed: IServiceResultCallbackError;
-        static NotAllowed: IServiceResultCallbackError;
-        static NotAuthenticated: IServiceResultCallbackError;
-        static TimeOut: IServiceResultCallbackError;
-        static NoResponse: IServiceResultCallbackError;
-        static ServerError: IServiceResultCallbackError;
-        static Unreachable: IServiceResultCallbackError;
-        static MalformedUrl: IServiceResultCallbackError;
-        static NotRegisteredService: IServiceResultCallbackError;
-        static Unknown: IServiceResultCallbackError;
-    }
-    /**
-       Enumeration ISecureKVResultCallbackWarning
-    */
-    class ISecureKVResultCallbackWarning {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static EntryOverride: ISecureKVResultCallbackWarning;
-        static Unknown: ISecureKVResultCallbackWarning;
-    }
-    /**
-       Enumeration ISecureKVResultCallbackError
-    */
-    class ISecureKVResultCallbackError {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static NoPermission: ISecureKVResultCallbackError;
-        static NoMatchesFound: ISecureKVResultCallbackError;
-        static Unknown: ISecureKVResultCallbackError;
-    }
-    /**
-       Enumeration ICapabilitiesSensor
-    */
-    class ICapabilitiesSensor {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Accelerometer: ICapabilitiesSensor;
-        static AmbientLight: ICapabilitiesSensor;
-        static Barometer: ICapabilitiesSensor;
-        static Geolocation: ICapabilitiesSensor;
-        static Gyroscope: ICapabilitiesSensor;
-        static Magnetometer: ICapabilitiesSensor;
-        static Proximity: ICapabilitiesSensor;
-        static Unknown: ICapabilitiesSensor;
+        static HomeButton: ICapabilitiesButton;
+        static BackButton: ICapabilitiesButton;
+        static OptionButton: ICapabilitiesButton;
+        static Unknown: ICapabilitiesButton;
     }
     /**
        Enumeration ICapabilitiesCommunication
@@ -3847,70 +3740,94 @@ be unique for a specific instance of an application on a specific device.
         static Unknown: ICapabilitiesNotification;
     }
     /**
-       Enumeration ICapabilitiesButton
+       Enumeration ICapabilitiesSensor
     */
-    class ICapabilitiesButton {
+    class ICapabilitiesSensor {
         value: string;
         constructor(value: string);
         toString(): string;
-        static HomeButton: ICapabilitiesButton;
-        static BackButton: ICapabilitiesButton;
-        static OptionButton: ICapabilitiesButton;
-        static Unknown: ICapabilitiesButton;
+        static Accelerometer: ICapabilitiesSensor;
+        static AmbientLight: ICapabilitiesSensor;
+        static Barometer: ICapabilitiesSensor;
+        static Geolocation: ICapabilitiesSensor;
+        static Gyroscope: ICapabilitiesSensor;
+        static Magnetometer: ICapabilitiesSensor;
+        static Proximity: ICapabilitiesSensor;
+        static Unknown: ICapabilitiesSensor;
     }
     /**
-       Enumeration IButtonListenerWarning
+       Enumeration IContactFieldGroup
     */
-    class IButtonListenerWarning {
+    class IContactFieldGroup {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Not_Implemented: IButtonListenerWarning;
-        static Unknown: IButtonListenerWarning;
+        static PERSONAL_INFO: IContactFieldGroup;
+        static PROFESSIONAL_INFO: IContactFieldGroup;
+        static ADDRESSES: IContactFieldGroup;
+        static PHONES: IContactFieldGroup;
+        static EMAILS: IContactFieldGroup;
+        static WEBSITES: IContactFieldGroup;
+        static SOCIALS: IContactFieldGroup;
+        static TAGS: IContactFieldGroup;
+        static Unknown: IContactFieldGroup;
     }
     /**
-       Enumeration IButtonListenerError
+       Enumeration IContactFilter
     */
-    class IButtonListenerError {
+    class IContactFilter {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Not_Present: IButtonListenerError;
-        static Unknown: IButtonListenerError;
+        static HAS_PHONE: IContactFilter;
+        static HAS_EMAIL: IContactFilter;
+        static HAS_ADDRESS: IContactFilter;
+        static Unknown: IContactFilter;
     }
     /**
-       Enumeration ILifecycleListenerWarning
+       Enumeration IContactPhotoResultCallbackError
     */
-    class ILifecycleListenerWarning {
+    class IContactPhotoResultCallbackError {
         value: string;
         constructor(value: string);
         toString(): string;
-        static MemoryLow: ILifecycleListenerWarning;
-        static BatteryLow: ILifecycleListenerWarning;
-        static Unknown: ILifecycleListenerWarning;
+        static NoPermission: IContactPhotoResultCallbackError;
+        static Wrong_Params: IContactPhotoResultCallbackError;
+        static No_Photo: IContactPhotoResultCallbackError;
+        static Unknown: IContactPhotoResultCallbackError;
     }
     /**
-       Enumeration ILifecycleListenerError
+       Enumeration IContactPhotoResultCallbackWarning
     */
-    class ILifecycleListenerError {
+    class IContactPhotoResultCallbackWarning {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Runtime: ILifecycleListenerError;
-        static Implementation: ILifecycleListenerError;
-        static Killed: ILifecycleListenerError;
-        static Unknown: ILifecycleListenerError;
+        static LimitExceeded: IContactPhotoResultCallbackWarning;
+        static No_Matches: IContactPhotoResultCallbackWarning;
+        static Unknown: IContactPhotoResultCallbackWarning;
     }
     /**
-       Enumeration IDatabaseResultCallbackWarning
+       Enumeration IContactResultCallbackError
     */
-    class IDatabaseResultCallbackWarning {
+    class IContactResultCallbackError {
         value: string;
         constructor(value: string);
         toString(): string;
-        static DatabaseExists: IDatabaseResultCallbackWarning;
-        static IsOpen: IDatabaseResultCallbackWarning;
-        static Unknown: IDatabaseResultCallbackWarning;
+        static NoPermission: IContactResultCallbackError;
+        static Wrong_Params: IContactResultCallbackError;
+        static Unknown: IContactResultCallbackError;
+    }
+    /**
+       Enumeration IContactResultCallbackWarning
+    */
+    class IContactResultCallbackWarning {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static LimitExceeded: IContactResultCallbackWarning;
+        static No_Matches: IContactResultCallbackWarning;
+        static Unknown: IContactResultCallbackWarning;
     }
     /**
        Enumeration IDatabaseResultCallbackError
@@ -3925,18 +3842,166 @@ be unique for a specific instance of an application on a specific device.
         static Unknown: IDatabaseResultCallbackError;
     }
     /**
-       Enumeration INetworkReachabilityCallbackWarning
+       Enumeration IDatabaseResultCallbackWarning
     */
-    class INetworkReachabilityCallbackWarning {
+    class IDatabaseResultCallbackWarning {
         value: string;
         constructor(value: string);
         toString(): string;
-        static IncorrectScheme: INetworkReachabilityCallbackWarning;
-        static NotSecure: INetworkReachabilityCallbackWarning;
-        static NotTrusted: INetworkReachabilityCallbackWarning;
-        static Redirected: INetworkReachabilityCallbackWarning;
-        static NotRegisteredService: INetworkReachabilityCallbackWarning;
-        static Unknown: INetworkReachabilityCallbackWarning;
+        static DatabaseExists: IDatabaseResultCallbackWarning;
+        static IsOpen: IDatabaseResultCallbackWarning;
+        static Unknown: IDatabaseResultCallbackWarning;
+    }
+    /**
+       Enumeration IFileDataResultCallbackError
+    */
+    class IFileDataResultCallbackError {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static InexistentFile: IFileDataResultCallbackError;
+        static InsufficientSpace: IFileDataResultCallbackError;
+        static Unauthorized: IFileDataResultCallbackError;
+        static Unknown: IFileDataResultCallbackError;
+    }
+    /**
+       Enumeration IFileDataResultCallbackWarning
+    */
+    class IFileDataResultCallbackWarning {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static ExceedMaximumSize: IFileDataResultCallbackWarning;
+        static Unknown: IFileDataResultCallbackWarning;
+    }
+    /**
+       Enumeration IFileListResultCallbackError
+    */
+    class IFileListResultCallbackError {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static InexistentFile: IFileListResultCallbackError;
+        static Unauthorized: IFileListResultCallbackError;
+        static Unknown: IFileListResultCallbackError;
+    }
+    /**
+       Enumeration IFileListResultCallbackWarning
+    */
+    class IFileListResultCallbackWarning {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static PartialResult: IFileListResultCallbackWarning;
+        static Unknown: IFileListResultCallbackWarning;
+    }
+    /**
+       Enumeration IFileResultCallbackError
+    */
+    class IFileResultCallbackError {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static FileExists: IFileResultCallbackError;
+        static InsufficientSpace: IFileResultCallbackError;
+        static Unauthorized: IFileResultCallbackError;
+        static Unknown: IFileResultCallbackError;
+    }
+    /**
+       Enumeration IFileResultCallbackWarning
+    */
+    class IFileResultCallbackWarning {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static SourceNotDeleted: IFileResultCallbackWarning;
+        static RootDirectory: IFileResultCallbackWarning;
+        static Unknown: IFileResultCallbackWarning;
+    }
+    /**
+       Enumeration IGeolocationListenerError
+    */
+    class IGeolocationListenerError {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Disabled: IGeolocationListenerError;
+        static RestrictedAccess: IGeolocationListenerError;
+        static DeniedAccess: IGeolocationListenerError;
+        static StatusNotDetermined: IGeolocationListenerError;
+        static Unknown: IGeolocationListenerError;
+    }
+    /**
+       Enumeration IGeolocationListenerWarning
+    */
+    class IGeolocationListenerWarning {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static HighDoP: IGeolocationListenerWarning;
+        static StaleData: IGeolocationListenerWarning;
+        static Unknown: IGeolocationListenerWarning;
+    }
+    /**
+       Enumeration ILifecycleListenerError
+    */
+    class ILifecycleListenerError {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Runtime: ILifecycleListenerError;
+        static Implementation: ILifecycleListenerError;
+        static Killed: ILifecycleListenerError;
+        static Unknown: ILifecycleListenerError;
+    }
+    /**
+       Enumeration ILifecycleListenerWarning
+    */
+    class ILifecycleListenerWarning {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static MemoryLow: ILifecycleListenerWarning;
+        static BatteryLow: ILifecycleListenerWarning;
+        static Unknown: ILifecycleListenerWarning;
+    }
+    /**
+       Enumeration ILoggingLogLevel
+    */
+    class ILoggingLogLevel {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static DEBUG: ILoggingLogLevel;
+        static WARN: ILoggingLogLevel;
+        static ERROR: ILoggingLogLevel;
+        static INFO: ILoggingLogLevel;
+        static Unknown: ILoggingLogLevel;
+    }
+    /**
+       Enumeration IMessagingCallbackError
+    */
+    class IMessagingCallbackError {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static SIMNotPresent: IMessagingCallbackError;
+        static EmailAccountNotFound: IMessagingCallbackError;
+        static NotSent: IMessagingCallbackError;
+        static WrongParams: IMessagingCallbackError;
+        static NotSupported: IMessagingCallbackError;
+        static Unknown: IMessagingCallbackError;
+    }
+    /**
+       Enumeration IMessagingCallbackWarning
+    */
+    class IMessagingCallbackWarning {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static UnableToSentAll: IMessagingCallbackWarning;
+        static UnableToFetchAttachment: IMessagingCallbackWarning;
+        static Unknown: IMessagingCallbackWarning;
     }
     /**
        Enumeration INetworkReachabilityCallbackError
@@ -3959,138 +4024,50 @@ be unique for a specific instance of an application on a specific device.
         static Unknown: INetworkReachabilityCallbackError;
     }
     /**
-       Enumeration IFileListResultCallbackWarning
+       Enumeration INetworkReachabilityCallbackWarning
     */
-    class IFileListResultCallbackWarning {
+    class INetworkReachabilityCallbackWarning {
         value: string;
         constructor(value: string);
         toString(): string;
-        static PartialResult: IFileListResultCallbackWarning;
-        static Unknown: IFileListResultCallbackWarning;
+        static IncorrectScheme: INetworkReachabilityCallbackWarning;
+        static NotSecure: INetworkReachabilityCallbackWarning;
+        static NotTrusted: INetworkReachabilityCallbackWarning;
+        static Redirected: INetworkReachabilityCallbackWarning;
+        static NotRegisteredService: INetworkReachabilityCallbackWarning;
+        static Unknown: INetworkReachabilityCallbackWarning;
     }
     /**
-       Enumeration IFileListResultCallbackError
+       Enumeration ISecureKVResultCallbackError
     */
-    class IFileListResultCallbackError {
+    class ISecureKVResultCallbackError {
         value: string;
         constructor(value: string);
         toString(): string;
-        static InexistentFile: IFileListResultCallbackError;
-        static Unauthorized: IFileListResultCallbackError;
-        static Unknown: IFileListResultCallbackError;
+        static NoPermission: ISecureKVResultCallbackError;
+        static NoMatchesFound: ISecureKVResultCallbackError;
+        static Unknown: ISecureKVResultCallbackError;
     }
     /**
-       Enumeration IContactResultCallbackWarning
+       Enumeration ISecureKVResultCallbackWarning
     */
-    class IContactResultCallbackWarning {
+    class ISecureKVResultCallbackWarning {
         value: string;
         constructor(value: string);
         toString(): string;
-        static LimitExceeded: IContactResultCallbackWarning;
-        static No_Matches: IContactResultCallbackWarning;
-        static Unknown: IContactResultCallbackWarning;
+        static EntryOverride: ISecureKVResultCallbackWarning;
+        static Unknown: ISecureKVResultCallbackWarning;
     }
     /**
-       Enumeration IContactResultCallbackError
+       Enumeration IServiceProtocolVersion
     */
-    class IContactResultCallbackError {
+    class IServiceProtocolVersion {
         value: string;
         constructor(value: string);
         toString(): string;
-        static NoPermission: IContactResultCallbackError;
-        static Wrong_Params: IContactResultCallbackError;
-        static Unknown: IContactResultCallbackError;
-    }
-    /**
-       Enumeration IFileResultCallbackWarning
-    */
-    class IFileResultCallbackWarning {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static SourceNotDeleted: IFileResultCallbackWarning;
-        static RootDirectory: IFileResultCallbackWarning;
-        static Unknown: IFileResultCallbackWarning;
-    }
-    /**
-       Enumeration IFileResultCallbackError
-    */
-    class IFileResultCallbackError {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static FileExists: IFileResultCallbackError;
-        static InsufficientSpace: IFileResultCallbackError;
-        static Unauthorized: IFileResultCallbackError;
-        static Unknown: IFileResultCallbackError;
-    }
-    /**
-       Enumeration ITableResultCallbackWarning
-    */
-    class ITableResultCallbackWarning {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static TableExists: ITableResultCallbackWarning;
-        static TableLocked: ITableResultCallbackWarning;
-        static NoResults: ITableResultCallbackWarning;
-        static Unknown: ITableResultCallbackWarning;
-    }
-    /**
-       Enumeration ITableResultCallbackError
-    */
-    class ITableResultCallbackError {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static NoSpace: ITableResultCallbackError;
-        static ReadOnlyTable: ITableResultCallbackError;
-        static SqlException: ITableResultCallbackError;
-        static DatabaseNotFound: ITableResultCallbackError;
-        static NoTableFound: ITableResultCallbackError;
-        static Unknown: ITableResultCallbackError;
-    }
-    /**
-       Enumeration ContactEmailType
-    */
-    class ContactEmailType {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Personal: ContactEmailType;
-        static Work: ContactEmailType;
-        static Other: ContactEmailType;
-        static Unknown: ContactEmailType;
-    }
-    /**
-       Enumeration LifecycleState
-    */
-    class LifecycleState {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Starting: LifecycleState;
-        static Started: LifecycleState;
-        static Running: LifecycleState;
-        static Paused: LifecycleState;
-        static PausedIdle: LifecycleState;
-        static PausedRun: LifecycleState;
-        static Resuming: LifecycleState;
-        static Stopping: LifecycleState;
-        static Unknown: LifecycleState;
-    }
-    /**
-       Enumeration ContactPersonalInfoTitle
-    */
-    class ContactPersonalInfoTitle {
-        value: string;
-        constructor(value: string);
-        toString(): string;
-        static Mr: ContactPersonalInfoTitle;
-        static Mrs: ContactPersonalInfoTitle;
-        static Ms: ContactPersonalInfoTitle;
-        static Dr: ContactPersonalInfoTitle;
-        static Unknown: ContactPersonalInfoTitle;
+        static HTTP_PROTOCOL_VERSION_1_0: IServiceProtocolVersion;
+        static HTTP_PROTOCOL_VERSION_1_1: IServiceProtocolVersion;
+        static Unknown: IServiceProtocolVersion;
     }
     /**
        Enumeration IServiceMethod
@@ -4123,56 +4100,79 @@ be unique for a specific instance of an application on a specific device.
         static Unknown: IServiceType;
     }
     /**
-       Enumeration IServiceProtocolVersion
+       Enumeration IServiceResultCallbackError
     */
-    class IServiceProtocolVersion {
+    class IServiceResultCallbackError {
         value: string;
         constructor(value: string);
         toString(): string;
-        static HTTP_PROTOCOL_VERSION_1_0: IServiceProtocolVersion;
-        static HTTP_PROTOCOL_VERSION_1_1: IServiceProtocolVersion;
-        static Unknown: IServiceProtocolVersion;
+        static Forbidden: IServiceResultCallbackError;
+        static NotFound: IServiceResultCallbackError;
+        static MethodNotAllowed: IServiceResultCallbackError;
+        static NotAllowed: IServiceResultCallbackError;
+        static NotAuthenticated: IServiceResultCallbackError;
+        static TimeOut: IServiceResultCallbackError;
+        static NoResponse: IServiceResultCallbackError;
+        static ServerError: IServiceResultCallbackError;
+        static Unreachable: IServiceResultCallbackError;
+        static MalformedUrl: IServiceResultCallbackError;
+        static NotRegisteredService: IServiceResultCallbackError;
+        static Unknown: IServiceResultCallbackError;
     }
     /**
-       Enumeration ContactSocialNetwork
+       Enumeration IServiceResultCallbackWarning
     */
-    class ContactSocialNetwork {
+    class IServiceResultCallbackWarning {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Twitter: ContactSocialNetwork;
-        static Facebook: ContactSocialNetwork;
-        static GooglePlus: ContactSocialNetwork;
-        static LinkedIn: ContactSocialNetwork;
-        static Flickr: ContactSocialNetwork;
-        static Unknown: ContactSocialNetwork;
+        static NotSecure: IServiceResultCallbackWarning;
+        static NotTrusted: IServiceResultCallbackWarning;
+        static Redirected: IServiceResultCallbackWarning;
+        static Wrong_Params: IServiceResultCallbackWarning;
+        static Unknown: IServiceResultCallbackWarning;
     }
     /**
-       Enumeration ContactPhoneType
+       Enumeration ITableResultCallbackError
     */
-    class ContactPhoneType {
+    class ITableResultCallbackError {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Mobile: ContactPhoneType;
-        static Work: ContactPhoneType;
-        static Home: ContactPhoneType;
-        static Main: ContactPhoneType;
-        static HomeFax: ContactPhoneType;
-        static WorkFax: ContactPhoneType;
-        static Other: ContactPhoneType;
-        static Unknown: ContactPhoneType;
+        static NoSpace: ITableResultCallbackError;
+        static ReadOnlyTable: ITableResultCallbackError;
+        static SqlException: ITableResultCallbackError;
+        static DatabaseNotFound: ITableResultCallbackError;
+        static NoTableFound: ITableResultCallbackError;
+        static Unknown: ITableResultCallbackError;
     }
     /**
-       Enumeration ContactAddressType
+       Enumeration ITableResultCallbackWarning
     */
-    class ContactAddressType {
+    class ITableResultCallbackWarning {
         value: string;
         constructor(value: string);
         toString(): string;
-        static Home: ContactAddressType;
-        static Work: ContactAddressType;
-        static Other: ContactAddressType;
-        static Unknown: ContactAddressType;
+        static TableExists: ITableResultCallbackWarning;
+        static TableLocked: ITableResultCallbackWarning;
+        static NoResults: ITableResultCallbackWarning;
+        static Unknown: ITableResultCallbackWarning;
+    }
+    /**
+       Enumeration LifecycleState
+    */
+    class LifecycleState {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Starting: LifecycleState;
+        static Started: LifecycleState;
+        static Running: LifecycleState;
+        static Paused: LifecycleState;
+        static PausedIdle: LifecycleState;
+        static PausedRun: LifecycleState;
+        static Resuming: LifecycleState;
+        static Stopping: LifecycleState;
+        static Unknown: LifecycleState;
     }
 }

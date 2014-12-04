@@ -23,6 +23,15 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+/**
+   Definition of ISocket interface/protocol.
+
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
+*/
+public protocol ISocket : IBaseCommunication {
+}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

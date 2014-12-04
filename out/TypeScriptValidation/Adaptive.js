@@ -31,784 +31,473 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-       Structure representing the data of a http cookie.
+       Represents a local or remote service response.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    var Cookie = (function () {
+    var ServiceResponse = (function () {
         /**
            Constructor used by the implementation
 
-           @param name
-           @param data
+           @param content
+           @param contentType
+           @param contentLength
+           @param contentBinary
+           @param contentBinaryLength
+           @param headers
+           @param session
+           @param contentEncoding
            @since ARP1.0
         */
-        function Cookie(name, data) {
-            this.name = name;
-            this.data = data;
+        function ServiceResponse(content, contentType, contentLength, contentBinary, contentBinaryLength, headers, session, contentEncoding) {
+            this.content = content;
+            this.contentType = contentType;
+            this.contentLength = contentLength;
+            this.contentBinary = contentBinary;
+            this.contentBinaryLength = contentBinaryLength;
+            this.headers = headers;
+            this.session = session;
+            this.contentEncoding = contentEncoding;
         }
         /**
-           Gets Cookie creation timestamp in milliseconds.
+           Returns the content
 
-           @return creation Cookie creation timestamp in milliseconds.
-        */
-        Cookie.prototype.getCreation = function () {
-            return this.creation;
-        };
-        /**
-           Sets Cookie creation timestamp in milliseconds.
-
-           @param creation Cookie creation timestamp in milliseconds.
-        */
-        Cookie.prototype.setCreation = function (creation) {
-            this.creation = creation;
-        };
-        /**
-           Returns the cookie value
-
-           @return
+           @return content
            @since ARP1.0
         */
-        Cookie.prototype.getData = function () {
-            return this.data;
+        ServiceResponse.prototype.getContent = function () {
+            return this.content;
         };
         /**
-           Set the cookie value
+           Set the content
 
-           @param data
+           @param content
            @since ARP1.0
         */
-        Cookie.prototype.setData = function (data) {
-            this.data = data;
+        ServiceResponse.prototype.setContent = function (content) {
+            this.content = content;
         };
         /**
-           Returns the domain
+           Returns the binary content
 
-           @return domain
+           @return contentBinary
            @since ARP1.0
         */
-        Cookie.prototype.getDomain = function () {
-            return this.domain;
+        ServiceResponse.prototype.getContentBinary = function () {
+            return this.contentBinary;
         };
         /**
-           Set the domain
+           Set the binary content
 
-           @param domain
-        */
-        Cookie.prototype.setDomain = function (domain) {
-            this.domain = domain;
-        };
-        /**
-           Returns the expiration date in milis
-
-           @return expiry
+           @param contentBinary
            @since ARP1.0
         */
-        Cookie.prototype.getExpiry = function () {
-            return this.expiry;
+        ServiceResponse.prototype.setContentBinary = function (contentBinary) {
+            this.contentBinary = contentBinary;
         };
         /**
-           Set the expiration date in milis
+           Retrusn the binary content length
 
-           @param expiry
-        */
-        Cookie.prototype.setExpiry = function (expiry) {
-            this.expiry = expiry;
-        };
-        /**
-           Returns the cookie name
-
-           @return name
+           @return contentBinaryLength
            @since ARP1.0
         */
-        Cookie.prototype.getName = function () {
-            return this.name;
+        ServiceResponse.prototype.getContentBinaryLength = function () {
+            return this.contentBinaryLength;
         };
         /**
-           Set the cookie name
+           Set the binary content length
 
-           @param name
+           @param contentBinaryLength
            @since ARP1.0
         */
-        Cookie.prototype.setName = function (name) {
-            this.name = name;
+        ServiceResponse.prototype.setContentBinaryLength = function (contentBinaryLength) {
+            this.contentBinaryLength = contentBinaryLength;
         };
         /**
-           Returns the path
+           Returns the content encoding
 
-           @return path
+           @return contentEncoding
            @since ARP1.0
         */
-        Cookie.prototype.getPath = function () {
-            return this.path;
+        ServiceResponse.prototype.getContentEncoding = function () {
+            return this.contentEncoding;
         };
         /**
-           Set the path
+           Set the content encoding
 
-           @param path
-        */
-        Cookie.prototype.setPath = function (path) {
-            this.path = path;
-        };
-        /**
-           Returns the scheme
-
-           @return scheme
+           @param contentEncoding
            @since ARP1.0
         */
-        Cookie.prototype.getScheme = function () {
-            return this.scheme;
+        ServiceResponse.prototype.setContentEncoding = function (contentEncoding) {
+            this.contentEncoding = contentEncoding;
         };
         /**
-           Set the scheme
+           Returns the content length
 
-           @param scheme
-        */
-        Cookie.prototype.setScheme = function (scheme) {
-            this.scheme = scheme;
-        };
-        /**
-           Returns whether the cookie is secure or not
-
-           @return true if the cookie is secure; false otherwise
+           @return contentLength
            @since ARP1.0
         */
-        Cookie.prototype.getSecure = function () {
-            return this.secure;
+        ServiceResponse.prototype.getContentLength = function () {
+            return this.contentLength;
         };
         /**
-           Set whether the cookie is secure or not
+           Set the content length
 
-           @param secure
+           @param contentLength
+           @since ARP1.0
         */
-        Cookie.prototype.setSecure = function (secure) {
-            this.secure = secure;
+        ServiceResponse.prototype.setContentLength = function (contentLength) {
+            this.contentLength = contentLength;
         };
-        return Cookie;
+        /**
+           Returns the content type
+
+           @return contentType
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContentType = function () {
+            return this.contentType;
+        };
+        /**
+           Set the content type
+
+           @param contentType
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContentType = function (contentType) {
+            this.contentType = contentType;
+        };
+        /**
+           Returns the array of Header
+
+           @return headers
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getHeaders = function () {
+            return this.headers;
+        };
+        /**
+           Set the array of Header
+
+           @param headers
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setHeaders = function (headers) {
+            this.headers = headers;
+        };
+        /**
+           Returns the method
+
+           @return method
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getSession = function () {
+            return this.session;
+        };
+        /**
+           Set the method
+
+           @param session
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setSession = function (session) {
+            this.session = session;
+        };
+        return ServiceResponse;
     })();
-    Adaptive.Cookie = Cookie;
+    Adaptive.ServiceResponse = ServiceResponse;
     /**
-       Structure representing a remote or local service access end-point.
+       Structure representing the address data elements of a contact.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    var Endpoint = (function () {
+    var ContactAddress = (function () {
         /**
            Constructor used by the implementation
 
-           @param host
-           @param path
-           @param port
-           @param proxy
-           @param scheme
+           @param address Address data.
+           @param type    Address type.
            @since ARP1.0
         */
-        function Endpoint(host, path, port, proxy, scheme) {
-            this.host = host;
-            this.path = path;
-            this.port = port;
-            this.proxy = proxy;
-            this.scheme = scheme;
-        }
-        /**
-           Returns the host
-
-           @return host
-           @since ARP1.0
-        */
-        Endpoint.prototype.getHost = function () {
-            return this.host;
-        };
-        /**
-           Set the host
-
-           @param host
-           @since ARP1.0
-        */
-        Endpoint.prototype.setHost = function (host) {
-            this.host = host;
-        };
-        /**
-           Returns the path
-
-           @return path
-           @since ARP1.0
-        */
-        Endpoint.prototype.getPath = function () {
-            return this.path;
-        };
-        /**
-           Set the path
-
-           @param path
-           @since ARP1.0
-        */
-        Endpoint.prototype.setPath = function (path) {
-            this.path = path;
-        };
-        /**
-           Returns the port
-
-           @return port
-           @since ARP1.0
-        */
-        Endpoint.prototype.getPort = function () {
-            return this.port;
-        };
-        /**
-           Set the port
-
-           @param port
-           @since ARP1.0
-        */
-        Endpoint.prototype.setPort = function (port) {
-            this.port = port;
-        };
-        /**
-           Return the proxy
-
-           @return proxy
-           @since ARP1.0
-        */
-        Endpoint.prototype.getProxy = function () {
-            return this.proxy;
-        };
-        /**
-           Set the proxy
-
-           @param proxy
-           @since ARP1.0
-        */
-        Endpoint.prototype.setProxy = function (proxy) {
-            this.proxy = proxy;
-        };
-        /**
-           Returns the scheme
-
-           @return scheme
-           @since ARP1.0
-        */
-        Endpoint.prototype.getScheme = function () {
-            return this.scheme;
-        };
-        /**
-           Set the scheme
-
-           @param scheme
-           @since ARP1.0
-        */
-        Endpoint.prototype.setScheme = function (scheme) {
-            this.scheme = scheme;
-        };
-        return Endpoint;
-    })();
-    Adaptive.Endpoint = Endpoint;
-    /**
-       Structure representing the data a single geolocation reading.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var Geolocation = (function () {
-        /**
-           Constructor used by the implementation
-
-           @param latitude
-           @param longitude
-           @param altitude
-           @param xDoP
-           @param yDoP
-           @since ARP1.0
-        */
-        function Geolocation(latitude, longitude, altitude, xDoP, yDoP) {
-            this.latitude = latitude;
-            this.longitude = longitude;
-            this.altitude = altitude;
-            this.xDoP = xDoP;
-            this.yDoP = yDoP;
-        }
-        /**
-           Returns altitude in meters
-
-           @return altitude
-           @since ARP1.0
-        */
-        Geolocation.prototype.getAltitude = function () {
-            return this.altitude;
-        };
-        /**
-           Set altitude in meters
-
-           @param altitude
-           @since ARP1.0
-        */
-        Geolocation.prototype.setAltitude = function (altitude) {
-            this.altitude = altitude;
-        };
-        /**
-           Returns the latitude in degrees
-
-           @return latitude
-           @since ARP1.0
-        */
-        Geolocation.prototype.getLatitude = function () {
-            return this.latitude;
-        };
-        /**
-           Set the latitude in degrees
-
-           @param latitude
-           @since ARP1.0
-        */
-        Geolocation.prototype.setLatitude = function (latitude) {
-            this.latitude = latitude;
-        };
-        /**
-           Returns the longitude in degrees
-
-           @return longitude
-           @since ARP1.0
-        */
-        Geolocation.prototype.getLongitude = function () {
-            return this.longitude;
-        };
-        /**
-           Returns the latitude in degrees
-
-           @param longitude
-           @since ARP1.0
-        */
-        Geolocation.prototype.setLongitude = function (longitude) {
-            this.longitude = longitude;
-        };
-        /**
-           Returns the Dilution of Position in the X axis (longitude)
-
-           @return xDoP
-           @since ARP1.0
-        */
-        Geolocation.prototype.getXDoP = function () {
-            return this.xDoP;
-        };
-        /**
-           Sets Dilution of precision on the X measurement. Measured in meters.
-
-           @param xDoP Dilution of precision on the X measurement. Measured in meters.
-        */
-        Geolocation.prototype.setXDoP = function (xDoP) {
-            this.xDoP = xDoP;
-        };
-        /**
-           Returns the Dilution of Position in the Y axis (latitude)
-
-           @return yDoP
-           @since ARP1.0
-        */
-        Geolocation.prototype.getYDoP = function () {
-            return this.yDoP;
-        };
-        /**
-           Sets Dilution of precision on the Y measurement. Measured in meters.
-
-           @param yDoP Dilution of precision on the Y measurement. Measured in meters.
-        */
-        Geolocation.prototype.setYDoP = function (yDoP) {
-            this.yDoP = yDoP;
-        };
-        return Geolocation;
-    })();
-    Adaptive.Geolocation = Geolocation;
-    /**
-       Structure representing the email data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var ContactEmail = (function () {
-        /**
-           Constructor used by the implementation
-
-           @param type
-           @param primary
-           @param email
-           @since ARP1.0
-        */
-        function ContactEmail(type, primary, email) {
+        function ContactAddress(address, type) {
+            this.address = address;
             this.type = type;
-            this.primary = primary;
-            this.email = email;
         }
         /**
-           Returns the type of the email
+           Returns the type of the address
 
-           @return EmailType
+           @return AddressType Address type.
            @since ARP1.0
         */
-        ContactEmail.prototype.getType = function () {
+        ContactAddress.prototype.getType = function () {
             return this.type;
         };
         /**
-           Set the type of the email
+           Set the address type
+
+           @param type Address type.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.setType = function (type) {
+            this.type = type;
+        };
+        /**
+           Returns the Contact address
+
+           @return address Address data.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.getAddress = function () {
+            return this.address;
+        };
+        /**
+           Set the address of the Contact
+
+           @param address Address data.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.setAddress = function (address) {
+            this.address = address;
+        };
+        return ContactAddress;
+    })();
+    Adaptive.ContactAddress = ContactAddress;
+    /**
+       Structure representing the website data elements of a contact.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var ContactWebsite = (function () {
+        /**
+           Constructor used by the implementation
+
+           @param url
+           @since ARP1.0
+        */
+        function ContactWebsite(url) {
+            this.url = url;
+        }
+        /**
+           Returns the url of the website
+
+           @return website url
+           @since ARP1.0
+        */
+        ContactWebsite.prototype.getUrl = function () {
+            return this.url;
+        };
+        /**
+           Set the url of the website
+
+           @param url
+           @since ARP1.0
+        */
+        ContactWebsite.prototype.setUrl = function (url) {
+            this.url = url;
+        };
+        return ContactWebsite;
+    })();
+    Adaptive.ContactWebsite = ContactWebsite;
+    /**
+       Represents a specific application life-cycle stage.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var Lifecycle = (function () {
+        /**
+           Constructor used by the implementation
+
+           @param state
+           @since ARP1.0
+        */
+        function Lifecycle(state) {
+            this.state = state;
+        }
+        /**
+           Returns the state of the application
+
+           @return state of the app
+           @since ARP1.0
+        */
+        Lifecycle.prototype.getState = function () {
+            return this.state;
+        };
+        /**
+           Set the State of the application
+
+           @param state of the app
+           @since ARP1.0
+        */
+        Lifecycle.prototype.setState = function (state) {
+            this.state = state;
+        };
+        return Lifecycle;
+    })();
+    Adaptive.Lifecycle = Lifecycle;
+    /**
+       Represents an instance of a service.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var Service = (function () {
+        /**
+           Constructor used by the implementation
+
+           @param endpoint
+           @param name
+           @param method
+           @param type
+           @since ARP1.0
+        */
+        function Service(endpoint, name, method, type) {
+            this.endpoint = endpoint;
+            this.name = name;
+            this.method = method;
+            this.type = type;
+        }
+        /**
+           Returns the method
+
+           @return method
+           @since ARP1.0
+        */
+        Service.prototype.getMethod = function () {
+            return this.method;
+        };
+        /**
+           Set the method
+
+           @param method
+           @since ARP1.0
+        */
+        Service.prototype.setMethod = function (method) {
+            this.method = method;
+        };
+        /**
+           Returns the type
+
+           @return type
+           @since ARP1.0
+        */
+        Service.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Set the type
 
            @param type
            @since ARP1.0
         */
-        ContactEmail.prototype.setType = function (type) {
+        Service.prototype.setType = function (type) {
             this.type = type;
         };
         /**
-           Returns the email of the Contact
+           Returns the endpoint
 
-           @return email
+           @return endpoint
            @since ARP1.0
         */
-        ContactEmail.prototype.getEmail = function () {
-            return this.email;
+        Service.prototype.getEndpoint = function () {
+            return this.endpoint;
         };
         /**
-           Set the email of the Contact
+           Set the endpoint
 
-           @param email
+           @param endpoint
            @since ARP1.0
         */
-        ContactEmail.prototype.setEmail = function (email) {
-            this.email = email;
+        Service.prototype.setEndpoint = function (endpoint) {
+            this.endpoint = endpoint;
         };
         /**
-           Returns if the email is primary
-
-           @return true if the email is primary; false otherwise
-           @since ARP1.0
-        */
-        ContactEmail.prototype.getPrimary = function () {
-            return this.primary;
-        };
-        /**
-           Set if the email
-
-           @param primary true if the email is primary; false otherwise
-           @since ARP1.0
-        */
-        ContactEmail.prototype.setPrimary = function (primary) {
-            this.primary = primary;
-        };
-        return ContactEmail;
-    })();
-    Adaptive.ContactEmail = ContactEmail;
-    /**
-       Structure representing the basic device information.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var DeviceInfo = (function () {
-        /**
-           Constructor for the implementation of the platform.
-
-           @param name   or brand of the device.
-           @param model  of the device.
-           @param vendor of the device.
-           @param uuid   unique* identifier (* platform dependent).
-        */
-        function DeviceInfo(name, model, vendor, uuid) {
-            this.name = name;
-            this.model = model;
-            this.vendor = vendor;
-            this.uuid = uuid;
-        }
-        /**
-           Returns the model of the device.
-
-           @return String with the model of the device.
-        */
-        DeviceInfo.prototype.getModel = function () {
-            return this.model;
-        };
-        /**
-           Sets Model of device - equivalent to device release or version.
-
-           @param model Model of device - equivalent to device release or version.
-        */
-        DeviceInfo.prototype.setModel = function (model) {
-            this.model = model;
-        };
-        /**
-           Returns the name of the device.
-
-           @return String with device name.
-        */
-        DeviceInfo.prototype.getName = function () {
-            return this.name;
-        };
-        /**
-           Sets Name of device - equivalent to brand.
-
-           @param name Name of device - equivalent to brand.
-        */
-        DeviceInfo.prototype.setName = function (name) {
-            this.name = name;
-        };
-        /**
-           Returns the platform dependent UUID of the device.
-
-           @return String with the 128-bit device identifier.
-        */
-        DeviceInfo.prototype.getUuid = function () {
-            return this.uuid;
-        };
-        /**
-           Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
-be unique for a specific instance of an application on a specific device.
-
-           @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
-be unique for a specific instance of an application on a specific device.
-        */
-        DeviceInfo.prototype.setUuid = function (uuid) {
-            this.uuid = uuid;
-        };
-        /**
-           Returns the vendor of the device.
-
-           @return String with the vendor name.
-        */
-        DeviceInfo.prototype.getVendor = function () {
-            return this.vendor;
-        };
-        /**
-           Sets Vendor of the device hardware.
-
-           @param vendor Vendor of the device hardware.
-        */
-        DeviceInfo.prototype.setVendor = function (vendor) {
-            this.vendor = vendor;
-        };
-        return DeviceInfo;
-    })();
-    Adaptive.DeviceInfo = DeviceInfo;
-    /**
-       Structure representing a database reference.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var Database = (function () {
-        /**
-           Constructor using fields.
-
-           @param name     Name of the Table.
-           @param compress Compress enbaled or not.
-           @author Ferran Vila Conesa
-           @since ARP1.0
-        */
-        function Database(name, compress) {
-            this.name = name;
-            this.compress = compress;
-        }
-        /**
-           Returns if the table is compressed
-
-           @return Compression enabled
-           @author Ferran Vila Conesa
-           @since ARP1.0
-        */
-        Database.prototype.getCompress = function () {
-            return this.compress;
-        };
-        /**
-           Sets if the table is compressed or not.
-
-           @param compress Compression enabled
-           @author Ferran Vila Conesa
-           @since ARP1.0
-        */
-        Database.prototype.setCompress = function (compress) {
-            this.compress = compress;
-        };
-        /**
-           Returns the name.
-
-           @return The name of the table.
-           @author Ferran Vila Conesa
-           @since ARP1.0
-        */
-        Database.prototype.getName = function () {
-            return this.name;
-        };
-        /**
-           Sets the name of the table.
-
-           @param name The name of the table.
-           @author Ferran Vila Conesa
-           @since ARP1.0
-        */
-        Database.prototype.setName = function (name) {
-            this.name = name;
-        };
-        return Database;
-    })();
-    Adaptive.Database = Database;
-    /**
-       Structure representing the internal unique identifier data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var ContactUid = (function () {
-        /**
-           Constructor used by implementation to set the Contact id.
-
-           @param contactId Internal unique contact id.
-           @since ARP1.0
-        */
-        function ContactUid(contactId) {
-            this.contactId = contactId;
-        }
-        /**
-           Returns the contact id
-
-           @return Contactid Internal unique contact id.
-           @since ARP1.0
-        */
-        ContactUid.prototype.getContactId = function () {
-            return this.contactId;
-        };
-        /**
-           Set the id of the Contact
-
-           @param contactId Internal unique contact id.
-           @since ARP1.0
-        */
-        ContactUid.prototype.setContactId = function (contactId) {
-            this.contactId = contactId;
-        };
-        return ContactUid;
-    })();
-    Adaptive.ContactUid = ContactUid;
-    /**
-       Structure representing the assigned tags data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var ContactTag = (function () {
-        /**
-           Constructor used by the implementation
-
-           @param dataValue
-           @param name
-           @since ARP1.0
-        */
-        function ContactTag(name, dataValue) {
-            this.name = name;
-            this.dataValue = dataValue;
-        }
-        /**
-           Returns the value of the Tag
-
-           @return value
-           @since ARP1.0
-        */
-        ContactTag.prototype.getDataValue = function () {
-            return this.dataValue;
-        };
-        /**
-           Set the value of the Tag
-
-           @param dataValue
-           @since ARP1.0
-        */
-        ContactTag.prototype.setDataValue = function (dataValue) {
-            this.dataValue = dataValue;
-        };
-        /**
-           Returns the name of the Tag
+           Returns the name
 
            @return name
            @since ARP1.0
         */
-        ContactTag.prototype.getName = function () {
+        Service.prototype.getName = function () {
             return this.name;
         };
         /**
-           Set the name of the Tag
+           Set the name
 
            @param name
            @since ARP1.0
         */
-        ContactTag.prototype.setName = function (name) {
+        Service.prototype.setName = function (name) {
             this.name = name;
         };
-        return ContactTag;
+        return Service;
     })();
-    Adaptive.ContactTag = ContactTag;
+    Adaptive.Service = Service;
     /**
-       Represents a single secureKey-value pair.
+       Structure representing the social data elements of a contact.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    var SecureKeyPair = (function () {
+    var ContactSocial = (function () {
         /**
-           Constructor with parameters
+           Constructor used by the implementation
 
-           @param secureKey   name of the keypair
-           @param secureData value of the keypair
+           @param socialNetwork of the profile
+           @param profileUrl    of the user
            @since ARP1.0
         */
-        function SecureKeyPair(secureKey, secureData) {
-            this.secureKey = secureKey;
-            this.secureData = secureData;
+        function ContactSocial(socialNetwork, profileUrl) {
+            this.socialNetwork = socialNetwork;
+            this.profileUrl = profileUrl;
         }
         /**
-           Returns the object value
+           Returns the social network
 
-           @return Value.
-           @since ARP 1.0
+           @return socialNetwork
+           @since ARP1.0
         */
-        SecureKeyPair.prototype.getSecureData = function () {
-            return this.secureData;
+        ContactSocial.prototype.getSocialNetwork = function () {
+            return this.socialNetwork;
         };
         /**
-           Sets the value for this object
+           Set the social network
 
-           @param secureData value to set.
-           @since ARP 1.0
+           @param socialNetwork
+           @since ARP1.0
         */
-        SecureKeyPair.prototype.setSecureData = function (secureData) {
-            this.secureData = secureData;
+        ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
+            this.socialNetwork = socialNetwork;
         };
         /**
-           Returns the object secureKey name.
+           Returns the profile url of the user
 
-           @return Key name.
-           @since ARP 1.0
+           @return profileUrl
+           @since ARP1.0
         */
-        SecureKeyPair.prototype.getSecureKey = function () {
-            return this.secureKey;
+        ContactSocial.prototype.getProfileUrl = function () {
+            return this.profileUrl;
         };
         /**
-           Sets the secureKey name for this object.
+           Set the profile url of the iser
 
-           @param secureKey Key name.
-           @since ARP 1.0
+           @param profileUrl
+           @since ARP1.0
         */
-        SecureKeyPair.prototype.setSecureKey = function (secureKey) {
-            this.secureKey = secureKey;
+        ContactSocial.prototype.setProfileUrl = function (profileUrl) {
+            this.profileUrl = profileUrl;
         };
-        return SecureKeyPair;
+        return ContactSocial;
     })();
-    Adaptive.SecureKeyPair = SecureKeyPair;
+    Adaptive.ContactSocial = ContactSocial;
     /**
        Structure representing the binary attachment data.
 
@@ -928,410 +617,174 @@ be unique for a specific instance of an application on a specific device.
     })();
     Adaptive.AttachmentData = AttachmentData;
     /**
-       Represents a specific application life-cycle stage.
+       Represents the basic information about the operating system.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    var Lifecycle = (function () {
+    var OSInfo = (function () {
         /**
-           Constructor used by the implementation
+           Constructor used by implementation to set the OS information.
 
-           @param state
-           @since ARP1.0
+           @param name    of the OS.
+           @param version of the OS.
+           @param vendor  of the OS.
         */
-        function Lifecycle(state) {
-            this.state = state;
-        }
-        /**
-           Returns the state of the application
-
-           @return state of the app
-           @since ARP1.0
-        */
-        Lifecycle.prototype.getState = function () {
-            return this.state;
-        };
-        /**
-           Set the State of the application
-
-           @param state of the app
-           @since ARP1.0
-        */
-        Lifecycle.prototype.setState = function (state) {
-            this.state = state;
-        };
-        return Lifecycle;
-    })();
-    Adaptive.Lifecycle = Lifecycle;
-    /**
-       Represents a specific user or system locate.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var Locale = (function () {
-        /**
-           Constructor used by the implementation
-
-           @param country
-           @param language
-           @since ARP1.0
-        */
-        function Locale(language, country) {
-            this.language = language;
-            this.country = country;
-        }
-        /**
-           Returns the country code
-
-           @return country code
-           @since ARP1.0
-        */
-        Locale.prototype.getCountry = function () {
-            return this.country;
-        };
-        /**
-           Set the country code
-
-           @param country code
-           @since ARP1.0
-        */
-        Locale.prototype.setCountry = function (country) {
-            this.country = country;
-        };
-        /**
-           Returns the language code
-
-           @return language code
-           @since ARP1.0
-        */
-        Locale.prototype.getLanguage = function () {
-            return this.language;
-        };
-        /**
-           Set the language code
-
-           @param language code
-           @since ARP1.0
-        */
-        Locale.prototype.setLanguage = function (language) {
-            this.language = language;
-        };
-        return Locale;
-    })();
-    Adaptive.Locale = Locale;
-    /**
-       Structure representing the personal info data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var ContactPersonalInfo = (function () {
-        /**
-           The Constructor used by the implementation
-
-           @param name       of the Contact
-           @param middleName of the Contact
-           @param lastName   of the Contact
-           @param title      of the Contact
-           @since ARP1.0
-        */
-        function ContactPersonalInfo(name, middleName, lastName, title) {
+        function OSInfo(name, version, vendor) {
             this.name = name;
-            this.middleName = middleName;
-            this.lastName = lastName;
-            this.title = title;
+            this.version = version;
+            this.vendor = vendor;
         }
         /**
-           Returns the title of the Contact
+           Returns the name of the operating system.
 
-           @return Title
-           @since ARP1.0
+           @return OS name.
         */
-        ContactPersonalInfo.prototype.getTitle = function () {
-            return this.title;
-        };
-        /**
-           Set the Title of the Contact
-
-           @param title
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.setTitle = function (title) {
-            this.title = title;
-        };
-        /**
-           Returns the last name of the Contact
-
-           @return lastName
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.getLastName = function () {
-            return this.lastName;
-        };
-        /**
-           Set the last name of the Contact
-
-           @param lastName
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.setLastName = function (lastName) {
-            this.lastName = lastName;
-        };
-        /**
-           Returns the middle name of the Contact
-
-           @return middelName
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.getMiddleName = function () {
-            return this.middleName;
-        };
-        /**
-           Set the middle name of the Contact
-
-           @param middleName
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.setMiddleName = function (middleName) {
-            this.middleName = middleName;
-        };
-        /**
-           Returns the name of the Contact
-
-           @return name
-           @since ARP1.0
-        */
-        ContactPersonalInfo.prototype.getName = function () {
+        OSInfo.prototype.getName = function () {
             return this.name;
         };
         /**
-           Set the name of the Contact
+           Sets The name of the operating system.
 
-           @param name
-           @since ARP1.0
+           @param name The name of the operating system.
         */
-        ContactPersonalInfo.prototype.setName = function (name) {
+        OSInfo.prototype.setName = function (name) {
             this.name = name;
         };
-        return ContactPersonalInfo;
+        /**
+           Returns the vendor of the operating system.
+
+           @return OS vendor.
+        */
+        OSInfo.prototype.getVendor = function () {
+            return this.vendor;
+        };
+        /**
+           Sets The vendor of the operating system.
+
+           @param vendor The vendor of the operating system.
+        */
+        OSInfo.prototype.setVendor = function (vendor) {
+            this.vendor = vendor;
+        };
+        /**
+           Returns the version of the operating system.
+
+           @return OS version.
+        */
+        OSInfo.prototype.getVersion = function () {
+            return this.version;
+        };
+        /**
+           Sets The version/identifier of the operating system.
+
+           @param version The version/identifier of the operating system.
+        */
+        OSInfo.prototype.setVersion = function (version) {
+            this.version = version;
+        };
+        return OSInfo;
     })();
-    Adaptive.ContactPersonalInfo = ContactPersonalInfo;
+    Adaptive.OSInfo = OSInfo;
     /**
-       Structure representing the professional info data elements of a contact.
+       Structure representing the column specification of a data table.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    var ContactProfessionalInfo = (function () {
-        /**
-           Constructor used by implementation to set the ContactProfessionalInfo.
-
-           @param jobTitle
-           @param jobDescription
-           @param company
-           @since ARP1.0
-        */
-        function ContactProfessionalInfo(jobTitle, jobDescription, company) {
-            this.jobTitle = jobTitle;
-            this.jobDescription = jobDescription;
-            this.company = company;
-        }
-        /**
-           Returns the company of the job
-
-           @return company
-           @since ARP1.0
-        */
-        ContactProfessionalInfo.prototype.getCompany = function () {
-            return this.company;
-        };
-        /**
-           Set the company of the job
-
-           @param company
-           @since ARP1.0
-        */
-        ContactProfessionalInfo.prototype.setCompany = function (company) {
-            this.company = company;
-        };
-        /**
-           Returns the description of the job
-
-           @return description
-           @since ARP1.0
-        */
-        ContactProfessionalInfo.prototype.getJobDescription = function () {
-            return this.jobDescription;
-        };
-        /**
-           Set the description of the job
-
-           @param jobDescription
-           @since ARP1.0
-        */
-        ContactProfessionalInfo.prototype.setJobDescription = function (jobDescription) {
-            this.jobDescription = jobDescription;
-        };
-        /**
-           Returns the title of the job
-
-           @return title
-           @since ARP1.0
-        */
-        ContactProfessionalInfo.prototype.getJobTitle = function () {
-            return this.jobTitle;
-        };
-        /**
-           Set the title of the job
-
-           @param jobTitle
-           @since ARP1.0
-        */
-        ContactProfessionalInfo.prototype.setJobTitle = function (jobTitle) {
-            this.jobTitle = jobTitle;
-        };
-        return ContactProfessionalInfo;
-    })();
-    Adaptive.ContactProfessionalInfo = ContactProfessionalInfo;
-    /**
-       Represents a row for a data table.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var Row = (function () {
+    var Column = (function () {
         /**
            Constructor for implementation using.
 
-           @param values The values of the row
+           @param name Name of the column
         */
-        function Row(values) {
-            this.values = values;
+        function Column(name) {
+            this.name = name;
         }
         /**
-           Returns the values of the row.
+           Returns the name of the column.
 
-           @return The values of the row.
+           @return The name of the column.
         */
-        Row.prototype.getValues = function () {
-            return this.values;
+        Column.prototype.getName = function () {
+            return this.name;
         };
         /**
-           Sets the values of the row.
+           Sets the name of the column.
 
-           @param values The values of the row.
+           @param name The name of the column.
         */
-        Row.prototype.setValues = function (values) {
-            this.values = values;
+        Column.prototype.setName = function (name) {
+            this.name = name;
         };
-        return Row;
+        return Column;
     })();
-    Adaptive.Row = Row;
+    Adaptive.Column = Column;
     /**
-       Represents an instance of a service.
+       Structure representing a database reference.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    var Service = (function () {
+    var Database = (function () {
         /**
-           Constructor used by the implementation
+           Constructor using fields.
 
-           @param endpoint
-           @param name
-           @param method
-           @param type
+           @param name     Name of the Table.
+           @param compress Compress enbaled or not.
+           @author Ferran Vila Conesa
            @since ARP1.0
         */
-        function Service(endpoint, name, method, type) {
-            this.endpoint = endpoint;
+        function Database(name, compress) {
             this.name = name;
-            this.method = method;
-            this.type = type;
+            this.compress = compress;
         }
         /**
-           Returns the method
+           Returns if the table is compressed
 
-           @return method
+           @return Compression enabled
+           @author Ferran Vila Conesa
            @since ARP1.0
         */
-        Service.prototype.getMethod = function () {
-            return this.method;
+        Database.prototype.getCompress = function () {
+            return this.compress;
         };
         /**
-           Set the method
+           Sets if the table is compressed or not.
 
-           @param method
+           @param compress Compression enabled
+           @author Ferran Vila Conesa
            @since ARP1.0
         */
-        Service.prototype.setMethod = function (method) {
-            this.method = method;
+        Database.prototype.setCompress = function (compress) {
+            this.compress = compress;
         };
         /**
-           Returns the type
+           Returns the name.
 
-           @return type
+           @return The name of the table.
+           @author Ferran Vila Conesa
            @since ARP1.0
         */
-        Service.prototype.getType = function () {
-            return this.type;
-        };
-        /**
-           Set the type
-
-           @param type
-           @since ARP1.0
-        */
-        Service.prototype.setType = function (type) {
-            this.type = type;
-        };
-        /**
-           Returns the endpoint
-
-           @return endpoint
-           @since ARP1.0
-        */
-        Service.prototype.getEndpoint = function () {
-            return this.endpoint;
-        };
-        /**
-           Set the endpoint
-
-           @param endpoint
-           @since ARP1.0
-        */
-        Service.prototype.setEndpoint = function (endpoint) {
-            this.endpoint = endpoint;
-        };
-        /**
-           Returns the name
-
-           @return name
-           @since ARP1.0
-        */
-        Service.prototype.getName = function () {
+        Database.prototype.getName = function () {
             return this.name;
         };
         /**
-           Set the name
+           Sets the name of the table.
 
-           @param name
+           @param name The name of the table.
+           @author Ferran Vila Conesa
            @since ARP1.0
         */
-        Service.prototype.setName = function (name) {
+        Database.prototype.setName = function (name) {
             this.name = name;
         };
-        return Service;
+        return Database;
     })();
-    Adaptive.Service = Service;
+    Adaptive.Database = Database;
     /**
        Represents a local or remote service request.
 
@@ -1531,177 +984,13 @@ be unique for a specific instance of an application on a specific device.
     })();
     Adaptive.ServiceRequest = ServiceRequest;
     /**
-       Structure representing the column specification of a data table.
+       Structure representing the data of a http cookie.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    var Column = (function () {
-        /**
-           Constructor for implementation using.
-
-           @param name Name of the column
-        */
-        function Column(name) {
-            this.name = name;
-        }
-        /**
-           Returns the name of the column.
-
-           @return The name of the column.
-        */
-        Column.prototype.getName = function () {
-            return this.name;
-        };
-        /**
-           Sets the name of the column.
-
-           @param name The name of the column.
-        */
-        Column.prototype.setName = function (name) {
-            this.name = name;
-        };
-        return Column;
-    })();
-    Adaptive.Column = Column;
-    /**
-       Structure representing the social data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var ContactSocial = (function () {
-        /**
-           Constructor used by the implementation
-
-           @param socialNetwork of the profile
-           @param profileUrl    of the user
-           @since ARP1.0
-        */
-        function ContactSocial(socialNetwork, profileUrl) {
-            this.socialNetwork = socialNetwork;
-            this.profileUrl = profileUrl;
-        }
-        /**
-           Returns the social network
-
-           @return socialNetwork
-           @since ARP1.0
-        */
-        ContactSocial.prototype.getSocialNetwork = function () {
-            return this.socialNetwork;
-        };
-        /**
-           Set the social network
-
-           @param socialNetwork
-           @since ARP1.0
-        */
-        ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
-            this.socialNetwork = socialNetwork;
-        };
-        /**
-           Returns the profile url of the user
-
-           @return profileUrl
-           @since ARP1.0
-        */
-        ContactSocial.prototype.getProfileUrl = function () {
-            return this.profileUrl;
-        };
-        /**
-           Set the profile url of the iser
-
-           @param profileUrl
-           @since ARP1.0
-        */
-        ContactSocial.prototype.setProfileUrl = function (profileUrl) {
-            this.profileUrl = profileUrl;
-        };
-        return ContactSocial;
-    })();
-    Adaptive.ContactSocial = ContactSocial;
-    /**
-       Represents the basic information about the operating system.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var OSInfo = (function () {
-        /**
-           Constructor used by implementation to set the OS information.
-
-           @param name    of the OS.
-           @param version of the OS.
-           @param vendor  of the OS.
-        */
-        function OSInfo(name, version, vendor) {
-            this.name = name;
-            this.version = version;
-            this.vendor = vendor;
-        }
-        /**
-           Returns the name of the operating system.
-
-           @return OS name.
-        */
-        OSInfo.prototype.getName = function () {
-            return this.name;
-        };
-        /**
-           Sets The name of the operating system.
-
-           @param name The name of the operating system.
-        */
-        OSInfo.prototype.setName = function (name) {
-            this.name = name;
-        };
-        /**
-           Returns the vendor of the operating system.
-
-           @return OS vendor.
-        */
-        OSInfo.prototype.getVendor = function () {
-            return this.vendor;
-        };
-        /**
-           Sets The vendor of the operating system.
-
-           @param vendor The vendor of the operating system.
-        */
-        OSInfo.prototype.setVendor = function (vendor) {
-            this.vendor = vendor;
-        };
-        /**
-           Returns the version of the operating system.
-
-           @return OS version.
-        */
-        OSInfo.prototype.getVersion = function () {
-            return this.version;
-        };
-        /**
-           Sets The version/identifier of the operating system.
-
-           @param version The version/identifier of the operating system.
-        */
-        OSInfo.prototype.setVersion = function (version) {
-            this.version = version;
-        };
-        return OSInfo;
-    })();
-    Adaptive.OSInfo = OSInfo;
-    /**
-       Structure representing the data of a http request or response header.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var Header = (function () {
+    var Cookie = (function () {
         /**
            Constructor used by the implementation
 
@@ -1709,49 +998,150 @@ be unique for a specific instance of an application on a specific device.
            @param data
            @since ARP1.0
         */
-        function Header(name, data) {
+        function Cookie(name, data) {
             this.name = name;
             this.data = data;
         }
         /**
-           Returns the header value
+           Gets Cookie creation timestamp in milliseconds.
+
+           @return creation Cookie creation timestamp in milliseconds.
+        */
+        Cookie.prototype.getCreation = function () {
+            return this.creation;
+        };
+        /**
+           Sets Cookie creation timestamp in milliseconds.
+
+           @param creation Cookie creation timestamp in milliseconds.
+        */
+        Cookie.prototype.setCreation = function (creation) {
+            this.creation = creation;
+        };
+        /**
+           Returns the cookie value
 
            @return
            @since ARP1.0
         */
-        Header.prototype.getData = function () {
+        Cookie.prototype.getData = function () {
             return this.data;
         };
         /**
-           Set the header value
+           Set the cookie value
 
            @param data
            @since ARP1.0
         */
-        Header.prototype.setData = function (data) {
+        Cookie.prototype.setData = function (data) {
             this.data = data;
         };
         /**
-           Returns the header name
+           Returns the domain
+
+           @return domain
+           @since ARP1.0
+        */
+        Cookie.prototype.getDomain = function () {
+            return this.domain;
+        };
+        /**
+           Set the domain
+
+           @param domain
+        */
+        Cookie.prototype.setDomain = function (domain) {
+            this.domain = domain;
+        };
+        /**
+           Returns the expiration date in milis
+
+           @return expiry
+           @since ARP1.0
+        */
+        Cookie.prototype.getExpiry = function () {
+            return this.expiry;
+        };
+        /**
+           Set the expiration date in milis
+
+           @param expiry
+        */
+        Cookie.prototype.setExpiry = function (expiry) {
+            this.expiry = expiry;
+        };
+        /**
+           Returns the cookie name
 
            @return name
            @since ARP1.0
         */
-        Header.prototype.getName = function () {
+        Cookie.prototype.getName = function () {
             return this.name;
         };
         /**
-           Set the header name
+           Set the cookie name
 
            @param name
            @since ARP1.0
         */
-        Header.prototype.setName = function (name) {
+        Cookie.prototype.setName = function (name) {
             this.name = name;
         };
-        return Header;
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        Cookie.prototype.getPath = function () {
+            return this.path;
+        };
+        /**
+           Set the path
+
+           @param path
+        */
+        Cookie.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        Cookie.prototype.getScheme = function () {
+            return this.scheme;
+        };
+        /**
+           Set the scheme
+
+           @param scheme
+        */
+        Cookie.prototype.setScheme = function (scheme) {
+            this.scheme = scheme;
+        };
+        /**
+           Returns whether the cookie is secure or not
+
+           @return true if the cookie is secure; false otherwise
+           @since ARP1.0
+        */
+        Cookie.prototype.getSecure = function () {
+            return this.secure;
+        };
+        /**
+           Set whether the cookie is secure or not
+
+           @param secure
+        */
+        Cookie.prototype.setSecure = function (secure) {
+            this.secure = secure;
+        };
+        return Cookie;
     })();
-    Adaptive.Header = Header;
+    Adaptive.Cookie = Cookie;
     /**
        Structure representing the data elements of an email addressee.
 
@@ -1790,44 +1180,6 @@ be unique for a specific instance of an application on a specific device.
         return EmailAddress;
     })();
     Adaptive.EmailAddress = EmailAddress;
-    /**
-       Structure representing the website data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var ContactWebsite = (function () {
-        /**
-           Constructor used by the implementation
-
-           @param url
-           @since ARP1.0
-        */
-        function ContactWebsite(url) {
-            this.url = url;
-        }
-        /**
-           Returns the url of the website
-
-           @return website url
-           @since ARP1.0
-        */
-        ContactWebsite.prototype.getUrl = function () {
-            return this.url;
-        };
-        /**
-           Set the url of the website
-
-           @param url
-           @since ARP1.0
-        */
-        ContactWebsite.prototype.setUrl = function (url) {
-            this.url = url;
-        };
-        return ContactWebsite;
-    })();
-    Adaptive.ContactWebsite = ContactWebsite;
     /**
        Structure representing the phone data elements of a contact.
 
@@ -1886,6 +1238,358 @@ be unique for a specific instance of an application on a specific device.
         return ContactPhone;
     })();
     Adaptive.ContactPhone = ContactPhone;
+    /**
+       Structure representing the personal info data elements of a contact.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var ContactPersonalInfo = (function () {
+        /**
+           The Constructor used by the implementation
+
+           @param name       of the Contact
+           @param middleName of the Contact
+           @param lastName   of the Contact
+           @param title      of the Contact
+           @since ARP1.0
+        */
+        function ContactPersonalInfo(name, middleName, lastName, title) {
+            this.name = name;
+            this.middleName = middleName;
+            this.lastName = lastName;
+            this.title = title;
+        }
+        /**
+           Returns the title of the Contact
+
+           @return Title
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getTitle = function () {
+            return this.title;
+        };
+        /**
+           Set the Title of the Contact
+
+           @param title
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setTitle = function (title) {
+            this.title = title;
+        };
+        /**
+           Returns the last name of the Contact
+
+           @return lastName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getLastName = function () {
+            return this.lastName;
+        };
+        /**
+           Set the last name of the Contact
+
+           @param lastName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setLastName = function (lastName) {
+            this.lastName = lastName;
+        };
+        /**
+           Returns the middle name of the Contact
+
+           @return middelName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getMiddleName = function () {
+            return this.middleName;
+        };
+        /**
+           Set the middle name of the Contact
+
+           @param middleName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setMiddleName = function (middleName) {
+            this.middleName = middleName;
+        };
+        /**
+           Returns the name of the Contact
+
+           @return name
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the name of the Contact
+
+           @param name
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setName = function (name) {
+            this.name = name;
+        };
+        return ContactPersonalInfo;
+    })();
+    Adaptive.ContactPersonalInfo = ContactPersonalInfo;
+    /**
+       Structure representing the a physical or logical button on a device.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var Button = (function () {
+        /**
+           Constructor used by the implementation
+
+           @param type Button type.
+           @since ARP1.0
+        */
+        function Button(type) {
+            this.type = type;
+        }
+        /**
+           Returns the button type
+
+           @return type Button type.
+           @since ARP1.0
+        */
+        Button.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Sets Button type
+
+           @param type Button type
+        */
+        Button.prototype.setType = function (type) {
+            this.type = type;
+        };
+        return Button;
+    })();
+    Adaptive.Button = Button;
+    /**
+       Structure representing a remote or local service access end-point.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var Endpoint = (function () {
+        /**
+           Constructor used by the implementation
+
+           @param host
+           @param path
+           @param port
+           @param proxy
+           @param scheme
+           @since ARP1.0
+        */
+        function Endpoint(host, path, port, proxy, scheme) {
+            this.host = host;
+            this.path = path;
+            this.port = port;
+            this.proxy = proxy;
+            this.scheme = scheme;
+        }
+        /**
+           Returns the host
+
+           @return host
+           @since ARP1.0
+        */
+        Endpoint.prototype.getHost = function () {
+            return this.host;
+        };
+        /**
+           Set the host
+
+           @param host
+           @since ARP1.0
+        */
+        Endpoint.prototype.setHost = function (host) {
+            this.host = host;
+        };
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        Endpoint.prototype.getPath = function () {
+            return this.path;
+        };
+        /**
+           Set the path
+
+           @param path
+           @since ARP1.0
+        */
+        Endpoint.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        /**
+           Returns the port
+
+           @return port
+           @since ARP1.0
+        */
+        Endpoint.prototype.getPort = function () {
+            return this.port;
+        };
+        /**
+           Set the port
+
+           @param port
+           @since ARP1.0
+        */
+        Endpoint.prototype.setPort = function (port) {
+            this.port = port;
+        };
+        /**
+           Return the proxy
+
+           @return proxy
+           @since ARP1.0
+        */
+        Endpoint.prototype.getProxy = function () {
+            return this.proxy;
+        };
+        /**
+           Set the proxy
+
+           @param proxy
+           @since ARP1.0
+        */
+        Endpoint.prototype.setProxy = function (proxy) {
+            this.proxy = proxy;
+        };
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        Endpoint.prototype.getScheme = function () {
+            return this.scheme;
+        };
+        /**
+           Set the scheme
+
+           @param scheme
+           @since ARP1.0
+        */
+        Endpoint.prototype.setScheme = function (scheme) {
+            this.scheme = scheme;
+        };
+        return Endpoint;
+    })();
+    Adaptive.Endpoint = Endpoint;
+    /**
+       Represents a data table composed of columns and rows.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var Table = (function () {
+        /**
+           Constructor by default
+
+           @param name The name of the table
+        */
+        function Table(name) {
+            this.name = name;
+        }
+        /**
+           Get the number of columns
+
+           @return The number of columns
+        */
+        Table.prototype.getColumnCount = function () {
+            return this.columnCount;
+        };
+        /**
+           Sets the number of columns
+
+           @param columnCount The number of columns
+        */
+        Table.prototype.setColumnCount = function (columnCount) {
+            this.columnCount = columnCount;
+        };
+        /**
+           Get the columns
+
+           @return The columns
+        */
+        Table.prototype.getColumns = function () {
+            return this.columns;
+        };
+        /**
+           Sets the columns of the table
+
+           @param columns The columns of the table
+        */
+        Table.prototype.setColumns = function (columns) {
+            this.columns = columns;
+        };
+        /**
+           Returns the name of the table
+
+           @return The name of the table
+        */
+        Table.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets the name of the table
+
+           @param name The name of the table
+        */
+        Table.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Get the number of rows
+
+           @return The number of rows
+        */
+        Table.prototype.getRowCount = function () {
+            return this.rowCount;
+        };
+        /**
+           Sets the number of rows
+
+           @param rowCount The number of rows
+        */
+        Table.prototype.setRowCount = function (rowCount) {
+            this.rowCount = rowCount;
+        };
+        /**
+           Get the rows of the table
+
+           @return The rows of the table
+        */
+        Table.prototype.getRows = function () {
+            return this.rows;
+        };
+        /**
+           Sets the rows of the table
+
+           @param rows The rows of the table
+        */
+        Table.prototype.setRows = function (rows) {
+            this.rows = rows;
+        };
+        return Table;
+    })();
+    Adaptive.Table = Table;
     /**
        Structure representing the data elements of an email.
 
@@ -2044,377 +1748,159 @@ be unique for a specific instance of an application on a specific device.
     })();
     Adaptive.Email = Email;
     /**
-       Structure representing the a physical or logical button on a device.
+       Structure representing the internal unique identifier data elements of a contact.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    var Button = (function () {
+    var ContactUid = (function () {
+        /**
+           Constructor used by implementation to set the Contact id.
+
+           @param contactId Internal unique contact id.
+           @since ARP1.0
+        */
+        function ContactUid(contactId) {
+            this.contactId = contactId;
+        }
+        /**
+           Returns the contact id
+
+           @return Contactid Internal unique contact id.
+           @since ARP1.0
+        */
+        ContactUid.prototype.getContactId = function () {
+            return this.contactId;
+        };
+        /**
+           Set the id of the Contact
+
+           @param contactId Internal unique contact id.
+           @since ARP1.0
+        */
+        ContactUid.prototype.setContactId = function (contactId) {
+            this.contactId = contactId;
+        };
+        return ContactUid;
+    })();
+    Adaptive.ContactUid = ContactUid;
+    /**
+       Structure representing the data of a http request or response header.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var Header = (function () {
         /**
            Constructor used by the implementation
 
-           @param type Button type.
+           @param name
+           @param data
            @since ARP1.0
         */
-        function Button(type) {
-            this.type = type;
-        }
-        /**
-           Returns the button type
-
-           @return type Button type.
-           @since ARP1.0
-        */
-        Button.prototype.getType = function () {
-            return this.type;
-        };
-        /**
-           Sets Button type
-
-           @param type Button type
-        */
-        Button.prototype.setType = function (type) {
-            this.type = type;
-        };
-        return Button;
-    })();
-    Adaptive.Button = Button;
-    /**
-       Structure representing the address data elements of a contact.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var ContactAddress = (function () {
-        /**
-           Constructor used by the implementation
-
-           @param address Address data.
-           @param type    Address type.
-           @since ARP1.0
-        */
-        function ContactAddress(address, type) {
-            this.address = address;
-            this.type = type;
-        }
-        /**
-           Returns the type of the address
-
-           @return AddressType Address type.
-           @since ARP1.0
-        */
-        ContactAddress.prototype.getType = function () {
-            return this.type;
-        };
-        /**
-           Set the address type
-
-           @param type Address type.
-           @since ARP1.0
-        */
-        ContactAddress.prototype.setType = function (type) {
-            this.type = type;
-        };
-        /**
-           Returns the Contact address
-
-           @return address Address data.
-           @since ARP1.0
-        */
-        ContactAddress.prototype.getAddress = function () {
-            return this.address;
-        };
-        /**
-           Set the address of the Contact
-
-           @param address Address data.
-           @since ARP1.0
-        */
-        ContactAddress.prototype.setAddress = function (address) {
-            this.address = address;
-        };
-        return ContactAddress;
-    })();
-    Adaptive.ContactAddress = ContactAddress;
-    /**
-       Represents a data table composed of columns and rows.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
-    */
-    var Table = (function () {
-        /**
-           Constructor by default
-
-           @param name The name of the table
-        */
-        function Table(name) {
+        function Header(name, data) {
             this.name = name;
+            this.data = data;
         }
         /**
-           Get the number of columns
+           Returns the header value
 
-           @return The number of columns
+           @return
+           @since ARP1.0
         */
-        Table.prototype.getColumnCount = function () {
-            return this.columnCount;
+        Header.prototype.getData = function () {
+            return this.data;
         };
         /**
-           Sets the number of columns
+           Set the header value
 
-           @param columnCount The number of columns
+           @param data
+           @since ARP1.0
         */
-        Table.prototype.setColumnCount = function (columnCount) {
-            this.columnCount = columnCount;
+        Header.prototype.setData = function (data) {
+            this.data = data;
         };
         /**
-           Get the columns
+           Returns the header name
 
-           @return The columns
+           @return name
+           @since ARP1.0
         */
-        Table.prototype.getColumns = function () {
-            return this.columns;
-        };
-        /**
-           Sets the columns of the table
-
-           @param columns The columns of the table
-        */
-        Table.prototype.setColumns = function (columns) {
-            this.columns = columns;
-        };
-        /**
-           Returns the name of the table
-
-           @return The name of the table
-        */
-        Table.prototype.getName = function () {
+        Header.prototype.getName = function () {
             return this.name;
         };
         /**
-           Sets the name of the table
+           Set the header name
 
-           @param name The name of the table
+           @param name
+           @since ARP1.0
         */
-        Table.prototype.setName = function (name) {
+        Header.prototype.setName = function (name) {
             this.name = name;
         };
-        /**
-           Get the number of rows
-
-           @return The number of rows
-        */
-        Table.prototype.getRowCount = function () {
-            return this.rowCount;
-        };
-        /**
-           Sets the number of rows
-
-           @param rowCount The number of rows
-        */
-        Table.prototype.setRowCount = function (rowCount) {
-            this.rowCount = rowCount;
-        };
-        /**
-           Get the rows of the table
-
-           @return The rows of the table
-        */
-        Table.prototype.getRows = function () {
-            return this.rows;
-        };
-        /**
-           Sets the rows of the table
-
-           @param rows The rows of the table
-        */
-        Table.prototype.setRows = function (rows) {
-            this.rows = rows;
-        };
-        return Table;
+        return Header;
     })();
-    Adaptive.Table = Table;
+    Adaptive.Header = Header;
     /**
-       Represents a local or remote service response.
+       Represents a single secureKey-value pair.
 
        @author Carlos Lozano Diez
        @since 1.0
        @version 1.0
     */
-    var ServiceResponse = (function () {
+    var SecureKeyPair = (function () {
         /**
-           Constructor used by the implementation
+           Constructor with parameters
 
-           @param content
-           @param contentType
-           @param contentLength
-           @param contentBinary
-           @param contentBinaryLength
-           @param headers
-           @param session
-           @param contentEncoding
+           @param secureKey   name of the keypair
+           @param secureData value of the keypair
            @since ARP1.0
         */
-        function ServiceResponse(content, contentType, contentLength, contentBinary, contentBinaryLength, headers, session, contentEncoding) {
-            this.content = content;
-            this.contentType = contentType;
-            this.contentLength = contentLength;
-            this.contentBinary = contentBinary;
-            this.contentBinaryLength = contentBinaryLength;
-            this.headers = headers;
-            this.session = session;
-            this.contentEncoding = contentEncoding;
+        function SecureKeyPair(secureKey, secureData) {
+            this.secureKey = secureKey;
+            this.secureData = secureData;
         }
         /**
-           Returns the content
+           Returns the object value
 
-           @return content
-           @since ARP1.0
+           @return Value.
+           @since ARP 1.0
         */
-        ServiceResponse.prototype.getContent = function () {
-            return this.content;
+        SecureKeyPair.prototype.getSecureData = function () {
+            return this.secureData;
         };
         /**
-           Set the content
+           Sets the value for this object
 
-           @param content
-           @since ARP1.0
+           @param secureData value to set.
+           @since ARP 1.0
         */
-        ServiceResponse.prototype.setContent = function (content) {
-            this.content = content;
+        SecureKeyPair.prototype.setSecureData = function (secureData) {
+            this.secureData = secureData;
         };
         /**
-           Returns the binary content
+           Returns the object secureKey name.
 
-           @return contentBinary
-           @since ARP1.0
+           @return Key name.
+           @since ARP 1.0
         */
-        ServiceResponse.prototype.getContentBinary = function () {
-            return this.contentBinary;
+        SecureKeyPair.prototype.getSecureKey = function () {
+            return this.secureKey;
         };
         /**
-           Set the binary content
+           Sets the secureKey name for this object.
 
-           @param contentBinary
-           @since ARP1.0
+           @param secureKey Key name.
+           @since ARP 1.0
         */
-        ServiceResponse.prototype.setContentBinary = function (contentBinary) {
-            this.contentBinary = contentBinary;
+        SecureKeyPair.prototype.setSecureKey = function (secureKey) {
+            this.secureKey = secureKey;
         };
-        /**
-           Retrusn the binary content length
-
-           @return contentBinaryLength
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.getContentBinaryLength = function () {
-            return this.contentBinaryLength;
-        };
-        /**
-           Set the binary content length
-
-           @param contentBinaryLength
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.setContentBinaryLength = function (contentBinaryLength) {
-            this.contentBinaryLength = contentBinaryLength;
-        };
-        /**
-           Returns the content encoding
-
-           @return contentEncoding
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.getContentEncoding = function () {
-            return this.contentEncoding;
-        };
-        /**
-           Set the content encoding
-
-           @param contentEncoding
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.setContentEncoding = function (contentEncoding) {
-            this.contentEncoding = contentEncoding;
-        };
-        /**
-           Returns the content length
-
-           @return contentLength
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.getContentLength = function () {
-            return this.contentLength;
-        };
-        /**
-           Set the content length
-
-           @param contentLength
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.setContentLength = function (contentLength) {
-            this.contentLength = contentLength;
-        };
-        /**
-           Returns the content type
-
-           @return contentType
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.getContentType = function () {
-            return this.contentType;
-        };
-        /**
-           Set the content type
-
-           @param contentType
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.setContentType = function (contentType) {
-            this.contentType = contentType;
-        };
-        /**
-           Returns the array of Header
-
-           @return headers
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.getHeaders = function () {
-            return this.headers;
-        };
-        /**
-           Set the array of Header
-
-           @param headers
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.setHeaders = function (headers) {
-            this.headers = headers;
-        };
-        /**
-           Returns the method
-
-           @return method
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.getSession = function () {
-            return this.session;
-        };
-        /**
-           Set the method
-
-           @param session
-           @since ARP1.0
-        */
-        ServiceResponse.prototype.setSession = function (session) {
-            this.session = session;
-        };
-        return ServiceResponse;
+        return SecureKeyPair;
     })();
-    Adaptive.ServiceResponse = ServiceResponse;
+    Adaptive.SecureKeyPair = SecureKeyPair;
     /**
        Structure representing the data of a single acceleration reading.
 
@@ -2504,6 +1990,520 @@ be unique for a specific instance of an application on a specific device.
         return Acceleration;
     })();
     Adaptive.Acceleration = Acceleration;
+    /**
+       Structure representing the data a single geolocation reading.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var Geolocation = (function () {
+        /**
+           Constructor used by the implementation
+
+           @param latitude
+           @param longitude
+           @param altitude
+           @param xDoP
+           @param yDoP
+           @since ARP1.0
+        */
+        function Geolocation(latitude, longitude, altitude, xDoP, yDoP) {
+            this.latitude = latitude;
+            this.longitude = longitude;
+            this.altitude = altitude;
+            this.xDoP = xDoP;
+            this.yDoP = yDoP;
+        }
+        /**
+           Returns altitude in meters
+
+           @return altitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.getAltitude = function () {
+            return this.altitude;
+        };
+        /**
+           Set altitude in meters
+
+           @param altitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.setAltitude = function (altitude) {
+            this.altitude = altitude;
+        };
+        /**
+           Returns the latitude in degrees
+
+           @return latitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.getLatitude = function () {
+            return this.latitude;
+        };
+        /**
+           Set the latitude in degrees
+
+           @param latitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.setLatitude = function (latitude) {
+            this.latitude = latitude;
+        };
+        /**
+           Returns the longitude in degrees
+
+           @return longitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.getLongitude = function () {
+            return this.longitude;
+        };
+        /**
+           Returns the latitude in degrees
+
+           @param longitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.setLongitude = function (longitude) {
+            this.longitude = longitude;
+        };
+        /**
+           Returns the Dilution of Position in the X axis (longitude)
+
+           @return xDoP
+           @since ARP1.0
+        */
+        Geolocation.prototype.getXDoP = function () {
+            return this.xDoP;
+        };
+        /**
+           Sets Dilution of precision on the X measurement. Measured in meters.
+
+           @param xDoP Dilution of precision on the X measurement. Measured in meters.
+        */
+        Geolocation.prototype.setXDoP = function (xDoP) {
+            this.xDoP = xDoP;
+        };
+        /**
+           Returns the Dilution of Position in the Y axis (latitude)
+
+           @return yDoP
+           @since ARP1.0
+        */
+        Geolocation.prototype.getYDoP = function () {
+            return this.yDoP;
+        };
+        /**
+           Sets Dilution of precision on the Y measurement. Measured in meters.
+
+           @param yDoP Dilution of precision on the Y measurement. Measured in meters.
+        */
+        Geolocation.prototype.setYDoP = function (yDoP) {
+            this.yDoP = yDoP;
+        };
+        return Geolocation;
+    })();
+    Adaptive.Geolocation = Geolocation;
+    /**
+       Represents a specific user or system locate.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var Locale = (function () {
+        /**
+           Constructor used by the implementation
+
+           @param country
+           @param language
+           @since ARP1.0
+        */
+        function Locale(language, country) {
+            this.language = language;
+            this.country = country;
+        }
+        /**
+           Returns the country code
+
+           @return country code
+           @since ARP1.0
+        */
+        Locale.prototype.getCountry = function () {
+            return this.country;
+        };
+        /**
+           Set the country code
+
+           @param country code
+           @since ARP1.0
+        */
+        Locale.prototype.setCountry = function (country) {
+            this.country = country;
+        };
+        /**
+           Returns the language code
+
+           @return language code
+           @since ARP1.0
+        */
+        Locale.prototype.getLanguage = function () {
+            return this.language;
+        };
+        /**
+           Set the language code
+
+           @param language code
+           @since ARP1.0
+        */
+        Locale.prototype.setLanguage = function (language) {
+            this.language = language;
+        };
+        return Locale;
+    })();
+    Adaptive.Locale = Locale;
+    /**
+       Structure representing the professional info data elements of a contact.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var ContactProfessionalInfo = (function () {
+        /**
+           Constructor used by implementation to set the ContactProfessionalInfo.
+
+           @param jobTitle
+           @param jobDescription
+           @param company
+           @since ARP1.0
+        */
+        function ContactProfessionalInfo(jobTitle, jobDescription, company) {
+            this.jobTitle = jobTitle;
+            this.jobDescription = jobDescription;
+            this.company = company;
+        }
+        /**
+           Returns the company of the job
+
+           @return company
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.getCompany = function () {
+            return this.company;
+        };
+        /**
+           Set the company of the job
+
+           @param company
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.setCompany = function (company) {
+            this.company = company;
+        };
+        /**
+           Returns the description of the job
+
+           @return description
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.getJobDescription = function () {
+            return this.jobDescription;
+        };
+        /**
+           Set the description of the job
+
+           @param jobDescription
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.setJobDescription = function (jobDescription) {
+            this.jobDescription = jobDescription;
+        };
+        /**
+           Returns the title of the job
+
+           @return title
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.getJobTitle = function () {
+            return this.jobTitle;
+        };
+        /**
+           Set the title of the job
+
+           @param jobTitle
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.setJobTitle = function (jobTitle) {
+            this.jobTitle = jobTitle;
+        };
+        return ContactProfessionalInfo;
+    })();
+    Adaptive.ContactProfessionalInfo = ContactProfessionalInfo;
+    /**
+       Structure representing the email data elements of a contact.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var ContactEmail = (function () {
+        /**
+           Constructor used by the implementation
+
+           @param type
+           @param primary
+           @param email
+           @since ARP1.0
+        */
+        function ContactEmail(type, primary, email) {
+            this.type = type;
+            this.primary = primary;
+            this.email = email;
+        }
+        /**
+           Returns the type of the email
+
+           @return EmailType
+           @since ARP1.0
+        */
+        ContactEmail.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Set the type of the email
+
+           @param type
+           @since ARP1.0
+        */
+        ContactEmail.prototype.setType = function (type) {
+            this.type = type;
+        };
+        /**
+           Returns the email of the Contact
+
+           @return email
+           @since ARP1.0
+        */
+        ContactEmail.prototype.getEmail = function () {
+            return this.email;
+        };
+        /**
+           Set the email of the Contact
+
+           @param email
+           @since ARP1.0
+        */
+        ContactEmail.prototype.setEmail = function (email) {
+            this.email = email;
+        };
+        /**
+           Returns if the email is primary
+
+           @return true if the email is primary; false otherwise
+           @since ARP1.0
+        */
+        ContactEmail.prototype.getPrimary = function () {
+            return this.primary;
+        };
+        /**
+           Set if the email
+
+           @param primary true if the email is primary; false otherwise
+           @since ARP1.0
+        */
+        ContactEmail.prototype.setPrimary = function (primary) {
+            this.primary = primary;
+        };
+        return ContactEmail;
+    })();
+    Adaptive.ContactEmail = ContactEmail;
+    /**
+       Represents a row for a data table.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var Row = (function () {
+        /**
+           Constructor for implementation using.
+
+           @param values The values of the row
+        */
+        function Row(values) {
+            this.values = values;
+        }
+        /**
+           Returns the values of the row.
+
+           @return The values of the row.
+        */
+        Row.prototype.getValues = function () {
+            return this.values;
+        };
+        /**
+           Sets the values of the row.
+
+           @param values The values of the row.
+        */
+        Row.prototype.setValues = function (values) {
+            this.values = values;
+        };
+        return Row;
+    })();
+    Adaptive.Row = Row;
+    /**
+       Structure representing the basic device information.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var DeviceInfo = (function () {
+        /**
+           Constructor for the implementation of the platform.
+
+           @param name   or brand of the device.
+           @param model  of the device.
+           @param vendor of the device.
+           @param uuid   unique* identifier (* platform dependent).
+        */
+        function DeviceInfo(name, model, vendor, uuid) {
+            this.name = name;
+            this.model = model;
+            this.vendor = vendor;
+            this.uuid = uuid;
+        }
+        /**
+           Returns the model of the device.
+
+           @return String with the model of the device.
+        */
+        DeviceInfo.prototype.getModel = function () {
+            return this.model;
+        };
+        /**
+           Sets Model of device - equivalent to device release or version.
+
+           @param model Model of device - equivalent to device release or version.
+        */
+        DeviceInfo.prototype.setModel = function (model) {
+            this.model = model;
+        };
+        /**
+           Returns the name of the device.
+
+           @return String with device name.
+        */
+        DeviceInfo.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets Name of device - equivalent to brand.
+
+           @param name Name of device - equivalent to brand.
+        */
+        DeviceInfo.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Returns the platform dependent UUID of the device.
+
+           @return String with the 128-bit device identifier.
+        */
+        DeviceInfo.prototype.getUuid = function () {
+            return this.uuid;
+        };
+        /**
+           Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+
+           @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+        */
+        DeviceInfo.prototype.setUuid = function (uuid) {
+            this.uuid = uuid;
+        };
+        /**
+           Returns the vendor of the device.
+
+           @return String with the vendor name.
+        */
+        DeviceInfo.prototype.getVendor = function () {
+            return this.vendor;
+        };
+        /**
+           Sets Vendor of the device hardware.
+
+           @param vendor Vendor of the device hardware.
+        */
+        DeviceInfo.prototype.setVendor = function (vendor) {
+            this.vendor = vendor;
+        };
+        return DeviceInfo;
+    })();
+    Adaptive.DeviceInfo = DeviceInfo;
+    /**
+       Structure representing the assigned tags data elements of a contact.
+
+       @author Carlos Lozano Diez
+       @since 1.0
+       @version 1.0
+    */
+    var ContactTag = (function () {
+        /**
+           Constructor used by the implementation
+
+           @param dataValue
+           @param name
+           @since ARP1.0
+        */
+        function ContactTag(name, dataValue) {
+            this.name = name;
+            this.dataValue = dataValue;
+        }
+        /**
+           Returns the value of the Tag
+
+           @return value
+           @since ARP1.0
+        */
+        ContactTag.prototype.getDataValue = function () {
+            return this.dataValue;
+        };
+        /**
+           Set the value of the Tag
+
+           @param dataValue
+           @since ARP1.0
+        */
+        ContactTag.prototype.setDataValue = function (dataValue) {
+            this.dataValue = dataValue;
+        };
+        /**
+           Returns the name of the Tag
+
+           @return name
+           @since ARP1.0
+        */
+        ContactTag.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the name of the Tag
+
+           @param name
+           @since ARP1.0
+        */
+        ContactTag.prototype.setName = function (name) {
+            this.name = name;
+        };
+        return ContactTag;
+    })();
+    Adaptive.ContactTag = ContactTag;
     /**
        Structure representing the data elements of a contact.
 
@@ -2670,78 +2670,145 @@ be unique for a specific instance of an application on a specific device.
     })(ContactUid);
     Adaptive.Contact = Contact;
     /**
-       Enumeration IGeolocationListenerWarning
+       Enumeration ContactAddressType
     */
-    var IGeolocationListenerWarning = (function () {
-        function IGeolocationListenerWarning(value) {
+    var ContactAddressType = (function () {
+        function ContactAddressType(value) {
             this.value = value;
         }
-        IGeolocationListenerWarning.prototype.toString = function () {
+        ContactAddressType.prototype.toString = function () {
             return this.value;
         };
-        IGeolocationListenerWarning.HighDoP = new IGeolocationListenerWarning("HighDoP");
-        IGeolocationListenerWarning.StaleData = new IGeolocationListenerWarning("StaleData");
-        IGeolocationListenerWarning.Unknown = new IGeolocationListenerWarning("Unknown");
-        return IGeolocationListenerWarning;
+        ContactAddressType.Home = new ContactAddressType("Home");
+        ContactAddressType.Work = new ContactAddressType("Work");
+        ContactAddressType.Other = new ContactAddressType("Other");
+        ContactAddressType.Unknown = new ContactAddressType("Unknown");
+        return ContactAddressType;
     })();
-    Adaptive.IGeolocationListenerWarning = IGeolocationListenerWarning;
+    Adaptive.ContactAddressType = ContactAddressType;
     /**
-       Enumeration IGeolocationListenerError
+       Enumeration ContactEmailType
     */
-    var IGeolocationListenerError = (function () {
-        function IGeolocationListenerError(value) {
+    var ContactEmailType = (function () {
+        function ContactEmailType(value) {
             this.value = value;
         }
-        IGeolocationListenerError.prototype.toString = function () {
+        ContactEmailType.prototype.toString = function () {
             return this.value;
         };
-        IGeolocationListenerError.Disabled = new IGeolocationListenerError("Disabled");
-        IGeolocationListenerError.RestrictedAccess = new IGeolocationListenerError("RestrictedAccess");
-        IGeolocationListenerError.DeniedAccess = new IGeolocationListenerError("DeniedAccess");
-        IGeolocationListenerError.StatusNotDetermined = new IGeolocationListenerError("StatusNotDetermined");
-        IGeolocationListenerError.Unknown = new IGeolocationListenerError("Unknown");
-        return IGeolocationListenerError;
+        ContactEmailType.Personal = new ContactEmailType("Personal");
+        ContactEmailType.Work = new ContactEmailType("Work");
+        ContactEmailType.Other = new ContactEmailType("Other");
+        ContactEmailType.Unknown = new ContactEmailType("Unknown");
+        return ContactEmailType;
     })();
-    Adaptive.IGeolocationListenerError = IGeolocationListenerError;
+    Adaptive.ContactEmailType = ContactEmailType;
     /**
-       Enumeration IContactFilter
+       Enumeration ContactPersonalInfoTitle
     */
-    var IContactFilter = (function () {
-        function IContactFilter(value) {
+    var ContactPersonalInfoTitle = (function () {
+        function ContactPersonalInfoTitle(value) {
             this.value = value;
         }
-        IContactFilter.prototype.toString = function () {
+        ContactPersonalInfoTitle.prototype.toString = function () {
             return this.value;
         };
-        IContactFilter.HAS_PHONE = new IContactFilter("HAS_PHONE");
-        IContactFilter.HAS_EMAIL = new IContactFilter("HAS_EMAIL");
-        IContactFilter.HAS_ADDRESS = new IContactFilter("HAS_ADDRESS");
-        IContactFilter.Unknown = new IContactFilter("Unknown");
-        return IContactFilter;
+        ContactPersonalInfoTitle.Mr = new ContactPersonalInfoTitle("Mr");
+        ContactPersonalInfoTitle.Mrs = new ContactPersonalInfoTitle("Mrs");
+        ContactPersonalInfoTitle.Ms = new ContactPersonalInfoTitle("Ms");
+        ContactPersonalInfoTitle.Dr = new ContactPersonalInfoTitle("Dr");
+        ContactPersonalInfoTitle.Unknown = new ContactPersonalInfoTitle("Unknown");
+        return ContactPersonalInfoTitle;
     })();
-    Adaptive.IContactFilter = IContactFilter;
+    Adaptive.ContactPersonalInfoTitle = ContactPersonalInfoTitle;
     /**
-       Enumeration IContactFieldGroup
+       Enumeration ContactPhoneType
     */
-    var IContactFieldGroup = (function () {
-        function IContactFieldGroup(value) {
+    var ContactPhoneType = (function () {
+        function ContactPhoneType(value) {
             this.value = value;
         }
-        IContactFieldGroup.prototype.toString = function () {
+        ContactPhoneType.prototype.toString = function () {
             return this.value;
         };
-        IContactFieldGroup.PERSONAL_INFO = new IContactFieldGroup("PERSONAL_INFO");
-        IContactFieldGroup.PROFESSIONAL_INFO = new IContactFieldGroup("PROFESSIONAL_INFO");
-        IContactFieldGroup.ADDRESSES = new IContactFieldGroup("ADDRESSES");
-        IContactFieldGroup.PHONES = new IContactFieldGroup("PHONES");
-        IContactFieldGroup.EMAILS = new IContactFieldGroup("EMAILS");
-        IContactFieldGroup.WEBSITES = new IContactFieldGroup("WEBSITES");
-        IContactFieldGroup.SOCIALS = new IContactFieldGroup("SOCIALS");
-        IContactFieldGroup.TAGS = new IContactFieldGroup("TAGS");
-        IContactFieldGroup.Unknown = new IContactFieldGroup("Unknown");
-        return IContactFieldGroup;
+        ContactPhoneType.Mobile = new ContactPhoneType("Mobile");
+        ContactPhoneType.Work = new ContactPhoneType("Work");
+        ContactPhoneType.Home = new ContactPhoneType("Home");
+        ContactPhoneType.Main = new ContactPhoneType("Main");
+        ContactPhoneType.HomeFax = new ContactPhoneType("HomeFax");
+        ContactPhoneType.WorkFax = new ContactPhoneType("WorkFax");
+        ContactPhoneType.Other = new ContactPhoneType("Other");
+        ContactPhoneType.Unknown = new ContactPhoneType("Unknown");
+        return ContactPhoneType;
     })();
-    Adaptive.IContactFieldGroup = IContactFieldGroup;
+    Adaptive.ContactPhoneType = ContactPhoneType;
+    /**
+       Enumeration ContactSocialNetwork
+    */
+    var ContactSocialNetwork = (function () {
+        function ContactSocialNetwork(value) {
+            this.value = value;
+        }
+        ContactSocialNetwork.prototype.toString = function () {
+            return this.value;
+        };
+        ContactSocialNetwork.Twitter = new ContactSocialNetwork("Twitter");
+        ContactSocialNetwork.Facebook = new ContactSocialNetwork("Facebook");
+        ContactSocialNetwork.GooglePlus = new ContactSocialNetwork("GooglePlus");
+        ContactSocialNetwork.LinkedIn = new ContactSocialNetwork("LinkedIn");
+        ContactSocialNetwork.Flickr = new ContactSocialNetwork("Flickr");
+        ContactSocialNetwork.Unknown = new ContactSocialNetwork("Unknown");
+        return ContactSocialNetwork;
+    })();
+    Adaptive.ContactSocialNetwork = ContactSocialNetwork;
+    /**
+       Enumeration IAccelerationListenerError
+    */
+    var IAccelerationListenerError = (function () {
+        function IAccelerationListenerError(value) {
+            this.value = value;
+        }
+        IAccelerationListenerError.prototype.toString = function () {
+            return this.value;
+        };
+        IAccelerationListenerError.Unauthorized = new IAccelerationListenerError("Unauthorized");
+        IAccelerationListenerError.Unavailable = new IAccelerationListenerError("Unavailable");
+        IAccelerationListenerError.Unknown = new IAccelerationListenerError("Unknown");
+        return IAccelerationListenerError;
+    })();
+    Adaptive.IAccelerationListenerError = IAccelerationListenerError;
+    /**
+       Enumeration IAccelerationListenerWarning
+    */
+    var IAccelerationListenerWarning = (function () {
+        function IAccelerationListenerWarning(value) {
+            this.value = value;
+        }
+        IAccelerationListenerWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IAccelerationListenerWarning.NeedsCalibration = new IAccelerationListenerWarning("NeedsCalibration");
+        IAccelerationListenerWarning.Stale = new IAccelerationListenerWarning("Stale");
+        IAccelerationListenerWarning.Unknown = new IAccelerationListenerWarning("Unknown");
+        return IAccelerationListenerWarning;
+    })();
+    Adaptive.IAccelerationListenerWarning = IAccelerationListenerWarning;
+    /**
+       Enumeration IAppResourceCallbackError
+    */
+    var IAppResourceCallbackError = (function () {
+        function IAppResourceCallbackError(value) {
+            this.value = value;
+        }
+        IAppResourceCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IAppResourceCallbackError.NotFound = new IAppResourceCallbackError("NotFound");
+        IAppResourceCallbackError.NoPermission = new IAppResourceCallbackError("NoPermission");
+        IAppResourceCallbackError.Unknown = new IAppResourceCallbackError("Unknown");
+        return IAppResourceCallbackError;
+    })();
+    Adaptive.IAppResourceCallbackError = IAppResourceCallbackError;
     /**
        Enumeration IAppResourceCallbackWarning
     */
@@ -2760,266 +2827,52 @@ be unique for a specific instance of an application on a specific device.
     })();
     Adaptive.IAppResourceCallbackWarning = IAppResourceCallbackWarning;
     /**
-       Enumeration IAppResourceCallbackError
+       Enumeration IButtonListenerError
     */
-    var IAppResourceCallbackError = (function () {
-        function IAppResourceCallbackError(value) {
+    var IButtonListenerError = (function () {
+        function IButtonListenerError(value) {
             this.value = value;
         }
-        IAppResourceCallbackError.prototype.toString = function () {
+        IButtonListenerError.prototype.toString = function () {
             return this.value;
         };
-        IAppResourceCallbackError.NotFound = new IAppResourceCallbackError("NotFound");
-        IAppResourceCallbackError.NoPermission = new IAppResourceCallbackError("NoPermission");
-        IAppResourceCallbackError.Unknown = new IAppResourceCallbackError("Unknown");
-        return IAppResourceCallbackError;
+        IButtonListenerError.Not_Present = new IButtonListenerError("Not_Present");
+        IButtonListenerError.Unknown = new IButtonListenerError("Unknown");
+        return IButtonListenerError;
     })();
-    Adaptive.IAppResourceCallbackError = IAppResourceCallbackError;
+    Adaptive.IButtonListenerError = IButtonListenerError;
     /**
-       Enumeration IAccelerationListenerWarning
+       Enumeration IButtonListenerWarning
     */
-    var IAccelerationListenerWarning = (function () {
-        function IAccelerationListenerWarning(value) {
+    var IButtonListenerWarning = (function () {
+        function IButtonListenerWarning(value) {
             this.value = value;
         }
-        IAccelerationListenerWarning.prototype.toString = function () {
+        IButtonListenerWarning.prototype.toString = function () {
             return this.value;
         };
-        IAccelerationListenerWarning.NeedsCalibration = new IAccelerationListenerWarning("NeedsCalibration");
-        IAccelerationListenerWarning.Stale = new IAccelerationListenerWarning("Stale");
-        IAccelerationListenerWarning.Unknown = new IAccelerationListenerWarning("Unknown");
-        return IAccelerationListenerWarning;
+        IButtonListenerWarning.Not_Implemented = new IButtonListenerWarning("Not_Implemented");
+        IButtonListenerWarning.Unknown = new IButtonListenerWarning("Unknown");
+        return IButtonListenerWarning;
     })();
-    Adaptive.IAccelerationListenerWarning = IAccelerationListenerWarning;
+    Adaptive.IButtonListenerWarning = IButtonListenerWarning;
     /**
-       Enumeration IAccelerationListenerError
+       Enumeration ICapabilitiesButton
     */
-    var IAccelerationListenerError = (function () {
-        function IAccelerationListenerError(value) {
+    var ICapabilitiesButton = (function () {
+        function ICapabilitiesButton(value) {
             this.value = value;
         }
-        IAccelerationListenerError.prototype.toString = function () {
+        ICapabilitiesButton.prototype.toString = function () {
             return this.value;
         };
-        IAccelerationListenerError.Unauthorized = new IAccelerationListenerError("Unauthorized");
-        IAccelerationListenerError.Unavailable = new IAccelerationListenerError("Unavailable");
-        IAccelerationListenerError.Unknown = new IAccelerationListenerError("Unknown");
-        return IAccelerationListenerError;
+        ICapabilitiesButton.HomeButton = new ICapabilitiesButton("HomeButton");
+        ICapabilitiesButton.BackButton = new ICapabilitiesButton("BackButton");
+        ICapabilitiesButton.OptionButton = new ICapabilitiesButton("OptionButton");
+        ICapabilitiesButton.Unknown = new ICapabilitiesButton("Unknown");
+        return ICapabilitiesButton;
     })();
-    Adaptive.IAccelerationListenerError = IAccelerationListenerError;
-    /**
-       Enumeration IMessagingCallbackWarning
-    */
-    var IMessagingCallbackWarning = (function () {
-        function IMessagingCallbackWarning(value) {
-            this.value = value;
-        }
-        IMessagingCallbackWarning.prototype.toString = function () {
-            return this.value;
-        };
-        IMessagingCallbackWarning.UnableToSentAll = new IMessagingCallbackWarning("UnableToSentAll");
-        IMessagingCallbackWarning.UnableToFetchAttachment = new IMessagingCallbackWarning("UnableToFetchAttachment");
-        IMessagingCallbackWarning.Unknown = new IMessagingCallbackWarning("Unknown");
-        return IMessagingCallbackWarning;
-    })();
-    Adaptive.IMessagingCallbackWarning = IMessagingCallbackWarning;
-    /**
-       Enumeration IMessagingCallbackError
-    */
-    var IMessagingCallbackError = (function () {
-        function IMessagingCallbackError(value) {
-            this.value = value;
-        }
-        IMessagingCallbackError.prototype.toString = function () {
-            return this.value;
-        };
-        IMessagingCallbackError.SIMNotPresent = new IMessagingCallbackError("SIMNotPresent");
-        IMessagingCallbackError.EmailAccountNotFound = new IMessagingCallbackError("EmailAccountNotFound");
-        IMessagingCallbackError.NotSent = new IMessagingCallbackError("NotSent");
-        IMessagingCallbackError.WrongParams = new IMessagingCallbackError("WrongParams");
-        IMessagingCallbackError.NotSupported = new IMessagingCallbackError("NotSupported");
-        IMessagingCallbackError.Unknown = new IMessagingCallbackError("Unknown");
-        return IMessagingCallbackError;
-    })();
-    Adaptive.IMessagingCallbackError = IMessagingCallbackError;
-    /**
-       Enumeration IFileDataResultCallbackWarning
-    */
-    var IFileDataResultCallbackWarning = (function () {
-        function IFileDataResultCallbackWarning(value) {
-            this.value = value;
-        }
-        IFileDataResultCallbackWarning.prototype.toString = function () {
-            return this.value;
-        };
-        IFileDataResultCallbackWarning.ExceedMaximumSize = new IFileDataResultCallbackWarning("ExceedMaximumSize");
-        IFileDataResultCallbackWarning.Unknown = new IFileDataResultCallbackWarning("Unknown");
-        return IFileDataResultCallbackWarning;
-    })();
-    Adaptive.IFileDataResultCallbackWarning = IFileDataResultCallbackWarning;
-    /**
-       Enumeration IFileDataResultCallbackError
-    */
-    var IFileDataResultCallbackError = (function () {
-        function IFileDataResultCallbackError(value) {
-            this.value = value;
-        }
-        IFileDataResultCallbackError.prototype.toString = function () {
-            return this.value;
-        };
-        IFileDataResultCallbackError.InexistentFile = new IFileDataResultCallbackError("InexistentFile");
-        IFileDataResultCallbackError.InsufficientSpace = new IFileDataResultCallbackError("InsufficientSpace");
-        IFileDataResultCallbackError.Unauthorized = new IFileDataResultCallbackError("Unauthorized");
-        IFileDataResultCallbackError.Unknown = new IFileDataResultCallbackError("Unknown");
-        return IFileDataResultCallbackError;
-    })();
-    Adaptive.IFileDataResultCallbackError = IFileDataResultCallbackError;
-    /**
-       Enumeration ILoggingLogLevel
-    */
-    var ILoggingLogLevel = (function () {
-        function ILoggingLogLevel(value) {
-            this.value = value;
-        }
-        ILoggingLogLevel.prototype.toString = function () {
-            return this.value;
-        };
-        ILoggingLogLevel.DEBUG = new ILoggingLogLevel("DEBUG");
-        ILoggingLogLevel.WARN = new ILoggingLogLevel("WARN");
-        ILoggingLogLevel.ERROR = new ILoggingLogLevel("ERROR");
-        ILoggingLogLevel.INFO = new ILoggingLogLevel("INFO");
-        ILoggingLogLevel.Unknown = new ILoggingLogLevel("Unknown");
-        return ILoggingLogLevel;
-    })();
-    Adaptive.ILoggingLogLevel = ILoggingLogLevel;
-    /**
-       Enumeration IContactPhotoResultCallbackWarning
-    */
-    var IContactPhotoResultCallbackWarning = (function () {
-        function IContactPhotoResultCallbackWarning(value) {
-            this.value = value;
-        }
-        IContactPhotoResultCallbackWarning.prototype.toString = function () {
-            return this.value;
-        };
-        IContactPhotoResultCallbackWarning.LimitExceeded = new IContactPhotoResultCallbackWarning("LimitExceeded");
-        IContactPhotoResultCallbackWarning.No_Matches = new IContactPhotoResultCallbackWarning("No_Matches");
-        IContactPhotoResultCallbackWarning.Unknown = new IContactPhotoResultCallbackWarning("Unknown");
-        return IContactPhotoResultCallbackWarning;
-    })();
-    Adaptive.IContactPhotoResultCallbackWarning = IContactPhotoResultCallbackWarning;
-    /**
-       Enumeration IContactPhotoResultCallbackError
-    */
-    var IContactPhotoResultCallbackError = (function () {
-        function IContactPhotoResultCallbackError(value) {
-            this.value = value;
-        }
-        IContactPhotoResultCallbackError.prototype.toString = function () {
-            return this.value;
-        };
-        IContactPhotoResultCallbackError.NoPermission = new IContactPhotoResultCallbackError("NoPermission");
-        IContactPhotoResultCallbackError.Wrong_Params = new IContactPhotoResultCallbackError("Wrong_Params");
-        IContactPhotoResultCallbackError.No_Photo = new IContactPhotoResultCallbackError("No_Photo");
-        IContactPhotoResultCallbackError.Unknown = new IContactPhotoResultCallbackError("Unknown");
-        return IContactPhotoResultCallbackError;
-    })();
-    Adaptive.IContactPhotoResultCallbackError = IContactPhotoResultCallbackError;
-    /**
-       Enumeration IServiceResultCallbackWarning
-    */
-    var IServiceResultCallbackWarning = (function () {
-        function IServiceResultCallbackWarning(value) {
-            this.value = value;
-        }
-        IServiceResultCallbackWarning.prototype.toString = function () {
-            return this.value;
-        };
-        IServiceResultCallbackWarning.NotSecure = new IServiceResultCallbackWarning("NotSecure");
-        IServiceResultCallbackWarning.NotTrusted = new IServiceResultCallbackWarning("NotTrusted");
-        IServiceResultCallbackWarning.Redirected = new IServiceResultCallbackWarning("Redirected");
-        IServiceResultCallbackWarning.Wrong_Params = new IServiceResultCallbackWarning("Wrong_Params");
-        IServiceResultCallbackWarning.Unknown = new IServiceResultCallbackWarning("Unknown");
-        return IServiceResultCallbackWarning;
-    })();
-    Adaptive.IServiceResultCallbackWarning = IServiceResultCallbackWarning;
-    /**
-       Enumeration IServiceResultCallbackError
-    */
-    var IServiceResultCallbackError = (function () {
-        function IServiceResultCallbackError(value) {
-            this.value = value;
-        }
-        IServiceResultCallbackError.prototype.toString = function () {
-            return this.value;
-        };
-        IServiceResultCallbackError.Forbidden = new IServiceResultCallbackError("Forbidden");
-        IServiceResultCallbackError.NotFound = new IServiceResultCallbackError("NotFound");
-        IServiceResultCallbackError.MethodNotAllowed = new IServiceResultCallbackError("MethodNotAllowed");
-        IServiceResultCallbackError.NotAllowed = new IServiceResultCallbackError("NotAllowed");
-        IServiceResultCallbackError.NotAuthenticated = new IServiceResultCallbackError("NotAuthenticated");
-        IServiceResultCallbackError.TimeOut = new IServiceResultCallbackError("TimeOut");
-        IServiceResultCallbackError.NoResponse = new IServiceResultCallbackError("NoResponse");
-        IServiceResultCallbackError.ServerError = new IServiceResultCallbackError("ServerError");
-        IServiceResultCallbackError.Unreachable = new IServiceResultCallbackError("Unreachable");
-        IServiceResultCallbackError.MalformedUrl = new IServiceResultCallbackError("MalformedUrl");
-        IServiceResultCallbackError.NotRegisteredService = new IServiceResultCallbackError("NotRegisteredService");
-        IServiceResultCallbackError.Unknown = new IServiceResultCallbackError("Unknown");
-        return IServiceResultCallbackError;
-    })();
-    Adaptive.IServiceResultCallbackError = IServiceResultCallbackError;
-    /**
-       Enumeration ISecureKVResultCallbackWarning
-    */
-    var ISecureKVResultCallbackWarning = (function () {
-        function ISecureKVResultCallbackWarning(value) {
-            this.value = value;
-        }
-        ISecureKVResultCallbackWarning.prototype.toString = function () {
-            return this.value;
-        };
-        ISecureKVResultCallbackWarning.EntryOverride = new ISecureKVResultCallbackWarning("EntryOverride");
-        ISecureKVResultCallbackWarning.Unknown = new ISecureKVResultCallbackWarning("Unknown");
-        return ISecureKVResultCallbackWarning;
-    })();
-    Adaptive.ISecureKVResultCallbackWarning = ISecureKVResultCallbackWarning;
-    /**
-       Enumeration ISecureKVResultCallbackError
-    */
-    var ISecureKVResultCallbackError = (function () {
-        function ISecureKVResultCallbackError(value) {
-            this.value = value;
-        }
-        ISecureKVResultCallbackError.prototype.toString = function () {
-            return this.value;
-        };
-        ISecureKVResultCallbackError.NoPermission = new ISecureKVResultCallbackError("NoPermission");
-        ISecureKVResultCallbackError.NoMatchesFound = new ISecureKVResultCallbackError("NoMatchesFound");
-        ISecureKVResultCallbackError.Unknown = new ISecureKVResultCallbackError("Unknown");
-        return ISecureKVResultCallbackError;
-    })();
-    Adaptive.ISecureKVResultCallbackError = ISecureKVResultCallbackError;
-    /**
-       Enumeration ICapabilitiesSensor
-    */
-    var ICapabilitiesSensor = (function () {
-        function ICapabilitiesSensor(value) {
-            this.value = value;
-        }
-        ICapabilitiesSensor.prototype.toString = function () {
-            return this.value;
-        };
-        ICapabilitiesSensor.Accelerometer = new ICapabilitiesSensor("Accelerometer");
-        ICapabilitiesSensor.AmbientLight = new ICapabilitiesSensor("AmbientLight");
-        ICapabilitiesSensor.Barometer = new ICapabilitiesSensor("Barometer");
-        ICapabilitiesSensor.Geolocation = new ICapabilitiesSensor("Geolocation");
-        ICapabilitiesSensor.Gyroscope = new ICapabilitiesSensor("Gyroscope");
-        ICapabilitiesSensor.Magnetometer = new ICapabilitiesSensor("Magnetometer");
-        ICapabilitiesSensor.Proximity = new ICapabilitiesSensor("Proximity");
-        ICapabilitiesSensor.Unknown = new ICapabilitiesSensor("Unknown");
-        return ICapabilitiesSensor;
-    })();
-    Adaptive.ICapabilitiesSensor = ICapabilitiesSensor;
+    Adaptive.ICapabilitiesButton = ICapabilitiesButton;
     /**
        Enumeration ICapabilitiesCommunication
     */
@@ -3114,101 +2967,130 @@ be unique for a specific instance of an application on a specific device.
     })();
     Adaptive.ICapabilitiesNotification = ICapabilitiesNotification;
     /**
-       Enumeration ICapabilitiesButton
+       Enumeration ICapabilitiesSensor
     */
-    var ICapabilitiesButton = (function () {
-        function ICapabilitiesButton(value) {
+    var ICapabilitiesSensor = (function () {
+        function ICapabilitiesSensor(value) {
             this.value = value;
         }
-        ICapabilitiesButton.prototype.toString = function () {
+        ICapabilitiesSensor.prototype.toString = function () {
             return this.value;
         };
-        ICapabilitiesButton.HomeButton = new ICapabilitiesButton("HomeButton");
-        ICapabilitiesButton.BackButton = new ICapabilitiesButton("BackButton");
-        ICapabilitiesButton.OptionButton = new ICapabilitiesButton("OptionButton");
-        ICapabilitiesButton.Unknown = new ICapabilitiesButton("Unknown");
-        return ICapabilitiesButton;
+        ICapabilitiesSensor.Accelerometer = new ICapabilitiesSensor("Accelerometer");
+        ICapabilitiesSensor.AmbientLight = new ICapabilitiesSensor("AmbientLight");
+        ICapabilitiesSensor.Barometer = new ICapabilitiesSensor("Barometer");
+        ICapabilitiesSensor.Geolocation = new ICapabilitiesSensor("Geolocation");
+        ICapabilitiesSensor.Gyroscope = new ICapabilitiesSensor("Gyroscope");
+        ICapabilitiesSensor.Magnetometer = new ICapabilitiesSensor("Magnetometer");
+        ICapabilitiesSensor.Proximity = new ICapabilitiesSensor("Proximity");
+        ICapabilitiesSensor.Unknown = new ICapabilitiesSensor("Unknown");
+        return ICapabilitiesSensor;
     })();
-    Adaptive.ICapabilitiesButton = ICapabilitiesButton;
+    Adaptive.ICapabilitiesSensor = ICapabilitiesSensor;
     /**
-       Enumeration IButtonListenerWarning
+       Enumeration IContactFieldGroup
     */
-    var IButtonListenerWarning = (function () {
-        function IButtonListenerWarning(value) {
+    var IContactFieldGroup = (function () {
+        function IContactFieldGroup(value) {
             this.value = value;
         }
-        IButtonListenerWarning.prototype.toString = function () {
+        IContactFieldGroup.prototype.toString = function () {
             return this.value;
         };
-        IButtonListenerWarning.Not_Implemented = new IButtonListenerWarning("Not_Implemented");
-        IButtonListenerWarning.Unknown = new IButtonListenerWarning("Unknown");
-        return IButtonListenerWarning;
+        IContactFieldGroup.PERSONAL_INFO = new IContactFieldGroup("PERSONAL_INFO");
+        IContactFieldGroup.PROFESSIONAL_INFO = new IContactFieldGroup("PROFESSIONAL_INFO");
+        IContactFieldGroup.ADDRESSES = new IContactFieldGroup("ADDRESSES");
+        IContactFieldGroup.PHONES = new IContactFieldGroup("PHONES");
+        IContactFieldGroup.EMAILS = new IContactFieldGroup("EMAILS");
+        IContactFieldGroup.WEBSITES = new IContactFieldGroup("WEBSITES");
+        IContactFieldGroup.SOCIALS = new IContactFieldGroup("SOCIALS");
+        IContactFieldGroup.TAGS = new IContactFieldGroup("TAGS");
+        IContactFieldGroup.Unknown = new IContactFieldGroup("Unknown");
+        return IContactFieldGroup;
     })();
-    Adaptive.IButtonListenerWarning = IButtonListenerWarning;
+    Adaptive.IContactFieldGroup = IContactFieldGroup;
     /**
-       Enumeration IButtonListenerError
+       Enumeration IContactFilter
     */
-    var IButtonListenerError = (function () {
-        function IButtonListenerError(value) {
+    var IContactFilter = (function () {
+        function IContactFilter(value) {
             this.value = value;
         }
-        IButtonListenerError.prototype.toString = function () {
+        IContactFilter.prototype.toString = function () {
             return this.value;
         };
-        IButtonListenerError.Not_Present = new IButtonListenerError("Not_Present");
-        IButtonListenerError.Unknown = new IButtonListenerError("Unknown");
-        return IButtonListenerError;
+        IContactFilter.HAS_PHONE = new IContactFilter("HAS_PHONE");
+        IContactFilter.HAS_EMAIL = new IContactFilter("HAS_EMAIL");
+        IContactFilter.HAS_ADDRESS = new IContactFilter("HAS_ADDRESS");
+        IContactFilter.Unknown = new IContactFilter("Unknown");
+        return IContactFilter;
     })();
-    Adaptive.IButtonListenerError = IButtonListenerError;
+    Adaptive.IContactFilter = IContactFilter;
     /**
-       Enumeration ILifecycleListenerWarning
+       Enumeration IContactPhotoResultCallbackError
     */
-    var ILifecycleListenerWarning = (function () {
-        function ILifecycleListenerWarning(value) {
+    var IContactPhotoResultCallbackError = (function () {
+        function IContactPhotoResultCallbackError(value) {
             this.value = value;
         }
-        ILifecycleListenerWarning.prototype.toString = function () {
+        IContactPhotoResultCallbackError.prototype.toString = function () {
             return this.value;
         };
-        ILifecycleListenerWarning.MemoryLow = new ILifecycleListenerWarning("MemoryLow");
-        ILifecycleListenerWarning.BatteryLow = new ILifecycleListenerWarning("BatteryLow");
-        ILifecycleListenerWarning.Unknown = new ILifecycleListenerWarning("Unknown");
-        return ILifecycleListenerWarning;
+        IContactPhotoResultCallbackError.NoPermission = new IContactPhotoResultCallbackError("NoPermission");
+        IContactPhotoResultCallbackError.Wrong_Params = new IContactPhotoResultCallbackError("Wrong_Params");
+        IContactPhotoResultCallbackError.No_Photo = new IContactPhotoResultCallbackError("No_Photo");
+        IContactPhotoResultCallbackError.Unknown = new IContactPhotoResultCallbackError("Unknown");
+        return IContactPhotoResultCallbackError;
     })();
-    Adaptive.ILifecycleListenerWarning = ILifecycleListenerWarning;
+    Adaptive.IContactPhotoResultCallbackError = IContactPhotoResultCallbackError;
     /**
-       Enumeration ILifecycleListenerError
+       Enumeration IContactPhotoResultCallbackWarning
     */
-    var ILifecycleListenerError = (function () {
-        function ILifecycleListenerError(value) {
+    var IContactPhotoResultCallbackWarning = (function () {
+        function IContactPhotoResultCallbackWarning(value) {
             this.value = value;
         }
-        ILifecycleListenerError.prototype.toString = function () {
+        IContactPhotoResultCallbackWarning.prototype.toString = function () {
             return this.value;
         };
-        ILifecycleListenerError.Runtime = new ILifecycleListenerError("Runtime");
-        ILifecycleListenerError.Implementation = new ILifecycleListenerError("Implementation");
-        ILifecycleListenerError.Killed = new ILifecycleListenerError("Killed");
-        ILifecycleListenerError.Unknown = new ILifecycleListenerError("Unknown");
-        return ILifecycleListenerError;
+        IContactPhotoResultCallbackWarning.LimitExceeded = new IContactPhotoResultCallbackWarning("LimitExceeded");
+        IContactPhotoResultCallbackWarning.No_Matches = new IContactPhotoResultCallbackWarning("No_Matches");
+        IContactPhotoResultCallbackWarning.Unknown = new IContactPhotoResultCallbackWarning("Unknown");
+        return IContactPhotoResultCallbackWarning;
     })();
-    Adaptive.ILifecycleListenerError = ILifecycleListenerError;
+    Adaptive.IContactPhotoResultCallbackWarning = IContactPhotoResultCallbackWarning;
     /**
-       Enumeration IDatabaseResultCallbackWarning
+       Enumeration IContactResultCallbackError
     */
-    var IDatabaseResultCallbackWarning = (function () {
-        function IDatabaseResultCallbackWarning(value) {
+    var IContactResultCallbackError = (function () {
+        function IContactResultCallbackError(value) {
             this.value = value;
         }
-        IDatabaseResultCallbackWarning.prototype.toString = function () {
+        IContactResultCallbackError.prototype.toString = function () {
             return this.value;
         };
-        IDatabaseResultCallbackWarning.DatabaseExists = new IDatabaseResultCallbackWarning("DatabaseExists");
-        IDatabaseResultCallbackWarning.IsOpen = new IDatabaseResultCallbackWarning("IsOpen");
-        IDatabaseResultCallbackWarning.Unknown = new IDatabaseResultCallbackWarning("Unknown");
-        return IDatabaseResultCallbackWarning;
+        IContactResultCallbackError.NoPermission = new IContactResultCallbackError("NoPermission");
+        IContactResultCallbackError.Wrong_Params = new IContactResultCallbackError("Wrong_Params");
+        IContactResultCallbackError.Unknown = new IContactResultCallbackError("Unknown");
+        return IContactResultCallbackError;
     })();
-    Adaptive.IDatabaseResultCallbackWarning = IDatabaseResultCallbackWarning;
+    Adaptive.IContactResultCallbackError = IContactResultCallbackError;
+    /**
+       Enumeration IContactResultCallbackWarning
+    */
+    var IContactResultCallbackWarning = (function () {
+        function IContactResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IContactResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IContactResultCallbackWarning.LimitExceeded = new IContactResultCallbackWarning("LimitExceeded");
+        IContactResultCallbackWarning.No_Matches = new IContactResultCallbackWarning("No_Matches");
+        IContactResultCallbackWarning.Unknown = new IContactResultCallbackWarning("Unknown");
+        return IContactResultCallbackWarning;
+    })();
+    Adaptive.IContactResultCallbackWarning = IContactResultCallbackWarning;
     /**
        Enumeration IDatabaseResultCallbackError
     */
@@ -3227,24 +3109,237 @@ be unique for a specific instance of an application on a specific device.
     })();
     Adaptive.IDatabaseResultCallbackError = IDatabaseResultCallbackError;
     /**
-       Enumeration INetworkReachabilityCallbackWarning
+       Enumeration IDatabaseResultCallbackWarning
     */
-    var INetworkReachabilityCallbackWarning = (function () {
-        function INetworkReachabilityCallbackWarning(value) {
+    var IDatabaseResultCallbackWarning = (function () {
+        function IDatabaseResultCallbackWarning(value) {
             this.value = value;
         }
-        INetworkReachabilityCallbackWarning.prototype.toString = function () {
+        IDatabaseResultCallbackWarning.prototype.toString = function () {
             return this.value;
         };
-        INetworkReachabilityCallbackWarning.IncorrectScheme = new INetworkReachabilityCallbackWarning("IncorrectScheme");
-        INetworkReachabilityCallbackWarning.NotSecure = new INetworkReachabilityCallbackWarning("NotSecure");
-        INetworkReachabilityCallbackWarning.NotTrusted = new INetworkReachabilityCallbackWarning("NotTrusted");
-        INetworkReachabilityCallbackWarning.Redirected = new INetworkReachabilityCallbackWarning("Redirected");
-        INetworkReachabilityCallbackWarning.NotRegisteredService = new INetworkReachabilityCallbackWarning("NotRegisteredService");
-        INetworkReachabilityCallbackWarning.Unknown = new INetworkReachabilityCallbackWarning("Unknown");
-        return INetworkReachabilityCallbackWarning;
+        IDatabaseResultCallbackWarning.DatabaseExists = new IDatabaseResultCallbackWarning("DatabaseExists");
+        IDatabaseResultCallbackWarning.IsOpen = new IDatabaseResultCallbackWarning("IsOpen");
+        IDatabaseResultCallbackWarning.Unknown = new IDatabaseResultCallbackWarning("Unknown");
+        return IDatabaseResultCallbackWarning;
     })();
-    Adaptive.INetworkReachabilityCallbackWarning = INetworkReachabilityCallbackWarning;
+    Adaptive.IDatabaseResultCallbackWarning = IDatabaseResultCallbackWarning;
+    /**
+       Enumeration IFileDataResultCallbackError
+    */
+    var IFileDataResultCallbackError = (function () {
+        function IFileDataResultCallbackError(value) {
+            this.value = value;
+        }
+        IFileDataResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IFileDataResultCallbackError.InexistentFile = new IFileDataResultCallbackError("InexistentFile");
+        IFileDataResultCallbackError.InsufficientSpace = new IFileDataResultCallbackError("InsufficientSpace");
+        IFileDataResultCallbackError.Unauthorized = new IFileDataResultCallbackError("Unauthorized");
+        IFileDataResultCallbackError.Unknown = new IFileDataResultCallbackError("Unknown");
+        return IFileDataResultCallbackError;
+    })();
+    Adaptive.IFileDataResultCallbackError = IFileDataResultCallbackError;
+    /**
+       Enumeration IFileDataResultCallbackWarning
+    */
+    var IFileDataResultCallbackWarning = (function () {
+        function IFileDataResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IFileDataResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IFileDataResultCallbackWarning.ExceedMaximumSize = new IFileDataResultCallbackWarning("ExceedMaximumSize");
+        IFileDataResultCallbackWarning.Unknown = new IFileDataResultCallbackWarning("Unknown");
+        return IFileDataResultCallbackWarning;
+    })();
+    Adaptive.IFileDataResultCallbackWarning = IFileDataResultCallbackWarning;
+    /**
+       Enumeration IFileListResultCallbackError
+    */
+    var IFileListResultCallbackError = (function () {
+        function IFileListResultCallbackError(value) {
+            this.value = value;
+        }
+        IFileListResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IFileListResultCallbackError.InexistentFile = new IFileListResultCallbackError("InexistentFile");
+        IFileListResultCallbackError.Unauthorized = new IFileListResultCallbackError("Unauthorized");
+        IFileListResultCallbackError.Unknown = new IFileListResultCallbackError("Unknown");
+        return IFileListResultCallbackError;
+    })();
+    Adaptive.IFileListResultCallbackError = IFileListResultCallbackError;
+    /**
+       Enumeration IFileListResultCallbackWarning
+    */
+    var IFileListResultCallbackWarning = (function () {
+        function IFileListResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IFileListResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IFileListResultCallbackWarning.PartialResult = new IFileListResultCallbackWarning("PartialResult");
+        IFileListResultCallbackWarning.Unknown = new IFileListResultCallbackWarning("Unknown");
+        return IFileListResultCallbackWarning;
+    })();
+    Adaptive.IFileListResultCallbackWarning = IFileListResultCallbackWarning;
+    /**
+       Enumeration IFileResultCallbackError
+    */
+    var IFileResultCallbackError = (function () {
+        function IFileResultCallbackError(value) {
+            this.value = value;
+        }
+        IFileResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IFileResultCallbackError.FileExists = new IFileResultCallbackError("FileExists");
+        IFileResultCallbackError.InsufficientSpace = new IFileResultCallbackError("InsufficientSpace");
+        IFileResultCallbackError.Unauthorized = new IFileResultCallbackError("Unauthorized");
+        IFileResultCallbackError.Unknown = new IFileResultCallbackError("Unknown");
+        return IFileResultCallbackError;
+    })();
+    Adaptive.IFileResultCallbackError = IFileResultCallbackError;
+    /**
+       Enumeration IFileResultCallbackWarning
+    */
+    var IFileResultCallbackWarning = (function () {
+        function IFileResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IFileResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IFileResultCallbackWarning.SourceNotDeleted = new IFileResultCallbackWarning("SourceNotDeleted");
+        IFileResultCallbackWarning.RootDirectory = new IFileResultCallbackWarning("RootDirectory");
+        IFileResultCallbackWarning.Unknown = new IFileResultCallbackWarning("Unknown");
+        return IFileResultCallbackWarning;
+    })();
+    Adaptive.IFileResultCallbackWarning = IFileResultCallbackWarning;
+    /**
+       Enumeration IGeolocationListenerError
+    */
+    var IGeolocationListenerError = (function () {
+        function IGeolocationListenerError(value) {
+            this.value = value;
+        }
+        IGeolocationListenerError.prototype.toString = function () {
+            return this.value;
+        };
+        IGeolocationListenerError.Disabled = new IGeolocationListenerError("Disabled");
+        IGeolocationListenerError.RestrictedAccess = new IGeolocationListenerError("RestrictedAccess");
+        IGeolocationListenerError.DeniedAccess = new IGeolocationListenerError("DeniedAccess");
+        IGeolocationListenerError.StatusNotDetermined = new IGeolocationListenerError("StatusNotDetermined");
+        IGeolocationListenerError.Unknown = new IGeolocationListenerError("Unknown");
+        return IGeolocationListenerError;
+    })();
+    Adaptive.IGeolocationListenerError = IGeolocationListenerError;
+    /**
+       Enumeration IGeolocationListenerWarning
+    */
+    var IGeolocationListenerWarning = (function () {
+        function IGeolocationListenerWarning(value) {
+            this.value = value;
+        }
+        IGeolocationListenerWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IGeolocationListenerWarning.HighDoP = new IGeolocationListenerWarning("HighDoP");
+        IGeolocationListenerWarning.StaleData = new IGeolocationListenerWarning("StaleData");
+        IGeolocationListenerWarning.Unknown = new IGeolocationListenerWarning("Unknown");
+        return IGeolocationListenerWarning;
+    })();
+    Adaptive.IGeolocationListenerWarning = IGeolocationListenerWarning;
+    /**
+       Enumeration ILifecycleListenerError
+    */
+    var ILifecycleListenerError = (function () {
+        function ILifecycleListenerError(value) {
+            this.value = value;
+        }
+        ILifecycleListenerError.prototype.toString = function () {
+            return this.value;
+        };
+        ILifecycleListenerError.Runtime = new ILifecycleListenerError("Runtime");
+        ILifecycleListenerError.Implementation = new ILifecycleListenerError("Implementation");
+        ILifecycleListenerError.Killed = new ILifecycleListenerError("Killed");
+        ILifecycleListenerError.Unknown = new ILifecycleListenerError("Unknown");
+        return ILifecycleListenerError;
+    })();
+    Adaptive.ILifecycleListenerError = ILifecycleListenerError;
+    /**
+       Enumeration ILifecycleListenerWarning
+    */
+    var ILifecycleListenerWarning = (function () {
+        function ILifecycleListenerWarning(value) {
+            this.value = value;
+        }
+        ILifecycleListenerWarning.prototype.toString = function () {
+            return this.value;
+        };
+        ILifecycleListenerWarning.MemoryLow = new ILifecycleListenerWarning("MemoryLow");
+        ILifecycleListenerWarning.BatteryLow = new ILifecycleListenerWarning("BatteryLow");
+        ILifecycleListenerWarning.Unknown = new ILifecycleListenerWarning("Unknown");
+        return ILifecycleListenerWarning;
+    })();
+    Adaptive.ILifecycleListenerWarning = ILifecycleListenerWarning;
+    /**
+       Enumeration ILoggingLogLevel
+    */
+    var ILoggingLogLevel = (function () {
+        function ILoggingLogLevel(value) {
+            this.value = value;
+        }
+        ILoggingLogLevel.prototype.toString = function () {
+            return this.value;
+        };
+        ILoggingLogLevel.DEBUG = new ILoggingLogLevel("DEBUG");
+        ILoggingLogLevel.WARN = new ILoggingLogLevel("WARN");
+        ILoggingLogLevel.ERROR = new ILoggingLogLevel("ERROR");
+        ILoggingLogLevel.INFO = new ILoggingLogLevel("INFO");
+        ILoggingLogLevel.Unknown = new ILoggingLogLevel("Unknown");
+        return ILoggingLogLevel;
+    })();
+    Adaptive.ILoggingLogLevel = ILoggingLogLevel;
+    /**
+       Enumeration IMessagingCallbackError
+    */
+    var IMessagingCallbackError = (function () {
+        function IMessagingCallbackError(value) {
+            this.value = value;
+        }
+        IMessagingCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IMessagingCallbackError.SIMNotPresent = new IMessagingCallbackError("SIMNotPresent");
+        IMessagingCallbackError.EmailAccountNotFound = new IMessagingCallbackError("EmailAccountNotFound");
+        IMessagingCallbackError.NotSent = new IMessagingCallbackError("NotSent");
+        IMessagingCallbackError.WrongParams = new IMessagingCallbackError("WrongParams");
+        IMessagingCallbackError.NotSupported = new IMessagingCallbackError("NotSupported");
+        IMessagingCallbackError.Unknown = new IMessagingCallbackError("Unknown");
+        return IMessagingCallbackError;
+    })();
+    Adaptive.IMessagingCallbackError = IMessagingCallbackError;
+    /**
+       Enumeration IMessagingCallbackWarning
+    */
+    var IMessagingCallbackWarning = (function () {
+        function IMessagingCallbackWarning(value) {
+            this.value = value;
+        }
+        IMessagingCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IMessagingCallbackWarning.UnableToSentAll = new IMessagingCallbackWarning("UnableToSentAll");
+        IMessagingCallbackWarning.UnableToFetchAttachment = new IMessagingCallbackWarning("UnableToFetchAttachment");
+        IMessagingCallbackWarning.Unknown = new IMessagingCallbackWarning("Unknown");
+        return IMessagingCallbackWarning;
+    })();
+    Adaptive.IMessagingCallbackWarning = IMessagingCallbackWarning;
     /**
        Enumeration INetworkReachabilityCallbackError
     */
@@ -3271,194 +3366,71 @@ be unique for a specific instance of an application on a specific device.
     })();
     Adaptive.INetworkReachabilityCallbackError = INetworkReachabilityCallbackError;
     /**
-       Enumeration IFileListResultCallbackWarning
+       Enumeration INetworkReachabilityCallbackWarning
     */
-    var IFileListResultCallbackWarning = (function () {
-        function IFileListResultCallbackWarning(value) {
+    var INetworkReachabilityCallbackWarning = (function () {
+        function INetworkReachabilityCallbackWarning(value) {
             this.value = value;
         }
-        IFileListResultCallbackWarning.prototype.toString = function () {
+        INetworkReachabilityCallbackWarning.prototype.toString = function () {
             return this.value;
         };
-        IFileListResultCallbackWarning.PartialResult = new IFileListResultCallbackWarning("PartialResult");
-        IFileListResultCallbackWarning.Unknown = new IFileListResultCallbackWarning("Unknown");
-        return IFileListResultCallbackWarning;
+        INetworkReachabilityCallbackWarning.IncorrectScheme = new INetworkReachabilityCallbackWarning("IncorrectScheme");
+        INetworkReachabilityCallbackWarning.NotSecure = new INetworkReachabilityCallbackWarning("NotSecure");
+        INetworkReachabilityCallbackWarning.NotTrusted = new INetworkReachabilityCallbackWarning("NotTrusted");
+        INetworkReachabilityCallbackWarning.Redirected = new INetworkReachabilityCallbackWarning("Redirected");
+        INetworkReachabilityCallbackWarning.NotRegisteredService = new INetworkReachabilityCallbackWarning("NotRegisteredService");
+        INetworkReachabilityCallbackWarning.Unknown = new INetworkReachabilityCallbackWarning("Unknown");
+        return INetworkReachabilityCallbackWarning;
     })();
-    Adaptive.IFileListResultCallbackWarning = IFileListResultCallbackWarning;
+    Adaptive.INetworkReachabilityCallbackWarning = INetworkReachabilityCallbackWarning;
     /**
-       Enumeration IFileListResultCallbackError
+       Enumeration ISecureKVResultCallbackError
     */
-    var IFileListResultCallbackError = (function () {
-        function IFileListResultCallbackError(value) {
+    var ISecureKVResultCallbackError = (function () {
+        function ISecureKVResultCallbackError(value) {
             this.value = value;
         }
-        IFileListResultCallbackError.prototype.toString = function () {
+        ISecureKVResultCallbackError.prototype.toString = function () {
             return this.value;
         };
-        IFileListResultCallbackError.InexistentFile = new IFileListResultCallbackError("InexistentFile");
-        IFileListResultCallbackError.Unauthorized = new IFileListResultCallbackError("Unauthorized");
-        IFileListResultCallbackError.Unknown = new IFileListResultCallbackError("Unknown");
-        return IFileListResultCallbackError;
+        ISecureKVResultCallbackError.NoPermission = new ISecureKVResultCallbackError("NoPermission");
+        ISecureKVResultCallbackError.NoMatchesFound = new ISecureKVResultCallbackError("NoMatchesFound");
+        ISecureKVResultCallbackError.Unknown = new ISecureKVResultCallbackError("Unknown");
+        return ISecureKVResultCallbackError;
     })();
-    Adaptive.IFileListResultCallbackError = IFileListResultCallbackError;
+    Adaptive.ISecureKVResultCallbackError = ISecureKVResultCallbackError;
     /**
-       Enumeration IContactResultCallbackWarning
+       Enumeration ISecureKVResultCallbackWarning
     */
-    var IContactResultCallbackWarning = (function () {
-        function IContactResultCallbackWarning(value) {
+    var ISecureKVResultCallbackWarning = (function () {
+        function ISecureKVResultCallbackWarning(value) {
             this.value = value;
         }
-        IContactResultCallbackWarning.prototype.toString = function () {
+        ISecureKVResultCallbackWarning.prototype.toString = function () {
             return this.value;
         };
-        IContactResultCallbackWarning.LimitExceeded = new IContactResultCallbackWarning("LimitExceeded");
-        IContactResultCallbackWarning.No_Matches = new IContactResultCallbackWarning("No_Matches");
-        IContactResultCallbackWarning.Unknown = new IContactResultCallbackWarning("Unknown");
-        return IContactResultCallbackWarning;
+        ISecureKVResultCallbackWarning.EntryOverride = new ISecureKVResultCallbackWarning("EntryOverride");
+        ISecureKVResultCallbackWarning.Unknown = new ISecureKVResultCallbackWarning("Unknown");
+        return ISecureKVResultCallbackWarning;
     })();
-    Adaptive.IContactResultCallbackWarning = IContactResultCallbackWarning;
+    Adaptive.ISecureKVResultCallbackWarning = ISecureKVResultCallbackWarning;
     /**
-       Enumeration IContactResultCallbackError
+       Enumeration IServiceProtocolVersion
     */
-    var IContactResultCallbackError = (function () {
-        function IContactResultCallbackError(value) {
+    var IServiceProtocolVersion = (function () {
+        function IServiceProtocolVersion(value) {
             this.value = value;
         }
-        IContactResultCallbackError.prototype.toString = function () {
+        IServiceProtocolVersion.prototype.toString = function () {
             return this.value;
         };
-        IContactResultCallbackError.NoPermission = new IContactResultCallbackError("NoPermission");
-        IContactResultCallbackError.Wrong_Params = new IContactResultCallbackError("Wrong_Params");
-        IContactResultCallbackError.Unknown = new IContactResultCallbackError("Unknown");
-        return IContactResultCallbackError;
+        IServiceProtocolVersion.HTTP_PROTOCOL_VERSION_1_0 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_0");
+        IServiceProtocolVersion.HTTP_PROTOCOL_VERSION_1_1 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_1");
+        IServiceProtocolVersion.Unknown = new IServiceProtocolVersion("Unknown");
+        return IServiceProtocolVersion;
     })();
-    Adaptive.IContactResultCallbackError = IContactResultCallbackError;
-    /**
-       Enumeration IFileResultCallbackWarning
-    */
-    var IFileResultCallbackWarning = (function () {
-        function IFileResultCallbackWarning(value) {
-            this.value = value;
-        }
-        IFileResultCallbackWarning.prototype.toString = function () {
-            return this.value;
-        };
-        IFileResultCallbackWarning.SourceNotDeleted = new IFileResultCallbackWarning("SourceNotDeleted");
-        IFileResultCallbackWarning.RootDirectory = new IFileResultCallbackWarning("RootDirectory");
-        IFileResultCallbackWarning.Unknown = new IFileResultCallbackWarning("Unknown");
-        return IFileResultCallbackWarning;
-    })();
-    Adaptive.IFileResultCallbackWarning = IFileResultCallbackWarning;
-    /**
-       Enumeration IFileResultCallbackError
-    */
-    var IFileResultCallbackError = (function () {
-        function IFileResultCallbackError(value) {
-            this.value = value;
-        }
-        IFileResultCallbackError.prototype.toString = function () {
-            return this.value;
-        };
-        IFileResultCallbackError.FileExists = new IFileResultCallbackError("FileExists");
-        IFileResultCallbackError.InsufficientSpace = new IFileResultCallbackError("InsufficientSpace");
-        IFileResultCallbackError.Unauthorized = new IFileResultCallbackError("Unauthorized");
-        IFileResultCallbackError.Unknown = new IFileResultCallbackError("Unknown");
-        return IFileResultCallbackError;
-    })();
-    Adaptive.IFileResultCallbackError = IFileResultCallbackError;
-    /**
-       Enumeration ITableResultCallbackWarning
-    */
-    var ITableResultCallbackWarning = (function () {
-        function ITableResultCallbackWarning(value) {
-            this.value = value;
-        }
-        ITableResultCallbackWarning.prototype.toString = function () {
-            return this.value;
-        };
-        ITableResultCallbackWarning.TableExists = new ITableResultCallbackWarning("TableExists");
-        ITableResultCallbackWarning.TableLocked = new ITableResultCallbackWarning("TableLocked");
-        ITableResultCallbackWarning.NoResults = new ITableResultCallbackWarning("NoResults");
-        ITableResultCallbackWarning.Unknown = new ITableResultCallbackWarning("Unknown");
-        return ITableResultCallbackWarning;
-    })();
-    Adaptive.ITableResultCallbackWarning = ITableResultCallbackWarning;
-    /**
-       Enumeration ITableResultCallbackError
-    */
-    var ITableResultCallbackError = (function () {
-        function ITableResultCallbackError(value) {
-            this.value = value;
-        }
-        ITableResultCallbackError.prototype.toString = function () {
-            return this.value;
-        };
-        ITableResultCallbackError.NoSpace = new ITableResultCallbackError("NoSpace");
-        ITableResultCallbackError.ReadOnlyTable = new ITableResultCallbackError("ReadOnlyTable");
-        ITableResultCallbackError.SqlException = new ITableResultCallbackError("SqlException");
-        ITableResultCallbackError.DatabaseNotFound = new ITableResultCallbackError("DatabaseNotFound");
-        ITableResultCallbackError.NoTableFound = new ITableResultCallbackError("NoTableFound");
-        ITableResultCallbackError.Unknown = new ITableResultCallbackError("Unknown");
-        return ITableResultCallbackError;
-    })();
-    Adaptive.ITableResultCallbackError = ITableResultCallbackError;
-    /**
-       Enumeration ContactEmailType
-    */
-    var ContactEmailType = (function () {
-        function ContactEmailType(value) {
-            this.value = value;
-        }
-        ContactEmailType.prototype.toString = function () {
-            return this.value;
-        };
-        ContactEmailType.Personal = new ContactEmailType("Personal");
-        ContactEmailType.Work = new ContactEmailType("Work");
-        ContactEmailType.Other = new ContactEmailType("Other");
-        ContactEmailType.Unknown = new ContactEmailType("Unknown");
-        return ContactEmailType;
-    })();
-    Adaptive.ContactEmailType = ContactEmailType;
-    /**
-       Enumeration LifecycleState
-    */
-    var LifecycleState = (function () {
-        function LifecycleState(value) {
-            this.value = value;
-        }
-        LifecycleState.prototype.toString = function () {
-            return this.value;
-        };
-        LifecycleState.Starting = new LifecycleState("Starting");
-        LifecycleState.Started = new LifecycleState("Started");
-        LifecycleState.Running = new LifecycleState("Running");
-        LifecycleState.Paused = new LifecycleState("Paused");
-        LifecycleState.PausedIdle = new LifecycleState("PausedIdle");
-        LifecycleState.PausedRun = new LifecycleState("PausedRun");
-        LifecycleState.Resuming = new LifecycleState("Resuming");
-        LifecycleState.Stopping = new LifecycleState("Stopping");
-        LifecycleState.Unknown = new LifecycleState("Unknown");
-        return LifecycleState;
-    })();
-    Adaptive.LifecycleState = LifecycleState;
-    /**
-       Enumeration ContactPersonalInfoTitle
-    */
-    var ContactPersonalInfoTitle = (function () {
-        function ContactPersonalInfoTitle(value) {
-            this.value = value;
-        }
-        ContactPersonalInfoTitle.prototype.toString = function () {
-            return this.value;
-        };
-        ContactPersonalInfoTitle.Mr = new ContactPersonalInfoTitle("Mr");
-        ContactPersonalInfoTitle.Mrs = new ContactPersonalInfoTitle("Mrs");
-        ContactPersonalInfoTitle.Ms = new ContactPersonalInfoTitle("Ms");
-        ContactPersonalInfoTitle.Dr = new ContactPersonalInfoTitle("Dr");
-        ContactPersonalInfoTitle.Unknown = new ContactPersonalInfoTitle("Unknown");
-        return ContactPersonalInfoTitle;
-    })();
-    Adaptive.ContactPersonalInfoTitle = ContactPersonalInfoTitle;
+    Adaptive.IServiceProtocolVersion = IServiceProtocolVersion;
     /**
        Enumeration IServiceMethod
     */
@@ -3500,77 +3472,105 @@ be unique for a specific instance of an application on a specific device.
     })();
     Adaptive.IServiceType = IServiceType;
     /**
-       Enumeration IServiceProtocolVersion
+       Enumeration IServiceResultCallbackError
     */
-    var IServiceProtocolVersion = (function () {
-        function IServiceProtocolVersion(value) {
+    var IServiceResultCallbackError = (function () {
+        function IServiceResultCallbackError(value) {
             this.value = value;
         }
-        IServiceProtocolVersion.prototype.toString = function () {
+        IServiceResultCallbackError.prototype.toString = function () {
             return this.value;
         };
-        IServiceProtocolVersion.HTTP_PROTOCOL_VERSION_1_0 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_0");
-        IServiceProtocolVersion.HTTP_PROTOCOL_VERSION_1_1 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_1");
-        IServiceProtocolVersion.Unknown = new IServiceProtocolVersion("Unknown");
-        return IServiceProtocolVersion;
+        IServiceResultCallbackError.Forbidden = new IServiceResultCallbackError("Forbidden");
+        IServiceResultCallbackError.NotFound = new IServiceResultCallbackError("NotFound");
+        IServiceResultCallbackError.MethodNotAllowed = new IServiceResultCallbackError("MethodNotAllowed");
+        IServiceResultCallbackError.NotAllowed = new IServiceResultCallbackError("NotAllowed");
+        IServiceResultCallbackError.NotAuthenticated = new IServiceResultCallbackError("NotAuthenticated");
+        IServiceResultCallbackError.TimeOut = new IServiceResultCallbackError("TimeOut");
+        IServiceResultCallbackError.NoResponse = new IServiceResultCallbackError("NoResponse");
+        IServiceResultCallbackError.ServerError = new IServiceResultCallbackError("ServerError");
+        IServiceResultCallbackError.Unreachable = new IServiceResultCallbackError("Unreachable");
+        IServiceResultCallbackError.MalformedUrl = new IServiceResultCallbackError("MalformedUrl");
+        IServiceResultCallbackError.NotRegisteredService = new IServiceResultCallbackError("NotRegisteredService");
+        IServiceResultCallbackError.Unknown = new IServiceResultCallbackError("Unknown");
+        return IServiceResultCallbackError;
     })();
-    Adaptive.IServiceProtocolVersion = IServiceProtocolVersion;
+    Adaptive.IServiceResultCallbackError = IServiceResultCallbackError;
     /**
-       Enumeration ContactSocialNetwork
+       Enumeration IServiceResultCallbackWarning
     */
-    var ContactSocialNetwork = (function () {
-        function ContactSocialNetwork(value) {
+    var IServiceResultCallbackWarning = (function () {
+        function IServiceResultCallbackWarning(value) {
             this.value = value;
         }
-        ContactSocialNetwork.prototype.toString = function () {
+        IServiceResultCallbackWarning.prototype.toString = function () {
             return this.value;
         };
-        ContactSocialNetwork.Twitter = new ContactSocialNetwork("Twitter");
-        ContactSocialNetwork.Facebook = new ContactSocialNetwork("Facebook");
-        ContactSocialNetwork.GooglePlus = new ContactSocialNetwork("GooglePlus");
-        ContactSocialNetwork.LinkedIn = new ContactSocialNetwork("LinkedIn");
-        ContactSocialNetwork.Flickr = new ContactSocialNetwork("Flickr");
-        ContactSocialNetwork.Unknown = new ContactSocialNetwork("Unknown");
-        return ContactSocialNetwork;
+        IServiceResultCallbackWarning.NotSecure = new IServiceResultCallbackWarning("NotSecure");
+        IServiceResultCallbackWarning.NotTrusted = new IServiceResultCallbackWarning("NotTrusted");
+        IServiceResultCallbackWarning.Redirected = new IServiceResultCallbackWarning("Redirected");
+        IServiceResultCallbackWarning.Wrong_Params = new IServiceResultCallbackWarning("Wrong_Params");
+        IServiceResultCallbackWarning.Unknown = new IServiceResultCallbackWarning("Unknown");
+        return IServiceResultCallbackWarning;
     })();
-    Adaptive.ContactSocialNetwork = ContactSocialNetwork;
+    Adaptive.IServiceResultCallbackWarning = IServiceResultCallbackWarning;
     /**
-       Enumeration ContactPhoneType
+       Enumeration ITableResultCallbackError
     */
-    var ContactPhoneType = (function () {
-        function ContactPhoneType(value) {
+    var ITableResultCallbackError = (function () {
+        function ITableResultCallbackError(value) {
             this.value = value;
         }
-        ContactPhoneType.prototype.toString = function () {
+        ITableResultCallbackError.prototype.toString = function () {
             return this.value;
         };
-        ContactPhoneType.Mobile = new ContactPhoneType("Mobile");
-        ContactPhoneType.Work = new ContactPhoneType("Work");
-        ContactPhoneType.Home = new ContactPhoneType("Home");
-        ContactPhoneType.Main = new ContactPhoneType("Main");
-        ContactPhoneType.HomeFax = new ContactPhoneType("HomeFax");
-        ContactPhoneType.WorkFax = new ContactPhoneType("WorkFax");
-        ContactPhoneType.Other = new ContactPhoneType("Other");
-        ContactPhoneType.Unknown = new ContactPhoneType("Unknown");
-        return ContactPhoneType;
+        ITableResultCallbackError.NoSpace = new ITableResultCallbackError("NoSpace");
+        ITableResultCallbackError.ReadOnlyTable = new ITableResultCallbackError("ReadOnlyTable");
+        ITableResultCallbackError.SqlException = new ITableResultCallbackError("SqlException");
+        ITableResultCallbackError.DatabaseNotFound = new ITableResultCallbackError("DatabaseNotFound");
+        ITableResultCallbackError.NoTableFound = new ITableResultCallbackError("NoTableFound");
+        ITableResultCallbackError.Unknown = new ITableResultCallbackError("Unknown");
+        return ITableResultCallbackError;
     })();
-    Adaptive.ContactPhoneType = ContactPhoneType;
+    Adaptive.ITableResultCallbackError = ITableResultCallbackError;
     /**
-       Enumeration ContactAddressType
+       Enumeration ITableResultCallbackWarning
     */
-    var ContactAddressType = (function () {
-        function ContactAddressType(value) {
+    var ITableResultCallbackWarning = (function () {
+        function ITableResultCallbackWarning(value) {
             this.value = value;
         }
-        ContactAddressType.prototype.toString = function () {
+        ITableResultCallbackWarning.prototype.toString = function () {
             return this.value;
         };
-        ContactAddressType.Home = new ContactAddressType("Home");
-        ContactAddressType.Work = new ContactAddressType("Work");
-        ContactAddressType.Other = new ContactAddressType("Other");
-        ContactAddressType.Unknown = new ContactAddressType("Unknown");
-        return ContactAddressType;
+        ITableResultCallbackWarning.TableExists = new ITableResultCallbackWarning("TableExists");
+        ITableResultCallbackWarning.TableLocked = new ITableResultCallbackWarning("TableLocked");
+        ITableResultCallbackWarning.NoResults = new ITableResultCallbackWarning("NoResults");
+        ITableResultCallbackWarning.Unknown = new ITableResultCallbackWarning("Unknown");
+        return ITableResultCallbackWarning;
     })();
-    Adaptive.ContactAddressType = ContactAddressType;
+    Adaptive.ITableResultCallbackWarning = ITableResultCallbackWarning;
+    /**
+       Enumeration LifecycleState
+    */
+    var LifecycleState = (function () {
+        function LifecycleState(value) {
+            this.value = value;
+        }
+        LifecycleState.prototype.toString = function () {
+            return this.value;
+        };
+        LifecycleState.Starting = new LifecycleState("Starting");
+        LifecycleState.Started = new LifecycleState("Started");
+        LifecycleState.Running = new LifecycleState("Running");
+        LifecycleState.Paused = new LifecycleState("Paused");
+        LifecycleState.PausedIdle = new LifecycleState("PausedIdle");
+        LifecycleState.PausedRun = new LifecycleState("PausedRun");
+        LifecycleState.Resuming = new LifecycleState("Resuming");
+        LifecycleState.Stopping = new LifecycleState("Stopping");
+        LifecycleState.Unknown = new LifecycleState("Unknown");
+        return LifecycleState;
+    })();
+    Adaptive.LifecycleState = LifecycleState;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=Adaptive.js.map

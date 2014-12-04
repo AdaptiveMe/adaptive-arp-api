@@ -23,6 +23,15 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+/**
+   Definition of IRuntime interface/protocol.
+
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
+*/
+public protocol IRuntime : IBaseSystem {
+}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -23,6 +23,16 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+/**
+   Provides support for multiple listeners to be started for any application and manages the delivery of listening
+server lifecycle events to registered listeners.
+
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
+*/
+public protocol IAppServerManager : IAdaptiveRP {
+}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
