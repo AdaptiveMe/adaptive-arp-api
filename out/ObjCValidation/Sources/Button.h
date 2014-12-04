@@ -59,6 +59,7 @@ Structure representing the a physical or logical button on a device.
      */
      - (id) initWithType:(ICapabilitiesButton*)type;
 
+
 @end
 
 /**

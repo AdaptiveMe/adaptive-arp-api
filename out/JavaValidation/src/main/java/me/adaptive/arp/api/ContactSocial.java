@@ -61,6 +61,7 @@ public class ContactSocial {
           this.socialNetwork = socialNetwork;
           this.profileUrl = profileUrl;
      }
+
      /**
         Returns the social network
 

@@ -69,6 +69,7 @@ Structure representing the email data elements of a contact.
      */
      - (id) initWithTypePrimaryEmail:(ContactEmailType*)type primary:(bool*)primary email:(NSString*)email;
 
+
 @end
 
 /**

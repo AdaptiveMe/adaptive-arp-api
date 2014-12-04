@@ -100,6 +100,7 @@ module Adaptive {
                this.contentEncoding = contentEncoding
           }
 
+
      }
 }
 

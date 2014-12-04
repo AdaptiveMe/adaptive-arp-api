@@ -53,6 +53,7 @@ public class Lifecycle : NSObject {
           self.init()
           self.state = state
      }
+
      /**
         Returns the state of the application
 

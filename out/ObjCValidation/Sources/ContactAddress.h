@@ -64,6 +64,7 @@ Structure representing the address data elements of a contact.
      */
      - (id) initWithAddressType:(NSString*)address type:(ContactAddressType*)type;
 
+
 @end
 
 /**

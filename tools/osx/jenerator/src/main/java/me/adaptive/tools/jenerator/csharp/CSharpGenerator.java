@@ -62,7 +62,68 @@ public class CSharpGenerator extends GeneratorBase {
 
     @Override
     protected void declareGetterSetter(Class clazz, Field field, JavaField fieldByName, List<JavaMethod> methods) {
+        JavaMethod getter = null;
+        JavaMethod setter = null;
+        String fieldName = field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1);
 
+        for (JavaMethod method : methods) {
+            if (method.getName().equals("set" + fieldName)) {
+                setter = method;
+            } else if (method.getName().equals("get" + fieldName)) {
+                getter = method;
+            } else if (method.getName().equals("is" + fieldName)) {
+                getter = method;
+            }
+        }
+        /**
+         * Getters
+         */
+        startComment(10);
+        if (getter != null && getter.getComment() != null && getter.getComment().trim().length() > 0) {
+            println(13, getter.getComment());
+        } else {
+            println(13, "Gets " + fieldByName.getComment());
+        }
+        println();
+        if (getter != null && getter.getComment() != null && getter.getComment().trim().length() > 0) {
+            for (DocletTag tag : getter.getTags()) {
+                println(13, "@" + tag.getName() + " " + tag.getValue());
+            }
+        } else {
+            println(13, "@return " + field.getName() + " " + fieldByName.getComment());
+        }
+        endComment(10);
+        if (field.getType().equals(Boolean.class)) {
+            println(10, "public " + convertJavaToNativeType(field.getType()) + " Is" + fieldName + "() {");
+        } else {
+            println(10, "public " + convertJavaToNativeType(field.getType()) + " Get" + fieldName + "() {");
+        }
+
+        println(15, "return this." + camelCase(field.getName()) + ";");
+        println(10, "}");
+        println();
+        /**
+         * Setters
+         */
+        startComment(10);
+        if (setter != null && setter.getComment() != null && setter.getComment().trim().length() > 0) {
+            println(13, setter.getComment());
+        } else {
+            println(13, "Sets " + fieldByName.getComment());
+        }
+        println();
+        if (setter != null && setter.getComment() != null && setter.getComment().trim().length() > 0) {
+            for (DocletTag tag : setter.getTags()) {
+                println(13, "@" + tag.getName() + " " + tag.getValue());
+            }
+        } else {
+            println(13, "@param " + field.getName() + " " + fieldByName.getComment());
+        }
+        endComment(10);
+        println(10, "public void Set" + fieldName + "("+convertJavaToNativeType(field.getType())+" "+camelCase(field.getName())+") {");
+        println(15, "this." + camelCase(field.getName()) + " = "+camelCase(field.getName())+";");
+        println(10, "}");
+        println();
     }
 
     @Override

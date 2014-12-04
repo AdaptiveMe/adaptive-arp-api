@@ -71,6 +71,7 @@ be unique for a specific instance of an application on a specific device.
           self.vendor = vendor
           self.uuid = uuid
      }
+
      /**
         Returns the model of the device.
 

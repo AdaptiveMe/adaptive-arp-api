@@ -67,6 +67,7 @@ be unique for a specific instance of an application on a specific device.
      */
      - (id) initWithNameModelVendorUuid:(NSString*)name model:(NSString*)model vendor:(NSString*)vendor uuid:(NSString*)uuid;
 
+
 @end
 
 /**

@@ -53,6 +53,7 @@ public class SecureKeyPair : NSObject {
           self.secureKey = secureKey
           self.secureData = secureData
      }
+
      /**
         Returns the object value
 

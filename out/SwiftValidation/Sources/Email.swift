@@ -104,6 +104,7 @@ public class Email : NSObject {
           self.subject = subject
           self.messageBody = messageBody
      }
+
      /**
         Returns an array of attachments
 

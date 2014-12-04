@@ -77,6 +77,7 @@ public class AttachmentData : NSObject {
           self.mimeType = mimeType
           self.referenceUrl = referenceUrl
      }
+
      /**
         Returns the raw data in byte[]
 

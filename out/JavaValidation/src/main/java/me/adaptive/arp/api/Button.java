@@ -55,6 +55,7 @@ public class Button {
           this();
           this.type = type;
      }
+
      /**
         Returns the button type
 

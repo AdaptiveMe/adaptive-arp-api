@@ -95,6 +95,7 @@ public class ServiceResponse : NSObject {
           self.session = session
           self.contentEncoding = contentEncoding
      }
+
      /**
         Returns the content
 

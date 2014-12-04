@@ -103,6 +103,7 @@ public class ServiceRequest {
           this.session = session;
           this.contentEncoding = contentEncoding;
      }
+
      /**
         Returns the protocol version
 

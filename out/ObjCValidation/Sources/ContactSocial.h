@@ -66,6 +66,7 @@ Structure representing the social data elements of a contact.
      */
      - (id) initWithSocialNetworkProfileUrl:(ContactSocialNetwork*)socialNetwork profileUrl:(NSString*)profileUrl;
 
+
 @end
 
 /**

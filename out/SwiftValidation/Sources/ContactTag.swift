@@ -59,6 +59,7 @@ public class ContactTag : NSObject {
           self.name = name
           self.dataValue = dataValue
      }
+
      /**
         Returns the value of the Tag
 

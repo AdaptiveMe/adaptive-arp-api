@@ -73,6 +73,97 @@ namespace Adaptive.Arp.Api
                this.Name = Name;
           }
 
+          /**
+             Get the number of columns
+
+             @return The number of columns
+          */
+          public int GetColumnCount() {
+               return this.ColumnCount;
+          }
+
+          /**
+             Sets the number of columns
+
+             @param columnCount The number of columns
+          */
+          public void SetColumnCount(int ColumnCount) {
+               this.ColumnCount = ColumnCount;
+          }
+
+          /**
+             Get the columns
+
+             @return The columns
+          */
+          public Column[] GetColumns() {
+               return this.Columns;
+          }
+
+          /**
+             Sets the columns of the table
+
+             @param columns The columns of the table
+          */
+          public void SetColumns(Column[] Columns) {
+               this.Columns = Columns;
+          }
+
+          /**
+             Returns the name of the table
+
+             @return The name of the table
+          */
+          public string GetName() {
+               return this.Name;
+          }
+
+          /**
+             Sets the name of the table
+
+             @param name The name of the table
+          */
+          public void SetName(string Name) {
+               this.Name = Name;
+          }
+
+          /**
+             Get the number of rows
+
+             @return The number of rows
+          */
+          public int GetRowCount() {
+               return this.RowCount;
+          }
+
+          /**
+             Sets the number of rows
+
+             @param rowCount The number of rows
+          */
+          public void SetRowCount(int RowCount) {
+               this.RowCount = RowCount;
+          }
+
+          /**
+             Get the rows of the table
+
+             @return The rows of the table
+          */
+          public Row[] GetRows() {
+               return this.Rows;
+          }
+
+          /**
+             Sets the rows of the table
+
+             @param rows The rows of the table
+          */
+          public void SetRows(Row[] Rows) {
+               this.Rows = Rows;
+          }
+
+
      }
 }
 

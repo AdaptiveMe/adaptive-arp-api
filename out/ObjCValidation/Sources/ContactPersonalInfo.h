@@ -75,6 +75,7 @@ Structure representing the personal info data elements of a contact.
      */
      - (id) initWithNameMiddleNameLastNameTitle:(NSString*)name middleName:(NSString*)middleName lastName:(NSString*)lastName title:(ContactPersonalInfoTitle*)title;
 
+
 @end
 
 /**

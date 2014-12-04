@@ -83,6 +83,7 @@ public class Cookie : NSObject {
           self.name = name
           self.data = data
      }
+
      /**
         Gets Cookie creation timestamp in milliseconds.
 

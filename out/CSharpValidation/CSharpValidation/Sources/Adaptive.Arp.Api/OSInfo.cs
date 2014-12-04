@@ -69,6 +69,61 @@ namespace Adaptive.Arp.Api
                this.Vendor = Vendor;
           }
 
+          /**
+             Returns the name of the operating system.
+
+             @return OS name.
+          */
+          public string GetName() {
+               return this.Name;
+          }
+
+          /**
+             Sets The name of the operating system.
+
+             @param name The name of the operating system.
+          */
+          public void SetName(string Name) {
+               this.Name = Name;
+          }
+
+          /**
+             Returns the vendor of the operating system.
+
+             @return OS vendor.
+          */
+          public string GetVendor() {
+               return this.Vendor;
+          }
+
+          /**
+             Sets The vendor of the operating system.
+
+             @param vendor The vendor of the operating system.
+          */
+          public void SetVendor(string Vendor) {
+               this.Vendor = Vendor;
+          }
+
+          /**
+             Returns the version of the operating system.
+
+             @return OS version.
+          */
+          public string GetVersion() {
+               return this.Version;
+          }
+
+          /**
+             Sets The version/identifier of the operating system.
+
+             @param version The version/identifier of the operating system.
+          */
+          public void SetVersion(string Version) {
+               this.Version = Version;
+          }
+
+
      }
 }
 

@@ -53,6 +53,7 @@ public class EmailAddress : NSObject {
           self.init()
           self.address = address
      }
+
      /**
         Returns the email address
 

@@ -79,6 +79,7 @@ public class AttachmentData {
           this.mimeType = mimeType;
           this.referenceUrl = referenceUrl;
      }
+
      /**
         Returns the raw data in byte[]
 

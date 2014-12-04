@@ -70,6 +70,67 @@ namespace Adaptive.Arp.Api
                this.Company = Company;
           }
 
+          /**
+             Returns the company of the job
+
+             @return company
+             @since ARP1.0
+          */
+          public string GetCompany() {
+               return this.Company;
+          }
+
+          /**
+             Set the company of the job
+
+             @param company
+             @since ARP1.0
+          */
+          public void SetCompany(string Company) {
+               this.Company = Company;
+          }
+
+          /**
+             Returns the description of the job
+
+             @return description
+             @since ARP1.0
+          */
+          public string GetJobDescription() {
+               return this.JobDescription;
+          }
+
+          /**
+             Set the description of the job
+
+             @param jobDescription
+             @since ARP1.0
+          */
+          public void SetJobDescription(string JobDescription) {
+               this.JobDescription = JobDescription;
+          }
+
+          /**
+             Returns the title of the job
+
+             @return title
+             @since ARP1.0
+          */
+          public string GetJobTitle() {
+               return this.JobTitle;
+          }
+
+          /**
+             Set the title of the job
+
+             @param jobTitle
+             @since ARP1.0
+          */
+          public void SetJobTitle(string JobTitle) {
+               this.JobTitle = JobTitle;
+          }
+
+
      }
 }
 

@@ -71,6 +71,7 @@ public class ContactPersonalInfo : NSObject {
           self.lastName = lastName
           self.title = title
      }
+
      /**
         Returns the title of the Contact
 

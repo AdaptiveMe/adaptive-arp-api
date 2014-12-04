@@ -81,6 +81,7 @@ Structure representing the data of a http cookie.
      */
      - (id) initWithNameData:(NSString*)name data:(NSString*)data;
 
+
 @end
 
 /**

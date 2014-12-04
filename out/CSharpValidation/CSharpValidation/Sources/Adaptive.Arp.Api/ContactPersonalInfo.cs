@@ -76,6 +76,87 @@ namespace Adaptive.Arp.Api
                this.Title = Title;
           }
 
+          /**
+             Returns the title of the Contact
+
+             @return Title
+             @since ARP1.0
+          */
+          public ContactPersonalInfoTitle GetTitle() {
+               return this.Title;
+          }
+
+          /**
+             Set the Title of the Contact
+
+             @param title
+             @since ARP1.0
+          */
+          public void SetTitle(ContactPersonalInfoTitle Title) {
+               this.Title = Title;
+          }
+
+          /**
+             Returns the last name of the Contact
+
+             @return lastName
+             @since ARP1.0
+          */
+          public string GetLastName() {
+               return this.LastName;
+          }
+
+          /**
+             Set the last name of the Contact
+
+             @param lastName
+             @since ARP1.0
+          */
+          public void SetLastName(string LastName) {
+               this.LastName = LastName;
+          }
+
+          /**
+             Returns the middle name of the Contact
+
+             @return middelName
+             @since ARP1.0
+          */
+          public string GetMiddleName() {
+               return this.MiddleName;
+          }
+
+          /**
+             Set the middle name of the Contact
+
+             @param middleName
+             @since ARP1.0
+          */
+          public void SetMiddleName(string MiddleName) {
+               this.MiddleName = MiddleName;
+          }
+
+          /**
+             Returns the name of the Contact
+
+             @return name
+             @since ARP1.0
+          */
+          public string GetName() {
+               return this.Name;
+          }
+
+          /**
+             Set the name of the Contact
+
+             @param name
+             @since ARP1.0
+          */
+          public void SetName(string Name) {
+               this.Name = Name;
+          }
+
+
      }
 }
 

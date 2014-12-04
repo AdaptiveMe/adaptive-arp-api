@@ -106,6 +106,7 @@ public class Email {
           this.subject = subject;
           this.messageBody = messageBody;
      }
+
      /**
         Returns an array of attachments
 

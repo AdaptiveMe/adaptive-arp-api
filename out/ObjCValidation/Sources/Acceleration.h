@@ -67,6 +67,7 @@ Structure representing the data of a single acceleration reading.
      */
      - (id) initWithXYZTimeStamp:(double*)x y:(double*)y z:(double*)z timeStamp:(long*)timeStamp;
 
+
 @end
 
 /**

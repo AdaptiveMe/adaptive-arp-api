@@ -55,6 +55,7 @@ public class ContactUid {
           this();
           this.contactId = contactId;
      }
+
      /**
         Returns the contact id
 

@@ -79,6 +79,7 @@ public class Endpoint {
           this.proxy = proxy;
           this.scheme = scheme;
      }
+
      /**
         Returns the host
 

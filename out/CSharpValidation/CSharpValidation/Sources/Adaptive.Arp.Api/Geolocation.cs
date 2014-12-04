@@ -82,6 +82,105 @@ namespace Adaptive.Arp.Api
                this.YDoP = YDoP;
           }
 
+          /**
+             Returns altitude in meters
+
+             @return altitude
+             @since ARP1.0
+          */
+          public double GetAltitude() {
+               return this.Altitude;
+          }
+
+          /**
+             Set altitude in meters
+
+             @param altitude
+             @since ARP1.0
+          */
+          public void SetAltitude(double Altitude) {
+               this.Altitude = Altitude;
+          }
+
+          /**
+             Returns the latitude in degrees
+
+             @return latitude
+             @since ARP1.0
+          */
+          public double GetLatitude() {
+               return this.Latitude;
+          }
+
+          /**
+             Set the latitude in degrees
+
+             @param latitude
+             @since ARP1.0
+          */
+          public void SetLatitude(double Latitude) {
+               this.Latitude = Latitude;
+          }
+
+          /**
+             Returns the longitude in degrees
+
+             @return longitude
+             @since ARP1.0
+          */
+          public double GetLongitude() {
+               return this.Longitude;
+          }
+
+          /**
+             Returns the latitude in degrees
+
+             @param longitude
+             @since ARP1.0
+          */
+          public void SetLongitude(double Longitude) {
+               this.Longitude = Longitude;
+          }
+
+          /**
+             Returns the Dilution of Position in the X axis (longitude)
+
+             @return xDoP
+             @since ARP1.0
+          */
+          public float GetXDoP() {
+               return this.XDoP;
+          }
+
+          /**
+             Sets Dilution of precision on the X measurement. Measured in meters.
+
+             @param xDoP Dilution of precision on the X measurement. Measured in meters.
+          */
+          public void SetXDoP(float XDoP) {
+               this.XDoP = XDoP;
+          }
+
+          /**
+             Returns the Dilution of Position in the Y axis (latitude)
+
+             @return yDoP
+             @since ARP1.0
+          */
+          public float GetYDoP() {
+               return this.YDoP;
+          }
+
+          /**
+             Sets Dilution of precision on the Y measurement. Measured in meters.
+
+             @param yDoP Dilution of precision on the Y measurement. Measured in meters.
+          */
+          public void SetYDoP(float YDoP) {
+               this.YDoP = YDoP;
+          }
+
+
      }
 }
 

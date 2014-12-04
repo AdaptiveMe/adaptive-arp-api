@@ -52,6 +52,7 @@ Structure representing the website data elements of a contact.
      */
      - (id) initWithUrl:(NSString*)url;
 
+
 @end
 
 /**

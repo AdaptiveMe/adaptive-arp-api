@@ -57,6 +57,7 @@ Structure representing the assigned tags data elements of a contact.
      */
      - (id) initWithNameDataValue:(NSString*)name dataValue:(NSString*)dataValue;
 
+
 @end
 
 /**

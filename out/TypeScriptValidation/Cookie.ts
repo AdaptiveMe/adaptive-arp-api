@@ -78,6 +78,7 @@ module Adaptive {
                this.data = data
           }
 
+
      }
 }
 

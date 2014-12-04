@@ -51,6 +51,7 @@ Structure representing the column specification of a data table.
      */
      - (id) initWithName:(NSString*)name;
 
+
 @end
 
 /**

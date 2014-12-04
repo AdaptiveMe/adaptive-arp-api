@@ -52,6 +52,7 @@ public class Column : NSObject {
           self.init()
           self.name = name
      }
+
      /**
         Returns the name of the column.
 

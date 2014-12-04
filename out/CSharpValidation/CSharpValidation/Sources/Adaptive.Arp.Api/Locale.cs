@@ -64,6 +64,47 @@ namespace Adaptive.Arp.Api
                this.Country = Country;
           }
 
+          /**
+             Returns the country code
+
+             @return country code
+             @since ARP1.0
+          */
+          public string GetCountry() {
+               return this.Country;
+          }
+
+          /**
+             Set the country code
+
+             @param country code
+             @since ARP1.0
+          */
+          public void SetCountry(string Country) {
+               this.Country = Country;
+          }
+
+          /**
+             Returns the language code
+
+             @return language code
+             @since ARP1.0
+          */
+          public string GetLanguage() {
+               return this.Language;
+          }
+
+          /**
+             Set the language code
+
+             @param language code
+             @since ARP1.0
+          */
+          public void SetLanguage(string Language) {
+               this.Language = Language;
+          }
+
+
      }
 }
 

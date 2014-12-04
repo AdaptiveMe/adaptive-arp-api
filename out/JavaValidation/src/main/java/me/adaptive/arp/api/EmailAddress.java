@@ -55,6 +55,7 @@ public class EmailAddress {
           this();
           this.address = address;
      }
+
      /**
         Returns the email address
 

@@ -70,6 +70,67 @@ namespace Adaptive.Arp.Api
                this.Email = Email;
           }
 
+          /**
+             Returns the type of the email
+
+             @return EmailType
+             @since ARP1.0
+          */
+          public ContactEmailType GetType() {
+               return this.Type;
+          }
+
+          /**
+             Set the type of the email
+
+             @param type
+             @since ARP1.0
+          */
+          public void SetType(ContactEmailType Type) {
+               this.Type = Type;
+          }
+
+          /**
+             Returns the email of the Contact
+
+             @return email
+             @since ARP1.0
+          */
+          public string GetEmail() {
+               return this.Email;
+          }
+
+          /**
+             Set the email of the Contact
+
+             @param email
+             @since ARP1.0
+          */
+          public void SetEmail(string Email) {
+               this.Email = Email;
+          }
+
+          /**
+             Returns if the email is primary
+
+             @return true if the email is primary; false otherwise
+             @since ARP1.0
+          */
+          public bool GetPrimary() {
+               return this.Primary;
+          }
+
+          /**
+             Set if the email
+
+             @param primary true if the email is primary; false otherwise
+             @since ARP1.0
+          */
+          public void SetPrimary(bool Primary) {
+               this.Primary = Primary;
+          }
+
+
      }
 }
 

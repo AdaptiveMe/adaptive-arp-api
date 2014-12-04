@@ -72,6 +72,7 @@ Structure representing the data a single geolocation reading.
      */
      - (id) initWithLatitudeLongitudeAltitudeXDoPYDoP:(double*)latitude longitude:(double*)longitude altitude:(double*)altitude xDoP:(float*)xDoP yDoP:(float*)yDoP;
 
+
 @end
 
 /**

@@ -91,6 +91,7 @@ Represents a local or remote service response.
      */
      - (id) initWithContentContentTypeContentLengthContentBinaryContentBinaryLengthHeadersSessionContentEncoding:(NSString*)content contentType:(NSString*)contentType contentLength:(NSString*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength headers:(NSArray*)headers session:(ISession*)session contentEncoding:(NSString*)contentEncoding;
 
+
 @end
 
 /**

@@ -52,6 +52,7 @@ public class Row : NSObject {
           self.init()
           self.values = values
      }
+
      /**
         Returns the values of the row.
 

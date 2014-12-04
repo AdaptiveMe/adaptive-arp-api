@@ -59,6 +59,7 @@ module Adaptive {
                this.vendor = vendor
           }
 
+
      }
 }
 

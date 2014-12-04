@@ -56,6 +56,7 @@ module Adaptive {
                this.profileUrl = profileUrl
           }
 
+
      }
 }
 

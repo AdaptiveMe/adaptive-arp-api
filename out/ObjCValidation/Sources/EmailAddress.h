@@ -52,6 +52,7 @@ Structure representing the data elements of an email addressee.
      */
      - (id) initWithAddress:(NSString*)address;
 
+
 @end
 
 /**

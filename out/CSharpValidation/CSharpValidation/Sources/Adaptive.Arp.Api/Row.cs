@@ -57,6 +57,25 @@ namespace Adaptive.Arp.Api
                this.Values = Values;
           }
 
+          /**
+             Returns the values of the row.
+
+             @return The values of the row.
+          */
+          public Object[] GetValues() {
+               return this.Values;
+          }
+
+          /**
+             Sets the values of the row.
+
+             @param values The values of the row.
+          */
+          public void SetValues(Object[] Values) {
+               this.Values = Values;
+          }
+
+
      }
 }
 

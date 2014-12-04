@@ -71,6 +71,7 @@ public class Service : NSObject {
           self.method = method
           self.type = type
      }
+
      /**
         Returns the method
 

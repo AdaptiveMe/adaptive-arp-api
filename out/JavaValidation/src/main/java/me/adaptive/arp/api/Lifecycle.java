@@ -55,6 +55,7 @@ public class Lifecycle {
           this();
           this.state = state;
      }
+
      /**
         Returns the state of the application
 

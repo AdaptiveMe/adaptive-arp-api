@@ -82,6 +82,107 @@ namespace Adaptive.Arp.Api
                this.Scheme = Scheme;
           }
 
+          /**
+             Returns the host
+
+             @return host
+             @since ARP1.0
+          */
+          public string GetHost() {
+               return this.Host;
+          }
+
+          /**
+             Set the host
+
+             @param host
+             @since ARP1.0
+          */
+          public void SetHost(string Host) {
+               this.Host = Host;
+          }
+
+          /**
+             Returns the path
+
+             @return path
+             @since ARP1.0
+          */
+          public string GetPath() {
+               return this.Path;
+          }
+
+          /**
+             Set the path
+
+             @param path
+             @since ARP1.0
+          */
+          public void SetPath(string Path) {
+               this.Path = Path;
+          }
+
+          /**
+             Returns the port
+
+             @return port
+             @since ARP1.0
+          */
+          public int GetPort() {
+               return this.Port;
+          }
+
+          /**
+             Set the port
+
+             @param port
+             @since ARP1.0
+          */
+          public void SetPort(int Port) {
+               this.Port = Port;
+          }
+
+          /**
+             Return the proxy
+
+             @return proxy
+             @since ARP1.0
+          */
+          public string GetProxy() {
+               return this.Proxy;
+          }
+
+          /**
+             Set the proxy
+
+             @param proxy
+             @since ARP1.0
+          */
+          public void SetProxy(string Proxy) {
+               this.Proxy = Proxy;
+          }
+
+          /**
+             Returns the scheme
+
+             @return scheme
+             @since ARP1.0
+          */
+          public string GetScheme() {
+               return this.Scheme;
+          }
+
+          /**
+             Set the scheme
+
+             @param scheme
+             @since ARP1.0
+          */
+          public void SetScheme(string Scheme) {
+               this.Scheme = Scheme;
+          }
+
+
      }
 }
 

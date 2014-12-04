@@ -54,6 +54,7 @@ module Adaptive {
                this.country = country
           }
 
+
      }
 }
 

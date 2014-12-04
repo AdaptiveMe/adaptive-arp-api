@@ -60,6 +60,7 @@ module Adaptive {
                this.company = company
           }
 
+
      }
 }
 

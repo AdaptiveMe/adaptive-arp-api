@@ -50,6 +50,7 @@ module Adaptive {
                this.type = type
           }
 
+
      }
 }
 

@@ -55,6 +55,7 @@ module Adaptive {
                this.compress = compress
           }
 
+
      }
 }
 

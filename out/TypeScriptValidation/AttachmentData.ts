@@ -72,6 +72,7 @@ module Adaptive {
                this.referenceUrl = referenceUrl
           }
 
+
      }
 }
 

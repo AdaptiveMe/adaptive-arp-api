@@ -64,6 +64,47 @@ namespace Adaptive.Arp.Api
                this.ProfileUrl = ProfileUrl;
           }
 
+          /**
+             Returns the social network
+
+             @return socialNetwork
+             @since ARP1.0
+          */
+          public ContactSocialNetwork GetSocialNetwork() {
+               return this.SocialNetwork;
+          }
+
+          /**
+             Set the social network
+
+             @param socialNetwork
+             @since ARP1.0
+          */
+          public void SetSocialNetwork(ContactSocialNetwork SocialNetwork) {
+               this.SocialNetwork = SocialNetwork;
+          }
+
+          /**
+             Returns the profile url of the user
+
+             @return profileUrl
+             @since ARP1.0
+          */
+          public string GetProfileUrl() {
+               return this.ProfileUrl;
+          }
+
+          /**
+             Set the profile url of the iser
+
+             @param profileUrl
+             @since ARP1.0
+          */
+          public void SetProfileUrl(string ProfileUrl) {
+               this.ProfileUrl = ProfileUrl;
+          }
+
+
      }
 }
 

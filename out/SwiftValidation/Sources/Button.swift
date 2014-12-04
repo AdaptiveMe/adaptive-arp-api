@@ -53,6 +53,7 @@ public class Button : NSObject {
           self.init()
           self.type = type
      }
+
      /**
         Returns the button type
 

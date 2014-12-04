@@ -85,6 +85,167 @@ namespace Adaptive.Arp.Api
           public Contact(string ContactId) : base(ContactId) {
           }
 
+          /**
+             Returns all the addresses of the Contact
+
+             @return ContactAddress[]
+             @since ARP1.0
+          */
+          public ContactAddress[] GetContactAddresses() {
+               return this.ContactAddresses;
+          }
+
+          /**
+             Set the addresses of the Contact
+
+             @param contactAddresses
+             @since ARP1.0
+          */
+          public void SetContactAddresses(ContactAddress[] ContactAddresses) {
+               this.ContactAddresses = ContactAddresses;
+          }
+
+          /**
+             Returns all the emails of the Contact
+
+             @return ContactEmail[]
+             @since ARP1.0
+          */
+          public ContactEmail[] GetContactEmails() {
+               return this.ContactEmails;
+          }
+
+          /**
+             Set the emails of the Contact
+
+             @param contactEmails
+             @since ARP1.0
+          */
+          public void SetContactEmails(ContactEmail[] ContactEmails) {
+               this.ContactEmails = ContactEmails;
+          }
+
+          /**
+             Returns all the phones of the Contact
+
+             @return ContactPhone[]
+             @since ARP1.0
+          */
+          public ContactPhone[] GetContactPhones() {
+               return this.ContactPhones;
+          }
+
+          /**
+             Set the phones of the Contact
+
+             @param contactPhones
+             @since ARP1.0
+          */
+          public void SetContactPhones(ContactPhone[] ContactPhones) {
+               this.ContactPhones = ContactPhones;
+          }
+
+          /**
+             Returns all the social network info of the Contact
+
+             @return ContactSocial[]
+             @since ARP1.0
+          */
+          public ContactSocial[] GetContactSocials() {
+               return this.ContactSocials;
+          }
+
+          /**
+             Set the social network info of the Contact
+
+             @param contactSocials
+             @since ARP1.0
+          */
+          public void SetContactSocials(ContactSocial[] ContactSocials) {
+               this.ContactSocials = ContactSocials;
+          }
+
+          /**
+             Returns the additional tags of the Contact
+
+             @return ContactTag[]
+             @since ARP1.0
+          */
+          public ContactTag[] GetContactTags() {
+               return this.ContactTags;
+          }
+
+          /**
+             Set the additional tags of the Contact
+
+             @param contactTags
+             @since ARP1.0
+          */
+          public void SetContactTags(ContactTag[] ContactTags) {
+               this.ContactTags = ContactTags;
+          }
+
+          /**
+             Returns all the websites of the Contact
+
+             @return ContactWebsite[]
+             @since ARP1.0
+          */
+          public ContactWebsite[] GetContactWebsites() {
+               return this.ContactWebsites;
+          }
+
+          /**
+             Set the websites of the Contact
+
+             @param contactWebsites
+             @since ARP1.0
+          */
+          public void SetContactWebsites(ContactWebsite[] ContactWebsites) {
+               this.ContactWebsites = ContactWebsites;
+          }
+
+          /**
+             Returns the personal info of the Contact
+
+             @return ContactPersonalInfo of the Contact
+             @since ARP1.0
+          */
+          public ContactPersonalInfo GetPersonalInfo() {
+               return this.PersonalInfo;
+          }
+
+          /**
+             Set the personal info of the Contact
+
+             @param personalInfo
+             @since ARP1.0
+          */
+          public void SetPersonalInfo(ContactPersonalInfo PersonalInfo) {
+               this.PersonalInfo = PersonalInfo;
+          }
+
+          /**
+             Returns the professional info of the Contact
+
+             @return ContactProfessionalInfo[]
+             @since ARP1.0
+          */
+          public ContactProfessionalInfo GetProfessionalInfo() {
+               return this.ProfessionalInfo;
+          }
+
+          /**
+             Set the professional info of the Contact
+
+             @param professionalInfo
+             @since ARP1.0
+          */
+          public void SetProfessionalInfo(ContactProfessionalInfo ProfessionalInfo) {
+               this.ProfessionalInfo = ProfessionalInfo;
+          }
+
+
      }
 }
 

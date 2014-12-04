@@ -62,6 +62,7 @@ module Adaptive {
                this.email = email
           }
 
+
      }
 }
 

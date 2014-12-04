@@ -59,6 +59,7 @@ public class Header : NSObject {
           self.name = name
           self.data = data
      }
+
      /**
         Returns the header value
 

@@ -88,6 +88,7 @@ Represents an instance of a service.
      */
      - (id) initWithEndpointNameMethodType:(Endpoint*)endpoint name:(NSString*)name method:(IServiceMethod*)method type:(IServiceType*)type;
 
+
 @end
 
 /**

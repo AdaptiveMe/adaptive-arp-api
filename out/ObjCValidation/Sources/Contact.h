@@ -95,6 +95,7 @@ Structure representing the data elements of a contact.
      */
      - (id) initWithContactId:(NSString*)contactId;
 
+
 @end
 
 /**

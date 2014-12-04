@@ -48,6 +48,7 @@ module Adaptive {
                this.url = url
           }
 
+
      }
 }
 

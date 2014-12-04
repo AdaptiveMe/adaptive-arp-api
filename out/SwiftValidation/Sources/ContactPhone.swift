@@ -59,6 +59,7 @@ public class ContactPhone : NSObject {
           self.phone = phone
           self.phoneType = phoneType
      }
+
      /**
         Returns the phone phoneType
 

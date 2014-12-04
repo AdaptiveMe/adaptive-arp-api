@@ -65,6 +65,7 @@ public class ContactProfessionalInfo : NSObject {
           self.jobDescription = jobDescription
           self.company = company
      }
+
      /**
         Returns the company of the job
 

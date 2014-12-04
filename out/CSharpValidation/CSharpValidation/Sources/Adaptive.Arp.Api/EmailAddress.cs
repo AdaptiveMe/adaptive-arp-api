@@ -58,6 +58,27 @@ namespace Adaptive.Arp.Api
                this.Address = Address;
           }
 
+          /**
+             Returns the email address
+
+             @return address of the Email
+             @since ARP1.0
+          */
+          public string GetAddress() {
+               return this.Address;
+          }
+
+          /**
+             Set the Email address
+
+             @param address of the Email
+             @since ARP1.0
+          */
+          public void SetAddress(string Address) {
+               this.Address = Address;
+          }
+
+
      }
 }
 

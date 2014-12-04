@@ -61,6 +61,7 @@ public class ContactPhone {
           this.phone = phone;
           this.phoneType = phoneType;
      }
+
      /**
         Returns the phone phoneType
 

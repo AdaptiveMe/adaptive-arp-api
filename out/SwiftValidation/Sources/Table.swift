@@ -68,6 +68,7 @@ public class Table : NSObject {
           self.init()
           self.name = name
      }
+
      /**
         Get the number of columns
 

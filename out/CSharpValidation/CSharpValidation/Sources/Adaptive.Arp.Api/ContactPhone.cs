@@ -64,6 +64,47 @@ namespace Adaptive.Arp.Api
                this.PhoneType = PhoneType;
           }
 
+          /**
+             Returns the phone phoneType
+
+             @return phoneType
+             @since ARP1.0
+          */
+          public ContactPhoneType GetPhoneType() {
+               return this.PhoneType;
+          }
+
+          /**
+             Set the phoneType of the phone number
+
+             @param phoneType
+             @since ARP1.0
+          */
+          public void SetPhoneType(ContactPhoneType PhoneType) {
+               this.PhoneType = PhoneType;
+          }
+
+          /**
+             Returns the phone number
+
+             @return phone number
+             @since ARP1.0
+          */
+          public string GetPhone() {
+               return this.Phone;
+          }
+
+          /**
+             Set the phone number
+
+             @param phone number
+             @since ARP1.0
+          */
+          public void SetPhone(string Phone) {
+               this.Phone = Phone;
+          }
+
+
      }
 }
 

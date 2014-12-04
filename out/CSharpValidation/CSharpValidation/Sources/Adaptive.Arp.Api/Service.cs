@@ -76,6 +76,87 @@ namespace Adaptive.Arp.Api
                this.Type = Type;
           }
 
+          /**
+             Returns the method
+
+             @return method
+             @since ARP1.0
+          */
+          public IServiceMethod GetMethod() {
+               return this.Method;
+          }
+
+          /**
+             Set the method
+
+             @param method
+             @since ARP1.0
+          */
+          public void SetMethod(IServiceMethod Method) {
+               this.Method = Method;
+          }
+
+          /**
+             Returns the type
+
+             @return type
+             @since ARP1.0
+          */
+          public IServiceType GetType() {
+               return this.Type;
+          }
+
+          /**
+             Set the type
+
+             @param type
+             @since ARP1.0
+          */
+          public void SetType(IServiceType Type) {
+               this.Type = Type;
+          }
+
+          /**
+             Returns the endpoint
+
+             @return endpoint
+             @since ARP1.0
+          */
+          public Endpoint GetEndpoint() {
+               return this.Endpoint;
+          }
+
+          /**
+             Set the endpoint
+
+             @param endpoint
+             @since ARP1.0
+          */
+          public void SetEndpoint(Endpoint Endpoint) {
+               this.Endpoint = Endpoint;
+          }
+
+          /**
+             Returns the name
+
+             @return name
+             @since ARP1.0
+          */
+          public string GetName() {
+               return this.Name;
+          }
+
+          /**
+             Set the name
+
+             @param name
+             @since ARP1.0
+          */
+          public void SetName(string Name) {
+               this.Name = Name;
+          }
+
+
      }
 }
 

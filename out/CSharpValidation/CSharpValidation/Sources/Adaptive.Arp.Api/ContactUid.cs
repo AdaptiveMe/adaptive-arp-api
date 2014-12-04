@@ -58,6 +58,27 @@ namespace Adaptive.Arp.Api
                this.ContactId = ContactId;
           }
 
+          /**
+             Returns the contact id
+
+             @return Contactid Internal unique contact id.
+             @since ARP1.0
+          */
+          public string GetContactId() {
+               return this.ContactId;
+          }
+
+          /**
+             Set the id of the Contact
+
+             @param contactId Internal unique contact id.
+             @since ARP1.0
+          */
+          public void SetContactId(string ContactId) {
+               this.ContactId = ContactId;
+          }
+
+
      }
 }
 

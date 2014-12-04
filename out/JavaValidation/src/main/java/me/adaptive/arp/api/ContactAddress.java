@@ -61,6 +61,7 @@ public class ContactAddress {
           this.address = address;
           this.type = type;
      }
+
      /**
         Returns the type of the address
 

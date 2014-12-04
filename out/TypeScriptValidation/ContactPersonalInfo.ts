@@ -68,6 +68,7 @@ module Adaptive {
                this.title = title
           }
 
+
      }
 }
 

@@ -77,6 +77,7 @@ public class Endpoint : NSObject {
           self.proxy = proxy
           self.scheme = scheme
      }
+
      /**
         Returns the host
 

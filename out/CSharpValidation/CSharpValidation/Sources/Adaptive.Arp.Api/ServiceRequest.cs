@@ -106,6 +106,187 @@ namespace Adaptive.Arp.Api
                this.ContentEncoding = ContentEncoding;
           }
 
+          /**
+             Returns the protocol version
+
+             @return protocolVersion enum
+             @since ARP1.0
+          */
+          public IServiceProtocolVersion GetProtocolVersion() {
+               return this.ProtocolVersion;
+          }
+
+          /**
+             Set the protocol version
+
+             @param protocolVersion
+             @since ARP1.0
+          */
+          public void SetProtocolVersion(IServiceProtocolVersion ProtocolVersion) {
+               this.ProtocolVersion = ProtocolVersion;
+          }
+
+          /**
+             Returns the content
+
+             @return content
+             @since ARP1.0
+          */
+          public string GetContent() {
+               return this.Content;
+          }
+
+          /**
+             Set the content
+
+             @param content
+             @since ARP1.0
+          */
+          public void SetContent(string Content) {
+               this.Content = Content;
+          }
+
+          /**
+             Returns the content encoding
+
+             @return contentEncoding
+             @since ARP1.0
+          */
+          public string GetContentEncoding() {
+               return this.ContentEncoding;
+          }
+
+          /**
+             Set the content encoding
+
+             @param contentEncoding
+             @since ARP1.0
+          */
+          public void SetContentEncoding(string ContentEncoding) {
+               this.ContentEncoding = ContentEncoding;
+          }
+
+          /**
+             Returns the content length
+
+             @return contentLength
+             @since ARP1.0
+          */
+          public int GetContentLength() {
+               return this.ContentLength;
+          }
+
+          /**
+             Set the content length
+
+             @param contentLength
+             @since ARP1.0
+          */
+          public void SetContentLength(int ContentLength) {
+               this.ContentLength = ContentLength;
+          }
+
+          /**
+             Returns the content type
+
+             @return contentType
+             @since ARP1.0
+          */
+          public string GetContentType() {
+               return this.ContentType;
+          }
+
+          /**
+             Set the content type
+
+             @param contentType
+             @since ARP1.0
+          */
+          public void SetContentType(string ContentType) {
+               this.ContentType = ContentType;
+          }
+
+          /**
+             Returns the array of Header
+
+             @return headers
+             @since ARP1.0
+          */
+          public Header[] GetHeaders() {
+               return this.Headers;
+          }
+
+          /**
+             Set the array of Header
+
+             @param headers
+             @since ARP1.0
+          */
+          public void SetHeaders(Header[] Headers) {
+               this.Headers = Headers;
+          }
+
+          /**
+             Returns the method
+
+             @return method
+             @since ARP1.0
+          */
+          public string GetMethod() {
+               return this.Method;
+          }
+
+          /**
+             Set the method
+
+             @param method
+             @since ARP1.0
+          */
+          public void SetMethod(string Method) {
+               this.Method = Method;
+          }
+
+          /**
+             Returns the byte[] of the content
+
+             @return rawContent
+             @since ARP1.0
+          */
+          public byte[] GetRawContent() {
+               return this.RawContent;
+          }
+
+          /**
+             Set the byte[] of the content
+
+             @param rawContent
+             @since ARP1.0
+          */
+          public void SetRawContent(byte[] RawContent) {
+               this.RawContent = RawContent;
+          }
+
+          /**
+             Returns the session object
+
+             @return session
+             @since ARP1.0
+          */
+          public ISession GetSession() {
+               return this.Session;
+          }
+
+          /**
+             Set the session object
+
+             @param session
+             @since ARP1.0
+          */
+          public void SetSession(ISession Session) {
+               this.Session = Session;
+          }
+
+
      }
 }
 

@@ -97,6 +97,7 @@ public class ServiceResponse {
           this.session = session;
           this.contentEncoding = contentEncoding;
      }
+
      /**
         Returns the content
 

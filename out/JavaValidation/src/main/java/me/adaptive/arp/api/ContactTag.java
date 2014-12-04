@@ -61,6 +61,7 @@ public class ContactTag {
           this.name = name;
           this.dataValue = dataValue;
      }
+
      /**
         Returns the value of the Tag
 

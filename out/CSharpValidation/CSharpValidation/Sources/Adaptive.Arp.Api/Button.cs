@@ -58,6 +58,26 @@ namespace Adaptive.Arp.Api
                this.Type = Type;
           }
 
+          /**
+             Returns the button type
+
+             @return type Button type.
+             @since ARP1.0
+          */
+          public ICapabilitiesButton GetType() {
+               return this.Type;
+          }
+
+          /**
+             Sets Button type
+
+             @param type Button type
+          */
+          public void SetType(ICapabilitiesButton Type) {
+               this.Type = Type;
+          }
+
+
      }
 }
 

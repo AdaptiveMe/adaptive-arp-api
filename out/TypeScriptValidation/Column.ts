@@ -47,6 +47,7 @@ module Adaptive {
                this.name = name
           }
 
+
      }
 }
 

@@ -64,6 +64,47 @@ namespace Adaptive.Arp.Api
                this.DataValue = DataValue;
           }
 
+          /**
+             Returns the value of the Tag
+
+             @return value
+             @since ARP1.0
+          */
+          public string GetDataValue() {
+               return this.DataValue;
+          }
+
+          /**
+             Set the value of the Tag
+
+             @param dataValue
+             @since ARP1.0
+          */
+          public void SetDataValue(string DataValue) {
+               this.DataValue = DataValue;
+          }
+
+          /**
+             Returns the name of the Tag
+
+             @return name
+             @since ARP1.0
+          */
+          public string GetName() {
+               return this.Name;
+          }
+
+          /**
+             Set the name of the Tag
+
+             @param name
+             @since ARP1.0
+          */
+          public void SetName(string Name) {
+               this.Name = Name;
+          }
+
+
      }
 }
 

@@ -57,6 +57,7 @@ Structure representing the data of a http request or response header.
      */
      - (id) initWithNameData:(NSString*)name data:(NSString*)data;
 
+
 @end
 
 /**

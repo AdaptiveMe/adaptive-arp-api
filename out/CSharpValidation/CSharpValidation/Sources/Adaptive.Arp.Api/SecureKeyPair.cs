@@ -58,6 +58,47 @@ namespace Adaptive.Arp.Api
                this.SecureData = SecureData;
           }
 
+          /**
+             Returns the object value
+
+             @return Value.
+             @since ARP 1.0
+          */
+          public string GetSecureData() {
+               return this.SecureData;
+          }
+
+          /**
+             Sets the value for this object
+
+             @param secureData value to set.
+             @since ARP 1.0
+          */
+          public void SetSecureData(string SecureData) {
+               this.SecureData = SecureData;
+          }
+
+          /**
+             Returns the object secureKey name.
+
+             @return Key name.
+             @since ARP 1.0
+          */
+          public string GetSecureKey() {
+               return this.SecureKey;
+          }
+
+          /**
+             Sets the secureKey name for this object.
+
+             @param secureKey Key name.
+             @since ARP 1.0
+          */
+          public void SetSecureKey(string SecureKey) {
+               this.SecureKey = SecureKey;
+          }
+
+
      }
 }
 

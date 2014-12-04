@@ -54,6 +54,7 @@ public class Column {
           this();
           this.name = name;
      }
+
      /**
         Returns the name of the column.
 

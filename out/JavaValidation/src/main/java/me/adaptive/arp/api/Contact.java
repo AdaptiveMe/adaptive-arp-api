@@ -82,6 +82,7 @@ public class Contact extends ContactUid {
      public Contact(String contactId) {
           super(contactId);
      }
+
      /**
         Returns all the addresses of the Contact
 

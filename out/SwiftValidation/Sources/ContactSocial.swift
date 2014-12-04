@@ -59,6 +59,7 @@ public class ContactSocial : NSObject {
           self.socialNetwork = socialNetwork
           self.profileUrl = profileUrl
      }
+
      /**
         Returns the social network
 

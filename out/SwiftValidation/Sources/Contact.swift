@@ -80,6 +80,7 @@ public class Contact : ContactUid {
      public override init(contactId: String) {
           super.init(contactId: contactId)
      }
+
      /**
         Returns all the addresses of the Contact
 

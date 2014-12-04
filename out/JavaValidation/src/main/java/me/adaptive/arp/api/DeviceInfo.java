@@ -73,6 +73,7 @@ be unique for a specific instance of an application on a specific device.
           this.vendor = vendor;
           this.uuid = uuid;
      }
+
      /**
         Returns the model of the device.
 

@@ -98,6 +98,7 @@ Structure representing the data elements of an email.
      */
      - (id) initWithToRecipientsSubjectMessageBody:(NSArray*)toRecipients subject:(NSString*)subject messageBody:(NSString*)messageBody;
 
+
 @end
 
 /**

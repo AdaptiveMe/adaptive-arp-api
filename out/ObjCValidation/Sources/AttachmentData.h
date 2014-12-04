@@ -73,6 +73,7 @@ Structure representing the binary attachment data.
      */
      - (id) initWithDataDataSizeFileNameMimeTypeReferenceUrl:(NSArray*)data dataSize:(long*)dataSize fileName:(NSString*)fileName mimeType:(NSString*)mimeType referenceUrl:(NSString*)referenceUrl;
 
+
 @end
 
 /**

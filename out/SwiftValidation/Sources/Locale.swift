@@ -59,6 +59,7 @@ public class Locale : NSObject {
           self.language = language
           self.country = country
      }
+
      /**
         Returns the country code
 

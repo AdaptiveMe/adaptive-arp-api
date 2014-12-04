@@ -74,6 +74,7 @@ public class Database {
           this.name = name;
           this.compress = compress;
      }
+
      /**
         Returns if the table is compressed
 

@@ -62,6 +62,7 @@ Structure representing the professional info data elements of a contact.
      */
      - (id) initWithJobTitleJobDescriptionCompany:(NSString*)jobTitle jobDescription:(NSString*)jobDescription company:(NSString*)company;
 
+
 @end
 
 /**

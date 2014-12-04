@@ -76,6 +76,79 @@ namespace Adaptive.Arp.Api
                this.TimeStamp = TimeStamp;
           }
 
+          /**
+             Gets Timestamp of the acceleration reading.
+
+             @return timeStamp Timestamp of the acceleration reading.
+          */
+          public long GetTimeStamp() {
+               return this.TimeStamp;
+          }
+
+          /**
+             Sets Timestamp of the acceleration reading.
+
+             @param timeStamp Timestamp of the acceleration reading.
+          */
+          public void SetTimeStamp(long TimeStamp) {
+               this.TimeStamp = TimeStamp;
+          }
+
+          /**
+             Gets X-axis component of the acceleration.
+
+             @return x X-axis component of the acceleration.
+          */
+          public double GetX() {
+               return this.X;
+          }
+
+          /**
+             Sets X-axis component of the acceleration.
+
+             @param x X-axis component of the acceleration.
+          */
+          public void SetX(double X) {
+               this.X = X;
+          }
+
+          /**
+             Gets Y-axis component of the acceleration.
+
+             @return y Y-axis component of the acceleration.
+          */
+          public double GetY() {
+               return this.Y;
+          }
+
+          /**
+             Sets Y-axis component of the acceleration.
+
+             @param y Y-axis component of the acceleration.
+          */
+          public void SetY(double Y) {
+               this.Y = Y;
+          }
+
+          /**
+             Gets Z-axis component of the acceleration.
+
+             @return z Z-axis component of the acceleration.
+          */
+          public double GetZ() {
+               return this.Z;
+          }
+
+          /**
+             Sets Z-axis component of the acceleration.
+
+             @param z Z-axis component of the acceleration.
+          */
+          public void SetZ(double Z) {
+               this.Z = Z;
+          }
+
+
      }
 }
 

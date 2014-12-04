@@ -64,6 +64,7 @@ public class OSInfo : NSObject {
           self.version = version
           self.vendor = vendor
      }
+
      /**
         Returns the name of the operating system.
 

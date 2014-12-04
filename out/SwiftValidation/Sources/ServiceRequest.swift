@@ -101,6 +101,7 @@ public class ServiceRequest : NSObject {
           self.session = session
           self.contentEncoding = contentEncoding
      }
+
      /**
         Returns the protocol version
 

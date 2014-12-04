@@ -67,6 +67,7 @@ public class ContactEmail {
           this.primary = primary;
           this.email = email;
      }
+
      /**
         Returns the type of the email
 

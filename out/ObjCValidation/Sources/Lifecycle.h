@@ -64,6 +64,7 @@ Represents a specific application life-cycle stage.
      */
      - (id) initWithState:(LifecycleState*)state;
 
+
 @end
 
 /**

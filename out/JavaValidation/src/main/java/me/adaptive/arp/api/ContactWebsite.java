@@ -55,6 +55,7 @@ public class ContactWebsite {
           this();
           this.url = url;
      }
+
      /**
         Returns the url of the website
 

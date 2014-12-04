@@ -67,6 +67,7 @@ Structure representing a database reference.
      */
      - (id) initWithNameCompress:(NSString*)name compress:(bool*)compress;
 
+
 @end
 
 /**

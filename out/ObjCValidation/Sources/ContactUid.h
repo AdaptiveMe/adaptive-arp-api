@@ -52,6 +52,7 @@ Structure representing the internal unique identifier data elements of a contact
      */
      - (id) initWithContactId:(NSString*)contactId;
 
+
 @end
 
 /**

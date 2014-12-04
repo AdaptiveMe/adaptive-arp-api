@@ -73,6 +73,7 @@ public class Acceleration {
           this.z = z;
           this.timeStamp = timeStamp;
      }
+
      /**
         Gets Timestamp of the acceleration reading.
 

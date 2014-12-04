@@ -72,6 +72,7 @@ Structure representing a remote or local service access end-point.
      */
      - (id) initWithHostPathPortProxyScheme:(NSString*)host path:(NSString*)path port:(int*)port proxy:(NSString*)proxy scheme:(NSString*)scheme;
 
+
 @end
 
 /**

@@ -76,6 +76,51 @@ namespace Adaptive.Arp.Api
                this.Compress = Compress;
           }
 
+          /**
+             Returns if the table is compressed
+
+             @return Compression enabled
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          public bool GetCompress() {
+               return this.Compress;
+          }
+
+          /**
+             Sets if the table is compressed or not.
+
+             @param compress Compression enabled
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          public void SetCompress(bool Compress) {
+               this.Compress = Compress;
+          }
+
+          /**
+             Returns the name.
+
+             @return The name of the table.
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          public string GetName() {
+               return this.Name;
+          }
+
+          /**
+             Sets the name of the table.
+
+             @param name The name of the table.
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          public void SetName(string Name) {
+               this.Name = Name;
+          }
+
+
      }
 }
 

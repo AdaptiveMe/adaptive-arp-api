@@ -65,6 +65,7 @@ public class ContactEmail : NSObject {
           self.primary = primary
           self.email = email
      }
+
      /**
         Returns the type of the email
 

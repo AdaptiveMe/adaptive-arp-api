@@ -2,125 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Acceleration.d.ts" afterPath="$PROJECT_DIR$/Acceleration.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Acceleration.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Acceleration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Acceleration.js" afterPath="$PROJECT_DIR$/Acceleration.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AttachmentData.d.ts" afterPath="$PROJECT_DIR$/AttachmentData.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AttachmentData.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/AttachmentData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AttachmentData.js" afterPath="$PROJECT_DIR$/AttachmentData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Button.d.ts" afterPath="$PROJECT_DIR$/Button.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Button.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Button.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Button.js" afterPath="$PROJECT_DIR$/Button.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Acceleration.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Acceleration.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/AttachmentData.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/AttachmentData.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Button.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Button.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/csharp/CSharpGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/csharp/CSharpGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Column.d.ts" afterPath="$PROJECT_DIR$/Column.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Column.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Column.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Column.js" afterPath="$PROJECT_DIR$/Column.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Contact.d.ts" afterPath="$PROJECT_DIR$/Contact.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Contact.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Contact.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Contact.js" afterPath="$PROJECT_DIR$/Contact.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SwiftValidation/Sources/Contact.swift" afterPath="$PROJECT_DIR$/../SwiftValidation/Sources/Contact.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactAddress.d.ts" afterPath="$PROJECT_DIR$/ContactAddress.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactAddress.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactAddress.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactAddress.js" afterPath="$PROJECT_DIR$/ContactAddress.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactAddressType.d.ts" afterPath="$PROJECT_DIR$/ContactAddressType.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactAddressType.js" afterPath="$PROJECT_DIR$/ContactAddressType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactEmail.d.ts" afterPath="$PROJECT_DIR$/ContactEmail.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactEmail.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactEmail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactEmail.js" afterPath="$PROJECT_DIR$/ContactEmail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactEmailType.d.ts" afterPath="$PROJECT_DIR$/ContactEmailType.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactEmailType.js" afterPath="$PROJECT_DIR$/ContactEmailType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPersonalInfo.d.ts" afterPath="$PROJECT_DIR$/ContactPersonalInfo.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPersonalInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPersonalInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPersonalInfo.js" afterPath="$PROJECT_DIR$/ContactPersonalInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPersonalInfoTitle.d.ts" afterPath="$PROJECT_DIR$/ContactPersonalInfoTitle.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPersonalInfoTitle.js" afterPath="$PROJECT_DIR$/ContactPersonalInfoTitle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhone.d.ts" afterPath="$PROJECT_DIR$/ContactPhone.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPhone.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactPhone.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhone.js" afterPath="$PROJECT_DIR$/ContactPhone.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhoneType.d.ts" afterPath="$PROJECT_DIR$/ContactPhoneType.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactPhoneType.js" afterPath="$PROJECT_DIR$/ContactPhoneType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactProfessionalInfo.d.ts" afterPath="$PROJECT_DIR$/ContactProfessionalInfo.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactProfessionalInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactProfessionalInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactProfessionalInfo.js" afterPath="$PROJECT_DIR$/ContactProfessionalInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactSocial.d.ts" afterPath="$PROJECT_DIR$/ContactSocial.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactSocial.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactSocial.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactSocial.js" afterPath="$PROJECT_DIR$/ContactSocial.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactSocialNetwork.d.ts" afterPath="$PROJECT_DIR$/ContactSocialNetwork.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactSocialNetwork.js" afterPath="$PROJECT_DIR$/ContactSocialNetwork.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactTag.d.ts" afterPath="$PROJECT_DIR$/ContactTag.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactTag.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactTag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactTag.js" afterPath="$PROJECT_DIR$/ContactTag.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactUid.d.ts" afterPath="$PROJECT_DIR$/ContactUid.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactUid.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactUid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactUid.js" afterPath="$PROJECT_DIR$/ContactUid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactWebsite.d.ts" afterPath="$PROJECT_DIR$/ContactWebsite.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactWebsite.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ContactWebsite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ContactWebsite.js" afterPath="$PROJECT_DIR$/ContactWebsite.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cookie.d.ts" afterPath="$PROJECT_DIR$/Cookie.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Cookie.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Cookie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cookie.js" afterPath="$PROJECT_DIR$/Cookie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database.d.ts" afterPath="$PROJECT_DIR$/Database.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Database.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Database.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database.js" afterPath="$PROJECT_DIR$/Database.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeviceInfo.d.ts" afterPath="$PROJECT_DIR$/DeviceInfo.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/DeviceInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/DeviceInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DeviceInfo.js" afterPath="$PROJECT_DIR$/DeviceInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Email.d.ts" afterPath="$PROJECT_DIR$/Email.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Email.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Email.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Email.js" afterPath="$PROJECT_DIR$/Email.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EmailAddress.d.ts" afterPath="$PROJECT_DIR$/EmailAddress.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/EmailAddress.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/EmailAddress.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EmailAddress.js" afterPath="$PROJECT_DIR$/EmailAddress.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Endpoint.d.ts" afterPath="$PROJECT_DIR$/Endpoint.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Endpoint.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Endpoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Endpoint.js" afterPath="$PROJECT_DIR$/Endpoint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Geolocation.d.ts" afterPath="$PROJECT_DIR$/Geolocation.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Geolocation.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Geolocation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Geolocation.js" afterPath="$PROJECT_DIR$/Geolocation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Header.d.ts" afterPath="$PROJECT_DIR$/Header.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Header.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Header.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Header.js" afterPath="$PROJECT_DIR$/Header.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesButton.d.ts" afterPath="$PROJECT_DIR$/ICapabilitiesButton.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICapabilitiesButton.js" afterPath="$PROJECT_DIR$/ICapabilitiesButton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceMethod.d.ts" afterPath="$PROJECT_DIR$/IServiceMethod.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceMethod.js" afterPath="$PROJECT_DIR$/IServiceMethod.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceProtocolVersion.d.ts" afterPath="$PROJECT_DIR$/IServiceProtocolVersion.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceProtocolVersion.js" afterPath="$PROJECT_DIR$/IServiceProtocolVersion.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceType.d.ts" afterPath="$PROJECT_DIR$/IServiceType.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IServiceType.js" afterPath="$PROJECT_DIR$/IServiceType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/java/JavaGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/java/JavaGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/JavaValidation.iml" afterPath="$PROJECT_DIR$/../JavaValidation/JavaValidation.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lifecycle.d.ts" afterPath="$PROJECT_DIR$/Lifecycle.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Lifecycle.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Lifecycle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lifecycle.js" afterPath="$PROJECT_DIR$/Lifecycle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleState.d.ts" afterPath="$PROJECT_DIR$/LifecycleState.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LifecycleState.js" afterPath="$PROJECT_DIR$/LifecycleState.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Locale.d.ts" afterPath="$PROJECT_DIR$/Locale.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Locale.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Locale.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Locale.js" afterPath="$PROJECT_DIR$/Locale.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OSInfo.d.ts" afterPath="$PROJECT_DIR$/OSInfo.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/OSInfo.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/OSInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OSInfo.js" afterPath="$PROJECT_DIR$/OSInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/objc/ObjCGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/objc/ObjCGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Row.d.ts" afterPath="$PROJECT_DIR$/Row.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Row.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Row.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Row.js" afterPath="$PROJECT_DIR$/Row.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecureKeyPair.d.ts" afterPath="$PROJECT_DIR$/SecureKeyPair.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/SecureKeyPair.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/SecureKeyPair.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecureKeyPair.js" afterPath="$PROJECT_DIR$/SecureKeyPair.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.d.ts" afterPath="$PROJECT_DIR$/Service.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Service.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Service.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.js" afterPath="$PROJECT_DIR$/Service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceRequest.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceRequest.js" afterPath="$PROJECT_DIR$/ServiceRequest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceResponse.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/ServiceResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ServiceResponse.js" afterPath="$PROJECT_DIR$/ServiceResponse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Table.d.ts" afterPath="$PROJECT_DIR$/Table.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Table.java" afterPath="$PROJECT_DIR$/../JavaValidation/src/main/java/me/adaptive/arp/api/Table.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Table.js" afterPath="$PROJECT_DIR$/Table.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Column.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Column.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Contact.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Contact.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactAddress.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactAddress.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactEmail.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactEmail.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactPersonalInfo.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactPersonalInfo.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactPhone.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactPhone.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactProfessionalInfo.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactProfessionalInfo.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactSocial.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactSocial.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactTag.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactTag.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactUid.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactUid.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactWebsite.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ContactWebsite.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Cookie.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Cookie.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Database.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Database.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/DeviceInfo.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/DeviceInfo.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Email.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Email.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/EmailAddress.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/EmailAddress.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Endpoint.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Endpoint.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Geolocation.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Geolocation.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Geolocation.js.map" afterPath="$PROJECT_DIR$/Geolocation.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Header.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Header.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Lifecycle.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Lifecycle.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Locale.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Locale.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/OSInfo.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/OSInfo.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Row.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Row.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/SecureKeyPair.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/SecureKeyPair.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Service.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Service.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ServiceRequest.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ServiceRequest.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ServiceResponse.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/ServiceResponse.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Table.cs" afterPath="$PROJECT_DIR$/../CSharpValidation/CSharpValidation/Sources/Adaptive.Arp.Api/Table.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TypeScriptValidation.iws" />
@@ -168,8 +82,8 @@
       <file leaf-file-name="Contact.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Contact.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75328946" vertical-offset="588" max-vertical-offset="1500">
-              <caret line="85" column="41" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.8190789" vertical-offset="543" max-vertical-offset="1515">
+              <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -181,8 +95,8 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="230" max-vertical-offset="1035">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
-                <marker date="1417693105000" expanded="true" signature="1733:1877" placeholder="/**Structure representing the data elements of a contact. ...*/" />
-                <marker date="1417693105000" expanded="true" signature="2178:2201" placeholder="{...}" />
+                <marker date="1417695349000" expanded="true" signature="1733:1877" placeholder="/**Structure representing the data elements of a contact. ...*/" />
+                <marker date="1417695349000" expanded="true" signature="2178:2201" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -194,7 +108,7 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="215" max-vertical-offset="1200">
               <caret line="29" column="0" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="73" />
               <folding>
-                <marker date="1417691839000" expanded="true" signature="1130:1290" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1130:1290" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
               </folding>
             </state>
           </provider>
@@ -206,7 +120,7 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1290">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
-                <marker date="1417691839000" expanded="true" signature="1130:1275" placeholder="/**Structure representing the binary attachment data. ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1130:1275" placeholder="/**Structure representing the binary attachment data. ...*/" />
               </folding>
             </state>
           </provider>
@@ -218,8 +132,8 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="885">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
-                <marker date="1417693178000" expanded="true" signature="1154:1831" placeholder="{...}" />
-                <marker date="1417693178000" expanded="true" signature="1145:1300" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+                <marker date="1417694885000" expanded="true" signature="1154:1831" placeholder="{...}" />
+                <marker date="1417694885000" expanded="true" signature="1145:1300" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
               </folding>
             </state>
           </provider>
@@ -231,56 +145,56 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14430">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1417693131000" expanded="true" signature="1873:29564" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="2510:2518" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="3165:3173" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="3791:3807" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="4474:4485" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="4960:4988" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="5569:5604" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="6891:6900" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="8807:8820" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="9510:9527" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="10073:10081" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="10778:10839" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="10805:10813" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="10872:11563" placeholder="/**Structure representing the column specification of a data table. ...*/" />
-                <marker date="1417693131000" expanded="true" signature="11635:11638" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="12245:12268" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="13477:13597" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="13648:14045" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
-                <marker date="1417693131000" expanded="true" signature="14633:14638" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="15094:15123" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="16446:16485" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="17249:17276" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="17912:17925" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="19179:19196" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="20022:20134" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="20054:20076" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="20175:20493" placeholder="/**Structure representing the data elements of an email. ...*/" />
-                <marker date="1417693131000" expanded="true" signature="21009:21191" placeholder="/**Structure representing the data elements of a contact. ...*/" />
-                <marker date="1417693131000" expanded="true" signature="21223:21358" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="21281:21312" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="21401:21443" placeholder="/**Enumeration ContactPersonalInfoTitle ...*/" />
-                <marker date="1417693131000" expanded="true" signature="21529:21574" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="21663:21676" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="22235:22247" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="22340:23020" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="22372:22413" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="22530:22603" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="23071:23130" placeholder="/**Enumeration IServiceProtocolVersion ...*/" />
-                <marker date="1417693131000" expanded="true" signature="23222:23755" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="23255:23294" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="23381:23410" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="23913:25996" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="24054:25810" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="26124:26326" placeholder="/**Enumeration IServiceType ...*/" />
-                <marker date="1417693131000" expanded="true" signature="26407:26451" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="26536:26544" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="26777:26815" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="28286:28843" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="28332:28378" placeholder="{...}" />
-                <marker date="1417693131000" expanded="true" signature="28437:28482" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="1873:29564" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="2510:2518" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="3165:3173" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="3791:3807" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="4474:4485" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="4960:4988" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="5569:5604" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="6891:6900" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="8807:8820" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="9510:9527" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="10073:10081" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="10778:10839" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="10805:10813" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="10872:11563" placeholder="/**Structure representing the column specification of a data table. ...*/" />
+                <marker date="1417695375000" expanded="true" signature="11635:11638" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="12245:12268" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="13477:13597" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="13648:14045" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
+                <marker date="1417695375000" expanded="true" signature="14633:14638" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="15094:15123" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="16446:16485" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="17249:17276" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="17912:17925" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="19179:19196" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="20022:20134" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="20054:20076" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="20175:20493" placeholder="/**Structure representing the data elements of an email. ...*/" />
+                <marker date="1417695375000" expanded="true" signature="21009:21191" placeholder="/**Structure representing the data elements of a contact. ...*/" />
+                <marker date="1417695375000" expanded="true" signature="21223:21358" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="21281:21312" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="21401:21443" placeholder="/**Enumeration ContactPersonalInfoTitle ...*/" />
+                <marker date="1417695375000" expanded="true" signature="21529:21574" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="21663:21676" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="22235:22247" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="22340:23020" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="22372:22413" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="22530:22603" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="23071:23130" placeholder="/**Enumeration IServiceProtocolVersion ...*/" />
+                <marker date="1417695375000" expanded="true" signature="23222:23755" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="23255:23294" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="23381:23410" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="23913:25996" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="24054:25810" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="26124:26326" placeholder="/**Enumeration IServiceType ...*/" />
+                <marker date="1417695375000" expanded="true" signature="26407:26451" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="26536:26544" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="26777:26815" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="28286:28843" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="28332:28378" placeholder="{...}" />
+                <marker date="1417695375000" expanded="true" signature="28437:28482" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -292,20 +206,20 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="1605">
               <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding>
-                <marker date="1417691839000" expanded="true" signature="1182:3354" placeholder="..." />
-                <marker date="1417691839000" expanded="true" signature="1190:1332" placeholder="/**Represents a local or remote service response. ...*/" />
-                <marker date="1417691839000" expanded="true" signature="1367:3352" placeholder="..." />
-                <marker date="1417691839000" expanded="true" signature="1380:1453" placeholder="/**Request/Response data content (plain text). ...*/" />
-                <marker date="1417691839000" expanded="true" signature="1492:1565" placeholder="/**The byte[] representing the binary Content. ...*/" />
-                <marker date="1417691839000" expanded="true" signature="1617:1690" placeholder="/**The length in bytes for the binary Content. ...*/" />
-                <marker date="1417691839000" expanded="true" signature="1741:1834" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
-                <marker date="1417691839000" expanded="true" signature="1881:1953" placeholder="/**The length in bytes for the Content field. ...*/" />
-                <marker date="1417691839000" expanded="true" signature="1998:2074" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
-                <marker date="1417691839000" expanded="true" signature="2117:2226" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
-                <marker date="1417691839000" expanded="true" signature="2272:2347" placeholder="/**The session context for the Request/Response. ...*/" />
-                <marker date="1417691839000" expanded="true" signature="2388:2744" placeholder="/**Constructor used by the implementation ...*/" />
-                <marker date="1417691839000" expanded="true" signature="2955:3344" placeholder="{...}" />
-                <marker date="1417691839000" expanded="true" signature="3356:3482" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1182:3354" placeholder="..." />
+                <marker date="1417695320000" expanded="true" signature="1190:1332" placeholder="/**Represents a local or remote service response. ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1367:3352" placeholder="..." />
+                <marker date="1417695320000" expanded="true" signature="1380:1453" placeholder="/**Request/Response data content (plain text). ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1492:1565" placeholder="/**The byte[] representing the binary Content. ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1617:1690" placeholder="/**The length in bytes for the binary Content. ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1741:1834" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1881:1953" placeholder="/**The length in bytes for the Content field. ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1998:2074" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
+                <marker date="1417695320000" expanded="true" signature="2117:2226" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+                <marker date="1417695320000" expanded="true" signature="2272:2347" placeholder="/**The session context for the Request/Response. ...*/" />
+                <marker date="1417695320000" expanded="true" signature="2388:2744" placeholder="/**Constructor used by the implementation ...*/" />
+                <marker date="1417695320000" expanded="true" signature="2955:3344" placeholder="{...}" />
+                <marker date="1417695320000" expanded="true" signature="3356:3482" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
               </folding>
             </state>
           </provider>
@@ -317,13 +231,13 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="960">
               <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding>
-                <marker date="1417691839000" expanded="true" signature="1155:1682" placeholder="..." />
-                <marker date="1417691839000" expanded="true" signature="1163:1310" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
-                <marker date="1417691839000" expanded="true" signature="1339:1680" placeholder="..." />
-                <marker date="1417691839000" expanded="true" signature="1352:1412" placeholder="/**Represent the state of the app ...*/" />
-                <marker date="1417691839000" expanded="true" signature="1457:1579" placeholder="/**Constructor used by the implementation ...*/" />
-                <marker date="1417691839000" expanded="true" signature="1625:1672" placeholder="{...}" />
-                <marker date="1417691839000" expanded="true" signature="1684:1810" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1155:1682" placeholder="..." />
+                <marker date="1417695320000" expanded="true" signature="1163:1310" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1339:1680" placeholder="..." />
+                <marker date="1417695320000" expanded="true" signature="1352:1412" placeholder="/**Represent the state of the app ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1457:1579" placeholder="/**Constructor used by the implementation ...*/" />
+                <marker date="1417695320000" expanded="true" signature="1625:1672" placeholder="{...}" />
+                <marker date="1417695320000" expanded="true" signature="1684:1810" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
               </folding>
             </state>
           </provider>
@@ -550,20 +464,20 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1065" max-vertical-offset="1605">
           <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
-            <marker date="1417691839000" expanded="true" signature="1182:3354" placeholder="..." />
-            <marker date="1417691839000" expanded="true" signature="1190:1332" placeholder="/**Represents a local or remote service response. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1367:3352" placeholder="..." />
-            <marker date="1417691839000" expanded="true" signature="1380:1453" placeholder="/**Request/Response data content (plain text). ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1492:1565" placeholder="/**The byte[] representing the binary Content. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1617:1690" placeholder="/**The length in bytes for the binary Content. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1741:1834" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1881:1953" placeholder="/**The length in bytes for the Content field. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1998:2074" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
-            <marker date="1417691839000" expanded="true" signature="2117:2226" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="2272:2347" placeholder="/**The session context for the Request/Response. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="2388:2744" placeholder="/**Constructor used by the implementation ...*/" />
-            <marker date="1417691839000" expanded="true" signature="2955:3344" placeholder="{...}" />
-            <marker date="1417691839000" expanded="true" signature="3356:3482" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1182:3354" placeholder="..." />
+            <marker date="1417695320000" expanded="true" signature="1190:1332" placeholder="/**Represents a local or remote service response. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1367:3352" placeholder="..." />
+            <marker date="1417695320000" expanded="true" signature="1380:1453" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1492:1565" placeholder="/**The byte[] representing the binary Content. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1617:1690" placeholder="/**The length in bytes for the binary Content. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1741:1834" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1881:1953" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1998:2074" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
+            <marker date="1417695320000" expanded="true" signature="2117:2226" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="2272:2347" placeholder="/**The session context for the Request/Response. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="2388:2744" placeholder="/**Constructor used by the implementation ...*/" />
+            <marker date="1417695320000" expanded="true" signature="2955:3344" placeholder="{...}" />
+            <marker date="1417695320000" expanded="true" signature="3356:3482" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
           </folding>
         </state>
       </provider>
@@ -573,7 +487,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="960">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <marker date="1417691839000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the a physical or logical button on a device. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the a physical or logical button on a device. ...*/" />
           </folding>
         </state>
       </provider>
@@ -583,13 +497,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="960">
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
-            <marker date="1417691839000" expanded="true" signature="1155:1682" placeholder="..." />
-            <marker date="1417691839000" expanded="true" signature="1163:1310" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1339:1680" placeholder="..." />
-            <marker date="1417691839000" expanded="true" signature="1352:1412" placeholder="/**Represent the state of the app ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1457:1579" placeholder="/**Constructor used by the implementation ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1625:1672" placeholder="{...}" />
-            <marker date="1417691839000" expanded="true" signature="1684:1810" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1155:1682" placeholder="..." />
+            <marker date="1417695320000" expanded="true" signature="1163:1310" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1339:1680" placeholder="..." />
+            <marker date="1417695320000" expanded="true" signature="1352:1412" placeholder="/**Represent the state of the app ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1457:1579" placeholder="/**Constructor used by the implementation ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1625:1672" placeholder="{...}" />
+            <marker date="1417695320000" expanded="true" signature="1684:1810" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
           </folding>
         </state>
       </provider>
@@ -663,7 +577,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="960">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
-            <marker date="1417691839000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the a physical or logical button on a device. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="-1:-1" placeholder="/**Structure representing the a physical or logical button on a device. ...*/" />
           </folding>
         </state>
       </provider>
@@ -673,13 +587,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="960">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
-            <marker date="1417691839000" expanded="true" signature="1155:1682" placeholder="..." />
-            <marker date="1417691839000" expanded="true" signature="1163:1310" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1339:1680" placeholder="..." />
-            <marker date="1417691839000" expanded="true" signature="1352:1412" placeholder="/**Represent the state of the app ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1457:1579" placeholder="/**Constructor used by the implementation ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1625:1672" placeholder="{...}" />
-            <marker date="1417691839000" expanded="true" signature="1684:1810" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1155:1682" placeholder="..." />
+            <marker date="1417695320000" expanded="true" signature="1163:1310" placeholder="/**Represents a specific application life-cycle stage. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1339:1680" placeholder="..." />
+            <marker date="1417695320000" expanded="true" signature="1352:1412" placeholder="/**Represent the state of the app ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1457:1579" placeholder="/**Constructor used by the implementation ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1625:1672" placeholder="{...}" />
+            <marker date="1417695320000" expanded="true" signature="1684:1810" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
           </folding>
         </state>
       </provider>
@@ -689,20 +603,20 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="1605">
           <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding>
-            <marker date="1417691839000" expanded="true" signature="1182:3354" placeholder="..." />
-            <marker date="1417691839000" expanded="true" signature="1190:1332" placeholder="/**Represents a local or remote service response. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1367:3352" placeholder="..." />
-            <marker date="1417691839000" expanded="true" signature="1380:1453" placeholder="/**Request/Response data content (plain text). ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1492:1565" placeholder="/**The byte[] representing the binary Content. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1617:1690" placeholder="/**The length in bytes for the binary Content. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1741:1834" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1881:1953" placeholder="/**The length in bytes for the Content field. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="1998:2074" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
-            <marker date="1417691839000" expanded="true" signature="2117:2226" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="2272:2347" placeholder="/**The session context for the Request/Response. ...*/" />
-            <marker date="1417691839000" expanded="true" signature="2388:2744" placeholder="/**Constructor used by the implementation ...*/" />
-            <marker date="1417691839000" expanded="true" signature="2955:3344" placeholder="{...}" />
-            <marker date="1417691839000" expanded="true" signature="3356:3482" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1182:3354" placeholder="..." />
+            <marker date="1417695320000" expanded="true" signature="1190:1332" placeholder="/**Represents a local or remote service response. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1367:3352" placeholder="..." />
+            <marker date="1417695320000" expanded="true" signature="1380:1453" placeholder="/**Request/Response data content (plain text). ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1492:1565" placeholder="/**The byte[] representing the binary Content. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1617:1690" placeholder="/**The length in bytes for the binary Content. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1741:1834" placeholder="/**Encoding of the binary payload - by default assumed to be UTF8. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1881:1953" placeholder="/**The length in bytes for the Content field. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1998:2074" placeholder="/**The request/response content type (MIME TYPE). ...*/" />
+            <marker date="1417695320000" expanded="true" signature="2117:2226" placeholder="/**The headers array (name,value pairs) to be included on the I/O service request. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="2272:2347" placeholder="/**The session context for the Request/Response. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="2388:2744" placeholder="/**Constructor used by the implementation ...*/" />
+            <marker date="1417695320000" expanded="true" signature="2955:3344" placeholder="{...}" />
+            <marker date="1417695320000" expanded="true" signature="3356:3482" placeholder="/**------------------------------------| Engineered with ♥ in Barcelona, Catalonia |-------------------------------------- ...*/" />
           </folding>
         </state>
       </provider>
@@ -712,56 +626,56 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9465">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1417693131000" expanded="true" signature="1873:29564" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="2510:2518" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="3165:3173" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="3791:3807" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="4474:4485" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="4960:4988" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="5569:5604" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="6891:6900" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="8807:8820" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="9510:9527" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="10073:10081" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="10778:10839" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="10805:10813" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="10872:11563" placeholder="/**Structure representing the column specification of a data table. ...*/" />
-            <marker date="1417693131000" expanded="true" signature="11635:11638" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="12245:12268" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="13477:13597" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="13648:14045" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
-            <marker date="1417693131000" expanded="true" signature="14633:14638" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="15094:15123" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="16446:16485" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="17249:17276" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="17912:17925" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="19179:19196" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="20022:20134" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="20054:20076" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="20175:20493" placeholder="/**Structure representing the data elements of an email. ...*/" />
-            <marker date="1417693131000" expanded="true" signature="21009:21191" placeholder="/**Structure representing the data elements of a contact. ...*/" />
-            <marker date="1417693131000" expanded="true" signature="21223:21358" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="21281:21312" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="21401:21443" placeholder="/**Enumeration ContactPersonalInfoTitle ...*/" />
-            <marker date="1417693131000" expanded="true" signature="21529:21574" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="21663:21676" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="22235:22247" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="22340:23020" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="22372:22413" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="22530:22603" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="23071:23130" placeholder="/**Enumeration IServiceProtocolVersion ...*/" />
-            <marker date="1417693131000" expanded="true" signature="23222:23755" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="23255:23294" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="23381:23410" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="23913:25996" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="24054:25810" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="26124:26326" placeholder="/**Enumeration IServiceType ...*/" />
-            <marker date="1417693131000" expanded="true" signature="26407:26451" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="26536:26544" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="26777:26815" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="28286:28843" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="28332:28378" placeholder="{...}" />
-            <marker date="1417693131000" expanded="true" signature="28437:28482" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="1873:29564" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="2510:2518" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="3165:3173" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="3791:3807" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="4474:4485" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="4960:4988" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="5569:5604" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="6891:6900" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="8807:8820" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="9510:9527" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="10073:10081" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="10778:10839" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="10805:10813" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="10872:11563" placeholder="/**Structure representing the column specification of a data table. ...*/" />
+            <marker date="1417695375000" expanded="true" signature="11635:11638" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="12245:12268" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="13477:13597" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="13648:14045" placeholder="/**Structure representing the professional info data elements of a contact. ...*/" />
+            <marker date="1417695375000" expanded="true" signature="14633:14638" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="15094:15123" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="16446:16485" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="17249:17276" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="17912:17925" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="19179:19196" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="20022:20134" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="20054:20076" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="20175:20493" placeholder="/**Structure representing the data elements of an email. ...*/" />
+            <marker date="1417695375000" expanded="true" signature="21009:21191" placeholder="/**Structure representing the data elements of a contact. ...*/" />
+            <marker date="1417695375000" expanded="true" signature="21223:21358" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="21281:21312" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="21401:21443" placeholder="/**Enumeration ContactPersonalInfoTitle ...*/" />
+            <marker date="1417695375000" expanded="true" signature="21529:21574" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="21663:21676" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="22235:22247" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="22340:23020" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="22372:22413" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="22530:22603" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="23071:23130" placeholder="/**Enumeration IServiceProtocolVersion ...*/" />
+            <marker date="1417695375000" expanded="true" signature="23222:23755" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="23255:23294" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="23381:23410" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="23913:25996" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="24054:25810" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="26124:26326" placeholder="/**Enumeration IServiceType ...*/" />
+            <marker date="1417695375000" expanded="true" signature="26407:26451" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="26536:26544" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="26777:26815" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="28286:28843" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="28332:28378" placeholder="{...}" />
+            <marker date="1417695375000" expanded="true" signature="28437:28482" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -771,8 +685,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="230" max-vertical-offset="1035">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <marker date="1417693105000" expanded="true" signature="1733:1877" placeholder="/**Structure representing the data elements of a contact. ...*/" />
-            <marker date="1417693105000" expanded="true" signature="2178:2201" placeholder="{...}" />
+            <marker date="1417695349000" expanded="true" signature="1733:1877" placeholder="/**Structure representing the data elements of a contact. ...*/" />
+            <marker date="1417695349000" expanded="true" signature="2178:2201" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -782,7 +696,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1290">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <marker date="1417691839000" expanded="true" signature="1130:1275" placeholder="/**Structure representing the binary attachment data. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1130:1275" placeholder="/**Structure representing the binary attachment data. ...*/" />
           </folding>
         </state>
       </provider>
@@ -792,8 +706,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="885">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <marker date="1417693178000" expanded="true" signature="1154:1831" placeholder="{...}" />
-            <marker date="1417693178000" expanded="true" signature="1145:1300" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+            <marker date="1417694885000" expanded="true" signature="1154:1831" placeholder="{...}" />
+            <marker date="1417694885000" expanded="true" signature="1145:1300" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
           </folding>
         </state>
       </provider>
@@ -803,7 +717,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="215" max-vertical-offset="1200">
           <caret line="29" column="0" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="73" />
           <folding>
-            <marker date="1417691839000" expanded="true" signature="1130:1290" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
+            <marker date="1417695320000" expanded="true" signature="1130:1290" placeholder="/**Structure representing the data of a single acceleration reading. ...*/" />
           </folding>
         </state>
       </provider>
@@ -826,8 +740,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Contact.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75328946" vertical-offset="588" max-vertical-offset="1500">
-          <caret line="85" column="41" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.8190789" vertical-offset="543" max-vertical-offset="1515">
+          <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
           <folding />
         </state>
       </provider>

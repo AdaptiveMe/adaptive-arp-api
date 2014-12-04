@@ -53,6 +53,7 @@ public class ContactUid : NSObject {
           self.init()
           self.contactId = contactId
      }
+
      /**
         Returns the contact id
 

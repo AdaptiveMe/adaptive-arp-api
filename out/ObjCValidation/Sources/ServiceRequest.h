@@ -102,6 +102,7 @@ Represents a local or remote service request.
      */
      - (id) initWithContentContentTypeContentLengthRawContentHeadersMethodProtocolVersionSessionContentEncoding:(NSString*)content contentType:(NSString*)contentType contentLength:(int*)contentLength rawContent:(NSArray*)rawContent headers:(NSArray*)headers method:(NSString*)method protocolVersion:(IServiceProtocolVersion*)protocolVersion session:(ISession*)session contentEncoding:(NSString*)contentEncoding;
 
+
 @end
 
 /**

@@ -68,6 +68,7 @@ Structure representing the phone data elements of a contact.
      */
      - (id) initWithPhonePhoneType:(NSString*)phone phoneType:(ContactPhoneType*)phoneType;
 
+
 @end
 
 /**

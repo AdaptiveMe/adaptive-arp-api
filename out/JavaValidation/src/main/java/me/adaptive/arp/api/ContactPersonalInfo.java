@@ -73,6 +73,7 @@ public class ContactPersonalInfo {
           this.lastName = lastName;
           this.title = title;
      }
+
      /**
         Returns the title of the Contact
 

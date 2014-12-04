@@ -88,6 +88,160 @@ namespace Adaptive.Arp.Api
                this.Data = Data;
           }
 
+          /**
+             Gets Cookie creation timestamp in milliseconds.
+
+             @return creation Cookie creation timestamp in milliseconds.
+          */
+          public long GetCreation() {
+               return this.Creation;
+          }
+
+          /**
+             Sets Cookie creation timestamp in milliseconds.
+
+             @param creation Cookie creation timestamp in milliseconds.
+          */
+          public void SetCreation(long Creation) {
+               this.Creation = Creation;
+          }
+
+          /**
+             Returns the cookie value
+
+             @return 
+             @since ARP1.0
+          */
+          public string GetData() {
+               return this.Data;
+          }
+
+          /**
+             Set the cookie value
+
+             @param data
+             @since ARP1.0
+          */
+          public void SetData(string Data) {
+               this.Data = Data;
+          }
+
+          /**
+             Returns the domain
+
+             @return domain
+             @since ARP1.0
+          */
+          public string GetDomain() {
+               return this.Domain;
+          }
+
+          /**
+             Set the domain
+
+             @param domain
+          */
+          public void SetDomain(string Domain) {
+               this.Domain = Domain;
+          }
+
+          /**
+             Returns the expiration date in milis
+
+             @return expiry
+             @since ARP1.0
+          */
+          public long GetExpiry() {
+               return this.Expiry;
+          }
+
+          /**
+             Set the expiration date in milis
+
+             @param expiry
+          */
+          public void SetExpiry(long Expiry) {
+               this.Expiry = Expiry;
+          }
+
+          /**
+             Returns the cookie name
+
+             @return name
+             @since ARP1.0
+          */
+          public string GetName() {
+               return this.Name;
+          }
+
+          /**
+             Set the cookie name
+
+             @param name
+             @since ARP1.0
+          */
+          public void SetName(string Name) {
+               this.Name = Name;
+          }
+
+          /**
+             Returns the path
+
+             @return path
+             @since ARP1.0
+          */
+          public string GetPath() {
+               return this.Path;
+          }
+
+          /**
+             Set the path
+
+             @param path
+          */
+          public void SetPath(string Path) {
+               this.Path = Path;
+          }
+
+          /**
+             Returns the scheme
+
+             @return scheme
+             @since ARP1.0
+          */
+          public string GetScheme() {
+               return this.Scheme;
+          }
+
+          /**
+             Set the scheme
+
+             @param scheme
+          */
+          public void SetScheme(string Scheme) {
+               this.Scheme = Scheme;
+          }
+
+          /**
+             Returns whether the cookie is secure or not
+
+             @return true if the cookie is secure; false otherwise
+             @since ARP1.0
+          */
+          public bool GetSecure() {
+               return this.Secure;
+          }
+
+          /**
+             Set whether the cookie is secure or not
+
+             @param secure
+          */
+          public void SetSecure(bool Secure) {
+               this.Secure = Secure;
+          }
+
+
      }
 }
 

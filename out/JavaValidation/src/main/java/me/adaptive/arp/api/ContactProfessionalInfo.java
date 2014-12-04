@@ -67,6 +67,7 @@ public class ContactProfessionalInfo {
           this.jobDescription = jobDescription;
           this.company = company;
      }
+
      /**
         Returns the company of the job
 

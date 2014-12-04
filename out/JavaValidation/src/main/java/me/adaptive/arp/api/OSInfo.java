@@ -66,6 +66,7 @@ public class OSInfo {
           this.version = version;
           this.vendor = vendor;
      }
+
      /**
         Returns the name of the operating system.
 

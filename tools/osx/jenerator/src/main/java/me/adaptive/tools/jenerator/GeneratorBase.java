@@ -438,6 +438,7 @@ public abstract class GeneratorBase {
                 /**
                  * Process getter/setter
                  */
+                println();
                 for (Field field : enumFields) {
                     declareGetterSetter(clazz, field, mapClassSource.get(clazz).getFieldByName(field.getName()), mapClassSource.get(clazz).getMethods());
                 }

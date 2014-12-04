@@ -64,6 +64,47 @@ namespace Adaptive.Arp.Api
                this.Data = Data;
           }
 
+          /**
+             Returns the header value
+
+             @return 
+             @since ARP1.0
+          */
+          public string GetData() {
+               return this.Data;
+          }
+
+          /**
+             Set the header value
+
+             @param data
+             @since ARP1.0
+          */
+          public void SetData(string Data) {
+               this.Data = Data;
+          }
+
+          /**
+             Returns the header name
+
+             @return name
+             @since ARP1.0
+          */
+          public string GetName() {
+               return this.Name;
+          }
+
+          /**
+             Set the header name
+
+             @param name
+             @since ARP1.0
+          */
+          public void SetName(string Name) {
+               this.Name = Name;
+          }
+
+
      }
 }
 

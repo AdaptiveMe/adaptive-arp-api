@@ -72,6 +72,7 @@ public class Database : NSObject {
           self.name = name
           self.compress = compress
      }
+
      /**
         Returns if the table is compressed
 

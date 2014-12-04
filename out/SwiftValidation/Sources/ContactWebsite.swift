@@ -53,6 +53,7 @@ public class ContactWebsite : NSObject {
           self.init()
           self.url = url
      }
+
      /**
         Returns the url of the website
 

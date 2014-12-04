@@ -59,6 +59,7 @@ public class ContactAddress : NSObject {
           self.address = address
           self.type = type
      }
+
      /**
         Returns the type of the address
 

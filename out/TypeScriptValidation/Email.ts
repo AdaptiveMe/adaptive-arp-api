@@ -87,6 +87,7 @@ module Adaptive {
                this.subject = subject
           }
 
+
      }
 }
 

@@ -55,6 +55,7 @@ public class SecureKeyPair {
           this.secureKey = secureKey;
           this.secureData = secureData;
      }
+
      /**
         Returns the object value
 

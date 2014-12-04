@@ -79,6 +79,7 @@ public class Geolocation {
           this.xDoP = xDoP;
           this.yDoP = yDoP;
      }
+
      /**
         Returns altitude in meters
 

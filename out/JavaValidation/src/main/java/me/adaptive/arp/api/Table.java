@@ -70,6 +70,7 @@ public class Table {
           this();
           this.name = name;
      }
+
      /**
         Get the number of columns
 

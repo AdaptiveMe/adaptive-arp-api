@@ -58,6 +58,27 @@ namespace Adaptive.Arp.Api
                this.State = State;
           }
 
+          /**
+             Returns the state of the application
+
+             @return state of the app
+             @since ARP1.0
+          */
+          public LifecycleState GetState() {
+               return this.State;
+          }
+
+          /**
+             Set the State of the application
+
+             @param state of the app
+             @since ARP1.0
+          */
+          public void SetState(LifecycleState State) {
+               this.State = State;
+          }
+
+
      }
 }
 

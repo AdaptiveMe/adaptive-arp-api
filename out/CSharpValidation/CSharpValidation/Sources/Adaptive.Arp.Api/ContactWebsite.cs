@@ -58,6 +58,27 @@ namespace Adaptive.Arp.Api
                this.Url = Url;
           }
 
+          /**
+             Returns the url of the website
+
+             @return website url
+             @since ARP1.0
+          */
+          public string GetUrl() {
+               return this.Url;
+          }
+
+          /**
+             Set the url of the website
+
+             @param url
+             @since ARP1.0
+          */
+          public void SetUrl(string Url) {
+               this.Url = Url;
+          }
+
+
      }
 }
 

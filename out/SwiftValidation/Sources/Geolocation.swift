@@ -77,6 +77,7 @@ public class Geolocation : NSObject {
           self.xDoP = xDoP
           self.yDoP = yDoP
      }
+
      /**
         Returns altitude in meters
 
