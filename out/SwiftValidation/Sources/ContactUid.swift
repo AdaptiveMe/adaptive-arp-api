@@ -49,8 +49,7 @@ public class ContactUid : NSObject {
         @param contactId Internal unique contact id.
         @since ARP1.0
      */
-     public convenience init(contactId: String) {
-          self.init()
+     public init(contactId: String) {
           self.contactId = contactId
      }
 
