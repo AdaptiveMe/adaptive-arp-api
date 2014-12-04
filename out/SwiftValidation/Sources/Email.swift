@@ -104,6 +104,145 @@ public class Email : NSObject {
           self.subject = subject
           self.messageBody = messageBody
      }
+     /**
+        Returns an array of attachments
+
+        @return attachmentData array with the email attachments
+        @since ARP1.0
+     */
+     public func getAttachmentData() -> [AttachmentData]? {
+          return self.attachmentData
+     }
+
+     /**
+        Set the email attachment data array
+
+        @param attachmentData array of email attatchments
+        @since ARP1.0
+     */
+     public func setAttachmentData(attachmentData: [AttachmentData]) {
+          self.attachmentData = attachmentData
+     }
+
+     /**
+        Returns the array of recipients
+
+        @return bccRecipients array of bcc recipients
+        @since ARP1.0
+     */
+     public func getBccRecipients() -> [EmailAddress]? {
+          return self.bccRecipients
+     }
+
+     /**
+        Set the array of recipients
+
+        @param bccRecipients array of bcc recipients
+        @since ARP1.0
+     */
+     public func setBccRecipients(bccRecipients: [EmailAddress]) {
+          self.bccRecipients = bccRecipients
+     }
+
+     /**
+        Returns the array of recipients
+
+        @return ccRecipients array of cc recipients
+        @since ARP1.0
+     */
+     public func getCcRecipients() -> [EmailAddress]? {
+          return self.ccRecipients
+     }
+
+     /**
+        Set the array of recipients
+
+        @param ccRecipients array of cc recipients
+        @since ARP1.0
+     */
+     public func setCcRecipients(ccRecipients: [EmailAddress]) {
+          self.ccRecipients = ccRecipients
+     }
+
+     /**
+        Returns the message body of the email
+
+        @return message Body string of the email
+     */
+     public func getMessageBody() -> String? {
+          return self.messageBody
+     }
+
+     /**
+        Set the message body of the email
+
+        @param messageBody message body of the email
+        @since ARP1.0
+     */
+     public func setMessageBody(messageBody: String) {
+          self.messageBody = messageBody
+     }
+
+     /**
+        Returns the myme type of the message body
+
+        @return mime type string of the message boddy
+        @since ARP1.0
+     */
+     public func getMessageBodyMimeType() -> String? {
+          return self.messageBodyMimeType
+     }
+
+     /**
+        Set the mime type for the message body
+
+        @param messageBodyMimeType type of the body message
+        @since ARP1.0
+     */
+     public func setMessageBodyMimeType(messageBodyMimeType: String) {
+          self.messageBodyMimeType = messageBodyMimeType
+     }
+
+     /**
+        Returns the subject of the email
+
+        @return subject string of the email
+        @since ARP1.0
+     */
+     public func getSubject() -> String? {
+          return self.subject
+     }
+
+     /**
+        Set the subject of the email
+
+        @param subject of the email
+        @since ARP1.0
+     */
+     public func setSubject(subject: String) {
+          self.subject = subject
+     }
+
+     /**
+        Returns the array of recipients
+
+        @return toRecipients array of recipients
+        @since ARP1.0
+     */
+     public func getToRecipients() -> [EmailAddress]? {
+          return self.toRecipients
+     }
+
+     /**
+        Set the array of recipients
+
+        @param toRecipients array of recipients
+        @since ARP1.0
+     */
+     public func setToRecipients(toRecipients: [EmailAddress]) {
+          self.toRecipients = toRecipients
+     }
+
 
 }
 

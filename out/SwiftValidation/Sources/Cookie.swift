@@ -83,6 +83,159 @@ public class Cookie : NSObject {
           self.name = name
           self.data = data
      }
+     /**
+        Gets Cookie creation timestamp in milliseconds.
+
+        @return creation Cookie creation timestamp in milliseconds.
+     */
+     public func getCreation() -> Int64? {
+          return self.creation
+     }
+
+     /**
+        Sets Cookie creation timestamp in milliseconds.
+
+        @param creation Cookie creation timestamp in milliseconds.
+     */
+     public func setCreation(creation: Int64) {
+          self.creation = creation
+     }
+
+     /**
+        Returns the cookie value
+
+        @return 
+        @since ARP1.0
+     */
+     public func getData() -> String? {
+          return self.data
+     }
+
+     /**
+        Set the cookie value
+
+        @param data
+        @since ARP1.0
+     */
+     public func setData(data: String) {
+          self.data = data
+     }
+
+     /**
+        Returns the domain
+
+        @return domain
+        @since ARP1.0
+     */
+     public func getDomain() -> String? {
+          return self.domain
+     }
+
+     /**
+        Set the domain
+
+        @param domain
+     */
+     public func setDomain(domain: String) {
+          self.domain = domain
+     }
+
+     /**
+        Returns the expiration date in milis
+
+        @return expiry
+        @since ARP1.0
+     */
+     public func getExpiry() -> Int64? {
+          return self.expiry
+     }
+
+     /**
+        Set the expiration date in milis
+
+        @param expiry
+     */
+     public func setExpiry(expiry: Int64) {
+          self.expiry = expiry
+     }
+
+     /**
+        Returns the cookie name
+
+        @return name
+        @since ARP1.0
+     */
+     public func getName() -> String? {
+          return self.name
+     }
+
+     /**
+        Set the cookie name
+
+        @param name
+        @since ARP1.0
+     */
+     public func setName(name: String) {
+          self.name = name
+     }
+
+     /**
+        Returns the path
+
+        @return path
+        @since ARP1.0
+     */
+     public func getPath() -> String? {
+          return self.path
+     }
+
+     /**
+        Set the path
+
+        @param path
+     */
+     public func setPath(path: String) {
+          self.path = path
+     }
+
+     /**
+        Returns the scheme
+
+        @return scheme
+        @since ARP1.0
+     */
+     public func getScheme() -> String? {
+          return self.scheme
+     }
+
+     /**
+        Set the scheme
+
+        @param scheme
+     */
+     public func setScheme(scheme: String) {
+          self.scheme = scheme
+     }
+
+     /**
+        Returns whether the cookie is secure or not
+
+        @return true if the cookie is secure; false otherwise
+        @since ARP1.0
+     */
+     public func getSecure() -> Bool? {
+          return self.secure
+     }
+
+     /**
+        Set whether the cookie is secure or not
+
+        @param secure
+     */
+     public func setSecure(secure: Bool) {
+          self.secure = secure
+     }
+
 
 }
 

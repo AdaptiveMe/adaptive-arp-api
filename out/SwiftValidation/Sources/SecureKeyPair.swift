@@ -53,6 +53,46 @@ public class SecureKeyPair : NSObject {
           self.secureKey = secureKey
           self.secureData = secureData
      }
+     /**
+        Returns the object value
+
+        @return Value.
+        @since ARP 1.0
+     */
+     public func getSecureData() -> String? {
+          return self.secureData
+     }
+
+     /**
+        Sets the value for this object
+
+        @param secureData value to set.
+        @since ARP 1.0
+     */
+     public func setSecureData(secureData: String) {
+          self.secureData = secureData
+     }
+
+     /**
+        Returns the object secureKey name.
+
+        @return Key name.
+        @since ARP 1.0
+     */
+     public func getSecureKey() -> String? {
+          return self.secureKey
+     }
+
+     /**
+        Sets the secureKey name for this object.
+
+        @param secureKey Key name.
+        @since ARP 1.0
+     */
+     public func setSecureKey(secureKey: String) {
+          self.secureKey = secureKey
+     }
+
 
 }
 

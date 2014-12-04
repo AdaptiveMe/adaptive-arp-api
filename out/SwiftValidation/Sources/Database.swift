@@ -72,6 +72,50 @@ public class Database : NSObject {
           self.name = name
           self.compress = compress
      }
+     /**
+        Returns if the table is compressed
+
+        @return Compression enabled
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     public func getCompress() -> Bool? {
+          return self.compress
+     }
+
+     /**
+        Sets if the table is compressed or not.
+
+        @param compress Compression enabled
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     public func setCompress(compress: Bool) {
+          self.compress = compress
+     }
+
+     /**
+        Returns the name.
+
+        @return The name of the table.
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     public func getName() -> String? {
+          return self.name
+     }
+
+     /**
+        Sets the name of the table.
+
+        @param name The name of the table.
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     public func setName(name: String) {
+          self.name = name
+     }
+
 
 }
 

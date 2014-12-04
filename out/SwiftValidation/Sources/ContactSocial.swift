@@ -59,6 +59,46 @@ public class ContactSocial : NSObject {
           self.socialNetwork = socialNetwork
           self.profileUrl = profileUrl
      }
+     /**
+        Returns the social network
+
+        @return socialNetwork
+        @since ARP1.0
+     */
+     public func getSocialNetwork() -> ContactSocialNetwork? {
+          return self.socialNetwork
+     }
+
+     /**
+        Set the social network
+
+        @param socialNetwork
+        @since ARP1.0
+     */
+     public func setSocialNetwork(socialNetwork: ContactSocialNetwork) {
+          self.socialNetwork = socialNetwork
+     }
+
+     /**
+        Returns the profile url of the user
+
+        @return profileUrl
+        @since ARP1.0
+     */
+     public func getProfileUrl() -> String? {
+          return self.profileUrl
+     }
+
+     /**
+        Set the profile url of the iser
+
+        @param profileUrl
+        @since ARP1.0
+     */
+     public func setProfileUrl(profileUrl: String) {
+          self.profileUrl = profileUrl
+     }
+
 
 }
 

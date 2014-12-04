@@ -68,6 +68,96 @@ public class Table : NSObject {
           self.init()
           self.name = name
      }
+     /**
+        Get the number of columns
+
+        @return The number of columns
+     */
+     public func getColumnCount() -> Int? {
+          return self.columnCount
+     }
+
+     /**
+        Sets the number of columns
+
+        @param columnCount The number of columns
+     */
+     public func setColumnCount(columnCount: Int) {
+          self.columnCount = columnCount
+     }
+
+     /**
+        Get the columns
+
+        @return The columns
+     */
+     public func getColumns() -> [Column]? {
+          return self.columns
+     }
+
+     /**
+        Sets the columns of the table
+
+        @param columns The columns of the table
+     */
+     public func setColumns(columns: [Column]) {
+          self.columns = columns
+     }
+
+     /**
+        Returns the name of the table
+
+        @return The name of the table
+     */
+     public func getName() -> String? {
+          return self.name
+     }
+
+     /**
+        Sets the name of the table
+
+        @param name The name of the table
+     */
+     public func setName(name: String) {
+          self.name = name
+     }
+
+     /**
+        Get the number of rows
+
+        @return The number of rows
+     */
+     public func getRowCount() -> Int? {
+          return self.rowCount
+     }
+
+     /**
+        Sets the number of rows
+
+        @param rowCount The number of rows
+     */
+     public func setRowCount(rowCount: Int) {
+          self.rowCount = rowCount
+     }
+
+     /**
+        Get the rows of the table
+
+        @return The rows of the table
+     */
+     public func getRows() -> [Row]? {
+          return self.rows
+     }
+
+     /**
+        Sets the rows of the table
+
+        @param rows The rows of the table
+     */
+     public func setRows(rows: [Row]) {
+          self.rows = rows
+     }
+
 
 }
 

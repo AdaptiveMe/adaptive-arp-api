@@ -65,6 +65,66 @@ public class ContactProfessionalInfo : NSObject {
           self.jobDescription = jobDescription
           self.company = company
      }
+     /**
+        Returns the company of the job
+
+        @return company
+        @since ARP1.0
+     */
+     public func getCompany() -> String? {
+          return self.company
+     }
+
+     /**
+        Set the company of the job
+
+        @param company
+        @since ARP1.0
+     */
+     public func setCompany(company: String) {
+          self.company = company
+     }
+
+     /**
+        Returns the description of the job
+
+        @return description
+        @since ARP1.0
+     */
+     public func getJobDescription() -> String? {
+          return self.jobDescription
+     }
+
+     /**
+        Set the description of the job
+
+        @param jobDescription
+        @since ARP1.0
+     */
+     public func setJobDescription(jobDescription: String) {
+          self.jobDescription = jobDescription
+     }
+
+     /**
+        Returns the title of the job
+
+        @return title
+        @since ARP1.0
+     */
+     public func getJobTitle() -> String? {
+          return self.jobTitle
+     }
+
+     /**
+        Set the title of the job
+
+        @param jobTitle
+        @since ARP1.0
+     */
+     public func setJobTitle(jobTitle: String) {
+          self.jobTitle = jobTitle
+     }
+
 
 }
 

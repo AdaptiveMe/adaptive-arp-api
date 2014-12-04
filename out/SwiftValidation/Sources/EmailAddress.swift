@@ -53,6 +53,26 @@ public class EmailAddress : NSObject {
           self.init()
           self.address = address
      }
+     /**
+        Returns the email address
+
+        @return address of the Email
+        @since ARP1.0
+     */
+     public func getAddress() -> String? {
+          return self.address
+     }
+
+     /**
+        Set the Email address
+
+        @param address of the Email
+        @since ARP1.0
+     */
+     public func setAddress(address: String) {
+          self.address = address
+     }
+
 
 }
 

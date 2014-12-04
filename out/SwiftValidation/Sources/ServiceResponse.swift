@@ -95,6 +95,166 @@ public class ServiceResponse : NSObject {
           self.session = session
           self.contentEncoding = contentEncoding
      }
+     /**
+        Returns the content
+
+        @return content
+        @since ARP1.0
+     */
+     public func getContent() -> String? {
+          return self.content
+     }
+
+     /**
+        Set the content
+
+        @param content
+        @since ARP1.0
+     */
+     public func setContent(content: String) {
+          self.content = content
+     }
+
+     /**
+        Returns the binary content
+
+        @return contentBinary
+        @since ARP1.0
+     */
+     public func getContentBinary() -> [Byte]? {
+          return self.contentBinary
+     }
+
+     /**
+        Set the binary content
+
+        @param contentBinary
+        @since ARP1.0
+     */
+     public func setContentBinary(contentBinary: [Byte]) {
+          self.contentBinary = contentBinary
+     }
+
+     /**
+        Retrusn the binary content length
+
+        @return contentBinaryLength
+        @since ARP1.0
+     */
+     public func getContentBinaryLength() -> Int? {
+          return self.contentBinaryLength
+     }
+
+     /**
+        Set the binary content length
+
+        @param contentBinaryLength
+        @since ARP1.0
+     */
+     public func setContentBinaryLength(contentBinaryLength: Int) {
+          self.contentBinaryLength = contentBinaryLength
+     }
+
+     /**
+        Returns the content encoding
+
+        @return contentEncoding
+        @since ARP1.0
+     */
+     public func getContentEncoding() -> String? {
+          return self.contentEncoding
+     }
+
+     /**
+        Set the content encoding
+
+        @param contentEncoding
+        @since ARP1.0
+     */
+     public func setContentEncoding(contentEncoding: String) {
+          self.contentEncoding = contentEncoding
+     }
+
+     /**
+        Returns the content length
+
+        @return contentLength
+        @since ARP1.0
+     */
+     public func getContentLength() -> String? {
+          return self.contentLength
+     }
+
+     /**
+        Set the content length
+
+        @param contentLength
+        @since ARP1.0
+     */
+     public func setContentLength(contentLength: String) {
+          self.contentLength = contentLength
+     }
+
+     /**
+        Returns the content type
+
+        @return contentType
+        @since ARP1.0
+     */
+     public func getContentType() -> String? {
+          return self.contentType
+     }
+
+     /**
+        Set the content type
+
+        @param contentType
+        @since ARP1.0
+     */
+     public func setContentType(contentType: String) {
+          self.contentType = contentType
+     }
+
+     /**
+        Returns the array of Header
+
+        @return headers
+        @since ARP1.0
+     */
+     public func getHeaders() -> [Header]? {
+          return self.headers
+     }
+
+     /**
+        Set the array of Header
+
+        @param headers
+        @since ARP1.0
+     */
+     public func setHeaders(headers: [Header]) {
+          self.headers = headers
+     }
+
+     /**
+        Returns the method
+
+        @return method
+        @since ARP1.0
+     */
+     public func getSession() -> ISession? {
+          return self.session
+     }
+
+     /**
+        Set the method
+
+        @param session
+        @since ARP1.0
+     */
+     public func setSession(session: ISession) {
+          self.session = session
+     }
+
 
 }
 

@@ -71,6 +71,86 @@ public class Service : NSObject {
           self.method = method
           self.type = type
      }
+     /**
+        Returns the method
+
+        @return method
+        @since ARP1.0
+     */
+     public func getMethod() -> IServiceMethod? {
+          return self.method
+     }
+
+     /**
+        Set the method
+
+        @param method
+        @since ARP1.0
+     */
+     public func setMethod(method: IServiceMethod) {
+          self.method = method
+     }
+
+     /**
+        Returns the type
+
+        @return type
+        @since ARP1.0
+     */
+     public func getType() -> IServiceType? {
+          return self.type
+     }
+
+     /**
+        Set the type
+
+        @param type
+        @since ARP1.0
+     */
+     public func setType(type: IServiceType) {
+          self.type = type
+     }
+
+     /**
+        Returns the endpoint
+
+        @return endpoint
+        @since ARP1.0
+     */
+     public func getEndpoint() -> Endpoint? {
+          return self.endpoint
+     }
+
+     /**
+        Set the endpoint
+
+        @param endpoint
+        @since ARP1.0
+     */
+     public func setEndpoint(endpoint: Endpoint) {
+          self.endpoint = endpoint
+     }
+
+     /**
+        Returns the name
+
+        @return name
+        @since ARP1.0
+     */
+     public func getName() -> String? {
+          return self.name
+     }
+
+     /**
+        Set the name
+
+        @param name
+        @since ARP1.0
+     */
+     public func setName(name: String) {
+          self.name = name
+     }
+
 
 }
 

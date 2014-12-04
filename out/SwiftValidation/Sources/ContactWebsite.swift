@@ -53,6 +53,26 @@ public class ContactWebsite : NSObject {
           self.init()
           self.url = url
      }
+     /**
+        Returns the url of the website
+
+        @return website url
+        @since ARP1.0
+     */
+     public func getUrl() -> String? {
+          return self.url
+     }
+
+     /**
+        Set the url of the website
+
+        @param url
+        @since ARP1.0
+     */
+     public func setUrl(url: String) {
+          self.url = url
+     }
+
 
 }
 

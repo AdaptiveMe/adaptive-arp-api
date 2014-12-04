@@ -71,6 +71,86 @@ public class ContactPersonalInfo : NSObject {
           self.lastName = lastName
           self.title = title
      }
+     /**
+        Returns the title of the Contact
+
+        @return Title
+        @since ARP1.0
+     */
+     public func getTitle() -> ContactPersonalInfoTitle? {
+          return self.title
+     }
+
+     /**
+        Set the Title of the Contact
+
+        @param title
+        @since ARP1.0
+     */
+     public func setTitle(title: ContactPersonalInfoTitle) {
+          self.title = title
+     }
+
+     /**
+        Returns the last name of the Contact
+
+        @return lastName
+        @since ARP1.0
+     */
+     public func getLastName() -> String? {
+          return self.lastName
+     }
+
+     /**
+        Set the last name of the Contact
+
+        @param lastName
+        @since ARP1.0
+     */
+     public func setLastName(lastName: String) {
+          self.lastName = lastName
+     }
+
+     /**
+        Returns the middle name of the Contact
+
+        @return middelName
+        @since ARP1.0
+     */
+     public func getMiddleName() -> String? {
+          return self.middleName
+     }
+
+     /**
+        Set the middle name of the Contact
+
+        @param middleName
+        @since ARP1.0
+     */
+     public func setMiddleName(middleName: String) {
+          self.middleName = middleName
+     }
+
+     /**
+        Returns the name of the Contact
+
+        @return name
+        @since ARP1.0
+     */
+     public func getName() -> String? {
+          return self.name
+     }
+
+     /**
+        Set the name of the Contact
+
+        @param name
+        @since ARP1.0
+     */
+     public func setName(name: String) {
+          self.name = name
+     }
+
 
 }
 

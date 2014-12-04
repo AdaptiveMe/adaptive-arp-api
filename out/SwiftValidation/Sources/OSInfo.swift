@@ -64,6 +64,60 @@ public class OSInfo : NSObject {
           self.version = version
           self.vendor = vendor
      }
+     /**
+        Returns the name of the operating system.
+
+        @return OS name.
+     */
+     public func getName() -> String? {
+          return self.name
+     }
+
+     /**
+        Sets The name of the operating system.
+
+        @param name The name of the operating system.
+     */
+     public func setName(name: String) {
+          self.name = name
+     }
+
+     /**
+        Returns the vendor of the operating system.
+
+        @return OS vendor.
+     */
+     public func getVendor() -> String? {
+          return self.vendor
+     }
+
+     /**
+        Sets The vendor of the operating system.
+
+        @param vendor The vendor of the operating system.
+     */
+     public func setVendor(vendor: String) {
+          self.vendor = vendor
+     }
+
+     /**
+        Returns the version of the operating system.
+
+        @return OS version.
+     */
+     public func getVersion() -> String? {
+          return self.version
+     }
+
+     /**
+        Sets The version/identifier of the operating system.
+
+        @param version The version/identifier of the operating system.
+     */
+     public func setVersion(version: String) {
+          self.version = version
+     }
+
 
 }
 

@@ -62,7 +62,68 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void declareGetterSetter(Class clazz, Field field, JavaField fieldByName, List<JavaMethod> methods) {
+        JavaMethod getter = null;
+        JavaMethod setter = null;
+        String fieldName = field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1);
 
+        for (JavaMethod method : methods) {
+            if (method.getName().equals("set" + fieldName)) {
+                setter = method;
+            } else if (method.getName().equals("get" + fieldName)) {
+                getter = method;
+            } else if (method.getName().equals("is" + fieldName)) {
+                getter = method;
+            }
+        }
+        /**
+         * Getters
+         */
+        startComment(5);
+        if (getter != null && getter.getComment() != null && getter.getComment().trim().length() > 0) {
+            println(8, getter.getComment());
+        } else {
+            println(8, "Gets " + fieldByName.getComment());
+        }
+        println();
+        if (getter != null && getter.getComment() != null && getter.getComment().trim().length() > 0) {
+            for (DocletTag tag : getter.getTags()) {
+                println(8, "@" + tag.getName() + " " + tag.getValue());
+            }
+        } else {
+            println(8, "@return " + field.getName() + " " + fieldByName.getComment());
+        }
+        endComment(5);
+        if (field.getType().equals(Boolean.class)) {
+            println(5, "public func is" + fieldName + "() -> "+convertJavaToNativeType(field.getType())+optionalOrMandatory(field.getType())+" {");
+        } else {
+            println(5, "public func get" + fieldName + "() -> "+convertJavaToNativeType(field.getType())+optionalOrMandatory(field.getType())+" {");
+        }
+
+        println(10, "return self." + field.getName());
+        println(5, "}");
+        println();
+        /**
+         * Setters
+         */
+        startComment(5);
+        if (setter != null && setter.getComment() != null && setter.getComment().trim().length() > 0) {
+            println(8, setter.getComment());
+        } else {
+            println(8, "Sets " + fieldByName.getComment());
+        }
+        println();
+        if (setter != null && setter.getComment() != null && setter.getComment().trim().length() > 0) {
+            for (DocletTag tag : setter.getTags()) {
+                println(8, "@" + tag.getName() + " " + tag.getValue());
+            }
+        } else {
+            println(8, "@param " + field.getName() + " " + fieldByName.getComment());
+        }
+        endComment(5);
+        println(5, "public func set" + fieldName + "("+field.getName()+": "+convertJavaToNativeType(field.getType())+") {");
+        println(10, "self." + field.getName() + " = "+field.getName()+"");
+        println(5, "}");
+        println();
     }
 
     @Override
@@ -97,7 +158,7 @@ public class SwiftGenerator extends GeneratorBase {
                 if (clazz.getSuperclass().equals(Object.class)) {
                     print(5, "public convenience init(");
                 } else {
-                    print(5, "public override convenience init(");
+                    print(5, "public override init(");
                 }
                 for (int j=0;j<c.getParameters().length;j++) {
                     Parameter parameter = c.getParameters()[j];

@@ -77,6 +77,106 @@ public class Endpoint : NSObject {
           self.proxy = proxy
           self.scheme = scheme
      }
+     /**
+        Returns the host
+
+        @return host
+        @since ARP1.0
+     */
+     public func getHost() -> String? {
+          return self.host
+     }
+
+     /**
+        Set the host
+
+        @param host
+        @since ARP1.0
+     */
+     public func setHost(host: String) {
+          self.host = host
+     }
+
+     /**
+        Returns the path
+
+        @return path
+        @since ARP1.0
+     */
+     public func getPath() -> String? {
+          return self.path
+     }
+
+     /**
+        Set the path
+
+        @param path
+        @since ARP1.0
+     */
+     public func setPath(path: String) {
+          self.path = path
+     }
+
+     /**
+        Returns the port
+
+        @return port
+        @since ARP1.0
+     */
+     public func getPort() -> Int? {
+          return self.port
+     }
+
+     /**
+        Set the port
+
+        @param port
+        @since ARP1.0
+     */
+     public func setPort(port: Int) {
+          self.port = port
+     }
+
+     /**
+        Return the proxy
+
+        @return proxy
+        @since ARP1.0
+     */
+     public func getProxy() -> String? {
+          return self.proxy
+     }
+
+     /**
+        Set the proxy
+
+        @param proxy
+        @since ARP1.0
+     */
+     public func setProxy(proxy: String) {
+          self.proxy = proxy
+     }
+
+     /**
+        Returns the scheme
+
+        @return scheme
+        @since ARP1.0
+     */
+     public func getScheme() -> String? {
+          return self.scheme
+     }
+
+     /**
+        Set the scheme
+
+        @param scheme
+        @since ARP1.0
+     */
+     public func setScheme(scheme: String) {
+          self.scheme = scheme
+     }
+
 
 }
 

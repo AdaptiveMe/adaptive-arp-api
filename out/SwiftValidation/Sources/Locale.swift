@@ -59,6 +59,46 @@ public class Locale : NSObject {
           self.language = language
           self.country = country
      }
+     /**
+        Returns the country code
+
+        @return country code
+        @since ARP1.0
+     */
+     public func getCountry() -> String? {
+          return self.country
+     }
+
+     /**
+        Set the country code
+
+        @param country code
+        @since ARP1.0
+     */
+     public func setCountry(country: String) {
+          self.country = country
+     }
+
+     /**
+        Returns the language code
+
+        @return language code
+        @since ARP1.0
+     */
+     public func getLanguage() -> String? {
+          return self.language
+     }
+
+     /**
+        Set the language code
+
+        @param language code
+        @since ARP1.0
+     */
+     public func setLanguage(language: String) {
+          self.language = language
+     }
+
 
 }
 

@@ -52,6 +52,24 @@ public class Column : NSObject {
           self.init()
           self.name = name
      }
+     /**
+        Returns the name of the column.
+
+        @return The name of the column.
+     */
+     public func getName() -> String? {
+          return self.name
+     }
+
+     /**
+        Sets the name of the column.
+
+        @param name The name of the column.
+     */
+     public func setName(name: String) {
+          self.name = name
+     }
+
 
 }
 

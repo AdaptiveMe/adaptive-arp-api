@@ -52,6 +52,24 @@ public class Row : NSObject {
           self.init()
           self.values = values
      }
+     /**
+        Returns the values of the row.
+
+        @return The values of the row.
+     */
+     public func getValues() -> [AnyObject]? {
+          return self.values
+     }
+
+     /**
+        Sets the values of the row.
+
+        @param values The values of the row.
+     */
+     public func setValues(values: [AnyObject]) {
+          self.values = values
+     }
+
 
 }
 

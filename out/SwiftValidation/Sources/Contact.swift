@@ -77,9 +77,169 @@ public class Contact : ContactUid {
         @param contactId of the Contact
         @since ARP1.0
      */
-     public override convenience init(contactId: String) {
+     public override init(contactId: String) {
           super.init(contactId: contactId)
      }
+     /**
+        Returns all the addresses of the Contact
+
+        @return ContactAddress[]
+        @since ARP1.0
+     */
+     public func getContactAddresses() -> [ContactAddress]? {
+          return self.contactAddresses
+     }
+
+     /**
+        Set the addresses of the Contact
+
+        @param contactAddresses
+        @since ARP1.0
+     */
+     public func setContactAddresses(contactAddresses: [ContactAddress]) {
+          self.contactAddresses = contactAddresses
+     }
+
+     /**
+        Returns all the emails of the Contact
+
+        @return ContactEmail[]
+        @since ARP1.0
+     */
+     public func getContactEmails() -> [ContactEmail]? {
+          return self.contactEmails
+     }
+
+     /**
+        Set the emails of the Contact
+
+        @param contactEmails
+        @since ARP1.0
+     */
+     public func setContactEmails(contactEmails: [ContactEmail]) {
+          self.contactEmails = contactEmails
+     }
+
+     /**
+        Returns all the phones of the Contact
+
+        @return ContactPhone[]
+        @since ARP1.0
+     */
+     public func getContactPhones() -> [ContactPhone]? {
+          return self.contactPhones
+     }
+
+     /**
+        Set the phones of the Contact
+
+        @param contactPhones
+        @since ARP1.0
+     */
+     public func setContactPhones(contactPhones: [ContactPhone]) {
+          self.contactPhones = contactPhones
+     }
+
+     /**
+        Returns all the social network info of the Contact
+
+        @return ContactSocial[]
+        @since ARP1.0
+     */
+     public func getContactSocials() -> [ContactSocial]? {
+          return self.contactSocials
+     }
+
+     /**
+        Set the social network info of the Contact
+
+        @param contactSocials
+        @since ARP1.0
+     */
+     public func setContactSocials(contactSocials: [ContactSocial]) {
+          self.contactSocials = contactSocials
+     }
+
+     /**
+        Returns the additional tags of the Contact
+
+        @return ContactTag[]
+        @since ARP1.0
+     */
+     public func getContactTags() -> [ContactTag]? {
+          return self.contactTags
+     }
+
+     /**
+        Set the additional tags of the Contact
+
+        @param contactTags
+        @since ARP1.0
+     */
+     public func setContactTags(contactTags: [ContactTag]) {
+          self.contactTags = contactTags
+     }
+
+     /**
+        Returns all the websites of the Contact
+
+        @return ContactWebsite[]
+        @since ARP1.0
+     */
+     public func getContactWebsites() -> [ContactWebsite]? {
+          return self.contactWebsites
+     }
+
+     /**
+        Set the websites of the Contact
+
+        @param contactWebsites
+        @since ARP1.0
+     */
+     public func setContactWebsites(contactWebsites: [ContactWebsite]) {
+          self.contactWebsites = contactWebsites
+     }
+
+     /**
+        Returns the personal info of the Contact
+
+        @return ContactPersonalInfo of the Contact
+        @since ARP1.0
+     */
+     public func getPersonalInfo() -> ContactPersonalInfo? {
+          return self.personalInfo
+     }
+
+     /**
+        Set the personal info of the Contact
+
+        @param personalInfo
+        @since ARP1.0
+     */
+     public func setPersonalInfo(personalInfo: ContactPersonalInfo) {
+          self.personalInfo = personalInfo
+     }
+
+     /**
+        Returns the professional info of the Contact
+
+        @return ContactProfessionalInfo[]
+        @since ARP1.0
+     */
+     public func getProfessionalInfo() -> ContactProfessionalInfo? {
+          return self.professionalInfo
+     }
+
+     /**
+        Set the professional info of the Contact
+
+        @param professionalInfo
+        @since ARP1.0
+     */
+     public func setProfessionalInfo(professionalInfo: ContactProfessionalInfo) {
+          self.professionalInfo = professionalInfo
+     }
+
 
 }
 

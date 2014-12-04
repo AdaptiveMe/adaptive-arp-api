@@ -71,6 +71,78 @@ public class Acceleration : NSObject {
           self.z = z
           self.timeStamp = timeStamp
      }
+     /**
+        Gets Timestamp of the acceleration reading.
+
+        @return timeStamp Timestamp of the acceleration reading.
+     */
+     public func getTimeStamp() -> Int64? {
+          return self.timeStamp
+     }
+
+     /**
+        Sets Timestamp of the acceleration reading.
+
+        @param timeStamp Timestamp of the acceleration reading.
+     */
+     public func setTimeStamp(timeStamp: Int64) {
+          self.timeStamp = timeStamp
+     }
+
+     /**
+        Gets X-axis component of the acceleration.
+
+        @return x X-axis component of the acceleration.
+     */
+     public func getX() -> Double? {
+          return self.x
+     }
+
+     /**
+        Sets X-axis component of the acceleration.
+
+        @param x X-axis component of the acceleration.
+     */
+     public func setX(x: Double) {
+          self.x = x
+     }
+
+     /**
+        Gets Y-axis component of the acceleration.
+
+        @return y Y-axis component of the acceleration.
+     */
+     public func getY() -> Double? {
+          return self.y
+     }
+
+     /**
+        Sets Y-axis component of the acceleration.
+
+        @param y Y-axis component of the acceleration.
+     */
+     public func setY(y: Double) {
+          self.y = y
+     }
+
+     /**
+        Gets Z-axis component of the acceleration.
+
+        @return z Z-axis component of the acceleration.
+     */
+     public func getZ() -> Double? {
+          return self.z
+     }
+
+     /**
+        Sets Z-axis component of the acceleration.
+
+        @param z Z-axis component of the acceleration.
+     */
+     public func setZ(z: Double) {
+          self.z = z
+     }
+
 
 }
 

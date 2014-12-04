@@ -77,6 +77,104 @@ public class Geolocation : NSObject {
           self.xDoP = xDoP
           self.yDoP = yDoP
      }
+     /**
+        Returns altitude in meters
+
+        @return altitude
+        @since ARP1.0
+     */
+     public func getAltitude() -> Double? {
+          return self.altitude
+     }
+
+     /**
+        Set altitude in meters
+
+        @param altitude
+        @since ARP1.0
+     */
+     public func setAltitude(altitude: Double) {
+          self.altitude = altitude
+     }
+
+     /**
+        Returns the latitude in degrees
+
+        @return latitude
+        @since ARP1.0
+     */
+     public func getLatitude() -> Double? {
+          return self.latitude
+     }
+
+     /**
+        Set the latitude in degrees
+
+        @param latitude
+        @since ARP1.0
+     */
+     public func setLatitude(latitude: Double) {
+          self.latitude = latitude
+     }
+
+     /**
+        Returns the longitude in degrees
+
+        @return longitude
+        @since ARP1.0
+     */
+     public func getLongitude() -> Double? {
+          return self.longitude
+     }
+
+     /**
+        Returns the latitude in degrees
+
+        @param longitude
+        @since ARP1.0
+     */
+     public func setLongitude(longitude: Double) {
+          self.longitude = longitude
+     }
+
+     /**
+        Returns the Dilution of Position in the X axis (longitude)
+
+        @return xDoP
+        @since ARP1.0
+     */
+     public func getXDoP() -> Float? {
+          return self.xDoP
+     }
+
+     /**
+        Sets Dilution of precision on the X measurement. Measured in meters.
+
+        @param xDoP Dilution of precision on the X measurement. Measured in meters.
+     */
+     public func setXDoP(xDoP: Float) {
+          self.xDoP = xDoP
+     }
+
+     /**
+        Returns the Dilution of Position in the Y axis (latitude)
+
+        @return yDoP
+        @since ARP1.0
+     */
+     public func getYDoP() -> Float? {
+          return self.yDoP
+     }
+
+     /**
+        Sets Dilution of precision on the Y measurement. Measured in meters.
+
+        @param yDoP Dilution of precision on the Y measurement. Measured in meters.
+     */
+     public func setYDoP(yDoP: Float) {
+          self.yDoP = yDoP
+     }
+
 
 }
 

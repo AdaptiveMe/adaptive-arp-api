@@ -59,6 +59,46 @@ public class Header : NSObject {
           self.name = name
           self.data = data
      }
+     /**
+        Returns the header value
+
+        @return 
+        @since ARP1.0
+     */
+     public func getData() -> String? {
+          return self.data
+     }
+
+     /**
+        Set the header value
+
+        @param data
+        @since ARP1.0
+     */
+     public func setData(data: String) {
+          self.data = data
+     }
+
+     /**
+        Returns the header name
+
+        @return name
+        @since ARP1.0
+     */
+     public func getName() -> String? {
+          return self.name
+     }
+
+     /**
+        Set the header name
+
+        @param name
+        @since ARP1.0
+     */
+     public func setName(name: String) {
+          self.name = name
+     }
+
 
 }
 

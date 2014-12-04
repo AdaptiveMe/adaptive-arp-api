@@ -77,6 +77,106 @@ public class AttachmentData : NSObject {
           self.mimeType = mimeType
           self.referenceUrl = referenceUrl
      }
+     /**
+        Returns the raw data in byte[]
+
+        @return data Octet-binary content of the attachment payload.
+        @since ARP1.0
+     */
+     public func getData() -> [Byte]? {
+          return self.data
+     }
+
+     /**
+        Set the data of the attachment as a byte[]
+
+        @param data Sets the octet-binary content of the attachment.
+        @since ARP1.0
+     */
+     public func setData(data: [Byte]) {
+          self.data = data
+     }
+
+     /**
+        Returns the size of the attachment as a long
+
+        @return dataSize Length in bytes of the octet-binary content.
+        @since ARP1.0
+     */
+     public func getDataSize() -> Int64? {
+          return self.dataSize
+     }
+
+     /**
+        Set the size of the attachment as a long
+
+        @param dataSize Length in bytes of the octet-binary content ( should be same as data array length.)
+        @since ARP1.0
+     */
+     public func setDataSize(dataSize: Int64) {
+          self.dataSize = dataSize
+     }
+
+     /**
+        Returns the filename of the attachment
+
+        @return fileName Name of the attachment.
+        @since ARP1.0
+     */
+     public func getFileName() -> String? {
+          return self.fileName
+     }
+
+     /**
+        Set the name of the file attachment
+
+        @param fileName Name of the attachment.
+        @since ARP1.0
+     */
+     public func setFileName(fileName: String) {
+          self.fileName = fileName
+     }
+
+     /**
+        Returns the mime type of the attachment
+
+        @return mimeType
+        @since ARP1.0
+     */
+     public func getMimeType() -> String? {
+          return self.mimeType
+     }
+
+     /**
+        Set the mime type of the attachment
+
+        @param mimeType Mime-type of the attachment.
+        @since ARP1.0
+     */
+     public func setMimeType(mimeType: String) {
+          self.mimeType = mimeType
+     }
+
+     /**
+        Returns the absolute url of the file attachment
+
+        @return referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+        @since ARP1.0
+     */
+     public func getReferenceUrl() -> String? {
+          return self.referenceUrl
+     }
+
+     /**
+        Set the absolute url of the attachment
+
+        @param referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+        @since ARP1.0
+     */
+     public func setReferenceUrl(referenceUrl: String) {
+          self.referenceUrl = referenceUrl
+     }
+
 
 }
 

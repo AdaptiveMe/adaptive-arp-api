@@ -53,6 +53,25 @@ public class Button : NSObject {
           self.init()
           self.type = type
      }
+     /**
+        Returns the button type
+
+        @return type Button type.
+        @since ARP1.0
+     */
+     public func getType() -> ICapabilitiesButton? {
+          return self.type
+     }
+
+     /**
+        Sets Button type
+
+        @param type Button type
+     */
+     public func setType(type: ICapabilitiesButton) {
+          self.type = type
+     }
+
 
 }
 

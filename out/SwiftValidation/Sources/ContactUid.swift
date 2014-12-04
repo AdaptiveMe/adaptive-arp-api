@@ -53,6 +53,26 @@ public class ContactUid : NSObject {
           self.init()
           self.contactId = contactId
      }
+     /**
+        Returns the contact id
+
+        @return Contactid Internal unique contact id.
+        @since ARP1.0
+     */
+     public func getContactId() -> String? {
+          return self.contactId
+     }
+
+     /**
+        Set the id of the Contact
+
+        @param contactId Internal unique contact id.
+        @since ARP1.0
+     */
+     public func setContactId(contactId: String) {
+          self.contactId = contactId
+     }
+
 
 }
 

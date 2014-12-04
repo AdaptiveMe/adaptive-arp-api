@@ -65,6 +65,66 @@ public class ContactEmail : NSObject {
           self.primary = primary
           self.email = email
      }
+     /**
+        Returns the type of the email
+
+        @return EmailType
+        @since ARP1.0
+     */
+     public func getType() -> ContactEmailType? {
+          return self.type
+     }
+
+     /**
+        Set the type of the email
+
+        @param type
+        @since ARP1.0
+     */
+     public func setType(type: ContactEmailType) {
+          self.type = type
+     }
+
+     /**
+        Returns the email of the Contact
+
+        @return email
+        @since ARP1.0
+     */
+     public func getEmail() -> String? {
+          return self.email
+     }
+
+     /**
+        Set the email of the Contact
+
+        @param email
+        @since ARP1.0
+     */
+     public func setEmail(email: String) {
+          self.email = email
+     }
+
+     /**
+        Returns if the email is primary
+
+        @return true if the email is primary; false otherwise
+        @since ARP1.0
+     */
+     public func getPrimary() -> Bool? {
+          return self.primary
+     }
+
+     /**
+        Set if the email
+
+        @param primary true if the email is primary; false otherwise
+        @since ARP1.0
+     */
+     public func setPrimary(primary: Bool) {
+          self.primary = primary
+     }
+
 
 }
 

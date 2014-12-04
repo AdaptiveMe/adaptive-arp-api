@@ -59,6 +59,46 @@ public class ContactTag : NSObject {
           self.name = name
           self.dataValue = dataValue
      }
+     /**
+        Returns the value of the Tag
+
+        @return value
+        @since ARP1.0
+     */
+     public func getDataValue() -> String? {
+          return self.dataValue
+     }
+
+     /**
+        Set the value of the Tag
+
+        @param dataValue
+        @since ARP1.0
+     */
+     public func setDataValue(dataValue: String) {
+          self.dataValue = dataValue
+     }
+
+     /**
+        Returns the name of the Tag
+
+        @return name
+        @since ARP1.0
+     */
+     public func getName() -> String? {
+          return self.name
+     }
+
+     /**
+        Set the name of the Tag
+
+        @param name
+        @since ARP1.0
+     */
+     public func setName(name: String) {
+          self.name = name
+     }
+
 
 }
 

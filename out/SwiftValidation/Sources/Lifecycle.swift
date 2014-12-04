@@ -53,6 +53,26 @@ public class Lifecycle : NSObject {
           self.init()
           self.state = state
      }
+     /**
+        Returns the state of the application
+
+        @return state of the app
+        @since ARP1.0
+     */
+     public func getState() -> LifecycleState? {
+          return self.state
+     }
+
+     /**
+        Set the State of the application
+
+        @param state of the app
+        @since ARP1.0
+     */
+     public func setState(state: LifecycleState) {
+          self.state = state
+     }
+
 
 }
 

@@ -59,6 +59,46 @@ public class ContactPhone : NSObject {
           self.phone = phone
           self.phoneType = phoneType
      }
+     /**
+        Returns the phone phoneType
+
+        @return phoneType
+        @since ARP1.0
+     */
+     public func getPhoneType() -> ContactPhoneType? {
+          return self.phoneType
+     }
+
+     /**
+        Set the phoneType of the phone number
+
+        @param phoneType
+        @since ARP1.0
+     */
+     public func setPhoneType(phoneType: ContactPhoneType) {
+          self.phoneType = phoneType
+     }
+
+     /**
+        Returns the phone number
+
+        @return phone number
+        @since ARP1.0
+     */
+     public func getPhone() -> String? {
+          return self.phone
+     }
+
+     /**
+        Set the phone number
+
+        @param phone number
+        @since ARP1.0
+     */
+     public func setPhone(phone: String) {
+          self.phone = phone
+     }
+
 
 }
 
