@@ -2,40 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3192cd59-0da7-4595-88fb-edff391f09a3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Acceleration.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Acceleration.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/TypeScriptValidation/Adaptive.ts" afterPath="$PROJECT_DIR$/../../../out/TypeScriptValidation/Adaptive.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/AttachmentData.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/AttachmentData.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Button.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Button.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Column.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Column.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Contact.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Contact.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactAddress.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactAddress.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactEmail.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactEmail.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactPersonalInfo.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactPersonalInfo.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactPhone.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactPhone.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactProfessionalInfo.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactProfessionalInfo.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactSocial.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactSocial.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactTag.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactTag.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactUid.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactUid.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactWebsite.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactWebsite.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Cookie.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Cookie.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Database.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Database.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/DeviceInfo.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/DeviceInfo.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Email.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Email.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/EmailAddress.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/EmailAddress.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Endpoint.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Endpoint.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Geolocation.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Geolocation.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Header.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Header.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Lifecycle.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Lifecycle.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Locale.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Locale.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/OSInfo.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/OSInfo.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Row.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Row.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/SecureKeyPair.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/SecureKeyPair.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Service.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Service.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ServiceRequest.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ServiceRequest.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ServiceResponse.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ServiceResponse.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/csharp/CSharpGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/csharp/CSharpGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/GeneratorCallbackImpl.java" afterPath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/GeneratorCallbackImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/java/JavaGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/java/JavaGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/objc/ObjCGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/objc/ObjCGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Table.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Table.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/TypeScriptValidation/join.sh" afterPath="$PROJECT_DIR$/../../../out/TypeScriptValidation/join.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/typescript/TypeScriptGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="jenerator.iws" />
@@ -63,11 +35,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SwiftGenerator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SwiftGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.08374384" vertical-offset="2321" max-vertical-offset="5940">
+            <state vertical-scroll-proportion="-15.153846" vertical-offset="2531" max-vertical-offset="6630">
               <caret line="195" column="44" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Jenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/Jenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="645">
+              <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GeneratorCallbackImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/GeneratorCallbackImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9722222" vertical-offset="15" max-vertical-offset="750">
+              <caret line="52" column="68" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GeneratorBase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="5757" max-vertical-offset="7740">
+              <caret line="493" column="48" selection-start-line="493" selection-start-column="48" selection-end-line="493" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -334,6 +336,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/GeneratorCallbackImpl.java" />
       </list>
     </option>
   </component>
@@ -485,6 +489,8 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="LayoutCode.rearrangeEntries" value="true" />
   </component>
   <component name="RunManager" selected="Application.Jenerator">
     <configuration default="false" name="Jenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -505,7 +511,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="jenerator" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -762,16 +774,16 @@
       <created>1417734068616</created>
       <option name="number" value="Default" />
       <updated>1417734068616</updated>
-      <workItem from="1417734070287" duration="462000" />
+      <workItem from="1417734070287" duration="1205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="462000" />
+    <option name="totallyTimeSpent" value="1205000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="781" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -779,9 +791,10 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39903265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -794,11 +807,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32944608" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32944608" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -830,8 +842,32 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08374384" vertical-offset="2321" max-vertical-offset="5940">
+        <state vertical-scroll-proportion="-15.153846" vertical-offset="2531" max-vertical-offset="6630">
           <caret line="195" column="44" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/Jenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="645">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/GeneratorBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5757" max-vertical-offset="7740">
+          <caret line="493" column="48" selection-start-line="493" selection-start-column="48" selection-end-line="493" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/GeneratorCallbackImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9722222" vertical-offset="15" max-vertical-offset="750">
+          <caret line="52" column="68" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
           <folding />
         </state>
       </provider>

@@ -64,7 +64,7 @@ public class SwiftGenerator extends GeneratorBase {
         if (tagList.size() > 0) {
             println();
             for (DocletTag tag : tagList) {
-                println(3,"@" + tag.getName() + " " + tag.getValue());
+                println(3, "@" + tag.getName() + " " + tag.getValue());
             }
         }
         endComment(0);
@@ -91,7 +91,7 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void endGetterSetters(String simpleName, Class clazz) {
-        
+
     }
 
     @Override
@@ -133,9 +133,9 @@ public class SwiftGenerator extends GeneratorBase {
         }
         endComment(5);
         if (field.getType().equals(Boolean.class)) {
-            println(5, "public func is" + fieldName + "() -> "+convertJavaToNativeType(field.getType())+optionalOrMandatory(field.getType())+" {");
+            println(5, "public func is" + fieldName + "() -> " + convertJavaToNativeType(field.getType()) + optionalOrMandatory(field.getType()) + " {");
         } else {
-            println(5, "public func get" + fieldName + "() -> "+convertJavaToNativeType(field.getType())+optionalOrMandatory(field.getType())+" {");
+            println(5, "public func get" + fieldName + "() -> " + convertJavaToNativeType(field.getType()) + optionalOrMandatory(field.getType()) + " {");
         }
 
         println(10, "return self." + field.getName());
@@ -159,8 +159,8 @@ public class SwiftGenerator extends GeneratorBase {
             println(8, "@param " + field.getName() + " " + fieldByName.getComment());
         }
         endComment(5);
-        println(5, "public func set" + fieldName + "("+field.getName()+": "+convertJavaToNativeType(field.getType())+") {");
-        println(10, "self." + field.getName() + " = "+field.getName()+"");
+        println(5, "public func set" + fieldName + "(" + field.getName() + ": " + convertJavaToNativeType(field.getType()) + ") {");
+        println(10, "self." + field.getName() + " = " + field.getName() + "");
         println(5, "}");
         println();
     }
@@ -200,10 +200,10 @@ public class SwiftGenerator extends GeneratorBase {
                 } else {
                     print(5, "public override init(");
                 }
-                for (int j=0;j<c.getParameters().length;j++) {
+                for (int j = 0; j < c.getParameters().length; j++) {
                     Parameter parameter = c.getParameters()[j];
-                    print(parameter.getName()+": "+convertJavaToNativeType(parameter.getType()));
-                    if (j<c.getParameters().length-1) {
+                    print(parameter.getName() + ": " + convertJavaToNativeType(parameter.getType()));
+                    if (j < c.getParameters().length - 1) {
                         print(", ");
                     }
                 }
@@ -211,11 +211,11 @@ public class SwiftGenerator extends GeneratorBase {
 
                 if (!clazz.getSuperclass().equals(Object.class)) {
                     print(10, "super.init(");
-                    for (int j=0;j<c.getParameters().length;j++) {
+                    for (int j = 0; j < c.getParameters().length; j++) {
                         Parameter parameter = c.getParameters()[j];
-                        print(parameter.getName()+": ");
+                        print(parameter.getName() + ": ");
                         print(parameter.getName());
-                        if (j<c.getParameters().length-1) {
+                        if (j < c.getParameters().length - 1) {
                             print(", ");
                         }
                     }
@@ -236,7 +236,7 @@ public class SwiftGenerator extends GeneratorBase {
                     if (thisField) println(10, "self." + parameter.getName() + " = " + parameter.getName());
                 }
             }
-            println(5,"}");
+            println(5, "}");
         }
     }
 
@@ -341,7 +341,7 @@ public class SwiftGenerator extends GeneratorBase {
         if (tagList.size() > 0) {
             println();
             for (DocletTag tag : tagList) {
-                println(3,"@" + tag.getName() + " " + tag.getValue());
+                println(3, "@" + tag.getName() + " " + tag.getValue());
             }
         }
         endComment(0);

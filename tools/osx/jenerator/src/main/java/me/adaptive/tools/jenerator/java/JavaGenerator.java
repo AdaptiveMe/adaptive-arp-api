@@ -73,10 +73,10 @@ public class JavaGenerator extends GeneratorBase {
             println("public enum " + generateEnumClassName(clazz) + " {");
         } else if (clazz.getInterfaces() != null && clazz.getInterfaces().length > 0) {
             print("public interface " + simpleName + " extends ");
-            for (int i=0;i<clazz.getInterfaces().length;i++) {
+            for (int i = 0; i < clazz.getInterfaces().length; i++) {
                 Class iClass = clazz.getInterfaces()[i];
                 print(iClass.getSimpleName());
-                if (i<clazz.getInterfaces().length-1) {
+                if (i < clazz.getInterfaces().length - 1) {
                     print(", ");
                 }
             }
@@ -168,8 +168,8 @@ public class JavaGenerator extends GeneratorBase {
             println(8, "@param " + field.getName() + " " + fieldByName.getComment());
         }
         endComment(5);
-        println(5, "public void set" + fieldName + "("+convertJavaToNativeType(field.getType())+" "+field.getName()+") {");
-        println(10, "this." + field.getName() + " = "+field.getName()+";");
+        println(5, "public void set" + fieldName + "(" + convertJavaToNativeType(field.getType()) + " " + field.getName() + ") {");
+        println(10, "this." + field.getName() + " = " + field.getName() + ";");
         println(5, "}");
         println();
     }

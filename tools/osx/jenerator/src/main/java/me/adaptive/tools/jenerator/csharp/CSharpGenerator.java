@@ -52,6 +52,32 @@ public class CSharpGenerator extends GeneratorBase {
         super(outRootPath, classList, sourceList);
     }
 
+    private static String camelCase(Package _package) {
+        StringBuffer out = new StringBuffer();
+        boolean capitalize = true;
+        // Strip first part of package name
+        for (char c : _package.getName().substring(_package.getName().indexOf('.') + 1).toCharArray()) {
+            if (capitalize) {
+                out.append(Character.toUpperCase(c));
+                capitalize = false;
+            } else {
+                if (c == '.') {
+                    capitalize = true;
+                }
+                out.append(c);
+            }
+        }
+        return out.toString();
+    }
+
+    private static String camelCase(String name) {
+        if (name != null && name.trim().length() > 0) {
+            return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+        } else {
+            return name;
+        }
+    }
+
     @Override
     protected void endInterface(String simpleName, Class clazz) {
         println(5, "}");
@@ -74,19 +100,19 @@ public class CSharpGenerator extends GeneratorBase {
         }
         endComment(5);
         if (clazz.isEnum()) {
-            println(5,"public enum " + generateEnumClassName(clazz) + " {");
+            println(5, "public enum " + generateEnumClassName(clazz) + " {");
         } else if (clazz.getInterfaces() != null && clazz.getInterfaces().length > 0) {
-            print(5,"public interface " + simpleName + " : ");
-            for (int i=0;i<clazz.getInterfaces().length;i++) {
+            print(5, "public interface " + simpleName + " : ");
+            for (int i = 0; i < clazz.getInterfaces().length; i++) {
                 Class iClass = clazz.getInterfaces()[i];
                 print(iClass.getSimpleName());
-                if (i<clazz.getInterfaces().length-1) {
+                if (i < clazz.getInterfaces().length - 1) {
                     print(", ");
                 }
             }
             println(" {");
         } else {
-            println(5,"public interface " + simpleName + " {");
+            println(5, "public interface " + simpleName + " {");
         }
         /**
          * Process all enums.
@@ -172,8 +198,8 @@ public class CSharpGenerator extends GeneratorBase {
             println(13, "@param " + field.getName() + " " + fieldByName.getComment());
         }
         endComment(10);
-        println(10, "public void Set" + fieldName + "("+convertJavaToNativeType(field.getType())+" "+camelCase(field.getName())+") {");
-        println(15, "this." + camelCase(field.getName()) + " = "+camelCase(field.getName())+";");
+        println(10, "public void Set" + fieldName + "(" + convertJavaToNativeType(field.getType()) + " " + camelCase(field.getName()) + ") {");
+        println(15, "this." + camelCase(field.getName()) + " = " + camelCase(field.getName()) + ";");
         println(10, "}");
         println();
     }
@@ -241,7 +267,8 @@ public class CSharpGenerator extends GeneratorBase {
                         break;
                     }
                 }
-                if (thisField) println(15, "this." + camelCase(parameter.getName()) + " = " + camelCase(parameter.getName()) + ";");
+                if (thisField)
+                    println(15, "this." + camelCase(parameter.getName()) + " = " + camelCase(parameter.getName()) + ";");
             }
             println(10, "}");
         }
@@ -250,32 +277,6 @@ public class CSharpGenerator extends GeneratorBase {
     @Override
     protected void startConstructors(String simpleName, Class clazz) {
 
-    }
-
-    private static String camelCase(Package _package) {
-        StringBuffer out = new StringBuffer();
-        boolean capitalize = true;
-        // Strip first part of package name
-        for (char c : _package.getName().substring(_package.getName().indexOf('.') + 1).toCharArray()) {
-            if (capitalize) {
-                out.append(Character.toUpperCase(c));
-                capitalize = false;
-            } else {
-                if (c == '.') {
-                    capitalize = true;
-                }
-                out.append(c);
-            }
-        }
-        return out.toString();
-    }
-
-    private static String camelCase(String name) {
-        if (name!=null && name.trim().length()>0) {
-            return Character.toUpperCase(name.charAt(0)) + name.substring(1);
-        } else {
-            return name;
-        }
     }
 
     @Override

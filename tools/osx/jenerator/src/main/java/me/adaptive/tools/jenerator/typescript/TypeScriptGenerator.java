@@ -66,7 +66,7 @@ public class TypeScriptGenerator extends GeneratorBase {
     protected void startInterface(String simpleName, Class clazz, String classComment, List<DocletTag> tagList) {
         List<String> referenceList = new ArrayList<>();
         if (!clazz.isEnum()) {
-            if (clazz.getInterfaces() != null && clazz.getInterfaces().length==1) {
+            if (clazz.getInterfaces() != null && clazz.getInterfaces().length == 1) {
                 referenceList.add(clazz.getInterfaces()[0].getSimpleName());
             }
             for (Field field : clazz.getDeclaredFields()) {

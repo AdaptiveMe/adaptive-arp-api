@@ -29,13 +29,30 @@ package me.adaptive.tools.jenerator;
  */
 class GeneratorCallbackImpl implements GeneratorCallback {
 
+    private GeneratorBase source = null;
+    private long tIn = 0;
+    private long count = 0;
+
     public GeneratorCallbackImpl() {
 
     }
 
     @Override
     public void onSuccess(GeneratorBase source, Class clazz) {
+        if (this.source == null || !this.source.equals(source)) {
+            this.source = source;
+            this.tIn = System.currentTimeMillis();
+            this.count = 0;
+            System.out.print(source.getClass().getSimpleName());
+        }
 
+        System.out.print(".");
+
+        if (clazz.equals(this.source.getClass())) {
+            System.out.println("DONE");
+            System.out.println(source.getClass().getSimpleName() + " in " + (System.currentTimeMillis() - tIn) + "ms (" + count + " classes).");
+        }
+        this.count++;
     }
 
     @Override

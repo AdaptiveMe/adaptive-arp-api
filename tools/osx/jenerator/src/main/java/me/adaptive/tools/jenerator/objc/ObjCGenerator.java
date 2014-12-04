@@ -53,6 +53,18 @@ public class ObjCGenerator extends GeneratorBase {
         super(outRootPath, classList, sourceList);
     }
 
+    private static String filterClassName(String simpleName) {
+        if (simpleName.equals("Locale")) {
+            simpleName = "Local" + simpleName;
+        }
+
+        return simpleName;
+    }
+
+    private static String camelCase(String name) {
+        return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+    }
+
     @Override
     protected void endInterface(String simpleName, Class clazz) {
         indentPrintStreamH.println("@end");
@@ -63,7 +75,7 @@ public class ObjCGenerator extends GeneratorBase {
         List<String> referenceList = new ArrayList<>();
         referenceList.add("Foundation/Foundation");
 
-        if (clazz.getInterfaces() != null && clazz.getInterfaces().length==1) {
+        if (clazz.getInterfaces() != null && clazz.getInterfaces().length == 1) {
             referenceList.add(filterClassName(clazz.getInterfaces()[0].getSimpleName()));
         }
         for (Field field : clazz.getDeclaredFields()) {
@@ -108,7 +120,7 @@ public class ObjCGenerator extends GeneratorBase {
         if (clazz.isEnum()) {
             indentPrintStreamH.println("@protocol " + filterClassName(simpleName) + " <NSObject>");
         } else if (clazz.getInterfaces() != null && clazz.getInterfaces().length == 1) {
-            indentPrintStreamH.println("@protocol " + filterClassName(simpleName) + " <" + filterClassName(clazz.getInterfaces()[0].getSimpleName())+">");
+            indentPrintStreamH.println("@protocol " + filterClassName(simpleName) + " <" + filterClassName(clazz.getInterfaces()[0].getSimpleName()) + ">");
         } else {
             indentPrintStreamH.println("@protocol " + filterClassName(simpleName) + " <NSObject>");
         }
@@ -201,18 +213,18 @@ public class ObjCGenerator extends GeneratorBase {
                 indentPrintStream.println(5, "- (id) init {");
                 indentPrintStream.println(10, "self = [self init];");
                 indentPrintStream.println(10, "return self;");
-                indentPrintStreamH.println(5,"- (id) init;");
+                indentPrintStreamH.println(5, "- (id) init;");
             } else {
                 indentPrintStream.print(5, "- (id) initWith");
                 indentPrintStreamH.print(5, "- (id) initWith");
-                for (int j=0;j<c.getParameters().length;j++) {
+                for (int j = 0; j < c.getParameters().length; j++) {
                     Parameter parameter = c.getParameters()[j];
                     indentPrintStream.print(camelCase(parameter.getName()));
                     indentPrintStreamH.print(camelCase(parameter.getName()));
                 }
                 indentPrintStream.print(":");
                 indentPrintStreamH.print(":");
-                for (int j=0;j<c.getParameters().length;j++) {
+                for (int j = 0; j < c.getParameters().length; j++) {
                     Parameter parameter = c.getParameters()[j];
                     if (j == 0) {
                         indentPrintStream.print("(" + convertJavaToNativeType(parameter.getType()) + "*)" + parameter.getName());
@@ -221,7 +233,7 @@ public class ObjCGenerator extends GeneratorBase {
                         indentPrintStream.print(parameter.getName() + ":(" + convertJavaToNativeType(parameter.getType()) + "*)" + parameter.getName());
                         indentPrintStreamH.print(parameter.getName() + ":(" + convertJavaToNativeType(parameter.getType()) + "*)" + parameter.getName());
                     }
-                    if (j<c.getParameters().length-1) {
+                    if (j < c.getParameters().length - 1) {
                         indentPrintStream.print(" ");
                         indentPrintStreamH.print(" ");
                     }
@@ -231,16 +243,16 @@ public class ObjCGenerator extends GeneratorBase {
 
                 if (!clazz.getSuperclass().equals(Object.class)) {
                     indentPrintStream.print(10, "self = [super initWith");
-                    for (int j=0;j<c.getParameters().length;j++) {
+                    for (int j = 0; j < c.getParameters().length; j++) {
                         Parameter parameter = c.getParameters()[j];
                         indentPrintStream.print(camelCase(parameter.getName()));
                     }
                     indentPrintStream.print(":");
 
-                    for (int j=0;j<c.getParameters().length;j++) {
+                    for (int j = 0; j < c.getParameters().length; j++) {
                         Parameter parameter = c.getParameters()[j];
                         indentPrintStream.print(parameter.getName());
-                        if (j<c.getParameters().length-1) {
+                        if (j < c.getParameters().length - 1) {
                             indentPrintStream.print(", ");
                         }
                     }
@@ -260,26 +272,19 @@ public class ObjCGenerator extends GeneratorBase {
                             break;
                         }
                     }
-                    if (thisField) indentPrintStream.println(15, "[self set" + camelCase(parameter.getName()) + ":" + parameter.getName()+"];");
+                    if (thisField)
+                        indentPrintStream.println(15, "[self set" + camelCase(parameter.getName()) + ":" + parameter.getName() + "];");
                 }
                 indentPrintStream.println(10, "}");
                 indentPrintStream.println(10, "return self;");
             }
-            indentPrintStream.println(5,"}");
+            indentPrintStream.println(5, "}");
         }
     }
 
     @Override
     protected void startConstructors(String simpleName, Class clazz) {
 
-    }
-
-    private static String filterClassName(String simpleName) {
-        if (simpleName.equals("Locale")) {
-            simpleName = "Local" + simpleName;
-        }
-
-        return simpleName;
     }
 
     @Override
@@ -331,7 +336,7 @@ public class ObjCGenerator extends GeneratorBase {
             return "NSString";
         } else {
             if (classType.isInterface()) {
-                return "NSObject<"+classType.getSimpleName()+">";
+                return "NSObject<" + classType.getSimpleName() + ">";
             } else {
                 type = classType.getSimpleName();
             }
@@ -520,10 +525,6 @@ public class ObjCGenerator extends GeneratorBase {
     protected final void println(int indent, String literal) {
         if (indentPrintStream != null) indentPrintStream.println(indent, literal);
         if (indentPrintStreamH != null) indentPrintStreamH.println(indent, literal);
-    }
-
-    private static String camelCase(String name) {
-        return Character.toUpperCase(name.charAt(0)) + name.substring(1);
     }
 
 }
