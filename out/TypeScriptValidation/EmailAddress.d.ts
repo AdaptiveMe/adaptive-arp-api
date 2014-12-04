@@ -35,5 +35,12 @@ declare module Adaptive {
            The Email address
         */
         address: string;
+        /**
+           Constructor used by implementation
+
+           @param address
+           @since ARP1.0
+        */
+        constructor(address: string);
     }
 }

@@ -34,7 +34,13 @@ var Adaptive;
        @version 1.0
     */
     var Table = (function () {
-        function Table() {
+        /**
+           Constructor by default
+
+           @param name The name of the table
+        */
+        function Table(name) {
+            this.name = name;
         }
         return Table;
     })();

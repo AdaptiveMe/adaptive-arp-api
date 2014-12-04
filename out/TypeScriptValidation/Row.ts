@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Represents a row for a data table.
+        Represents a row for a data table.
 
         @author Carlos Lozano Diez
         @since 1.0

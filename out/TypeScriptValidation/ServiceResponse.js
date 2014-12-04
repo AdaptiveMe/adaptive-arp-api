@@ -34,7 +34,28 @@ var Adaptive;
        @version 1.0
     */
     var ServiceResponse = (function () {
-        function ServiceResponse() {
+        /**
+           Constructor used by the implementation
+
+           @param content
+           @param contentType
+           @param contentLength
+           @param contentBinary
+           @param contentBinaryLength
+           @param headers
+           @param session
+           @param contentEncoding
+           @since ARP1.0
+        */
+        function ServiceResponse(content, contentType, contentLength, contentBinary, contentBinaryLength, headers, session, contentEncoding) {
+            this.content = content;
+            this.contentType = contentType;
+            this.contentLength = contentLength;
+            this.contentBinary = contentBinary;
+            this.contentBinaryLength = contentBinaryLength;
+            this.headers = headers;
+            this.session = session;
+            this.contentEncoding = contentEncoding;
         }
         return ServiceResponse;
     })();

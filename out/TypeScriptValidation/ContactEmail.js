@@ -33,7 +33,18 @@ var Adaptive;
        @version 1.0
     */
     var ContactEmail = (function () {
-        function ContactEmail() {
+        /**
+           Constructor used by the implementation
+
+           @param type
+           @param primary
+           @param email
+           @since ARP1.0
+        */
+        function ContactEmail(type, primary, email) {
+            this.type = type;
+            this.primary = primary;
+            this.email = email;
         }
         return ContactEmail;
     })();

@@ -35,7 +35,20 @@ var Adaptive;
        @version 1.0
     */
     var Service = (function () {
-        function Service() {
+        /**
+           Constructor used by the implementation
+
+           @param endpoint
+           @param name
+           @param method
+           @param type
+           @since ARP1.0
+        */
+        function Service(endpoint, name, method, type) {
+            this.endpoint = endpoint;
+            this.name = name;
+            this.method = method;
+            this.type = type;
         }
         return Service;
     })();

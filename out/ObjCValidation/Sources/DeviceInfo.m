@@ -31,7 +31,7 @@ Contributors:
 @since 1.0
 @version 1.0
 */
-@implementation DeviceInfo {
+@implementation DeviceInfo
 
 
      /**
@@ -61,7 +61,7 @@ Contributors:
           return self;
      }
 
-}
+
 @end
 
 /**

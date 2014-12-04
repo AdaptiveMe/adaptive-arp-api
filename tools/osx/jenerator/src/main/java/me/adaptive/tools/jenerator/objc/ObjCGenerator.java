@@ -256,7 +256,7 @@ public class ObjCGenerator extends GeneratorBase {
     protected void endBean(String simpleName, Class clazz) {
         indentPrintStreamH.println("@end");
         if (!clazz.isEnum()) {
-            indentPrintStream.println("}");
+            indentPrintStream.println("");
             indentPrintStream.println("@end");
         }
     }
@@ -327,7 +327,7 @@ public class ObjCGenerator extends GeneratorBase {
                 }
             }
             indentPrintStream.println("*/");
-            indentPrintStream.println("@implementation " + filterClassName(simpleName) + " {");
+            indentPrintStream.println("@implementation " + filterClassName(simpleName) + "");
         }
     }
 

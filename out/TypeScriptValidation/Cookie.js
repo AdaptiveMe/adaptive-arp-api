@@ -32,7 +32,16 @@ var Adaptive;
        @version 1.0
     */
     var Cookie = (function () {
-        function Cookie() {
+        /**
+           Constructor used by the implementation
+
+           @param name
+           @param data
+           @since ARP1.0
+        */
+        function Cookie(name, data) {
+            this.name = name;
+            this.data = data;
         }
         return Cookie;
     })();

@@ -33,7 +33,16 @@ var Adaptive;
        @version 1.0
     */
     var ContactAddress = (function () {
-        function ContactAddress() {
+        /**
+           Constructor used by the implementation
+
+           @param address Address data.
+           @param type    Address type.
+           @since ARP1.0
+        */
+        function ContactAddress(address, type) {
+            this.address = address;
+            this.type = type;
         }
         return ContactAddress;
     })();

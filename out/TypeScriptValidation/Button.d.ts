@@ -36,5 +36,12 @@ declare module Adaptive {
            Button type
         */
         type: ICapabilitiesButton;
+        /**
+           Constructor used by the implementation
+
+           @param type Button type.
+           @since ARP1.0
+        */
+        constructor(type: ICapabilitiesButton);
     }
 }

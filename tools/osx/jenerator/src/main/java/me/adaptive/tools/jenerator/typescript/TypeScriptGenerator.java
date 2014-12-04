@@ -284,7 +284,7 @@ public class TypeScriptGenerator extends GeneratorBase {
         println();
         startComment(5);
         startCommentGlobal(5);
-        println(5, comment);
+        println(8, comment);
         printlnGlobal(8, comment);
         if (tagList.size() > 0) {
             println();

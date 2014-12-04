@@ -32,7 +32,19 @@ var Adaptive;
        @version 1.0
     */
     var DeviceInfo = (function () {
-        function DeviceInfo() {
+        /**
+           Constructor for the implementation of the platform.
+
+           @param name   or brand of the device.
+           @param model  of the device.
+           @param vendor of the device.
+           @param uuid   unique* identifier (* platform dependent).
+        */
+        function DeviceInfo(name, model, vendor, uuid) {
+            this.name = name;
+            this.model = model;
+            this.vendor = vendor;
+            this.uuid = uuid;
         }
         return DeviceInfo;
     })();

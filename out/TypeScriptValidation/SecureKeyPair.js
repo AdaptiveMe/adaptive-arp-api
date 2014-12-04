@@ -32,7 +32,16 @@ var Adaptive;
        @version 1.0
     */
     var SecureKeyPair = (function () {
-        function SecureKeyPair() {
+        /**
+           Constructor with parameters
+
+           @param secureKey   name of the keypair
+           @param secureData value of the keypair
+           @since ARP1.0
+        */
+        function SecureKeyPair(secureKey, secureData) {
+            this.secureKey = secureKey;
+            this.secureData = secureData;
         }
         return SecureKeyPair;
     })();

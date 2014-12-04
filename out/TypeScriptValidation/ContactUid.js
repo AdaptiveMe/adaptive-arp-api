@@ -32,7 +32,14 @@ var Adaptive;
        @version 1.0
     */
     var ContactUid = (function () {
-        function ContactUid() {
+        /**
+           Constructor used by implementation to set the Contact id.
+
+           @param contactId Internal unique contact id.
+           @since ARP1.0
+        */
+        function ContactUid(contactId) {
+            this.contactId = contactId;
         }
         return ContactUid;
     })();

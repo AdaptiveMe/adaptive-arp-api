@@ -35,7 +35,30 @@ var Adaptive;
        @version 1.0
     */
     var ServiceRequest = (function () {
-        function ServiceRequest() {
+        /**
+           Contructor used by the implementation
+
+           @param content
+           @param contentType
+           @param contentLength
+           @param rawContent
+           @param headers
+           @param method
+           @param protocolVersion
+           @param session
+           @param contentEncoding
+           @since ARP1.0
+        */
+        function ServiceRequest(content, contentType, contentLength, rawContent, headers, method, protocolVersion, session, contentEncoding) {
+            this.content = content;
+            this.contentType = contentType;
+            this.contentLength = contentLength;
+            this.rawContent = rawContent;
+            this.headers = headers;
+            this.method = method;
+            this.protocolVersion = protocolVersion;
+            this.session = session;
+            this.contentEncoding = contentEncoding;
         }
         return ServiceRequest;
     })();

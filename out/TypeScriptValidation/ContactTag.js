@@ -32,7 +32,16 @@ var Adaptive;
        @version 1.0
     */
     var ContactTag = (function () {
-        function ContactTag() {
+        /**
+           Constructor used by the implementation
+
+           @param dataValue
+           @param name
+           @since ARP1.0
+        */
+        function ContactTag(name, dataValue) {
+            this.name = name;
+            this.dataValue = dataValue;
         }
         return ContactTag;
     })();

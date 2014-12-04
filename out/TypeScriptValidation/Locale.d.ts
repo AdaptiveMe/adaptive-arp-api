@@ -39,5 +39,13 @@ declare module Adaptive {
            A valid ISO Language Code.
         */
         language: string;
+        /**
+           Constructor used by the implementation
+
+           @param country
+           @param language
+           @since ARP1.0
+        */
+        constructor(language: string, country: string);
     }
 }

@@ -31,7 +31,7 @@ Contributors:
 @since 1.0
 @version 1.0
 */
-@implementation Row {
+@implementation Row
 
 
      /**
@@ -55,7 +55,7 @@ Contributors:
           return self;
      }
 
-}
+
 @end
 
 /**

@@ -44,5 +44,14 @@ declare module Adaptive {
            Whether the email is the primary one or not
         */
         primary: boolean;
+        /**
+           Constructor used by the implementation
+
+           @param type
+           @param primary
+           @param email
+           @since ARP1.0
+        */
+        constructor(type: ContactEmailType, primary: boolean, email: string);
     }
 }

@@ -33,7 +33,14 @@ var Adaptive;
        @version 1.0
     */
     var Lifecycle = (function () {
-        function Lifecycle() {
+        /**
+           Constructor used by the implementation
+
+           @param state
+           @since ARP1.0
+        */
+        function Lifecycle(state) {
+            this.state = state;
         }
         return Lifecycle;
     })();

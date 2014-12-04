@@ -33,7 +33,20 @@ var Adaptive;
        @version 1.0
     */
     var ContactPersonalInfo = (function () {
-        function ContactPersonalInfo() {
+        /**
+           The Constructor used by the implementation
+
+           @param name       of the Contact
+           @param middleName of the Contact
+           @param lastName   of the Contact
+           @param title      of the Contact
+           @since ARP1.0
+        */
+        function ContactPersonalInfo(name, middleName, lastName, title) {
+            this.name = name;
+            this.middleName = middleName;
+            this.lastName = lastName;
+            this.title = title;
         }
         return ContactPersonalInfo;
     })();

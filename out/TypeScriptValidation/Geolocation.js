@@ -32,7 +32,22 @@ var Adaptive;
        @version 1.0
     */
     var Geolocation = (function () {
-        function Geolocation() {
+        /**
+           Constructor used by the implementation
+
+           @param latitude
+           @param longitude
+           @param altitude
+           @param xDoP
+           @param yDoP
+           @since ARP1.0
+        */
+        function Geolocation(latitude, longitude, altitude, xDoP, yDoP) {
+            this.latitude = latitude;
+            this.longitude = longitude;
+            this.altitude = altitude;
+            this.xDoP = xDoP;
+            this.yDoP = yDoP;
         }
         return Geolocation;
     })();

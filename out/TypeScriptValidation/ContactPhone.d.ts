@@ -40,5 +40,13 @@ declare module Adaptive {
            The phone number
         */
         phone: string;
+        /**
+           Constructor used by implementation to set the contact Phone
+
+           @param phone
+           @param phoneType
+           @since ARP1.0
+        */
+        constructor(phone: string, phoneType: ContactPhoneType);
     }
 }

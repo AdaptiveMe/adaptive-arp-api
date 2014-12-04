@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Enumeration IServiceMethod
+        Enumeration IServiceMethod
      */
      export class IServiceMethod {
 

@@ -32,7 +32,16 @@ var Adaptive;
        @version 1.0
     */
     var Header = (function () {
-        function Header() {
+        /**
+           Constructor used by the implementation
+
+           @param name
+           @param data
+           @since ARP1.0
+        */
+        function Header(name, data) {
+            this.name = name;
+            this.data = data;
         }
         return Header;
     })();

@@ -32,7 +32,22 @@ var Adaptive;
        @version 1.0
     */
     var Endpoint = (function () {
-        function Endpoint() {
+        /**
+           Constructor used by the implementation
+
+           @param host
+           @param path
+           @param port
+           @param proxy
+           @param scheme
+           @since ARP1.0
+        */
+        function Endpoint(host, path, port, proxy, scheme) {
+            this.host = host;
+            this.path = path;
+            this.port = port;
+            this.proxy = proxy;
+            this.scheme = scheme;
         }
         return Endpoint;
     })();

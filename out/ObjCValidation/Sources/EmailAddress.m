@@ -31,7 +31,7 @@ Contributors:
 @since 1.0
 @version 1.0
 */
-@implementation EmailAddress {
+@implementation EmailAddress
 
 
      /**
@@ -56,7 +56,7 @@ Contributors:
           return self;
      }
 
-}
+
 @end
 
 /**

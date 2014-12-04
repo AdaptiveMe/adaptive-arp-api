@@ -51,5 +51,16 @@ declare module Adaptive {
            The relative path where the contents for the attachment file could be located.
         */
         referenceUrl: string;
+        /**
+           Constructor used by the implementation
+
+           @param data         raw data of the file attachment
+           @param dataSize     size of the file attachment
+           @param fileName     name of the file attachment
+           @param mimeType     mime type of the file attachment
+           @param referenceUrl relative url of the file attachment
+           @since ARP1.0
+        */
+        constructor(data: number[], dataSize: number, fileName: string, mimeType: string, referenceUrl: string);
     }
 }

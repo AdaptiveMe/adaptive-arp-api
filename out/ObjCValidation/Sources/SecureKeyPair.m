@@ -31,7 +31,7 @@ Contributors:
 @since 1.0
 @version 1.0
 */
-@implementation SecureKeyPair {
+@implementation SecureKeyPair
 
 
      /**
@@ -58,7 +58,7 @@ Contributors:
           return self;
      }
 
-}
+
 @end
 
 /**

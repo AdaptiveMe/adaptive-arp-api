@@ -28,7 +28,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Structure representing the a physical or logical button on a device.
+        Structure representing the a physical or logical button on a device.
 
         @author Carlos Lozano Diez
         @since 1.0

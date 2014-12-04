@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Enumeration IServiceProtocolVersion
+        Enumeration IServiceProtocolVersion
      */
      export class IServiceProtocolVersion {
 

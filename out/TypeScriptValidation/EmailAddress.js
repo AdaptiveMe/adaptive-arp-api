@@ -32,7 +32,14 @@ var Adaptive;
        @version 1.0
     */
     var EmailAddress = (function () {
-        function EmailAddress() {
+        /**
+           Constructor used by implementation
+
+           @param address
+           @since ARP1.0
+        */
+        function EmailAddress(address) {
+            this.address = address;
         }
         return EmailAddress;
     })();

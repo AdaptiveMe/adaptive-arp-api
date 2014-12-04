@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Enumeration LifecycleState
+        Enumeration LifecycleState
      */
      export class LifecycleState {
 

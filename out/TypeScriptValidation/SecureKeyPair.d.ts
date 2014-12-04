@@ -33,5 +33,13 @@ declare module Adaptive {
     class SecureKeyPair {
         secureData: string;
         secureKey: string;
+        /**
+           Constructor with parameters
+
+           @param secureKey   name of the keypair
+           @param secureData value of the keypair
+           @since ARP1.0
+        */
+        constructor(secureKey: string, secureData: string);
     }
 }

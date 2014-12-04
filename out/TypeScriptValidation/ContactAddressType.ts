@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Enumeration ContactAddressType
+        Enumeration ContactAddressType
      */
      export class ContactAddressType {
 

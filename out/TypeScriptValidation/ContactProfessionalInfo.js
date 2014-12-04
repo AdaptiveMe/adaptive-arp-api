@@ -32,7 +32,18 @@ var Adaptive;
        @version 1.0
     */
     var ContactProfessionalInfo = (function () {
-        function ContactProfessionalInfo() {
+        /**
+           Constructor used by implementation to set the ContactProfessionalInfo.
+
+           @param jobTitle
+           @param jobDescription
+           @param company
+           @since ARP1.0
+        */
+        function ContactProfessionalInfo(jobTitle, jobDescription, company) {
+            this.jobTitle = jobTitle;
+            this.jobDescription = jobDescription;
+            this.company = company;
         }
         return ContactProfessionalInfo;
     })();

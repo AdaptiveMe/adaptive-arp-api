@@ -32,7 +32,13 @@ var Adaptive;
        @version 1.0
     */
     var Column = (function () {
-        function Column() {
+        /**
+           Constructor for implementation using.
+
+           @param name Name of the column
+        */
+        function Column(name) {
+            this.name = name;
         }
         return Column;
     })();

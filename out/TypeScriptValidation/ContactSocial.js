@@ -33,7 +33,16 @@ var Adaptive;
        @version 1.0
     */
     var ContactSocial = (function () {
-        function ContactSocial() {
+        /**
+           Constructor used by the implementation
+
+           @param socialNetwork of the profile
+           @param profileUrl    of the user
+           @since ARP1.0
+        */
+        function ContactSocial(socialNetwork, profileUrl) {
+            this.socialNetwork = socialNetwork;
+            this.profileUrl = profileUrl;
         }
         return ContactSocial;
     })();

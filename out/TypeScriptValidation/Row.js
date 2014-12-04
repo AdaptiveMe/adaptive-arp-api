@@ -32,7 +32,13 @@ var Adaptive;
        @version 1.0
     */
     var Row = (function () {
-        function Row() {
+        /**
+           Constructor for implementation using.
+
+           @param values The values of the row
+        */
+        function Row(values) {
+            this.values = values;
         }
         return Row;
     })();

@@ -30,7 +30,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Represents a local or remote service request.
+        Represents a local or remote service request.
 
         @author Carlos Lozano Diez
         @since 1.0

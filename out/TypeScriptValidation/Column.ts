@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Structure representing the column specification of a data table.
+        Structure representing the column specification of a data table.
 
         @author Carlos Lozano Diez
         @since 1.0

@@ -48,8 +48,14 @@ var Adaptive;
     */
     var Contact = (function (_super) {
         __extends(Contact, _super);
-        function Contact() {
-            _super.apply(this, arguments);
+        /**
+           Constructor used by implementation to set the Contact.
+
+           @param contactId of the Contact
+           @since ARP1.0
+        */
+        function Contact(contactId) {
+            this.contactId = contactId;
         }
         return Contact;
     })(Adaptive.ContactUid);

@@ -31,7 +31,7 @@ Contributors:
 @since 1.0
 @version 1.0
 */
-@implementation ContactPersonalInfo {
+@implementation ContactPersonalInfo
 
 
      /**
@@ -62,7 +62,7 @@ Contributors:
           return self;
      }
 
-}
+
 @end
 
 /**

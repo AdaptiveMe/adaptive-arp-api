@@ -34,7 +34,26 @@ var Adaptive;
        @version 1.0
     */
     var Email = (function () {
-        function Email() {
+        /**
+           Constructor used by the implementation
+
+           @param toRecipients        array of recipients
+           @param ccRecipients        array of cc recipients
+           @param bccRecipients       array of bcc recipients
+           @param attachmentData      array of attatchments
+           @param messageBody         body of the email
+           @param messageBodyMimeType mime type of the body
+           @param subject             of the email
+           @since ARP1.0
+        */
+        function Email(toRecipients, ccRecipients, bccRecipients, attachmentData, messageBody, messageBodyMimeType, subject) {
+            this.toRecipients = toRecipients;
+            this.ccRecipients = ccRecipients;
+            this.bccRecipients = bccRecipients;
+            this.attachmentData = attachmentData;
+            this.messageBody = messageBody;
+            this.messageBodyMimeType = messageBodyMimeType;
+            this.subject = subject;
         }
         return Email;
     })();

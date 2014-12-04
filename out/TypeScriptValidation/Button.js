@@ -33,7 +33,14 @@ var Adaptive;
        @version 1.0
     */
     var Button = (function () {
-        function Button() {
+        /**
+           Constructor used by the implementation
+
+           @param type Button type.
+           @since ARP1.0
+        */
+        function Button(type) {
+            this.type = type;
         }
         return Button;
     })();

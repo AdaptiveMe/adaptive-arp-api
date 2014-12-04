@@ -33,7 +33,16 @@ var Adaptive;
        @version 1.0
     */
     var ContactPhone = (function () {
-        function ContactPhone() {
+        /**
+           Constructor used by implementation to set the contact Phone
+
+           @param phone
+           @param phoneType
+           @since ARP1.0
+        */
+        function ContactPhone(phone, phoneType) {
+            this.phone = phone;
+            this.phoneType = phoneType;
         }
         return ContactPhone;
     })();

@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Structure representing the internal unique identifier data elements of a contact.
+        Structure representing the internal unique identifier data elements of a contact.
 
         @author Carlos Lozano Diez
         @since 1.0

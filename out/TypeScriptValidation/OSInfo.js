@@ -32,7 +32,17 @@ var Adaptive;
        @version 1.0
     */
     var OSInfo = (function () {
-        function OSInfo() {
+        /**
+           Constructor used by implementation to set the OS information.
+
+           @param name    of the OS.
+           @param version of the OS.
+           @param vendor  of the OS.
+        */
+        function OSInfo(name, version, vendor) {
+            this.name = name;
+            this.version = version;
+            this.vendor = vendor;
         }
         return OSInfo;
     })();

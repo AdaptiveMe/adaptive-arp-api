@@ -50,5 +50,15 @@ declare module Adaptive {
            The service name
         */
         name: string;
+        /**
+           Constructor used by the implementation
+
+           @param endpoint
+           @param name
+           @param method
+           @param type
+           @since ARP1.0
+        */
+        constructor(endpoint: Endpoint, name: string, method: IServiceMethod, type: IServiceType);
     }
 }

@@ -32,7 +32,14 @@ var Adaptive;
        @version 1.0
     */
     var ContactWebsite = (function () {
-        function ContactWebsite() {
+        /**
+           Constructor used by the implementation
+
+           @param url
+           @since ARP1.0
+        */
+        function ContactWebsite(url) {
+            this.url = url;
         }
         return ContactWebsite;
     })();

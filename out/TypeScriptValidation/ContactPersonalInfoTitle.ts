@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Enumeration ContactPersonalInfoTitle
+        Enumeration ContactPersonalInfoTitle
      */
      export class ContactPersonalInfoTitle {
 

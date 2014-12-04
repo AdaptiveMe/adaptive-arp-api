@@ -32,7 +32,20 @@ var Adaptive;
        @version 1.0
     */
     var Acceleration = (function () {
-        function Acceleration() {
+        /**
+           Constructor.
+
+           @param x X Coordinate
+           @param y Y Coordinate
+           @param z Z Coordinate
+           @author Carlos Lozano Diez
+           @since ARP1.0
+        */
+        function Acceleration(x, y, z, timeStamp) {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            this.timeStamp = timeStamp;
         }
         return Acceleration;
     })();

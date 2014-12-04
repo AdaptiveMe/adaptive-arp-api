@@ -40,5 +40,13 @@ declare module Adaptive {
            The Contact address
         */
         address: string;
+        /**
+           Constructor used by the implementation
+
+           @param address Address data.
+           @param type    Address type.
+           @since ARP1.0
+        */
+        constructor(address: string, type: ContactAddressType);
     }
 }

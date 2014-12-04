@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Enumeration ContactPhoneType
+        Enumeration ContactPhoneType
      */
      export class ContactPhoneType {
 

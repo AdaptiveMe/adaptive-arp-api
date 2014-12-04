@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Structure representing the data of a http cookie.
+        Structure representing the data of a http cookie.
 
         @author Carlos Lozano Diez
         @since 1.0

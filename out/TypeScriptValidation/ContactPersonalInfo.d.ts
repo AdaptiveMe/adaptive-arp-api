@@ -48,5 +48,15 @@ declare module Adaptive {
            The name of the Contact
         */
         name: string;
+        /**
+           The Constructor used by the implementation
+
+           @param name       of the Contact
+           @param middleName of the Contact
+           @param lastName   of the Contact
+           @param title      of the Contact
+           @since ARP1.0
+        */
+        constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitle);
     }
 }

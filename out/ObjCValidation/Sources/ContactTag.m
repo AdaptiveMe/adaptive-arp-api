@@ -31,7 +31,7 @@ Contributors:
 @since 1.0
 @version 1.0
 */
-@implementation ContactTag {
+@implementation ContactTag
 
 
      /**
@@ -58,7 +58,7 @@ Contributors:
           return self;
      }
 
-}
+
 @end
 
 /**

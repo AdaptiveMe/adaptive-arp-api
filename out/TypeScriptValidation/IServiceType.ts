@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Enumeration IServiceType
+        Enumeration IServiceType
      */
      export class IServiceType {
 

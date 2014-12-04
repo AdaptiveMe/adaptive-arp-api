@@ -39,5 +39,14 @@ declare module Adaptive {
            Database Name (name of the .db local file).
         */
         name: string;
+        /**
+           Constructor using fields.
+
+           @param name     Name of the Table.
+           @param compress Compress enbaled or not.
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        constructor(name: string, compress: boolean);
     }
 }

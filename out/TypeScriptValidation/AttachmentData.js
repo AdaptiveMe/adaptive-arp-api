@@ -32,7 +32,22 @@ var Adaptive;
        @version 1.0
     */
     var AttachmentData = (function () {
-        function AttachmentData() {
+        /**
+           Constructor used by the implementation
+
+           @param data         raw data of the file attachment
+           @param dataSize     size of the file attachment
+           @param fileName     name of the file attachment
+           @param mimeType     mime type of the file attachment
+           @param referenceUrl relative url of the file attachment
+           @since ARP1.0
+        */
+        function AttachmentData(data, dataSize, fileName, mimeType, referenceUrl) {
+            this.data = data;
+            this.dataSize = dataSize;
+            this.fileName = fileName;
+            this.mimeType = mimeType;
+            this.referenceUrl = referenceUrl;
         }
         return AttachmentData;
     })();

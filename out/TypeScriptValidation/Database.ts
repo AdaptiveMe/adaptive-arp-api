@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Structure representing a database reference.
+        Structure representing a database reference.
 
         @author Carlos Lozano Diez
         @since 1.0

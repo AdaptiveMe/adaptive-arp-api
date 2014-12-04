@@ -31,7 +31,7 @@ Contributors:
 @since 1.0
 @version 1.0
 */
-@implementation ServiceResponse {
+@implementation ServiceResponse
 
 
      /**
@@ -70,7 +70,7 @@ Contributors:
           return self;
      }
 
-}
+
 @end
 
 /**

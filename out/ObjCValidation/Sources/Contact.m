@@ -31,7 +31,7 @@ Contributors:
 @since 1.0
 @version 1.0
 */
-@implementation Contact {
+@implementation Contact
 
 
      /**
@@ -54,7 +54,7 @@ Contributors:
           return self;
      }
 
-}
+
 @end
 
 /**

@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Enumeration ContactSocialNetwork
+        Enumeration ContactSocialNetwork
      */
      export class ContactSocialNetwork {
 

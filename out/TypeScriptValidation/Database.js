@@ -32,7 +32,17 @@ var Adaptive;
        @version 1.0
     */
     var Database = (function () {
-        function Database() {
+        /**
+           Constructor using fields.
+
+           @param name     Name of the Table.
+           @param compress Compress enbaled or not.
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        function Database(name, compress) {
+            this.name = name;
+            this.compress = compress;
         }
         return Database;
     })();

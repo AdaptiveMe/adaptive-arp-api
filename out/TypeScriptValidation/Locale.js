@@ -32,7 +32,16 @@ var Adaptive;
        @version 1.0
     */
     var Locale = (function () {
-        function Locale() {
+        /**
+           Constructor used by the implementation
+
+           @param country
+           @param language
+           @since ARP1.0
+        */
+        function Locale(language, country) {
+            this.language = language;
+            this.country = country;
         }
         return Locale;
     })();

@@ -26,7 +26,7 @@ Contributors:
 module Adaptive {
 
      /**
-     Enumeration ICapabilitiesButton
+        Enumeration ICapabilitiesButton
      */
      export class ICapabilitiesButton {
 

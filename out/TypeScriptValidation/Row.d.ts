@@ -35,5 +35,11 @@ declare module Adaptive {
            The values of the row.
         */
         values: any[];
+        /**
+           Constructor for implementation using.
+
+           @param values The values of the row
+        */
+        constructor(values: any[]);
     }
 }
