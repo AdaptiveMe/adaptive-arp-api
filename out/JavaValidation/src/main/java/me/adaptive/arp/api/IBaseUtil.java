@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of IBaseUtil bean.
+   Definition of IBaseUtil interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

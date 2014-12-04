@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of ISession bean.
+   Definition of ISession interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

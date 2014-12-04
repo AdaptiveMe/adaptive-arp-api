@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of IFileResultCallback bean.
+   Definition of IFileResultCallback interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

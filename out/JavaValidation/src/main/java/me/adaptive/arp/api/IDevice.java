@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of IDevice bean.
+   Definition of IDevice interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

@@ -309,7 +309,7 @@ public abstract class GeneratorBase {
                  */
                 String classComment = mapClassSource.get(clazz).getComment();
                 if (classComment == null || classComment.length() == 0) {
-                    classComment = "Implementation of " + clazz.getSimpleName() + " bean.";
+                    classComment = "Definition of " + clazz.getSimpleName() + " interface/protocol.";
                 }
                 /**
                  * Retrieve class comment tags from source file.

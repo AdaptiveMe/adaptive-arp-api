@@ -23,6 +23,21 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+using System;
+
+namespace Adaptive.Arp.Api
+{
+     /**
+        This interfaces represents a specific instance of a listener on the platform. Listeners are generally http or https
+and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content and resources.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     public interface IAppServer : IAdaptiveRP {
+     }
+}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

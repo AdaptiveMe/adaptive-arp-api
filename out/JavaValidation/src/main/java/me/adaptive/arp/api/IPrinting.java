@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of IPrinting bean.
+   Definition of IPrinting interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of ISecureKVResultCallback bean.
+   Definition of ISecureKVResultCallback interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of IAudio bean.
+   Definition of IAudio interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

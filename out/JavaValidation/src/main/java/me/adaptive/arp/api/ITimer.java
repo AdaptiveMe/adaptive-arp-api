@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of ITimer bean.
+   Definition of ITimer interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

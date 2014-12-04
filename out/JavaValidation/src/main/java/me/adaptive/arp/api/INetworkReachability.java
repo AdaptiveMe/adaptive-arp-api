@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of INetworkReachability bean.
+   Definition of INetworkReachability interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

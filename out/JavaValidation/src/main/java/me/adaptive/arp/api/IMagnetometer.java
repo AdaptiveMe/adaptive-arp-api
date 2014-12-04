@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of IMagnetometer bean.
+   Definition of IMagnetometer interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of IUI bean.
+   Definition of IUI interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

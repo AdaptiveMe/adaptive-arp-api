@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of IBaseSensor bean.
+   Definition of IBaseSensor interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

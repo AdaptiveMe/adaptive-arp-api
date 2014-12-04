@@ -52,12 +52,40 @@ public class CSharpGenerator extends GeneratorBase {
 
     @Override
     protected void endInterface(String simpleName, Class clazz) {
-
+        println(5, "}");
+        println("}");
     }
 
     @Override
     protected void startInterface(String simpleName, Class clazz, String classComment, List<DocletTag> tagList) {
-
+        println("using System;");
+        println();
+        println("namespace " + camelCase(clazz.getPackage()));
+        println("{");
+        startComment(5);
+        println(8, classComment);
+        if (tagList.size() > 0) {
+            println();
+            for (DocletTag tag : tagList) {
+                println(8, "@" + tag.getName() + " " + tag.getValue());
+            }
+        }
+        endComment(5);
+        if (clazz.isEnum()) {
+            println(5,"public enum " + generateEnumClassName(clazz) + " {");
+        } else if (clazz.getInterfaces() != null && clazz.getInterfaces().length > 0) {
+            print(5,"public interface " + simpleName + " : ");
+            for (int i=0;i<clazz.getInterfaces().length;i++) {
+                Class iClass = clazz.getInterfaces()[i];
+                print(iClass.getSimpleName());
+                if (i<clazz.getInterfaces().length-1) {
+                    print(", ");
+                }
+            }
+            println(" {");
+        } else {
+            println(5,"public interface " + simpleName + " {");
+        }
     }
 
     @Override
@@ -390,7 +418,6 @@ public class CSharpGenerator extends GeneratorBase {
         println();
         println();
         endBean(generateEnumClassName(clazz), clazz);
-
 
         indentPrintStream.flush();
         indentPrintStream.close();

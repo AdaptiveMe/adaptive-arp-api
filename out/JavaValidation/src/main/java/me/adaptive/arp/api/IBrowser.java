@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of IBrowser bean.
+   Definition of IBrowser interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

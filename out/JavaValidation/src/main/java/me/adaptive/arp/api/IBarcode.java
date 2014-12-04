@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of IBarcode bean.
+   Definition of IBarcode interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0

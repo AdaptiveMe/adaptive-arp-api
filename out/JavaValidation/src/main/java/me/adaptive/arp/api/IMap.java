@@ -26,7 +26,7 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Implementation of IMap bean.
+   Definition of IMap interface/protocol.
 
    @author Carlos Lozano Diez
    @since 1.0
