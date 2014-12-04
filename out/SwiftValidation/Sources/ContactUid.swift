@@ -41,6 +41,7 @@ public class ContactUid : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+        super.init()
      }
 
      /**
@@ -50,7 +51,8 @@ public class ContactUid : NSObject {
         @since ARP1.0
      */
      public init(contactId: String) {
-          self.contactId = contactId
+        super.init()
+        self.contactId = contactId
      }
 
      /**
