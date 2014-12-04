@@ -85,7 +85,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns altitude in meters
 
-             @return altitude
+             @return Altitude
              @since ARP1.0
           */
           public double GetAltitude() {
@@ -95,7 +95,7 @@ namespace Adaptive.Arp.Api
           /**
              Set altitude in meters
 
-             @param altitude
+             @param Altitude
              @since ARP1.0
           */
           public void SetAltitude(double Altitude) {
@@ -105,7 +105,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the latitude in degrees
 
-             @return latitude
+             @return Latitude
              @since ARP1.0
           */
           public double GetLatitude() {
@@ -115,7 +115,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the latitude in degrees
 
-             @param latitude
+             @param Latitude
              @since ARP1.0
           */
           public void SetLatitude(double Latitude) {
@@ -125,7 +125,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the longitude in degrees
 
-             @return longitude
+             @return Longitude
              @since ARP1.0
           */
           public double GetLongitude() {
@@ -135,7 +135,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the latitude in degrees
 
-             @param longitude
+             @param Longitude
              @since ARP1.0
           */
           public void SetLongitude(double Longitude) {
@@ -145,7 +145,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the Dilution of Position in the X axis (longitude)
 
-             @return xDoP
+             @return XDoP
              @since ARP1.0
           */
           public float GetXDoP() {
@@ -164,7 +164,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the Dilution of Position in the Y axis (latitude)
 
-             @return yDoP
+             @return YDoP
              @since ARP1.0
           */
           public float GetYDoP() {

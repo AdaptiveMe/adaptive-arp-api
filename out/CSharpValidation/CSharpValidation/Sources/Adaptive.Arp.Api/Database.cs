@@ -90,7 +90,7 @@ namespace Adaptive.Arp.Api
           /**
              Sets if the table is compressed or not.
 
-             @param compress Compression enabled
+             @param Compress Compression enabled
              @author Ferran Vila Conesa
              @since ARP1.0
           */
@@ -112,7 +112,7 @@ namespace Adaptive.Arp.Api
           /**
              Sets the name of the table.
 
-             @param name The name of the table.
+             @param Name The name of the table.
              @author Ferran Vila Conesa
              @since ARP1.0
           */

@@ -119,7 +119,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the cookie value
 
-             @param data
+             @param Data
              @since ARP1.0
           */
           public void SetData(string Data) {
@@ -129,7 +129,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the domain
 
-             @return domain
+             @return Domain
              @since ARP1.0
           */
           public string GetDomain() {
@@ -139,7 +139,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the domain
 
-             @param domain
+             @param Domain
           */
           public void SetDomain(string Domain) {
                this.Domain = Domain;
@@ -148,7 +148,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the expiration date in milis
 
-             @return expiry
+             @return Expiry
              @since ARP1.0
           */
           public long GetExpiry() {
@@ -158,7 +158,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the expiration date in milis
 
-             @param expiry
+             @param Expiry
           */
           public void SetExpiry(long Expiry) {
                this.Expiry = Expiry;
@@ -167,7 +167,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the cookie name
 
-             @return name
+             @return Name
              @since ARP1.0
           */
           public string GetName() {
@@ -177,7 +177,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the cookie name
 
-             @param name
+             @param Name
              @since ARP1.0
           */
           public void SetName(string Name) {
@@ -187,7 +187,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the path
 
-             @return path
+             @return Path
              @since ARP1.0
           */
           public string GetPath() {
@@ -197,7 +197,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the path
 
-             @param path
+             @param Path
           */
           public void SetPath(string Path) {
                this.Path = Path;
@@ -206,7 +206,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the scheme
 
-             @return scheme
+             @return Scheme
              @since ARP1.0
           */
           public string GetScheme() {
@@ -216,7 +216,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the scheme
 
-             @param scheme
+             @param Scheme
           */
           public void SetScheme(string Scheme) {
                this.Scheme = Scheme;
@@ -225,7 +225,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns whether the cookie is secure or not
 
-             @return true if the cookie is secure; false otherwise
+             @return True if the cookie is secure; false otherwise
              @since ARP1.0
           */
           public bool GetSecure() {
@@ -235,7 +235,7 @@ namespace Adaptive.Arp.Api
           /**
              Set whether the cookie is secure or not
 
-             @param secure
+             @param Secure
           */
           public void SetSecure(bool Secure) {
                this.Secure = Secure;

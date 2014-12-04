@@ -67,7 +67,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the phone phoneType
 
-             @return phoneType
+             @return PhoneType
              @since ARP1.0
           */
           public ContactPhoneType GetPhoneType() {
@@ -77,7 +77,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the phoneType of the phone number
 
-             @param phoneType
+             @param PhoneType
              @since ARP1.0
           */
           public void SetPhoneType(ContactPhoneType PhoneType) {
@@ -87,7 +87,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the phone number
 
-             @return phone number
+             @return Phone number
              @since ARP1.0
           */
           public string GetPhone() {
@@ -97,7 +97,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the phone number
 
-             @param phone number
+             @param Phone number
              @since ARP1.0
           */
           public void SetPhone(string Phone) {

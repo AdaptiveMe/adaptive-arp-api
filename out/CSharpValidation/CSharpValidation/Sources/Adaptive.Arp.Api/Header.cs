@@ -77,7 +77,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the header value
 
-             @param data
+             @param Data
              @since ARP1.0
           */
           public void SetData(string Data) {
@@ -87,7 +87,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the header name
 
-             @return name
+             @return Name
              @since ARP1.0
           */
           public string GetName() {
@@ -97,7 +97,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the header name
 
-             @param name
+             @param Name
              @since ARP1.0
           */
           public void SetName(string Name) {

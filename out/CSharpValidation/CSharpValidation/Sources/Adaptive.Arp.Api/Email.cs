@@ -111,7 +111,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns an array of attachments
 
-             @return attachmentData array with the email attachments
+             @return AttachmentData array with the email attachments
              @since ARP1.0
           */
           public AttachmentData[] GetAttachmentData() {
@@ -121,7 +121,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the email attachment data array
 
-             @param attachmentData array of email attatchments
+             @param AttachmentData array of email attatchments
              @since ARP1.0
           */
           public void SetAttachmentData(AttachmentData[] AttachmentData) {
@@ -131,7 +131,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the array of recipients
 
-             @return bccRecipients array of bcc recipients
+             @return BccRecipients array of bcc recipients
              @since ARP1.0
           */
           public EmailAddress[] GetBccRecipients() {
@@ -141,7 +141,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the array of recipients
 
-             @param bccRecipients array of bcc recipients
+             @param BccRecipients array of bcc recipients
              @since ARP1.0
           */
           public void SetBccRecipients(EmailAddress[] BccRecipients) {
@@ -151,7 +151,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the array of recipients
 
-             @return ccRecipients array of cc recipients
+             @return CcRecipients array of cc recipients
              @since ARP1.0
           */
           public EmailAddress[] GetCcRecipients() {
@@ -161,7 +161,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the array of recipients
 
-             @param ccRecipients array of cc recipients
+             @param CcRecipients array of cc recipients
              @since ARP1.0
           */
           public void SetCcRecipients(EmailAddress[] CcRecipients) {
@@ -171,7 +171,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the message body of the email
 
-             @return message Body string of the email
+             @return Message Body string of the email
           */
           public string GetMessageBody() {
                return this.MessageBody;
@@ -180,7 +180,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the message body of the email
 
-             @param messageBody message body of the email
+             @param MessageBody message body of the email
              @since ARP1.0
           */
           public void SetMessageBody(string MessageBody) {
@@ -190,7 +190,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the myme type of the message body
 
-             @return mime type string of the message boddy
+             @return Mime type string of the message boddy
              @since ARP1.0
           */
           public string GetMessageBodyMimeType() {
@@ -200,7 +200,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the mime type for the message body
 
-             @param messageBodyMimeType type of the body message
+             @param MessageBodyMimeType type of the body message
              @since ARP1.0
           */
           public void SetMessageBodyMimeType(string MessageBodyMimeType) {
@@ -210,7 +210,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the subject of the email
 
-             @return subject string of the email
+             @return Subject string of the email
              @since ARP1.0
           */
           public string GetSubject() {
@@ -220,7 +220,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the subject of the email
 
-             @param subject of the email
+             @param Subject of the email
              @since ARP1.0
           */
           public void SetSubject(string Subject) {
@@ -230,7 +230,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the array of recipients
 
-             @return toRecipients array of recipients
+             @return ToRecipients array of recipients
              @since ARP1.0
           */
           public EmailAddress[] GetToRecipients() {
@@ -240,7 +240,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the array of recipients
 
-             @param toRecipients array of recipients
+             @param ToRecipients array of recipients
              @since ARP1.0
           */
           public void SetToRecipients(EmailAddress[] ToRecipients) {

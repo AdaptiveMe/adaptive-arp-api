@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the protocol version
 
-             @return protocolVersion enum
+             @return ProtocolVersion enum
              @since ARP1.0
           */
           public IServiceProtocolVersion GetProtocolVersion() {
@@ -119,7 +119,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the protocol version
 
-             @param protocolVersion
+             @param ProtocolVersion
              @since ARP1.0
           */
           public void SetProtocolVersion(IServiceProtocolVersion ProtocolVersion) {
@@ -129,7 +129,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the content
 
-             @return content
+             @return Content
              @since ARP1.0
           */
           public string GetContent() {
@@ -139,7 +139,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the content
 
-             @param content
+             @param Content
              @since ARP1.0
           */
           public void SetContent(string Content) {
@@ -149,7 +149,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the content encoding
 
-             @return contentEncoding
+             @return ContentEncoding
              @since ARP1.0
           */
           public string GetContentEncoding() {
@@ -159,7 +159,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the content encoding
 
-             @param contentEncoding
+             @param ContentEncoding
              @since ARP1.0
           */
           public void SetContentEncoding(string ContentEncoding) {
@@ -169,7 +169,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the content length
 
-             @return contentLength
+             @return ContentLength
              @since ARP1.0
           */
           public int GetContentLength() {
@@ -179,7 +179,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the content length
 
-             @param contentLength
+             @param ContentLength
              @since ARP1.0
           */
           public void SetContentLength(int ContentLength) {
@@ -189,7 +189,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the content type
 
-             @return contentType
+             @return ContentType
              @since ARP1.0
           */
           public string GetContentType() {
@@ -199,7 +199,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the content type
 
-             @param contentType
+             @param ContentType
              @since ARP1.0
           */
           public void SetContentType(string ContentType) {
@@ -209,7 +209,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the array of Header
 
-             @return headers
+             @return Headers
              @since ARP1.0
           */
           public Header[] GetHeaders() {
@@ -219,7 +219,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the array of Header
 
-             @param headers
+             @param Headers
              @since ARP1.0
           */
           public void SetHeaders(Header[] Headers) {
@@ -229,7 +229,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the method
 
-             @return method
+             @return Method
              @since ARP1.0
           */
           public string GetMethod() {
@@ -239,7 +239,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the method
 
-             @param method
+             @param Method
              @since ARP1.0
           */
           public void SetMethod(string Method) {
@@ -249,7 +249,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the byte[] of the content
 
-             @return rawContent
+             @return RawContent
              @since ARP1.0
           */
           public byte[] GetRawContent() {
@@ -259,7 +259,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the byte[] of the content
 
-             @param rawContent
+             @param RawContent
              @since ARP1.0
           */
           public void SetRawContent(byte[] RawContent) {
@@ -269,7 +269,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the session object
 
-             @return session
+             @return Session
              @since ARP1.0
           */
           public ISession GetSession() {
@@ -279,7 +279,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the session object
 
-             @param session
+             @param Session
              @since ARP1.0
           */
           public void SetSession(ISession Session) {

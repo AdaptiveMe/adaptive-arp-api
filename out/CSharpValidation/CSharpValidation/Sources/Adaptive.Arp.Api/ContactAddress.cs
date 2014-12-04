@@ -77,7 +77,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the address type
 
-             @param type Address type.
+             @param Type Address type.
              @since ARP1.0
           */
           public void SetType(ContactAddressType Type) {
@@ -87,7 +87,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the Contact address
 
-             @return address Address data.
+             @return Address Address data.
              @since ARP1.0
           */
           public string GetAddress() {
@@ -97,7 +97,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the address of the Contact
 
-             @param address Address data.
+             @param Address Address data.
              @since ARP1.0
           */
           public void SetAddress(string Address) {

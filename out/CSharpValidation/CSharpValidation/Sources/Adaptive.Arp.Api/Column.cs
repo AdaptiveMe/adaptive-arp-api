@@ -69,7 +69,7 @@ namespace Adaptive.Arp.Api
           /**
              Sets the name of the column.
 
-             @param name The name of the column.
+             @param Name The name of the column.
           */
           public void SetName(string Name) {
                this.Name = Name;

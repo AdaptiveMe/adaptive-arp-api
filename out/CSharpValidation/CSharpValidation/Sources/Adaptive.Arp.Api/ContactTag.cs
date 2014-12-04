@@ -67,7 +67,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the value of the Tag
 
-             @return value
+             @return Value
              @since ARP1.0
           */
           public string GetDataValue() {
@@ -77,7 +77,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the value of the Tag
 
-             @param dataValue
+             @param DataValue
              @since ARP1.0
           */
           public void SetDataValue(string DataValue) {
@@ -87,7 +87,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the name of the Tag
 
-             @return name
+             @return Name
              @since ARP1.0
           */
           public string GetName() {
@@ -97,7 +97,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the name of the Tag
 
-             @param name
+             @param Name
              @since ARP1.0
           */
           public void SetName(string Name) {

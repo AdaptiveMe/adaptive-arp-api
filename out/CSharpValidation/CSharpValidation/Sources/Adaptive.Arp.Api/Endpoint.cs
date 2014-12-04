@@ -85,7 +85,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the host
 
-             @return host
+             @return Host
              @since ARP1.0
           */
           public string GetHost() {
@@ -95,7 +95,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the host
 
-             @param host
+             @param Host
              @since ARP1.0
           */
           public void SetHost(string Host) {
@@ -105,7 +105,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the path
 
-             @return path
+             @return Path
              @since ARP1.0
           */
           public string GetPath() {
@@ -115,7 +115,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the path
 
-             @param path
+             @param Path
              @since ARP1.0
           */
           public void SetPath(string Path) {
@@ -125,7 +125,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the port
 
-             @return port
+             @return Port
              @since ARP1.0
           */
           public int GetPort() {
@@ -135,7 +135,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the port
 
-             @param port
+             @param Port
              @since ARP1.0
           */
           public void SetPort(int Port) {
@@ -145,7 +145,7 @@ namespace Adaptive.Arp.Api
           /**
              Return the proxy
 
-             @return proxy
+             @return Proxy
              @since ARP1.0
           */
           public string GetProxy() {
@@ -155,7 +155,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the proxy
 
-             @param proxy
+             @param Proxy
              @since ARP1.0
           */
           public void SetProxy(string Proxy) {
@@ -165,7 +165,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the scheme
 
-             @return scheme
+             @return Scheme
              @since ARP1.0
           */
           public string GetScheme() {
@@ -175,7 +175,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the scheme
 
-             @param scheme
+             @param Scheme
              @since ARP1.0
           */
           public void SetScheme(string Scheme) {

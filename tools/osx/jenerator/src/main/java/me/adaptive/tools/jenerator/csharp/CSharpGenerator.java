@@ -87,7 +87,7 @@ public class CSharpGenerator extends GeneratorBase {
         println();
         if (getter != null && getter.getComment() != null && getter.getComment().trim().length() > 0) {
             for (DocletTag tag : getter.getTags()) {
-                println(13, "@" + tag.getName() + " " + tag.getValue());
+                println(13, "@" + tag.getName() + " " + camelCase(tag.getValue()));
             }
         } else {
             println(13, "@return " + field.getName() + " " + fieldByName.getComment());
@@ -114,7 +114,7 @@ public class CSharpGenerator extends GeneratorBase {
         println();
         if (setter != null && setter.getComment() != null && setter.getComment().trim().length() > 0) {
             for (DocletTag tag : setter.getTags()) {
-                println(13, "@" + tag.getName() + " " + tag.getValue());
+                println(13, "@" + tag.getName() + " " + camelCase(tag.getValue()));
             }
         } else {
             println(13, "@param " + field.getName() + " " + fieldByName.getComment());
@@ -219,7 +219,11 @@ public class CSharpGenerator extends GeneratorBase {
     }
 
     private static String camelCase(String name) {
-        return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+        if (name!=null && name.trim().length()>0) {
+            return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+        } else {
+            return name;
+        }
     }
 
     @Override

@@ -69,7 +69,7 @@ namespace Adaptive.Arp.Api
           /**
              Sets the values of the row.
 
-             @param values The values of the row.
+             @param Values The values of the row.
           */
           public void SetValues(Object[] Values) {
                this.Values = Values;

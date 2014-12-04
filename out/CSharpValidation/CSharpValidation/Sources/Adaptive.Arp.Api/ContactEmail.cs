@@ -83,7 +83,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the type of the email
 
-             @param type
+             @param Type
              @since ARP1.0
           */
           public void SetType(ContactEmailType Type) {
@@ -93,7 +93,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the email of the Contact
 
-             @return email
+             @return Email
              @since ARP1.0
           */
           public string GetEmail() {
@@ -103,7 +103,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the email of the Contact
 
-             @param email
+             @param Email
              @since ARP1.0
           */
           public void SetEmail(string Email) {
@@ -113,7 +113,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns if the email is primary
 
-             @return true if the email is primary; false otherwise
+             @return True if the email is primary; false otherwise
              @since ARP1.0
           */
           public bool GetPrimary() {
@@ -123,7 +123,7 @@ namespace Adaptive.Arp.Api
           /**
              Set if the email
 
-             @param primary true if the email is primary; false otherwise
+             @param Primary true if the email is primary; false otherwise
              @since ARP1.0
           */
           public void SetPrimary(bool Primary) {

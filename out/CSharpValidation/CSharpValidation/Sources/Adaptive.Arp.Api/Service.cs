@@ -79,7 +79,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the method
 
-             @return method
+             @return Method
              @since ARP1.0
           */
           public IServiceMethod GetMethod() {
@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the method
 
-             @param method
+             @param Method
              @since ARP1.0
           */
           public void SetMethod(IServiceMethod Method) {
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the type
 
-             @return type
+             @return Type
              @since ARP1.0
           */
           public IServiceType GetType() {
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the type
 
-             @param type
+             @param Type
              @since ARP1.0
           */
           public void SetType(IServiceType Type) {
@@ -119,7 +119,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the endpoint
 
-             @return endpoint
+             @return Endpoint
              @since ARP1.0
           */
           public Endpoint GetEndpoint() {
@@ -129,7 +129,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the endpoint
 
-             @param endpoint
+             @param Endpoint
              @since ARP1.0
           */
           public void SetEndpoint(Endpoint Endpoint) {
@@ -139,7 +139,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the name
 
-             @return name
+             @return Name
              @since ARP1.0
           */
           public string GetName() {
@@ -149,7 +149,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the name
 
-             @param name
+             @param Name
              @since ARP1.0
           */
           public void SetName(string Name) {

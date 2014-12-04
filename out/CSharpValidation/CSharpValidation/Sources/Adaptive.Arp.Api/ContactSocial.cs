@@ -67,7 +67,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the social network
 
-             @return socialNetwork
+             @return SocialNetwork
              @since ARP1.0
           */
           public ContactSocialNetwork GetSocialNetwork() {
@@ -77,7 +77,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the social network
 
-             @param socialNetwork
+             @param SocialNetwork
              @since ARP1.0
           */
           public void SetSocialNetwork(ContactSocialNetwork SocialNetwork) {
@@ -87,7 +87,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the profile url of the user
 
-             @return profileUrl
+             @return ProfileUrl
              @since ARP1.0
           */
           public string GetProfileUrl() {
@@ -97,7 +97,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the profile url of the iser
 
-             @param profileUrl
+             @param ProfileUrl
              @since ARP1.0
           */
           public void SetProfileUrl(string ProfileUrl) {

@@ -61,7 +61,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the state of the application
 
-             @return state of the app
+             @return State of the app
              @since ARP1.0
           */
           public LifecycleState GetState() {
@@ -71,7 +71,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the State of the application
 
-             @param state of the app
+             @param State of the app
              @since ARP1.0
           */
           public void SetState(LifecycleState State) {

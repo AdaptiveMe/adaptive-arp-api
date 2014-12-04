@@ -61,7 +61,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the url of the website
 
-             @return website url
+             @return Website url
              @since ARP1.0
           */
           public string GetUrl() {
@@ -71,7 +71,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the url of the website
 
-             @param url
+             @param Url
              @since ARP1.0
           */
           public void SetUrl(string Url) {

@@ -98,7 +98,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the addresses of the Contact
 
-             @param contactAddresses
+             @param ContactAddresses
              @since ARP1.0
           */
           public void SetContactAddresses(ContactAddress[] ContactAddresses) {
@@ -118,7 +118,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the emails of the Contact
 
-             @param contactEmails
+             @param ContactEmails
              @since ARP1.0
           */
           public void SetContactEmails(ContactEmail[] ContactEmails) {
@@ -138,7 +138,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the phones of the Contact
 
-             @param contactPhones
+             @param ContactPhones
              @since ARP1.0
           */
           public void SetContactPhones(ContactPhone[] ContactPhones) {
@@ -158,7 +158,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the social network info of the Contact
 
-             @param contactSocials
+             @param ContactSocials
              @since ARP1.0
           */
           public void SetContactSocials(ContactSocial[] ContactSocials) {
@@ -178,7 +178,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the additional tags of the Contact
 
-             @param contactTags
+             @param ContactTags
              @since ARP1.0
           */
           public void SetContactTags(ContactTag[] ContactTags) {
@@ -198,7 +198,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the websites of the Contact
 
-             @param contactWebsites
+             @param ContactWebsites
              @since ARP1.0
           */
           public void SetContactWebsites(ContactWebsite[] ContactWebsites) {
@@ -218,7 +218,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the personal info of the Contact
 
-             @param personalInfo
+             @param PersonalInfo
              @since ARP1.0
           */
           public void SetPersonalInfo(ContactPersonalInfo PersonalInfo) {
@@ -238,7 +238,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the professional info of the Contact
 
-             @param professionalInfo
+             @param ProfessionalInfo
              @since ARP1.0
           */
           public void SetProfessionalInfo(ContactProfessionalInfo ProfessionalInfo) {

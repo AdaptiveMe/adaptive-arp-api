@@ -67,7 +67,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the country code
 
-             @return country code
+             @return Country code
              @since ARP1.0
           */
           public string GetCountry() {
@@ -77,7 +77,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the country code
 
-             @param country code
+             @param Country code
              @since ARP1.0
           */
           public void SetCountry(string Country) {
@@ -87,7 +87,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the language code
 
-             @return language code
+             @return Language code
              @since ARP1.0
           */
           public string GetLanguage() {
@@ -97,7 +97,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the language code
 
-             @param language code
+             @param Language code
              @since ARP1.0
           */
           public void SetLanguage(string Language) {

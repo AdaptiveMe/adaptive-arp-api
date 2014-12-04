@@ -89,7 +89,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the Title of the Contact
 
-             @param title
+             @param Title
              @since ARP1.0
           */
           public void SetTitle(ContactPersonalInfoTitle Title) {
@@ -99,7 +99,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the last name of the Contact
 
-             @return lastName
+             @return LastName
              @since ARP1.0
           */
           public string GetLastName() {
@@ -109,7 +109,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the last name of the Contact
 
-             @param lastName
+             @param LastName
              @since ARP1.0
           */
           public void SetLastName(string LastName) {
@@ -119,7 +119,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the middle name of the Contact
 
-             @return middelName
+             @return MiddelName
              @since ARP1.0
           */
           public string GetMiddleName() {
@@ -129,7 +129,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the middle name of the Contact
 
-             @param middleName
+             @param MiddleName
              @since ARP1.0
           */
           public void SetMiddleName(string MiddleName) {
@@ -139,7 +139,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the name of the Contact
 
-             @return name
+             @return Name
              @since ARP1.0
           */
           public string GetName() {
@@ -149,7 +149,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the name of the Contact
 
-             @param name
+             @param Name
              @since ARP1.0
           */
           public void SetName(string Name) {

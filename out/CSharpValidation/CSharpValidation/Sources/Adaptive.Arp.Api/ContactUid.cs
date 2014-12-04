@@ -71,7 +71,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the id of the Contact
 
-             @param contactId Internal unique contact id.
+             @param ContactId Internal unique contact id.
              @since ARP1.0
           */
           public void SetContactId(string ContactId) {

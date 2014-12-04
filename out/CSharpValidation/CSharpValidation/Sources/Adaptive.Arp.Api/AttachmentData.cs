@@ -85,7 +85,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the raw data in byte[]
 
-             @return data Octet-binary content of the attachment payload.
+             @return Data Octet-binary content of the attachment payload.
              @since ARP1.0
           */
           public byte[] GetData() {
@@ -95,7 +95,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the data of the attachment as a byte[]
 
-             @param data Sets the octet-binary content of the attachment.
+             @param Data Sets the octet-binary content of the attachment.
              @since ARP1.0
           */
           public void SetData(byte[] Data) {
@@ -105,7 +105,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the size of the attachment as a long
 
-             @return dataSize Length in bytes of the octet-binary content.
+             @return DataSize Length in bytes of the octet-binary content.
              @since ARP1.0
           */
           public long GetDataSize() {
@@ -115,7 +115,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the size of the attachment as a long
 
-             @param dataSize Length in bytes of the octet-binary content ( should be same as data array length.)
+             @param DataSize Length in bytes of the octet-binary content ( should be same as data array length.)
              @since ARP1.0
           */
           public void SetDataSize(long DataSize) {
@@ -125,7 +125,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the filename of the attachment
 
-             @return fileName Name of the attachment.
+             @return FileName Name of the attachment.
              @since ARP1.0
           */
           public string GetFileName() {
@@ -135,7 +135,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the name of the file attachment
 
-             @param fileName Name of the attachment.
+             @param FileName Name of the attachment.
              @since ARP1.0
           */
           public void SetFileName(string FileName) {
@@ -145,7 +145,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the mime type of the attachment
 
-             @return mimeType
+             @return MimeType
              @since ARP1.0
           */
           public string GetMimeType() {
@@ -155,7 +155,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the mime type of the attachment
 
-             @param mimeType Mime-type of the attachment.
+             @param MimeType Mime-type of the attachment.
              @since ARP1.0
           */
           public void SetMimeType(string MimeType) {
@@ -165,7 +165,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the absolute url of the file attachment
 
-             @return referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+             @return ReferenceUrl Absolute URL of the file attachment for either file:// or http:// access.
              @since ARP1.0
           */
           public string GetReferenceUrl() {
@@ -175,7 +175,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the absolute url of the attachment
 
-             @param referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+             @param ReferenceUrl Absolute URL of the file attachment for either file:// or http:// access.
              @since ARP1.0
           */
           public void SetReferenceUrl(string ReferenceUrl) {

@@ -71,7 +71,7 @@ namespace Adaptive.Arp.Api
           /**
              Sets the value for this object
 
-             @param secureData value to set.
+             @param SecureData value to set.
              @since ARP 1.0
           */
           public void SetSecureData(string SecureData) {
@@ -91,7 +91,7 @@ namespace Adaptive.Arp.Api
           /**
              Sets the secureKey name for this object.
 
-             @param secureKey Key name.
+             @param SecureKey Key name.
              @since ARP 1.0
           */
           public void SetSecureKey(string SecureKey) {

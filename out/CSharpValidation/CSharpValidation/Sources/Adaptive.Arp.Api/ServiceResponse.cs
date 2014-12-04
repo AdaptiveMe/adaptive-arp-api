@@ -103,7 +103,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the content
 
-             @return content
+             @return Content
              @since ARP1.0
           */
           public string GetContent() {
@@ -113,7 +113,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the content
 
-             @param content
+             @param Content
              @since ARP1.0
           */
           public void SetContent(string Content) {
@@ -123,7 +123,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the binary content
 
-             @return contentBinary
+             @return ContentBinary
              @since ARP1.0
           */
           public byte[] GetContentBinary() {
@@ -133,7 +133,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the binary content
 
-             @param contentBinary
+             @param ContentBinary
              @since ARP1.0
           */
           public void SetContentBinary(byte[] ContentBinary) {
@@ -143,7 +143,7 @@ namespace Adaptive.Arp.Api
           /**
              Retrusn the binary content length
 
-             @return contentBinaryLength
+             @return ContentBinaryLength
              @since ARP1.0
           */
           public int GetContentBinaryLength() {
@@ -153,7 +153,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the binary content length
 
-             @param contentBinaryLength
+             @param ContentBinaryLength
              @since ARP1.0
           */
           public void SetContentBinaryLength(int ContentBinaryLength) {
@@ -163,7 +163,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the content encoding
 
-             @return contentEncoding
+             @return ContentEncoding
              @since ARP1.0
           */
           public string GetContentEncoding() {
@@ -173,7 +173,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the content encoding
 
-             @param contentEncoding
+             @param ContentEncoding
              @since ARP1.0
           */
           public void SetContentEncoding(string ContentEncoding) {
@@ -183,7 +183,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the content length
 
-             @return contentLength
+             @return ContentLength
              @since ARP1.0
           */
           public string GetContentLength() {
@@ -193,7 +193,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the content length
 
-             @param contentLength
+             @param ContentLength
              @since ARP1.0
           */
           public void SetContentLength(string ContentLength) {
@@ -203,7 +203,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the content type
 
-             @return contentType
+             @return ContentType
              @since ARP1.0
           */
           public string GetContentType() {
@@ -213,7 +213,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the content type
 
-             @param contentType
+             @param ContentType
              @since ARP1.0
           */
           public void SetContentType(string ContentType) {
@@ -223,7 +223,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the array of Header
 
-             @return headers
+             @return Headers
              @since ARP1.0
           */
           public Header[] GetHeaders() {
@@ -233,7 +233,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the array of Header
 
-             @param headers
+             @param Headers
              @since ARP1.0
           */
           public void SetHeaders(Header[] Headers) {
@@ -243,7 +243,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the method
 
-             @return method
+             @return Method
              @since ARP1.0
           */
           public ISession GetSession() {
@@ -253,7 +253,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the method
 
-             @param session
+             @param Session
              @since ARP1.0
           */
           public void SetSession(ISession Session) {

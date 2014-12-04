@@ -73,7 +73,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the company of the job
 
-             @return company
+             @return Company
              @since ARP1.0
           */
           public string GetCompany() {
@@ -83,7 +83,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the company of the job
 
-             @param company
+             @param Company
              @since ARP1.0
           */
           public void SetCompany(string Company) {
@@ -93,7 +93,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the description of the job
 
-             @return description
+             @return Description
              @since ARP1.0
           */
           public string GetJobDescription() {
@@ -103,7 +103,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the description of the job
 
-             @param jobDescription
+             @param JobDescription
              @since ARP1.0
           */
           public void SetJobDescription(string JobDescription) {
@@ -113,7 +113,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the title of the job
 
-             @return title
+             @return Title
              @since ARP1.0
           */
           public string GetJobTitle() {
@@ -123,7 +123,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the title of the job
 
-             @param jobTitle
+             @param JobTitle
              @since ARP1.0
           */
           public void SetJobTitle(string JobTitle) {

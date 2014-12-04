@@ -61,7 +61,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the email address
 
-             @return address of the Email
+             @return Address of the Email
              @since ARP1.0
           */
           public string GetAddress() {
@@ -71,7 +71,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the Email address
 
-             @param address of the Email
+             @param Address of the Email
              @since ARP1.0
           */
           public void SetAddress(string Address) {

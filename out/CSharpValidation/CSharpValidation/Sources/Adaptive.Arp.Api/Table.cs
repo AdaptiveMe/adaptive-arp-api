@@ -85,7 +85,7 @@ namespace Adaptive.Arp.Api
           /**
              Sets the number of columns
 
-             @param columnCount The number of columns
+             @param ColumnCount The number of columns
           */
           public void SetColumnCount(int ColumnCount) {
                this.ColumnCount = ColumnCount;
@@ -103,7 +103,7 @@ namespace Adaptive.Arp.Api
           /**
              Sets the columns of the table
 
-             @param columns The columns of the table
+             @param Columns The columns of the table
           */
           public void SetColumns(Column[] Columns) {
                this.Columns = Columns;
@@ -121,7 +121,7 @@ namespace Adaptive.Arp.Api
           /**
              Sets the name of the table
 
-             @param name The name of the table
+             @param Name The name of the table
           */
           public void SetName(string Name) {
                this.Name = Name;
@@ -139,7 +139,7 @@ namespace Adaptive.Arp.Api
           /**
              Sets the number of rows
 
-             @param rowCount The number of rows
+             @param RowCount The number of rows
           */
           public void SetRowCount(int RowCount) {
                this.RowCount = RowCount;
@@ -157,7 +157,7 @@ namespace Adaptive.Arp.Api
           /**
              Sets the rows of the table
 
-             @param rows The rows of the table
+             @param Rows The rows of the table
           */
           public void SetRows(Row[] Rows) {
                this.Rows = Rows;
