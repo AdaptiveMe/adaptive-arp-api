@@ -57,6 +57,7 @@ public class Geolocation : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -69,8 +70,8 @@ public class Geolocation : NSObject {
         @param yDoP
         @since ARP1.0
      */
-     public convenience init(latitude: Double, longitude: Double, altitude: Double, xDoP: Float, yDoP: Float) {
-          self.init()
+     public init(latitude: Double, longitude: Double, altitude: Double, xDoP: Float, yDoP: Float) {
+          super.init()
           self.latitude = latitude
           self.longitude = longitude
           self.altitude = altitude

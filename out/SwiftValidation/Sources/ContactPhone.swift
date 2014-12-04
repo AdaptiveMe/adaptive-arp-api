@@ -45,6 +45,7 @@ public class ContactPhone : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -54,8 +55,8 @@ public class ContactPhone : NSObject {
         @param phoneType
         @since ARP1.0
      */
-     public convenience init(phone: String, phoneType: ContactPhoneType) {
-          self.init()
+     public init(phone: String, phoneType: ContactPhoneType) {
+          super.init()
           self.phone = phone
           self.phoneType = phoneType
      }

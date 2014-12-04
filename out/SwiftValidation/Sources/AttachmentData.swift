@@ -57,6 +57,7 @@ public class AttachmentData : NSObject {
         Convenience constructor.
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -69,8 +70,8 @@ public class AttachmentData : NSObject {
         @param referenceUrl relative url of the file attachment
         @since ARP1.0
      */
-     public convenience init(data: [Byte], dataSize: Int64, fileName: String, mimeType: String, referenceUrl: String) {
-          self.init()
+     public init(data: [Byte], dataSize: Int64, fileName: String, mimeType: String, referenceUrl: String) {
+          super.init()
           self.data = data
           self.dataSize = dataSize
           self.fileName = fileName

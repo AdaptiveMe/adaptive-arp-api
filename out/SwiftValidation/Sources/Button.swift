@@ -41,6 +41,7 @@ public class Button : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -49,8 +50,8 @@ public class Button : NSObject {
         @param type Button type.
         @since ARP1.0
      */
-     public convenience init(type: ICapabilitiesButton) {
-          self.init()
+     public init(type: ICapabilitiesButton) {
+          super.init()
           self.type = type
      }
 

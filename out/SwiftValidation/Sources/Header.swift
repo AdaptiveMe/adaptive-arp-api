@@ -45,6 +45,7 @@ public class Header : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -54,8 +55,8 @@ public class Header : NSObject {
         @param data
         @since ARP1.0
      */
-     public convenience init(name: String, data: String) {
-          self.init()
+     public init(name: String, data: String) {
+          super.init()
           self.name = name
           self.data = data
      }

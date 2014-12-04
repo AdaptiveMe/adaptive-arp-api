@@ -53,6 +53,7 @@ public class Service : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -64,8 +65,8 @@ public class Service : NSObject {
         @param type
         @since ARP1.0
      */
-     public convenience init(endpoint: Endpoint, name: String, method: IServiceMethod, type: IServiceType) {
-          self.init()
+     public init(endpoint: Endpoint, name: String, method: IServiceMethod, type: IServiceType) {
+          super.init()
           self.endpoint = endpoint
           self.name = name
           self.method = method

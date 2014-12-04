@@ -57,6 +57,7 @@ public class Endpoint : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -69,8 +70,8 @@ public class Endpoint : NSObject {
         @param scheme
         @since ARP1.0
      */
-     public convenience init(host: String, path: String, port: Int, proxy: String, scheme: String) {
-          self.init()
+     public init(host: String, path: String, port: Int, proxy: String, scheme: String) {
+          super.init()
           self.host = host
           self.path = path
           self.port = port

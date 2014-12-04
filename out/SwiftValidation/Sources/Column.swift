@@ -41,6 +41,7 @@ public class Column : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -48,8 +49,8 @@ public class Column : NSObject {
 
         @param name Name of the column
      */
-     public convenience init(name: String) {
-          self.init()
+     public init(name: String) {
+          super.init()
           self.name = name
      }
 

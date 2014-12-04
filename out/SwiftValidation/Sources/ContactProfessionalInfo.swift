@@ -49,6 +49,7 @@ public class ContactProfessionalInfo : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -59,8 +60,8 @@ public class ContactProfessionalInfo : NSObject {
         @param company
         @since ARP1.0
      */
-     public convenience init(jobTitle: String, jobDescription: String, company: String) {
-          self.init()
+     public init(jobTitle: String, jobDescription: String, company: String) {
+          super.init()
           self.jobTitle = jobTitle
           self.jobDescription = jobDescription
           self.company = company

@@ -45,6 +45,7 @@ public class ContactAddress : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -54,8 +55,8 @@ public class ContactAddress : NSObject {
         @param type    Address type.
         @since ARP1.0
      */
-     public convenience init(address: String, type: ContactAddressType) {
-          self.init()
+     public init(address: String, type: ContactAddressType) {
+          super.init()
           self.address = address
           self.type = type
      }

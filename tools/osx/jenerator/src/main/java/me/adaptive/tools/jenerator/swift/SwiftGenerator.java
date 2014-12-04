@@ -193,9 +193,10 @@ public class SwiftGenerator extends GeneratorBase {
 
             if (c.getParameters().length == 0) {
                 println(5, "public override init() {");
+                println(10, "super.init()");
             } else {
                 if (clazz.getSuperclass().equals(Object.class)) {
-                    print(5, "public convenience init(");
+                    print(5, "public init(");
                 } else {
                     print(5, "public override init(");
                 }
@@ -220,7 +221,7 @@ public class SwiftGenerator extends GeneratorBase {
                     }
                     println(")");
                 } else {
-                    println(10, "self.init()");
+                    println(10, "super.init()");
                 }
 
                 for (int j = 0; j < c.getParameters().length; j++) {

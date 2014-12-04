@@ -69,6 +69,7 @@ public class ServiceResponse : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -84,8 +85,8 @@ public class ServiceResponse : NSObject {
         @param contentEncoding
         @since ARP1.0
      */
-     public convenience init(content: String, contentType: String, contentLength: String, contentBinary: [Byte], contentBinaryLength: Int, headers: [Header], session: ISession, contentEncoding: String) {
-          self.init()
+     public init(content: String, contentType: String, contentLength: String, contentBinary: [Byte], contentBinaryLength: Int, headers: [Header], session: ISession, contentEncoding: String) {
+          super.init()
           self.content = content
           self.contentType = contentType
           self.contentLength = contentLength

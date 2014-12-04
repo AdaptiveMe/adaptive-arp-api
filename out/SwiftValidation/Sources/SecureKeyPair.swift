@@ -39,6 +39,7 @@ public class SecureKeyPair : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -48,8 +49,8 @@ public class SecureKeyPair : NSObject {
         @param secureData value of the keypair
         @since ARP1.0
      */
-     public convenience init(secureKey: String, secureData: String) {
-          self.init()
+     public init(secureKey: String, secureData: String) {
+          super.init()
           self.secureKey = secureKey
           self.secureData = secureData
      }

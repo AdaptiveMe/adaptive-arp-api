@@ -57,6 +57,7 @@ public class Table : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -64,8 +65,8 @@ public class Table : NSObject {
 
         @param name The name of the table
      */
-     public convenience init(name: String) {
-          self.init()
+     public init(name: String) {
+          super.init()
           self.name = name
      }
 

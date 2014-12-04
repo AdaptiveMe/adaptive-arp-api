@@ -2,9 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3192cd59-0da7-4595-88fb-edff391f09a3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../.gitignore" afterPath="$PROJECT_DIR$/../../../.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Acceleration.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Acceleration.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/TypeScriptValidation/Adaptive.ts" afterPath="$PROJECT_DIR$/../../../out/TypeScriptValidation/Adaptive.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/AttachmentData.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/AttachmentData.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Button.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Button.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Column.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Column.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Contact.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Contact.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactAddress.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactAddress.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactEmail.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactEmail.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactPersonalInfo.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactPersonalInfo.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactPhone.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactPhone.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactProfessionalInfo.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactProfessionalInfo.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactSocial.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactSocial.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactTag.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactTag.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactUid.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactUid.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jenerator.iml" afterPath="$PROJECT_DIR$/jenerator.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactWebsite.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ContactWebsite.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Cookie.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Cookie.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Database.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Database.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/DeviceInfo.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/DeviceInfo.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Email.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Email.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/EmailAddress.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/EmailAddress.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Endpoint.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Endpoint.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Geolocation.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Geolocation.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Header.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Header.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Lifecycle.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Lifecycle.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Locale.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Locale.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/OSInfo.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/OSInfo.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Row.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Row.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/SecureKeyPair.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/SecureKeyPair.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Service.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Service.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ServiceRequest.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ServiceRequest.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ServiceResponse.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/ServiceResponse.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Table.swift" afterPath="$PROJECT_DIR$/../../../out/SwiftValidation/Sources/Table.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../out/TypeScriptValidation/join.sh" afterPath="$PROJECT_DIR$/../../../out/TypeScriptValidation/join.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="jenerator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,8 +66,8 @@
       <file leaf-file-name="SwiftGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.101265825" vertical-offset="2321" max-vertical-offset="5925">
-              <caret line="197" column="48" selection-start-line="197" selection-start-column="37" selection-end-line="197" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.08374384" vertical-offset="2321" max-vertical-offset="5940">
+              <caret line="195" column="44" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -298,6 +330,13 @@
       </map>
     </option>
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java" />
+      </list>
+    </option>
+  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
@@ -444,8 +483,32 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="recentsLimit" value="5" />
+    <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Jenerator">
+    <configuration default="false" name="Jenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="me.adaptive.tools.jenerator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="me.adaptive.tools.jenerator.Jenerator" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="jenerator" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
       <module name="" />
       <setting name="vmparams" value="" />
@@ -683,7 +746,14 @@
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Application.Jenerator" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.Jenerator" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
@@ -692,12 +762,12 @@
       <created>1417734068616</created>
       <option name="number" value="Default" />
       <updated>1417734068616</updated>
-      <workItem from="1417734070287" duration="291000" />
+      <workItem from="1417734070287" duration="462000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="291000" />
+    <option name="totallyTimeSpent" value="462000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="781" extended-state="0" />
@@ -711,11 +781,13 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -723,11 +795,10 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32944608" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -752,11 +823,15 @@
     <breakpoint-manager />
     <watches-manager />
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/me/adaptive/tools/jenerator/swift/SwiftGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.101265825" vertical-offset="2321" max-vertical-offset="5925">
-          <caret line="197" column="48" selection-start-line="197" selection-start-column="37" selection-end-line="197" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.08374384" vertical-offset="2321" max-vertical-offset="5940">
+          <caret line="195" column="44" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
           <folding />
         </state>
       </provider>

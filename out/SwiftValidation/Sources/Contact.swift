@@ -69,8 +69,8 @@ public class Contact : ContactUid {
         Constructor used by the implementation
      */
      public override init() {
-    super.init()
-    }
+          super.init()
+     }
 
      /**
         Constructor used by implementation to set the Contact.

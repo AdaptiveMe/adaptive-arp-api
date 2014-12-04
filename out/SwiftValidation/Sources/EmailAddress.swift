@@ -41,6 +41,7 @@ public class EmailAddress : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -49,8 +50,8 @@ public class EmailAddress : NSObject {
         @param address
         @since ARP1.0
      */
-     public convenience init(address: String) {
-          self.init()
+     public init(address: String) {
+          super.init()
           self.address = address
      }
 

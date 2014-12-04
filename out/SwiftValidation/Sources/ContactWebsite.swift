@@ -41,6 +41,7 @@ public class ContactWebsite : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -49,8 +50,8 @@ public class ContactWebsite : NSObject {
         @param url
         @since ARP1.0
      */
-     public convenience init(url: String) {
-          self.init()
+     public init(url: String) {
+          super.init()
           self.url = url
      }
 

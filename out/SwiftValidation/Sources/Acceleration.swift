@@ -53,6 +53,7 @@ public class Acceleration : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -64,8 +65,8 @@ public class Acceleration : NSObject {
         @author Carlos Lozano Diez
         @since ARP1.0
      */
-     public convenience init(x: Double, y: Double, z: Double, timeStamp: Int64) {
-          self.init()
+     public init(x: Double, y: Double, z: Double, timeStamp: Int64) {
+          super.init()
           self.x = x
           self.y = y
           self.z = z

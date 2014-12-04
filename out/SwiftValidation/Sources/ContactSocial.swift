@@ -45,6 +45,7 @@ public class ContactSocial : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -54,8 +55,8 @@ public class ContactSocial : NSObject {
         @param profileUrl    of the user
         @since ARP1.0
      */
-     public convenience init(socialNetwork: ContactSocialNetwork, profileUrl: String) {
-          self.init()
+     public init(socialNetwork: ContactSocialNetwork, profileUrl: String) {
+          super.init()
           self.socialNetwork = socialNetwork
           self.profileUrl = profileUrl
      }

@@ -41,6 +41,7 @@ public class Lifecycle : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -49,8 +50,8 @@ public class Lifecycle : NSObject {
         @param state
         @since ARP1.0
      */
-     public convenience init(state: LifecycleState) {
-          self.init()
+     public init(state: LifecycleState) {
+          super.init()
           self.state = state
      }
 

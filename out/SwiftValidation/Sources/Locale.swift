@@ -45,6 +45,7 @@ public class Locale : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -54,8 +55,8 @@ public class Locale : NSObject {
         @param language
         @since ARP1.0
      */
-     public convenience init(language: String, country: String) {
-          self.init()
+     public init(language: String, country: String) {
+          super.init()
           self.language = language
           self.country = country
      }

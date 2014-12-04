@@ -53,6 +53,7 @@ public class ContactPersonalInfo : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -64,8 +65,8 @@ public class ContactPersonalInfo : NSObject {
         @param title      of the Contact
         @since ARP1.0
      */
-     public convenience init(name: String, middleName: String, lastName: String, title: ContactPersonalInfoTitle) {
-          self.init()
+     public init(name: String, middleName: String, lastName: String, title: ContactPersonalInfoTitle) {
+          super.init()
           self.name = name
           self.middleName = middleName
           self.lastName = lastName

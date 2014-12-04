@@ -41,6 +41,7 @@ public class Row : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -48,8 +49,8 @@ public class Row : NSObject {
 
         @param values The values of the row
      */
-     public convenience init(values: [AnyObject]) {
-          self.init()
+     public init(values: [AnyObject]) {
+          super.init()
           self.values = values
      }
 

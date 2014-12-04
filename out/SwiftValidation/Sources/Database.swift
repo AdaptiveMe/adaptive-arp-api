@@ -45,6 +45,7 @@ public class Database : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -54,8 +55,8 @@ public class Database : NSObject {
         @author Ferran Vila Conesa
         @since ARP1.0
      */
-     public convenience init(name: String) {
-          self.init()
+     public init(name: String) {
+          super.init()
           self.name = name
      }
 
@@ -67,8 +68,8 @@ public class Database : NSObject {
         @author Ferran Vila Conesa
         @since ARP1.0
      */
-     public convenience init(name: String, compress: Bool) {
-          self.init()
+     public init(name: String, compress: Bool) {
+          super.init()
           self.name = name
           self.compress = compress
      }

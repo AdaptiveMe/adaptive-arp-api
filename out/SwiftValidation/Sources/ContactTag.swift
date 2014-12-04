@@ -45,6 +45,7 @@ public class ContactTag : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -54,8 +55,8 @@ public class ContactTag : NSObject {
         @param name
         @since ARP1.0
      */
-     public convenience init(name: String, dataValue: String) {
-          self.init()
+     public init(name: String, dataValue: String) {
+          super.init()
           self.name = name
           self.dataValue = dataValue
      }

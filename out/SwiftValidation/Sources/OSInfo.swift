@@ -49,6 +49,7 @@ public class OSInfo : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -58,8 +59,8 @@ public class OSInfo : NSObject {
         @param version of the OS.
         @param vendor  of the OS.
      */
-     public convenience init(name: String, version: String, vendor: String) {
-          self.init()
+     public init(name: String, version: String, vendor: String) {
+          super.init()
           self.name = name
           self.version = version
           self.vendor = vendor

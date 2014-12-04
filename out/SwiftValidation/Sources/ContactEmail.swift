@@ -49,6 +49,7 @@ public class ContactEmail : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -59,8 +60,8 @@ public class ContactEmail : NSObject {
         @param email
         @since ARP1.0
      */
-     public convenience init(type: ContactEmailType, primary: Bool, email: String) {
-          self.init()
+     public init(type: ContactEmailType, primary: Bool, email: String) {
+          super.init()
           self.type = type
           self.primary = primary
           self.email = email

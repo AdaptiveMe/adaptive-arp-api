@@ -54,6 +54,7 @@ be unique for a specific instance of an application on a specific device.
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -64,8 +65,8 @@ be unique for a specific instance of an application on a specific device.
         @param vendor of the device.
         @param uuid   unique* identifier (* platform dependent).
      */
-     public convenience init(name: String, model: String, vendor: String, uuid: String) {
-          self.init()
+     public init(name: String, model: String, vendor: String, uuid: String) {
+          super.init()
           self.name = name
           self.model = model
           self.vendor = vendor

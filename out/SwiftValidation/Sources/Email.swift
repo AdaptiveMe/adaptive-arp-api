@@ -65,6 +65,7 @@ public class Email : NSObject {
         Constructor used by the implementation
      */
      public override init() {
+          super.init()
      }
 
      /**
@@ -79,8 +80,8 @@ public class Email : NSObject {
         @param subject             of the email
         @since ARP1.0
      */
-     public convenience init(toRecipients: [EmailAddress], ccRecipients: [EmailAddress], bccRecipients: [EmailAddress], attachmentData: [AttachmentData], messageBody: String, messageBodyMimeType: String, subject: String) {
-          self.init()
+     public init(toRecipients: [EmailAddress], ccRecipients: [EmailAddress], bccRecipients: [EmailAddress], attachmentData: [AttachmentData], messageBody: String, messageBodyMimeType: String, subject: String) {
+          super.init()
           self.toRecipients = toRecipients
           self.ccRecipients = ccRecipients
           self.bccRecipients = bccRecipients
@@ -98,8 +99,8 @@ public class Email : NSObject {
         @param messageBody  body of the email
         @since ARP1.0
      */
-     public convenience init(toRecipients: [EmailAddress], subject: String, messageBody: String) {
-          self.init()
+     public init(toRecipients: [EmailAddress], subject: String, messageBody: String) {
+          super.init()
           self.toRecipients = toRecipients
           self.subject = subject
           self.messageBody = messageBody
