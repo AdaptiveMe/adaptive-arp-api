@@ -33,6 +33,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -86,6 +87,18 @@ public class CSharpGenerator extends GeneratorBase {
             println(" {");
         } else {
             println(5,"public interface " + simpleName + " {");
+        }
+        /**
+         * Process all enums.
+         */
+        for (Method method : clazz.getDeclaredMethods()) {
+            for (Parameter parameter : method.getParameters()) {
+                if (parameter.getType().isEnum()) {
+                    convertJavaToNativeType(parameter.getType());
+                } else if (parameter.getType().isArray() && parameter.getType().getComponentType().isEnum()) {
+                    convertJavaToNativeType(parameter.getType().getComponentType());
+                }
+            }
         }
     }
 

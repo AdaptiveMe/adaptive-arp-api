@@ -133,7 +133,7 @@ public class ObjCGenerator extends GeneratorBase {
                 }
             }
         }
-        
+
         enumClasses.sort(new Comparator<Class>() {
             @Override
             public int compare(Class o1, Class o2) {
