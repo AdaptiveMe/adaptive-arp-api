@@ -23,6 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+/**
+   Implementation of ISecurity bean.
+
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
+*/
+public interface ISecurity extends IBaseSecurity {
+}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

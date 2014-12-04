@@ -23,6 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+/**
+   Implementation of IDesktop bean.
+
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
+*/
+public interface IDesktop extends IBaseUI {
+}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

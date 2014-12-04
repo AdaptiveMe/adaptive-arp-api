@@ -23,6 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+/**
+   Created by FRMI on 28/08/2014.
+
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
+*/
+public interface INetworkReachabilityCallback extends IBaseCallback {
+}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

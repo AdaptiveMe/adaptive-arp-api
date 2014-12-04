@@ -23,6 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+/**
+   Implementation of IAccelerometer bean.
+
+   @author Carlos Lozano Diez
+   @since 1.0
+   @version 1.0
+*/
+public interface IAccelerometer extends IBaseSensor {
+}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

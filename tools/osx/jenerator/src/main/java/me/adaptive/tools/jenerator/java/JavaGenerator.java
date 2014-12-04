@@ -51,12 +51,37 @@ public class JavaGenerator extends GeneratorBase {
 
     @Override
     protected void endInterface(String simpleName, Class clazz) {
-
+        println("}");
     }
 
     @Override
     protected void startInterface(String simpleName, Class clazz, String classComment, List<DocletTag> tagList) {
-
+        println("package " + clazz.getPackage().getName() + ";");
+        println();
+        startComment(0);
+        println(3, classComment);
+        if (tagList.size() > 0) {
+            println();
+            for (DocletTag tag : tagList) {
+                println(3, "@" + tag.getName() + " " + tag.getValue());
+            }
+        }
+        endComment(0);
+        if (clazz.isEnum()) {
+            println("public enum " + generateEnumClassName(clazz) + " {");
+        } else if (clazz.getInterfaces() != null && clazz.getInterfaces().length > 0) {
+            print("public interface " + simpleName + " extends ");
+            for (int i=0;i<clazz.getInterfaces().length;i++) {
+                Class iClass = clazz.getInterfaces()[i];
+                print(iClass.getSimpleName());
+                if (i<clazz.getInterfaces().length-1) {
+                    print(", ");
+                }
+            }
+            println(" {");
+        } else {
+            println("public interface " + simpleName + " {");
+        }
     }
 
     @Override

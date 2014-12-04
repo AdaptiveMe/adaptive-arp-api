@@ -319,11 +319,11 @@ public abstract class GeneratorBase {
                  * Start interface.
                  */
                 startInterface(clazz.getSimpleName(), clazz, classComment, tagList);
-                println();
+                //println();
                 /**
                  * End interface.
                  */
-                println();
+                //println();
                 endInterface(clazz.getSimpleName(), clazz);
             } else {
                 /**
