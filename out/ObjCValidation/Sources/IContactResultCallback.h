@@ -35,16 +35,16 @@ Definition of IContactResultCallback interface/protocol.
 */
 @protocol IContactResultCallback <IBaseCallback>
 
-     typedef NS_OPTIONS(NSUInteger, IContactResultCallbackWarning) {
-          IContactResultCallbackWarning_LimitExceeded = 0,
-          IContactResultCallbackWarning_No_Matches = 1,
-          IContactResultCallbackWarning_Unknown = 2
-     };
-
      typedef NS_OPTIONS(NSUInteger, IContactResultCallbackError) {
           IContactResultCallbackError_NoPermission = 0,
           IContactResultCallbackError_Wrong_Params = 1,
           IContactResultCallbackError_Unknown = 2
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IContactResultCallbackWarning) {
+          IContactResultCallbackWarning_LimitExceeded = 0,
+          IContactResultCallbackWarning_No_Matches = 1,
+          IContactResultCallbackWarning_Unknown = 2
      };
 
 @end

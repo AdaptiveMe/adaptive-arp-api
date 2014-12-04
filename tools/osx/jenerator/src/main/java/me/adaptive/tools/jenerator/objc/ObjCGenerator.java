@@ -116,6 +116,7 @@ public class ObjCGenerator extends GeneratorBase {
         /**
          * Process all enums.
          */
+        List<Class> enumClasses = new ArrayList<>();
         for (Method method : clazz.getDeclaredMethods()) {
             for (Parameter parameter : method.getParameters()) {
                 Class enumClass = null;
@@ -126,21 +127,32 @@ public class ObjCGenerator extends GeneratorBase {
                 }
 
                 if (enumClass != null) {
-
-                    indentPrintStreamH.println(5, "typedef NS_OPTIONS(NSUInteger, " + convertJavaToNativeType(enumClass) + ") {");
-                    for (int i = 0; i < enumClass.getDeclaredFields().length - 1; i++) {
-                        Field ef = enumClass.getDeclaredFields()[i];
-                        indentPrintStreamH.print(10, convertJavaToNativeType(enumClass) + "_" + ef.getName() + " = " + i);
-                        if (i < enumClass.getDeclaredFields().length - 2) {
-                            indentPrintStreamH.println(",");
-                        } else {
-                            indentPrintStreamH.println();
-                        }
+                    if (!enumClasses.contains(enumClass)) {
+                        enumClasses.add(enumClass);
                     }
-                    indentPrintStreamH.println(5, "};");
+                }
+            }
+        }
+        
+        enumClasses.sort(new Comparator<Class>() {
+            @Override
+            public int compare(Class o1, Class o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+        for (Class enumClass : enumClasses) {
+            indentPrintStreamH.println(5, "typedef NS_OPTIONS(NSUInteger, " + convertJavaToNativeType(enumClass) + ") {");
+            for (int i = 0; i < enumClass.getDeclaredFields().length - 1; i++) {
+                Field ef = enumClass.getDeclaredFields()[i];
+                indentPrintStreamH.print(10, convertJavaToNativeType(enumClass) + "_" + ef.getName() + " = " + i);
+                if (i < enumClass.getDeclaredFields().length - 2) {
+                    indentPrintStreamH.println(",");
+                } else {
                     indentPrintStreamH.println();
                 }
             }
+            indentPrintStreamH.println(5, "};");
+            indentPrintStreamH.println();
         }
     }
 

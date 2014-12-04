@@ -43,14 +43,6 @@ Definition of ILogging interface/protocol.
           ILoggingLogLevel_Unknown = 4
      };
 
-     typedef NS_OPTIONS(NSUInteger, ILoggingLogLevel) {
-          ILoggingLogLevel_DEBUG = 0,
-          ILoggingLogLevel_WARN = 1,
-          ILoggingLogLevel_ERROR = 2,
-          ILoggingLogLevel_INFO = 3,
-          ILoggingLogLevel_Unknown = 4
-     };
-
 @end
 
 /**

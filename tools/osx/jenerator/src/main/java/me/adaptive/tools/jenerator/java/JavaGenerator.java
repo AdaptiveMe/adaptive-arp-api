@@ -33,8 +33,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -81,6 +83,18 @@ public class JavaGenerator extends GeneratorBase {
             println(" {");
         } else {
             println("public interface " + simpleName + " {");
+        }
+        /**
+         * Process all enums.
+         */
+        for (Method method : clazz.getDeclaredMethods()) {
+            for (Parameter parameter : method.getParameters()) {
+                if (parameter.getType().isEnum()) {
+                    convertJavaToNativeType(parameter.getType());
+                } else if (parameter.getType().isArray() && parameter.getType().getComponentType().isEnum()) {
+                    convertJavaToNativeType(parameter.getType().getComponentType());
+                }
+            }
         }
     }
 
@@ -234,6 +248,12 @@ public class JavaGenerator extends GeneratorBase {
 
     @Override
     protected void endGeneration() {
+        enumClassList.sort(new Comparator<Class>() {
+            @Override
+            public int compare(Class o1, Class o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
         for (Class enumClass : enumClassList) {
             generateEnumClass(enumClass);
         }

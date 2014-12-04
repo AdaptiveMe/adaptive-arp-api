@@ -35,16 +35,16 @@ Definition of IFileDataResultCallback interface/protocol.
 */
 @protocol IFileDataResultCallback <IBaseCallback>
 
-     typedef NS_OPTIONS(NSUInteger, IFileDataResultCallbackWarning) {
-          IFileDataResultCallbackWarning_ExceedMaximumSize = 0,
-          IFileDataResultCallbackWarning_Unknown = 1
-     };
-
      typedef NS_OPTIONS(NSUInteger, IFileDataResultCallbackError) {
           IFileDataResultCallbackError_InexistentFile = 0,
           IFileDataResultCallbackError_InsufficientSpace = 1,
           IFileDataResultCallbackError_Unauthorized = 2,
           IFileDataResultCallbackError_Unknown = 3
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IFileDataResultCallbackWarning) {
+          IFileDataResultCallbackWarning_ExceedMaximumSize = 0,
+          IFileDataResultCallbackWarning_Unknown = 1
      };
 
 @end

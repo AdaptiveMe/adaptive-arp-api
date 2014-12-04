@@ -35,14 +35,14 @@ Definition of IButtonListener interface/protocol.
 */
 @protocol IButtonListener <IBaseListener>
 
-     typedef NS_OPTIONS(NSUInteger, IButtonListenerWarning) {
-          IButtonListenerWarning_Not_Implemented = 0,
-          IButtonListenerWarning_Unknown = 1
-     };
-
      typedef NS_OPTIONS(NSUInteger, IButtonListenerError) {
           IButtonListenerError_Not_Present = 0,
           IButtonListenerError_Unknown = 1
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IButtonListenerWarning) {
+          IButtonListenerWarning_Not_Implemented = 0,
+          IButtonListenerWarning_Unknown = 1
      };
 
 @end

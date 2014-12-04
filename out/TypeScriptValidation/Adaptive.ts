@@ -4299,64 +4299,119 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-        Enumeration IGeolocationListenerWarning
+        Enumeration ContactAddressType
      */
-     export class IGeolocationListenerWarning {
+     export class ContactAddressType {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static HighDoP = new IGeolocationListenerWarning("HighDoP");
-          static StaleData = new IGeolocationListenerWarning("StaleData");
-          static Unknown = new IGeolocationListenerWarning("Unknown");
+          static Home = new ContactAddressType("Home");
+          static Work = new ContactAddressType("Work");
+          static Other = new ContactAddressType("Other");
+          static Unknown = new ContactAddressType("Unknown");
 
      }
      /**
-        Enumeration IGeolocationListenerError
+        Enumeration ContactEmailType
      */
-     export class IGeolocationListenerError {
+     export class ContactEmailType {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Disabled = new IGeolocationListenerError("Disabled");
-          static RestrictedAccess = new IGeolocationListenerError("RestrictedAccess");
-          static DeniedAccess = new IGeolocationListenerError("DeniedAccess");
-          static StatusNotDetermined = new IGeolocationListenerError("StatusNotDetermined");
-          static Unknown = new IGeolocationListenerError("Unknown");
+          static Personal = new ContactEmailType("Personal");
+          static Work = new ContactEmailType("Work");
+          static Other = new ContactEmailType("Other");
+          static Unknown = new ContactEmailType("Unknown");
 
      }
      /**
-        Enumeration IContactFilter
+        Enumeration ContactPersonalInfoTitle
      */
-     export class IContactFilter {
+     export class ContactPersonalInfoTitle {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static HAS_PHONE = new IContactFilter("HAS_PHONE");
-          static HAS_EMAIL = new IContactFilter("HAS_EMAIL");
-          static HAS_ADDRESS = new IContactFilter("HAS_ADDRESS");
-          static Unknown = new IContactFilter("Unknown");
+          static Mr = new ContactPersonalInfoTitle("Mr");
+          static Mrs = new ContactPersonalInfoTitle("Mrs");
+          static Ms = new ContactPersonalInfoTitle("Ms");
+          static Dr = new ContactPersonalInfoTitle("Dr");
+          static Unknown = new ContactPersonalInfoTitle("Unknown");
 
      }
      /**
-        Enumeration IContactFieldGroup
+        Enumeration ContactPhoneType
      */
-     export class IContactFieldGroup {
+     export class ContactPhoneType {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static PERSONAL_INFO = new IContactFieldGroup("PERSONAL_INFO");
-          static PROFESSIONAL_INFO = new IContactFieldGroup("PROFESSIONAL_INFO");
-          static ADDRESSES = new IContactFieldGroup("ADDRESSES");
-          static PHONES = new IContactFieldGroup("PHONES");
-          static EMAILS = new IContactFieldGroup("EMAILS");
-          static WEBSITES = new IContactFieldGroup("WEBSITES");
-          static SOCIALS = new IContactFieldGroup("SOCIALS");
-          static TAGS = new IContactFieldGroup("TAGS");
-          static Unknown = new IContactFieldGroup("Unknown");
+          static Mobile = new ContactPhoneType("Mobile");
+          static Work = new ContactPhoneType("Work");
+          static Home = new ContactPhoneType("Home");
+          static Main = new ContactPhoneType("Main");
+          static HomeFax = new ContactPhoneType("HomeFax");
+          static WorkFax = new ContactPhoneType("WorkFax");
+          static Other = new ContactPhoneType("Other");
+          static Unknown = new ContactPhoneType("Unknown");
+
+     }
+     /**
+        Enumeration ContactSocialNetwork
+     */
+     export class ContactSocialNetwork {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Twitter = new ContactSocialNetwork("Twitter");
+          static Facebook = new ContactSocialNetwork("Facebook");
+          static GooglePlus = new ContactSocialNetwork("GooglePlus");
+          static LinkedIn = new ContactSocialNetwork("LinkedIn");
+          static Flickr = new ContactSocialNetwork("Flickr");
+          static Unknown = new ContactSocialNetwork("Unknown");
+
+     }
+     /**
+        Enumeration IAccelerationListenerError
+     */
+     export class IAccelerationListenerError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Unauthorized = new IAccelerationListenerError("Unauthorized");
+          static Unavailable = new IAccelerationListenerError("Unavailable");
+          static Unknown = new IAccelerationListenerError("Unknown");
+
+     }
+     /**
+        Enumeration IAccelerationListenerWarning
+     */
+     export class IAccelerationListenerWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NeedsCalibration = new IAccelerationListenerWarning("NeedsCalibration");
+          static Stale = new IAccelerationListenerWarning("Stale");
+          static Unknown = new IAccelerationListenerWarning("Unknown");
+
+     }
+     /**
+        Enumeration IAppResourceCallbackError
+     */
+     export class IAppResourceCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NotFound = new IAppResourceCallbackError("NotFound");
+          static NoPermission = new IAppResourceCallbackError("NoPermission");
+          static Unknown = new IAppResourceCallbackError("Unknown");
 
      }
      /**
@@ -4374,219 +4429,41 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-        Enumeration IAppResourceCallbackError
+        Enumeration IButtonListenerError
      */
-     export class IAppResourceCallbackError {
+     export class IButtonListenerError {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static NotFound = new IAppResourceCallbackError("NotFound");
-          static NoPermission = new IAppResourceCallbackError("NoPermission");
-          static Unknown = new IAppResourceCallbackError("Unknown");
+          static Not_Present = new IButtonListenerError("Not_Present");
+          static Unknown = new IButtonListenerError("Unknown");
 
      }
      /**
-        Enumeration IAccelerationListenerWarning
+        Enumeration IButtonListenerWarning
      */
-     export class IAccelerationListenerWarning {
+     export class IButtonListenerWarning {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static NeedsCalibration = new IAccelerationListenerWarning("NeedsCalibration");
-          static Stale = new IAccelerationListenerWarning("Stale");
-          static Unknown = new IAccelerationListenerWarning("Unknown");
+          static Not_Implemented = new IButtonListenerWarning("Not_Implemented");
+          static Unknown = new IButtonListenerWarning("Unknown");
 
      }
      /**
-        Enumeration IAccelerationListenerError
+        Enumeration ICapabilitiesButton
      */
-     export class IAccelerationListenerError {
+     export class ICapabilitiesButton {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Unauthorized = new IAccelerationListenerError("Unauthorized");
-          static Unavailable = new IAccelerationListenerError("Unavailable");
-          static Unknown = new IAccelerationListenerError("Unknown");
-
-     }
-     /**
-        Enumeration IMessagingCallbackWarning
-     */
-     export class IMessagingCallbackWarning {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static UnableToSentAll = new IMessagingCallbackWarning("UnableToSentAll");
-          static UnableToFetchAttachment = new IMessagingCallbackWarning("UnableToFetchAttachment");
-          static Unknown = new IMessagingCallbackWarning("Unknown");
-
-     }
-     /**
-        Enumeration IMessagingCallbackError
-     */
-     export class IMessagingCallbackError {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static SIMNotPresent = new IMessagingCallbackError("SIMNotPresent");
-          static EmailAccountNotFound = new IMessagingCallbackError("EmailAccountNotFound");
-          static NotSent = new IMessagingCallbackError("NotSent");
-          static WrongParams = new IMessagingCallbackError("WrongParams");
-          static NotSupported = new IMessagingCallbackError("NotSupported");
-          static Unknown = new IMessagingCallbackError("Unknown");
-
-     }
-     /**
-        Enumeration IFileDataResultCallbackWarning
-     */
-     export class IFileDataResultCallbackWarning {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static ExceedMaximumSize = new IFileDataResultCallbackWarning("ExceedMaximumSize");
-          static Unknown = new IFileDataResultCallbackWarning("Unknown");
-
-     }
-     /**
-        Enumeration IFileDataResultCallbackError
-     */
-     export class IFileDataResultCallbackError {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static InexistentFile = new IFileDataResultCallbackError("InexistentFile");
-          static InsufficientSpace = new IFileDataResultCallbackError("InsufficientSpace");
-          static Unauthorized = new IFileDataResultCallbackError("Unauthorized");
-          static Unknown = new IFileDataResultCallbackError("Unknown");
-
-     }
-     /**
-        Enumeration ILoggingLogLevel
-     */
-     export class ILoggingLogLevel {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static DEBUG = new ILoggingLogLevel("DEBUG");
-          static WARN = new ILoggingLogLevel("WARN");
-          static ERROR = new ILoggingLogLevel("ERROR");
-          static INFO = new ILoggingLogLevel("INFO");
-          static Unknown = new ILoggingLogLevel("Unknown");
-
-     }
-     /**
-        Enumeration IContactPhotoResultCallbackWarning
-     */
-     export class IContactPhotoResultCallbackWarning {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static LimitExceeded = new IContactPhotoResultCallbackWarning("LimitExceeded");
-          static No_Matches = new IContactPhotoResultCallbackWarning("No_Matches");
-          static Unknown = new IContactPhotoResultCallbackWarning("Unknown");
-
-     }
-     /**
-        Enumeration IContactPhotoResultCallbackError
-     */
-     export class IContactPhotoResultCallbackError {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NoPermission = new IContactPhotoResultCallbackError("NoPermission");
-          static Wrong_Params = new IContactPhotoResultCallbackError("Wrong_Params");
-          static No_Photo = new IContactPhotoResultCallbackError("No_Photo");
-          static Unknown = new IContactPhotoResultCallbackError("Unknown");
-
-     }
-     /**
-        Enumeration IServiceResultCallbackWarning
-     */
-     export class IServiceResultCallbackWarning {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NotSecure = new IServiceResultCallbackWarning("NotSecure");
-          static NotTrusted = new IServiceResultCallbackWarning("NotTrusted");
-          static Redirected = new IServiceResultCallbackWarning("Redirected");
-          static Wrong_Params = new IServiceResultCallbackWarning("Wrong_Params");
-          static Unknown = new IServiceResultCallbackWarning("Unknown");
-
-     }
-     /**
-        Enumeration IServiceResultCallbackError
-     */
-     export class IServiceResultCallbackError {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Forbidden = new IServiceResultCallbackError("Forbidden");
-          static NotFound = new IServiceResultCallbackError("NotFound");
-          static MethodNotAllowed = new IServiceResultCallbackError("MethodNotAllowed");
-          static NotAllowed = new IServiceResultCallbackError("NotAllowed");
-          static NotAuthenticated = new IServiceResultCallbackError("NotAuthenticated");
-          static TimeOut = new IServiceResultCallbackError("TimeOut");
-          static NoResponse = new IServiceResultCallbackError("NoResponse");
-          static ServerError = new IServiceResultCallbackError("ServerError");
-          static Unreachable = new IServiceResultCallbackError("Unreachable");
-          static MalformedUrl = new IServiceResultCallbackError("MalformedUrl");
-          static NotRegisteredService = new IServiceResultCallbackError("NotRegisteredService");
-          static Unknown = new IServiceResultCallbackError("Unknown");
-
-     }
-     /**
-        Enumeration ISecureKVResultCallbackWarning
-     */
-     export class ISecureKVResultCallbackWarning {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static EntryOverride = new ISecureKVResultCallbackWarning("EntryOverride");
-          static Unknown = new ISecureKVResultCallbackWarning("Unknown");
-
-     }
-     /**
-        Enumeration ISecureKVResultCallbackError
-     */
-     export class ISecureKVResultCallbackError {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NoPermission = new ISecureKVResultCallbackError("NoPermission");
-          static NoMatchesFound = new ISecureKVResultCallbackError("NoMatchesFound");
-          static Unknown = new ISecureKVResultCallbackError("Unknown");
-
-     }
-     /**
-        Enumeration ICapabilitiesSensor
-     */
-     export class ICapabilitiesSensor {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Accelerometer = new ICapabilitiesSensor("Accelerometer");
-          static AmbientLight = new ICapabilitiesSensor("AmbientLight");
-          static Barometer = new ICapabilitiesSensor("Barometer");
-          static Geolocation = new ICapabilitiesSensor("Geolocation");
-          static Gyroscope = new ICapabilitiesSensor("Gyroscope");
-          static Magnetometer = new ICapabilitiesSensor("Magnetometer");
-          static Proximity = new ICapabilitiesSensor("Proximity");
-          static Unknown = new ICapabilitiesSensor("Unknown");
+          static HomeButton = new ICapabilitiesButton("HomeButton");
+          static BackButton = new ICapabilitiesButton("BackButton");
+          static OptionButton = new ICapabilitiesButton("OptionButton");
+          static Unknown = new ICapabilitiesButton("Unknown");
 
      }
      /**
@@ -4668,81 +4545,107 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-        Enumeration ICapabilitiesButton
+        Enumeration ICapabilitiesSensor
      */
-     export class ICapabilitiesButton {
+     export class ICapabilitiesSensor {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static HomeButton = new ICapabilitiesButton("HomeButton");
-          static BackButton = new ICapabilitiesButton("BackButton");
-          static OptionButton = new ICapabilitiesButton("OptionButton");
-          static Unknown = new ICapabilitiesButton("Unknown");
+          static Accelerometer = new ICapabilitiesSensor("Accelerometer");
+          static AmbientLight = new ICapabilitiesSensor("AmbientLight");
+          static Barometer = new ICapabilitiesSensor("Barometer");
+          static Geolocation = new ICapabilitiesSensor("Geolocation");
+          static Gyroscope = new ICapabilitiesSensor("Gyroscope");
+          static Magnetometer = new ICapabilitiesSensor("Magnetometer");
+          static Proximity = new ICapabilitiesSensor("Proximity");
+          static Unknown = new ICapabilitiesSensor("Unknown");
 
      }
      /**
-        Enumeration IButtonListenerWarning
+        Enumeration IContactFieldGroup
      */
-     export class IButtonListenerWarning {
+     export class IContactFieldGroup {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Not_Implemented = new IButtonListenerWarning("Not_Implemented");
-          static Unknown = new IButtonListenerWarning("Unknown");
+          static PERSONAL_INFO = new IContactFieldGroup("PERSONAL_INFO");
+          static PROFESSIONAL_INFO = new IContactFieldGroup("PROFESSIONAL_INFO");
+          static ADDRESSES = new IContactFieldGroup("ADDRESSES");
+          static PHONES = new IContactFieldGroup("PHONES");
+          static EMAILS = new IContactFieldGroup("EMAILS");
+          static WEBSITES = new IContactFieldGroup("WEBSITES");
+          static SOCIALS = new IContactFieldGroup("SOCIALS");
+          static TAGS = new IContactFieldGroup("TAGS");
+          static Unknown = new IContactFieldGroup("Unknown");
 
      }
      /**
-        Enumeration IButtonListenerError
+        Enumeration IContactFilter
      */
-     export class IButtonListenerError {
+     export class IContactFilter {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Not_Present = new IButtonListenerError("Not_Present");
-          static Unknown = new IButtonListenerError("Unknown");
+          static HAS_PHONE = new IContactFilter("HAS_PHONE");
+          static HAS_EMAIL = new IContactFilter("HAS_EMAIL");
+          static HAS_ADDRESS = new IContactFilter("HAS_ADDRESS");
+          static Unknown = new IContactFilter("Unknown");
 
      }
      /**
-        Enumeration ILifecycleListenerWarning
+        Enumeration IContactPhotoResultCallbackError
      */
-     export class ILifecycleListenerWarning {
+     export class IContactPhotoResultCallbackError {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static MemoryLow = new ILifecycleListenerWarning("MemoryLow");
-          static BatteryLow = new ILifecycleListenerWarning("BatteryLow");
-          static Unknown = new ILifecycleListenerWarning("Unknown");
+          static NoPermission = new IContactPhotoResultCallbackError("NoPermission");
+          static Wrong_Params = new IContactPhotoResultCallbackError("Wrong_Params");
+          static No_Photo = new IContactPhotoResultCallbackError("No_Photo");
+          static Unknown = new IContactPhotoResultCallbackError("Unknown");
 
      }
      /**
-        Enumeration ILifecycleListenerError
+        Enumeration IContactPhotoResultCallbackWarning
      */
-     export class ILifecycleListenerError {
+     export class IContactPhotoResultCallbackWarning {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Runtime = new ILifecycleListenerError("Runtime");
-          static Implementation = new ILifecycleListenerError("Implementation");
-          static Killed = new ILifecycleListenerError("Killed");
-          static Unknown = new ILifecycleListenerError("Unknown");
+          static LimitExceeded = new IContactPhotoResultCallbackWarning("LimitExceeded");
+          static No_Matches = new IContactPhotoResultCallbackWarning("No_Matches");
+          static Unknown = new IContactPhotoResultCallbackWarning("Unknown");
 
      }
      /**
-        Enumeration IDatabaseResultCallbackWarning
+        Enumeration IContactResultCallbackError
      */
-     export class IDatabaseResultCallbackWarning {
+     export class IContactResultCallbackError {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static DatabaseExists = new IDatabaseResultCallbackWarning("DatabaseExists");
-          static IsOpen = new IDatabaseResultCallbackWarning("IsOpen");
-          static Unknown = new IDatabaseResultCallbackWarning("Unknown");
+          static NoPermission = new IContactResultCallbackError("NoPermission");
+          static Wrong_Params = new IContactResultCallbackError("Wrong_Params");
+          static Unknown = new IContactResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration IContactResultCallbackWarning
+     */
+     export class IContactResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static LimitExceeded = new IContactResultCallbackWarning("LimitExceeded");
+          static No_Matches = new IContactResultCallbackWarning("No_Matches");
+          static Unknown = new IContactResultCallbackWarning("Unknown");
 
      }
      /**
@@ -4760,19 +4663,193 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-        Enumeration INetworkReachabilityCallbackWarning
+        Enumeration IDatabaseResultCallbackWarning
      */
-     export class INetworkReachabilityCallbackWarning {
+     export class IDatabaseResultCallbackWarning {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static IncorrectScheme = new INetworkReachabilityCallbackWarning("IncorrectScheme");
-          static NotSecure = new INetworkReachabilityCallbackWarning("NotSecure");
-          static NotTrusted = new INetworkReachabilityCallbackWarning("NotTrusted");
-          static Redirected = new INetworkReachabilityCallbackWarning("Redirected");
-          static NotRegisteredService = new INetworkReachabilityCallbackWarning("NotRegisteredService");
-          static Unknown = new INetworkReachabilityCallbackWarning("Unknown");
+          static DatabaseExists = new IDatabaseResultCallbackWarning("DatabaseExists");
+          static IsOpen = new IDatabaseResultCallbackWarning("IsOpen");
+          static Unknown = new IDatabaseResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IFileDataResultCallbackError
+     */
+     export class IFileDataResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static InexistentFile = new IFileDataResultCallbackError("InexistentFile");
+          static InsufficientSpace = new IFileDataResultCallbackError("InsufficientSpace");
+          static Unauthorized = new IFileDataResultCallbackError("Unauthorized");
+          static Unknown = new IFileDataResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration IFileDataResultCallbackWarning
+     */
+     export class IFileDataResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static ExceedMaximumSize = new IFileDataResultCallbackWarning("ExceedMaximumSize");
+          static Unknown = new IFileDataResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IFileListResultCallbackError
+     */
+     export class IFileListResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static InexistentFile = new IFileListResultCallbackError("InexistentFile");
+          static Unauthorized = new IFileListResultCallbackError("Unauthorized");
+          static Unknown = new IFileListResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration IFileListResultCallbackWarning
+     */
+     export class IFileListResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static PartialResult = new IFileListResultCallbackWarning("PartialResult");
+          static Unknown = new IFileListResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IFileResultCallbackError
+     */
+     export class IFileResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static FileExists = new IFileResultCallbackError("FileExists");
+          static InsufficientSpace = new IFileResultCallbackError("InsufficientSpace");
+          static Unauthorized = new IFileResultCallbackError("Unauthorized");
+          static Unknown = new IFileResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration IFileResultCallbackWarning
+     */
+     export class IFileResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static SourceNotDeleted = new IFileResultCallbackWarning("SourceNotDeleted");
+          static RootDirectory = new IFileResultCallbackWarning("RootDirectory");
+          static Unknown = new IFileResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IGeolocationListenerError
+     */
+     export class IGeolocationListenerError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Disabled = new IGeolocationListenerError("Disabled");
+          static RestrictedAccess = new IGeolocationListenerError("RestrictedAccess");
+          static DeniedAccess = new IGeolocationListenerError("DeniedAccess");
+          static StatusNotDetermined = new IGeolocationListenerError("StatusNotDetermined");
+          static Unknown = new IGeolocationListenerError("Unknown");
+
+     }
+     /**
+        Enumeration IGeolocationListenerWarning
+     */
+     export class IGeolocationListenerWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HighDoP = new IGeolocationListenerWarning("HighDoP");
+          static StaleData = new IGeolocationListenerWarning("StaleData");
+          static Unknown = new IGeolocationListenerWarning("Unknown");
+
+     }
+     /**
+        Enumeration ILifecycleListenerError
+     */
+     export class ILifecycleListenerError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Runtime = new ILifecycleListenerError("Runtime");
+          static Implementation = new ILifecycleListenerError("Implementation");
+          static Killed = new ILifecycleListenerError("Killed");
+          static Unknown = new ILifecycleListenerError("Unknown");
+
+     }
+     /**
+        Enumeration ILifecycleListenerWarning
+     */
+     export class ILifecycleListenerWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static MemoryLow = new ILifecycleListenerWarning("MemoryLow");
+          static BatteryLow = new ILifecycleListenerWarning("BatteryLow");
+          static Unknown = new ILifecycleListenerWarning("Unknown");
+
+     }
+     /**
+        Enumeration ILoggingLogLevel
+     */
+     export class ILoggingLogLevel {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static DEBUG = new ILoggingLogLevel("DEBUG");
+          static WARN = new ILoggingLogLevel("WARN");
+          static ERROR = new ILoggingLogLevel("ERROR");
+          static INFO = new ILoggingLogLevel("INFO");
+          static Unknown = new ILoggingLogLevel("Unknown");
+
+     }
+     /**
+        Enumeration IMessagingCallbackError
+     */
+     export class IMessagingCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static SIMNotPresent = new IMessagingCallbackError("SIMNotPresent");
+          static EmailAccountNotFound = new IMessagingCallbackError("EmailAccountNotFound");
+          static NotSent = new IMessagingCallbackError("NotSent");
+          static WrongParams = new IMessagingCallbackError("WrongParams");
+          static NotSupported = new IMessagingCallbackError("NotSupported");
+          static Unknown = new IMessagingCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration IMessagingCallbackWarning
+     */
+     export class IMessagingCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static UnableToSentAll = new IMessagingCallbackWarning("UnableToSentAll");
+          static UnableToFetchAttachment = new IMessagingCallbackWarning("UnableToFetchAttachment");
+          static Unknown = new IMessagingCallbackWarning("Unknown");
 
      }
      /**
@@ -4798,159 +4875,57 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-        Enumeration IFileListResultCallbackWarning
+        Enumeration INetworkReachabilityCallbackWarning
      */
-     export class IFileListResultCallbackWarning {
+     export class INetworkReachabilityCallbackWarning {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static PartialResult = new IFileListResultCallbackWarning("PartialResult");
-          static Unknown = new IFileListResultCallbackWarning("Unknown");
+          static IncorrectScheme = new INetworkReachabilityCallbackWarning("IncorrectScheme");
+          static NotSecure = new INetworkReachabilityCallbackWarning("NotSecure");
+          static NotTrusted = new INetworkReachabilityCallbackWarning("NotTrusted");
+          static Redirected = new INetworkReachabilityCallbackWarning("Redirected");
+          static NotRegisteredService = new INetworkReachabilityCallbackWarning("NotRegisteredService");
+          static Unknown = new INetworkReachabilityCallbackWarning("Unknown");
 
      }
      /**
-        Enumeration IFileListResultCallbackError
+        Enumeration ISecureKVResultCallbackError
      */
-     export class IFileListResultCallbackError {
+     export class ISecureKVResultCallbackError {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static InexistentFile = new IFileListResultCallbackError("InexistentFile");
-          static Unauthorized = new IFileListResultCallbackError("Unauthorized");
-          static Unknown = new IFileListResultCallbackError("Unknown");
+          static NoPermission = new ISecureKVResultCallbackError("NoPermission");
+          static NoMatchesFound = new ISecureKVResultCallbackError("NoMatchesFound");
+          static Unknown = new ISecureKVResultCallbackError("Unknown");
 
      }
      /**
-        Enumeration IContactResultCallbackWarning
+        Enumeration ISecureKVResultCallbackWarning
      */
-     export class IContactResultCallbackWarning {
+     export class ISecureKVResultCallbackWarning {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static LimitExceeded = new IContactResultCallbackWarning("LimitExceeded");
-          static No_Matches = new IContactResultCallbackWarning("No_Matches");
-          static Unknown = new IContactResultCallbackWarning("Unknown");
+          static EntryOverride = new ISecureKVResultCallbackWarning("EntryOverride");
+          static Unknown = new ISecureKVResultCallbackWarning("Unknown");
 
      }
      /**
-        Enumeration IContactResultCallbackError
+        Enumeration IServiceProtocolVersion
      */
-     export class IContactResultCallbackError {
+     export class IServiceProtocolVersion {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static NoPermission = new IContactResultCallbackError("NoPermission");
-          static Wrong_Params = new IContactResultCallbackError("Wrong_Params");
-          static Unknown = new IContactResultCallbackError("Unknown");
-
-     }
-     /**
-        Enumeration IFileResultCallbackWarning
-     */
-     export class IFileResultCallbackWarning {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static SourceNotDeleted = new IFileResultCallbackWarning("SourceNotDeleted");
-          static RootDirectory = new IFileResultCallbackWarning("RootDirectory");
-          static Unknown = new IFileResultCallbackWarning("Unknown");
-
-     }
-     /**
-        Enumeration IFileResultCallbackError
-     */
-     export class IFileResultCallbackError {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static FileExists = new IFileResultCallbackError("FileExists");
-          static InsufficientSpace = new IFileResultCallbackError("InsufficientSpace");
-          static Unauthorized = new IFileResultCallbackError("Unauthorized");
-          static Unknown = new IFileResultCallbackError("Unknown");
-
-     }
-     /**
-        Enumeration ITableResultCallbackWarning
-     */
-     export class ITableResultCallbackWarning {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static TableExists = new ITableResultCallbackWarning("TableExists");
-          static TableLocked = new ITableResultCallbackWarning("TableLocked");
-          static NoResults = new ITableResultCallbackWarning("NoResults");
-          static Unknown = new ITableResultCallbackWarning("Unknown");
-
-     }
-     /**
-        Enumeration ITableResultCallbackError
-     */
-     export class ITableResultCallbackError {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static NoSpace = new ITableResultCallbackError("NoSpace");
-          static ReadOnlyTable = new ITableResultCallbackError("ReadOnlyTable");
-          static SqlException = new ITableResultCallbackError("SqlException");
-          static DatabaseNotFound = new ITableResultCallbackError("DatabaseNotFound");
-          static NoTableFound = new ITableResultCallbackError("NoTableFound");
-          static Unknown = new ITableResultCallbackError("Unknown");
-
-     }
-     /**
-        Enumeration ContactEmailType
-     */
-     export class ContactEmailType {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Personal = new ContactEmailType("Personal");
-          static Work = new ContactEmailType("Work");
-          static Other = new ContactEmailType("Other");
-          static Unknown = new ContactEmailType("Unknown");
-
-     }
-     /**
-        Enumeration LifecycleState
-     */
-     export class LifecycleState {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Starting = new LifecycleState("Starting");
-          static Started = new LifecycleState("Started");
-          static Running = new LifecycleState("Running");
-          static Paused = new LifecycleState("Paused");
-          static PausedIdle = new LifecycleState("PausedIdle");
-          static PausedRun = new LifecycleState("PausedRun");
-          static Resuming = new LifecycleState("Resuming");
-          static Stopping = new LifecycleState("Stopping");
-          static Unknown = new LifecycleState("Unknown");
-
-     }
-     /**
-        Enumeration ContactPersonalInfoTitle
-     */
-     export class ContactPersonalInfoTitle {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static Mr = new ContactPersonalInfoTitle("Mr");
-          static Mrs = new ContactPersonalInfoTitle("Mrs");
-          static Ms = new ContactPersonalInfoTitle("Ms");
-          static Dr = new ContactPersonalInfoTitle("Dr");
-          static Unknown = new ContactPersonalInfoTitle("Unknown");
+          static HTTP_PROTOCOL_VERSION_1_0 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_0");
+          static HTTP_PROTOCOL_VERSION_1_1 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_1");
+          static Unknown = new IServiceProtocolVersion("Unknown");
 
      }
      /**
@@ -4988,64 +4963,89 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
-        Enumeration IServiceProtocolVersion
+        Enumeration IServiceResultCallbackError
      */
-     export class IServiceProtocolVersion {
+     export class IServiceResultCallbackError {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static HTTP_PROTOCOL_VERSION_1_0 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_0");
-          static HTTP_PROTOCOL_VERSION_1_1 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_1");
-          static Unknown = new IServiceProtocolVersion("Unknown");
+          static Forbidden = new IServiceResultCallbackError("Forbidden");
+          static NotFound = new IServiceResultCallbackError("NotFound");
+          static MethodNotAllowed = new IServiceResultCallbackError("MethodNotAllowed");
+          static NotAllowed = new IServiceResultCallbackError("NotAllowed");
+          static NotAuthenticated = new IServiceResultCallbackError("NotAuthenticated");
+          static TimeOut = new IServiceResultCallbackError("TimeOut");
+          static NoResponse = new IServiceResultCallbackError("NoResponse");
+          static ServerError = new IServiceResultCallbackError("ServerError");
+          static Unreachable = new IServiceResultCallbackError("Unreachable");
+          static MalformedUrl = new IServiceResultCallbackError("MalformedUrl");
+          static NotRegisteredService = new IServiceResultCallbackError("NotRegisteredService");
+          static Unknown = new IServiceResultCallbackError("Unknown");
 
      }
      /**
-        Enumeration ContactSocialNetwork
+        Enumeration IServiceResultCallbackWarning
      */
-     export class ContactSocialNetwork {
+     export class IServiceResultCallbackWarning {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Twitter = new ContactSocialNetwork("Twitter");
-          static Facebook = new ContactSocialNetwork("Facebook");
-          static GooglePlus = new ContactSocialNetwork("GooglePlus");
-          static LinkedIn = new ContactSocialNetwork("LinkedIn");
-          static Flickr = new ContactSocialNetwork("Flickr");
-          static Unknown = new ContactSocialNetwork("Unknown");
+          static NotSecure = new IServiceResultCallbackWarning("NotSecure");
+          static NotTrusted = new IServiceResultCallbackWarning("NotTrusted");
+          static Redirected = new IServiceResultCallbackWarning("Redirected");
+          static Wrong_Params = new IServiceResultCallbackWarning("Wrong_Params");
+          static Unknown = new IServiceResultCallbackWarning("Unknown");
 
      }
      /**
-        Enumeration ContactPhoneType
+        Enumeration ITableResultCallbackError
      */
-     export class ContactPhoneType {
+     export class ITableResultCallbackError {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Mobile = new ContactPhoneType("Mobile");
-          static Work = new ContactPhoneType("Work");
-          static Home = new ContactPhoneType("Home");
-          static Main = new ContactPhoneType("Main");
-          static HomeFax = new ContactPhoneType("HomeFax");
-          static WorkFax = new ContactPhoneType("WorkFax");
-          static Other = new ContactPhoneType("Other");
-          static Unknown = new ContactPhoneType("Unknown");
+          static NoSpace = new ITableResultCallbackError("NoSpace");
+          static ReadOnlyTable = new ITableResultCallbackError("ReadOnlyTable");
+          static SqlException = new ITableResultCallbackError("SqlException");
+          static DatabaseNotFound = new ITableResultCallbackError("DatabaseNotFound");
+          static NoTableFound = new ITableResultCallbackError("NoTableFound");
+          static Unknown = new ITableResultCallbackError("Unknown");
 
      }
      /**
-        Enumeration ContactAddressType
+        Enumeration ITableResultCallbackWarning
      */
-     export class ContactAddressType {
+     export class ITableResultCallbackWarning {
 
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static Home = new ContactAddressType("Home");
-          static Work = new ContactAddressType("Work");
-          static Other = new ContactAddressType("Other");
-          static Unknown = new ContactAddressType("Unknown");
+          static TableExists = new ITableResultCallbackWarning("TableExists");
+          static TableLocked = new ITableResultCallbackWarning("TableLocked");
+          static NoResults = new ITableResultCallbackWarning("NoResults");
+          static Unknown = new ITableResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration LifecycleState
+     */
+     export class LifecycleState {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Starting = new LifecycleState("Starting");
+          static Started = new LifecycleState("Started");
+          static Running = new LifecycleState("Running");
+          static Paused = new LifecycleState("Paused");
+          static PausedIdle = new LifecycleState("PausedIdle");
+          static PausedRun = new LifecycleState("PausedRun");
+          static Resuming = new LifecycleState("Resuming");
+          static Stopping = new LifecycleState("Stopping");
+          static Unknown = new LifecycleState("Unknown");
 
      }
 

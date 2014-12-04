@@ -35,17 +35,17 @@ Created by FRMI on 25/08/2014.
 */
 @protocol IContactPhotoResultCallback <IBaseCallback>
 
-     typedef NS_OPTIONS(NSUInteger, IContactPhotoResultCallbackWarning) {
-          IContactPhotoResultCallbackWarning_LimitExceeded = 0,
-          IContactPhotoResultCallbackWarning_No_Matches = 1,
-          IContactPhotoResultCallbackWarning_Unknown = 2
-     };
-
      typedef NS_OPTIONS(NSUInteger, IContactPhotoResultCallbackError) {
           IContactPhotoResultCallbackError_NoPermission = 0,
           IContactPhotoResultCallbackError_Wrong_Params = 1,
           IContactPhotoResultCallbackError_No_Photo = 2,
           IContactPhotoResultCallbackError_Unknown = 3
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IContactPhotoResultCallbackWarning) {
+          IContactPhotoResultCallbackWarning_LimitExceeded = 0,
+          IContactPhotoResultCallbackWarning_No_Matches = 1,
+          IContactPhotoResultCallbackWarning_Unknown = 2
      };
 
 @end

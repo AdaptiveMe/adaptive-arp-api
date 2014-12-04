@@ -35,6 +35,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -217,6 +218,12 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void endGeneration() {
+        enumClassList.sort(new Comparator<Class>() {
+            @Override
+            public int compare(Class o1, Class o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
         for (Class enumClass : enumClassList) {
             generateEnumClass(enumClass);
         }

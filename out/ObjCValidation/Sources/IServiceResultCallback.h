@@ -35,14 +35,6 @@ Definition of IServiceResultCallback interface/protocol.
 */
 @protocol IServiceResultCallback <IBaseCallback>
 
-     typedef NS_OPTIONS(NSUInteger, IServiceResultCallbackWarning) {
-          IServiceResultCallbackWarning_NotSecure = 0,
-          IServiceResultCallbackWarning_NotTrusted = 1,
-          IServiceResultCallbackWarning_Redirected = 2,
-          IServiceResultCallbackWarning_Wrong_Params = 3,
-          IServiceResultCallbackWarning_Unknown = 4
-     };
-
      typedef NS_OPTIONS(NSUInteger, IServiceResultCallbackError) {
           IServiceResultCallbackError_Forbidden = 0,
           IServiceResultCallbackError_NotFound = 1,
@@ -56,6 +48,14 @@ Definition of IServiceResultCallback interface/protocol.
           IServiceResultCallbackError_MalformedUrl = 9,
           IServiceResultCallbackError_NotRegisteredService = 10,
           IServiceResultCallbackError_Unknown = 11
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IServiceResultCallbackWarning) {
+          IServiceResultCallbackWarning_NotSecure = 0,
+          IServiceResultCallbackWarning_NotTrusted = 1,
+          IServiceResultCallbackWarning_Redirected = 2,
+          IServiceResultCallbackWarning_Wrong_Params = 3,
+          IServiceResultCallbackWarning_Unknown = 4
      };
 
 @end

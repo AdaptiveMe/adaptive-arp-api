@@ -360,6 +360,13 @@ public class TypeScriptGenerator extends GeneratorBase {
 
         indentPrintStream.flush();
         indentPrintStream.close();
+
+        enumClassList.sort(new Comparator<Class>() {
+            @Override
+            public int compare(Class o1, Class o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
         for (Class enumClass : enumClassList) {
             generateEnumClass(enumClass);
         }

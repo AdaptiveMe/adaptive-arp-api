@@ -35,15 +35,11 @@ Definition of ICapabilities interface/protocol.
 */
 @protocol ICapabilities <IBaseSystem>
 
-     typedef NS_OPTIONS(NSUInteger, ICapabilitiesSensor) {
-          ICapabilitiesSensor_Accelerometer = 0,
-          ICapabilitiesSensor_AmbientLight = 1,
-          ICapabilitiesSensor_Barometer = 2,
-          ICapabilitiesSensor_Geolocation = 3,
-          ICapabilitiesSensor_Gyroscope = 4,
-          ICapabilitiesSensor_Magnetometer = 5,
-          ICapabilitiesSensor_Proximity = 6,
-          ICapabilitiesSensor_Unknown = 7
+     typedef NS_OPTIONS(NSUInteger, ICapabilitiesButton) {
+          ICapabilitiesButton_HomeButton = 0,
+          ICapabilitiesButton_BackButton = 1,
+          ICapabilitiesButton_OptionButton = 2,
+          ICapabilitiesButton_Unknown = 3
      };
 
      typedef NS_OPTIONS(NSUInteger, ICapabilitiesCommunication) {
@@ -89,11 +85,15 @@ Definition of ICapabilities interface/protocol.
           ICapabilitiesNotification_Unknown = 4
      };
 
-     typedef NS_OPTIONS(NSUInteger, ICapabilitiesButton) {
-          ICapabilitiesButton_HomeButton = 0,
-          ICapabilitiesButton_BackButton = 1,
-          ICapabilitiesButton_OptionButton = 2,
-          ICapabilitiesButton_Unknown = 3
+     typedef NS_OPTIONS(NSUInteger, ICapabilitiesSensor) {
+          ICapabilitiesSensor_Accelerometer = 0,
+          ICapabilitiesSensor_AmbientLight = 1,
+          ICapabilitiesSensor_Barometer = 2,
+          ICapabilitiesSensor_Geolocation = 3,
+          ICapabilitiesSensor_Gyroscope = 4,
+          ICapabilitiesSensor_Magnetometer = 5,
+          ICapabilitiesSensor_Proximity = 6,
+          ICapabilitiesSensor_Unknown = 7
      };
 
 @end

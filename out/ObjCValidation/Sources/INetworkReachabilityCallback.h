@@ -35,15 +35,6 @@ Created by FRMI on 28/08/2014.
 */
 @protocol INetworkReachabilityCallback <IBaseCallback>
 
-     typedef NS_OPTIONS(NSUInteger, INetworkReachabilityCallbackWarning) {
-          INetworkReachabilityCallbackWarning_IncorrectScheme = 0,
-          INetworkReachabilityCallbackWarning_NotSecure = 1,
-          INetworkReachabilityCallbackWarning_NotTrusted = 2,
-          INetworkReachabilityCallbackWarning_Redirected = 3,
-          INetworkReachabilityCallbackWarning_NotRegisteredService = 4,
-          INetworkReachabilityCallbackWarning_Unknown = 5
-     };
-
      typedef NS_OPTIONS(NSUInteger, INetworkReachabilityCallbackError) {
           INetworkReachabilityCallbackError_Forbidden = 0,
           INetworkReachabilityCallbackError_NotFound = 1,
@@ -57,6 +48,15 @@ Created by FRMI on 28/08/2014.
           INetworkReachabilityCallbackError_MalformedUrl = 9,
           INetworkReachabilityCallbackError_DomainUnresolvable = 10,
           INetworkReachabilityCallbackError_Unknown = 11
+     };
+
+     typedef NS_OPTIONS(NSUInteger, INetworkReachabilityCallbackWarning) {
+          INetworkReachabilityCallbackWarning_IncorrectScheme = 0,
+          INetworkReachabilityCallbackWarning_NotSecure = 1,
+          INetworkReachabilityCallbackWarning_NotTrusted = 2,
+          INetworkReachabilityCallbackWarning_Redirected = 3,
+          INetworkReachabilityCallbackWarning_NotRegisteredService = 4,
+          INetworkReachabilityCallbackWarning_Unknown = 5
      };
 
 @end

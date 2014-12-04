@@ -35,18 +35,18 @@ Definition of IGeolocationListener interface/protocol.
 */
 @protocol IGeolocationListener <IBaseListener>
 
-     typedef NS_OPTIONS(NSUInteger, IGeolocationListenerWarning) {
-          IGeolocationListenerWarning_HighDoP = 0,
-          IGeolocationListenerWarning_StaleData = 1,
-          IGeolocationListenerWarning_Unknown = 2
-     };
-
      typedef NS_OPTIONS(NSUInteger, IGeolocationListenerError) {
           IGeolocationListenerError_Disabled = 0,
           IGeolocationListenerError_RestrictedAccess = 1,
           IGeolocationListenerError_DeniedAccess = 2,
           IGeolocationListenerError_StatusNotDetermined = 3,
           IGeolocationListenerError_Unknown = 4
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IGeolocationListenerWarning) {
+          IGeolocationListenerWarning_HighDoP = 0,
+          IGeolocationListenerWarning_StaleData = 1,
+          IGeolocationListenerWarning_Unknown = 2
      };
 
 @end

@@ -35,17 +35,17 @@ Definition of ILifecycleListener interface/protocol.
 */
 @protocol ILifecycleListener <IBaseListener>
 
-     typedef NS_OPTIONS(NSUInteger, ILifecycleListenerWarning) {
-          ILifecycleListenerWarning_MemoryLow = 0,
-          ILifecycleListenerWarning_BatteryLow = 1,
-          ILifecycleListenerWarning_Unknown = 2
-     };
-
      typedef NS_OPTIONS(NSUInteger, ILifecycleListenerError) {
           ILifecycleListenerError_Runtime = 0,
           ILifecycleListenerError_Implementation = 1,
           ILifecycleListenerError_Killed = 2,
           ILifecycleListenerError_Unknown = 3
+     };
+
+     typedef NS_OPTIONS(NSUInteger, ILifecycleListenerWarning) {
+          ILifecycleListenerWarning_MemoryLow = 0,
+          ILifecycleListenerWarning_BatteryLow = 1,
+          ILifecycleListenerWarning_Unknown = 2
      };
 
 @end

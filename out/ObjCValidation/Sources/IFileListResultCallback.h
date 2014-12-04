@@ -35,15 +35,15 @@ Definition of IFileListResultCallback interface/protocol.
 */
 @protocol IFileListResultCallback <IBaseCallback>
 
-     typedef NS_OPTIONS(NSUInteger, IFileListResultCallbackWarning) {
-          IFileListResultCallbackWarning_PartialResult = 0,
-          IFileListResultCallbackWarning_Unknown = 1
-     };
-
      typedef NS_OPTIONS(NSUInteger, IFileListResultCallbackError) {
           IFileListResultCallbackError_InexistentFile = 0,
           IFileListResultCallbackError_Unauthorized = 1,
           IFileListResultCallbackError_Unknown = 2
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IFileListResultCallbackWarning) {
+          IFileListResultCallbackWarning_PartialResult = 0,
+          IFileListResultCallbackWarning_Unknown = 1
      };
 
 @end
