@@ -64,10 +64,90 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(endpoint: Endpoint, name: string, method: IServiceMethod, type: IServiceType) {
-               this.endpoint = endpoint
-               this.name = name
-               this.method = method
-               this.type = type
+               this.endpoint = endpoint;
+               this.name = name;
+               this.method = method;
+               this.type = type;
+          }
+
+          /**
+             Returns the method
+
+             @return method
+             @since ARP1.0
+          */
+          getMethod() : IServiceMethod {
+               return this.method;
+          }
+
+          /**
+             Set the method
+
+             @param method
+             @since ARP1.0
+          */
+          setMethod(method: IServiceMethod) {
+               this.method = method;
+          }
+
+          /**
+             Returns the type
+
+             @return type
+             @since ARP1.0
+          */
+          getType() : IServiceType {
+               return this.type;
+          }
+
+          /**
+             Set the type
+
+             @param type
+             @since ARP1.0
+          */
+          setType(type: IServiceType) {
+               this.type = type;
+          }
+
+          /**
+             Returns the endpoint
+
+             @return endpoint
+             @since ARP1.0
+          */
+          getEndpoint() : Endpoint {
+               return this.endpoint;
+          }
+
+          /**
+             Set the endpoint
+
+             @param endpoint
+             @since ARP1.0
+          */
+          setEndpoint(endpoint: Endpoint) {
+               this.endpoint = endpoint;
+          }
+
+          /**
+             Returns the name
+
+             @return name
+             @since ARP1.0
+          */
+          getName() : string {
+               return this.name;
+          }
+
+          /**
+             Set the name
+
+             @param name
+             @since ARP1.0
+          */
+          setName(name: string) {
+               this.name = name;
           }
 
 

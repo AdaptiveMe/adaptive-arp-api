@@ -78,13 +78,152 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(toRecipients: Array<EmailAddress>, ccRecipients: Array<EmailAddress>, bccRecipients: Array<EmailAddress>, attachmentData: Array<AttachmentData>, messageBody: string, messageBodyMimeType: string, subject: string) {
-               this.toRecipients = toRecipients
-               this.ccRecipients = ccRecipients
-               this.bccRecipients = bccRecipients
-               this.attachmentData = attachmentData
-               this.messageBody = messageBody
-               this.messageBodyMimeType = messageBodyMimeType
-               this.subject = subject
+               this.toRecipients = toRecipients;
+               this.ccRecipients = ccRecipients;
+               this.bccRecipients = bccRecipients;
+               this.attachmentData = attachmentData;
+               this.messageBody = messageBody;
+               this.messageBodyMimeType = messageBodyMimeType;
+               this.subject = subject;
+          }
+
+          /**
+             Returns an array of attachments
+
+             @return attachmentData array with the email attachments
+             @since ARP1.0
+          */
+          getAttachmentData() : Array<AttachmentData> {
+               return this.attachmentData;
+          }
+
+          /**
+             Set the email attachment data array
+
+             @param attachmentData array of email attatchments
+             @since ARP1.0
+          */
+          setAttachmentData(attachmentData: Array<AttachmentData>) {
+               this.attachmentData = attachmentData;
+          }
+
+          /**
+             Returns the array of recipients
+
+             @return bccRecipients array of bcc recipients
+             @since ARP1.0
+          */
+          getBccRecipients() : Array<EmailAddress> {
+               return this.bccRecipients;
+          }
+
+          /**
+             Set the array of recipients
+
+             @param bccRecipients array of bcc recipients
+             @since ARP1.0
+          */
+          setBccRecipients(bccRecipients: Array<EmailAddress>) {
+               this.bccRecipients = bccRecipients;
+          }
+
+          /**
+             Returns the array of recipients
+
+             @return ccRecipients array of cc recipients
+             @since ARP1.0
+          */
+          getCcRecipients() : Array<EmailAddress> {
+               return this.ccRecipients;
+          }
+
+          /**
+             Set the array of recipients
+
+             @param ccRecipients array of cc recipients
+             @since ARP1.0
+          */
+          setCcRecipients(ccRecipients: Array<EmailAddress>) {
+               this.ccRecipients = ccRecipients;
+          }
+
+          /**
+             Returns the message body of the email
+
+             @return message Body string of the email
+          */
+          getMessageBody() : string {
+               return this.messageBody;
+          }
+
+          /**
+             Set the message body of the email
+
+             @param messageBody message body of the email
+             @since ARP1.0
+          */
+          setMessageBody(messageBody: string) {
+               this.messageBody = messageBody;
+          }
+
+          /**
+             Returns the myme type of the message body
+
+             @return mime type string of the message boddy
+             @since ARP1.0
+          */
+          getMessageBodyMimeType() : string {
+               return this.messageBodyMimeType;
+          }
+
+          /**
+             Set the mime type for the message body
+
+             @param messageBodyMimeType type of the body message
+             @since ARP1.0
+          */
+          setMessageBodyMimeType(messageBodyMimeType: string) {
+               this.messageBodyMimeType = messageBodyMimeType;
+          }
+
+          /**
+             Returns the subject of the email
+
+             @return subject string of the email
+             @since ARP1.0
+          */
+          getSubject() : string {
+               return this.subject;
+          }
+
+          /**
+             Set the subject of the email
+
+             @param subject of the email
+             @since ARP1.0
+          */
+          setSubject(subject: string) {
+               this.subject = subject;
+          }
+
+          /**
+             Returns the array of recipients
+
+             @return toRecipients array of recipients
+             @since ARP1.0
+          */
+          getToRecipients() : Array<EmailAddress> {
+               return this.toRecipients;
+          }
+
+          /**
+             Set the array of recipients
+
+             @param toRecipients array of recipients
+             @since ARP1.0
+          */
+          setToRecipients(toRecipients: Array<EmailAddress>) {
+               this.toRecipients = toRecipients;
           }
 
 

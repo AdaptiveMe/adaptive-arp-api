@@ -45,7 +45,27 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(url: string) {
-               this.url = url
+               this.url = url;
+          }
+
+          /**
+             Returns the url of the website
+
+             @return website url
+             @since ARP1.0
+          */
+          getUrl() : string {
+               return this.url;
+          }
+
+          /**
+             Set the url of the website
+
+             @param url
+             @since ARP1.0
+          */
+          setUrl(url: string) {
+               this.url = url;
           }
 
 

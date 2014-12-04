@@ -41,6 +41,24 @@ var Adaptive;
         function ContactWebsite(url) {
             this.url = url;
         }
+        /**
+           Returns the url of the website
+
+           @return website url
+           @since ARP1.0
+        */
+        ContactWebsite.prototype.getUrl = function () {
+            return this.url;
+        };
+        /**
+           Set the url of the website
+
+           @param url
+           @since ARP1.0
+        */
+        ContactWebsite.prototype.setUrl = function (url) {
+            this.url = url;
+        };
         return ContactWebsite;
     })();
     Adaptive.ContactWebsite = ContactWebsite;

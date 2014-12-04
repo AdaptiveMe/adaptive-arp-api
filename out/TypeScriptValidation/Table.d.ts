@@ -59,5 +59,65 @@ declare module Adaptive {
            @param name The name of the table
         */
         constructor(name: string);
+        /**
+           Get the number of columns
+
+           @return The number of columns
+        */
+        getColumnCount(): number;
+        /**
+           Sets the number of columns
+
+           @param columnCount The number of columns
+        */
+        setColumnCount(columnCount: number): void;
+        /**
+           Get the columns
+
+           @return The columns
+        */
+        getColumns(): Column[];
+        /**
+           Sets the columns of the table
+
+           @param columns The columns of the table
+        */
+        setColumns(columns: Column[]): void;
+        /**
+           Returns the name of the table
+
+           @return The name of the table
+        */
+        getName(): string;
+        /**
+           Sets the name of the table
+
+           @param name The name of the table
+        */
+        setName(name: string): void;
+        /**
+           Get the number of rows
+
+           @return The number of rows
+        */
+        getRowCount(): number;
+        /**
+           Sets the number of rows
+
+           @param rowCount The number of rows
+        */
+        setRowCount(rowCount: number): void;
+        /**
+           Get the rows of the table
+
+           @return The rows of the table
+        */
+        getRows(): Row[];
+        /**
+           Sets the rows of the table
+
+           @param rows The rows of the table
+        */
+        setRows(rows: Row[]): void;
     }
 }

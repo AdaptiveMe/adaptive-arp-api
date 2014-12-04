@@ -46,6 +46,72 @@ var Adaptive;
             this.vendor = vendor;
             this.uuid = uuid;
         }
+        /**
+           Returns the model of the device.
+
+           @return String with the model of the device.
+        */
+        DeviceInfo.prototype.getModel = function () {
+            return this.model;
+        };
+        /**
+           Sets Model of device - equivalent to device release or version.
+
+           @param model Model of device - equivalent to device release or version.
+        */
+        DeviceInfo.prototype.setModel = function (model) {
+            this.model = model;
+        };
+        /**
+           Returns the name of the device.
+
+           @return String with device name.
+        */
+        DeviceInfo.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets Name of device - equivalent to brand.
+
+           @param name Name of device - equivalent to brand.
+        */
+        DeviceInfo.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Returns the platform dependent UUID of the device.
+
+           @return String with the 128-bit device identifier.
+        */
+        DeviceInfo.prototype.getUuid = function () {
+            return this.uuid;
+        };
+        /**
+           Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+
+           @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+        */
+        DeviceInfo.prototype.setUuid = function (uuid) {
+            this.uuid = uuid;
+        };
+        /**
+           Returns the vendor of the device.
+
+           @return String with the vendor name.
+        */
+        DeviceInfo.prototype.getVendor = function () {
+            return this.vendor;
+        };
+        /**
+           Sets Vendor of the device hardware.
+
+           @param vendor Vendor of the device hardware.
+        */
+        DeviceInfo.prototype.setVendor = function (vendor) {
+            this.vendor = vendor;
+        };
         return DeviceInfo;
     })();
     Adaptive.DeviceInfo = DeviceInfo;

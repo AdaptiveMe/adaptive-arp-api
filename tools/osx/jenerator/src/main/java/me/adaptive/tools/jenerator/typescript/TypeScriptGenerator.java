@@ -66,7 +66,91 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void declareGetterSetter(Class clazz, Field field, JavaField fieldByName, List<JavaMethod> methods) {
+        JavaMethod getter = null;
+        JavaMethod setter = null;
+        String fieldName = field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1);
 
+        for (JavaMethod method : methods) {
+            if (method.getName().equals("set" + fieldName)) {
+                setter = method;
+            } else if (method.getName().equals("get" + fieldName)) {
+                getter = method;
+            } else if (method.getName().equals("is" + fieldName)) {
+                getter = method;
+            }
+        }
+        /**
+         * Getters
+         */
+        startComment(10);
+        startCommentGlobal(10);
+        if (getter != null && getter.getComment() != null && getter.getComment().trim().length() > 0) {
+            println(13, getter.getComment());
+            printlnGlobal(13, getter.getComment());
+        } else {
+            println(13, "Gets " + fieldByName.getComment());
+            printlnGlobal(13, "Gets " + fieldByName.getComment());
+        }
+        println();
+        printlnGlobal();
+        if (getter != null && getter.getComment() != null && getter.getComment().trim().length() > 0) {
+            for (DocletTag tag : getter.getTags()) {
+                println(13, "@" + tag.getName() + " " + tag.getValue());
+                printlnGlobal(13, "@" + tag.getName() + " " + tag.getValue());
+            }
+        } else {
+            println(13, "@return " + field.getName() + " " + fieldByName.getComment());
+            printlnGlobal(13, "@return " + field.getName() + " " + fieldByName.getComment());
+        }
+        endComment(10);
+        endCommentGlobal(10);
+        if (field.getType().equals(Boolean.class)) {
+            println(10, "is"+fieldName+"() : " + convertJavaToNativeType(field.getType())+" {");
+            printlnGlobal(10, "is" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
+        } else {
+            println(10, "get"+fieldName+"() : " + convertJavaToNativeType(field.getType())+" {");
+            printlnGlobal(10, "get" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
+        }
+
+        println(15, "return this." + field.getName() + ";");
+        printlnGlobal(15, "return this." + field.getName() + ";");
+        println(10, "}");
+        printlnGlobal(10, "}");
+        println();
+        printlnGlobal();
+        /**
+         * Setters
+         */
+        startComment(10);
+        startCommentGlobal(10);
+        if (setter != null && setter.getComment() != null && setter.getComment().trim().length() > 0) {
+            println(13, setter.getComment());
+            printlnGlobal(13, setter.getComment());
+        } else {
+            println(13, "Sets " + fieldByName.getComment());
+            printlnGlobal(13, "Sets " + fieldByName.getComment());
+        }
+        println();
+        printlnGlobal();
+        if (setter != null && setter.getComment() != null && setter.getComment().trim().length() > 0) {
+            for (DocletTag tag : setter.getTags()) {
+                println(13, "@" + tag.getName() + " " + tag.getValue());
+                printlnGlobal(13, "@" + tag.getName() + " " + tag.getValue());
+            }
+        } else {
+            println(13, "@param " + field.getName() + " " + fieldByName.getComment());
+            printlnGlobal(13, "@param " + field.getName() + " " + fieldByName.getComment());
+        }
+        endComment(10);
+        endCommentGlobal(10);
+        println(10, "set" + fieldName + "("+field.getName()+": "+convertJavaToNativeType(field.getType())+") {");
+        println(15, "this." + field.getName() + " = "+field.getName()+";");
+        println(10, "}");
+        println();
+        printlnGlobal(10, "set" + fieldName + "("+field.getName()+": "+convertJavaToNativeType(field.getType())+") {");
+        printlnGlobal(15, "this." + field.getName() + " = "+field.getName()+";");
+        printlnGlobal(10, "}");
+        printlnGlobal();
     }
 
     @Override
@@ -122,10 +206,36 @@ public class TypeScriptGenerator extends GeneratorBase {
         }
         println(") {");
         printlnGlobal(0, ") {");
-        for (int i = 0; i < c.getParameterCount(); i++) {
-            Parameter p = c.getParameters()[i];
-            println(15, "this." + p.getName() + " = " + p.getName());
-            printlnGlobal(15, "this." + p.getName() + " = " + p.getName());
+
+        if (!clazz.getSuperclass().equals(Object.class)) {
+            print(15, "super(");
+            printGlobal(15, "super(");
+            for (int j=0;j<c.getParameters().length;j++) {
+                Parameter parameter = c.getParameters()[j];
+                print(parameter.getName());
+                printGlobal(0,parameter.getName());
+                if (j<c.getParameters().length-1) {
+                    print(", ");
+                    printGlobal(0, ", ");
+                }
+            }
+            println(");");
+            printlnGlobal(0,");");
+        }
+
+        for (int j = 0; j < c.getParameters().length; j++) {
+            Parameter parameter = c.getParameters()[j];
+            boolean thisField = false;
+            for (Field field : clazz.getDeclaredFields()) {
+                if (parameter.getName().equals(field.getName())) {
+                    thisField = true;
+                    break;
+                }
+            }
+            if (thisField) {
+                println(15, "this." + parameter.getName() + " = " + parameter.getName()+";");
+                printlnGlobal(15, "this." + parameter.getName() + " = " + parameter.getName()+";");
+            }
         }
         println(10, "}");
         printlnGlobal(10, "}");

@@ -71,5 +71,110 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(name: string, data: string);
+        /**
+           Gets Cookie creation timestamp in milliseconds.
+
+           @return creation Cookie creation timestamp in milliseconds.
+        */
+        getCreation(): number;
+        /**
+           Sets Cookie creation timestamp in milliseconds.
+
+           @param creation Cookie creation timestamp in milliseconds.
+        */
+        setCreation(creation: number): void;
+        /**
+           Returns the cookie value
+
+           @return
+           @since ARP1.0
+        */
+        getData(): string;
+        /**
+           Set the cookie value
+
+           @param data
+           @since ARP1.0
+        */
+        setData(data: string): void;
+        /**
+           Returns the domain
+
+           @return domain
+           @since ARP1.0
+        */
+        getDomain(): string;
+        /**
+           Set the domain
+
+           @param domain
+        */
+        setDomain(domain: string): void;
+        /**
+           Returns the expiration date in milis
+
+           @return expiry
+           @since ARP1.0
+        */
+        getExpiry(): number;
+        /**
+           Set the expiration date in milis
+
+           @param expiry
+        */
+        setExpiry(expiry: number): void;
+        /**
+           Returns the cookie name
+
+           @return name
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Set the cookie name
+
+           @param name
+           @since ARP1.0
+        */
+        setName(name: string): void;
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        getPath(): string;
+        /**
+           Set the path
+
+           @param path
+        */
+        setPath(path: string): void;
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        getScheme(): string;
+        /**
+           Set the scheme
+
+           @param scheme
+        */
+        setScheme(scheme: string): void;
+        /**
+           Returns whether the cookie is secure or not
+
+           @return true if the cookie is secure; false otherwise
+           @since ARP1.0
+        */
+        getSecure(): boolean;
+        /**
+           Set whether the cookie is secure or not
+
+           @param secure
+        */
+        setSecure(secure: boolean): void;
     }
 }

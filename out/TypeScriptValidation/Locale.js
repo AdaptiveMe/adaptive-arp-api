@@ -43,6 +43,42 @@ var Adaptive;
             this.language = language;
             this.country = country;
         }
+        /**
+           Returns the country code
+
+           @return country code
+           @since ARP1.0
+        */
+        Locale.prototype.getCountry = function () {
+            return this.country;
+        };
+        /**
+           Set the country code
+
+           @param country code
+           @since ARP1.0
+        */
+        Locale.prototype.setCountry = function (country) {
+            this.country = country;
+        };
+        /**
+           Returns the language code
+
+           @return language code
+           @since ARP1.0
+        */
+        Locale.prototype.getLanguage = function () {
+            return this.language;
+        };
+        /**
+           Set the language code
+
+           @param language code
+           @since ARP1.0
+        */
+        Locale.prototype.setLanguage = function (language) {
+            this.language = language;
+        };
         return Locale;
     })();
     Adaptive.Locale = Locale;

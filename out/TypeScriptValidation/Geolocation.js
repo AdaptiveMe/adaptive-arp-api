@@ -49,6 +49,94 @@ var Adaptive;
             this.xDoP = xDoP;
             this.yDoP = yDoP;
         }
+        /**
+           Returns altitude in meters
+
+           @return altitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.getAltitude = function () {
+            return this.altitude;
+        };
+        /**
+           Set altitude in meters
+
+           @param altitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.setAltitude = function (altitude) {
+            this.altitude = altitude;
+        };
+        /**
+           Returns the latitude in degrees
+
+           @return latitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.getLatitude = function () {
+            return this.latitude;
+        };
+        /**
+           Set the latitude in degrees
+
+           @param latitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.setLatitude = function (latitude) {
+            this.latitude = latitude;
+        };
+        /**
+           Returns the longitude in degrees
+
+           @return longitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.getLongitude = function () {
+            return this.longitude;
+        };
+        /**
+           Returns the latitude in degrees
+
+           @param longitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.setLongitude = function (longitude) {
+            this.longitude = longitude;
+        };
+        /**
+           Returns the Dilution of Position in the X axis (longitude)
+
+           @return xDoP
+           @since ARP1.0
+        */
+        Geolocation.prototype.getXDoP = function () {
+            return this.xDoP;
+        };
+        /**
+           Sets Dilution of precision on the X measurement. Measured in meters.
+
+           @param xDoP Dilution of precision on the X measurement. Measured in meters.
+        */
+        Geolocation.prototype.setXDoP = function (xDoP) {
+            this.xDoP = xDoP;
+        };
+        /**
+           Returns the Dilution of Position in the Y axis (latitude)
+
+           @return yDoP
+           @since ARP1.0
+        */
+        Geolocation.prototype.getYDoP = function () {
+            return this.yDoP;
+        };
+        /**
+           Sets Dilution of precision on the Y measurement. Measured in meters.
+
+           @param yDoP Dilution of precision on the Y measurement. Measured in meters.
+        */
+        Geolocation.prototype.setYDoP = function (yDoP) {
+            this.yDoP = yDoP;
+        };
         return Geolocation;
     })();
     Adaptive.Geolocation = Geolocation;

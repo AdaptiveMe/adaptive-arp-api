@@ -49,6 +49,96 @@ var Adaptive;
             this.proxy = proxy;
             this.scheme = scheme;
         }
+        /**
+           Returns the host
+
+           @return host
+           @since ARP1.0
+        */
+        Endpoint.prototype.getHost = function () {
+            return this.host;
+        };
+        /**
+           Set the host
+
+           @param host
+           @since ARP1.0
+        */
+        Endpoint.prototype.setHost = function (host) {
+            this.host = host;
+        };
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        Endpoint.prototype.getPath = function () {
+            return this.path;
+        };
+        /**
+           Set the path
+
+           @param path
+           @since ARP1.0
+        */
+        Endpoint.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        /**
+           Returns the port
+
+           @return port
+           @since ARP1.0
+        */
+        Endpoint.prototype.getPort = function () {
+            return this.port;
+        };
+        /**
+           Set the port
+
+           @param port
+           @since ARP1.0
+        */
+        Endpoint.prototype.setPort = function (port) {
+            this.port = port;
+        };
+        /**
+           Return the proxy
+
+           @return proxy
+           @since ARP1.0
+        */
+        Endpoint.prototype.getProxy = function () {
+            return this.proxy;
+        };
+        /**
+           Set the proxy
+
+           @param proxy
+           @since ARP1.0
+        */
+        Endpoint.prototype.setProxy = function (proxy) {
+            this.proxy = proxy;
+        };
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        Endpoint.prototype.getScheme = function () {
+            return this.scheme;
+        };
+        /**
+           Set the scheme
+
+           @param scheme
+           @since ARP1.0
+        */
+        Endpoint.prototype.setScheme = function (scheme) {
+            this.scheme = scheme;
+        };
         return Endpoint;
     })();
     Adaptive.Endpoint = Endpoint;

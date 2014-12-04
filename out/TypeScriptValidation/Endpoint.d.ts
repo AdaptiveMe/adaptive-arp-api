@@ -62,5 +62,75 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(host: string, path: string, port: number, proxy: string, scheme: string);
+        /**
+           Returns the host
+
+           @return host
+           @since ARP1.0
+        */
+        getHost(): string;
+        /**
+           Set the host
+
+           @param host
+           @since ARP1.0
+        */
+        setHost(host: string): void;
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        getPath(): string;
+        /**
+           Set the path
+
+           @param path
+           @since ARP1.0
+        */
+        setPath(path: string): void;
+        /**
+           Returns the port
+
+           @return port
+           @since ARP1.0
+        */
+        getPort(): number;
+        /**
+           Set the port
+
+           @param port
+           @since ARP1.0
+        */
+        setPort(port: number): void;
+        /**
+           Return the proxy
+
+           @return proxy
+           @since ARP1.0
+        */
+        getProxy(): string;
+        /**
+           Set the proxy
+
+           @param proxy
+           @since ARP1.0
+        */
+        setProxy(proxy: string): void;
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        getScheme(): string;
+        /**
+           Set the scheme
+
+           @param scheme
+           @since ARP1.0
+        */
+        setScheme(scheme: string): void;
     }
 }

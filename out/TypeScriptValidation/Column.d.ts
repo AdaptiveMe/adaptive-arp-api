@@ -41,5 +41,17 @@ declare module Adaptive {
            @param name Name of the column
         */
         constructor(name: string);
+        /**
+           Returns the name of the column.
+
+           @return The name of the column.
+        */
+        getName(): string;
+        /**
+           Sets the name of the column.
+
+           @param name The name of the column.
+        */
+        setName(name: string): void;
     }
 }

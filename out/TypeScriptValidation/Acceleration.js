@@ -47,6 +47,70 @@ var Adaptive;
             this.z = z;
             this.timeStamp = timeStamp;
         }
+        /**
+           Gets Timestamp of the acceleration reading.
+
+           @return timeStamp Timestamp of the acceleration reading.
+        */
+        Acceleration.prototype.getTimeStamp = function () {
+            return this.timeStamp;
+        };
+        /**
+           Sets Timestamp of the acceleration reading.
+
+           @param timeStamp Timestamp of the acceleration reading.
+        */
+        Acceleration.prototype.setTimeStamp = function (timeStamp) {
+            this.timeStamp = timeStamp;
+        };
+        /**
+           Gets X-axis component of the acceleration.
+
+           @return x X-axis component of the acceleration.
+        */
+        Acceleration.prototype.getX = function () {
+            return this.x;
+        };
+        /**
+           Sets X-axis component of the acceleration.
+
+           @param x X-axis component of the acceleration.
+        */
+        Acceleration.prototype.setX = function (x) {
+            this.x = x;
+        };
+        /**
+           Gets Y-axis component of the acceleration.
+
+           @return y Y-axis component of the acceleration.
+        */
+        Acceleration.prototype.getY = function () {
+            return this.y;
+        };
+        /**
+           Sets Y-axis component of the acceleration.
+
+           @param y Y-axis component of the acceleration.
+        */
+        Acceleration.prototype.setY = function (y) {
+            this.y = y;
+        };
+        /**
+           Gets Z-axis component of the acceleration.
+
+           @return z Z-axis component of the acceleration.
+        */
+        Acceleration.prototype.getZ = function () {
+            return this.z;
+        };
+        /**
+           Sets Z-axis component of the acceleration.
+
+           @param z Z-axis component of the acceleration.
+        */
+        Acceleration.prototype.setZ = function (z) {
+            this.z = z;
+        };
         return Acceleration;
     })();
     Adaptive.Acceleration = Acceleration;

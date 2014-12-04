@@ -40,6 +40,22 @@ var Adaptive;
         function Column(name) {
             this.name = name;
         }
+        /**
+           Returns the name of the column.
+
+           @return The name of the column.
+        */
+        Column.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets the name of the column.
+
+           @param name The name of the column.
+        */
+        Column.prototype.setName = function (name) {
+            this.name = name;
+        };
         return Column;
     })();
     Adaptive.Column = Column;

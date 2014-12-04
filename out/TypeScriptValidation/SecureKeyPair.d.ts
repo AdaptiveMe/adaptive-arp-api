@@ -41,5 +41,33 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(secureKey: string, secureData: string);
+        /**
+           Returns the object value
+
+           @return Value.
+           @since ARP 1.0
+        */
+        getSecureData(): string;
+        /**
+           Sets the value for this object
+
+           @param secureData value to set.
+           @since ARP 1.0
+        */
+        setSecureData(secureData: string): void;
+        /**
+           Returns the object secureKey name.
+
+           @return Key name.
+           @since ARP 1.0
+        */
+        getSecureKey(): string;
+        /**
+           Sets the secureKey name for this object.
+
+           @param secureKey Key name.
+           @since ARP 1.0
+        */
+        setSecureKey(secureKey: string): void;
     }
 }

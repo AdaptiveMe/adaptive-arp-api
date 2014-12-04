@@ -48,6 +48,78 @@ var Adaptive;
             this.lastName = lastName;
             this.title = title;
         }
+        /**
+           Returns the title of the Contact
+
+           @return Title
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getTitle = function () {
+            return this.title;
+        };
+        /**
+           Set the Title of the Contact
+
+           @param title
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setTitle = function (title) {
+            this.title = title;
+        };
+        /**
+           Returns the last name of the Contact
+
+           @return lastName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getLastName = function () {
+            return this.lastName;
+        };
+        /**
+           Set the last name of the Contact
+
+           @param lastName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setLastName = function (lastName) {
+            this.lastName = lastName;
+        };
+        /**
+           Returns the middle name of the Contact
+
+           @return middelName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getMiddleName = function () {
+            return this.middleName;
+        };
+        /**
+           Set the middle name of the Contact
+
+           @param middleName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setMiddleName = function (middleName) {
+            this.middleName = middleName;
+        };
+        /**
+           Returns the name of the Contact
+
+           @return name
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the name of the Contact
+
+           @param name
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setName = function (name) {
+            this.name = name;
+        };
         return ContactPersonalInfo;
     })();
     Adaptive.ContactPersonalInfo = ContactPersonalInfo;

@@ -47,7 +47,26 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(type: ICapabilitiesButton) {
-               this.type = type
+               this.type = type;
+          }
+
+          /**
+             Returns the button type
+
+             @return type Button type.
+             @since ARP1.0
+          */
+          getType() : ICapabilitiesButton {
+               return this.type;
+          }
+
+          /**
+             Sets Button type
+
+             @param type Button type
+          */
+          setType(type: ICapabilitiesButton) {
+               this.type = type;
           }
 
 

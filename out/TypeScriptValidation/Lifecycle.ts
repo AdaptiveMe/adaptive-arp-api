@@ -47,7 +47,27 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(state: LifecycleState) {
-               this.state = state
+               this.state = state;
+          }
+
+          /**
+             Returns the state of the application
+
+             @return state of the app
+             @since ARP1.0
+          */
+          getState() : LifecycleState {
+               return this.state;
+          }
+
+          /**
+             Set the State of the application
+
+             @param state of the app
+             @since ARP1.0
+          */
+          setState(state: LifecycleState) {
+               this.state = state;
           }
 
 

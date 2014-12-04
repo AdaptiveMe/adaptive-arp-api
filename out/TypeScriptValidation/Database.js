@@ -44,6 +44,46 @@ var Adaptive;
             this.name = name;
             this.compress = compress;
         }
+        /**
+           Returns if the table is compressed
+
+           @return Compression enabled
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        Database.prototype.getCompress = function () {
+            return this.compress;
+        };
+        /**
+           Sets if the table is compressed or not.
+
+           @param compress Compression enabled
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        Database.prototype.setCompress = function (compress) {
+            this.compress = compress;
+        };
+        /**
+           Returns the name.
+
+           @return The name of the table.
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        Database.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets the name of the table.
+
+           @param name The name of the table.
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        Database.prototype.setName = function (name) {
+            this.name = name;
+        };
         return Database;
     })();
     Adaptive.Database = Database;

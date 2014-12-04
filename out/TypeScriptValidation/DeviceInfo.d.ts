@@ -57,5 +57,55 @@ be unique for a specific instance of an application on a specific device.
            @param uuid   unique* identifier (* platform dependent).
         */
         constructor(name: string, model: string, vendor: string, uuid: string);
+        /**
+           Returns the model of the device.
+
+           @return String with the model of the device.
+        */
+        getModel(): string;
+        /**
+           Sets Model of device - equivalent to device release or version.
+
+           @param model Model of device - equivalent to device release or version.
+        */
+        setModel(model: string): void;
+        /**
+           Returns the name of the device.
+
+           @return String with device name.
+        */
+        getName(): string;
+        /**
+           Sets Name of device - equivalent to brand.
+
+           @param name Name of device - equivalent to brand.
+        */
+        setName(name: string): void;
+        /**
+           Returns the platform dependent UUID of the device.
+
+           @return String with the 128-bit device identifier.
+        */
+        getUuid(): string;
+        /**
+           Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+
+           @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+        */
+        setUuid(uuid: string): void;
+        /**
+           Returns the vendor of the device.
+
+           @return String with the vendor name.
+        */
+        getVendor(): string;
+        /**
+           Sets Vendor of the device hardware.
+
+           @param vendor Vendor of the device hardware.
+        */
+        setVendor(vendor: string): void;
     }
 }

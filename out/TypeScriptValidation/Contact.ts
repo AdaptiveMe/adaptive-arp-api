@@ -83,7 +83,167 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(contactId: string) {
-               this.contactId = contactId
+               super(contactId);
+          }
+
+          /**
+             Returns all the addresses of the Contact
+
+             @return ContactAddress[]
+             @since ARP1.0
+          */
+          getContactAddresses() : Array<ContactAddress> {
+               return this.contactAddresses;
+          }
+
+          /**
+             Set the addresses of the Contact
+
+             @param contactAddresses
+             @since ARP1.0
+          */
+          setContactAddresses(contactAddresses: Array<ContactAddress>) {
+               this.contactAddresses = contactAddresses;
+          }
+
+          /**
+             Returns all the emails of the Contact
+
+             @return ContactEmail[]
+             @since ARP1.0
+          */
+          getContactEmails() : Array<ContactEmail> {
+               return this.contactEmails;
+          }
+
+          /**
+             Set the emails of the Contact
+
+             @param contactEmails
+             @since ARP1.0
+          */
+          setContactEmails(contactEmails: Array<ContactEmail>) {
+               this.contactEmails = contactEmails;
+          }
+
+          /**
+             Returns all the phones of the Contact
+
+             @return ContactPhone[]
+             @since ARP1.0
+          */
+          getContactPhones() : Array<ContactPhone> {
+               return this.contactPhones;
+          }
+
+          /**
+             Set the phones of the Contact
+
+             @param contactPhones
+             @since ARP1.0
+          */
+          setContactPhones(contactPhones: Array<ContactPhone>) {
+               this.contactPhones = contactPhones;
+          }
+
+          /**
+             Returns all the social network info of the Contact
+
+             @return ContactSocial[]
+             @since ARP1.0
+          */
+          getContactSocials() : Array<ContactSocial> {
+               return this.contactSocials;
+          }
+
+          /**
+             Set the social network info of the Contact
+
+             @param contactSocials
+             @since ARP1.0
+          */
+          setContactSocials(contactSocials: Array<ContactSocial>) {
+               this.contactSocials = contactSocials;
+          }
+
+          /**
+             Returns the additional tags of the Contact
+
+             @return ContactTag[]
+             @since ARP1.0
+          */
+          getContactTags() : Array<ContactTag> {
+               return this.contactTags;
+          }
+
+          /**
+             Set the additional tags of the Contact
+
+             @param contactTags
+             @since ARP1.0
+          */
+          setContactTags(contactTags: Array<ContactTag>) {
+               this.contactTags = contactTags;
+          }
+
+          /**
+             Returns all the websites of the Contact
+
+             @return ContactWebsite[]
+             @since ARP1.0
+          */
+          getContactWebsites() : Array<ContactWebsite> {
+               return this.contactWebsites;
+          }
+
+          /**
+             Set the websites of the Contact
+
+             @param contactWebsites
+             @since ARP1.0
+          */
+          setContactWebsites(contactWebsites: Array<ContactWebsite>) {
+               this.contactWebsites = contactWebsites;
+          }
+
+          /**
+             Returns the personal info of the Contact
+
+             @return ContactPersonalInfo of the Contact
+             @since ARP1.0
+          */
+          getPersonalInfo() : ContactPersonalInfo {
+               return this.personalInfo;
+          }
+
+          /**
+             Set the personal info of the Contact
+
+             @param personalInfo
+             @since ARP1.0
+          */
+          setPersonalInfo(personalInfo: ContactPersonalInfo) {
+               this.personalInfo = personalInfo;
+          }
+
+          /**
+             Returns the professional info of the Contact
+
+             @return ContactProfessionalInfo[]
+             @since ARP1.0
+          */
+          getProfessionalInfo() : ContactProfessionalInfo {
+               return this.professionalInfo;
+          }
+
+          /**
+             Set the professional info of the Contact
+
+             @param professionalInfo
+             @since ARP1.0
+          */
+          setProfessionalInfo(professionalInfo: ContactProfessionalInfo) {
+               this.professionalInfo = professionalInfo;
           }
 
 

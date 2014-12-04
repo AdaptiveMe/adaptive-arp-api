@@ -50,6 +50,78 @@ var Adaptive;
             this.method = method;
             this.type = type;
         }
+        /**
+           Returns the method
+
+           @return method
+           @since ARP1.0
+        */
+        Service.prototype.getMethod = function () {
+            return this.method;
+        };
+        /**
+           Set the method
+
+           @param method
+           @since ARP1.0
+        */
+        Service.prototype.setMethod = function (method) {
+            this.method = method;
+        };
+        /**
+           Returns the type
+
+           @return type
+           @since ARP1.0
+        */
+        Service.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Set the type
+
+           @param type
+           @since ARP1.0
+        */
+        Service.prototype.setType = function (type) {
+            this.type = type;
+        };
+        /**
+           Returns the endpoint
+
+           @return endpoint
+           @since ARP1.0
+        */
+        Service.prototype.getEndpoint = function () {
+            return this.endpoint;
+        };
+        /**
+           Set the endpoint
+
+           @param endpoint
+           @since ARP1.0
+        */
+        Service.prototype.setEndpoint = function (endpoint) {
+            this.endpoint = endpoint;
+        };
+        /**
+           Returns the name
+
+           @return name
+           @since ARP1.0
+        */
+        Service.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the name
+
+           @param name
+           @since ARP1.0
+        */
+        Service.prototype.setName = function (name) {
+            this.name = name;
+        };
         return Service;
     })();
     Adaptive.Service = Service;

@@ -42,6 +42,24 @@ var Adaptive;
         function Lifecycle(state) {
             this.state = state;
         }
+        /**
+           Returns the state of the application
+
+           @return state of the app
+           @since ARP1.0
+        */
+        Lifecycle.prototype.getState = function () {
+            return this.state;
+        };
+        /**
+           Set the State of the application
+
+           @param state of the app
+           @since ARP1.0
+        */
+        Lifecycle.prototype.setState = function (state) {
+            this.state = state;
+        };
         return Lifecycle;
     })();
     Adaptive.Lifecycle = Lifecycle;

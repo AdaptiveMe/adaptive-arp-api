@@ -89,15 +89,195 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(content: string, contentType: string, contentLength: number, rawContent: Array<number>, headers: Array<Header>, method: string, protocolVersion: IServiceProtocolVersion, session: ISession, contentEncoding: string) {
-               this.content = content
-               this.contentType = contentType
-               this.contentLength = contentLength
-               this.rawContent = rawContent
-               this.headers = headers
-               this.method = method
-               this.protocolVersion = protocolVersion
-               this.session = session
-               this.contentEncoding = contentEncoding
+               this.content = content;
+               this.contentType = contentType;
+               this.contentLength = contentLength;
+               this.rawContent = rawContent;
+               this.headers = headers;
+               this.method = method;
+               this.protocolVersion = protocolVersion;
+               this.session = session;
+               this.contentEncoding = contentEncoding;
+          }
+
+          /**
+             Returns the protocol version
+
+             @return protocolVersion enum
+             @since ARP1.0
+          */
+          getProtocolVersion() : IServiceProtocolVersion {
+               return this.protocolVersion;
+          }
+
+          /**
+             Set the protocol version
+
+             @param protocolVersion
+             @since ARP1.0
+          */
+          setProtocolVersion(protocolVersion: IServiceProtocolVersion) {
+               this.protocolVersion = protocolVersion;
+          }
+
+          /**
+             Returns the content
+
+             @return content
+             @since ARP1.0
+          */
+          getContent() : string {
+               return this.content;
+          }
+
+          /**
+             Set the content
+
+             @param content
+             @since ARP1.0
+          */
+          setContent(content: string) {
+               this.content = content;
+          }
+
+          /**
+             Returns the content encoding
+
+             @return contentEncoding
+             @since ARP1.0
+          */
+          getContentEncoding() : string {
+               return this.contentEncoding;
+          }
+
+          /**
+             Set the content encoding
+
+             @param contentEncoding
+             @since ARP1.0
+          */
+          setContentEncoding(contentEncoding: string) {
+               this.contentEncoding = contentEncoding;
+          }
+
+          /**
+             Returns the content length
+
+             @return contentLength
+             @since ARP1.0
+          */
+          getContentLength() : number {
+               return this.contentLength;
+          }
+
+          /**
+             Set the content length
+
+             @param contentLength
+             @since ARP1.0
+          */
+          setContentLength(contentLength: number) {
+               this.contentLength = contentLength;
+          }
+
+          /**
+             Returns the content type
+
+             @return contentType
+             @since ARP1.0
+          */
+          getContentType() : string {
+               return this.contentType;
+          }
+
+          /**
+             Set the content type
+
+             @param contentType
+             @since ARP1.0
+          */
+          setContentType(contentType: string) {
+               this.contentType = contentType;
+          }
+
+          /**
+             Returns the array of Header
+
+             @return headers
+             @since ARP1.0
+          */
+          getHeaders() : Array<Header> {
+               return this.headers;
+          }
+
+          /**
+             Set the array of Header
+
+             @param headers
+             @since ARP1.0
+          */
+          setHeaders(headers: Array<Header>) {
+               this.headers = headers;
+          }
+
+          /**
+             Returns the method
+
+             @return method
+             @since ARP1.0
+          */
+          getMethod() : string {
+               return this.method;
+          }
+
+          /**
+             Set the method
+
+             @param method
+             @since ARP1.0
+          */
+          setMethod(method: string) {
+               this.method = method;
+          }
+
+          /**
+             Returns the byte[] of the content
+
+             @return rawContent
+             @since ARP1.0
+          */
+          getRawContent() : Array<number> {
+               return this.rawContent;
+          }
+
+          /**
+             Set the byte[] of the content
+
+             @param rawContent
+             @since ARP1.0
+          */
+          setRawContent(rawContent: Array<number>) {
+               this.rawContent = rawContent;
+          }
+
+          /**
+             Returns the session object
+
+             @return session
+             @since ARP1.0
+          */
+          getSession() : ISession {
+               return this.session;
+          }
+
+          /**
+             Set the session object
+
+             @param session
+             @since ARP1.0
+          */
+          setSession(session: ISession) {
+               this.session = session;
           }
 
 

@@ -40,6 +40,22 @@ var Adaptive;
         function Row(values) {
             this.values = values;
         }
+        /**
+           Returns the values of the row.
+
+           @return The values of the row.
+        */
+        Row.prototype.getValues = function () {
+            return this.values;
+        };
+        /**
+           Sets the values of the row.
+
+           @param values The values of the row.
+        */
+        Row.prototype.setValues = function (values) {
+            this.values = values;
+        };
         return Row;
     })();
     Adaptive.Row = Row;

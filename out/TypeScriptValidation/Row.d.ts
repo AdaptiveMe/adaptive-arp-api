@@ -41,5 +41,17 @@ declare module Adaptive {
            @param values The values of the row
         */
         constructor(values: any[]);
+        /**
+           Returns the values of the row.
+
+           @return The values of the row.
+        */
+        getValues(): any[];
+        /**
+           Sets the values of the row.
+
+           @param values The values of the row.
+        */
+        setValues(values: any[]): void;
     }
 }

@@ -49,6 +49,143 @@ var Adaptive;
             this.name = name;
             this.data = data;
         }
+        /**
+           Gets Cookie creation timestamp in milliseconds.
+
+           @return creation Cookie creation timestamp in milliseconds.
+        */
+        Cookie.prototype.getCreation = function () {
+            return this.creation;
+        };
+        /**
+           Sets Cookie creation timestamp in milliseconds.
+
+           @param creation Cookie creation timestamp in milliseconds.
+        */
+        Cookie.prototype.setCreation = function (creation) {
+            this.creation = creation;
+        };
+        /**
+           Returns the cookie value
+
+           @return
+           @since ARP1.0
+        */
+        Cookie.prototype.getData = function () {
+            return this.data;
+        };
+        /**
+           Set the cookie value
+
+           @param data
+           @since ARP1.0
+        */
+        Cookie.prototype.setData = function (data) {
+            this.data = data;
+        };
+        /**
+           Returns the domain
+
+           @return domain
+           @since ARP1.0
+        */
+        Cookie.prototype.getDomain = function () {
+            return this.domain;
+        };
+        /**
+           Set the domain
+
+           @param domain
+        */
+        Cookie.prototype.setDomain = function (domain) {
+            this.domain = domain;
+        };
+        /**
+           Returns the expiration date in milis
+
+           @return expiry
+           @since ARP1.0
+        */
+        Cookie.prototype.getExpiry = function () {
+            return this.expiry;
+        };
+        /**
+           Set the expiration date in milis
+
+           @param expiry
+        */
+        Cookie.prototype.setExpiry = function (expiry) {
+            this.expiry = expiry;
+        };
+        /**
+           Returns the cookie name
+
+           @return name
+           @since ARP1.0
+        */
+        Cookie.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the cookie name
+
+           @param name
+           @since ARP1.0
+        */
+        Cookie.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        Cookie.prototype.getPath = function () {
+            return this.path;
+        };
+        /**
+           Set the path
+
+           @param path
+        */
+        Cookie.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        Cookie.prototype.getScheme = function () {
+            return this.scheme;
+        };
+        /**
+           Set the scheme
+
+           @param scheme
+        */
+        Cookie.prototype.setScheme = function (scheme) {
+            this.scheme = scheme;
+        };
+        /**
+           Returns whether the cookie is secure or not
+
+           @return true if the cookie is secure; false otherwise
+           @since ARP1.0
+        */
+        Cookie.prototype.getSecure = function () {
+            return this.secure;
+        };
+        /**
+           Set whether the cookie is secure or not
+
+           @param secure
+        */
+        Cookie.prototype.setSecure = function (secure) {
+            this.secure = secure;
+        };
         return Cookie;
     })();
     Adaptive.Cookie = Cookie;
@@ -77,6 +214,96 @@ var Adaptive;
             this.proxy = proxy;
             this.scheme = scheme;
         }
+        /**
+           Returns the host
+
+           @return host
+           @since ARP1.0
+        */
+        Endpoint.prototype.getHost = function () {
+            return this.host;
+        };
+        /**
+           Set the host
+
+           @param host
+           @since ARP1.0
+        */
+        Endpoint.prototype.setHost = function (host) {
+            this.host = host;
+        };
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        Endpoint.prototype.getPath = function () {
+            return this.path;
+        };
+        /**
+           Set the path
+
+           @param path
+           @since ARP1.0
+        */
+        Endpoint.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        /**
+           Returns the port
+
+           @return port
+           @since ARP1.0
+        */
+        Endpoint.prototype.getPort = function () {
+            return this.port;
+        };
+        /**
+           Set the port
+
+           @param port
+           @since ARP1.0
+        */
+        Endpoint.prototype.setPort = function (port) {
+            this.port = port;
+        };
+        /**
+           Return the proxy
+
+           @return proxy
+           @since ARP1.0
+        */
+        Endpoint.prototype.getProxy = function () {
+            return this.proxy;
+        };
+        /**
+           Set the proxy
+
+           @param proxy
+           @since ARP1.0
+        */
+        Endpoint.prototype.setProxy = function (proxy) {
+            this.proxy = proxy;
+        };
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        Endpoint.prototype.getScheme = function () {
+            return this.scheme;
+        };
+        /**
+           Set the scheme
+
+           @param scheme
+           @since ARP1.0
+        */
+        Endpoint.prototype.setScheme = function (scheme) {
+            this.scheme = scheme;
+        };
         return Endpoint;
     })();
     Adaptive.Endpoint = Endpoint;
@@ -105,6 +332,94 @@ var Adaptive;
             this.xDoP = xDoP;
             this.yDoP = yDoP;
         }
+        /**
+           Returns altitude in meters
+
+           @return altitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.getAltitude = function () {
+            return this.altitude;
+        };
+        /**
+           Set altitude in meters
+
+           @param altitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.setAltitude = function (altitude) {
+            this.altitude = altitude;
+        };
+        /**
+           Returns the latitude in degrees
+
+           @return latitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.getLatitude = function () {
+            return this.latitude;
+        };
+        /**
+           Set the latitude in degrees
+
+           @param latitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.setLatitude = function (latitude) {
+            this.latitude = latitude;
+        };
+        /**
+           Returns the longitude in degrees
+
+           @return longitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.getLongitude = function () {
+            return this.longitude;
+        };
+        /**
+           Returns the latitude in degrees
+
+           @param longitude
+           @since ARP1.0
+        */
+        Geolocation.prototype.setLongitude = function (longitude) {
+            this.longitude = longitude;
+        };
+        /**
+           Returns the Dilution of Position in the X axis (longitude)
+
+           @return xDoP
+           @since ARP1.0
+        */
+        Geolocation.prototype.getXDoP = function () {
+            return this.xDoP;
+        };
+        /**
+           Sets Dilution of precision on the X measurement. Measured in meters.
+
+           @param xDoP Dilution of precision on the X measurement. Measured in meters.
+        */
+        Geolocation.prototype.setXDoP = function (xDoP) {
+            this.xDoP = xDoP;
+        };
+        /**
+           Returns the Dilution of Position in the Y axis (latitude)
+
+           @return yDoP
+           @since ARP1.0
+        */
+        Geolocation.prototype.getYDoP = function () {
+            return this.yDoP;
+        };
+        /**
+           Sets Dilution of precision on the Y measurement. Measured in meters.
+
+           @param yDoP Dilution of precision on the Y measurement. Measured in meters.
+        */
+        Geolocation.prototype.setYDoP = function (yDoP) {
+            this.yDoP = yDoP;
+        };
         return Geolocation;
     })();
     Adaptive.Geolocation = Geolocation;
@@ -129,6 +444,60 @@ var Adaptive;
             this.primary = primary;
             this.email = email;
         }
+        /**
+           Returns the type of the email
+
+           @return EmailType
+           @since ARP1.0
+        */
+        ContactEmail.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Set the type of the email
+
+           @param type
+           @since ARP1.0
+        */
+        ContactEmail.prototype.setType = function (type) {
+            this.type = type;
+        };
+        /**
+           Returns the email of the Contact
+
+           @return email
+           @since ARP1.0
+        */
+        ContactEmail.prototype.getEmail = function () {
+            return this.email;
+        };
+        /**
+           Set the email of the Contact
+
+           @param email
+           @since ARP1.0
+        */
+        ContactEmail.prototype.setEmail = function (email) {
+            this.email = email;
+        };
+        /**
+           Returns if the email is primary
+
+           @return true if the email is primary; false otherwise
+           @since ARP1.0
+        */
+        ContactEmail.prototype.getPrimary = function () {
+            return this.primary;
+        };
+        /**
+           Set if the email
+
+           @param primary true if the email is primary; false otherwise
+           @since ARP1.0
+        */
+        ContactEmail.prototype.setPrimary = function (primary) {
+            this.primary = primary;
+        };
         return ContactEmail;
     })();
     Adaptive.ContactEmail = ContactEmail;
@@ -154,6 +523,72 @@ var Adaptive;
             this.vendor = vendor;
             this.uuid = uuid;
         }
+        /**
+           Returns the model of the device.
+
+           @return String with the model of the device.
+        */
+        DeviceInfo.prototype.getModel = function () {
+            return this.model;
+        };
+        /**
+           Sets Model of device - equivalent to device release or version.
+
+           @param model Model of device - equivalent to device release or version.
+        */
+        DeviceInfo.prototype.setModel = function (model) {
+            this.model = model;
+        };
+        /**
+           Returns the name of the device.
+
+           @return String with device name.
+        */
+        DeviceInfo.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets Name of device - equivalent to brand.
+
+           @param name Name of device - equivalent to brand.
+        */
+        DeviceInfo.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Returns the platform dependent UUID of the device.
+
+           @return String with the 128-bit device identifier.
+        */
+        DeviceInfo.prototype.getUuid = function () {
+            return this.uuid;
+        };
+        /**
+           Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+
+           @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+        */
+        DeviceInfo.prototype.setUuid = function (uuid) {
+            this.uuid = uuid;
+        };
+        /**
+           Returns the vendor of the device.
+
+           @return String with the vendor name.
+        */
+        DeviceInfo.prototype.getVendor = function () {
+            return this.vendor;
+        };
+        /**
+           Sets Vendor of the device hardware.
+
+           @param vendor Vendor of the device hardware.
+        */
+        DeviceInfo.prototype.setVendor = function (vendor) {
+            this.vendor = vendor;
+        };
         return DeviceInfo;
     })();
     Adaptive.DeviceInfo = DeviceInfo;
@@ -177,6 +612,46 @@ var Adaptive;
             this.name = name;
             this.compress = compress;
         }
+        /**
+           Returns if the table is compressed
+
+           @return Compression enabled
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        Database.prototype.getCompress = function () {
+            return this.compress;
+        };
+        /**
+           Sets if the table is compressed or not.
+
+           @param compress Compression enabled
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        Database.prototype.setCompress = function (compress) {
+            this.compress = compress;
+        };
+        /**
+           Returns the name.
+
+           @return The name of the table.
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        Database.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets the name of the table.
+
+           @param name The name of the table.
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        Database.prototype.setName = function (name) {
+            this.name = name;
+        };
         return Database;
     })();
     Adaptive.Database = Database;
@@ -197,6 +672,24 @@ var Adaptive;
         function ContactUid(contactId) {
             this.contactId = contactId;
         }
+        /**
+           Returns the contact id
+
+           @return Contactid Internal unique contact id.
+           @since ARP1.0
+        */
+        ContactUid.prototype.getContactId = function () {
+            return this.contactId;
+        };
+        /**
+           Set the id of the Contact
+
+           @param contactId Internal unique contact id.
+           @since ARP1.0
+        */
+        ContactUid.prototype.setContactId = function (contactId) {
+            this.contactId = contactId;
+        };
         return ContactUid;
     })();
     Adaptive.ContactUid = ContactUid;
@@ -219,6 +712,42 @@ var Adaptive;
             this.name = name;
             this.dataValue = dataValue;
         }
+        /**
+           Returns the value of the Tag
+
+           @return value
+           @since ARP1.0
+        */
+        ContactTag.prototype.getDataValue = function () {
+            return this.dataValue;
+        };
+        /**
+           Set the value of the Tag
+
+           @param dataValue
+           @since ARP1.0
+        */
+        ContactTag.prototype.setDataValue = function (dataValue) {
+            this.dataValue = dataValue;
+        };
+        /**
+           Returns the name of the Tag
+
+           @return name
+           @since ARP1.0
+        */
+        ContactTag.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the name of the Tag
+
+           @param name
+           @since ARP1.0
+        */
+        ContactTag.prototype.setName = function (name) {
+            this.name = name;
+        };
         return ContactTag;
     })();
     Adaptive.ContactTag = ContactTag;
@@ -241,6 +770,42 @@ var Adaptive;
             this.secureKey = secureKey;
             this.secureData = secureData;
         }
+        /**
+           Returns the object value
+
+           @return Value.
+           @since ARP 1.0
+        */
+        SecureKeyPair.prototype.getSecureData = function () {
+            return this.secureData;
+        };
+        /**
+           Sets the value for this object
+
+           @param secureData value to set.
+           @since ARP 1.0
+        */
+        SecureKeyPair.prototype.setSecureData = function (secureData) {
+            this.secureData = secureData;
+        };
+        /**
+           Returns the object secureKey name.
+
+           @return Key name.
+           @since ARP 1.0
+        */
+        SecureKeyPair.prototype.getSecureKey = function () {
+            return this.secureKey;
+        };
+        /**
+           Sets the secureKey name for this object.
+
+           @param secureKey Key name.
+           @since ARP 1.0
+        */
+        SecureKeyPair.prototype.setSecureKey = function (secureKey) {
+            this.secureKey = secureKey;
+        };
         return SecureKeyPair;
     })();
     Adaptive.SecureKeyPair = SecureKeyPair;
@@ -269,6 +834,96 @@ var Adaptive;
             this.mimeType = mimeType;
             this.referenceUrl = referenceUrl;
         }
+        /**
+           Returns the raw data in byte[]
+
+           @return data Octet-binary content of the attachment payload.
+           @since ARP1.0
+        */
+        AttachmentData.prototype.getData = function () {
+            return this.data;
+        };
+        /**
+           Set the data of the attachment as a byte[]
+
+           @param data Sets the octet-binary content of the attachment.
+           @since ARP1.0
+        */
+        AttachmentData.prototype.setData = function (data) {
+            this.data = data;
+        };
+        /**
+           Returns the size of the attachment as a long
+
+           @return dataSize Length in bytes of the octet-binary content.
+           @since ARP1.0
+        */
+        AttachmentData.prototype.getDataSize = function () {
+            return this.dataSize;
+        };
+        /**
+           Set the size of the attachment as a long
+
+           @param dataSize Length in bytes of the octet-binary content ( should be same as data array length.)
+           @since ARP1.0
+        */
+        AttachmentData.prototype.setDataSize = function (dataSize) {
+            this.dataSize = dataSize;
+        };
+        /**
+           Returns the filename of the attachment
+
+           @return fileName Name of the attachment.
+           @since ARP1.0
+        */
+        AttachmentData.prototype.getFileName = function () {
+            return this.fileName;
+        };
+        /**
+           Set the name of the file attachment
+
+           @param fileName Name of the attachment.
+           @since ARP1.0
+        */
+        AttachmentData.prototype.setFileName = function (fileName) {
+            this.fileName = fileName;
+        };
+        /**
+           Returns the mime type of the attachment
+
+           @return mimeType
+           @since ARP1.0
+        */
+        AttachmentData.prototype.getMimeType = function () {
+            return this.mimeType;
+        };
+        /**
+           Set the mime type of the attachment
+
+           @param mimeType Mime-type of the attachment.
+           @since ARP1.0
+        */
+        AttachmentData.prototype.setMimeType = function (mimeType) {
+            this.mimeType = mimeType;
+        };
+        /**
+           Returns the absolute url of the file attachment
+
+           @return referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+           @since ARP1.0
+        */
+        AttachmentData.prototype.getReferenceUrl = function () {
+            return this.referenceUrl;
+        };
+        /**
+           Set the absolute url of the attachment
+
+           @param referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+           @since ARP1.0
+        */
+        AttachmentData.prototype.setReferenceUrl = function (referenceUrl) {
+            this.referenceUrl = referenceUrl;
+        };
         return AttachmentData;
     })();
     Adaptive.AttachmentData = AttachmentData;
@@ -289,6 +944,24 @@ var Adaptive;
         function Lifecycle(state) {
             this.state = state;
         }
+        /**
+           Returns the state of the application
+
+           @return state of the app
+           @since ARP1.0
+        */
+        Lifecycle.prototype.getState = function () {
+            return this.state;
+        };
+        /**
+           Set the State of the application
+
+           @param state of the app
+           @since ARP1.0
+        */
+        Lifecycle.prototype.setState = function (state) {
+            this.state = state;
+        };
         return Lifecycle;
     })();
     Adaptive.Lifecycle = Lifecycle;
@@ -311,6 +984,42 @@ var Adaptive;
             this.language = language;
             this.country = country;
         }
+        /**
+           Returns the country code
+
+           @return country code
+           @since ARP1.0
+        */
+        Locale.prototype.getCountry = function () {
+            return this.country;
+        };
+        /**
+           Set the country code
+
+           @param country code
+           @since ARP1.0
+        */
+        Locale.prototype.setCountry = function (country) {
+            this.country = country;
+        };
+        /**
+           Returns the language code
+
+           @return language code
+           @since ARP1.0
+        */
+        Locale.prototype.getLanguage = function () {
+            return this.language;
+        };
+        /**
+           Set the language code
+
+           @param language code
+           @since ARP1.0
+        */
+        Locale.prototype.setLanguage = function (language) {
+            this.language = language;
+        };
         return Locale;
     })();
     Adaptive.Locale = Locale;
@@ -337,6 +1046,78 @@ var Adaptive;
             this.lastName = lastName;
             this.title = title;
         }
+        /**
+           Returns the title of the Contact
+
+           @return Title
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getTitle = function () {
+            return this.title;
+        };
+        /**
+           Set the Title of the Contact
+
+           @param title
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setTitle = function (title) {
+            this.title = title;
+        };
+        /**
+           Returns the last name of the Contact
+
+           @return lastName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getLastName = function () {
+            return this.lastName;
+        };
+        /**
+           Set the last name of the Contact
+
+           @param lastName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setLastName = function (lastName) {
+            this.lastName = lastName;
+        };
+        /**
+           Returns the middle name of the Contact
+
+           @return middelName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getMiddleName = function () {
+            return this.middleName;
+        };
+        /**
+           Set the middle name of the Contact
+
+           @param middleName
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setMiddleName = function (middleName) {
+            this.middleName = middleName;
+        };
+        /**
+           Returns the name of the Contact
+
+           @return name
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the name of the Contact
+
+           @param name
+           @since ARP1.0
+        */
+        ContactPersonalInfo.prototype.setName = function (name) {
+            this.name = name;
+        };
         return ContactPersonalInfo;
     })();
     Adaptive.ContactPersonalInfo = ContactPersonalInfo;
@@ -361,6 +1142,60 @@ var Adaptive;
             this.jobDescription = jobDescription;
             this.company = company;
         }
+        /**
+           Returns the company of the job
+
+           @return company
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.getCompany = function () {
+            return this.company;
+        };
+        /**
+           Set the company of the job
+
+           @param company
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.setCompany = function (company) {
+            this.company = company;
+        };
+        /**
+           Returns the description of the job
+
+           @return description
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.getJobDescription = function () {
+            return this.jobDescription;
+        };
+        /**
+           Set the description of the job
+
+           @param jobDescription
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.setJobDescription = function (jobDescription) {
+            this.jobDescription = jobDescription;
+        };
+        /**
+           Returns the title of the job
+
+           @return title
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.getJobTitle = function () {
+            return this.jobTitle;
+        };
+        /**
+           Set the title of the job
+
+           @param jobTitle
+           @since ARP1.0
+        */
+        ContactProfessionalInfo.prototype.setJobTitle = function (jobTitle) {
+            this.jobTitle = jobTitle;
+        };
         return ContactProfessionalInfo;
     })();
     Adaptive.ContactProfessionalInfo = ContactProfessionalInfo;
@@ -380,6 +1215,22 @@ var Adaptive;
         function Row(values) {
             this.values = values;
         }
+        /**
+           Returns the values of the row.
+
+           @return The values of the row.
+        */
+        Row.prototype.getValues = function () {
+            return this.values;
+        };
+        /**
+           Sets the values of the row.
+
+           @param values The values of the row.
+        */
+        Row.prototype.setValues = function (values) {
+            this.values = values;
+        };
         return Row;
     })();
     Adaptive.Row = Row;
@@ -406,6 +1257,78 @@ var Adaptive;
             this.method = method;
             this.type = type;
         }
+        /**
+           Returns the method
+
+           @return method
+           @since ARP1.0
+        */
+        Service.prototype.getMethod = function () {
+            return this.method;
+        };
+        /**
+           Set the method
+
+           @param method
+           @since ARP1.0
+        */
+        Service.prototype.setMethod = function (method) {
+            this.method = method;
+        };
+        /**
+           Returns the type
+
+           @return type
+           @since ARP1.0
+        */
+        Service.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Set the type
+
+           @param type
+           @since ARP1.0
+        */
+        Service.prototype.setType = function (type) {
+            this.type = type;
+        };
+        /**
+           Returns the endpoint
+
+           @return endpoint
+           @since ARP1.0
+        */
+        Service.prototype.getEndpoint = function () {
+            return this.endpoint;
+        };
+        /**
+           Set the endpoint
+
+           @param endpoint
+           @since ARP1.0
+        */
+        Service.prototype.setEndpoint = function (endpoint) {
+            this.endpoint = endpoint;
+        };
+        /**
+           Returns the name
+
+           @return name
+           @since ARP1.0
+        */
+        Service.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the name
+
+           @param name
+           @since ARP1.0
+        */
+        Service.prototype.setName = function (name) {
+            this.name = name;
+        };
         return Service;
     })();
     Adaptive.Service = Service;
@@ -442,6 +1365,168 @@ var Adaptive;
             this.session = session;
             this.contentEncoding = contentEncoding;
         }
+        /**
+           Returns the protocol version
+
+           @return protocolVersion enum
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.getProtocolVersion = function () {
+            return this.protocolVersion;
+        };
+        /**
+           Set the protocol version
+
+           @param protocolVersion
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.setProtocolVersion = function (protocolVersion) {
+            this.protocolVersion = protocolVersion;
+        };
+        /**
+           Returns the content
+
+           @return content
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.getContent = function () {
+            return this.content;
+        };
+        /**
+           Set the content
+
+           @param content
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.setContent = function (content) {
+            this.content = content;
+        };
+        /**
+           Returns the content encoding
+
+           @return contentEncoding
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.getContentEncoding = function () {
+            return this.contentEncoding;
+        };
+        /**
+           Set the content encoding
+
+           @param contentEncoding
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.setContentEncoding = function (contentEncoding) {
+            this.contentEncoding = contentEncoding;
+        };
+        /**
+           Returns the content length
+
+           @return contentLength
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.getContentLength = function () {
+            return this.contentLength;
+        };
+        /**
+           Set the content length
+
+           @param contentLength
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.setContentLength = function (contentLength) {
+            this.contentLength = contentLength;
+        };
+        /**
+           Returns the content type
+
+           @return contentType
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.getContentType = function () {
+            return this.contentType;
+        };
+        /**
+           Set the content type
+
+           @param contentType
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.setContentType = function (contentType) {
+            this.contentType = contentType;
+        };
+        /**
+           Returns the array of Header
+
+           @return headers
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.getHeaders = function () {
+            return this.headers;
+        };
+        /**
+           Set the array of Header
+
+           @param headers
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.setHeaders = function (headers) {
+            this.headers = headers;
+        };
+        /**
+           Returns the method
+
+           @return method
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.getMethod = function () {
+            return this.method;
+        };
+        /**
+           Set the method
+
+           @param method
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.setMethod = function (method) {
+            this.method = method;
+        };
+        /**
+           Returns the byte[] of the content
+
+           @return rawContent
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.getRawContent = function () {
+            return this.rawContent;
+        };
+        /**
+           Set the byte[] of the content
+
+           @param rawContent
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.setRawContent = function (rawContent) {
+            this.rawContent = rawContent;
+        };
+        /**
+           Returns the session object
+
+           @return session
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.getSession = function () {
+            return this.session;
+        };
+        /**
+           Set the session object
+
+           @param session
+           @since ARP1.0
+        */
+        ServiceRequest.prototype.setSession = function (session) {
+            this.session = session;
+        };
         return ServiceRequest;
     })();
     Adaptive.ServiceRequest = ServiceRequest;
@@ -461,6 +1546,22 @@ var Adaptive;
         function Column(name) {
             this.name = name;
         }
+        /**
+           Returns the name of the column.
+
+           @return The name of the column.
+        */
+        Column.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets the name of the column.
+
+           @param name The name of the column.
+        */
+        Column.prototype.setName = function (name) {
+            this.name = name;
+        };
         return Column;
     })();
     Adaptive.Column = Column;
@@ -483,6 +1584,42 @@ var Adaptive;
             this.socialNetwork = socialNetwork;
             this.profileUrl = profileUrl;
         }
+        /**
+           Returns the social network
+
+           @return socialNetwork
+           @since ARP1.0
+        */
+        ContactSocial.prototype.getSocialNetwork = function () {
+            return this.socialNetwork;
+        };
+        /**
+           Set the social network
+
+           @param socialNetwork
+           @since ARP1.0
+        */
+        ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
+            this.socialNetwork = socialNetwork;
+        };
+        /**
+           Returns the profile url of the user
+
+           @return profileUrl
+           @since ARP1.0
+        */
+        ContactSocial.prototype.getProfileUrl = function () {
+            return this.profileUrl;
+        };
+        /**
+           Set the profile url of the iser
+
+           @param profileUrl
+           @since ARP1.0
+        */
+        ContactSocial.prototype.setProfileUrl = function (profileUrl) {
+            this.profileUrl = profileUrl;
+        };
         return ContactSocial;
     })();
     Adaptive.ContactSocial = ContactSocial;
@@ -506,6 +1643,54 @@ var Adaptive;
             this.version = version;
             this.vendor = vendor;
         }
+        /**
+           Returns the name of the operating system.
+
+           @return OS name.
+        */
+        OSInfo.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets The name of the operating system.
+
+           @param name The name of the operating system.
+        */
+        OSInfo.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Returns the vendor of the operating system.
+
+           @return OS vendor.
+        */
+        OSInfo.prototype.getVendor = function () {
+            return this.vendor;
+        };
+        /**
+           Sets The vendor of the operating system.
+
+           @param vendor The vendor of the operating system.
+        */
+        OSInfo.prototype.setVendor = function (vendor) {
+            this.vendor = vendor;
+        };
+        /**
+           Returns the version of the operating system.
+
+           @return OS version.
+        */
+        OSInfo.prototype.getVersion = function () {
+            return this.version;
+        };
+        /**
+           Sets The version/identifier of the operating system.
+
+           @param version The version/identifier of the operating system.
+        */
+        OSInfo.prototype.setVersion = function (version) {
+            this.version = version;
+        };
         return OSInfo;
     })();
     Adaptive.OSInfo = OSInfo;
@@ -528,6 +1713,42 @@ var Adaptive;
             this.name = name;
             this.data = data;
         }
+        /**
+           Returns the header value
+
+           @return
+           @since ARP1.0
+        */
+        Header.prototype.getData = function () {
+            return this.data;
+        };
+        /**
+           Set the header value
+
+           @param data
+           @since ARP1.0
+        */
+        Header.prototype.setData = function (data) {
+            this.data = data;
+        };
+        /**
+           Returns the header name
+
+           @return name
+           @since ARP1.0
+        */
+        Header.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the header name
+
+           @param name
+           @since ARP1.0
+        */
+        Header.prototype.setName = function (name) {
+            this.name = name;
+        };
         return Header;
     })();
     Adaptive.Header = Header;
@@ -548,6 +1769,24 @@ var Adaptive;
         function EmailAddress(address) {
             this.address = address;
         }
+        /**
+           Returns the email address
+
+           @return address of the Email
+           @since ARP1.0
+        */
+        EmailAddress.prototype.getAddress = function () {
+            return this.address;
+        };
+        /**
+           Set the Email address
+
+           @param address of the Email
+           @since ARP1.0
+        */
+        EmailAddress.prototype.setAddress = function (address) {
+            this.address = address;
+        };
         return EmailAddress;
     })();
     Adaptive.EmailAddress = EmailAddress;
@@ -568,6 +1807,24 @@ var Adaptive;
         function ContactWebsite(url) {
             this.url = url;
         }
+        /**
+           Returns the url of the website
+
+           @return website url
+           @since ARP1.0
+        */
+        ContactWebsite.prototype.getUrl = function () {
+            return this.url;
+        };
+        /**
+           Set the url of the website
+
+           @param url
+           @since ARP1.0
+        */
+        ContactWebsite.prototype.setUrl = function (url) {
+            this.url = url;
+        };
         return ContactWebsite;
     })();
     Adaptive.ContactWebsite = ContactWebsite;
@@ -590,6 +1847,42 @@ var Adaptive;
             this.phone = phone;
             this.phoneType = phoneType;
         }
+        /**
+           Returns the phone phoneType
+
+           @return phoneType
+           @since ARP1.0
+        */
+        ContactPhone.prototype.getPhoneType = function () {
+            return this.phoneType;
+        };
+        /**
+           Set the phoneType of the phone number
+
+           @param phoneType
+           @since ARP1.0
+        */
+        ContactPhone.prototype.setPhoneType = function (phoneType) {
+            this.phoneType = phoneType;
+        };
+        /**
+           Returns the phone number
+
+           @return phone number
+           @since ARP1.0
+        */
+        ContactPhone.prototype.getPhone = function () {
+            return this.phone;
+        };
+        /**
+           Set the phone number
+
+           @param phone number
+           @since ARP1.0
+        */
+        ContactPhone.prototype.setPhone = function (phone) {
+            this.phone = phone;
+        };
         return ContactPhone;
     })();
     Adaptive.ContactPhone = ContactPhone;
@@ -622,6 +1915,131 @@ var Adaptive;
             this.messageBodyMimeType = messageBodyMimeType;
             this.subject = subject;
         }
+        /**
+           Returns an array of attachments
+
+           @return attachmentData array with the email attachments
+           @since ARP1.0
+        */
+        Email.prototype.getAttachmentData = function () {
+            return this.attachmentData;
+        };
+        /**
+           Set the email attachment data array
+
+           @param attachmentData array of email attatchments
+           @since ARP1.0
+        */
+        Email.prototype.setAttachmentData = function (attachmentData) {
+            this.attachmentData = attachmentData;
+        };
+        /**
+           Returns the array of recipients
+
+           @return bccRecipients array of bcc recipients
+           @since ARP1.0
+        */
+        Email.prototype.getBccRecipients = function () {
+            return this.bccRecipients;
+        };
+        /**
+           Set the array of recipients
+
+           @param bccRecipients array of bcc recipients
+           @since ARP1.0
+        */
+        Email.prototype.setBccRecipients = function (bccRecipients) {
+            this.bccRecipients = bccRecipients;
+        };
+        /**
+           Returns the array of recipients
+
+           @return ccRecipients array of cc recipients
+           @since ARP1.0
+        */
+        Email.prototype.getCcRecipients = function () {
+            return this.ccRecipients;
+        };
+        /**
+           Set the array of recipients
+
+           @param ccRecipients array of cc recipients
+           @since ARP1.0
+        */
+        Email.prototype.setCcRecipients = function (ccRecipients) {
+            this.ccRecipients = ccRecipients;
+        };
+        /**
+           Returns the message body of the email
+
+           @return message Body string of the email
+        */
+        Email.prototype.getMessageBody = function () {
+            return this.messageBody;
+        };
+        /**
+           Set the message body of the email
+
+           @param messageBody message body of the email
+           @since ARP1.0
+        */
+        Email.prototype.setMessageBody = function (messageBody) {
+            this.messageBody = messageBody;
+        };
+        /**
+           Returns the myme type of the message body
+
+           @return mime type string of the message boddy
+           @since ARP1.0
+        */
+        Email.prototype.getMessageBodyMimeType = function () {
+            return this.messageBodyMimeType;
+        };
+        /**
+           Set the mime type for the message body
+
+           @param messageBodyMimeType type of the body message
+           @since ARP1.0
+        */
+        Email.prototype.setMessageBodyMimeType = function (messageBodyMimeType) {
+            this.messageBodyMimeType = messageBodyMimeType;
+        };
+        /**
+           Returns the subject of the email
+
+           @return subject string of the email
+           @since ARP1.0
+        */
+        Email.prototype.getSubject = function () {
+            return this.subject;
+        };
+        /**
+           Set the subject of the email
+
+           @param subject of the email
+           @since ARP1.0
+        */
+        Email.prototype.setSubject = function (subject) {
+            this.subject = subject;
+        };
+        /**
+           Returns the array of recipients
+
+           @return toRecipients array of recipients
+           @since ARP1.0
+        */
+        Email.prototype.getToRecipients = function () {
+            return this.toRecipients;
+        };
+        /**
+           Set the array of recipients
+
+           @param toRecipients array of recipients
+           @since ARP1.0
+        */
+        Email.prototype.setToRecipients = function (toRecipients) {
+            this.toRecipients = toRecipients;
+        };
         return Email;
     })();
     Adaptive.Email = Email;
@@ -642,6 +2060,23 @@ var Adaptive;
         function Button(type) {
             this.type = type;
         }
+        /**
+           Returns the button type
+
+           @return type Button type.
+           @since ARP1.0
+        */
+        Button.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Sets Button type
+
+           @param type Button type
+        */
+        Button.prototype.setType = function (type) {
+            this.type = type;
+        };
         return Button;
     })();
     Adaptive.Button = Button;
@@ -664,6 +2099,42 @@ var Adaptive;
             this.address = address;
             this.type = type;
         }
+        /**
+           Returns the type of the address
+
+           @return AddressType Address type.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Set the address type
+
+           @param type Address type.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.setType = function (type) {
+            this.type = type;
+        };
+        /**
+           Returns the Contact address
+
+           @return address Address data.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.getAddress = function () {
+            return this.address;
+        };
+        /**
+           Set the address of the Contact
+
+           @param address Address data.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.setAddress = function (address) {
+            this.address = address;
+        };
         return ContactAddress;
     })();
     Adaptive.ContactAddress = ContactAddress;
@@ -683,6 +2154,86 @@ var Adaptive;
         function Table(name) {
             this.name = name;
         }
+        /**
+           Get the number of columns
+
+           @return The number of columns
+        */
+        Table.prototype.getColumnCount = function () {
+            return this.columnCount;
+        };
+        /**
+           Sets the number of columns
+
+           @param columnCount The number of columns
+        */
+        Table.prototype.setColumnCount = function (columnCount) {
+            this.columnCount = columnCount;
+        };
+        /**
+           Get the columns
+
+           @return The columns
+        */
+        Table.prototype.getColumns = function () {
+            return this.columns;
+        };
+        /**
+           Sets the columns of the table
+
+           @param columns The columns of the table
+        */
+        Table.prototype.setColumns = function (columns) {
+            this.columns = columns;
+        };
+        /**
+           Returns the name of the table
+
+           @return The name of the table
+        */
+        Table.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets the name of the table
+
+           @param name The name of the table
+        */
+        Table.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Get the number of rows
+
+           @return The number of rows
+        */
+        Table.prototype.getRowCount = function () {
+            return this.rowCount;
+        };
+        /**
+           Sets the number of rows
+
+           @param rowCount The number of rows
+        */
+        Table.prototype.setRowCount = function (rowCount) {
+            this.rowCount = rowCount;
+        };
+        /**
+           Get the rows of the table
+
+           @return The rows of the table
+        */
+        Table.prototype.getRows = function () {
+            return this.rows;
+        };
+        /**
+           Sets the rows of the table
+
+           @param rows The rows of the table
+        */
+        Table.prototype.setRows = function (rows) {
+            this.rows = rows;
+        };
         return Table;
     })();
     Adaptive.Table = Table;
@@ -717,6 +2268,150 @@ var Adaptive;
             this.session = session;
             this.contentEncoding = contentEncoding;
         }
+        /**
+           Returns the content
+
+           @return content
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContent = function () {
+            return this.content;
+        };
+        /**
+           Set the content
+
+           @param content
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContent = function (content) {
+            this.content = content;
+        };
+        /**
+           Returns the binary content
+
+           @return contentBinary
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContentBinary = function () {
+            return this.contentBinary;
+        };
+        /**
+           Set the binary content
+
+           @param contentBinary
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContentBinary = function (contentBinary) {
+            this.contentBinary = contentBinary;
+        };
+        /**
+           Retrusn the binary content length
+
+           @return contentBinaryLength
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContentBinaryLength = function () {
+            return this.contentBinaryLength;
+        };
+        /**
+           Set the binary content length
+
+           @param contentBinaryLength
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContentBinaryLength = function (contentBinaryLength) {
+            this.contentBinaryLength = contentBinaryLength;
+        };
+        /**
+           Returns the content encoding
+
+           @return contentEncoding
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContentEncoding = function () {
+            return this.contentEncoding;
+        };
+        /**
+           Set the content encoding
+
+           @param contentEncoding
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContentEncoding = function (contentEncoding) {
+            this.contentEncoding = contentEncoding;
+        };
+        /**
+           Returns the content length
+
+           @return contentLength
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContentLength = function () {
+            return this.contentLength;
+        };
+        /**
+           Set the content length
+
+           @param contentLength
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContentLength = function (contentLength) {
+            this.contentLength = contentLength;
+        };
+        /**
+           Returns the content type
+
+           @return contentType
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContentType = function () {
+            return this.contentType;
+        };
+        /**
+           Set the content type
+
+           @param contentType
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContentType = function (contentType) {
+            this.contentType = contentType;
+        };
+        /**
+           Returns the array of Header
+
+           @return headers
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getHeaders = function () {
+            return this.headers;
+        };
+        /**
+           Set the array of Header
+
+           @param headers
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setHeaders = function (headers) {
+            this.headers = headers;
+        };
+        /**
+           Returns the method
+
+           @return method
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getSession = function () {
+            return this.session;
+        };
+        /**
+           Set the method
+
+           @param session
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setSession = function (session) {
+            this.session = session;
+        };
         return ServiceResponse;
     })();
     Adaptive.ServiceResponse = ServiceResponse;
@@ -742,6 +2437,70 @@ var Adaptive;
             this.z = z;
             this.timeStamp = timeStamp;
         }
+        /**
+           Gets Timestamp of the acceleration reading.
+
+           @return timeStamp Timestamp of the acceleration reading.
+        */
+        Acceleration.prototype.getTimeStamp = function () {
+            return this.timeStamp;
+        };
+        /**
+           Sets Timestamp of the acceleration reading.
+
+           @param timeStamp Timestamp of the acceleration reading.
+        */
+        Acceleration.prototype.setTimeStamp = function (timeStamp) {
+            this.timeStamp = timeStamp;
+        };
+        /**
+           Gets X-axis component of the acceleration.
+
+           @return x X-axis component of the acceleration.
+        */
+        Acceleration.prototype.getX = function () {
+            return this.x;
+        };
+        /**
+           Sets X-axis component of the acceleration.
+
+           @param x X-axis component of the acceleration.
+        */
+        Acceleration.prototype.setX = function (x) {
+            this.x = x;
+        };
+        /**
+           Gets Y-axis component of the acceleration.
+
+           @return y Y-axis component of the acceleration.
+        */
+        Acceleration.prototype.getY = function () {
+            return this.y;
+        };
+        /**
+           Sets Y-axis component of the acceleration.
+
+           @param y Y-axis component of the acceleration.
+        */
+        Acceleration.prototype.setY = function (y) {
+            this.y = y;
+        };
+        /**
+           Gets Z-axis component of the acceleration.
+
+           @return z Z-axis component of the acceleration.
+        */
+        Acceleration.prototype.getZ = function () {
+            return this.z;
+        };
+        /**
+           Sets Z-axis component of the acceleration.
+
+           @param z Z-axis component of the acceleration.
+        */
+        Acceleration.prototype.setZ = function (z) {
+            this.z = z;
+        };
         return Acceleration;
     })();
     Adaptive.Acceleration = Acceleration;
@@ -761,8 +2520,152 @@ var Adaptive;
            @since ARP1.0
         */
         function Contact(contactId) {
-            this.contactId = contactId;
+            _super.call(this, contactId);
         }
+        /**
+           Returns all the addresses of the Contact
+
+           @return ContactAddress[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactAddresses = function () {
+            return this.contactAddresses;
+        };
+        /**
+           Set the addresses of the Contact
+
+           @param contactAddresses
+           @since ARP1.0
+        */
+        Contact.prototype.setContactAddresses = function (contactAddresses) {
+            this.contactAddresses = contactAddresses;
+        };
+        /**
+           Returns all the emails of the Contact
+
+           @return ContactEmail[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactEmails = function () {
+            return this.contactEmails;
+        };
+        /**
+           Set the emails of the Contact
+
+           @param contactEmails
+           @since ARP1.0
+        */
+        Contact.prototype.setContactEmails = function (contactEmails) {
+            this.contactEmails = contactEmails;
+        };
+        /**
+           Returns all the phones of the Contact
+
+           @return ContactPhone[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactPhones = function () {
+            return this.contactPhones;
+        };
+        /**
+           Set the phones of the Contact
+
+           @param contactPhones
+           @since ARP1.0
+        */
+        Contact.prototype.setContactPhones = function (contactPhones) {
+            this.contactPhones = contactPhones;
+        };
+        /**
+           Returns all the social network info of the Contact
+
+           @return ContactSocial[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactSocials = function () {
+            return this.contactSocials;
+        };
+        /**
+           Set the social network info of the Contact
+
+           @param contactSocials
+           @since ARP1.0
+        */
+        Contact.prototype.setContactSocials = function (contactSocials) {
+            this.contactSocials = contactSocials;
+        };
+        /**
+           Returns the additional tags of the Contact
+
+           @return ContactTag[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactTags = function () {
+            return this.contactTags;
+        };
+        /**
+           Set the additional tags of the Contact
+
+           @param contactTags
+           @since ARP1.0
+        */
+        Contact.prototype.setContactTags = function (contactTags) {
+            this.contactTags = contactTags;
+        };
+        /**
+           Returns all the websites of the Contact
+
+           @return ContactWebsite[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactWebsites = function () {
+            return this.contactWebsites;
+        };
+        /**
+           Set the websites of the Contact
+
+           @param contactWebsites
+           @since ARP1.0
+        */
+        Contact.prototype.setContactWebsites = function (contactWebsites) {
+            this.contactWebsites = contactWebsites;
+        };
+        /**
+           Returns the personal info of the Contact
+
+           @return ContactPersonalInfo of the Contact
+           @since ARP1.0
+        */
+        Contact.prototype.getPersonalInfo = function () {
+            return this.personalInfo;
+        };
+        /**
+           Set the personal info of the Contact
+
+           @param personalInfo
+           @since ARP1.0
+        */
+        Contact.prototype.setPersonalInfo = function (personalInfo) {
+            this.personalInfo = personalInfo;
+        };
+        /**
+           Returns the professional info of the Contact
+
+           @return ContactProfessionalInfo[]
+           @since ARP1.0
+        */
+        Contact.prototype.getProfessionalInfo = function () {
+            return this.professionalInfo;
+        };
+        /**
+           Set the professional info of the Contact
+
+           @param professionalInfo
+           @since ARP1.0
+        */
+        Contact.prototype.setProfessionalInfo = function (professionalInfo) {
+            this.professionalInfo = professionalInfo;
+        };
         return Contact;
     })(ContactUid);
     Adaptive.Contact = Contact;

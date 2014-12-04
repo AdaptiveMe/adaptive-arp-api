@@ -57,5 +57,53 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(x: number, y: number, z: number, timeStamp: number);
+        /**
+           Gets Timestamp of the acceleration reading.
+
+           @return timeStamp Timestamp of the acceleration reading.
+        */
+        getTimeStamp(): number;
+        /**
+           Sets Timestamp of the acceleration reading.
+
+           @param timeStamp Timestamp of the acceleration reading.
+        */
+        setTimeStamp(timeStamp: number): void;
+        /**
+           Gets X-axis component of the acceleration.
+
+           @return x X-axis component of the acceleration.
+        */
+        getX(): number;
+        /**
+           Sets X-axis component of the acceleration.
+
+           @param x X-axis component of the acceleration.
+        */
+        setX(x: number): void;
+        /**
+           Gets Y-axis component of the acceleration.
+
+           @return y Y-axis component of the acceleration.
+        */
+        getY(): number;
+        /**
+           Sets Y-axis component of the acceleration.
+
+           @param y Y-axis component of the acceleration.
+        */
+        setY(y: number): void;
+        /**
+           Gets Z-axis component of the acceleration.
+
+           @return z Z-axis component of the acceleration.
+        */
+        getZ(): number;
+        /**
+           Sets Z-axis component of the acceleration.
+
+           @param z Z-axis component of the acceleration.
+        */
+        setZ(z: number): void;
     }
 }

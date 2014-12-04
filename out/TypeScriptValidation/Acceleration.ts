@@ -60,10 +60,82 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(x: number, y: number, z: number, timeStamp: number) {
-               this.x = x
-               this.y = y
-               this.z = z
-               this.timeStamp = timeStamp
+               this.x = x;
+               this.y = y;
+               this.z = z;
+               this.timeStamp = timeStamp;
+          }
+
+          /**
+             Gets Timestamp of the acceleration reading.
+
+             @return timeStamp Timestamp of the acceleration reading.
+          */
+          getTimeStamp() : number {
+               return this.timeStamp;
+          }
+
+          /**
+             Sets Timestamp of the acceleration reading.
+
+             @param timeStamp Timestamp of the acceleration reading.
+          */
+          setTimeStamp(timeStamp: number) {
+               this.timeStamp = timeStamp;
+          }
+
+          /**
+             Gets X-axis component of the acceleration.
+
+             @return x X-axis component of the acceleration.
+          */
+          getX() : number {
+               return this.x;
+          }
+
+          /**
+             Sets X-axis component of the acceleration.
+
+             @param x X-axis component of the acceleration.
+          */
+          setX(x: number) {
+               this.x = x;
+          }
+
+          /**
+             Gets Y-axis component of the acceleration.
+
+             @return y Y-axis component of the acceleration.
+          */
+          getY() : number {
+               return this.y;
+          }
+
+          /**
+             Sets Y-axis component of the acceleration.
+
+             @param y Y-axis component of the acceleration.
+          */
+          setY(y: number) {
+               this.y = y;
+          }
+
+          /**
+             Gets Z-axis component of the acceleration.
+
+             @return z Z-axis component of the acceleration.
+          */
+          getZ() : number {
+               return this.z;
+          }
+
+          /**
+             Sets Z-axis component of the acceleration.
+
+             @param z Z-axis component of the acceleration.
+          */
+          setZ(z: number) {
+               this.z = z;
           }
 
 

@@ -52,5 +52,47 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(jobTitle: string, jobDescription: string, company: string);
+        /**
+           Returns the company of the job
+
+           @return company
+           @since ARP1.0
+        */
+        getCompany(): string;
+        /**
+           Set the company of the job
+
+           @param company
+           @since ARP1.0
+        */
+        setCompany(company: string): void;
+        /**
+           Returns the description of the job
+
+           @return description
+           @since ARP1.0
+        */
+        getJobDescription(): string;
+        /**
+           Set the description of the job
+
+           @param jobDescription
+           @since ARP1.0
+        */
+        setJobDescription(jobDescription: string): void;
+        /**
+           Returns the title of the job
+
+           @return title
+           @since ARP1.0
+        */
+        getJobTitle(): string;
+        /**
+           Set the title of the job
+
+           @param jobTitle
+           @since ARP1.0
+        */
+        setJobTitle(jobTitle: string): void;
     }
 }

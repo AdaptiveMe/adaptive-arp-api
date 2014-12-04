@@ -42,5 +42,19 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(contactId: string);
+        /**
+           Returns the contact id
+
+           @return Contactid Internal unique contact id.
+           @since ARP1.0
+        */
+        getContactId(): string;
+        /**
+           Set the id of the Contact
+
+           @param contactId Internal unique contact id.
+           @since ARP1.0
+        */
+        setContactId(contactId: string): void;
     }
 }

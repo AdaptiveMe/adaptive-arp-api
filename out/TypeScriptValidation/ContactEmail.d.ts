@@ -53,5 +53,47 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(type: ContactEmailType, primary: boolean, email: string);
+        /**
+           Returns the type of the email
+
+           @return EmailType
+           @since ARP1.0
+        */
+        getType(): ContactEmailType;
+        /**
+           Set the type of the email
+
+           @param type
+           @since ARP1.0
+        */
+        setType(type: ContactEmailType): void;
+        /**
+           Returns the email of the Contact
+
+           @return email
+           @since ARP1.0
+        */
+        getEmail(): string;
+        /**
+           Set the email of the Contact
+
+           @param email
+           @since ARP1.0
+        */
+        setEmail(email: string): void;
+        /**
+           Returns if the email is primary
+
+           @return true if the email is primary; false otherwise
+           @since ARP1.0
+        */
+        getPrimary(): boolean;
+        /**
+           Set if the email
+
+           @param primary true if the email is primary; false otherwise
+           @since ARP1.0
+        */
+        setPrimary(primary: boolean): void;
     }
 }

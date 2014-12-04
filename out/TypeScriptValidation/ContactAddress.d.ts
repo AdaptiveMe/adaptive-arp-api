@@ -48,5 +48,33 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(address: string, type: ContactAddressType);
+        /**
+           Returns the type of the address
+
+           @return AddressType Address type.
+           @since ARP1.0
+        */
+        getType(): ContactAddressType;
+        /**
+           Set the address type
+
+           @param type Address type.
+           @since ARP1.0
+        */
+        setType(type: ContactAddressType): void;
+        /**
+           Returns the Contact address
+
+           @return address Address data.
+           @since ARP1.0
+        */
+        getAddress(): string;
+        /**
+           Set the address of the Contact
+
+           @param address Address data.
+           @since ARP1.0
+        */
+        setAddress(address: string): void;
     }
 }

@@ -42,6 +42,23 @@ var Adaptive;
         function Button(type) {
             this.type = type;
         }
+        /**
+           Returns the button type
+
+           @return type Button type.
+           @since ARP1.0
+        */
+        Button.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Sets Button type
+
+           @param type Button type
+        */
+        Button.prototype.setType = function (type) {
+            this.type = type;
+        };
         return Button;
     })();
     Adaptive.Button = Button;

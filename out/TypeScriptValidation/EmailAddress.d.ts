@@ -42,5 +42,19 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(address: string);
+        /**
+           Returns the email address
+
+           @return address of the Email
+           @since ARP1.0
+        */
+        getAddress(): string;
+        /**
+           Set the Email address
+
+           @param address of the Email
+           @since ARP1.0
+        */
+        setAddress(address: string): void;
     }
 }

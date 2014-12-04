@@ -48,5 +48,37 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(name: string, compress: boolean);
+        /**
+           Returns if the table is compressed
+
+           @return Compression enabled
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        getCompress(): boolean;
+        /**
+           Sets if the table is compressed or not.
+
+           @param compress Compression enabled
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        setCompress(compress: boolean): void;
+        /**
+           Returns the name.
+
+           @return The name of the table.
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Sets the name of the table.
+
+           @param name The name of the table.
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        setName(name: string): void;
     }
 }

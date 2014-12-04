@@ -65,11 +65,111 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(data: Array<number>, dataSize: number, fileName: string, mimeType: string, referenceUrl: string) {
-               this.data = data
-               this.dataSize = dataSize
-               this.fileName = fileName
-               this.mimeType = mimeType
-               this.referenceUrl = referenceUrl
+               this.data = data;
+               this.dataSize = dataSize;
+               this.fileName = fileName;
+               this.mimeType = mimeType;
+               this.referenceUrl = referenceUrl;
+          }
+
+          /**
+             Returns the raw data in byte[]
+
+             @return data Octet-binary content of the attachment payload.
+             @since ARP1.0
+          */
+          getData() : Array<number> {
+               return this.data;
+          }
+
+          /**
+             Set the data of the attachment as a byte[]
+
+             @param data Sets the octet-binary content of the attachment.
+             @since ARP1.0
+          */
+          setData(data: Array<number>) {
+               this.data = data;
+          }
+
+          /**
+             Returns the size of the attachment as a long
+
+             @return dataSize Length in bytes of the octet-binary content.
+             @since ARP1.0
+          */
+          getDataSize() : number {
+               return this.dataSize;
+          }
+
+          /**
+             Set the size of the attachment as a long
+
+             @param dataSize Length in bytes of the octet-binary content ( should be same as data array length.)
+             @since ARP1.0
+          */
+          setDataSize(dataSize: number) {
+               this.dataSize = dataSize;
+          }
+
+          /**
+             Returns the filename of the attachment
+
+             @return fileName Name of the attachment.
+             @since ARP1.0
+          */
+          getFileName() : string {
+               return this.fileName;
+          }
+
+          /**
+             Set the name of the file attachment
+
+             @param fileName Name of the attachment.
+             @since ARP1.0
+          */
+          setFileName(fileName: string) {
+               this.fileName = fileName;
+          }
+
+          /**
+             Returns the mime type of the attachment
+
+             @return mimeType
+             @since ARP1.0
+          */
+          getMimeType() : string {
+               return this.mimeType;
+          }
+
+          /**
+             Set the mime type of the attachment
+
+             @param mimeType Mime-type of the attachment.
+             @since ARP1.0
+          */
+          setMimeType(mimeType: string) {
+               this.mimeType = mimeType;
+          }
+
+          /**
+             Returns the absolute url of the file attachment
+
+             @return referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+             @since ARP1.0
+          */
+          getReferenceUrl() : string {
+               return this.referenceUrl;
+          }
+
+          /**
+             Set the absolute url of the attachment
+
+             @param referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+             @since ARP1.0
+          */
+          setReferenceUrl(referenceUrl: string) {
+               this.referenceUrl = referenceUrl;
           }
 
 

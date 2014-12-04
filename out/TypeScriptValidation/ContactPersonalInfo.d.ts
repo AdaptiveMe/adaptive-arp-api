@@ -58,5 +58,61 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitle);
+        /**
+           Returns the title of the Contact
+
+           @return Title
+           @since ARP1.0
+        */
+        getTitle(): ContactPersonalInfoTitle;
+        /**
+           Set the Title of the Contact
+
+           @param title
+           @since ARP1.0
+        */
+        setTitle(title: ContactPersonalInfoTitle): void;
+        /**
+           Returns the last name of the Contact
+
+           @return lastName
+           @since ARP1.0
+        */
+        getLastName(): string;
+        /**
+           Set the last name of the Contact
+
+           @param lastName
+           @since ARP1.0
+        */
+        setLastName(lastName: string): void;
+        /**
+           Returns the middle name of the Contact
+
+           @return middelName
+           @since ARP1.0
+        */
+        getMiddleName(): string;
+        /**
+           Set the middle name of the Contact
+
+           @param middleName
+           @since ARP1.0
+        */
+        setMiddleName(middleName: string): void;
+        /**
+           Returns the name of the Contact
+
+           @return name
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Set the name of the Contact
+
+           @param name
+           @since ARP1.0
+        */
+        setName(name: string): void;
     }
 }

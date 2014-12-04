@@ -44,6 +44,54 @@ var Adaptive;
             this.version = version;
             this.vendor = vendor;
         }
+        /**
+           Returns the name of the operating system.
+
+           @return OS name.
+        */
+        OSInfo.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets The name of the operating system.
+
+           @param name The name of the operating system.
+        */
+        OSInfo.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Returns the vendor of the operating system.
+
+           @return OS vendor.
+        */
+        OSInfo.prototype.getVendor = function () {
+            return this.vendor;
+        };
+        /**
+           Sets The vendor of the operating system.
+
+           @param vendor The vendor of the operating system.
+        */
+        OSInfo.prototype.setVendor = function (vendor) {
+            this.vendor = vendor;
+        };
+        /**
+           Returns the version of the operating system.
+
+           @return OS version.
+        */
+        OSInfo.prototype.getVersion = function () {
+            return this.version;
+        };
+        /**
+           Sets The version/identifier of the operating system.
+
+           @param version The version/identifier of the operating system.
+        */
+        OSInfo.prototype.setVersion = function (version) {
+            this.version = version;
+        };
         return OSInfo;
     })();
     Adaptive.OSInfo = OSInfo;

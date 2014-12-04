@@ -44,7 +44,25 @@ module Adaptive {
              @param values The values of the row
           */
           constructor(values: Array<any>) {
-               this.values = values
+               this.values = values;
+          }
+
+          /**
+             Returns the values of the row.
+
+             @return The values of the row.
+          */
+          getValues() : Array<any> {
+               return this.values;
+          }
+
+          /**
+             Sets the values of the row.
+
+             @param values The values of the row.
+          */
+          setValues(values: Array<any>) {
+               this.values = values;
           }
 
 

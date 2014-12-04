@@ -47,5 +47,33 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(name: string, dataValue: string);
+        /**
+           Returns the value of the Tag
+
+           @return value
+           @since ARP1.0
+        */
+        getDataValue(): string;
+        /**
+           Set the value of the Tag
+
+           @param dataValue
+           @since ARP1.0
+        */
+        setDataValue(dataValue: string): void;
+        /**
+           Returns the name of the Tag
+
+           @return name
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Set the name of the Tag
+
+           @param name
+           @since ARP1.0
+        */
+        setName(name: string): void;
     }
 }

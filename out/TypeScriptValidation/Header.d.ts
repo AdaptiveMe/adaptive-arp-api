@@ -47,5 +47,33 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(name: string, data: string);
+        /**
+           Returns the header value
+
+           @return
+           @since ARP1.0
+        */
+        getData(): string;
+        /**
+           Set the header value
+
+           @param data
+           @since ARP1.0
+        */
+        setData(data: string): void;
+        /**
+           Returns the header name
+
+           @return name
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Set the header name
+
+           @param name
+           @since ARP1.0
+        */
+        setName(name: string): void;
     }
 }

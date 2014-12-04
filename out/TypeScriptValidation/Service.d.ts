@@ -60,5 +60,61 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(endpoint: Endpoint, name: string, method: IServiceMethod, type: IServiceType);
+        /**
+           Returns the method
+
+           @return method
+           @since ARP1.0
+        */
+        getMethod(): IServiceMethod;
+        /**
+           Set the method
+
+           @param method
+           @since ARP1.0
+        */
+        setMethod(method: IServiceMethod): void;
+        /**
+           Returns the type
+
+           @return type
+           @since ARP1.0
+        */
+        getType(): IServiceType;
+        /**
+           Set the type
+
+           @param type
+           @since ARP1.0
+        */
+        setType(type: IServiceType): void;
+        /**
+           Returns the endpoint
+
+           @return endpoint
+           @since ARP1.0
+        */
+        getEndpoint(): Endpoint;
+        /**
+           Set the endpoint
+
+           @param endpoint
+           @since ARP1.0
+        */
+        setEndpoint(endpoint: Endpoint): void;
+        /**
+           Returns the name
+
+           @return name
+           @since ARP1.0
+        */
+        getName(): string;
+        /**
+           Set the name
+
+           @param name
+           @since ARP1.0
+        */
+        setName(name: string): void;
     }
 }

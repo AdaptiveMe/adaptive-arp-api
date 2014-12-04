@@ -57,9 +57,69 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(type: ContactEmailType, primary: boolean, email: string) {
-               this.type = type
-               this.primary = primary
-               this.email = email
+               this.type = type;
+               this.primary = primary;
+               this.email = email;
+          }
+
+          /**
+             Returns the type of the email
+
+             @return EmailType
+             @since ARP1.0
+          */
+          getType() : ContactEmailType {
+               return this.type;
+          }
+
+          /**
+             Set the type of the email
+
+             @param type
+             @since ARP1.0
+          */
+          setType(type: ContactEmailType) {
+               this.type = type;
+          }
+
+          /**
+             Returns the email of the Contact
+
+             @return email
+             @since ARP1.0
+          */
+          getEmail() : string {
+               return this.email;
+          }
+
+          /**
+             Set the email of the Contact
+
+             @param email
+             @since ARP1.0
+          */
+          setEmail(email: string) {
+               this.email = email;
+          }
+
+          /**
+             Returns if the email is primary
+
+             @return true if the email is primary; false otherwise
+             @since ARP1.0
+          */
+          getPrimary() : boolean {
+               return this.primary;
+          }
+
+          /**
+             Set if the email
+
+             @param primary true if the email is primary; false otherwise
+             @since ARP1.0
+          */
+          setPrimary(primary: boolean) {
+               this.primary = primary;
           }
 
 

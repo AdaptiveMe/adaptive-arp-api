@@ -43,6 +43,42 @@ var Adaptive;
             this.secureKey = secureKey;
             this.secureData = secureData;
         }
+        /**
+           Returns the object value
+
+           @return Value.
+           @since ARP 1.0
+        */
+        SecureKeyPair.prototype.getSecureData = function () {
+            return this.secureData;
+        };
+        /**
+           Sets the value for this object
+
+           @param secureData value to set.
+           @since ARP 1.0
+        */
+        SecureKeyPair.prototype.setSecureData = function (secureData) {
+            this.secureData = secureData;
+        };
+        /**
+           Returns the object secureKey name.
+
+           @return Key name.
+           @since ARP 1.0
+        */
+        SecureKeyPair.prototype.getSecureKey = function () {
+            return this.secureKey;
+        };
+        /**
+           Sets the secureKey name for this object.
+
+           @param secureKey Key name.
+           @since ARP 1.0
+        */
+        SecureKeyPair.prototype.setSecureKey = function (secureKey) {
+            this.secureKey = secureKey;
+        };
         return SecureKeyPair;
     })();
     Adaptive.SecureKeyPair = SecureKeyPair;

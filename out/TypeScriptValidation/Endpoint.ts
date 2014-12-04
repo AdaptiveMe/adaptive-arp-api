@@ -65,11 +65,111 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(host: string, path: string, port: number, proxy: string, scheme: string) {
-               this.host = host
-               this.path = path
-               this.port = port
-               this.proxy = proxy
-               this.scheme = scheme
+               this.host = host;
+               this.path = path;
+               this.port = port;
+               this.proxy = proxy;
+               this.scheme = scheme;
+          }
+
+          /**
+             Returns the host
+
+             @return host
+             @since ARP1.0
+          */
+          getHost() : string {
+               return this.host;
+          }
+
+          /**
+             Set the host
+
+             @param host
+             @since ARP1.0
+          */
+          setHost(host: string) {
+               this.host = host;
+          }
+
+          /**
+             Returns the path
+
+             @return path
+             @since ARP1.0
+          */
+          getPath() : string {
+               return this.path;
+          }
+
+          /**
+             Set the path
+
+             @param path
+             @since ARP1.0
+          */
+          setPath(path: string) {
+               this.path = path;
+          }
+
+          /**
+             Returns the port
+
+             @return port
+             @since ARP1.0
+          */
+          getPort() : number {
+               return this.port;
+          }
+
+          /**
+             Set the port
+
+             @param port
+             @since ARP1.0
+          */
+          setPort(port: number) {
+               this.port = port;
+          }
+
+          /**
+             Return the proxy
+
+             @return proxy
+             @since ARP1.0
+          */
+          getProxy() : string {
+               return this.proxy;
+          }
+
+          /**
+             Set the proxy
+
+             @param proxy
+             @since ARP1.0
+          */
+          setProxy(proxy: string) {
+               this.proxy = proxy;
+          }
+
+          /**
+             Returns the scheme
+
+             @return scheme
+             @since ARP1.0
+          */
+          getScheme() : string {
+               return this.scheme;
+          }
+
+          /**
+             Set the scheme
+
+             @param scheme
+             @since ARP1.0
+          */
+          setScheme(scheme: string) {
+               this.scheme = scheme;
           }
 
 

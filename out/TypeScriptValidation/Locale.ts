@@ -50,8 +50,48 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(language: string, country: string) {
-               this.language = language
-               this.country = country
+               this.language = language;
+               this.country = country;
+          }
+
+          /**
+             Returns the country code
+
+             @return country code
+             @since ARP1.0
+          */
+          getCountry() : string {
+               return this.country;
+          }
+
+          /**
+             Set the country code
+
+             @param country code
+             @since ARP1.0
+          */
+          setCountry(country: string) {
+               this.country = country;
+          }
+
+          /**
+             Returns the language code
+
+             @return language code
+             @since ARP1.0
+          */
+          getLanguage() : string {
+               return this.language;
+          }
+
+          /**
+             Set the language code
+
+             @param language code
+             @since ARP1.0
+          */
+          setLanguage(language: string) {
+               this.language = language;
           }
 
 

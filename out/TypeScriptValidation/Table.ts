@@ -63,7 +63,97 @@ module Adaptive {
              @param name The name of the table
           */
           constructor(name: string) {
-               this.name = name
+               this.name = name;
+          }
+
+          /**
+             Get the number of columns
+
+             @return The number of columns
+          */
+          getColumnCount() : number {
+               return this.columnCount;
+          }
+
+          /**
+             Sets the number of columns
+
+             @param columnCount The number of columns
+          */
+          setColumnCount(columnCount: number) {
+               this.columnCount = columnCount;
+          }
+
+          /**
+             Get the columns
+
+             @return The columns
+          */
+          getColumns() : Array<Column> {
+               return this.columns;
+          }
+
+          /**
+             Sets the columns of the table
+
+             @param columns The columns of the table
+          */
+          setColumns(columns: Array<Column>) {
+               this.columns = columns;
+          }
+
+          /**
+             Returns the name of the table
+
+             @return The name of the table
+          */
+          getName() : string {
+               return this.name;
+          }
+
+          /**
+             Sets the name of the table
+
+             @param name The name of the table
+          */
+          setName(name: string) {
+               this.name = name;
+          }
+
+          /**
+             Get the number of rows
+
+             @return The number of rows
+          */
+          getRowCount() : number {
+               return this.rowCount;
+          }
+
+          /**
+             Sets the number of rows
+
+             @param rowCount The number of rows
+          */
+          setRowCount(rowCount: number) {
+               this.rowCount = rowCount;
+          }
+
+          /**
+             Get the rows of the table
+
+             @return The rows of the table
+          */
+          getRows() : Array<Row> {
+               return this.rows;
+          }
+
+          /**
+             Sets the rows of the table
+
+             @param rows The rows of the table
+          */
+          setRows(rows: Array<Row>) {
+               this.rows = rows;
           }
 
 

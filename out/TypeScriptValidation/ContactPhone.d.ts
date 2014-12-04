@@ -48,5 +48,33 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(phone: string, phoneType: ContactPhoneType);
+        /**
+           Returns the phone phoneType
+
+           @return phoneType
+           @since ARP1.0
+        */
+        getPhoneType(): ContactPhoneType;
+        /**
+           Set the phoneType of the phone number
+
+           @param phoneType
+           @since ARP1.0
+        */
+        setPhoneType(phoneType: ContactPhoneType): void;
+        /**
+           Returns the phone number
+
+           @return phone number
+           @since ARP1.0
+        */
+        getPhone(): string;
+        /**
+           Set the phone number
+
+           @param phone number
+           @since ARP1.0
+        */
+        setPhone(phone: string): void;
     }
 }

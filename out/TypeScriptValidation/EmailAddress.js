@@ -41,6 +41,24 @@ var Adaptive;
         function EmailAddress(address) {
             this.address = address;
         }
+        /**
+           Returns the email address
+
+           @return address of the Email
+           @since ARP1.0
+        */
+        EmailAddress.prototype.getAddress = function () {
+            return this.address;
+        };
+        /**
+           Set the Email address
+
+           @param address of the Email
+           @since ARP1.0
+        */
+        EmailAddress.prototype.setAddress = function (address) {
+            this.address = address;
+        };
         return EmailAddress;
     })();
     Adaptive.EmailAddress = EmailAddress;

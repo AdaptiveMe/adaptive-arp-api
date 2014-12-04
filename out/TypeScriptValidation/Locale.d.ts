@@ -47,5 +47,33 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(language: string, country: string);
+        /**
+           Returns the country code
+
+           @return country code
+           @since ARP1.0
+        */
+        getCountry(): string;
+        /**
+           Set the country code
+
+           @param country code
+           @since ARP1.0
+        */
+        setCountry(country: string): void;
+        /**
+           Returns the language code
+
+           @return language code
+           @since ARP1.0
+        */
+        getLanguage(): string;
+        /**
+           Set the language code
+
+           @param language code
+           @since ARP1.0
+        */
+        setLanguage(language: string): void;
     }
 }

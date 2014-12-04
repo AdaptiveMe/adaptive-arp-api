@@ -51,5 +51,41 @@ declare module Adaptive {
            @param vendor  of the OS.
         */
         constructor(name: string, version: string, vendor: string);
+        /**
+           Returns the name of the operating system.
+
+           @return OS name.
+        */
+        getName(): string;
+        /**
+           Sets The name of the operating system.
+
+           @param name The name of the operating system.
+        */
+        setName(name: string): void;
+        /**
+           Returns the vendor of the operating system.
+
+           @return OS vendor.
+        */
+        getVendor(): string;
+        /**
+           Sets The vendor of the operating system.
+
+           @param vendor The vendor of the operating system.
+        */
+        setVendor(vendor: string): void;
+        /**
+           Returns the version of the operating system.
+
+           @return OS version.
+        */
+        getVersion(): string;
+        /**
+           Sets The version/identifier of the operating system.
+
+           @param version The version/identifier of the operating system.
+        */
+        setVersion(version: string): void;
     }
 }

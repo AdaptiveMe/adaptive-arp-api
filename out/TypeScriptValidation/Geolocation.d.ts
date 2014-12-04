@@ -62,5 +62,73 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number);
+        /**
+           Returns altitude in meters
+
+           @return altitude
+           @since ARP1.0
+        */
+        getAltitude(): number;
+        /**
+           Set altitude in meters
+
+           @param altitude
+           @since ARP1.0
+        */
+        setAltitude(altitude: number): void;
+        /**
+           Returns the latitude in degrees
+
+           @return latitude
+           @since ARP1.0
+        */
+        getLatitude(): number;
+        /**
+           Set the latitude in degrees
+
+           @param latitude
+           @since ARP1.0
+        */
+        setLatitude(latitude: number): void;
+        /**
+           Returns the longitude in degrees
+
+           @return longitude
+           @since ARP1.0
+        */
+        getLongitude(): number;
+        /**
+           Returns the latitude in degrees
+
+           @param longitude
+           @since ARP1.0
+        */
+        setLongitude(longitude: number): void;
+        /**
+           Returns the Dilution of Position in the X axis (longitude)
+
+           @return xDoP
+           @since ARP1.0
+        */
+        getXDoP(): number;
+        /**
+           Sets Dilution of precision on the X measurement. Measured in meters.
+
+           @param xDoP Dilution of precision on the X measurement. Measured in meters.
+        */
+        setXDoP(xDoP: number): void;
+        /**
+           Returns the Dilution of Position in the Y axis (latitude)
+
+           @return yDoP
+           @since ARP1.0
+        */
+        getYDoP(): number;
+        /**
+           Sets Dilution of precision on the Y measurement. Measured in meters.
+
+           @param yDoP Dilution of precision on the Y measurement. Measured in meters.
+        */
+        setYDoP(yDoP: number): void;
     }
 }

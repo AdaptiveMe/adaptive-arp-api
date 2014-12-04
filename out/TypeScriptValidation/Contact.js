@@ -55,8 +55,152 @@ var Adaptive;
            @since ARP1.0
         */
         function Contact(contactId) {
-            this.contactId = contactId;
+            _super.call(this, contactId);
         }
+        /**
+           Returns all the addresses of the Contact
+
+           @return ContactAddress[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactAddresses = function () {
+            return this.contactAddresses;
+        };
+        /**
+           Set the addresses of the Contact
+
+           @param contactAddresses
+           @since ARP1.0
+        */
+        Contact.prototype.setContactAddresses = function (contactAddresses) {
+            this.contactAddresses = contactAddresses;
+        };
+        /**
+           Returns all the emails of the Contact
+
+           @return ContactEmail[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactEmails = function () {
+            return this.contactEmails;
+        };
+        /**
+           Set the emails of the Contact
+
+           @param contactEmails
+           @since ARP1.0
+        */
+        Contact.prototype.setContactEmails = function (contactEmails) {
+            this.contactEmails = contactEmails;
+        };
+        /**
+           Returns all the phones of the Contact
+
+           @return ContactPhone[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactPhones = function () {
+            return this.contactPhones;
+        };
+        /**
+           Set the phones of the Contact
+
+           @param contactPhones
+           @since ARP1.0
+        */
+        Contact.prototype.setContactPhones = function (contactPhones) {
+            this.contactPhones = contactPhones;
+        };
+        /**
+           Returns all the social network info of the Contact
+
+           @return ContactSocial[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactSocials = function () {
+            return this.contactSocials;
+        };
+        /**
+           Set the social network info of the Contact
+
+           @param contactSocials
+           @since ARP1.0
+        */
+        Contact.prototype.setContactSocials = function (contactSocials) {
+            this.contactSocials = contactSocials;
+        };
+        /**
+           Returns the additional tags of the Contact
+
+           @return ContactTag[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactTags = function () {
+            return this.contactTags;
+        };
+        /**
+           Set the additional tags of the Contact
+
+           @param contactTags
+           @since ARP1.0
+        */
+        Contact.prototype.setContactTags = function (contactTags) {
+            this.contactTags = contactTags;
+        };
+        /**
+           Returns all the websites of the Contact
+
+           @return ContactWebsite[]
+           @since ARP1.0
+        */
+        Contact.prototype.getContactWebsites = function () {
+            return this.contactWebsites;
+        };
+        /**
+           Set the websites of the Contact
+
+           @param contactWebsites
+           @since ARP1.0
+        */
+        Contact.prototype.setContactWebsites = function (contactWebsites) {
+            this.contactWebsites = contactWebsites;
+        };
+        /**
+           Returns the personal info of the Contact
+
+           @return ContactPersonalInfo of the Contact
+           @since ARP1.0
+        */
+        Contact.prototype.getPersonalInfo = function () {
+            return this.personalInfo;
+        };
+        /**
+           Set the personal info of the Contact
+
+           @param personalInfo
+           @since ARP1.0
+        */
+        Contact.prototype.setPersonalInfo = function (personalInfo) {
+            this.personalInfo = personalInfo;
+        };
+        /**
+           Returns the professional info of the Contact
+
+           @return ContactProfessionalInfo[]
+           @since ARP1.0
+        */
+        Contact.prototype.getProfessionalInfo = function () {
+            return this.professionalInfo;
+        };
+        /**
+           Set the professional info of the Contact
+
+           @param professionalInfo
+           @since ARP1.0
+        */
+        Contact.prototype.setProfessionalInfo = function (professionalInfo) {
+            this.professionalInfo = professionalInfo;
+        };
         return Contact;
     })(Adaptive.ContactUid);
     Adaptive.Contact = Contact;

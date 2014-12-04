@@ -45,7 +45,27 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(address: string) {
-               this.address = address
+               this.address = address;
+          }
+
+          /**
+             Returns the email address
+
+             @return address of the Email
+             @since ARP1.0
+          */
+          getAddress() : string {
+               return this.address;
+          }
+
+          /**
+             Set the Email address
+
+             @param address of the Email
+             @since ARP1.0
+          */
+          setAddress(address: string) {
+               this.address = address;
           }
 
 

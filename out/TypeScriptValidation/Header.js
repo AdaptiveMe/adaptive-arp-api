@@ -43,6 +43,42 @@ var Adaptive;
             this.name = name;
             this.data = data;
         }
+        /**
+           Returns the header value
+
+           @return
+           @since ARP1.0
+        */
+        Header.prototype.getData = function () {
+            return this.data;
+        };
+        /**
+           Set the header value
+
+           @param data
+           @since ARP1.0
+        */
+        Header.prototype.setData = function (data) {
+            this.data = data;
+        };
+        /**
+           Returns the header name
+
+           @return name
+           @since ARP1.0
+        */
+        Header.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the header name
+
+           @param name
+           @since ARP1.0
+        */
+        Header.prototype.setName = function (name) {
+            this.name = name;
+        };
         return Header;
     })();
     Adaptive.Header = Header;

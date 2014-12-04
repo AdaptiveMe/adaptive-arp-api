@@ -44,6 +44,42 @@ var Adaptive;
             this.address = address;
             this.type = type;
         }
+        /**
+           Returns the type of the address
+
+           @return AddressType Address type.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.getType = function () {
+            return this.type;
+        };
+        /**
+           Set the address type
+
+           @param type Address type.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.setType = function (type) {
+            this.type = type;
+        };
+        /**
+           Returns the Contact address
+
+           @return address Address data.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.getAddress = function () {
+            return this.address;
+        };
+        /**
+           Set the address of the Contact
+
+           @param address Address data.
+           @since ARP1.0
+        */
+        ContactAddress.prototype.setAddress = function (address) {
+            this.address = address;
+        };
         return ContactAddress;
     })();
     Adaptive.ContactAddress = ContactAddress;

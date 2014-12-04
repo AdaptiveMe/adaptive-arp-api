@@ -74,5 +74,102 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(toRecipients: EmailAddress[], ccRecipients: EmailAddress[], bccRecipients: EmailAddress[], attachmentData: AttachmentData[], messageBody: string, messageBodyMimeType: string, subject: string);
+        /**
+           Returns an array of attachments
+
+           @return attachmentData array with the email attachments
+           @since ARP1.0
+        */
+        getAttachmentData(): AttachmentData[];
+        /**
+           Set the email attachment data array
+
+           @param attachmentData array of email attatchments
+           @since ARP1.0
+        */
+        setAttachmentData(attachmentData: AttachmentData[]): void;
+        /**
+           Returns the array of recipients
+
+           @return bccRecipients array of bcc recipients
+           @since ARP1.0
+        */
+        getBccRecipients(): EmailAddress[];
+        /**
+           Set the array of recipients
+
+           @param bccRecipients array of bcc recipients
+           @since ARP1.0
+        */
+        setBccRecipients(bccRecipients: EmailAddress[]): void;
+        /**
+           Returns the array of recipients
+
+           @return ccRecipients array of cc recipients
+           @since ARP1.0
+        */
+        getCcRecipients(): EmailAddress[];
+        /**
+           Set the array of recipients
+
+           @param ccRecipients array of cc recipients
+           @since ARP1.0
+        */
+        setCcRecipients(ccRecipients: EmailAddress[]): void;
+        /**
+           Returns the message body of the email
+
+           @return message Body string of the email
+        */
+        getMessageBody(): string;
+        /**
+           Set the message body of the email
+
+           @param messageBody message body of the email
+           @since ARP1.0
+        */
+        setMessageBody(messageBody: string): void;
+        /**
+           Returns the myme type of the message body
+
+           @return mime type string of the message boddy
+           @since ARP1.0
+        */
+        getMessageBodyMimeType(): string;
+        /**
+           Set the mime type for the message body
+
+           @param messageBodyMimeType type of the body message
+           @since ARP1.0
+        */
+        setMessageBodyMimeType(messageBodyMimeType: string): void;
+        /**
+           Returns the subject of the email
+
+           @return subject string of the email
+           @since ARP1.0
+        */
+        getSubject(): string;
+        /**
+           Set the subject of the email
+
+           @param subject of the email
+           @since ARP1.0
+        */
+        setSubject(subject: string): void;
+        /**
+           Returns the array of recipients
+
+           @return toRecipients array of recipients
+           @since ARP1.0
+        */
+        getToRecipients(): EmailAddress[];
+        /**
+           Set the array of recipients
+
+           @param toRecipients array of recipients
+           @since ARP1.0
+        */
+        setToRecipients(toRecipients: EmailAddress[]): void;
     }
 }

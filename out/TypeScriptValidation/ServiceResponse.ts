@@ -83,14 +83,174 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(content: string, contentType: string, contentLength: string, contentBinary: Array<number>, contentBinaryLength: number, headers: Array<Header>, session: ISession, contentEncoding: string) {
-               this.content = content
-               this.contentType = contentType
-               this.contentLength = contentLength
-               this.contentBinary = contentBinary
-               this.contentBinaryLength = contentBinaryLength
-               this.headers = headers
-               this.session = session
-               this.contentEncoding = contentEncoding
+               this.content = content;
+               this.contentType = contentType;
+               this.contentLength = contentLength;
+               this.contentBinary = contentBinary;
+               this.contentBinaryLength = contentBinaryLength;
+               this.headers = headers;
+               this.session = session;
+               this.contentEncoding = contentEncoding;
+          }
+
+          /**
+             Returns the content
+
+             @return content
+             @since ARP1.0
+          */
+          getContent() : string {
+               return this.content;
+          }
+
+          /**
+             Set the content
+
+             @param content
+             @since ARP1.0
+          */
+          setContent(content: string) {
+               this.content = content;
+          }
+
+          /**
+             Returns the binary content
+
+             @return contentBinary
+             @since ARP1.0
+          */
+          getContentBinary() : Array<number> {
+               return this.contentBinary;
+          }
+
+          /**
+             Set the binary content
+
+             @param contentBinary
+             @since ARP1.0
+          */
+          setContentBinary(contentBinary: Array<number>) {
+               this.contentBinary = contentBinary;
+          }
+
+          /**
+             Retrusn the binary content length
+
+             @return contentBinaryLength
+             @since ARP1.0
+          */
+          getContentBinaryLength() : number {
+               return this.contentBinaryLength;
+          }
+
+          /**
+             Set the binary content length
+
+             @param contentBinaryLength
+             @since ARP1.0
+          */
+          setContentBinaryLength(contentBinaryLength: number) {
+               this.contentBinaryLength = contentBinaryLength;
+          }
+
+          /**
+             Returns the content encoding
+
+             @return contentEncoding
+             @since ARP1.0
+          */
+          getContentEncoding() : string {
+               return this.contentEncoding;
+          }
+
+          /**
+             Set the content encoding
+
+             @param contentEncoding
+             @since ARP1.0
+          */
+          setContentEncoding(contentEncoding: string) {
+               this.contentEncoding = contentEncoding;
+          }
+
+          /**
+             Returns the content length
+
+             @return contentLength
+             @since ARP1.0
+          */
+          getContentLength() : string {
+               return this.contentLength;
+          }
+
+          /**
+             Set the content length
+
+             @param contentLength
+             @since ARP1.0
+          */
+          setContentLength(contentLength: string) {
+               this.contentLength = contentLength;
+          }
+
+          /**
+             Returns the content type
+
+             @return contentType
+             @since ARP1.0
+          */
+          getContentType() : string {
+               return this.contentType;
+          }
+
+          /**
+             Set the content type
+
+             @param contentType
+             @since ARP1.0
+          */
+          setContentType(contentType: string) {
+               this.contentType = contentType;
+          }
+
+          /**
+             Returns the array of Header
+
+             @return headers
+             @since ARP1.0
+          */
+          getHeaders() : Array<Header> {
+               return this.headers;
+          }
+
+          /**
+             Set the array of Header
+
+             @param headers
+             @since ARP1.0
+          */
+          setHeaders(headers: Array<Header>) {
+               this.headers = headers;
+          }
+
+          /**
+             Returns the method
+
+             @return method
+             @since ARP1.0
+          */
+          getSession() : ISession {
+               return this.session;
+          }
+
+          /**
+             Set the method
+
+             @param session
+             @since ARP1.0
+          */
+          setSession(session: ISession) {
+               this.session = session;
           }
 
 

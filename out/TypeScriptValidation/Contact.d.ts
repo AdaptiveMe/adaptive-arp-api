@@ -79,5 +79,117 @@ declare module Adaptive {
            @since ARP1.0
         */
         constructor(contactId: string);
+        /**
+           Returns all the addresses of the Contact
+
+           @return ContactAddress[]
+           @since ARP1.0
+        */
+        getContactAddresses(): ContactAddress[];
+        /**
+           Set the addresses of the Contact
+
+           @param contactAddresses
+           @since ARP1.0
+        */
+        setContactAddresses(contactAddresses: ContactAddress[]): void;
+        /**
+           Returns all the emails of the Contact
+
+           @return ContactEmail[]
+           @since ARP1.0
+        */
+        getContactEmails(): ContactEmail[];
+        /**
+           Set the emails of the Contact
+
+           @param contactEmails
+           @since ARP1.0
+        */
+        setContactEmails(contactEmails: ContactEmail[]): void;
+        /**
+           Returns all the phones of the Contact
+
+           @return ContactPhone[]
+           @since ARP1.0
+        */
+        getContactPhones(): ContactPhone[];
+        /**
+           Set the phones of the Contact
+
+           @param contactPhones
+           @since ARP1.0
+        */
+        setContactPhones(contactPhones: ContactPhone[]): void;
+        /**
+           Returns all the social network info of the Contact
+
+           @return ContactSocial[]
+           @since ARP1.0
+        */
+        getContactSocials(): ContactSocial[];
+        /**
+           Set the social network info of the Contact
+
+           @param contactSocials
+           @since ARP1.0
+        */
+        setContactSocials(contactSocials: ContactSocial[]): void;
+        /**
+           Returns the additional tags of the Contact
+
+           @return ContactTag[]
+           @since ARP1.0
+        */
+        getContactTags(): ContactTag[];
+        /**
+           Set the additional tags of the Contact
+
+           @param contactTags
+           @since ARP1.0
+        */
+        setContactTags(contactTags: ContactTag[]): void;
+        /**
+           Returns all the websites of the Contact
+
+           @return ContactWebsite[]
+           @since ARP1.0
+        */
+        getContactWebsites(): ContactWebsite[];
+        /**
+           Set the websites of the Contact
+
+           @param contactWebsites
+           @since ARP1.0
+        */
+        setContactWebsites(contactWebsites: ContactWebsite[]): void;
+        /**
+           Returns the personal info of the Contact
+
+           @return ContactPersonalInfo of the Contact
+           @since ARP1.0
+        */
+        getPersonalInfo(): ContactPersonalInfo;
+        /**
+           Set the personal info of the Contact
+
+           @param personalInfo
+           @since ARP1.0
+        */
+        setPersonalInfo(personalInfo: ContactPersonalInfo): void;
+        /**
+           Returns the professional info of the Contact
+
+           @return ContactProfessionalInfo[]
+           @since ARP1.0
+        */
+        getProfessionalInfo(): ContactProfessionalInfo;
+        /**
+           Set the professional info of the Contact
+
+           @param professionalInfo
+           @since ARP1.0
+        */
+        setProfessionalInfo(professionalInfo: ContactProfessionalInfo): void;
     }
 }

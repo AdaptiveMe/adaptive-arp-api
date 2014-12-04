@@ -41,6 +41,24 @@ var Adaptive;
         function ContactUid(contactId) {
             this.contactId = contactId;
         }
+        /**
+           Returns the contact id
+
+           @return Contactid Internal unique contact id.
+           @since ARP1.0
+        */
+        ContactUid.prototype.getContactId = function () {
+            return this.contactId;
+        };
+        /**
+           Set the id of the Contact
+
+           @param contactId Internal unique contact id.
+           @since ARP1.0
+        */
+        ContactUid.prototype.setContactId = function (contactId) {
+            this.contactId = contactId;
+        };
         return ContactUid;
     })();
     Adaptive.ContactUid = ContactUid;

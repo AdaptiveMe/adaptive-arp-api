@@ -42,6 +42,86 @@ var Adaptive;
         function Table(name) {
             this.name = name;
         }
+        /**
+           Get the number of columns
+
+           @return The number of columns
+        */
+        Table.prototype.getColumnCount = function () {
+            return this.columnCount;
+        };
+        /**
+           Sets the number of columns
+
+           @param columnCount The number of columns
+        */
+        Table.prototype.setColumnCount = function (columnCount) {
+            this.columnCount = columnCount;
+        };
+        /**
+           Get the columns
+
+           @return The columns
+        */
+        Table.prototype.getColumns = function () {
+            return this.columns;
+        };
+        /**
+           Sets the columns of the table
+
+           @param columns The columns of the table
+        */
+        Table.prototype.setColumns = function (columns) {
+            this.columns = columns;
+        };
+        /**
+           Returns the name of the table
+
+           @return The name of the table
+        */
+        Table.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Sets the name of the table
+
+           @param name The name of the table
+        */
+        Table.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Get the number of rows
+
+           @return The number of rows
+        */
+        Table.prototype.getRowCount = function () {
+            return this.rowCount;
+        };
+        /**
+           Sets the number of rows
+
+           @param rowCount The number of rows
+        */
+        Table.prototype.setRowCount = function (rowCount) {
+            this.rowCount = rowCount;
+        };
+        /**
+           Get the rows of the table
+
+           @return The rows of the table
+        */
+        Table.prototype.getRows = function () {
+            return this.rows;
+        };
+        /**
+           Sets the rows of the table
+
+           @param rows The rows of the table
+        */
+        Table.prototype.setRows = function (rows) {
+            this.rows = rows;
+        };
         return Table;
     })();
     Adaptive.Table = Table;

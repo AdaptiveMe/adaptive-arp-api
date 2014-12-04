@@ -57,6 +57,150 @@ var Adaptive;
             this.session = session;
             this.contentEncoding = contentEncoding;
         }
+        /**
+           Returns the content
+
+           @return content
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContent = function () {
+            return this.content;
+        };
+        /**
+           Set the content
+
+           @param content
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContent = function (content) {
+            this.content = content;
+        };
+        /**
+           Returns the binary content
+
+           @return contentBinary
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContentBinary = function () {
+            return this.contentBinary;
+        };
+        /**
+           Set the binary content
+
+           @param contentBinary
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContentBinary = function (contentBinary) {
+            this.contentBinary = contentBinary;
+        };
+        /**
+           Retrusn the binary content length
+
+           @return contentBinaryLength
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContentBinaryLength = function () {
+            return this.contentBinaryLength;
+        };
+        /**
+           Set the binary content length
+
+           @param contentBinaryLength
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContentBinaryLength = function (contentBinaryLength) {
+            this.contentBinaryLength = contentBinaryLength;
+        };
+        /**
+           Returns the content encoding
+
+           @return contentEncoding
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContentEncoding = function () {
+            return this.contentEncoding;
+        };
+        /**
+           Set the content encoding
+
+           @param contentEncoding
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContentEncoding = function (contentEncoding) {
+            this.contentEncoding = contentEncoding;
+        };
+        /**
+           Returns the content length
+
+           @return contentLength
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContentLength = function () {
+            return this.contentLength;
+        };
+        /**
+           Set the content length
+
+           @param contentLength
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContentLength = function (contentLength) {
+            this.contentLength = contentLength;
+        };
+        /**
+           Returns the content type
+
+           @return contentType
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getContentType = function () {
+            return this.contentType;
+        };
+        /**
+           Set the content type
+
+           @param contentType
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setContentType = function (contentType) {
+            this.contentType = contentType;
+        };
+        /**
+           Returns the array of Header
+
+           @return headers
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getHeaders = function () {
+            return this.headers;
+        };
+        /**
+           Set the array of Header
+
+           @param headers
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setHeaders = function (headers) {
+            this.headers = headers;
+        };
+        /**
+           Returns the method
+
+           @return method
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.getSession = function () {
+            return this.session;
+        };
+        /**
+           Set the method
+
+           @param session
+           @since ARP1.0
+        */
+        ServiceResponse.prototype.setSession = function (session) {
+            this.session = session;
+        };
         return ServiceResponse;
     })();
     Adaptive.ServiceResponse = ServiceResponse;

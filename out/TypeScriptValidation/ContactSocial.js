@@ -44,6 +44,42 @@ var Adaptive;
             this.socialNetwork = socialNetwork;
             this.profileUrl = profileUrl;
         }
+        /**
+           Returns the social network
+
+           @return socialNetwork
+           @since ARP1.0
+        */
+        ContactSocial.prototype.getSocialNetwork = function () {
+            return this.socialNetwork;
+        };
+        /**
+           Set the social network
+
+           @param socialNetwork
+           @since ARP1.0
+        */
+        ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
+            this.socialNetwork = socialNetwork;
+        };
+        /**
+           Returns the profile url of the user
+
+           @return profileUrl
+           @since ARP1.0
+        */
+        ContactSocial.prototype.getProfileUrl = function () {
+            return this.profileUrl;
+        };
+        /**
+           Set the profile url of the iser
+
+           @param profileUrl
+           @since ARP1.0
+        */
+        ContactSocial.prototype.setProfileUrl = function (profileUrl) {
+            this.profileUrl = profileUrl;
+        };
         return ContactSocial;
     })();
     Adaptive.ContactSocial = ContactSocial;

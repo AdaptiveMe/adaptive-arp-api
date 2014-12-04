@@ -43,6 +43,143 @@ var Adaptive;
             this.name = name;
             this.data = data;
         }
+        /**
+           Gets Cookie creation timestamp in milliseconds.
+
+           @return creation Cookie creation timestamp in milliseconds.
+        */
+        Cookie.prototype.getCreation = function () {
+            return this.creation;
+        };
+        /**
+           Sets Cookie creation timestamp in milliseconds.
+
+           @param creation Cookie creation timestamp in milliseconds.
+        */
+        Cookie.prototype.setCreation = function (creation) {
+            this.creation = creation;
+        };
+        /**
+           Returns the cookie value
+
+           @return
+           @since ARP1.0
+        */
+        Cookie.prototype.getData = function () {
+            return this.data;
+        };
+        /**
+           Set the cookie value
+
+           @param data
+           @since ARP1.0
+        */
+        Cookie.prototype.setData = function (data) {
+            this.data = data;
+        };
+        /**
+           Returns the domain
+
+           @return domain
+           @since ARP1.0
+        */
+        Cookie.prototype.getDomain = function () {
+            return this.domain;
+        };
+        /**
+           Set the domain
+
+           @param domain
+        */
+        Cookie.prototype.setDomain = function (domain) {
+            this.domain = domain;
+        };
+        /**
+           Returns the expiration date in milis
+
+           @return expiry
+           @since ARP1.0
+        */
+        Cookie.prototype.getExpiry = function () {
+            return this.expiry;
+        };
+        /**
+           Set the expiration date in milis
+
+           @param expiry
+        */
+        Cookie.prototype.setExpiry = function (expiry) {
+            this.expiry = expiry;
+        };
+        /**
+           Returns the cookie name
+
+           @return name
+           @since ARP1.0
+        */
+        Cookie.prototype.getName = function () {
+            return this.name;
+        };
+        /**
+           Set the cookie name
+
+           @param name
+           @since ARP1.0
+        */
+        Cookie.prototype.setName = function (name) {
+            this.name = name;
+        };
+        /**
+           Returns the path
+
+           @return path
+           @since ARP1.0
+        */
+        Cookie.prototype.getPath = function () {
+            return this.path;
+        };
+        /**
+           Set the path
+
+           @param path
+        */
+        Cookie.prototype.setPath = function (path) {
+            this.path = path;
+        };
+        /**
+           Returns the scheme
+
+           @return scheme
+           @since ARP1.0
+        */
+        Cookie.prototype.getScheme = function () {
+            return this.scheme;
+        };
+        /**
+           Set the scheme
+
+           @param scheme
+        */
+        Cookie.prototype.setScheme = function (scheme) {
+            this.scheme = scheme;
+        };
+        /**
+           Returns whether the cookie is secure or not
+
+           @return true if the cookie is secure; false otherwise
+           @since ARP1.0
+        */
+        Cookie.prototype.getSecure = function () {
+            return this.secure;
+        };
+        /**
+           Set whether the cookie is secure or not
+
+           @param secure
+        */
+        Cookie.prototype.setSecure = function (secure) {
+            this.secure = secure;
+        };
         return Cookie;
     })();
     Adaptive.Cookie = Cookie;

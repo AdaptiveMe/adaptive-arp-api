@@ -44,6 +44,42 @@ var Adaptive;
             this.phone = phone;
             this.phoneType = phoneType;
         }
+        /**
+           Returns the phone phoneType
+
+           @return phoneType
+           @since ARP1.0
+        */
+        ContactPhone.prototype.getPhoneType = function () {
+            return this.phoneType;
+        };
+        /**
+           Set the phoneType of the phone number
+
+           @param phoneType
+           @since ARP1.0
+        */
+        ContactPhone.prototype.setPhoneType = function (phoneType) {
+            this.phoneType = phoneType;
+        };
+        /**
+           Returns the phone number
+
+           @return phone number
+           @since ARP1.0
+        */
+        ContactPhone.prototype.getPhone = function () {
+            return this.phone;
+        };
+        /**
+           Set the phone number
+
+           @param phone number
+           @since ARP1.0
+        */
+        ContactPhone.prototype.setPhone = function (phone) {
+            this.phone = phone;
+        };
         return ContactPhone;
     })();
     Adaptive.ContactPhone = ContactPhone;
