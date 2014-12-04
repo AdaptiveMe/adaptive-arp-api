@@ -86,5 +86,6 @@ out/ObjCValidation/ObjCValidation.xcodeproj/project.xcworkspace/xcuserdata/cloza
 out/ObjCValidation/ObjCValidation.xcodeproj/xcuserdata/clozano.xcuserdatad/
 out/JavaValidation/build/
 
-out/CSharpValidation/CSharpValidation/bin
-out/CSharpValidation/CSharpValidation/obj
+out/CSharpValidation/CSharpValidation/bin/
+out/CSharpValidation/CSharpValidation/obj/
+out/CSharpValidation/CSharpValidation/obj/Debug/

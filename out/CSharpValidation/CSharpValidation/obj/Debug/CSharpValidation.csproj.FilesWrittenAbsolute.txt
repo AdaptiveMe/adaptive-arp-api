@@ -1,1 +1,0 @@
-/Users/clozano/Github/Runtime/adaptive-arp-api/out/CSharpValidation/CSharpValidation/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile78.AssemblyAttribute.cs
