@@ -54,12 +54,63 @@ public class ObjCGenerator extends GeneratorBase {
 
     @Override
     protected void endInterface(String simpleName, Class clazz) {
-
+        indentPrintStreamH.println("@end");
     }
 
     @Override
     protected void startInterface(String simpleName, Class clazz, String classComment, List<DocletTag> tagList) {
+        List<String> referenceList = new ArrayList<>();
+        referenceList.add("Foundation/Foundation");
 
+        if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class) && !clazz.getSuperclass().equals(Enum.class)) {
+            referenceList.add(filterClassName(clazz.getSuperclass().getSimpleName()));
+        }
+        for (Field field : clazz.getDeclaredFields()) {
+            Class type = field.getType();
+            if (!type.isPrimitive() && !type.equals(Object.class) && !type.equals(String.class) && !type.isArray() && !type.isEnum()) {
+                if (!referenceList.contains(filterClassName(type.getSimpleName()))) {
+                    referenceList.add(filterClassName(type.getSimpleName()));
+                }
+            } else if (type.isArray()) {
+                Class component = type.getComponentType();
+                if (!component.isPrimitive() && !component.equals(Object.class) && !component.equals(String.class) && !component.isArray() && !type.isEnum()) {
+                    if (!referenceList.contains(filterClassName(component.getSimpleName()))) {
+                        referenceList.add(filterClassName(component.getSimpleName()));
+                    }
+                }
+            } else if (type.isEnum()) {
+                // TODO: Process enum references.
+            }
+        }
+
+        referenceList.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+
+        for (String reference : referenceList) {
+            indentPrintStreamH.println("#import <" + reference + ".h>");
+        }
+
+        indentPrintStreamH.println();
+        indentPrintStreamH.println("/**");
+        indentPrintStreamH.println(classComment);
+        if (tagList.size() > 0) {
+            indentPrintStreamH.println();
+            for (DocletTag tag : tagList) {
+                indentPrintStreamH.println("@" + tag.getName() + " " + tag.getValue());
+            }
+        }
+        indentPrintStreamH.println("*/");
+        if (clazz.isEnum()) {
+            indentPrintStreamH.println("@protocol " + filterClassName(simpleName) + " : NSObject");
+        } else if (clazz.getInterfaces() != null && clazz.getInterfaces().length == 1) {
+            indentPrintStreamH.println("@protocol " + filterClassName(simpleName) + " : " + filterClassName(clazz.getInterfaces()[0].getSimpleName()));
+        } else {
+            indentPrintStreamH.println("@protocol " + filterClassName(simpleName) + " : NSObject");
+        }
     }
 
     @Override
@@ -144,7 +195,7 @@ public class ObjCGenerator extends GeneratorBase {
                             indentPrintStream.print(", ");
                         }
                     }
-                    indentPrintStream.println(")");
+                    indentPrintStream.println(");");
                 } else {
                     indentPrintStream.println(10, "self = [self init];");
                     indentPrintStream.println(10, "if (self) {");

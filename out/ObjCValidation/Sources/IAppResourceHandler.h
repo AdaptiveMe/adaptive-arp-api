@@ -23,6 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <Foundation/Foundation.h>
+
+/**
+Created by clozano on 05/09/2014.
+
+@author Carlos Lozano Diez
+@since 1.0
+@version 1.0
+*/
+@protocol IAppResourceHandler : IAdaptiveRP
+@end
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -23,6 +23,53 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <Foundation/Foundation.h>
+
+/**
+An object that may be used to locate a file in a file system. It will
+typically represent a system dependent file path.
+<p> A {@code Path} represents a path that is hierarchical and composed of a
+sequence of directory and file name elements separated by a special separator
+or delimiter. A <em>root component</em>, that identifies a file system
+hierarchy, may also be present. The name element that is <em>farthest</em>
+from the root of the directory hierarchy is the name of a file or directory.
+The other name elements are directory names. A {@code Path} can represent a
+root, a root and a sequence of names, or simply one or more name elements.
+A {@code Path} is considered to be an <i>empty path</i> if it consists
+solely of one name element that is empty. Accessing a file using an
+<i>empty path</i> is equivalent to accessing the default directory of the
+file system. {@code Path} defines the {@link #getFileName() getFileName},
+{@link #getParent getParent}, {@link #getRoot getRoot}, and  methods to access
+the path components or a subsequence of its name elements.
+<p> In addition to accessing the components of a path, a {@code Path} also
+defines the {@link #resolvePath(IFilePath) resolve} and {@link #resolveSiblingPath(IFilePath)
+resolveSibling} methods to combine paths. The {@link #relativize relativize}
+method that can be used to construct a relative path between two paths.
+Paths can be, and tested against each other using
+the {@link #startsWith startsWith} and {@link #endsWith endsWith} methods.
+<p> <b>WARNING:</b> This interface is only intended to be implemented by
+those developing custom file system implementations. Methods may be added to
+this interface in future releases. </p>
+<h2>Accessing Files</h2>
+<p> Paths may be used with the {@link IFile} class to operate on files,
+directories, and other types of files. For example, suppose we want a {@link
+java.io.BufferedReader} to read text from a file "{@code access.log}". The
+file is located in a directory "{@code logs}" relative to the current working
+directory and is UTF-8 encoded.
+<pre>
+    Path path = FileSystems.getDefault().getPath("logs", "access.log");
+    BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8);
+</pre>
+<h2>Concurrency</h2>
+<p> Implementations of this interface are immutable and safe for use by
+multiple concurrent threads.
+
+@author Carlos Lozano Diez
+@since ARP1.0
+@version 1.0
+*/
+@protocol IFilePath : IBaseData
+@end
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

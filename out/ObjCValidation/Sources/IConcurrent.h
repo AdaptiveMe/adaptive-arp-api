@@ -23,6 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <Foundation/Foundation.h>
+
+/**
+Definition of IConcurrent interface/protocol.
+
+@author Carlos Lozano Diez
+@since 1.0
+@version 1.0
+*/
+@protocol IConcurrent : IBaseUtil
+@end
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -23,6 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <Foundation/Foundation.h>
+
+/**
+Created by FRMI on 28/08/2014.
+
+@author Carlos Lozano Diez
+@since 1.0
+@version 1.0
+*/
+@protocol INetworkReachabilityCallback : IBaseCallback
+@end
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
