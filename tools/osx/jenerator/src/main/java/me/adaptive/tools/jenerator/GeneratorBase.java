@@ -304,7 +304,27 @@ public abstract class GeneratorBase {
             if (clazz.isEnum()) {
                 System.out.println("Unhandled: " + clazz);
             } else if (clazz.isInterface()) {
-
+                /**
+                 * Retrieve class comment from source file.
+                 */
+                String classComment = mapClassSource.get(clazz).getComment();
+                if (classComment == null || classComment.length() == 0) {
+                    classComment = "Implementation of " + clazz.getSimpleName() + " bean.";
+                }
+                /**
+                 * Retrieve class comment tags from source file.
+                 */
+                List<DocletTag> tagList = enrichTags(mapClassSource.get(clazz).getTags());
+                /**
+                 * Start interface.
+                 */
+                startInterface(clazz.getSimpleName(), clazz, classComment, tagList);
+                println();
+                /**
+                 * End interface.
+                 */
+                println();
+                endInterface(clazz.getSimpleName(), clazz);
             } else {
                 /**
                  * Retrieve class comment from source file.
@@ -449,9 +469,9 @@ public abstract class GeneratorBase {
                 /**
                  * End getter/setter
                  */
-                endGetterSetters(clazz.getSimpleName(),clazz);
+                endGetterSetters(clazz.getSimpleName(), clazz);
                 /**
-                 * End class.
+                 * End Bean.
                  */
                 println();
                 endBean(clazz.getSimpleName(), clazz);
@@ -473,6 +493,10 @@ public abstract class GeneratorBase {
         endGeneration();
         callback.onSuccess(this, this.getClass());
     }
+
+    protected abstract void endInterface(String simpleName, Class clazz);
+
+    protected abstract void startInterface(String simpleName, Class clazz, String classComment, List<DocletTag> tagList);
 
     protected abstract void endGetterSetters(String simpleName, Class clazz);
 

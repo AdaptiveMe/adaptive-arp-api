@@ -55,6 +55,16 @@ public class TypeScriptGenerator extends GeneratorBase {
     }
 
     @Override
+    protected void endInterface(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void startInterface(String simpleName, Class clazz, String classComment, List<DocletTag> tagList) {
+
+    }
+
+    @Override
     protected void endGetterSetters(String simpleName, Class clazz) {
 
     }
@@ -147,8 +157,8 @@ public class TypeScriptGenerator extends GeneratorBase {
         println(15, "this." + field.getName() + " = "+field.getName()+";");
         println(10, "}");
         println();
-        printlnGlobal(10, "set" + fieldName + "("+field.getName()+": "+convertJavaToNativeType(field.getType())+") {");
-        printlnGlobal(15, "this." + field.getName() + " = "+field.getName()+";");
+        printlnGlobal(10, "set" + fieldName + "(" + field.getName() + ": " + convertJavaToNativeType(field.getType()) + ") {");
+        printlnGlobal(15, "this." + field.getName() + " = " + field.getName() + ";");
         printlnGlobal(10, "}");
         printlnGlobal();
     }

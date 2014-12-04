@@ -50,6 +50,16 @@ public class JavaGenerator extends GeneratorBase {
     }
 
     @Override
+    protected void endInterface(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void startInterface(String simpleName, Class clazz, String classComment, List<DocletTag> tagList) {
+
+    }
+
+    @Override
     protected void endGetterSetters(String simpleName, Class clazz) {
 
     }
