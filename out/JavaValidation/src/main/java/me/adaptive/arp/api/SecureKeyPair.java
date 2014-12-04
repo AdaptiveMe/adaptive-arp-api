@@ -55,6 +55,46 @@ public class SecureKeyPair {
           this.secureKey = secureKey;
           this.secureData = secureData;
      }
+     /**
+        Returns the object value
+
+        @return Value.
+        @since ARP 1.0
+     */
+     public String getSecureData() {
+          return this.secureData;
+     }
+
+     /**
+        Sets the value for this object
+
+        @param secureData value to set.
+        @since ARP 1.0
+     */
+     public void setSecureData(String secureData) {
+          this.secureData = secureData;
+     }
+
+     /**
+        Returns the object secureKey name.
+
+        @return Key name.
+        @since ARP 1.0
+     */
+     public String getSecureKey() {
+          return this.secureKey;
+     }
+
+     /**
+        Sets the secureKey name for this object.
+
+        @param secureKey Key name.
+        @since ARP 1.0
+     */
+     public void setSecureKey(String secureKey) {
+          this.secureKey = secureKey;
+     }
+
 
 }
 

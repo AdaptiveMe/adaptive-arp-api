@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Enumeration LifecycleState
+       Enumeration LifecycleState
     */
     class LifecycleState {
         value: string;

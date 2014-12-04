@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Enumeration ICapabilitiesButton
+       Enumeration ICapabilitiesButton
     */
     class ICapabilitiesButton {
         value: string;

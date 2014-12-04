@@ -85,6 +85,159 @@ public class Cookie {
           this.name = name;
           this.data = data;
      }
+     /**
+        Gets Cookie creation timestamp in milliseconds.
+
+        @return creation Cookie creation timestamp in milliseconds.
+     */
+     public long getCreation() {
+          return this.creation;
+     }
+
+     /**
+        Sets Cookie creation timestamp in milliseconds.
+
+        @param creation Cookie creation timestamp in milliseconds.
+     */
+     public void setCreation(long creation) {
+          this.creation = creation;
+     }
+
+     /**
+        Returns the cookie value
+
+        @return 
+        @since ARP1.0
+     */
+     public String getData() {
+          return this.data;
+     }
+
+     /**
+        Set the cookie value
+
+        @param data
+        @since ARP1.0
+     */
+     public void setData(String data) {
+          this.data = data;
+     }
+
+     /**
+        Returns the domain
+
+        @return domain
+        @since ARP1.0
+     */
+     public String getDomain() {
+          return this.domain;
+     }
+
+     /**
+        Set the domain
+
+        @param domain
+     */
+     public void setDomain(String domain) {
+          this.domain = domain;
+     }
+
+     /**
+        Returns the expiration date in milis
+
+        @return expiry
+        @since ARP1.0
+     */
+     public long getExpiry() {
+          return this.expiry;
+     }
+
+     /**
+        Set the expiration date in milis
+
+        @param expiry
+     */
+     public void setExpiry(long expiry) {
+          this.expiry = expiry;
+     }
+
+     /**
+        Returns the cookie name
+
+        @return name
+        @since ARP1.0
+     */
+     public String getName() {
+          return this.name;
+     }
+
+     /**
+        Set the cookie name
+
+        @param name
+        @since ARP1.0
+     */
+     public void setName(String name) {
+          this.name = name;
+     }
+
+     /**
+        Returns the path
+
+        @return path
+        @since ARP1.0
+     */
+     public String getPath() {
+          return this.path;
+     }
+
+     /**
+        Set the path
+
+        @param path
+     */
+     public void setPath(String path) {
+          this.path = path;
+     }
+
+     /**
+        Returns the scheme
+
+        @return scheme
+        @since ARP1.0
+     */
+     public String getScheme() {
+          return this.scheme;
+     }
+
+     /**
+        Set the scheme
+
+        @param scheme
+     */
+     public void setScheme(String scheme) {
+          this.scheme = scheme;
+     }
+
+     /**
+        Returns whether the cookie is secure or not
+
+        @return true if the cookie is secure; false otherwise
+        @since ARP1.0
+     */
+     public boolean getSecure() {
+          return this.secure;
+     }
+
+     /**
+        Set whether the cookie is secure or not
+
+        @param secure
+     */
+     public void setSecure(boolean secure) {
+          this.secure = secure;
+     }
+
 
 }
 

@@ -33,7 +33,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Structure representing the data elements of a contact.
+       Structure representing the data elements of a contact.
 
        @author Carlos Lozano Diez
        @since 1.0
@@ -72,5 +72,12 @@ declare module Adaptive {
            The professional info from the contact
         */
         professionalInfo: ContactProfessionalInfo;
+        /**
+           Constructor used by implementation to set the Contact.
+
+           @param contactId of the Contact
+           @since ARP1.0
+        */
+        constructor(contactId: string);
     }
 }

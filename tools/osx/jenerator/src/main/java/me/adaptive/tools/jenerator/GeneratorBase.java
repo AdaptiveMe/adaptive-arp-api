@@ -431,7 +431,24 @@ public abstract class GeneratorBase {
                  * End constructors.
                  */
                 endConstructors(clazz.getSimpleName(), clazz);
+                /**
+                 * Start getter/setter
+                 */
+                startGetterSetters(clazz.getSimpleName(), clazz);
+                /**
+                 * Process getter/setter
+                 */
+                for (Field field : enumFields) {
+                    declareGetterSetter(clazz, field, mapClassSource.get(clazz).getFieldByName(field.getName()), mapClassSource.get(clazz).getMethods());
+                }
 
+                for (Field field : normalFields) {
+                    declareGetterSetter(clazz, field, mapClassSource.get(clazz).getFieldByName(field.getName()), mapClassSource.get(clazz).getMethods());
+                }
+                /**
+                 * End getter/setter
+                 */
+                endGetterSetters(clazz.getSimpleName(),clazz);
                 /**
                  * End class.
                  */
@@ -455,6 +472,12 @@ public abstract class GeneratorBase {
         endGeneration();
         callback.onSuccess(this, this.getClass());
     }
+
+    protected abstract void endGetterSetters(String simpleName, Class clazz);
+
+    protected abstract void startGetterSetters(String simpleName, Class clazz);
+
+    protected abstract void declareGetterSetter(Class clazz, Field field, JavaField fieldByName, List<JavaMethod> methods);
 
     protected abstract void endConstructors(String simpleName, Class clazz);
 

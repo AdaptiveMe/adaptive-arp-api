@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Enumeration ContactPhoneType
+       Enumeration ContactPhoneType
     */
     var ContactPhoneType = (function () {
         function ContactPhoneType(value) {

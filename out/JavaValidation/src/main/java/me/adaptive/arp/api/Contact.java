@@ -82,6 +82,166 @@ public class Contact extends ContactUid {
      public Contact(String contactId) {
           super(contactId);
      }
+     /**
+        Returns all the addresses of the Contact
+
+        @return ContactAddress[]
+        @since ARP1.0
+     */
+     public ContactAddress[] getContactAddresses() {
+          return this.contactAddresses;
+     }
+
+     /**
+        Set the addresses of the Contact
+
+        @param contactAddresses
+        @since ARP1.0
+     */
+     public void setContactAddresses(ContactAddress[] contactAddresses) {
+          this.contactAddresses = contactAddresses;
+     }
+
+     /**
+        Returns all the emails of the Contact
+
+        @return ContactEmail[]
+        @since ARP1.0
+     */
+     public ContactEmail[] getContactEmails() {
+          return this.contactEmails;
+     }
+
+     /**
+        Set the emails of the Contact
+
+        @param contactEmails
+        @since ARP1.0
+     */
+     public void setContactEmails(ContactEmail[] contactEmails) {
+          this.contactEmails = contactEmails;
+     }
+
+     /**
+        Returns all the phones of the Contact
+
+        @return ContactPhone[]
+        @since ARP1.0
+     */
+     public ContactPhone[] getContactPhones() {
+          return this.contactPhones;
+     }
+
+     /**
+        Set the phones of the Contact
+
+        @param contactPhones
+        @since ARP1.0
+     */
+     public void setContactPhones(ContactPhone[] contactPhones) {
+          this.contactPhones = contactPhones;
+     }
+
+     /**
+        Returns all the social network info of the Contact
+
+        @return ContactSocial[]
+        @since ARP1.0
+     */
+     public ContactSocial[] getContactSocials() {
+          return this.contactSocials;
+     }
+
+     /**
+        Set the social network info of the Contact
+
+        @param contactSocials
+        @since ARP1.0
+     */
+     public void setContactSocials(ContactSocial[] contactSocials) {
+          this.contactSocials = contactSocials;
+     }
+
+     /**
+        Returns the additional tags of the Contact
+
+        @return ContactTag[]
+        @since ARP1.0
+     */
+     public ContactTag[] getContactTags() {
+          return this.contactTags;
+     }
+
+     /**
+        Set the additional tags of the Contact
+
+        @param contactTags
+        @since ARP1.0
+     */
+     public void setContactTags(ContactTag[] contactTags) {
+          this.contactTags = contactTags;
+     }
+
+     /**
+        Returns all the websites of the Contact
+
+        @return ContactWebsite[]
+        @since ARP1.0
+     */
+     public ContactWebsite[] getContactWebsites() {
+          return this.contactWebsites;
+     }
+
+     /**
+        Set the websites of the Contact
+
+        @param contactWebsites
+        @since ARP1.0
+     */
+     public void setContactWebsites(ContactWebsite[] contactWebsites) {
+          this.contactWebsites = contactWebsites;
+     }
+
+     /**
+        Returns the personal info of the Contact
+
+        @return ContactPersonalInfo of the Contact
+        @since ARP1.0
+     */
+     public ContactPersonalInfo getPersonalInfo() {
+          return this.personalInfo;
+     }
+
+     /**
+        Set the personal info of the Contact
+
+        @param personalInfo
+        @since ARP1.0
+     */
+     public void setPersonalInfo(ContactPersonalInfo personalInfo) {
+          this.personalInfo = personalInfo;
+     }
+
+     /**
+        Returns the professional info of the Contact
+
+        @return ContactProfessionalInfo[]
+        @since ARP1.0
+     */
+     public ContactProfessionalInfo getProfessionalInfo() {
+          return this.professionalInfo;
+     }
+
+     /**
+        Set the professional info of the Contact
+
+        @param professionalInfo
+        @since ARP1.0
+     */
+     public void setProfessionalInfo(ContactProfessionalInfo professionalInfo) {
+          this.professionalInfo = professionalInfo;
+     }
+
 
 }
 

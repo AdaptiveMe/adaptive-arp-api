@@ -55,6 +55,25 @@ public class Button {
           this();
           this.type = type;
      }
+     /**
+        Returns the button type
+
+        @return type Button type.
+        @since ARP1.0
+     */
+     public ICapabilitiesButton getType() {
+          return this.type;
+     }
+
+     /**
+        Sets Button type
+
+        @param type Button type
+     */
+     public void setType(ICapabilitiesButton type) {
+          this.type = type;
+     }
+
 
 }
 

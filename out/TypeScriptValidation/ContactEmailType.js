@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Enumeration ContactEmailType
+       Enumeration ContactEmailType
     */
     var ContactEmailType = (function () {
         function ContactEmailType(value) {

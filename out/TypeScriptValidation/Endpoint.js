@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Structure representing a remote or local service access end-point.
+       Structure representing a remote or local service access end-point.
 
        @author Carlos Lozano Diez
        @since 1.0

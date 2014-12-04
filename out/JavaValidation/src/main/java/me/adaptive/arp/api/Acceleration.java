@@ -73,6 +73,78 @@ public class Acceleration {
           this.z = z;
           this.timeStamp = timeStamp;
      }
+     /**
+        Gets Timestamp of the acceleration reading.
+
+        @return timeStamp Timestamp of the acceleration reading.
+     */
+     public long getTimeStamp() {
+          return this.timeStamp;
+     }
+
+     /**
+        Sets Timestamp of the acceleration reading.
+
+        @param timeStamp Timestamp of the acceleration reading.
+     */
+     public void setTimeStamp(long timeStamp) {
+          this.timeStamp = timeStamp;
+     }
+
+     /**
+        Gets X-axis component of the acceleration.
+
+        @return x X-axis component of the acceleration.
+     */
+     public double getX() {
+          return this.x;
+     }
+
+     /**
+        Sets X-axis component of the acceleration.
+
+        @param x X-axis component of the acceleration.
+     */
+     public void setX(double x) {
+          this.x = x;
+     }
+
+     /**
+        Gets Y-axis component of the acceleration.
+
+        @return y Y-axis component of the acceleration.
+     */
+     public double getY() {
+          return this.y;
+     }
+
+     /**
+        Sets Y-axis component of the acceleration.
+
+        @param y Y-axis component of the acceleration.
+     */
+     public void setY(double y) {
+          this.y = y;
+     }
+
+     /**
+        Gets Z-axis component of the acceleration.
+
+        @return z Z-axis component of the acceleration.
+     */
+     public double getZ() {
+          return this.z;
+     }
+
+     /**
+        Sets Z-axis component of the acceleration.
+
+        @param z Z-axis component of the acceleration.
+     */
+     public void setZ(double z) {
+          this.z = z;
+     }
+
 
 }
 

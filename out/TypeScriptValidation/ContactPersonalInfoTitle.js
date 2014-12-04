@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Enumeration ContactPersonalInfoTitle
+       Enumeration ContactPersonalInfoTitle
     */
     var ContactPersonalInfoTitle = (function () {
         function ContactPersonalInfoTitle(value) {

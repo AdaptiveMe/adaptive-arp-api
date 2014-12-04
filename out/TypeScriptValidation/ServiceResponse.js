@@ -27,7 +27,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Represents a local or remote service response.
+       Represents a local or remote service response.
 
        @author Carlos Lozano Diez
        @since 1.0

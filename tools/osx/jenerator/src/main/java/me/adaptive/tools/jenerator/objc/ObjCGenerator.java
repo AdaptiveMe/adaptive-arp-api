@@ -24,10 +24,7 @@ Contributors:
  */
 package me.adaptive.tools.jenerator.objc;
 
-import com.thoughtworks.qdox.model.DocletTag;
-import com.thoughtworks.qdox.model.JavaClass;
-import com.thoughtworks.qdox.model.JavaConstructor;
-import com.thoughtworks.qdox.model.JavaField;
+import com.thoughtworks.qdox.model.*;
 import me.adaptive.tools.jenerator.GeneratorBase;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 
@@ -53,6 +50,21 @@ public class ObjCGenerator extends GeneratorBase {
 
     public ObjCGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
+    }
+
+    @Override
+    protected void endGetterSetters(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void startGetterSetters(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void declareGetterSetter(Class clazz, Field field, JavaField fieldByName, List<JavaMethod> methods) {
+
     }
 
     @Override

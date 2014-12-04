@@ -24,10 +24,7 @@ Contributors:
  */
 package me.adaptive.tools.jenerator.swift;
 
-import com.thoughtworks.qdox.model.DocletTag;
-import com.thoughtworks.qdox.model.JavaClass;
-import com.thoughtworks.qdox.model.JavaConstructor;
-import com.thoughtworks.qdox.model.JavaField;
+import com.thoughtworks.qdox.model.*;
 import me.adaptive.tools.jenerator.GeneratorBase;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 
@@ -51,6 +48,21 @@ public class SwiftGenerator extends GeneratorBase {
 
     public SwiftGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
+    }
+
+    @Override
+    protected void endGetterSetters(String simpleName, Class clazz) {
+        
+    }
+
+    @Override
+    protected void startGetterSetters(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void declareGetterSetter(Class clazz, Field field, JavaField fieldByName, List<JavaMethod> methods) {
+
     }
 
     @Override
@@ -82,7 +94,11 @@ public class SwiftGenerator extends GeneratorBase {
             if (c.getParameters().length == 0) {
                 println(5, "public override init() {");
             } else {
-                print(5, "public convenience init(");
+                if (clazz.getSuperclass().equals(Object.class)) {
+                    print(5, "public convenience init(");
+                } else {
+                    print(5, "public override convenience init(");
+                }
                 for (int j=0;j<c.getParameters().length;j++) {
                     Parameter parameter = c.getParameters()[j];
                     print(parameter.getName()+": "+convertJavaToNativeType(parameter.getType()));
@@ -96,6 +112,7 @@ public class SwiftGenerator extends GeneratorBase {
                     print(10, "super.init(");
                     for (int j=0;j<c.getParameters().length;j++) {
                         Parameter parameter = c.getParameters()[j];
+                        print(parameter.getName()+": ");
                         print(parameter.getName());
                         if (j<c.getParameters().length-1) {
                             print(", ");

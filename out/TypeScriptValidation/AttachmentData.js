@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Structure representing the binary attachment data.
+       Structure representing the binary attachment data.
 
        @author Carlos Lozano Diez
        @since 1.0

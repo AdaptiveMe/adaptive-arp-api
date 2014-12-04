@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Enumeration ContactPersonalInfoTitle
+       Enumeration ContactPersonalInfoTitle
     */
     class ContactPersonalInfoTitle {
         value: string;

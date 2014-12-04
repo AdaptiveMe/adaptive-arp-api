@@ -61,6 +61,46 @@ public class ContactPhone {
           this.phone = phone;
           this.phoneType = phoneType;
      }
+     /**
+        Returns the phone phoneType
+
+        @return phoneType
+        @since ARP1.0
+     */
+     public ContactPhoneType getPhoneType() {
+          return this.phoneType;
+     }
+
+     /**
+        Set the phoneType of the phone number
+
+        @param phoneType
+        @since ARP1.0
+     */
+     public void setPhoneType(ContactPhoneType phoneType) {
+          this.phoneType = phoneType;
+     }
+
+     /**
+        Returns the phone number
+
+        @return phone number
+        @since ARP1.0
+     */
+     public String getPhone() {
+          return this.phone;
+     }
+
+     /**
+        Set the phone number
+
+        @param phone number
+        @since ARP1.0
+     */
+     public void setPhone(String phone) {
+          this.phone = phone;
+     }
+
 
 }
 

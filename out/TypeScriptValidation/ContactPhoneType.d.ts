@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Enumeration ContactPhoneType
+       Enumeration ContactPhoneType
     */
     class ContactPhoneType {
         value: string;

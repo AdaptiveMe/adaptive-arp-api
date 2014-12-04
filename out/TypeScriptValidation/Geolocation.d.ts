@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Structure representing the data a single geolocation reading.
+       Structure representing the data a single geolocation reading.
 
        @author Carlos Lozano Diez
        @since 1.0

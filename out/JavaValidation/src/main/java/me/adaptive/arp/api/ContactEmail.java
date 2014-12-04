@@ -67,6 +67,66 @@ public class ContactEmail {
           this.primary = primary;
           this.email = email;
      }
+     /**
+        Returns the type of the email
+
+        @return EmailType
+        @since ARP1.0
+     */
+     public ContactEmailType getType() {
+          return this.type;
+     }
+
+     /**
+        Set the type of the email
+
+        @param type
+        @since ARP1.0
+     */
+     public void setType(ContactEmailType type) {
+          this.type = type;
+     }
+
+     /**
+        Returns the email of the Contact
+
+        @return email
+        @since ARP1.0
+     */
+     public String getEmail() {
+          return this.email;
+     }
+
+     /**
+        Set the email of the Contact
+
+        @param email
+        @since ARP1.0
+     */
+     public void setEmail(String email) {
+          this.email = email;
+     }
+
+     /**
+        Returns if the email is primary
+
+        @return true if the email is primary; false otherwise
+        @since ARP1.0
+     */
+     public boolean getPrimary() {
+          return this.primary;
+     }
+
+     /**
+        Set if the email
+
+        @param primary true if the email is primary; false otherwise
+        @since ARP1.0
+     */
+     public void setPrimary(boolean primary) {
+          this.primary = primary;
+     }
+
 
 }
 

@@ -79,6 +79,106 @@ public class Endpoint {
           this.proxy = proxy;
           this.scheme = scheme;
      }
+     /**
+        Returns the host
+
+        @return host
+        @since ARP1.0
+     */
+     public String getHost() {
+          return this.host;
+     }
+
+     /**
+        Set the host
+
+        @param host
+        @since ARP1.0
+     */
+     public void setHost(String host) {
+          this.host = host;
+     }
+
+     /**
+        Returns the path
+
+        @return path
+        @since ARP1.0
+     */
+     public String getPath() {
+          return this.path;
+     }
+
+     /**
+        Set the path
+
+        @param path
+        @since ARP1.0
+     */
+     public void setPath(String path) {
+          this.path = path;
+     }
+
+     /**
+        Returns the port
+
+        @return port
+        @since ARP1.0
+     */
+     public int getPort() {
+          return this.port;
+     }
+
+     /**
+        Set the port
+
+        @param port
+        @since ARP1.0
+     */
+     public void setPort(int port) {
+          this.port = port;
+     }
+
+     /**
+        Return the proxy
+
+        @return proxy
+        @since ARP1.0
+     */
+     public String getProxy() {
+          return this.proxy;
+     }
+
+     /**
+        Set the proxy
+
+        @param proxy
+        @since ARP1.0
+     */
+     public void setProxy(String proxy) {
+          this.proxy = proxy;
+     }
+
+     /**
+        Returns the scheme
+
+        @return scheme
+        @since ARP1.0
+     */
+     public String getScheme() {
+          return this.scheme;
+     }
+
+     /**
+        Set the scheme
+
+        @param scheme
+        @since ARP1.0
+     */
+     public void setScheme(String scheme) {
+          this.scheme = scheme;
+     }
+
 
 }
 

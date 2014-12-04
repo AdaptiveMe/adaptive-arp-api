@@ -27,7 +27,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Represents an instance of a service.
+       Represents an instance of a service.
 
        @author Carlos Lozano Diez
        @since 1.0

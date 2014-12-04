@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Structure representing the data of a single acceleration reading.
+       Structure representing the data of a single acceleration reading.
 
        @author Carlos Lozano Diez
        @since 1.0

@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Structure representing the data elements of an email addressee.
+       Structure representing the data elements of an email addressee.
 
        @author Carlos Lozano Diez
        @since 1.0

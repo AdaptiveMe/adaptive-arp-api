@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Represents a single secureKey-value pair.
+       Represents a single secureKey-value pair.
 
        @author Carlos Lozano Diez
        @since 1.0

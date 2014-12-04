@@ -73,6 +73,86 @@ public class ContactPersonalInfo {
           this.lastName = lastName;
           this.title = title;
      }
+     /**
+        Returns the title of the Contact
+
+        @return Title
+        @since ARP1.0
+     */
+     public ContactPersonalInfoTitle getTitle() {
+          return this.title;
+     }
+
+     /**
+        Set the Title of the Contact
+
+        @param title
+        @since ARP1.0
+     */
+     public void setTitle(ContactPersonalInfoTitle title) {
+          this.title = title;
+     }
+
+     /**
+        Returns the last name of the Contact
+
+        @return lastName
+        @since ARP1.0
+     */
+     public String getLastName() {
+          return this.lastName;
+     }
+
+     /**
+        Set the last name of the Contact
+
+        @param lastName
+        @since ARP1.0
+     */
+     public void setLastName(String lastName) {
+          this.lastName = lastName;
+     }
+
+     /**
+        Returns the middle name of the Contact
+
+        @return middelName
+        @since ARP1.0
+     */
+     public String getMiddleName() {
+          return this.middleName;
+     }
+
+     /**
+        Set the middle name of the Contact
+
+        @param middleName
+        @since ARP1.0
+     */
+     public void setMiddleName(String middleName) {
+          this.middleName = middleName;
+     }
+
+     /**
+        Returns the name of the Contact
+
+        @return name
+        @since ARP1.0
+     */
+     public String getName() {
+          return this.name;
+     }
+
+     /**
+        Set the name of the Contact
+
+        @param name
+        @since ARP1.0
+     */
+     public void setName(String name) {
+          this.name = name;
+     }
+
 
 }
 

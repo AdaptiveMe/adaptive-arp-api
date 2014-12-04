@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Structure representing the basic device information.
+       Structure representing the basic device information.
 
        @author Carlos Lozano Diez
        @since 1.0

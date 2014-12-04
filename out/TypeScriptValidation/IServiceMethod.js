@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Enumeration IServiceMethod
+       Enumeration IServiceMethod
     */
     var IServiceMethod = (function () {
         function IServiceMethod(value) {

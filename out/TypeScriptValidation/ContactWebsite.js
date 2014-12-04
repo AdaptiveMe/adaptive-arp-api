@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Structure representing the website data elements of a contact.
+       Structure representing the website data elements of a contact.
 
        @author Carlos Lozano Diez
        @since 1.0

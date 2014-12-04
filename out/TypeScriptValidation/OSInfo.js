@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Represents the basic information about the operating system.
+       Represents the basic information about the operating system.
 
        @author Carlos Lozano Diez
        @since 1.0

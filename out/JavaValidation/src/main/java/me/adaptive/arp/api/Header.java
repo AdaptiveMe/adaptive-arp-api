@@ -61,6 +61,46 @@ public class Header {
           this.name = name;
           this.data = data;
      }
+     /**
+        Returns the header value
+
+        @return 
+        @since ARP1.0
+     */
+     public String getData() {
+          return this.data;
+     }
+
+     /**
+        Set the header value
+
+        @param data
+        @since ARP1.0
+     */
+     public void setData(String data) {
+          this.data = data;
+     }
+
+     /**
+        Returns the header name
+
+        @return name
+        @since ARP1.0
+     */
+     public String getName() {
+          return this.name;
+     }
+
+     /**
+        Set the header name
+
+        @param name
+        @since ARP1.0
+     */
+     public void setName(String name) {
+          this.name = name;
+     }
+
 
 }
 

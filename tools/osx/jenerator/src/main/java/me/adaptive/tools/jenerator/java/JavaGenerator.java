@@ -24,10 +24,7 @@ Contributors:
  */
 package me.adaptive.tools.jenerator.java;
 
-import com.thoughtworks.qdox.model.DocletTag;
-import com.thoughtworks.qdox.model.JavaClass;
-import com.thoughtworks.qdox.model.JavaConstructor;
-import com.thoughtworks.qdox.model.JavaField;
+import com.thoughtworks.qdox.model.*;
 import me.adaptive.tools.jenerator.GeneratorBase;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 
@@ -50,6 +47,82 @@ public class JavaGenerator extends GeneratorBase {
 
     public JavaGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
+    }
+
+    @Override
+    protected void endGetterSetters(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void startGetterSetters(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void declareGetterSetter(Class clazz, Field field, JavaField fieldByName, List<JavaMethod> methods) {
+        JavaMethod getter = null;
+        JavaMethod setter = null;
+        String fieldName = field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1);
+
+        for (JavaMethod method : methods) {
+            if (method.getName().equals("set" + fieldName)) {
+                setter = method;
+            } else if (method.getName().equals("get" + fieldName)) {
+                getter = method;
+            } else if (method.getName().equals("is" + fieldName)) {
+                getter = method;
+            }
+        }
+        /**
+         * Getters
+         */
+        startComment(5);
+        if (getter != null && getter.getComment() != null && getter.getComment().trim().length() > 0) {
+            println(8, getter.getComment());
+        } else {
+            println(8, "Gets " + fieldByName.getComment());
+        }
+        println();
+        if (getter != null && getter.getComment() != null && getter.getComment().trim().length() > 0) {
+            for (DocletTag tag : getter.getTags()) {
+                println(8, "@" + tag.getName() + " " + tag.getValue());
+            }
+        } else {
+            println(8, "@return " + field.getName() + " " + fieldByName.getComment());
+        }
+        endComment(5);
+        if (field.getType().equals(Boolean.class)) {
+            println(5, "public " + convertJavaToNativeType(field.getType()) + " is" + fieldName + "() {");
+        } else {
+            println(5, "public " + convertJavaToNativeType(field.getType()) + " get" + fieldName + "() {");
+        }
+
+        println(10, "return this." + field.getName() + ";");
+        println(5, "}");
+        println();
+        /**
+         * Setters
+         */
+        startComment(5);
+        if (setter != null && setter.getComment() != null && setter.getComment().trim().length() > 0) {
+            println(8, setter.getComment());
+        } else {
+            println(8, "Sets " + fieldByName.getComment());
+        }
+        println();
+        if (setter != null && setter.getComment() != null && setter.getComment().trim().length() > 0) {
+            for (DocletTag tag : setter.getTags()) {
+                println(8, "@" + tag.getName() + " " + tag.getValue());
+            }
+        } else {
+            println(8, "@param " + field.getName() + " " + fieldByName.getComment());
+        }
+        endComment(5);
+        println(5, "public void set" + fieldName + "("+convertJavaToNativeType(field.getType())+" "+field.getName()+") {");
+        println(10, "this." + field.getName() + " = "+field.getName()+";");
+        println(5, "}");
+        println();
     }
 
     @Override

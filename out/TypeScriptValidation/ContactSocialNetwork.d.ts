@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Enumeration ContactSocialNetwork
+       Enumeration ContactSocialNetwork
     */
     class ContactSocialNetwork {
         value: string;

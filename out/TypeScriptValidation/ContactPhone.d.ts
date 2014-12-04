@@ -25,7 +25,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Structure representing the phone data elements of a contact.
+       Structure representing the phone data elements of a contact.
 
        @author Carlos Lozano Diez
        @since 1.0

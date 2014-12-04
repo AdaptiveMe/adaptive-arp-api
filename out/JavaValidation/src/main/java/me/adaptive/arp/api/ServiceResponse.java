@@ -97,6 +97,166 @@ public class ServiceResponse {
           this.session = session;
           this.contentEncoding = contentEncoding;
      }
+     /**
+        Returns the content
+
+        @return content
+        @since ARP1.0
+     */
+     public String getContent() {
+          return this.content;
+     }
+
+     /**
+        Set the content
+
+        @param content
+        @since ARP1.0
+     */
+     public void setContent(String content) {
+          this.content = content;
+     }
+
+     /**
+        Returns the binary content
+
+        @return contentBinary
+        @since ARP1.0
+     */
+     public byte[] getContentBinary() {
+          return this.contentBinary;
+     }
+
+     /**
+        Set the binary content
+
+        @param contentBinary
+        @since ARP1.0
+     */
+     public void setContentBinary(byte[] contentBinary) {
+          this.contentBinary = contentBinary;
+     }
+
+     /**
+        Retrusn the binary content length
+
+        @return contentBinaryLength
+        @since ARP1.0
+     */
+     public int getContentBinaryLength() {
+          return this.contentBinaryLength;
+     }
+
+     /**
+        Set the binary content length
+
+        @param contentBinaryLength
+        @since ARP1.0
+     */
+     public void setContentBinaryLength(int contentBinaryLength) {
+          this.contentBinaryLength = contentBinaryLength;
+     }
+
+     /**
+        Returns the content encoding
+
+        @return contentEncoding
+        @since ARP1.0
+     */
+     public String getContentEncoding() {
+          return this.contentEncoding;
+     }
+
+     /**
+        Set the content encoding
+
+        @param contentEncoding
+        @since ARP1.0
+     */
+     public void setContentEncoding(String contentEncoding) {
+          this.contentEncoding = contentEncoding;
+     }
+
+     /**
+        Returns the content length
+
+        @return contentLength
+        @since ARP1.0
+     */
+     public String getContentLength() {
+          return this.contentLength;
+     }
+
+     /**
+        Set the content length
+
+        @param contentLength
+        @since ARP1.0
+     */
+     public void setContentLength(String contentLength) {
+          this.contentLength = contentLength;
+     }
+
+     /**
+        Returns the content type
+
+        @return contentType
+        @since ARP1.0
+     */
+     public String getContentType() {
+          return this.contentType;
+     }
+
+     /**
+        Set the content type
+
+        @param contentType
+        @since ARP1.0
+     */
+     public void setContentType(String contentType) {
+          this.contentType = contentType;
+     }
+
+     /**
+        Returns the array of Header
+
+        @return headers
+        @since ARP1.0
+     */
+     public Header[] getHeaders() {
+          return this.headers;
+     }
+
+     /**
+        Set the array of Header
+
+        @param headers
+        @since ARP1.0
+     */
+     public void setHeaders(Header[] headers) {
+          this.headers = headers;
+     }
+
+     /**
+        Returns the method
+
+        @return method
+        @since ARP1.0
+     */
+     public ISession getSession() {
+          return this.session;
+     }
+
+     /**
+        Set the method
+
+        @param session
+        @since ARP1.0
+     */
+     public void setSession(ISession session) {
+          this.session = session;
+     }
+
 
 }
 

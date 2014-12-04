@@ -55,6 +55,26 @@ public class Lifecycle {
           this();
           this.state = state;
      }
+     /**
+        Returns the state of the application
+
+        @return state of the app
+        @since ARP1.0
+     */
+     public LifecycleState getState() {
+          return this.state;
+     }
+
+     /**
+        Set the State of the application
+
+        @param state of the app
+        @since ARP1.0
+     */
+     public void setState(LifecycleState state) {
+          this.state = state;
+     }
+
 
 }
 

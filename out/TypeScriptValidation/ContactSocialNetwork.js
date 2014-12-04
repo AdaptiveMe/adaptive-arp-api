@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Enumeration ContactSocialNetwork
+       Enumeration ContactSocialNetwork
     */
     var ContactSocialNetwork = (function () {
         function ContactSocialNetwork(value) {

@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Enumeration LifecycleState
+       Enumeration LifecycleState
     */
     var LifecycleState = (function () {
         function LifecycleState(value) {

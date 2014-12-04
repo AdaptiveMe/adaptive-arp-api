@@ -61,6 +61,46 @@ public class ContactAddress {
           this.address = address;
           this.type = type;
      }
+     /**
+        Returns the type of the address
+
+        @return AddressType Address type.
+        @since ARP1.0
+     */
+     public ContactAddressType getType() {
+          return this.type;
+     }
+
+     /**
+        Set the address type
+
+        @param type Address type.
+        @since ARP1.0
+     */
+     public void setType(ContactAddressType type) {
+          this.type = type;
+     }
+
+     /**
+        Returns the Contact address
+
+        @return address Address data.
+        @since ARP1.0
+     */
+     public String getAddress() {
+          return this.address;
+     }
+
+     /**
+        Set the address of the Contact
+
+        @param address Address data.
+        @since ARP1.0
+     */
+     public void setAddress(String address) {
+          this.address = address;
+     }
+
 
 }
 

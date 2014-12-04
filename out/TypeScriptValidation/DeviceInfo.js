@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Structure representing the basic device information.
+       Structure representing the basic device information.
 
        @author Carlos Lozano Diez
        @since 1.0

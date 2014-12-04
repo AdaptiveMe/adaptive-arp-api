@@ -25,7 +25,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Represents a specific application life-cycle stage.
+       Represents a specific application life-cycle stage.
 
        @author Carlos Lozano Diez
        @since 1.0

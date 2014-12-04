@@ -54,6 +54,24 @@ public class Row {
           this();
           this.values = values;
      }
+     /**
+        Returns the values of the row.
+
+        @return The values of the row.
+     */
+     public Object[] getValues() {
+          return this.values;
+     }
+
+     /**
+        Sets the values of the row.
+
+        @param values The values of the row.
+     */
+     public void setValues(Object[] values) {
+          this.values = values;
+     }
+
 
 }
 

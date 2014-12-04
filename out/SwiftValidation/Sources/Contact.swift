@@ -77,8 +77,8 @@ public class Contact : ContactUid {
         @param contactId of the Contact
         @since ARP1.0
      */
-     public convenience init(contactId: String) {
-          super.init(contactId)
+     public override convenience init(contactId: String) {
+          super.init(contactId: contactId)
      }
 
 }

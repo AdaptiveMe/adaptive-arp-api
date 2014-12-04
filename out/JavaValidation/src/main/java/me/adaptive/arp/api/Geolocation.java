@@ -79,6 +79,104 @@ public class Geolocation {
           this.xDoP = xDoP;
           this.yDoP = yDoP;
      }
+     /**
+        Returns altitude in meters
+
+        @return altitude
+        @since ARP1.0
+     */
+     public double getAltitude() {
+          return this.altitude;
+     }
+
+     /**
+        Set altitude in meters
+
+        @param altitude
+        @since ARP1.0
+     */
+     public void setAltitude(double altitude) {
+          this.altitude = altitude;
+     }
+
+     /**
+        Returns the latitude in degrees
+
+        @return latitude
+        @since ARP1.0
+     */
+     public double getLatitude() {
+          return this.latitude;
+     }
+
+     /**
+        Set the latitude in degrees
+
+        @param latitude
+        @since ARP1.0
+     */
+     public void setLatitude(double latitude) {
+          this.latitude = latitude;
+     }
+
+     /**
+        Returns the longitude in degrees
+
+        @return longitude
+        @since ARP1.0
+     */
+     public double getLongitude() {
+          return this.longitude;
+     }
+
+     /**
+        Returns the latitude in degrees
+
+        @param longitude
+        @since ARP1.0
+     */
+     public void setLongitude(double longitude) {
+          this.longitude = longitude;
+     }
+
+     /**
+        Returns the Dilution of Position in the X axis (longitude)
+
+        @return xDoP
+        @since ARP1.0
+     */
+     public float getXDoP() {
+          return this.xDoP;
+     }
+
+     /**
+        Sets Dilution of precision on the X measurement. Measured in meters.
+
+        @param xDoP Dilution of precision on the X measurement. Measured in meters.
+     */
+     public void setXDoP(float xDoP) {
+          this.xDoP = xDoP;
+     }
+
+     /**
+        Returns the Dilution of Position in the Y axis (latitude)
+
+        @return yDoP
+        @since ARP1.0
+     */
+     public float getYDoP() {
+          return this.yDoP;
+     }
+
+     /**
+        Sets Dilution of precision on the Y measurement. Measured in meters.
+
+        @param yDoP Dilution of precision on the Y measurement. Measured in meters.
+     */
+     public void setYDoP(float yDoP) {
+          this.yDoP = yDoP;
+     }
+
 
 }
 

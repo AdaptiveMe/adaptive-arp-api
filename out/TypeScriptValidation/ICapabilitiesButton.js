@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Enumeration ICapabilitiesButton
+       Enumeration ICapabilitiesButton
     */
     var ICapabilitiesButton = (function () {
         function ICapabilitiesButton(value) {

@@ -73,6 +73,86 @@ public class Service {
           this.method = method;
           this.type = type;
      }
+     /**
+        Returns the method
+
+        @return method
+        @since ARP1.0
+     */
+     public IServiceMethod getMethod() {
+          return this.method;
+     }
+
+     /**
+        Set the method
+
+        @param method
+        @since ARP1.0
+     */
+     public void setMethod(IServiceMethod method) {
+          this.method = method;
+     }
+
+     /**
+        Returns the type
+
+        @return type
+        @since ARP1.0
+     */
+     public IServiceType getType() {
+          return this.type;
+     }
+
+     /**
+        Set the type
+
+        @param type
+        @since ARP1.0
+     */
+     public void setType(IServiceType type) {
+          this.type = type;
+     }
+
+     /**
+        Returns the endpoint
+
+        @return endpoint
+        @since ARP1.0
+     */
+     public Endpoint getEndpoint() {
+          return this.endpoint;
+     }
+
+     /**
+        Set the endpoint
+
+        @param endpoint
+        @since ARP1.0
+     */
+     public void setEndpoint(Endpoint endpoint) {
+          this.endpoint = endpoint;
+     }
+
+     /**
+        Returns the name
+
+        @return name
+        @since ARP1.0
+     */
+     public String getName() {
+          return this.name;
+     }
+
+     /**
+        Set the name
+
+        @param name
+        @since ARP1.0
+     */
+     public void setName(String name) {
+          this.name = name;
+     }
+
 
 }
 

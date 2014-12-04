@@ -55,6 +55,26 @@ public class ContactWebsite {
           this();
           this.url = url;
      }
+     /**
+        Returns the url of the website
+
+        @return website url
+        @since ARP1.0
+     */
+     public String getUrl() {
+          return this.url;
+     }
+
+     /**
+        Set the url of the website
+
+        @param url
+        @since ARP1.0
+     */
+     public void setUrl(String url) {
+          this.url = url;
+     }
+
 
 }
 

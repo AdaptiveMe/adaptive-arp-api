@@ -55,6 +55,26 @@ public class ContactUid {
           this();
           this.contactId = contactId;
      }
+     /**
+        Returns the contact id
+
+        @return Contactid Internal unique contact id.
+        @since ARP1.0
+     */
+     public String getContactId() {
+          return this.contactId;
+     }
+
+     /**
+        Set the id of the Contact
+
+        @param contactId Internal unique contact id.
+        @since ARP1.0
+     */
+     public void setContactId(String contactId) {
+          this.contactId = contactId;
+     }
+
 
 }
 

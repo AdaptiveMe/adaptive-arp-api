@@ -103,6 +103,186 @@ public class ServiceRequest {
           this.session = session;
           this.contentEncoding = contentEncoding;
      }
+     /**
+        Returns the protocol version
+
+        @return protocolVersion enum
+        @since ARP1.0
+     */
+     public IServiceProtocolVersion getProtocolVersion() {
+          return this.protocolVersion;
+     }
+
+     /**
+        Set the protocol version
+
+        @param protocolVersion
+        @since ARP1.0
+     */
+     public void setProtocolVersion(IServiceProtocolVersion protocolVersion) {
+          this.protocolVersion = protocolVersion;
+     }
+
+     /**
+        Returns the content
+
+        @return content
+        @since ARP1.0
+     */
+     public String getContent() {
+          return this.content;
+     }
+
+     /**
+        Set the content
+
+        @param content
+        @since ARP1.0
+     */
+     public void setContent(String content) {
+          this.content = content;
+     }
+
+     /**
+        Returns the content encoding
+
+        @return contentEncoding
+        @since ARP1.0
+     */
+     public String getContentEncoding() {
+          return this.contentEncoding;
+     }
+
+     /**
+        Set the content encoding
+
+        @param contentEncoding
+        @since ARP1.0
+     */
+     public void setContentEncoding(String contentEncoding) {
+          this.contentEncoding = contentEncoding;
+     }
+
+     /**
+        Returns the content length
+
+        @return contentLength
+        @since ARP1.0
+     */
+     public int getContentLength() {
+          return this.contentLength;
+     }
+
+     /**
+        Set the content length
+
+        @param contentLength
+        @since ARP1.0
+     */
+     public void setContentLength(int contentLength) {
+          this.contentLength = contentLength;
+     }
+
+     /**
+        Returns the content type
+
+        @return contentType
+        @since ARP1.0
+     */
+     public String getContentType() {
+          return this.contentType;
+     }
+
+     /**
+        Set the content type
+
+        @param contentType
+        @since ARP1.0
+     */
+     public void setContentType(String contentType) {
+          this.contentType = contentType;
+     }
+
+     /**
+        Returns the array of Header
+
+        @return headers
+        @since ARP1.0
+     */
+     public Header[] getHeaders() {
+          return this.headers;
+     }
+
+     /**
+        Set the array of Header
+
+        @param headers
+        @since ARP1.0
+     */
+     public void setHeaders(Header[] headers) {
+          this.headers = headers;
+     }
+
+     /**
+        Returns the method
+
+        @return method
+        @since ARP1.0
+     */
+     public String getMethod() {
+          return this.method;
+     }
+
+     /**
+        Set the method
+
+        @param method
+        @since ARP1.0
+     */
+     public void setMethod(String method) {
+          this.method = method;
+     }
+
+     /**
+        Returns the byte[] of the content
+
+        @return rawContent
+        @since ARP1.0
+     */
+     public byte[] getRawContent() {
+          return this.rawContent;
+     }
+
+     /**
+        Set the byte[] of the content
+
+        @param rawContent
+        @since ARP1.0
+     */
+     public void setRawContent(byte[] rawContent) {
+          this.rawContent = rawContent;
+     }
+
+     /**
+        Returns the session object
+
+        @return session
+        @since ARP1.0
+     */
+     public ISession getSession() {
+          return this.session;
+     }
+
+     /**
+        Set the session object
+
+        @param session
+        @since ARP1.0
+     */
+     public void setSession(ISession session) {
+          this.session = session;
+     }
+
 
 }
 

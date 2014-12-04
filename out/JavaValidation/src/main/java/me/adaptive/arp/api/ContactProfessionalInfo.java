@@ -67,6 +67,66 @@ public class ContactProfessionalInfo {
           this.jobDescription = jobDescription;
           this.company = company;
      }
+     /**
+        Returns the company of the job
+
+        @return company
+        @since ARP1.0
+     */
+     public String getCompany() {
+          return this.company;
+     }
+
+     /**
+        Set the company of the job
+
+        @param company
+        @since ARP1.0
+     */
+     public void setCompany(String company) {
+          this.company = company;
+     }
+
+     /**
+        Returns the description of the job
+
+        @return description
+        @since ARP1.0
+     */
+     public String getJobDescription() {
+          return this.jobDescription;
+     }
+
+     /**
+        Set the description of the job
+
+        @param jobDescription
+        @since ARP1.0
+     */
+     public void setJobDescription(String jobDescription) {
+          this.jobDescription = jobDescription;
+     }
+
+     /**
+        Returns the title of the job
+
+        @return title
+        @since ARP1.0
+     */
+     public String getJobTitle() {
+          return this.jobTitle;
+     }
+
+     /**
+        Set the title of the job
+
+        @param jobTitle
+        @since ARP1.0
+     */
+     public void setJobTitle(String jobTitle) {
+          this.jobTitle = jobTitle;
+     }
+
 
 }
 

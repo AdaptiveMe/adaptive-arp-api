@@ -61,6 +61,46 @@ public class Locale {
           this.language = language;
           this.country = country;
      }
+     /**
+        Returns the country code
+
+        @return country code
+        @since ARP1.0
+     */
+     public String getCountry() {
+          return this.country;
+     }
+
+     /**
+        Set the country code
+
+        @param country code
+        @since ARP1.0
+     */
+     public void setCountry(String country) {
+          this.country = country;
+     }
+
+     /**
+        Returns the language code
+
+        @return language code
+        @since ARP1.0
+     */
+     public String getLanguage() {
+          return this.language;
+     }
+
+     /**
+        Set the language code
+
+        @param language code
+        @since ARP1.0
+     */
+     public void setLanguage(String language) {
+          this.language = language;
+     }
+
 
 }
 

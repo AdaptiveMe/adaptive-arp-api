@@ -106,6 +106,145 @@ public class Email {
           this.subject = subject;
           this.messageBody = messageBody;
      }
+     /**
+        Returns an array of attachments
+
+        @return attachmentData array with the email attachments
+        @since ARP1.0
+     */
+     public AttachmentData[] getAttachmentData() {
+          return this.attachmentData;
+     }
+
+     /**
+        Set the email attachment data array
+
+        @param attachmentData array of email attatchments
+        @since ARP1.0
+     */
+     public void setAttachmentData(AttachmentData[] attachmentData) {
+          this.attachmentData = attachmentData;
+     }
+
+     /**
+        Returns the array of recipients
+
+        @return bccRecipients array of bcc recipients
+        @since ARP1.0
+     */
+     public EmailAddress[] getBccRecipients() {
+          return this.bccRecipients;
+     }
+
+     /**
+        Set the array of recipients
+
+        @param bccRecipients array of bcc recipients
+        @since ARP1.0
+     */
+     public void setBccRecipients(EmailAddress[] bccRecipients) {
+          this.bccRecipients = bccRecipients;
+     }
+
+     /**
+        Returns the array of recipients
+
+        @return ccRecipients array of cc recipients
+        @since ARP1.0
+     */
+     public EmailAddress[] getCcRecipients() {
+          return this.ccRecipients;
+     }
+
+     /**
+        Set the array of recipients
+
+        @param ccRecipients array of cc recipients
+        @since ARP1.0
+     */
+     public void setCcRecipients(EmailAddress[] ccRecipients) {
+          this.ccRecipients = ccRecipients;
+     }
+
+     /**
+        Returns the message body of the email
+
+        @return message Body string of the email
+     */
+     public String getMessageBody() {
+          return this.messageBody;
+     }
+
+     /**
+        Set the message body of the email
+
+        @param messageBody message body of the email
+        @since ARP1.0
+     */
+     public void setMessageBody(String messageBody) {
+          this.messageBody = messageBody;
+     }
+
+     /**
+        Returns the myme type of the message body
+
+        @return mime type string of the message boddy
+        @since ARP1.0
+     */
+     public String getMessageBodyMimeType() {
+          return this.messageBodyMimeType;
+     }
+
+     /**
+        Set the mime type for the message body
+
+        @param messageBodyMimeType type of the body message
+        @since ARP1.0
+     */
+     public void setMessageBodyMimeType(String messageBodyMimeType) {
+          this.messageBodyMimeType = messageBodyMimeType;
+     }
+
+     /**
+        Returns the subject of the email
+
+        @return subject string of the email
+        @since ARP1.0
+     */
+     public String getSubject() {
+          return this.subject;
+     }
+
+     /**
+        Set the subject of the email
+
+        @param subject of the email
+        @since ARP1.0
+     */
+     public void setSubject(String subject) {
+          this.subject = subject;
+     }
+
+     /**
+        Returns the array of recipients
+
+        @return toRecipients array of recipients
+        @since ARP1.0
+     */
+     public EmailAddress[] getToRecipients() {
+          return this.toRecipients;
+     }
+
+     /**
+        Set the array of recipients
+
+        @param toRecipients array of recipients
+        @since ARP1.0
+     */
+     public void setToRecipients(EmailAddress[] toRecipients) {
+          this.toRecipients = toRecipients;
+     }
+
 
 }
 

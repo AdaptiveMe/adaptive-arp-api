@@ -54,6 +54,24 @@ public class Column {
           this();
           this.name = name;
      }
+     /**
+        Returns the name of the column.
+
+        @return The name of the column.
+     */
+     public String getName() {
+          return this.name;
+     }
+
+     /**
+        Sets the name of the column.
+
+        @param name The name of the column.
+     */
+     public void setName(String name) {
+          this.name = name;
+     }
+
 
 }
 

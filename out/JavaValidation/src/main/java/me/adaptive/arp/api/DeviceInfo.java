@@ -73,6 +73,80 @@ be unique for a specific instance of an application on a specific device.
           this.vendor = vendor;
           this.uuid = uuid;
      }
+     /**
+        Returns the model of the device.
+
+        @return String with the model of the device.
+     */
+     public String getModel() {
+          return this.model;
+     }
+
+     /**
+        Sets Model of device - equivalent to device release or version.
+
+        @param model Model of device - equivalent to device release or version.
+     */
+     public void setModel(String model) {
+          this.model = model;
+     }
+
+     /**
+        Returns the name of the device.
+
+        @return String with device name.
+     */
+     public String getName() {
+          return this.name;
+     }
+
+     /**
+        Sets Name of device - equivalent to brand.
+
+        @param name Name of device - equivalent to brand.
+     */
+     public void setName(String name) {
+          this.name = name;
+     }
+
+     /**
+        Returns the platform dependent UUID of the device.
+
+        @return String with the 128-bit device identifier.
+     */
+     public String getUuid() {
+          return this.uuid;
+     }
+
+     /**
+        Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+
+        @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+     */
+     public void setUuid(String uuid) {
+          this.uuid = uuid;
+     }
+
+     /**
+        Returns the vendor of the device.
+
+        @return String with the vendor name.
+     */
+     public String getVendor() {
+          return this.vendor;
+     }
+
+     /**
+        Sets Vendor of the device hardware.
+
+        @param vendor Vendor of the device hardware.
+     */
+     public void setVendor(String vendor) {
+          this.vendor = vendor;
+     }
+
 
 }
 

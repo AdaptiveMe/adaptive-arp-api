@@ -55,6 +55,26 @@ public class EmailAddress {
           this();
           this.address = address;
      }
+     /**
+        Returns the email address
+
+        @return address of the Email
+        @since ARP1.0
+     */
+     public String getAddress() {
+          return this.address;
+     }
+
+     /**
+        Set the Email address
+
+        @param address of the Email
+        @since ARP1.0
+     */
+     public void setAddress(String address) {
+          this.address = address;
+     }
+
 
 }
 

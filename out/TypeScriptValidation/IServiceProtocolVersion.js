@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Enumeration IServiceProtocolVersion
+       Enumeration IServiceProtocolVersion
     */
     var IServiceProtocolVersion = (function () {
         function IServiceProtocolVersion(value) {

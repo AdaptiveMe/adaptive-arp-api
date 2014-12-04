@@ -70,6 +70,96 @@ public class Table {
           this();
           this.name = name;
      }
+     /**
+        Get the number of columns
+
+        @return The number of columns
+     */
+     public int getColumnCount() {
+          return this.columnCount;
+     }
+
+     /**
+        Sets the number of columns
+
+        @param columnCount The number of columns
+     */
+     public void setColumnCount(int columnCount) {
+          this.columnCount = columnCount;
+     }
+
+     /**
+        Get the columns
+
+        @return The columns
+     */
+     public Column[] getColumns() {
+          return this.columns;
+     }
+
+     /**
+        Sets the columns of the table
+
+        @param columns The columns of the table
+     */
+     public void setColumns(Column[] columns) {
+          this.columns = columns;
+     }
+
+     /**
+        Returns the name of the table
+
+        @return The name of the table
+     */
+     public String getName() {
+          return this.name;
+     }
+
+     /**
+        Sets the name of the table
+
+        @param name The name of the table
+     */
+     public void setName(String name) {
+          this.name = name;
+     }
+
+     /**
+        Get the number of rows
+
+        @return The number of rows
+     */
+     public int getRowCount() {
+          return this.rowCount;
+     }
+
+     /**
+        Sets the number of rows
+
+        @param rowCount The number of rows
+     */
+     public void setRowCount(int rowCount) {
+          this.rowCount = rowCount;
+     }
+
+     /**
+        Get the rows of the table
+
+        @return The rows of the table
+     */
+     public Row[] getRows() {
+          return this.rows;
+     }
+
+     /**
+        Sets the rows of the table
+
+        @param rows The rows of the table
+     */
+     public void setRows(Row[] rows) {
+          this.rows = rows;
+     }
+
 
 }
 

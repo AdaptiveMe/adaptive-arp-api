@@ -24,10 +24,7 @@ Contributors:
  */
 package me.adaptive.tools.jenerator.typescript;
 
-import com.thoughtworks.qdox.model.DocletTag;
-import com.thoughtworks.qdox.model.JavaClass;
-import com.thoughtworks.qdox.model.JavaConstructor;
-import com.thoughtworks.qdox.model.JavaField;
+import com.thoughtworks.qdox.model.*;
 import me.adaptive.tools.jenerator.GeneratorBase;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 
@@ -55,6 +52,21 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     public TypeScriptGenerator(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         super(outRootPath, classList, sourceList);
+    }
+
+    @Override
+    protected void endGetterSetters(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void startGetterSetters(String simpleName, Class clazz) {
+
+    }
+
+    @Override
+    protected void declareGetterSetter(Class clazz, Field field, JavaField fieldByName, List<JavaMethod> methods) {
+
     }
 
     @Override
@@ -102,14 +114,14 @@ public class TypeScriptGenerator extends GeneratorBase {
         for (int i = 0; i < c.getParameterCount(); i++) {
             Parameter p = c.getParameters()[i];
             print(p.getName() + ": " + convertJavaToNativeType(p.getType()));
-            printGlobal(0,p.getName() + ": " + convertJavaToNativeType(p.getType()));
+            printGlobal(0, p.getName() + ": " + convertJavaToNativeType(p.getType()));
             if (i < c.getParameterCount() - 1) {
                 print(", ");
-                printGlobal(0,", ");
+                printGlobal(0, ", ");
             }
         }
         println(") {");
-        printlnGlobal(0,") {");
+        printlnGlobal(0, ") {");
         for (int i = 0; i < c.getParameterCount(); i++) {
             Parameter p = c.getParameters()[i];
             println(15, "this." + p.getName() + " = " + p.getName());

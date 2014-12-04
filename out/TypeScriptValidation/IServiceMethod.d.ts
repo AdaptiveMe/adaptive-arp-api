@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Enumeration IServiceMethod
+       Enumeration IServiceMethod
     */
     class IServiceMethod {
         value: string;

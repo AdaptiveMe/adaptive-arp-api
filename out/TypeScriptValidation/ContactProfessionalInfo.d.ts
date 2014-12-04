@@ -24,7 +24,7 @@ Contributors:
 */
 declare module Adaptive {
     /**
-    Structure representing the professional info data elements of a contact.
+       Structure representing the professional info data elements of a contact.
 
        @author Carlos Lozano Diez
        @since 1.0

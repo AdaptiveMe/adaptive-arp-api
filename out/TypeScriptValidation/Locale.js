@@ -25,7 +25,7 @@ Contributors:
 var Adaptive;
 (function (Adaptive) {
     /**
-    Represents a specific user or system locate.
+       Represents a specific user or system locate.
 
        @author Carlos Lozano Diez
        @since 1.0
