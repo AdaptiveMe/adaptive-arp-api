@@ -23,6 +23,20 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IBaseCommunication.ts"/>
+
+module Adaptive {
+
+     /**
+        Definition of IService interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IService extends IBaseCommunication {
+     }
+}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

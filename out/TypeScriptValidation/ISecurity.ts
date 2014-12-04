@@ -23,6 +23,20 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IBaseSecurity.ts"/>
+
+module Adaptive {
+
+     /**
+        Definition of ISecurity interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ISecurity extends IBaseSecurity {
+     }
+}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

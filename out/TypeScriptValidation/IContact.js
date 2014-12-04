@@ -22,4 +22,5 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IBasePIM.ts"/>
 //# sourceMappingURL=IContact.js.map

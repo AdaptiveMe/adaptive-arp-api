@@ -22,4 +22,5 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IBaseListener.ts"/>
 //# sourceMappingURL=IGeolocationListener.js.map

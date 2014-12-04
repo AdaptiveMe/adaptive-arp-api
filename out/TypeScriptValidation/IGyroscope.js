@@ -22,4 +22,5 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IBaseSensor.ts"/>
 //# sourceMappingURL=IGyroscope.js.map

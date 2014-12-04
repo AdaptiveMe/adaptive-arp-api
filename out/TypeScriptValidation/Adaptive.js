@@ -2670,6 +2670,739 @@ be unique for a specific instance of an application on a specific device.
     })(ContactUid);
     Adaptive.Contact = Contact;
     /**
+       Enumeration IGeolocationListenerWarning
+    */
+    var IGeolocationListenerWarning = (function () {
+        function IGeolocationListenerWarning(value) {
+            this.value = value;
+        }
+        IGeolocationListenerWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IGeolocationListenerWarning.HighDoP = new IGeolocationListenerWarning("HighDoP");
+        IGeolocationListenerWarning.StaleData = new IGeolocationListenerWarning("StaleData");
+        IGeolocationListenerWarning.Unknown = new IGeolocationListenerWarning("Unknown");
+        return IGeolocationListenerWarning;
+    })();
+    Adaptive.IGeolocationListenerWarning = IGeolocationListenerWarning;
+    /**
+       Enumeration IGeolocationListenerError
+    */
+    var IGeolocationListenerError = (function () {
+        function IGeolocationListenerError(value) {
+            this.value = value;
+        }
+        IGeolocationListenerError.prototype.toString = function () {
+            return this.value;
+        };
+        IGeolocationListenerError.Disabled = new IGeolocationListenerError("Disabled");
+        IGeolocationListenerError.RestrictedAccess = new IGeolocationListenerError("RestrictedAccess");
+        IGeolocationListenerError.DeniedAccess = new IGeolocationListenerError("DeniedAccess");
+        IGeolocationListenerError.StatusNotDetermined = new IGeolocationListenerError("StatusNotDetermined");
+        IGeolocationListenerError.Unknown = new IGeolocationListenerError("Unknown");
+        return IGeolocationListenerError;
+    })();
+    Adaptive.IGeolocationListenerError = IGeolocationListenerError;
+    /**
+       Enumeration IContactFilter
+    */
+    var IContactFilter = (function () {
+        function IContactFilter(value) {
+            this.value = value;
+        }
+        IContactFilter.prototype.toString = function () {
+            return this.value;
+        };
+        IContactFilter.HAS_PHONE = new IContactFilter("HAS_PHONE");
+        IContactFilter.HAS_EMAIL = new IContactFilter("HAS_EMAIL");
+        IContactFilter.HAS_ADDRESS = new IContactFilter("HAS_ADDRESS");
+        IContactFilter.Unknown = new IContactFilter("Unknown");
+        return IContactFilter;
+    })();
+    Adaptive.IContactFilter = IContactFilter;
+    /**
+       Enumeration IContactFieldGroup
+    */
+    var IContactFieldGroup = (function () {
+        function IContactFieldGroup(value) {
+            this.value = value;
+        }
+        IContactFieldGroup.prototype.toString = function () {
+            return this.value;
+        };
+        IContactFieldGroup.PERSONAL_INFO = new IContactFieldGroup("PERSONAL_INFO");
+        IContactFieldGroup.PROFESSIONAL_INFO = new IContactFieldGroup("PROFESSIONAL_INFO");
+        IContactFieldGroup.ADDRESSES = new IContactFieldGroup("ADDRESSES");
+        IContactFieldGroup.PHONES = new IContactFieldGroup("PHONES");
+        IContactFieldGroup.EMAILS = new IContactFieldGroup("EMAILS");
+        IContactFieldGroup.WEBSITES = new IContactFieldGroup("WEBSITES");
+        IContactFieldGroup.SOCIALS = new IContactFieldGroup("SOCIALS");
+        IContactFieldGroup.TAGS = new IContactFieldGroup("TAGS");
+        IContactFieldGroup.Unknown = new IContactFieldGroup("Unknown");
+        return IContactFieldGroup;
+    })();
+    Adaptive.IContactFieldGroup = IContactFieldGroup;
+    /**
+       Enumeration IAppResourceCallbackWarning
+    */
+    var IAppResourceCallbackWarning = (function () {
+        function IAppResourceCallbackWarning(value) {
+            this.value = value;
+        }
+        IAppResourceCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IAppResourceCallbackWarning.PartialContent = new IAppResourceCallbackWarning("PartialContent");
+        IAppResourceCallbackWarning.TooLarge = new IAppResourceCallbackWarning("TooLarge");
+        IAppResourceCallbackWarning.LinkedResource = new IAppResourceCallbackWarning("LinkedResource");
+        IAppResourceCallbackWarning.Unknown = new IAppResourceCallbackWarning("Unknown");
+        return IAppResourceCallbackWarning;
+    })();
+    Adaptive.IAppResourceCallbackWarning = IAppResourceCallbackWarning;
+    /**
+       Enumeration IAppResourceCallbackError
+    */
+    var IAppResourceCallbackError = (function () {
+        function IAppResourceCallbackError(value) {
+            this.value = value;
+        }
+        IAppResourceCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IAppResourceCallbackError.NotFound = new IAppResourceCallbackError("NotFound");
+        IAppResourceCallbackError.NoPermission = new IAppResourceCallbackError("NoPermission");
+        IAppResourceCallbackError.Unknown = new IAppResourceCallbackError("Unknown");
+        return IAppResourceCallbackError;
+    })();
+    Adaptive.IAppResourceCallbackError = IAppResourceCallbackError;
+    /**
+       Enumeration IAccelerationListenerWarning
+    */
+    var IAccelerationListenerWarning = (function () {
+        function IAccelerationListenerWarning(value) {
+            this.value = value;
+        }
+        IAccelerationListenerWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IAccelerationListenerWarning.NeedsCalibration = new IAccelerationListenerWarning("NeedsCalibration");
+        IAccelerationListenerWarning.Stale = new IAccelerationListenerWarning("Stale");
+        IAccelerationListenerWarning.Unknown = new IAccelerationListenerWarning("Unknown");
+        return IAccelerationListenerWarning;
+    })();
+    Adaptive.IAccelerationListenerWarning = IAccelerationListenerWarning;
+    /**
+       Enumeration IAccelerationListenerError
+    */
+    var IAccelerationListenerError = (function () {
+        function IAccelerationListenerError(value) {
+            this.value = value;
+        }
+        IAccelerationListenerError.prototype.toString = function () {
+            return this.value;
+        };
+        IAccelerationListenerError.Unauthorized = new IAccelerationListenerError("Unauthorized");
+        IAccelerationListenerError.Unavailable = new IAccelerationListenerError("Unavailable");
+        IAccelerationListenerError.Unknown = new IAccelerationListenerError("Unknown");
+        return IAccelerationListenerError;
+    })();
+    Adaptive.IAccelerationListenerError = IAccelerationListenerError;
+    /**
+       Enumeration IMessagingCallbackWarning
+    */
+    var IMessagingCallbackWarning = (function () {
+        function IMessagingCallbackWarning(value) {
+            this.value = value;
+        }
+        IMessagingCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IMessagingCallbackWarning.UnableToSentAll = new IMessagingCallbackWarning("UnableToSentAll");
+        IMessagingCallbackWarning.UnableToFetchAttachment = new IMessagingCallbackWarning("UnableToFetchAttachment");
+        IMessagingCallbackWarning.Unknown = new IMessagingCallbackWarning("Unknown");
+        return IMessagingCallbackWarning;
+    })();
+    Adaptive.IMessagingCallbackWarning = IMessagingCallbackWarning;
+    /**
+       Enumeration IMessagingCallbackError
+    */
+    var IMessagingCallbackError = (function () {
+        function IMessagingCallbackError(value) {
+            this.value = value;
+        }
+        IMessagingCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IMessagingCallbackError.SIMNotPresent = new IMessagingCallbackError("SIMNotPresent");
+        IMessagingCallbackError.EmailAccountNotFound = new IMessagingCallbackError("EmailAccountNotFound");
+        IMessagingCallbackError.NotSent = new IMessagingCallbackError("NotSent");
+        IMessagingCallbackError.WrongParams = new IMessagingCallbackError("WrongParams");
+        IMessagingCallbackError.NotSupported = new IMessagingCallbackError("NotSupported");
+        IMessagingCallbackError.Unknown = new IMessagingCallbackError("Unknown");
+        return IMessagingCallbackError;
+    })();
+    Adaptive.IMessagingCallbackError = IMessagingCallbackError;
+    /**
+       Enumeration IFileDataResultCallbackWarning
+    */
+    var IFileDataResultCallbackWarning = (function () {
+        function IFileDataResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IFileDataResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IFileDataResultCallbackWarning.ExceedMaximumSize = new IFileDataResultCallbackWarning("ExceedMaximumSize");
+        IFileDataResultCallbackWarning.Unknown = new IFileDataResultCallbackWarning("Unknown");
+        return IFileDataResultCallbackWarning;
+    })();
+    Adaptive.IFileDataResultCallbackWarning = IFileDataResultCallbackWarning;
+    /**
+       Enumeration IFileDataResultCallbackError
+    */
+    var IFileDataResultCallbackError = (function () {
+        function IFileDataResultCallbackError(value) {
+            this.value = value;
+        }
+        IFileDataResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IFileDataResultCallbackError.InexistentFile = new IFileDataResultCallbackError("InexistentFile");
+        IFileDataResultCallbackError.InsufficientSpace = new IFileDataResultCallbackError("InsufficientSpace");
+        IFileDataResultCallbackError.Unauthorized = new IFileDataResultCallbackError("Unauthorized");
+        IFileDataResultCallbackError.Unknown = new IFileDataResultCallbackError("Unknown");
+        return IFileDataResultCallbackError;
+    })();
+    Adaptive.IFileDataResultCallbackError = IFileDataResultCallbackError;
+    /**
+       Enumeration ILoggingLogLevel
+    */
+    var ILoggingLogLevel = (function () {
+        function ILoggingLogLevel(value) {
+            this.value = value;
+        }
+        ILoggingLogLevel.prototype.toString = function () {
+            return this.value;
+        };
+        ILoggingLogLevel.DEBUG = new ILoggingLogLevel("DEBUG");
+        ILoggingLogLevel.WARN = new ILoggingLogLevel("WARN");
+        ILoggingLogLevel.ERROR = new ILoggingLogLevel("ERROR");
+        ILoggingLogLevel.INFO = new ILoggingLogLevel("INFO");
+        ILoggingLogLevel.Unknown = new ILoggingLogLevel("Unknown");
+        return ILoggingLogLevel;
+    })();
+    Adaptive.ILoggingLogLevel = ILoggingLogLevel;
+    /**
+       Enumeration IContactPhotoResultCallbackWarning
+    */
+    var IContactPhotoResultCallbackWarning = (function () {
+        function IContactPhotoResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IContactPhotoResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IContactPhotoResultCallbackWarning.LimitExceeded = new IContactPhotoResultCallbackWarning("LimitExceeded");
+        IContactPhotoResultCallbackWarning.No_Matches = new IContactPhotoResultCallbackWarning("No_Matches");
+        IContactPhotoResultCallbackWarning.Unknown = new IContactPhotoResultCallbackWarning("Unknown");
+        return IContactPhotoResultCallbackWarning;
+    })();
+    Adaptive.IContactPhotoResultCallbackWarning = IContactPhotoResultCallbackWarning;
+    /**
+       Enumeration IContactPhotoResultCallbackError
+    */
+    var IContactPhotoResultCallbackError = (function () {
+        function IContactPhotoResultCallbackError(value) {
+            this.value = value;
+        }
+        IContactPhotoResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IContactPhotoResultCallbackError.NoPermission = new IContactPhotoResultCallbackError("NoPermission");
+        IContactPhotoResultCallbackError.Wrong_Params = new IContactPhotoResultCallbackError("Wrong_Params");
+        IContactPhotoResultCallbackError.No_Photo = new IContactPhotoResultCallbackError("No_Photo");
+        IContactPhotoResultCallbackError.Unknown = new IContactPhotoResultCallbackError("Unknown");
+        return IContactPhotoResultCallbackError;
+    })();
+    Adaptive.IContactPhotoResultCallbackError = IContactPhotoResultCallbackError;
+    /**
+       Enumeration IServiceResultCallbackWarning
+    */
+    var IServiceResultCallbackWarning = (function () {
+        function IServiceResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IServiceResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IServiceResultCallbackWarning.NotSecure = new IServiceResultCallbackWarning("NotSecure");
+        IServiceResultCallbackWarning.NotTrusted = new IServiceResultCallbackWarning("NotTrusted");
+        IServiceResultCallbackWarning.Redirected = new IServiceResultCallbackWarning("Redirected");
+        IServiceResultCallbackWarning.Wrong_Params = new IServiceResultCallbackWarning("Wrong_Params");
+        IServiceResultCallbackWarning.Unknown = new IServiceResultCallbackWarning("Unknown");
+        return IServiceResultCallbackWarning;
+    })();
+    Adaptive.IServiceResultCallbackWarning = IServiceResultCallbackWarning;
+    /**
+       Enumeration IServiceResultCallbackError
+    */
+    var IServiceResultCallbackError = (function () {
+        function IServiceResultCallbackError(value) {
+            this.value = value;
+        }
+        IServiceResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IServiceResultCallbackError.Forbidden = new IServiceResultCallbackError("Forbidden");
+        IServiceResultCallbackError.NotFound = new IServiceResultCallbackError("NotFound");
+        IServiceResultCallbackError.MethodNotAllowed = new IServiceResultCallbackError("MethodNotAllowed");
+        IServiceResultCallbackError.NotAllowed = new IServiceResultCallbackError("NotAllowed");
+        IServiceResultCallbackError.NotAuthenticated = new IServiceResultCallbackError("NotAuthenticated");
+        IServiceResultCallbackError.TimeOut = new IServiceResultCallbackError("TimeOut");
+        IServiceResultCallbackError.NoResponse = new IServiceResultCallbackError("NoResponse");
+        IServiceResultCallbackError.ServerError = new IServiceResultCallbackError("ServerError");
+        IServiceResultCallbackError.Unreachable = new IServiceResultCallbackError("Unreachable");
+        IServiceResultCallbackError.MalformedUrl = new IServiceResultCallbackError("MalformedUrl");
+        IServiceResultCallbackError.NotRegisteredService = new IServiceResultCallbackError("NotRegisteredService");
+        IServiceResultCallbackError.Unknown = new IServiceResultCallbackError("Unknown");
+        return IServiceResultCallbackError;
+    })();
+    Adaptive.IServiceResultCallbackError = IServiceResultCallbackError;
+    /**
+       Enumeration ISecureKVResultCallbackWarning
+    */
+    var ISecureKVResultCallbackWarning = (function () {
+        function ISecureKVResultCallbackWarning(value) {
+            this.value = value;
+        }
+        ISecureKVResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        ISecureKVResultCallbackWarning.EntryOverride = new ISecureKVResultCallbackWarning("EntryOverride");
+        ISecureKVResultCallbackWarning.Unknown = new ISecureKVResultCallbackWarning("Unknown");
+        return ISecureKVResultCallbackWarning;
+    })();
+    Adaptive.ISecureKVResultCallbackWarning = ISecureKVResultCallbackWarning;
+    /**
+       Enumeration ISecureKVResultCallbackError
+    */
+    var ISecureKVResultCallbackError = (function () {
+        function ISecureKVResultCallbackError(value) {
+            this.value = value;
+        }
+        ISecureKVResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        ISecureKVResultCallbackError.NoPermission = new ISecureKVResultCallbackError("NoPermission");
+        ISecureKVResultCallbackError.NoMatchesFound = new ISecureKVResultCallbackError("NoMatchesFound");
+        ISecureKVResultCallbackError.Unknown = new ISecureKVResultCallbackError("Unknown");
+        return ISecureKVResultCallbackError;
+    })();
+    Adaptive.ISecureKVResultCallbackError = ISecureKVResultCallbackError;
+    /**
+       Enumeration ICapabilitiesSensor
+    */
+    var ICapabilitiesSensor = (function () {
+        function ICapabilitiesSensor(value) {
+            this.value = value;
+        }
+        ICapabilitiesSensor.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesSensor.Accelerometer = new ICapabilitiesSensor("Accelerometer");
+        ICapabilitiesSensor.AmbientLight = new ICapabilitiesSensor("AmbientLight");
+        ICapabilitiesSensor.Barometer = new ICapabilitiesSensor("Barometer");
+        ICapabilitiesSensor.Geolocation = new ICapabilitiesSensor("Geolocation");
+        ICapabilitiesSensor.Gyroscope = new ICapabilitiesSensor("Gyroscope");
+        ICapabilitiesSensor.Magnetometer = new ICapabilitiesSensor("Magnetometer");
+        ICapabilitiesSensor.Proximity = new ICapabilitiesSensor("Proximity");
+        ICapabilitiesSensor.Unknown = new ICapabilitiesSensor("Unknown");
+        return ICapabilitiesSensor;
+    })();
+    Adaptive.ICapabilitiesSensor = ICapabilitiesSensor;
+    /**
+       Enumeration ICapabilitiesCommunication
+    */
+    var ICapabilitiesCommunication = (function () {
+        function ICapabilitiesCommunication(value) {
+            this.value = value;
+        }
+        ICapabilitiesCommunication.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesCommunication.Calendar = new ICapabilitiesCommunication("Calendar");
+        ICapabilitiesCommunication.Contact = new ICapabilitiesCommunication("Contact");
+        ICapabilitiesCommunication.Mail = new ICapabilitiesCommunication("Mail");
+        ICapabilitiesCommunication.Messaging = new ICapabilitiesCommunication("Messaging");
+        ICapabilitiesCommunication.Telephony = new ICapabilitiesCommunication("Telephony");
+        ICapabilitiesCommunication.Unknown = new ICapabilitiesCommunication("Unknown");
+        return ICapabilitiesCommunication;
+    })();
+    Adaptive.ICapabilitiesCommunication = ICapabilitiesCommunication;
+    /**
+       Enumeration ICapabilitiesData
+    */
+    var ICapabilitiesData = (function () {
+        function ICapabilitiesData(value) {
+            this.value = value;
+        }
+        ICapabilitiesData.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesData.Database = new ICapabilitiesData("Database");
+        ICapabilitiesData.File = new ICapabilitiesData("File");
+        ICapabilitiesData.Cloud = new ICapabilitiesData("Cloud");
+        ICapabilitiesData.Unknown = new ICapabilitiesData("Unknown");
+        return ICapabilitiesData;
+    })();
+    Adaptive.ICapabilitiesData = ICapabilitiesData;
+    /**
+       Enumeration ICapabilitiesMedia
+    */
+    var ICapabilitiesMedia = (function () {
+        function ICapabilitiesMedia(value) {
+            this.value = value;
+        }
+        ICapabilitiesMedia.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesMedia.Audio_Playback = new ICapabilitiesMedia("Audio_Playback");
+        ICapabilitiesMedia.Audio_Recording = new ICapabilitiesMedia("Audio_Recording");
+        ICapabilitiesMedia.Camera = new ICapabilitiesMedia("Camera");
+        ICapabilitiesMedia.Video_Playback = new ICapabilitiesMedia("Video_Playback");
+        ICapabilitiesMedia.Video_Recording = new ICapabilitiesMedia("Video_Recording");
+        ICapabilitiesMedia.Unknown = new ICapabilitiesMedia("Unknown");
+        return ICapabilitiesMedia;
+    })();
+    Adaptive.ICapabilitiesMedia = ICapabilitiesMedia;
+    /**
+       Enumeration ICapabilitiesNet
+    */
+    var ICapabilitiesNet = (function () {
+        function ICapabilitiesNet(value) {
+            this.value = value;
+        }
+        ICapabilitiesNet.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesNet.GSM = new ICapabilitiesNet("GSM");
+        ICapabilitiesNet.GPRS = new ICapabilitiesNet("GPRS");
+        ICapabilitiesNet.HSDPA = new ICapabilitiesNet("HSDPA");
+        ICapabilitiesNet.LTE = new ICapabilitiesNet("LTE");
+        ICapabilitiesNet.WIFI = new ICapabilitiesNet("WIFI");
+        ICapabilitiesNet.Ethernet = new ICapabilitiesNet("Ethernet");
+        ICapabilitiesNet.Unknown = new ICapabilitiesNet("Unknown");
+        return ICapabilitiesNet;
+    })();
+    Adaptive.ICapabilitiesNet = ICapabilitiesNet;
+    /**
+       Enumeration ICapabilitiesNotification
+    */
+    var ICapabilitiesNotification = (function () {
+        function ICapabilitiesNotification(value) {
+            this.value = value;
+        }
+        ICapabilitiesNotification.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesNotification.Alarm = new ICapabilitiesNotification("Alarm");
+        ICapabilitiesNotification.LocalNotification = new ICapabilitiesNotification("LocalNotification");
+        ICapabilitiesNotification.RemoteNotification = new ICapabilitiesNotification("RemoteNotification");
+        ICapabilitiesNotification.Vibration = new ICapabilitiesNotification("Vibration");
+        ICapabilitiesNotification.Unknown = new ICapabilitiesNotification("Unknown");
+        return ICapabilitiesNotification;
+    })();
+    Adaptive.ICapabilitiesNotification = ICapabilitiesNotification;
+    /**
+       Enumeration ICapabilitiesButton
+    */
+    var ICapabilitiesButton = (function () {
+        function ICapabilitiesButton(value) {
+            this.value = value;
+        }
+        ICapabilitiesButton.prototype.toString = function () {
+            return this.value;
+        };
+        ICapabilitiesButton.HomeButton = new ICapabilitiesButton("HomeButton");
+        ICapabilitiesButton.BackButton = new ICapabilitiesButton("BackButton");
+        ICapabilitiesButton.OptionButton = new ICapabilitiesButton("OptionButton");
+        ICapabilitiesButton.Unknown = new ICapabilitiesButton("Unknown");
+        return ICapabilitiesButton;
+    })();
+    Adaptive.ICapabilitiesButton = ICapabilitiesButton;
+    /**
+       Enumeration IButtonListenerWarning
+    */
+    var IButtonListenerWarning = (function () {
+        function IButtonListenerWarning(value) {
+            this.value = value;
+        }
+        IButtonListenerWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IButtonListenerWarning.Not_Implemented = new IButtonListenerWarning("Not_Implemented");
+        IButtonListenerWarning.Unknown = new IButtonListenerWarning("Unknown");
+        return IButtonListenerWarning;
+    })();
+    Adaptive.IButtonListenerWarning = IButtonListenerWarning;
+    /**
+       Enumeration IButtonListenerError
+    */
+    var IButtonListenerError = (function () {
+        function IButtonListenerError(value) {
+            this.value = value;
+        }
+        IButtonListenerError.prototype.toString = function () {
+            return this.value;
+        };
+        IButtonListenerError.Not_Present = new IButtonListenerError("Not_Present");
+        IButtonListenerError.Unknown = new IButtonListenerError("Unknown");
+        return IButtonListenerError;
+    })();
+    Adaptive.IButtonListenerError = IButtonListenerError;
+    /**
+       Enumeration ILifecycleListenerWarning
+    */
+    var ILifecycleListenerWarning = (function () {
+        function ILifecycleListenerWarning(value) {
+            this.value = value;
+        }
+        ILifecycleListenerWarning.prototype.toString = function () {
+            return this.value;
+        };
+        ILifecycleListenerWarning.MemoryLow = new ILifecycleListenerWarning("MemoryLow");
+        ILifecycleListenerWarning.BatteryLow = new ILifecycleListenerWarning("BatteryLow");
+        ILifecycleListenerWarning.Unknown = new ILifecycleListenerWarning("Unknown");
+        return ILifecycleListenerWarning;
+    })();
+    Adaptive.ILifecycleListenerWarning = ILifecycleListenerWarning;
+    /**
+       Enumeration ILifecycleListenerError
+    */
+    var ILifecycleListenerError = (function () {
+        function ILifecycleListenerError(value) {
+            this.value = value;
+        }
+        ILifecycleListenerError.prototype.toString = function () {
+            return this.value;
+        };
+        ILifecycleListenerError.Runtime = new ILifecycleListenerError("Runtime");
+        ILifecycleListenerError.Implementation = new ILifecycleListenerError("Implementation");
+        ILifecycleListenerError.Killed = new ILifecycleListenerError("Killed");
+        ILifecycleListenerError.Unknown = new ILifecycleListenerError("Unknown");
+        return ILifecycleListenerError;
+    })();
+    Adaptive.ILifecycleListenerError = ILifecycleListenerError;
+    /**
+       Enumeration IDatabaseResultCallbackWarning
+    */
+    var IDatabaseResultCallbackWarning = (function () {
+        function IDatabaseResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IDatabaseResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IDatabaseResultCallbackWarning.DatabaseExists = new IDatabaseResultCallbackWarning("DatabaseExists");
+        IDatabaseResultCallbackWarning.IsOpen = new IDatabaseResultCallbackWarning("IsOpen");
+        IDatabaseResultCallbackWarning.Unknown = new IDatabaseResultCallbackWarning("Unknown");
+        return IDatabaseResultCallbackWarning;
+    })();
+    Adaptive.IDatabaseResultCallbackWarning = IDatabaseResultCallbackWarning;
+    /**
+       Enumeration IDatabaseResultCallbackError
+    */
+    var IDatabaseResultCallbackError = (function () {
+        function IDatabaseResultCallbackError(value) {
+            this.value = value;
+        }
+        IDatabaseResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IDatabaseResultCallbackError.NoSpace = new IDatabaseResultCallbackError("NoSpace");
+        IDatabaseResultCallbackError.SqlException = new IDatabaseResultCallbackError("SqlException");
+        IDatabaseResultCallbackError.NotDeleted = new IDatabaseResultCallbackError("NotDeleted");
+        IDatabaseResultCallbackError.Unknown = new IDatabaseResultCallbackError("Unknown");
+        return IDatabaseResultCallbackError;
+    })();
+    Adaptive.IDatabaseResultCallbackError = IDatabaseResultCallbackError;
+    /**
+       Enumeration INetworkReachabilityCallbackWarning
+    */
+    var INetworkReachabilityCallbackWarning = (function () {
+        function INetworkReachabilityCallbackWarning(value) {
+            this.value = value;
+        }
+        INetworkReachabilityCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        INetworkReachabilityCallbackWarning.IncorrectScheme = new INetworkReachabilityCallbackWarning("IncorrectScheme");
+        INetworkReachabilityCallbackWarning.NotSecure = new INetworkReachabilityCallbackWarning("NotSecure");
+        INetworkReachabilityCallbackWarning.NotTrusted = new INetworkReachabilityCallbackWarning("NotTrusted");
+        INetworkReachabilityCallbackWarning.Redirected = new INetworkReachabilityCallbackWarning("Redirected");
+        INetworkReachabilityCallbackWarning.NotRegisteredService = new INetworkReachabilityCallbackWarning("NotRegisteredService");
+        INetworkReachabilityCallbackWarning.Unknown = new INetworkReachabilityCallbackWarning("Unknown");
+        return INetworkReachabilityCallbackWarning;
+    })();
+    Adaptive.INetworkReachabilityCallbackWarning = INetworkReachabilityCallbackWarning;
+    /**
+       Enumeration INetworkReachabilityCallbackError
+    */
+    var INetworkReachabilityCallbackError = (function () {
+        function INetworkReachabilityCallbackError(value) {
+            this.value = value;
+        }
+        INetworkReachabilityCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        INetworkReachabilityCallbackError.Forbidden = new INetworkReachabilityCallbackError("Forbidden");
+        INetworkReachabilityCallbackError.NotFound = new INetworkReachabilityCallbackError("NotFound");
+        INetworkReachabilityCallbackError.MethodNotAllowed = new INetworkReachabilityCallbackError("MethodNotAllowed");
+        INetworkReachabilityCallbackError.NotAllowed = new INetworkReachabilityCallbackError("NotAllowed");
+        INetworkReachabilityCallbackError.NotAuthenticated = new INetworkReachabilityCallbackError("NotAuthenticated");
+        INetworkReachabilityCallbackError.TimeOut = new INetworkReachabilityCallbackError("TimeOut");
+        INetworkReachabilityCallbackError.NoResponse = new INetworkReachabilityCallbackError("NoResponse");
+        INetworkReachabilityCallbackError.Unreachable = new INetworkReachabilityCallbackError("Unreachable");
+        INetworkReachabilityCallbackError.Wrong_Params = new INetworkReachabilityCallbackError("Wrong_Params");
+        INetworkReachabilityCallbackError.MalformedUrl = new INetworkReachabilityCallbackError("MalformedUrl");
+        INetworkReachabilityCallbackError.DomainUnresolvable = new INetworkReachabilityCallbackError("DomainUnresolvable");
+        INetworkReachabilityCallbackError.Unknown = new INetworkReachabilityCallbackError("Unknown");
+        return INetworkReachabilityCallbackError;
+    })();
+    Adaptive.INetworkReachabilityCallbackError = INetworkReachabilityCallbackError;
+    /**
+       Enumeration IFileListResultCallbackWarning
+    */
+    var IFileListResultCallbackWarning = (function () {
+        function IFileListResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IFileListResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IFileListResultCallbackWarning.PartialResult = new IFileListResultCallbackWarning("PartialResult");
+        IFileListResultCallbackWarning.Unknown = new IFileListResultCallbackWarning("Unknown");
+        return IFileListResultCallbackWarning;
+    })();
+    Adaptive.IFileListResultCallbackWarning = IFileListResultCallbackWarning;
+    /**
+       Enumeration IFileListResultCallbackError
+    */
+    var IFileListResultCallbackError = (function () {
+        function IFileListResultCallbackError(value) {
+            this.value = value;
+        }
+        IFileListResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IFileListResultCallbackError.InexistentFile = new IFileListResultCallbackError("InexistentFile");
+        IFileListResultCallbackError.Unauthorized = new IFileListResultCallbackError("Unauthorized");
+        IFileListResultCallbackError.Unknown = new IFileListResultCallbackError("Unknown");
+        return IFileListResultCallbackError;
+    })();
+    Adaptive.IFileListResultCallbackError = IFileListResultCallbackError;
+    /**
+       Enumeration IContactResultCallbackWarning
+    */
+    var IContactResultCallbackWarning = (function () {
+        function IContactResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IContactResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IContactResultCallbackWarning.LimitExceeded = new IContactResultCallbackWarning("LimitExceeded");
+        IContactResultCallbackWarning.No_Matches = new IContactResultCallbackWarning("No_Matches");
+        IContactResultCallbackWarning.Unknown = new IContactResultCallbackWarning("Unknown");
+        return IContactResultCallbackWarning;
+    })();
+    Adaptive.IContactResultCallbackWarning = IContactResultCallbackWarning;
+    /**
+       Enumeration IContactResultCallbackError
+    */
+    var IContactResultCallbackError = (function () {
+        function IContactResultCallbackError(value) {
+            this.value = value;
+        }
+        IContactResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IContactResultCallbackError.NoPermission = new IContactResultCallbackError("NoPermission");
+        IContactResultCallbackError.Wrong_Params = new IContactResultCallbackError("Wrong_Params");
+        IContactResultCallbackError.Unknown = new IContactResultCallbackError("Unknown");
+        return IContactResultCallbackError;
+    })();
+    Adaptive.IContactResultCallbackError = IContactResultCallbackError;
+    /**
+       Enumeration IFileResultCallbackWarning
+    */
+    var IFileResultCallbackWarning = (function () {
+        function IFileResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IFileResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IFileResultCallbackWarning.SourceNotDeleted = new IFileResultCallbackWarning("SourceNotDeleted");
+        IFileResultCallbackWarning.RootDirectory = new IFileResultCallbackWarning("RootDirectory");
+        IFileResultCallbackWarning.Unknown = new IFileResultCallbackWarning("Unknown");
+        return IFileResultCallbackWarning;
+    })();
+    Adaptive.IFileResultCallbackWarning = IFileResultCallbackWarning;
+    /**
+       Enumeration IFileResultCallbackError
+    */
+    var IFileResultCallbackError = (function () {
+        function IFileResultCallbackError(value) {
+            this.value = value;
+        }
+        IFileResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        IFileResultCallbackError.FileExists = new IFileResultCallbackError("FileExists");
+        IFileResultCallbackError.InsufficientSpace = new IFileResultCallbackError("InsufficientSpace");
+        IFileResultCallbackError.Unauthorized = new IFileResultCallbackError("Unauthorized");
+        IFileResultCallbackError.Unknown = new IFileResultCallbackError("Unknown");
+        return IFileResultCallbackError;
+    })();
+    Adaptive.IFileResultCallbackError = IFileResultCallbackError;
+    /**
+       Enumeration ITableResultCallbackWarning
+    */
+    var ITableResultCallbackWarning = (function () {
+        function ITableResultCallbackWarning(value) {
+            this.value = value;
+        }
+        ITableResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        ITableResultCallbackWarning.TableExists = new ITableResultCallbackWarning("TableExists");
+        ITableResultCallbackWarning.TableLocked = new ITableResultCallbackWarning("TableLocked");
+        ITableResultCallbackWarning.NoResults = new ITableResultCallbackWarning("NoResults");
+        ITableResultCallbackWarning.Unknown = new ITableResultCallbackWarning("Unknown");
+        return ITableResultCallbackWarning;
+    })();
+    Adaptive.ITableResultCallbackWarning = ITableResultCallbackWarning;
+    /**
+       Enumeration ITableResultCallbackError
+    */
+    var ITableResultCallbackError = (function () {
+        function ITableResultCallbackError(value) {
+            this.value = value;
+        }
+        ITableResultCallbackError.prototype.toString = function () {
+            return this.value;
+        };
+        ITableResultCallbackError.NoSpace = new ITableResultCallbackError("NoSpace");
+        ITableResultCallbackError.ReadOnlyTable = new ITableResultCallbackError("ReadOnlyTable");
+        ITableResultCallbackError.SqlException = new ITableResultCallbackError("SqlException");
+        ITableResultCallbackError.DatabaseNotFound = new ITableResultCallbackError("DatabaseNotFound");
+        ITableResultCallbackError.NoTableFound = new ITableResultCallbackError("NoTableFound");
+        ITableResultCallbackError.Unknown = new ITableResultCallbackError("Unknown");
+        return ITableResultCallbackError;
+    })();
+    Adaptive.ITableResultCallbackError = ITableResultCallbackError;
+    /**
        Enumeration ContactEmailType
     */
     var ContactEmailType = (function () {
@@ -2822,23 +3555,6 @@ be unique for a specific instance of an application on a specific device.
         return ContactPhoneType;
     })();
     Adaptive.ContactPhoneType = ContactPhoneType;
-    /**
-       Enumeration ICapabilitiesButton
-    */
-    var ICapabilitiesButton = (function () {
-        function ICapabilitiesButton(value) {
-            this.value = value;
-        }
-        ICapabilitiesButton.prototype.toString = function () {
-            return this.value;
-        };
-        ICapabilitiesButton.HomeButton = new ICapabilitiesButton("HomeButton");
-        ICapabilitiesButton.BackButton = new ICapabilitiesButton("BackButton");
-        ICapabilitiesButton.OptionButton = new ICapabilitiesButton("OptionButton");
-        ICapabilitiesButton.Unknown = new ICapabilitiesButton("Unknown");
-        return ICapabilitiesButton;
-    })();
-    Adaptive.ICapabilitiesButton = ICapabilitiesButton;
     /**
        Enumeration ContactAddressType
     */

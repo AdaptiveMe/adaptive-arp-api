@@ -22,4 +22,5 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IBaseSystem.ts"/>
 //# sourceMappingURL=IRuntime.js.map

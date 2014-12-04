@@ -25,6 +25,1061 @@ Contributors:
 module Adaptive {
 
      /**
+        Definition of IAdaptiveRP interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseApplication interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseApplication extends IAdaptiveRP {
+     }
+     /**
+        Created by clozano on 05/09/2014.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppContext extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBasePIM interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBasePIM extends IAdaptiveRP {
+     }
+     /**
+        Created by clozano on 05/09/2014.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppResourceHandler extends IAdaptiveRP {
+     }
+     /**
+        Created by clozano on 05/09/2014.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppRegistry extends IAdaptiveRP {
+     }
+     /**
+        Created by clozano on 05/09/2014.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppResource extends IAdaptiveRP {
+     }
+     /**
+        Provides support for multiple listeners to be started for any application and manages the delivery of listening
+server lifecycle events to registered listeners.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppServerManager extends IAdaptiveRP {
+     }
+     /**
+        This interfaces represents a specific instance of a listener on the platform. Listeners are generally http or https
+and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content and resources.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppServer extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseListener interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseListener extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseSystem interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseSystem extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseSocial interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseSocial extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseNotification interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseNotification extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseData interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseData extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseCommerce interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseCommerce extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseCommunication interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseCommunication extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseUtil interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseUtil extends IAdaptiveRP {
+     }
+     /**
+        Created by clozano on 09/09/14.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppContextWebview extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseReader interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseReader extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseSecurity interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseSecurity extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseSensor interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseSensor extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseMedia interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseMedia extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseUI interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseUI extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseCallback extends IAdaptiveRP {
+     }
+     /**
+        Definition of IGeolocationListener interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IGeolocationListener extends IBaseListener {
+     }
+     /**
+        Definition of IService interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IService extends IBaseCommunication {
+     }
+     /**
+        Definition of IContact interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IContact extends IBasePIM {
+     }
+     /**
+        Definition of IOS interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IOS extends IBaseSystem {
+     }
+     /**
+        Definition of IDatabase interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IDatabase extends IBaseData {
+     }
+     /**
+        Created by clozano on 05/09/2014.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppResourceCallback extends IBaseCallback {
+     }
+     /**
+        Definition of ICalendar interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ICalendar extends IBasePIM {
+     }
+     /**
+        Definition of IVibration interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IVibration extends IBaseNotification {
+     }
+     /**
+        Definition of IUI interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IUI extends IBaseUI {
+     }
+     /**
+        Definition of IImaging interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IImaging extends IBaseMedia {
+     }
+     /**
+        Definition of ITwitter interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ITwitter extends IBaseSocial {
+     }
+     /**
+        Definition of IGooglePlus interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IGooglePlus extends IBaseSocial {
+     }
+     /**
+        Definition of IProximity interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IProximity extends IBaseSensor {
+     }
+     /**
+        Definition of ICamera interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ICamera extends IBaseMedia {
+     }
+     /**
+        Definition of IWallet interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IWallet extends IBaseCommerce {
+     }
+     /**
+        Definition of IDisplay interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IDisplay extends IBaseSystem {
+     }
+     /**
+        Definition of ICrypto interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ICrypto extends IBaseUtil {
+     }
+     /**
+        Definition of IAccelerationListener interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAccelerationListener extends IBaseListener {
+     }
+     /**
+        Definition of ILinkedIn interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ILinkedIn extends IBaseSocial {
+     }
+     /**
+        Definition of IRSS interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IRSS extends IBaseSocial {
+     }
+     /**
+        Definition of IOAuth interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IOAuth extends IBaseSecurity {
+     }
+     /**
+        Definition of ILifecycle interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ILifecycle extends IBaseApplication {
+     }
+     /**
+        Definition of IMessagingCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IMessagingCallback extends IBaseCallback {
+     }
+     /**
+        Definition of IBluetooth interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBluetooth extends IBaseCommunication {
+     }
+     /**
+        Definition of ISocket interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ISocket extends IBaseCommunication {
+     }
+     /**
+        Definition of INotificationLocal interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INotificationLocal extends IBaseNotification {
+     }
+     /**
+        Definition of IMail interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IMail extends IBasePIM {
+     }
+     /**
+        Definition of IAnalytics interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAnalytics extends IBaseApplication {
+     }
+     /**
+        Definition of IFileDataResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IFileDataResultCallback extends IBaseCallback {
+     }
+     /**
+        Definition of IAds interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAds extends IBaseCommerce {
+     }
+     /**
+        Definition of IDataStream interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IDataStream extends IBaseData {
+     }
+     /**
+        Definition of IDevice interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IDevice extends IBaseSystem {
+     }
+     /**
+        An object that may be used to locate a file in a file system. It will
+typically represent a system dependent file path.
+<p> A {@code Path} represents a path that is hierarchical and composed of a
+sequence of directory and file name elements separated by a special separator
+or delimiter. A <em>root component</em>, that identifies a file system
+hierarchy, may also be present. The name element that is <em>farthest</em>
+from the root of the directory hierarchy is the name of a file or directory.
+The other name elements are directory names. A {@code Path} can represent a
+root, a root and a sequence of names, or simply one or more name elements.
+A {@code Path} is considered to be an <i>empty path</i> if it consists
+solely of one name element that is empty. Accessing a file using an
+<i>empty path</i> is equivalent to accessing the default directory of the
+file system. {@code Path} defines the {@link #getFileName() getFileName},
+{@link #getParent getParent}, {@link #getRoot getRoot}, and  methods to access
+the path components or a subsequence of its name elements.
+<p> In addition to accessing the components of a path, a {@code Path} also
+defines the {@link #resolvePath(IFilePath) resolve} and {@link #resolveSiblingPath(IFilePath)
+resolveSibling} methods to combine paths. The {@link #relativize relativize}
+method that can be used to construct a relative path between two paths.
+Paths can be, and tested against each other using
+the {@link #startsWith startsWith} and {@link #endsWith endsWith} methods.
+<p> <b>WARNING:</b> This interface is only intended to be implemented by
+those developing custom file system implementations. Methods may be added to
+this interface in future releases. </p>
+<h2>Accessing Files</h2>
+<p> Paths may be used with the {@link IFile} class to operate on files,
+directories, and other types of files. For example, suppose we want a {@link
+java.io.BufferedReader} to read text from a file "{@code access.log}". The
+file is located in a directory "{@code logs}" relative to the current working
+directory and is UTF-8 encoded.
+<pre>
+    Path path = FileSystems.getDefault().getPath("logs", "access.log");
+    BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8);
+</pre>
+<h2>Concurrency</h2>
+<p> Implementations of this interface are immutable and safe for use by
+multiple concurrent threads.
+
+        @author Carlos Lozano Diez
+        @since ARP1.0
+        @version 1.0
+     */
+     export interface IFilePath extends IBaseData {
+     }
+     /**
+        Definition of IDesktop interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IDesktop extends IBaseUI {
+     }
+     /**
+        Definition of IBrowser interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBrowser extends IBaseUI {
+     }
+     /**
+        Definition of IMessaging interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IMessaging extends IBasePIM {
+     }
+     /**
+        Definition of IGyroscope interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IGyroscope extends IBaseSensor {
+     }
+     /**
+        Definition of ILogging interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ILogging extends IBaseUtil {
+     }
+     /**
+        Definition of IConcurrent interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IConcurrent extends IBaseUtil {
+     }
+     /**
+        Definition of ITelephony interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ITelephony extends IBaseCommunication {
+     }
+     /**
+        Definition of IManagement interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IManagement extends IBaseApplication {
+     }
+     /**
+        Definition of IPrinting interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IPrinting extends IBaseApplication {
+     }
+     /**
+        Definition of IAudio interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAudio extends IBaseMedia {
+     }
+     /**
+        Definition of INetworkNaming interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INetworkNaming extends IBaseCommunication {
+     }
+     /**
+        Definition of IUpdate interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IUpdate extends IBaseApplication {
+     }
+     /**
+        Definition of IStore interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IStore extends IBaseCommerce {
+     }
+     /**
+        Definition of IAccelerometer interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAccelerometer extends IBaseSensor {
+     }
+     /**
+        Definition of INetworkStatus interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INetworkStatus extends IBaseCommunication {
+     }
+     /**
+        Definition of IBarometer interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBarometer extends IBaseSensor {
+     }
+     /**
+        Definition of INFC interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INFC extends IBaseReader {
+     }
+     /**
+        Created by FRMI on 25/08/2014.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IContactPhotoResultCallback extends IBaseCallback {
+     }
+     /**
+        Definition of IBarcode interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBarcode extends IBaseReader {
+     }
+     /**
+        Definition of IServiceResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IServiceResultCallback extends IBaseCallback {
+     }
+     /**
+        Definition of ISecureKVResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ISecureKVResultCallback extends IBaseCallback {
+     }
+     /**
+        Definition of ICapabilities interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ICapabilities extends IBaseSystem {
+     }
+     /**
+        Definition of ITimer interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ITimer extends IBaseUtil {
+     }
+     /**
+        Definition of INotification interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INotification extends IBaseNotification {
+     }
+     /**
+        Definition of ISession interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ISession extends IBaseCommunication {
+     }
+     /**
+        Definition of IFileSystem interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IFileSystem extends IBaseData {
+     }
+     /**
+        Definition of ISettings interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ISettings extends IBaseApplication {
+     }
+     /**
+        Definition of IButtonListener interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IButtonListener extends IBaseListener {
+     }
+     /**
+        Definition of ILifecycleListener interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ILifecycleListener extends IBaseListener {
+     }
+     /**
+        Definition of INetworkReachability interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INetworkReachability extends IBaseCommunication {
+     }
+     /**
+        Definition of IDatabaseResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IDatabaseResultCallback extends IBaseCallback {
+     }
+     /**
+        Definition of IGlobalization interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IGlobalization extends IBaseApplication {
+     }
+     /**
+        Definition of IVideo interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IVideo extends IBaseMedia {
+     }
+     /**
+        Definition of IXML interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IXML extends IBaseData {
+     }
+     /**
+        Definition of IAppServerListener interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppServerListener extends IBaseListener {
+     }
+     /**
+        Definition of IOpenId interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IOpenId extends IBaseSecurity {
+     }
+     /**
+        Definition of IGeolocation interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IGeolocation extends IBaseSensor {
+     }
+     /**
+        Definition of IMagnetometer interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IMagnetometer extends IBaseSensor {
+     }
+     /**
+        Created by FRMI on 28/08/2014.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INetworkReachabilityCallback extends IBaseCallback {
+     }
+     /**
+        Definition of IFileListResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IFileListResultCallback extends IBaseCallback {
+     }
+     /**
+        Definition of IRuntime interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IRuntime extends IBaseSystem {
+     }
+     /**
+        Definition of IInternalStorage interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IInternalStorage extends IBaseData {
+     }
+     /**
+        Definition of IOCR interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IOCR extends IBaseReader {
+     }
+     /**
+        Definition of IContactResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IContactResultCallback extends IBaseCallback {
+     }
+     /**
+        Definition of IFileResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IFileResultCallback extends IBaseCallback {
+     }
+     /**
+        Definition of ITableResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ITableResultCallback extends IBaseCallback {
+     }
+     /**
+        Definition of IMap interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IMap extends IBaseUI {
+     }
+     /**
+        Definition of IAlarm interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAlarm extends IBaseNotification {
+     }
+     /**
+        Definition of IFacebook interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IFacebook extends IBaseSocial {
+     }
+     /**
+        Definition of INetworkInfo interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INetworkInfo extends IBaseCommunication {
+     }
+     /**
+        Definition of ICompression interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ICompression extends IBaseUtil {
+     }
+     /**
+        Definition of ICloud interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ICloud extends IBaseData {
+     }
+     /**
+        Definition of IQRCode interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IQRCode extends IBaseReader {
+     }
+     /**
+        Definition of IAmbientLight interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAmbientLight extends IBaseSensor {
+     }
+     /**
+        Definition of ISecurity interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ISecurity extends IBaseSecurity {
+     }
+     /**
+        Definition of IFile interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IFile extends IFilePath {
+     }
+     /**
         Structure representing the data of a http cookie.
 
         @author Carlos Lozano Diez
@@ -3244,6 +4299,613 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
+        Enumeration IGeolocationListenerWarning
+     */
+     export class IGeolocationListenerWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HighDoP = new IGeolocationListenerWarning("HighDoP");
+          static StaleData = new IGeolocationListenerWarning("StaleData");
+          static Unknown = new IGeolocationListenerWarning("Unknown");
+
+     }
+     /**
+        Enumeration IGeolocationListenerError
+     */
+     export class IGeolocationListenerError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Disabled = new IGeolocationListenerError("Disabled");
+          static RestrictedAccess = new IGeolocationListenerError("RestrictedAccess");
+          static DeniedAccess = new IGeolocationListenerError("DeniedAccess");
+          static StatusNotDetermined = new IGeolocationListenerError("StatusNotDetermined");
+          static Unknown = new IGeolocationListenerError("Unknown");
+
+     }
+     /**
+        Enumeration IContactFilter
+     */
+     export class IContactFilter {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HAS_PHONE = new IContactFilter("HAS_PHONE");
+          static HAS_EMAIL = new IContactFilter("HAS_EMAIL");
+          static HAS_ADDRESS = new IContactFilter("HAS_ADDRESS");
+          static Unknown = new IContactFilter("Unknown");
+
+     }
+     /**
+        Enumeration IContactFieldGroup
+     */
+     export class IContactFieldGroup {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static PERSONAL_INFO = new IContactFieldGroup("PERSONAL_INFO");
+          static PROFESSIONAL_INFO = new IContactFieldGroup("PROFESSIONAL_INFO");
+          static ADDRESSES = new IContactFieldGroup("ADDRESSES");
+          static PHONES = new IContactFieldGroup("PHONES");
+          static EMAILS = new IContactFieldGroup("EMAILS");
+          static WEBSITES = new IContactFieldGroup("WEBSITES");
+          static SOCIALS = new IContactFieldGroup("SOCIALS");
+          static TAGS = new IContactFieldGroup("TAGS");
+          static Unknown = new IContactFieldGroup("Unknown");
+
+     }
+     /**
+        Enumeration IAppResourceCallbackWarning
+     */
+     export class IAppResourceCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static PartialContent = new IAppResourceCallbackWarning("PartialContent");
+          static TooLarge = new IAppResourceCallbackWarning("TooLarge");
+          static LinkedResource = new IAppResourceCallbackWarning("LinkedResource");
+          static Unknown = new IAppResourceCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IAppResourceCallbackError
+     */
+     export class IAppResourceCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NotFound = new IAppResourceCallbackError("NotFound");
+          static NoPermission = new IAppResourceCallbackError("NoPermission");
+          static Unknown = new IAppResourceCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration IAccelerationListenerWarning
+     */
+     export class IAccelerationListenerWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NeedsCalibration = new IAccelerationListenerWarning("NeedsCalibration");
+          static Stale = new IAccelerationListenerWarning("Stale");
+          static Unknown = new IAccelerationListenerWarning("Unknown");
+
+     }
+     /**
+        Enumeration IAccelerationListenerError
+     */
+     export class IAccelerationListenerError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Unauthorized = new IAccelerationListenerError("Unauthorized");
+          static Unavailable = new IAccelerationListenerError("Unavailable");
+          static Unknown = new IAccelerationListenerError("Unknown");
+
+     }
+     /**
+        Enumeration IMessagingCallbackWarning
+     */
+     export class IMessagingCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static UnableToSentAll = new IMessagingCallbackWarning("UnableToSentAll");
+          static UnableToFetchAttachment = new IMessagingCallbackWarning("UnableToFetchAttachment");
+          static Unknown = new IMessagingCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IMessagingCallbackError
+     */
+     export class IMessagingCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static SIMNotPresent = new IMessagingCallbackError("SIMNotPresent");
+          static EmailAccountNotFound = new IMessagingCallbackError("EmailAccountNotFound");
+          static NotSent = new IMessagingCallbackError("NotSent");
+          static WrongParams = new IMessagingCallbackError("WrongParams");
+          static NotSupported = new IMessagingCallbackError("NotSupported");
+          static Unknown = new IMessagingCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration IFileDataResultCallbackWarning
+     */
+     export class IFileDataResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static ExceedMaximumSize = new IFileDataResultCallbackWarning("ExceedMaximumSize");
+          static Unknown = new IFileDataResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IFileDataResultCallbackError
+     */
+     export class IFileDataResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static InexistentFile = new IFileDataResultCallbackError("InexistentFile");
+          static InsufficientSpace = new IFileDataResultCallbackError("InsufficientSpace");
+          static Unauthorized = new IFileDataResultCallbackError("Unauthorized");
+          static Unknown = new IFileDataResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration ILoggingLogLevel
+     */
+     export class ILoggingLogLevel {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static DEBUG = new ILoggingLogLevel("DEBUG");
+          static WARN = new ILoggingLogLevel("WARN");
+          static ERROR = new ILoggingLogLevel("ERROR");
+          static INFO = new ILoggingLogLevel("INFO");
+          static Unknown = new ILoggingLogLevel("Unknown");
+
+     }
+     /**
+        Enumeration IContactPhotoResultCallbackWarning
+     */
+     export class IContactPhotoResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static LimitExceeded = new IContactPhotoResultCallbackWarning("LimitExceeded");
+          static No_Matches = new IContactPhotoResultCallbackWarning("No_Matches");
+          static Unknown = new IContactPhotoResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IContactPhotoResultCallbackError
+     */
+     export class IContactPhotoResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new IContactPhotoResultCallbackError("NoPermission");
+          static Wrong_Params = new IContactPhotoResultCallbackError("Wrong_Params");
+          static No_Photo = new IContactPhotoResultCallbackError("No_Photo");
+          static Unknown = new IContactPhotoResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration IServiceResultCallbackWarning
+     */
+     export class IServiceResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NotSecure = new IServiceResultCallbackWarning("NotSecure");
+          static NotTrusted = new IServiceResultCallbackWarning("NotTrusted");
+          static Redirected = new IServiceResultCallbackWarning("Redirected");
+          static Wrong_Params = new IServiceResultCallbackWarning("Wrong_Params");
+          static Unknown = new IServiceResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IServiceResultCallbackError
+     */
+     export class IServiceResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Forbidden = new IServiceResultCallbackError("Forbidden");
+          static NotFound = new IServiceResultCallbackError("NotFound");
+          static MethodNotAllowed = new IServiceResultCallbackError("MethodNotAllowed");
+          static NotAllowed = new IServiceResultCallbackError("NotAllowed");
+          static NotAuthenticated = new IServiceResultCallbackError("NotAuthenticated");
+          static TimeOut = new IServiceResultCallbackError("TimeOut");
+          static NoResponse = new IServiceResultCallbackError("NoResponse");
+          static ServerError = new IServiceResultCallbackError("ServerError");
+          static Unreachable = new IServiceResultCallbackError("Unreachable");
+          static MalformedUrl = new IServiceResultCallbackError("MalformedUrl");
+          static NotRegisteredService = new IServiceResultCallbackError("NotRegisteredService");
+          static Unknown = new IServiceResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration ISecureKVResultCallbackWarning
+     */
+     export class ISecureKVResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static EntryOverride = new ISecureKVResultCallbackWarning("EntryOverride");
+          static Unknown = new ISecureKVResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration ISecureKVResultCallbackError
+     */
+     export class ISecureKVResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new ISecureKVResultCallbackError("NoPermission");
+          static NoMatchesFound = new ISecureKVResultCallbackError("NoMatchesFound");
+          static Unknown = new ISecureKVResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration ICapabilitiesSensor
+     */
+     export class ICapabilitiesSensor {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Accelerometer = new ICapabilitiesSensor("Accelerometer");
+          static AmbientLight = new ICapabilitiesSensor("AmbientLight");
+          static Barometer = new ICapabilitiesSensor("Barometer");
+          static Geolocation = new ICapabilitiesSensor("Geolocation");
+          static Gyroscope = new ICapabilitiesSensor("Gyroscope");
+          static Magnetometer = new ICapabilitiesSensor("Magnetometer");
+          static Proximity = new ICapabilitiesSensor("Proximity");
+          static Unknown = new ICapabilitiesSensor("Unknown");
+
+     }
+     /**
+        Enumeration ICapabilitiesCommunication
+     */
+     export class ICapabilitiesCommunication {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Calendar = new ICapabilitiesCommunication("Calendar");
+          static Contact = new ICapabilitiesCommunication("Contact");
+          static Mail = new ICapabilitiesCommunication("Mail");
+          static Messaging = new ICapabilitiesCommunication("Messaging");
+          static Telephony = new ICapabilitiesCommunication("Telephony");
+          static Unknown = new ICapabilitiesCommunication("Unknown");
+
+     }
+     /**
+        Enumeration ICapabilitiesData
+     */
+     export class ICapabilitiesData {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Database = new ICapabilitiesData("Database");
+          static File = new ICapabilitiesData("File");
+          static Cloud = new ICapabilitiesData("Cloud");
+          static Unknown = new ICapabilitiesData("Unknown");
+
+     }
+     /**
+        Enumeration ICapabilitiesMedia
+     */
+     export class ICapabilitiesMedia {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Audio_Playback = new ICapabilitiesMedia("Audio_Playback");
+          static Audio_Recording = new ICapabilitiesMedia("Audio_Recording");
+          static Camera = new ICapabilitiesMedia("Camera");
+          static Video_Playback = new ICapabilitiesMedia("Video_Playback");
+          static Video_Recording = new ICapabilitiesMedia("Video_Recording");
+          static Unknown = new ICapabilitiesMedia("Unknown");
+
+     }
+     /**
+        Enumeration ICapabilitiesNet
+     */
+     export class ICapabilitiesNet {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static GSM = new ICapabilitiesNet("GSM");
+          static GPRS = new ICapabilitiesNet("GPRS");
+          static HSDPA = new ICapabilitiesNet("HSDPA");
+          static LTE = new ICapabilitiesNet("LTE");
+          static WIFI = new ICapabilitiesNet("WIFI");
+          static Ethernet = new ICapabilitiesNet("Ethernet");
+          static Unknown = new ICapabilitiesNet("Unknown");
+
+     }
+     /**
+        Enumeration ICapabilitiesNotification
+     */
+     export class ICapabilitiesNotification {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Alarm = new ICapabilitiesNotification("Alarm");
+          static LocalNotification = new ICapabilitiesNotification("LocalNotification");
+          static RemoteNotification = new ICapabilitiesNotification("RemoteNotification");
+          static Vibration = new ICapabilitiesNotification("Vibration");
+          static Unknown = new ICapabilitiesNotification("Unknown");
+
+     }
+     /**
+        Enumeration ICapabilitiesButton
+     */
+     export class ICapabilitiesButton {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static HomeButton = new ICapabilitiesButton("HomeButton");
+          static BackButton = new ICapabilitiesButton("BackButton");
+          static OptionButton = new ICapabilitiesButton("OptionButton");
+          static Unknown = new ICapabilitiesButton("Unknown");
+
+     }
+     /**
+        Enumeration IButtonListenerWarning
+     */
+     export class IButtonListenerWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Not_Implemented = new IButtonListenerWarning("Not_Implemented");
+          static Unknown = new IButtonListenerWarning("Unknown");
+
+     }
+     /**
+        Enumeration IButtonListenerError
+     */
+     export class IButtonListenerError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Not_Present = new IButtonListenerError("Not_Present");
+          static Unknown = new IButtonListenerError("Unknown");
+
+     }
+     /**
+        Enumeration ILifecycleListenerWarning
+     */
+     export class ILifecycleListenerWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static MemoryLow = new ILifecycleListenerWarning("MemoryLow");
+          static BatteryLow = new ILifecycleListenerWarning("BatteryLow");
+          static Unknown = new ILifecycleListenerWarning("Unknown");
+
+     }
+     /**
+        Enumeration ILifecycleListenerError
+     */
+     export class ILifecycleListenerError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Runtime = new ILifecycleListenerError("Runtime");
+          static Implementation = new ILifecycleListenerError("Implementation");
+          static Killed = new ILifecycleListenerError("Killed");
+          static Unknown = new ILifecycleListenerError("Unknown");
+
+     }
+     /**
+        Enumeration IDatabaseResultCallbackWarning
+     */
+     export class IDatabaseResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static DatabaseExists = new IDatabaseResultCallbackWarning("DatabaseExists");
+          static IsOpen = new IDatabaseResultCallbackWarning("IsOpen");
+          static Unknown = new IDatabaseResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IDatabaseResultCallbackError
+     */
+     export class IDatabaseResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoSpace = new IDatabaseResultCallbackError("NoSpace");
+          static SqlException = new IDatabaseResultCallbackError("SqlException");
+          static NotDeleted = new IDatabaseResultCallbackError("NotDeleted");
+          static Unknown = new IDatabaseResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration INetworkReachabilityCallbackWarning
+     */
+     export class INetworkReachabilityCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static IncorrectScheme = new INetworkReachabilityCallbackWarning("IncorrectScheme");
+          static NotSecure = new INetworkReachabilityCallbackWarning("NotSecure");
+          static NotTrusted = new INetworkReachabilityCallbackWarning("NotTrusted");
+          static Redirected = new INetworkReachabilityCallbackWarning("Redirected");
+          static NotRegisteredService = new INetworkReachabilityCallbackWarning("NotRegisteredService");
+          static Unknown = new INetworkReachabilityCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration INetworkReachabilityCallbackError
+     */
+     export class INetworkReachabilityCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Forbidden = new INetworkReachabilityCallbackError("Forbidden");
+          static NotFound = new INetworkReachabilityCallbackError("NotFound");
+          static MethodNotAllowed = new INetworkReachabilityCallbackError("MethodNotAllowed");
+          static NotAllowed = new INetworkReachabilityCallbackError("NotAllowed");
+          static NotAuthenticated = new INetworkReachabilityCallbackError("NotAuthenticated");
+          static TimeOut = new INetworkReachabilityCallbackError("TimeOut");
+          static NoResponse = new INetworkReachabilityCallbackError("NoResponse");
+          static Unreachable = new INetworkReachabilityCallbackError("Unreachable");
+          static Wrong_Params = new INetworkReachabilityCallbackError("Wrong_Params");
+          static MalformedUrl = new INetworkReachabilityCallbackError("MalformedUrl");
+          static DomainUnresolvable = new INetworkReachabilityCallbackError("DomainUnresolvable");
+          static Unknown = new INetworkReachabilityCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration IFileListResultCallbackWarning
+     */
+     export class IFileListResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static PartialResult = new IFileListResultCallbackWarning("PartialResult");
+          static Unknown = new IFileListResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IFileListResultCallbackError
+     */
+     export class IFileListResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static InexistentFile = new IFileListResultCallbackError("InexistentFile");
+          static Unauthorized = new IFileListResultCallbackError("Unauthorized");
+          static Unknown = new IFileListResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration IContactResultCallbackWarning
+     */
+     export class IContactResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static LimitExceeded = new IContactResultCallbackWarning("LimitExceeded");
+          static No_Matches = new IContactResultCallbackWarning("No_Matches");
+          static Unknown = new IContactResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IContactResultCallbackError
+     */
+     export class IContactResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoPermission = new IContactResultCallbackError("NoPermission");
+          static Wrong_Params = new IContactResultCallbackError("Wrong_Params");
+          static Unknown = new IContactResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration IFileResultCallbackWarning
+     */
+     export class IFileResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static SourceNotDeleted = new IFileResultCallbackWarning("SourceNotDeleted");
+          static RootDirectory = new IFileResultCallbackWarning("RootDirectory");
+          static Unknown = new IFileResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration IFileResultCallbackError
+     */
+     export class IFileResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static FileExists = new IFileResultCallbackError("FileExists");
+          static InsufficientSpace = new IFileResultCallbackError("InsufficientSpace");
+          static Unauthorized = new IFileResultCallbackError("Unauthorized");
+          static Unknown = new IFileResultCallbackError("Unknown");
+
+     }
+     /**
+        Enumeration ITableResultCallbackWarning
+     */
+     export class ITableResultCallbackWarning {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static TableExists = new ITableResultCallbackWarning("TableExists");
+          static TableLocked = new ITableResultCallbackWarning("TableLocked");
+          static NoResults = new ITableResultCallbackWarning("NoResults");
+          static Unknown = new ITableResultCallbackWarning("Unknown");
+
+     }
+     /**
+        Enumeration ITableResultCallbackError
+     */
+     export class ITableResultCallbackError {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static NoSpace = new ITableResultCallbackError("NoSpace");
+          static ReadOnlyTable = new ITableResultCallbackError("ReadOnlyTable");
+          static SqlException = new ITableResultCallbackError("SqlException");
+          static DatabaseNotFound = new ITableResultCallbackError("DatabaseNotFound");
+          static NoTableFound = new ITableResultCallbackError("NoTableFound");
+          static Unknown = new ITableResultCallbackError("Unknown");
+
+     }
+     /**
         Enumeration ContactEmailType
      */
      export class ContactEmailType {
@@ -3370,20 +5032,6 @@ be unique for a specific instance of an application on a specific device.
           static WorkFax = new ContactPhoneType("WorkFax");
           static Other = new ContactPhoneType("Other");
           static Unknown = new ContactPhoneType("Unknown");
-
-     }
-     /**
-        Enumeration ICapabilitiesButton
-     */
-     export class ICapabilitiesButton {
-
-          constructor(public value:string){}
-          toString(){return this.value;}
-
-          static HomeButton = new ICapabilitiesButton("HomeButton");
-          static BackButton = new ICapabilitiesButton("BackButton");
-          static OptionButton = new ICapabilitiesButton("OptionButton");
-          static Unknown = new ICapabilitiesButton("Unknown");
 
      }
      /**

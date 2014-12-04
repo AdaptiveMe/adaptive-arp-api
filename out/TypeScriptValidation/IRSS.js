@@ -22,4 +22,5 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IBaseSocial.ts"/>
 //# sourceMappingURL=IRSS.js.map

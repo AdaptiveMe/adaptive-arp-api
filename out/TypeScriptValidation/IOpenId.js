@@ -22,4 +22,5 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IBaseSecurity.ts"/>
 //# sourceMappingURL=IOpenId.js.map

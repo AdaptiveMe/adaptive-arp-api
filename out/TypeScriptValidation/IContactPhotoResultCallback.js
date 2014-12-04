@@ -22,4 +22,5 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IBaseCallback.ts"/>
 //# sourceMappingURL=IContactPhotoResultCallback.js.map

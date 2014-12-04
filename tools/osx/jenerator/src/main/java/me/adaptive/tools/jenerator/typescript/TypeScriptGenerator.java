@@ -33,6 +33,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -56,12 +57,88 @@ public class TypeScriptGenerator extends GeneratorBase {
 
     @Override
     protected void endInterface(String simpleName, Class clazz) {
-
+        println(5, "}"); // Class
+        indentPrintStreamGlobal.println(5, "}");
+        println("}"); // Module
     }
 
     @Override
     protected void startInterface(String simpleName, Class clazz, String classComment, List<DocletTag> tagList) {
+        List<String> referenceList = new ArrayList<>();
+        if (!clazz.isEnum()) {
+            if (clazz.getInterfaces() != null && clazz.getInterfaces().length==1) {
+                referenceList.add(clazz.getInterfaces()[0].getSimpleName());
+            }
+            for (Field field : clazz.getDeclaredFields()) {
+                if (field.getType().isArray()) {
+                    if (!field.getType().getComponentType().isPrimitive() && !field.getType().getComponentType().equals(String.class) && !field.getType().getComponentType().equals(Object.class)) {
+                        if (!referenceList.contains(field.getType().getComponentType().getSimpleName())) {
+                            referenceList.add(field.getType().getComponentType().getSimpleName());
+                        }
+                    }
+                } else if (field.getType().isEnum()) {
+                    if (!referenceList.contains(generateEnumClassName(field.getType()))) {
+                        referenceList.add(generateEnumClassName(field.getType()));
+                    }
+                } else if (!field.getType().isPrimitive() && !field.getType().equals(String.class) && !field.getType().equals(Object.class) && !field.getType().equals(clazz)) {
+                    if (!referenceList.contains(field.getType().getSimpleName())) {
+                        referenceList.add(field.getType().getSimpleName());
+                    }
+                }
+            }
+            referenceList.sort(new Comparator<String>() {
+                @Override
+                public int compare(String o1, String o2) {
+                    return o1.compareTo(o2);
+                }
+            });
 
+            if (referenceList.size() > 0) {
+                for (String reference : referenceList) {
+                    println("///<reference path=\"" + reference + ".ts\"/>");
+                }
+                println();
+            }
+        }
+
+        println("module Adaptive {"); // Module
+        println();
+        startComment(5);
+        startCommentGlobal(5);
+        println(8, classComment);
+        printlnGlobal(8, classComment);
+        if (tagList.size() > 0) {
+            println();
+            printlnGlobal();
+            for (DocletTag tag : tagList) {
+                println(8, "@" + tag.getName() + " " + tag.getValue());
+                printlnGlobal(8, "@" + tag.getName() + " " + tag.getValue());
+            }
+        }
+        endComment(5);
+        endCommentGlobal(5);
+        if (clazz.isEnum()) {
+            println(5, "export interface " + generateEnumClassName(clazz) + " {");
+            printlnGlobal(5, "export interface " + generateEnumClassName(clazz) + " {");
+        } else if (clazz.getInterfaces() != null && clazz.getInterfaces().length == 1) {
+            println(5, "export interface " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName() + " {");
+            printlnGlobal(5, "export interface " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName() + " {");
+        } else {
+            println(5, "export interface " + simpleName + " {");
+            printlnGlobal(5, "export interface " + simpleName + " {");
+        }
+        /**
+         * Fields
+         */
+        for (Method method : clazz.getDeclaredMethods()) {
+            for (Parameter parameter : method.getParameters()) {
+                if (parameter.getType().isEnum()) {
+                    convertJavaToNativeType(parameter.getType());
+                } else if (parameter.getType().isArray() && parameter.getType().getComponentType().isEnum()) {
+                    convertJavaToNativeType(parameter.getType().getComponentType());
+                }
+            }
+        }
     }
 
     @Override
@@ -115,10 +192,10 @@ public class TypeScriptGenerator extends GeneratorBase {
         endComment(10);
         endCommentGlobal(10);
         if (field.getType().equals(Boolean.class)) {
-            println(10, "is"+fieldName+"() : " + convertJavaToNativeType(field.getType())+" {");
+            println(10, "is" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
             printlnGlobal(10, "is" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
         } else {
-            println(10, "get"+fieldName+"() : " + convertJavaToNativeType(field.getType())+" {");
+            println(10, "get" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
             printlnGlobal(10, "get" + fieldName + "() : " + convertJavaToNativeType(field.getType()) + " {");
         }
 
@@ -153,8 +230,8 @@ public class TypeScriptGenerator extends GeneratorBase {
         }
         endComment(10);
         endCommentGlobal(10);
-        println(10, "set" + fieldName + "("+field.getName()+": "+convertJavaToNativeType(field.getType())+") {");
-        println(15, "this." + field.getName() + " = "+field.getName()+";");
+        println(10, "set" + fieldName + "(" + field.getName() + ": " + convertJavaToNativeType(field.getType()) + ") {");
+        println(15, "this." + field.getName() + " = " + field.getName() + ";");
         println(10, "}");
         println();
         printlnGlobal(10, "set" + fieldName + "(" + field.getName() + ": " + convertJavaToNativeType(field.getType()) + ") {");
@@ -220,17 +297,17 @@ public class TypeScriptGenerator extends GeneratorBase {
         if (!clazz.getSuperclass().equals(Object.class)) {
             print(15, "super(");
             printGlobal(15, "super(");
-            for (int j=0;j<c.getParameters().length;j++) {
+            for (int j = 0; j < c.getParameters().length; j++) {
                 Parameter parameter = c.getParameters()[j];
                 print(parameter.getName());
-                printGlobal(0,parameter.getName());
-                if (j<c.getParameters().length-1) {
+                printGlobal(0, parameter.getName());
+                if (j < c.getParameters().length - 1) {
                     print(", ");
                     printGlobal(0, ", ");
                 }
             }
             println(");");
-            printlnGlobal(0,");");
+            printlnGlobal(0, ");");
         }
 
         for (int j = 0; j < c.getParameters().length; j++) {
@@ -243,8 +320,8 @@ public class TypeScriptGenerator extends GeneratorBase {
                 }
             }
             if (thisField) {
-                println(15, "this." + parameter.getName() + " = " + parameter.getName()+";");
-                printlnGlobal(15, "this." + parameter.getName() + " = " + parameter.getName()+";");
+                println(15, "this." + parameter.getName() + " = " + parameter.getName() + ";");
+                printlnGlobal(15, "this." + parameter.getName() + " = " + parameter.getName() + ";");
             }
         }
         println(10, "}");

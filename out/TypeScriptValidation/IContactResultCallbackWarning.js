@@ -22,8 +22,23 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Enumeration IContactResultCallbackWarning
+    */
+    var IContactResultCallbackWarning = (function () {
+        function IContactResultCallbackWarning(value) {
+            this.value = value;
+        }
+        IContactResultCallbackWarning.prototype.toString = function () {
+            return this.value;
+        };
+        IContactResultCallbackWarning.LimitExceeded = new IContactResultCallbackWarning("LimitExceeded");
+        IContactResultCallbackWarning.No_Matches = new IContactResultCallbackWarning("No_Matches");
+        IContactResultCallbackWarning.Unknown = new IContactResultCallbackWarning("Unknown");
+        return IContactResultCallbackWarning;
+    })();
+    Adaptive.IContactResultCallbackWarning = IContactResultCallbackWarning;
+})(Adaptive || (Adaptive = {}));
+//# sourceMappingURL=IContactResultCallbackWarning.js.map

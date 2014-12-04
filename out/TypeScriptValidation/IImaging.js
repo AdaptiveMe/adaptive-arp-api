@@ -22,4 +22,5 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IBaseMedia.ts"/>
 //# sourceMappingURL=IImaging.js.map
