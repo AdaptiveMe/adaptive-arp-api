@@ -34,6 +34,7 @@ Definition of IBarometer interface/protocol.
 @version 1.0
 */
 @protocol IBarometer <IBaseSensor>
+
 @end
 
 /**

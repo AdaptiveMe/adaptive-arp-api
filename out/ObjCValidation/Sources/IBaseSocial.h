@@ -34,6 +34,7 @@ Definition of IBaseSocial interface/protocol.
 @version 1.0
 */
 @protocol IBaseSocial <IAdaptiveRP>
+
 @end
 
 /**

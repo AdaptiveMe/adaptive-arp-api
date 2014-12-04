@@ -34,6 +34,7 @@ Definition of IVibration interface/protocol.
 @version 1.0
 */
 @protocol IVibration <IBaseNotification>
+
 @end
 
 /**

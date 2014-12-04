@@ -34,6 +34,30 @@ Definition of IServiceResultCallback interface/protocol.
 @version 1.0
 */
 @protocol IServiceResultCallback <IBaseCallback>
+
+     typedef NS_OPTIONS(NSUInteger, IServiceResultCallbackWarning) {
+          IServiceResultCallbackWarning_NotSecure = 0,
+          IServiceResultCallbackWarning_NotTrusted = 1,
+          IServiceResultCallbackWarning_Redirected = 2,
+          IServiceResultCallbackWarning_Wrong_Params = 3,
+          IServiceResultCallbackWarning_Unknown = 4
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IServiceResultCallbackError) {
+          IServiceResultCallbackError_Forbidden = 0,
+          IServiceResultCallbackError_NotFound = 1,
+          IServiceResultCallbackError_MethodNotAllowed = 2,
+          IServiceResultCallbackError_NotAllowed = 3,
+          IServiceResultCallbackError_NotAuthenticated = 4,
+          IServiceResultCallbackError_TimeOut = 5,
+          IServiceResultCallbackError_NoResponse = 6,
+          IServiceResultCallbackError_ServerError = 7,
+          IServiceResultCallbackError_Unreachable = 8,
+          IServiceResultCallbackError_MalformedUrl = 9,
+          IServiceResultCallbackError_NotRegisteredService = 10,
+          IServiceResultCallbackError_Unknown = 11
+     };
+
 @end
 
 /**

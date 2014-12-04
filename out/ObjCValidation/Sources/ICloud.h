@@ -34,6 +34,7 @@ Definition of ICloud interface/protocol.
 @version 1.0
 */
 @protocol ICloud <IBaseData>
+
 @end
 
 /**

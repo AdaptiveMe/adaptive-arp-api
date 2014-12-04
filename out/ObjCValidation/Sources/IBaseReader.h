@@ -34,6 +34,7 @@ Definition of IBaseReader interface/protocol.
 @version 1.0
 */
 @protocol IBaseReader <IAdaptiveRP>
+
 @end
 
 /**

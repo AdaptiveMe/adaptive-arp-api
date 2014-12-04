@@ -34,6 +34,7 @@ Definition of IBrowser interface/protocol.
 @version 1.0
 */
 @protocol IBrowser <IBaseUI>
+
 @end
 
 /**

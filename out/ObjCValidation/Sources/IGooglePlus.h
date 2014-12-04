@@ -34,6 +34,7 @@ Definition of IGooglePlus interface/protocol.
 @version 1.0
 */
 @protocol IGooglePlus <IBaseSocial>
+
 @end
 
 /**

@@ -34,6 +34,22 @@ Definition of IMessagingCallback interface/protocol.
 @version 1.0
 */
 @protocol IMessagingCallback <IBaseCallback>
+
+     typedef NS_OPTIONS(NSUInteger, IMessagingCallbackWarning) {
+          IMessagingCallbackWarning_UnableToSentAll = 0,
+          IMessagingCallbackWarning_UnableToFetchAttachment = 1,
+          IMessagingCallbackWarning_Unknown = 2
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IMessagingCallbackError) {
+          IMessagingCallbackError_SIMNotPresent = 0,
+          IMessagingCallbackError_EmailAccountNotFound = 1,
+          IMessagingCallbackError_NotSent = 2,
+          IMessagingCallbackError_WrongParams = 3,
+          IMessagingCallbackError_NotSupported = 4,
+          IMessagingCallbackError_Unknown = 5
+     };
+
 @end
 
 /**

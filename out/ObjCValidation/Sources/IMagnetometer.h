@@ -34,6 +34,7 @@ Definition of IMagnetometer interface/protocol.
 @version 1.0
 */
 @protocol IMagnetometer <IBaseSensor>
+
 @end
 
 /**

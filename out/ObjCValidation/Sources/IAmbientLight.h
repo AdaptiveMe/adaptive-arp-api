@@ -34,6 +34,7 @@ Definition of IAmbientLight interface/protocol.
 @version 1.0
 */
 @protocol IAmbientLight <IBaseSensor>
+
 @end
 
 /**

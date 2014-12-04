@@ -34,6 +34,7 @@ Definition of IGyroscope interface/protocol.
 @version 1.0
 */
 @protocol IGyroscope <IBaseSensor>
+
 @end
 
 /**

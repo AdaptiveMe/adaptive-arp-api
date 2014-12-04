@@ -34,6 +34,7 @@ Definition of IAlarm interface/protocol.
 @version 1.0
 */
 @protocol IAlarm <IBaseNotification>
+
 @end
 
 /**

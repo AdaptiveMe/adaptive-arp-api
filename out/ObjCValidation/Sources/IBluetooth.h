@@ -34,6 +34,7 @@ Definition of IBluetooth interface/protocol.
 @version 1.0
 */
 @protocol IBluetooth <IBaseCommunication>
+
 @end
 
 /**

@@ -34,6 +34,7 @@ Definition of INFC interface/protocol.
 @version 1.0
 */
 @protocol INFC <IBaseReader>
+
 @end
 
 /**

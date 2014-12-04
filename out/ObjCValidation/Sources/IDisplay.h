@@ -34,6 +34,7 @@ Definition of IDisplay interface/protocol.
 @version 1.0
 */
 @protocol IDisplay <IBaseSystem>
+
 @end
 
 /**

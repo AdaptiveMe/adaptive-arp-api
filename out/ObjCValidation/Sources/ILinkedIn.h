@@ -34,6 +34,7 @@ Definition of ILinkedIn interface/protocol.
 @version 1.0
 */
 @protocol ILinkedIn <IBaseSocial>
+
 @end
 
 /**

@@ -34,6 +34,7 @@ Definition of IFacebook interface/protocol.
 @version 1.0
 */
 @protocol IFacebook <IBaseSocial>
+
 @end
 
 /**

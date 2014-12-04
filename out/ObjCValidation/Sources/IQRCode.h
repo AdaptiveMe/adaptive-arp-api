@@ -34,6 +34,7 @@ Definition of IQRCode interface/protocol.
 @version 1.0
 */
 @protocol IQRCode <IBaseReader>
+
 @end
 
 /**

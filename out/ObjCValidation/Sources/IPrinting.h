@@ -34,6 +34,7 @@ Definition of IPrinting interface/protocol.
 @version 1.0
 */
 @protocol IPrinting <IBaseApplication>
+
 @end
 
 /**

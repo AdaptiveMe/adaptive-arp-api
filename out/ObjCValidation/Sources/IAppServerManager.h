@@ -35,6 +35,7 @@ server lifecycle events to registered listeners.
 @version 1.0
 */
 @protocol IAppServerManager <IAdaptiveRP>
+
 @end
 
 /**

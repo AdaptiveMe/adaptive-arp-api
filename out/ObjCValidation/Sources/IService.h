@@ -34,6 +34,7 @@ Definition of IService interface/protocol.
 @version 1.0
 */
 @protocol IService <IBaseCommunication>
+
 @end
 
 /**

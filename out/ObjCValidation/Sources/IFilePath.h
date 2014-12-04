@@ -70,6 +70,7 @@ multiple concurrent threads.
 @version 1.0
 */
 @protocol IFilePath <IBaseData>
+
 @end
 
 /**

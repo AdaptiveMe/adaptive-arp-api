@@ -34,6 +34,7 @@ Definition of IAccelerometer interface/protocol.
 @version 1.0
 */
 @protocol IAccelerometer <IBaseSensor>
+
 @end
 
 /**

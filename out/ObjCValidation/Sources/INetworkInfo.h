@@ -34,6 +34,7 @@ Definition of INetworkInfo interface/protocol.
 @version 1.0
 */
 @protocol INetworkInfo <IBaseCommunication>
+
 @end
 
 /**

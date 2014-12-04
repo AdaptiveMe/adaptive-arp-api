@@ -34,6 +34,23 @@ Definition of ITableResultCallback interface/protocol.
 @version 1.0
 */
 @protocol ITableResultCallback <IBaseCallback>
+
+     typedef NS_OPTIONS(NSUInteger, ITableResultCallbackWarning) {
+          ITableResultCallbackWarning_TableExists = 0,
+          ITableResultCallbackWarning_TableLocked = 1,
+          ITableResultCallbackWarning_NoResults = 2,
+          ITableResultCallbackWarning_Unknown = 3
+     };
+
+     typedef NS_OPTIONS(NSUInteger, ITableResultCallbackError) {
+          ITableResultCallbackError_NoSpace = 0,
+          ITableResultCallbackError_ReadOnlyTable = 1,
+          ITableResultCallbackError_SqlException = 2,
+          ITableResultCallbackError_DatabaseNotFound = 3,
+          ITableResultCallbackError_NoTableFound = 4,
+          ITableResultCallbackError_Unknown = 5
+     };
+
 @end
 
 /**

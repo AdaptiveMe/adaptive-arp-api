@@ -34,6 +34,7 @@ Definition of IGeolocation interface/protocol.
 @version 1.0
 */
 @protocol IGeolocation <IBaseSensor>
+
 @end
 
 /**

@@ -34,6 +34,7 @@ Definition of ISettings interface/protocol.
 @version 1.0
 */
 @protocol ISettings <IBaseApplication>
+
 @end
 
 /**

@@ -34,6 +34,18 @@ Definition of ISecureKVResultCallback interface/protocol.
 @version 1.0
 */
 @protocol ISecureKVResultCallback <IBaseCallback>
+
+     typedef NS_OPTIONS(NSUInteger, ISecureKVResultCallbackWarning) {
+          ISecureKVResultCallbackWarning_EntryOverride = 0,
+          ISecureKVResultCallbackWarning_Unknown = 1
+     };
+
+     typedef NS_OPTIONS(NSUInteger, ISecureKVResultCallbackError) {
+          ISecureKVResultCallbackError_NoPermission = 0,
+          ISecureKVResultCallbackError_NoMatchesFound = 1,
+          ISecureKVResultCallbackError_Unknown = 2
+     };
+
 @end
 
 /**

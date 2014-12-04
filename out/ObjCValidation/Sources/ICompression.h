@@ -34,6 +34,7 @@ Definition of ICompression interface/protocol.
 @version 1.0
 */
 @protocol ICompression <IBaseUtil>
+
 @end
 
 /**

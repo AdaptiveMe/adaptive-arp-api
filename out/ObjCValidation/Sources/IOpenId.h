@@ -34,6 +34,7 @@ Definition of IOpenId interface/protocol.
 @version 1.0
 */
 @protocol IOpenId <IBaseSecurity>
+
 @end
 
 /**

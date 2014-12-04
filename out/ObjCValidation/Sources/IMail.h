@@ -34,6 +34,7 @@ Definition of IMail interface/protocol.
 @version 1.0
 */
 @protocol IMail <IBasePIM>
+
 @end
 
 /**

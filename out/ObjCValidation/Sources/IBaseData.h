@@ -34,6 +34,7 @@ Definition of IBaseData interface/protocol.
 @version 1.0
 */
 @protocol IBaseData <IAdaptiveRP>
+
 @end
 
 /**

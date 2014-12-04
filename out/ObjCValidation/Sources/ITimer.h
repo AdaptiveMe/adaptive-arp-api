@@ -34,6 +34,7 @@ Definition of ITimer interface/protocol.
 @version 1.0
 */
 @protocol ITimer <IBaseUtil>
+
 @end
 
 /**

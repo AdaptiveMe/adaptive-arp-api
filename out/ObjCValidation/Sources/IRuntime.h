@@ -34,6 +34,7 @@ Definition of IRuntime interface/protocol.
 @version 1.0
 */
 @protocol IRuntime <IBaseSystem>
+
 @end
 
 /**

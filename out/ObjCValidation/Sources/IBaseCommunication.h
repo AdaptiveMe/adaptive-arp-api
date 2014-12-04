@@ -34,6 +34,7 @@ Definition of IBaseCommunication interface/protocol.
 @version 1.0
 */
 @protocol IBaseCommunication <IAdaptiveRP>
+
 @end
 
 /**

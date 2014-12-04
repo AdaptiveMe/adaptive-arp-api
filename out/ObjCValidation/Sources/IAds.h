@@ -34,6 +34,7 @@ Definition of IAds interface/protocol.
 @version 1.0
 */
 @protocol IAds <IBaseCommerce>
+
 @end
 
 /**

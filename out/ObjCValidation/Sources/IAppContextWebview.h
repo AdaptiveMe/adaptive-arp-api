@@ -34,6 +34,7 @@ Created by clozano on 09/09/14.
 @version 1.0
 */
 @protocol IAppContextWebview <IAdaptiveRP>
+
 @end
 
 /**

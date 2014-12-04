@@ -34,6 +34,20 @@ Definition of IDatabaseResultCallback interface/protocol.
 @version 1.0
 */
 @protocol IDatabaseResultCallback <IBaseCallback>
+
+     typedef NS_OPTIONS(NSUInteger, IDatabaseResultCallbackWarning) {
+          IDatabaseResultCallbackWarning_DatabaseExists = 0,
+          IDatabaseResultCallbackWarning_IsOpen = 1,
+          IDatabaseResultCallbackWarning_Unknown = 2
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IDatabaseResultCallbackError) {
+          IDatabaseResultCallbackError_NoSpace = 0,
+          IDatabaseResultCallbackError_SqlException = 1,
+          IDatabaseResultCallbackError_NotDeleted = 2,
+          IDatabaseResultCallbackError_Unknown = 3
+     };
+
 @end
 
 /**

@@ -34,6 +34,7 @@ Definition of IBaseSecurity interface/protocol.
 @version 1.0
 */
 @protocol IBaseSecurity <IAdaptiveRP>
+
 @end
 
 /**

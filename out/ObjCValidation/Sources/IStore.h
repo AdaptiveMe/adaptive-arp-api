@@ -34,6 +34,7 @@ Definition of IStore interface/protocol.
 @version 1.0
 */
 @protocol IStore <IBaseCommerce>
+
 @end
 
 /**

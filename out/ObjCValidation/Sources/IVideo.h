@@ -34,6 +34,7 @@ Definition of IVideo interface/protocol.
 @version 1.0
 */
 @protocol IVideo <IBaseMedia>
+
 @end
 
 /**

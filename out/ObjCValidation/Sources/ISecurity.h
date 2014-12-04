@@ -34,6 +34,7 @@ Definition of ISecurity interface/protocol.
 @version 1.0
 */
 @protocol ISecurity <IBaseSecurity>
+
 @end
 
 /**

@@ -34,6 +34,7 @@ Definition of IDatabase interface/protocol.
 @version 1.0
 */
 @protocol IDatabase <IBaseData>
+
 @end
 
 /**

@@ -34,6 +34,68 @@ Definition of ICapabilities interface/protocol.
 @version 1.0
 */
 @protocol ICapabilities <IBaseSystem>
+
+     typedef NS_OPTIONS(NSUInteger, ICapabilitiesSensor) {
+          ICapabilitiesSensor_Accelerometer = 0,
+          ICapabilitiesSensor_AmbientLight = 1,
+          ICapabilitiesSensor_Barometer = 2,
+          ICapabilitiesSensor_Geolocation = 3,
+          ICapabilitiesSensor_Gyroscope = 4,
+          ICapabilitiesSensor_Magnetometer = 5,
+          ICapabilitiesSensor_Proximity = 6,
+          ICapabilitiesSensor_Unknown = 7
+     };
+
+     typedef NS_OPTIONS(NSUInteger, ICapabilitiesCommunication) {
+          ICapabilitiesCommunication_Calendar = 0,
+          ICapabilitiesCommunication_Contact = 1,
+          ICapabilitiesCommunication_Mail = 2,
+          ICapabilitiesCommunication_Messaging = 3,
+          ICapabilitiesCommunication_Telephony = 4,
+          ICapabilitiesCommunication_Unknown = 5
+     };
+
+     typedef NS_OPTIONS(NSUInteger, ICapabilitiesData) {
+          ICapabilitiesData_Database = 0,
+          ICapabilitiesData_File = 1,
+          ICapabilitiesData_Cloud = 2,
+          ICapabilitiesData_Unknown = 3
+     };
+
+     typedef NS_OPTIONS(NSUInteger, ICapabilitiesMedia) {
+          ICapabilitiesMedia_Audio_Playback = 0,
+          ICapabilitiesMedia_Audio_Recording = 1,
+          ICapabilitiesMedia_Camera = 2,
+          ICapabilitiesMedia_Video_Playback = 3,
+          ICapabilitiesMedia_Video_Recording = 4,
+          ICapabilitiesMedia_Unknown = 5
+     };
+
+     typedef NS_OPTIONS(NSUInteger, ICapabilitiesNet) {
+          ICapabilitiesNet_GSM = 0,
+          ICapabilitiesNet_GPRS = 1,
+          ICapabilitiesNet_HSDPA = 2,
+          ICapabilitiesNet_LTE = 3,
+          ICapabilitiesNet_WIFI = 4,
+          ICapabilitiesNet_Ethernet = 5,
+          ICapabilitiesNet_Unknown = 6
+     };
+
+     typedef NS_OPTIONS(NSUInteger, ICapabilitiesNotification) {
+          ICapabilitiesNotification_Alarm = 0,
+          ICapabilitiesNotification_LocalNotification = 1,
+          ICapabilitiesNotification_RemoteNotification = 2,
+          ICapabilitiesNotification_Vibration = 3,
+          ICapabilitiesNotification_Unknown = 4
+     };
+
+     typedef NS_OPTIONS(NSUInteger, ICapabilitiesButton) {
+          ICapabilitiesButton_HomeButton = 0,
+          ICapabilitiesButton_BackButton = 1,
+          ICapabilitiesButton_OptionButton = 2,
+          ICapabilitiesButton_Unknown = 3
+     };
+
 @end
 
 /**

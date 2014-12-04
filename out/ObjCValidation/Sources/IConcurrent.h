@@ -34,6 +34,7 @@ Definition of IConcurrent interface/protocol.
 @version 1.0
 */
 @protocol IConcurrent <IBaseUtil>
+
 @end
 
 /**

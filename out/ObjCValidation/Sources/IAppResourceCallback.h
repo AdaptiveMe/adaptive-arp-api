@@ -34,6 +34,20 @@ Created by clozano on 05/09/2014.
 @version 1.0
 */
 @protocol IAppResourceCallback <IBaseCallback>
+
+     typedef NS_OPTIONS(NSUInteger, IAppResourceCallbackWarning) {
+          IAppResourceCallbackWarning_PartialContent = 0,
+          IAppResourceCallbackWarning_TooLarge = 1,
+          IAppResourceCallbackWarning_LinkedResource = 2,
+          IAppResourceCallbackWarning_Unknown = 3
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IAppResourceCallbackError) {
+          IAppResourceCallbackError_NotFound = 0,
+          IAppResourceCallbackError_NoPermission = 1,
+          IAppResourceCallbackError_Unknown = 2
+     };
+
 @end
 
 /**

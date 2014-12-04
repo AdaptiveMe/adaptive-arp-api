@@ -34,6 +34,7 @@ Definition of INetworkStatus interface/protocol.
 @version 1.0
 */
 @protocol INetworkStatus <IBaseCommunication>
+
 @end
 
 /**

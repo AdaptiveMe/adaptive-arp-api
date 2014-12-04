@@ -34,6 +34,7 @@ Definition of IOCR interface/protocol.
 @version 1.0
 */
 @protocol IOCR <IBaseReader>
+
 @end
 
 /**

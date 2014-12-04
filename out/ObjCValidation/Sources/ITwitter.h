@@ -34,6 +34,7 @@ Definition of ITwitter interface/protocol.
 @version 1.0
 */
 @protocol ITwitter <IBaseSocial>
+
 @end
 
 /**

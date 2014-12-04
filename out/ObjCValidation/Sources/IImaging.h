@@ -34,6 +34,7 @@ Definition of IImaging interface/protocol.
 @version 1.0
 */
 @protocol IImaging <IBaseMedia>
+
 @end
 
 /**

@@ -34,6 +34,7 @@ Created by clozano on 05/09/2014.
 @version 1.0
 */
 @protocol IAppRegistry <IAdaptiveRP>
+
 @end
 
 /**

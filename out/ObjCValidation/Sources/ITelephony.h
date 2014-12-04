@@ -34,6 +34,7 @@ Definition of ITelephony interface/protocol.
 @version 1.0
 */
 @protocol ITelephony <IBaseCommunication>
+
 @end
 
 /**

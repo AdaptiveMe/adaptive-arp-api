@@ -34,6 +34,7 @@ Definition of IDevice interface/protocol.
 @version 1.0
 */
 @protocol IDevice <IBaseSystem>
+
 @end
 
 /**

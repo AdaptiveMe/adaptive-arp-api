@@ -33,6 +33,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -110,6 +111,36 @@ public class ObjCGenerator extends GeneratorBase {
             indentPrintStreamH.println("@protocol " + filterClassName(simpleName) + " <" + filterClassName(clazz.getInterfaces()[0].getSimpleName())+">");
         } else {
             indentPrintStreamH.println("@protocol " + filterClassName(simpleName) + " <NSObject>");
+        }
+        indentPrintStreamH.println();
+        /**
+         * Process all enums.
+         */
+        for (Method method : clazz.getDeclaredMethods()) {
+            for (Parameter parameter : method.getParameters()) {
+                Class enumClass = null;
+                if (parameter.getType().isEnum()) {
+                    enumClass = parameter.getType();
+                } else if (parameter.getType().isArray() && parameter.getType().getComponentType().isEnum()) {
+                    enumClass = parameter.getType().getComponentType();
+                }
+
+                if (enumClass != null) {
+
+                    indentPrintStreamH.println(5, "typedef NS_OPTIONS(NSUInteger, " + convertJavaToNativeType(enumClass) + ") {");
+                    for (int i = 0; i < enumClass.getDeclaredFields().length - 1; i++) {
+                        Field ef = enumClass.getDeclaredFields()[i];
+                        indentPrintStreamH.print(10, convertJavaToNativeType(enumClass) + "_" + ef.getName() + " = " + i);
+                        if (i < enumClass.getDeclaredFields().length - 2) {
+                            indentPrintStreamH.println(",");
+                        } else {
+                            indentPrintStreamH.println();
+                        }
+                    }
+                    indentPrintStreamH.println(5, "};");
+                    indentPrintStreamH.println();
+                }
+            }
         }
     }
 

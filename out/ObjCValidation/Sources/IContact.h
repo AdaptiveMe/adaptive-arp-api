@@ -34,6 +34,45 @@ Definition of IContact interface/protocol.
 @version 1.0
 */
 @protocol IContact <IBasePIM>
+
+     typedef NS_OPTIONS(NSUInteger, IContactFilter) {
+          IContactFilter_HAS_PHONE = 0,
+          IContactFilter_HAS_EMAIL = 1,
+          IContactFilter_HAS_ADDRESS = 2,
+          IContactFilter_Unknown = 3
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IContactFieldGroup) {
+          IContactFieldGroup_PERSONAL_INFO = 0,
+          IContactFieldGroup_PROFESSIONAL_INFO = 1,
+          IContactFieldGroup_ADDRESSES = 2,
+          IContactFieldGroup_PHONES = 3,
+          IContactFieldGroup_EMAILS = 4,
+          IContactFieldGroup_WEBSITES = 5,
+          IContactFieldGroup_SOCIALS = 6,
+          IContactFieldGroup_TAGS = 7,
+          IContactFieldGroup_Unknown = 8
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IContactFieldGroup) {
+          IContactFieldGroup_PERSONAL_INFO = 0,
+          IContactFieldGroup_PROFESSIONAL_INFO = 1,
+          IContactFieldGroup_ADDRESSES = 2,
+          IContactFieldGroup_PHONES = 3,
+          IContactFieldGroup_EMAILS = 4,
+          IContactFieldGroup_WEBSITES = 5,
+          IContactFieldGroup_SOCIALS = 6,
+          IContactFieldGroup_TAGS = 7,
+          IContactFieldGroup_Unknown = 8
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IContactFilter) {
+          IContactFilter_HAS_PHONE = 0,
+          IContactFilter_HAS_EMAIL = 1,
+          IContactFilter_HAS_ADDRESS = 2,
+          IContactFilter_Unknown = 3
+     };
+
 @end
 
 /**

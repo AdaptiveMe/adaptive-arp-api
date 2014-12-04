@@ -34,6 +34,7 @@ Definition of IFileSystem interface/protocol.
 @version 1.0
 */
 @protocol IFileSystem <IBaseData>
+
 @end
 
 /**

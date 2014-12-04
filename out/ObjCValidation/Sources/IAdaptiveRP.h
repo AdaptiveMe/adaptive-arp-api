@@ -33,6 +33,7 @@ Definition of IAdaptiveRP interface/protocol.
 @version 1.0
 */
 @protocol IAdaptiveRP <NSObject>
+
 @end
 
 /**

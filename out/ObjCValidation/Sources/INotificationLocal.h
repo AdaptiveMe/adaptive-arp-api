@@ -34,6 +34,7 @@ Definition of INotificationLocal interface/protocol.
 @version 1.0
 */
 @protocol INotificationLocal <IBaseNotification>
+
 @end
 
 /**

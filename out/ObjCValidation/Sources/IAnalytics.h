@@ -34,6 +34,7 @@ Definition of IAnalytics interface/protocol.
 @version 1.0
 */
 @protocol IAnalytics <IBaseApplication>
+
 @end
 
 /**

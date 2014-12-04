@@ -34,6 +34,7 @@ Definition of INetworkReachability interface/protocol.
 @version 1.0
 */
 @protocol INetworkReachability <IBaseCommunication>
+
 @end
 
 /**

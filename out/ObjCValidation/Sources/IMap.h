@@ -34,6 +34,7 @@ Definition of IMap interface/protocol.
 @version 1.0
 */
 @protocol IMap <IBaseUI>
+
 @end
 
 /**

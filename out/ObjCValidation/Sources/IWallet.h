@@ -34,6 +34,7 @@ Definition of IWallet interface/protocol.
 @version 1.0
 */
 @protocol IWallet <IBaseCommerce>
+
 @end
 
 /**

@@ -34,6 +34,7 @@ Definition of IBaseListener interface/protocol.
 @version 1.0
 */
 @protocol IBaseListener <IAdaptiveRP>
+
 @end
 
 /**

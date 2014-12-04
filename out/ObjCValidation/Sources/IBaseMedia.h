@@ -34,6 +34,7 @@ Definition of IBaseMedia interface/protocol.
 @version 1.0
 */
 @protocol IBaseMedia <IAdaptiveRP>
+
 @end
 
 /**

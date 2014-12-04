@@ -34,6 +34,7 @@ Definition of IXML interface/protocol.
 @version 1.0
 */
 @protocol IXML <IBaseData>
+
 @end
 
 /**

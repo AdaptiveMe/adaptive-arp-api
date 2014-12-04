@@ -34,6 +34,7 @@ Definition of IBaseCallback interface/protocol.
 @version 1.0
 */
 @protocol IBaseCallback <IAdaptiveRP>
+
 @end
 
 /**

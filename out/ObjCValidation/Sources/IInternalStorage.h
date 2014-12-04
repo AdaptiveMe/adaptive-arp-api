@@ -34,6 +34,7 @@ Definition of IInternalStorage interface/protocol.
 @version 1.0
 */
 @protocol IInternalStorage <IBaseData>
+
 @end
 
 /**

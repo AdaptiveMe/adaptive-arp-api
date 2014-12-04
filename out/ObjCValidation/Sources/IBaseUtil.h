@@ -34,6 +34,7 @@ Definition of IBaseUtil interface/protocol.
 @version 1.0
 */
 @protocol IBaseUtil <IAdaptiveRP>
+
 @end
 
 /**

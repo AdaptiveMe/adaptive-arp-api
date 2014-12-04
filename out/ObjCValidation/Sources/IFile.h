@@ -34,6 +34,7 @@ Definition of IFile interface/protocol.
 @version 1.0
 */
 @protocol IFile <IFilePath>
+
 @end
 
 /**

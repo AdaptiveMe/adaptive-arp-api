@@ -34,6 +34,7 @@ Definition of INetworkNaming interface/protocol.
 @version 1.0
 */
 @protocol INetworkNaming <IBaseCommunication>
+
 @end
 
 /**

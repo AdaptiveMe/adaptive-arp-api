@@ -34,6 +34,7 @@ Definition of ICalendar interface/protocol.
 @version 1.0
 */
 @protocol ICalendar <IBasePIM>
+
 @end
 
 /**

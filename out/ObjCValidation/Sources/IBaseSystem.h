@@ -34,6 +34,7 @@ Definition of IBaseSystem interface/protocol.
 @version 1.0
 */
 @protocol IBaseSystem <IAdaptiveRP>
+
 @end
 
 /**

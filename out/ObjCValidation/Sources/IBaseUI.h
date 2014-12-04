@@ -34,6 +34,7 @@ Definition of IBaseUI interface/protocol.
 @version 1.0
 */
 @protocol IBaseUI <IAdaptiveRP>
+
 @end
 
 /**

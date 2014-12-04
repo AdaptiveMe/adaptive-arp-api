@@ -34,6 +34,7 @@ Definition of IBarcode interface/protocol.
 @version 1.0
 */
 @protocol IBarcode <IBaseReader>
+
 @end
 
 /**

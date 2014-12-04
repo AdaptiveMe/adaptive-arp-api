@@ -34,6 +34,7 @@ Definition of IUI interface/protocol.
 @version 1.0
 */
 @protocol IUI <IBaseUI>
+
 @end
 
 /**

@@ -34,6 +34,7 @@ Definition of ILifecycle interface/protocol.
 @version 1.0
 */
 @protocol ILifecycle <IBaseApplication>
+
 @end
 
 /**

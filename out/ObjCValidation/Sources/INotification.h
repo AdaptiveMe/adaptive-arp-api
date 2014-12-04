@@ -34,6 +34,7 @@ Definition of INotification interface/protocol.
 @version 1.0
 */
 @protocol INotification <IBaseNotification>
+
 @end
 
 /**

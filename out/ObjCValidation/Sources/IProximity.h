@@ -34,6 +34,7 @@ Definition of IProximity interface/protocol.
 @version 1.0
 */
 @protocol IProximity <IBaseSensor>
+
 @end
 
 /**

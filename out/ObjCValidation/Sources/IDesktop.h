@@ -34,6 +34,7 @@ Definition of IDesktop interface/protocol.
 @version 1.0
 */
 @protocol IDesktop <IBaseUI>
+
 @end
 
 /**

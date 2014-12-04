@@ -34,6 +34,7 @@ Definition of IBaseApplication interface/protocol.
 @version 1.0
 */
 @protocol IBaseApplication <IAdaptiveRP>
+
 @end
 
 /**

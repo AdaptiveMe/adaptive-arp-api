@@ -34,6 +34,31 @@ Created by FRMI on 28/08/2014.
 @version 1.0
 */
 @protocol INetworkReachabilityCallback <IBaseCallback>
+
+     typedef NS_OPTIONS(NSUInteger, INetworkReachabilityCallbackWarning) {
+          INetworkReachabilityCallbackWarning_IncorrectScheme = 0,
+          INetworkReachabilityCallbackWarning_NotSecure = 1,
+          INetworkReachabilityCallbackWarning_NotTrusted = 2,
+          INetworkReachabilityCallbackWarning_Redirected = 3,
+          INetworkReachabilityCallbackWarning_NotRegisteredService = 4,
+          INetworkReachabilityCallbackWarning_Unknown = 5
+     };
+
+     typedef NS_OPTIONS(NSUInteger, INetworkReachabilityCallbackError) {
+          INetworkReachabilityCallbackError_Forbidden = 0,
+          INetworkReachabilityCallbackError_NotFound = 1,
+          INetworkReachabilityCallbackError_MethodNotAllowed = 2,
+          INetworkReachabilityCallbackError_NotAllowed = 3,
+          INetworkReachabilityCallbackError_NotAuthenticated = 4,
+          INetworkReachabilityCallbackError_TimeOut = 5,
+          INetworkReachabilityCallbackError_NoResponse = 6,
+          INetworkReachabilityCallbackError_Unreachable = 7,
+          INetworkReachabilityCallbackError_Wrong_Params = 8,
+          INetworkReachabilityCallbackError_MalformedUrl = 9,
+          INetworkReachabilityCallbackError_DomainUnresolvable = 10,
+          INetworkReachabilityCallbackError_Unknown = 11
+     };
+
 @end
 
 /**

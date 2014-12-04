@@ -128,7 +128,7 @@ public class TypeScriptGenerator extends GeneratorBase {
             printlnGlobal(5, "export interface " + simpleName + " {");
         }
         /**
-         * Fields
+         * Process all enums.
          */
         for (Method method : clazz.getDeclaredMethods()) {
             for (Parameter parameter : method.getParameters()) {

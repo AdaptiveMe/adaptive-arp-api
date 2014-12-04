@@ -34,6 +34,7 @@ Definition of IManagement interface/protocol.
 @version 1.0
 */
 @protocol IManagement <IBaseApplication>
+
 @end
 
 /**

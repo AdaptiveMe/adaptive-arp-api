@@ -34,6 +34,7 @@ Definition of IAudio interface/protocol.
 @version 1.0
 */
 @protocol IAudio <IBaseMedia>
+
 @end
 
 /**

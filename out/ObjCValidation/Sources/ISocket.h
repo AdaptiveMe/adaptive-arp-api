@@ -34,6 +34,7 @@ Definition of ISocket interface/protocol.
 @version 1.0
 */
 @protocol ISocket <IBaseCommunication>
+
 @end
 
 /**

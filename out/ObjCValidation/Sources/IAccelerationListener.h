@@ -34,6 +34,19 @@ Definition of IAccelerationListener interface/protocol.
 @version 1.0
 */
 @protocol IAccelerationListener <IBaseListener>
+
+     typedef NS_OPTIONS(NSUInteger, IAccelerationListenerWarning) {
+          IAccelerationListenerWarning_NeedsCalibration = 0,
+          IAccelerationListenerWarning_Stale = 1,
+          IAccelerationListenerWarning_Unknown = 2
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IAccelerationListenerError) {
+          IAccelerationListenerError_Unauthorized = 0,
+          IAccelerationListenerError_Unavailable = 1,
+          IAccelerationListenerError_Unknown = 2
+     };
+
 @end
 
 /**

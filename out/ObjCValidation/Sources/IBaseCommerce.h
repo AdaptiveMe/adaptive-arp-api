@@ -34,6 +34,7 @@ Definition of IBaseCommerce interface/protocol.
 @version 1.0
 */
 @protocol IBaseCommerce <IAdaptiveRP>
+
 @end
 
 /**

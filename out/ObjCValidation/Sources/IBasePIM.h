@@ -34,6 +34,7 @@ Definition of IBasePIM interface/protocol.
 @version 1.0
 */
 @protocol IBasePIM <IAdaptiveRP>
+
 @end
 
 /**

@@ -34,6 +34,7 @@ Definition of IOS interface/protocol.
 @version 1.0
 */
 @protocol IOS <IBaseSystem>
+
 @end
 
 /**

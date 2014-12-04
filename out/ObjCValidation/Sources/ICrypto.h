@@ -34,6 +34,7 @@ Definition of ICrypto interface/protocol.
 @version 1.0
 */
 @protocol ICrypto <IBaseUtil>
+
 @end
 
 /**

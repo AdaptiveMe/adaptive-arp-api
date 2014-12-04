@@ -34,6 +34,7 @@ Definition of IBaseSensor interface/protocol.
 @version 1.0
 */
 @protocol IBaseSensor <IAdaptiveRP>
+
 @end
 
 /**

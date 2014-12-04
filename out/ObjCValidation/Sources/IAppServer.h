@@ -35,6 +35,7 @@ and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content 
 @version 1.0
 */
 @protocol IAppServer <IAdaptiveRP>
+
 @end
 
 /**

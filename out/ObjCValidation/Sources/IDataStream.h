@@ -34,6 +34,7 @@ Definition of IDataStream interface/protocol.
 @version 1.0
 */
 @protocol IDataStream <IBaseData>
+
 @end
 
 /**
