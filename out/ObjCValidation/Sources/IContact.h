@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBasePIM.h>
 
 /**
 Definition of IContact interface/protocol.
@@ -32,7 +33,7 @@ Definition of IContact interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IContact : IBasePIM
+@protocol IContact <IBasePIM>
 @end
 
 /**

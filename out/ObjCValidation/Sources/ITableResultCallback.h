@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCallback.h>
 
 /**
 Definition of ITableResultCallback interface/protocol.
@@ -32,7 +33,7 @@ Definition of ITableResultCallback interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ITableResultCallback : IBaseCallback
+@protocol ITableResultCallback <IBaseCallback>
 @end
 
 /**

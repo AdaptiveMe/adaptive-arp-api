@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSocial.h>
 
 /**
 Definition of ITwitter interface/protocol.
@@ -32,7 +33,7 @@ Definition of ITwitter interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ITwitter : IBaseSocial
+@protocol ITwitter <IBaseSocial>
 @end
 
 /**

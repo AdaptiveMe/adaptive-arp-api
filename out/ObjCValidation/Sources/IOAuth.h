@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSecurity.h>
 
 /**
 Definition of IOAuth interface/protocol.
@@ -32,7 +33,7 @@ Definition of IOAuth interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IOAuth : IBaseSecurity
+@protocol IOAuth <IBaseSecurity>
 @end
 
 /**

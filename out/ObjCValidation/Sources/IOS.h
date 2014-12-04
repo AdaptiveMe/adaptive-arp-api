@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSystem.h>
 
 /**
 Definition of IOS interface/protocol.
@@ -32,7 +33,7 @@ Definition of IOS interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IOS : IBaseSystem
+@protocol IOS <IBaseSystem>
 @end
 
 /**

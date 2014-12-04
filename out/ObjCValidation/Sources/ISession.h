@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCommunication.h>
 
 /**
 Definition of ISession interface/protocol.
@@ -32,7 +33,7 @@ Definition of ISession interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ISession : IBaseCommunication
+@protocol ISession <IBaseCommunication>
 @end
 
 /**

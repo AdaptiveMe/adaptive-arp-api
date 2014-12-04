@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseMedia.h>
 
 /**
 Definition of ICamera interface/protocol.
@@ -32,7 +33,7 @@ Definition of ICamera interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ICamera : IBaseMedia
+@protocol ICamera <IBaseMedia>
 @end
 
 /**

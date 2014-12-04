@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IAdaptiveRP.h>
 
 /**
 Definition of IBaseSocial interface/protocol.
@@ -32,7 +33,7 @@ Definition of IBaseSocial interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IBaseSocial : IAdaptiveRP
+@protocol IBaseSocial <IAdaptiveRP>
 @end
 
 /**

@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseData.h>
 
 /**
 Definition of IXML interface/protocol.
@@ -32,7 +33,7 @@ Definition of IXML interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IXML : IBaseData
+@protocol IXML <IBaseData>
 @end
 
 /**

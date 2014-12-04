@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseApplication.h>
 
 /**
 Definition of ILifecycle interface/protocol.
@@ -32,7 +33,7 @@ Definition of ILifecycle interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ILifecycle : IBaseApplication
+@protocol ILifecycle <IBaseApplication>
 @end
 
 /**

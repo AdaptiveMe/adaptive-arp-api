@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseNotification.h>
 
 /**
 Definition of INotificationLocal interface/protocol.
@@ -32,7 +33,7 @@ Definition of INotificationLocal interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol INotificationLocal : IBaseNotification
+@protocol INotificationLocal <IBaseNotification>
 @end
 
 /**

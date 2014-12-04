@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSystem.h>
 
 /**
 Definition of IDisplay interface/protocol.
@@ -32,7 +33,7 @@ Definition of IDisplay interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IDisplay : IBaseSystem
+@protocol IDisplay <IBaseSystem>
 @end
 
 /**

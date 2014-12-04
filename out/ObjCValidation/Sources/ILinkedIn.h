@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSocial.h>
 
 /**
 Definition of ILinkedIn interface/protocol.
@@ -32,7 +33,7 @@ Definition of ILinkedIn interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ILinkedIn : IBaseSocial
+@protocol ILinkedIn <IBaseSocial>
 @end
 
 /**

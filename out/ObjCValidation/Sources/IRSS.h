@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSocial.h>
 
 /**
 Definition of IRSS interface/protocol.
@@ -32,7 +33,7 @@ Definition of IRSS interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IRSS : IBaseSocial
+@protocol IRSS <IBaseSocial>
 @end
 
 /**

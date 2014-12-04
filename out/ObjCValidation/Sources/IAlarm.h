@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseNotification.h>
 
 /**
 Definition of IAlarm interface/protocol.
@@ -32,7 +33,7 @@ Definition of IAlarm interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IAlarm : IBaseNotification
+@protocol IAlarm <IBaseNotification>
 @end
 
 /**

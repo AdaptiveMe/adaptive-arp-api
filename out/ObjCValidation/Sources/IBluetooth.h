@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCommunication.h>
 
 /**
 Definition of IBluetooth interface/protocol.
@@ -32,7 +33,7 @@ Definition of IBluetooth interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IBluetooth : IBaseCommunication
+@protocol IBluetooth <IBaseCommunication>
 @end
 
 /**

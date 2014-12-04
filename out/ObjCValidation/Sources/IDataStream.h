@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseData.h>
 
 /**
 Definition of IDataStream interface/protocol.
@@ -32,7 +33,7 @@ Definition of IDataStream interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IDataStream : IBaseData
+@protocol IDataStream <IBaseData>
 @end
 
 /**

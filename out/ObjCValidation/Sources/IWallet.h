@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCommerce.h>
 
 /**
 Definition of IWallet interface/protocol.
@@ -32,7 +33,7 @@ Definition of IWallet interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IWallet : IBaseCommerce
+@protocol IWallet <IBaseCommerce>
 @end
 
 /**

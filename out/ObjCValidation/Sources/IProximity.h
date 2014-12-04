@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSensor.h>
 
 /**
 Definition of IProximity interface/protocol.
@@ -32,7 +33,7 @@ Definition of IProximity interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IProximity : IBaseSensor
+@protocol IProximity <IBaseSensor>
 @end
 
 /**

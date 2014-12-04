@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IAdaptiveRP.h>
 
 /**
 This interfaces represents a specific instance of a listener on the platform. Listeners are generally http or https
@@ -33,7 +34,7 @@ and provide access to the localhost/127.0.0.1 to retrieve embedded HTML content 
 @since 1.0
 @version 1.0
 */
-@protocol IAppServer : IAdaptiveRP
+@protocol IAppServer <IAdaptiveRP>
 @end
 
 /**

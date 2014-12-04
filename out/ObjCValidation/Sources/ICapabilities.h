@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSystem.h>
 
 /**
 Definition of ICapabilities interface/protocol.
@@ -32,7 +33,7 @@ Definition of ICapabilities interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ICapabilities : IBaseSystem
+@protocol ICapabilities <IBaseSystem>
 @end
 
 /**

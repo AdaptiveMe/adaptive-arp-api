@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseData.h>
 
 /**
 An object that may be used to locate a file in a file system. It will
@@ -68,7 +69,7 @@ multiple concurrent threads.
 @since ARP1.0
 @version 1.0
 */
-@protocol IFilePath : IBaseData
+@protocol IFilePath <IBaseData>
 @end
 
 /**

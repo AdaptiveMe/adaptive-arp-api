@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSensor.h>
 
 /**
 Definition of IAccelerometer interface/protocol.
@@ -32,7 +33,7 @@ Definition of IAccelerometer interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IAccelerometer : IBaseSensor
+@protocol IAccelerometer <IBaseSensor>
 @end
 
 /**

@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseListener.h>
 
 /**
 Definition of IButtonListener interface/protocol.
@@ -32,7 +33,7 @@ Definition of IButtonListener interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IButtonListener : IBaseListener
+@protocol IButtonListener <IBaseListener>
 @end
 
 /**

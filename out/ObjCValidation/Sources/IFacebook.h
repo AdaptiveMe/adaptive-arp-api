@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSocial.h>
 
 /**
 Definition of IFacebook interface/protocol.
@@ -32,7 +33,7 @@ Definition of IFacebook interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IFacebook : IBaseSocial
+@protocol IFacebook <IBaseSocial>
 @end
 
 /**

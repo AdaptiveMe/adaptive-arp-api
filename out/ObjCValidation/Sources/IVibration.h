@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseNotification.h>
 
 /**
 Definition of IVibration interface/protocol.
@@ -32,7 +33,7 @@ Definition of IVibration interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IVibration : IBaseNotification
+@protocol IVibration <IBaseNotification>
 @end
 
 /**

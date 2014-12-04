@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IAdaptiveRP.h>
 
 /**
 Definition of IBaseSystem interface/protocol.
@@ -32,7 +33,7 @@ Definition of IBaseSystem interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IBaseSystem : IAdaptiveRP
+@protocol IBaseSystem <IAdaptiveRP>
 @end
 
 /**

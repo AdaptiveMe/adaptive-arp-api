@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCommunication.h>
 
 /**
 Definition of ITelephony interface/protocol.
@@ -32,7 +33,7 @@ Definition of ITelephony interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ITelephony : IBaseCommunication
+@protocol ITelephony <IBaseCommunication>
 @end
 
 /**

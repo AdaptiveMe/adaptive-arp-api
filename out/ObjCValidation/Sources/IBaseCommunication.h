@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IAdaptiveRP.h>
 
 /**
 Definition of IBaseCommunication interface/protocol.
@@ -32,7 +33,7 @@ Definition of IBaseCommunication interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IBaseCommunication : IAdaptiveRP
+@protocol IBaseCommunication <IAdaptiveRP>
 @end
 
 /**

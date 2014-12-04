@@ -55,7 +55,7 @@ Contributors:
         @param contentEncoding
         @since ARP1.0
      */
-     - (id) initWithContentContentTypeContentLengthContentBinaryContentBinaryLengthHeadersSessionContentEncoding:(NSString*)content contentType:(NSString*)contentType contentLength:(NSString*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength headers:(NSArray*)headers session:(ISession*)session contentEncoding:(NSString*)contentEncoding {
+     - (id) initWithContentContentTypeContentLengthContentBinaryContentBinaryLengthHeadersSessionContentEncoding:(NSString*)content contentType:(NSString*)contentType contentLength:(NSString*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength headers:(NSArray*)headers session:(NSObject<ISession>*)session contentEncoding:(NSString*)contentEncoding {
           self = [self init];
           if (self) {
                [self setContent:content];

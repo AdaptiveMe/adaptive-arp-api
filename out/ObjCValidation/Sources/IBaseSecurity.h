@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IAdaptiveRP.h>
 
 /**
 Definition of IBaseSecurity interface/protocol.
@@ -32,7 +33,7 @@ Definition of IBaseSecurity interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IBaseSecurity : IAdaptiveRP
+@protocol IBaseSecurity <IAdaptiveRP>
 @end
 
 /**

@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IAdaptiveRP.h>
 
 /**
 Provides support for multiple listeners to be started for any application and manages the delivery of listening
@@ -33,7 +34,7 @@ server lifecycle events to registered listeners.
 @since 1.0
 @version 1.0
 */
-@protocol IAppServerManager : IAdaptiveRP
+@protocol IAppServerManager <IAdaptiveRP>
 @end
 
 /**

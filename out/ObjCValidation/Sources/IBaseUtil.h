@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IAdaptiveRP.h>
 
 /**
 Definition of IBaseUtil interface/protocol.
@@ -32,7 +33,7 @@ Definition of IBaseUtil interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IBaseUtil : IAdaptiveRP
+@protocol IBaseUtil <IAdaptiveRP>
 @end
 
 /**

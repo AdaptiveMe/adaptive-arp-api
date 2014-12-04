@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCommerce.h>
 
 /**
 Definition of IStore interface/protocol.
@@ -32,7 +33,7 @@ Definition of IStore interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IStore : IBaseCommerce
+@protocol IStore <IBaseCommerce>
 @end
 
 /**

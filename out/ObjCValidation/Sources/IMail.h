@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBasePIM.h>
 
 /**
 Definition of IMail interface/protocol.
@@ -32,7 +33,7 @@ Definition of IMail interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IMail : IBasePIM
+@protocol IMail <IBasePIM>
 @end
 
 /**

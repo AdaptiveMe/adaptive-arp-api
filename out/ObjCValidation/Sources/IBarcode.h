@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseReader.h>
 
 /**
 Definition of IBarcode interface/protocol.
@@ -32,7 +33,7 @@ Definition of IBarcode interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IBarcode : IBaseReader
+@protocol IBarcode <IBaseReader>
 @end
 
 /**

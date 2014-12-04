@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseMedia.h>
 
 /**
 Definition of IAudio interface/protocol.
@@ -32,7 +33,7 @@ Definition of IAudio interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IAudio : IBaseMedia
+@protocol IAudio <IBaseMedia>
 @end
 
 /**

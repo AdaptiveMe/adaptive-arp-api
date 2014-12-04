@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseApplication.h>
 
 /**
 Definition of IPrinting interface/protocol.
@@ -32,7 +33,7 @@ Definition of IPrinting interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IPrinting : IBaseApplication
+@protocol IPrinting <IBaseApplication>
 @end
 
 /**

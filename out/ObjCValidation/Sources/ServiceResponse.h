@@ -69,7 +69,7 @@ Represents a local or remote service response.
      /**
         The session context for the Request/Response.
      */
-     @property ISession *session;
+     @property NSObject<ISession> *session;
 
      /**
         Constructor used by the implementation
@@ -89,7 +89,7 @@ Represents a local or remote service response.
         @param contentEncoding
         @since ARP1.0
      */
-     - (id) initWithContentContentTypeContentLengthContentBinaryContentBinaryLengthHeadersSessionContentEncoding:(NSString*)content contentType:(NSString*)contentType contentLength:(NSString*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength headers:(NSArray*)headers session:(ISession*)session contentEncoding:(NSString*)contentEncoding;
+     - (id) initWithContentContentTypeContentLengthContentBinaryContentBinaryLengthHeadersSessionContentEncoding:(NSString*)content contentType:(NSString*)contentType contentLength:(NSString*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength headers:(NSArray*)headers session:(NSObject<ISession>*)session contentEncoding:(NSString*)contentEncoding;
 
 
 @end

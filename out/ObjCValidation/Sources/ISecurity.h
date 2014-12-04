@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSecurity.h>
 
 /**
 Definition of ISecurity interface/protocol.
@@ -32,7 +33,7 @@ Definition of ISecurity interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ISecurity : IBaseSecurity
+@protocol ISecurity <IBaseSecurity>
 @end
 
 /**

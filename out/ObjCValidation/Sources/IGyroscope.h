@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSensor.h>
 
 /**
 Definition of IGyroscope interface/protocol.
@@ -32,7 +33,7 @@ Definition of IGyroscope interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IGyroscope : IBaseSensor
+@protocol IGyroscope <IBaseSensor>
 @end
 
 /**

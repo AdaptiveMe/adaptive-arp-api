@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseUI.h>
 
 /**
 Definition of IBrowser interface/protocol.
@@ -32,7 +33,7 @@ Definition of IBrowser interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IBrowser : IBaseUI
+@protocol IBrowser <IBaseUI>
 @end
 
 /**

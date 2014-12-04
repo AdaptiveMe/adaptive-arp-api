@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSensor.h>
 
 /**
 Definition of IGeolocation interface/protocol.
@@ -32,7 +33,7 @@ Definition of IGeolocation interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IGeolocation : IBaseSensor
+@protocol IGeolocation <IBaseSensor>
 @end
 
 /**

@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCallback.h>
 
 /**
 Definition of IMessagingCallback interface/protocol.
@@ -32,7 +33,7 @@ Definition of IMessagingCallback interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IMessagingCallback : IBaseCallback
+@protocol IMessagingCallback <IBaseCallback>
 @end
 
 /**

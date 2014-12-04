@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseData.h>
 
 /**
 Definition of IFileSystem interface/protocol.
@@ -32,7 +33,7 @@ Definition of IFileSystem interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IFileSystem : IBaseData
+@protocol IFileSystem <IBaseData>
 @end
 
 /**

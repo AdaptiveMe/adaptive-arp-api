@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseMedia.h>
 
 /**
 Definition of IImaging interface/protocol.
@@ -32,7 +33,7 @@ Definition of IImaging interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IImaging : IBaseMedia
+@protocol IImaging <IBaseMedia>
 @end
 
 /**

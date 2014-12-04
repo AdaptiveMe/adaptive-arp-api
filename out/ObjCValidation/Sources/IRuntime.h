@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSystem.h>
 
 /**
 Definition of IRuntime interface/protocol.
@@ -32,7 +33,7 @@ Definition of IRuntime interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IRuntime : IBaseSystem
+@protocol IRuntime <IBaseSystem>
 @end
 
 /**

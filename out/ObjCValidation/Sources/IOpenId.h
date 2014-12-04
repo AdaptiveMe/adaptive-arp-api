@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSecurity.h>
 
 /**
 Definition of IOpenId interface/protocol.
@@ -32,7 +33,7 @@ Definition of IOpenId interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IOpenId : IBaseSecurity
+@protocol IOpenId <IBaseSecurity>
 @end
 
 /**

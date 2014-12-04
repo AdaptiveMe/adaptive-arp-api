@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseUI.h>
 
 /**
 Definition of IUI interface/protocol.
@@ -32,7 +33,7 @@ Definition of IUI interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IUI : IBaseUI
+@protocol IUI <IBaseUI>
 @end
 
 /**

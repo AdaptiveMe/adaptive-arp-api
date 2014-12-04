@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseApplication.h>
 
 /**
 Definition of ISettings interface/protocol.
@@ -32,7 +33,7 @@ Definition of ISettings interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ISettings : IBaseApplication
+@protocol ISettings <IBaseApplication>
 @end
 
 /**

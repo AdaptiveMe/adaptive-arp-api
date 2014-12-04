@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseUtil.h>
 
 /**
 Definition of ICompression interface/protocol.
@@ -32,7 +33,7 @@ Definition of ICompression interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ICompression : IBaseUtil
+@protocol ICompression <IBaseUtil>
 @end
 
 /**

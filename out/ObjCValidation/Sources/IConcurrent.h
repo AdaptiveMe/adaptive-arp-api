@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseUtil.h>
 
 /**
 Definition of IConcurrent interface/protocol.
@@ -32,7 +33,7 @@ Definition of IConcurrent interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IConcurrent : IBaseUtil
+@protocol IConcurrent <IBaseUtil>
 @end
 
 /**

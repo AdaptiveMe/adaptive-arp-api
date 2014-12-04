@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseUI.h>
 
 /**
 Definition of IDesktop interface/protocol.
@@ -32,7 +33,7 @@ Definition of IDesktop interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IDesktop : IBaseUI
+@protocol IDesktop <IBaseUI>
 @end
 
 /**

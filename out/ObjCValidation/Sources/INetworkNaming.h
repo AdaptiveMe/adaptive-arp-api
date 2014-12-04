@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCommunication.h>
 
 /**
 Definition of INetworkNaming interface/protocol.
@@ -32,7 +33,7 @@ Definition of INetworkNaming interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol INetworkNaming : IBaseCommunication
+@protocol INetworkNaming <IBaseCommunication>
 @end
 
 /**

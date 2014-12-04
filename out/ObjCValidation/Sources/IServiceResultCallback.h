@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCallback.h>
 
 /**
 Definition of IServiceResultCallback interface/protocol.
@@ -32,7 +33,7 @@ Definition of IServiceResultCallback interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IServiceResultCallback : IBaseCallback
+@protocol IServiceResultCallback <IBaseCallback>
 @end
 
 /**

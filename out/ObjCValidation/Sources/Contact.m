@@ -49,7 +49,8 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithContactId:(NSString*)contactId {
-          super.init(contactId)
+          self = [super initWithContactId:contactId];
+          if (self) {
           }
           return self;
      }

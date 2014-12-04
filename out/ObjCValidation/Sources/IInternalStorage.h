@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseData.h>
 
 /**
 Definition of IInternalStorage interface/protocol.
@@ -32,7 +33,7 @@ Definition of IInternalStorage interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IInternalStorage : IBaseData
+@protocol IInternalStorage <IBaseData>
 @end
 
 /**

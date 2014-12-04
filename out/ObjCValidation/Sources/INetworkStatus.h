@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCommunication.h>
 
 /**
 Definition of INetworkStatus interface/protocol.
@@ -32,7 +33,7 @@ Definition of INetworkStatus interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol INetworkStatus : IBaseCommunication
+@protocol INetworkStatus <IBaseCommunication>
 @end
 
 /**

@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCallback.h>
 
 /**
 Created by FRMI on 25/08/2014.
@@ -32,7 +33,7 @@ Created by FRMI on 25/08/2014.
 @since 1.0
 @version 1.0
 */
-@protocol IContactPhotoResultCallback : IBaseCallback
+@protocol IContactPhotoResultCallback <IBaseCallback>
 @end
 
 /**

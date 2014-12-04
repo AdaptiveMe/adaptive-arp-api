@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IAdaptiveRP.h>
 
 /**
 Definition of IBaseListener interface/protocol.
@@ -32,7 +33,7 @@ Definition of IBaseListener interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IBaseListener : IAdaptiveRP
+@protocol IBaseListener <IAdaptiveRP>
 @end
 
 /**

@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBasePIM.h>
 
 /**
 Definition of ICalendar interface/protocol.
@@ -32,7 +33,7 @@ Definition of ICalendar interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol ICalendar : IBasePIM
+@protocol ICalendar <IBasePIM>
 @end
 
 /**

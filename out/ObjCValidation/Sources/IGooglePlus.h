@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseSocial.h>
 
 /**
 Definition of IGooglePlus interface/protocol.
@@ -32,7 +33,7 @@ Definition of IGooglePlus interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IGooglePlus : IBaseSocial
+@protocol IGooglePlus <IBaseSocial>
 @end
 
 /**

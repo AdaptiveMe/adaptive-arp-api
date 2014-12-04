@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IAdaptiveRP.h>
 
 /**
 Definition of IBaseSensor interface/protocol.
@@ -32,7 +33,7 @@ Definition of IBaseSensor interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IBaseSensor : IAdaptiveRP
+@protocol IBaseSensor <IAdaptiveRP>
 @end
 
 /**

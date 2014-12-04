@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseCallback.h>
 
 /**
 Definition of IFileDataResultCallback interface/protocol.
@@ -32,7 +33,7 @@ Definition of IFileDataResultCallback interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IFileDataResultCallback : IBaseCallback
+@protocol IFileDataResultCallback <IBaseCallback>
 @end
 
 /**

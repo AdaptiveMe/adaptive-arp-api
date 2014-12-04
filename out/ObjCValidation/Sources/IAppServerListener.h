@@ -24,6 +24,7 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
+#import <IBaseListener.h>
 
 /**
 Definition of IAppServerListener interface/protocol.
@@ -32,7 +33,7 @@ Definition of IAppServerListener interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IAppServerListener : IBaseListener
+@protocol IAppServerListener <IBaseListener>
 @end
 
 /**
