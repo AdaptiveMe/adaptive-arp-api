@@ -63,12 +63,16 @@ public interface IContactResultCallback extends IBaseCallback {
      *
      * @since ARP1.0
      */
-    public enum Warning { LimitExceeded, No_Matches, Unknown }
+    public enum Warning {
+        LimitExceeded, No_Matches, Unknown
+    }
 
     /**
      * Errors that can be used
      *
      * @since ARP1.0
      */
-    public enum Error { NoPermission, Wrong_Params, Unknown }
+    public enum Error {
+        NoPermission, Wrong_Params, Unknown
+    }
 }

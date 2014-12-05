@@ -43,7 +43,7 @@ public interface INetworkReachability extends IBaseCommunication {
     /**
      * Whether there is connectivity to a host, via domain name or ip address, or not.
      *
-     * @param host      domain name or ip address of host.
+     * @param host     domain name or ip address of host.
      * @param callback Callback called at the end.
      */
     void isNetworkReachable(String host, INetworkReachabilityCallback callback);

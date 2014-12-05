@@ -58,8 +58,8 @@ public interface ISecureKVResultCallback extends IBaseCallback {
      */
     void onError(Error error);
 
-    enum Warning { EntryOverride, Unknown }
+    enum Warning {EntryOverride, Unknown}
 
-    enum Error { NoPermission, NoMatchesFound, Unknown }
+    enum Error {NoPermission, NoMatchesFound, Unknown}
 }
 

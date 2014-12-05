@@ -66,15 +66,6 @@ public class ContactSocial {
      */
     public ContactSocial() {
     }
-    
-    /**
-     * Social Networks
-     *
-     * @since ARP1.0
-     */
-    public enum SocialNetwork {
-        Twitter, Facebook, GooglePlus, LinkedIn, Flickr, Unknown
-    }
 
     /**
      * Returns the social network
@@ -114,5 +105,14 @@ public class ContactSocial {
      */
     public void setProfileUrl(String profileUrl) {
         this.profileUrl = profileUrl;
+    }
+
+    /**
+     * Social Networks
+     *
+     * @since ARP1.0
+     */
+    public enum SocialNetwork {
+        Twitter, Facebook, GooglePlus, LinkedIn, Flickr, Unknown
     }
 }

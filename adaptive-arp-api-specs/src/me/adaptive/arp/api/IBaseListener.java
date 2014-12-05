@@ -31,5 +31,6 @@ package me.adaptive.arp.api;
 public interface IBaseListener extends IAdaptiveRP {
 
     long getId();
+
     String toString();
 }
