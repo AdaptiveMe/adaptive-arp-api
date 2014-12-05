@@ -35,19 +35,19 @@ public interface INetworkReachabilityCallback extends IBaseCallback {
     /**
      * Correct data received.
      *
-     * @param result
+     * @param reachable
      * @since ARP1.0
      */
-    void onResult(String result);
+    void onResult(boolean reachable);
 
     /**
      * Data received with warning - ie Found entries with existing key and values have been overriden
      *
-     * @param result
+     * @param reachable
      * @param warning
      * @since ARP1.0
      */
-    void onWarning(String result, Warning warning);
+    void onWarning(boolean reachable, Warning warning);
 
     /**
      * No data received - error condition, not authorized .

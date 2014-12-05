@@ -47,4 +47,5 @@ public interface INetworkReachability extends IBaseCommunication {
      * @param callback Callback called at the end.
      */
     void isNetworkReachable(String host, INetworkReachabilityCallback callback);
+
 }

@@ -148,7 +148,7 @@ public interface ICapabilities extends IBaseSystem {
      * @since ARP1.0
      */
     public enum Net {
-        GSM, GPRS, HSDPA, LTE, WIFI, Ethernet, Unknown
+        GSM, GPRS, HSDPA, LTE, WIFI, Ethernet, Unavailable, Unknown
     }
 
     /**
