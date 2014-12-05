@@ -41,9 +41,7 @@ import java.util.List;
 public class Jenerator {
 
     public static void main(String[] args) throws Exception {
-        String sourcePath = "/Users/clozano/Github/Runtime/adaptive-arp-api/adaptive-arp-api-java/arp-api-specs/src/main/java";
-        String targetPath = "/Users/clozano/Github/Runtime/adaptive-arp-api/adaptive-arp-api-swift/ARP";
-        String targetPathJS = "/Users/clozano/Github/Runtime/adaptive-arp-api/adaptive-arp-api-js";
+        String sourcePath = "/Users/clozano/Github/Runtime/adaptive-arp-api/adaptive-arp-api-specs/src";
         String[] packages = {"me.adaptive.arp.api"};
 
 
