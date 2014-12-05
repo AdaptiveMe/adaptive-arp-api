@@ -97,20 +97,6 @@ public interface IDatabase extends IBaseData {
     boolean existsTable(Database database, Table table);
 
     /**
-     * Executes SQL query against given database. The replacements should be
-     * passed as a parameter
-     *
-     * @param database     The database object reference.
-     * @param query        SQL query
-     * @param replacements List of SQL query replacements.
-     * @param callback     Table callback with the response.
-     * @author Ferran Vila Conesa
-     * @since ARP1.0
-     */
-    void executeSqlQuery(Database database, String query,
-                         String[] replacements, ITableResultCallback callback);
-
-    /**
      * Executes SQL statement into the given database. The replacements
      * should be passed as a parameter
      *
