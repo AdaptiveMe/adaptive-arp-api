@@ -31,7 +31,7 @@ package me.adaptive.arp.api;
 /**
  * Created by clozano on 09/09/14.
  */
-public interface IAppContextWebview extends IAdaptiveRP {
+public interface IAppContextWebview {
     /**
      * Returns a reference to the main application webview. This is the first application webview and can not be removed
      * with the removeWebview method. The object returned should be cast to the platform specific implementation

@@ -31,7 +31,7 @@ package me.adaptive.arp.api;
 /**
  * Created by clozano on 05/09/2014.
  */
-public interface IAppResourceHandler extends IAdaptiveRP {
+public interface IAppResourceHandler {
 
     void getResource(String resourcePath, IAppResourceCallback callback);
 

@@ -31,7 +31,7 @@ package me.adaptive.arp.api;
 /**
  * Created by clozano on 05/09/2014.
  */
-public interface IAppRegistry extends IAdaptiveRP {
+public interface IAppRegistry {
 
     /* Internals */
 

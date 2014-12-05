@@ -38,6 +38,17 @@ package me.adaptive.arp.api;
 public class Lifecycle {
     /**
      * Represent the state of the app
+
+     * Possible lifecycle States:
+     *
+     * 1. Starting    - Before starting.
+     * 2. Started     - Start concluded.
+     * 3. Running     - Accepts user interaction - running in foreground.
+     * 4. Pausing     - Before going to background.
+     * 4.1 PausedIdle - In background, no scheduled background activity (passive).
+     * 4.2 PausedRun  - In background, scheduled background activity (periodic network access, gps access, etc.)
+     * 5. Resuming    - Before going to foreground, followed by Running state.
+     * 6. Stopping    - Before stopping.
      *
      * @since ARP1.0
      */
@@ -93,6 +104,6 @@ public class Lifecycle {
      * @since ARP1.0
      */
     public enum State {
-        Starting, Started, Running, Paused, PausedIdle, PausedRun, Resuming, Stopping, Unknown
+        Starting, Started, Running, Pausing, PausedIdle, PausedRun, Resuming, Stopping, Unknown
     }
 }

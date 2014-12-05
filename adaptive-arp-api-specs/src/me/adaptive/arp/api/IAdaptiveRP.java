@@ -30,4 +30,6 @@ package me.adaptive.arp.api;
 
 
 public interface IAdaptiveRP {
+
+    String API_VERSION = "X.Y.Z";
 }
