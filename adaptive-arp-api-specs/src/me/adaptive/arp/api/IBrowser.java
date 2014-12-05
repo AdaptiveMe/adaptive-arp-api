@@ -33,10 +33,14 @@ public interface IBrowser extends IBaseUI {
     /**
      * Open a new window showing the url webpage with a title and a close button displaying the desired text
      *
-     * @param url        to open
-     * @param title      of the new window
-     * @param buttonText text of the close button
+     * @param url            to open
+     * @param title          of the new window
+     * @param backButtonText text of the close button
      * @return true if the new window opens;false otherwise
      */
-    boolean openBrowser(String url, String title, String buttonText);
+    boolean openInternalBrowserModal(String url, String title, String backButtonText);
+
+    boolean openInternalBrowser(String url, String title, String backButtonText);
+
+    boolean openExtenalBrowser(String url);
 }
