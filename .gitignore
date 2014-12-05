@@ -20,10 +20,6 @@ tools/osx/sharpen/tmp.out
 
 adaptive-arp-api-java/out
 *.iws
-*.ipr
-*.ipr
-*.iws
-*.iws
 adaptive-arp-api-java/adaptive-arp-api-java.ipr
 adaptive-arp-api-java/adaptive-arp-api-java.iws
 .idea/.name
