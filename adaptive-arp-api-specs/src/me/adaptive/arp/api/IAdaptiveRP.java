@@ -32,4 +32,22 @@ package me.adaptive.arp.api;
 public interface IAdaptiveRP {
 
     String API_VERSION = "X.Y.Z";
+
+    enum Group {
+        Commerce,
+        Communication,
+        Data,
+        Media,
+        Notification,
+        PIM,
+        Reader,
+        Security,
+        Sensor,
+        Social,
+        System,
+        UI,
+        Util
+    }
+
+    Group getAPIGroup();
 }

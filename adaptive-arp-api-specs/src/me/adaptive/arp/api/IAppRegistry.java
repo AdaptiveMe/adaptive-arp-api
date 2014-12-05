@@ -39,30 +39,13 @@ public interface IAppRegistry {
 
     IAppContextWebview getPlatformContextWeb();
 
-    /* Base System */
-    ICapabilities getSystemCapabilities();
+    /**
+     * $synthetic$
+     */
+    Object get$Synthetic$(Class< ? extends IAdaptiveRP> interfaceClass);
+    // Will generate
+    //IDatabase getIDatabase(); // For internal implementation.
+    //IDatabaseBridge getIDatabaseBridge(); // For handler anonymous function call.
 
-    IDevice getSystemDevice();
 
-    IDisplay getSystemDisplay();
-
-    IOS getSystemOS();
-
-    IRuntime getSystemRuntime();
-
-    /* Base Application */
-
-    IAnalytics getApplicationAnalytics();
-
-    IGlobalization getApplicationGlobalization();
-
-    ILifecycle getApplicationLifecycle();
-
-    IManagement getApplicationManagement();
-
-    IPrinting getApplicationPrinting();
-
-    ISettings getApplicationSettings();
-
-    IUpdate getApplicationUpdate();
 }
