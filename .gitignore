@@ -88,3 +88,7 @@ out/JavaValidation/build/
 out/CSharpValidation/CSharpValidation/bin/
 out/CSharpValidation/CSharpValidation/obj/
 out/CSharpValidation/CSharpValidation/obj/Debug/
+
+adaptive-arp-api-specs/out/
+
+tools/osx/jenerator/.idea/workspace.xml
