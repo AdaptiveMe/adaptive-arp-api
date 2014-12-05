@@ -32,6 +32,33 @@ package me.adaptive.arp.api;
 public interface IFileSystem extends IBaseData {
 
     /**
+     * Location of the file storage.
+     *
+     * @since ARP1.0
+     */
+    public enum FileStorageType {
+        Application, Document, Cloud, Protected, Cache, External, Unknown
+    }
+
+    /**
+     * Type of file - directory/folder or file.
+     *
+     * @since ARP1.0
+     */
+    public enum FileType {
+        Directory, File, Unknown
+    }
+
+    /**
+     * Security attributes of file, if any.
+     *
+     * @since ARP1.0
+     */
+    public enum FileSecurity {
+        Default, Protected, Encrypted, Unknown
+    }
+
+    /**
      * Returns the file system dependent file separator.
      *
      * @return char with the directory/file separator.
@@ -40,99 +67,23 @@ public interface IFileSystem extends IBaseData {
     public char getSeparator();
 
     /**
-     * Returns the path as a string.
-     *
-     * @param path Reference.
-     * @return String representation of the path.
-     * @since ARP1.0
-     */
-    public String getPathForPath(IFilePath path);
-
-    /**
-     * Returns the path of the file as a string.
-     *
-     * @param file Reference.
-     * @return String representation of path to the file.
-     * @since ARP1.0
-     */
-    public String getPathForFile(IFile file);
-
-    /**
-     * Compare 2 files to determine whether they're the same.
-     *
-     * @param source First file reference.
-     * @param dest   Second file reference.
-     * @return Returns true if both files are the same, false otherwise.
-     * @since ARP1.0
-     */
-    public boolean isSameFile(IFile source, IFile dest);
-
-    /**
-     * Compares 2 paths to determine whether they're the same.
-     *
-     * @param source First path reference.
-     * @param dest   Second path reference.
-     * @return Returns true if both paths are the same, false otherwise.
-     * @since ARP1.0
-     */
-    public boolean isSamePath(IFilePath source, IFilePath dest);
-
-    /**
-     * Creates a file with the specified name.
-     *
-     * @param name     Name of the file to create.
-     * @param callback Result of the operation.
-     * @since ARP1.0
-     */
-    public void create(String name, IFileResultCallback callback);
-
-    /**
-     * Creates a file with the specified name in the specified path.
-     *
-     * @param path     String representation of the path.
-     * @param name     Name of the file to create.
-     * @param callback Result of the operation.
-     * @since ARP1.0
-     */
-    public void createWithPathString(String path, String name, IFileResultCallback callback);
-
-    /**
-     * Creates a file with the specified name in the specified path.
-     *
-     * @param path     Path reference.
-     * @param name     Name of the file to create.
-     * @param callback Result of the operation.
-     * @since ARP1.0
-     */
-    public void createWithPath(IFilePath path, String name, IFileResultCallback callback);
-
-    /**
-     * Extract the path element of the given file.
-     *
-     * @param path File for which to extract the path.
-     * @return Path element of the file.
-     * @since ARP1.0
-     */
-    public IFilePath toPath(IFile path);
-
-    /**
      * Returns a reference to the application installation folder.
      * This path may or may not be directly readable or writable - it usually contains the app binary and data.
-     * Sub-directories are usually usable by the application.
      *
      * @return Path to the application folder.
      * @since ARP1.0
      */
-    public IFilePath getApplicationFolder();
+    public IFile getApplicationFolder();
 
     /**
      * Returns a reference to the cache folder for the current application.
      * This path must always be writable by the current application.
+     * This path is volatile and may be cleaned by the OS periodically.
      *
      * @return Path to the application's cache folder.
      * @since ARP1.0
      */
-    public IFilePath getApplicationCacheFolder();
+    public IFile getApplicationCacheFolder();
 
     /**
      * Returns a reference to the documents folder for the current application.
@@ -141,5 +92,44 @@ public interface IFileSystem extends IBaseData {
      * @return Path to the application's documents folder.
      * @since ARP1.0
      */
-    public IFilePath getApplicationDocumentsFolder();
+    public IFile getApplicationDocumentsFolder();
+
+    /**
+     * Returns a reference to the cloud synchronizable folder for the current application.
+     * This path must always be writable by the current application.
+     *
+     * @return Path to the application's cloud storage folder.
+     * @since ARP1.0
+     */
+    public IFile getApplicationCloudFolder();
+
+    /**
+     * Returns a reference to the protected storage folder for the current application.
+     * This path must always be writable by the current application.
+     *
+     * @return Path to the application's protected storage folder.
+     * @since ARP1.0
+     */
+    public IFile getApplicationProtectedFolder();
+
+    /**
+     * Returns a reference to the external storage folder provided by the OS. This may
+     * be an external SSD card or similar. This type of storage is removable and by
+     * definition, not secure.
+     * This path may or may not be writable by the current application.
+     *
+     * @return Path to the application's documents folder.
+     * @since ARP1.0
+     */
+    public IFile getSystemExternalFolder();
+
+    /**
+     * Creates a new reference to a new or existing location in the filesystem.
+     * This method does not create the actual file in the specified folder.
+     *
+     * @param parent Parent directory.
+     * @param name Name of new file or directory.
+     * @return A reference to a new or existing location in the filesystem.
+     */
+    public IFile createFileDescriptor(IFile parent, String name);
 }

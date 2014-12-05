@@ -30,14 +30,6 @@ package me.adaptive.arp.api;
 
 public interface IFileDataResultCallback extends IBaseCallback {
 
-    /**
-     * Result of data retrieval/storage operation.
-     *
-     * @param file File being loaded/stored.
-     * @param data Data being loaded/stored.
-     * @since ARP1.0
-     */
-    void onResult(IFile file, byte[] data);
 
     /**
      * Result with warning of data retrieval/storage operation.

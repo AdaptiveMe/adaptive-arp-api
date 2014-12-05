@@ -41,12 +41,11 @@ public interface IFileResultCallback extends IBaseCallback {
     /**
      * On partial result of a file operation, containing a warning.
      *
-     * @param sourceFile      Reference to the source file.
-     * @param destinationFile Reference to the destination file (or null, if not available).
+     * @param file            Reference to the offending file.
      * @param warning         Warning processing the request.
      * @since ARP1.0
      */
-    void onWarning(IFile sourceFile, IFile destinationFile, Warning warning);
+    void onWarning(IFile file, Warning warning);
 
     /**
      * On error result of a file operation.
@@ -71,6 +70,6 @@ public interface IFileResultCallback extends IBaseCallback {
      * @since ARP1.0
      */
     public enum Error {
-        FileExists, InsufficientSpace, Unauthorized, Unknown
+        FileExists, SourceInexistent, DestionationExists, InsufficientSpace, Unauthorized, Unknown
     }
 }

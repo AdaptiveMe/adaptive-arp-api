@@ -28,7 +28,7 @@
 
 package me.adaptive.arp.api;
 
-public interface IFile extends IFilePath {
+public interface IFile {
 
     /**
      * Check whether this is a path of a file.
@@ -59,22 +59,10 @@ public interface IFile extends IFilePath {
     /**
      * Creates a file with the specified name.
      *
-     * @param name     Name of the file to create.
      * @param callback Result of the operation.
      * @since ARP1.0
      */
-    public void create(String name, IFileResultCallback callback);
-
-    /**
-     * Creates a file with the specified name in the specified path.
-     *
-     * @param path     String representation of the path.
-     * @param name     Name of the file to create.
-     * @param callback Result of the operation.
-     * @since ARP1.0
-     */
-    public void createWithPath(String path, String name, IFileResultCallback callback);
-
+    public void create(IFileResultCallback callback);
 
     /**
      * Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
@@ -105,7 +93,7 @@ public interface IFile extends IFilePath {
     void listFilesForRegex(String regex, IFileListResultCallback callback);
 
     /**
-     * Returns the size in bytes of the file or zero if the reference is a folder.
+     * Returns the size in bytes of the file or -1 if the reference is a folder.
      *
      * @return Size in bytes of file.
      * @since ARP1.0
@@ -129,6 +117,14 @@ public interface IFile extends IFilePath {
     String getPath();
 
     /**
+     * Returns the resolved absolute path elements of the file and/or folders (including the last path element).
+     *
+     * @return The absolute path to the file.
+     * @since ARP1.0
+     */
+    String getPathAbsolute();
+
+    /**
      * Returns the milliseconds passed since 1/1/1970 since the file was created.
      *
      * @return Timestamp in milliseconds.
@@ -150,7 +146,7 @@ public interface IFile extends IFilePath {
      * @param callback Result of the operation.
      * @since ARP1.0
      */
-    void getContent(IFileDataResultCallback callback);
+    void getContent(IFileDataLoadResultCallback callback);
 
     /**
      * Sets the content of the file.
@@ -159,7 +155,7 @@ public interface IFile extends IFilePath {
      * @param callback Result of the operation.
      * @since ARP1.0
      */
-    void setContent(byte[] content, IFileDataResultCallback callback);
+    void setContent(byte[] content, IFileDataStoreResultCallback callback);
 
     /**
      * Determine whether the current file/folder can be written to.
@@ -178,8 +174,8 @@ public interface IFile extends IFilePath {
     boolean canRead();
 
     /**
-     * Moves the current file to the givven file destionation, optionally overwriting and creating the path to the
-     * new destionation file.
+     * Moves the current file to the given file destination, optionally overwriting and creating the path to the
+     * new destination file.
      *
      * @param newFile    Destination path/file for the move.
      * @param createPath True to create the path if it does not already exist.
@@ -187,22 +183,11 @@ public interface IFile extends IFilePath {
      * @param overwrite  True to create the path if it does not already exist.
      * @since ARP1.0
      */
-    void move(IFile newFile, boolean createPath, IFileResultCallback callback, boolean overwrite);
+    void move(IFile newFile, boolean createPath, boolean overwrite, IFileResultCallback callback);
 
-    /**
-     * Extract the path element of the current file.
-     *
-     * @return Path element of the file.
-     * @since ARP1.0
-     */
-    public IFilePath toPath();
+    IFileSystem.FileSecurity getSecurityType();
 
-    /**
-     * Security attributes of file, if any.
-     *
-     * @since ARP1.0
-     */
-    public enum FileSecurity {
-        Default, Encrypted
-    }
+    IFileSystem.FileType getFileType();
+
+    IFileSystem.FileStorageType getFileStorageType();
 }
