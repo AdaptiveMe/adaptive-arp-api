@@ -74,7 +74,8 @@ Definition of ICapabilities interface/protocol.
           ICapabilitiesNet_LTE = 3,
           ICapabilitiesNet_WIFI = 4,
           ICapabilitiesNet_Ethernet = 5,
-          ICapabilitiesNet_Unknown = 6
+          ICapabilitiesNet_Unavailable = 6,
+          ICapabilitiesNet_Unknown = 7
      };
 
      typedef NS_OPTIONS(NSUInteger, ICapabilitiesNotification) {

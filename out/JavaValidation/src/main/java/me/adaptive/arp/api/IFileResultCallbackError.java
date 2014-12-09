@@ -31,6 +31,8 @@ package me.adaptive.arp.api;
 public enum IFileResultCallbackError {
 
      FileExists,
+     SourceInexistent,
+     DestionationExists,
      InsufficientSpace,
      Unauthorized,
      Unknown

@@ -31,6 +31,8 @@ declare module Adaptive {
         constructor(value: string);
         toString(): string;
         static FileExists: IFileResultCallbackError;
+        static SourceInexistent: IFileResultCallbackError;
+        static DestionationExists: IFileResultCallbackError;
         static InsufficientSpace: IFileResultCallbackError;
         static Unauthorized: IFileResultCallbackError;
         static Unknown: IFileResultCallbackError;

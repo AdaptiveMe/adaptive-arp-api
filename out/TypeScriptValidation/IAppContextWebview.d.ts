@@ -1,4 +1,3 @@
-/// <reference path="IAdaptiveRP.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -31,6 +30,6 @@ declare module Adaptive {
        @since 1.0
        @version 1.0
     */
-    interface IAppContextWebview extends IAdaptiveRP {
+    interface IAppContextWebview {
     }
 }

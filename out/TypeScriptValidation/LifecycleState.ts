@@ -36,7 +36,7 @@ module Adaptive {
           static Starting = new LifecycleState("Starting");
           static Started = new LifecycleState("Started");
           static Running = new LifecycleState("Running");
-          static Paused = new LifecycleState("Paused");
+          static Pausing = new LifecycleState("Pausing");
           static PausedIdle = new LifecycleState("PausedIdle");
           static PausedRun = new LifecycleState("PausedRun");
           static Resuming = new LifecycleState("Resuming");

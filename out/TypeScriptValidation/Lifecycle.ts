@@ -38,6 +38,17 @@ module Adaptive {
 
           /**
              Represent the state of the app
+
+Possible lifecycle States:
+
+1. Starting    - Before starting.
+2. Started     - Start concluded.
+3. Running     - Accepts user interaction - running in foreground.
+4. Pausing     - Before going to background.
+4.1 PausedIdle - In background, no scheduled background activity (passive).
+4.2 PausedRun  - In background, scheduled background activity (periodic network access, gps access, etc.)
+5. Resuming    - Before going to foreground, followed by Running state.
+6. Stopping    - Before stopping.
           */
           state : LifecycleState;
           /**

@@ -29,6 +29,8 @@ Contributors:
 public enum IFileResultCallbackError {
 
      case FileExists
+     case SourceInexistent
+     case DestionationExists
      case InsufficientSpace
      case Unauthorized
      case Unknown
@@ -39,6 +41,8 @@ public enum IFileResultCallbackError {
      public func toString() -> String {
           switch self {
                case .FileExists: return "FileExists"
+               case .SourceInexistent: return "SourceInexistent"
+               case .DestionationExists: return "DestionationExists"
                case .InsufficientSpace: return "InsufficientSpace"
                case .Unauthorized: return "Unauthorized"
                case .Unknown: return "Unknown"
@@ -52,6 +56,8 @@ public enum IFileResultCallbackError {
           if let validString = string {
                switch validString {
                     case "FileExists": return .FileExists
+                    case "SourceInexistent": return .SourceInexistent
+                    case "DestionationExists": return .DestionationExists
                     case "InsufficientSpace": return .InsufficientSpace
                     case "Unauthorized": return .Unauthorized
                     case "Unknown": return .Unknown

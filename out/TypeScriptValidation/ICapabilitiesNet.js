@@ -40,6 +40,7 @@ var Adaptive;
         ICapabilitiesNet.LTE = new ICapabilitiesNet("LTE");
         ICapabilitiesNet.WIFI = new ICapabilitiesNet("WIFI");
         ICapabilitiesNet.Ethernet = new ICapabilitiesNet("Ethernet");
+        ICapabilitiesNet.Unavailable = new ICapabilitiesNet("Unavailable");
         ICapabilitiesNet.Unknown = new ICapabilitiesNet("Unknown");
         return ICapabilitiesNet;
     })();

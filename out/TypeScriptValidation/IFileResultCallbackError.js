@@ -35,6 +35,8 @@ var Adaptive;
             return this.value;
         };
         IFileResultCallbackError.FileExists = new IFileResultCallbackError("FileExists");
+        IFileResultCallbackError.SourceInexistent = new IFileResultCallbackError("SourceInexistent");
+        IFileResultCallbackError.DestionationExists = new IFileResultCallbackError("DestionationExists");
         IFileResultCallbackError.InsufficientSpace = new IFileResultCallbackError("InsufficientSpace");
         IFileResultCallbackError.Unauthorized = new IFileResultCallbackError("Unauthorized");
         IFileResultCallbackError.Unknown = new IFileResultCallbackError("Unknown");

@@ -30,7 +30,7 @@ Contributors:
    @since 1.0
    @version 1.0
 */
-public protocol IAppRegistry : IAdaptiveRP {
+public protocol IAppRegistry : NSObjectProtocol {
 }
 
 /**

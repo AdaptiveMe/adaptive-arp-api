@@ -24,7 +24,6 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
-#import <IFilePath.h>
 
 /**
 Definition of IFile interface/protocol.
@@ -33,7 +32,7 @@ Definition of IFile interface/protocol.
 @since 1.0
 @version 1.0
 */
-@protocol IFile <IFilePath>
+@protocol IFile <NSObject>
 
 @end
 

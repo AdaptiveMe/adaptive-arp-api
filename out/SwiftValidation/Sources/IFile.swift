@@ -30,7 +30,7 @@ Contributors:
    @since 1.0
    @version 1.0
 */
-public protocol IFile : IFilePath {
+public protocol IFile : NSObjectProtocol {
 }
 
 /**

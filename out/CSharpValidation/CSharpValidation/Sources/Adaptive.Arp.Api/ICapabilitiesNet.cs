@@ -38,6 +38,7 @@ namespace Adaptive.Arp.Api
           LTE,
           WIFI,
           Ethernet,
+          Unavailable,
           Unknown
 
      }

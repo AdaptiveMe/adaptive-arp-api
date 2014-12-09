@@ -34,6 +34,8 @@ module Adaptive {
           toString(){return this.value;}
 
           static FileExists = new IFileResultCallbackError("FileExists");
+          static SourceInexistent = new IFileResultCallbackError("SourceInexistent");
+          static DestionationExists = new IFileResultCallbackError("DestionationExists");
           static InsufficientSpace = new IFileResultCallbackError("InsufficientSpace");
           static Unauthorized = new IFileResultCallbackError("Unauthorized");
           static Unknown = new IFileResultCallbackError("Unknown");

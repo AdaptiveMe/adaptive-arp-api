@@ -37,9 +37,11 @@ Definition of IFileResultCallback interface/protocol.
 
      typedef NS_OPTIONS(NSUInteger, IFileResultCallbackError) {
           IFileResultCallbackError_FileExists = 0,
-          IFileResultCallbackError_InsufficientSpace = 1,
-          IFileResultCallbackError_Unauthorized = 2,
-          IFileResultCallbackError_Unknown = 3
+          IFileResultCallbackError_SourceInexistent = 1,
+          IFileResultCallbackError_DestionationExists = 2,
+          IFileResultCallbackError_InsufficientSpace = 3,
+          IFileResultCallbackError_Unauthorized = 4,
+          IFileResultCallbackError_Unknown = 5
      };
 
      typedef NS_OPTIONS(NSUInteger, IFileResultCallbackWarning) {

@@ -35,7 +35,7 @@ namespace Adaptive.Arp.Api
           Starting,
           Started,
           Running,
-          Paused,
+          Pausing,
           PausedIdle,
           PausedRun,
           Resuming,

@@ -31,7 +31,7 @@ public enum LifecycleState {
      case Starting
      case Started
      case Running
-     case Paused
+     case Pausing
      case PausedIdle
      case PausedRun
      case Resuming
@@ -46,7 +46,7 @@ public enum LifecycleState {
                case .Starting: return "Starting"
                case .Started: return "Started"
                case .Running: return "Running"
-               case .Paused: return "Paused"
+               case .Pausing: return "Pausing"
                case .PausedIdle: return "PausedIdle"
                case .PausedRun: return "PausedRun"
                case .Resuming: return "Resuming"
@@ -64,7 +64,7 @@ public enum LifecycleState {
                     case "Starting": return .Starting
                     case "Started": return .Started
                     case "Running": return .Running
-                    case "Paused": return .Paused
+                    case "Pausing": return .Pausing
                     case "PausedIdle": return .PausedIdle
                     case "PausedRun": return .PausedRun
                     case "Resuming": return .Resuming

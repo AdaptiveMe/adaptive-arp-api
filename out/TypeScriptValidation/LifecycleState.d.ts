@@ -33,7 +33,7 @@ declare module Adaptive {
         static Starting: LifecycleState;
         static Started: LifecycleState;
         static Running: LifecycleState;
-        static Paused: LifecycleState;
+        static Pausing: LifecycleState;
         static PausedIdle: LifecycleState;
         static PausedRun: LifecycleState;
         static Resuming: LifecycleState;

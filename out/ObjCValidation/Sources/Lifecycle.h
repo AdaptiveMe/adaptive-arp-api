@@ -36,12 +36,23 @@ Represents a specific application life-cycle stage.
 
      /**
         Represent the state of the app
+
+Possible lifecycle States:
+
+1. Starting    - Before starting.
+2. Started     - Start concluded.
+3. Running     - Accepts user interaction - running in foreground.
+4. Pausing     - Before going to background.
+4.1 PausedIdle - In background, no scheduled background activity (passive).
+4.2 PausedRun  - In background, scheduled background activity (periodic network access, gps access, etc.)
+5. Resuming    - Before going to foreground, followed by Running state.
+6. Stopping    - Before stopping.
      */
      typedef NS_OPTIONS(NSUInteger, LifecycleState) {
           LifecycleState_Starting = 0,
           LifecycleState_Started = 1,
           LifecycleState_Running = 2,
-          LifecycleState_Paused = 3,
+          LifecycleState_Pausing = 3,
           LifecycleState_PausedIdle = 4,
           LifecycleState_PausedRun = 5,
           LifecycleState_Resuming = 6,

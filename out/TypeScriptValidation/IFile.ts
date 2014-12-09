@@ -23,8 +23,6 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="IFilePath.ts"/>
-
 module Adaptive {
 
      /**
@@ -34,7 +32,7 @@ module Adaptive {
         @since 1.0
         @version 1.0
      */
-     export interface IFile extends IFilePath {
+     export interface IFile {
      }
 }
 

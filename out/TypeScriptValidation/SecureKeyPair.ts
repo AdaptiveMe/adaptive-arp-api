@@ -39,7 +39,7 @@ module Adaptive {
           /**
              Constructor with parameters
 
-             @param secureKey   name of the keypair
+             @param secureKey  name of the keypair
              @param secureData value of the keypair
              @since ARP1.0
           */

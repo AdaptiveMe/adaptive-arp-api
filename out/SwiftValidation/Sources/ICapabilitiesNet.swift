@@ -34,6 +34,7 @@ public enum ICapabilitiesNet {
      case LTE
      case WIFI
      case Ethernet
+     case Unavailable
      case Unknown
 
      /**
@@ -47,6 +48,7 @@ public enum ICapabilitiesNet {
                case .LTE: return "LTE"
                case .WIFI: return "WIFI"
                case .Ethernet: return "Ethernet"
+               case .Unavailable: return "Unavailable"
                case .Unknown: return "Unknown"
           }
      }
@@ -63,6 +65,7 @@ public enum ICapabilitiesNet {
                     case "LTE": return .LTE
                     case "WIFI": return .WIFI
                     case "Ethernet": return .Ethernet
+                    case "Unavailable": return .Unavailable
                     case "Unknown": return .Unknown
                default: return .Unknown
                }

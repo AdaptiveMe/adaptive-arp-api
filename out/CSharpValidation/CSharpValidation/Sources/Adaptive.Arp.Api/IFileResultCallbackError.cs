@@ -33,6 +33,8 @@ namespace Adaptive.Arp.Api
      public enum IFileResultCallbackError {
 
           FileExists,
+          SourceInexistent,
+          DestionationExists,
           InsufficientSpace,
           Unauthorized,
           Unknown

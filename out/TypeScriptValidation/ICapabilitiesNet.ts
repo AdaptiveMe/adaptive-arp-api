@@ -39,6 +39,7 @@ module Adaptive {
           static LTE = new ICapabilitiesNet("LTE");
           static WIFI = new ICapabilitiesNet("WIFI");
           static Ethernet = new ICapabilitiesNet("Ethernet");
+          static Unavailable = new ICapabilitiesNet("Unavailable");
           static Unknown = new ICapabilitiesNet("Unknown");
 
      }

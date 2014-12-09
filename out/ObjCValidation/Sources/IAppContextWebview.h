@@ -24,7 +24,6 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
-#import <IAdaptiveRP.h>
 
 /**
 Created by clozano on 09/09/14.
@@ -33,7 +32,7 @@ Created by clozano on 09/09/14.
 @since 1.0
 @version 1.0
 */
-@protocol IAppContextWebview <IAdaptiveRP>
+@protocol IAppContextWebview <NSObject>
 
 @end
 

@@ -36,6 +36,7 @@ declare module Adaptive {
         static LTE: ICapabilitiesNet;
         static WIFI: ICapabilitiesNet;
         static Ethernet: ICapabilitiesNet;
+        static Unavailable: ICapabilitiesNet;
         static Unknown: ICapabilitiesNet;
     }
 }

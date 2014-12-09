@@ -49,7 +49,7 @@ namespace Adaptive.Arp.Api
           /**
              Constructor with parameters
 
-             @param SecureKey   name of the keypair
+             @param SecureKey  name of the keypair
              @param SecureData value of the keypair
              @since ARP1.0
           */

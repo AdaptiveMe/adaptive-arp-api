@@ -32,7 +32,7 @@ package me.adaptive.arp.api;
    @since 1.0
    @version 1.0
 */
-public interface IFile extends IFilePath {
+public interface IFile {
 }
 
 /**

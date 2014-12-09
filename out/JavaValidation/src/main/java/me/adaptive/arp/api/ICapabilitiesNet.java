@@ -36,6 +36,7 @@ public enum ICapabilitiesNet {
      LTE,
      WIFI,
      Ethernet,
+     Unavailable,
      Unknown
 
 }

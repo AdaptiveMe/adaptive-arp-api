@@ -37,7 +37,7 @@ var Adaptive;
         LifecycleState.Starting = new LifecycleState("Starting");
         LifecycleState.Started = new LifecycleState("Started");
         LifecycleState.Running = new LifecycleState("Running");
-        LifecycleState.Paused = new LifecycleState("Paused");
+        LifecycleState.Pausing = new LifecycleState("Pausing");
         LifecycleState.PausedIdle = new LifecycleState("PausedIdle");
         LifecycleState.PausedRun = new LifecycleState("PausedRun");
         LifecycleState.Resuming = new LifecycleState("Resuming");

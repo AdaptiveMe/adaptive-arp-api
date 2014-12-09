@@ -33,7 +33,7 @@ public enum LifecycleState {
      Starting,
      Started,
      Running,
-     Paused,
+     Pausing,
      PausedIdle,
      PausedRun,
      Resuming,

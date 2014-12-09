@@ -24,7 +24,6 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
-#import <IAdaptiveRP.h>
 
 /**
 Created by clozano on 05/09/2014.
@@ -33,7 +32,7 @@ Created by clozano on 05/09/2014.
 @since 1.0
 @version 1.0
 */
-@protocol IAppContext <IAdaptiveRP>
+@protocol IAppContext <NSObject>
 
 @end
 
