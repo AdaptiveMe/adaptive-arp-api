@@ -38,6 +38,7 @@ import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by clozano on 02/12/14.
@@ -355,6 +356,8 @@ public class JavaGenerator extends GeneratorBase {
             return "Object";
         } else if (classType.equals(String.class)) {
             return "String";
+        } else if (classType.equals(Map.class)) {
+            return "java.util.Map<String, String>";
         } else {
             type = classType.getSimpleName();
         }

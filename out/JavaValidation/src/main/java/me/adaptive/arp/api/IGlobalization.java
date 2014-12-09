@@ -55,7 +55,7 @@ public interface IGlobalization extends IBaseApplication {
         @return Localized texts in the form of an object (you could get the value of a keyed literal using resourceLiteralDictionary.MY_KEY or resourceLiteralDictionary["MY_KEY"]).
         @since ARP1.0
      */
-     Map getResourceLiterals(Locale locale);
+     java.util.Map<String, String> getResourceLiterals(Locale locale);
 
 }
 
