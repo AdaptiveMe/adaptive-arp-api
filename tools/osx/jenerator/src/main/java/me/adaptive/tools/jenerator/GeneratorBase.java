@@ -26,6 +26,12 @@ package me.adaptive.tools.jenerator;
 
 import com.thoughtworks.qdox.model.*;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
+import org.reflections.Reflections;
+import org.reflections.scanners.ResourcesScanner;
+import org.reflections.scanners.SubTypesScanner;
+import org.reflections.util.ClasspathHelper;
+import org.reflections.util.ConfigurationBuilder;
+import org.reflections.util.FilterBuilder;
 
 import java.io.*;
 import java.lang.reflect.Constructor;
@@ -543,8 +549,98 @@ public abstract class GeneratorBase {
             endClass(clazz);
             callback.onSuccess(this, clazz);
         }
+        List<Class> listenerClasses = getListeners();
+        listenerClasses.sort(new InterfaceComparator());
+        for (Class clazz : listenerClasses) {
+            createListenerImplementation(clazz.getSimpleName(),clazz, mapClassSource.get(clazz));
+            callback.onSuccess(this, clazz);
+        }
+        List<Class> callbackClasses = getCallbacks();
+        callbackClasses.sort(new InterfaceComparator());
+        for (Class clazz : callbackClasses) {
+            createCallbackImplementation(clazz.getSimpleName(), clazz, mapClassSource.get(clazz));
+            callback.onSuccess(this, clazz);
+        }
+        List<Class> handlerClasses = getHandlers();
+        handlerClasses.sort(new InterfaceComparator());
+        for (Class clazz : handlerClasses) {
+            createHandlerImplementation(clazz.getSimpleName(), clazz, mapClassSource.get(clazz));
+            callback.onSuccess(this, clazz);
+        }
         endGeneration();
         callback.onSuccess(this, this.getClass());
+    }
+
+    protected abstract void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass);
+
+    protected abstract void createCallbackImplementation(String simpleName, Class clazz, JavaClass javaClass);
+
+    protected abstract void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass);
+
+    private List<Class> getHandlers() {
+        Class superInterface = null;
+        try {
+            superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Reflections reflections = new Reflections(new ConfigurationBuilder()
+                .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
+                .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
+
+        Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
+        List<Class> serviceClasses = new ArrayList<>();
+        for (Class subClass : allClassesSet) {
+            if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener")) {
+                serviceClasses.add(subClass);
+            }
+        }
+        return serviceClasses;
+    }
+
+    private List<Class> getCallbacks() {
+        Class superInterface = null;
+        try {
+            superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Reflections reflections = new Reflections(new ConfigurationBuilder()
+                .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
+                .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
+
+        Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
+        List<Class> serviceClasses = new ArrayList<>();
+        for (Class subClass : allClassesSet) {
+            if (subClass.getName().endsWith("Callback")) {
+                serviceClasses.add(subClass);
+            }
+        }
+        return serviceClasses;
+    }
+
+    private List<Class> getListeners() {
+        Class superInterface = null;
+        try {
+            superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Reflections reflections = new Reflections(new ConfigurationBuilder()
+                .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
+                .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
+
+        Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
+        List<Class> serviceClasses = new ArrayList<>();
+        for (Class subClass : allClassesSet) {
+            if (subClass.getName().endsWith("Listener")) {
+                serviceClasses.add(subClass);
+            }
+        }
+        return serviceClasses;
     }
 
     protected abstract void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc);
@@ -661,5 +757,36 @@ public abstract class GeneratorBase {
             url = GeneratorBase.class.getResource(resourceName);
         }
         return new FileInputStream(new File(url.toURI()));
+    }
+
+    class InterfaceComparator implements Comparator<Class> {
+
+        @Override
+        public int compare(Class o1, Class o2) {
+            final Class c1 = (Class) o1;
+            final Class c2 = (Class) o2;
+
+            if (c1.equals(c2)) {
+                return 0;
+            }
+            if (c1.isAssignableFrom(c2)) {
+                return -1;
+            } else {
+                if (!c2.isAssignableFrom(c2)) {
+                    throw new IllegalArgumentException("The classes share no relation");
+                }
+                if (c1.getInterfaces().length == 1 && c2.getInterfaces().length == 1) {
+                    return this.compare(c1.getInterfaces()[0], c2.getInterfaces()[0]);
+                } else {
+                    if (c1.getInterfaces().length == 1 && c2.getInterfaces().length == 0) {
+                        return 1;
+                    } else if (c1.getInterfaces().length == 0 && c2.getInterfaces().length == 1) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                }
+            }
+        }
     }
 }

@@ -61,6 +61,21 @@ public class TypeScriptGenerator extends GeneratorBase {
     }
 
     @Override
+    protected void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+
+    }
+
+    @Override
+    protected void createCallbackImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+
+    }
+
+    @Override
+    protected void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+
+    }
+
+    @Override
     protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc) {
         for (Method method : interfaceMethods) {
             if (method.getName().equals("get$Synthetic$")) {

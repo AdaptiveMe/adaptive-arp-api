@@ -25,6 +25,179 @@ Contributors:
 module Adaptive {
 
      /**
+        Definition of IFile interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IFile {
+          /**
+             Determine whether the current file/folder can be read from.
+             @return True if the folder/file is readable, false otherwise.
+             @since ARP1.0
+          */
+          canRead() : boolean;
+          /**
+             Determine whether the current file/folder can be written to.
+             @return True if the folder/file is writable, false otherwise.
+             @since ARP1.0
+          */
+          canWrite() : boolean;
+          /**
+             Creates a file with the specified name.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          create(callback:IFileResultCallback);
+          /**
+             Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
+deleted if the cascade parameter is set to true.
+             @param cascade Whether to delete sub-files and sub-folders.
+             @return True if files (and sub-files and folders) whether deleted.
+             @since ARP1.0
+          */
+          delete(cascade:boolean) : boolean;
+          /**
+             Check whether the file/path exists.
+             @return True if the file exists in the filesystem, false otherwise.
+             @since ARP1.0
+          */
+          exists() : boolean;
+          /**
+             Loads the content of the file.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          getContent(callback:IFileDataLoadResultCallback);
+          /**
+             Returns the milliseconds passed since 1/1/1970 since the file was created.
+             @return Timestamp in milliseconds.
+             @since ARP1.0
+          */
+          getDateCreated() : number;
+          /**
+             Returns the milliseconds passed since 1/1/1970 since the file was modified.
+             @return Timestamp in milliseconds.
+             @since ARP1.0
+          */
+          getDateModified() : number;
+          /**
+             null
+          */
+          getFileStorageType() : IFileSystemStorageType;
+          /**
+             null
+          */
+          getFileType() : IFileSystemType;
+          /**
+             Returns the name of the file if the reference is a file or the last path element of the folder.
+             @return The name of the file.
+             @since ARP1.0
+          */
+          getName() : string;
+          /**
+             Returns the path element of the file or folder (excluding the last path element if it's a directory).
+             @return The path to the file.
+             @since ARP1.0
+          */
+          getPath() : string;
+          /**
+             Returns the resolved absolute path elements of the file and/or folders (including the last path element).
+             @return The absolute path to the file.
+             @since ARP1.0
+          */
+          getPathAbsolute() : string;
+          /**
+             null
+          */
+          getSecurityType() : IFileSystemSecurity;
+          /**
+             Returns the size in bytes of the file or -1 if the reference is a folder.
+             @return Size in bytes of file.
+             @since ARP1.0
+          */
+          getSize() : number;
+          /**
+             Check whether this is a path of a file.
+             @return true if this is a path to a folder/directory, false if this is a path to a file.
+             @since ARP1.0
+          */
+          isDirectory() : boolean;
+          /**
+             List all the files matching the speficied regex filter within this file/path reference. If the reference
+is a file, it will not yield any results.
+             @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFilesForRegex(regex:string, callback:IFileListResultCallback);
+          /**
+             List all the files contained within this file/path reference. If the reference is a file, it will not yield
+any results.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFiles(callback:IFileListResultCallback);
+          /**
+             Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
+             @param recursive Whether to create all parent path elements.
+             @return True if the path was created, false otherwise (or it exists already).
+             @since ARP1.0
+          */
+          mkDir(recursive:boolean) : boolean;
+          /**
+             Moves the current file to the given file destination, optionally overwriting and creating the path to the
+new destination file.
+             @param newFile    Destination path/file for the move.
+             @param createPath True to create the path if it does not already exist.
+             @param callback   Result of the operation.
+             @param overwrite  True to create the path if it does not already exist.
+             @since ARP1.0
+          */
+          move(newFile:IFile, createPath:boolean, overwrite:boolean, callback:IFileResultCallback);
+          /**
+             Sets the content of the file.
+             @param content  Binary content to store in the file.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          setContent(content:Array<number>, callback:IFileDataStoreResultCallback);
+     }
+     /**
+        Definition of IAdaptiveRP interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAdaptiveRP {
+          API_VERSION : string;
+          /**
+             null
+          */
+          getAPIGroup() : IAdaptiveRPGroup;
+     }
+     /**
+        Created by clozano on 05/09/2014.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppContext {
+          /**
+             The main application context. This should be cast to the platform specific implementation.
+             @return Object representing the specific singleton application context provided by the OS.
+          */
+          getContext() : any;
+          /**
+             The type of context provided by the getContext method.
+             @return Type of platform context.
+          */
+          getContextType() : IAppContextType;
+     }
+     /**
         Created by clozano on 05/09/2014.
 
         @author Carlos Lozano Diez
@@ -532,6 +705,57 @@ module Adaptive {
           getPlatformContextWeb() : IAppContextWebview;
      }
      /**
+        Created by clozano on 09/09/14.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppContextWebview {
+          /**
+             Additional views may be added to an application - a separate activity - and if these will make calls to the
+ARP methods, they must be registered by adding them to the context. When they are added to the context, ARP
+methods are bound to the webview so that they're callable from the HTML application. The primary webview should
+not be added using this method.
+             @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
+          */
+          addWebview(webView:any);
+          /**
+             Returns a reference to the main application webview. This is the first application webview and can not be removed
+with the removeWebview method. The object returned should be cast to the platform specific implementation
+WebView, WKWebView, etc.
+             @return Object representing the specific and primary webview instance of the application.
+          */
+          getWebviewPrimary() : any;
+          /**
+             Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
+This method will always return at least one element; the primary webview.
+             @return Array with all the Webview instances being managed by ARP.
+          */
+          getWebviews() : Array<any>;
+          /**
+             When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
+ARP functions and release resources. The primary webview can not be removed.
+             @param webView The instance of the webview to be removed from the binding.
+          */
+          removeWebview(webView:any);
+     }
+     /**
+        This is a marker interface for bridge classes that invoke delegates.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface APIBridge {
+          /**
+             Invokes the given method specified in the API request object.
+             @param request APIRequest object containing method name and parameters.
+             @return String with JSON response or a zero length string is the response is asynchronous.
+          */
+          invoke(request:APIRequest) : string;
+     }
+     /**
         Created by clozano on 05/09/2014.
 
         @author Carlos Lozano Diez
@@ -610,276 +834,13 @@ module Adaptive {
           getResource(resourcePath:string, callback:IAppResourceCallback);
      }
      /**
-        Definition of IAdaptiveRP interface/protocol.
+        Definition of IBaseUI interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IAdaptiveRP {
-          API_VERSION : string;
-          /**
-             null
-          */
-          getAPIGroup() : IAdaptiveRPGroup;
-     }
-     /**
-        Created by clozano on 09/09/14.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IAppContextWebview {
-          /**
-             Additional views may be added to an application - a separate activity - and if these will make calls to the
-ARP methods, they must be registered by adding them to the context. When they are added to the context, ARP
-methods are bound to the webview so that they're callable from the HTML application. The primary webview should
-not be added using this method.
-             @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
-          */
-          addWebview(webView:any);
-          /**
-             Returns a reference to the main application webview. This is the first application webview and can not be removed
-with the removeWebview method. The object returned should be cast to the platform specific implementation
-WebView, WKWebView, etc.
-             @return Object representing the specific and primary webview instance of the application.
-          */
-          getWebviewPrimary() : any;
-          /**
-             Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
-This method will always return at least one element; the primary webview.
-             @return Array with all the Webview instances being managed by ARP.
-          */
-          getWebviews() : Array<any>;
-          /**
-             When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
-ARP functions and release resources. The primary webview can not be removed.
-             @param webView The instance of the webview to be removed from the binding.
-          */
-          removeWebview(webView:any);
-     }
-     /**
-        Created by clozano on 05/09/2014.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IAppContext {
-          /**
-             The main application context. This should be cast to the platform specific implementation.
-             @return Object representing the specific singleton application context provided by the OS.
-          */
-          getContext() : any;
-          /**
-             The type of context provided by the getContext method.
-             @return Type of platform context.
-          */
-          getContextType() : IAppContextType;
-     }
-     /**
-        Definition of IFile interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IFile {
-          /**
-             Determine whether the current file/folder can be read from.
-             @return True if the folder/file is readable, false otherwise.
-             @since ARP1.0
-          */
-          canRead() : boolean;
-          /**
-             Determine whether the current file/folder can be written to.
-             @return True if the folder/file is writable, false otherwise.
-             @since ARP1.0
-          */
-          canWrite() : boolean;
-          /**
-             Creates a file with the specified name.
-             @param callback Result of the operation.
-             @since ARP1.0
-          */
-          create(callback:IFileResultCallback);
-          /**
-             Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
-deleted if the cascade parameter is set to true.
-             @param cascade Whether to delete sub-files and sub-folders.
-             @return True if files (and sub-files and folders) whether deleted.
-             @since ARP1.0
-          */
-          delete(cascade:boolean) : boolean;
-          /**
-             Check whether the file/path exists.
-             @return True if the file exists in the filesystem, false otherwise.
-             @since ARP1.0
-          */
-          exists() : boolean;
-          /**
-             Loads the content of the file.
-             @param callback Result of the operation.
-             @since ARP1.0
-          */
-          getContent(callback:IFileDataLoadResultCallback);
-          /**
-             Returns the milliseconds passed since 1/1/1970 since the file was created.
-             @return Timestamp in milliseconds.
-             @since ARP1.0
-          */
-          getDateCreated() : number;
-          /**
-             Returns the milliseconds passed since 1/1/1970 since the file was modified.
-             @return Timestamp in milliseconds.
-             @since ARP1.0
-          */
-          getDateModified() : number;
-          /**
-             null
-          */
-          getFileStorageType() : IFileSystemStorageType;
-          /**
-             null
-          */
-          getFileType() : IFileSystemType;
-          /**
-             Returns the name of the file if the reference is a file or the last path element of the folder.
-             @return The name of the file.
-             @since ARP1.0
-          */
-          getName() : string;
-          /**
-             Returns the path element of the file or folder (excluding the last path element if it's a directory).
-             @return The path to the file.
-             @since ARP1.0
-          */
-          getPath() : string;
-          /**
-             Returns the resolved absolute path elements of the file and/or folders (including the last path element).
-             @return The absolute path to the file.
-             @since ARP1.0
-          */
-          getPathAbsolute() : string;
-          /**
-             null
-          */
-          getSecurityType() : IFileSystemSecurity;
-          /**
-             Returns the size in bytes of the file or -1 if the reference is a folder.
-             @return Size in bytes of file.
-             @since ARP1.0
-          */
-          getSize() : number;
-          /**
-             Check whether this is a path of a file.
-             @return true if this is a path to a folder/directory, false if this is a path to a file.
-             @since ARP1.0
-          */
-          isDirectory() : boolean;
-          /**
-             List all the files matching the speficied regex filter within this file/path reference. If the reference
-is a file, it will not yield any results.
-             @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
-             @param callback Result of operation.
-             @since ARP1.0
-          */
-          listFilesForRegex(regex:string, callback:IFileListResultCallback);
-          /**
-             List all the files contained within this file/path reference. If the reference is a file, it will not yield
-any results.
-             @param callback Result of operation.
-             @since ARP1.0
-          */
-          listFiles(callback:IFileListResultCallback);
-          /**
-             Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
-             @param recursive Whether to create all parent path elements.
-             @return True if the path was created, false otherwise (or it exists already).
-             @since ARP1.0
-          */
-          mkDir(recursive:boolean) : boolean;
-          /**
-             Moves the current file to the given file destination, optionally overwriting and creating the path to the
-new destination file.
-             @param newFile    Destination path/file for the move.
-             @param createPath True to create the path if it does not already exist.
-             @param callback   Result of the operation.
-             @param overwrite  True to create the path if it does not already exist.
-             @since ARP1.0
-          */
-          move(newFile:IFile, createPath:boolean, overwrite:boolean, callback:IFileResultCallback);
-          /**
-             Sets the content of the file.
-             @param content  Binary content to store in the file.
-             @param callback Result of the operation.
-             @since ARP1.0
-          */
-          setContent(content:Array<number>, callback:IFileDataStoreResultCallback);
-     }
-     /**
-        Definition of IBaseCallback interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IBaseCallback extends IAdaptiveRP {
-     }
-     /**
-        Definition of IBaseSystem interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IBaseSystem extends IAdaptiveRP {
-     }
-     /**
-        Definition of IBaseMedia interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IBaseMedia extends IAdaptiveRP {
-     }
-     /**
-        Definition of IBaseSocial interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IBaseSocial extends IAdaptiveRP {
-     }
-     /**
-        Definition of IBasePIM interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IBasePIM extends IAdaptiveRP {
-     }
-     /**
-        Definition of IBaseCommerce interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IBaseCommerce extends IAdaptiveRP {
-     }
-     /**
-        Definition of IBaseApplication interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IBaseApplication extends IAdaptiveRP {
+     export interface IBaseUI extends IAdaptiveRP {
      }
      /**
         Definition of IBaseNotification interface/protocol.
@@ -891,22 +852,49 @@ new destination file.
      export interface IBaseNotification extends IAdaptiveRP {
      }
      /**
-        Definition of IBaseData interface/protocol.
+        Definition of IBaseCallback interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IBaseData extends IAdaptiveRP {
+     export interface IBaseCallback extends IAdaptiveRP {
      }
      /**
-        Definition of IBaseSecurity interface/protocol.
+        Definition of IBaseCommerce interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IBaseSecurity extends IAdaptiveRP {
+     export interface IBaseCommerce extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBasePIM interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBasePIM extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseMedia interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseMedia extends IAdaptiveRP {
+     }
+     /**
+        Definition of IBaseSystem interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBaseSystem extends IAdaptiveRP {
      }
      /**
         Definition of IBaseSensor interface/protocol.
@@ -918,31 +906,13 @@ new destination file.
      export interface IBaseSensor extends IAdaptiveRP {
      }
      /**
-        Definition of IBaseListener interface/protocol.
+        Definition of IBaseSocial interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IBaseListener extends IAdaptiveRP {
-     }
-     /**
-        Definition of IBaseReader interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IBaseReader extends IAdaptiveRP {
-     }
-     /**
-        Definition of IBaseUtil interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IBaseUtil extends IAdaptiveRP {
+     export interface IBaseSocial extends IAdaptiveRP {
      }
      /**
         Definition of IBaseCommunication interface/protocol.
@@ -954,337 +924,58 @@ new destination file.
      export interface IBaseCommunication extends IAdaptiveRP {
      }
      /**
-        Definition of IBaseUI interface/protocol.
+        Definition of IBaseReader interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IBaseUI extends IAdaptiveRP {
+     export interface IBaseReader extends IAdaptiveRP {
      }
      /**
-        Definition of IXML interface/protocol.
+        Definition of IBaseData interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IXML extends IBaseData {
+     export interface IBaseData extends IAdaptiveRP {
      }
      /**
-        Created by FRMI on 28/08/2014.
+        Definition of IBaseApplication interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface INetworkReachabilityCallback extends IBaseCallback {
-          /**
-             No data received - error condition, not authorized .
-             @param error
-             @since ARP1.0
-          */
-          onError(error:INetworkReachabilityCallbackError);
-          /**
-             Correct data received.
-             @param reachable
-             @since ARP1.0
-          */
-          onResult(reachable:boolean);
-          /**
-             Data received with warning - ie Found entries with existing key and values have been overriden
-             @param reachable
-             @param warning
-             @since ARP1.0
-          */
-          onWarning(reachable:boolean, warning:INetworkReachabilityCallbackWarning);
+     export interface IBaseApplication extends IAdaptiveRP {
      }
      /**
-        Definition of IInternalStorage interface/protocol.
+        Definition of IBaseListener interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IInternalStorage extends IBaseData {
+     export interface IBaseListener extends IAdaptiveRP {
      }
      /**
-        Definition of IOpenId interface/protocol.
+        Definition of IBaseSecurity interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IOpenId extends IBaseSecurity {
+     export interface IBaseSecurity extends IAdaptiveRP {
      }
      /**
-        Definition of IOS interface/protocol.
+        Definition of IBaseUtil interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IOS extends IBaseSystem {
-          /**
-             Returns the OSInfo for the current operating system.
-             @return OSInfo with name, version and vendor of the OS.
-          */
-          getOSInfo() : OSInfo;
-     }
-     /**
-        Definition of IOCR interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IOCR extends IBaseReader {
-     }
-     /**
-        Definition of IQRCode interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IQRCode extends IBaseReader {
-     }
-     /**
-        Definition of IContact interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IContact extends IBasePIM {
-          /**
-             Get the contact photo
-             @param contact  id to search for
-             @param callback called for return
-             @since ARP1.0
-          */
-          getContactPhoto(contact:ContactUid, callback:IContactPhotoResultCallback);
-          /**
-             Get all the details of a contact according to its id
-             @param contact  id to search for
-             @param callback called for return
-             @since ARP1.0
-          */
-          getContact(contact:ContactUid, callback:IContactResultCallback);
-          /**
-             Get marked fields of all contacts
-             @param callback called for return
-             @param fields   to get for each Contact
-             @since ARP1.0
-          */
-          getContactsForFields(callback:IContactResultCallback, fields:Array<IContactFieldGroup>);
-          /**
-             Get marked fields of all contacts according to a filter
-             @param callback called for return
-             @param fields   to get for each Contact
-             @param filter   to search for
-             @since ARP1.0
-          */
-          getContactsWithFilter(callback:IContactResultCallback, fields:Array<IContactFieldGroup>, filter:Array<IContactFilter>);
-          /**
-             Get all contacts
-             @param callback called for return
-             @since ARP1.0
-          */
-          getContacts(callback:IContactResultCallback);
-          /**
-             Search contacts according to a term with a filter and send it to the callback
-             @param term     string to search
-             @param callback called for return
-             @param filter   to search for
-             @since ARP1.0
-          */
-          searchContactsWithFilter(term:string, callback:IContactResultCallback, filter:Array<IContactFilter>);
-          /**
-             Search contacts according to a term and send it to the callback
-             @param term     string to search
-             @param callback called for return
-             @since ARP1.0
-          */
-          searchContacts(term:string, callback:IContactResultCallback);
-          /**
-             Set the contact photo
-             @param contact  id to assign the photo
-             @param pngImage photo as byte array
-             @return true if set is successful;false otherwise
-             @since ARP1.0
-          */
-          setContactPhoto(contact:ContactUid, pngImage:Array<number>) : boolean;
-     }
-     /**
-        Definition of INetworkNaming interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface INetworkNaming extends IBaseCommunication {
-     }
-     /**
-        Definition of IAds interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IAds extends IBaseCommerce {
-     }
-     /**
-        Definition of INetworkStatus interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface INetworkStatus extends IBaseCommunication {
-          /**
-             Add the listener for network status changes of the app
-             @param listener
-             @since ARP1.0
-          */
-          addNetworkStatusListener(listener:INetworkStatusListener);
-          /**
-             Un-registers an existing listener from receiving network status events.
-             @param listener
-             @since ARP1.0
-          */
-          removeNetworkStatusListener(listener:INetworkStatusListener);
-          /**
-             Removes all existing listeners from receiving network status events.
-             @since ARP1.0
-          */
-          removeNetworkStatusListeners();
-     }
-     /**
-        Definition of IGeolocation interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IGeolocation extends IBaseSensor {
-          /**
-             Register a new listener that will receive geolocation events.
-             @param listener to be registered.
-             @since ARP1.0
-          */
-          addGeolocationListener(listener:IGeolocationListener);
-          /**
-             De-registers an existing listener from receiving geolocation events.
-             @param listener
-             @since ARP1.0
-          */
-          removeGeolocationListener(listener:IGeolocationListener);
-          /**
-             Removed all existing listeners from receiving geolocation events.
-             @since ARP1.0
-          */
-          removeGeolocationListeners();
-     }
-     /**
-        Definition of ILifecycle interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ILifecycle extends IBaseApplication {
-          /**
-             Add the listener for the lifecycle of the app
-             @param listener
-             @since ARP1.0
-          */
-          addLifecycleListener(listener:ILifecycleListener);
-          /**
-             Whether the application is in background or not
-             @return true if the application is in background;false otherwise
-             @since ARP1.0
-          */
-          isBackground() : boolean;
-          /**
-             Un-registers an existing listener from receiving lifecycle events.
-             @param listener
-             @since ARP1.0
-          */
-          removeLifecycleListener(listener:ILifecycleListener);
-          /**
-             Removes all existing listeners from receiving lifecycle events.
-             @since ARP1.0
-          */
-          removeLifecycleListeners();
-     }
-     /**
-        Definition of ITimer interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ITimer extends IBaseUtil {
-     }
-     /**
-        Definition of IDatabaseResultCallback interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IDatabaseResultCallback extends IBaseCallback {
-          /**
-             Result callback for error responses
-             @param error Returned error
-             @author Ferran Vila Conesa
-             @since ARP1.0
-          */
-          onError(error:IDatabaseResultCallbackError);
-          /**
-             Result callback for correct responses
-             @param database Returns the database
-             @author Ferran Vila Conesa
-             @since ARP1.0
-          */
-          onResult(database:Database);
-          /**
-             Result callback for warning responses
-             @param database Returns the database
-             @param warning  Returned Warning
-             @author Ferran Vila Conesa
-             @since ARP1.0
-          */
-          onWarning(database:Database, warning:IDatabaseResultCallbackWarning);
-     }
-     /**
-        Definition of IMessagingCallback interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IMessagingCallback extends IBaseCallback {
-          /**
-             This method is called on Error
-             @param error returned by the platform
-             @since ARP1.0
-          */
-          onError(error:IMessagingCallbackError);
-          /**
-             This method is called on Result
-             @param success true if sent;false otherwise
-             @since ARP1.0
-          */
-          onResult(success:boolean);
-          /**
-             This method is called on Warning
-             @param success true if sent;false otherwise
-             @param warning returned by the platform
-             @since ARP1.0
-          */
-          onWarning(success:boolean, warning:IMessagingCallbackWarning);
+     export interface IBaseUtil extends IAdaptiveRP {
      }
      /**
         Definition of ITelephony interface/protocol.
@@ -1301,114 +992,6 @@ new destination file.
              @since ARP1.0
           */
           call(number:string) : ITelephonyStatus;
-     }
-     /**
-        Definition of ILinkedIn interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ILinkedIn extends IBaseSocial {
-     }
-     /**
-        Definition of IMessaging interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IMessaging extends IBasePIM {
-          /**
-             Send text SMS
-             @param number   to send
-             @param text     to send
-             @param callback with the result
-             @since ARP1.0
-          */
-          sendSMS(number:string, text:string, callback:IMessagingCallback);
-     }
-     /**
-        Definition of IAmbientLight interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IAmbientLight extends IBaseSensor {
-     }
-     /**
-        Definition of IGooglePlus interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IGooglePlus extends IBaseSocial {
-     }
-     /**
-        Definition of IOAuth interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IOAuth extends IBaseSecurity {
-     }
-     /**
-        Definition of INotificationLocal interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface INotificationLocal extends IBaseNotification {
-     }
-     /**
-        Definition of IMagnetometer interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IMagnetometer extends IBaseSensor {
-     }
-     /**
-        Definition of ICamera interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ICamera extends IBaseMedia {
-     }
-     /**
-        Definition of IServiceResultCallback interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IServiceResultCallback extends IBaseCallback {
-          /**
-             This method is called on Error
-             @param error returned by the platform
-             @since ARP1.0
-          */
-          onError(error:IServiceResultCallbackError);
-          /**
-             This method is called on Result
-             @param response data
-             @since ARP1.0
-          */
-          onResult(response:ServiceResponse);
-          /**
-             This method is called on Warning
-             @param response data
-             @param warning  returned by the platform
-             @since ARP1.0
-          */
-          onWarning(response:ServiceResponse, warning:IServiceResultCallbackWarning);
      }
      /**
         Definition of ISecurity interface/protocol.
@@ -1450,399 +1033,13 @@ new destination file.
           setSecureKeyValuePairs(keyValues:Array<SecureKeyPair>, publicAccessName:string, callback:ISecureKVResultCallback);
      }
      /**
-        Definition of IFileResultCallback interface/protocol.
+        Definition of INotificationLocal interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IFileResultCallback extends IBaseCallback {
-          /**
-             On error result of a file operation.
-             @param error Error processing the request.
-             @since ARP1.0
-          */
-          onError(error:IFileResultCallbackError);
-          /**
-             On correct result of a file operation.
-             @param storageFile Reference to the resulting file.
-             @since ARP1.0
-          */
-          onResult(storageFile:IFile);
-          /**
-             On partial result of a file operation, containing a warning.
-             @param file            Reference to the offending file.
-             @param warning         Warning processing the request.
-             @since ARP1.0
-          */
-          onWarning(file:IFile, warning:IFileResultCallbackWarning);
-     }
-     /**
-        Definition of IRuntime interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IRuntime extends IBaseSystem {
-          /**
-             Dismiss the current Application
-             @since ARP1.0
-          */
-          dismissApplication();
-          /**
-             Whether the application dismiss the splash screen successfully or not
-             @return true if the application has dismissed the splash screen;false otherwise
-             @since ARP1.0
-          */
-          dismissSplashScreen() : boolean;
-     }
-     /**
-        Definition of IDataStream interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IDataStream extends IBaseData {
-     }
-     /**
-        Definition of IUI interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IUI extends IBaseUI {
-     }
-     /**
-        Definition of IMail interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IMail extends IBasePIM {
-          /**
-             Send an Email
-             @param data     the email data
-             @param callback with the result
-             @since ARP1.0
-          */
-          sendEmail(data:Email, callback:IMessagingCallback);
-     }
-     /**
-        Definition of IDevice interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IDevice extends IBaseSystem {
-          /**
-             Register a new listener that will receive button events.
-             @param listener to be registered.
-             @since ARP1.0
-          */
-          addButtonListener(listener:IButtonListener);
-          /**
-             Returns the device information for the current device executing the runtime.
-             @return DeviceInfo for the current device.
-          */
-          getDeviceInfo() : DeviceInfo;
-          /**
-             Gets the current Locale for the device.
-             @return The current Locale information.
-          */
-          getLocaleCurrent() : Locale;
-          /**
-             De-registers an existing listener from receiving button events.
-             @param listener
-             @since ARP1.0
-          */
-          removeButtonListener(listener:IButtonListener);
-          /**
-             Removed all existing listeners from receiving button events.
-             @since ARP1.0
-          */
-          removeButtonListeners();
-     }
-     /**
-        Definition of IImaging interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IImaging extends IBaseMedia {
-     }
-     /**
-        Definition of IGlobalization interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IGlobalization extends IBaseApplication {
-          /**
-             List of supported locales for the application
-             @return List of locales
-             @since ARP1.0
-          */
-          getLocaleSupportedDescriptors() : Array<Locale>;
-          /**
-             Gets the text/message corresponding to the given key and locale.
-             @param key    to match text
-             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-             @return Localized text.
-             @since ARP1.0
-          */
-          getResourceLiteral(key:string, locale:Locale) : string;
-          /**
-             Gets the full application configured literals (key/message pairs) corresponding to the given locale.
-             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-             @return Localized texts in the form of an object (you could get the value of a keyed literal using resourceLiteralDictionary.MY_KEY or resourceLiteralDictionary["MY_KEY"]).
-             @since ARP1.0
-          */
-          getResourceLiterals(locale:Locale) : Dictionary<String>;
-     }
-     /**
-        Definition of IConcurrent interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IConcurrent extends IBaseUtil {
-     }
-     /**
-        Definition of IGeolocationListener interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IGeolocationListener extends IBaseListener {
-          /**
-             No data received - error condition, not authorized or hardware not available.
-             @since ARP1.0
-          */
-          onError(error:IGeolocationListenerError);
-          /**
-             Correct data received.
-             @param geolocation
-             @since ARP1.0
-          */
-          onResult(geolocation:Geolocation);
-          /**
-             Data received with warning - ie. HighDoP
-             @param geolocation
-             @since ARP1.0
-          */
-          onWarning(geolocation:Geolocation, warning:IGeolocationListenerWarning);
-     }
-     /**
-        Definition of ISettings interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ISettings extends IBaseApplication {
-     }
-     /**
-        Definition of IFileDataResultCallback interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IFileDataResultCallback extends IBaseCallback {
-          /**
-             Error processing data retrieval/storage operation.
-             @param error Error condition encountered.
-             @since ARP1.0
-          */
-          onError(error:IFileDataResultCallbackError);
-          /**
-             Result with warning of data retrieval/storage operation.
-             @param file    File being loaded/stored.
-             @param warning Warning condition encountered.
-             @since ARP1.0
-          */
-          onWarning(file:IFile, warning:IFileDataResultCallbackWarning);
-     }
-     /**
-        Definition of ILifecycleListener interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ILifecycleListener extends IBaseListener {
-          /**
-             No data received - error condition, not authorized or hardware not available.
-             @since ARP1.0
-          */
-          onError(error:ILifecycleListenerError);
-          /**
-             Called when lifecycle changes somehow.
-             @param lifecycle
-             @since ARP1.0
-          */
-          onResult(lifecycle:Lifecycle);
-          /**
-             Data received with warning
-             @param lifecycle
-             @since ARP1.0
-          */
-          onWarning(lifecycle:Lifecycle, warning:ILifecycleListenerWarning);
-     }
-     /**
-        Definition of IFileListResultCallback interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IFileListResultCallback extends IBaseCallback {
-          /**
-             On error result of a file operation.
-             @param error Error processing the request.
-             @since ARP1.0
-          */
-          onError(error:IFileListResultCallbackError);
-          /**
-             On correct result of a file operation.
-             @param files Array of resulting files/folders.
-             @since ARP1.0
-          */
-          onResult(files:Array<IFile>);
-          /**
-             On partial result of a file operation, containing a warning.
-             @param files   Array of resulting files/folders.
-             @param warning Warning condition encountered.
-             @since ARP1.0
-          */
-          onWarning(files:Array<IFile>, warning:IFileListResultCallbackWarning);
-     }
-     /**
-        Definition of ICrypto interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ICrypto extends IBaseUtil {
-     }
-     /**
-        Definition of IMap interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IMap extends IBaseUI {
-     }
-     /**
-        Definition of ILogging interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ILogging extends IBaseUtil {
-          /**
-             Logs the given message, with the given log level if specified, to the standard platform/environment.
-             @param level    Log level
-             @param category Category/tag name to identify/filter the log.
-             @param message  Message to be logged
-             @author Ferran Vila Conesa
-             @since ARP1.0
-          */
-          log(level:ILoggingLogLevel, category:string, message:string);
-          /**
-             Logs the given message, with the given log level if specified, to the standard platform/environment.
-             @param level   Log level
-             @param message Message to be logged
-             @author Ferran Vila Conesa
-             @since ARP1.0
-          */
-          log(level:ILoggingLogLevel, message:string);
-     }
-     /**
-        Definition of IGyroscope interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IGyroscope extends IBaseSensor {
-     }
-     /**
-        Definition of IAudio interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IAudio extends IBaseMedia {
-     }
-     /**
-        Definition of IAccelerometer interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IAccelerometer extends IBaseSensor {
-          /**
-             Register a new listener that will receive acceleration events.
-             @param listener to be registered.
-             @author Carlos Lozano Diez
-             @since ARP1.0
-          */
-          addAccelerationListener(listener:IAccelerationListener);
-          /**
-             De-registers an existing listener from receiving acceleration events.
-             @param listener
-             @author Carlos Lozano Diez
-             @since ARP1.0
-          */
-          removeAccelerationListener(listener:IAccelerationListener);
-          /**
-             Removed all existing listeners from receiving acceleration events.
-             @author Carlos Lozano Diez
-             @since ARP1.0
-          */
-          removeAccelerationListeners();
-     }
-     /**
-        Definition of ICompression interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ICompression extends IBaseUtil {
-     }
-     /**
-        Definition of IBarometer interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IBarometer extends IBaseSensor {
-     }
-     /**
-        Definition of INetworkInfo interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface INetworkInfo extends IBaseCommunication {
+     export interface INotificationLocal extends IBaseNotification {
      }
      /**
         Definition of IFacebook interface/protocol.
@@ -1854,78 +1051,59 @@ new destination file.
      export interface IFacebook extends IBaseSocial {
      }
      /**
-        Definition of INFC interface/protocol.
+        Definition of IGooglePlus interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface INFC extends IBaseReader {
+     export interface IGooglePlus extends IBaseSocial {
      }
      /**
-        Definition of IRSS interface/protocol.
+        Definition of IServiceResultCallback interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IRSS extends IBaseSocial {
-     }
-     /**
-        Definition of IContactResultCallback interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IContactResultCallback extends IBaseCallback {
+     export interface IServiceResultCallback extends IBaseCallback {
           /**
              This method is called on Error
              @param error returned by the platform
              @since ARP1.0
           */
-          onError(error:IContactResultCallbackError);
+          onError(error:IServiceResultCallbackError);
           /**
              This method is called on Result
-             @param contacts returned by the platform
+             @param response data
              @since ARP1.0
           */
-          onResult(contacts:Array<Contact>);
+          onResult(response:ServiceResponse);
           /**
              This method is called on Warning
-             @param contacts returned by the platform
+             @param response data
              @param warning  returned by the platform
              @since ARP1.0
           */
-          onWarning(contacts:Array<Contact>, warning:IContactResultCallbackWarning);
+          onWarning(response:ServiceResponse, warning:IServiceResultCallbackWarning);
      }
      /**
-        Definition of IButtonListener interface/protocol.
+        Definition of IDesktop interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IButtonListener extends IBaseListener {
-          /**
-             No data received
-             @param error occurred
-             @since ARP1.0
-          */
-          onError(error:IButtonListenerError);
-          /**
-             Called on button pressed
-             @param button pressed
-             @since ARP1.0
-          */
-          onResult(button:Button);
-          /**
-             Data received with warning
-             @param button  pressed
-             @param warning happened
-             @since ARP1.0
-          */
-          onWarning(button:Button, warning:IButtonListenerWarning);
+     export interface IDesktop extends IBaseUI {
+     }
+     /**
+        Definition of IPrinting interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IPrinting extends IBaseApplication {
      }
      /**
         Definition of ICapabilities interface/protocol.
@@ -1997,6 +1175,32 @@ device.
           hasSensorSupport(type:ICapabilitiesSensor) : boolean;
      }
      /**
+        Definition of IImaging interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IImaging extends IBaseMedia {
+     }
+     /**
+        Definition of IMessaging interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IMessaging extends IBasePIM {
+          /**
+             Send text SMS
+             @param number   to send
+             @param text     to send
+             @param callback with the result
+             @since ARP1.0
+          */
+          sendSMS(number:string, text:string, callback:IMessagingCallback);
+     }
+     /**
         Definition of ITwitter interface/protocol.
 
         @author Carlos Lozano Diez
@@ -2004,6 +1208,499 @@ device.
         @version 1.0
      */
      export interface ITwitter extends IBaseSocial {
+     }
+     /**
+        Created by FRMI on 25/08/2014.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IContactPhotoResultCallback extends IBaseCallback {
+          /**
+             This method is called on Error
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          onError(error:IContactPhotoResultCallbackError);
+          /**
+             This method is called on Result
+             @param contactPhoto returned by the platform
+             @since ARP1.0
+          */
+          onResult(contactPhoto:Array<number>);
+          /**
+             This method is called on Warning
+             @param contactPhoto returned by the platform
+             @param warning      returned by the platform
+             @since ARP1.0
+          */
+          onWarning(contactPhoto:Array<number>, warning:IContactPhotoResultCallbackWarning);
+     }
+     /**
+        Definition of IAccelerationListener interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAccelerationListener extends IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available. This will be reported once for the
+listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+             @param error
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          onError(error:IAccelerationListenerError);
+          /**
+             Correct data received.
+             @param acceleration
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          onResult(acceleration:Acceleration);
+          /**
+             Data received with warning - ie. Needs calibration.
+             @param acceleration
+             @param warning
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          onWarning(acceleration:Acceleration, warning:IAccelerationListenerWarning);
+     }
+     /**
+        Definition of IDisplay interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IDisplay extends IBaseSystem {
+     }
+     /**
+        Definition of IOAuth interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IOAuth extends IBaseSecurity {
+     }
+     /**
+        Definition of INFC interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INFC extends IBaseReader {
+     }
+     /**
+        Definition of IRuntime interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IRuntime extends IBaseSystem {
+          /**
+             Dismiss the current Application
+             @since ARP1.0
+          */
+          dismissApplication();
+          /**
+             Whether the application dismiss the splash screen successfully or not
+             @return true if the application has dismissed the splash screen;false otherwise
+             @since ARP1.0
+          */
+          dismissSplashScreen() : boolean;
+     }
+     /**
+        Created by clozano on 05/09/2014.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAppResourceCallback extends IBaseCallback {
+          /**
+             null
+          */
+          onError(resource:IAppResource, error:IAppResourceCallbackError);
+          /**
+             null
+          */
+          onResult(resource:IAppResource);
+          /**
+             null
+          */
+          onWarning(resource:IAppResource, warning:IAppResourceCallbackWarning);
+     }
+     /**
+        Definition of ICrypto interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ICrypto extends IBaseUtil {
+     }
+     /**
+        Definition of ICamera interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ICamera extends IBaseMedia {
+     }
+     /**
+        Definition of ICompression interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ICompression extends IBaseUtil {
+     }
+     /**
+        Definition of IAds interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAds extends IBaseCommerce {
+     }
+     /**
+        Definition of IFileResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IFileResultCallback extends IBaseCallback {
+          /**
+             On error result of a file operation.
+             @param error Error processing the request.
+             @since ARP1.0
+          */
+          onError(error:IFileResultCallbackError);
+          /**
+             On correct result of a file operation.
+             @param storageFile Reference to the resulting file.
+             @since ARP1.0
+          */
+          onResult(storageFile:IFile);
+          /**
+             On partial result of a file operation, containing a warning.
+             @param file            Reference to the offending file.
+             @param warning         Warning processing the request.
+             @since ARP1.0
+          */
+          onWarning(file:IFile, warning:IFileResultCallbackWarning);
+     }
+     /**
+        Definition of IContactResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IContactResultCallback extends IBaseCallback {
+          /**
+             This method is called on Error
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          onError(error:IContactResultCallbackError);
+          /**
+             This method is called on Result
+             @param contacts returned by the platform
+             @since ARP1.0
+          */
+          onResult(contacts:Array<Contact>);
+          /**
+             This method is called on Warning
+             @param contacts returned by the platform
+             @param warning  returned by the platform
+             @since ARP1.0
+          */
+          onWarning(contacts:Array<Contact>, warning:IContactResultCallbackWarning);
+     }
+     /**
+        Definition of IGyroscope interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IGyroscope extends IBaseSensor {
+     }
+     /**
+        Definition of IBarcode interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBarcode extends IBaseReader {
+     }
+     /**
+        Definition of IManagement interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IManagement extends IBaseApplication {
+     }
+     /**
+        Definition of ILifecycle interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ILifecycle extends IBaseApplication {
+          /**
+             Add the listener for the lifecycle of the app
+             @param listener
+             @since ARP1.0
+          */
+          addLifecycleListener(listener:ILifecycleListener);
+          /**
+             Whether the application is in background or not
+             @return true if the application is in background;false otherwise
+             @since ARP1.0
+          */
+          isBackground() : boolean;
+          /**
+             Un-registers an existing listener from receiving lifecycle events.
+             @param listener
+             @since ARP1.0
+          */
+          removeLifecycleListener(listener:ILifecycleListener);
+          /**
+             Removes all existing listeners from receiving lifecycle events.
+             @since ARP1.0
+          */
+          removeLifecycleListeners();
+     }
+     /**
+        Definition of IGlobalization interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IGlobalization extends IBaseApplication {
+          /**
+             List of supported locales for the application
+             @return List of locales
+             @since ARP1.0
+          */
+          getLocaleSupportedDescriptors() : Array<Locale>;
+          /**
+             Gets the text/message corresponding to the given key and locale.
+             @param key    to match text
+             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+             @return Localized text.
+             @since ARP1.0
+          */
+          getResourceLiteral(key:string, locale:Locale) : string;
+          /**
+             Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+             @return Localized texts in the form of an object (you could get the value of a keyed literal using resourceLiteralDictionary.MY_KEY or resourceLiteralDictionary["MY_KEY"]).
+             @since ARP1.0
+          */
+          getResourceLiterals(locale:Locale) : Dictionary<String>;
+     }
+     /**
+        Definition of IOCR interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IOCR extends IBaseReader {
+     }
+     /**
+        Definition of IOS interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IOS extends IBaseSystem {
+          /**
+             Returns the OSInfo for the current operating system.
+             @return OSInfo with name, version and vendor of the OS.
+          */
+          getOSInfo() : OSInfo;
+     }
+     /**
+        Definition of IUI interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IUI extends IBaseUI {
+     }
+     /**
+        Created by clozano on 05/12/14.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INetworkStatusListener extends IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available.
+             @param error
+             @since ARP1.0
+          */
+          onError(error:INetworkStatusListenerError);
+          /**
+             Called when network connection changes somehow.
+             @param network Change to this network.
+             @since ARP1.0
+          */
+          onResult(network:ICapabilitiesNet);
+          /**
+             Status received with warning
+             @param network Change to this network.
+             @param warning
+             @since ARP1.0
+          */
+          onWarning(network:ICapabilitiesNet, warning:INetworkStatusListenerWarning);
+     }
+     /**
+        Definition of ILogging interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ILogging extends IBaseUtil {
+          /**
+             Logs the given message, with the given log level if specified, to the standard platform/environment.
+             @param level    Log level
+             @param category Category/tag name to identify/filter the log.
+             @param message  Message to be logged
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          log(level:ILoggingLogLevel, category:string, message:string);
+          /**
+             Logs the given message, with the given log level if specified, to the standard platform/environment.
+             @param level   Log level
+             @param message Message to be logged
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          log(level:ILoggingLogLevel, message:string);
+     }
+     /**
+        Definition of IGeolocation interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IGeolocation extends IBaseSensor {
+          /**
+             Register a new listener that will receive geolocation events.
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          addGeolocationListener(listener:IGeolocationListener);
+          /**
+             De-registers an existing listener from receiving geolocation events.
+             @param listener
+             @since ARP1.0
+          */
+          removeGeolocationListener(listener:IGeolocationListener);
+          /**
+             Removed all existing listeners from receiving geolocation events.
+             @since ARP1.0
+          */
+          removeGeolocationListeners();
+     }
+     /**
+        Definition of INetworkReachability interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INetworkReachability extends IBaseCommunication {
+          /**
+             Whether there is connectivity to a host, via domain name or ip address, or not.
+             @param host     domain name or ip address of host.
+             @param callback Callback called at the end.
+          */
+          isNetworkReachable(host:string, callback:INetworkReachabilityCallback);
+          /**
+             Whether there is connectivity to an url of a service or not.
+             @param url      to look for
+             @param callback Callback called at the end
+          */
+          isNetworkServiceReachable(url:string, callback:INetworkReachabilityCallback);
+     }
+     /**
+        Definition of IVideo interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IVideo extends IBaseMedia {
+          /**
+             Play url video stream
+             @param url of the video
+          */
+          playStream(url:string);
+     }
+     /**
+        Definition of IAudio interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IAudio extends IBaseMedia {
+     }
+     /**
+        Created by FRMI on 28/08/2014.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INetworkReachabilityCallback extends IBaseCallback {
+          /**
+             No data received - error condition, not authorized .
+             @param error
+             @since ARP1.0
+          */
+          onError(error:INetworkReachabilityCallbackError);
+          /**
+             Correct data received.
+             @param reachable
+             @since ARP1.0
+          */
+          onResult(reachable:boolean);
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+             @param reachable
+             @param warning
+             @since ARP1.0
+          */
+          onWarning(reachable:boolean, warning:INetworkReachabilityCallbackWarning);
      }
      /**
         Definition of IFileSystem interface/protocol.
@@ -2074,52 +1771,116 @@ This path may or may not be writable by the current application.
           getSystemExternalFolder() : IFile;
      }
      /**
-        Definition of IVibration interface/protocol.
+        Definition of IConcurrent interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IVibration extends IBaseNotification {
+     export interface IConcurrent extends IBaseUtil {
      }
      /**
-        Definition of IDesktop interface/protocol.
+        Definition of IStore interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IDesktop extends IBaseUI {
+     export interface IStore extends IBaseCommerce {
      }
      /**
-        Definition of INetworkReachability interface/protocol.
+        Definition of IAmbientLight interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface INetworkReachability extends IBaseCommunication {
+     export interface IAmbientLight extends IBaseSensor {
+     }
+     /**
+        Definition of IFileListResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IFileListResultCallback extends IBaseCallback {
           /**
-             Whether there is connectivity to a host, via domain name or ip address, or not.
-             @param host     domain name or ip address of host.
-             @param callback Callback called at the end.
+             On error result of a file operation.
+             @param error Error processing the request.
+             @since ARP1.0
           */
-          isNetworkReachable(host:string, callback:INetworkReachabilityCallback);
+          onError(error:IFileListResultCallbackError);
           /**
-             Whether there is connectivity to an url of a service or not.
-             @param url      to look for
-             @param callback Callback called at the end
+             On correct result of a file operation.
+             @param files Array of resulting files/folders.
+             @since ARP1.0
           */
-          isNetworkServiceReachable(url:string, callback:INetworkReachabilityCallback);
+          onResult(files:Array<IFile>);
+          /**
+             On partial result of a file operation, containing a warning.
+             @param files   Array of resulting files/folders.
+             @param warning Warning condition encountered.
+             @since ARP1.0
+          */
+          onWarning(files:Array<IFile>, warning:IFileListResultCallbackWarning);
      }
      /**
-        Definition of ISocket interface/protocol.
+        Definition of INetworkStatus interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface ISocket extends IBaseCommunication {
+     export interface INetworkStatus extends IBaseCommunication {
+          /**
+             Add the listener for network status changes of the app
+             @param listener
+             @since ARP1.0
+          */
+          addNetworkStatusListener(listener:INetworkStatusListener);
+          /**
+             Un-registers an existing listener from receiving network status events.
+             @param listener
+             @since ARP1.0
+          */
+          removeNetworkStatusListener(listener:INetworkStatusListener);
+          /**
+             Removes all existing listeners from receiving network status events.
+             @since ARP1.0
+          */
+          removeNetworkStatusListeners();
+     }
+     /**
+        Definition of IDatabaseResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IDatabaseResultCallback extends IBaseCallback {
+          /**
+             Result callback for error responses
+             @param error Returned error
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onError(error:IDatabaseResultCallbackError);
+          /**
+             Result callback for correct responses
+             @param database Returns the database
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onResult(database:Database);
+          /**
+             Result callback for warning responses
+             @param database Returns the database
+             @param warning  Returned Warning
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onWarning(database:Database, warning:IDatabaseResultCallbackWarning);
      }
      /**
         Definition of IWallet interface/protocol.
@@ -2131,66 +1892,6 @@ This path may or may not be writable by the current application.
      export interface IWallet extends IBaseCommerce {
      }
      /**
-        Created by FRMI on 25/08/2014.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IContactPhotoResultCallback extends IBaseCallback {
-          /**
-             This method is called on Error
-             @param error returned by the platform
-             @since ARP1.0
-          */
-          onError(error:IContactPhotoResultCallbackError);
-          /**
-             This method is called on Result
-             @param contactPhoto returned by the platform
-             @since ARP1.0
-          */
-          onResult(contactPhoto:Array<number>);
-          /**
-             This method is called on Warning
-             @param contactPhoto returned by the platform
-             @param warning      returned by the platform
-             @since ARP1.0
-          */
-          onWarning(contactPhoto:Array<number>, warning:IContactPhotoResultCallbackWarning);
-     }
-     /**
-        Definition of IDisplay interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IDisplay extends IBaseSystem {
-     }
-     /**
-        Definition of IVideo interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IVideo extends IBaseMedia {
-          /**
-             Play url video stream
-             @param url of the video
-          */
-          playStream(url:string);
-     }
-     /**
-        Definition of IProximity interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IProximity extends IBaseSensor {
-     }
-     /**
         Definition of IAnalytics interface/protocol.
 
         @author Carlos Lozano Diez
@@ -2200,13 +1901,227 @@ This path may or may not be writable by the current application.
      export interface IAnalytics extends IBaseApplication {
      }
      /**
-        Definition of IManagement interface/protocol.
+        Definition of IAccelerometer interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IManagement extends IBaseApplication {
+     export interface IAccelerometer extends IBaseSensor {
+          /**
+             Register a new listener that will receive acceleration events.
+             @param listener to be registered.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          addAccelerationListener(listener:IAccelerationListener);
+          /**
+             De-registers an existing listener from receiving acceleration events.
+             @param listener
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          removeAccelerationListener(listener:IAccelerationListener);
+          /**
+             Removed all existing listeners from receiving acceleration events.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          removeAccelerationListeners();
+     }
+     /**
+        Definition of IDevice interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IDevice extends IBaseSystem {
+          /**
+             Register a new listener that will receive button events.
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          addButtonListener(listener:IButtonListener);
+          /**
+             Returns the device information for the current device executing the runtime.
+             @return DeviceInfo for the current device.
+          */
+          getDeviceInfo() : DeviceInfo;
+          /**
+             Gets the current Locale for the device.
+             @return The current Locale information.
+          */
+          getLocaleCurrent() : Locale;
+          /**
+             De-registers an existing listener from receiving button events.
+             @param listener
+             @since ARP1.0
+          */
+          removeButtonListener(listener:IButtonListener);
+          /**
+             Removed all existing listeners from receiving button events.
+             @since ARP1.0
+          */
+          removeButtonListeners();
+     }
+     /**
+        Definition of IFileDataResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IFileDataResultCallback extends IBaseCallback {
+          /**
+             Error processing data retrieval/storage operation.
+             @param error Error condition encountered.
+             @since ARP1.0
+          */
+          onError(error:IFileDataResultCallbackError);
+          /**
+             Result with warning of data retrieval/storage operation.
+             @param file    File being loaded/stored.
+             @param warning Warning condition encountered.
+             @since ARP1.0
+          */
+          onWarning(file:IFile, warning:IFileDataResultCallbackWarning);
+     }
+     /**
+        Definition of ISession interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ISession extends IBaseCommunication {
+          /**
+             Returns an attribute object
+             @return object attribute
+             @since ARP1.0
+          */
+          getAttribute(name:string) : any;
+          /**
+             Returns all Session Attributes
+          */
+          getAttributes() : Array<any>;
+          /**
+             Returns the cookie array
+             @return cookie array
+             @since ARP1.0
+          */
+          getCookies() : Array<Cookie>;
+          /**
+             Returns all attibute names
+             @return array with all attribute names
+          */
+          listAttributeNames() : Array<string>;
+          /**
+             Remove an attribute by its name
+             @param name
+          */
+          removeAttribute(name:string);
+          /**
+             Remove all attributes
+          */
+          removeAttributes();
+          /**
+             Remove a cookie
+             @param cookie
+          */
+          removeCookie(cookie:Cookie);
+          /**
+             Remove a cookies array
+             @param cookies
+          */
+          removeCookies(cookies:Array<Cookie>);
+          /**
+             Set an attribute
+             @param name
+             @param value
+          */
+          setAttribute(name:string, value:any);
+          /**
+             Set a cookie object
+             @param cookie
+          */
+          setCookie(cookie:Cookie);
+          /**
+             Set the cookies array
+             @param cookies
+          */
+          setCookies(cookies:Array<Cookie>);
+     }
+     /**
+        Definition of ISettings interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ISettings extends IBaseApplication {
+     }
+     /**
+        Definition of IGeolocationListener interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IGeolocationListener extends IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available.
+             @since ARP1.0
+          */
+          onError(error:IGeolocationListenerError);
+          /**
+             Correct data received.
+             @param geolocation
+             @since ARP1.0
+          */
+          onResult(geolocation:Geolocation);
+          /**
+             Data received with warning - ie. HighDoP
+             @param geolocation
+             @since ARP1.0
+          */
+          onWarning(geolocation:Geolocation, warning:IGeolocationListenerWarning);
+     }
+     /**
+        Definition of IXML interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IXML extends IBaseData {
+     }
+     /**
+        Definition of IBarometer interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBarometer extends IBaseSensor {
+     }
+     /**
+        Definition of IInternalStorage interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IInternalStorage extends IBaseData {
+     }
+     /**
+        Definition of ITimer interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ITimer extends IBaseUtil {
      }
      /**
         Definition of IUpdate interface/protocol.
@@ -2216,139 +2131,6 @@ This path may or may not be writable by the current application.
         @version 1.0
      */
      export interface IUpdate extends IBaseApplication {
-     }
-     /**
-        Definition of IBarcode interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IBarcode extends IBaseReader {
-     }
-     /**
-        Definition of INotification interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface INotification extends IBaseNotification {
-     }
-     /**
-        Definition of IService interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IService extends IBaseCommunication {
-          /**
-             Get a reference to a registered service by name.
-             @param serviceName Name of service.
-             @return A service, if registered, or null of the service does not exist.
-          */
-          getService(serviceName:string) : Service;
-          /**
-             Request async a service for an Url
-             @param serviceRequest
-             @param service
-             @param callback
-          */
-          invokeService(serviceRequest:ServiceRequest, service:Service, callback:IServiceResultCallback);
-          /**
-             Check whether a service by the given name is registered.
-             @param serviceName
-             @return True if the service is registered, false otherwise.
-          */
-          isRegistered(serviceName:string) : boolean;
-          /**
-             Check whether a service by the given name is registered.
-             @param serviceName
-             @return True if the service is registered, false otherwise.
-          */
-          isRegistered(service:Service) : boolean;
-          /**
-             Register a new service
-             @param service to register
-          */
-          registerService(service:Service);
-          /**
-             Unregister all services.
-          */
-          unregisterServices();
-          /**
-             Unregister a service
-             @param service to unregister
-          */
-          unregisterService(service:Service);
-     }
-     /**
-        Definition of IAlarm interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IAlarm extends IBaseNotification {
-     }
-     /**
-        Definition of ISecureKVResultCallback interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ISecureKVResultCallback extends IBaseCallback {
-          /**
-             No data received - error condition, not authorized .
-             @param error
-             @since ARP1.0
-          */
-          onError(error:ISecureKVResultCallbackError);
-          /**
-             Correct data received.
-             @param keyValues
-             @since ARP1.0
-          */
-          onResult(keyValues:Array<SecureKeyPair>);
-          /**
-             Data received with warning - ie Found entries with existing key and values have been overriden
-             @param keyValues
-             @param warning
-             @since ARP1.0
-          */
-          onWarning(keyValues:Array<SecureKeyPair>, warning:ISecureKVResultCallbackWarning);
-     }
-     /**
-        Created by clozano on 05/09/2014.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IAppResourceCallback extends IBaseCallback {
-          /**
-             null
-          */
-          onError(resource:IAppResource, error:IAppResourceCallbackError);
-          /**
-             null
-          */
-          onResult(resource:IAppResource);
-          /**
-             null
-          */
-          onWarning(resource:IAppResource, warning:IAppResourceCallbackWarning);
-     }
-     /**
-        Definition of ICloud interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ICloud extends IBaseData {
      }
      /**
         Definition of IDatabase interface/protocol.
@@ -2433,156 +2215,199 @@ should be passed as a parameter
           existsTable(database:Database, table:Table) : boolean;
      }
      /**
-        Created by clozano on 05/12/14.
+        Definition of IContact interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface INetworkStatusListener extends IBaseListener {
+     export interface IContact extends IBasePIM {
           /**
-             No data received - error condition, not authorized or hardware not available.
-             @param error
+             Get the contact photo
+             @param contact  id to search for
+             @param callback called for return
              @since ARP1.0
           */
-          onError(error:INetworkStatusListenerError);
+          getContactPhoto(contact:ContactUid, callback:IContactPhotoResultCallback);
           /**
-             Called when network connection changes somehow.
-             @param network Change to this network.
+             Get all the details of a contact according to its id
+             @param contact  id to search for
+             @param callback called for return
              @since ARP1.0
           */
-          onResult(network:ICapabilitiesNet);
+          getContact(contact:ContactUid, callback:IContactResultCallback);
           /**
-             Status received with warning
-             @param network Change to this network.
-             @param warning
+             Get marked fields of all contacts
+             @param callback called for return
+             @param fields   to get for each Contact
              @since ARP1.0
           */
-          onWarning(network:ICapabilitiesNet, warning:INetworkStatusListenerWarning);
+          getContactsForFields(callback:IContactResultCallback, fields:Array<IContactFieldGroup>);
+          /**
+             Get marked fields of all contacts according to a filter
+             @param callback called for return
+             @param fields   to get for each Contact
+             @param filter   to search for
+             @since ARP1.0
+          */
+          getContactsWithFilter(callback:IContactResultCallback, fields:Array<IContactFieldGroup>, filter:Array<IContactFilter>);
+          /**
+             Get all contacts
+             @param callback called for return
+             @since ARP1.0
+          */
+          getContacts(callback:IContactResultCallback);
+          /**
+             Search contacts according to a term with a filter and send it to the callback
+             @param term     string to search
+             @param callback called for return
+             @param filter   to search for
+             @since ARP1.0
+          */
+          searchContactsWithFilter(term:string, callback:IContactResultCallback, filter:Array<IContactFilter>);
+          /**
+             Search contacts according to a term and send it to the callback
+             @param term     string to search
+             @param callback called for return
+             @since ARP1.0
+          */
+          searchContacts(term:string, callback:IContactResultCallback);
+          /**
+             Set the contact photo
+             @param contact  id to assign the photo
+             @param pngImage photo as byte array
+             @return true if set is successful;false otherwise
+             @since ARP1.0
+          */
+          setContactPhoto(contact:ContactUid, pngImage:Array<number>) : boolean;
      }
      /**
-        Definition of ISession interface/protocol.
+        Definition of IMap interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface ISession extends IBaseCommunication {
-          /**
-             Returns an attribute object
-             @return object attribute
-             @since ARP1.0
-          */
-          getAttribute(name:string) : any;
-          /**
-             Returns all Session Attributes
-          */
-          getAttributes() : Array<any>;
-          /**
-             Returns the cookie array
-             @return cookie array
-             @since ARP1.0
-          */
-          getCookies() : Array<Cookie>;
-          /**
-             Returns all attibute names
-             @return array with all attribute names
-          */
-          listAttributeNames() : Array<string>;
-          /**
-             Remove an attribute by its name
-             @param name
-          */
-          removeAttribute(name:string);
-          /**
-             Remove all attributes
-          */
-          removeAttributes();
-          /**
-             Remove a cookie
-             @param cookie
-          */
-          removeCookie(cookie:Cookie);
-          /**
-             Remove a cookies array
-             @param cookies
-          */
-          removeCookies(cookies:Array<Cookie>);
-          /**
-             Set an attribute
-             @param name
-             @param value
-          */
-          setAttribute(name:string, value:any);
-          /**
-             Set a cookie object
-             @param cookie
-          */
-          setCookie(cookie:Cookie);
-          /**
-             Set the cookies array
-             @param cookies
-          */
-          setCookies(cookies:Array<Cookie>);
+     export interface IMap extends IBaseUI {
      }
      /**
-        Definition of IStore interface/protocol.
+        Definition of IRSS interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IStore extends IBaseCommerce {
+     export interface IRSS extends IBaseSocial {
      }
      /**
-        Definition of ICalendar interface/protocol.
+        Definition of IService interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface ICalendar extends IBasePIM {
+     export interface IService extends IBaseCommunication {
+          /**
+             Get a reference to a registered service by name.
+             @param serviceName Name of service.
+             @return A service, if registered, or null of the service does not exist.
+          */
+          getService(serviceName:string) : Service;
+          /**
+             Request async a service for an Url
+             @param serviceRequest
+             @param service
+             @param callback
+          */
+          invokeService(serviceRequest:ServiceRequest, service:Service, callback:IServiceResultCallback);
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName
+             @return True if the service is registered, false otherwise.
+          */
+          isRegistered(serviceName:string) : boolean;
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName
+             @return True if the service is registered, false otherwise.
+          */
+          isRegistered(service:Service) : boolean;
+          /**
+             Register a new service
+             @param service to register
+          */
+          registerService(service:Service);
+          /**
+             Unregister all services.
+          */
+          unregisterServices();
+          /**
+             Unregister a service
+             @param service to unregister
+          */
+          unregisterService(service:Service);
      }
      /**
-        Definition of IAccelerationListener interface/protocol.
+        Definition of IButtonListener interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IAccelerationListener extends IBaseListener {
+     export interface IButtonListener extends IBaseListener {
           /**
-             No data received - error condition, not authorized or hardware not available. This will be reported once for the
-listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
-             @param error
-             @author Carlos Lozano Diez
+             No data received
+             @param error occurred
              @since ARP1.0
           */
-          onError(error:IAccelerationListenerError);
+          onError(error:IButtonListenerError);
           /**
-             Correct data received.
-             @param acceleration
-             @author Carlos Lozano Diez
+             Called on button pressed
+             @param button pressed
              @since ARP1.0
           */
-          onResult(acceleration:Acceleration);
+          onResult(button:Button);
           /**
-             Data received with warning - ie. Needs calibration.
-             @param acceleration
-             @param warning
-             @author Carlos Lozano Diez
+             Data received with warning
+             @param button  pressed
+             @param warning happened
              @since ARP1.0
           */
-          onWarning(acceleration:Acceleration, warning:IAccelerationListenerWarning);
+          onWarning(button:Button, warning:IButtonListenerWarning);
      }
      /**
-        Definition of IBluetooth interface/protocol.
+        Definition of IVibration interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IBluetooth extends IBaseCommunication {
+     export interface IVibration extends IBaseNotification {
+     }
+     /**
+        Definition of ICloud interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ICloud extends IBaseData {
+     }
+     /**
+        Definition of IMail interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IMail extends IBasePIM {
+          /**
+             Send an Email
+             @param data     the email data
+             @param callback with the result
+             @since ARP1.0
+          */
+          sendEmail(data:Email, callback:IMessagingCallback);
      }
      /**
         Definition of ITableResultCallback interface/protocol.
@@ -2616,13 +2441,13 @@ listener and subsequently, the listener will be deactivated and removed from the
           onWarning(table:Table, warning:ITableResultCallbackWarning);
      }
      /**
-        Definition of IPrinting interface/protocol.
+        Definition of IAlarm interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IPrinting extends IBaseApplication {
+     export interface IAlarm extends IBaseNotification {
      }
      /**
         Definition of IBrowser interface/protocol.
@@ -2650,19 +2475,194 @@ listener and subsequently, the listener will be deactivated and removed from the
           openInternalBrowser(url:string, title:string, backButtonText:string) : boolean;
      }
      /**
-        Created by clozano on 05/12/14.
+        Definition of IMagnetometer interface/protocol.
 
         @author Carlos Lozano Diez
         @since 1.0
         @version 1.0
      */
-     export interface IFileDataLoadResultCallback extends IFileDataResultCallback {
+     export interface IMagnetometer extends IBaseSensor {
+     }
+     /**
+        Definition of IDataStream interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IDataStream extends IBaseData {
+     }
+     /**
+        Definition of ILinkedIn interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ILinkedIn extends IBaseSocial {
+     }
+     /**
+        Definition of IQRCode interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IQRCode extends IBaseReader {
+     }
+     /**
+        Definition of IMessagingCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IMessagingCallback extends IBaseCallback {
           /**
-             Result of data retrieval operation.
-             @param data Data loaded.
+             This method is called on Error
+             @param error returned by the platform
              @since ARP1.0
           */
-          onResult(data:Array<number>);
+          onError(error:IMessagingCallbackError);
+          /**
+             This method is called on Result
+             @param success true if sent;false otherwise
+             @since ARP1.0
+          */
+          onResult(success:boolean);
+          /**
+             This method is called on Warning
+             @param success true if sent;false otherwise
+             @param warning returned by the platform
+             @since ARP1.0
+          */
+          onWarning(success:boolean, warning:IMessagingCallbackWarning);
+     }
+     /**
+        Definition of ICalendar interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ICalendar extends IBasePIM {
+     }
+     /**
+        Definition of ILifecycleListener interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ILifecycleListener extends IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available.
+             @since ARP1.0
+          */
+          onError(error:ILifecycleListenerError);
+          /**
+             Called when lifecycle changes somehow.
+             @param lifecycle
+             @since ARP1.0
+          */
+          onResult(lifecycle:Lifecycle);
+          /**
+             Data received with warning
+             @param lifecycle
+             @since ARP1.0
+          */
+          onWarning(lifecycle:Lifecycle, warning:ILifecycleListenerWarning);
+     }
+     /**
+        Definition of IProximity interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IProximity extends IBaseSensor {
+     }
+     /**
+        Definition of IBluetooth interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IBluetooth extends IBaseCommunication {
+     }
+     /**
+        Definition of INetworkInfo interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INetworkInfo extends IBaseCommunication {
+     }
+     /**
+        Definition of INetworkNaming interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INetworkNaming extends IBaseCommunication {
+     }
+     /**
+        Definition of ISecureKVResultCallback interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ISecureKVResultCallback extends IBaseCallback {
+          /**
+             No data received - error condition, not authorized .
+             @param error
+             @since ARP1.0
+          */
+          onError(error:ISecureKVResultCallbackError);
+          /**
+             Correct data received.
+             @param keyValues
+             @since ARP1.0
+          */
+          onResult(keyValues:Array<SecureKeyPair>);
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+             @param keyValues
+             @param warning
+             @since ARP1.0
+          */
+          onWarning(keyValues:Array<SecureKeyPair>, warning:ISecureKVResultCallbackWarning);
+     }
+     /**
+        Definition of IOpenId interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IOpenId extends IBaseSecurity {
+     }
+     /**
+        Definition of ISocket interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface ISocket extends IBaseCommunication {
+     }
+     /**
+        Definition of INotification interface/protocol.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface INotification extends IBaseNotification {
      }
      /**
         Created by clozano on 05/12/14.
@@ -2678,6 +2678,1660 @@ listener and subsequently, the listener will be deactivated and removed from the
              @since ARP1.0
           */
           onResult(file:IFile);
+     }
+     /**
+        Created by clozano on 05/12/14.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export interface IFileDataLoadResultCallback extends IFileDataResultCallback {
+          /**
+             Result of data retrieval operation.
+             @param data Data loaded.
+             @since ARP1.0
+          */
+          onResult(data:Array<number>);
+     }
+     /**
+        Structure representing the data of a single acceleration reading.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Acceleration {
+          /**
+             Timestamp of the acceleration reading.
+          */
+          timeStamp : number;
+          /**
+             X-axis component of the acceleration.
+          */
+          x : number;
+          /**
+             Y-axis component of the acceleration.
+          */
+          y : number;
+          /**
+             Z-axis component of the acceleration.
+          */
+          z : number;
+          /**
+             Constructor.
+             @param x X Coordinate
+             @param y Y Coordinate
+             @param z Z Coordinate
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          constructor(x: number, y: number, z: number, timeStamp: number) {
+               this.x = x;
+               this.y = y;
+               this.z = z;
+               this.timeStamp = timeStamp;
+          }
+          /**
+             Gets Timestamp of the acceleration reading.
+
+             @return timeStamp Timestamp of the acceleration reading.
+          */
+          getTimeStamp() : number {
+               return this.timeStamp;
+          }
+
+          /**
+             Sets Timestamp of the acceleration reading.
+
+             @param timeStamp Timestamp of the acceleration reading.
+          */
+          setTimeStamp(timeStamp: number) {
+               this.timeStamp = timeStamp;
+          }
+
+          /**
+             Gets X-axis component of the acceleration.
+
+             @return x X-axis component of the acceleration.
+          */
+          getX() : number {
+               return this.x;
+          }
+
+          /**
+             Sets X-axis component of the acceleration.
+
+             @param x X-axis component of the acceleration.
+          */
+          setX(x: number) {
+               this.x = x;
+          }
+
+          /**
+             Gets Y-axis component of the acceleration.
+
+             @return y Y-axis component of the acceleration.
+          */
+          getY() : number {
+               return this.y;
+          }
+
+          /**
+             Sets Y-axis component of the acceleration.
+
+             @param y Y-axis component of the acceleration.
+          */
+          setY(y: number) {
+               this.y = y;
+          }
+
+          /**
+             Gets Z-axis component of the acceleration.
+
+             @return z Z-axis component of the acceleration.
+          */
+          getZ() : number {
+               return this.z;
+          }
+
+          /**
+             Sets Z-axis component of the acceleration.
+
+             @param z Z-axis component of the acceleration.
+          */
+          setZ(z: number) {
+               this.z = z;
+          }
+
+     }
+     /**
+        Represents an instance of a service.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Service {
+          /**
+             The method used
+          */
+          method : IServiceMethod;
+          /**
+             The type of the service
+          */
+          type : IServiceType;
+          /**
+             Enpoint of the service
+          */
+          endpoint : Endpoint;
+          /**
+             The service name
+          */
+          name : string;
+          /**
+             Constructor used by the implementation
+
+             @param endpoint
+             @param name
+             @param method
+             @param type
+             @since ARP1.0
+          */
+          constructor(endpoint: Endpoint, name: string, method: IServiceMethod, type: IServiceType) {
+               this.endpoint = endpoint;
+               this.name = name;
+               this.method = method;
+               this.type = type;
+          }
+          /**
+             Returns the method
+
+             @return method
+             @since ARP1.0
+          */
+          getMethod() : IServiceMethod {
+               return this.method;
+          }
+
+          /**
+             Set the method
+
+             @param method
+             @since ARP1.0
+          */
+          setMethod(method: IServiceMethod) {
+               this.method = method;
+          }
+
+          /**
+             Returns the type
+
+             @return type
+             @since ARP1.0
+          */
+          getType() : IServiceType {
+               return this.type;
+          }
+
+          /**
+             Set the type
+
+             @param type
+             @since ARP1.0
+          */
+          setType(type: IServiceType) {
+               this.type = type;
+          }
+
+          /**
+             Returns the endpoint
+
+             @return endpoint
+             @since ARP1.0
+          */
+          getEndpoint() : Endpoint {
+               return this.endpoint;
+          }
+
+          /**
+             Set the endpoint
+
+             @param endpoint
+             @since ARP1.0
+          */
+          setEndpoint(endpoint: Endpoint) {
+               this.endpoint = endpoint;
+          }
+
+          /**
+             Returns the name
+
+             @return name
+             @since ARP1.0
+          */
+          getName() : string {
+               return this.name;
+          }
+
+          /**
+             Set the name
+
+             @param name
+             @since ARP1.0
+          */
+          setName(name: string) {
+               this.name = name;
+          }
+
+     }
+     /**
+        Represents a local or remote service response.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ServiceResponse {
+          /**
+             Request/Response data content (plain text).
+          */
+          content : string;
+          /**
+             The byte[] representing the binary Content.
+          */
+          contentBinary : Array<number>;
+          /**
+             The length in bytes for the binary Content.
+          */
+          contentBinaryLength : number;
+          /**
+             Encoding of the binary payload - by default assumed to be UTF8.
+          */
+          contentEncoding : string;
+          /**
+             The length in bytes for the Content field.
+          */
+          contentLength : string;
+          /**
+             The request/response content type (MIME TYPE).
+          */
+          contentType : string;
+          /**
+             The headers array (name,value pairs) to be included on the I/O service request.
+          */
+          headers : Array<Header>;
+          /**
+             The session context for the Request/Response.
+          */
+          session : ISession;
+          /**
+             Constructor used by the implementation
+
+             @param content
+             @param contentType
+             @param contentLength
+             @param contentBinary
+             @param contentBinaryLength
+             @param headers
+             @param session
+             @param contentEncoding
+             @since ARP1.0
+          */
+          constructor(content: string, contentType: string, contentLength: string, contentBinary: Array<number>, contentBinaryLength: number, headers: Array<Header>, session: ISession, contentEncoding: string) {
+               this.content = content;
+               this.contentType = contentType;
+               this.contentLength = contentLength;
+               this.contentBinary = contentBinary;
+               this.contentBinaryLength = contentBinaryLength;
+               this.headers = headers;
+               this.session = session;
+               this.contentEncoding = contentEncoding;
+          }
+          /**
+             Returns the content
+
+             @return content
+             @since ARP1.0
+          */
+          getContent() : string {
+               return this.content;
+          }
+
+          /**
+             Set the content
+
+             @param content
+             @since ARP1.0
+          */
+          setContent(content: string) {
+               this.content = content;
+          }
+
+          /**
+             Returns the binary content
+
+             @return contentBinary
+             @since ARP1.0
+          */
+          getContentBinary() : Array<number> {
+               return this.contentBinary;
+          }
+
+          /**
+             Set the binary content
+
+             @param contentBinary
+             @since ARP1.0
+          */
+          setContentBinary(contentBinary: Array<number>) {
+               this.contentBinary = contentBinary;
+          }
+
+          /**
+             Retrusn the binary content length
+
+             @return contentBinaryLength
+             @since ARP1.0
+          */
+          getContentBinaryLength() : number {
+               return this.contentBinaryLength;
+          }
+
+          /**
+             Set the binary content length
+
+             @param contentBinaryLength
+             @since ARP1.0
+          */
+          setContentBinaryLength(contentBinaryLength: number) {
+               this.contentBinaryLength = contentBinaryLength;
+          }
+
+          /**
+             Returns the content encoding
+
+             @return contentEncoding
+             @since ARP1.0
+          */
+          getContentEncoding() : string {
+               return this.contentEncoding;
+          }
+
+          /**
+             Set the content encoding
+
+             @param contentEncoding
+             @since ARP1.0
+          */
+          setContentEncoding(contentEncoding: string) {
+               this.contentEncoding = contentEncoding;
+          }
+
+          /**
+             Returns the content length
+
+             @return contentLength
+             @since ARP1.0
+          */
+          getContentLength() : string {
+               return this.contentLength;
+          }
+
+          /**
+             Set the content length
+
+             @param contentLength
+             @since ARP1.0
+          */
+          setContentLength(contentLength: string) {
+               this.contentLength = contentLength;
+          }
+
+          /**
+             Returns the content type
+
+             @return contentType
+             @since ARP1.0
+          */
+          getContentType() : string {
+               return this.contentType;
+          }
+
+          /**
+             Set the content type
+
+             @param contentType
+             @since ARP1.0
+          */
+          setContentType(contentType: string) {
+               this.contentType = contentType;
+          }
+
+          /**
+             Returns the array of Header
+
+             @return headers
+             @since ARP1.0
+          */
+          getHeaders() : Array<Header> {
+               return this.headers;
+          }
+
+          /**
+             Set the array of Header
+
+             @param headers
+             @since ARP1.0
+          */
+          setHeaders(headers: Array<Header>) {
+               this.headers = headers;
+          }
+
+          /**
+             Returns the method
+
+             @return method
+             @since ARP1.0
+          */
+          getSession() : ISession {
+               return this.session;
+          }
+
+          /**
+             Set the method
+
+             @param session
+             @since ARP1.0
+          */
+          setSession(session: ISession) {
+               this.session = session;
+          }
+
+     }
+     /**
+        Represents the basic information about the operating system.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class OSInfo {
+          /**
+             The name of the operating system.
+          */
+          name : string;
+          /**
+             The vendor of the operating system.
+          */
+          vendor : string;
+          /**
+             The version/identifier of the operating system.
+          */
+          version : string;
+          /**
+             Constructor used by implementation to set the OS information.
+
+             @param name    of the OS.
+             @param version of the OS.
+             @param vendor  of the OS.
+          */
+          constructor(name: string, version: string, vendor: string) {
+               this.name = name;
+               this.version = version;
+               this.vendor = vendor;
+          }
+          /**
+             Returns the name of the operating system.
+
+             @return OS name.
+          */
+          getName() : string {
+               return this.name;
+          }
+
+          /**
+             Sets The name of the operating system.
+
+             @param name The name of the operating system.
+          */
+          setName(name: string) {
+               this.name = name;
+          }
+
+          /**
+             Returns the vendor of the operating system.
+
+             @return OS vendor.
+          */
+          getVendor() : string {
+               return this.vendor;
+          }
+
+          /**
+             Sets The vendor of the operating system.
+
+             @param vendor The vendor of the operating system.
+          */
+          setVendor(vendor: string) {
+               this.vendor = vendor;
+          }
+
+          /**
+             Returns the version of the operating system.
+
+             @return OS version.
+          */
+          getVersion() : string {
+               return this.version;
+          }
+
+          /**
+             Sets The version/identifier of the operating system.
+
+             @param version The version/identifier of the operating system.
+          */
+          setVersion(version: string) {
+               this.version = version;
+          }
+
+     }
+     /**
+        Structure representing the data elements of an email.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Email {
+          /**
+             Array of attatchments
+          */
+          attachmentData : Array<AttachmentData>;
+          /**
+             Array of Email Blind Carbon Copy recipients
+          */
+          bccRecipients : Array<EmailAddress>;
+          /**
+             Array of Email Carbon Copy recipients
+          */
+          ccRecipients : Array<EmailAddress>;
+          /**
+             Message body
+          */
+          messageBody : string;
+          /**
+             Message body mime type
+          */
+          messageBodyMimeType : string;
+          /**
+             Subject of the email
+          */
+          subject : string;
+          /**
+             Array of Email recipients
+          */
+          toRecipients : Array<EmailAddress>;
+          /**
+             Constructor used by the implementation
+
+             @param toRecipients        array of recipients
+             @param ccRecipients        array of cc recipients
+             @param bccRecipients       array of bcc recipients
+             @param attachmentData      array of attatchments
+             @param messageBody         body of the email
+             @param messageBodyMimeType mime type of the body
+             @param subject             of the email
+             @since ARP1.0
+          */
+          constructor(toRecipients: Array<EmailAddress>, ccRecipients: Array<EmailAddress>, bccRecipients: Array<EmailAddress>, attachmentData: Array<AttachmentData>, messageBody: string, messageBodyMimeType: string, subject: string) {
+               this.toRecipients = toRecipients;
+               this.ccRecipients = ccRecipients;
+               this.bccRecipients = bccRecipients;
+               this.attachmentData = attachmentData;
+               this.messageBody = messageBody;
+               this.messageBodyMimeType = messageBodyMimeType;
+               this.subject = subject;
+          }
+          /**
+             Returns an array of attachments
+
+             @return attachmentData array with the email attachments
+             @since ARP1.0
+          */
+          getAttachmentData() : Array<AttachmentData> {
+               return this.attachmentData;
+          }
+
+          /**
+             Set the email attachment data array
+
+             @param attachmentData array of email attatchments
+             @since ARP1.0
+          */
+          setAttachmentData(attachmentData: Array<AttachmentData>) {
+               this.attachmentData = attachmentData;
+          }
+
+          /**
+             Returns the array of recipients
+
+             @return bccRecipients array of bcc recipients
+             @since ARP1.0
+          */
+          getBccRecipients() : Array<EmailAddress> {
+               return this.bccRecipients;
+          }
+
+          /**
+             Set the array of recipients
+
+             @param bccRecipients array of bcc recipients
+             @since ARP1.0
+          */
+          setBccRecipients(bccRecipients: Array<EmailAddress>) {
+               this.bccRecipients = bccRecipients;
+          }
+
+          /**
+             Returns the array of recipients
+
+             @return ccRecipients array of cc recipients
+             @since ARP1.0
+          */
+          getCcRecipients() : Array<EmailAddress> {
+               return this.ccRecipients;
+          }
+
+          /**
+             Set the array of recipients
+
+             @param ccRecipients array of cc recipients
+             @since ARP1.0
+          */
+          setCcRecipients(ccRecipients: Array<EmailAddress>) {
+               this.ccRecipients = ccRecipients;
+          }
+
+          /**
+             Returns the message body of the email
+
+             @return message Body string of the email
+          */
+          getMessageBody() : string {
+               return this.messageBody;
+          }
+
+          /**
+             Set the message body of the email
+
+             @param messageBody message body of the email
+             @since ARP1.0
+          */
+          setMessageBody(messageBody: string) {
+               this.messageBody = messageBody;
+          }
+
+          /**
+             Returns the myme type of the message body
+
+             @return mime type string of the message boddy
+             @since ARP1.0
+          */
+          getMessageBodyMimeType() : string {
+               return this.messageBodyMimeType;
+          }
+
+          /**
+             Set the mime type for the message body
+
+             @param messageBodyMimeType type of the body message
+             @since ARP1.0
+          */
+          setMessageBodyMimeType(messageBodyMimeType: string) {
+               this.messageBodyMimeType = messageBodyMimeType;
+          }
+
+          /**
+             Returns the subject of the email
+
+             @return subject string of the email
+             @since ARP1.0
+          */
+          getSubject() : string {
+               return this.subject;
+          }
+
+          /**
+             Set the subject of the email
+
+             @param subject of the email
+             @since ARP1.0
+          */
+          setSubject(subject: string) {
+               this.subject = subject;
+          }
+
+          /**
+             Returns the array of recipients
+
+             @return toRecipients array of recipients
+             @since ARP1.0
+          */
+          getToRecipients() : Array<EmailAddress> {
+               return this.toRecipients;
+          }
+
+          /**
+             Set the array of recipients
+
+             @param toRecipients array of recipients
+             @since ARP1.0
+          */
+          setToRecipients(toRecipients: Array<EmailAddress>) {
+               this.toRecipients = toRecipients;
+          }
+
+     }
+     /**
+        Structure representing the website data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactWebsite {
+          /**
+             The url of the website
+          */
+          url : string;
+          /**
+             Constructor used by the implementation
+
+             @param url
+             @since ARP1.0
+          */
+          constructor(url: string) {
+               this.url = url;
+          }
+          /**
+             Returns the url of the website
+
+             @return website url
+             @since ARP1.0
+          */
+          getUrl() : string {
+               return this.url;
+          }
+
+          /**
+             Set the url of the website
+
+             @param url
+             @since ARP1.0
+          */
+          setUrl(url: string) {
+               this.url = url;
+          }
+
+     }
+     /**
+        Structure representing the internal unique identifier data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactUid {
+          /**
+             The id of the Contact
+          */
+          contactId : string;
+          /**
+             Constructor used by implementation to set the Contact id.
+
+             @param contactId Internal unique contact id.
+             @since ARP1.0
+          */
+          constructor(contactId: string) {
+               this.contactId = contactId;
+          }
+          /**
+             Returns the contact id
+
+             @return Contactid Internal unique contact id.
+             @since ARP1.0
+          */
+          getContactId() : string {
+               return this.contactId;
+          }
+
+          /**
+             Set the id of the Contact
+
+             @param contactId Internal unique contact id.
+             @since ARP1.0
+          */
+          setContactId(contactId: string) {
+               this.contactId = contactId;
+          }
+
+     }
+     /**
+        Structure representing the assigned tags data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactTag {
+          /**
+             The value of the Tag
+          */
+          dataValue : string;
+          /**
+             The name of the Tag
+          */
+          name : string;
+          /**
+             Constructor used by the implementation
+
+             @param dataValue
+             @param name
+             @since ARP1.0
+          */
+          constructor(name: string, dataValue: string) {
+               this.name = name;
+               this.dataValue = dataValue;
+          }
+          /**
+             Returns the value of the Tag
+
+             @return value
+             @since ARP1.0
+          */
+          getDataValue() : string {
+               return this.dataValue;
+          }
+
+          /**
+             Set the value of the Tag
+
+             @param dataValue
+             @since ARP1.0
+          */
+          setDataValue(dataValue: string) {
+               this.dataValue = dataValue;
+          }
+
+          /**
+             Returns the name of the Tag
+
+             @return name
+             @since ARP1.0
+          */
+          getName() : string {
+               return this.name;
+          }
+
+          /**
+             Set the name of the Tag
+
+             @param name
+             @since ARP1.0
+          */
+          setName(name: string) {
+               this.name = name;
+          }
+
+     }
+     /**
+        Structure representing the email data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactEmail {
+          /**
+             The type of the email
+          */
+          type : ContactEmailType;
+          /**
+             Email of the Contact
+          */
+          email : string;
+          /**
+             Whether the email is the primary one or not
+          */
+          primary : boolean;
+          /**
+             Constructor used by the implementation
+
+             @param type
+             @param primary
+             @param email
+             @since ARP1.0
+          */
+          constructor(type: ContactEmailType, primary: boolean, email: string) {
+               this.type = type;
+               this.primary = primary;
+               this.email = email;
+          }
+          /**
+             Returns the type of the email
+
+             @return EmailType
+             @since ARP1.0
+          */
+          getType() : ContactEmailType {
+               return this.type;
+          }
+
+          /**
+             Set the type of the email
+
+             @param type
+             @since ARP1.0
+          */
+          setType(type: ContactEmailType) {
+               this.type = type;
+          }
+
+          /**
+             Returns the email of the Contact
+
+             @return email
+             @since ARP1.0
+          */
+          getEmail() : string {
+               return this.email;
+          }
+
+          /**
+             Set the email of the Contact
+
+             @param email
+             @since ARP1.0
+          */
+          setEmail(email: string) {
+               this.email = email;
+          }
+
+          /**
+             Returns if the email is primary
+
+             @return true if the email is primary; false otherwise
+             @since ARP1.0
+          */
+          getPrimary() : boolean {
+               return this.primary;
+          }
+
+          /**
+             Set if the email
+
+             @param primary true if the email is primary; false otherwise
+             @since ARP1.0
+          */
+          setPrimary(primary: boolean) {
+               this.primary = primary;
+          }
+
+     }
+     /**
+        Represents a specific application life-cycle stage.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Lifecycle {
+          /**
+             Represent the state of the app
+
+Possible lifecycle States:
+
+1. Starting    - Before starting.
+2. Started     - Start concluded.
+3. Running     - Accepts user interaction - running in foreground.
+4. Pausing     - Before going to background.
+4.1 PausedIdle - In background, no scheduled background activity (passive).
+4.2 PausedRun  - In background, scheduled background activity (periodic network access, gps access, etc.)
+5. Resuming    - Before going to foreground, followed by Running state.
+6. Stopping    - Before stopping.
+          */
+          state : LifecycleState;
+          /**
+             Constructor used by the implementation
+
+             @param state
+             @since ARP1.0
+          */
+          constructor(state: LifecycleState) {
+               this.state = state;
+          }
+          /**
+             Returns the state of the application
+
+             @return state of the app
+             @since ARP1.0
+          */
+          getState() : LifecycleState {
+               return this.state;
+          }
+
+          /**
+             Set the State of the application
+
+             @param state of the app
+             @since ARP1.0
+          */
+          setState(state: LifecycleState) {
+               this.state = state;
+          }
+
+     }
+     /**
+        Structure representing the professional info data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactProfessionalInfo {
+          /**
+             The company of the job
+          */
+          company : string;
+          /**
+             The job description
+          */
+          jobDescription : string;
+          /**
+             The job title
+          */
+          jobTitle : string;
+          /**
+             Constructor used by implementation to set the ContactProfessionalInfo.
+
+             @param jobTitle
+             @param jobDescription
+             @param company
+             @since ARP1.0
+          */
+          constructor(jobTitle: string, jobDescription: string, company: string) {
+               this.jobTitle = jobTitle;
+               this.jobDescription = jobDescription;
+               this.company = company;
+          }
+          /**
+             Returns the company of the job
+
+             @return company
+             @since ARP1.0
+          */
+          getCompany() : string {
+               return this.company;
+          }
+
+          /**
+             Set the company of the job
+
+             @param company
+             @since ARP1.0
+          */
+          setCompany(company: string) {
+               this.company = company;
+          }
+
+          /**
+             Returns the description of the job
+
+             @return description
+             @since ARP1.0
+          */
+          getJobDescription() : string {
+               return this.jobDescription;
+          }
+
+          /**
+             Set the description of the job
+
+             @param jobDescription
+             @since ARP1.0
+          */
+          setJobDescription(jobDescription: string) {
+               this.jobDescription = jobDescription;
+          }
+
+          /**
+             Returns the title of the job
+
+             @return title
+             @since ARP1.0
+          */
+          getJobTitle() : string {
+               return this.jobTitle;
+          }
+
+          /**
+             Set the title of the job
+
+             @param jobTitle
+             @since ARP1.0
+          */
+          setJobTitle(jobTitle: string) {
+               this.jobTitle = jobTitle;
+          }
+
+     }
+     /**
+        Structure representing the social data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactSocial {
+          /**
+             The social network
+          */
+          socialNetwork : ContactSocialNetwork;
+          /**
+             The profileUrl
+          */
+          profileUrl : string;
+          /**
+             Constructor used by the implementation
+
+             @param socialNetwork of the profile
+             @param profileUrl    of the user
+             @since ARP1.0
+          */
+          constructor(socialNetwork: ContactSocialNetwork, profileUrl: string) {
+               this.socialNetwork = socialNetwork;
+               this.profileUrl = profileUrl;
+          }
+          /**
+             Returns the social network
+
+             @return socialNetwork
+             @since ARP1.0
+          */
+          getSocialNetwork() : ContactSocialNetwork {
+               return this.socialNetwork;
+          }
+
+          /**
+             Set the social network
+
+             @param socialNetwork
+             @since ARP1.0
+          */
+          setSocialNetwork(socialNetwork: ContactSocialNetwork) {
+               this.socialNetwork = socialNetwork;
+          }
+
+          /**
+             Returns the profile url of the user
+
+             @return profileUrl
+             @since ARP1.0
+          */
+          getProfileUrl() : string {
+               return this.profileUrl;
+          }
+
+          /**
+             Set the profile url of the iser
+
+             @param profileUrl
+             @since ARP1.0
+          */
+          setProfileUrl(profileUrl: string) {
+               this.profileUrl = profileUrl;
+          }
+
+     }
+     /**
+        Structure representing a database reference.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Database {
+          /**
+             Indicates if database was created or needs to be created as Compressed.
+          */
+          compress : boolean;
+          /**
+             Database Name (name of the .db local file).
+          */
+          name : string;
+          /**
+             Constructor using fields.
+
+             @param name     Name of the Table.
+             @param compress Compress enbaled or not.
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          constructor(name: string, compress: boolean) {
+               this.name = name;
+               this.compress = compress;
+          }
+          /**
+             Returns if the table is compressed
+
+             @return Compression enabled
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          getCompress() : boolean {
+               return this.compress;
+          }
+
+          /**
+             Sets if the table is compressed or not.
+
+             @param compress Compression enabled
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          setCompress(compress: boolean) {
+               this.compress = compress;
+          }
+
+          /**
+             Returns the name.
+
+             @return The name of the table.
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          getName() : string {
+               return this.name;
+          }
+
+          /**
+             Sets the name of the table.
+
+             @param name The name of the table.
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          setName(name: string) {
+               this.name = name;
+          }
+
+     }
+     /**
+        Structure representing the data of a http cookie.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Cookie {
+          /**
+             Cookie creation timestamp in milliseconds.
+          */
+          creation : number;
+          /**
+             Value of the Cookie
+          */
+          data : string;
+          /**
+             Domain for which the cookie is valid.
+          */
+          domain : string;
+          /**
+             Cookie expiry in milliseconds or -1 for session only.
+          */
+          expiry : number;
+          /**
+             Name ot the cookie
+          */
+          name : string;
+          /**
+             URI path for which the cookie is valid.
+          */
+          path : string;
+          /**
+             Scheme of the domain - http/https - for which the cookie is valid.
+          */
+          scheme : string;
+          /**
+             Cookie is secure (https only)
+          */
+          secure : boolean;
+          /**
+             Constructor used by the implementation
+
+             @param name
+             @param data
+             @since ARP1.0
+          */
+          constructor(name: string, data: string) {
+               this.name = name;
+               this.data = data;
+          }
+          /**
+             Gets Cookie creation timestamp in milliseconds.
+
+             @return creation Cookie creation timestamp in milliseconds.
+          */
+          getCreation() : number {
+               return this.creation;
+          }
+
+          /**
+             Sets Cookie creation timestamp in milliseconds.
+
+             @param creation Cookie creation timestamp in milliseconds.
+          */
+          setCreation(creation: number) {
+               this.creation = creation;
+          }
+
+          /**
+             Returns the cookie value
+
+             @return 
+             @since ARP1.0
+          */
+          getData() : string {
+               return this.data;
+          }
+
+          /**
+             Set the cookie value
+
+             @param data
+             @since ARP1.0
+          */
+          setData(data: string) {
+               this.data = data;
+          }
+
+          /**
+             Returns the domain
+
+             @return domain
+             @since ARP1.0
+          */
+          getDomain() : string {
+               return this.domain;
+          }
+
+          /**
+             Set the domain
+
+             @param domain
+          */
+          setDomain(domain: string) {
+               this.domain = domain;
+          }
+
+          /**
+             Returns the expiration date in milis
+
+             @return expiry
+             @since ARP1.0
+          */
+          getExpiry() : number {
+               return this.expiry;
+          }
+
+          /**
+             Set the expiration date in milis
+
+             @param expiry
+          */
+          setExpiry(expiry: number) {
+               this.expiry = expiry;
+          }
+
+          /**
+             Returns the cookie name
+
+             @return name
+             @since ARP1.0
+          */
+          getName() : string {
+               return this.name;
+          }
+
+          /**
+             Set the cookie name
+
+             @param name
+             @since ARP1.0
+          */
+          setName(name: string) {
+               this.name = name;
+          }
+
+          /**
+             Returns the path
+
+             @return path
+             @since ARP1.0
+          */
+          getPath() : string {
+               return this.path;
+          }
+
+          /**
+             Set the path
+
+             @param path
+          */
+          setPath(path: string) {
+               this.path = path;
+          }
+
+          /**
+             Returns the scheme
+
+             @return scheme
+             @since ARP1.0
+          */
+          getScheme() : string {
+               return this.scheme;
+          }
+
+          /**
+             Set the scheme
+
+             @param scheme
+          */
+          setScheme(scheme: string) {
+               this.scheme = scheme;
+          }
+
+          /**
+             Returns whether the cookie is secure or not
+
+             @return true if the cookie is secure; false otherwise
+             @since ARP1.0
+          */
+          getSecure() : boolean {
+               return this.secure;
+          }
+
+          /**
+             Set whether the cookie is secure or not
+
+             @param secure
+          */
+          setSecure(secure: boolean) {
+               this.secure = secure;
+          }
+
+     }
+     /**
+        Structure representing the personal info data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactPersonalInfo {
+          /**
+             The title of the Contact
+          */
+          title : ContactPersonalInfoTitle;
+          /**
+             The last name of the Contact
+          */
+          lastName : string;
+          /**
+             The middle name of the Contact if it proceeds
+          */
+          middleName : string;
+          /**
+             The name of the Contact
+          */
+          name : string;
+          /**
+             The Constructor used by the implementation
+
+             @param name       of the Contact
+             @param middleName of the Contact
+             @param lastName   of the Contact
+             @param title      of the Contact
+             @since ARP1.0
+          */
+          constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitle) {
+               this.name = name;
+               this.middleName = middleName;
+               this.lastName = lastName;
+               this.title = title;
+          }
+          /**
+             Returns the title of the Contact
+
+             @return Title
+             @since ARP1.0
+          */
+          getTitle() : ContactPersonalInfoTitle {
+               return this.title;
+          }
+
+          /**
+             Set the Title of the Contact
+
+             @param title
+             @since ARP1.0
+          */
+          setTitle(title: ContactPersonalInfoTitle) {
+               this.title = title;
+          }
+
+          /**
+             Returns the last name of the Contact
+
+             @return lastName
+             @since ARP1.0
+          */
+          getLastName() : string {
+               return this.lastName;
+          }
+
+          /**
+             Set the last name of the Contact
+
+             @param lastName
+             @since ARP1.0
+          */
+          setLastName(lastName: string) {
+               this.lastName = lastName;
+          }
+
+          /**
+             Returns the middle name of the Contact
+
+             @return middelName
+             @since ARP1.0
+          */
+          getMiddleName() : string {
+               return this.middleName;
+          }
+
+          /**
+             Set the middle name of the Contact
+
+             @param middleName
+             @since ARP1.0
+          */
+          setMiddleName(middleName: string) {
+               this.middleName = middleName;
+          }
+
+          /**
+             Returns the name of the Contact
+
+             @return name
+             @since ARP1.0
+          */
+          getName() : string {
+               return this.name;
+          }
+
+          /**
+             Set the name of the Contact
+
+             @param name
+             @since ARP1.0
+          */
+          setName(name: string) {
+               this.name = name;
+          }
+
+     }
+     /**
+        Structure representing the a physical or logical button on a device.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Button {
+          /**
+             Button type
+          */
+          type : ICapabilitiesButton;
+          /**
+             Constructor used by the implementation
+
+             @param type Button type.
+             @since ARP1.0
+          */
+          constructor(type: ICapabilitiesButton) {
+               this.type = type;
+          }
+          /**
+             Returns the button type
+
+             @return type Button type.
+             @since ARP1.0
+          */
+          getType() : ICapabilitiesButton {
+               return this.type;
+          }
+
+          /**
+             Sets Button type
+
+             @param type Button type
+          */
+          setType(type: ICapabilitiesButton) {
+               this.type = type;
+          }
+
      }
      /**
         Structure representing the data of a http request or response header.
@@ -2744,6 +4398,1142 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           setName(name: string) {
                this.name = name;
+          }
+
+     }
+     /**
+        Structure representing the basic device information.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class DeviceInfo {
+          /**
+             Model of device - equivalent to device release or version.
+          */
+          model : string;
+          /**
+             Name of device - equivalent to brand.
+          */
+          name : string;
+          /**
+             Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+          */
+          uuid : string;
+          /**
+             Vendor of the device hardware.
+          */
+          vendor : string;
+          /**
+             Constructor for the implementation of the platform.
+
+             @param name   or brand of the device.
+             @param model  of the device.
+             @param vendor of the device.
+             @param uuid   unique* identifier (* platform dependent).
+          */
+          constructor(name: string, model: string, vendor: string, uuid: string) {
+               this.name = name;
+               this.model = model;
+               this.vendor = vendor;
+               this.uuid = uuid;
+          }
+          /**
+             Returns the model of the device.
+
+             @return String with the model of the device.
+          */
+          getModel() : string {
+               return this.model;
+          }
+
+          /**
+             Sets Model of device - equivalent to device release or version.
+
+             @param model Model of device - equivalent to device release or version.
+          */
+          setModel(model: string) {
+               this.model = model;
+          }
+
+          /**
+             Returns the name of the device.
+
+             @return String with device name.
+          */
+          getName() : string {
+               return this.name;
+          }
+
+          /**
+             Sets Name of device - equivalent to brand.
+
+             @param name Name of device - equivalent to brand.
+          */
+          setName(name: string) {
+               this.name = name;
+          }
+
+          /**
+             Returns the platform dependent UUID of the device.
+
+             @return String with the 128-bit device identifier.
+          */
+          getUuid() : string {
+               return this.uuid;
+          }
+
+          /**
+             Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+
+             @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
+be unique for a specific instance of an application on a specific device.
+          */
+          setUuid(uuid: string) {
+               this.uuid = uuid;
+          }
+
+          /**
+             Returns the vendor of the device.
+
+             @return String with the vendor name.
+          */
+          getVendor() : string {
+               return this.vendor;
+          }
+
+          /**
+             Sets Vendor of the device hardware.
+
+             @param vendor Vendor of the device hardware.
+          */
+          setVendor(vendor: string) {
+               this.vendor = vendor;
+          }
+
+     }
+     /**
+        Structure representing the column specification of a data table.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Column {
+          /**
+             Name of the column
+          */
+          name : string;
+          /**
+             Constructor for implementation using.
+
+             @param name Name of the column
+          */
+          constructor(name: string) {
+               this.name = name;
+          }
+          /**
+             Returns the name of the column.
+
+             @return The name of the column.
+          */
+          getName() : string {
+               return this.name;
+          }
+
+          /**
+             Sets the name of the column.
+
+             @param name The name of the column.
+          */
+          setName(name: string) {
+               this.name = name;
+          }
+
+     }
+     /**
+        Created by clozano on 05/12/14.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class APIRequest {
+          /**
+             { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+          */
+          methodName : string;
+          parameterTypes : Array<string>;
+          parameters : Array<any>;
+          /**
+             Constructor.          */
+          constructor() {
+          }
+          /**
+             Gets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+
+             @return methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+          */
+          getMethodName() : string {
+               return this.methodName;
+          }
+
+          /**
+             Sets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+
+             @param methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+          */
+          setMethodName(methodName: string) {
+               this.methodName = methodName;
+          }
+
+          /**
+             Gets null
+
+             @return parameterTypes null
+          */
+          getParameterTypes() : Array<string> {
+               return this.parameterTypes;
+          }
+
+          /**
+             Sets null
+
+             @param parameterTypes null
+          */
+          setParameterTypes(parameterTypes: Array<string>) {
+               this.parameterTypes = parameterTypes;
+          }
+
+          /**
+             Gets null
+
+             @return parameters null
+          */
+          getParameters() : Array<any> {
+               return this.parameters;
+          }
+
+          /**
+             Sets null
+
+             @param parameters null
+          */
+          setParameters(parameters: Array<any>) {
+               this.parameters = parameters;
+          }
+
+     }
+     /**
+        Structure representing a remote or local service access end-point.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Endpoint {
+          /**
+             The remote serice host (alias or IP).
+          */
+          host : string;
+          /**
+             The remote service path (to be added to the host and port url).
+          */
+          path : string;
+          /**
+             The remote service accessible port.
+          */
+          port : number;
+          /**
+             The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
+          */
+          proxy : string;
+          /**
+             The remote service scheme.
+          */
+          scheme : string;
+          /**
+             Constructor used by the implementation
+
+             @param host
+             @param path
+             @param port
+             @param proxy
+             @param scheme
+             @since ARP1.0
+          */
+          constructor(host: string, path: string, port: number, proxy: string, scheme: string) {
+               this.host = host;
+               this.path = path;
+               this.port = port;
+               this.proxy = proxy;
+               this.scheme = scheme;
+          }
+          /**
+             Returns the host
+
+             @return host
+             @since ARP1.0
+          */
+          getHost() : string {
+               return this.host;
+          }
+
+          /**
+             Set the host
+
+             @param host
+             @since ARP1.0
+          */
+          setHost(host: string) {
+               this.host = host;
+          }
+
+          /**
+             Returns the path
+
+             @return path
+             @since ARP1.0
+          */
+          getPath() : string {
+               return this.path;
+          }
+
+          /**
+             Set the path
+
+             @param path
+             @since ARP1.0
+          */
+          setPath(path: string) {
+               this.path = path;
+          }
+
+          /**
+             Returns the port
+
+             @return port
+             @since ARP1.0
+          */
+          getPort() : number {
+               return this.port;
+          }
+
+          /**
+             Set the port
+
+             @param port
+             @since ARP1.0
+          */
+          setPort(port: number) {
+               this.port = port;
+          }
+
+          /**
+             Return the proxy
+
+             @return proxy
+             @since ARP1.0
+          */
+          getProxy() : string {
+               return this.proxy;
+          }
+
+          /**
+             Set the proxy
+
+             @param proxy
+             @since ARP1.0
+          */
+          setProxy(proxy: string) {
+               this.proxy = proxy;
+          }
+
+          /**
+             Returns the scheme
+
+             @return scheme
+             @since ARP1.0
+          */
+          getScheme() : string {
+               return this.scheme;
+          }
+
+          /**
+             Set the scheme
+
+             @param scheme
+             @since ARP1.0
+          */
+          setScheme(scheme: string) {
+               this.scheme = scheme;
+          }
+
+     }
+     /**
+        Structure representing the address data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactAddress {
+          /**
+             The address type
+          */
+          type : ContactAddressType;
+          /**
+             The Contact address
+          */
+          address : string;
+          /**
+             Constructor used by the implementation
+
+             @param address Address data.
+             @param type    Address type.
+             @since ARP1.0
+          */
+          constructor(address: string, type: ContactAddressType) {
+               this.address = address;
+               this.type = type;
+          }
+          /**
+             Returns the type of the address
+
+             @return AddressType Address type.
+             @since ARP1.0
+          */
+          getType() : ContactAddressType {
+               return this.type;
+          }
+
+          /**
+             Set the address type
+
+             @param type Address type.
+             @since ARP1.0
+          */
+          setType(type: ContactAddressType) {
+               this.type = type;
+          }
+
+          /**
+             Returns the Contact address
+
+             @return address Address data.
+             @since ARP1.0
+          */
+          getAddress() : string {
+               return this.address;
+          }
+
+          /**
+             Set the address of the Contact
+
+             @param address Address data.
+             @since ARP1.0
+          */
+          setAddress(address: string) {
+               this.address = address;
+          }
+
+     }
+     /**
+        Represents a data table composed of columns and rows.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Table {
+          /**
+             Number of columns.
+          */
+          columnCount : number;
+          /**
+             Definition of columns.
+          */
+          columns : Array<Column>;
+          /**
+             Name of the table.
+          */
+          name : string;
+          /**
+             Number of rows.
+          */
+          rowCount : number;
+          /**
+             Rows of the table containing the data.
+          */
+          rows : Array<Row>;
+          /**
+             Constructor by default
+
+             @param name The name of the table
+          */
+          constructor(name: string) {
+               this.name = name;
+          }
+          /**
+             Get the number of columns
+
+             @return The number of columns
+          */
+          getColumnCount() : number {
+               return this.columnCount;
+          }
+
+          /**
+             Sets the number of columns
+
+             @param columnCount The number of columns
+          */
+          setColumnCount(columnCount: number) {
+               this.columnCount = columnCount;
+          }
+
+          /**
+             Get the columns
+
+             @return The columns
+          */
+          getColumns() : Array<Column> {
+               return this.columns;
+          }
+
+          /**
+             Sets the columns of the table
+
+             @param columns The columns of the table
+          */
+          setColumns(columns: Array<Column>) {
+               this.columns = columns;
+          }
+
+          /**
+             Returns the name of the table
+
+             @return The name of the table
+          */
+          getName() : string {
+               return this.name;
+          }
+
+          /**
+             Sets the name of the table
+
+             @param name The name of the table
+          */
+          setName(name: string) {
+               this.name = name;
+          }
+
+          /**
+             Get the number of rows
+
+             @return The number of rows
+          */
+          getRowCount() : number {
+               return this.rowCount;
+          }
+
+          /**
+             Sets the number of rows
+
+             @param rowCount The number of rows
+          */
+          setRowCount(rowCount: number) {
+               this.rowCount = rowCount;
+          }
+
+          /**
+             Get the rows of the table
+
+             @return The rows of the table
+          */
+          getRows() : Array<Row> {
+               return this.rows;
+          }
+
+          /**
+             Sets the rows of the table
+
+             @param rows The rows of the table
+          */
+          setRows(rows: Array<Row>) {
+               this.rows = rows;
+          }
+
+     }
+     /**
+        Structure representing the data a single geolocation reading.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Geolocation {
+          /**
+             The current device altitude (or Z coordinate). Measured in meters.
+          */
+          altitude : number;
+          /**
+             The Y coordinate (or latitude). Measured in degrees.
+          */
+          latitude : number;
+          /**
+             The X coordinate (or longitude). Measured in degrees.
+          */
+          longitude : number;
+          /**
+             Dilution of precision on the X measurement. Measured in meters.
+          */
+          xDoP : number;
+          /**
+             Dilution of precision on the Y measurement. Measured in meters.
+          */
+          yDoP : number;
+          /**
+             Constructor used by the implementation
+
+             @param latitude
+             @param longitude
+             @param altitude
+             @param xDoP
+             @param yDoP
+             @since ARP1.0
+          */
+          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number) {
+               this.latitude = latitude;
+               this.longitude = longitude;
+               this.altitude = altitude;
+               this.xDoP = xDoP;
+               this.yDoP = yDoP;
+          }
+          /**
+             Returns altitude in meters
+
+             @return altitude
+             @since ARP1.0
+          */
+          getAltitude() : number {
+               return this.altitude;
+          }
+
+          /**
+             Set altitude in meters
+
+             @param altitude
+             @since ARP1.0
+          */
+          setAltitude(altitude: number) {
+               this.altitude = altitude;
+          }
+
+          /**
+             Returns the latitude in degrees
+
+             @return latitude
+             @since ARP1.0
+          */
+          getLatitude() : number {
+               return this.latitude;
+          }
+
+          /**
+             Set the latitude in degrees
+
+             @param latitude
+             @since ARP1.0
+          */
+          setLatitude(latitude: number) {
+               this.latitude = latitude;
+          }
+
+          /**
+             Returns the longitude in degrees
+
+             @return longitude
+             @since ARP1.0
+          */
+          getLongitude() : number {
+               return this.longitude;
+          }
+
+          /**
+             Returns the latitude in degrees
+
+             @param longitude
+             @since ARP1.0
+          */
+          setLongitude(longitude: number) {
+               this.longitude = longitude;
+          }
+
+          /**
+             Returns the Dilution of Position in the X axis (longitude)
+
+             @return xDoP
+             @since ARP1.0
+          */
+          getXDoP() : number {
+               return this.xDoP;
+          }
+
+          /**
+             Sets Dilution of precision on the X measurement. Measured in meters.
+
+             @param xDoP Dilution of precision on the X measurement. Measured in meters.
+          */
+          setXDoP(xDoP: number) {
+               this.xDoP = xDoP;
+          }
+
+          /**
+             Returns the Dilution of Position in the Y axis (latitude)
+
+             @return yDoP
+             @since ARP1.0
+          */
+          getYDoP() : number {
+               return this.yDoP;
+          }
+
+          /**
+             Sets Dilution of precision on the Y measurement. Measured in meters.
+
+             @param yDoP Dilution of precision on the Y measurement. Measured in meters.
+          */
+          setYDoP(yDoP: number) {
+               this.yDoP = yDoP;
+          }
+
+     }
+     /**
+        Structure representing the data elements of an email addressee.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class EmailAddress {
+          /**
+             The Email address
+          */
+          address : string;
+          /**
+             Constructor used by implementation
+
+             @param address
+             @since ARP1.0
+          */
+          constructor(address: string) {
+               this.address = address;
+          }
+          /**
+             Returns the email address
+
+             @return address of the Email
+             @since ARP1.0
+          */
+          getAddress() : string {
+               return this.address;
+          }
+
+          /**
+             Set the Email address
+
+             @param address of the Email
+             @since ARP1.0
+          */
+          setAddress(address: string) {
+               this.address = address;
+          }
+
+     }
+     /**
+        Structure representing the binary attachment data.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class AttachmentData {
+          /**
+             The raw data for the current file attachment (byte array)
+          */
+          data : Array<number>;
+          /**
+             The data size (in bytes) of the current file attachment
+          */
+          dataSize : number;
+          /**
+             The name of the current file attachment
+          */
+          fileName : string;
+          /**
+             The mime type of the current attachment
+          */
+          mimeType : string;
+          /**
+             The relative path where the contents for the attachment file could be located.
+          */
+          referenceUrl : string;
+          /**
+             Constructor used by the implementation
+
+             @param data         raw data of the file attachment
+             @param dataSize     size of the file attachment
+             @param fileName     name of the file attachment
+             @param mimeType     mime type of the file attachment
+             @param referenceUrl relative url of the file attachment
+             @since ARP1.0
+          */
+          constructor(data: Array<number>, dataSize: number, fileName: string, mimeType: string, referenceUrl: string) {
+               this.data = data;
+               this.dataSize = dataSize;
+               this.fileName = fileName;
+               this.mimeType = mimeType;
+               this.referenceUrl = referenceUrl;
+          }
+          /**
+             Returns the raw data in byte[]
+
+             @return data Octet-binary content of the attachment payload.
+             @since ARP1.0
+          */
+          getData() : Array<number> {
+               return this.data;
+          }
+
+          /**
+             Set the data of the attachment as a byte[]
+
+             @param data Sets the octet-binary content of the attachment.
+             @since ARP1.0
+          */
+          setData(data: Array<number>) {
+               this.data = data;
+          }
+
+          /**
+             Returns the size of the attachment as a long
+
+             @return dataSize Length in bytes of the octet-binary content.
+             @since ARP1.0
+          */
+          getDataSize() : number {
+               return this.dataSize;
+          }
+
+          /**
+             Set the size of the attachment as a long
+
+             @param dataSize Length in bytes of the octet-binary content ( should be same as data array length.)
+             @since ARP1.0
+          */
+          setDataSize(dataSize: number) {
+               this.dataSize = dataSize;
+          }
+
+          /**
+             Returns the filename of the attachment
+
+             @return fileName Name of the attachment.
+             @since ARP1.0
+          */
+          getFileName() : string {
+               return this.fileName;
+          }
+
+          /**
+             Set the name of the file attachment
+
+             @param fileName Name of the attachment.
+             @since ARP1.0
+          */
+          setFileName(fileName: string) {
+               this.fileName = fileName;
+          }
+
+          /**
+             Returns the mime type of the attachment
+
+             @return mimeType
+             @since ARP1.0
+          */
+          getMimeType() : string {
+               return this.mimeType;
+          }
+
+          /**
+             Set the mime type of the attachment
+
+             @param mimeType Mime-type of the attachment.
+             @since ARP1.0
+          */
+          setMimeType(mimeType: string) {
+               this.mimeType = mimeType;
+          }
+
+          /**
+             Returns the absolute url of the file attachment
+
+             @return referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+             @since ARP1.0
+          */
+          getReferenceUrl() : string {
+               return this.referenceUrl;
+          }
+
+          /**
+             Set the absolute url of the attachment
+
+             @param referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
+             @since ARP1.0
+          */
+          setReferenceUrl(referenceUrl: string) {
+               this.referenceUrl = referenceUrl;
+          }
+
+     }
+     /**
+        Represents a single secureKey-value pair.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class SecureKeyPair {
+          secureData : string;
+          secureKey : string;
+          /**
+             Constructor with parameters
+
+             @param secureKey  name of the keypair
+             @param secureData value of the keypair
+             @since ARP1.0
+          */
+          constructor(secureKey: string, secureData: string) {
+               this.secureKey = secureKey;
+               this.secureData = secureData;
+          }
+          /**
+             Returns the object value
+
+             @return Value.
+             @since ARP 1.0
+          */
+          getSecureData() : string {
+               return this.secureData;
+          }
+
+          /**
+             Sets the value for this object
+
+             @param secureData value to set.
+             @since ARP 1.0
+          */
+          setSecureData(secureData: string) {
+               this.secureData = secureData;
+          }
+
+          /**
+             Returns the object secureKey name.
+
+             @return Key name.
+             @since ARP 1.0
+          */
+          getSecureKey() : string {
+               return this.secureKey;
+          }
+
+          /**
+             Sets the secureKey name for this object.
+
+             @param secureKey Key name.
+             @since ARP 1.0
+          */
+          setSecureKey(secureKey: string) {
+               this.secureKey = secureKey;
+          }
+
+     }
+     /**
+        Structure representing the phone data elements of a contact.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class ContactPhone {
+          /**
+             The phone number phoneType
+          */
+          phoneType : ContactPhoneType;
+          /**
+             The phone number
+          */
+          phone : string;
+          /**
+             Constructor used by implementation to set the contact Phone
+
+             @param phone
+             @param phoneType
+             @since ARP1.0
+          */
+          constructor(phone: string, phoneType: ContactPhoneType) {
+               this.phone = phone;
+               this.phoneType = phoneType;
+          }
+          /**
+             Returns the phone phoneType
+
+             @return phoneType
+             @since ARP1.0
+          */
+          getPhoneType() : ContactPhoneType {
+               return this.phoneType;
+          }
+
+          /**
+             Set the phoneType of the phone number
+
+             @param phoneType
+             @since ARP1.0
+          */
+          setPhoneType(phoneType: ContactPhoneType) {
+               this.phoneType = phoneType;
+          }
+
+          /**
+             Returns the phone number
+
+             @return phone number
+             @since ARP1.0
+          */
+          getPhone() : string {
+               return this.phone;
+          }
+
+          /**
+             Set the phone number
+
+             @param phone number
+             @since ARP1.0
+          */
+          setPhone(phone: string) {
+               this.phone = phone;
+          }
+
+     }
+     /**
+        Represents a row for a data table.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Row {
+          /**
+             The values of the row.
+          */
+          values : Array<any>;
+          /**
+             Constructor for implementation using.
+
+             @param values The values of the row
+          */
+          constructor(values: Array<any>) {
+               this.values = values;
+          }
+          /**
+             Returns the values of the row.
+
+             @return The values of the row.
+          */
+          getValues() : Array<any> {
+               return this.values;
+          }
+
+          /**
+             Sets the values of the row.
+
+             @param values The values of the row.
+          */
+          setValues(values: Array<any>) {
+               this.values = values;
+          }
+
+     }
+     /**
+        Represents a specific user or system locate.
+
+        @author Carlos Lozano Diez
+        @since 1.0
+        @version 1.0
+     */
+     export class Locale {
+          /**
+             A valid ISO Country Code.
+          */
+          country : string;
+          /**
+             A valid ISO Language Code.
+          */
+          language : string;
+          /**
+             Constructor used by the implementation
+
+             @param country
+             @param language
+             @since ARP1.0
+          */
+          constructor(language: string, country: string) {
+               this.language = language;
+               this.country = country;
+          }
+          /**
+             Returns the country code
+
+             @return country code
+             @since ARP1.0
+          */
+          getCountry() : string {
+               return this.country;
+          }
+
+          /**
+             Set the country code
+
+             @param country code
+             @since ARP1.0
+          */
+          setCountry(country: string) {
+               this.country = country;
+          }
+
+          /**
+             Returns the language code
+
+             @return language code
+             @since ARP1.0
+          */
+          getLanguage() : string {
+               return this.language;
+          }
+
+          /**
+             Set the language code
+
+             @param language code
+             @since ARP1.0
+          */
+          setLanguage(language: string) {
+               this.language = language;
           }
 
      }
@@ -2994,2781 +5784,6 @@ listener and subsequently, the listener will be deactivated and removed from the
           */
           setSession(session: ISession) {
                this.session = session;
-          }
-
-     }
-     /**
-        Structure representing the assigned tags data elements of a contact.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactTag {
-          /**
-             The value of the Tag
-          */
-          dataValue : string;
-          /**
-             The name of the Tag
-          */
-          name : string;
-          /**
-             Constructor used by the implementation
-
-             @param dataValue
-             @param name
-             @since ARP1.0
-          */
-          constructor(name: string, dataValue: string) {
-               this.name = name;
-               this.dataValue = dataValue;
-          }
-          /**
-             Returns the value of the Tag
-
-             @return value
-             @since ARP1.0
-          */
-          getDataValue() : string {
-               return this.dataValue;
-          }
-
-          /**
-             Set the value of the Tag
-
-             @param dataValue
-             @since ARP1.0
-          */
-          setDataValue(dataValue: string) {
-               this.dataValue = dataValue;
-          }
-
-          /**
-             Returns the name of the Tag
-
-             @return name
-             @since ARP1.0
-          */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Set the name of the Tag
-
-             @param name
-             @since ARP1.0
-          */
-          setName(name: string) {
-               this.name = name;
-          }
-
-     }
-     /**
-        Represents a local or remote service response.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ServiceResponse {
-          /**
-             Request/Response data content (plain text).
-          */
-          content : string;
-          /**
-             The byte[] representing the binary Content.
-          */
-          contentBinary : Array<number>;
-          /**
-             The length in bytes for the binary Content.
-          */
-          contentBinaryLength : number;
-          /**
-             Encoding of the binary payload - by default assumed to be UTF8.
-          */
-          contentEncoding : string;
-          /**
-             The length in bytes for the Content field.
-          */
-          contentLength : string;
-          /**
-             The request/response content type (MIME TYPE).
-          */
-          contentType : string;
-          /**
-             The headers array (name,value pairs) to be included on the I/O service request.
-          */
-          headers : Array<Header>;
-          /**
-             The session context for the Request/Response.
-          */
-          session : ISession;
-          /**
-             Constructor used by the implementation
-
-             @param content
-             @param contentType
-             @param contentLength
-             @param contentBinary
-             @param contentBinaryLength
-             @param headers
-             @param session
-             @param contentEncoding
-             @since ARP1.0
-          */
-          constructor(content: string, contentType: string, contentLength: string, contentBinary: Array<number>, contentBinaryLength: number, headers: Array<Header>, session: ISession, contentEncoding: string) {
-               this.content = content;
-               this.contentType = contentType;
-               this.contentLength = contentLength;
-               this.contentBinary = contentBinary;
-               this.contentBinaryLength = contentBinaryLength;
-               this.headers = headers;
-               this.session = session;
-               this.contentEncoding = contentEncoding;
-          }
-          /**
-             Returns the content
-
-             @return content
-             @since ARP1.0
-          */
-          getContent() : string {
-               return this.content;
-          }
-
-          /**
-             Set the content
-
-             @param content
-             @since ARP1.0
-          */
-          setContent(content: string) {
-               this.content = content;
-          }
-
-          /**
-             Returns the binary content
-
-             @return contentBinary
-             @since ARP1.0
-          */
-          getContentBinary() : Array<number> {
-               return this.contentBinary;
-          }
-
-          /**
-             Set the binary content
-
-             @param contentBinary
-             @since ARP1.0
-          */
-          setContentBinary(contentBinary: Array<number>) {
-               this.contentBinary = contentBinary;
-          }
-
-          /**
-             Retrusn the binary content length
-
-             @return contentBinaryLength
-             @since ARP1.0
-          */
-          getContentBinaryLength() : number {
-               return this.contentBinaryLength;
-          }
-
-          /**
-             Set the binary content length
-
-             @param contentBinaryLength
-             @since ARP1.0
-          */
-          setContentBinaryLength(contentBinaryLength: number) {
-               this.contentBinaryLength = contentBinaryLength;
-          }
-
-          /**
-             Returns the content encoding
-
-             @return contentEncoding
-             @since ARP1.0
-          */
-          getContentEncoding() : string {
-               return this.contentEncoding;
-          }
-
-          /**
-             Set the content encoding
-
-             @param contentEncoding
-             @since ARP1.0
-          */
-          setContentEncoding(contentEncoding: string) {
-               this.contentEncoding = contentEncoding;
-          }
-
-          /**
-             Returns the content length
-
-             @return contentLength
-             @since ARP1.0
-          */
-          getContentLength() : string {
-               return this.contentLength;
-          }
-
-          /**
-             Set the content length
-
-             @param contentLength
-             @since ARP1.0
-          */
-          setContentLength(contentLength: string) {
-               this.contentLength = contentLength;
-          }
-
-          /**
-             Returns the content type
-
-             @return contentType
-             @since ARP1.0
-          */
-          getContentType() : string {
-               return this.contentType;
-          }
-
-          /**
-             Set the content type
-
-             @param contentType
-             @since ARP1.0
-          */
-          setContentType(contentType: string) {
-               this.contentType = contentType;
-          }
-
-          /**
-             Returns the array of Header
-
-             @return headers
-             @since ARP1.0
-          */
-          getHeaders() : Array<Header> {
-               return this.headers;
-          }
-
-          /**
-             Set the array of Header
-
-             @param headers
-             @since ARP1.0
-          */
-          setHeaders(headers: Array<Header>) {
-               this.headers = headers;
-          }
-
-          /**
-             Returns the method
-
-             @return method
-             @since ARP1.0
-          */
-          getSession() : ISession {
-               return this.session;
-          }
-
-          /**
-             Set the method
-
-             @param session
-             @since ARP1.0
-          */
-          setSession(session: ISession) {
-               this.session = session;
-          }
-
-     }
-     /**
-        Structure representing the website data elements of a contact.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactWebsite {
-          /**
-             The url of the website
-          */
-          url : string;
-          /**
-             Constructor used by the implementation
-
-             @param url
-             @since ARP1.0
-          */
-          constructor(url: string) {
-               this.url = url;
-          }
-          /**
-             Returns the url of the website
-
-             @return website url
-             @since ARP1.0
-          */
-          getUrl() : string {
-               return this.url;
-          }
-
-          /**
-             Set the url of the website
-
-             @param url
-             @since ARP1.0
-          */
-          setUrl(url: string) {
-               this.url = url;
-          }
-
-     }
-     /**
-        Structure representing the data elements of an email addressee.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class EmailAddress {
-          /**
-             The Email address
-          */
-          address : string;
-          /**
-             Constructor used by implementation
-
-             @param address
-             @since ARP1.0
-          */
-          constructor(address: string) {
-               this.address = address;
-          }
-          /**
-             Returns the email address
-
-             @return address of the Email
-             @since ARP1.0
-          */
-          getAddress() : string {
-               return this.address;
-          }
-
-          /**
-             Set the Email address
-
-             @param address of the Email
-             @since ARP1.0
-          */
-          setAddress(address: string) {
-               this.address = address;
-          }
-
-     }
-     /**
-        Structure representing the personal info data elements of a contact.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactPersonalInfo {
-          /**
-             The title of the Contact
-          */
-          title : ContactPersonalInfoTitle;
-          /**
-             The last name of the Contact
-          */
-          lastName : string;
-          /**
-             The middle name of the Contact if it proceeds
-          */
-          middleName : string;
-          /**
-             The name of the Contact
-          */
-          name : string;
-          /**
-             The Constructor used by the implementation
-
-             @param name       of the Contact
-             @param middleName of the Contact
-             @param lastName   of the Contact
-             @param title      of the Contact
-             @since ARP1.0
-          */
-          constructor(name: string, middleName: string, lastName: string, title: ContactPersonalInfoTitle) {
-               this.name = name;
-               this.middleName = middleName;
-               this.lastName = lastName;
-               this.title = title;
-          }
-          /**
-             Returns the title of the Contact
-
-             @return Title
-             @since ARP1.0
-          */
-          getTitle() : ContactPersonalInfoTitle {
-               return this.title;
-          }
-
-          /**
-             Set the Title of the Contact
-
-             @param title
-             @since ARP1.0
-          */
-          setTitle(title: ContactPersonalInfoTitle) {
-               this.title = title;
-          }
-
-          /**
-             Returns the last name of the Contact
-
-             @return lastName
-             @since ARP1.0
-          */
-          getLastName() : string {
-               return this.lastName;
-          }
-
-          /**
-             Set the last name of the Contact
-
-             @param lastName
-             @since ARP1.0
-          */
-          setLastName(lastName: string) {
-               this.lastName = lastName;
-          }
-
-          /**
-             Returns the middle name of the Contact
-
-             @return middelName
-             @since ARP1.0
-          */
-          getMiddleName() : string {
-               return this.middleName;
-          }
-
-          /**
-             Set the middle name of the Contact
-
-             @param middleName
-             @since ARP1.0
-          */
-          setMiddleName(middleName: string) {
-               this.middleName = middleName;
-          }
-
-          /**
-             Returns the name of the Contact
-
-             @return name
-             @since ARP1.0
-          */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Set the name of the Contact
-
-             @param name
-             @since ARP1.0
-          */
-          setName(name: string) {
-               this.name = name;
-          }
-
-     }
-     /**
-        Represents a specific user or system locate.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Locale {
-          /**
-             A valid ISO Country Code.
-          */
-          country : string;
-          /**
-             A valid ISO Language Code.
-          */
-          language : string;
-          /**
-             Constructor used by the implementation
-
-             @param country
-             @param language
-             @since ARP1.0
-          */
-          constructor(language: string, country: string) {
-               this.language = language;
-               this.country = country;
-          }
-          /**
-             Returns the country code
-
-             @return country code
-             @since ARP1.0
-          */
-          getCountry() : string {
-               return this.country;
-          }
-
-          /**
-             Set the country code
-
-             @param country code
-             @since ARP1.0
-          */
-          setCountry(country: string) {
-               this.country = country;
-          }
-
-          /**
-             Returns the language code
-
-             @return language code
-             @since ARP1.0
-          */
-          getLanguage() : string {
-               return this.language;
-          }
-
-          /**
-             Set the language code
-
-             @param language code
-             @since ARP1.0
-          */
-          setLanguage(language: string) {
-               this.language = language;
-          }
-
-     }
-     /**
-        Structure representing a database reference.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Database {
-          /**
-             Indicates if database was created or needs to be created as Compressed.
-          */
-          compress : boolean;
-          /**
-             Database Name (name of the .db local file).
-          */
-          name : string;
-          /**
-             Constructor using fields.
-
-             @param name     Name of the Table.
-             @param compress Compress enbaled or not.
-             @author Ferran Vila Conesa
-             @since ARP1.0
-          */
-          constructor(name: string, compress: boolean) {
-               this.name = name;
-               this.compress = compress;
-          }
-          /**
-             Returns if the table is compressed
-
-             @return Compression enabled
-             @author Ferran Vila Conesa
-             @since ARP1.0
-          */
-          getCompress() : boolean {
-               return this.compress;
-          }
-
-          /**
-             Sets if the table is compressed or not.
-
-             @param compress Compression enabled
-             @author Ferran Vila Conesa
-             @since ARP1.0
-          */
-          setCompress(compress: boolean) {
-               this.compress = compress;
-          }
-
-          /**
-             Returns the name.
-
-             @return The name of the table.
-             @author Ferran Vila Conesa
-             @since ARP1.0
-          */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Sets the name of the table.
-
-             @param name The name of the table.
-             @author Ferran Vila Conesa
-             @since ARP1.0
-          */
-          setName(name: string) {
-               this.name = name;
-          }
-
-     }
-     /**
-        Structure representing the address data elements of a contact.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactAddress {
-          /**
-             The address type
-          */
-          type : ContactAddressType;
-          /**
-             The Contact address
-          */
-          address : string;
-          /**
-             Constructor used by the implementation
-
-             @param address Address data.
-             @param type    Address type.
-             @since ARP1.0
-          */
-          constructor(address: string, type: ContactAddressType) {
-               this.address = address;
-               this.type = type;
-          }
-          /**
-             Returns the type of the address
-
-             @return AddressType Address type.
-             @since ARP1.0
-          */
-          getType() : ContactAddressType {
-               return this.type;
-          }
-
-          /**
-             Set the address type
-
-             @param type Address type.
-             @since ARP1.0
-          */
-          setType(type: ContactAddressType) {
-               this.type = type;
-          }
-
-          /**
-             Returns the Contact address
-
-             @return address Address data.
-             @since ARP1.0
-          */
-          getAddress() : string {
-               return this.address;
-          }
-
-          /**
-             Set the address of the Contact
-
-             @param address Address data.
-             @since ARP1.0
-          */
-          setAddress(address: string) {
-               this.address = address;
-          }
-
-     }
-     /**
-        Represents a single secureKey-value pair.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class SecureKeyPair {
-          secureData : string;
-          secureKey : string;
-          /**
-             Constructor with parameters
-
-             @param secureKey  name of the keypair
-             @param secureData value of the keypair
-             @since ARP1.0
-          */
-          constructor(secureKey: string, secureData: string) {
-               this.secureKey = secureKey;
-               this.secureData = secureData;
-          }
-          /**
-             Returns the object value
-
-             @return Value.
-             @since ARP 1.0
-          */
-          getSecureData() : string {
-               return this.secureData;
-          }
-
-          /**
-             Sets the value for this object
-
-             @param secureData value to set.
-             @since ARP 1.0
-          */
-          setSecureData(secureData: string) {
-               this.secureData = secureData;
-          }
-
-          /**
-             Returns the object secureKey name.
-
-             @return Key name.
-             @since ARP 1.0
-          */
-          getSecureKey() : string {
-               return this.secureKey;
-          }
-
-          /**
-             Sets the secureKey name for this object.
-
-             @param secureKey Key name.
-             @since ARP 1.0
-          */
-          setSecureKey(secureKey: string) {
-               this.secureKey = secureKey;
-          }
-
-     }
-     /**
-        Structure representing the data of a http cookie.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Cookie {
-          /**
-             Cookie creation timestamp in milliseconds.
-          */
-          creation : number;
-          /**
-             Value of the Cookie
-          */
-          data : string;
-          /**
-             Domain for which the cookie is valid.
-          */
-          domain : string;
-          /**
-             Cookie expiry in milliseconds or -1 for session only.
-          */
-          expiry : number;
-          /**
-             Name ot the cookie
-          */
-          name : string;
-          /**
-             URI path for which the cookie is valid.
-          */
-          path : string;
-          /**
-             Scheme of the domain - http/https - for which the cookie is valid.
-          */
-          scheme : string;
-          /**
-             Cookie is secure (https only)
-          */
-          secure : boolean;
-          /**
-             Constructor used by the implementation
-
-             @param name
-             @param data
-             @since ARP1.0
-          */
-          constructor(name: string, data: string) {
-               this.name = name;
-               this.data = data;
-          }
-          /**
-             Gets Cookie creation timestamp in milliseconds.
-
-             @return creation Cookie creation timestamp in milliseconds.
-          */
-          getCreation() : number {
-               return this.creation;
-          }
-
-          /**
-             Sets Cookie creation timestamp in milliseconds.
-
-             @param creation Cookie creation timestamp in milliseconds.
-          */
-          setCreation(creation: number) {
-               this.creation = creation;
-          }
-
-          /**
-             Returns the cookie value
-
-             @return 
-             @since ARP1.0
-          */
-          getData() : string {
-               return this.data;
-          }
-
-          /**
-             Set the cookie value
-
-             @param data
-             @since ARP1.0
-          */
-          setData(data: string) {
-               this.data = data;
-          }
-
-          /**
-             Returns the domain
-
-             @return domain
-             @since ARP1.0
-          */
-          getDomain() : string {
-               return this.domain;
-          }
-
-          /**
-             Set the domain
-
-             @param domain
-          */
-          setDomain(domain: string) {
-               this.domain = domain;
-          }
-
-          /**
-             Returns the expiration date in milis
-
-             @return expiry
-             @since ARP1.0
-          */
-          getExpiry() : number {
-               return this.expiry;
-          }
-
-          /**
-             Set the expiration date in milis
-
-             @param expiry
-          */
-          setExpiry(expiry: number) {
-               this.expiry = expiry;
-          }
-
-          /**
-             Returns the cookie name
-
-             @return name
-             @since ARP1.0
-          */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Set the cookie name
-
-             @param name
-             @since ARP1.0
-          */
-          setName(name: string) {
-               this.name = name;
-          }
-
-          /**
-             Returns the path
-
-             @return path
-             @since ARP1.0
-          */
-          getPath() : string {
-               return this.path;
-          }
-
-          /**
-             Set the path
-
-             @param path
-          */
-          setPath(path: string) {
-               this.path = path;
-          }
-
-          /**
-             Returns the scheme
-
-             @return scheme
-             @since ARP1.0
-          */
-          getScheme() : string {
-               return this.scheme;
-          }
-
-          /**
-             Set the scheme
-
-             @param scheme
-          */
-          setScheme(scheme: string) {
-               this.scheme = scheme;
-          }
-
-          /**
-             Returns whether the cookie is secure or not
-
-             @return true if the cookie is secure; false otherwise
-             @since ARP1.0
-          */
-          getSecure() : boolean {
-               return this.secure;
-          }
-
-          /**
-             Set whether the cookie is secure or not
-
-             @param secure
-          */
-          setSecure(secure: boolean) {
-               this.secure = secure;
-          }
-
-     }
-     /**
-        Structure representing the social data elements of a contact.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactSocial {
-          /**
-             The social network
-          */
-          socialNetwork : ContactSocialNetwork;
-          /**
-             The profileUrl
-          */
-          profileUrl : string;
-          /**
-             Constructor used by the implementation
-
-             @param socialNetwork of the profile
-             @param profileUrl    of the user
-             @since ARP1.0
-          */
-          constructor(socialNetwork: ContactSocialNetwork, profileUrl: string) {
-               this.socialNetwork = socialNetwork;
-               this.profileUrl = profileUrl;
-          }
-          /**
-             Returns the social network
-
-             @return socialNetwork
-             @since ARP1.0
-          */
-          getSocialNetwork() : ContactSocialNetwork {
-               return this.socialNetwork;
-          }
-
-          /**
-             Set the social network
-
-             @param socialNetwork
-             @since ARP1.0
-          */
-          setSocialNetwork(socialNetwork: ContactSocialNetwork) {
-               this.socialNetwork = socialNetwork;
-          }
-
-          /**
-             Returns the profile url of the user
-
-             @return profileUrl
-             @since ARP1.0
-          */
-          getProfileUrl() : string {
-               return this.profileUrl;
-          }
-
-          /**
-             Set the profile url of the iser
-
-             @param profileUrl
-             @since ARP1.0
-          */
-          setProfileUrl(profileUrl: string) {
-               this.profileUrl = profileUrl;
-          }
-
-     }
-     /**
-        Structure representing a remote or local service access end-point.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Endpoint {
-          /**
-             The remote serice host (alias or IP).
-          */
-          host : string;
-          /**
-             The remote service path (to be added to the host and port url).
-          */
-          path : string;
-          /**
-             The remote service accessible port.
-          */
-          port : number;
-          /**
-             The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
-          */
-          proxy : string;
-          /**
-             The remote service scheme.
-          */
-          scheme : string;
-          /**
-             Constructor used by the implementation
-
-             @param host
-             @param path
-             @param port
-             @param proxy
-             @param scheme
-             @since ARP1.0
-          */
-          constructor(host: string, path: string, port: number, proxy: string, scheme: string) {
-               this.host = host;
-               this.path = path;
-               this.port = port;
-               this.proxy = proxy;
-               this.scheme = scheme;
-          }
-          /**
-             Returns the host
-
-             @return host
-             @since ARP1.0
-          */
-          getHost() : string {
-               return this.host;
-          }
-
-          /**
-             Set the host
-
-             @param host
-             @since ARP1.0
-          */
-          setHost(host: string) {
-               this.host = host;
-          }
-
-          /**
-             Returns the path
-
-             @return path
-             @since ARP1.0
-          */
-          getPath() : string {
-               return this.path;
-          }
-
-          /**
-             Set the path
-
-             @param path
-             @since ARP1.0
-          */
-          setPath(path: string) {
-               this.path = path;
-          }
-
-          /**
-             Returns the port
-
-             @return port
-             @since ARP1.0
-          */
-          getPort() : number {
-               return this.port;
-          }
-
-          /**
-             Set the port
-
-             @param port
-             @since ARP1.0
-          */
-          setPort(port: number) {
-               this.port = port;
-          }
-
-          /**
-             Return the proxy
-
-             @return proxy
-             @since ARP1.0
-          */
-          getProxy() : string {
-               return this.proxy;
-          }
-
-          /**
-             Set the proxy
-
-             @param proxy
-             @since ARP1.0
-          */
-          setProxy(proxy: string) {
-               this.proxy = proxy;
-          }
-
-          /**
-             Returns the scheme
-
-             @return scheme
-             @since ARP1.0
-          */
-          getScheme() : string {
-               return this.scheme;
-          }
-
-          /**
-             Set the scheme
-
-             @param scheme
-             @since ARP1.0
-          */
-          setScheme(scheme: string) {
-               this.scheme = scheme;
-          }
-
-     }
-     /**
-        Represents a specific application life-cycle stage.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Lifecycle {
-          /**
-             Represent the state of the app
-
-Possible lifecycle States:
-
-1. Starting    - Before starting.
-2. Started     - Start concluded.
-3. Running     - Accepts user interaction - running in foreground.
-4. Pausing     - Before going to background.
-4.1 PausedIdle - In background, no scheduled background activity (passive).
-4.2 PausedRun  - In background, scheduled background activity (periodic network access, gps access, etc.)
-5. Resuming    - Before going to foreground, followed by Running state.
-6. Stopping    - Before stopping.
-          */
-          state : LifecycleState;
-          /**
-             Constructor used by the implementation
-
-             @param state
-             @since ARP1.0
-          */
-          constructor(state: LifecycleState) {
-               this.state = state;
-          }
-          /**
-             Returns the state of the application
-
-             @return state of the app
-             @since ARP1.0
-          */
-          getState() : LifecycleState {
-               return this.state;
-          }
-
-          /**
-             Set the State of the application
-
-             @param state of the app
-             @since ARP1.0
-          */
-          setState(state: LifecycleState) {
-               this.state = state;
-          }
-
-     }
-     /**
-        Created by clozano on 05/12/14.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class APIRequest {
-          /**
-             { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
-          */
-          methodName : string;
-          parameterTypes : Array<string>;
-          parameters : Array<any>;
-          /**
-             Constructor.          */
-          constructor() {
-          }
-          /**
-             Gets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
-
-             @return methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
-          */
-          getMethodName() : string {
-               return this.methodName;
-          }
-
-          /**
-             Sets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
-
-             @param methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
-          */
-          setMethodName(methodName: string) {
-               this.methodName = methodName;
-          }
-
-          /**
-             Gets null
-
-             @return parameterTypes null
-          */
-          getParameterTypes() : Array<string> {
-               return this.parameterTypes;
-          }
-
-          /**
-             Sets null
-
-             @param parameterTypes null
-          */
-          setParameterTypes(parameterTypes: Array<string>) {
-               this.parameterTypes = parameterTypes;
-          }
-
-          /**
-             Gets null
-
-             @return parameters null
-          */
-          getParameters() : Array<any> {
-               return this.parameters;
-          }
-
-          /**
-             Sets null
-
-             @param parameters null
-          */
-          setParameters(parameters: Array<any>) {
-               this.parameters = parameters;
-          }
-
-     }
-     /**
-        Structure representing the data of a single acceleration reading.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Acceleration {
-          /**
-             Timestamp of the acceleration reading.
-          */
-          timeStamp : number;
-          /**
-             X-axis component of the acceleration.
-          */
-          x : number;
-          /**
-             Y-axis component of the acceleration.
-          */
-          y : number;
-          /**
-             Z-axis component of the acceleration.
-          */
-          z : number;
-          /**
-             Constructor.
-             @param x X Coordinate
-             @param y Y Coordinate
-             @param z Z Coordinate
-             @author Carlos Lozano Diez
-             @since ARP1.0
-          */
-          constructor(x: number, y: number, z: number, timeStamp: number) {
-               this.x = x;
-               this.y = y;
-               this.z = z;
-               this.timeStamp = timeStamp;
-          }
-          /**
-             Gets Timestamp of the acceleration reading.
-
-             @return timeStamp Timestamp of the acceleration reading.
-          */
-          getTimeStamp() : number {
-               return this.timeStamp;
-          }
-
-          /**
-             Sets Timestamp of the acceleration reading.
-
-             @param timeStamp Timestamp of the acceleration reading.
-          */
-          setTimeStamp(timeStamp: number) {
-               this.timeStamp = timeStamp;
-          }
-
-          /**
-             Gets X-axis component of the acceleration.
-
-             @return x X-axis component of the acceleration.
-          */
-          getX() : number {
-               return this.x;
-          }
-
-          /**
-             Sets X-axis component of the acceleration.
-
-             @param x X-axis component of the acceleration.
-          */
-          setX(x: number) {
-               this.x = x;
-          }
-
-          /**
-             Gets Y-axis component of the acceleration.
-
-             @return y Y-axis component of the acceleration.
-          */
-          getY() : number {
-               return this.y;
-          }
-
-          /**
-             Sets Y-axis component of the acceleration.
-
-             @param y Y-axis component of the acceleration.
-          */
-          setY(y: number) {
-               this.y = y;
-          }
-
-          /**
-             Gets Z-axis component of the acceleration.
-
-             @return z Z-axis component of the acceleration.
-          */
-          getZ() : number {
-               return this.z;
-          }
-
-          /**
-             Sets Z-axis component of the acceleration.
-
-             @param z Z-axis component of the acceleration.
-          */
-          setZ(z: number) {
-               this.z = z;
-          }
-
-     }
-     /**
-        Structure representing the column specification of a data table.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Column {
-          /**
-             Name of the column
-          */
-          name : string;
-          /**
-             Constructor for implementation using.
-
-             @param name Name of the column
-          */
-          constructor(name: string) {
-               this.name = name;
-          }
-          /**
-             Returns the name of the column.
-
-             @return The name of the column.
-          */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Sets the name of the column.
-
-             @param name The name of the column.
-          */
-          setName(name: string) {
-               this.name = name;
-          }
-
-     }
-     /**
-        Structure representing the binary attachment data.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class AttachmentData {
-          /**
-             The raw data for the current file attachment (byte array)
-          */
-          data : Array<number>;
-          /**
-             The data size (in bytes) of the current file attachment
-          */
-          dataSize : number;
-          /**
-             The name of the current file attachment
-          */
-          fileName : string;
-          /**
-             The mime type of the current attachment
-          */
-          mimeType : string;
-          /**
-             The relative path where the contents for the attachment file could be located.
-          */
-          referenceUrl : string;
-          /**
-             Constructor used by the implementation
-
-             @param data         raw data of the file attachment
-             @param dataSize     size of the file attachment
-             @param fileName     name of the file attachment
-             @param mimeType     mime type of the file attachment
-             @param referenceUrl relative url of the file attachment
-             @since ARP1.0
-          */
-          constructor(data: Array<number>, dataSize: number, fileName: string, mimeType: string, referenceUrl: string) {
-               this.data = data;
-               this.dataSize = dataSize;
-               this.fileName = fileName;
-               this.mimeType = mimeType;
-               this.referenceUrl = referenceUrl;
-          }
-          /**
-             Returns the raw data in byte[]
-
-             @return data Octet-binary content of the attachment payload.
-             @since ARP1.0
-          */
-          getData() : Array<number> {
-               return this.data;
-          }
-
-          /**
-             Set the data of the attachment as a byte[]
-
-             @param data Sets the octet-binary content of the attachment.
-             @since ARP1.0
-          */
-          setData(data: Array<number>) {
-               this.data = data;
-          }
-
-          /**
-             Returns the size of the attachment as a long
-
-             @return dataSize Length in bytes of the octet-binary content.
-             @since ARP1.0
-          */
-          getDataSize() : number {
-               return this.dataSize;
-          }
-
-          /**
-             Set the size of the attachment as a long
-
-             @param dataSize Length in bytes of the octet-binary content ( should be same as data array length.)
-             @since ARP1.0
-          */
-          setDataSize(dataSize: number) {
-               this.dataSize = dataSize;
-          }
-
-          /**
-             Returns the filename of the attachment
-
-             @return fileName Name of the attachment.
-             @since ARP1.0
-          */
-          getFileName() : string {
-               return this.fileName;
-          }
-
-          /**
-             Set the name of the file attachment
-
-             @param fileName Name of the attachment.
-             @since ARP1.0
-          */
-          setFileName(fileName: string) {
-               this.fileName = fileName;
-          }
-
-          /**
-             Returns the mime type of the attachment
-
-             @return mimeType
-             @since ARP1.0
-          */
-          getMimeType() : string {
-               return this.mimeType;
-          }
-
-          /**
-             Set the mime type of the attachment
-
-             @param mimeType Mime-type of the attachment.
-             @since ARP1.0
-          */
-          setMimeType(mimeType: string) {
-               this.mimeType = mimeType;
-          }
-
-          /**
-             Returns the absolute url of the file attachment
-
-             @return referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
-             @since ARP1.0
-          */
-          getReferenceUrl() : string {
-               return this.referenceUrl;
-          }
-
-          /**
-             Set the absolute url of the attachment
-
-             @param referenceUrl Absolute URL of the file attachment for either file:// or http:// access.
-             @since ARP1.0
-          */
-          setReferenceUrl(referenceUrl: string) {
-               this.referenceUrl = referenceUrl;
-          }
-
-     }
-     /**
-        Structure representing the data elements of an email.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Email {
-          /**
-             Array of attatchments
-          */
-          attachmentData : Array<AttachmentData>;
-          /**
-             Array of Email Blind Carbon Copy recipients
-          */
-          bccRecipients : Array<EmailAddress>;
-          /**
-             Array of Email Carbon Copy recipients
-          */
-          ccRecipients : Array<EmailAddress>;
-          /**
-             Message body
-          */
-          messageBody : string;
-          /**
-             Message body mime type
-          */
-          messageBodyMimeType : string;
-          /**
-             Subject of the email
-          */
-          subject : string;
-          /**
-             Array of Email recipients
-          */
-          toRecipients : Array<EmailAddress>;
-          /**
-             Constructor used by the implementation
-
-             @param toRecipients        array of recipients
-             @param ccRecipients        array of cc recipients
-             @param bccRecipients       array of bcc recipients
-             @param attachmentData      array of attatchments
-             @param messageBody         body of the email
-             @param messageBodyMimeType mime type of the body
-             @param subject             of the email
-             @since ARP1.0
-          */
-          constructor(toRecipients: Array<EmailAddress>, ccRecipients: Array<EmailAddress>, bccRecipients: Array<EmailAddress>, attachmentData: Array<AttachmentData>, messageBody: string, messageBodyMimeType: string, subject: string) {
-               this.toRecipients = toRecipients;
-               this.ccRecipients = ccRecipients;
-               this.bccRecipients = bccRecipients;
-               this.attachmentData = attachmentData;
-               this.messageBody = messageBody;
-               this.messageBodyMimeType = messageBodyMimeType;
-               this.subject = subject;
-          }
-          /**
-             Returns an array of attachments
-
-             @return attachmentData array with the email attachments
-             @since ARP1.0
-          */
-          getAttachmentData() : Array<AttachmentData> {
-               return this.attachmentData;
-          }
-
-          /**
-             Set the email attachment data array
-
-             @param attachmentData array of email attatchments
-             @since ARP1.0
-          */
-          setAttachmentData(attachmentData: Array<AttachmentData>) {
-               this.attachmentData = attachmentData;
-          }
-
-          /**
-             Returns the array of recipients
-
-             @return bccRecipients array of bcc recipients
-             @since ARP1.0
-          */
-          getBccRecipients() : Array<EmailAddress> {
-               return this.bccRecipients;
-          }
-
-          /**
-             Set the array of recipients
-
-             @param bccRecipients array of bcc recipients
-             @since ARP1.0
-          */
-          setBccRecipients(bccRecipients: Array<EmailAddress>) {
-               this.bccRecipients = bccRecipients;
-          }
-
-          /**
-             Returns the array of recipients
-
-             @return ccRecipients array of cc recipients
-             @since ARP1.0
-          */
-          getCcRecipients() : Array<EmailAddress> {
-               return this.ccRecipients;
-          }
-
-          /**
-             Set the array of recipients
-
-             @param ccRecipients array of cc recipients
-             @since ARP1.0
-          */
-          setCcRecipients(ccRecipients: Array<EmailAddress>) {
-               this.ccRecipients = ccRecipients;
-          }
-
-          /**
-             Returns the message body of the email
-
-             @return message Body string of the email
-          */
-          getMessageBody() : string {
-               return this.messageBody;
-          }
-
-          /**
-             Set the message body of the email
-
-             @param messageBody message body of the email
-             @since ARP1.0
-          */
-          setMessageBody(messageBody: string) {
-               this.messageBody = messageBody;
-          }
-
-          /**
-             Returns the myme type of the message body
-
-             @return mime type string of the message boddy
-             @since ARP1.0
-          */
-          getMessageBodyMimeType() : string {
-               return this.messageBodyMimeType;
-          }
-
-          /**
-             Set the mime type for the message body
-
-             @param messageBodyMimeType type of the body message
-             @since ARP1.0
-          */
-          setMessageBodyMimeType(messageBodyMimeType: string) {
-               this.messageBodyMimeType = messageBodyMimeType;
-          }
-
-          /**
-             Returns the subject of the email
-
-             @return subject string of the email
-             @since ARP1.0
-          */
-          getSubject() : string {
-               return this.subject;
-          }
-
-          /**
-             Set the subject of the email
-
-             @param subject of the email
-             @since ARP1.0
-          */
-          setSubject(subject: string) {
-               this.subject = subject;
-          }
-
-          /**
-             Returns the array of recipients
-
-             @return toRecipients array of recipients
-             @since ARP1.0
-          */
-          getToRecipients() : Array<EmailAddress> {
-               return this.toRecipients;
-          }
-
-          /**
-             Set the array of recipients
-
-             @param toRecipients array of recipients
-             @since ARP1.0
-          */
-          setToRecipients(toRecipients: Array<EmailAddress>) {
-               this.toRecipients = toRecipients;
-          }
-
-     }
-     /**
-        Structure representing the a physical or logical button on a device.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Button {
-          /**
-             Button type
-          */
-          type : ICapabilitiesButton;
-          /**
-             Constructor used by the implementation
-
-             @param type Button type.
-             @since ARP1.0
-          */
-          constructor(type: ICapabilitiesButton) {
-               this.type = type;
-          }
-          /**
-             Returns the button type
-
-             @return type Button type.
-             @since ARP1.0
-          */
-          getType() : ICapabilitiesButton {
-               return this.type;
-          }
-
-          /**
-             Sets Button type
-
-             @param type Button type
-          */
-          setType(type: ICapabilitiesButton) {
-               this.type = type;
-          }
-
-     }
-     /**
-        Represents a data table composed of columns and rows.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Table {
-          /**
-             Number of columns.
-          */
-          columnCount : number;
-          /**
-             Definition of columns.
-          */
-          columns : Array<Column>;
-          /**
-             Name of the table.
-          */
-          name : string;
-          /**
-             Number of rows.
-          */
-          rowCount : number;
-          /**
-             Rows of the table containing the data.
-          */
-          rows : Array<Row>;
-          /**
-             Constructor by default
-
-             @param name The name of the table
-          */
-          constructor(name: string) {
-               this.name = name;
-          }
-          /**
-             Get the number of columns
-
-             @return The number of columns
-          */
-          getColumnCount() : number {
-               return this.columnCount;
-          }
-
-          /**
-             Sets the number of columns
-
-             @param columnCount The number of columns
-          */
-          setColumnCount(columnCount: number) {
-               this.columnCount = columnCount;
-          }
-
-          /**
-             Get the columns
-
-             @return The columns
-          */
-          getColumns() : Array<Column> {
-               return this.columns;
-          }
-
-          /**
-             Sets the columns of the table
-
-             @param columns The columns of the table
-          */
-          setColumns(columns: Array<Column>) {
-               this.columns = columns;
-          }
-
-          /**
-             Returns the name of the table
-
-             @return The name of the table
-          */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Sets the name of the table
-
-             @param name The name of the table
-          */
-          setName(name: string) {
-               this.name = name;
-          }
-
-          /**
-             Get the number of rows
-
-             @return The number of rows
-          */
-          getRowCount() : number {
-               return this.rowCount;
-          }
-
-          /**
-             Sets the number of rows
-
-             @param rowCount The number of rows
-          */
-          setRowCount(rowCount: number) {
-               this.rowCount = rowCount;
-          }
-
-          /**
-             Get the rows of the table
-
-             @return The rows of the table
-          */
-          getRows() : Array<Row> {
-               return this.rows;
-          }
-
-          /**
-             Sets the rows of the table
-
-             @param rows The rows of the table
-          */
-          setRows(rows: Array<Row>) {
-               this.rows = rows;
-          }
-
-     }
-     /**
-        Represents the basic information about the operating system.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class OSInfo {
-          /**
-             The name of the operating system.
-          */
-          name : string;
-          /**
-             The vendor of the operating system.
-          */
-          vendor : string;
-          /**
-             The version/identifier of the operating system.
-          */
-          version : string;
-          /**
-             Constructor used by implementation to set the OS information.
-
-             @param name    of the OS.
-             @param version of the OS.
-             @param vendor  of the OS.
-          */
-          constructor(name: string, version: string, vendor: string) {
-               this.name = name;
-               this.version = version;
-               this.vendor = vendor;
-          }
-          /**
-             Returns the name of the operating system.
-
-             @return OS name.
-          */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Sets The name of the operating system.
-
-             @param name The name of the operating system.
-          */
-          setName(name: string) {
-               this.name = name;
-          }
-
-          /**
-             Returns the vendor of the operating system.
-
-             @return OS vendor.
-          */
-          getVendor() : string {
-               return this.vendor;
-          }
-
-          /**
-             Sets The vendor of the operating system.
-
-             @param vendor The vendor of the operating system.
-          */
-          setVendor(vendor: string) {
-               this.vendor = vendor;
-          }
-
-          /**
-             Returns the version of the operating system.
-
-             @return OS version.
-          */
-          getVersion() : string {
-               return this.version;
-          }
-
-          /**
-             Sets The version/identifier of the operating system.
-
-             @param version The version/identifier of the operating system.
-          */
-          setVersion(version: string) {
-               this.version = version;
-          }
-
-     }
-     /**
-        Structure representing the basic device information.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class DeviceInfo {
-          /**
-             Model of device - equivalent to device release or version.
-          */
-          model : string;
-          /**
-             Name of device - equivalent to brand.
-          */
-          name : string;
-          /**
-             Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
-be unique for a specific instance of an application on a specific device.
-          */
-          uuid : string;
-          /**
-             Vendor of the device hardware.
-          */
-          vendor : string;
-          /**
-             Constructor for the implementation of the platform.
-
-             @param name   or brand of the device.
-             @param model  of the device.
-             @param vendor of the device.
-             @param uuid   unique* identifier (* platform dependent).
-          */
-          constructor(name: string, model: string, vendor: string, uuid: string) {
-               this.name = name;
-               this.model = model;
-               this.vendor = vendor;
-               this.uuid = uuid;
-          }
-          /**
-             Returns the model of the device.
-
-             @return String with the model of the device.
-          */
-          getModel() : string {
-               return this.model;
-          }
-
-          /**
-             Sets Model of device - equivalent to device release or version.
-
-             @param model Model of device - equivalent to device release or version.
-          */
-          setModel(model: string) {
-               this.model = model;
-          }
-
-          /**
-             Returns the name of the device.
-
-             @return String with device name.
-          */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Sets Name of device - equivalent to brand.
-
-             @param name Name of device - equivalent to brand.
-          */
-          setName(name: string) {
-               this.name = name;
-          }
-
-          /**
-             Returns the platform dependent UUID of the device.
-
-             @return String with the 128-bit device identifier.
-          */
-          getUuid() : string {
-               return this.uuid;
-          }
-
-          /**
-             Sets Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
-be unique for a specific instance of an application on a specific device.
-
-             @param uuid Device identifier - this may not be unique for a device. It may depend on the platform implementation and may
-be unique for a specific instance of an application on a specific device.
-          */
-          setUuid(uuid: string) {
-               this.uuid = uuid;
-          }
-
-          /**
-             Returns the vendor of the device.
-
-             @return String with the vendor name.
-          */
-          getVendor() : string {
-               return this.vendor;
-          }
-
-          /**
-             Sets Vendor of the device hardware.
-
-             @param vendor Vendor of the device hardware.
-          */
-          setVendor(vendor: string) {
-               this.vendor = vendor;
-          }
-
-     }
-     /**
-        Structure representing the professional info data elements of a contact.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactProfessionalInfo {
-          /**
-             The company of the job
-          */
-          company : string;
-          /**
-             The job description
-          */
-          jobDescription : string;
-          /**
-             The job title
-          */
-          jobTitle : string;
-          /**
-             Constructor used by implementation to set the ContactProfessionalInfo.
-
-             @param jobTitle
-             @param jobDescription
-             @param company
-             @since ARP1.0
-          */
-          constructor(jobTitle: string, jobDescription: string, company: string) {
-               this.jobTitle = jobTitle;
-               this.jobDescription = jobDescription;
-               this.company = company;
-          }
-          /**
-             Returns the company of the job
-
-             @return company
-             @since ARP1.0
-          */
-          getCompany() : string {
-               return this.company;
-          }
-
-          /**
-             Set the company of the job
-
-             @param company
-             @since ARP1.0
-          */
-          setCompany(company: string) {
-               this.company = company;
-          }
-
-          /**
-             Returns the description of the job
-
-             @return description
-             @since ARP1.0
-          */
-          getJobDescription() : string {
-               return this.jobDescription;
-          }
-
-          /**
-             Set the description of the job
-
-             @param jobDescription
-             @since ARP1.0
-          */
-          setJobDescription(jobDescription: string) {
-               this.jobDescription = jobDescription;
-          }
-
-          /**
-             Returns the title of the job
-
-             @return title
-             @since ARP1.0
-          */
-          getJobTitle() : string {
-               return this.jobTitle;
-          }
-
-          /**
-             Set the title of the job
-
-             @param jobTitle
-             @since ARP1.0
-          */
-          setJobTitle(jobTitle: string) {
-               this.jobTitle = jobTitle;
-          }
-
-     }
-     /**
-        Structure representing the email data elements of a contact.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactEmail {
-          /**
-             The type of the email
-          */
-          type : ContactEmailType;
-          /**
-             Email of the Contact
-          */
-          email : string;
-          /**
-             Whether the email is the primary one or not
-          */
-          primary : boolean;
-          /**
-             Constructor used by the implementation
-
-             @param type
-             @param primary
-             @param email
-             @since ARP1.0
-          */
-          constructor(type: ContactEmailType, primary: boolean, email: string) {
-               this.type = type;
-               this.primary = primary;
-               this.email = email;
-          }
-          /**
-             Returns the type of the email
-
-             @return EmailType
-             @since ARP1.0
-          */
-          getType() : ContactEmailType {
-               return this.type;
-          }
-
-          /**
-             Set the type of the email
-
-             @param type
-             @since ARP1.0
-          */
-          setType(type: ContactEmailType) {
-               this.type = type;
-          }
-
-          /**
-             Returns the email of the Contact
-
-             @return email
-             @since ARP1.0
-          */
-          getEmail() : string {
-               return this.email;
-          }
-
-          /**
-             Set the email of the Contact
-
-             @param email
-             @since ARP1.0
-          */
-          setEmail(email: string) {
-               this.email = email;
-          }
-
-          /**
-             Returns if the email is primary
-
-             @return true if the email is primary; false otherwise
-             @since ARP1.0
-          */
-          getPrimary() : boolean {
-               return this.primary;
-          }
-
-          /**
-             Set if the email
-
-             @param primary true if the email is primary; false otherwise
-             @since ARP1.0
-          */
-          setPrimary(primary: boolean) {
-               this.primary = primary;
-          }
-
-     }
-     /**
-        Represents an instance of a service.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Service {
-          /**
-             The method used
-          */
-          method : IServiceMethod;
-          /**
-             The type of the service
-          */
-          type : IServiceType;
-          /**
-             Enpoint of the service
-          */
-          endpoint : Endpoint;
-          /**
-             The service name
-          */
-          name : string;
-          /**
-             Constructor used by the implementation
-
-             @param endpoint
-             @param name
-             @param method
-             @param type
-             @since ARP1.0
-          */
-          constructor(endpoint: Endpoint, name: string, method: IServiceMethod, type: IServiceType) {
-               this.endpoint = endpoint;
-               this.name = name;
-               this.method = method;
-               this.type = type;
-          }
-          /**
-             Returns the method
-
-             @return method
-             @since ARP1.0
-          */
-          getMethod() : IServiceMethod {
-               return this.method;
-          }
-
-          /**
-             Set the method
-
-             @param method
-             @since ARP1.0
-          */
-          setMethod(method: IServiceMethod) {
-               this.method = method;
-          }
-
-          /**
-             Returns the type
-
-             @return type
-             @since ARP1.0
-          */
-          getType() : IServiceType {
-               return this.type;
-          }
-
-          /**
-             Set the type
-
-             @param type
-             @since ARP1.0
-          */
-          setType(type: IServiceType) {
-               this.type = type;
-          }
-
-          /**
-             Returns the endpoint
-
-             @return endpoint
-             @since ARP1.0
-          */
-          getEndpoint() : Endpoint {
-               return this.endpoint;
-          }
-
-          /**
-             Set the endpoint
-
-             @param endpoint
-             @since ARP1.0
-          */
-          setEndpoint(endpoint: Endpoint) {
-               this.endpoint = endpoint;
-          }
-
-          /**
-             Returns the name
-
-             @return name
-             @since ARP1.0
-          */
-          getName() : string {
-               return this.name;
-          }
-
-          /**
-             Set the name
-
-             @param name
-             @since ARP1.0
-          */
-          setName(name: string) {
-               this.name = name;
-          }
-
-     }
-     /**
-        Structure representing the phone data elements of a contact.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactPhone {
-          /**
-             The phone number phoneType
-          */
-          phoneType : ContactPhoneType;
-          /**
-             The phone number
-          */
-          phone : string;
-          /**
-             Constructor used by implementation to set the contact Phone
-
-             @param phone
-             @param phoneType
-             @since ARP1.0
-          */
-          constructor(phone: string, phoneType: ContactPhoneType) {
-               this.phone = phone;
-               this.phoneType = phoneType;
-          }
-          /**
-             Returns the phone phoneType
-
-             @return phoneType
-             @since ARP1.0
-          */
-          getPhoneType() : ContactPhoneType {
-               return this.phoneType;
-          }
-
-          /**
-             Set the phoneType of the phone number
-
-             @param phoneType
-             @since ARP1.0
-          */
-          setPhoneType(phoneType: ContactPhoneType) {
-               this.phoneType = phoneType;
-          }
-
-          /**
-             Returns the phone number
-
-             @return phone number
-             @since ARP1.0
-          */
-          getPhone() : string {
-               return this.phone;
-          }
-
-          /**
-             Set the phone number
-
-             @param phone number
-             @since ARP1.0
-          */
-          setPhone(phone: string) {
-               this.phone = phone;
-          }
-
-     }
-     /**
-        Structure representing the data a single geolocation reading.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Geolocation {
-          /**
-             The current device altitude (or Z coordinate). Measured in meters.
-          */
-          altitude : number;
-          /**
-             The Y coordinate (or latitude). Measured in degrees.
-          */
-          latitude : number;
-          /**
-             The X coordinate (or longitude). Measured in degrees.
-          */
-          longitude : number;
-          /**
-             Dilution of precision on the X measurement. Measured in meters.
-          */
-          xDoP : number;
-          /**
-             Dilution of precision on the Y measurement. Measured in meters.
-          */
-          yDoP : number;
-          /**
-             Constructor used by the implementation
-
-             @param latitude
-             @param longitude
-             @param altitude
-             @param xDoP
-             @param yDoP
-             @since ARP1.0
-          */
-          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number) {
-               this.latitude = latitude;
-               this.longitude = longitude;
-               this.altitude = altitude;
-               this.xDoP = xDoP;
-               this.yDoP = yDoP;
-          }
-          /**
-             Returns altitude in meters
-
-             @return altitude
-             @since ARP1.0
-          */
-          getAltitude() : number {
-               return this.altitude;
-          }
-
-          /**
-             Set altitude in meters
-
-             @param altitude
-             @since ARP1.0
-          */
-          setAltitude(altitude: number) {
-               this.altitude = altitude;
-          }
-
-          /**
-             Returns the latitude in degrees
-
-             @return latitude
-             @since ARP1.0
-          */
-          getLatitude() : number {
-               return this.latitude;
-          }
-
-          /**
-             Set the latitude in degrees
-
-             @param latitude
-             @since ARP1.0
-          */
-          setLatitude(latitude: number) {
-               this.latitude = latitude;
-          }
-
-          /**
-             Returns the longitude in degrees
-
-             @return longitude
-             @since ARP1.0
-          */
-          getLongitude() : number {
-               return this.longitude;
-          }
-
-          /**
-             Returns the latitude in degrees
-
-             @param longitude
-             @since ARP1.0
-          */
-          setLongitude(longitude: number) {
-               this.longitude = longitude;
-          }
-
-          /**
-             Returns the Dilution of Position in the X axis (longitude)
-
-             @return xDoP
-             @since ARP1.0
-          */
-          getXDoP() : number {
-               return this.xDoP;
-          }
-
-          /**
-             Sets Dilution of precision on the X measurement. Measured in meters.
-
-             @param xDoP Dilution of precision on the X measurement. Measured in meters.
-          */
-          setXDoP(xDoP: number) {
-               this.xDoP = xDoP;
-          }
-
-          /**
-             Returns the Dilution of Position in the Y axis (latitude)
-
-             @return yDoP
-             @since ARP1.0
-          */
-          getYDoP() : number {
-               return this.yDoP;
-          }
-
-          /**
-             Sets Dilution of precision on the Y measurement. Measured in meters.
-
-             @param yDoP Dilution of precision on the Y measurement. Measured in meters.
-          */
-          setYDoP(yDoP: number) {
-               this.yDoP = yDoP;
-          }
-
-     }
-     /**
-        Represents a row for a data table.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class Row {
-          /**
-             The values of the row.
-          */
-          values : Array<any>;
-          /**
-             Constructor for implementation using.
-
-             @param values The values of the row
-          */
-          constructor(values: Array<any>) {
-               this.values = values;
-          }
-          /**
-             Returns the values of the row.
-
-             @return The values of the row.
-          */
-          getValues() : Array<any> {
-               return this.values;
-          }
-
-          /**
-             Sets the values of the row.
-
-             @param values The values of the row.
-          */
-          setValues(values: Array<any>) {
-               this.values = values;
-          }
-
-     }
-     /**
-        Structure representing the internal unique identifier data elements of a contact.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export class ContactUid {
-          /**
-             The id of the Contact
-          */
-          contactId : string;
-          /**
-             Constructor used by implementation to set the Contact id.
-
-             @param contactId Internal unique contact id.
-             @since ARP1.0
-          */
-          constructor(contactId: string) {
-               this.contactId = contactId;
-          }
-          /**
-             Returns the contact id
-
-             @return Contactid Internal unique contact id.
-             @since ARP1.0
-          */
-          getContactId() : string {
-               return this.contactId;
-          }
-
-          /**
-             Set the id of the Contact
-
-             @param contactId Internal unique contact id.
-             @since ARP1.0
-          */
-          setContactId(contactId: string) {
-               this.contactId = contactId;
           }
 
      }
