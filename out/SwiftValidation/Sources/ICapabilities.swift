@@ -31,6 +31,73 @@ Contributors:
    @version 1.0
 */
 public protocol ICapabilities : IBaseSystem {
+     /**
+        Determines whether a specific hardware button is supported for interaction.
+        @param type Type of feature to check.
+        @return true is supported, false otherwise.
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func hasButtonSupport(type:ICapabilitiesButton) -> Bool
+
+     /**
+        Determines whether a specific Communication capability is supported by
+the device.
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func hasCommunicationSupport(type:ICapabilitiesCommunication) -> Bool
+
+     /**
+        Determines whether a specific Data capability is supported by the device.
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func hasDataSupport(type:ICapabilitiesData) -> Bool
+
+     /**
+        Determines whether a specific Media capability is supported by the
+device.
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func hasMediaSupport(type:ICapabilitiesMedia) -> Bool
+
+     /**
+        Determines whether a specific Net capability is supported by the device.
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func hasNetSupport(type:ICapabilitiesNet) -> Bool
+
+     /**
+        Determines whether a specific Notification capability is supported by the
+device.
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func hasNotificationSupport(type:ICapabilitiesNotification) -> Bool
+
+     /**
+        Determines whether a specific Sensor capability is supported by the
+device.
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func hasSensorSupport(type:ICapabilitiesSensor) -> Bool
+
 }
 
 /**

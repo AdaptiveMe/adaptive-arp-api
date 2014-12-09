@@ -31,6 +31,25 @@ Contributors:
    @version 1.0
 */
 public protocol IServiceResultCallback : IBaseCallback {
+     /**
+        This method is called on Error
+        @param error returned by the platform
+        @since ARP1.0
+     */
+     func onError(error:IServiceResultCallbackError)
+     /**
+        This method is called on Result
+        @param response data
+        @since ARP1.0
+     */
+     func onResult(response:ServiceResponse)
+     /**
+        This method is called on Warning
+        @param response data
+        @param warning  returned by the platform
+        @since ARP1.0
+     */
+     func onWarning(response:ServiceResponse, warning:IServiceResultCallbackWarning)
 }
 
 /**

@@ -46,7 +46,8 @@ public interface IAdaptiveRP {
         Social,
         System,
         UI,
-        Util
+        Util,
+        Unknown
     }
 
     Group getAPIGroup();

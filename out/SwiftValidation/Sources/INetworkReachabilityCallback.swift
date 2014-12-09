@@ -31,6 +31,25 @@ Contributors:
    @version 1.0
 */
 public protocol INetworkReachabilityCallback : IBaseCallback {
+     /**
+        No data received - error condition, not authorized .
+        @param error
+        @since ARP1.0
+     */
+     func onError(error:INetworkReachabilityCallbackError)
+     /**
+        Correct data received.
+        @param reachable
+        @since ARP1.0
+     */
+     func onResult(reachable:Bool)
+     /**
+        Data received with warning - ie Found entries with existing key and values have been overriden
+        @param reachable
+        @param warning
+        @since ARP1.0
+     */
+     func onWarning(reachable:Bool, warning:INetworkReachabilityCallbackWarning)
 }
 
 /**

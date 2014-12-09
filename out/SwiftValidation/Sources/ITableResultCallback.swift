@@ -31,6 +31,28 @@ Contributors:
    @version 1.0
 */
 public protocol ITableResultCallback : IBaseCallback {
+     /**
+        Result callback for error responses
+        @param error Returned error
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     func onError(error:ITableResultCallbackError)
+     /**
+        Result callback for correct responses
+        @param table Returns the table
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     func onResult(table:Table)
+     /**
+        Result callback for warning responses
+        @param table   Returns the table
+        @param warning Returned Warning
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     func onWarning(table:Table, warning:ITableResultCallbackWarning)
 }
 
 /**

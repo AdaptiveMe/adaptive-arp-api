@@ -31,6 +31,66 @@ Contributors:
    @version 1.0
 */
 public protocol ISession : IBaseCommunication {
+     /**
+        Returns an attribute object
+        @return object attribute
+        @since ARP1.0
+     */
+     func getAttribute(name:String) -> AnyObject
+
+     /**
+        Returns all Session Attributes
+     */
+     func getAttributes() -> [AnyObject]
+
+     /**
+        Returns the cookie array
+        @return cookie array
+        @since ARP1.0
+     */
+     func getCookies() -> [Cookie]
+
+     /**
+        Returns all attibute names
+        @return array with all attribute names
+     */
+     func listAttributeNames() -> [String]
+
+     /**
+        Remove an attribute by its name
+        @param name
+     */
+     func removeAttribute(name:String)
+     /**
+        Remove all attributes
+     */
+     func removeAttributes()
+     /**
+        Remove a cookie
+        @param cookie
+     */
+     func removeCookie(cookie:Cookie)
+     /**
+        Remove a cookies array
+        @param cookies
+     */
+     func removeCookies(cookies:[Cookie])
+     /**
+        Set an attribute
+        @param name
+        @param value
+     */
+     func setAttribute(name:String, value:AnyObject)
+     /**
+        Set a cookie object
+        @param cookie
+     */
+     func setCookie(cookie:Cookie)
+     /**
+        Set the cookies array
+        @param cookies
+     */
+     func setCookies(cookies:[Cookie])
 }
 
 /**

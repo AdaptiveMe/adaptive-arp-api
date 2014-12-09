@@ -24,32 +24,39 @@ Contributors:
 */
 
 /**
-   Definition of ILogging interface/protocol.
-
-   @author Carlos Lozano Diez
-   @since 1.0
-   @version 1.0
+   Enumeration ITelephonyStatus
 */
-public protocol ILogging : IBaseUtil {
+public enum ITelephonyStatus {
+
+     case Dialing
+     case Failed
+     case Unknown
+
      /**
-        Logs the given message, with the given log level if specified, to the standard platform/environment.
-        @param level    Log level
-        @param category Category/tag name to identify/filter the log.
-        @param message  Message to be logged
-        @author Ferran Vila Conesa
-        @since ARP1.0
+     Convert current enum to its string representation value.
      */
-     func log(level:ILoggingLogLevel, category:String, message:String)
+     public func toString() -> String {
+          switch self {
+               case .Dialing: return "Dialing"
+               case .Failed: return "Failed"
+               case .Unknown: return "Unknown"
+          }
+     }
+
      /**
-        Logs the given message, with the given log level if specified, to the standard platform/environment.
-        @param level   Log level
-        @param message Message to be logged
-        @author Ferran Vila Conesa
-        @since ARP1.0
+     Create enum from its string representation value.
      */
-     func log(level:ILoggingLogLevel, message:String)
+     public static func toEnum(string:String?) -> ITelephonyStatus {
+          if let validString = string {
+               switch validString {
+                    case "Dialing": return .Dialing
+                    case "Failed": return .Failed
+                    case "Unknown": return .Unknown
+               default: return .Unknown
+               }
+          } else {
+               return .Unknown
+          }
+     }
+
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

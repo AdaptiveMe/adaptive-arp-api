@@ -31,6 +31,25 @@ Contributors:
    @version 1.0
 */
 public protocol ISecureKVResultCallback : IBaseCallback {
+     /**
+        No data received - error condition, not authorized .
+        @param error
+        @since ARP1.0
+     */
+     func onError(error:ISecureKVResultCallbackError)
+     /**
+        Correct data received.
+        @param keyValues
+        @since ARP1.0
+     */
+     func onResult(keyValues:[SecureKeyPair])
+     /**
+        Data received with warning - ie Found entries with existing key and values have been overriden
+        @param keyValues
+        @param warning
+        @since ARP1.0
+     */
+     func onWarning(keyValues:[SecureKeyPair], warning:ISecureKVResultCallbackWarning)
 }
 
 /**

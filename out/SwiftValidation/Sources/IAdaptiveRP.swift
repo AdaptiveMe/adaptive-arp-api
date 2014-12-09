@@ -31,6 +31,13 @@ Contributors:
    @version 1.0
 */
 public protocol IAdaptiveRP : NSObjectProtocol {
+
+     var API_VERSION : String { get }
+     /**
+        null
+     */
+     func getAPIGroup() -> IAdaptiveRPGroup
+
 }
 
 /**

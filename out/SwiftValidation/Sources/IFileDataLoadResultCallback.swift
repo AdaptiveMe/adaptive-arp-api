@@ -31,6 +31,12 @@ Contributors:
    @version 1.0
 */
 public protocol IFileDataLoadResultCallback : IFileDataResultCallback {
+     /**
+        Result of data retrieval operation.
+        @param data Data loaded.
+        @since ARP1.0
+     */
+     func onResult(data:[Byte])
 }
 
 /**

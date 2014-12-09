@@ -31,6 +31,35 @@ Contributors:
    @version 1.0
 */
 public protocol IAppContextWebview : NSObjectProtocol {
+     /**
+        Additional views may be added to an application - a separate activity - and if these will make calls to the
+ARP methods, they must be registered by adding them to the context. When they are added to the context, ARP
+methods are bound to the webview so that they're callable from the HTML application. The primary webview should
+not be added using this method.
+        @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
+     */
+     func addWebview(webView:AnyObject)
+     /**
+        Returns a reference to the main application webview. This is the first application webview and can not be removed
+with the removeWebview method. The object returned should be cast to the platform specific implementation
+WebView, WKWebView, etc.
+        @return Object representing the specific and primary webview instance of the application.
+     */
+     func getWebviewPrimary() -> AnyObject
+
+     /**
+        Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
+This method will always return at least one element; the primary webview.
+        @return Array with all the Webview instances being managed by ARP.
+     */
+     func getWebviews() -> [AnyObject]
+
+     /**
+        When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
+ARP functions and release resources. The primary webview can not be removed.
+        @param webView The instance of the webview to be removed from the binding.
+     */
+     func removeWebview(webView:AnyObject)
 }
 
 /**

@@ -31,6 +31,25 @@ Contributors:
    @version 1.0
 */
 public protocol IFileListResultCallback : IBaseCallback {
+     /**
+        On error result of a file operation.
+        @param error Error processing the request.
+        @since ARP1.0
+     */
+     func onError(error:IFileListResultCallbackError)
+     /**
+        On correct result of a file operation.
+        @param files Array of resulting files/folders.
+        @since ARP1.0
+     */
+     func onResult(files:[IFile])
+     /**
+        On partial result of a file operation, containing a warning.
+        @param files   Array of resulting files/folders.
+        @param warning Warning condition encountered.
+        @since ARP1.0
+     */
+     func onWarning(files:[IFile], warning:IFileListResultCallbackWarning)
 }
 
 /**

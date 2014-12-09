@@ -31,6 +31,76 @@ Contributors:
    @version 1.0
 */
 public protocol IAppResource : NSObjectProtocol {
+     /**
+        null
+     */
+     func geType() -> IAppResourcePayload
+
+     /**
+        null
+     */
+     func getData() -> [Byte]
+
+     /**
+        null
+     */
+     func getDataPathLinked() -> String
+
+     /**
+        null
+     */
+     func getDataStored() -> [Byte]
+
+     /**
+        null
+     */
+     func getFormat() -> IAppResourceFormat
+
+     /**
+        null
+     */
+     func getMd5() -> String
+
+     /**
+        null
+     */
+     func getMimetype() -> String
+
+     /**
+        null
+     */
+     func getName() -> String
+
+     /**
+        null
+     */
+     func getPath() -> String
+
+     /**
+        null
+     */
+     func getSize() -> Int64
+
+     /**
+        null
+     */
+     func getSizeStored() -> Int64
+
+     /**
+        null
+     */
+     func getTimestamp() -> Int64
+
+     /**
+        null
+     */
+     func getType() -> IAppResourceType
+
+     /**
+        null
+     */
+     func getUuid() -> String
+
 }
 
 /**

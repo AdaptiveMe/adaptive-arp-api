@@ -31,6 +31,10 @@ Contributors:
    @version 1.0
 */
 public protocol IAppResourceHandler : NSObjectProtocol {
+     /**
+        null
+     */
+     func getResource(resourcePath:String, callback:IAppResourceCallback)
 }
 
 /**

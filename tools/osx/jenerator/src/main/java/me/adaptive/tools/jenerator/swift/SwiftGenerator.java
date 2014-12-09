@@ -38,6 +38,7 @@ import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by clozano on 01/12/14.
@@ -54,6 +55,41 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc) {
+        for (Method method : interfaceMethods) {
+            startComment(5);
+            JavaMethod javaMethod = null;
+            for (JavaMethod m : interfaceMethodsDoc) {
+                if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
+                    javaMethod = m;
+                    break;
+                }
+            }
+            if (javaMethod != null) {
+                println(8, javaMethod.getComment());
+                for (DocletTag tag : javaMethod.getTags()) {
+                    println(8, "@" + tag.getName() + " " + tag.getValue());
+                }
+            }
+            endComment(5);
+            print(5, "func " + method.getName());
+            print("(");
+            for (int i = 0; i < method.getParameterCount(); i++) {
+                Parameter p = method.getParameters()[i];
+                print(p.getName());
+                print(":");
+                print(convertJavaToNativeType(p.getType()));
+                if (i < method.getParameterCount() - 1) {
+                    print(", ");
+                }
+            }
+            print(")");
+
+            if (!method.getReturnType().equals(Void.TYPE)) {
+                print(" -> ");
+                println(convertJavaToNativeType(method.getReturnType()));
+            }
+            println();
+        }
 
     }
 
@@ -91,6 +127,16 @@ public class SwiftGenerator extends GeneratorBase {
                     convertJavaToNativeType(parameter.getType().getComponentType());
                 }
             }
+        }
+        for (Field field : clazz.getDeclaredFields()) {
+            println();
+            print(5, "var ");
+            print(field.getName());
+            print(" : ");
+            print(convertJavaToNativeType(field.getType()));
+            print(" ");
+            print("{ get }");
+            println("");
         }
     }
 
@@ -308,6 +354,10 @@ public class SwiftGenerator extends GeneratorBase {
             return "AnyObject";
         } else if (classType.equals(String.class)) {
             return "String";
+        } else if (classType.equals(Class.class)) {
+            return "AnyClass";
+        } else if (classType.equals(Map.class)) {
+            return "Dictionary<String,String>";
         } else {
             type = classType.getSimpleName();
         }

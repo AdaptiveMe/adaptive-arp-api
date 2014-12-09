@@ -31,6 +31,37 @@ Contributors:
    @version 1.0
 */
 public protocol ISecurity : IBaseSecurity {
+     /**
+        Deletes from the device internal storage the entry/entries containing the specified key names.
+        @param keys             Array with the key names to delete.
+        @param publicAccessName The name of the shared internal storage object (if needed).
+        @param callback         callback to be executed upon function result.
+        @since ARP 1.0
+     */
+     func deleteSecureKeyValuePairs(keys:[String], publicAccessName:String, callback:ISecureKVResultCallback)
+     /**
+        Retrieves from the device internal storage the entry/entries containing the specified key names.
+        @param keys             Array with the key names to retrieve.
+        @param publicAccessName The name of the shared internal storage object (if needed).
+        @param callback         callback to be executed upon function result.
+        @since ARP 1.0
+     */
+     func getSecureKeyValuePairs(keys:[String], publicAccessName:String, callback:ISecureKVResultCallback)
+     /**
+        Returns if the device has been modified in anyhow
+        @return true if the device has been modified; false otherwise
+        @since ARP1.0
+     */
+     func isDeviceModified() -> Bool
+
+     /**
+        Stores in the device internal storage the specified item/s.
+        @param keyValues        Array containing the items to store on the device internal memory.
+        @param publicAccessName The name of the shared internal storage object (if needed).
+        @param callback         callback to be executed upon function result.
+        @since ARP 1.0
+     */
+     func setSecureKeyValuePairs(keyValues:[SecureKeyPair], publicAccessName:String, callback:ISecureKVResultCallback)
 }
 
 /**

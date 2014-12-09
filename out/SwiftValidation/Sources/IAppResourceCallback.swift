@@ -31,6 +31,18 @@ Contributors:
    @version 1.0
 */
 public protocol IAppResourceCallback : IBaseCallback {
+     /**
+        null
+     */
+     func onError(resource:IAppResource, error:IAppResourceCallbackError)
+     /**
+        null
+     */
+     func onResult(resource:IAppResource)
+     /**
+        null
+     */
+     func onWarning(resource:IAppResource, warning:IAppResourceCallbackWarning)
 }
 
 /**

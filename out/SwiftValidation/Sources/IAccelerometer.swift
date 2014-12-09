@@ -31,6 +31,26 @@ Contributors:
    @version 1.0
 */
 public protocol IAccelerometer : IBaseSensor {
+     /**
+        Register a new listener that will receive acceleration events.
+        @param listener to be registered.
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func addAccelerationListener(listener:IAccelerationListener)
+     /**
+        De-registers an existing listener from receiving acceleration events.
+        @param listener
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func removeAccelerationListener(listener:IAccelerationListener)
+     /**
+        Removed all existing listeners from receiving acceleration events.
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func removeAccelerationListeners()
 }
 
 /**

@@ -31,6 +31,13 @@ Contributors:
    @version 1.0
 */
 public protocol IMail : IBasePIM {
+     /**
+        Send an Email
+        @param data     the email data
+        @param callback with the result
+        @since ARP1.0
+     */
+     func sendEmail(data:Email, callback:IMessagingCallback)
 }
 
 /**

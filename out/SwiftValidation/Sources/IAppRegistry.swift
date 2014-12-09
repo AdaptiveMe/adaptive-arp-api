@@ -31,6 +31,21 @@ Contributors:
    @version 1.0
 */
 public protocol IAppRegistry : NSObjectProtocol {
+     /**
+        $synthetic$
+     */
+     func get$Synthetic$(interfaceClass:AnyClass) -> AnyObject
+
+     /**
+        null
+     */
+     func getPlatformContext() -> IAppContext
+
+     /**
+        null
+     */
+     func getPlatformContextWeb() -> IAppContextWebview
+
 }
 
 /**

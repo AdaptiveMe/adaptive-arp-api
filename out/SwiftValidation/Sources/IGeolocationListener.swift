@@ -31,6 +31,23 @@ Contributors:
    @version 1.0
 */
 public protocol IGeolocationListener : IBaseListener {
+     /**
+        No data received - error condition, not authorized or hardware not available.
+        @since ARP1.0
+     */
+     func onError(error:IGeolocationListenerError)
+     /**
+        Correct data received.
+        @param geolocation
+        @since ARP1.0
+     */
+     func onResult(geolocation:Geolocation)
+     /**
+        Data received with warning - ie. HighDoP
+        @param geolocation
+        @since ARP1.0
+     */
+     func onWarning(geolocation:Geolocation, warning:IGeolocationListenerWarning)
 }
 
 /**

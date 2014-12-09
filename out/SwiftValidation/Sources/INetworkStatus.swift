@@ -31,6 +31,23 @@ Contributors:
    @version 1.0
 */
 public protocol INetworkStatus : IBaseCommunication {
+     /**
+        Add the listener for network status changes of the app
+        @param listener
+        @since ARP1.0
+     */
+     func addNetworkStatusListener(listener:INetworkStatusListener)
+     /**
+        Un-registers an existing listener from receiving network status events.
+        @param listener
+        @since ARP1.0
+     */
+     func removeNetworkStatusListener(listener:INetworkStatusListener)
+     /**
+        Removes all existing listeners from receiving network status events.
+        @since ARP1.0
+     */
+     func removeNetworkStatusListeners()
 }
 
 /**

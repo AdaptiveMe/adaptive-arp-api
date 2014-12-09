@@ -31,6 +31,48 @@ Contributors:
    @version 1.0
 */
 public protocol IService : IBaseCommunication {
+     /**
+        Get a reference to a registered service by name.
+        @param serviceName Name of service.
+        @return A service, if registered, or null of the service does not exist.
+     */
+     func getService(serviceName:String) -> Service
+
+     /**
+        Request async a service for an Url
+        @param serviceRequest
+        @param service
+        @param callback
+     */
+     func invokeService(serviceRequest:ServiceRequest, service:Service, callback:IServiceResultCallback)
+     /**
+        Check whether a service by the given name is registered.
+        @param serviceName
+        @return True if the service is registered, false otherwise.
+     */
+     func isRegistered(serviceName:String) -> Bool
+
+     /**
+        Check whether a service by the given name is registered.
+        @param serviceName
+        @return True if the service is registered, false otherwise.
+     */
+     func isRegistered(service:Service) -> Bool
+
+     /**
+        Register a new service
+        @param service to register
+     */
+     func registerService(service:Service)
+     /**
+        Unregister all services.
+     */
+     func unregisterServices()
+     /**
+        Unregister a service
+        @param service to unregister
+     */
+     func unregisterService(service:Service)
 }
 
 /**

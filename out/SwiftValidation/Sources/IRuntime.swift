@@ -31,6 +31,18 @@ Contributors:
    @version 1.0
 */
 public protocol IRuntime : IBaseSystem {
+     /**
+        Dismiss the current Application
+        @since ARP1.0
+     */
+     func dismissApplication()
+     /**
+        Whether the application dismiss the splash screen successfully or not
+        @return true if the application has dismissed the splash screen;false otherwise
+        @since ARP1.0
+     */
+     func dismissSplashScreen() -> Bool
+
 }
 
 /**

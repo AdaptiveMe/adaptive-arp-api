@@ -31,6 +31,25 @@ Contributors:
    @version 1.0
 */
 public protocol IBrowser : IBaseUI {
+     /**
+        null
+     */
+     func openExtenalBrowser(url:String) -> Bool
+
+     /**
+        Open a new window showing the url webpage with a title and a close button displaying the desired text
+        @param url            to open
+        @param title          of the new window
+        @param backButtonText text of the close button
+        @return true if the new window opens;false otherwise
+     */
+     func openInternalBrowserModal(url:String, title:String, backButtonText:String) -> Bool
+
+     /**
+        null
+     */
+     func openInternalBrowser(url:String, title:String, backButtonText:String) -> Bool
+
 }
 
 /**

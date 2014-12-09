@@ -31,6 +31,29 @@ Contributors:
    @version 1.0
 */
 public protocol IAccelerationListener : IBaseListener {
+     /**
+        No data received - error condition, not authorized or hardware not available. This will be reported once for the
+listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+        @param error
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func onError(error:IAccelerationListenerError)
+     /**
+        Correct data received.
+        @param acceleration
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func onResult(acceleration:Acceleration)
+     /**
+        Data received with warning - ie. Needs calibration.
+        @param acceleration
+        @param warning
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     func onWarning(acceleration:Acceleration, warning:IAccelerationListenerWarning)
 }
 
 /**

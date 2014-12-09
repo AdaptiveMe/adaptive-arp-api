@@ -31,6 +31,12 @@ Contributors:
    @version 1.0
 */
 public protocol IFileDataStoreResultCallback : IFileDataResultCallback {
+     /**
+        Result of data storage operation.
+        @param file File reference to stored data.
+        @since ARP1.0
+     */
+     func onResult(file:IFile)
 }
 
 /**

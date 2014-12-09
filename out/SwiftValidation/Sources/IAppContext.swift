@@ -31,6 +31,18 @@ Contributors:
    @version 1.0
 */
 public protocol IAppContext : NSObjectProtocol {
+     /**
+        The main application context. This should be cast to the platform specific implementation.
+        @return Object representing the specific singleton application context provided by the OS.
+     */
+     func getContext() -> AnyObject
+
+     /**
+        The type of context provided by the getContext method.
+        @return Type of platform context.
+     */
+     func getContextType() -> IAppContextType
+
 }
 
 /**

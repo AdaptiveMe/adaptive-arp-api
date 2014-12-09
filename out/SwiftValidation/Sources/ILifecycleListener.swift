@@ -31,6 +31,23 @@ Contributors:
    @version 1.0
 */
 public protocol ILifecycleListener : IBaseListener {
+     /**
+        No data received - error condition, not authorized or hardware not available.
+        @since ARP1.0
+     */
+     func onError(error:ILifecycleListenerError)
+     /**
+        Called when lifecycle changes somehow.
+        @param lifecycle
+        @since ARP1.0
+     */
+     func onResult(lifecycle:Lifecycle)
+     /**
+        Data received with warning
+        @param lifecycle
+        @since ARP1.0
+     */
+     func onWarning(lifecycle:Lifecycle, warning:ILifecycleListenerWarning)
 }
 
 /**

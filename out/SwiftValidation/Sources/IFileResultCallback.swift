@@ -31,6 +31,25 @@ Contributors:
    @version 1.0
 */
 public protocol IFileResultCallback : IBaseCallback {
+     /**
+        On error result of a file operation.
+        @param error Error processing the request.
+        @since ARP1.0
+     */
+     func onError(error:IFileResultCallbackError)
+     /**
+        On correct result of a file operation.
+        @param storageFile Reference to the resulting file.
+        @since ARP1.0
+     */
+     func onResult(storageFile:IFile)
+     /**
+        On partial result of a file operation, containing a warning.
+        @param file            Reference to the offending file.
+        @param warning         Warning processing the request.
+        @since ARP1.0
+     */
+     func onWarning(file:IFile, warning:IFileResultCallbackWarning)
 }
 
 /**

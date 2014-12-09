@@ -31,6 +31,11 @@ Contributors:
    @version 1.0
 */
 public protocol IVideo : IBaseMedia {
+     /**
+        Play url video stream
+        @param url of the video
+     */
+     func playStream(url:String)
 }
 
 /**

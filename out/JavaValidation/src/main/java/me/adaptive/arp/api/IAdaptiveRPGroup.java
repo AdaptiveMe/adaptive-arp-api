@@ -42,6 +42,7 @@ public enum IAdaptiveRPGroup {
      Social,
      System,
      UI,
-     Util
+     Util,
+     Unknown
 
 }
