@@ -1,5 +1,4 @@
 /*
- *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -37,43 +36,42 @@
  *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
- *
  */
 
 package me.adaptive.arp.api;
 
 /**
  * Represents an instance of a service.
+ *
+ * @author Aryslan
+ * @since ARP1.0
  */
-public class Service {
+public class Service extends APIBean {
 
     /**
-     * Enpoint of the service
-     *
-     * @since ARP1.0
+     * Endpoint of the service
      */
-    private Endpoint endpoint;
+    private ServiceEndpoint serviceEndpoint;
+
     /**
      * The service name
-     *
-     * @since ARP1.0
      */
     private String name;
+
     /**
      * The method used
-     *
-     * @since ARP1.0
      */
     private IService.ServiceMethod method;
+
     /**
      * The type of the service
-     *
-     * @since ARP1.0
      */
     private IService.ServiceType type;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
+     *
+     * @since ARP1.0
      */
     public Service() {
     }
@@ -81,37 +79,37 @@ public class Service {
     /**
      * Constructor used by the implementation
      *
-     * @param endpoint
-     * @param name
-     * @param method
-     * @param type
+     * @param serviceEndpoint Endpoint of the service
+     * @param name            Name of the service
+     * @param method          Method of the service
+     * @param type            Type of the service
      * @since ARP1.0
      */
-    public Service(Endpoint endpoint, String name, IService.ServiceMethod method, IService.ServiceType type) {
-        this.endpoint = endpoint;
+    public Service(ServiceEndpoint serviceEndpoint, String name, IService.ServiceMethod method, IService.ServiceType type) {
+        this.serviceEndpoint = serviceEndpoint;
         this.name = name;
         this.method = method;
         this.type = type;
     }
 
     /**
-     * Returns the endpoint
+     * Returns the serviceEndpoint
      *
-     * @return endpoint
+     * @return serviceEndpoint
      * @since ARP1.0
      */
-    public Endpoint getEndpoint() {
-        return endpoint;
+    public ServiceEndpoint getServiceEndpoint() {
+        return serviceEndpoint;
     }
 
     /**
-     * Set the endpoint
+     * Set the serviceEndpoint
      *
-     * @param endpoint
+     * @param serviceEndpoint Endpoint of the service
      * @since ARP1.0
      */
-    public void setEndpoint(Endpoint endpoint) {
-        this.endpoint = endpoint;
+    public void setServiceEndpoint(ServiceEndpoint serviceEndpoint) {
+        this.serviceEndpoint = serviceEndpoint;
     }
 
     /**
@@ -127,7 +125,7 @@ public class Service {
     /**
      * Set the name
      *
-     * @param name
+     * @param name Name of the service
      * @since ARP1.0
      */
     public void setName(String name) {
@@ -147,7 +145,7 @@ public class Service {
     /**
      * Set the method
      *
-     * @param method
+     * @param method Method of the service
      * @since ARP1.0
      */
     public void setMethod(IService.ServiceMethod method) {
@@ -167,7 +165,7 @@ public class Service {
     /**
      * Set the type
      *
-     * @param type
+     * @param type Type of the service
      * @since ARP1.0
      */
     public void setType(IService.ServiceType type) {

@@ -21,10 +21,19 @@
  *
  * Contributors:
  *
- *     * DBarranco
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
  *                 <http://github.com/Aryslan>
  *                 <http://twitter.com/Aryslan>
  *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -34,15 +43,26 @@ package me.adaptive.arp.api;
 
 /**
  * Represents a single secureKey-value pair.
+ *
+ * @author Aryslan
+ * @since ARP1.0
  */
-public class SecureKeyPair {
+public class SecureKeyPair extends APIBean {
 
+    /**
+     * Key of the secured element
+     */
     private String secureKey;
 
+    /**
+     * Value of the secured element
+     */
     private String secureData;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
+     *
+     * @since ARP1.0
      */
     public SecureKeyPair() {
     }

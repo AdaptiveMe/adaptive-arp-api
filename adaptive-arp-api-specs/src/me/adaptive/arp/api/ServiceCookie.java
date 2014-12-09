@@ -1,5 +1,4 @@
 /*
- *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -37,27 +36,28 @@
  *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
- *
  */
 
 package me.adaptive.arp.api;
 
 /**
- * Structure representing the data of a http cookie.
+ * Structure representing the value of a http cookie.
+ *
+ * @author Aryslan
+ * @since ARP1.0
  */
-public class Cookie {
+public class ServiceCookie extends APIBean {
+
     /**
      * Name ot the cookie
-     *
-     * @since ARP1.0
      */
     private String name;
+
     /**
-     * Value of the Cookie
-     *
-     * @since ARP1.0
+     * Value of the ServiceCookie
      */
-    private String data;
+    private String value;
+
     /**
      * Domain for which the cookie is valid.
      */
@@ -73,36 +73,62 @@ public class Cookie {
     private String scheme;
 
     /**
-     * Cookie is secure (https only)
+     * ServiceCookie is secure (https only)
      */
     private boolean secure;
 
     /**
-     * Cookie expiry in milliseconds or -1 for session only.
+     * ServiceCookie expiry in milliseconds or -1 for session only.
      */
     private long expiry;
 
     /**
-     * Cookie creation timestamp in milliseconds.
+     * ServiceCookie creation timestamp in milliseconds.
      */
     private long creation;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
      *
-     * @param name
-     * @param data
      * @since ARP1.0
      */
-    public Cookie(String name, String data) {
-        this.name = name;
-        this.data = data;
+    public ServiceCookie() {
     }
 
     /**
      * Constructor used by the implementation
+     *
+     * @param name  Name of the cookie
+     * @param value Value of the cookie
+     * @since ARP1.0
      */
-    public Cookie() {
+    public ServiceCookie(String name, String value) {
+        this.name = name;
+        this.value = value;
+    }
+
+    /**
+     * Contructor with fields
+     *
+     * @param name     Name of the cookie
+     * @param value    Value of the cookie
+     * @param domain   Domain of the cookie
+     * @param path     Path of the cookie
+     * @param scheme   Scheme of the cookie
+     * @param secure   Privacy of the cookie
+     * @param expiry   Expiration date of the cookie
+     * @param creation Creation date of the cookie
+     * @since ARP1.0
+     */
+    public ServiceCookie(String name, String value, String domain, String path, String scheme, boolean secure, long expiry, long creation) {
+        this.name = name;
+        this.value = value;
+        this.domain = domain;
+        this.path = path;
+        this.scheme = scheme;
+        this.secure = secure;
+        this.expiry = expiry;
+        this.creation = creation;
     }
 
     /**
@@ -118,7 +144,8 @@ public class Cookie {
     /**
      * Set the domain
      *
-     * @param domain
+     * @param domain Domain of the cookie
+     * @since ARP1.0
      */
     public void setDomain(String domain) {
         this.domain = domain;
@@ -137,7 +164,8 @@ public class Cookie {
     /**
      * Set the path
      *
-     * @param path
+     * @param path Path of the cookie
+     * @since ARP1.0
      */
     public void setPath(String path) {
         this.path = path;
@@ -156,7 +184,8 @@ public class Cookie {
     /**
      * Set the scheme
      *
-     * @param scheme
+     * @param scheme Scheme of the cookie
+     * @since ARP1.0
      */
     public void setScheme(String scheme) {
         this.scheme = scheme;
@@ -175,7 +204,8 @@ public class Cookie {
     /**
      * Set whether the cookie is secure or not
      *
-     * @param secure
+     * @param secure Privacy of the cookie
+     * @since ARP1.0
      */
     public void setSecure(boolean secure) {
         this.secure = secure;
@@ -194,7 +224,8 @@ public class Cookie {
     /**
      * Set the expiration date in milis
      *
-     * @param expiry
+     * @param expiry Expiration date of the cookie
+     * @since ARP1.0
      */
     public void setExpiry(long expiry) {
         this.expiry = expiry;
@@ -203,7 +234,7 @@ public class Cookie {
     /**
      * Returns the cookie name
      *
-     * @return name
+     * @return name Name of the cookie
      * @since ARP1.0
      */
     public String getName() {
@@ -213,7 +244,7 @@ public class Cookie {
     /**
      * Set the cookie name
      *
-     * @param name
+     * @param name Name of the cookie
      * @since ARP1.0
      */
     public void setName(String name) {
@@ -223,28 +254,40 @@ public class Cookie {
     /**
      * Returns the cookie value
      *
-     * @return
+     * @return Value of the cookie
      * @since ARP1.0
      */
-    public String getData() {
-        return data;
+    public String getValue() {
+        return value;
     }
 
     /**
      * Set the cookie value
      *
-     * @param data
+     * @param value Value of the cookie
      * @since ARP1.0
      */
-    public void setData(String data) {
-        this.data = data;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     /**
-     * @return
+     * Returns the creation date
+     *
+     * @return Creation date of the cookie
      * @since ARP1.0
      */
     public long getCreation() {
         return creation;
+    }
+
+    /**
+     * Sets the creation date
+     *
+     * @param creation Creation date of the cookie
+     * @since ARP1.0
+     */
+    public void setCreation(long creation) {
+        this.creation = creation;
     }
 }

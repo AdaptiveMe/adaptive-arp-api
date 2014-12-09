@@ -22,9 +22,18 @@
  * Contributors:
  *
  *     * Ferran Vila Conesa
- *              <http://github.com/fnva>
- *              <http://twitter.com/ferran_vila>
- *              <mailto:ferran.vila.conesa@gmail.com>
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,9 +41,12 @@
 package me.adaptive.arp.api;
 
 /**
- * Represents a row for a data table.
+ * Structure representing a row for a data table.
+ *
+ * @author Ferran Vila Conesa
+ * @since ARP1.0
  */
-public class Row {
+public class DatabaseRow extends APIBean {
 
     /**
      * The values of the row.
@@ -42,17 +54,20 @@ public class Row {
     private Object[] values;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
+     *
+     * @since ARP1.0
      */
-    public Row() {
+    public DatabaseRow() {
     }
 
     /**
      * Constructor for implementation using.
      *
      * @param values The values of the row
+     * @since ARP1.0
      */
-    public Row(Object[] values) {
+    public DatabaseRow(Object[] values) {
         this.values = values;
     }
 
@@ -60,6 +75,7 @@ public class Row {
      * Returns the values of the row.
      *
      * @return The values of the row.
+     * @since ARP1.0
      */
     public Object[] getValues() {
         return values;
@@ -69,6 +85,7 @@ public class Row {
      * Sets the values of the row.
      *
      * @param values The values of the row.
+     * @since ARP1.0
      */
     public void setValues(Object[] values) {
         this.values = values;

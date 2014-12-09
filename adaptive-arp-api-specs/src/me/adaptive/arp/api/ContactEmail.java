@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,46 +42,47 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the email data elements of a contact.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class ContactEmail {
+public class ContactEmail extends APIBean {
 
     /**
      * The type of the email
-     *
-     * @since ARP1.0
      */
     private EmailType type;
+
     /**
      * Whether the email is the primary one or not
-     *
-     * @since ARP1.0
      */
     private boolean primary;
+
     /**
      * Email of the Contact
-     *
-     * @since ARP1.0
      */
     private String email;
 
     /**
+     * Default constructor
+     *
+     * @since ARP1.0
+     */
+    public ContactEmail() {
+    }
+
+    /**
      * Constructor used by the implementation
      *
-     * @param type
-     * @param primary
-     * @param email
+     * @param type    Type of the email
+     * @param primary Is email primary
+     * @param email   Email of the contact
      * @since ARP1.0
      */
     public ContactEmail(EmailType type, boolean primary, String email) {
         this.type = type;
         this.primary = primary;
         this.email = email;
-    }
-
-    /**
-     * Constructor used by the implementation
-     */
-    public ContactEmail() {
     }
 
     /**
@@ -87,7 +98,7 @@ public class ContactEmail {
     /**
      * Set the type of the email
      *
-     * @param type
+     * @param type Type of the email
      * @since ARP1.0
      */
     public void setType(EmailType type) {
@@ -127,7 +138,7 @@ public class ContactEmail {
     /**
      * Set the email of the Contact
      *
-     * @param email
+     * @param email Email of the contact
      * @since ARP1.0
      */
     public void setEmail(String email) {

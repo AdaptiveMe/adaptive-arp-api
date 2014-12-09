@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,15 +42,24 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the internal unique identifier data elements of a contact.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class ContactUid {
+public class ContactUid extends APIBean {
 
     /**
      * The id of the Contact
+     */
+    private String contactId;
+
+    /**
+     * Default constructor
      *
      * @since ARP1.0
      */
-    private String contactId;
+    public ContactUid() {
+    }
 
     /**
      * Constructor used by implementation to set the Contact id.
@@ -50,12 +69,6 @@ public class ContactUid {
      */
     public ContactUid(String contactId) {
         this.contactId = contactId;
-    }
-
-    /**
-     * Constructor used by the implementation
-     */
-    public ContactUid() {
     }
 
     /**

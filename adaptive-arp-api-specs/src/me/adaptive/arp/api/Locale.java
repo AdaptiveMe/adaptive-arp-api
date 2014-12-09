@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,24 +42,25 @@ package me.adaptive.arp.api;
 
 /**
  * Represents a specific user or system locate.
+ *
+ * @author Aryslan
+ * @since ARP1.0
  */
-public class Locale {
+public class Locale extends APIBean {
 
     /**
      * A valid ISO Country Code.
-     *
-     * @since ARP1.0
      */
     private String country;
     /**
      * A valid ISO Language Code.
-     *
-     * @since ARP1.0
      */
     private String language;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
+     *
+     * @since ARP1.0
      */
     public Locale() {
     }
@@ -57,8 +68,8 @@ public class Locale {
     /**
      * Constructor used by the implementation
      *
-     * @param country
-     * @param language
+     * @param country  Country of the Locale
+     * @param language Language of the Locale
      * @since ARP1.0
      */
     public Locale(String language, String country) {
@@ -104,14 +115,5 @@ public class Locale {
      */
     public void setLanguage(String language) {
         this.language = language;
-    }
-
-    /**
-     * Overriden method according to the expected filename
-     *
-     * @return string representation of the filename with the locale content
-     */
-    public String toString() {
-        return this.language.toLowerCase() + (this.country.toUpperCase() != null ? "-" + this.country.toUpperCase() : "");
     }
 }

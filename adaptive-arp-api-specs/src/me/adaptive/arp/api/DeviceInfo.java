@@ -21,7 +21,19 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -30,13 +42,17 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the basic device information.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class DeviceInfo {
+public class DeviceInfo extends APIBean {
 
     /**
      * Name of device - equivalent to brand.
      */
     private String name;
+
     /**
      * Model of device - equivalent to device release or version.
      */
@@ -54,7 +70,9 @@ public class DeviceInfo {
     private String uuid;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
+     *
+     * @since ARP1.0
      */
     public DeviceInfo() {
     }
@@ -66,6 +84,7 @@ public class DeviceInfo {
      * @param model  of the device.
      * @param vendor of the device.
      * @param uuid   unique* identifier (* platform dependent).
+     * @since ARP1.0
      */
     public DeviceInfo(String name, String model, String vendor, String uuid) {
         this.name = name;
@@ -78,6 +97,7 @@ public class DeviceInfo {
      * Returns the name of the device.
      *
      * @return String with device name.
+     * @since ARP1.0
      */
     public String getName() {
         return name;
@@ -87,6 +107,7 @@ public class DeviceInfo {
      * Returns the model of the device.
      *
      * @return String with the model of the device.
+     * @since ARP1.0
      */
     public String getModel() {
         return model;
@@ -96,6 +117,7 @@ public class DeviceInfo {
      * Returns the vendor of the device.
      *
      * @return String with the vendor name.
+     * @since ARP1.0
      */
     public String getVendor() {
         return vendor;
@@ -105,6 +127,7 @@ public class DeviceInfo {
      * Returns the platform dependent UUID of the device.
      *
      * @return String with the 128-bit device identifier.
+     * @since ARP1.0
      */
     public String getUuid() {
         return uuid;

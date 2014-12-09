@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,17 +42,21 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the data elements of an email addressee.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class EmailAddress {
+public class EmailAddress extends APIBean {
+
     /**
      * The Email address
-     *
-     * @since ARP1.0
      */
     private String address;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
+     *
+     * @since ARP1.0
      */
     public EmailAddress() {
     }
@@ -50,7 +64,7 @@ public class EmailAddress {
     /**
      * Constructor used by implementation
      *
-     * @param address
+     * @param address of the Email
      * @since ARP1.0
      */
     public EmailAddress(String address) {

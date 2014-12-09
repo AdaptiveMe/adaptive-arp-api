@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -33,21 +43,29 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the social data elements of a contact.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class ContactSocial {
+public class ContactSocial extends APIBean {
 
     /**
      * The social network
-     *
-     * @since ARP1.0
      */
     private SocialNetwork socialNetwork;
+
     /**
      * The profileUrl
+     */
+    private String profileUrl;
+
+    /**
+     * Default constructor
      *
      * @since ARP1.0
      */
-    private String profileUrl;
+    public ContactSocial() {
+    }
 
     /**
      * Constructor used by the implementation
@@ -59,12 +77,6 @@ public class ContactSocial {
     public ContactSocial(SocialNetwork socialNetwork, String profileUrl) {
         this.socialNetwork = socialNetwork;
         this.profileUrl = profileUrl;
-    }
-
-    /**
-     * Constructor used by the implementation
-     */
-    public ContactSocial() {
     }
 
     /**
@@ -80,7 +92,7 @@ public class ContactSocial {
     /**
      * Set the social network
      *
-     * @param socialNetwork
+     * @param socialNetwork of the profile
      * @since ARP1.0
      */
     public void setSocialNetwork(SocialNetwork socialNetwork) {
@@ -100,7 +112,7 @@ public class ContactSocial {
     /**
      * Set the profile url of the iser
      *
-     * @param profileUrl
+     * @param profileUrl of the user
      * @since ARP1.0
      */
     public void setProfileUrl(String profileUrl) {

@@ -1,5 +1,4 @@
 /*
- *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -37,64 +36,27 @@
  *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
- *
  */
 
 package me.adaptive.arp.api;
 
 /**
  * Represents a local or remote service request.
+ *
+ * @author Aryslan
+ * @since ARP1.0
  */
-public class ServiceRequest {
+public class ServiceRequest extends APIBean {
 
     /**
      * Request/Response data content (plain text).
-     *
-     * @since ARP1.0
      */
     private String content;
+
     /**
      * The request/response content type (MIME TYPE).
-     *
-     * @since ARP1.0
      */
     private String contentType;
-    /**
-     * The length in bytes for the Content field.
-     *
-     * @since ARP1.0
-     */
-    private int contentLength;
-    /**
-     * The byte[] representing the Content field.
-     *
-     * @since ARP1.0
-     */
-    private byte[] rawContent;
-    /**
-     * The headers array (name,value pairs) to be included on the I/O service request.
-     *
-     * @since ARP1.0
-     */
-    private Header[] headers;
-    /**
-     * The request method
-     *
-     * @since ARP1.0
-     */
-    private String method;
-    /**
-     * The HTTP procotol version to be used for this request.
-     *
-     * @since ARP1.0
-     */
-    private IService.ProtocolVersion protocolVersion;
-    /**
-     * The session context for the Request/Response.
-     *
-     * @since ARP1.0
-     */
-    private ISession session;
 
     /**
      * Encoding of the binary payload - by default assumed to be UTF8.
@@ -102,7 +64,44 @@ public class ServiceRequest {
     private String contentEncoding;
 
     /**
-     * Constructor used by the implementation
+     * The length in bytes for the Content field.
+     */
+    private int contentLength;
+
+    /**
+     * The byte[] representing the Content field.
+     */
+    private byte[] contentBinary;
+
+    /**
+     * The length in bytes for the binary Content.
+     */
+    private int contentBinaryLength;
+
+    /**
+     * The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+     */
+    private ServiceHeader[] serviceHeaders;
+
+    /**
+     * The request method
+     */
+    private String method;
+
+    /**
+     * The HTTP procotol version to be used for this request.
+     */
+    private IService.ProtocolVersion protocolVersion;
+
+    /**
+     * Information about the session
+     */
+    private ServiceSession serviceSession;
+
+    /**
+     * Default constructor
+     *
+     * @since ARP1.0
      */
     public ServiceRequest() {
     }
@@ -110,27 +109,29 @@ public class ServiceRequest {
     /**
      * Contructor used by the implementation
      *
-     * @param content
-     * @param contentType
-     * @param contentLength
-     * @param rawContent
-     * @param headers
-     * @param method
-     * @param protocolVersion
-     * @param session
-     * @param contentEncoding
+     * @param content             Request/Response data content (plain text)
+     * @param contentType         The request/response content type (MIME TYPE).
+     * @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
+     * @param contentLength       The length in bytes for the Content field.
+     * @param contentBinary       The byte[] representing the Content field.
+     * @param contentBinaryLength The length in bytes for the binary Content.
+     * @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+     * @param method              The request method
+     * @param protocolVersion     The HTTP procotol version to be used for this request.
+     * @param serviceSession      The element service session
      * @since ARP1.0
      */
-    public ServiceRequest(String content, String contentType, int contentLength, byte[] rawContent, Header[] headers, String method, IService.ProtocolVersion protocolVersion, ISession session, String contentEncoding) {
+    public ServiceRequest(String content, String contentType, String contentEncoding, int contentLength, byte[] contentBinary, int contentBinaryLength, ServiceHeader[] serviceHeaders, String method, IService.ProtocolVersion protocolVersion, ServiceSession serviceSession) {
         this.content = content;
         this.contentType = contentType;
+        this.contentEncoding = contentEncoding;
         this.contentLength = contentLength;
-        this.rawContent = rawContent;
-        this.headers = headers;
+        this.contentBinary = contentBinary;
+        this.contentBinaryLength = contentBinaryLength;
+        this.serviceHeaders = serviceHeaders;
         this.method = method;
         this.protocolVersion = protocolVersion;
-        this.session = session;
-        this.contentEncoding = contentEncoding;
+        this.serviceSession = serviceSession;
     }
 
     /**
@@ -146,7 +147,7 @@ public class ServiceRequest {
     /**
      * Set the protocol version
      *
-     * @param protocolVersion
+     * @param protocolVersion The HTTP procotol version to be used for this request.
      * @since ARP1.0
      */
     public void setProtocolVersion(IService.ProtocolVersion protocolVersion) {
@@ -166,7 +167,7 @@ public class ServiceRequest {
     /**
      * Set the content
      *
-     * @param content
+     * @param content Request/Response data content (plain text)
      * @since ARP1.0
      */
     public void setContent(String content) {
@@ -186,7 +187,7 @@ public class ServiceRequest {
     /**
      * Set the content type
      *
-     * @param contentType
+     * @param contentType The request/response content type (MIME TYPE).
      * @since ARP1.0
      */
     public void setContentType(String contentType) {
@@ -206,7 +207,7 @@ public class ServiceRequest {
     /**
      * Set the content length
      *
-     * @param contentLength
+     * @param contentLength The length in bytes for the Content field.
      * @since ARP1.0
      */
     public void setContentLength(int contentLength) {
@@ -216,41 +217,41 @@ public class ServiceRequest {
     /**
      * Returns the byte[] of the content
      *
-     * @return rawContent
+     * @return contentBinary
      * @since ARP1.0
      */
-    public byte[] getRawContent() {
-        return rawContent;
+    public byte[] getContentBinary() {
+        return contentBinary;
     }
 
     /**
      * Set the byte[] of the content
      *
-     * @param rawContent
+     * @param contentBinary The byte[] representing the Content field.
      * @since ARP1.0
      */
-    public void setRawContent(byte[] rawContent) {
-        this.rawContent = rawContent;
+    public void setContentBinary(byte[] contentBinary) {
+        this.contentBinary = contentBinary;
     }
 
     /**
-     * Returns the array of Header
+     * Returns the array of ServiceHeader
      *
-     * @return headers
+     * @return serviceHeaders
      * @since ARP1.0
      */
-    public Header[] getHeaders() {
-        return headers;
+    public ServiceHeader[] getServiceHeaders() {
+        return serviceHeaders;
     }
 
     /**
-     * Set the array of Header
+     * Set the array of ServiceHeader
      *
-     * @param headers
+     * @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
      * @since ARP1.0
      */
-    public void setHeaders(Header[] headers) {
-        this.headers = headers;
+    public void setServiceHeaders(ServiceHeader[] serviceHeaders) {
+        this.serviceHeaders = serviceHeaders;
     }
 
     /**
@@ -266,31 +267,11 @@ public class ServiceRequest {
     /**
      * Set the method
      *
-     * @param method
+     * @param method The request method
      * @since ARP1.0
      */
     public void setMethod(String method) {
         this.method = method;
-    }
-
-    /**
-     * Returns the session object
-     *
-     * @return session
-     * @since ARP1.0
-     */
-    public ISession getSession() {
-        return session;
-    }
-
-    /**
-     * Set the session object
-     *
-     * @param session
-     * @since ARP1.0
-     */
-    public void setSession(ISession session) {
-        this.session = session;
     }
 
     /**
@@ -306,10 +287,51 @@ public class ServiceRequest {
     /**
      * Set the content encoding
      *
-     * @param contentEncoding
+     * @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
      * @since ARP1.0
      */
     public void setContentEncoding(String contentEncoding) {
         this.contentEncoding = contentEncoding;
+    }
+
+
+    /**
+     * Retrusn the binary content length
+     *
+     * @return contentBinaryLength
+     * @since ARP1.0
+     */
+    public int getContentBinaryLength() {
+        return contentBinaryLength;
+    }
+
+    /**
+     * Set the binary content length
+     *
+     * @param contentBinaryLength The length in bytes for the binary Content.
+     * @since ARP1.0
+     */
+    public void setContentBinaryLength(int contentBinaryLength) {
+        this.contentBinaryLength = contentBinaryLength;
+    }
+
+    /**
+     * Getter for service session
+     *
+     * @return The element service session
+     * @since ARP1.0
+     */
+    public ServiceSession getServiceSession() {
+        return serviceSession;
+    }
+
+    /**
+     * Setter for service session
+     *
+     * @param serviceSession The element service session
+     * @since ARP1.0
+     */
+    public void setServiceSession(ServiceSession serviceSession) {
+        this.serviceSession = serviceSession;
     }
 }

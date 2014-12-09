@@ -41,75 +41,53 @@
 package me.adaptive.arp.api;
 
 /**
- * Represents a specific application life-cycle stage.
+ * Structure representing the column specification of a data column.
  *
- * @author Francisco Javier Martin Bueno
+ * @author Ferran Vila Conesa
  * @since ARP1.0
  */
-public class Lifecycle extends APIBean {
+public class DatabaseColumn extends APIBean {
 
     /**
-     * Represent the state of the app
-     * <p/>
-     * Possible lifecycle States:
-     * <p/>
-     * 1. Starting    - Before starting.
-     * 2. Started     - Start concluded.
-     * 3. Running     - Accepts user interaction - running in foreground.
-     * 4. Pausing     - Before going to background.
-     * 4.1 PausedIdle - In background, no scheduled background activity (passive).
-     * 4.2 PausedRun  - In background, scheduled background activity (periodic network access, gps access, etc.)
-     * 5. Resuming    - Before going to foreground, followed by Running state.
-     * 6. Stopping    - Before stopping.
-     *
-     * @since ARP1.0
+     * Name of the column
      */
-    private State state;
+    private String name;
 
     /**
      * Default constructor
      *
      * @since ARP1.0
      */
-    public Lifecycle() {
+    public DatabaseColumn() {
     }
 
     /**
-     * Constructor used by the implementation
+     * Constructor with fields
      *
-     * @param state of the app
+     * @param name Name of the column
      * @since ARP1.0
      */
-    public Lifecycle(State state) {
-        this.state = state;
+    public DatabaseColumn(String name) {
+        this.name = name;
     }
 
     /**
-     * Returns the state of the application
+     * Returns the name of the column.
      *
-     * @return state of the app
+     * @return The name of the column.
      * @since ARP1.0
      */
-    public State getState() {
-        return state;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Set the State of the application
+     * Sets the name of the column.
      *
-     * @param state of the app
+     * @param name The name of the column.
      * @since ARP1.0
      */
-    public void setState(State state) {
-        this.state = state;
-    }
-
-    /**
-     * Possible lifecycle States
-     *
-     * @since ARP1.0
-     */
-    public enum State {
-        Starting, Started, Running, Pausing, PausedIdle, PausedRun, Resuming, Stopping, Unknown
+    public void setName(String name) {
+        this.name = name;
     }
 }

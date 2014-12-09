@@ -1,5 +1,4 @@
 /*
- *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -37,64 +36,62 @@
  *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
- *
  */
 
 package me.adaptive.arp.api;
 
 /**
  * Structure representing a remote or local service access end-point.
+ *
+ * @author Aryslan
+ * @since ARP1.0
  */
-public class Endpoint {
+public class ServiceEndpoint extends APIBean {
 
     /**
-     * The remote serice host (alias or IP).
-     *
-     * @since ARP1.0
+     * The remote service host (alias or IP).
      */
     private String host;
+
     /**
      * The remote service path (to be added to the host and port url).
-     *
-     * @since ARP1.0
      */
     private String path;
+
     /**
      * The remote service accessible port.
-     *
-     * @since ARP1.0
      */
     private int port;
+
     /**
      * The proxy url - if needed - to access the remote service. If IP and port are used, use the following syntax: "http://<IP>:<Port>".
-     *
-     * @since ARP1.0
      */
     private String proxy;
+
     /**
      * The remote service scheme.
-     *
-     * @since ARP1.0
      */
     private String scheme;
 
     /**
-     * Constructor used by the implementation
+     * Default Constructor
+     *
+     * @since ARP1.0
      */
-    public Endpoint() {
+    public ServiceEndpoint() {
     }
 
     /**
-     * Constructor used by the implementation
+     * Constructor with parameters
      *
-     * @param host
-     * @param path
-     * @param port
-     * @param proxy
-     * @param scheme
+     * @param host   Remote service host
+     * @param path   Remote service Path
+     * @param port   Remote service Port
+     * @param proxy  Proxy url "http://<IP>:<Port>"
+     * @param scheme Remote service scheme
      * @since ARP1.0
      */
-    public Endpoint(String host, String path, int port, String proxy, String scheme) {
+    public ServiceEndpoint(String host, String path, int port, String proxy, String scheme) {
         this.host = host;
         this.path = path;
         this.port = port;
@@ -103,9 +100,9 @@ public class Endpoint {
     }
 
     /**
-     * Returns the host
+     * Returns the Remote service host
      *
-     * @return host
+     * @return Remote service host
      * @since ARP1.0
      */
     public String getHost() {
@@ -113,9 +110,9 @@ public class Endpoint {
     }
 
     /**
-     * Set the host
+     * Set the Remote service host
      *
-     * @param host
+     * @param host Remote service host
      * @since ARP1.0
      */
     public void setHost(String host) {
@@ -123,9 +120,9 @@ public class Endpoint {
     }
 
     /**
-     * Returns the path
+     * Returns the Remote service Path
      *
-     * @return path
+     * @return Remote service Path
      * @since ARP1.0
      */
     public String getPath() {
@@ -133,9 +130,9 @@ public class Endpoint {
     }
 
     /**
-     * Set the path
+     * Set the Remote service Path
      *
-     * @param path
+     * @param path Remote service Path
      * @since ARP1.0
      */
     public void setPath(String path) {
@@ -143,9 +140,9 @@ public class Endpoint {
     }
 
     /**
-     * Returns the port
+     * Returns the Remote service Port
      *
-     * @return port
+     * @return Remote service Port
      * @since ARP1.0
      */
     public int getPort() {
@@ -153,9 +150,9 @@ public class Endpoint {
     }
 
     /**
-     * Set the port
+     * Set the Remote service Port
      *
-     * @param port
+     * @param port Remote service Port
      * @since ARP1.0
      */
     public void setPort(int port) {
@@ -163,9 +160,9 @@ public class Endpoint {
     }
 
     /**
-     * Return the proxy
+     * Return the Proxy url
      *
-     * @return proxy
+     * @return Proxy url
      * @since ARP1.0
      */
     public String getProxy() {
@@ -173,9 +170,9 @@ public class Endpoint {
     }
 
     /**
-     * Set the proxy
+     * Set the Proxy url
      *
-     * @param proxy
+     * @param proxy Proxy url
      * @since ARP1.0
      */
     public void setProxy(String proxy) {
@@ -183,9 +180,9 @@ public class Endpoint {
     }
 
     /**
-     * Returns the scheme
+     * Returns the Remote service scheme
      *
-     * @return scheme
+     * @return Remote service scheme
      * @since ARP1.0
      */
     public String getScheme() {
@@ -193,9 +190,9 @@ public class Endpoint {
     }
 
     /**
-     * Set the scheme
+     * Set the Remote service scheme
      *
-     * @param scheme
+     * @param scheme Remote service scheme
      * @since ARP1.0
      */
     public void setScheme(String scheme) {

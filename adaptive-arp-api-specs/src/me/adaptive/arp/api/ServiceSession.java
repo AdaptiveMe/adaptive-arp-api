@@ -41,75 +41,80 @@
 package me.adaptive.arp.api;
 
 /**
- * Represents a specific application life-cycle stage.
+ * Represents a session object for HTTP request and responses
  *
- * @author Francisco Javier Martin Bueno
+ * @author Ferran Vila Conesa
  * @since ARP1.0
  */
-public class Lifecycle extends APIBean {
+public class ServiceSession {
 
     /**
-     * Represent the state of the app
-     * <p/>
-     * Possible lifecycle States:
-     * <p/>
-     * 1. Starting    - Before starting.
-     * 2. Started     - Start concluded.
-     * 3. Running     - Accepts user interaction - running in foreground.
-     * 4. Pausing     - Before going to background.
-     * 4.1 PausedIdle - In background, no scheduled background activity (passive).
-     * 4.2 PausedRun  - In background, scheduled background activity (periodic network access, gps access, etc.)
-     * 5. Resuming    - Before going to foreground, followed by Running state.
-     * 6. Stopping    - Before stopping.
-     *
-     * @since ARP1.0
+     * The cookies of the response
      */
-    private State state;
+    private ServiceCookie[] cookies;
+
+    /**
+     * The attributes of the response
+     */
+    private Object[] attributes;
 
     /**
      * Default constructor
      *
      * @since ARP1.0
      */
-    public Lifecycle() {
+    public ServiceSession() {
     }
 
     /**
-     * Constructor used by the implementation
+     * Constructor with fields
      *
-     * @param state of the app
+     * @param cookies    The cookies of the response
+     * @param attributes Attributes of the response
      * @since ARP1.0
      */
-    public Lifecycle(State state) {
-        this.state = state;
+    public ServiceSession(ServiceCookie[] cookies, Object[] attributes) {
+        this.cookies = cookies;
+        this.attributes = attributes;
     }
 
     /**
-     * Returns the state of the application
+     * Returns the cookies of the response
      *
-     * @return state of the app
+     * @return The cookies of the response
      * @since ARP1.0
      */
-    public State getState() {
-        return state;
+    public ServiceCookie[] getCookies() {
+        return cookies;
     }
 
     /**
-     * Set the State of the application
+     * Sets the cookies of the response
      *
-     * @param state of the app
+     * @param cookies The cookies of the response
      * @since ARP1.0
      */
-    public void setState(State state) {
-        this.state = state;
+    public void setCookies(ServiceCookie[] cookies) {
+        this.cookies = cookies;
     }
 
     /**
-     * Possible lifecycle States
+     * Gets the attributes of the response
      *
+     * @return Attributes of the response
      * @since ARP1.0
      */
-    public enum State {
-        Starting, Started, Running, Pausing, PausedIdle, PausedRun, Resuming, Stopping, Unknown
+    public Object[] getAttributes() {
+        return attributes;
+    }
+
+    /**
+     * Sets the attributes for the response
+     *
+     * @param attributes Attributes of the response
+     * @since ARP1.0
+     */
+    public void setAttributes(Object[] attributes) {
+        this.attributes = attributes;
     }
 }

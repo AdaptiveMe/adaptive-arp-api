@@ -21,50 +21,61 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
-
 
 package me.adaptive.arp.api;
 
 /**
  * Structure representing the assigned tags data elements of a contact.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class ContactTag {
+public class ContactTag extends APIBean {
 
     /**
      * The name of the Tag
-     *
-     * @since ARP1.0
      */
     private String name;
-    /**
-     * The value of the Tag
-     *
-     * @since ARP1.0
-     */
-    private String dataValue;
 
     /**
-     * Constructor used by the implementation
+     * The value of the Tag
+     */
+    private String value;
+
+    /**
+     * Default constructor
      *
-     * @param dataValue
-     * @param name
      * @since ARP1.0
      */
-    public ContactTag(String name, String dataValue) {
-        this.dataValue = dataValue;
-        this.name = name;
+    public ContactTag() {
     }
 
     /**
      * Constructor used by the implementation
+     *
+     * @param value Value of the tag
+     * @param name  Name of the tag
+     * @since ARP1.0
      */
-    public ContactTag() {
+    public ContactTag(String name, String value) {
+        this.value = value;
+        this.name = name;
     }
 
     /**
@@ -80,7 +91,7 @@ public class ContactTag {
     /**
      * Set the name of the Tag
      *
-     * @param name
+     * @param name Name of the tag
      * @since ARP1.0
      */
     public void setName(String name) {
@@ -93,18 +104,18 @@ public class ContactTag {
      * @return value
      * @since ARP1.0
      */
-    public String getDataValue() {
-        return dataValue;
+    public String getValue() {
+        return value;
     }
 
     /**
      * Set the value of the Tag
      *
-     * @param dataValue
+     * @param value Value of the tag
      * @since ARP1.0
      */
-    public void setDataValue(String dataValue) {
-        this.dataValue = dataValue;
+    public void setValue(String value) {
+        this.value = value;
     }
 }
 
