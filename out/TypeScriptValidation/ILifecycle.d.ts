@@ -1,4 +1,6 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseApplication.d.ts" />
+/// <reference path="ILifecycleListener.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +34,28 @@ declare module Adaptive {
        @version 1.0
     */
     interface ILifecycle extends IBaseApplication {
+        /**
+           Add the listener for the lifecycle of the app
+           @param listener
+           @since ARP1.0
+        */
+        addLifecycleListener(listener: ILifecycleListener): any;
+        /**
+           Whether the application is in background or not
+           @return true if the application is in background;false otherwise
+           @since ARP1.0
+        */
+        isBackground(): boolean;
+        /**
+           Un-registers an existing listener from receiving lifecycle events.
+           @param listener
+           @since ARP1.0
+        */
+        removeLifecycleListener(listener: ILifecycleListener): any;
+        /**
+           Removes all existing listeners from receiving lifecycle events.
+           @since ARP1.0
+        */
+        removeLifecycleListeners(): any;
     }
 }

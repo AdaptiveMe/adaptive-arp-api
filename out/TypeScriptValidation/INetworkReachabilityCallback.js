@@ -22,5 +22,8 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
+///<reference path="INetworkReachabilityCallbackError.ts"/>
+///<reference path="INetworkReachabilityCallbackWarning.ts"/>
 //# sourceMappingURL=INetworkReachabilityCallback.js.map

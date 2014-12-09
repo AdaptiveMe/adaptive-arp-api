@@ -1,4 +1,8 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
+/// <reference path="IServiceResultCallbackError.d.ts" />
+/// <reference path="IServiceResultCallbackWarning.d.ts" />
+/// <reference path="ServiceResponse.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,24 @@ declare module Adaptive {
        @version 1.0
     */
     interface IServiceResultCallback extends IBaseCallback {
+        /**
+           This method is called on Error
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IServiceResultCallbackError): any;
+        /**
+           This method is called on Result
+           @param response data
+           @since ARP1.0
+        */
+        onResult(response: ServiceResponse): any;
+        /**
+           This method is called on Warning
+           @param response data
+           @param warning  returned by the platform
+           @since ARP1.0
+        */
+        onWarning(response: ServiceResponse, warning: IServiceResultCallbackWarning): any;
     }
 }

@@ -22,5 +22,9 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="Acceleration.ts"/>
+///<reference path="IAccelerationListenerError.ts"/>
+///<reference path="IAccelerationListenerWarning.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseListener.ts"/>
 //# sourceMappingURL=IAccelerationListener.js.map

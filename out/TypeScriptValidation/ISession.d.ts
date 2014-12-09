@@ -1,3 +1,5 @@
+/// <reference path="Cookie.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCommunication.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -32,5 +34,61 @@ declare module Adaptive {
        @version 1.0
     */
     interface ISession extends IBaseCommunication {
+        /**
+           Returns an attribute object
+           @return object attribute
+           @since ARP1.0
+        */
+        getAttribute(name: string): any;
+        /**
+           Returns all Session Attributes
+        */
+        getAttributes(): any[];
+        /**
+           Returns the cookie array
+           @return cookie array
+           @since ARP1.0
+        */
+        getCookies(): Cookie[];
+        /**
+           Returns all attibute names
+           @return array with all attribute names
+        */
+        listAttributeNames(): string[];
+        /**
+           Remove an attribute by its name
+           @param name
+        */
+        removeAttribute(name: string): any;
+        /**
+           Remove all attributes
+        */
+        removeAttributes(): any;
+        /**
+           Remove a cookie
+           @param cookie
+        */
+        removeCookie(cookie: Cookie): any;
+        /**
+           Remove a cookies array
+           @param cookies
+        */
+        removeCookies(cookies: Cookie[]): any;
+        /**
+           Set an attribute
+           @param name
+           @param value
+        */
+        setAttribute(name: string, value: any): any;
+        /**
+           Set a cookie object
+           @param cookie
+        */
+        setCookie(cookie: Cookie): any;
+        /**
+           Set the cookies array
+           @param cookies
+        */
+        setCookies(cookies: Cookie[]): any;
     }
 }

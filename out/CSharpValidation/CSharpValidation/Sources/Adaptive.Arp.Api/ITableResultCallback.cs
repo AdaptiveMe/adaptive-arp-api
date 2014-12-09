@@ -35,6 +35,31 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface ITableResultCallback : IBaseCallback {
+          /**
+             Result callback for error responses
+             @param error Returned error
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          void OnError(ITableResultCallbackError Error);
+
+          /**
+             Result callback for correct responses
+             @param table Returns the table
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          void OnResult(Table Table);
+
+          /**
+             Result callback for warning responses
+             @param table   Returns the table
+             @param warning Returned Warning
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          void OnWarning(Table Table, ITableResultCallbackWarning Warning);
+
      }
 }
 

@@ -1,3 +1,4 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseUI.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------

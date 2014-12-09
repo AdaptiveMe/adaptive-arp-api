@@ -22,5 +22,6 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSecurity.ts"/>
 //# sourceMappingURL=IOAuth.js.map

@@ -35,6 +35,13 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IFileDataStoreResultCallback : IFileDataResultCallback {
+          /**
+             Result of data storage operation.
+             @param file File reference to stored data.
+             @since ARP1.0
+          */
+          void OnResult(IFile File);
+
      }
 }
 

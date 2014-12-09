@@ -1,3 +1,5 @@
+/// <reference path="IAccelerationListener.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSensor.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -32,5 +34,25 @@ declare module Adaptive {
        @version 1.0
     */
     interface IAccelerometer extends IBaseSensor {
+        /**
+           Register a new listener that will receive acceleration events.
+           @param listener to be registered.
+           @author Carlos Lozano Diez
+           @since ARP1.0
+        */
+        addAccelerationListener(listener: IAccelerationListener): any;
+        /**
+           De-registers an existing listener from receiving acceleration events.
+           @param listener
+           @author Carlos Lozano Diez
+           @since ARP1.0
+        */
+        removeAccelerationListener(listener: IAccelerationListener): any;
+        /**
+           Removed all existing listeners from receiving acceleration events.
+           @author Carlos Lozano Diez
+           @since ARP1.0
+        */
+        removeAccelerationListeners(): any;
     }
 }

@@ -35,6 +35,15 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IMessaging : IBasePIM {
+          /**
+             Send text SMS
+             @param number   to send
+             @param text     to send
+             @param callback with the result
+             @since ARP1.0
+          */
+          void SendSMS(string Number, string Text, IMessagingCallback Callback);
+
      }
 }
 

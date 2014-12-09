@@ -22,5 +22,13 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
+///<reference path="ICapabilitiesButton.ts"/>
+///<reference path="ICapabilitiesCommunication.ts"/>
+///<reference path="ICapabilitiesData.ts"/>
+///<reference path="ICapabilitiesMedia.ts"/>
+///<reference path="ICapabilitiesNet.ts"/>
+///<reference path="ICapabilitiesNotification.ts"/>
+///<reference path="ICapabilitiesSensor.ts"/>
 //# sourceMappingURL=ICapabilities.js.map

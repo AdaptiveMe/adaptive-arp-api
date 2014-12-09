@@ -1,3 +1,7 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IAppResource.d.ts" />
+/// <reference path="IAppResourceCallbackError.d.ts" />
+/// <reference path="IAppResourceCallbackWarning.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -32,5 +36,17 @@ declare module Adaptive {
        @version 1.0
     */
     interface IAppResourceCallback extends IBaseCallback {
+        /**
+           null
+        */
+        onError(resource: IAppResource, error: IAppResourceCallbackError): any;
+        /**
+           null
+        */
+        onResult(resource: IAppResource): any;
+        /**
+           null
+        */
+        onWarning(resource: IAppResource, warning: IAppResourceCallbackWarning): any;
     }
 }

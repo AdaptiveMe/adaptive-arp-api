@@ -23,7 +23,11 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="Database.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
+///<reference path="IDatabaseResultCallbackError.ts"/>
+///<reference path="IDatabaseResultCallbackWarning.ts"/>
 
 module Adaptive {
 
@@ -35,6 +39,28 @@ module Adaptive {
         @version 1.0
      */
      export interface IDatabaseResultCallback extends IBaseCallback {
+          /**
+             Result callback for error responses
+             @param error Returned error
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onError(error:IDatabaseResultCallbackError);
+          /**
+             Result callback for correct responses
+             @param database Returns the database
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onResult(database:Database);
+          /**
+             Result callback for warning responses
+             @param database Returns the database
+             @param warning  Returned Warning
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onWarning(database:Database, warning:IDatabaseResultCallbackWarning);
      }
 }
 

@@ -1,4 +1,7 @@
+/// <reference path="Email.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBasePIM.d.ts" />
+/// <reference path="IMessagingCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +35,12 @@ declare module Adaptive {
        @version 1.0
     */
     interface IMail extends IBasePIM {
+        /**
+           Send an Email
+           @param data     the email data
+           @param callback with the result
+           @since ARP1.0
+        */
+        sendEmail(data: Email, callback: IMessagingCallback): any;
     }
 }

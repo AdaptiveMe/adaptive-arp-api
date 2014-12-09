@@ -35,6 +35,21 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAppResourceCallback : IBaseCallback {
+          /**
+             null
+          */
+          void OnError(IAppResource Resource, IAppResourceCallbackError Error);
+
+          /**
+             null
+          */
+          void OnResult(IAppResource Resource);
+
+          /**
+             null
+          */
+          void OnWarning(IAppResource Resource, IAppResourceCallbackWarning Warning);
+
      }
 }
 

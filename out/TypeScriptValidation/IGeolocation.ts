@@ -23,7 +23,9 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSensor.ts"/>
+///<reference path="IGeolocationListener.ts"/>
 
 module Adaptive {
 
@@ -35,6 +37,23 @@ module Adaptive {
         @version 1.0
      */
      export interface IGeolocation extends IBaseSensor {
+          /**
+             Register a new listener that will receive geolocation events.
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          addGeolocationListener(listener:IGeolocationListener);
+          /**
+             De-registers an existing listener from receiving geolocation events.
+             @param listener
+             @since ARP1.0
+          */
+          removeGeolocationListener(listener:IGeolocationListener);
+          /**
+             Removed all existing listeners from receiving geolocation events.
+             @since ARP1.0
+          */
+          removeGeolocationListeners();
      }
 }
 

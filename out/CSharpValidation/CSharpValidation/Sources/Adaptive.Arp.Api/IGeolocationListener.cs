@@ -35,6 +35,26 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IGeolocationListener : IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available.
+             @since ARP1.0
+          */
+          void OnError(IGeolocationListenerError Error);
+
+          /**
+             Correct data received.
+             @param geolocation
+             @since ARP1.0
+          */
+          void OnResult(Geolocation Geolocation);
+
+          /**
+             Data received with warning - ie. HighDoP
+             @param geolocation
+             @since ARP1.0
+          */
+          void OnWarning(Geolocation Geolocation, IGeolocationListenerWarning Warning);
+
      }
 }
 

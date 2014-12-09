@@ -1,3 +1,4 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -31,5 +32,10 @@ declare module Adaptive {
        @version 1.0
     */
     interface IAdaptiveRP {
+        API_VERSION: string;
+        /**
+           null
+        */
+        getAPIGroup(): IAdaptiveRPGroup;
     }
 }

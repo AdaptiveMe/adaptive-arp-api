@@ -1,4 +1,6 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSystem.d.ts" />
+/// <reference path="OSInfo.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +34,10 @@ declare module Adaptive {
        @version 1.0
     */
     interface IOS extends IBaseSystem {
+        /**
+           Returns the OSInfo for the current operating system.
+           @return OSInfo with name, version and vendor of the OS.
+        */
+        getOSInfo(): OSInfo;
     }
 }

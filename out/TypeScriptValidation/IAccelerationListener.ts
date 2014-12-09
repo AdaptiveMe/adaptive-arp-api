@@ -23,6 +23,10 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="Acceleration.ts"/>
+///<reference path="IAccelerationListenerError.ts"/>
+///<reference path="IAccelerationListenerWarning.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseListener.ts"/>
 
 module Adaptive {
@@ -35,6 +39,29 @@ module Adaptive {
         @version 1.0
      */
      export interface IAccelerationListener extends IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available. This will be reported once for the
+listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+             @param error
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          onError(error:IAccelerationListenerError);
+          /**
+             Correct data received.
+             @param acceleration
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          onResult(acceleration:Acceleration);
+          /**
+             Data received with warning - ie. Needs calibration.
+             @param acceleration
+             @param warning
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          onWarning(acceleration:Acceleration, warning:IAccelerationListenerWarning);
      }
 }
 

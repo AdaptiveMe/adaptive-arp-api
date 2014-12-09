@@ -23,6 +23,10 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAppResourceFormat.ts"/>
+///<reference path="IAppResourcePayload.ts"/>
+///<reference path="IAppResourceType.ts"/>
+
 module Adaptive {
 
      /**
@@ -33,6 +37,62 @@ module Adaptive {
         @version 1.0
      */
      export interface IAppResource {
+          /**
+             null
+          */
+          geType() : IAppResourcePayload;
+          /**
+             null
+          */
+          getData() : Array<number>;
+          /**
+             null
+          */
+          getDataPathLinked() : string;
+          /**
+             null
+          */
+          getDataStored() : Array<number>;
+          /**
+             null
+          */
+          getFormat() : IAppResourceFormat;
+          /**
+             null
+          */
+          getMd5() : string;
+          /**
+             null
+          */
+          getMimetype() : string;
+          /**
+             null
+          */
+          getName() : string;
+          /**
+             null
+          */
+          getPath() : string;
+          /**
+             null
+          */
+          getSize() : number;
+          /**
+             null
+          */
+          getSizeStored() : number;
+          /**
+             null
+          */
+          getTimestamp() : number;
+          /**
+             null
+          */
+          getType() : IAppResourceType;
+          /**
+             null
+          */
+          getUuid() : string;
      }
 }
 

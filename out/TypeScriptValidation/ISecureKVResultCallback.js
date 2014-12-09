@@ -22,5 +22,9 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
+///<reference path="ISecureKVResultCallbackError.ts"/>
+///<reference path="ISecureKVResultCallbackWarning.ts"/>
+///<reference path="SecureKeyPair.ts"/>
 //# sourceMappingURL=ISecureKVResultCallback.js.map

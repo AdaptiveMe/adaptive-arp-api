@@ -27,6 +27,12 @@ package me.adaptive.tools.jenerator.java;
 import com.thoughtworks.qdox.model.*;
 import me.adaptive.tools.jenerator.GeneratorBase;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
+import org.reflections.Reflections;
+import org.reflections.scanners.ResourcesScanner;
+import org.reflections.scanners.SubTypesScanner;
+import org.reflections.util.ClasspathHelper;
+import org.reflections.util.ConfigurationBuilder;
+import org.reflections.util.FilterBuilder;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,10 +41,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by clozano on 02/12/14.
@@ -55,39 +58,76 @@ public class JavaGenerator extends GeneratorBase {
     @Override
     protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc) {
         for (Method method : interfaceMethods) {
-            startComment(5);
-            JavaMethod javaMethod = null;
-            for (JavaMethod m : interfaceMethodsDoc) {
-                if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
-                    javaMethod = m;
-                    break;
+            if (method.getName().equals("get$Synthetic$")) {
+                // getters for all service classes!
+                Class superInterface = null;
+                try {
+                    superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
                 }
-            }
-            if (javaMethod != null) {
-                println(8, javaMethod.getComment());
-                for (DocletTag tag : javaMethod.getTags()) {
-                    println(8, "@" + tag.getName() + " " + tag.getValue());
+                Reflections reflections = new Reflections(new ConfigurationBuilder()
+                        .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                        .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
+                        .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
+
+                Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
+                List<Class> serviceClasses = new ArrayList<>();
+                for (Class subClass : allClassesSet) {
+                    if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase")) {
+                        serviceClasses.add(subClass);
+                    }
                 }
-            }
-            endComment(5);
-            if (method.getReturnType().equals(Void.TYPE)) {
-                print(5, "void ");
+                serviceClasses.sort(new Comparator<Class>() {
+                    @Override
+                    public int compare(Class o1, Class o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+                for (Class serviceClass : serviceClasses) {
+                    startComment(5);
+                    println(8, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Handler.");
+                    println();
+                    println(8, "@return " + serviceClass.getSimpleName().substring(1) + "Handler reference or null if a handler of this type is not registered.");
+                    endComment(5);
+                    println(5, serviceClass.getSimpleName() + " get" + serviceClass.getSimpleName().substring(1) + "Handler();");
+                    println();
+                }
             } else {
-                print(5, convertJavaToNativeType(method.getReturnType()) + " ");
-            }
-            print(method.getName());
-            print("(");
-            for (int i = 0; i < method.getParameterCount(); i++) {
-                Parameter p = method.getParameters()[i];
-                print(convertJavaToNativeType(p.getType()));
-                print(" ");
-                print(p.getName());
-                if (i < method.getParameterCount() - 1) {
-                    print(", ");
+                startComment(5);
+                JavaMethod javaMethod = null;
+                for (JavaMethod m : interfaceMethodsDoc) {
+                    if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
+                        javaMethod = m;
+                        break;
+                    }
                 }
+                if (javaMethod != null) {
+                    println(8, javaMethod.getComment());
+                    for (DocletTag tag : javaMethod.getTags()) {
+                        println(8, "@" + tag.getName() + " " + tag.getValue());
+                    }
+                }
+                endComment(5);
+                if (method.getReturnType().equals(Void.TYPE)) {
+                    print(5, "void ");
+                } else {
+                    print(5, convertJavaToNativeType(method.getReturnType()) + " ");
+                }
+                print(method.getName());
+                print("(");
+                for (int i = 0; i < method.getParameterCount(); i++) {
+                    Parameter p = method.getParameters()[i];
+                    print(convertJavaToNativeType(p.getType()));
+                    print(" ");
+                    print(p.getName());
+                    if (i < method.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println(");");
+                println();
             }
-            println(");");
-            println();
         }
     }
 

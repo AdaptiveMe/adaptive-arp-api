@@ -23,7 +23,11 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
+///<reference path="IFile.ts"/>
+///<reference path="IFileResultCallbackError.ts"/>
+///<reference path="IFileResultCallbackWarning.ts"/>
 
 module Adaptive {
 
@@ -35,6 +39,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IFileResultCallback extends IBaseCallback {
+          /**
+             On error result of a file operation.
+             @param error Error processing the request.
+             @since ARP1.0
+          */
+          onError(error:IFileResultCallbackError);
+          /**
+             On correct result of a file operation.
+             @param storageFile Reference to the resulting file.
+             @since ARP1.0
+          */
+          onResult(storageFile:IFile);
+          /**
+             On partial result of a file operation, containing a warning.
+             @param file            Reference to the offending file.
+             @param warning         Warning processing the request.
+             @since ARP1.0
+          */
+          onWarning(file:IFile, warning:IFileResultCallbackWarning);
      }
 }
 

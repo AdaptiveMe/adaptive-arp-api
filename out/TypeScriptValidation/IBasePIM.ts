@@ -24,6 +24,7 @@ Contributors:
 */
 
 ///<reference path="IAdaptiveRP.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 
 module Adaptive {
 

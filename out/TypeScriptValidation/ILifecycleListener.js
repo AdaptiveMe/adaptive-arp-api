@@ -22,5 +22,9 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseListener.ts"/>
+///<reference path="ILifecycleListenerError.ts"/>
+///<reference path="ILifecycleListenerWarning.ts"/>
+///<reference path="Lifecycle.ts"/>
 //# sourceMappingURL=ILifecycleListener.js.map

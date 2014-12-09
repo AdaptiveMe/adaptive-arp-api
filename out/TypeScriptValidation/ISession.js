@@ -22,5 +22,7 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="Cookie.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommunication.ts"/>
 //# sourceMappingURL=ISession.js.map

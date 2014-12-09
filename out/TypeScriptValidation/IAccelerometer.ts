@@ -23,6 +23,8 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAccelerationListener.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSensor.ts"/>
 
 module Adaptive {
@@ -35,6 +37,26 @@ module Adaptive {
         @version 1.0
      */
      export interface IAccelerometer extends IBaseSensor {
+          /**
+             Register a new listener that will receive acceleration events.
+             @param listener to be registered.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          addAccelerationListener(listener:IAccelerationListener);
+          /**
+             De-registers an existing listener from receiving acceleration events.
+             @param listener
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          removeAccelerationListener(listener:IAccelerationListener);
+          /**
+             Removed all existing listeners from receiving acceleration events.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          removeAccelerationListeners();
      }
 }
 

@@ -35,6 +35,14 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IMail : IBasePIM {
+          /**
+             Send an Email
+             @param data     the email data
+             @param callback with the result
+             @since ARP1.0
+          */
+          void SendEmail(Email Data, IMessagingCallback Callback);
+
      }
 }
 

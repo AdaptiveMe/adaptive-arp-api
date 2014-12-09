@@ -1,3 +1,7 @@
+/// <reference path="Acceleration.d.ts" />
+/// <reference path="IAccelerationListenerError.d.ts" />
+/// <reference path="IAccelerationListenerWarning.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseListener.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -32,5 +36,28 @@ declare module Adaptive {
        @version 1.0
     */
     interface IAccelerationListener extends IBaseListener {
+        /**
+           No data received - error condition, not authorized or hardware not available. This will be reported once for the
+listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+           @param error
+           @author Carlos Lozano Diez
+           @since ARP1.0
+        */
+        onError(error: IAccelerationListenerError): any;
+        /**
+           Correct data received.
+           @param acceleration
+           @author Carlos Lozano Diez
+           @since ARP1.0
+        */
+        onResult(acceleration: Acceleration): any;
+        /**
+           Data received with warning - ie. Needs calibration.
+           @param acceleration
+           @param warning
+           @author Carlos Lozano Diez
+           @since ARP1.0
+        */
+        onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarning): any;
     }
 }

@@ -35,6 +35,28 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface INetworkReachabilityCallback : IBaseCallback {
+          /**
+             No data received - error condition, not authorized .
+             @param error
+             @since ARP1.0
+          */
+          void OnError(INetworkReachabilityCallbackError Error);
+
+          /**
+             Correct data received.
+             @param reachable
+             @since ARP1.0
+          */
+          void OnResult(bool Reachable);
+
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+             @param reachable
+             @param warning
+             @since ARP1.0
+          */
+          void OnWarning(bool Reachable, INetworkReachabilityCallbackWarning Warning);
+
      }
 }
 

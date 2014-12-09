@@ -35,6 +35,38 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IDevice : IBaseSystem {
+          /**
+             Register a new listener that will receive button events.
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          void AddButtonListener(IButtonListener Listener);
+
+          /**
+             Returns the device information for the current device executing the runtime.
+             @return DeviceInfo for the current device.
+          */
+          DeviceInfo GetDeviceInfo();
+
+          /**
+             Gets the current Locale for the device.
+             @return The current Locale information.
+          */
+          Locale GetLocaleCurrent();
+
+          /**
+             De-registers an existing listener from receiving button events.
+             @param listener
+             @since ARP1.0
+          */
+          void RemoveButtonListener(IButtonListener Listener);
+
+          /**
+             Removed all existing listeners from receiving button events.
+             @since ARP1.0
+          */
+          void RemoveButtonListeners();
+
      }
 }
 

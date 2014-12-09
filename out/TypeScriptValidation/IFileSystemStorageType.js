@@ -1,4 +1,3 @@
-/// <reference path="IBasePIM.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -23,14 +22,27 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-declare module Adaptive {
+var Adaptive;
+(function (Adaptive) {
     /**
-       Definition of IContact interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
+       Enumeration IFileSystemStorageType
     */
-    interface IContact extends IBasePIM {
-    }
-}
+    var IFileSystemStorageType = (function () {
+        function IFileSystemStorageType(value) {
+            this.value = value;
+        }
+        IFileSystemStorageType.prototype.toString = function () {
+            return this.value;
+        };
+        IFileSystemStorageType.Application = new IFileSystemStorageType("Application");
+        IFileSystemStorageType.Document = new IFileSystemStorageType("Document");
+        IFileSystemStorageType.Cloud = new IFileSystemStorageType("Cloud");
+        IFileSystemStorageType.Protected = new IFileSystemStorageType("Protected");
+        IFileSystemStorageType.Cache = new IFileSystemStorageType("Cache");
+        IFileSystemStorageType.External = new IFileSystemStorageType("External");
+        IFileSystemStorageType.Unknown = new IFileSystemStorageType("Unknown");
+        return IFileSystemStorageType;
+    })();
+    Adaptive.IFileSystemStorageType = IFileSystemStorageType;
+})(Adaptive || (Adaptive = {}));
+//# sourceMappingURL=IFileSystemStorageType.js.map

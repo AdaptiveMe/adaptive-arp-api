@@ -1,4 +1,8 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
+/// <reference path="IFile.d.ts" />
+/// <reference path="IFileListResultCallbackError.d.ts" />
+/// <reference path="IFileListResultCallbackWarning.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,24 @@ declare module Adaptive {
        @version 1.0
     */
     interface IFileListResultCallback extends IBaseCallback {
+        /**
+           On error result of a file operation.
+           @param error Error processing the request.
+           @since ARP1.0
+        */
+        onError(error: IFileListResultCallbackError): any;
+        /**
+           On correct result of a file operation.
+           @param files Array of resulting files/folders.
+           @since ARP1.0
+        */
+        onResult(files: IFile[]): any;
+        /**
+           On partial result of a file operation, containing a warning.
+           @param files   Array of resulting files/folders.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(files: IFile[], warning: IFileListResultCallbackWarning): any;
     }
 }

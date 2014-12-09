@@ -1,4 +1,8 @@
+/// <reference path="DeviceInfo.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSystem.d.ts" />
+/// <reference path="IButtonListener.d.ts" />
+/// <reference path="Locale.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,32 @@ declare module Adaptive {
        @version 1.0
     */
     interface IDevice extends IBaseSystem {
+        /**
+           Register a new listener that will receive button events.
+           @param listener to be registered.
+           @since ARP1.0
+        */
+        addButtonListener(listener: IButtonListener): any;
+        /**
+           Returns the device information for the current device executing the runtime.
+           @return DeviceInfo for the current device.
+        */
+        getDeviceInfo(): DeviceInfo;
+        /**
+           Gets the current Locale for the device.
+           @return The current Locale information.
+        */
+        getLocaleCurrent(): Locale;
+        /**
+           De-registers an existing listener from receiving button events.
+           @param listener
+           @since ARP1.0
+        */
+        removeButtonListener(listener: IButtonListener): any;
+        /**
+           Removed all existing listeners from receiving button events.
+           @since ARP1.0
+        */
+        removeButtonListeners(): any;
     }
 }

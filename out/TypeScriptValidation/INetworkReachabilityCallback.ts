@@ -23,7 +23,10 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
+///<reference path="INetworkReachabilityCallbackError.ts"/>
+///<reference path="INetworkReachabilityCallbackWarning.ts"/>
 
 module Adaptive {
 
@@ -35,6 +38,25 @@ module Adaptive {
         @version 1.0
      */
      export interface INetworkReachabilityCallback extends IBaseCallback {
+          /**
+             No data received - error condition, not authorized .
+             @param error
+             @since ARP1.0
+          */
+          onError(error:INetworkReachabilityCallbackError);
+          /**
+             Correct data received.
+             @param reachable
+             @since ARP1.0
+          */
+          onResult(reachable:boolean);
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+             @param reachable
+             @param warning
+             @since ARP1.0
+          */
+          onWarning(reachable:boolean, warning:INetworkReachabilityCallbackWarning);
      }
 }
 

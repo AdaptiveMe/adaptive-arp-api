@@ -23,7 +23,11 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommunication.ts"/>
+///<reference path="IServiceResultCallback.ts"/>
+///<reference path="Service.ts"/>
+///<reference path="ServiceRequest.ts"/>
 
 module Adaptive {
 
@@ -35,6 +39,45 @@ module Adaptive {
         @version 1.0
      */
      export interface IService extends IBaseCommunication {
+          /**
+             Get a reference to a registered service by name.
+             @param serviceName Name of service.
+             @return A service, if registered, or null of the service does not exist.
+          */
+          getService(serviceName:string) : Service;
+          /**
+             Request async a service for an Url
+             @param serviceRequest
+             @param service
+             @param callback
+          */
+          invokeService(serviceRequest:ServiceRequest, service:Service, callback:IServiceResultCallback);
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName
+             @return True if the service is registered, false otherwise.
+          */
+          isRegistered(serviceName:string) : boolean;
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName
+             @return True if the service is registered, false otherwise.
+          */
+          isRegistered(service:Service) : boolean;
+          /**
+             Register a new service
+             @param service to register
+          */
+          registerService(service:Service);
+          /**
+             Unregister all services.
+          */
+          unregisterServices();
+          /**
+             Unregister a service
+             @param service to unregister
+          */
+          unregisterService(service:Service);
      }
 }
 

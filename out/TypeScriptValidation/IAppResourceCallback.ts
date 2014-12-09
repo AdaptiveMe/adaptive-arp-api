@@ -23,6 +23,10 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IAppResource.ts"/>
+///<reference path="IAppResourceCallbackError.ts"/>
+///<reference path="IAppResourceCallbackWarning.ts"/>
 ///<reference path="IBaseCallback.ts"/>
 
 module Adaptive {
@@ -35,6 +39,18 @@ module Adaptive {
         @version 1.0
      */
      export interface IAppResourceCallback extends IBaseCallback {
+          /**
+             null
+          */
+          onError(resource:IAppResource, error:IAppResourceCallbackError);
+          /**
+             null
+          */
+          onResult(resource:IAppResource);
+          /**
+             null
+          */
+          onWarning(resource:IAppResource, warning:IAppResourceCallbackWarning);
      }
 }
 

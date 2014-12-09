@@ -22,22 +22,24 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-///<reference path="IBaseCommunication.ts"/>
-
-module Adaptive {
-
-     /**
-        Definition of ISession interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ISession extends IBaseCommunication {
-     }
-}
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/
+var Adaptive;
+(function (Adaptive) {
+    /**
+       Enumeration IFileSystemSecurity
+    */
+    var IFileSystemSecurity = (function () {
+        function IFileSystemSecurity(value) {
+            this.value = value;
+        }
+        IFileSystemSecurity.prototype.toString = function () {
+            return this.value;
+        };
+        IFileSystemSecurity.Default = new IFileSystemSecurity("Default");
+        IFileSystemSecurity.Protected = new IFileSystemSecurity("Protected");
+        IFileSystemSecurity.Encrypted = new IFileSystemSecurity("Encrypted");
+        IFileSystemSecurity.Unknown = new IFileSystemSecurity("Unknown");
+        return IFileSystemSecurity;
+    })();
+    Adaptive.IFileSystemSecurity = IFileSystemSecurity;
+})(Adaptive || (Adaptive = {}));
+//# sourceMappingURL=IFileSystemSecurity.js.map

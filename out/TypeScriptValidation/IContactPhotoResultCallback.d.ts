@@ -1,4 +1,7 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
+/// <reference path="IContactPhotoResultCallbackError.d.ts" />
+/// <reference path="IContactPhotoResultCallbackWarning.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +35,24 @@ declare module Adaptive {
        @version 1.0
     */
     interface IContactPhotoResultCallback extends IBaseCallback {
+        /**
+           This method is called on Error
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IContactPhotoResultCallbackError): any;
+        /**
+           This method is called on Result
+           @param contactPhoto returned by the platform
+           @since ARP1.0
+        */
+        onResult(contactPhoto: number[]): any;
+        /**
+           This method is called on Warning
+           @param contactPhoto returned by the platform
+           @param warning      returned by the platform
+           @since ARP1.0
+        */
+        onWarning(contactPhoto: number[], warning: IContactPhotoResultCallbackWarning): any;
     }
 }

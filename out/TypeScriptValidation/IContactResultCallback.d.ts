@@ -1,4 +1,8 @@
+/// <reference path="Contact.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
+/// <reference path="IContactResultCallbackError.d.ts" />
+/// <reference path="IContactResultCallbackWarning.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,24 @@ declare module Adaptive {
        @version 1.0
     */
     interface IContactResultCallback extends IBaseCallback {
+        /**
+           This method is called on Error
+           @param error returned by the platform
+           @since ARP1.0
+        */
+        onError(error: IContactResultCallbackError): any;
+        /**
+           This method is called on Result
+           @param contacts returned by the platform
+           @since ARP1.0
+        */
+        onResult(contacts: Contact[]): any;
+        /**
+           This method is called on Warning
+           @param contacts returned by the platform
+           @param warning  returned by the platform
+           @since ARP1.0
+        */
+        onWarning(contacts: Contact[], warning: IContactResultCallbackWarning): any;
     }
 }

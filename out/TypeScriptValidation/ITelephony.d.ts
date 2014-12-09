@@ -1,4 +1,6 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCommunication.d.ts" />
+/// <reference path="ITelephonyStatus.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +34,12 @@ declare module Adaptive {
        @version 1.0
     */
     interface ITelephony extends IBaseCommunication {
+        /**
+           Invoke a phone call
+           @param number to call
+           @return Status of the call
+           @since ARP1.0
+        */
+        call(number: string): ITelephonyStatus;
     }
 }

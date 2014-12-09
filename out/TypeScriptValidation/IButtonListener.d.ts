@@ -1,4 +1,8 @@
+/// <reference path="Button.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseListener.d.ts" />
+/// <reference path="IButtonListenerError.d.ts" />
+/// <reference path="IButtonListenerWarning.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,24 @@ declare module Adaptive {
        @version 1.0
     */
     interface IButtonListener extends IBaseListener {
+        /**
+           No data received
+           @param error occurred
+           @since ARP1.0
+        */
+        onError(error: IButtonListenerError): any;
+        /**
+           Called on button pressed
+           @param button pressed
+           @since ARP1.0
+        */
+        onResult(button: Button): any;
+        /**
+           Data received with warning
+           @param button  pressed
+           @param warning happened
+           @since ARP1.0
+        */
+        onWarning(button: Button, warning: IButtonListenerWarning): any;
     }
 }

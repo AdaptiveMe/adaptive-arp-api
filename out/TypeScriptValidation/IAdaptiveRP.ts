@@ -23,6 +23,8 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
+
 module Adaptive {
 
      /**
@@ -33,6 +35,11 @@ module Adaptive {
         @version 1.0
      */
      export interface IAdaptiveRP {
+          API_VERSION : string;
+          /**
+             null
+          */
+          getAPIGroup() : IAdaptiveRPGroup;
      }
 }
 

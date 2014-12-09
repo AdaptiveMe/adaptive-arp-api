@@ -1,4 +1,8 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
+/// <reference path="IFile.d.ts" />
 /// <reference path="IFileDataResultCallback.d.ts" />
+/// <reference path="IFileDataResultCallbackError.d.ts" />
+/// <reference path="IFileDataResultCallbackWarning.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,11 @@ declare module Adaptive {
        @version 1.0
     */
     interface IFileDataStoreResultCallback extends IFileDataResultCallback {
+        /**
+           Result of data storage operation.
+           @param file File reference to stored data.
+           @since ARP1.0
+        */
+        onResult(file: IFile): any;
     }
 }

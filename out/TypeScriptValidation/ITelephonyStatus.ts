@@ -23,21 +23,19 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="IBasePIM.ts"/>
-
 module Adaptive {
 
      /**
-        Definition of IContact interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
+        Enumeration ITelephonyStatus
      */
-     export interface IContact extends IBasePIM {
+     export class ITelephonyStatus {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Dialing = new ITelephonyStatus("Dialing");
+          static Failed = new ITelephonyStatus("Failed");
+          static Unknown = new ITelephonyStatus("Unknown");
+
      }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

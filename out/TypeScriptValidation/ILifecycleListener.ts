@@ -23,7 +23,11 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseListener.ts"/>
+///<reference path="ILifecycleListenerError.ts"/>
+///<reference path="ILifecycleListenerWarning.ts"/>
+///<reference path="Lifecycle.ts"/>
 
 module Adaptive {
 
@@ -35,6 +39,23 @@ module Adaptive {
         @version 1.0
      */
      export interface ILifecycleListener extends IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available.
+             @since ARP1.0
+          */
+          onError(error:ILifecycleListenerError);
+          /**
+             Called when lifecycle changes somehow.
+             @param lifecycle
+             @since ARP1.0
+          */
+          onResult(lifecycle:Lifecycle);
+          /**
+             Data received with warning
+             @param lifecycle
+             @since ARP1.0
+          */
+          onWarning(lifecycle:Lifecycle, warning:ILifecycleListenerWarning);
      }
 }
 

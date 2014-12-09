@@ -23,6 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseMedia.ts"/>
 
 module Adaptive {
@@ -35,6 +36,11 @@ module Adaptive {
         @version 1.0
      */
      export interface IVideo extends IBaseMedia {
+          /**
+             Play url video stream
+             @param url of the video
+          */
+          playStream(url:string);
      }
 }
 

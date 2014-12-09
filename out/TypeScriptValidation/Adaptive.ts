@@ -32,6 +32,504 @@ module Adaptive {
         @version 1.0
      */
      export interface IAppRegistry {
+          /**
+             Returns a reference to the registered AccelerometerHandler.
+
+             @return AccelerometerHandler reference or null if a handler of this type is not registered.
+          */
+          getAccelerometerHandler() : IAccelerometer
+
+          /**
+             Returns a reference to the registered AdsHandler.
+
+             @return AdsHandler reference or null if a handler of this type is not registered.
+          */
+          getAdsHandler() : IAds
+
+          /**
+             Returns a reference to the registered AlarmHandler.
+
+             @return AlarmHandler reference or null if a handler of this type is not registered.
+          */
+          getAlarmHandler() : IAlarm
+
+          /**
+             Returns a reference to the registered AmbientLightHandler.
+
+             @return AmbientLightHandler reference or null if a handler of this type is not registered.
+          */
+          getAmbientLightHandler() : IAmbientLight
+
+          /**
+             Returns a reference to the registered AnalyticsHandler.
+
+             @return AnalyticsHandler reference or null if a handler of this type is not registered.
+          */
+          getAnalyticsHandler() : IAnalytics
+
+          /**
+             Returns a reference to the registered AudioHandler.
+
+             @return AudioHandler reference or null if a handler of this type is not registered.
+          */
+          getAudioHandler() : IAudio
+
+          /**
+             Returns a reference to the registered BarcodeHandler.
+
+             @return BarcodeHandler reference or null if a handler of this type is not registered.
+          */
+          getBarcodeHandler() : IBarcode
+
+          /**
+             Returns a reference to the registered BarometerHandler.
+
+             @return BarometerHandler reference or null if a handler of this type is not registered.
+          */
+          getBarometerHandler() : IBarometer
+
+          /**
+             Returns a reference to the registered BluetoothHandler.
+
+             @return BluetoothHandler reference or null if a handler of this type is not registered.
+          */
+          getBluetoothHandler() : IBluetooth
+
+          /**
+             Returns a reference to the registered BrowserHandler.
+
+             @return BrowserHandler reference or null if a handler of this type is not registered.
+          */
+          getBrowserHandler() : IBrowser
+
+          /**
+             Returns a reference to the registered CalendarHandler.
+
+             @return CalendarHandler reference or null if a handler of this type is not registered.
+          */
+          getCalendarHandler() : ICalendar
+
+          /**
+             Returns a reference to the registered CameraHandler.
+
+             @return CameraHandler reference or null if a handler of this type is not registered.
+          */
+          getCameraHandler() : ICamera
+
+          /**
+             Returns a reference to the registered CapabilitiesHandler.
+
+             @return CapabilitiesHandler reference or null if a handler of this type is not registered.
+          */
+          getCapabilitiesHandler() : ICapabilities
+
+          /**
+             Returns a reference to the registered CloudHandler.
+
+             @return CloudHandler reference or null if a handler of this type is not registered.
+          */
+          getCloudHandler() : ICloud
+
+          /**
+             Returns a reference to the registered CompressionHandler.
+
+             @return CompressionHandler reference or null if a handler of this type is not registered.
+          */
+          getCompressionHandler() : ICompression
+
+          /**
+             Returns a reference to the registered ConcurrentHandler.
+
+             @return ConcurrentHandler reference or null if a handler of this type is not registered.
+          */
+          getConcurrentHandler() : IConcurrent
+
+          /**
+             Returns a reference to the registered ContactHandler.
+
+             @return ContactHandler reference or null if a handler of this type is not registered.
+          */
+          getContactHandler() : IContact
+
+          /**
+             Returns a reference to the registered CryptoHandler.
+
+             @return CryptoHandler reference or null if a handler of this type is not registered.
+          */
+          getCryptoHandler() : ICrypto
+
+          /**
+             Returns a reference to the registered DataStreamHandler.
+
+             @return DataStreamHandler reference or null if a handler of this type is not registered.
+          */
+          getDataStreamHandler() : IDataStream
+
+          /**
+             Returns a reference to the registered DatabaseHandler.
+
+             @return DatabaseHandler reference or null if a handler of this type is not registered.
+          */
+          getDatabaseHandler() : IDatabase
+
+          /**
+             Returns a reference to the registered DesktopHandler.
+
+             @return DesktopHandler reference or null if a handler of this type is not registered.
+          */
+          getDesktopHandler() : IDesktop
+
+          /**
+             Returns a reference to the registered DeviceHandler.
+
+             @return DeviceHandler reference or null if a handler of this type is not registered.
+          */
+          getDeviceHandler() : IDevice
+
+          /**
+             Returns a reference to the registered DisplayHandler.
+
+             @return DisplayHandler reference or null if a handler of this type is not registered.
+          */
+          getDisplayHandler() : IDisplay
+
+          /**
+             Returns a reference to the registered FacebookHandler.
+
+             @return FacebookHandler reference or null if a handler of this type is not registered.
+          */
+          getFacebookHandler() : IFacebook
+
+          /**
+             Returns a reference to the registered FileSystemHandler.
+
+             @return FileSystemHandler reference or null if a handler of this type is not registered.
+          */
+          getFileSystemHandler() : IFileSystem
+
+          /**
+             Returns a reference to the registered GeolocationHandler.
+
+             @return GeolocationHandler reference or null if a handler of this type is not registered.
+          */
+          getGeolocationHandler() : IGeolocation
+
+          /**
+             Returns a reference to the registered GlobalizationHandler.
+
+             @return GlobalizationHandler reference or null if a handler of this type is not registered.
+          */
+          getGlobalizationHandler() : IGlobalization
+
+          /**
+             Returns a reference to the registered GooglePlusHandler.
+
+             @return GooglePlusHandler reference or null if a handler of this type is not registered.
+          */
+          getGooglePlusHandler() : IGooglePlus
+
+          /**
+             Returns a reference to the registered GyroscopeHandler.
+
+             @return GyroscopeHandler reference or null if a handler of this type is not registered.
+          */
+          getGyroscopeHandler() : IGyroscope
+
+          /**
+             Returns a reference to the registered ImagingHandler.
+
+             @return ImagingHandler reference or null if a handler of this type is not registered.
+          */
+          getImagingHandler() : IImaging
+
+          /**
+             Returns a reference to the registered InternalStorageHandler.
+
+             @return InternalStorageHandler reference or null if a handler of this type is not registered.
+          */
+          getInternalStorageHandler() : IInternalStorage
+
+          /**
+             Returns a reference to the registered LifecycleHandler.
+
+             @return LifecycleHandler reference or null if a handler of this type is not registered.
+          */
+          getLifecycleHandler() : ILifecycle
+
+          /**
+             Returns a reference to the registered LinkedInHandler.
+
+             @return LinkedInHandler reference or null if a handler of this type is not registered.
+          */
+          getLinkedInHandler() : ILinkedIn
+
+          /**
+             Returns a reference to the registered LoggingHandler.
+
+             @return LoggingHandler reference or null if a handler of this type is not registered.
+          */
+          getLoggingHandler() : ILogging
+
+          /**
+             Returns a reference to the registered MagnetometerHandler.
+
+             @return MagnetometerHandler reference or null if a handler of this type is not registered.
+          */
+          getMagnetometerHandler() : IMagnetometer
+
+          /**
+             Returns a reference to the registered MailHandler.
+
+             @return MailHandler reference or null if a handler of this type is not registered.
+          */
+          getMailHandler() : IMail
+
+          /**
+             Returns a reference to the registered ManagementHandler.
+
+             @return ManagementHandler reference or null if a handler of this type is not registered.
+          */
+          getManagementHandler() : IManagement
+
+          /**
+             Returns a reference to the registered MapHandler.
+
+             @return MapHandler reference or null if a handler of this type is not registered.
+          */
+          getMapHandler() : IMap
+
+          /**
+             Returns a reference to the registered MessagingHandler.
+
+             @return MessagingHandler reference or null if a handler of this type is not registered.
+          */
+          getMessagingHandler() : IMessaging
+
+          /**
+             Returns a reference to the registered NFCHandler.
+
+             @return NFCHandler reference or null if a handler of this type is not registered.
+          */
+          getNFCHandler() : INFC
+
+          /**
+             Returns a reference to the registered NetworkInfoHandler.
+
+             @return NetworkInfoHandler reference or null if a handler of this type is not registered.
+          */
+          getNetworkInfoHandler() : INetworkInfo
+
+          /**
+             Returns a reference to the registered NetworkNamingHandler.
+
+             @return NetworkNamingHandler reference or null if a handler of this type is not registered.
+          */
+          getNetworkNamingHandler() : INetworkNaming
+
+          /**
+             Returns a reference to the registered NetworkReachabilityHandler.
+
+             @return NetworkReachabilityHandler reference or null if a handler of this type is not registered.
+          */
+          getNetworkReachabilityHandler() : INetworkReachability
+
+          /**
+             Returns a reference to the registered NetworkStatusHandler.
+
+             @return NetworkStatusHandler reference or null if a handler of this type is not registered.
+          */
+          getNetworkStatusHandler() : INetworkStatus
+
+          /**
+             Returns a reference to the registered NotificationHandler.
+
+             @return NotificationHandler reference or null if a handler of this type is not registered.
+          */
+          getNotificationHandler() : INotification
+
+          /**
+             Returns a reference to the registered NotificationLocalHandler.
+
+             @return NotificationLocalHandler reference or null if a handler of this type is not registered.
+          */
+          getNotificationLocalHandler() : INotificationLocal
+
+          /**
+             Returns a reference to the registered OAuthHandler.
+
+             @return OAuthHandler reference or null if a handler of this type is not registered.
+          */
+          getOAuthHandler() : IOAuth
+
+          /**
+             Returns a reference to the registered OCRHandler.
+
+             @return OCRHandler reference or null if a handler of this type is not registered.
+          */
+          getOCRHandler() : IOCR
+
+          /**
+             Returns a reference to the registered OSHandler.
+
+             @return OSHandler reference or null if a handler of this type is not registered.
+          */
+          getOSHandler() : IOS
+
+          /**
+             Returns a reference to the registered OpenIdHandler.
+
+             @return OpenIdHandler reference or null if a handler of this type is not registered.
+          */
+          getOpenIdHandler() : IOpenId
+
+          /**
+             Returns a reference to the registered PrintingHandler.
+
+             @return PrintingHandler reference or null if a handler of this type is not registered.
+          */
+          getPrintingHandler() : IPrinting
+
+          /**
+             Returns a reference to the registered ProximityHandler.
+
+             @return ProximityHandler reference or null if a handler of this type is not registered.
+          */
+          getProximityHandler() : IProximity
+
+          /**
+             Returns a reference to the registered QRCodeHandler.
+
+             @return QRCodeHandler reference or null if a handler of this type is not registered.
+          */
+          getQRCodeHandler() : IQRCode
+
+          /**
+             Returns a reference to the registered RSSHandler.
+
+             @return RSSHandler reference or null if a handler of this type is not registered.
+          */
+          getRSSHandler() : IRSS
+
+          /**
+             Returns a reference to the registered RuntimeHandler.
+
+             @return RuntimeHandler reference or null if a handler of this type is not registered.
+          */
+          getRuntimeHandler() : IRuntime
+
+          /**
+             Returns a reference to the registered SecurityHandler.
+
+             @return SecurityHandler reference or null if a handler of this type is not registered.
+          */
+          getSecurityHandler() : ISecurity
+
+          /**
+             Returns a reference to the registered ServiceHandler.
+
+             @return ServiceHandler reference or null if a handler of this type is not registered.
+          */
+          getServiceHandler() : IService
+
+          /**
+             Returns a reference to the registered SessionHandler.
+
+             @return SessionHandler reference or null if a handler of this type is not registered.
+          */
+          getSessionHandler() : ISession
+
+          /**
+             Returns a reference to the registered SettingsHandler.
+
+             @return SettingsHandler reference or null if a handler of this type is not registered.
+          */
+          getSettingsHandler() : ISettings
+
+          /**
+             Returns a reference to the registered SocketHandler.
+
+             @return SocketHandler reference or null if a handler of this type is not registered.
+          */
+          getSocketHandler() : ISocket
+
+          /**
+             Returns a reference to the registered StoreHandler.
+
+             @return StoreHandler reference or null if a handler of this type is not registered.
+          */
+          getStoreHandler() : IStore
+
+          /**
+             Returns a reference to the registered TelephonyHandler.
+
+             @return TelephonyHandler reference or null if a handler of this type is not registered.
+          */
+          getTelephonyHandler() : ITelephony
+
+          /**
+             Returns a reference to the registered TimerHandler.
+
+             @return TimerHandler reference or null if a handler of this type is not registered.
+          */
+          getTimerHandler() : ITimer
+
+          /**
+             Returns a reference to the registered TwitterHandler.
+
+             @return TwitterHandler reference or null if a handler of this type is not registered.
+          */
+          getTwitterHandler() : ITwitter
+
+          /**
+             Returns a reference to the registered UIHandler.
+
+             @return UIHandler reference or null if a handler of this type is not registered.
+          */
+          getUIHandler() : IUI
+
+          /**
+             Returns a reference to the registered UpdateHandler.
+
+             @return UpdateHandler reference or null if a handler of this type is not registered.
+          */
+          getUpdateHandler() : IUpdate
+
+          /**
+             Returns a reference to the registered VibrationHandler.
+
+             @return VibrationHandler reference or null if a handler of this type is not registered.
+          */
+          getVibrationHandler() : IVibration
+
+          /**
+             Returns a reference to the registered VideoHandler.
+
+             @return VideoHandler reference or null if a handler of this type is not registered.
+          */
+          getVideoHandler() : IVideo
+
+          /**
+             Returns a reference to the registered WalletHandler.
+
+             @return WalletHandler reference or null if a handler of this type is not registered.
+          */
+          getWalletHandler() : IWallet
+
+          /**
+             Returns a reference to the registered XMLHandler.
+
+             @return XMLHandler reference or null if a handler of this type is not registered.
+          */
+          getXMLHandler() : IXML
+
+          /**
+             null
+          */
+          getPlatformContext() : IAppContext;
+          /**
+             null
+          */
+          getPlatformContextWeb() : IAppContextWebview;
      }
      /**
         Created by clozano on 05/09/2014.
@@ -41,6 +539,62 @@ module Adaptive {
         @version 1.0
      */
      export interface IAppResource {
+          /**
+             null
+          */
+          geType() : IAppResourcePayload;
+          /**
+             null
+          */
+          getData() : Array<number>;
+          /**
+             null
+          */
+          getDataPathLinked() : string;
+          /**
+             null
+          */
+          getDataStored() : Array<number>;
+          /**
+             null
+          */
+          getFormat() : IAppResourceFormat;
+          /**
+             null
+          */
+          getMd5() : string;
+          /**
+             null
+          */
+          getMimetype() : string;
+          /**
+             null
+          */
+          getName() : string;
+          /**
+             null
+          */
+          getPath() : string;
+          /**
+             null
+          */
+          getSize() : number;
+          /**
+             null
+          */
+          getSizeStored() : number;
+          /**
+             null
+          */
+          getTimestamp() : number;
+          /**
+             null
+          */
+          getType() : IAppResourceType;
+          /**
+             null
+          */
+          getUuid() : string;
      }
      /**
         Created by clozano on 05/09/2014.
@@ -50,6 +604,10 @@ module Adaptive {
         @version 1.0
      */
      export interface IAppResourceHandler {
+          /**
+             null
+          */
+          getResource(resourcePath:string, callback:IAppResourceCallback);
      }
      /**
         Definition of IAdaptiveRP interface/protocol.
@@ -59,6 +617,11 @@ module Adaptive {
         @version 1.0
      */
      export interface IAdaptiveRP {
+          API_VERSION : string;
+          /**
+             null
+          */
+          getAPIGroup() : IAdaptiveRPGroup;
      }
      /**
         Created by clozano on 09/09/14.
@@ -68,6 +631,33 @@ module Adaptive {
         @version 1.0
      */
      export interface IAppContextWebview {
+          /**
+             Additional views may be added to an application - a separate activity - and if these will make calls to the
+ARP methods, they must be registered by adding them to the context. When they are added to the context, ARP
+methods are bound to the webview so that they're callable from the HTML application. The primary webview should
+not be added using this method.
+             @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
+          */
+          addWebview(webView:any);
+          /**
+             Returns a reference to the main application webview. This is the first application webview and can not be removed
+with the removeWebview method. The object returned should be cast to the platform specific implementation
+WebView, WKWebView, etc.
+             @return Object representing the specific and primary webview instance of the application.
+          */
+          getWebviewPrimary() : any;
+          /**
+             Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
+This method will always return at least one element; the primary webview.
+             @return Array with all the Webview instances being managed by ARP.
+          */
+          getWebviews() : Array<any>;
+          /**
+             When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
+ARP functions and release resources. The primary webview can not be removed.
+             @param webView The instance of the webview to be removed from the binding.
+          */
+          removeWebview(webView:any);
      }
      /**
         Created by clozano on 05/09/2014.
@@ -77,6 +667,16 @@ module Adaptive {
         @version 1.0
      */
      export interface IAppContext {
+          /**
+             The main application context. This should be cast to the platform specific implementation.
+             @return Object representing the specific singleton application context provided by the OS.
+          */
+          getContext() : any;
+          /**
+             The type of context provided by the getContext method.
+             @return Type of platform context.
+          */
+          getContextType() : IAppContextType;
      }
      /**
         Definition of IFile interface/protocol.
@@ -86,6 +686,137 @@ module Adaptive {
         @version 1.0
      */
      export interface IFile {
+          /**
+             Determine whether the current file/folder can be read from.
+             @return True if the folder/file is readable, false otherwise.
+             @since ARP1.0
+          */
+          canRead() : boolean;
+          /**
+             Determine whether the current file/folder can be written to.
+             @return True if the folder/file is writable, false otherwise.
+             @since ARP1.0
+          */
+          canWrite() : boolean;
+          /**
+             Creates a file with the specified name.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          create(callback:IFileResultCallback);
+          /**
+             Deletes the given file or path. If the file is a directory and contains files and or subdirectories, these will be
+deleted if the cascade parameter is set to true.
+             @param cascade Whether to delete sub-files and sub-folders.
+             @return True if files (and sub-files and folders) whether deleted.
+             @since ARP1.0
+          */
+          delete(cascade:boolean) : boolean;
+          /**
+             Check whether the file/path exists.
+             @return True if the file exists in the filesystem, false otherwise.
+             @since ARP1.0
+          */
+          exists() : boolean;
+          /**
+             Loads the content of the file.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          getContent(callback:IFileDataLoadResultCallback);
+          /**
+             Returns the milliseconds passed since 1/1/1970 since the file was created.
+             @return Timestamp in milliseconds.
+             @since ARP1.0
+          */
+          getDateCreated() : number;
+          /**
+             Returns the milliseconds passed since 1/1/1970 since the file was modified.
+             @return Timestamp in milliseconds.
+             @since ARP1.0
+          */
+          getDateModified() : number;
+          /**
+             null
+          */
+          getFileStorageType() : IFileSystemStorageType;
+          /**
+             null
+          */
+          getFileType() : IFileSystemType;
+          /**
+             Returns the name of the file if the reference is a file or the last path element of the folder.
+             @return The name of the file.
+             @since ARP1.0
+          */
+          getName() : string;
+          /**
+             Returns the path element of the file or folder (excluding the last path element if it's a directory).
+             @return The path to the file.
+             @since ARP1.0
+          */
+          getPath() : string;
+          /**
+             Returns the resolved absolute path elements of the file and/or folders (including the last path element).
+             @return The absolute path to the file.
+             @since ARP1.0
+          */
+          getPathAbsolute() : string;
+          /**
+             null
+          */
+          getSecurityType() : IFileSystemSecurity;
+          /**
+             Returns the size in bytes of the file or -1 if the reference is a folder.
+             @return Size in bytes of file.
+             @since ARP1.0
+          */
+          getSize() : number;
+          /**
+             Check whether this is a path of a file.
+             @return true if this is a path to a folder/directory, false if this is a path to a file.
+             @since ARP1.0
+          */
+          isDirectory() : boolean;
+          /**
+             List all the files matching the speficied regex filter within this file/path reference. If the reference
+is a file, it will not yield any results.
+             @param regex    Filter (eg. *.jpg, *.png, Fil*) name string.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFilesForRegex(regex:string, callback:IFileListResultCallback);
+          /**
+             List all the files contained within this file/path reference. If the reference is a file, it will not yield
+any results.
+             @param callback Result of operation.
+             @since ARP1.0
+          */
+          listFiles(callback:IFileListResultCallback);
+          /**
+             Creates the parent path (or paths, if recursive) to the given file/path if it doesn't already exist.
+             @param recursive Whether to create all parent path elements.
+             @return True if the path was created, false otherwise (or it exists already).
+             @since ARP1.0
+          */
+          mkDir(recursive:boolean) : boolean;
+          /**
+             Moves the current file to the given file destination, optionally overwriting and creating the path to the
+new destination file.
+             @param newFile    Destination path/file for the move.
+             @param createPath True to create the path if it does not already exist.
+             @param callback   Result of the operation.
+             @param overwrite  True to create the path if it does not already exist.
+             @since ARP1.0
+          */
+          move(newFile:IFile, createPath:boolean, overwrite:boolean, callback:IFileResultCallback);
+          /**
+             Sets the content of the file.
+             @param content  Binary content to store in the file.
+             @param callback Result of the operation.
+             @since ARP1.0
+          */
+          setContent(content:Array<number>, callback:IFileDataStoreResultCallback);
      }
      /**
         Definition of IBaseCallback interface/protocol.
@@ -248,6 +979,25 @@ module Adaptive {
         @version 1.0
      */
      export interface INetworkReachabilityCallback extends IBaseCallback {
+          /**
+             No data received - error condition, not authorized .
+             @param error
+             @since ARP1.0
+          */
+          onError(error:INetworkReachabilityCallbackError);
+          /**
+             Correct data received.
+             @param reachable
+             @since ARP1.0
+          */
+          onResult(reachable:boolean);
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+             @param reachable
+             @param warning
+             @since ARP1.0
+          */
+          onWarning(reachable:boolean, warning:INetworkReachabilityCallbackWarning);
      }
      /**
         Definition of IInternalStorage interface/protocol.
@@ -275,6 +1025,11 @@ module Adaptive {
         @version 1.0
      */
      export interface IOS extends IBaseSystem {
+          /**
+             Returns the OSInfo for the current operating system.
+             @return OSInfo with name, version and vendor of the OS.
+          */
+          getOSInfo() : OSInfo;
      }
      /**
         Definition of IOCR interface/protocol.
@@ -302,6 +1057,64 @@ module Adaptive {
         @version 1.0
      */
      export interface IContact extends IBasePIM {
+          /**
+             Get the contact photo
+             @param contact  id to search for
+             @param callback called for return
+             @since ARP1.0
+          */
+          getContactPhoto(contact:ContactUid, callback:IContactPhotoResultCallback);
+          /**
+             Get all the details of a contact according to its id
+             @param contact  id to search for
+             @param callback called for return
+             @since ARP1.0
+          */
+          getContact(contact:ContactUid, callback:IContactResultCallback);
+          /**
+             Get marked fields of all contacts
+             @param callback called for return
+             @param fields   to get for each Contact
+             @since ARP1.0
+          */
+          getContactsForFields(callback:IContactResultCallback, fields:Array<IContactFieldGroup>);
+          /**
+             Get marked fields of all contacts according to a filter
+             @param callback called for return
+             @param fields   to get for each Contact
+             @param filter   to search for
+             @since ARP1.0
+          */
+          getContactsWithFilter(callback:IContactResultCallback, fields:Array<IContactFieldGroup>, filter:Array<IContactFilter>);
+          /**
+             Get all contacts
+             @param callback called for return
+             @since ARP1.0
+          */
+          getContacts(callback:IContactResultCallback);
+          /**
+             Search contacts according to a term with a filter and send it to the callback
+             @param term     string to search
+             @param callback called for return
+             @param filter   to search for
+             @since ARP1.0
+          */
+          searchContactsWithFilter(term:string, callback:IContactResultCallback, filter:Array<IContactFilter>);
+          /**
+             Search contacts according to a term and send it to the callback
+             @param term     string to search
+             @param callback called for return
+             @since ARP1.0
+          */
+          searchContacts(term:string, callback:IContactResultCallback);
+          /**
+             Set the contact photo
+             @param contact  id to assign the photo
+             @param pngImage photo as byte array
+             @return true if set is successful;false otherwise
+             @since ARP1.0
+          */
+          setContactPhoto(contact:ContactUid, pngImage:Array<number>) : boolean;
      }
      /**
         Definition of INetworkNaming interface/protocol.
@@ -329,6 +1142,23 @@ module Adaptive {
         @version 1.0
      */
      export interface INetworkStatus extends IBaseCommunication {
+          /**
+             Add the listener for network status changes of the app
+             @param listener
+             @since ARP1.0
+          */
+          addNetworkStatusListener(listener:INetworkStatusListener);
+          /**
+             Un-registers an existing listener from receiving network status events.
+             @param listener
+             @since ARP1.0
+          */
+          removeNetworkStatusListener(listener:INetworkStatusListener);
+          /**
+             Removes all existing listeners from receiving network status events.
+             @since ARP1.0
+          */
+          removeNetworkStatusListeners();
      }
      /**
         Definition of IGeolocation interface/protocol.
@@ -338,6 +1168,23 @@ module Adaptive {
         @version 1.0
      */
      export interface IGeolocation extends IBaseSensor {
+          /**
+             Register a new listener that will receive geolocation events.
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          addGeolocationListener(listener:IGeolocationListener);
+          /**
+             De-registers an existing listener from receiving geolocation events.
+             @param listener
+             @since ARP1.0
+          */
+          removeGeolocationListener(listener:IGeolocationListener);
+          /**
+             Removed all existing listeners from receiving geolocation events.
+             @since ARP1.0
+          */
+          removeGeolocationListeners();
      }
      /**
         Definition of ILifecycle interface/protocol.
@@ -347,6 +1194,29 @@ module Adaptive {
         @version 1.0
      */
      export interface ILifecycle extends IBaseApplication {
+          /**
+             Add the listener for the lifecycle of the app
+             @param listener
+             @since ARP1.0
+          */
+          addLifecycleListener(listener:ILifecycleListener);
+          /**
+             Whether the application is in background or not
+             @return true if the application is in background;false otherwise
+             @since ARP1.0
+          */
+          isBackground() : boolean;
+          /**
+             Un-registers an existing listener from receiving lifecycle events.
+             @param listener
+             @since ARP1.0
+          */
+          removeLifecycleListener(listener:ILifecycleListener);
+          /**
+             Removes all existing listeners from receiving lifecycle events.
+             @since ARP1.0
+          */
+          removeLifecycleListeners();
      }
      /**
         Definition of ITimer interface/protocol.
@@ -365,6 +1235,28 @@ module Adaptive {
         @version 1.0
      */
      export interface IDatabaseResultCallback extends IBaseCallback {
+          /**
+             Result callback for error responses
+             @param error Returned error
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onError(error:IDatabaseResultCallbackError);
+          /**
+             Result callback for correct responses
+             @param database Returns the database
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onResult(database:Database);
+          /**
+             Result callback for warning responses
+             @param database Returns the database
+             @param warning  Returned Warning
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onWarning(database:Database, warning:IDatabaseResultCallbackWarning);
      }
      /**
         Definition of IMessagingCallback interface/protocol.
@@ -374,6 +1266,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IMessagingCallback extends IBaseCallback {
+          /**
+             This method is called on Error
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          onError(error:IMessagingCallbackError);
+          /**
+             This method is called on Result
+             @param success true if sent;false otherwise
+             @since ARP1.0
+          */
+          onResult(success:boolean);
+          /**
+             This method is called on Warning
+             @param success true if sent;false otherwise
+             @param warning returned by the platform
+             @since ARP1.0
+          */
+          onWarning(success:boolean, warning:IMessagingCallbackWarning);
      }
      /**
         Definition of ITelephony interface/protocol.
@@ -383,6 +1294,13 @@ module Adaptive {
         @version 1.0
      */
      export interface ITelephony extends IBaseCommunication {
+          /**
+             Invoke a phone call
+             @param number to call
+             @return Status of the call
+             @since ARP1.0
+          */
+          call(number:string) : ITelephonyStatus;
      }
      /**
         Definition of ILinkedIn interface/protocol.
@@ -401,6 +1319,14 @@ module Adaptive {
         @version 1.0
      */
      export interface IMessaging extends IBasePIM {
+          /**
+             Send text SMS
+             @param number   to send
+             @param text     to send
+             @param callback with the result
+             @since ARP1.0
+          */
+          sendSMS(number:string, text:string, callback:IMessagingCallback);
      }
      /**
         Definition of IAmbientLight interface/protocol.
@@ -464,6 +1390,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IServiceResultCallback extends IBaseCallback {
+          /**
+             This method is called on Error
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          onError(error:IServiceResultCallbackError);
+          /**
+             This method is called on Result
+             @param response data
+             @since ARP1.0
+          */
+          onResult(response:ServiceResponse);
+          /**
+             This method is called on Warning
+             @param response data
+             @param warning  returned by the platform
+             @since ARP1.0
+          */
+          onWarning(response:ServiceResponse, warning:IServiceResultCallbackWarning);
      }
      /**
         Definition of ISecurity interface/protocol.
@@ -473,6 +1418,36 @@ module Adaptive {
         @version 1.0
      */
      export interface ISecurity extends IBaseSecurity {
+          /**
+             Deletes from the device internal storage the entry/entries containing the specified key names.
+             @param keys             Array with the key names to delete.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          deleteSecureKeyValuePairs(keys:Array<string>, publicAccessName:string, callback:ISecureKVResultCallback);
+          /**
+             Retrieves from the device internal storage the entry/entries containing the specified key names.
+             @param keys             Array with the key names to retrieve.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          getSecureKeyValuePairs(keys:Array<string>, publicAccessName:string, callback:ISecureKVResultCallback);
+          /**
+             Returns if the device has been modified in anyhow
+             @return true if the device has been modified; false otherwise
+             @since ARP1.0
+          */
+          isDeviceModified() : boolean;
+          /**
+             Stores in the device internal storage the specified item/s.
+             @param keyValues        Array containing the items to store on the device internal memory.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          setSecureKeyValuePairs(keyValues:Array<SecureKeyPair>, publicAccessName:string, callback:ISecureKVResultCallback);
      }
      /**
         Definition of IFileResultCallback interface/protocol.
@@ -482,6 +1457,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IFileResultCallback extends IBaseCallback {
+          /**
+             On error result of a file operation.
+             @param error Error processing the request.
+             @since ARP1.0
+          */
+          onError(error:IFileResultCallbackError);
+          /**
+             On correct result of a file operation.
+             @param storageFile Reference to the resulting file.
+             @since ARP1.0
+          */
+          onResult(storageFile:IFile);
+          /**
+             On partial result of a file operation, containing a warning.
+             @param file            Reference to the offending file.
+             @param warning         Warning processing the request.
+             @since ARP1.0
+          */
+          onWarning(file:IFile, warning:IFileResultCallbackWarning);
      }
      /**
         Definition of IRuntime interface/protocol.
@@ -491,6 +1485,17 @@ module Adaptive {
         @version 1.0
      */
      export interface IRuntime extends IBaseSystem {
+          /**
+             Dismiss the current Application
+             @since ARP1.0
+          */
+          dismissApplication();
+          /**
+             Whether the application dismiss the splash screen successfully or not
+             @return true if the application has dismissed the splash screen;false otherwise
+             @since ARP1.0
+          */
+          dismissSplashScreen() : boolean;
      }
      /**
         Definition of IDataStream interface/protocol.
@@ -518,6 +1523,13 @@ module Adaptive {
         @version 1.0
      */
      export interface IMail extends IBasePIM {
+          /**
+             Send an Email
+             @param data     the email data
+             @param callback with the result
+             @since ARP1.0
+          */
+          sendEmail(data:Email, callback:IMessagingCallback);
      }
      /**
         Definition of IDevice interface/protocol.
@@ -527,6 +1539,33 @@ module Adaptive {
         @version 1.0
      */
      export interface IDevice extends IBaseSystem {
+          /**
+             Register a new listener that will receive button events.
+             @param listener to be registered.
+             @since ARP1.0
+          */
+          addButtonListener(listener:IButtonListener);
+          /**
+             Returns the device information for the current device executing the runtime.
+             @return DeviceInfo for the current device.
+          */
+          getDeviceInfo() : DeviceInfo;
+          /**
+             Gets the current Locale for the device.
+             @return The current Locale information.
+          */
+          getLocaleCurrent() : Locale;
+          /**
+             De-registers an existing listener from receiving button events.
+             @param listener
+             @since ARP1.0
+          */
+          removeButtonListener(listener:IButtonListener);
+          /**
+             Removed all existing listeners from receiving button events.
+             @since ARP1.0
+          */
+          removeButtonListeners();
      }
      /**
         Definition of IImaging interface/protocol.
@@ -545,6 +1584,27 @@ module Adaptive {
         @version 1.0
      */
      export interface IGlobalization extends IBaseApplication {
+          /**
+             List of supported locales for the application
+             @return List of locales
+             @since ARP1.0
+          */
+          getLocaleSupportedDescriptors() : Array<Locale>;
+          /**
+             Gets the text/message corresponding to the given key and locale.
+             @param key    to match text
+             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+             @return Localized text.
+             @since ARP1.0
+          */
+          getResourceLiteral(key:string, locale:Locale) : string;
+          /**
+             Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+             @return Localized texts in the form of an object (you could get the value of a keyed literal using resourceLiteralDictionary.MY_KEY or resourceLiteralDictionary["MY_KEY"]).
+             @since ARP1.0
+          */
+          getResourceLiterals(locale:Locale) : Dictionary<String>;
      }
      /**
         Definition of IConcurrent interface/protocol.
@@ -563,6 +1623,23 @@ module Adaptive {
         @version 1.0
      */
      export interface IGeolocationListener extends IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available.
+             @since ARP1.0
+          */
+          onError(error:IGeolocationListenerError);
+          /**
+             Correct data received.
+             @param geolocation
+             @since ARP1.0
+          */
+          onResult(geolocation:Geolocation);
+          /**
+             Data received with warning - ie. HighDoP
+             @param geolocation
+             @since ARP1.0
+          */
+          onWarning(geolocation:Geolocation, warning:IGeolocationListenerWarning);
      }
      /**
         Definition of ISettings interface/protocol.
@@ -581,6 +1658,19 @@ module Adaptive {
         @version 1.0
      */
      export interface IFileDataResultCallback extends IBaseCallback {
+          /**
+             Error processing data retrieval/storage operation.
+             @param error Error condition encountered.
+             @since ARP1.0
+          */
+          onError(error:IFileDataResultCallbackError);
+          /**
+             Result with warning of data retrieval/storage operation.
+             @param file    File being loaded/stored.
+             @param warning Warning condition encountered.
+             @since ARP1.0
+          */
+          onWarning(file:IFile, warning:IFileDataResultCallbackWarning);
      }
      /**
         Definition of ILifecycleListener interface/protocol.
@@ -590,6 +1680,23 @@ module Adaptive {
         @version 1.0
      */
      export interface ILifecycleListener extends IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available.
+             @since ARP1.0
+          */
+          onError(error:ILifecycleListenerError);
+          /**
+             Called when lifecycle changes somehow.
+             @param lifecycle
+             @since ARP1.0
+          */
+          onResult(lifecycle:Lifecycle);
+          /**
+             Data received with warning
+             @param lifecycle
+             @since ARP1.0
+          */
+          onWarning(lifecycle:Lifecycle, warning:ILifecycleListenerWarning);
      }
      /**
         Definition of IFileListResultCallback interface/protocol.
@@ -599,6 +1706,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IFileListResultCallback extends IBaseCallback {
+          /**
+             On error result of a file operation.
+             @param error Error processing the request.
+             @since ARP1.0
+          */
+          onError(error:IFileListResultCallbackError);
+          /**
+             On correct result of a file operation.
+             @param files Array of resulting files/folders.
+             @since ARP1.0
+          */
+          onResult(files:Array<IFile>);
+          /**
+             On partial result of a file operation, containing a warning.
+             @param files   Array of resulting files/folders.
+             @param warning Warning condition encountered.
+             @since ARP1.0
+          */
+          onWarning(files:Array<IFile>, warning:IFileListResultCallbackWarning);
      }
      /**
         Definition of ICrypto interface/protocol.
@@ -626,6 +1752,23 @@ module Adaptive {
         @version 1.0
      */
      export interface ILogging extends IBaseUtil {
+          /**
+             Logs the given message, with the given log level if specified, to the standard platform/environment.
+             @param level    Log level
+             @param category Category/tag name to identify/filter the log.
+             @param message  Message to be logged
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          log(level:ILoggingLogLevel, category:string, message:string);
+          /**
+             Logs the given message, with the given log level if specified, to the standard platform/environment.
+             @param level   Log level
+             @param message Message to be logged
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          log(level:ILoggingLogLevel, message:string);
      }
      /**
         Definition of IGyroscope interface/protocol.
@@ -653,6 +1796,26 @@ module Adaptive {
         @version 1.0
      */
      export interface IAccelerometer extends IBaseSensor {
+          /**
+             Register a new listener that will receive acceleration events.
+             @param listener to be registered.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          addAccelerationListener(listener:IAccelerationListener);
+          /**
+             De-registers an existing listener from receiving acceleration events.
+             @param listener
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          removeAccelerationListener(listener:IAccelerationListener);
+          /**
+             Removed all existing listeners from receiving acceleration events.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          removeAccelerationListeners();
      }
      /**
         Definition of ICompression interface/protocol.
@@ -716,6 +1879,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IContactResultCallback extends IBaseCallback {
+          /**
+             This method is called on Error
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          onError(error:IContactResultCallbackError);
+          /**
+             This method is called on Result
+             @param contacts returned by the platform
+             @since ARP1.0
+          */
+          onResult(contacts:Array<Contact>);
+          /**
+             This method is called on Warning
+             @param contacts returned by the platform
+             @param warning  returned by the platform
+             @since ARP1.0
+          */
+          onWarning(contacts:Array<Contact>, warning:IContactResultCallbackWarning);
      }
      /**
         Definition of IButtonListener interface/protocol.
@@ -725,6 +1907,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IButtonListener extends IBaseListener {
+          /**
+             No data received
+             @param error occurred
+             @since ARP1.0
+          */
+          onError(error:IButtonListenerError);
+          /**
+             Called on button pressed
+             @param button pressed
+             @since ARP1.0
+          */
+          onResult(button:Button);
+          /**
+             Data received with warning
+             @param button  pressed
+             @param warning happened
+             @since ARP1.0
+          */
+          onWarning(button:Button, warning:IButtonListenerWarning);
      }
      /**
         Definition of ICapabilities interface/protocol.
@@ -734,6 +1935,66 @@ module Adaptive {
         @version 1.0
      */
      export interface ICapabilities extends IBaseSystem {
+          /**
+             Determines whether a specific hardware button is supported for interaction.
+             @param type Type of feature to check.
+             @return true is supported, false otherwise.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          hasButtonSupport(type:ICapabilitiesButton) : boolean;
+          /**
+             Determines whether a specific Communication capability is supported by
+the device.
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          hasCommunicationSupport(type:ICapabilitiesCommunication) : boolean;
+          /**
+             Determines whether a specific Data capability is supported by the device.
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          hasDataSupport(type:ICapabilitiesData) : boolean;
+          /**
+             Determines whether a specific Media capability is supported by the
+device.
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          hasMediaSupport(type:ICapabilitiesMedia) : boolean;
+          /**
+             Determines whether a specific Net capability is supported by the device.
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          hasNetSupport(type:ICapabilitiesNet) : boolean;
+          /**
+             Determines whether a specific Notification capability is supported by the
+device.
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          hasNotificationSupport(type:ICapabilitiesNotification) : boolean;
+          /**
+             Determines whether a specific Sensor capability is supported by the
+device.
+             @param type Type of feature to check.
+             @return true if supported, false otherwise.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          hasSensorSupport(type:ICapabilitiesSensor) : boolean;
      }
      /**
         Definition of ITwitter interface/protocol.
@@ -752,6 +2013,65 @@ module Adaptive {
         @version 1.0
      */
      export interface IFileSystem extends IBaseData {
+          /**
+             Creates a new reference to a new or existing location in the filesystem.
+This method does not create the actual file in the specified folder.
+             @param parent Parent directory.
+             @param name Name of new file or directory.
+             @return A reference to a new or existing location in the filesystem.
+          */
+          createFileDescriptor(parent:IFile, name:string) : IFile;
+          /**
+             Returns a reference to the cache folder for the current application.
+This path must always be writable by the current application.
+This path is volatile and may be cleaned by the OS periodically.
+             @return Path to the application's cache folder.
+             @since ARP1.0
+          */
+          getApplicationCacheFolder() : IFile;
+          /**
+             Returns a reference to the cloud synchronizable folder for the current application.
+This path must always be writable by the current application.
+             @return Path to the application's cloud storage folder.
+             @since ARP1.0
+          */
+          getApplicationCloudFolder() : IFile;
+          /**
+             Returns a reference to the documents folder for the current application.
+This path must always be writable by the current application.
+             @return Path to the application's documents folder.
+             @since ARP1.0
+          */
+          getApplicationDocumentsFolder() : IFile;
+          /**
+             Returns a reference to the application installation folder.
+This path may or may not be directly readable or writable - it usually contains the app binary and data.
+             @return Path to the application folder.
+             @since ARP1.0
+          */
+          getApplicationFolder() : IFile;
+          /**
+             Returns a reference to the protected storage folder for the current application.
+This path must always be writable by the current application.
+             @return Path to the application's protected storage folder.
+             @since ARP1.0
+          */
+          getApplicationProtectedFolder() : IFile;
+          /**
+             Returns the file system dependent file separator.
+             @return char with the directory/file separator.
+             @since ARP1.0
+          */
+          getSeparator() : string;
+          /**
+             Returns a reference to the external storage folder provided by the OS. This may
+be an external SSD card or similar. This type of storage is removable and by
+definition, not secure.
+This path may or may not be writable by the current application.
+             @return Path to the application's documents folder.
+             @since ARP1.0
+          */
+          getSystemExternalFolder() : IFile;
      }
      /**
         Definition of IVibration interface/protocol.
@@ -779,6 +2099,18 @@ module Adaptive {
         @version 1.0
      */
      export interface INetworkReachability extends IBaseCommunication {
+          /**
+             Whether there is connectivity to a host, via domain name or ip address, or not.
+             @param host     domain name or ip address of host.
+             @param callback Callback called at the end.
+          */
+          isNetworkReachable(host:string, callback:INetworkReachabilityCallback);
+          /**
+             Whether there is connectivity to an url of a service or not.
+             @param url      to look for
+             @param callback Callback called at the end
+          */
+          isNetworkServiceReachable(url:string, callback:INetworkReachabilityCallback);
      }
      /**
         Definition of ISocket interface/protocol.
@@ -806,6 +2138,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IContactPhotoResultCallback extends IBaseCallback {
+          /**
+             This method is called on Error
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          onError(error:IContactPhotoResultCallbackError);
+          /**
+             This method is called on Result
+             @param contactPhoto returned by the platform
+             @since ARP1.0
+          */
+          onResult(contactPhoto:Array<number>);
+          /**
+             This method is called on Warning
+             @param contactPhoto returned by the platform
+             @param warning      returned by the platform
+             @since ARP1.0
+          */
+          onWarning(contactPhoto:Array<number>, warning:IContactPhotoResultCallbackWarning);
      }
      /**
         Definition of IDisplay interface/protocol.
@@ -824,6 +2175,11 @@ module Adaptive {
         @version 1.0
      */
      export interface IVideo extends IBaseMedia {
+          /**
+             Play url video stream
+             @param url of the video
+          */
+          playStream(url:string);
      }
      /**
         Definition of IProximity interface/protocol.
@@ -887,6 +2243,45 @@ module Adaptive {
         @version 1.0
      */
      export interface IService extends IBaseCommunication {
+          /**
+             Get a reference to a registered service by name.
+             @param serviceName Name of service.
+             @return A service, if registered, or null of the service does not exist.
+          */
+          getService(serviceName:string) : Service;
+          /**
+             Request async a service for an Url
+             @param serviceRequest
+             @param service
+             @param callback
+          */
+          invokeService(serviceRequest:ServiceRequest, service:Service, callback:IServiceResultCallback);
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName
+             @return True if the service is registered, false otherwise.
+          */
+          isRegistered(serviceName:string) : boolean;
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName
+             @return True if the service is registered, false otherwise.
+          */
+          isRegistered(service:Service) : boolean;
+          /**
+             Register a new service
+             @param service to register
+          */
+          registerService(service:Service);
+          /**
+             Unregister all services.
+          */
+          unregisterServices();
+          /**
+             Unregister a service
+             @param service to unregister
+          */
+          unregisterService(service:Service);
      }
      /**
         Definition of IAlarm interface/protocol.
@@ -905,6 +2300,25 @@ module Adaptive {
         @version 1.0
      */
      export interface ISecureKVResultCallback extends IBaseCallback {
+          /**
+             No data received - error condition, not authorized .
+             @param error
+             @since ARP1.0
+          */
+          onError(error:ISecureKVResultCallbackError);
+          /**
+             Correct data received.
+             @param keyValues
+             @since ARP1.0
+          */
+          onResult(keyValues:Array<SecureKeyPair>);
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+             @param keyValues
+             @param warning
+             @since ARP1.0
+          */
+          onWarning(keyValues:Array<SecureKeyPair>, warning:ISecureKVResultCallbackWarning);
      }
      /**
         Created by clozano on 05/09/2014.
@@ -914,6 +2328,18 @@ module Adaptive {
         @version 1.0
      */
      export interface IAppResourceCallback extends IBaseCallback {
+          /**
+             null
+          */
+          onError(resource:IAppResource, error:IAppResourceCallbackError);
+          /**
+             null
+          */
+          onResult(resource:IAppResource);
+          /**
+             null
+          */
+          onWarning(resource:IAppResource, warning:IAppResourceCallbackWarning);
      }
      /**
         Definition of ICloud interface/protocol.
@@ -932,6 +2358,79 @@ module Adaptive {
         @version 1.0
      */
      export interface IDatabase extends IBaseData {
+          /**
+             Creates a database on default path for every platform.
+             @param callback Asynchronous callback
+             @param database Database object to create
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          createDatabase(database:Database, callback:IDatabaseResultCallback);
+          /**
+             Creates a table inside a database for every platform.
+             @param database Database for table creating.
+             @param table    Table object with the name of the table inside.
+             @param callback Table callback with the response
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          createTable(database:Database, table:Table, callback:ITableResultCallback);
+          /**
+             Deletes a database on default path for every platform.
+             @param database Database object to delete
+             @param callback Asynchronous callback
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          deleteDatabase(database:Database, callback:IDatabaseResultCallback);
+          /**
+             Deletes a table inside a database for every platform.
+             @param database Database for table removal.
+             @param table    Table object with the name of the table inside.
+             @param callback Table callback with the response
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          deleteTable(database:Database, table:Table, callback:ITableResultCallback);
+          /**
+             Executes SQL statement into the given database. The replacements
+should be passed as a parameter
+             @param database     The database object reference.
+             @param statement    SQL statement.
+             @param replacements List of SQL statement replacements.
+             @param callback     Table callback with the response.
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          executeSqlStatement(database:Database, statement:string, replacements:Array<string>, callback:ITableResultCallback);
+          /**
+             Executes SQL transaction (some statements chain) inside given database.
+             @param database     The database object reference.
+             @param statements   The statements to be executed during transaction.
+             @param rollbackFlag Indicates if rollback should be performed when any
+                    statement execution fails.
+             @param callback     Table callback with the response.
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          executeSqlTransactions(database:Database, statements:Array<string>, rollbackFlag:boolean, callback:ITableResultCallback);
+          /**
+             Checks if database exists by given database name.
+             @param database Database Object to check if exists
+             @return True if exists, false otherwise
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          existsDatabase(database:Database) : boolean;
+          /**
+             Checks if table exists by given database name.
+             @param database Database for table consulting.
+             @param table    Table object with the name of the table inside.
+             @return True if exists, false otherwise
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          existsTable(database:Database, table:Table) : boolean;
      }
      /**
         Created by clozano on 05/12/14.
@@ -941,6 +2440,25 @@ module Adaptive {
         @version 1.0
      */
      export interface INetworkStatusListener extends IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available.
+             @param error
+             @since ARP1.0
+          */
+          onError(error:INetworkStatusListenerError);
+          /**
+             Called when network connection changes somehow.
+             @param network Change to this network.
+             @since ARP1.0
+          */
+          onResult(network:ICapabilitiesNet);
+          /**
+             Status received with warning
+             @param network Change to this network.
+             @param warning
+             @since ARP1.0
+          */
+          onWarning(network:ICapabilitiesNet, warning:INetworkStatusListenerWarning);
      }
      /**
         Definition of ISession interface/protocol.
@@ -950,6 +2468,62 @@ module Adaptive {
         @version 1.0
      */
      export interface ISession extends IBaseCommunication {
+          /**
+             Returns an attribute object
+             @return object attribute
+             @since ARP1.0
+          */
+          getAttribute(name:string) : any;
+          /**
+             Returns all Session Attributes
+          */
+          getAttributes() : Array<any>;
+          /**
+             Returns the cookie array
+             @return cookie array
+             @since ARP1.0
+          */
+          getCookies() : Array<Cookie>;
+          /**
+             Returns all attibute names
+             @return array with all attribute names
+          */
+          listAttributeNames() : Array<string>;
+          /**
+             Remove an attribute by its name
+             @param name
+          */
+          removeAttribute(name:string);
+          /**
+             Remove all attributes
+          */
+          removeAttributes();
+          /**
+             Remove a cookie
+             @param cookie
+          */
+          removeCookie(cookie:Cookie);
+          /**
+             Remove a cookies array
+             @param cookies
+          */
+          removeCookies(cookies:Array<Cookie>);
+          /**
+             Set an attribute
+             @param name
+             @param value
+          */
+          setAttribute(name:string, value:any);
+          /**
+             Set a cookie object
+             @param cookie
+          */
+          setCookie(cookie:Cookie);
+          /**
+             Set the cookies array
+             @param cookies
+          */
+          setCookies(cookies:Array<Cookie>);
      }
      /**
         Definition of IStore interface/protocol.
@@ -977,6 +2551,29 @@ module Adaptive {
         @version 1.0
      */
      export interface IAccelerationListener extends IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available. This will be reported once for the
+listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+             @param error
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          onError(error:IAccelerationListenerError);
+          /**
+             Correct data received.
+             @param acceleration
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          onResult(acceleration:Acceleration);
+          /**
+             Data received with warning - ie. Needs calibration.
+             @param acceleration
+             @param warning
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          onWarning(acceleration:Acceleration, warning:IAccelerationListenerWarning);
      }
      /**
         Definition of IBluetooth interface/protocol.
@@ -995,6 +2592,28 @@ module Adaptive {
         @version 1.0
      */
      export interface ITableResultCallback extends IBaseCallback {
+          /**
+             Result callback for error responses
+             @param error Returned error
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onError(error:ITableResultCallbackError);
+          /**
+             Result callback for correct responses
+             @param table Returns the table
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onResult(table:Table);
+          /**
+             Result callback for warning responses
+             @param table   Returns the table
+             @param warning Returned Warning
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          onWarning(table:Table, warning:ITableResultCallbackWarning);
      }
      /**
         Definition of IPrinting interface/protocol.
@@ -1013,6 +2632,22 @@ module Adaptive {
         @version 1.0
      */
      export interface IBrowser extends IBaseUI {
+          /**
+             null
+          */
+          openExtenalBrowser(url:string) : boolean;
+          /**
+             Open a new window showing the url webpage with a title and a close button displaying the desired text
+             @param url            to open
+             @param title          of the new window
+             @param backButtonText text of the close button
+             @return true if the new window opens;false otherwise
+          */
+          openInternalBrowserModal(url:string, title:string, backButtonText:string) : boolean;
+          /**
+             null
+          */
+          openInternalBrowser(url:string, title:string, backButtonText:string) : boolean;
      }
      /**
         Created by clozano on 05/12/14.
@@ -1022,6 +2657,12 @@ module Adaptive {
         @version 1.0
      */
      export interface IFileDataLoadResultCallback extends IFileDataResultCallback {
+          /**
+             Result of data retrieval operation.
+             @param data Data loaded.
+             @since ARP1.0
+          */
+          onResult(data:Array<number>);
      }
      /**
         Created by clozano on 05/12/14.
@@ -1031,6 +2672,12 @@ module Adaptive {
         @version 1.0
      */
      export interface IFileDataStoreResultCallback extends IFileDataResultCallback {
+          /**
+             Result of data storage operation.
+             @param file File reference to stored data.
+             @since ARP1.0
+          */
+          onResult(file:IFile);
      }
      /**
         Structure representing the data of a http request or response header.
@@ -4439,6 +6086,101 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
+        Enumeration IAdaptiveRPGroup
+     */
+     export class IAdaptiveRPGroup {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Commerce = new IAdaptiveRPGroup("Commerce");
+          static Communication = new IAdaptiveRPGroup("Communication");
+          static Data = new IAdaptiveRPGroup("Data");
+          static Media = new IAdaptiveRPGroup("Media");
+          static Notification = new IAdaptiveRPGroup("Notification");
+          static PIM = new IAdaptiveRPGroup("PIM");
+          static Reader = new IAdaptiveRPGroup("Reader");
+          static Security = new IAdaptiveRPGroup("Security");
+          static Sensor = new IAdaptiveRPGroup("Sensor");
+          static Social = new IAdaptiveRPGroup("Social");
+          static System = new IAdaptiveRPGroup("System");
+          static UI = new IAdaptiveRPGroup("UI");
+          static Util = new IAdaptiveRPGroup("Util");
+          static Unknown = new IAdaptiveRPGroup("Unknown");
+
+     }
+     /**
+        Enumeration IAppContextType
+     */
+     export class IAppContextType {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static iOS = new IAppContextType("iOS");
+          static OSX = new IAppContextType("OSX");
+          static Windows = new IAppContextType("Windows");
+          static WindowsPhone = new IAppContextType("WindowsPhone");
+          static Android = new IAppContextType("Android");
+          static Linux = new IAppContextType("Linux");
+          static Blackberry = new IAppContextType("Blackberry");
+          static Tizen = new IAppContextType("Tizen");
+          static FirefoxOS = new IAppContextType("FirefoxOS");
+          static Chromium = new IAppContextType("Chromium");
+          static Unspecified = new IAppContextType("Unspecified");
+          static Unknown = new IAppContextType("Unknown");
+
+     }
+     /**
+        Enumeration IAppResourceFormat
+     */
+     export class IAppResourceFormat {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Raw = new IAppResourceFormat("Raw");
+          static Compressed = new IAppResourceFormat("Compressed");
+          static Encrypted = new IAppResourceFormat("Encrypted");
+          static EncryptedCompressed = new IAppResourceFormat("EncryptedCompressed");
+          static Unknown = new IAppResourceFormat("Unknown");
+
+     }
+     /**
+        Enumeration IAppResourcePayload
+     */
+     export class IAppResourcePayload {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Default = new IAppResourcePayload("Default");
+          static Embedded = new IAppResourcePayload("Embedded");
+          static Linked = new IAppResourcePayload("Linked");
+          static Unknown = new IAppResourcePayload("Unknown");
+
+     }
+     /**
+        Enumeration IAppResourceType
+     */
+     export class IAppResourceType {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Html = new IAppResourceType("Html");
+          static Css = new IAppResourceType("Css");
+          static JavaScript = new IAppResourceType("JavaScript");
+          static Image = new IAppResourceType("Image");
+          static Video = new IAppResourceType("Video");
+          static Audio = new IAppResourceType("Audio");
+          static Property = new IAppResourceType("Property");
+          static Database = new IAppResourceType("Database");
+          static Other = new IAppResourceType("Other");
+          static Unknown = new IAppResourceType("Unknown");
+
+     }
+     /**
         Enumeration IAppResourceCallbackError
      */
      export class IAppResourceCallbackError {
@@ -4794,6 +6536,50 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
+        Enumeration IFileSystemSecurity
+     */
+     export class IFileSystemSecurity {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Default = new IFileSystemSecurity("Default");
+          static Protected = new IFileSystemSecurity("Protected");
+          static Encrypted = new IFileSystemSecurity("Encrypted");
+          static Unknown = new IFileSystemSecurity("Unknown");
+
+     }
+     /**
+        Enumeration IFileSystemStorageType
+     */
+     export class IFileSystemStorageType {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Application = new IFileSystemStorageType("Application");
+          static Document = new IFileSystemStorageType("Document");
+          static Cloud = new IFileSystemStorageType("Cloud");
+          static Protected = new IFileSystemStorageType("Protected");
+          static Cache = new IFileSystemStorageType("Cache");
+          static External = new IFileSystemStorageType("External");
+          static Unknown = new IFileSystemStorageType("Unknown");
+
+     }
+     /**
+        Enumeration IFileSystemType
+     */
+     export class IFileSystemType {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Directory = new IFileSystemType("Directory");
+          static File = new IFileSystemType("File");
+          static Unknown = new IFileSystemType("Unknown");
+
+     }
+     /**
         Enumeration IGeolocationListenerError
      */
      export class IGeolocationListenerError {
@@ -5095,6 +6881,19 @@ be unique for a specific instance of an application on a specific device.
 
      }
      /**
+        Enumeration ITelephonyStatus
+     */
+     export class ITelephonyStatus {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Dialing = new ITelephonyStatus("Dialing");
+          static Failed = new ITelephonyStatus("Failed");
+          static Unknown = new ITelephonyStatus("Unknown");
+
+     }
+     /**
         Enumeration LifecycleState
      */
      export class LifecycleState {
@@ -5113,6 +6912,68 @@ be unique for a specific instance of an application on a specific device.
           static Unknown = new LifecycleState("Unknown");
 
      }
+     /**
+        Utility class of type Map
+     */
+
+               /** Dictionary Definition **/
+     export interface IDictionary<V> {
+          add(key: string, value: V): void;
+          remove(key: string): void;
+          containsKey(key: string): boolean;
+          keys(): string[];
+          values(): V[];
+     }
+
+     export class Dictionary<V> implements IDictionary<V>{
+     
+         _keys: Array<string> = new Array<string>();
+         _values: Array<V> = new Array<V>();
+     
+         constructor(init: { key: string; value: V; }[]) {
+     
+             for (var x = 0; x < init.length; x++) {
+                 this[init[x].key] = init[x].value;
+                 this._keys.push(init[x].key);
+                 this._values.push(init[x].value);
+             }
+         }
+     
+         add(key: string, value: V) {
+             this[key] = value;
+             this._keys.push(key);
+             this._values.push(value);
+         }
+     
+         remove(key: string) {
+             var index = this._keys.indexOf(key, 0);
+             this._keys.splice(index, 1);
+             this._values.splice(index, 1);
+     
+             delete this[key];
+         }
+     
+         keys(): string[] {
+             return this._keys;
+         }
+     
+         values(): V[] {
+             return this._values;
+         }
+     
+         containsKey(key: string) {
+             if (typeof this[key] === "undefined") {
+                 return false;
+             }
+     
+             return true;
+         }
+     
+         toLookup(): IDictionary<V> {
+             return this;
+         }
+     }
+
 
 }
 /**

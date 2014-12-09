@@ -23,7 +23,11 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IFile.ts"/>
 ///<reference path="IFileDataResultCallback.ts"/>
+///<reference path="IFileDataResultCallbackError.ts"/>
+///<reference path="IFileDataResultCallbackWarning.ts"/>
 
 module Adaptive {
 
@@ -35,6 +39,12 @@ module Adaptive {
         @version 1.0
      */
      export interface IFileDataStoreResultCallback extends IFileDataResultCallback {
+          /**
+             Result of data storage operation.
+             @param file File reference to stored data.
+             @since ARP1.0
+          */
+          onResult(file:IFile);
      }
 }
 

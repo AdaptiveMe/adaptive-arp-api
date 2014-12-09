@@ -22,22 +22,23 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-///<reference path="IBaseData.ts"/>
-
-module Adaptive {
-
-     /**
-        Definition of IDatabase interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IDatabase extends IBaseData {
-     }
+declare module Adaptive {
+    /**
+       Enumeration IAppResourceType
+    */
+    class IAppResourceType {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Html: IAppResourceType;
+        static Css: IAppResourceType;
+        static JavaScript: IAppResourceType;
+        static Image: IAppResourceType;
+        static Video: IAppResourceType;
+        static Audio: IAppResourceType;
+        static Property: IAppResourceType;
+        static Database: IAppResourceType;
+        static Other: IAppResourceType;
+        static Unknown: IAppResourceType;
+    }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

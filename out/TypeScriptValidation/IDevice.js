@@ -22,5 +22,9 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="DeviceInfo.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
+///<reference path="IButtonListener.ts"/>
+///<reference path="Locale.ts"/>
 //# sourceMappingURL=IDevice.js.map

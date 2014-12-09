@@ -28,16 +28,13 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of IFile interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
+        Enumeration ITelephonyStatus
      */
-     public interface IFile {
+     public enum ITelephonyStatus {
+
+          Dialing,
+          Failed,
+          Unknown
+
      }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

@@ -1,4 +1,3 @@
-/// <reference path="IBaseData.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -25,12 +24,14 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IDatabase interface/protocol.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
+       Enumeration IFileSystemType
     */
-    interface IDatabase extends IBaseData {
+    class IFileSystemType {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Directory: IFileSystemType;
+        static File: IFileSystemType;
+        static Unknown: IFileSystemType;
     }
 }

@@ -1,3 +1,4 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseUI.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -32,5 +33,21 @@ declare module Adaptive {
        @version 1.0
     */
     interface IBrowser extends IBaseUI {
+        /**
+           null
+        */
+        openExtenalBrowser(url: string): boolean;
+        /**
+           Open a new window showing the url webpage with a title and a close button displaying the desired text
+           @param url            to open
+           @param title          of the new window
+           @param backButtonText text of the close button
+           @return true if the new window opens;false otherwise
+        */
+        openInternalBrowserModal(url: string, title: string, backButtonText: string): boolean;
+        /**
+           null
+        */
+        openInternalBrowser(url: string, title: string, backButtonText: string): boolean;
     }
 }

@@ -23,7 +23,10 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
+///<reference path="IContactPhotoResultCallbackError.ts"/>
+///<reference path="IContactPhotoResultCallbackWarning.ts"/>
 
 module Adaptive {
 
@@ -35,6 +38,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IContactPhotoResultCallback extends IBaseCallback {
+          /**
+             This method is called on Error
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          onError(error:IContactPhotoResultCallbackError);
+          /**
+             This method is called on Result
+             @param contactPhoto returned by the platform
+             @since ARP1.0
+          */
+          onResult(contactPhoto:Array<number>);
+          /**
+             This method is called on Warning
+             @param contactPhoto returned by the platform
+             @param warning      returned by the platform
+             @since ARP1.0
+          */
+          onWarning(contactPhoto:Array<number>, warning:IContactPhotoResultCallbackWarning);
      }
 }
 

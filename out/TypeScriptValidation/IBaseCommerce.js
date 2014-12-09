@@ -23,4 +23,5 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 ///<reference path="IAdaptiveRP.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 //# sourceMappingURL=IBaseCommerce.js.map

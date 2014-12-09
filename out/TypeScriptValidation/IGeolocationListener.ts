@@ -23,7 +23,11 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="Geolocation.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseListener.ts"/>
+///<reference path="IGeolocationListenerError.ts"/>
+///<reference path="IGeolocationListenerWarning.ts"/>
 
 module Adaptive {
 
@@ -35,6 +39,23 @@ module Adaptive {
         @version 1.0
      */
      export interface IGeolocationListener extends IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available.
+             @since ARP1.0
+          */
+          onError(error:IGeolocationListenerError);
+          /**
+             Correct data received.
+             @param geolocation
+             @since ARP1.0
+          */
+          onResult(geolocation:Geolocation);
+          /**
+             Data received with warning - ie. HighDoP
+             @param geolocation
+             @since ARP1.0
+          */
+          onWarning(geolocation:Geolocation, warning:IGeolocationListenerWarning);
      }
 }
 

@@ -22,4 +22,7 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IAppResourceFormat.ts"/>
+///<reference path="IAppResourcePayload.ts"/>
+///<reference path="IAppResourceType.ts"/>
 //# sourceMappingURL=IAppResource.js.map

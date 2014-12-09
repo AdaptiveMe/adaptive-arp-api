@@ -35,6 +35,76 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAppResource {
+          /**
+             null
+          */
+          IAppResourcePayload GeType();
+
+          /**
+             null
+          */
+          byte[] GetData();
+
+          /**
+             null
+          */
+          string GetDataPathLinked();
+
+          /**
+             null
+          */
+          byte[] GetDataStored();
+
+          /**
+             null
+          */
+          IAppResourceFormat GetFormat();
+
+          /**
+             null
+          */
+          string GetMd5();
+
+          /**
+             null
+          */
+          string GetMimetype();
+
+          /**
+             null
+          */
+          string GetName();
+
+          /**
+             null
+          */
+          string GetPath();
+
+          /**
+             null
+          */
+          long GetSize();
+
+          /**
+             null
+          */
+          long GetSizeStored();
+
+          /**
+             null
+          */
+          long GetTimestamp();
+
+          /**
+             null
+          */
+          IAppResourceType GetType();
+
+          /**
+             null
+          */
+          string GetUuid();
+
      }
 }
 

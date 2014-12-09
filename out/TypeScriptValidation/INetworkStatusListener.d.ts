@@ -1,4 +1,8 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseListener.d.ts" />
+/// <reference path="ICapabilitiesNet.d.ts" />
+/// <reference path="INetworkStatusListenerError.d.ts" />
+/// <reference path="INetworkStatusListenerWarning.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,24 @@ declare module Adaptive {
        @version 1.0
     */
     interface INetworkStatusListener extends IBaseListener {
+        /**
+           No data received - error condition, not authorized or hardware not available.
+           @param error
+           @since ARP1.0
+        */
+        onError(error: INetworkStatusListenerError): any;
+        /**
+           Called when network connection changes somehow.
+           @param network Change to this network.
+           @since ARP1.0
+        */
+        onResult(network: ICapabilitiesNet): any;
+        /**
+           Status received with warning
+           @param network Change to this network.
+           @param warning
+           @since ARP1.0
+        */
+        onWarning(network: ICapabilitiesNet, warning: INetworkStatusListenerWarning): any;
     }
 }

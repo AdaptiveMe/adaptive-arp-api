@@ -22,14 +22,24 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-declare module Adaptive {
+var Adaptive;
+(function (Adaptive) {
     /**
-       Created by clozano on 05/09/2014.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
+       Enumeration IAppResourcePayload
     */
-    interface IAppResource {
-    }
-}
+    var IAppResourcePayload = (function () {
+        function IAppResourcePayload(value) {
+            this.value = value;
+        }
+        IAppResourcePayload.prototype.toString = function () {
+            return this.value;
+        };
+        IAppResourcePayload.Default = new IAppResourcePayload("Default");
+        IAppResourcePayload.Embedded = new IAppResourcePayload("Embedded");
+        IAppResourcePayload.Linked = new IAppResourcePayload("Linked");
+        IAppResourcePayload.Unknown = new IAppResourcePayload("Unknown");
+        return IAppResourcePayload;
+    })();
+    Adaptive.IAppResourcePayload = IAppResourcePayload;
+})(Adaptive || (Adaptive = {}));
+//# sourceMappingURL=IAppResourcePayload.js.map

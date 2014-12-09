@@ -27,6 +27,12 @@ package me.adaptive.tools.jenerator.csharp;
 import com.thoughtworks.qdox.model.*;
 import me.adaptive.tools.jenerator.GeneratorBase;
 import me.adaptive.tools.jenerator.utils.IndentPrintStream;
+import org.reflections.Reflections;
+import org.reflections.scanners.ResourcesScanner;
+import org.reflections.scanners.SubTypesScanner;
+import org.reflections.util.ClasspathHelper;
+import org.reflections.util.ConfigurationBuilder;
+import org.reflections.util.FilterBuilder;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,9 +41,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by clozano on 02/12/14.
@@ -54,7 +58,78 @@ public class CSharpGenerator extends GeneratorBase {
 
     @Override
     protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc) {
-        
+        for (Method method : interfaceMethods) {
+            if (method.getName().equals("get$Synthetic$")) {
+                // getters for all service classes!
+                Class superInterface = null;
+                try {
+                    superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                Reflections reflections = new Reflections(new ConfigurationBuilder()
+                        .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                        .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
+                        .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
+
+                Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
+                List<Class> serviceClasses = new ArrayList<>();
+                for (Class subClass : allClassesSet) {
+                    if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase")) {
+                        serviceClasses.add(subClass);
+                    }
+                }
+                serviceClasses.sort(new Comparator<Class>() {
+                    @Override
+                    public int compare(Class o1, Class o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+                for (Class serviceClass : serviceClasses) {
+                    startComment(10);
+                    println(13, "Returns a reference to the registered "+serviceClass.getSimpleName().substring(1)+"Handler.");
+                    println();
+                    println(13, "@return "+serviceClass.getSimpleName().substring(1)+"Handler reference or null if a handler of this type is not registered.");
+                    endComment(10);
+                    println(10, serviceClass.getSimpleName()+" Get"+serviceClass.getSimpleName().substring(1)+"Handler();");
+                    println();
+                }
+            } else {
+                startComment(10);
+                JavaMethod javaMethod = null;
+                for (JavaMethod m : interfaceMethodsDoc) {
+                    if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
+                        javaMethod = m;
+                        break;
+                    }
+                }
+                if (javaMethod != null) {
+                    println(13, javaMethod.getComment());
+                    for (DocletTag tag : javaMethod.getTags()) {
+                        println(13, "@" + tag.getName() + " " + tag.getValue());
+                    }
+                }
+                endComment(10);
+                if (method.getReturnType().equals(Void.TYPE)) {
+                    print(10, "void ");
+                } else {
+                    print(10, convertJavaToNativeType(method.getReturnType()) + " ");
+                }
+                print(camelCase(method.getName()));
+                print("(");
+                for (int i = 0; i < method.getParameterCount(); i++) {
+                    Parameter p = method.getParameters()[i];
+                    print(convertJavaToNativeType(p.getType()));
+                    print(" ");
+                    print(camelCase(p.getName()));
+                    if (i < method.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println(");");
+                println();
+            }
+        }
     }
 
     private static String camelCase(Package _package) {
@@ -131,6 +206,18 @@ public class CSharpGenerator extends GeneratorBase {
                 }
             }
         }
+        /*
+        for (Field field : clazz.getDeclaredFields()) {
+            print(5, convertJavaToNativeType(field.getType()));
+            print(" ");
+            if (field.getName().equals("API_VERSION")) {
+                print(camelCase(field.getName()));
+                print(" = ");
+                print("\"TO_BE_REPLACED\"");
+                println(";");
+            }
+        }
+        */
     }
 
     @Override
@@ -342,6 +429,8 @@ public class CSharpGenerator extends GeneratorBase {
             return "Object";
         } else if (classType.equals(String.class)) {
             return "string";
+        } else if (classType.equals(Map.class)) {
+            return "System.Collections.Generic.Dictionary<String,String>";
         } else {
             type = classType.getSimpleName();
         }

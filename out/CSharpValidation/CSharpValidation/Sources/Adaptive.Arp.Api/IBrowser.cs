@@ -35,6 +35,25 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IBrowser : IBaseUI {
+          /**
+             null
+          */
+          bool OpenExtenalBrowser(string Url);
+
+          /**
+             Open a new window showing the url webpage with a title and a close button displaying the desired text
+             @param url            to open
+             @param title          of the new window
+             @param backButtonText text of the close button
+             @return true if the new window opens;false otherwise
+          */
+          bool OpenInternalBrowserModal(string Url, string Title, string BackButtonText);
+
+          /**
+             null
+          */
+          bool OpenInternalBrowser(string Url, string Title, string BackButtonText);
+
      }
 }
 

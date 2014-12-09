@@ -35,6 +35,28 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IFileResultCallback : IBaseCallback {
+          /**
+             On error result of a file operation.
+             @param error Error processing the request.
+             @since ARP1.0
+          */
+          void OnError(IFileResultCallbackError Error);
+
+          /**
+             On correct result of a file operation.
+             @param storageFile Reference to the resulting file.
+             @since ARP1.0
+          */
+          void OnResult(IFile StorageFile);
+
+          /**
+             On partial result of a file operation, containing a warning.
+             @param file            Reference to the offending file.
+             @param warning         Warning processing the request.
+             @since ARP1.0
+          */
+          void OnWarning(IFile File, IFileResultCallbackWarning Warning);
+
      }
 }
 

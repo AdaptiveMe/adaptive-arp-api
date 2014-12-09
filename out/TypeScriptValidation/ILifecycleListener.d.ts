@@ -1,4 +1,8 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseListener.d.ts" />
+/// <reference path="ILifecycleListenerError.d.ts" />
+/// <reference path="ILifecycleListenerWarning.d.ts" />
+/// <reference path="Lifecycle.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,22 @@ declare module Adaptive {
        @version 1.0
     */
     interface ILifecycleListener extends IBaseListener {
+        /**
+           No data received - error condition, not authorized or hardware not available.
+           @since ARP1.0
+        */
+        onError(error: ILifecycleListenerError): any;
+        /**
+           Called when lifecycle changes somehow.
+           @param lifecycle
+           @since ARP1.0
+        */
+        onResult(lifecycle: Lifecycle): any;
+        /**
+           Data received with warning
+           @param lifecycle
+           @since ARP1.0
+        */
+        onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarning): any;
     }
 }

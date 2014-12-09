@@ -1,4 +1,6 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCommunication.d.ts" />
+/// <reference path="INetworkReachabilityCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +34,17 @@ declare module Adaptive {
        @version 1.0
     */
     interface INetworkReachability extends IBaseCommunication {
+        /**
+           Whether there is connectivity to a host, via domain name or ip address, or not.
+           @param host     domain name or ip address of host.
+           @param callback Callback called at the end.
+        */
+        isNetworkReachable(host: string, callback: INetworkReachabilityCallback): any;
+        /**
+           Whether there is connectivity to an url of a service or not.
+           @param url      to look for
+           @param callback Callback called at the end
+        */
+        isNetworkServiceReachable(url: string, callback: INetworkReachabilityCallback): any;
     }
 }

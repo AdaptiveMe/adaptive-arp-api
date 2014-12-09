@@ -1,4 +1,6 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBasePIM.d.ts" />
+/// <reference path="IMessagingCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +34,13 @@ declare module Adaptive {
        @version 1.0
     */
     interface IMessaging extends IBasePIM {
+        /**
+           Send text SMS
+           @param number   to send
+           @param text     to send
+           @param callback with the result
+           @since ARP1.0
+        */
+        sendSMS(number: string, text: string, callback: IMessagingCallback): any;
     }
 }

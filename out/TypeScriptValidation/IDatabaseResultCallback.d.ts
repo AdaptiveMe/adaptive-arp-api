@@ -1,4 +1,8 @@
+/// <reference path="Database.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
+/// <reference path="IDatabaseResultCallbackError.d.ts" />
+/// <reference path="IDatabaseResultCallbackWarning.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,27 @@ declare module Adaptive {
        @version 1.0
     */
     interface IDatabaseResultCallback extends IBaseCallback {
+        /**
+           Result callback for error responses
+           @param error Returned error
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        onError(error: IDatabaseResultCallbackError): any;
+        /**
+           Result callback for correct responses
+           @param database Returns the database
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        onResult(database: Database): any;
+        /**
+           Result callback for warning responses
+           @param database Returns the database
+           @param warning  Returned Warning
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        onWarning(database: Database, warning: IDatabaseResultCallbackWarning): any;
     }
 }

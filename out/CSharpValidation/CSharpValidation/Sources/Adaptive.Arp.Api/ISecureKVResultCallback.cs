@@ -35,6 +35,28 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface ISecureKVResultCallback : IBaseCallback {
+          /**
+             No data received - error condition, not authorized .
+             @param error
+             @since ARP1.0
+          */
+          void OnError(ISecureKVResultCallbackError Error);
+
+          /**
+             Correct data received.
+             @param keyValues
+             @since ARP1.0
+          */
+          void OnResult(SecureKeyPair[] KeyValues);
+
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+             @param keyValues
+             @param warning
+             @since ARP1.0
+          */
+          void OnWarning(SecureKeyPair[] KeyValues, ISecureKVResultCallbackWarning Warning);
+
      }
 }
 

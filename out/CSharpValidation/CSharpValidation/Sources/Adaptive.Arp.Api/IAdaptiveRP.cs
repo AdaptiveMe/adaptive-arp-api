@@ -35,6 +35,11 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAdaptiveRP {
+          /**
+             null
+          */
+          IAdaptiveRPGroup GetAPIGroup();
+
      }
 }
 

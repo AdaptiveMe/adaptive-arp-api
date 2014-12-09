@@ -1,3 +1,4 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseMedia.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -32,5 +33,10 @@ declare module Adaptive {
        @version 1.0
     */
     interface IVideo extends IBaseMedia {
+        /**
+           Play url video stream
+           @param url of the video
+        */
+        playStream(url: string): any;
     }
 }

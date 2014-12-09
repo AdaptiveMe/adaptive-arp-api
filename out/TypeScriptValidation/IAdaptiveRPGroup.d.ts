@@ -24,12 +24,25 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Created by clozano on 05/09/2014.
-
-       @author Carlos Lozano Diez
-       @since 1.0
-       @version 1.0
+       Enumeration IAdaptiveRPGroup
     */
-    interface IAppRegistry {
+    class IAdaptiveRPGroup {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Commerce: IAdaptiveRPGroup;
+        static Communication: IAdaptiveRPGroup;
+        static Data: IAdaptiveRPGroup;
+        static Media: IAdaptiveRPGroup;
+        static Notification: IAdaptiveRPGroup;
+        static PIM: IAdaptiveRPGroup;
+        static Reader: IAdaptiveRPGroup;
+        static Security: IAdaptiveRPGroup;
+        static Sensor: IAdaptiveRPGroup;
+        static Social: IAdaptiveRPGroup;
+        static System: IAdaptiveRPGroup;
+        static UI: IAdaptiveRPGroup;
+        static Util: IAdaptiveRPGroup;
+        static Unknown: IAdaptiveRPGroup;
     }
 }

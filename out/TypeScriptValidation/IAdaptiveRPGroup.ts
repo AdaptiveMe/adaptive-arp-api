@@ -26,16 +26,27 @@ Contributors:
 module Adaptive {
 
      /**
-        Created by clozano on 05/09/2014.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
+        Enumeration IAdaptiveRPGroup
      */
-     export interface IAppRegistry {
+     export class IAdaptiveRPGroup {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Commerce = new IAdaptiveRPGroup("Commerce");
+          static Communication = new IAdaptiveRPGroup("Communication");
+          static Data = new IAdaptiveRPGroup("Data");
+          static Media = new IAdaptiveRPGroup("Media");
+          static Notification = new IAdaptiveRPGroup("Notification");
+          static PIM = new IAdaptiveRPGroup("PIM");
+          static Reader = new IAdaptiveRPGroup("Reader");
+          static Security = new IAdaptiveRPGroup("Security");
+          static Sensor = new IAdaptiveRPGroup("Sensor");
+          static Social = new IAdaptiveRPGroup("Social");
+          static System = new IAdaptiveRPGroup("System");
+          static UI = new IAdaptiveRPGroup("UI");
+          static Util = new IAdaptiveRPGroup("Util");
+          static Unknown = new IAdaptiveRPGroup("Unknown");
+
      }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

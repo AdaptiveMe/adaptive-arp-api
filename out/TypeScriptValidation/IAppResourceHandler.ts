@@ -23,6 +23,8 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAppResourceCallback.ts"/>
+
 module Adaptive {
 
      /**
@@ -33,6 +35,10 @@ module Adaptive {
         @version 1.0
      */
      export interface IAppResourceHandler {
+          /**
+             null
+          */
+          getResource(resourcePath:string, callback:IAppResourceCallback);
      }
 }
 

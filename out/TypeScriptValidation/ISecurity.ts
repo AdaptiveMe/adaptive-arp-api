@@ -23,7 +23,10 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSecurity.ts"/>
+///<reference path="ISecureKVResultCallback.ts"/>
+///<reference path="SecureKeyPair.ts"/>
 
 module Adaptive {
 
@@ -35,6 +38,36 @@ module Adaptive {
         @version 1.0
      */
      export interface ISecurity extends IBaseSecurity {
+          /**
+             Deletes from the device internal storage the entry/entries containing the specified key names.
+             @param keys             Array with the key names to delete.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          deleteSecureKeyValuePairs(keys:Array<string>, publicAccessName:string, callback:ISecureKVResultCallback);
+          /**
+             Retrieves from the device internal storage the entry/entries containing the specified key names.
+             @param keys             Array with the key names to retrieve.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          getSecureKeyValuePairs(keys:Array<string>, publicAccessName:string, callback:ISecureKVResultCallback);
+          /**
+             Returns if the device has been modified in anyhow
+             @return true if the device has been modified; false otherwise
+             @since ARP1.0
+          */
+          isDeviceModified() : boolean;
+          /**
+             Stores in the device internal storage the specified item/s.
+             @param keyValues        Array containing the items to store on the device internal memory.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          setSecureKeyValuePairs(keyValues:Array<SecureKeyPair>, publicAccessName:string, callback:ISecureKVResultCallback);
      }
 }
 

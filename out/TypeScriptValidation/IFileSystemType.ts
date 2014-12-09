@@ -23,33 +23,19 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-/**
-   Created by clozano on 05/09/2014.
-
-   @author Carlos Lozano Diez
-   @since 1.0
-   @version 1.0
-*/
-public interface IAppRegistry {
-     /**
-        $synthetic$
-     */
-     Object get$Synthetic$(Class interfaceClass);
+module Adaptive {
 
      /**
-        null
+        Enumeration IFileSystemType
      */
-     IAppContext getPlatformContext();
+     export class IFileSystemType {
 
-     /**
-        null
-     */
-     IAppContextWebview getPlatformContextWeb();
+          constructor(public value:string){}
+          toString(){return this.value;}
 
+          static Directory = new IFileSystemType("Directory");
+          static File = new IFileSystemType("File");
+          static Unknown = new IFileSystemType("Unknown");
+
+     }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

@@ -22,22 +22,16 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-///<reference path="IBaseData.ts"/>
-
-module Adaptive {
-
-     /**
-        Definition of IFileSystem interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface IFileSystem extends IBaseData {
-     }
+declare module Adaptive {
+    /**
+       Enumeration ITelephonyStatus
+    */
+    class ITelephonyStatus {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Dialing: ITelephonyStatus;
+        static Failed: ITelephonyStatus;
+        static Unknown: ITelephonyStatus;
+    }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

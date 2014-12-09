@@ -22,5 +22,10 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="Database.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseData.ts"/>
+///<reference path="IDatabaseResultCallback.ts"/>
+///<reference path="ITableResultCallback.ts"/>
+///<reference path="Table.ts"/>
 //# sourceMappingURL=IDatabase.js.map

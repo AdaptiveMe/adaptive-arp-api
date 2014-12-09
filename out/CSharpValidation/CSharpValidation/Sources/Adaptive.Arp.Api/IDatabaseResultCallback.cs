@@ -35,6 +35,31 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IDatabaseResultCallback : IBaseCallback {
+          /**
+             Result callback for error responses
+             @param error Returned error
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          void OnError(IDatabaseResultCallbackError Error);
+
+          /**
+             Result callback for correct responses
+             @param database Returns the database
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          void OnResult(Database Database);
+
+          /**
+             Result callback for warning responses
+             @param database Returns the database
+             @param warning  Returned Warning
+             @author Ferran Vila Conesa
+             @since ARP1.0
+          */
+          void OnWarning(Database Database, IDatabaseResultCallbackWarning Warning);
+
      }
 }
 

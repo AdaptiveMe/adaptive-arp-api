@@ -23,7 +23,9 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommunication.ts"/>
+///<reference path="INetworkStatusListener.ts"/>
 
 module Adaptive {
 
@@ -35,6 +37,23 @@ module Adaptive {
         @version 1.0
      */
      export interface INetworkStatus extends IBaseCommunication {
+          /**
+             Add the listener for network status changes of the app
+             @param listener
+             @since ARP1.0
+          */
+          addNetworkStatusListener(listener:INetworkStatusListener);
+          /**
+             Un-registers an existing listener from receiving network status events.
+             @param listener
+             @since ARP1.0
+          */
+          removeNetworkStatusListener(listener:INetworkStatusListener);
+          /**
+             Removes all existing listeners from receiving network status events.
+             @since ARP1.0
+          */
+          removeNetworkStatusListeners();
      }
 }
 

@@ -35,6 +35,29 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAccelerometer : IBaseSensor {
+          /**
+             Register a new listener that will receive acceleration events.
+             @param listener to be registered.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          void AddAccelerationListener(IAccelerationListener Listener);
+
+          /**
+             De-registers an existing listener from receiving acceleration events.
+             @param listener
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          void RemoveAccelerationListener(IAccelerationListener Listener);
+
+          /**
+             Removed all existing listeners from receiving acceleration events.
+             @author Carlos Lozano Diez
+             @since ARP1.0
+          */
+          void RemoveAccelerationListeners();
+
      }
 }
 

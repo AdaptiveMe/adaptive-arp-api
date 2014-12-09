@@ -1,4 +1,8 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
+/// <reference path="ISecureKVResultCallbackError.d.ts" />
+/// <reference path="ISecureKVResultCallbackWarning.d.ts" />
+/// <reference path="SecureKeyPair.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,24 @@ declare module Adaptive {
        @version 1.0
     */
     interface ISecureKVResultCallback extends IBaseCallback {
+        /**
+           No data received - error condition, not authorized .
+           @param error
+           @since ARP1.0
+        */
+        onError(error: ISecureKVResultCallbackError): any;
+        /**
+           Correct data received.
+           @param keyValues
+           @since ARP1.0
+        */
+        onResult(keyValues: SecureKeyPair[]): any;
+        /**
+           Data received with warning - ie Found entries with existing key and values have been overriden
+           @param keyValues
+           @param warning
+           @since ARP1.0
+        */
+        onWarning(keyValues: SecureKeyPair[], warning: ISecureKVResultCallbackWarning): any;
     }
 }

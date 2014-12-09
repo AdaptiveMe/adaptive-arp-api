@@ -22,5 +22,8 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
+///<reference path="IMessagingCallbackError.ts"/>
+///<reference path="IMessagingCallbackWarning.ts"/>
 //# sourceMappingURL=IMessagingCallback.js.map

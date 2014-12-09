@@ -22,5 +22,8 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="Email.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBasePIM.ts"/>
+///<reference path="IMessagingCallback.ts"/>
 //# sourceMappingURL=IMail.js.map

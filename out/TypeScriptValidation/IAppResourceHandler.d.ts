@@ -1,3 +1,4 @@
+/// <reference path="IAppResourceCallback.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -31,5 +32,9 @@ declare module Adaptive {
        @version 1.0
     */
     interface IAppResourceHandler {
+        /**
+           null
+        */
+        getResource(resourcePath: string, callback: IAppResourceCallback): any;
     }
 }

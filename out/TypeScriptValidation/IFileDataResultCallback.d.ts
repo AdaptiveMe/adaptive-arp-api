@@ -1,4 +1,8 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
+/// <reference path="IFile.d.ts" />
+/// <reference path="IFileDataResultCallbackError.d.ts" />
+/// <reference path="IFileDataResultCallbackWarning.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,18 @@ declare module Adaptive {
        @version 1.0
     */
     interface IFileDataResultCallback extends IBaseCallback {
+        /**
+           Error processing data retrieval/storage operation.
+           @param error Error condition encountered.
+           @since ARP1.0
+        */
+        onError(error: IFileDataResultCallbackError): any;
+        /**
+           Result with warning of data retrieval/storage operation.
+           @param file    File being loaded/stored.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(file: IFile, warning: IFileDataResultCallbackWarning): any;
     }
 }

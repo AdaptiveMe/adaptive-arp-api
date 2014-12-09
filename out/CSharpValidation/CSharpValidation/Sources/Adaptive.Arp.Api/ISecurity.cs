@@ -35,6 +35,40 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface ISecurity : IBaseSecurity {
+          /**
+             Deletes from the device internal storage the entry/entries containing the specified key names.
+             @param keys             Array with the key names to delete.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          void DeleteSecureKeyValuePairs(string[] Keys, string PublicAccessName, ISecureKVResultCallback Callback);
+
+          /**
+             Retrieves from the device internal storage the entry/entries containing the specified key names.
+             @param keys             Array with the key names to retrieve.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          void GetSecureKeyValuePairs(string[] Keys, string PublicAccessName, ISecureKVResultCallback Callback);
+
+          /**
+             Returns if the device has been modified in anyhow
+             @return true if the device has been modified; false otherwise
+             @since ARP1.0
+          */
+          bool IsDeviceModified();
+
+          /**
+             Stores in the device internal storage the specified item/s.
+             @param keyValues        Array containing the items to store on the device internal memory.
+             @param publicAccessName The name of the shared internal storage object (if needed).
+             @param callback         callback to be executed upon function result.
+             @since ARP 1.0
+          */
+          void SetSecureKeyValuePairs(SecureKeyPair[] KeyValues, string PublicAccessName, ISecureKVResultCallback Callback);
+
      }
 }
 

@@ -35,6 +35,52 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IService : IBaseCommunication {
+          /**
+             Get a reference to a registered service by name.
+             @param serviceName Name of service.
+             @return A service, if registered, or null of the service does not exist.
+          */
+          Service GetService(string ServiceName);
+
+          /**
+             Request async a service for an Url
+             @param serviceRequest
+             @param service
+             @param callback
+          */
+          void InvokeService(ServiceRequest ServiceRequest, Service Service, IServiceResultCallback Callback);
+
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName
+             @return True if the service is registered, false otherwise.
+          */
+          bool IsRegistered(string ServiceName);
+
+          /**
+             Check whether a service by the given name is registered.
+             @param serviceName
+             @return True if the service is registered, false otherwise.
+          */
+          bool IsRegistered(Service Service);
+
+          /**
+             Register a new service
+             @param service to register
+          */
+          void RegisterService(Service Service);
+
+          /**
+             Unregister all services.
+          */
+          void UnregisterServices();
+
+          /**
+             Unregister a service
+             @param service to unregister
+          */
+          void UnregisterService(Service Service);
+
      }
 }
 

@@ -23,7 +23,11 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
+///<reference path="ISecureKVResultCallbackError.ts"/>
+///<reference path="ISecureKVResultCallbackWarning.ts"/>
+///<reference path="SecureKeyPair.ts"/>
 
 module Adaptive {
 
@@ -35,6 +39,25 @@ module Adaptive {
         @version 1.0
      */
      export interface ISecureKVResultCallback extends IBaseCallback {
+          /**
+             No data received - error condition, not authorized .
+             @param error
+             @since ARP1.0
+          */
+          onError(error:ISecureKVResultCallbackError);
+          /**
+             Correct data received.
+             @param keyValues
+             @since ARP1.0
+          */
+          onResult(keyValues:Array<SecureKeyPair>);
+          /**
+             Data received with warning - ie Found entries with existing key and values have been overriden
+             @param keyValues
+             @param warning
+             @since ARP1.0
+          */
+          onWarning(keyValues:Array<SecureKeyPair>, warning:ISecureKVResultCallbackWarning);
      }
 }
 

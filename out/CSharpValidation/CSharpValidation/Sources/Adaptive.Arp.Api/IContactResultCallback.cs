@@ -35,6 +35,28 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IContactResultCallback : IBaseCallback {
+          /**
+             This method is called on Error
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          void OnError(IContactResultCallbackError Error);
+
+          /**
+             This method is called on Result
+             @param contacts returned by the platform
+             @since ARP1.0
+          */
+          void OnResult(Contact[] Contacts);
+
+          /**
+             This method is called on Warning
+             @param contacts returned by the platform
+             @param warning  returned by the platform
+             @since ARP1.0
+          */
+          void OnWarning(Contact[] Contacts, IContactResultCallbackWarning Warning);
+
      }
 }
 

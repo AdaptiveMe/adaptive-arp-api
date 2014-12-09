@@ -35,6 +35,12 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IVideo : IBaseMedia {
+          /**
+             Play url video stream
+             @param url of the video
+          */
+          void PlayStream(string Url);
+
      }
 }
 

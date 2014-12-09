@@ -1,4 +1,8 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
+/// <reference path="ITableResultCallbackError.d.ts" />
+/// <reference path="ITableResultCallbackWarning.d.ts" />
+/// <reference path="Table.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,27 @@ declare module Adaptive {
        @version 1.0
     */
     interface ITableResultCallback extends IBaseCallback {
+        /**
+           Result callback for error responses
+           @param error Returned error
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        onError(error: ITableResultCallbackError): any;
+        /**
+           Result callback for correct responses
+           @param table Returns the table
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        onResult(table: Table): any;
+        /**
+           Result callback for warning responses
+           @param table   Returns the table
+           @param warning Returned Warning
+           @author Ferran Vila Conesa
+           @since ARP1.0
+        */
+        onWarning(table: Table, warning: ITableResultCallbackWarning): any;
     }
 }

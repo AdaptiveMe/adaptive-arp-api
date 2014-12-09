@@ -22,5 +22,9 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="Geolocation.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseListener.ts"/>
+///<reference path="IGeolocationListenerError.ts"/>
+///<reference path="IGeolocationListenerWarning.ts"/>
 //# sourceMappingURL=IGeolocationListener.js.map

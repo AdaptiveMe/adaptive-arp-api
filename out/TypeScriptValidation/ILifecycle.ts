@@ -23,7 +23,9 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseApplication.ts"/>
+///<reference path="ILifecycleListener.ts"/>
 
 module Adaptive {
 
@@ -35,6 +37,29 @@ module Adaptive {
         @version 1.0
      */
      export interface ILifecycle extends IBaseApplication {
+          /**
+             Add the listener for the lifecycle of the app
+             @param listener
+             @since ARP1.0
+          */
+          addLifecycleListener(listener:ILifecycleListener);
+          /**
+             Whether the application is in background or not
+             @return true if the application is in background;false otherwise
+             @since ARP1.0
+          */
+          isBackground() : boolean;
+          /**
+             Un-registers an existing listener from receiving lifecycle events.
+             @param listener
+             @since ARP1.0
+          */
+          removeLifecycleListener(listener:ILifecycleListener);
+          /**
+             Removes all existing listeners from receiving lifecycle events.
+             @since ARP1.0
+          */
+          removeLifecycleListeners();
      }
 }
 

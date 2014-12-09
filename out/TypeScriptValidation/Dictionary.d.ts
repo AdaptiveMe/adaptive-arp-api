@@ -22,32 +22,30 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Created by clozano on 05/09/2014.
-
-   @author Carlos Lozano Diez
-   @since 1.0
-   @version 1.0
-*/
-public protocol IAppRegistry : NSObjectProtocol {
-     /**
-        $synthetic$
-     */
-     func get$Synthetic$(interfaceClass:AnyClass) -> AnyObject
-
-     /**
-        null
-     */
-     func getPlatformContext() -> IAppContext
-
-     /**
-        null
-     */
-     func getPlatformContextWeb() -> IAppContextWebview
-
+declare module Adaptive {
+    /**
+       Utility class of type Map
+    */
+    /** Dictionary Definition **/
+    interface IDictionary<V> {
+        add(key: string, value: V): void;
+        remove(key: string): void;
+        containsKey(key: string): boolean;
+        keys(): string[];
+        values(): V[];
+    }
+    class Dictionary<V> implements IDictionary<V> {
+        _keys: string[];
+        _values: V[];
+        constructor(init: {
+            key: string;
+            value: V;
+        }[]);
+        add(key: string, value: V): void;
+        remove(key: string): void;
+        keys(): string[];
+        values(): V[];
+        containsKey(key: string): boolean;
+        toLookup(): IDictionary<V>;
+    }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

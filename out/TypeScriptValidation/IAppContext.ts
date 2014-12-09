@@ -23,6 +23,8 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAppContextType.ts"/>
+
 module Adaptive {
 
      /**
@@ -33,6 +35,16 @@ module Adaptive {
         @version 1.0
      */
      export interface IAppContext {
+          /**
+             The main application context. This should be cast to the platform specific implementation.
+             @return Object representing the specific singleton application context provided by the OS.
+          */
+          getContext() : any;
+          /**
+             The type of context provided by the getContext method.
+             @return Type of platform context.
+          */
+          getContextType() : IAppContextType;
      }
 }
 

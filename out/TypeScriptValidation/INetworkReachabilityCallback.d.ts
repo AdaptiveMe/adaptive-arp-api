@@ -1,4 +1,7 @@
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseCallback.d.ts" />
+/// <reference path="INetworkReachabilityCallbackError.d.ts" />
+/// <reference path="INetworkReachabilityCallbackWarning.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +35,24 @@ declare module Adaptive {
        @version 1.0
     */
     interface INetworkReachabilityCallback extends IBaseCallback {
+        /**
+           No data received - error condition, not authorized .
+           @param error
+           @since ARP1.0
+        */
+        onError(error: INetworkReachabilityCallbackError): any;
+        /**
+           Correct data received.
+           @param reachable
+           @since ARP1.0
+        */
+        onResult(reachable: boolean): any;
+        /**
+           Data received with warning - ie Found entries with existing key and values have been overriden
+           @param reachable
+           @param warning
+           @since ARP1.0
+        */
+        onWarning(reachable: boolean, warning: INetworkReachabilityCallbackWarning): any;
     }
 }

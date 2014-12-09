@@ -35,6 +35,28 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface INetworkStatusListener : IBaseListener {
+          /**
+             No data received - error condition, not authorized or hardware not available.
+             @param error
+             @since ARP1.0
+          */
+          void OnError(INetworkStatusListenerError Error);
+
+          /**
+             Called when network connection changes somehow.
+             @param network Change to this network.
+             @since ARP1.0
+          */
+          void OnResult(ICapabilitiesNet Network);
+
+          /**
+             Status received with warning
+             @param network Change to this network.
+             @param warning
+             @since ARP1.0
+          */
+          void OnWarning(ICapabilitiesNet Network, INetworkStatusListenerWarning Warning);
+
      }
 }
 

@@ -23,7 +23,10 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="Email.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBasePIM.ts"/>
+///<reference path="IMessagingCallback.ts"/>
 
 module Adaptive {
 
@@ -35,6 +38,13 @@ module Adaptive {
         @version 1.0
      */
      export interface IMail extends IBasePIM {
+          /**
+             Send an Email
+             @param data     the email data
+             @param callback with the result
+             @since ARP1.0
+          */
+          sendEmail(data:Email, callback:IMessagingCallback);
      }
 }
 

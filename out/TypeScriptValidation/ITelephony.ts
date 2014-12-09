@@ -23,7 +23,9 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCommunication.ts"/>
+///<reference path="ITelephonyStatus.ts"/>
 
 module Adaptive {
 
@@ -35,6 +37,13 @@ module Adaptive {
         @version 1.0
      */
      export interface ITelephony extends IBaseCommunication {
+          /**
+             Invoke a phone call
+             @param number to call
+             @return Status of the call
+             @since ARP1.0
+          */
+          call(number:string) : ITelephonyStatus;
      }
 }
 

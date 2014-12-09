@@ -1,4 +1,8 @@
+/// <reference path="Geolocation.d.ts" />
+/// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseListener.d.ts" />
+/// <reference path="IGeolocationListenerError.d.ts" />
+/// <reference path="IGeolocationListenerWarning.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -32,5 +36,22 @@ declare module Adaptive {
        @version 1.0
     */
     interface IGeolocationListener extends IBaseListener {
+        /**
+           No data received - error condition, not authorized or hardware not available.
+           @since ARP1.0
+        */
+        onError(error: IGeolocationListenerError): any;
+        /**
+           Correct data received.
+           @param geolocation
+           @since ARP1.0
+        */
+        onResult(geolocation: Geolocation): any;
+        /**
+           Data received with warning - ie. HighDoP
+           @param geolocation
+           @since ARP1.0
+        */
+        onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarning): any;
     }
 }

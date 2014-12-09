@@ -1,3 +1,4 @@
+/// <reference path="IAppContextType.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -31,5 +32,15 @@ declare module Adaptive {
        @version 1.0
     */
     interface IAppContext {
+        /**
+           The main application context. This should be cast to the platform specific implementation.
+           @return Object representing the specific singleton application context provided by the OS.
+        */
+        getContext(): any;
+        /**
+           The type of context provided by the getContext method.
+           @return Type of platform context.
+        */
+        getContextType(): IAppContextType;
     }
 }

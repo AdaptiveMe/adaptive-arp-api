@@ -22,4 +22,11 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="IFileDataLoadResultCallback.ts"/>
+///<reference path="IFileDataStoreResultCallback.ts"/>
+///<reference path="IFileListResultCallback.ts"/>
+///<reference path="IFileResultCallback.ts"/>
+///<reference path="IFileSystemSecurity.ts"/>
+///<reference path="IFileSystemStorageType.ts"/>
+///<reference path="IFileSystemType.ts"/>
 //# sourceMappingURL=IFile.js.map

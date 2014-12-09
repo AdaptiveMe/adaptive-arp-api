@@ -22,22 +22,17 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-using System;
-
-namespace Adaptive.Arp.Api
-{
-     /**
-        Definition of IContact interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     public interface IContact : IBasePIM {
-     }
+declare module Adaptive {
+    /**
+       Enumeration IFileSystemSecurity
+    */
+    class IFileSystemSecurity {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Default: IFileSystemSecurity;
+        static Protected: IFileSystemSecurity;
+        static Encrypted: IFileSystemSecurity;
+        static Unknown: IFileSystemSecurity;
+    }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

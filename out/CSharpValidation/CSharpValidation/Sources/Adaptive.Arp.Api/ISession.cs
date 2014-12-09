@@ -35,6 +35,73 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface ISession : IBaseCommunication {
+          /**
+             Returns an attribute object
+             @return object attribute
+             @since ARP1.0
+          */
+          Object GetAttribute(string Name);
+
+          /**
+             Returns all Session Attributes
+          */
+          Object[] GetAttributes();
+
+          /**
+             Returns the cookie array
+             @return cookie array
+             @since ARP1.0
+          */
+          Cookie[] GetCookies();
+
+          /**
+             Returns all attibute names
+             @return array with all attribute names
+          */
+          string[] ListAttributeNames();
+
+          /**
+             Remove an attribute by its name
+             @param name
+          */
+          void RemoveAttribute(string Name);
+
+          /**
+             Remove all attributes
+          */
+          void RemoveAttributes();
+
+          /**
+             Remove a cookie
+             @param cookie
+          */
+          void RemoveCookie(Cookie Cookie);
+
+          /**
+             Remove a cookies array
+             @param cookies
+          */
+          void RemoveCookies(Cookie[] Cookies);
+
+          /**
+             Set an attribute
+             @param name
+             @param value
+          */
+          void SetAttribute(string Name, Object Value);
+
+          /**
+             Set a cookie object
+             @param cookie
+          */
+          void SetCookie(Cookie Cookie);
+
+          /**
+             Set the cookies array
+             @param cookies
+          */
+          void SetCookies(Cookie[] Cookies);
+
      }
 }
 

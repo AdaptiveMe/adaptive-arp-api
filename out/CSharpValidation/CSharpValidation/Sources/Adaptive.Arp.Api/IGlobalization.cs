@@ -35,6 +35,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IGlobalization : IBaseApplication {
+          /**
+             List of supported locales for the application
+             @return List of locales
+             @since ARP1.0
+          */
+          Locale[] GetLocaleSupportedDescriptors();
+
+          /**
+             Gets the text/message corresponding to the given key and locale.
+             @param key    to match text
+             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+             @return Localized text.
+             @since ARP1.0
+          */
+          string GetResourceLiteral(string Key, Locale Locale);
+
+          /**
+             Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+             @return Localized texts in the form of an object (you could get the value of a keyed literal using resourceLiteralDictionary.MY_KEY or resourceLiteralDictionary["MY_KEY"]).
+             @since ARP1.0
+          */
+          System.Collections.Generic.Dictionary<String,String> GetResourceLiterals(Locale Locale);
+
      }
 }
 

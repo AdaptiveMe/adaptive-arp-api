@@ -35,6 +35,28 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IButtonListener : IBaseListener {
+          /**
+             No data received
+             @param error occurred
+             @since ARP1.0
+          */
+          void OnError(IButtonListenerError Error);
+
+          /**
+             Called on button pressed
+             @param button pressed
+             @since ARP1.0
+          */
+          void OnResult(Button Button);
+
+          /**
+             Data received with warning
+             @param button  pressed
+             @param warning happened
+             @since ARP1.0
+          */
+          void OnWarning(Button Button, IButtonListenerWarning Warning);
+
      }
 }
 

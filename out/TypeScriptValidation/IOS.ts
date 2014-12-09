@@ -23,7 +23,9 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
+///<reference path="OSInfo.ts"/>
 
 module Adaptive {
 
@@ -35,6 +37,11 @@ module Adaptive {
         @version 1.0
      */
      export interface IOS extends IBaseSystem {
+          /**
+             Returns the OSInfo for the current operating system.
+             @return OSInfo with name, version and vendor of the OS.
+          */
+          getOSInfo() : OSInfo;
      }
 }
 

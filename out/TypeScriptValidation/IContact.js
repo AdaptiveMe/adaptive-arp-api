@@ -22,5 +22,11 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="ContactUid.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBasePIM.ts"/>
+///<reference path="IContactFieldGroup.ts"/>
+///<reference path="IContactFilter.ts"/>
+///<reference path="IContactPhotoResultCallback.ts"/>
+///<reference path="IContactResultCallback.ts"/>
 //# sourceMappingURL=IContact.js.map

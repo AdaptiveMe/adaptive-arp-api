@@ -22,22 +22,18 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-///<reference path="IBaseSystem.ts"/>
-
-module Adaptive {
-
-     /**
-        Definition of ICapabilities interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
-     */
-     export interface ICapabilities extends IBaseSystem {
-     }
+declare module Adaptive {
+    /**
+       Enumeration IAppResourceFormat
+    */
+    class IAppResourceFormat {
+        value: string;
+        constructor(value: string);
+        toString(): string;
+        static Raw: IAppResourceFormat;
+        static Compressed: IAppResourceFormat;
+        static Encrypted: IAppResourceFormat;
+        static EncryptedCompressed: IAppResourceFormat;
+        static Unknown: IAppResourceFormat;
+    }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

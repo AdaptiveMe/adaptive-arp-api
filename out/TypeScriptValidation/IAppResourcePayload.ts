@@ -23,21 +23,20 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-using System;
+module Adaptive {
 
-namespace Adaptive.Arp.Api
-{
      /**
-        Definition of ICapabilities interface/protocol.
-
-        @author Carlos Lozano Diez
-        @since 1.0
-        @version 1.0
+        Enumeration IAppResourcePayload
      */
-     public interface ICapabilities : IBaseSystem {
+     export class IAppResourcePayload {
+
+          constructor(public value:string){}
+          toString(){return this.value;}
+
+          static Default = new IAppResourcePayload("Default");
+          static Embedded = new IAppResourcePayload("Embedded");
+          static Linked = new IAppResourcePayload("Linked");
+          static Unknown = new IAppResourcePayload("Unknown");
+
      }
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

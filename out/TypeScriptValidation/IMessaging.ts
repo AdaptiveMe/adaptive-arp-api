@@ -23,7 +23,9 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBasePIM.ts"/>
+///<reference path="IMessagingCallback.ts"/>
 
 module Adaptive {
 
@@ -35,6 +37,14 @@ module Adaptive {
         @version 1.0
      */
      export interface IMessaging extends IBasePIM {
+          /**
+             Send text SMS
+             @param number   to send
+             @param text     to send
+             @param callback with the result
+             @since ARP1.0
+          */
+          sendSMS(number:string, text:string, callback:IMessagingCallback);
      }
 }
 

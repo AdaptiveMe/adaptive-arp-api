@@ -23,6 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSystem.ts"/>
 
 module Adaptive {
@@ -35,6 +36,17 @@ module Adaptive {
         @version 1.0
      */
      export interface IRuntime extends IBaseSystem {
+          /**
+             Dismiss the current Application
+             @since ARP1.0
+          */
+          dismissApplication();
+          /**
+             Whether the application dismiss the splash screen successfully or not
+             @return true if the application has dismissed the splash screen;false otherwise
+             @since ARP1.0
+          */
+          dismissSplashScreen() : boolean;
      }
 }
 

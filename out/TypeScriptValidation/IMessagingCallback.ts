@@ -23,7 +23,10 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
+///<reference path="IMessagingCallbackError.ts"/>
+///<reference path="IMessagingCallbackWarning.ts"/>
 
 module Adaptive {
 
@@ -35,6 +38,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IMessagingCallback extends IBaseCallback {
+          /**
+             This method is called on Error
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          onError(error:IMessagingCallbackError);
+          /**
+             This method is called on Result
+             @param success true if sent;false otherwise
+             @since ARP1.0
+          */
+          onResult(success:boolean);
+          /**
+             This method is called on Warning
+             @param success true if sent;false otherwise
+             @param warning returned by the platform
+             @since ARP1.0
+          */
+          onWarning(success:boolean, warning:IMessagingCallbackWarning);
      }
 }
 

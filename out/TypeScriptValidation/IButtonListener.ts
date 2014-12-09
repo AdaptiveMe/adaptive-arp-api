@@ -23,7 +23,11 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="Button.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseListener.ts"/>
+///<reference path="IButtonListenerError.ts"/>
+///<reference path="IButtonListenerWarning.ts"/>
 
 module Adaptive {
 
@@ -35,6 +39,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IButtonListener extends IBaseListener {
+          /**
+             No data received
+             @param error occurred
+             @since ARP1.0
+          */
+          onError(error:IButtonListenerError);
+          /**
+             Called on button pressed
+             @param button pressed
+             @since ARP1.0
+          */
+          onResult(button:Button);
+          /**
+             Data received with warning
+             @param button  pressed
+             @param warning happened
+             @since ARP1.0
+          */
+          onWarning(button:Button, warning:IButtonListenerWarning);
      }
 }
 

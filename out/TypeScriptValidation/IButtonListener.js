@@ -22,5 +22,9 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+///<reference path="Button.ts"/>
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseListener.ts"/>
+///<reference path="IButtonListenerError.ts"/>
+///<reference path="IButtonListenerWarning.ts"/>
 //# sourceMappingURL=IButtonListener.js.map

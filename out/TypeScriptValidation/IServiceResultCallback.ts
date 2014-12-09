@@ -23,7 +23,11 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseCallback.ts"/>
+///<reference path="IServiceResultCallbackError.ts"/>
+///<reference path="IServiceResultCallbackWarning.ts"/>
+///<reference path="ServiceResponse.ts"/>
 
 module Adaptive {
 
@@ -35,6 +39,25 @@ module Adaptive {
         @version 1.0
      */
      export interface IServiceResultCallback extends IBaseCallback {
+          /**
+             This method is called on Error
+             @param error returned by the platform
+             @since ARP1.0
+          */
+          onError(error:IServiceResultCallbackError);
+          /**
+             This method is called on Result
+             @param response data
+             @since ARP1.0
+          */
+          onResult(response:ServiceResponse);
+          /**
+             This method is called on Warning
+             @param response data
+             @param warning  returned by the platform
+             @since ARP1.0
+          */
+          onWarning(response:ServiceResponse, warning:IServiceResultCallbackWarning);
      }
 }
 

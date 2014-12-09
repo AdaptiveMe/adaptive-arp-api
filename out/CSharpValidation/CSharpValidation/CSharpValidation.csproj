@@ -64,18 +64,23 @@
     <Compile Include="Sources\Adaptive.Arp.Api\IAccelerationListenerWarning.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAccelerometer.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAdaptiveRP.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IAdaptiveRPGroup.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAds.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAlarm.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAmbientLight.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAnalytics.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppContext.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IAppContextType.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppContextWebview.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppRegistry.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppResource.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppResourceCallback.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppResourceCallbackError.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppResourceCallbackWarning.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IAppResourceFormat.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppResourceHandler.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IAppResourcePayload.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IAppResourceType.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAudio.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IBarcode.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IBarometer.cs" />
@@ -145,6 +150,9 @@
     <Compile Include="Sources\Adaptive.Arp.Api\IFileResultCallbackError.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IFileResultCallbackWarning.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IFileSystem.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IFileSystemSecurity.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IFileSystemStorageType.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IFileSystemType.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IGeolocation.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IGeolocationListener.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IGeolocationListenerError.cs" />
@@ -210,6 +218,7 @@
     <Compile Include="Sources\Adaptive.Arp.Api\ITableResultCallbackError.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ITableResultCallbackWarning.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ITelephony.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ITelephonyStatus.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ITimer.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ITwitter.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IUI.cs" />
@@ -233,5 +242,8 @@
   <ItemGroup>
     <Folder Include="Sources\" />
     <Folder Include="Sources\Adaptive.Arp.Api\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sources\Adaptive.Arp.Api\.DS_Store" />
   </ItemGroup>
 </Project>
