@@ -21,7 +21,19 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -29,23 +41,33 @@
 package me.adaptive.arp.api;
 
 /**
- * Created by clozano on 05/09/2014.
+ * Interface for webview context management purposes
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
  */
 public interface IAppRegistry {
 
-    /* Internals */
-
+    /**
+     * Returns a reference to the Platform Context
+     *
+     * @return Reference to the platform context
+     * @since ARP1.0
+     */
     IAppContext getPlatformContext();
 
+    /**
+     * Returns a reference to the Webview platform context
+     *
+     * @return Reference to the Webview Context
+     * @since ARP1.0
+     */
     IAppContextWebview getPlatformContextWeb();
 
     /**
      * $synthetic$
      */
-    Object get$Synthetic$(Class< ? extends IAdaptiveRP> interfaceClass);
-    // Will generate
-    //IDatabase getIDatabase(); // For internal implementation.
-    //IDatabaseBridge getIDatabaseBridge(); // For handler anonymous function call.
+    Object get$Synthetic$(Class<? extends IAdaptiveRP> interfaceClass);
 
 
 }

@@ -21,18 +21,31 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
-import java.util.Map;
-
+/**
+ * Interface for Managing the Globalization results
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
+ */
 public interface IGlobalization extends IBaseApplication {
 
     /**
@@ -57,8 +70,8 @@ public interface IGlobalization extends IBaseApplication {
      * Gets the full application configured literals (key/message pairs) corresponding to the given locale.
      *
      * @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-     * @return Localized texts in the form of an object (you could get the value of a keyed literal using resourceLiteralDictionary.MY_KEY or resourceLiteralDictionary["MY_KEY"]).
+     * @return Localized texts in the form of an object.
      * @since ARP1.0
      */
-    Map<String, String> getResourceLiterals(Locale locale);
+    KeyPair[] getResourceLiterals(Locale locale);
 }

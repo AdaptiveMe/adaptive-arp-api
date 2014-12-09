@@ -21,13 +21,31 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
+/**
+ * Interface for Managing the File operations callback
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
+ */
 public interface IFileResultCallback extends IBaseCallback {
 
     /**
@@ -41,8 +59,8 @@ public interface IFileResultCallback extends IBaseCallback {
     /**
      * On partial result of a file operation, containing a warning.
      *
-     * @param file            Reference to the offending file.
-     * @param warning         Warning processing the request.
+     * @param file    Reference to the offending file.
+     * @param warning Warning processing the request.
      * @since ARP1.0
      */
     void onWarning(IFile file, Warning warning);

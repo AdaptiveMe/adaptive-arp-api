@@ -21,20 +21,37 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
+/**
+ * Interface defining methods about the acceleration sensor
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
+ */
+public interface IAcceleration extends IBaseSensor {
 
-public interface IAccelerometer extends IBaseSensor {
     /**
      * Register a new listener that will receive acceleration events.
      *
      * @param listener to be registered.
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     void addAccelerationListener(IAccelerationListener listener);
@@ -42,8 +59,7 @@ public interface IAccelerometer extends IBaseSensor {
     /**
      * De-registers an existing listener from receiving acceleration events.
      *
-     * @param listener
-     * @author Carlos Lozano Diez
+     * @param listener to be registered.
      * @since ARP1.0
      */
     void removeAccelerationListener(IAccelerationListener listener);
@@ -51,7 +67,6 @@ public interface IAccelerometer extends IBaseSensor {
     /**
      * Removed all existing listeners from receiving acceleration events.
      *
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     void removeAccelerationListeners();

@@ -21,7 +21,19 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -29,17 +41,12 @@
 package me.adaptive.arp.api;
 
 /**
- * Created by clozano on 09/09/14.
+ * Interface for webview context management purposes
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
  */
 public interface IAppContextWebview {
-    /**
-     * Returns a reference to the main application webview. This is the first application webview and can not be removed
-     * with the removeWebview method. The object returned should be cast to the platform specific implementation
-     * WebView, WKWebView, etc.
-     *
-     * @return Object representing the specific and primary webview instance of the application.
-     */
-    Object getWebviewPrimary();
 
     /**
      * Additional views may be added to an application - a separate activity - and if these will make calls to the
@@ -48,6 +55,7 @@ public interface IAppContextWebview {
      * not be added using this method.
      *
      * @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
+     * @since ARP1.0
      */
     void addWebview(Object webView);
 
@@ -56,6 +64,7 @@ public interface IAppContextWebview {
      * ARP functions and release resources. The primary webview can not be removed.
      *
      * @param webView The instance of the webview to be removed from the binding.
+     * @since ARP1.0
      */
     void removeWebview(Object webView);
 
@@ -64,6 +73,17 @@ public interface IAppContextWebview {
      * This method will always return at least one element; the primary webview.
      *
      * @return Array with all the Webview instances being managed by ARP.
+     * @since ARP1.0
      */
     Object[] getWebviews();
+
+    /**
+     * Returns a reference to the main application webview. This is the first application webview and can not be removed
+     * with the removeWebview method. The object returned should be cast to the platform specific implementation
+     * WebView, WKWebView, etc.
+     *
+     * @return Object representing the specific and primary webview instance of the application.
+     * @since ARP1.0
+     */
+    Object getWebviewPrimary();
 }

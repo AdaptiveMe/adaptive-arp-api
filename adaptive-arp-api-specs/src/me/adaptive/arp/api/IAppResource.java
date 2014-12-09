@@ -21,7 +21,19 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -29,42 +41,150 @@
 package me.adaptive.arp.api;
 
 /**
- * Created by clozano on 05/09/2014.
+ * This interface manages the application resources on the bundle
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
  */
 public interface IAppResource {
 
+    /**
+     * Returns the name of the resource
+     *
+     * @return Name of the resource
+     * @since ARP1.0
+     */
     String getName();
 
+    /**
+     * Returns the path of the resource
+     *
+     * @return Path of the resource
+     * @since ARP1.0
+     */
     String getPath();
 
+    /**
+     * Returns the Mime-Type of the resource
+     *
+     * @return The mime-type
+     * @since ARP1.0
+     */
     String getMimetype();
 
+    /**
+     * Returns the type of the resource
+     *
+     * @return Type of the resource
+     * @since ARP1.0
+     */
     Type getType();
 
+    /**
+     * Returns the format of the resource
+     *
+     * @return Format of the resource
+     * @since ARP1.0
+     */
     Format getFormat();
 
-    Payload geType();
+    /**
+     * Returns the payload type of the resource
+     *
+     * @return Payload type
+     * @since ARP1.0
+     */
+    Payload getPayloadType();
 
+    /**
+     * Returns the size of the resource
+     *
+     * @return Size of the resource
+     * @since ARP1.0
+     */
     long getSize();
 
+    /**
+     * Returns the Size of the stored resource
+     *
+     * @return Size of the Stored Resource
+     * @since ARP1.0
+     */
     long getSizeStored();
 
+    /**
+     * Returns the timestamp of the resource
+     *
+     * @return Timestamp of the resource
+     * @since ARP1.0
+     */
     long getTimestamp();
 
+    /**
+     * Returns the MD5 encoding of the resource
+     *
+     * @return MD5 encoding of the resource
+     * @since ARP1.0
+     */
     String getMd5();
 
+    /**
+     * Returns the unique identifier of the resource
+     *
+     * @return Unique Identifier
+     * @since ARP1.0
+     */
     String getUuid();
 
+    /**
+     * Returns the payload of the resource decripted
+     *
+     * @return Payload
+     * @since ARP1.0
+     */
     byte[] getData();
 
+    /**
+     * Returns the stored payload of the resource
+     *
+     * @return Stored payload
+     * @since ARP1.0
+     */
     byte[] getDataStored();
 
+    /**
+     * Returns the data path of the resource
+     *
+     * @return The data path of the resource
+     * @since ARP1.0
+     */
     String getDataPathLinked();
 
-    enum Type {Html, Css, JavaScript, Image, Video, Audio, Property, Database, Other, Unknown}
+    /**
+     * Enumerator to define the type of resource
+     *
+     * @since ARP1.0
+     */
+    enum Type {
+        Html, Css, JavaScript, Image, Video, Audio, Property, Database, Other, Unknown
+    }
 
-    enum Format {Raw, Compressed, Encrypted, EncryptedCompressed, Unknown}
+    /**
+     * Enumerator to define the level of cooking of the stored resources
+     *
+     * @since ARP1.0
+     */
+    enum Format {
+        Raw, Compressed, Encrypted, EncryptedCompressed, Unknown
+    }
 
-    enum Payload {Default, Embedded, Linked, Unknown}
+    /**
+     * Enumerator to define the type of payload stored
+     *
+     * @since ARP1.0
+     */
+    enum Payload {
+        Default, Embedded, Linked, Unknown
+    }
 
 }

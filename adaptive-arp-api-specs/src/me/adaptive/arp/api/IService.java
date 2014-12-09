@@ -1,5 +1,4 @@
 /*
- *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -37,18 +36,23 @@
  *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
- *
  */
 
 package me.adaptive.arp.api;
 
-
+/**
+ * Interface for Managing the Services operations
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
+ */
 public interface IService extends IBaseCommunication {
 
     /**
      * Register a new service
      *
      * @param service to register
+     * @since ARP1.0
      */
     void registerService(Service service);
 
@@ -56,27 +60,32 @@ public interface IService extends IBaseCommunication {
      * Unregister a service
      *
      * @param service to unregister
+     * @since ARP1.0
      */
     void unregisterService(Service service);
 
     /**
      * Unregister all services.
+     *
+     * @since ARP1.0
      */
     void unregisterServices();
 
     /**
      * Check whether a service by the given service is already registered.
      *
-     * @param service
+     * @param service Service to check
      * @return True if the service is registered, false otherwise.
+     * @since ARP1.0
      */
     boolean isRegistered(Service service);
 
     /**
      * Check whether a service by the given name is registered.
      *
-     * @param serviceName
+     * @param serviceName Name of service.
      * @return True if the service is registered, false otherwise.
+     * @since ARP1.0
      */
     boolean isRegistered(String serviceName);
 
@@ -85,15 +94,17 @@ public interface IService extends IBaseCommunication {
      *
      * @param serviceName Name of service.
      * @return A service, if registered, or null of the service does not exist.
+     * @since ARP1.0
      */
     Service getService(String serviceName);
 
     /**
      * Request async a service for an Url
      *
-     * @param serviceRequest
-     * @param service
-     * @param callback
+     * @param serviceRequest Service Request to invoke
+     * @param service        Service to call
+     * @param callback       Callback to execute with the result
+     * @since ARP1.0
      */
     void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback);
 
@@ -103,17 +114,7 @@ public interface IService extends IBaseCommunication {
      * @since ARP1.0
      */
     public enum ServiceType {
-        SERVICETYPE_AMF_SERIALIZATION,
-        SERVICETYPE_GWT_RPC,
-        SERVICETYPE_OCTET_BINARY,
-        SERVICETYPE_REMOTING_SERIALIZATION,
-        SERVICETYPE_REST_JSON,
-        SERVICETYPE_REST_XML,
-        SERVICETYPE_SOAP_JSON,
-        SERVICETYPE_SOAP_XML,
-        SERVICETYPE_XMLRPC_JSON,
-        SERVICETYPE_XMLRPC_XML,
-        Unknown
+        ServiceTypeAmfSerialization, ServiceTypeGwtRpc, ServiceTypeOctetBinary, ServiceTypeRemotingSerialization, ServiceTypeRestJson, ServiceTypeRestXml, ServiceTypeSoapJson, ServiceTypeSoapXml, ServiceTypeXmlRpcJson, ServiceTypeXmlRpcXml, Unknown
     }
 
     /**
@@ -122,7 +123,7 @@ public interface IService extends IBaseCommunication {
      * @since ARP1.0
      */
     public enum ProtocolVersion {
-        HTTP_PROTOCOL_VERSION_1_0, HTTP_PROTOCOL_VERSION_1_1, Unknown
+        HttpProtocolVersion10, HttpProtocolVersion11, Unknown
     }
 
     /**
@@ -131,6 +132,6 @@ public interface IService extends IBaseCommunication {
      * @since ARP1.0
      */
     public enum ServiceMethod {
-        POST, GET, Unknown
+        Post, Get, Unknown
     }
 }

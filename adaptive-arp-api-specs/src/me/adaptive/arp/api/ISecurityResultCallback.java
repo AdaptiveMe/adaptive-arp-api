@@ -21,44 +21,74 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-public interface IFileDataResultCallback extends IBaseCallback {
-
+/**
+ * Interface for Managing the Security result callback
+ *
+ * @author Aryslan
+ * @since ARP1.0
+ */
+public interface ISecurityResultCallback extends IBaseCallback {
 
     /**
-     * Result with warning of data retrieval/storage operation.
+     * Correct data received.
      *
-     * @param file    File being loaded/stored.
-     * @param warning Warning condition encountered.
+     * @param keyValues key and values
      * @since ARP1.0
      */
-    void onWarning(IFile file, Warning warning);
+    void onResult(SecureKeyPair[] keyValues);
 
     /**
-     * Error processing data retrieval/storage operation.
+     * Data received with warning - ie Found entries with existing key and values have been overriden
      *
-     * @param error Error condition encountered.
+     * @param keyValues key and values
+     * @param warning   Warning values
+     * @since ARP1.0
+     */
+    void onWarning(SecureKeyPair[] keyValues, Warning warning);
+
+    /**
+     * No data received - error condition, not authorized .
+     *
+     * @param error Error values
      * @since ARP1.0
      */
     void onError(Error error);
 
     /**
+     * Possible warning values
+     *
      * @since ARP1.0
      */
-    public enum Warning {
-        ExceedMaximumSize, Unknown
+    enum Warning {
+        EntryOverride, Unknown
     }
 
     /**
+     * Possible error values
+     *
      * @since ARP1.0
      */
-    public enum Error {
-        InexistentFile, InsufficientSpace, Unauthorized, Unknown
+    enum Error {
+        NoPermission, NoMatchesFound, Unknown
     }
 }
+

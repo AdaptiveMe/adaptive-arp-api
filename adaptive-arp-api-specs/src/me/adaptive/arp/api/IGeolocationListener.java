@@ -21,22 +21,37 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
+/**
+ * Interface for Managing the Geolocation results
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
+ */
 public interface IGeolocationListener extends IBaseListener {
 
     /**
      * Correct data received.
      *
-     * @param geolocation
+     * @param geolocation Geolocation Bean
      * @since ARP1.0
      */
     void onResult(Geolocation geolocation);
@@ -44,7 +59,7 @@ public interface IGeolocationListener extends IBaseListener {
     /**
      * Data received with warning - ie. HighDoP
      *
-     * @param geolocation
+     * @param geolocation Geolocation Bean
      * @since ARP1.0
      */
     void onWarning(Geolocation geolocation, Warning warning);
@@ -56,7 +71,21 @@ public interface IGeolocationListener extends IBaseListener {
      */
     void onError(Error error);
 
-    public enum Error {Disabled, RestrictedAccess, DeniedAccess, StatusNotDetermined, Unknown}
+    /**
+     * Possible error values
+     *
+     * @since ARP1.0
+     */
+    public enum Error {
+        Disabled, RestrictedAccess, DeniedAccess, StatusNotDetermined, Unknown
+    }
 
-    public enum Warning {HighDoP, StaleData, Unknown}
+    /**
+     * Possible warning values
+     *
+     * @since ARP1.0
+     */
+    public enum Warning {
+        HighDoP, StaleData, Unknown
+    }
 }

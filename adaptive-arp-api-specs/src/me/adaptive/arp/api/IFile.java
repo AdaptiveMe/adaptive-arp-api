@@ -21,13 +21,31 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
+/**
+ * Interface for Managing the File operations
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
+ */
 public interface IFile {
 
     /**
@@ -185,9 +203,27 @@ public interface IFile {
      */
     void move(IFile newFile, boolean createPath, boolean overwrite, IFileResultCallback callback);
 
+    /**
+     * Returns the security type of the file
+     *
+     * @return Security Level of the file
+     * @since ARP1.0
+     */
     IFileSystem.FileSecurity getSecurityType();
 
+    /**
+     * Returns the file type
+     *
+     * @return Returns the file type of the file
+     * @since ARP1.0
+     */
     IFileSystem.FileType getFileType();
 
+    /**
+     * Returns the file storage type of the file
+     *
+     * @return Storage Type file
+     * @since ARP1.0
+     */
     IFileSystem.FileStorageType getFileStorageType();
 }

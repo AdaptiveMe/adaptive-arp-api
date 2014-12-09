@@ -41,10 +41,80 @@
 package me.adaptive.arp.api;
 
 /**
- * Base application for Commerce purposes
+ * Represents a basic bean to store key pair values
  *
- * @author Carlos Lozano Diez
+ * @author Ferran Vila Conesa
  * @since ARP1.0
  */
-public interface IBaseCommerce extends IAdaptiveRP {
+public class KeyPair {
+
+    /**
+     * Key of the element
+     */
+    private String key;
+
+    /**
+     * Value of the element
+     */
+    private String value;
+
+    /**
+     * Default Constructor
+     *
+     * @since ARP1.0
+     */
+    public KeyPair() {
+    }
+
+    /**
+     * Constructor using fields
+     *
+     * @param key   Key of the element
+     * @param value Value of the element
+     * @since ARP1.0
+     */
+    public KeyPair(String key, String value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    /**
+     * Returns the key of the element
+     *
+     * @return Key of the element
+     * @since ARP1.0
+     */
+    public String getKey() {
+        return key;
+    }
+
+    /**
+     * Sets the key of the element
+     *
+     * @param key Key of the element
+     * @since ARP1.0
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    /**
+     * Returns the value of the element
+     *
+     * @return Value of the element
+     * @since ARP1.0
+     */
+    public String getValue() {
+        return value;
+    }
+
+    /**
+     * Sets the value of the element
+     *
+     * @param value Value of the element
+     * @since ARP1.0
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
 }
