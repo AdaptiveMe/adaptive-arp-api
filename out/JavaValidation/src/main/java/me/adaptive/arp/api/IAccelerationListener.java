@@ -33,6 +33,32 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IAccelerationListener extends IBaseListener {
+     /**
+        No data received - error condition, not authorized or hardware not available. This will be reported once for the
+listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+        @param error
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     void onError(IAccelerationListenerError error);
+
+     /**
+        Correct data received.
+        @param acceleration
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     void onResult(Acceleration acceleration);
+
+     /**
+        Data received with warning - ie. Needs calibration.
+        @param acceleration
+        @param warning
+        @author Carlos Lozano Diez
+        @since ARP1.0
+     */
+     void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning);
+
 }
 
 /**

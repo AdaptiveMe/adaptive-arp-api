@@ -33,6 +33,28 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IButtonListener extends IBaseListener {
+     /**
+        No data received
+        @param error occurred
+        @since ARP1.0
+     */
+     void onError(IButtonListenerError error);
+
+     /**
+        Called on button pressed
+        @param button pressed
+        @since ARP1.0
+     */
+     void onResult(Button button);
+
+     /**
+        Data received with warning
+        @param button  pressed
+        @param warning happened
+        @since ARP1.0
+     */
+     void onWarning(Button button, IButtonListenerWarning warning);
+
 }
 
 /**

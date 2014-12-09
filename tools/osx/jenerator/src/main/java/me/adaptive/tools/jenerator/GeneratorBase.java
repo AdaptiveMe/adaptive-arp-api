@@ -30,6 +30,7 @@ import me.adaptive.tools.jenerator.utils.IndentPrintStream;
 import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -319,11 +320,63 @@ public abstract class GeneratorBase {
                  * Start interface.
                  */
                 startInterface(clazz.getSimpleName(), clazz, classComment, tagList);
-                //println();
+                /**
+                 * Declare methods.
+                 */
+                List<Method> interfaceMethods = new ArrayList<>();
+                List<JavaMethod> interfaceMethodsDoc =  mapClassSource.get(clazz).getMethods();
+                for (Method method : clazz.getDeclaredMethods()) {
+                    interfaceMethods.add(method);
+                }
+                interfaceMethods.sort(new Comparator<Method>() {
+                    @Override
+                    public int compare(Method o1, Method o2) {
+                        StringBuffer a = new StringBuffer();
+                        StringBuffer b = new StringBuffer();
+
+                        a.append(o1.getName());
+                        for (Parameter p : o1.getParameters()) {
+                            a.append(p.getName());
+                            a.append(p.getType());
+                            a.append(",");
+                        }
+
+                        b.append(o2.getName());
+                        for (Parameter p : o2.getParameters()) {
+                            b.append(p.getName());
+                            b.append(p.getType());
+                            b.append(",");
+                        }
+                        return a.toString().compareTo(b.toString());
+                    }
+                });
+                interfaceMethodsDoc.sort(new Comparator<JavaMethod>() {
+                    @Override
+                    public int compare(JavaMethod o1, JavaMethod o2) {
+                        StringBuffer a = new StringBuffer();
+                        StringBuffer b = new StringBuffer();
+
+                        a.append(o1.getName());
+                        for (JavaParameter p : o1.getParameters()) {
+                            a.append(p.getName());
+                            a.append(p.getType());
+                            a.append(",");
+                        }
+
+                        b.append(o2.getName());
+                        for (JavaParameter p : o2.getParameters()) {
+                            b.append(p.getName());
+                            b.append(p.getType());
+                            b.append(",");
+                        }
+
+                        return a.toString().compareTo(b.toString());
+                    }
+                });
+                declareInterfaceMethods(clazz.getSimpleName(), clazz, interfaceMethods, interfaceMethodsDoc);
                 /**
                  * End interface.
                  */
-                //println();
                 endInterface(clazz.getSimpleName(), clazz);
             } else {
                 /**
@@ -493,6 +546,8 @@ public abstract class GeneratorBase {
         endGeneration();
         callback.onSuccess(this, this.getClass());
     }
+
+    protected abstract void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc);
 
     protected abstract void endInterface(String simpleName, Class clazz);
 

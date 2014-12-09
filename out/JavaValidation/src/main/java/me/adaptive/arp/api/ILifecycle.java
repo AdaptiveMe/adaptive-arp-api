@@ -33,6 +33,33 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface ILifecycle extends IBaseApplication {
+     /**
+        Add the listener for the lifecycle of the app
+        @param listener
+        @since ARP1.0
+     */
+     void addLifecycleListener(ILifecycleListener listener);
+
+     /**
+        Whether the application is in background or not
+        @return true if the application is in background;false otherwise
+        @since ARP1.0
+     */
+     boolean isBackground();
+
+     /**
+        Un-registers an existing listener from receiving lifecycle events.
+        @param listener
+        @since ARP1.0
+     */
+     void removeLifecycleListener(ILifecycleListener listener);
+
+     /**
+        Removes all existing listeners from receiving lifecycle events.
+        @since ARP1.0
+     */
+     void removeLifecycleListeners();
+
 }
 
 /**

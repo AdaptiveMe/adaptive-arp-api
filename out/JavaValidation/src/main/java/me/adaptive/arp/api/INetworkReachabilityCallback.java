@@ -33,6 +33,28 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface INetworkReachabilityCallback extends IBaseCallback {
+     /**
+        No data received - error condition, not authorized .
+        @param error
+        @since ARP1.0
+     */
+     void onError(INetworkReachabilityCallbackError error);
+
+     /**
+        Correct data received.
+        @param reachable
+        @since ARP1.0
+     */
+     void onResult(boolean reachable);
+
+     /**
+        Data received with warning - ie Found entries with existing key and values have been overriden
+        @param reachable
+        @param warning
+        @since ARP1.0
+     */
+     void onWarning(boolean reachable, INetworkReachabilityCallbackWarning warning);
+
 }
 
 /**

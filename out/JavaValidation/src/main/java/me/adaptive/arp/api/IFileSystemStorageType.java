@@ -26,15 +26,16 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of IDatabase interface/protocol.
-
-   @author Carlos Lozano Diez
-   @since 1.0
-   @version 1.0
+   Enumeration IFileSystemStorageType
 */
-public interface IDatabase extends IBaseData {
+public enum IFileSystemStorageType {
+
+     Application,
+     Document,
+     Cloud,
+     Protected,
+     Cache,
+     External,
+     Unknown
+
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

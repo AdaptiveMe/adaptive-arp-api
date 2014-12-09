@@ -33,6 +33,18 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IAppContext {
+     /**
+        The main application context. This should be cast to the platform specific implementation.
+        @return Object representing the specific singleton application context provided by the OS.
+     */
+     Object getContext();
+
+     /**
+        The type of context provided by the getContext method.
+        @return Type of platform context.
+     */
+     IAppContextType getContextType();
+
 }
 
 /**

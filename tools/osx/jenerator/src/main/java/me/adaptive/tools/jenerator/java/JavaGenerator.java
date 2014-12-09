@@ -52,6 +52,45 @@ public class JavaGenerator extends GeneratorBase {
     }
 
     @Override
+    protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc) {
+        for (Method method : interfaceMethods) {
+            startComment(5);
+            JavaMethod javaMethod = null;
+            for (JavaMethod m : interfaceMethodsDoc) {
+                if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
+                    javaMethod = m;
+                    break;
+                }
+            }
+            if (javaMethod != null) {
+                println(8, javaMethod.getComment());
+                for (DocletTag tag : javaMethod.getTags()) {
+                    println(8, "@" + tag.getName() + " " + tag.getValue());
+                }
+            }
+            endComment(5);
+            if (method.getReturnType().equals(Void.TYPE)) {
+                print(5, "void ");
+            } else {
+                print(5, convertJavaToNativeType(method.getReturnType()) + " ");
+            }
+            print(method.getName());
+            print("(");
+            for (int i = 0; i < method.getParameterCount(); i++) {
+                Parameter p = method.getParameters()[i];
+                print(convertJavaToNativeType(p.getType()));
+                print(" ");
+                print(p.getName());
+                if (i < method.getParameterCount() - 1) {
+                    print(", ");
+                }
+            }
+            println(");");
+            println();
+        }
+    }
+
+    @Override
     protected void endInterface(String simpleName, Class clazz) {
         println("}");
     }
@@ -95,6 +134,18 @@ public class JavaGenerator extends GeneratorBase {
                     convertJavaToNativeType(parameter.getType().getComponentType());
                 }
             }
+        }
+        for (Field field : clazz.getDeclaredFields()) {
+            print(5, convertJavaToNativeType(field.getType()));
+            print(" ");
+            if (field.getName().equals("API_VERSION")) {
+                print(field.getName());
+                print(" = ");
+                print("\"TO_BE_REPLACED\"");
+                println(";");
+            }
+
+
         }
     }
 

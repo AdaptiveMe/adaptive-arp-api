@@ -33,6 +33,28 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IFileResultCallback extends IBaseCallback {
+     /**
+        On error result of a file operation.
+        @param error Error processing the request.
+        @since ARP1.0
+     */
+     void onError(IFileResultCallbackError error);
+
+     /**
+        On correct result of a file operation.
+        @param storageFile Reference to the resulting file.
+        @since ARP1.0
+     */
+     void onResult(IFile storageFile);
+
+     /**
+        On partial result of a file operation, containing a warning.
+        @param file            Reference to the offending file.
+        @param warning         Warning processing the request.
+        @since ARP1.0
+     */
+     void onWarning(IFile file, IFileResultCallbackWarning warning);
+
 }
 
 /**

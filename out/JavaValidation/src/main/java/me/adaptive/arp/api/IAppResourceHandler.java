@@ -33,6 +33,11 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IAppResourceHandler {
+     /**
+        null
+     */
+     void getResource(String resourcePath, IAppResourceCallback callback);
+
 }
 
 /**

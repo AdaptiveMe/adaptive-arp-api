@@ -56,6 +56,11 @@ public class TypeScriptGenerator extends GeneratorBase {
     }
 
     @Override
+    protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc) {
+
+    }
+
+    @Override
     protected void endInterface(String simpleName, Class clazz) {
         println(5, "}"); // Class
         indentPrintStreamGlobal.println(5, "}");

@@ -33,6 +33,28 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface INetworkStatusListener extends IBaseListener {
+     /**
+        No data received - error condition, not authorized or hardware not available.
+        @param error
+        @since ARP1.0
+     */
+     void onError(INetworkStatusListenerError error);
+
+     /**
+        Called when network connection changes somehow.
+        @param network Change to this network.
+        @since ARP1.0
+     */
+     void onResult(ICapabilitiesNet network);
+
+     /**
+        Status received with warning
+        @param network Change to this network.
+        @param warning
+        @since ARP1.0
+     */
+     void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning);
+
 }
 
 /**

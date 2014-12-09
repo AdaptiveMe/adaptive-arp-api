@@ -33,6 +33,21 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IAppRegistry {
+     /**
+        $synthetic$
+     */
+     Object get$Synthetic$(Class interfaceClass);
+
+     /**
+        null
+     */
+     IAppContext getPlatformContext();
+
+     /**
+        null
+     */
+     IAppContextWebview getPlatformContextWeb();
+
 }
 
 /**

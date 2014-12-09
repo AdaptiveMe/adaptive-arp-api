@@ -26,15 +26,13 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Created by clozano on 05/09/2014.
-
-   @author Carlos Lozano Diez
-   @since 1.0
-   @version 1.0
+   Enumeration IAppResourcePayload
 */
-public interface IAppResource {
+public enum IAppResourcePayload {
+
+     Default,
+     Embedded,
+     Linked,
+     Unknown
+
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

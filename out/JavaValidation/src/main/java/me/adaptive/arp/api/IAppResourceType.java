@@ -26,15 +26,19 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of ISession interface/protocol.
-
-   @author Carlos Lozano Diez
-   @since 1.0
-   @version 1.0
+   Enumeration IAppResourceType
 */
-public interface ISession extends IBaseCommunication {
+public enum IAppResourceType {
+
+     Html,
+     Css,
+     JavaScript,
+     Image,
+     Video,
+     Audio,
+     Property,
+     Database,
+     Other,
+     Unknown
+
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

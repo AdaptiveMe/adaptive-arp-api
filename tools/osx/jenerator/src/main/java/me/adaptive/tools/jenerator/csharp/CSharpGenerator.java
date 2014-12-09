@@ -52,6 +52,11 @@ public class CSharpGenerator extends GeneratorBase {
         super(outRootPath, classList, sourceList);
     }
 
+    @Override
+    protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc) {
+        
+    }
+
     private static String camelCase(Package _package) {
         StringBuffer out = new StringBuffer();
         boolean capitalize = true;

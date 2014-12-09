@@ -33,6 +33,14 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface ITelephony extends IBaseCommunication {
+     /**
+        Invoke a phone call
+        @param number to call
+        @return Status of the call
+        @since ARP1.0
+     */
+     ITelephonyStatus call(String number);
+
 }
 
 /**

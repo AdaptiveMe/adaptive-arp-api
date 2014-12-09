@@ -33,6 +33,21 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IAppResourceCallback extends IBaseCallback {
+     /**
+        null
+     */
+     void onError(IAppResource resource, IAppResourceCallbackError error);
+
+     /**
+        null
+     */
+     void onResult(IAppResource resource);
+
+     /**
+        null
+     */
+     void onWarning(IAppResource resource, IAppResourceCallbackWarning warning);
+
 }
 
 /**

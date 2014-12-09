@@ -33,6 +33,28 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface ISecureKVResultCallback extends IBaseCallback {
+     /**
+        No data received - error condition, not authorized .
+        @param error
+        @since ARP1.0
+     */
+     void onError(ISecureKVResultCallbackError error);
+
+     /**
+        Correct data received.
+        @param keyValues
+        @since ARP1.0
+     */
+     void onResult(SecureKeyPair[] keyValues);
+
+     /**
+        Data received with warning - ie Found entries with existing key and values have been overriden
+        @param keyValues
+        @param warning
+        @since ARP1.0
+     */
+     void onWarning(SecureKeyPair[] keyValues, ISecureKVResultCallbackWarning warning);
+
 }
 
 /**

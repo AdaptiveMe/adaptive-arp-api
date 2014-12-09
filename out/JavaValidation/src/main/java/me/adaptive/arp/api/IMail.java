@@ -33,6 +33,14 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IMail extends IBasePIM {
+     /**
+        Send an Email
+        @param data     the email data
+        @param callback with the result
+        @since ARP1.0
+     */
+     void sendEmail(Email data, IMessagingCallback callback);
+
 }
 
 /**

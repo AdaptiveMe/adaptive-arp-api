@@ -33,6 +33,13 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IFileDataStoreResultCallback extends IFileDataResultCallback {
+     /**
+        Result of data storage operation.
+        @param file File reference to stored data.
+        @since ARP1.0
+     */
+     void onResult(IFile file);
+
 }
 
 /**

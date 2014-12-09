@@ -33,6 +33,28 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IContactPhotoResultCallback extends IBaseCallback {
+     /**
+        This method is called on Error
+        @param error returned by the platform
+        @since ARP1.0
+     */
+     void onError(IContactPhotoResultCallbackError error);
+
+     /**
+        This method is called on Result
+        @param contactPhoto returned by the platform
+        @since ARP1.0
+     */
+     void onResult(byte[] contactPhoto);
+
+     /**
+        This method is called on Warning
+        @param contactPhoto returned by the platform
+        @param warning      returned by the platform
+        @since ARP1.0
+     */
+     void onWarning(byte[] contactPhoto, IContactPhotoResultCallbackWarning warning);
+
 }
 
 /**

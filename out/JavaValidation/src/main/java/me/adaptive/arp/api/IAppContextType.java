@@ -26,24 +26,21 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of IMessaging interface/protocol.
-
-   @author Carlos Lozano Diez
-   @since 1.0
-   @version 1.0
+   Enumeration IAppContextType
 */
-public interface IMessaging extends IBasePIM {
-     /**
-        Send text SMS
-        @param number   to send
-        @param text     to send
-        @param callback with the result
-        @since ARP1.0
-     */
-     void sendSMS(String number, String text, IMessagingCallback callback);
+public enum IAppContextType {
+
+     iOS,
+     OSX,
+     Windows,
+     WindowsPhone,
+     Android,
+     Linux,
+     Blackberry,
+     Tizen,
+     FirefoxOS,
+     Chromium,
+     Unspecified,
+     Unknown
 
 }
-
-/**
-------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
-*/

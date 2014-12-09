@@ -33,6 +33,52 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IService extends IBaseCommunication {
+     /**
+        Get a reference to a registered service by name.
+        @param serviceName Name of service.
+        @return A service, if registered, or null of the service does not exist.
+     */
+     Service getService(String serviceName);
+
+     /**
+        Request async a service for an Url
+        @param serviceRequest
+        @param service
+        @param callback
+     */
+     void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback);
+
+     /**
+        Check whether a service by the given name is registered.
+        @param serviceName
+        @return True if the service is registered, false otherwise.
+     */
+     boolean isRegistered(String serviceName);
+
+     /**
+        Check whether a service by the given name is registered.
+        @param serviceName
+        @return True if the service is registered, false otherwise.
+     */
+     boolean isRegistered(Service service);
+
+     /**
+        Register a new service
+        @param service to register
+     */
+     void registerService(Service service);
+
+     /**
+        Unregister all services.
+     */
+     void unregisterServices();
+
+     /**
+        Unregister a service
+        @param service to unregister
+     */
+     void unregisterService(Service service);
+
 }
 
 /**

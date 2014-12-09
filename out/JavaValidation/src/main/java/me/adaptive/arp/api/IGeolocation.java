@@ -33,6 +33,26 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IGeolocation extends IBaseSensor {
+     /**
+        Register a new listener that will receive geolocation events.
+        @param listener to be registered.
+        @since ARP1.0
+     */
+     void addGeolocationListener(IGeolocationListener listener);
+
+     /**
+        De-registers an existing listener from receiving geolocation events.
+        @param listener
+        @since ARP1.0
+     */
+     void removeGeolocationListener(IGeolocationListener listener);
+
+     /**
+        Removed all existing listeners from receiving geolocation events.
+        @since ARP1.0
+     */
+     void removeGeolocationListeners();
+
 }
 
 /**

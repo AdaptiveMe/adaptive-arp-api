@@ -33,6 +33,31 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface ITableResultCallback extends IBaseCallback {
+     /**
+        Result callback for error responses
+        @param error Returned error
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     void onError(ITableResultCallbackError error);
+
+     /**
+        Result callback for correct responses
+        @param table Returns the table
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     void onResult(Table table);
+
+     /**
+        Result callback for warning responses
+        @param table   Returns the table
+        @param warning Returned Warning
+        @author Ferran Vila Conesa
+        @since ARP1.0
+     */
+     void onWarning(Table table, ITableResultCallbackWarning warning);
+
 }
 
 /**

@@ -53,6 +53,11 @@ public class ObjCGenerator extends GeneratorBase {
         super(outRootPath, classList, sourceList);
     }
 
+    @Override
+    protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc) {
+
+    }
+
     private static String filterClassName(String simpleName) {
         if (simpleName.equals("Locale")) {
             simpleName = "Local" + simpleName;

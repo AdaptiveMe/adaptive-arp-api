@@ -33,6 +33,28 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IServiceResultCallback extends IBaseCallback {
+     /**
+        This method is called on Error
+        @param error returned by the platform
+        @since ARP1.0
+     */
+     void onError(IServiceResultCallbackError error);
+
+     /**
+        This method is called on Result
+        @param response data
+        @since ARP1.0
+     */
+     void onResult(ServiceResponse response);
+
+     /**
+        This method is called on Warning
+        @param response data
+        @param warning  returned by the platform
+        @since ARP1.0
+     */
+     void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning);
+
 }
 
 /**

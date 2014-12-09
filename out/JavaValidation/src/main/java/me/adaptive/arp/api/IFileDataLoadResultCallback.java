@@ -33,6 +33,13 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IFileDataLoadResultCallback extends IFileDataResultCallback {
+     /**
+        Result of data retrieval operation.
+        @param data Data loaded.
+        @since ARP1.0
+     */
+     void onResult(byte[] data);
+
 }
 
 /**

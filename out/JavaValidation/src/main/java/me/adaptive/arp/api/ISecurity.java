@@ -33,6 +33,40 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface ISecurity extends IBaseSecurity {
+     /**
+        Deletes from the device internal storage the entry/entries containing the specified key names.
+        @param keys             Array with the key names to delete.
+        @param publicAccessName The name of the shared internal storage object (if needed).
+        @param callback         callback to be executed upon function result.
+        @since ARP 1.0
+     */
+     void deleteSecureKeyValuePairs(String[] keys, String publicAccessName, ISecureKVResultCallback callback);
+
+     /**
+        Retrieves from the device internal storage the entry/entries containing the specified key names.
+        @param keys             Array with the key names to retrieve.
+        @param publicAccessName The name of the shared internal storage object (if needed).
+        @param callback         callback to be executed upon function result.
+        @since ARP 1.0
+     */
+     void getSecureKeyValuePairs(String[] keys, String publicAccessName, ISecureKVResultCallback callback);
+
+     /**
+        Returns if the device has been modified in anyhow
+        @return true if the device has been modified; false otherwise
+        @since ARP1.0
+     */
+     boolean isDeviceModified();
+
+     /**
+        Stores in the device internal storage the specified item/s.
+        @param keyValues        Array containing the items to store on the device internal memory.
+        @param publicAccessName The name of the shared internal storage object (if needed).
+        @param callback         callback to be executed upon function result.
+        @since ARP 1.0
+     */
+     void setSecureKeyValuePairs(SecureKeyPair[] keyValues, String publicAccessName, ISecureKVResultCallback callback);
+
 }
 
 /**

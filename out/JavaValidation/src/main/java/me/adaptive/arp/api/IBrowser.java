@@ -33,6 +33,25 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IBrowser extends IBaseUI {
+     /**
+        null
+     */
+     boolean openExtenalBrowser(String url);
+
+     /**
+        Open a new window showing the url webpage with a title and a close button displaying the desired text
+        @param url            to open
+        @param title          of the new window
+        @param backButtonText text of the close button
+        @return true if the new window opens;false otherwise
+     */
+     boolean openInternalBrowserModal(String url, String title, String backButtonText);
+
+     /**
+        null
+     */
+     boolean openInternalBrowser(String url, String title, String backButtonText);
+
 }
 
 /**
