@@ -21,20 +21,38 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
+/**
+ * Interface for Managing the Device operations
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
+ */
 public interface IDevice extends IBaseSystem {
 
     /**
      * Returns the device information for the current device executing the runtime.
      *
      * @return DeviceInfo for the current device.
+     * @since ARP1.0
      */
     DeviceInfo getDeviceInfo();
 
@@ -42,6 +60,7 @@ public interface IDevice extends IBaseSystem {
      * Gets the current Locale for the device.
      *
      * @return The current Locale information.
+     * @since ARP1.0
      */
     Locale getLocaleCurrent();
 

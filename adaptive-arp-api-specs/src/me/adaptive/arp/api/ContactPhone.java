@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,37 +42,40 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the phone data elements of a contact.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class ContactPhone {
+public class ContactPhone extends APIBean {
+
     /**
      * The phone number
-     *
-     * @since ARP1.0
      */
     private String phone;
+
     /**
      * The phone number phoneType
-     *
-     * @since ARP1.0
      */
     private PhoneType phoneType;
 
     /**
+     * Default constructor
+     *
+     * @since ARP1.0
+     */
+    public ContactPhone() {
+    }
+
+    /**
      * Constructor used by implementation to set the contact Phone
      *
-     * @param phone
-     * @param phoneType
+     * @param phone     Phone number
+     * @param phoneType Type of Phone number
      * @since ARP1.0
      */
     public ContactPhone(String phone, PhoneType phoneType) {
         this.phone = phone;
         this.phoneType = phoneType;
-    }
-
-    /**
-     * Constructor used by the implementation
-     */
-    public ContactPhone() {
     }
 
     /**
@@ -98,7 +111,7 @@ public class ContactPhone {
     /**
      * Set the phoneType of the phone number
      *
-     * @param phoneType
+     * @param phoneType Type of Phone number
      * @since ARP1.0
      */
     public void setPhoneType(me.adaptive.arp.api.ContactPhone.PhoneType phoneType) {

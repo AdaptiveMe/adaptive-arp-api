@@ -41,10 +41,80 @@
 package me.adaptive.arp.api;
 
 /**
- * Base application for Commerce purposes
+ * Represents a session object for HTTP request and responses
  *
- * @author Carlos Lozano Diez
+ * @author Ferran Vila Conesa
  * @since ARP1.0
  */
-public interface IBaseCommerce extends IAdaptiveRP {
+public class ServiceSession {
+
+    /**
+     * The cookies of the response
+     */
+    private ServiceCookie[] cookies;
+
+    /**
+     * The attributes of the response
+     */
+    private Object[] attributes;
+
+    /**
+     * Default constructor
+     *
+     * @since ARP1.0
+     */
+    public ServiceSession() {
+    }
+
+    /**
+     * Constructor with fields
+     *
+     * @param cookies    The cookies of the response
+     * @param attributes Attributes of the response
+     * @since ARP1.0
+     */
+    public ServiceSession(ServiceCookie[] cookies, Object[] attributes) {
+        this.cookies = cookies;
+        this.attributes = attributes;
+    }
+
+    /**
+     * Returns the cookies of the response
+     *
+     * @return The cookies of the response
+     * @since ARP1.0
+     */
+    public ServiceCookie[] getCookies() {
+        return cookies;
+    }
+
+    /**
+     * Sets the cookies of the response
+     *
+     * @param cookies The cookies of the response
+     * @since ARP1.0
+     */
+    public void setCookies(ServiceCookie[] cookies) {
+        this.cookies = cookies;
+    }
+
+    /**
+     * Gets the attributes of the response
+     *
+     * @return Attributes of the response
+     * @since ARP1.0
+     */
+    public Object[] getAttributes() {
+        return attributes;
+    }
+
+    /**
+     * Sets the attributes for the response
+     *
+     * @param attributes Attributes of the response
+     * @since ARP1.0
+     */
+    public void setAttributes(Object[] attributes) {
+        this.attributes = attributes;
+    }
 }

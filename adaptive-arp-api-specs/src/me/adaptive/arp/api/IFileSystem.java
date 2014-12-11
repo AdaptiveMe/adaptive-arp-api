@@ -21,42 +21,32 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
+/**
+ * Interface for Managing the File System operations
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
+ */
 public interface IFileSystem extends IBaseData {
-
-    /**
-     * Location of the file storage.
-     *
-     * @since ARP1.0
-     */
-    public enum FileStorageType {
-        Application, Document, Cloud, Protected, Cache, External, Unknown
-    }
-
-    /**
-     * Type of file - directory/folder or file.
-     *
-     * @since ARP1.0
-     */
-    public enum FileType {
-        Directory, File, Unknown
-    }
-
-    /**
-     * Security attributes of file, if any.
-     *
-     * @since ARP1.0
-     */
-    public enum FileSecurity {
-        Default, Protected, Encrypted, Unknown
-    }
 
     /**
      * Returns the file system dependent file separator.
@@ -128,8 +118,36 @@ public interface IFileSystem extends IBaseData {
      * This method does not create the actual file in the specified folder.
      *
      * @param parent Parent directory.
-     * @param name Name of new file or directory.
+     * @param name   Name of new file or directory.
      * @return A reference to a new or existing location in the filesystem.
+     * @since ARP1.0
      */
     public IFile createFileDescriptor(IFile parent, String name);
+
+    /**
+     * Location of the file storage.
+     *
+     * @since ARP1.0
+     */
+    public enum FileStorageType {
+        Application, Document, Cloud, Protected, Cache, External, Unknown
+    }
+
+    /**
+     * Type of file - directory/folder or file.
+     *
+     * @since ARP1.0
+     */
+    public enum FileType {
+        Directory, File, Unknown
+    }
+
+    /**
+     * Security attributes of file, if any.
+     *
+     * @since ARP1.0
+     */
+    public enum FileSecurity {
+        Default, Protected, Encrypted, Unknown
+    }
 }

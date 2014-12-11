@@ -21,7 +21,19 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -30,86 +42,136 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the data of a single acceleration reading.
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
  */
-public class Acceleration {
+public class Acceleration extends APIBean {
+
     /**
      * X-axis component of the acceleration.
      */
-    double x;
+    private double x;
+
     /**
      * Y-axis component of the acceleration.
      */
-    double y;
+    private double y;
+
     /**
      * Z-axis component of the acceleration.
      */
-    double z;
+    private double z;
+
     /**
      * Timestamp of the acceleration reading.
      */
-    long timeStamp;
+    private long timestamp;
 
     /**
-     * @param x X Coordinate
-     * @param y Y Coordinate
-     * @param z Z Coordinate
-     * @author Carlos Lozano Diez
+     * Default constructor
+     *
      * @since ARP1.0
-     */
-    public Acceleration(double x, double y, double z, long timeStamp) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.timeStamp = timeStamp;
-    }
-
-    /**
-     * Constructor used by the implementation
      */
     public Acceleration() {
     }
 
     /**
+     * Constructor with fields
+     *
+     * @param x         X Coordinate
+     * @param y         Y Coordinate
+     * @param z         Z Coordinate
+     * @param timestamp Timestamp
+     * @since ARP1.0
+     */
+    public Acceleration(double x, double y, double z, long timestamp) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.timestamp = timestamp;
+    }
+
+    /**
+     * X Coordinate Getter
+     *
      * @return X-axis component of the acceleration.
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     public double getX() {
         return x;
     }
 
+    /**
+     * X Coordinate Setter
+     *
+     * @param x X-axis component of the acceleration.
+     * @since ARP1.0
+     */
     public void setX(double x) {
         this.x = x;
     }
 
     /**
+     * Y Coordinate Getter
+     *
      * @return Y-axis component of the acceleration.
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     public double getY() {
         return y;
     }
 
+    /**
+     * Y Coordinate Setter
+     *
+     * @param y Y-axis component of the acceleration.
+     * @since ARP1.0
+     */
     public void setY(double y) {
         this.y = y;
     }
 
     /**
+     * Z Coordinate Getter
+     *
      * @return Z-axis component of the acceleration.
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     public double getZ() {
         return z;
     }
 
+    /**
+     * Z Coordinate Setter
+     *
+     * @param z Z Coordinate
+     * @since ARP1.0
+     */
     public void setZ(double z) {
         this.z = z;
     }
 
-    public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
+    /**
+     * Timestamp Getter
+     *
+     * @return Timestamp
+     * @since ARP1.0
+     */
+    public long getTimestamp() {
+        return timestamp;
     }
+
+    /**
+     * Timestamp Setter
+     *
+     * @param timestamp Timestamp
+     * @since ARP1.0
+     */
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+
 }
 

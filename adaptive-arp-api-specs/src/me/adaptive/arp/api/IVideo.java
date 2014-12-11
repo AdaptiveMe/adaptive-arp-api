@@ -21,19 +21,38 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
+/**
+ * Interface for Managing the Video operations
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
+ */
 public interface IVideo extends IBaseMedia {
 
     /**
      * Play url video stream
      *
      * @param url of the video
+     * @since ARP1.0
      */
     void playStream(String url);
 }

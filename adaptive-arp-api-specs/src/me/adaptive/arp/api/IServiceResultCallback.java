@@ -1,5 +1,4 @@
 /*
- *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -37,11 +36,16 @@
  *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
- *
  */
 
 package me.adaptive.arp.api;
 
+/**
+ * Interface for Managing the Services operations
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
+ */
 public interface IServiceResultCallback extends IBaseCallback {
 
     /**

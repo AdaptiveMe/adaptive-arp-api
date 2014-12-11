@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,61 +42,61 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the binary attachment data.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class AttachmentData {
+public class EmailAttachmentData extends APIBean {
 
     /**
      * The raw data for the current file attachment (byte array)
-     *
-     * @since ARP1.0
      */
     private byte[] data;
+
     /**
      * The data size (in bytes) of the current file attachment
-     *
-     * @since ARP1.0
      */
-    private long dataSize;
+    private long size;
+
     /**
      * The name of the current file attachment
-     *
-     * @since ARP1.0
      */
     private String fileName;
 
     /**
      * The mime type of the current attachment
-     *
-     * @since ARP1.0
      */
     private String mimeType;
 
     /**
      * The relative path where the contents for the attachment file could be located.
-     *
-     * @since ARP1.0
      */
     private String referenceUrl;
 
     /**
-     * Constructor used by the implementation
+     * Default Constructor
+     *
+     * @since ARP1.0
+     */
+    public EmailAttachmentData() {
+    }
+
+    /**
+     * Constructor with fields
      *
      * @param data         raw data of the file attachment
-     * @param dataSize     size of the file attachment
+     * @param size         size of the file attachment
      * @param fileName     name of the file attachment
      * @param mimeType     mime type of the file attachment
      * @param referenceUrl relative url of the file attachment
      * @since ARP1.0
      */
-    public AttachmentData(byte[] data, long dataSize, String fileName, String mimeType, String referenceUrl) {
+    public EmailAttachmentData(byte[] data, long size, String fileName, String mimeType, String referenceUrl) {
         this.data = data;
-        this.dataSize = dataSize;
+        this.size = size;
         this.fileName = fileName;
         this.mimeType = mimeType;
         this.referenceUrl = referenceUrl;
-    }
-
-    public AttachmentData() {
     }
 
     /**
@@ -112,21 +122,21 @@ public class AttachmentData {
     /**
      * Returns the size of the attachment as a long
      *
-     * @return dataSize Length in bytes of the octet-binary content.
+     * @return size Length in bytes of the octet-binary content.
      * @since ARP1.0
      */
-    public long getDataSize() {
-        return dataSize;
+    public long getSize() {
+        return size;
     }
 
     /**
      * Set the size of the attachment as a long
      *
-     * @param dataSize Length in bytes of the octet-binary content ( should be same as data array length.)
+     * @param size Length in bytes of the octet-binary content ( should be same as data array length.)
      * @since ARP1.0
      */
-    public void setDataSize(long dataSize) {
-        this.dataSize = dataSize;
+    public void setSize(long size) {
+        this.size = size;
     }
 
     /**

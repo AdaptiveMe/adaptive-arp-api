@@ -22,9 +22,18 @@
  * Contributors:
  *
  *     * Ferran Vila Conesa
- *              <http://github.com/fnva>
- *              <http://twitter.com/ferran_vila>
- *              <mailto:ferran.vila.conesa@gmail.com>
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,45 +41,53 @@
 package me.adaptive.arp.api;
 
 /**
- * Represents a row for a data table.
+ * Structure representing the column specification of a data column.
+ *
+ * @author Ferran Vila Conesa
+ * @since ARP1.0
  */
-public class Row {
+public class DatabaseColumn extends APIBean {
 
     /**
-     * The values of the row.
+     * Name of the column
      */
-    private Object[] values;
+    private String name;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
+     *
+     * @since ARP1.0
      */
-    public Row() {
+    public DatabaseColumn() {
     }
 
     /**
-     * Constructor for implementation using.
+     * Constructor with fields
      *
-     * @param values The values of the row
+     * @param name Name of the column
+     * @since ARP1.0
      */
-    public Row(Object[] values) {
-        this.values = values;
+    public DatabaseColumn(String name) {
+        this.name = name;
     }
 
     /**
-     * Returns the values of the row.
+     * Returns the name of the column.
      *
-     * @return The values of the row.
+     * @return The name of the column.
+     * @since ARP1.0
      */
-    public Object[] getValues() {
-        return values;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Sets the values of the row.
+     * Sets the name of the column.
      *
-     * @param values The values of the row.
+     * @param name The name of the column.
+     * @since ARP1.0
      */
-    public void setValues(Object[] values) {
-        this.values = values;
+    public void setName(String name) {
+        this.name = name;
     }
 }

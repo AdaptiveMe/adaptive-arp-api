@@ -1,5 +1,4 @@
 /*
- *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -37,87 +36,58 @@
  *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
- *
  */
 
 package me.adaptive.arp.api;
 
-public interface ISession extends IBaseCommunication {
-
+/**
+ * Interface for Managing the Cloud operations
+ *
+ * @author Ferran Vila Conesa
+ * @since ARP1.0
+ */
+public interface IDatabaseTableResultCallback extends IBaseCallback {
 
     /**
-     * Returns the cookie array
+     * Result callback for correct responses
      *
-     * @return cookie array
+     * @param databaseTable Returns the databaseTable
      * @since ARP1.0
      */
-    Cookie[] getCookies();
+    public void onResult(DatabaseTable databaseTable);
 
     /**
-     * Set the cookies array
+     * Result callback for warning responses
      *
-     * @param cookies
-     */
-    void setCookies(Cookie[] cookies);
-
-    /**
-     * Set a cookie object
-     *
-     * @param cookie
-     */
-    void setCookie(Cookie cookie);
-
-    /**
-     * Remove a cookies array
-     *
-     * @param cookies
-     */
-    void removeCookies(Cookie[] cookies);
-
-    /**
-     * Remove a cookie
-     *
-     * @param cookie
-     */
-    void removeCookie(Cookie cookie);
-
-    /**
-     * Returns all Session Attributes
-     */
-    Object[] getAttributes();
-
-    /**
-     * Returns an attribute object
-     *
-     * @return object attribute
+     * @param databaseTable Returns the databaseTable
+     * @param warning       Returned Warning
      * @since ARP1.0
      */
-    Object getAttribute(String name);
+    public void onWarning(DatabaseTable databaseTable, Warning warning);
 
     /**
-     * Set an attribute
+     * Result callback for error responses
      *
-     * @param name
-     * @param value
+     * @param error Returned error
+     * @since ARP1.0
      */
-    void setAttribute(String name, Object value);
+    public void onError(Error error);
 
     /**
-     * Returns all attibute names
+     * Enumeration for warnings related to database manipulation.
      *
-     * @return array with all attribute names
+     * @since ARP1.0
      */
-    String[] listAttributeNames();
+    public enum Warning {
+        TableExists, TableLocked, NoResults, Unknown
+    }
 
     /**
-     * Remove an attribute by its name
+     * Enumeration for errors related to database manipulation.
      *
-     * @param name
+     * @since ARP1.0
      */
-    void removeAttribute(String name);
-
-    /**
-     * Remove all attributes
-     */
-    void removeAttributes();
+    public enum Error {
+        NoSpace, ReadOnlyTable, SqlException, DatabaseNotFound, NoTableFound, Unknown
+    }
 }

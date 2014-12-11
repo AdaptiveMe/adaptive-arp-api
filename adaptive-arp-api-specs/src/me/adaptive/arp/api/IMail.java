@@ -21,20 +21,38 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
+/**
+ * Interface for Managing the Mail operations
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
+ */
 public interface IMail extends IBasePIM {
+
     /**
      * Send an Email
      *
-     * @param data     the email data
-     * @param callback with the result
+     * @param data     Payload of the email
+     * @param callback Result callback of the operation
      * @since ARP1.0
      */
     void sendEmail(Email data, IMessagingCallback callback);

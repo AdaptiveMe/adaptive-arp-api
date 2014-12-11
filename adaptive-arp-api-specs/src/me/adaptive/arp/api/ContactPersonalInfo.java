@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,33 +42,39 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the personal info data elements of a contact.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class ContactPersonalInfo {
+public class ContactPersonalInfo extends APIBean {
 
     /**
      * The name of the Contact
-     *
-     * @since ARP1.0
      */
     private String name;
+
     /**
      * The middle name of the Contact if it proceeds
-     *
-     * @since ARP1.0
      */
     private String middleName;
+
     /**
      * The last name of the Contact
-     *
-     * @since ARP1.0
      */
     private String lastName;
+
     /**
      * The title of the Contact
+     */
+    private Title title;
+
+    /**
+     * Default constructor
      *
      * @since ARP1.0
      */
-    private Title title;
+    public ContactPersonalInfo() {
+    }
 
     /**
      * The Constructor used by the implementation
@@ -77,12 +93,6 @@ public class ContactPersonalInfo {
     }
 
     /**
-     * Constructor used by the implementation
-     */
-    public ContactPersonalInfo() {
-    }
-
-    /**
      * Returns the name of the Contact
      *
      * @return name
@@ -95,7 +105,7 @@ public class ContactPersonalInfo {
     /**
      * Set the name of the Contact
      *
-     * @param name
+     * @param name of the Contact
      * @since ARP1.0
      */
     public void setName(String name) {
@@ -115,7 +125,7 @@ public class ContactPersonalInfo {
     /**
      * Set the middle name of the Contact
      *
-     * @param middleName
+     * @param middleName of the Contact
      * @since ARP1.0
      */
     public void setMiddleName(String middleName) {
@@ -135,7 +145,7 @@ public class ContactPersonalInfo {
     /**
      * Set the last name of the Contact
      *
-     * @param lastName
+     * @param lastName of the Contact
      * @since ARP1.0
      */
     public void setLastName(String lastName) {
@@ -155,7 +165,7 @@ public class ContactPersonalInfo {
     /**
      * Set the Title of the Contact
      *
-     * @param title
+     * @param title of the Contact
      * @since ARP1.0
      */
     public void setTitle(Title title) {

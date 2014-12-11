@@ -21,21 +21,37 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
+/**
+ * Interface defines the response methods of the acceleration operations
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
+ */
 public interface IAccelerationListener extends IBaseListener {
 
     /**
      * Correct data received.
      *
-     * @param acceleration
-     * @author Carlos Lozano Diez
+     * @param acceleration Acceleration received
      * @since ARP1.0
      */
     public void onResult(Acceleration acceleration);
@@ -43,9 +59,8 @@ public interface IAccelerationListener extends IBaseListener {
     /**
      * Data received with warning - ie. Needs calibration.
      *
-     * @param acceleration
-     * @param warning
-     * @author Carlos Lozano Diez
+     * @param acceleration Acceleration received
+     * @param warning      Warning fired
      * @since ARP1.0
      */
     public void onWarning(Acceleration acceleration, Warning warning);
@@ -54,8 +69,7 @@ public interface IAccelerationListener extends IBaseListener {
      * No data received - error condition, not authorized or hardware not available. This will be reported once for the
      * listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
      *
-     * @param error
-     * @author Carlos Lozano Diez
+     * @param error Error fired
      * @since ARP1.0
      */
     public void onError(Error error);

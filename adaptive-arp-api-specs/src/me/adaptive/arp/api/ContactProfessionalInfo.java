@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,46 +42,47 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the professional info data elements of a contact.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class ContactProfessionalInfo {
+public class ContactProfessionalInfo extends APIBean {
 
     /**
      * The company of the job
-     *
-     * @since ARP1.0
      */
     private String company;
+
     /**
      * The job title
-     *
-     * @since ARP1.0
      */
     private String jobTitle;
+
     /**
      * The job description
-     *
-     * @since ARP1.0
      */
     private String jobDescription;
 
     /**
+     * Default constructor
+     *
+     * @since ARP1.0
+     */
+    public ContactProfessionalInfo() {
+    }
+
+    /**
      * Constructor used by implementation to set the ContactProfessionalInfo.
      *
-     * @param jobTitle
-     * @param jobDescription
-     * @param company
+     * @param jobTitle       The job title
+     * @param jobDescription The job description
+     * @param company        The company of the job
      * @since ARP1.0
      */
     public ContactProfessionalInfo(String jobTitle, String jobDescription, String company) {
         this.company = company;
         this.jobTitle = jobTitle;
         this.jobDescription = jobDescription;
-    }
-
-    /**
-     * Constructor used by the implementation
-     */
-    public ContactProfessionalInfo() {
     }
 
     /**
@@ -87,7 +98,7 @@ public class ContactProfessionalInfo {
     /**
      * Set the company of the job
      *
-     * @param company
+     * @param company The company of the job
      * @since ARP1.0
      */
     public void setCompany(String company) {
@@ -107,7 +118,7 @@ public class ContactProfessionalInfo {
     /**
      * Set the title of the job
      *
-     * @param jobTitle
+     * @param jobTitle The job title
      * @since ARP1.0
      */
     public void setJobTitle(String jobTitle) {
@@ -127,7 +138,7 @@ public class ContactProfessionalInfo {
     /**
      * Set the description of the job
      *
-     * @param jobDescription
+     * @param jobDescription The job description
      * @since ARP1.0
      */
     public void setJobDescription(String jobDescription) {

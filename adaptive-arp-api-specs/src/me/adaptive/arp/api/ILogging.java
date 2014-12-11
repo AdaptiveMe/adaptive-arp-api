@@ -22,16 +22,30 @@
  * Contributors:
  *
  *     * Ferran Vila Conesa
- *              <http://github.com/fnva>
- *              <http://twitter.com/ferran_vila>
- *              <mailto:ferran.vila.conesa@gmail.com>
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
+/**
+ * Interface for Managing the Logging operations
+ *
+ * @author Ferran Vila Conesa
+ * @since ARP1.0
+ */
 public interface ILogging extends IBaseUtil {
 
     /**
@@ -39,7 +53,6 @@ public interface ILogging extends IBaseUtil {
      *
      * @param level   Log level
      * @param message Message to be logged
-     * @author Ferran Vila Conesa
      * @since ARP1.0
      */
     void log(LogLevel level, String message);
@@ -50,7 +63,6 @@ public interface ILogging extends IBaseUtil {
      * @param level    Log level
      * @param category Category/tag name to identify/filter the log.
      * @param message  Message to be logged
-     * @author Ferran Vila Conesa
      * @since ARP1.0
      */
     void log(LogLevel level, String category, String message);
@@ -58,6 +70,8 @@ public interface ILogging extends IBaseUtil {
     /**
      * Enumeration for log level platform normalization. Every platform has
      * to match their log levels into these ones.
+     *
+     * @since ARP1.0
      */
     public enum LogLevel {
         DEBUG, WARN, ERROR, INFO, Unknown

@@ -22,56 +22,53 @@
  * Contributors:
  *
  *     * Ferran Vila Conesa
- *              <http://github.com/fnva>
- *              <http://twitter.com/ferran_vila>
- *              <mailto:ferran.vila.conesa@gmail.com>
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-public interface ITableResultCallback extends IBaseCallback {
+/**
+ * Interface defining methods about the acceleration sensor
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
+ */
+public interface IAcceleration extends IBaseSensor {
 
     /**
-     * Result callback for correct responses
+     * Register a new listener that will receive acceleration events.
      *
-     * @param table Returns the table
-     * @author Ferran Vila Conesa
+     * @param listener to be registered.
      * @since ARP1.0
      */
-    public void onResult(Table table);
+    void addAccelerationListener(IAccelerationListener listener);
 
     /**
-     * Result callback for warning responses
+     * De-registers an existing listener from receiving acceleration events.
      *
-     * @param table   Returns the table
-     * @param warning Returned Warning
-     * @author Ferran Vila Conesa
+     * @param listener to be registered.
      * @since ARP1.0
      */
-    public void onWarning(Table table, Warning warning);
+    void removeAccelerationListener(IAccelerationListener listener);
 
     /**
-     * Result callback for error responses
+     * Removed all existing listeners from receiving acceleration events.
      *
-     * @param error Returned error
-     * @author Ferran Vila Conesa
      * @since ARP1.0
      */
-    public void onError(Error error);
+    void removeAccelerationListeners();
 
-    /**
-     * Enumeration for warnings related to database manipulation.
-     */
-    public enum Warning {
-        TableExists, TableLocked, NoResults, Unknown
-    }
-
-    /**
-     * Enumeration for errors related to database manipulation.
-     */
-    public enum Error {
-        NoSpace, ReadOnlyTable, SqlException, DatabaseNotFound, NoTableFound, Unknown
-    }
 }

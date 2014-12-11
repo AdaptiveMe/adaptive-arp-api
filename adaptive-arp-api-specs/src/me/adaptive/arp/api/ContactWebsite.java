@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,8 +42,12 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the website data elements of a contact.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class ContactWebsite {
+public class ContactWebsite extends APIBean {
+
     /**
      * The url of the website
      *
@@ -42,19 +56,21 @@ public class ContactWebsite {
     private String url;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
      *
-     * @param url
      * @since ARP1.0
      */
-    public ContactWebsite(String url) {
-        this.url = url;
+    public ContactWebsite() {
     }
 
     /**
      * Constructor used by the implementation
+     *
+     * @param url Url of the website
+     * @since ARP1.0
      */
-    public ContactWebsite() {
+    public ContactWebsite(String url) {
+        this.url = url;
     }
 
     /**
@@ -70,7 +86,7 @@ public class ContactWebsite {
     /**
      * Set the url of the website
      *
-     * @param url
+     * @param url Url of the website
      * @since ARP1.0
      */
     public void setUrl(String url) {

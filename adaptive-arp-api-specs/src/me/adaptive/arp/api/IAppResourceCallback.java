@@ -21,7 +21,19 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -29,18 +41,54 @@
 package me.adaptive.arp.api;
 
 /**
- * Created by clozano on 05/09/2014.
+ * This interface manages the responses of the resource callback
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
  */
 public interface IAppResourceCallback extends IBaseCallback {
 
+    /**
+     * Correct result of the App Resource operation
+     *
+     * @param resource Resource
+     * @since ARP1.0
+     */
     void onResult(IAppResource resource);
 
+    /**
+     * Warning result of the App Resource operation
+     *
+     * @param resource Resource
+     * @param warning  Warning fired
+     * @since ARP1.0
+     */
     void onWarning(IAppResource resource, Warning warning);
 
-    void onError(IAppResource resource, Error error);
+    /**
+     * Error result of the App resource operation
+     *
+     * @param error Error fired
+     * @since ARP1.0
+     */
+    void onError(Error error);
 
-    enum Warning {PartialContent, TooLarge, LinkedResource, Unknown}
+    /**
+     * Warning enumerator to handle the responses
+     *
+     * @since ARP1.0
+     */
+    enum Warning {
+        PartialContent, TooLarge, LinkedResource, Unknown
+    }
 
-    enum Error {NotFound, NoPermission, Unknown}
+    /**
+     * Error enumerator to handle the responses
+     *
+     * @since ARP1.0
+     */
+    enum Error {
+        NotFound, NoPermission, Unknown
+    }
 
 }

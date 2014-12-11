@@ -21,16 +21,33 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
+/**
+ * Interface for Managing the Security operations
+ *
+ * @author Aryslan
+ * @since ARP1.0
+ */
 public interface ISecurity extends IBaseSecurity {
+
     /**
      * Returns if the device has been modified in anyhow
      *
@@ -47,7 +64,7 @@ public interface ISecurity extends IBaseSecurity {
      * @param callback         callback to be executed upon function result.
      * @since ARP 1.0
      */
-    public void setSecureKeyValuePairs(SecureKeyPair[] keyValues, String publicAccessName, ISecureKVResultCallback callback);
+    void setSecureKeyValuePairs(SecureKeyPair[] keyValues, String publicAccessName, ISecurityResultCallback callback);
 
     /**
      * Retrieves from the device internal storage the entry/entries containing the specified key names.
@@ -57,7 +74,7 @@ public interface ISecurity extends IBaseSecurity {
      * @param callback         callback to be executed upon function result.
      * @since ARP 1.0
      */
-    public void getSecureKeyValuePairs(String[] keys, String publicAccessName, ISecureKVResultCallback callback);
+    void getSecureKeyValuePairs(String[] keys, String publicAccessName, ISecurityResultCallback callback);
 
     /**
      * Deletes from the device internal storage the entry/entries containing the specified key names.
@@ -67,6 +84,6 @@ public interface ISecurity extends IBaseSecurity {
      * @param callback         callback to be executed upon function result.
      * @since ARP 1.0
      */
-    public void deleteSecureKeyValuePairs(String[] keys, String publicAccessName, ISecureKVResultCallback callback);
+    void deleteSecureKeyValuePairs(String[] keys, String publicAccessName, ISecurityResultCallback callback);
 
 }

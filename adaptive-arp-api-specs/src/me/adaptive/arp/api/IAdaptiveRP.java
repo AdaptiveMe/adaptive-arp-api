@@ -21,19 +21,51 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
+/**
+ * Master interface for all the Groups and Types of Interfaces os the Project
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
+ */
 public interface IAdaptiveRP {
 
+    /**
+     * API Version
+     */
     String API_VERSION = "X.Y.Z";
 
+    /**
+     * Method that returns the API group of the implementation
+     *
+     * @return API GRoup
+     * @since ARP1.0
+     */
+    Group getAPIGroup();
+
+    /**
+     * Enumeration that represents one group for every type defined
+     */
     enum Group {
+        Application,
         Commerce,
         Communication,
         Data,
@@ -49,6 +81,4 @@ public interface IAdaptiveRP {
         Util,
         Unknown
     }
-
-    Group getAPIGroup();
 }

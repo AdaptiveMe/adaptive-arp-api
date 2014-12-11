@@ -21,7 +21,19 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -29,13 +41,18 @@
 package me.adaptive.arp.api;
 
 /**
- * Created by clozano on 05/09/2014.
+ * Interface for context management purposes
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
  */
 public interface IAppContext {
+
     /**
      * The main application context. This should be cast to the platform specific implementation.
      *
      * @return Object representing the specific singleton application context provided by the OS.
+     * @since ARP1.0
      */
     Object getContext();
 
@@ -43,15 +60,9 @@ public interface IAppContext {
      * The type of context provided by the getContext method.
      *
      * @return Type of platform context.
+     * @since ARP1.0
      */
-    Type getContextType();
-
-    /**
-     * The type of application context - platform specific.
-     */
-    enum Type {
-        iOS, OSX, Windows, WindowsPhone, Android, Linux, Blackberry, Tizen, FirefoxOS, Chromium, Unspecified, Unknown
-    }
+    IOS.Type getContextType();
 
 
 }

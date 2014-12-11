@@ -22,22 +22,36 @@
  * Contributors:
  *
  *     * Ferran Vila Conesa
- *              <http://github.com/fnva>
- *              <http://twitter.com/ferran_vila>
- *              <mailto:ferran.vila.conesa@gmail.com>
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
+/**
+ * Interface for Managing the Cloud operations
+ *
+ * @author Ferran Vila Conesa
+ * @since ARP1.0
+ */
 public interface IDatabaseResultCallback extends IBaseCallback {
 
     /**
      * Result callback for correct responses
      *
      * @param database Returns the database
-     * @author Ferran Vila Conesa
      * @since ARP1.0
      */
     public void onResult(Database database);
@@ -47,7 +61,6 @@ public interface IDatabaseResultCallback extends IBaseCallback {
      *
      * @param database Returns the database
      * @param warning  Returned Warning
-     * @author Ferran Vila Conesa
      * @since ARP1.0
      */
     public void onWarning(Database database, Warning warning);
@@ -56,13 +69,14 @@ public interface IDatabaseResultCallback extends IBaseCallback {
      * Result callback for error responses
      *
      * @param error Returned error
-     * @author Ferran Vila Conesa
      * @since ARP1.0
      */
     public void onError(Error error);
 
     /**
      * Enumeration for warnings related to database manipulation.
+     *
+     * @since ARP1.0
      */
     public enum Warning {
         DatabaseExists, IsOpen, Unknown
@@ -70,6 +84,8 @@ public interface IDatabaseResultCallback extends IBaseCallback {
 
     /**
      * Enumeration for errors related to database manipulation.
+     *
+     * @since ARP1.0
      */
     public enum Error {
         NoSpace, SqlException, NotDeleted, Unknown

@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,68 +42,89 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the data a single geolocation reading.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class Geolocation {
+public class Geolocation extends APIBean {
 
     /**
      * The Y coordinate (or latitude). Measured in degrees.
-     *
-     * @since ARP1.0
      */
     private double latitude;
+
     /**
      * The X coordinate (or longitude). Measured in degrees.
-     *
-     * @since ARP1.0
      */
     private double longitude;
+
     /**
      * The current device altitude (or Z coordinate). Measured in meters.
-     *
-     * @since ARP1.0
      */
     private double altitude;
+
     /**
      * Dilution of precision on the X measurement. Measured in meters.
-     *
-     * @since ARP1.0
      */
     private float xDoP;
+
     /**
      * Dilution of precision on the Y measurement. Measured in meters.
-     *
-     * @since ARP1.0
      */
     private float yDoP;
 
     /**
-     * Constructor used by the implementation
+     * Timestamp of the geolocation reading.
+     */
+    private long timestamp;
+
+
+    /**
+     * Default constructor
+     *
+     * @since ARP1.0
      */
     public Geolocation() {
     }
 
     /**
-     * Constructor used by the implementation
+     * Constructor with parameters
      *
-     * @param latitude
-     * @param longitude
-     * @param altitude
-     * @param xDoP
-     * @param yDoP
+     * @param latitude  Latitude of the measurement
+     * @param longitude Longitude of the measurement
+     * @param timestamp Timestamp of the measurement
      * @since ARP1.0
      */
-    public Geolocation(double latitude, double longitude, double altitude, float xDoP, float yDoP) {
+    public Geolocation(double latitude, double longitude, long timestamp) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.timestamp = timestamp;
+    }
+
+    /**
+     * Constructor with parameters
+     *
+     * @param latitude  Latitude of the measurement
+     * @param longitude Longitude of the measurement
+     * @param altitude  Altitude of the measurement
+     * @param xDoP      Dilution of precision on the X measurement
+     * @param yDoP      Dilution of precision on the Y measurement
+     * @param timestamp Timestamp of the measurement
+     * @since ARP1.0
+     */
+    public Geolocation(double latitude, double longitude, double altitude, float xDoP, float yDoP, long timestamp) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.altitude = altitude;
         this.xDoP = xDoP;
         this.yDoP = yDoP;
+        this.timestamp = timestamp;
     }
 
     /**
      * Returns the latitude in degrees
      *
-     * @return latitude
+     * @return Latitude of the measurement
      * @since ARP1.0
      */
     public double getLatitude() {
@@ -103,7 +134,7 @@ public class Geolocation {
     /**
      * Set the latitude in degrees
      *
-     * @param latitude
+     * @param latitude Latitude of the measurement
      * @since ARP1.0
      */
     public void setLatitude(double latitude) {
@@ -113,7 +144,7 @@ public class Geolocation {
     /**
      * Returns the longitude in degrees
      *
-     * @return longitude
+     * @return Longitude of the measurement
      * @since ARP1.0
      */
     public double getLongitude() {
@@ -123,7 +154,7 @@ public class Geolocation {
     /**
      * Returns the latitude in degrees
      *
-     * @param longitude
+     * @param longitude Longitude of the measurement
      * @since ARP1.0
      */
     public void setLongitude(double longitude) {
@@ -133,7 +164,7 @@ public class Geolocation {
     /**
      * Returns altitude in meters
      *
-     * @return altitude
+     * @return Altitude of the measurement
      * @since ARP1.0
      */
     public double getAltitude() {
@@ -143,7 +174,7 @@ public class Geolocation {
     /**
      * Set altitude in meters
      *
-     * @param altitude
+     * @param altitude Altitude of the measurement
      * @since ARP1.0
      */
     public void setAltitude(double altitude) {
@@ -151,22 +182,62 @@ public class Geolocation {
     }
 
     /**
-     * Returns the Dilution of Position in the X axis (longitude)
+     * Getter for Dilution of precision on the X measurement
      *
-     * @return xDoP
+     * @return Dilution of precision on the X measurement
      * @since ARP1.0
      */
-    public float getXDoP() {
+    public float getxDoP() {
         return xDoP;
     }
 
     /**
-     * Returns the Dilution of Position in the Y axis (latitude)
+     * Setter for Dilution of precision on the X measurement
      *
-     * @return yDoP
+     * @param xDoP Dilution of precision on the X measurement
      * @since ARP1.0
      */
-    public float getYDoP() {
+    public void setxDoP(float xDoP) {
+        this.xDoP = xDoP;
+    }
+
+    /**
+     * Getter for Dilution of precision on the Y measurement
+     *
+     * @return Dilution of precision on the Y measurement
+     * @since ARP1.0
+     */
+    public float getyDoP() {
         return yDoP;
+    }
+
+    /**
+     * Setter for Dilution of precision on the Y measurement
+     *
+     * @param yDoP Dilution of precision on the Y measurement
+     * @since ARP1.0
+     */
+    public void setyDoP(float yDoP) {
+        this.yDoP = yDoP;
+    }
+
+    /**
+     * Timestamp Getter
+     *
+     * @return Timestamp
+     * @since ARP1.0
+     */
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    /**
+     * Timestamp Setter
+     *
+     * @param timestamp Timestamp
+     * @since ARP1.0
+     */
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 }

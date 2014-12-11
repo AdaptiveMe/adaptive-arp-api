@@ -22,9 +22,18 @@
  * Contributors:
  *
  *     * Ferran Vila Conesa
- *              <http://github.com/fnva>
- *              <http://twitter.com/ferran_vila>
- *              <mailto:ferran.vila.conesa@gmail.com>
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,45 +41,18 @@
 package me.adaptive.arp.api;
 
 /**
- * Structure representing the column specification of a data table.
+ * Structure representing a native response to the HTML5
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
  */
-public class Column {
+public class APIBean {
 
     /**
-     * Name of the column
-     */
-    private String name;
-
-    /**
-     * Constructor for implementation using.
+     * Default constructor
      *
-     * @param name Name of the column
+     * @since ARP1.0
      */
-    public Column(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Constructor used by the implementation
-     */
-    public Column() {
-    }
-
-    /**
-     * Returns the name of the column.
-     *
-     * @return The name of the column.
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the name of the column.
-     *
-     * @param name The name of the column.
-     */
-    public void setName(String name) {
-        this.name = name;
+    public APIBean() {
     }
 }

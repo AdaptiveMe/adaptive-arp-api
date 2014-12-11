@@ -21,7 +21,19 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -30,8 +42,12 @@ package me.adaptive.arp.api;
 
 /**
  * Represents the basic information about the operating system.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class OSInfo {
+public class OSInfo extends APIBean {
+
     /**
      * The name of the operating system.
      */
@@ -48,7 +64,9 @@ public class OSInfo {
     private String vendor;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
+     *
+     * @since ARP1.0
      */
     public OSInfo() {
     }
@@ -59,6 +77,7 @@ public class OSInfo {
      * @param name    of the OS.
      * @param version of the OS.
      * @param vendor  of the OS.
+     * @since ARP1.0
      */
     public OSInfo(String name, String version, String vendor) {
         this.name = name;
@@ -70,6 +89,7 @@ public class OSInfo {
      * Returns the name of the operating system.
      *
      * @return OS name.
+     * @since ARP1.0
      */
     public String getName() {
         return name;
@@ -79,6 +99,7 @@ public class OSInfo {
      * Returns the version of the operating system.
      *
      * @return OS version.
+     * @since ARP1.0
      */
     public String getVersion() {
         return version;
@@ -88,6 +109,7 @@ public class OSInfo {
      * Returns the vendor of the operating system.
      *
      * @return OS vendor.
+     * @since ARP1.0
      */
     public String getVendor() {
         return vendor;

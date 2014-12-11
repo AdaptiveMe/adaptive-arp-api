@@ -21,26 +21,37 @@
  *
  * Contributors:
  *
- *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
  *
- *     * David Barranco Bonilla
- *             <https://github.com/aryslan>
- *             <mailto:ddbc@gft.com>
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
+/**
+ * Interface for Managing the Lifecycle listeners
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
+ */
 public interface ILifecycle extends IBaseApplication {
 
     /**
      * Add the listener for the lifecycle of the app
      *
-     * @param listener
+     * @param listener Lifecycle listener
      * @since ARP1.0
      */
     void addLifecycleListener(ILifecycleListener listener);
@@ -48,7 +59,7 @@ public interface ILifecycle extends IBaseApplication {
     /**
      * Un-registers an existing listener from receiving lifecycle events.
      *
-     * @param listener
+     * @param listener Lifecycle listener
      * @since ARP1.0
      */
     void removeLifecycleListener(ILifecycleListener listener);

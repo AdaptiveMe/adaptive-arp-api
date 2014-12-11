@@ -1,5 +1,4 @@
 /*
- *
  * =| ADAPTIVE RUNTIME PLATFORM |=======================================================================================
  *
  * (C) Copyright 2013-2014 Carlos Lozano Diez t/a Adaptive.me <http://adaptive.me>.
@@ -37,42 +36,44 @@
  *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
- *
  */
 
 package me.adaptive.arp.api;
 
 /**
  * Structure representing the data of a http request or response header.
+ *
+ * @author Aryslan
+ * @since ARP1.0
  */
-public class Header {
+public class ServiceHeader extends APIBean {
+
     /**
      * Name ot the header
-     *
-     * @since ARP1.0
      */
     private String name;
+
     /**
      * Value of the header
-     *
-     * @since ARP1.0
      */
     private String data;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
+     *
+     * @since ARP1.0
      */
-    public Header() {
+    public ServiceHeader() {
     }
 
     /**
-     * Constructor used by the implementation
+     * Constructor with fields
      *
-     * @param name
-     * @param data
+     * @param name Name of the header
+     * @param data Value of the header
      * @since ARP1.0
      */
-    public Header(String name, String data) {
+    public ServiceHeader(String name, String data) {
         this.name = name;
         this.data = data;
     }
@@ -80,7 +81,7 @@ public class Header {
     /**
      * Returns the header name
      *
-     * @return name
+     * @return ServiceHeader name
      * @since ARP1.0
      */
     public String getName() {
@@ -90,7 +91,7 @@ public class Header {
     /**
      * Set the header name
      *
-     * @param name
+     * @param name Name of the header
      * @since ARP1.0
      */
     public void setName(String name) {
@@ -100,7 +101,7 @@ public class Header {
     /**
      * Returns the header value
      *
-     * @return
+     * @return ServiceHeader value
      * @since ARP1.0
      */
     public String getData() {
@@ -110,7 +111,7 @@ public class Header {
     /**
      * Set the header value
      *
-     * @param data
+     * @param data ServiceHeader value
      * @since ARP1.0
      */
     public void setData(String data) {

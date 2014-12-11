@@ -21,22 +21,39 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
+/**
+ * Interface for testing the Capabilities operations
+ *
+ * @author Carlos Lozano Diez
+ * @since ARP1.0
+ */
 public interface ICapabilities extends IBaseSystem {
+
     /**
      * Determines whether a specific Sensor capability is supported by the
      * device.
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     boolean hasSensorSupport(Sensor type);
@@ -47,7 +64,6 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     boolean hasCommunicationSupport(Communication type);
@@ -57,7 +73,6 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     boolean hasDataSupport(Data type);
@@ -68,7 +83,6 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     boolean hasMediaSupport(Media type);
@@ -78,7 +92,6 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     boolean hasNetSupport(Net type);
@@ -89,7 +102,6 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true if supported, false otherwise.
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     boolean hasNotificationSupport(Notification type);
@@ -99,7 +111,6 @@ public interface ICapabilities extends IBaseSystem {
      *
      * @param type Type of feature to check.
      * @return true is supported, false otherwise.
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     boolean hasButtonSupport(Button type);
@@ -107,7 +118,6 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * Sensor type enumeration.
      *
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     public enum Sensor {
@@ -117,7 +127,6 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * PIM functionality support enumeration.
      *
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     public enum Communication {
@@ -127,7 +136,6 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * Storage functionality support enumeration.
      *
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     public enum Data {
@@ -136,6 +144,8 @@ public interface ICapabilities extends IBaseSystem {
 
     /**
      * Media functionality support enumeration.
+     *
+     * @since ARP1.0
      */
     public enum Media {
         Audio_Playback, Audio_Recording, Camera, Video_Playback, Video_Recording, Unknown
@@ -144,7 +154,6 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * Connectivity support enumeration.
      *
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     public enum Net {
@@ -154,7 +163,6 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * Notification support enumeration.
      *
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     public enum Notification {
@@ -164,7 +172,6 @@ public interface ICapabilities extends IBaseSystem {
     /**
      * Hardware button support (only those that can interact with the application).
      *
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
     public enum Button {

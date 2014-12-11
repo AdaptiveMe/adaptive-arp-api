@@ -21,9 +21,19 @@
  *
  * Contributors:
  *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
  *     * Francisco Javier Martin Bueno
- *             <https://github.com/kechis>
- *             <mailto:kechis@gmail.com>
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
@@ -32,23 +42,32 @@ package me.adaptive.arp.api;
 
 /**
  * Structure representing the address data elements of a contact.
+ *
+ * @author Francisco Javier Martin Bueno
+ * @since ARP1.0
  */
-public class ContactAddress {
+public class ContactAddress extends APIBean {
+
     /**
      * The Contact address
-     *
-     * @since ARP1.0
      */
     private String address;
+
     /**
      * The address type
-     *
-     * @since ARP1.0
      */
     private AddressType type;
 
     /**
-     * Constructor used by the implementation
+     * Default constructor
+     *
+     * @since ARP1.0
+     */
+    public ContactAddress() {
+    }
+
+    /**
+     * Constructor with fields
      *
      * @param address Address data.
      * @param type    Address type.
@@ -57,12 +76,6 @@ public class ContactAddress {
     public ContactAddress(String address, AddressType type) {
         this.address = address;
         this.type = type;
-    }
-
-    /**
-     * Constructor used by the implementation
-     */
-    public ContactAddress() {
     }
 
     /**
@@ -113,4 +126,6 @@ public class ContactAddress {
     public enum AddressType {
         Home, Work, Other, Unknown
     }
+
+
 }

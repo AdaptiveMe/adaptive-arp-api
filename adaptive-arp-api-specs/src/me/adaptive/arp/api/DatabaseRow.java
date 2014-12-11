@@ -21,39 +21,73 @@
  *
  * Contributors:
  *
- *     *
+ *     * Ferran Vila Conesa
+ *                 <http://github.com/fnva>
+ *                 <http://twitter.com/ferran_vila>
+ *                 <mailto:ferran.vila.conesa@gmail.com>
+ *
+ *     * Aryslan
+ *                 <http://github.com/Aryslan>
+ *                 <http://twitter.com/Aryslan>
+ *                 <mailto:ddbc@gft.com>
+ *
+ *     * Francisco Javier Martin Bueno
+ *                 <https://github.com/kechis>
+ *                 <mailto:kechis@gmail.com>
  *
  * =====================================================================================================================
  */
 
 package me.adaptive.arp.api;
 
-
-public interface IAccelerometer extends IBaseSensor {
-    /**
-     * Register a new listener that will receive acceleration events.
-     *
-     * @param listener to be registered.
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
-     */
-    void addAccelerationListener(IAccelerationListener listener);
+/**
+ * Structure representing a row for a data table.
+ *
+ * @author Ferran Vila Conesa
+ * @since ARP1.0
+ */
+public class DatabaseRow extends APIBean {
 
     /**
-     * De-registers an existing listener from receiving acceleration events.
-     *
-     * @param listener
-     * @author Carlos Lozano Diez
-     * @since ARP1.0
+     * The values of the row.
      */
-    void removeAccelerationListener(IAccelerationListener listener);
+    private Object[] values;
 
     /**
-     * Removed all existing listeners from receiving acceleration events.
+     * Default constructor
      *
-     * @author Carlos Lozano Diez
      * @since ARP1.0
      */
-    void removeAccelerationListeners();
+    public DatabaseRow() {
+    }
 
+    /**
+     * Constructor for implementation using.
+     *
+     * @param values The values of the row
+     * @since ARP1.0
+     */
+    public DatabaseRow(Object[] values) {
+        this.values = values;
+    }
+
+    /**
+     * Returns the values of the row.
+     *
+     * @return The values of the row.
+     * @since ARP1.0
+     */
+    public Object[] getValues() {
+        return values;
+    }
+
+    /**
+     * Sets the values of the row.
+     *
+     * @param values The values of the row.
+     * @since ARP1.0
+     */
+    public void setValues(Object[] values) {
+        this.values = values;
+    }
 }
