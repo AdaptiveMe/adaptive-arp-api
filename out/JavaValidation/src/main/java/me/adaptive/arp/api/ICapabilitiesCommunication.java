@@ -43,3 +43,6 @@ public enum ICapabilitiesCommunication {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

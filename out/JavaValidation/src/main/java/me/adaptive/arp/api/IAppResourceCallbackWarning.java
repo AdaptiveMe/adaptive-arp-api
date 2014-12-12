@@ -41,3 +41,6 @@ public enum IAppResourceCallbackWarning {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

@@ -31,15 +31,49 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Enumeration IFileDataLoadResultCallbackError
+   Interface defines the response methods of the acceleration operations
+   Auto-generated implementation of IAccelerationListener specification.
 */
-public enum IFileDataLoadResultCallbackError {
+public class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
 
-     InexistentFile,
-     InsufficientSpace,
-     Unauthorized,
-     Unknown
+     /**
+        Constructor with listener id.
 
+        @param id  The id of the listener.
+     */
+     public AccelerationListenerImpl(long id) {
+          super(id);
+     }
+
+     /**
+        No data received - error condition, not authorized or hardware not available. This will be reported once for the
+listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+
+        @param error Error fired
+        @since ARP1.0
+     */
+     public void onError(IAccelerationListenerError error) {
+          //TODO: Implement listener.
+     }
+     /**
+        Correct data received.
+
+        @param acceleration Acceleration received
+        @since ARP1.0
+     */
+     public void onResult(Acceleration acceleration) {
+          //TODO: Implement listener.
+     }
+     /**
+        Data received with warning - ie. Needs calibration.
+
+        @param acceleration Acceleration received
+        @param warning      Warning fired
+        @since ARP1.0
+     */
+     public void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning) {
+          //TODO: Implement listener.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

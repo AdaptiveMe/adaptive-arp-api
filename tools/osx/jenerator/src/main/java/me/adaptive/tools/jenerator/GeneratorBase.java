@@ -330,7 +330,7 @@ public abstract class GeneratorBase {
                  * Declare methods.
                  */
                 List<Method> interfaceMethods = new ArrayList<>();
-                List<JavaMethod> interfaceMethodsDoc =  mapClassSource.get(clazz).getMethods();
+                List<JavaMethod> interfaceMethodsDoc = mapClassSource.get(clazz).getMethods();
                 for (Method method : clazz.getDeclaredMethods()) {
                     interfaceMethods.add(method);
                 }
@@ -552,8 +552,15 @@ public abstract class GeneratorBase {
         List<Class> listenerClasses = getListeners();
         listenerClasses.sort(new InterfaceComparator());
         for (Class clazz : listenerClasses) {
-            createListenerImplementation(clazz.getSimpleName(),clazz, mapClassSource.get(clazz));
+            String className = clazz.getSimpleName();
+            if (className.startsWith("I")) className = className.substring(1);
+            className = className+"Impl";
+
+            startCustomClass(className, clazz, mapClassSource.get(clazz));
+            createListenerImplementation(className, clazz, mapClassSource.get(clazz));
+            endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
+
         }
         List<Class> callbackClasses = getCallbacks();
         callbackClasses.sort(new InterfaceComparator());
@@ -570,6 +577,10 @@ public abstract class GeneratorBase {
         endGeneration();
         callback.onSuccess(this, this.getClass());
     }
+
+    protected abstract void endCustomClass(String className, Class clazz, JavaClass javaClass);
+
+    protected abstract void startCustomClass(String className, Class clazz, JavaClass javaClass);
 
     protected abstract void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass);
 

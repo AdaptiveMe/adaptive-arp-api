@@ -41,3 +41,6 @@ public enum IDatabaseResultCallbackError {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

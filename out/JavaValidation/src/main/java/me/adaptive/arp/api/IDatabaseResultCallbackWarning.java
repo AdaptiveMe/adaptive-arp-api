@@ -40,3 +40,6 @@ public enum IDatabaseResultCallbackWarning {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

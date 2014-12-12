@@ -61,6 +61,16 @@ public class TypeScriptGenerator extends GeneratorBase {
     }
 
     @Override
+    protected void endCustomClass(String className, Class clazz, JavaClass javaClass) {
+
+    }
+
+    @Override
+    protected void startCustomClass(String className, Class clazz, JavaClass javaClass) {
+
+    }
+
+    @Override
     protected void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
 
     }

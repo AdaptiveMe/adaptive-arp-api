@@ -40,3 +40,6 @@ public enum IAccelerationListenerError {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

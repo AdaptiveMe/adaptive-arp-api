@@ -43,3 +43,6 @@ public enum IDatabaseTableResultCallbackError {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

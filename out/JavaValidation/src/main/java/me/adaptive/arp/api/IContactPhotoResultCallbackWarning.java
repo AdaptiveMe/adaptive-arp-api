@@ -40,3 +40,6 @@ public enum IContactPhotoResultCallbackWarning {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

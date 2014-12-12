@@ -42,3 +42,6 @@ public enum IGeolocationListenerError {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

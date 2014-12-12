@@ -31,15 +31,46 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Enumeration IFileDataLoadResultCallbackError
+   Interface for Managing the Geolocation results
+   Auto-generated implementation of IGeolocationListener specification.
 */
-public enum IFileDataLoadResultCallbackError {
+public class GeolocationListenerImpl extends BaseListenerImpl implements IGeolocationListener {
 
-     InexistentFile,
-     InsufficientSpace,
-     Unauthorized,
-     Unknown
+     /**
+        Constructor with listener id.
 
+        @param id  The id of the listener.
+     */
+     public GeolocationListenerImpl(long id) {
+          super(id);
+     }
+
+     /**
+        No data received - error condition, not authorized or hardware not available.
+
+        @since ARP1.0
+     */
+     public void onError(IGeolocationListenerError error) {
+          //TODO: Implement listener.
+     }
+     /**
+        Correct data received.
+
+        @param geolocation Geolocation Bean
+        @since ARP1.0
+     */
+     public void onResult(Geolocation geolocation) {
+          //TODO: Implement listener.
+     }
+     /**
+        Data received with warning - ie. HighDoP
+
+        @param geolocation Geolocation Bean
+        @since ARP1.0
+     */
+     public void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning) {
+          //TODO: Implement listener.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

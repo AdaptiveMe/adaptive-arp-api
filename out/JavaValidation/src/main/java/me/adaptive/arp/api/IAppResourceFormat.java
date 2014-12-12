@@ -42,3 +42,6 @@ public enum IAppResourceFormat {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

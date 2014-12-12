@@ -42,3 +42,6 @@ public enum ILoggingLogLevel {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

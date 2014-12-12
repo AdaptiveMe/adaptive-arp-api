@@ -31,15 +31,48 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Enumeration IFileDataLoadResultCallbackError
+   Interface for Managing the button  operations
+   Auto-generated implementation of IButtonListener specification.
 */
-public enum IFileDataLoadResultCallbackError {
+public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
 
-     InexistentFile,
-     InsufficientSpace,
-     Unauthorized,
-     Unknown
+     /**
+        Constructor with listener id.
 
+        @param id  The id of the listener.
+     */
+     public ButtonListenerImpl(long id) {
+          super(id);
+     }
+
+     /**
+        No data received
+
+        @param error occurred
+        @since ARP1.0
+     */
+     public void onError(IButtonListenerError error) {
+          //TODO: Implement listener.
+     }
+     /**
+        Called on button pressed
+
+        @param button pressed
+        @since ARP1.0
+     */
+     public void onResult(Button button) {
+          //TODO: Implement listener.
+     }
+     /**
+        Data received with warning
+
+        @param button  pressed
+        @param warning happened
+        @since ARP1.0
+     */
+     public void onWarning(Button button, IButtonListenerWarning warning) {
+          //TODO: Implement listener.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

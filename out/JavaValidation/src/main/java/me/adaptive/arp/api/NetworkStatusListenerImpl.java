@@ -31,15 +31,48 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Enumeration IFileDataLoadResultCallbackError
+   Interface for Managing the Network status listener events
+   Auto-generated implementation of INetworkStatusListener specification.
 */
-public enum IFileDataLoadResultCallbackError {
+public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
 
-     InexistentFile,
-     InsufficientSpace,
-     Unauthorized,
-     Unknown
+     /**
+        Constructor with listener id.
 
+        @param id  The id of the listener.
+     */
+     public NetworkStatusListenerImpl(long id) {
+          super(id);
+     }
+
+     /**
+        No data received - error condition, not authorized or hardware not available.
+
+        @param error
+        @since ARP1.0
+     */
+     public void onError(INetworkStatusListenerError error) {
+          //TODO: Implement listener.
+     }
+     /**
+        Called when network connection changes somehow.
+
+        @param network Change to this network.
+        @since ARP1.0
+     */
+     public void onResult(ICapabilitiesNet network) {
+          //TODO: Implement listener.
+     }
+     /**
+        Status received with warning
+
+        @param network Change to this network.
+        @param warning
+        @since ARP1.0
+     */
+     public void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning) {
+          //TODO: Implement listener.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

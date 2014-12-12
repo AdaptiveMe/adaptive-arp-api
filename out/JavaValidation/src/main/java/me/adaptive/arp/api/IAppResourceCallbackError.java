@@ -40,3 +40,6 @@ public enum IAppResourceCallbackError {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

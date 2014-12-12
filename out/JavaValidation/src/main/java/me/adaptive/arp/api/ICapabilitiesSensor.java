@@ -45,3 +45,6 @@ public enum ICapabilitiesSensor {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

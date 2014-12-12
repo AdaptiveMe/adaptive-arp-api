@@ -47,3 +47,6 @@ public enum IAppResourceType {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

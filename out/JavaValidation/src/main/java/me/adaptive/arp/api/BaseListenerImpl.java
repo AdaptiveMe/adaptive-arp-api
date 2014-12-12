@@ -31,14 +31,43 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Enumeration IFileDataLoadResultCallbackError
+   Base application for Listener purposes
+   Auto-generated implementation of IBaseListener specification.
 */
-public enum IFileDataLoadResultCallbackError {
+public class BaseListenerImpl implements IBaseListener {
 
-     InexistentFile,
-     InsufficientSpace,
-     Unauthorized,
-     Unknown
+     /**
+        Unique id of listener.
+     */
+     private long id;
+
+     /**
+        Group of API.
+     */
+     private IAdaptiveRPGroup apiGroup;
+
+     /**
+        Constructor with listener id.
+
+        @param id  The id of the listener.
+     */
+     public BaseListenerImpl(long id) {
+          this.id = id;
+     }
+
+     /**
+        Get the listener id.
+     */
+     public final long getId() {
+          return this.id;
+     }
+     /**
+        Return the API group for the given interface.
+     */
+     @Override
+     public IAdaptiveRPGroup getAPIGroup() {
+          return this.apiGroup;
+     }
 
 }
 /**

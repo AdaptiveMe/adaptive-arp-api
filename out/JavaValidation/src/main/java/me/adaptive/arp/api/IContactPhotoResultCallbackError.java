@@ -41,3 +41,6 @@ public enum IContactPhotoResultCallbackError {
      Unknown
 
 }
+/**
+------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
+*/

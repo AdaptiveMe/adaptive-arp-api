@@ -31,15 +31,46 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Enumeration IFileDataLoadResultCallbackError
+   Interface for Managing the Lifecycle listeners
+   Auto-generated implementation of ILifecycleListener specification.
 */
-public enum IFileDataLoadResultCallbackError {
+public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycleListener {
 
-     InexistentFile,
-     InsufficientSpace,
-     Unauthorized,
-     Unknown
+     /**
+        Constructor with listener id.
 
+        @param id  The id of the listener.
+     */
+     public LifecycleListenerImpl(long id) {
+          super(id);
+     }
+
+     /**
+        No data received - error condition, not authorized or hardware not available.
+
+        @since ARP1.0
+     */
+     public void onError(ILifecycleListenerError error) {
+          //TODO: Implement listener.
+     }
+     /**
+        Called when lifecycle changes somehow.
+
+        @param lifecycle Lifecycle element
+        @since ARP1.0
+     */
+     public void onResult(Lifecycle lifecycle) {
+          //TODO: Implement listener.
+     }
+     /**
+        Data received with warning
+
+        @param lifecycle Lifecycle element
+        @since ARP1.0
+     */
+     public void onWarning(Lifecycle lifecycle, ILifecycleListenerWarning warning) {
+          //TODO: Implement listener.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
