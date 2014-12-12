@@ -31,49 +31,49 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+   Interface for Managing the Contact operations
+   Auto-generated implementation of IContactPhotoResultCallback specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
 
      /**
-        Constructor with listener id.
+        Constructor with callback id.
 
-        @param id  The id of the listener.
+        @param id  The id of the callback.
      */
-     public ButtonListenerImpl(long id) {
+     public ContactPhotoResultCallbackImpl(long id) {
           super(id);
      }
 
      /**
-        No data received
+        This method is called on Error
 
-        @param error occurred
+        @param error returned by the platform
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+     public void onError(IContactPhotoResultCallbackError error) {
+          //TODO: Implement callback IContactPhotoResultCallback.onError
      }
 
      /**
-        Called on button pressed
+        This method is called on Result
 
-        @param button pressed
+        @param contactPhoto returned by the platform
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
+     public void onResult(byte[] contactPhoto) {
+          //TODO: Implement callback IContactPhotoResultCallback.onResult
      }
 
      /**
-        Data received with warning
+        This method is called on Warning
 
-        @param button  pressed
-        @param warning happened
+        @param contactPhoto returned by the platform
+        @param warning      returned by the platform
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+     public void onWarning(byte[] contactPhoto, IContactPhotoResultCallbackWarning warning) {
+          //TODO: Implement callback IContactPhotoResultCallback.onWarning
      }
 
 }

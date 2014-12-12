@@ -31,49 +31,49 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+   Interface for Managing the Security result callback
+   Auto-generated implementation of ISecurityResultCallback specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
 
      /**
-        Constructor with listener id.
+        Constructor with callback id.
 
-        @param id  The id of the listener.
+        @param id  The id of the callback.
      */
-     public ButtonListenerImpl(long id) {
+     public SecurityResultCallbackImpl(long id) {
           super(id);
      }
 
      /**
-        No data received
+        No data received - error condition, not authorized .
 
-        @param error occurred
+        @param error Error values
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+     public void onError(ISecurityResultCallbackError error) {
+          //TODO: Implement callback ISecurityResultCallback.onError
      }
 
      /**
-        Called on button pressed
+        Correct data received.
 
-        @param button pressed
+        @param keyValues key and values
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
+     public void onResult(SecureKeyPair[] keyValues) {
+          //TODO: Implement callback ISecurityResultCallback.onResult
      }
 
      /**
-        Data received with warning
+        Data received with warning - ie Found entries with existing key and values have been overriden
 
-        @param button  pressed
-        @param warning happened
+        @param keyValues key and values
+        @param warning   Warning values
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+     public void onWarning(SecureKeyPair[] keyValues, ISecurityResultCallbackWarning warning) {
+          //TODO: Implement callback ISecurityResultCallback.onWarning
      }
 
 }

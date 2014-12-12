@@ -51,8 +51,9 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         @since ARP1.0
      */
      public void onError(IGeolocationListenerError error) {
-          //TODO: Implement listener.
+          //TODO: Implement listener IGeolocationListener.onError
      }
+
      /**
         Correct data received.
 
@@ -60,8 +61,9 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         @since ARP1.0
      */
      public void onResult(Geolocation geolocation) {
-          //TODO: Implement listener.
+          //TODO: Implement listener IGeolocationListener.onResult
      }
+
      /**
         Data received with warning - ie. HighDoP
 
@@ -69,8 +71,9 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         @since ARP1.0
      */
      public void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning) {
-          //TODO: Implement listener.
+          //TODO: Implement listener IGeolocationListener.onWarning
      }
+
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

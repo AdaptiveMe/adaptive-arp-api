@@ -31,49 +31,49 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+   Interface for Managing the Services operations
+   Auto-generated implementation of IServiceResultCallback specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
 
      /**
-        Constructor with listener id.
+        Constructor with callback id.
 
-        @param id  The id of the listener.
+        @param id  The id of the callback.
      */
-     public ButtonListenerImpl(long id) {
+     public ServiceResultCallbackImpl(long id) {
           super(id);
      }
 
      /**
-        No data received
+        This method is called on Error
 
-        @param error occurred
+        @param error returned by the platform
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+     public void onError(IServiceResultCallbackError error) {
+          //TODO: Implement callback IServiceResultCallback.onError
      }
 
      /**
-        Called on button pressed
+        This method is called on Result
 
-        @param button pressed
+        @param response data
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
+     public void onResult(ServiceResponse response) {
+          //TODO: Implement callback IServiceResultCallback.onResult
      }
 
      /**
-        Data received with warning
+        This method is called on Warning
 
-        @param button  pressed
-        @param warning happened
+        @param response data
+        @param warning  returned by the platform
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+     public void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning) {
+          //TODO: Implement callback IServiceResultCallback.onWarning
      }
 
 }

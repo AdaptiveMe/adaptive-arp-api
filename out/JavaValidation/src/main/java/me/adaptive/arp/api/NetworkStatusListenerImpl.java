@@ -52,8 +52,9 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @since ARP1.0
      */
      public void onError(INetworkStatusListenerError error) {
-          //TODO: Implement listener.
+          //TODO: Implement listener INetworkStatusListener.onError
      }
+
      /**
         Called when network connection changes somehow.
 
@@ -61,8 +62,9 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @since ARP1.0
      */
      public void onResult(ICapabilitiesNet network) {
-          //TODO: Implement listener.
+          //TODO: Implement listener INetworkStatusListener.onResult
      }
+
      /**
         Status received with warning
 
@@ -71,8 +73,9 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @since ARP1.0
      */
      public void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning) {
-          //TODO: Implement listener.
+          //TODO: Implement listener INetworkStatusListener.onWarning
      }
+
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

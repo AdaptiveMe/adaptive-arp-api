@@ -51,8 +51,9 @@ public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycl
         @since ARP1.0
      */
      public void onError(ILifecycleListenerError error) {
-          //TODO: Implement listener.
+          //TODO: Implement listener ILifecycleListener.onError
      }
+
      /**
         Called when lifecycle changes somehow.
 
@@ -60,8 +61,9 @@ public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycl
         @since ARP1.0
      */
      public void onResult(Lifecycle lifecycle) {
-          //TODO: Implement listener.
+          //TODO: Implement listener ILifecycleListener.onResult
      }
+
      /**
         Data received with warning
 
@@ -69,8 +71,9 @@ public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycl
         @since ARP1.0
      */
      public void onWarning(Lifecycle lifecycle, ILifecycleListenerWarning warning) {
-          //TODO: Implement listener.
+          //TODO: Implement listener ILifecycleListener.onWarning
      }
+
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

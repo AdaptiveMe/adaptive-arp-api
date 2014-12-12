@@ -31,49 +31,49 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+   Interface for Managing the Cloud operations
+   Auto-generated implementation of IDatabaseTableResultCallback specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements IDatabaseTableResultCallback {
 
      /**
-        Constructor with listener id.
+        Constructor with callback id.
 
-        @param id  The id of the listener.
+        @param id  The id of the callback.
      */
-     public ButtonListenerImpl(long id) {
+     public DatabaseTableResultCallbackImpl(long id) {
           super(id);
      }
 
      /**
-        No data received
+        Result callback for error responses
 
-        @param error occurred
+        @param error Returned error
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+     public void onError(IDatabaseTableResultCallbackError error) {
+          //TODO: Implement callback IDatabaseTableResultCallback.onError
      }
 
      /**
-        Called on button pressed
+        Result callback for correct responses
 
-        @param button pressed
+        @param databaseTable Returns the databaseTable
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
+     public void onResult(DatabaseTable databaseTable) {
+          //TODO: Implement callback IDatabaseTableResultCallback.onResult
      }
 
      /**
-        Data received with warning
+        Result callback for warning responses
 
-        @param button  pressed
-        @param warning happened
+        @param databaseTable Returns the databaseTable
+        @param warning       Returned Warning
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+     public void onWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning) {
+          //TODO: Implement callback IDatabaseTableResultCallback.onWarning
      }
 
 }

@@ -31,49 +31,49 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+   Interface for Managing the File operations callback
+   Auto-generated implementation of IFileResultCallback specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class FileResultCallbackImpl extends BaseCallbackImpl implements IFileResultCallback {
 
      /**
-        Constructor with listener id.
+        Constructor with callback id.
 
-        @param id  The id of the listener.
+        @param id  The id of the callback.
      */
-     public ButtonListenerImpl(long id) {
+     public FileResultCallbackImpl(long id) {
           super(id);
      }
 
      /**
-        No data received
+        On error result of a file operation.
 
-        @param error occurred
+        @param error Error processing the request.
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+     public void onError(IFileResultCallbackError error) {
+          //TODO: Implement callback IFileResultCallback.onError
      }
 
      /**
-        Called on button pressed
+        On correct result of a file operation.
 
-        @param button pressed
+        @param storageFile Reference to the resulting file.
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
+     public void onResult(IFile storageFile) {
+          //TODO: Implement callback IFileResultCallback.onResult
      }
 
      /**
-        Data received with warning
+        On partial result of a file operation, containing a warning.
 
-        @param button  pressed
-        @param warning happened
+        @param file    Reference to the offending file.
+        @param warning Warning processing the request.
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+     public void onWarning(IFile file, IFileResultCallbackWarning warning) {
+          //TODO: Implement callback IFileResultCallback.onWarning
      }
 
 }

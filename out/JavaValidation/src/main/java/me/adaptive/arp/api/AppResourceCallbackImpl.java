@@ -31,49 +31,49 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+   This interface manages the responses of the resource callback
+   Auto-generated implementation of IAppResourceCallback specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class AppResourceCallbackImpl extends BaseCallbackImpl implements IAppResourceCallback {
 
      /**
-        Constructor with listener id.
+        Constructor with callback id.
 
-        @param id  The id of the listener.
+        @param id  The id of the callback.
      */
-     public ButtonListenerImpl(long id) {
+     public AppResourceCallbackImpl(long id) {
           super(id);
      }
 
      /**
-        No data received
+        Error result of the App resource operation
 
-        @param error occurred
+        @param error Error fired
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+     public void onError(IAppResourceCallbackError error) {
+          //TODO: Implement callback IAppResourceCallback.onError
      }
 
      /**
-        Called on button pressed
+        Correct result of the App Resource operation
 
-        @param button pressed
+        @param resource Resource
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
+     public void onResult(IAppResource resource) {
+          //TODO: Implement callback IAppResourceCallback.onResult
      }
 
      /**
-        Data received with warning
+        Warning result of the App Resource operation
 
-        @param button  pressed
-        @param warning happened
+        @param resource Resource
+        @param warning  Warning fired
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+     public void onWarning(IAppResource resource, IAppResourceCallbackWarning warning) {
+          //TODO: Implement callback IAppResourceCallback.onWarning
      }
 
 }

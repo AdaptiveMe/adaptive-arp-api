@@ -53,8 +53,9 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public void onError(IAccelerationListenerError error) {
-          //TODO: Implement listener.
+          //TODO: Implement listener IAccelerationListener.onError
      }
+
      /**
         Correct data received.
 
@@ -62,8 +63,9 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public void onResult(Acceleration acceleration) {
-          //TODO: Implement listener.
+          //TODO: Implement listener IAccelerationListener.onResult
      }
+
      /**
         Data received with warning - ie. Needs calibration.
 
@@ -72,8 +74,9 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning) {
-          //TODO: Implement listener.
+          //TODO: Implement listener IAccelerationListener.onWarning
      }
+
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

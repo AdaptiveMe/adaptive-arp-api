@@ -53,6 +53,7 @@ public class BaseListenerImpl implements IBaseListener {
      */
      public BaseListenerImpl(long id) {
           this.id = id;
+          this.apiGroup = IAdaptiveRPGroup.Application;
      }
 
      /**
@@ -61,11 +62,12 @@ public class BaseListenerImpl implements IBaseListener {
      public final long getId() {
           return this.id;
      }
+
      /**
         Return the API group for the given interface.
      */
      @Override
-     public IAdaptiveRPGroup getAPIGroup() {
+     public final IAdaptiveRPGroup getAPIGroup() {
           return this.apiGroup;
      }
 

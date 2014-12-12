@@ -31,49 +31,49 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+   Interface for Managing the File loading callback responses
+   Auto-generated implementation of IFileDataLoadResultCallback specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
 
      /**
-        Constructor with listener id.
+        Constructor with callback id.
 
-        @param id  The id of the listener.
+        @param id  The id of the callback.
      */
-     public ButtonListenerImpl(long id) {
+     public FileDataLoadResultCallbackImpl(long id) {
           super(id);
      }
 
      /**
-        No data received
+        Error processing data retrieval/storage operation.
 
-        @param error occurred
+        @param error Error condition encountered.
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+     public void onError(IFileDataLoadResultCallbackError error) {
+          //TODO: Implement callback IFileDataLoadResultCallback.onError
      }
 
      /**
-        Called on button pressed
+        Result of data retrieval operation.
 
-        @param button pressed
+        @param data Data loaded.
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
+     public void onResult(byte[] data) {
+          //TODO: Implement callback IFileDataLoadResultCallback.onResult
      }
 
      /**
-        Data received with warning
+        Result with warning of data retrieval/storage operation.
 
-        @param button  pressed
-        @param warning happened
+        @param data    File being loaded.
+        @param warning Warning condition encountered.
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+     public void onWarning(byte[] data, IFileDataLoadResultCallbackWarning warning) {
+          //TODO: Implement callback IFileDataLoadResultCallback.onWarning
      }
 
 }

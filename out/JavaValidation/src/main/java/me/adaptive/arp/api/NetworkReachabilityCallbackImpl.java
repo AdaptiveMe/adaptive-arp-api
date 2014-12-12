@@ -31,49 +31,49 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+   Interface for Managing the Network reachability callback result
+   Auto-generated implementation of INetworkReachabilityCallback specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
 
      /**
-        Constructor with listener id.
+        Constructor with callback id.
 
-        @param id  The id of the listener.
+        @param id  The id of the callback.
      */
-     public ButtonListenerImpl(long id) {
+     public NetworkReachabilityCallbackImpl(long id) {
           super(id);
      }
 
      /**
-        No data received
+        No data received - error condition, not authorized .
 
-        @param error occurred
+        @param error Error value
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+     public void onError(INetworkReachabilityCallbackError error) {
+          //TODO: Implement callback INetworkReachabilityCallback.onError
      }
 
      /**
-        Called on button pressed
+        Correct data received.
 
-        @param button pressed
+        @param reachable Indicates if the host is reachable
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
+     public void onResult(boolean reachable) {
+          //TODO: Implement callback INetworkReachabilityCallback.onResult
      }
 
      /**
-        Data received with warning
+        Data received with warning - ie Found entries with existing key and values have been overriden
 
-        @param button  pressed
-        @param warning happened
+        @param reachable Indicates if the host is reachable
+        @param warning   Warning value
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+     public void onWarning(boolean reachable, INetworkReachabilityCallbackWarning warning) {
+          //TODO: Implement callback INetworkReachabilityCallback.onWarning
      }
 
 }

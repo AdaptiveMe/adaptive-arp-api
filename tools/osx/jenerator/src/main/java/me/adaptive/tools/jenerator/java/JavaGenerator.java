@@ -89,6 +89,118 @@ public class JavaGenerator extends GeneratorBase {
 
     @Override
     protected void createCallbackImplementation(String simpleName, Class clazz, JavaClass javaClass) {
+        println("package " + clazz.getPackage().getName() + ";");
+        println();
+        startComment(0);
+        if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
+            println(3, javaClass.getComment());
+        }
+        println(3, "Auto-generated implementation of " + clazz.getSimpleName() + " specification.");
+        endComment(0);
+
+        if (clazz.getSimpleName().equals("IBaseCallback")) {
+            println("public class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+            println();
+
+            startComment(5);
+            println(8, "Unique id of callback.");
+            endComment(5);
+            println(5, "private long id;");
+            println();
+
+            startComment(5);
+            println(8, "Group of API.");
+            endComment(5);
+            println(5, "private IAdaptiveRPGroup apiGroup;");
+            println();
+
+            startComment(5);
+            println(8, "Constructor with callback id.");
+            println();
+            println(8, "@param id  The id of the callback.");
+            endComment(5);
+            println(5, "public " + simpleName + "(long id) {");
+            println(10, "this.id = id;");
+            println(10, "this.apiGroup = IAdaptiveRPGroup.Application;");
+            println(5, "}");
+            println();
+
+            startComment(5);
+            println(8, "Get the callback id.");
+            endComment(5);
+            println(5, "public final long getId() {");
+            println(10, "return this.id;");
+            println(5, "}");
+            println();
+
+            startComment(5);
+            println(8, "Return the API group for the given interface.");
+            endComment(5);
+            println(5, "@Override");
+            println(5, "public IAdaptiveRPGroup getAPIGroup() {");
+            println(10, "return this.apiGroup;");
+            println(5, "}");
+        } else {
+            println("public class " + simpleName + " extends BaseCallbackImpl implements " + clazz.getSimpleName() + " {");
+            println();
+            startComment(5);
+            println(8, "Constructor with callback id.");
+            println();
+            println(8, "@param id  The id of the callback.");
+            endComment(5);
+            println(5, "public " + simpleName + "(long id) {");
+            println(10, "super(id);");
+            println(5, "}");
+        }
+        println();
+
+        List<Method> classMethods = new ArrayList<>();
+        Map<Method, JavaMethod> javaMethods = new HashMap<>();
+        for (Method m : clazz.getDeclaredMethods()) {
+            classMethods.add(m);
+            for (JavaMethod jm : javaClass.getMethods()) {
+                if (jm.getName().equals(m.getName()) && jm.getParameters().size() == m.getParameterCount()) {
+                    javaMethods.put(m, jm);
+                }
+            }
+        }
+        classMethods.sort(new Comparator<Method>() {
+            @Override
+            public int compare(Method o1, Method o2) {
+                return (o1.getName() + o1.getParameterCount()).compareTo((o2.getName() + o2.getParameterCount()));
+            }
+        });
+        for (Method m : classMethods) {
+            if (javaMethods.get(m) != null) {
+                startComment(5);
+                println(8, javaMethods.get(m).getComment());
+                println();
+                for (DocletTag tag : javaMethods.get(m).getTags()) {
+                    println(8, "@" + tag.getName() + " " + tag.getValue());
+                }
+                endComment(5);
+                print(5, "public ");
+                if (m.getReturnType().equals(Void.TYPE)) {
+                    print("void ");
+                } else {
+                    print(convertJavaToNativeType(m.getReturnType()) + " ");
+                }
+                print(m.getName()+"(");
+                for (int i = 0;i<m.getParameterCount();i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(convertJavaToNativeType(p.getType())+" ");
+                    print(p.getName());
+                    if (i < m.getParameterCount()-1) {
+                        print(", ");
+                    }
+                }
+                println(") {");
+                println(10, "//TODO: Implement callback "+m.getDeclaringClass().getSimpleName()+"."+m.getName());
+                println(5, "}");
+                println();
+            }
+        }
+        println("}");
 
     }
 
@@ -126,6 +238,7 @@ public class JavaGenerator extends GeneratorBase {
             endComment(5);
             println(5, "public " + simpleName + "(long id) {");
             println(10, "this.id = id;");
+            println(10, "this.apiGroup = IAdaptiveRPGroup.Application;");
             println(5, "}");
             println();
 
@@ -135,12 +248,13 @@ public class JavaGenerator extends GeneratorBase {
             println(5, "public final long getId() {");
             println(10, "return this.id;");
             println(5, "}");
+            println();
 
             startComment(5);
             println(8, "Return the API group for the given interface.");
             endComment(5);
             println(5, "@Override");
-            println(5, "public IAdaptiveRPGroup getAPIGroup() {");
+            println(5, "public final IAdaptiveRPGroup getAPIGroup() {");
             println(10, "return this.apiGroup;");
             println(5, "}");
         } else {
@@ -198,9 +312,9 @@ public class JavaGenerator extends GeneratorBase {
                     }
                 }
                 println(") {");
-                println(10, "//TODO: Implement listener.");
+                println(10, "//TODO: Implement listener "+m.getDeclaringClass().getSimpleName()+"."+m.getName());
                 println(5, "}");
-
+                println();
             }
         }
         println("}");

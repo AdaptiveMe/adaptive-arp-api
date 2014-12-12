@@ -31,49 +31,44 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+   Base application for Callback purposes
+   Auto-generated implementation of IBaseCallback specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class BaseCallbackImpl implements IBaseCallback {
 
      /**
-        Constructor with listener id.
-
-        @param id  The id of the listener.
+        Unique id of callback.
      */
-     public ButtonListenerImpl(long id) {
-          super(id);
+     private long id;
+
+     /**
+        Group of API.
+     */
+     private IAdaptiveRPGroup apiGroup;
+
+     /**
+        Constructor with callback id.
+
+        @param id  The id of the callback.
+     */
+     public BaseCallbackImpl(long id) {
+          this.id = id;
+          this.apiGroup = IAdaptiveRPGroup.Application;
      }
 
      /**
-        No data received
-
-        @param error occurred
-        @since ARP1.0
+        Get the callback id.
      */
-     public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+     public final long getId() {
+          return this.id;
      }
 
      /**
-        Called on button pressed
-
-        @param button pressed
-        @since ARP1.0
+        Return the API group for the given interface.
      */
-     public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
-     }
-
-     /**
-        Data received with warning
-
-        @param button  pressed
-        @param warning happened
-        @since ARP1.0
-     */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+     @Override
+     public IAdaptiveRPGroup getAPIGroup() {
+          return this.apiGroup;
      }
 
 }

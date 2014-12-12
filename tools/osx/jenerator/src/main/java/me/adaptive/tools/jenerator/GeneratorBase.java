@@ -549,6 +549,7 @@ public abstract class GeneratorBase {
             endClass(clazz);
             callback.onSuccess(this, clazz);
         }
+
         List<Class> listenerClasses = getListeners();
         listenerClasses.sort(new InterfaceComparator());
         for (Class clazz : listenerClasses) {
@@ -560,12 +561,18 @@ public abstract class GeneratorBase {
             createListenerImplementation(className, clazz, mapClassSource.get(clazz));
             endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
-
         }
+
         List<Class> callbackClasses = getCallbacks();
         callbackClasses.sort(new InterfaceComparator());
         for (Class clazz : callbackClasses) {
-            createCallbackImplementation(clazz.getSimpleName(), clazz, mapClassSource.get(clazz));
+            String className = clazz.getSimpleName();
+            if (className.startsWith("I")) className = className.substring(1);
+            className = className+"Impl";
+
+            startCustomClass(className, clazz, mapClassSource.get(clazz));
+            createCallbackImplementation(className, clazz, mapClassSource.get(clazz));
+            endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
         }
         List<Class> handlerClasses = getHandlers();

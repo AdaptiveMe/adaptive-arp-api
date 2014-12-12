@@ -31,49 +31,49 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+   Interface for Managing the File result operations
+   Auto-generated implementation of IFileListResultCallback specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
 
      /**
-        Constructor with listener id.
+        Constructor with callback id.
 
-        @param id  The id of the listener.
+        @param id  The id of the callback.
      */
-     public ButtonListenerImpl(long id) {
+     public FileListResultCallbackImpl(long id) {
           super(id);
      }
 
      /**
-        No data received
+        On error result of a file operation.
 
-        @param error occurred
+        @param error Error processing the request.
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+     public void onError(IFileListResultCallbackError error) {
+          //TODO: Implement callback IFileListResultCallback.onError
      }
 
      /**
-        Called on button pressed
+        On correct result of a file operation.
 
-        @param button pressed
+        @param files Array of resulting files/folders.
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
+     public void onResult(IFile[] files) {
+          //TODO: Implement callback IFileListResultCallback.onResult
      }
 
      /**
-        Data received with warning
+        On partial result of a file operation, containing a warning.
 
-        @param button  pressed
-        @param warning happened
+        @param files   Array of resulting files/folders.
+        @param warning Warning condition encountered.
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+     public void onWarning(IFile[] files, IFileListResultCallbackWarning warning) {
+          //TODO: Implement callback IFileListResultCallback.onWarning
      }
 
 }

@@ -31,49 +31,49 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+   Interface for Managing the Contact operations
+   Auto-generated implementation of IContactResultCallback specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
 
      /**
-        Constructor with listener id.
+        Constructor with callback id.
 
-        @param id  The id of the listener.
+        @param id  The id of the callback.
      */
-     public ButtonListenerImpl(long id) {
+     public ContactResultCallbackImpl(long id) {
           super(id);
      }
 
      /**
-        No data received
+        This method is called on Error
 
-        @param error occurred
+        @param error returned by the platform
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+     public void onError(IContactResultCallbackError error) {
+          //TODO: Implement callback IContactResultCallback.onError
      }
 
      /**
-        Called on button pressed
+        This method is called on Result
 
-        @param button pressed
+        @param contacts returned by the platform
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
+     public void onResult(Contact[] contacts) {
+          //TODO: Implement callback IContactResultCallback.onResult
      }
 
      /**
-        Data received with warning
+        This method is called on Warning
 
-        @param button  pressed
-        @param warning happened
+        @param contacts returned by the platform
+        @param warning  returned by the platform
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+     public void onWarning(Contact[] contacts, IContactResultCallbackWarning warning) {
+          //TODO: Implement callback IContactResultCallback.onWarning
      }
 
 }
