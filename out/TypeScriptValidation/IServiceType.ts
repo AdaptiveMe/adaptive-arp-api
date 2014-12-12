@@ -33,16 +33,16 @@ module Adaptive {
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static SERVICETYPE_AMF_SERIALIZATION = new IServiceType("SERVICETYPE_AMF_SERIALIZATION");
-          static SERVICETYPE_GWT_RPC = new IServiceType("SERVICETYPE_GWT_RPC");
-          static SERVICETYPE_OCTET_BINARY = new IServiceType("SERVICETYPE_OCTET_BINARY");
-          static SERVICETYPE_REMOTING_SERIALIZATION = new IServiceType("SERVICETYPE_REMOTING_SERIALIZATION");
-          static SERVICETYPE_REST_JSON = new IServiceType("SERVICETYPE_REST_JSON");
-          static SERVICETYPE_REST_XML = new IServiceType("SERVICETYPE_REST_XML");
-          static SERVICETYPE_SOAP_JSON = new IServiceType("SERVICETYPE_SOAP_JSON");
-          static SERVICETYPE_SOAP_XML = new IServiceType("SERVICETYPE_SOAP_XML");
-          static SERVICETYPE_XMLRPC_JSON = new IServiceType("SERVICETYPE_XMLRPC_JSON");
-          static SERVICETYPE_XMLRPC_XML = new IServiceType("SERVICETYPE_XMLRPC_XML");
+          static ServiceTypeAmfSerialization = new IServiceType("ServiceTypeAmfSerialization");
+          static ServiceTypeGwtRpc = new IServiceType("ServiceTypeGwtRpc");
+          static ServiceTypeOctetBinary = new IServiceType("ServiceTypeOctetBinary");
+          static ServiceTypeRemotingSerialization = new IServiceType("ServiceTypeRemotingSerialization");
+          static ServiceTypeRestJson = new IServiceType("ServiceTypeRestJson");
+          static ServiceTypeRestXml = new IServiceType("ServiceTypeRestXml");
+          static ServiceTypeSoapJson = new IServiceType("ServiceTypeSoapJson");
+          static ServiceTypeSoapXml = new IServiceType("ServiceTypeSoapXml");
+          static ServiceTypeXmlRpcJson = new IServiceType("ServiceTypeXmlRpcJson");
+          static ServiceTypeXmlRpcXml = new IServiceType("ServiceTypeXmlRpcXml");
           static Unknown = new IServiceType("Unknown");
 
      }

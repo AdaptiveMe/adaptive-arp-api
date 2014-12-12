@@ -24,16 +24,28 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
-#import <IFileDataResultCallback.h>
+#import <IBaseCallback.h>
 
 /**
-Created by clozano on 05/12/14.
+Interface for Managing the File loading callback responses
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
-@protocol IFileDataLoadResultCallback <IFileDataResultCallback>
+@protocol IFileDataLoadResultCallback <IBaseCallback>
+
+     typedef NS_OPTIONS(NSUInteger, IFileDataLoadResultCallbackError) {
+          IFileDataLoadResultCallbackError_InexistentFile = 0,
+          IFileDataLoadResultCallbackError_InsufficientSpace = 1,
+          IFileDataLoadResultCallbackError_Unauthorized = 2,
+          IFileDataLoadResultCallbackError_Unknown = 3
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IFileDataLoadResultCallbackWarning) {
+          IFileDataLoadResultCallbackWarning_ExceedMaximumSize = 0,
+          IFileDataLoadResultCallbackWarning_Unknown = 1
+     };
 
 @end
 

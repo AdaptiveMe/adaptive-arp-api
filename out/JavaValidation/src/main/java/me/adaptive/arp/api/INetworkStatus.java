@@ -26,23 +26,23 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of INetworkStatus interface/protocol.
+   Interface for Managing the Network status
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public interface INetworkStatus extends IBaseCommunication {
      /**
         Add the listener for network status changes of the app
-        @param listener
+        @param listener Listener with the result
         @since ARP1.0
      */
      void addNetworkStatusListener(INetworkStatusListener listener);
 
      /**
         Un-registers an existing listener from receiving network status events.
-        @param listener
+        @param listener Listener with the result
         @since ARP1.0
      */
      void removeNetworkStatusListener(INetworkStatusListener listener);

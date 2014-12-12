@@ -30,16 +30,16 @@ declare module Adaptive {
         value: string;
         constructor(value: string);
         toString(): string;
-        static SERVICETYPE_AMF_SERIALIZATION: IServiceType;
-        static SERVICETYPE_GWT_RPC: IServiceType;
-        static SERVICETYPE_OCTET_BINARY: IServiceType;
-        static SERVICETYPE_REMOTING_SERIALIZATION: IServiceType;
-        static SERVICETYPE_REST_JSON: IServiceType;
-        static SERVICETYPE_REST_XML: IServiceType;
-        static SERVICETYPE_SOAP_JSON: IServiceType;
-        static SERVICETYPE_SOAP_XML: IServiceType;
-        static SERVICETYPE_XMLRPC_JSON: IServiceType;
-        static SERVICETYPE_XMLRPC_XML: IServiceType;
+        static ServiceTypeAmfSerialization: IServiceType;
+        static ServiceTypeGwtRpc: IServiceType;
+        static ServiceTypeOctetBinary: IServiceType;
+        static ServiceTypeRemotingSerialization: IServiceType;
+        static ServiceTypeRestJson: IServiceType;
+        static ServiceTypeRestXml: IServiceType;
+        static ServiceTypeSoapJson: IServiceType;
+        static ServiceTypeSoapXml: IServiceType;
+        static ServiceTypeXmlRpcJson: IServiceType;
+        static ServiceTypeXmlRpcXml: IServiceType;
         static Unknown: IServiceType;
     }
 }

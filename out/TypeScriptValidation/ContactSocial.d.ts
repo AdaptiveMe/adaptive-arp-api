@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /// <reference path="ContactSocialNetwork.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -27,11 +28,11 @@ declare module Adaptive {
     /**
        Structure representing the social data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    class ContactSocial {
+    class ContactSocial extends APIBean {
         /**
            The social network
         */
@@ -58,7 +59,7 @@ declare module Adaptive {
         /**
            Set the social network
 
-           @param socialNetwork
+           @param socialNetwork of the profile
            @since ARP1.0
         */
         setSocialNetwork(socialNetwork: ContactSocialNetwork): void;
@@ -72,7 +73,7 @@ declare module Adaptive {
         /**
            Set the profile url of the iser
 
-           @param profileUrl
+           @param profileUrl of the user
            @since ARP1.0
         */
         setProfileUrl(profileUrl: string): void;

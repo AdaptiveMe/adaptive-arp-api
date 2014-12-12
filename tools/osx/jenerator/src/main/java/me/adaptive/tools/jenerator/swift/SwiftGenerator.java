@@ -302,8 +302,20 @@ public class SwiftGenerator extends GeneratorBase {
             } else {
                 if (clazz.getSuperclass().equals(Object.class)) {
                     print(5, "public init(");
+                } else if (clazz.getSuperclass().getSimpleName().equals("APIBean")) {
+                    print(5, "public init(");
                 } else {
-                    print(5, "public override init(");
+                    boolean isOverride = false;
+                    for (Constructor sc : clazz.getSuperclass().getConstructors()) {
+                        if (sc.getParameterCount() == c.getParameterCount()) {
+                            isOverride = true;
+                        }
+                    }
+                    if (isOverride) {
+                        print(5, "public override init(");
+                    } else {
+                        print(5, "public init(");
+                    }
                 }
                 for (int j = 0; j < c.getParameters().length; j++) {
                     Parameter parameter = c.getParameters()[j];
@@ -314,15 +326,19 @@ public class SwiftGenerator extends GeneratorBase {
                 }
                 println(") {");
 
-                if (!clazz.getSuperclass().equals(Object.class)) {
+                if (clazz.getSuperclass().getSimpleName().equals("APIBean")) {
+                    println(10, "super.init()");
+                } else if (!clazz.getSuperclass().equals(Object.class)) {
                     print(10, "super.init(");
                     for (int j = 0; j < c.getParameters().length; j++) {
                         Parameter parameter = c.getParameters()[j];
-                        print(parameter.getName() + ": ");
-                        print(parameter.getName());
-                        if (j < c.getParameters().length - 1) {
-                            print(", ");
+                        boolean thisField = false;
+                        for (Field field : clazz.getDeclaredFields()) {
+                            if (parameter.getName().equals(field.getName())) {
+                                thisField = true;
+                            }
                         }
+                        if (!thisField) print(parameter.getName()+ ": "+parameter.getName());
                     }
                     println(")");
                 } else {

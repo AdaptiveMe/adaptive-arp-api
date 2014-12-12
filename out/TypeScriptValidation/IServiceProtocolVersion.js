@@ -34,8 +34,8 @@ var Adaptive;
         IServiceProtocolVersion.prototype.toString = function () {
             return this.value;
         };
-        IServiceProtocolVersion.HTTP_PROTOCOL_VERSION_1_0 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_0");
-        IServiceProtocolVersion.HTTP_PROTOCOL_VERSION_1_1 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_1");
+        IServiceProtocolVersion.HttpProtocolVersion10 = new IServiceProtocolVersion("HttpProtocolVersion10");
+        IServiceProtocolVersion.HttpProtocolVersion11 = new IServiceProtocolVersion("HttpProtocolVersion11");
         IServiceProtocolVersion.Unknown = new IServiceProtocolVersion("Unknown");
         return IServiceProtocolVersion;
     })();

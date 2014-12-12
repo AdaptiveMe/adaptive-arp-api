@@ -1,6 +1,7 @@
-/// <reference path="Endpoint.d.ts" />
+/// <reference path="APIBean.d.ts" />
 /// <reference path="IServiceMethod.d.ts" />
 /// <reference path="IServiceType.d.ts" />
+/// <reference path="ServiceEndpoint.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -29,11 +30,11 @@ declare module Adaptive {
     /**
        Represents an instance of a service.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Aryslan
+       @since ARP1.0
        @version 1.0
     */
-    class Service {
+    class Service extends APIBean {
         /**
            The method used
         */
@@ -43,23 +44,23 @@ declare module Adaptive {
         */
         type: IServiceType;
         /**
-           Enpoint of the service
-        */
-        endpoint: Endpoint;
-        /**
            The service name
         */
         name: string;
         /**
+           Endpoint of the service
+        */
+        serviceEndpoint: ServiceEndpoint;
+        /**
            Constructor used by the implementation
 
-           @param endpoint
-           @param name
-           @param method
-           @param type
+           @param serviceEndpoint Endpoint of the service
+           @param name            Name of the service
+           @param method          Method of the service
+           @param type            Type of the service
            @since ARP1.0
         */
-        constructor(endpoint: Endpoint, name: string, method: IServiceMethod, type: IServiceType);
+        constructor(serviceEndpoint: ServiceEndpoint, name: string, method: IServiceMethod, type: IServiceType);
         /**
            Returns the method
 
@@ -70,7 +71,7 @@ declare module Adaptive {
         /**
            Set the method
 
-           @param method
+           @param method Method of the service
            @since ARP1.0
         */
         setMethod(method: IServiceMethod): void;
@@ -84,24 +85,10 @@ declare module Adaptive {
         /**
            Set the type
 
-           @param type
+           @param type Type of the service
            @since ARP1.0
         */
         setType(type: IServiceType): void;
-        /**
-           Returns the endpoint
-
-           @return endpoint
-           @since ARP1.0
-        */
-        getEndpoint(): Endpoint;
-        /**
-           Set the endpoint
-
-           @param endpoint
-           @since ARP1.0
-        */
-        setEndpoint(endpoint: Endpoint): void;
         /**
            Returns the name
 
@@ -112,9 +99,23 @@ declare module Adaptive {
         /**
            Set the name
 
-           @param name
+           @param name Name of the service
            @since ARP1.0
         */
         setName(name: string): void;
+        /**
+           Returns the serviceEndpoint
+
+           @return serviceEndpoint
+           @since ARP1.0
+        */
+        getServiceEndpoint(): ServiceEndpoint;
+        /**
+           Set the serviceEndpoint
+
+           @param serviceEndpoint Endpoint of the service
+           @since ARP1.0
+        */
+        setServiceEndpoint(serviceEndpoint: ServiceEndpoint): void;
     }
 }

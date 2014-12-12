@@ -26,10 +26,10 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of IGeolocation interface/protocol.
+   Interface for Managing the Geolocation operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
 public interface IGeolocation extends IBaseSensor {
@@ -42,7 +42,7 @@ public interface IGeolocation extends IBaseSensor {
 
      /**
         De-registers an existing listener from receiving geolocation events.
-        @param listener
+        @param listener to be registered.
         @since ARP1.0
      */
      void removeGeolocationListener(IGeolocationListener listener);

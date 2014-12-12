@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Ferran Vila Conesa
+@since ARP1.0
 @version 1.0
 */
 @implementation Database
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -46,11 +48,10 @@ Contributors:
         Default constructor. The compress param is setted to false.
 
         @param name Name of the table.
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      - (id) initWithName:(NSString*)name {
-          self = [self init];
+          self = [super initWithName:name];
           if (self) {
                [self setName:name];
           }
@@ -60,13 +61,12 @@ Contributors:
      /**
         Constructor using fields.
 
-        @param name     Name of the Table.
-        @param compress Compress enbaled or not.
-        @author Ferran Vila Conesa
+        @param name     Name of the DatabaseTable.
+        @param compress Compression enabled.
         @since ARP1.0
      */
      - (id) initWithNameCompress:(NSString*)name compress:(bool*)compress {
-          self = [self init];
+          self = [super initWithNameCompress:name, compress];
           if (self) {
                [self setName:name];
                [self setCompress:compress];

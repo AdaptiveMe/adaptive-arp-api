@@ -23,16 +23,18 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
+
 module Adaptive {
 
      /**
         Represents a specific user or system locate.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Aryslan
+        @since ARP1.0
         @version 1.0
      */
-     export class Locale {
+     export class Locale extends APIBean {
 
           /**
              A valid ISO Country Code.
@@ -45,11 +47,12 @@ module Adaptive {
           /**
              Constructor used by the implementation
 
-             @param country
-             @param language
+             @param country  Country of the Locale
+             @param language Language of the Locale
              @since ARP1.0
           */
           constructor(language: string, country: string) {
+               super();
                this.language = language;
                this.country = country;
           }

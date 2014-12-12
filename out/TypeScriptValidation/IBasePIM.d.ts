@@ -26,10 +26,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IBasePIM interface/protocol.
+       Base application for PIM purposes
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
     interface IBasePIM extends IAdaptiveRP {

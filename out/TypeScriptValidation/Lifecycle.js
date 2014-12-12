@@ -22,24 +22,33 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 ///<reference path="LifecycleState.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Represents a specific application life-cycle stage.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var Lifecycle = (function () {
+    var Lifecycle = (function (_super) {
+        __extends(Lifecycle, _super);
         /**
            Constructor used by the implementation
 
-           @param state
+           @param state of the app
            @since ARP1.0
         */
         function Lifecycle(state) {
+            _super.call(this);
             this.state = state;
         }
         /**
@@ -61,7 +70,7 @@ var Adaptive;
             this.state = state;
         };
         return Lifecycle;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.Lifecycle = Lifecycle;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=Lifecycle.js.map

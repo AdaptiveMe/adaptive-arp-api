@@ -28,14 +28,16 @@ Contributors:
 /**
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @implementation Acceleration
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -43,21 +45,21 @@ Contributors:
      }
 
      /**
-        Convenience constructor.
+        Constructor with fields
 
-        @param x X Coordinate
-        @param y Y Coordinate
-        @param z Z Coordinate
-        @author Carlos Lozano Diez
+        @param x         X Coordinate
+        @param y         Y Coordinate
+        @param z         Z Coordinate
+        @param timestamp Timestamp
         @since ARP1.0
      */
-     - (id) initWithXYZTimeStamp:(double*)x y:(double*)y z:(double*)z timeStamp:(long*)timeStamp {
-          self = [self init];
+     - (id) initWithXYZTimestamp:(double*)x y:(double*)y z:(double*)z timestamp:(long*)timestamp {
+          self = [super initWithXYZTimestamp:x, y, z, timestamp];
           if (self) {
                [self setX:x];
                [self setY:y];
                [self setZ:z];
-               [self setTimeStamp:timeStamp];
+               [self setTimestamp:timestamp];
           }
           return self;
      }

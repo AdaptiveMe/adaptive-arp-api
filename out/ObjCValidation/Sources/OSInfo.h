@@ -23,16 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Represents the basic information about the operating system.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
-@interface OSInfo : NSObject
+@interface OSInfo : APIBean
 
      /**
         The name of the operating system.
@@ -48,7 +49,9 @@ Represents the basic information about the operating system.
      @property NSString *version;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
@@ -58,6 +61,7 @@ Represents the basic information about the operating system.
         @param name    of the OS.
         @param version of the OS.
         @param vendor  of the OS.
+        @since ARP1.0
      */
      - (id) initWithNameVersionVendor:(NSString*)name version:(NSString*)version vendor:(NSString*)vendor;
 

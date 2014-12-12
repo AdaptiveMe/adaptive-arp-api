@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseUI.h>
 
 /**
-Definition of IBrowser interface/protocol.
+Interface for Managing the browser operations
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @protocol IBrowser <IBaseUI>

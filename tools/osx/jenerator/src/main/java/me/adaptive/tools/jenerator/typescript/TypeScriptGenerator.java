@@ -498,17 +498,26 @@ public class TypeScriptGenerator extends GeneratorBase {
         println(") {");
         printlnGlobal(0, ") {");
 
-        if (!clazz.getSuperclass().equals(Object.class)) {
+        if (clazz.getSuperclass().getSimpleName().equals("APIBean")) {
+            println(15, "super();");
+            printlnGlobal(15, "super();");
+        } else if (!clazz.getSuperclass().equals(Object.class)) {
             print(15, "super(");
             printGlobal(15, "super(");
             for (int j = 0; j < c.getParameters().length; j++) {
                 Parameter parameter = c.getParameters()[j];
-                print(parameter.getName());
-                printGlobal(0, parameter.getName());
-                if (j < c.getParameters().length - 1) {
-                    print(", ");
-                    printGlobal(0, ", ");
+
+                boolean thisField = false;
+                for (Field field : clazz.getDeclaredFields()) {
+                    if (parameter.getName().equals(field.getName())) {
+                        thisField = true;
+                    }
                 }
+                if (!thisField) {
+                    print(parameter.getName());
+                    printGlobal(0, parameter.getName());
+                }
+
             }
             println(");");
             printlnGlobal(0, ");");

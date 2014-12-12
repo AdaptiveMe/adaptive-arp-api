@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of ILifecycleListener interface/protocol.
+   Interface for Managing the Lifecycle listeners
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public protocol ILifecycleListener : IBaseListener {
@@ -38,13 +38,13 @@ public protocol ILifecycleListener : IBaseListener {
      func onError(error:ILifecycleListenerError)
      /**
         Called when lifecycle changes somehow.
-        @param lifecycle
+        @param lifecycle Lifecycle element
         @since ARP1.0
      */
      func onResult(lifecycle:Lifecycle)
      /**
         Data received with warning
-        @param lifecycle
+        @param lifecycle Lifecycle element
         @since ARP1.0
      */
      func onWarning(lifecycle:Lifecycle, warning:ILifecycleListenerWarning)

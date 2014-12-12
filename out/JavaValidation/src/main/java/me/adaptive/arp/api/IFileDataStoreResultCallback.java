@@ -26,19 +26,34 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Created by clozano on 05/12/14.
+   Interface for Managing the File store operations callback
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
-public interface IFileDataStoreResultCallback extends IFileDataResultCallback {
+public interface IFileDataStoreResultCallback extends IBaseCallback {
+     /**
+        Error processing data retrieval/storage operation.
+        @param error Error condition encountered.
+        @since ARP1.0
+     */
+     void onError(IFileDataStoreResultCallbackError error);
+
      /**
         Result of data storage operation.
         @param file File reference to stored data.
         @since ARP1.0
      */
      void onResult(IFile file);
+
+     /**
+        Result with warning of data retrieval/storage operation.
+        @param file    File being loaded/stored.
+        @param warning Warning condition encountered.
+        @since ARP1.0
+     */
+     void onWarning(IFile file, IFileDataStoreResultCallbackWarning warning);
 
 }
 

@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -26,41 +27,27 @@ declare module Adaptive {
     /**
        Structure representing the assigned tags data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    class ContactTag {
-        /**
-           The value of the Tag
-        */
-        dataValue: string;
+    class ContactTag extends APIBean {
         /**
            The name of the Tag
         */
         name: string;
         /**
+           The value of the Tag
+        */
+        value: string;
+        /**
            Constructor used by the implementation
 
-           @param dataValue
-           @param name
+           @param value Value of the tag
+           @param name  Name of the tag
            @since ARP1.0
         */
-        constructor(name: string, dataValue: string);
-        /**
-           Returns the value of the Tag
-
-           @return value
-           @since ARP1.0
-        */
-        getDataValue(): string;
-        /**
-           Set the value of the Tag
-
-           @param dataValue
-           @since ARP1.0
-        */
-        setDataValue(dataValue: string): void;
+        constructor(name: string, value: string);
         /**
            Returns the name of the Tag
 
@@ -71,9 +58,23 @@ declare module Adaptive {
         /**
            Set the name of the Tag
 
-           @param name
+           @param name Name of the tag
            @since ARP1.0
         */
         setName(name: string): void;
+        /**
+           Returns the value of the Tag
+
+           @return value
+           @since ARP1.0
+        */
+        getValue(): string;
+        /**
+           Set the value of the Tag
+
+           @param value Value of the tag
+           @since ARP1.0
+        */
+        setValue(value: string): void;
     }
 }

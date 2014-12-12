@@ -26,10 +26,10 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of INotificationLocal interface/protocol.
+   Interface for Managing the Local Notifications operations
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public interface INotificationLocal extends IBaseNotification {

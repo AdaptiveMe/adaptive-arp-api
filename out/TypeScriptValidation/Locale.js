@@ -22,24 +22,33 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Represents a specific user or system locate.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Aryslan
+       @since ARP1.0
        @version 1.0
     */
-    var Locale = (function () {
+    var Locale = (function (_super) {
+        __extends(Locale, _super);
         /**
            Constructor used by the implementation
 
-           @param country
-           @param language
+           @param country  Country of the Locale
+           @param language Language of the Locale
            @since ARP1.0
         */
         function Locale(language, country) {
+            _super.call(this);
             this.language = language;
             this.country = country;
         }
@@ -80,7 +89,7 @@ var Adaptive;
             this.language = language;
         };
         return Locale;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.Locale = Locale;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=Locale.js.map

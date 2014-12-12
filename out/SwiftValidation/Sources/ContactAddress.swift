@@ -26,11 +26,11 @@ Contributors:
 /**
    Structure representing the address data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactAddress : NSObject {
+public class ContactAddress : APIBean {
 
      /**
         The address type
@@ -42,14 +42,16 @@ public class ContactAddress : NSObject {
      var address : String?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
      }
 
      /**
-        Constructor used by the implementation
+        Constructor with fields
 
         @param address Address data.
         @param type    Address type.

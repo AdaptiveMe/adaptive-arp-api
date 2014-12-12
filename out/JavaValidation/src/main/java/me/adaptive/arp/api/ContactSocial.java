@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Structure representing the social data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactSocial {
+public class ContactSocial extends APIBean {
 
      /**
         The social network
@@ -44,7 +44,9 @@ public class ContactSocial {
      private String profileUrl;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public ContactSocial() {
      }
@@ -57,7 +59,7 @@ public class ContactSocial {
         @since ARP1.0
      */
      public ContactSocial(ContactSocialNetwork socialNetwork, String profileUrl) {
-          this();
+          super();
           this.socialNetwork = socialNetwork;
           this.profileUrl = profileUrl;
      }
@@ -75,7 +77,7 @@ public class ContactSocial {
      /**
         Set the social network
 
-        @param socialNetwork
+        @param socialNetwork of the profile
         @since ARP1.0
      */
      public void setSocialNetwork(ContactSocialNetwork socialNetwork) {
@@ -95,7 +97,7 @@ public class ContactSocial {
      /**
         Set the profile url of the iser
 
-        @param profileUrl
+        @param profileUrl of the user
         @since ARP1.0
      */
      public void setProfileUrl(String profileUrl) {

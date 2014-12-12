@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of IDatabase interface/protocol.
+   Interface for Managing the Cloud operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Ferran Vila Conesa
+   @since ARP1.0
    @version 1.0
 */
 public protocol IDatabase : IBaseData {
@@ -35,76 +35,68 @@ public protocol IDatabase : IBaseData {
         Creates a database on default path for every platform.
         @param callback Asynchronous callback
         @param database Database object to create
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      func createDatabase(database:Database, callback:IDatabaseResultCallback)
      /**
-        Creates a table inside a database for every platform.
-        @param database Database for table creating.
-        @param table    Table object with the name of the table inside.
-        @param callback Table callback with the response
-        @author Ferran Vila Conesa
+        Creates a databaseTable inside a database for every platform.
+        @param database      Database for databaseTable creating.
+        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+        @param callback      DatabaseTable callback with the response
         @since ARP1.0
      */
-     func createTable(database:Database, table:Table, callback:ITableResultCallback)
+     func createTable(database:Database, databaseTable:DatabaseTable, callback:IDatabaseTableResultCallback)
      /**
         Deletes a database on default path for every platform.
         @param database Database object to delete
         @param callback Asynchronous callback
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      func deleteDatabase(database:Database, callback:IDatabaseResultCallback)
      /**
-        Deletes a table inside a database for every platform.
-        @param database Database for table removal.
-        @param table    Table object with the name of the table inside.
-        @param callback Table callback with the response
-        @author Ferran Vila Conesa
+        Deletes a databaseTable inside a database for every platform.
+        @param database      Database for databaseTable removal.
+        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+        @param callback      DatabaseTable callback with the response
         @since ARP1.0
      */
-     func deleteTable(database:Database, table:Table, callback:ITableResultCallback)
+     func deleteTable(database:Database, databaseTable:DatabaseTable, callback:IDatabaseTableResultCallback)
      /**
         Executes SQL statement into the given database. The replacements
 should be passed as a parameter
         @param database     The database object reference.
         @param statement    SQL statement.
         @param replacements List of SQL statement replacements.
-        @param callback     Table callback with the response.
-        @author Ferran Vila Conesa
+        @param callback     DatabaseTable callback with the response.
         @since ARP1.0
      */
-     func executeSqlStatement(database:Database, statement:String, replacements:[String], callback:ITableResultCallback)
+     func executeSqlStatement(database:Database, statement:String, replacements:[String], callback:IDatabaseTableResultCallback)
      /**
         Executes SQL transaction (some statements chain) inside given database.
         @param database     The database object reference.
         @param statements   The statements to be executed during transaction.
         @param rollbackFlag Indicates if rollback should be performed when any
                     statement execution fails.
-        @param callback     Table callback with the response.
-        @author Ferran Vila Conesa
+        @param callback     DatabaseTable callback with the response.
         @since ARP1.0
      */
-     func executeSqlTransactions(database:Database, statements:[String], rollbackFlag:Bool, callback:ITableResultCallback)
+     func executeSqlTransactions(database:Database, statements:[String], rollbackFlag:Bool, callback:IDatabaseTableResultCallback)
      /**
         Checks if database exists by given database name.
         @param database Database Object to check if exists
         @return True if exists, false otherwise
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      func existsDatabase(database:Database) -> Bool
 
      /**
-        Checks if table exists by given database name.
-        @param database Database for table consulting.
-        @param table    Table object with the name of the table inside.
+        Checks if databaseTable exists by given database name.
+        @param database      Database for databaseTable consulting.
+        @param databaseTable DatabaseTable object with the name of the databaseTable inside.
         @return True if exists, false otherwise
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
-     func existsTable(database:Database, table:Table) -> Bool
+     func existsTable(database:Database, databaseTable:DatabaseTable) -> Bool
 
 }
 

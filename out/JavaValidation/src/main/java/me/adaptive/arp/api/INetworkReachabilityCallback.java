@@ -26,31 +26,31 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Created by FRMI on 28/08/2014.
+   Interface for Managing the Network reachability callback result
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public interface INetworkReachabilityCallback extends IBaseCallback {
      /**
         No data received - error condition, not authorized .
-        @param error
+        @param error Error value
         @since ARP1.0
      */
      void onError(INetworkReachabilityCallbackError error);
 
      /**
         Correct data received.
-        @param reachable
+        @param reachable Indicates if the host is reachable
         @since ARP1.0
      */
      void onResult(boolean reachable);
 
      /**
         Data received with warning - ie Found entries with existing key and values have been overriden
-        @param reachable
-        @param warning
+        @param reachable Indicates if the host is reachable
+        @param warning   Warning value
         @since ARP1.0
      */
      void onWarning(boolean reachable, INetworkReachabilityCallbackWarning warning);

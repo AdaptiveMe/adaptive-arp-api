@@ -29,10 +29,10 @@ Contributors:
 module Adaptive {
 
      /**
-        Definition of ICamera interface/protocol.
+        Interface for Managing the camera operations
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      export interface ICamera extends IBaseMedia {

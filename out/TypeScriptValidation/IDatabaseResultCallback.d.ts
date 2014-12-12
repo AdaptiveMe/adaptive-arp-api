@@ -29,24 +29,22 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IDatabaseResultCallback interface/protocol.
+       Interface for Managing the Cloud operations
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Ferran Vila Conesa
+       @since ARP1.0
        @version 1.0
     */
     interface IDatabaseResultCallback extends IBaseCallback {
         /**
            Result callback for error responses
            @param error Returned error
-           @author Ferran Vila Conesa
            @since ARP1.0
         */
         onError(error: IDatabaseResultCallbackError): any;
         /**
            Result callback for correct responses
            @param database Returns the database
-           @author Ferran Vila Conesa
            @since ARP1.0
         */
         onResult(database: Database): any;
@@ -54,7 +52,6 @@ declare module Adaptive {
            Result callback for warning responses
            @param database Returns the database
            @param warning  Returned Warning
-           @author Ferran Vila Conesa
            @since ARP1.0
         */
         onWarning(database: Database, warning: IDatabaseResultCallbackWarning): any;

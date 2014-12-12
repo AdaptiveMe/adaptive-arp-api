@@ -23,28 +23,30 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="IAppContextType.ts"/>
+///<reference path="IOSType.ts"/>
 
 module Adaptive {
 
      /**
-        Created by clozano on 05/09/2014.
+        Interface for context management purposes
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      export interface IAppContext {
           /**
              The main application context. This should be cast to the platform specific implementation.
              @return Object representing the specific singleton application context provided by the OS.
+             @since ARP1.0
           */
           getContext() : any;
           /**
              The type of context provided by the getContext method.
              @return Type of platform context.
+             @since ARP1.0
           */
-          getContextType() : IAppContextType;
+          getContextType() : IOSType;
      }
 }
 

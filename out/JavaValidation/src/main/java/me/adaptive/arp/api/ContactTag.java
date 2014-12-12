@@ -28,23 +28,25 @@ package me.adaptive.arp.api;
 /**
    Structure representing the assigned tags data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactTag {
+public class ContactTag extends APIBean {
 
-     /**
-        The value of the Tag
-     */
-     private String dataValue;
      /**
         The name of the Tag
      */
      private String name;
+     /**
+        The value of the Tag
+     */
+     private String value;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public ContactTag() {
      }
@@ -52,34 +54,14 @@ public class ContactTag {
      /**
         Constructor used by the implementation
 
-        @param dataValue
-        @param name
+        @param value Value of the tag
+        @param name  Name of the tag
         @since ARP1.0
      */
-     public ContactTag(String name, String dataValue) {
-          this();
+     public ContactTag(String name, String value) {
+          super();
           this.name = name;
-          this.dataValue = dataValue;
-     }
-
-     /**
-        Returns the value of the Tag
-
-        @return value
-        @since ARP1.0
-     */
-     public String getDataValue() {
-          return this.dataValue;
-     }
-
-     /**
-        Set the value of the Tag
-
-        @param dataValue
-        @since ARP1.0
-     */
-     public void setDataValue(String dataValue) {
-          this.dataValue = dataValue;
+          this.value = value;
      }
 
      /**
@@ -95,11 +77,31 @@ public class ContactTag {
      /**
         Set the name of the Tag
 
-        @param name
+        @param name Name of the tag
         @since ARP1.0
      */
      public void setName(String name) {
           this.name = name;
+     }
+
+     /**
+        Returns the value of the Tag
+
+        @return value
+        @since ARP1.0
+     */
+     public String getValue() {
+          return this.value;
+     }
+
+     /**
+        Set the value of the Tag
+
+        @param value Value of the tag
+        @since ARP1.0
+     */
+     public void setValue(String value) {
+          this.value = value;
      }
 
 

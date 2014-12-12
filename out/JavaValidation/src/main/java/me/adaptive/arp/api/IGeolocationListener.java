@@ -26,10 +26,10 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of IGeolocationListener interface/protocol.
+   Interface for Managing the Geolocation results
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
 public interface IGeolocationListener extends IBaseListener {
@@ -41,14 +41,14 @@ public interface IGeolocationListener extends IBaseListener {
 
      /**
         Correct data received.
-        @param geolocation
+        @param geolocation Geolocation Bean
         @since ARP1.0
      */
      void onResult(Geolocation geolocation);
 
      /**
         Data received with warning - ie. HighDoP
-        @param geolocation
+        @param geolocation Geolocation Bean
         @since ARP1.0
      */
      void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning);

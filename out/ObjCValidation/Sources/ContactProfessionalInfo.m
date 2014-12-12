@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation ContactProfessionalInfo
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -45,13 +47,13 @@ Contributors:
      /**
         Constructor used by implementation to set the ContactProfessionalInfo.
 
-        @param jobTitle
-        @param jobDescription
-        @param company
+        @param jobTitle       The job title
+        @param jobDescription The job description
+        @param company        The company of the job
         @since ARP1.0
      */
      - (id) initWithJobTitleJobDescriptionCompany:(NSString*)jobTitle jobDescription:(NSString*)jobDescription company:(NSString*)company {
-          self = [self init];
+          self = [super initWithJobTitleJobDescriptionCompany:jobTitle, jobDescription, company];
           if (self) {
                [self setJobTitle:jobTitle];
                [self setJobDescription:jobDescription];

@@ -23,16 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Structure representing the internal unique identifier data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
-@interface ContactUid : NSObject
+@interface ContactUid : APIBean
 
      /**
         The id of the Contact
@@ -40,7 +41,9 @@ Structure representing the internal unique identifier data elements of a contact
      @property NSString *contactId;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 

@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation Contact
 
 
      /**
-        Constructor used by the implementation
+        Default Constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -51,6 +53,35 @@ Contributors:
      - (id) initWithContactId:(NSString*)contactId {
           self = [super initWithContactId:contactId];
           if (self) {
+          }
+          return self;
+     }
+
+     /**
+        Constructor with all the fields
+
+        @param contactId        Identifier of the contact
+        @param personalInfo     Personal Information
+        @param professionalInfo Professional Information
+        @param contactAddresses Addresses of the contact
+        @param contactPhones    Phones of the contact
+        @param contactEmails    Emails of the contact
+        @param contactWebsites  Websites of the contact
+        @param contactSocials   Social Networks of the contact
+        @param contactTags      Tags of the contact
+        @since ARP1.0
+     */
+     - (id) initWithContactIdPersonalInfoProfessionalInfoContactAddressesContactPhonesContactEmailsContactWebsitesContactSocialsContactTags:(NSString*)contactId personalInfo:(ContactPersonalInfo*)personalInfo professionalInfo:(ContactProfessionalInfo*)professionalInfo contactAddresses:(NSArray*)contactAddresses contactPhones:(NSArray*)contactPhones contactEmails:(NSArray*)contactEmails contactWebsites:(NSArray*)contactWebsites contactSocials:(NSArray*)contactSocials contactTags:(NSArray*)contactTags {
+          self = [super initWithContactIdPersonalInfoProfessionalInfoContactAddressesContactPhonesContactEmailsContactWebsitesContactSocialsContactTags:contactId, personalInfo, professionalInfo, contactAddresses, contactPhones, contactEmails, contactWebsites, contactSocials, contactTags];
+          if (self) {
+               [self setPersonalInfo:personalInfo];
+               [self setProfessionalInfo:professionalInfo];
+               [self setContactAddresses:contactAddresses];
+               [self setContactPhones:contactPhones];
+               [self setContactEmails:contactEmails];
+               [self setContactWebsites:contactWebsites];
+               [self setContactSocials:contactSocials];
+               [self setContactTags:contactTags];
           }
           return self;
      }

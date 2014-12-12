@@ -37,8 +37,8 @@ Contributors:
 /**
 Structure representing the data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @interface Contact : ContactUid
@@ -83,7 +83,9 @@ Structure representing the data elements of a contact.
      @property ContactProfessionalInfo *professionalInfo;
 
      /**
-        Constructor used by the implementation
+        Default Constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
@@ -94,6 +96,22 @@ Structure representing the data elements of a contact.
         @since ARP1.0
      */
      - (id) initWithContactId:(NSString*)contactId;
+
+     /**
+        Constructor with all the fields
+
+        @param contactId        Identifier of the contact
+        @param personalInfo     Personal Information
+        @param professionalInfo Professional Information
+        @param contactAddresses Addresses of the contact
+        @param contactPhones    Phones of the contact
+        @param contactEmails    Emails of the contact
+        @param contactWebsites  Websites of the contact
+        @param contactSocials   Social Networks of the contact
+        @param contactTags      Tags of the contact
+        @since ARP1.0
+     */
+     - (id) initWithContactIdPersonalInfoProfessionalInfoContactAddressesContactPhonesContactEmailsContactWebsitesContactSocialsContactTags:(NSString*)contactId personalInfo:(ContactPersonalInfo*)personalInfo professionalInfo:(ContactProfessionalInfo*)professionalInfo contactAddresses:(NSArray*)contactAddresses contactPhones:(NSArray*)contactPhones contactEmails:(NSArray*)contactEmails contactWebsites:(NSArray*)contactWebsites contactSocials:(NSArray*)contactSocials contactTags:(NSArray*)contactTags;
 
 
 @end

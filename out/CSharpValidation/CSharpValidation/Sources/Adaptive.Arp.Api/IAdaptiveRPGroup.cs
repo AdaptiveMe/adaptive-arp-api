@@ -32,6 +32,7 @@ namespace Adaptive.Arp.Api
      */
      public enum IAdaptiveRPGroup {
 
+          Application,
           Commerce,
           Communication,
           Data,

@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the internal unique identifier data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class ContactUid
+     public class ContactUid : APIBean
      {
 
           /**
@@ -43,7 +43,9 @@ namespace Adaptive.Arp.Api
           public string ContactId { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public ContactUid()  {
           }

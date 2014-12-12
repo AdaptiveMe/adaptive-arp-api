@@ -30,6 +30,7 @@ declare module Adaptive {
         value: string;
         constructor(value: string);
         toString(): string;
+        static Application: IAdaptiveRPGroup;
         static Commerce: IAdaptiveRPGroup;
         static Communication: IAdaptiveRPGroup;
         static Data: IAdaptiveRPGroup;

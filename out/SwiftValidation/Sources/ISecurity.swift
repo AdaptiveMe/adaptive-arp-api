@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of ISecurity interface/protocol.
+   Interface for Managing the Security operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Aryslan
+   @since ARP1.0
    @version 1.0
 */
 public protocol ISecurity : IBaseSecurity {
@@ -38,7 +38,7 @@ public protocol ISecurity : IBaseSecurity {
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     func deleteSecureKeyValuePairs(keys:[String], publicAccessName:String, callback:ISecureKVResultCallback)
+     func deleteSecureKeyValuePairs(keys:[String], publicAccessName:String, callback:ISecurityResultCallback)
      /**
         Retrieves from the device internal storage the entry/entries containing the specified key names.
         @param keys             Array with the key names to retrieve.
@@ -46,7 +46,7 @@ public protocol ISecurity : IBaseSecurity {
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     func getSecureKeyValuePairs(keys:[String], publicAccessName:String, callback:ISecureKVResultCallback)
+     func getSecureKeyValuePairs(keys:[String], publicAccessName:String, callback:ISecurityResultCallback)
      /**
         Returns if the device has been modified in anyhow
         @return true if the device has been modified; false otherwise
@@ -61,7 +61,7 @@ public protocol ISecurity : IBaseSecurity {
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     func setSecureKeyValuePairs(keyValues:[SecureKeyPair], publicAccessName:String, callback:ISecureKVResultCallback)
+     func setSecureKeyValuePairs(keyValues:[SecureKeyPair], publicAccessName:String, callback:ISecurityResultCallback)
 }
 
 /**

@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation EmailAddress
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -45,11 +47,11 @@ Contributors:
      /**
         Constructor used by implementation
 
-        @param address
+        @param address of the Email
         @since ARP1.0
      */
      - (id) initWithAddress:(NSString*)address {
-          self = [self init];
+          self = [super initWithAddress:address];
           if (self) {
                [self setAddress:address];
           }

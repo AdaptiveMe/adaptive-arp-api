@@ -24,19 +24,19 @@ Contributors:
 */
 
 /**
-   Created by clozano on 05/09/2014.
+   Interface to retrieve auto-registered service implementation references.
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public protocol IAppRegistry : NSObjectProtocol {
      /**
-        Returns a reference to the registered AccelerometerHandler.
+        Returns a reference to the registered AccelerationHandler.
 
-        @return AccelerometerHandler reference or null if a handler of this type is not registered.
+        @return AccelerationHandler reference or null if a handler of this type is not registered.
      */
-     func getAccelerometerHandler() -> IAccelerometer
+     func getAccelerationHandler() -> IAcceleration
 
      /**
         Returns a reference to the registered AdsHandler.
@@ -431,13 +431,6 @@ public protocol IAppRegistry : NSObjectProtocol {
      func getServiceHandler() -> IService
 
      /**
-        Returns a reference to the registered SessionHandler.
-
-        @return SessionHandler reference or null if a handler of this type is not registered.
-     */
-     func getSessionHandler() -> ISession
-
-     /**
         Returns a reference to the registered SettingsHandler.
 
         @return SettingsHandler reference or null if a handler of this type is not registered.
@@ -522,12 +515,16 @@ public protocol IAppRegistry : NSObjectProtocol {
      func getXMLHandler() -> IXML
 
      /**
-        null
+        Returns a reference to the Platform Context
+        @return Reference to the platform context
+        @since ARP1.0
      */
      func getPlatformContext() -> IAppContext
 
      /**
-        null
+        Returns a reference to the Webview platform context
+        @return Reference to the Webview Context
+        @since ARP1.0
      */
      func getPlatformContextWeb() -> IAppContextWebview
 

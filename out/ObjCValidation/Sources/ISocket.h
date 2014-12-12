@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseCommunication.h>
 
 /**
-Definition of ISocket interface/protocol.
+Interface for Managing the Socket operations
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol ISocket <IBaseCommunication>

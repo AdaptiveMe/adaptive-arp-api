@@ -28,77 +28,115 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Created by clozano on 05/12/14.
+        Structure representing a HTML5 request to the native API.
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      public class APIRequest
      {
 
           /**
-             { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+             String representing the method name to call
           */
           public string MethodName { get; set; }
+          /**
+             Types of the request parameters
+          */
           public string[] ParameterTypes { get; set; }
+          /**
+             Parameters of the request
+          */
           public Object[] Parameters { get; set; }
 
           /**
-             Convenience constructor.
+             Default constructor
+
+             @since ARP1.0
           */
           public APIRequest()  {
           }
 
           /**
-             Gets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+             Constructor with method name. No parameters
 
-             @return methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+             @param MethodName Name of the method
+             @since ARP1.0
+          */
+          public APIRequest(string MethodName) : base () {
+               this.MethodName = MethodName;
+          }
+
+          /**
+             Constructor with all the parameters
+
+             @param MethodName     Name of the method
+             @param Parameters     Array of parameters
+             @param ParameterTypes Array of parameters types
+             @since ARP1.0
+          */
+          public APIRequest(string MethodName, Object[] Parameters, string[] ParameterTypes) : base () {
+               this.MethodName = MethodName;
+               this.Parameters = Parameters;
+               this.ParameterTypes = ParameterTypes;
+          }
+
+          /**
+             Method name Getter
+
+             @return Method name
+             @since ARP1.0
           */
           public string GetMethodName() {
                return this.MethodName;
           }
 
           /**
-             Sets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+             Method name Setter
 
-             @param methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+             @param MethodName Method name
+             @since ARP1.0
           */
           public void SetMethodName(string MethodName) {
                this.MethodName = MethodName;
           }
 
           /**
-             Gets null
+             Parameter types Getter
 
-             @return parameterTypes null
+             @return Parameter types
+             @since ARP1.0
           */
           public string[] GetParameterTypes() {
                return this.ParameterTypes;
           }
 
           /**
-             Sets null
+             Parameter types setter
 
-             @param parameterTypes null
+             @param ParameterTypes Parameter types
+             @since ARP1.0
           */
           public void SetParameterTypes(string[] ParameterTypes) {
                this.ParameterTypes = ParameterTypes;
           }
 
           /**
-             Gets null
+             Parameters Getter
 
-             @return parameters null
+             @return Parameters
+             @since ARP1.0
           */
           public Object[] GetParameters() {
                return this.Parameters;
           }
 
           /**
-             Sets null
+             Parameters Setter
 
-             @param parameters null
+             @param Parameters Parameters
+             @since ARP1.0
           */
           public void SetParameters(Object[] Parameters) {
                this.Parameters = Parameters;

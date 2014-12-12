@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the data a single geolocation reading.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class Geolocation
+     public class Geolocation : APIBean
      {
 
           /**
@@ -50,6 +50,10 @@ namespace Adaptive.Arp.Api
           */
           public double Longitude { get; set; }
           /**
+             Timestamp of the geolocation reading.
+          */
+          public long Timestamp { get; set; }
+          /**
              Dilution of precision on the X measurement. Measured in meters.
           */
           public float XDoP { get; set; }
@@ -59,33 +63,51 @@ namespace Adaptive.Arp.Api
           public float YDoP { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public Geolocation()  {
           }
 
           /**
-             Constructor used by the implementation
+             Constructor with parameters
 
-             @param Latitude
-             @param Longitude
-             @param Altitude
-             @param XDoP
-             @param YDoP
+             @param Latitude  Latitude of the measurement
+             @param Longitude Longitude of the measurement
+             @param Altitude  Altitude of the measurement
+             @param XDoP      Dilution of precision on the X measurement
+             @param YDoP      Dilution of precision on the Y measurement
+             @param Timestamp Timestamp of the measurement
              @since ARP1.0
           */
-          public Geolocation(double Latitude, double Longitude, double Altitude, float XDoP, float YDoP) : base () {
+          public Geolocation(double Latitude, double Longitude, double Altitude, float XDoP, float YDoP, long Timestamp) : base () {
                this.Latitude = Latitude;
                this.Longitude = Longitude;
                this.Altitude = Altitude;
                this.XDoP = XDoP;
                this.YDoP = YDoP;
+               this.Timestamp = Timestamp;
+          }
+
+          /**
+             Constructor with parameters
+
+             @param Latitude  Latitude of the measurement
+             @param Longitude Longitude of the measurement
+             @param Timestamp Timestamp of the measurement
+             @since ARP1.0
+          */
+          public Geolocation(double Latitude, double Longitude, long Timestamp) : base () {
+               this.Latitude = Latitude;
+               this.Longitude = Longitude;
+               this.Timestamp = Timestamp;
           }
 
           /**
              Returns altitude in meters
 
-             @return Altitude
+             @return Altitude of the measurement
              @since ARP1.0
           */
           public double GetAltitude() {
@@ -95,7 +117,7 @@ namespace Adaptive.Arp.Api
           /**
              Set altitude in meters
 
-             @param Altitude
+             @param Altitude Altitude of the measurement
              @since ARP1.0
           */
           public void SetAltitude(double Altitude) {
@@ -105,7 +127,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the latitude in degrees
 
-             @return Latitude
+             @return Latitude of the measurement
              @since ARP1.0
           */
           public double GetLatitude() {
@@ -115,7 +137,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the latitude in degrees
 
-             @param Latitude
+             @param Latitude Latitude of the measurement
              @since ARP1.0
           */
           public void SetLatitude(double Latitude) {
@@ -125,7 +147,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the longitude in degrees
 
-             @return Longitude
+             @return Longitude of the measurement
              @since ARP1.0
           */
           public double GetLongitude() {
@@ -135,7 +157,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the latitude in degrees
 
-             @param Longitude
+             @param Longitude Longitude of the measurement
              @since ARP1.0
           */
           public void SetLongitude(double Longitude) {
@@ -143,10 +165,29 @@ namespace Adaptive.Arp.Api
           }
 
           /**
-             Returns the Dilution of Position in the X axis (longitude)
+             Timestamp Getter
 
-             @return XDoP
+             @return Timestamp
              @since ARP1.0
+          */
+          public long GetTimestamp() {
+               return this.Timestamp;
+          }
+
+          /**
+             Timestamp Setter
+
+             @param Timestamp Timestamp
+             @since ARP1.0
+          */
+          public void SetTimestamp(long Timestamp) {
+               this.Timestamp = Timestamp;
+          }
+
+          /**
+             Gets Dilution of precision on the X measurement. Measured in meters.
+
+             @return xDoP Dilution of precision on the X measurement. Measured in meters.
           */
           public float GetXDoP() {
                return this.XDoP;
@@ -162,10 +203,9 @@ namespace Adaptive.Arp.Api
           }
 
           /**
-             Returns the Dilution of Position in the Y axis (latitude)
+             Gets Dilution of precision on the Y measurement. Measured in meters.
 
-             @return YDoP
-             @since ARP1.0
+             @return yDoP Dilution of precision on the Y measurement. Measured in meters.
           */
           public float GetYDoP() {
                return this.YDoP;

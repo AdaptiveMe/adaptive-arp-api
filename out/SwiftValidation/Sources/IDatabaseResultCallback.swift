@@ -24,24 +24,22 @@ Contributors:
 */
 
 /**
-   Definition of IDatabaseResultCallback interface/protocol.
+   Interface for Managing the Cloud operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Ferran Vila Conesa
+   @since ARP1.0
    @version 1.0
 */
 public protocol IDatabaseResultCallback : IBaseCallback {
      /**
         Result callback for error responses
         @param error Returned error
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      func onError(error:IDatabaseResultCallbackError)
      /**
         Result callback for correct responses
         @param database Returns the database
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      func onResult(database:Database)
@@ -49,7 +47,6 @@ public protocol IDatabaseResultCallback : IBaseCallback {
         Result callback for warning responses
         @param database Returns the database
         @param warning  Returned Warning
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      func onWarning(database:Database, warning:IDatabaseResultCallbackWarning)

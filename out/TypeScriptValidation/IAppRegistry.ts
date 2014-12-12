@@ -23,7 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="IAccelerometer.ts"/>
+///<reference path="IAcceleration.ts"/>
 ///<reference path="IAds.ts"/>
 ///<reference path="IAlarm.ts"/>
 ///<reference path="IAmbientLight.ts"/>
@@ -82,7 +82,6 @@ Contributors:
 ///<reference path="IRuntime.ts"/>
 ///<reference path="ISecurity.ts"/>
 ///<reference path="IService.ts"/>
-///<reference path="ISession.ts"/>
 ///<reference path="ISettings.ts"/>
 ///<reference path="ISocket.ts"/>
 ///<reference path="IStore.ts"/>
@@ -99,19 +98,19 @@ Contributors:
 module Adaptive {
 
      /**
-        Created by clozano on 05/09/2014.
+        Interface to retrieve auto-registered service implementation references.
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      export interface IAppRegistry {
           /**
-             Returns a reference to the registered AccelerometerHandler.
+             Returns a reference to the registered AccelerationHandler.
 
-             @return AccelerometerHandler reference or null if a handler of this type is not registered.
+             @return AccelerationHandler reference or null if a handler of this type is not registered.
           */
-          getAccelerometerHandler() : IAccelerometer
+          getAccelerationHandler() : IAcceleration
 
           /**
              Returns a reference to the registered AdsHandler.
@@ -506,13 +505,6 @@ module Adaptive {
           getServiceHandler() : IService
 
           /**
-             Returns a reference to the registered SessionHandler.
-
-             @return SessionHandler reference or null if a handler of this type is not registered.
-          */
-          getSessionHandler() : ISession
-
-          /**
              Returns a reference to the registered SettingsHandler.
 
              @return SettingsHandler reference or null if a handler of this type is not registered.
@@ -597,11 +589,15 @@ module Adaptive {
           getXMLHandler() : IXML
 
           /**
-             null
+             Returns a reference to the Platform Context
+             @return Reference to the platform context
+             @since ARP1.0
           */
           getPlatformContext() : IAppContext;
           /**
-             null
+             Returns a reference to the Webview platform context
+             @return Reference to the Webview Context
+             @since ARP1.0
           */
           getPlatformContextWeb() : IAppContextWebview;
      }

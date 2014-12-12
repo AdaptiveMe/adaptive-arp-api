@@ -27,15 +27,15 @@ Contributors:
    Structure representing the data of a single acceleration reading.
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
-public class Acceleration : NSObject {
+public class Acceleration : APIBean {
 
      /**
         Timestamp of the acceleration reading.
      */
-     var timeStamp : Int64?
+     var timestamp : Int64?
      /**
         X-axis component of the acceleration.
      */
@@ -50,96 +50,106 @@ public class Acceleration : NSObject {
      var z : Double?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
      }
 
      /**
-        Convenience constructor.
+        Constructor with fields
 
-        @param x X Coordinate
-        @param y Y Coordinate
-        @param z Z Coordinate
-        @author Carlos Lozano Diez
+        @param x         X Coordinate
+        @param y         Y Coordinate
+        @param z         Z Coordinate
+        @param timestamp Timestamp
         @since ARP1.0
      */
-     public init(x: Double, y: Double, z: Double, timeStamp: Int64) {
+     public init(x: Double, y: Double, z: Double, timestamp: Int64) {
           super.init()
           self.x = x
           self.y = y
           self.z = z
-          self.timeStamp = timeStamp
+          self.timestamp = timestamp
      }
 
      /**
-        Gets Timestamp of the acceleration reading.
+        Timestamp Getter
 
-        @return timeStamp Timestamp of the acceleration reading.
+        @return Timestamp
+        @since ARP1.0
      */
-     public func getTimeStamp() -> Int64? {
-          return self.timeStamp
+     public func getTimestamp() -> Int64? {
+          return self.timestamp
      }
 
      /**
-        Sets Timestamp of the acceleration reading.
+        Timestamp Setter
 
-        @param timeStamp Timestamp of the acceleration reading.
+        @param timestamp Timestamp
+        @since ARP1.0
      */
-     public func setTimeStamp(timeStamp: Int64) {
-          self.timeStamp = timeStamp
+     public func setTimestamp(timestamp: Int64) {
+          self.timestamp = timestamp
      }
 
      /**
-        Gets X-axis component of the acceleration.
+        X Coordinate Getter
 
-        @return x X-axis component of the acceleration.
+        @return X-axis component of the acceleration.
+        @since ARP1.0
      */
      public func getX() -> Double? {
           return self.x
      }
 
      /**
-        Sets X-axis component of the acceleration.
+        X Coordinate Setter
 
         @param x X-axis component of the acceleration.
+        @since ARP1.0
      */
      public func setX(x: Double) {
           self.x = x
      }
 
      /**
-        Gets Y-axis component of the acceleration.
+        Y Coordinate Getter
 
-        @return y Y-axis component of the acceleration.
+        @return Y-axis component of the acceleration.
+        @since ARP1.0
      */
      public func getY() -> Double? {
           return self.y
      }
 
      /**
-        Sets Y-axis component of the acceleration.
+        Y Coordinate Setter
 
         @param y Y-axis component of the acceleration.
+        @since ARP1.0
      */
      public func setY(y: Double) {
           self.y = y
      }
 
      /**
-        Gets Z-axis component of the acceleration.
+        Z Coordinate Getter
 
-        @return z Z-axis component of the acceleration.
+        @return Z-axis component of the acceleration.
+        @since ARP1.0
      */
      public func getZ() -> Double? {
           return self.z
      }
 
      /**
-        Sets Z-axis component of the acceleration.
+        Z Coordinate Setter
 
-        @param z Z-axis component of the acceleration.
+        @param z Z Coordinate
+        @since ARP1.0
      */
      public func setZ(z: Double) {
           self.z = z

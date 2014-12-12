@@ -22,25 +22,34 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the professional info data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var ContactProfessionalInfo = (function () {
+    var ContactProfessionalInfo = (function (_super) {
+        __extends(ContactProfessionalInfo, _super);
         /**
            Constructor used by implementation to set the ContactProfessionalInfo.
 
-           @param jobTitle
-           @param jobDescription
-           @param company
+           @param jobTitle       The job title
+           @param jobDescription The job description
+           @param company        The company of the job
            @since ARP1.0
         */
         function ContactProfessionalInfo(jobTitle, jobDescription, company) {
+            _super.call(this);
             this.jobTitle = jobTitle;
             this.jobDescription = jobDescription;
             this.company = company;
@@ -57,7 +66,7 @@ var Adaptive;
         /**
            Set the company of the job
 
-           @param company
+           @param company The company of the job
            @since ARP1.0
         */
         ContactProfessionalInfo.prototype.setCompany = function (company) {
@@ -75,7 +84,7 @@ var Adaptive;
         /**
            Set the description of the job
 
-           @param jobDescription
+           @param jobDescription The job description
            @since ARP1.0
         */
         ContactProfessionalInfo.prototype.setJobDescription = function (jobDescription) {
@@ -93,14 +102,14 @@ var Adaptive;
         /**
            Set the title of the job
 
-           @param jobTitle
+           @param jobTitle The job title
            @since ARP1.0
         */
         ContactProfessionalInfo.prototype.setJobTitle = function (jobTitle) {
             this.jobTitle = jobTitle;
         };
         return ContactProfessionalInfo;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.ContactProfessionalInfo = ContactProfessionalInfo;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ContactProfessionalInfo.js.map

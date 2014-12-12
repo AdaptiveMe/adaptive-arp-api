@@ -22,97 +22,114 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the data of a single acceleration reading.
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
-    var Acceleration = (function () {
+    var Acceleration = (function (_super) {
+        __extends(Acceleration, _super);
         /**
-           Constructor.
+           Constructor with fields
 
-           @param x X Coordinate
-           @param y Y Coordinate
-           @param z Z Coordinate
-           @author Carlos Lozano Diez
+           @param x         X Coordinate
+           @param y         Y Coordinate
+           @param z         Z Coordinate
+           @param timestamp Timestamp
            @since ARP1.0
         */
-        function Acceleration(x, y, z, timeStamp) {
+        function Acceleration(x, y, z, timestamp) {
+            _super.call(this);
             this.x = x;
             this.y = y;
             this.z = z;
-            this.timeStamp = timeStamp;
+            this.timestamp = timestamp;
         }
         /**
-           Gets Timestamp of the acceleration reading.
+           Timestamp Getter
 
-           @return timeStamp Timestamp of the acceleration reading.
+           @return Timestamp
+           @since ARP1.0
         */
-        Acceleration.prototype.getTimeStamp = function () {
-            return this.timeStamp;
+        Acceleration.prototype.getTimestamp = function () {
+            return this.timestamp;
         };
         /**
-           Sets Timestamp of the acceleration reading.
+           Timestamp Setter
 
-           @param timeStamp Timestamp of the acceleration reading.
+           @param timestamp Timestamp
+           @since ARP1.0
         */
-        Acceleration.prototype.setTimeStamp = function (timeStamp) {
-            this.timeStamp = timeStamp;
+        Acceleration.prototype.setTimestamp = function (timestamp) {
+            this.timestamp = timestamp;
         };
         /**
-           Gets X-axis component of the acceleration.
+           X Coordinate Getter
 
-           @return x X-axis component of the acceleration.
+           @return X-axis component of the acceleration.
+           @since ARP1.0
         */
         Acceleration.prototype.getX = function () {
             return this.x;
         };
         /**
-           Sets X-axis component of the acceleration.
+           X Coordinate Setter
 
            @param x X-axis component of the acceleration.
+           @since ARP1.0
         */
         Acceleration.prototype.setX = function (x) {
             this.x = x;
         };
         /**
-           Gets Y-axis component of the acceleration.
+           Y Coordinate Getter
 
-           @return y Y-axis component of the acceleration.
+           @return Y-axis component of the acceleration.
+           @since ARP1.0
         */
         Acceleration.prototype.getY = function () {
             return this.y;
         };
         /**
-           Sets Y-axis component of the acceleration.
+           Y Coordinate Setter
 
            @param y Y-axis component of the acceleration.
+           @since ARP1.0
         */
         Acceleration.prototype.setY = function (y) {
             this.y = y;
         };
         /**
-           Gets Z-axis component of the acceleration.
+           Z Coordinate Getter
 
-           @return z Z-axis component of the acceleration.
+           @return Z-axis component of the acceleration.
+           @since ARP1.0
         */
         Acceleration.prototype.getZ = function () {
             return this.z;
         };
         /**
-           Sets Z-axis component of the acceleration.
+           Z Coordinate Setter
 
-           @param z Z-axis component of the acceleration.
+           @param z Z Coordinate
+           @since ARP1.0
         */
         Acceleration.prototype.setZ = function (z) {
             this.z = z;
         };
         return Acceleration;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.Acceleration = Acceleration;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=Acceleration.js.map

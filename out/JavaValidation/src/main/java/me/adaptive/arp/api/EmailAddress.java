@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Structure representing the data elements of an email addressee.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class EmailAddress {
+public class EmailAddress extends APIBean {
 
      /**
         The Email address
@@ -40,7 +40,9 @@ public class EmailAddress {
      private String address;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public EmailAddress() {
      }
@@ -48,11 +50,11 @@ public class EmailAddress {
      /**
         Constructor used by implementation
 
-        @param address
+        @param address of the Email
         @since ARP1.0
      */
      public EmailAddress(String address) {
-          this();
+          super();
           this.address = address;
      }
 

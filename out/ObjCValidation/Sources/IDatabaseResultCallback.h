@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseCallback.h>
 
 /**
-Definition of IDatabaseResultCallback interface/protocol.
+Interface for Managing the Cloud operations
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Ferran Vila Conesa
+@since ARP1.0
 @version 1.0
 */
 @protocol IDatabaseResultCallback <IBaseCallback>

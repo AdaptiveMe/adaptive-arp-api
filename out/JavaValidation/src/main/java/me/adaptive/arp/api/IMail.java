@@ -26,17 +26,17 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of IMail interface/protocol.
+   Interface for Managing the Mail operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
 public interface IMail extends IBasePIM {
      /**
         Send an Email
-        @param data     the email data
-        @param callback with the result
+        @param data     Payload of the email
+        @param callback Result callback of the operation
         @since ARP1.0
      */
      void sendEmail(Email data, IMessagingCallback callback);

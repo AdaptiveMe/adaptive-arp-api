@@ -30,18 +30,26 @@ namespace Adaptive.Arp.Api
      /**
         Represents a single secureKey-value pair.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Aryslan
+        @since ARP1.0
         @version 1.0
      */
-     public class SecureKeyPair
+     public class SecureKeyPair : APIBean
      {
 
+          /**
+             Value of the secured element
+          */
           public string SecureData { get; set; }
+          /**
+             Key of the secured element
+          */
           public string SecureKey { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public SecureKeyPair()  {
           }

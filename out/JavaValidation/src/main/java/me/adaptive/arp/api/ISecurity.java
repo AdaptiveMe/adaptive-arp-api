@@ -26,10 +26,10 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of ISecurity interface/protocol.
+   Interface for Managing the Security operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Aryslan
+   @since ARP1.0
    @version 1.0
 */
 public interface ISecurity extends IBaseSecurity {
@@ -40,7 +40,7 @@ public interface ISecurity extends IBaseSecurity {
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     void deleteSecureKeyValuePairs(String[] keys, String publicAccessName, ISecureKVResultCallback callback);
+     void deleteSecureKeyValuePairs(String[] keys, String publicAccessName, ISecurityResultCallback callback);
 
      /**
         Retrieves from the device internal storage the entry/entries containing the specified key names.
@@ -49,7 +49,7 @@ public interface ISecurity extends IBaseSecurity {
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     void getSecureKeyValuePairs(String[] keys, String publicAccessName, ISecureKVResultCallback callback);
+     void getSecureKeyValuePairs(String[] keys, String publicAccessName, ISecurityResultCallback callback);
 
      /**
         Returns if the device has been modified in anyhow
@@ -65,7 +65,7 @@ public interface ISecurity extends IBaseSecurity {
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     void setSecureKeyValuePairs(SecureKeyPair[] keyValues, String publicAccessName, ISecureKVResultCallback callback);
+     void setSecureKeyValuePairs(SecureKeyPair[] keyValues, String publicAccessName, ISecurityResultCallback callback);
 
 }
 

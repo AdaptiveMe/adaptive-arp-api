@@ -23,16 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Structure representing the email data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
-@interface ContactEmail : NSObject
+@interface ContactEmail : APIBean
 
      /**
         The type of the email
@@ -55,16 +56,18 @@ Structure representing the email data elements of a contact.
      @property bool *primary;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
      /**
         Constructor used by the implementation
 
-        @param type
-        @param primary
-        @param email
+        @param type    Type of the email
+        @param primary Is email primary
+        @param email   Email of the contact
         @since ARP1.0
      */
      - (id) initWithTypePrimaryEmail:(ContactEmailType*)type primary:(bool*)primary email:(NSString*)email;

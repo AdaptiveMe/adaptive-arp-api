@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of IFileResultCallback interface/protocol.
+   Interface for Managing the File operations callback
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public protocol IFileResultCallback : IBaseCallback {
@@ -45,8 +45,8 @@ public protocol IFileResultCallback : IBaseCallback {
      func onResult(storageFile:IFile)
      /**
         On partial result of a file operation, containing a warning.
-        @param file            Reference to the offending file.
-        @param warning         Warning processing the request.
+        @param file    Reference to the offending file.
+        @param warning Warning processing the request.
         @since ARP1.0
      */
      func onWarning(file:IFile, warning:IFileResultCallbackWarning)

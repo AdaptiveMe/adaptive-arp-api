@@ -23,16 +23,18 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
+
 module Adaptive {
 
      /**
         Structure representing the internal unique identifier data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     export class ContactUid {
+     export class ContactUid extends APIBean {
 
           /**
              The id of the Contact
@@ -45,6 +47,7 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(contactId: string) {
+               super();
                this.contactId = contactId;
           }
 

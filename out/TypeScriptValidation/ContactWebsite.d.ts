@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -26,11 +27,11 @@ declare module Adaptive {
     /**
        Structure representing the website data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    class ContactWebsite {
+    class ContactWebsite extends APIBean {
         /**
            The url of the website
         */
@@ -38,7 +39,7 @@ declare module Adaptive {
         /**
            Constructor used by the implementation
 
-           @param url
+           @param url Url of the website
            @since ARP1.0
         */
         constructor(url: string);
@@ -52,7 +53,7 @@ declare module Adaptive {
         /**
            Set the url of the website
 
-           @param url
+           @param url Url of the website
            @since ARP1.0
         */
         setUrl(url: string): void;

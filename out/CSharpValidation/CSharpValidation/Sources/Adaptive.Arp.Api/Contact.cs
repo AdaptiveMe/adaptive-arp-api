@@ -30,8 +30,8 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
      public class Contact : ContactUid
@@ -71,7 +71,9 @@ namespace Adaptive.Arp.Api
           public ContactProfessionalInfo ProfessionalInfo { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default Constructor
+
+             @since ARP1.0
           */
           public Contact()  {
           }
@@ -83,6 +85,31 @@ namespace Adaptive.Arp.Api
              @since ARP1.0
           */
           public Contact(string ContactId) : base(ContactId) {
+          }
+
+          /**
+             Constructor with all the fields
+
+             @param ContactId        Identifier of the contact
+             @param PersonalInfo     Personal Information
+             @param ProfessionalInfo Professional Information
+             @param ContactAddresses Addresses of the contact
+             @param ContactPhones    Phones of the contact
+             @param ContactEmails    Emails of the contact
+             @param ContactWebsites  Websites of the contact
+             @param ContactSocials   Social Networks of the contact
+             @param ContactTags      Tags of the contact
+             @since ARP1.0
+          */
+          public Contact(string ContactId, ContactPersonalInfo PersonalInfo, ContactProfessionalInfo ProfessionalInfo, ContactAddress[] ContactAddresses, ContactPhone[] ContactPhones, ContactEmail[] ContactEmails, ContactWebsite[] ContactWebsites, ContactSocial[] ContactSocials, ContactTag[] ContactTags) : base(ContactId) {
+               this.PersonalInfo = PersonalInfo;
+               this.ProfessionalInfo = ProfessionalInfo;
+               this.ContactAddresses = ContactAddresses;
+               this.ContactPhones = ContactPhones;
+               this.ContactEmails = ContactEmails;
+               this.ContactWebsites = ContactWebsites;
+               this.ContactSocials = ContactSocials;
+               this.ContactTags = ContactTags;
           }
 
           /**
@@ -98,7 +125,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the addresses of the Contact
 
-             @param ContactAddresses
+             @param ContactAddresses Addresses of the contact
              @since ARP1.0
           */
           public void SetContactAddresses(ContactAddress[] ContactAddresses) {
@@ -118,7 +145,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the emails of the Contact
 
-             @param ContactEmails
+             @param ContactEmails Emails of the contact
              @since ARP1.0
           */
           public void SetContactEmails(ContactEmail[] ContactEmails) {
@@ -138,7 +165,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the phones of the Contact
 
-             @param ContactPhones
+             @param ContactPhones Phones of the contact
              @since ARP1.0
           */
           public void SetContactPhones(ContactPhone[] ContactPhones) {
@@ -158,7 +185,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the social network info of the Contact
 
-             @param ContactSocials
+             @param ContactSocials Social Networks of the contact
              @since ARP1.0
           */
           public void SetContactSocials(ContactSocial[] ContactSocials) {
@@ -178,7 +205,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the additional tags of the Contact
 
-             @param ContactTags
+             @param ContactTags Tags of the contact
              @since ARP1.0
           */
           public void SetContactTags(ContactTag[] ContactTags) {
@@ -198,7 +225,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the websites of the Contact
 
-             @param ContactWebsites
+             @param ContactWebsites Websites of the contact
              @since ARP1.0
           */
           public void SetContactWebsites(ContactWebsite[] ContactWebsites) {
@@ -218,7 +245,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the personal info of the Contact
 
-             @param PersonalInfo
+             @param PersonalInfo Personal Information
              @since ARP1.0
           */
           public void SetPersonalInfo(ContactPersonalInfo PersonalInfo) {
@@ -228,7 +255,7 @@ namespace Adaptive.Arp.Api
           /**
              Returns the professional info of the Contact
 
-             @return ContactProfessionalInfo[]
+             @return Array of personal info
              @since ARP1.0
           */
           public ContactProfessionalInfo GetProfessionalInfo() {
@@ -238,7 +265,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the professional info of the Contact
 
-             @param ProfessionalInfo
+             @param ProfessionalInfo Professional Information
              @since ARP1.0
           */
           public void SetProfessionalInfo(ContactProfessionalInfo ProfessionalInfo) {

@@ -22,57 +22,48 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="AttachmentData.ts"/>
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 ///<reference path="EmailAddress.ts"/>
+///<reference path="EmailAttachmentData.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the data elements of an email.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var Email = (function () {
+    var Email = (function (_super) {
+        __extends(Email, _super);
         /**
            Constructor used by the implementation
 
            @param toRecipients        array of recipients
            @param ccRecipients        array of cc recipients
            @param bccRecipients       array of bcc recipients
-           @param attachmentData      array of attatchments
+           @param emailAttachmentData array of attatchments
            @param messageBody         body of the email
            @param messageBodyMimeType mime type of the body
            @param subject             of the email
            @since ARP1.0
         */
-        function Email(toRecipients, ccRecipients, bccRecipients, attachmentData, messageBody, messageBodyMimeType, subject) {
+        function Email(toRecipients, ccRecipients, bccRecipients, emailAttachmentData, messageBody, messageBodyMimeType, subject) {
+            _super.call(this);
             this.toRecipients = toRecipients;
             this.ccRecipients = ccRecipients;
             this.bccRecipients = bccRecipients;
-            this.attachmentData = attachmentData;
+            this.emailAttachmentData = emailAttachmentData;
             this.messageBody = messageBody;
             this.messageBodyMimeType = messageBodyMimeType;
             this.subject = subject;
         }
-        /**
-           Returns an array of attachments
-
-           @return attachmentData array with the email attachments
-           @since ARP1.0
-        */
-        Email.prototype.getAttachmentData = function () {
-            return this.attachmentData;
-        };
-        /**
-           Set the email attachment data array
-
-           @param attachmentData array of email attatchments
-           @since ARP1.0
-        */
-        Email.prototype.setAttachmentData = function (attachmentData) {
-            this.attachmentData = attachmentData;
-        };
         /**
            Returns the array of recipients
 
@@ -110,9 +101,28 @@ var Adaptive;
             this.ccRecipients = ccRecipients;
         };
         /**
+           Returns an array of attachments
+
+           @return emailAttachmentData array with the email attachments
+           @since ARP1.0
+        */
+        Email.prototype.getEmailAttachmentData = function () {
+            return this.emailAttachmentData;
+        };
+        /**
+           Set the email attachment data array
+
+           @param emailAttachmentData array of email attatchments
+           @since ARP1.0
+        */
+        Email.prototype.setEmailAttachmentData = function (emailAttachmentData) {
+            this.emailAttachmentData = emailAttachmentData;
+        };
+        /**
            Returns the message body of the email
 
            @return message Body string of the email
+           @since ARP1.0
         */
         Email.prototype.getMessageBody = function () {
             return this.messageBody;
@@ -181,7 +191,7 @@ var Adaptive;
             this.toRecipients = toRecipients;
         };
         return Email;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.Email = Email;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=Email.js.map

@@ -28,10 +28,10 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of IFileSystem interface/protocol.
+        Interface for Managing the File System operations
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      public interface IFileSystem : IBaseData {
@@ -39,8 +39,9 @@ namespace Adaptive.Arp.Api
              Creates a new reference to a new or existing location in the filesystem.
 This method does not create the actual file in the specified folder.
              @param parent Parent directory.
-             @param name Name of new file or directory.
+             @param name   Name of new file or directory.
              @return A reference to a new or existing location in the filesystem.
+             @since ARP1.0
           */
           IFile CreateFileDescriptor(IFile Parent, string Name);
 

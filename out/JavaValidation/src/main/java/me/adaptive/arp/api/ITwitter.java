@@ -26,10 +26,10 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of ITwitter interface/protocol.
+   Interface for Managing the Twitter operations
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public interface ITwitter extends IBaseSocial {

@@ -28,10 +28,10 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of IService interface/protocol.
+        Interface for Managing the Services operations
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
      public interface IService : IBaseCommunication {
@@ -39,45 +39,52 @@ namespace Adaptive.Arp.Api
              Get a reference to a registered service by name.
              @param serviceName Name of service.
              @return A service, if registered, or null of the service does not exist.
+             @since ARP1.0
           */
           Service GetService(string ServiceName);
 
           /**
              Request async a service for an Url
-             @param serviceRequest
-             @param service
-             @param callback
+             @param serviceRequest Service Request to invoke
+             @param service        Service to call
+             @param callback       Callback to execute with the result
+             @since ARP1.0
           */
           void InvokeService(ServiceRequest ServiceRequest, Service Service, IServiceResultCallback Callback);
 
           /**
              Check whether a service by the given name is registered.
-             @param serviceName
+             @param serviceName Name of service.
              @return True if the service is registered, false otherwise.
+             @since ARP1.0
           */
           bool IsRegistered(string ServiceName);
 
           /**
              Check whether a service by the given name is registered.
-             @param serviceName
+             @param serviceName Name of service.
              @return True if the service is registered, false otherwise.
+             @since ARP1.0
           */
           bool IsRegistered(Service Service);
 
           /**
              Register a new service
              @param service to register
+             @since ARP1.0
           */
           void RegisterService(Service Service);
 
           /**
              Unregister all services.
+             @since ARP1.0
           */
           void UnregisterServices();
 
           /**
              Unregister a service
              @param service to unregister
+             @since ARP1.0
           */
           void UnregisterService(Service Service);
 

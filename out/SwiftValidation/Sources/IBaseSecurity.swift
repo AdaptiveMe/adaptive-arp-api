@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of IBaseSecurity interface/protocol.
+   Base application for Security purposes
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public protocol IBaseSecurity : IAdaptiveRP {

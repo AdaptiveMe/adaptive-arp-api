@@ -22,7 +22,7 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="IAccelerometer.ts"/>
+///<reference path="IAcceleration.ts"/>
 ///<reference path="IAds.ts"/>
 ///<reference path="IAlarm.ts"/>
 ///<reference path="IAmbientLight.ts"/>
@@ -81,7 +81,6 @@ Contributors:
 ///<reference path="IRuntime.ts"/>
 ///<reference path="ISecurity.ts"/>
 ///<reference path="IService.ts"/>
-///<reference path="ISession.ts"/>
 ///<reference path="ISettings.ts"/>
 ///<reference path="ISocket.ts"/>
 ///<reference path="IStore.ts"/>

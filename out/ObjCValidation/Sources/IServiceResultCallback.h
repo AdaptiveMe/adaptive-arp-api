@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseCallback.h>
 
 /**
-Definition of IServiceResultCallback interface/protocol.
+Interface for Managing the Services operations
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @protocol IServiceResultCallback <IBaseCallback>

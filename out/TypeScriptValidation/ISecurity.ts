@@ -25,16 +25,16 @@ Contributors:
 
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSecurity.ts"/>
-///<reference path="ISecureKVResultCallback.ts"/>
+///<reference path="ISecurityResultCallback.ts"/>
 ///<reference path="SecureKeyPair.ts"/>
 
 module Adaptive {
 
      /**
-        Definition of ISecurity interface/protocol.
+        Interface for Managing the Security operations
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Aryslan
+        @since ARP1.0
         @version 1.0
      */
      export interface ISecurity extends IBaseSecurity {
@@ -45,7 +45,7 @@ module Adaptive {
              @param callback         callback to be executed upon function result.
              @since ARP 1.0
           */
-          deleteSecureKeyValuePairs(keys:Array<string>, publicAccessName:string, callback:ISecureKVResultCallback);
+          deleteSecureKeyValuePairs(keys:Array<string>, publicAccessName:string, callback:ISecurityResultCallback);
           /**
              Retrieves from the device internal storage the entry/entries containing the specified key names.
              @param keys             Array with the key names to retrieve.
@@ -53,7 +53,7 @@ module Adaptive {
              @param callback         callback to be executed upon function result.
              @since ARP 1.0
           */
-          getSecureKeyValuePairs(keys:Array<string>, publicAccessName:string, callback:ISecureKVResultCallback);
+          getSecureKeyValuePairs(keys:Array<string>, publicAccessName:string, callback:ISecurityResultCallback);
           /**
              Returns if the device has been modified in anyhow
              @return true if the device has been modified; false otherwise
@@ -67,7 +67,7 @@ module Adaptive {
              @param callback         callback to be executed upon function result.
              @since ARP 1.0
           */
-          setSecureKeyValuePairs(keyValues:Array<SecureKeyPair>, publicAccessName:string, callback:ISecureKVResultCallback);
+          setSecureKeyValuePairs(keyValues:Array<SecureKeyPair>, publicAccessName:string, callback:ISecurityResultCallback);
      }
 }
 

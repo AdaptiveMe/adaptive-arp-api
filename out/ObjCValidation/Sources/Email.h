@@ -23,24 +23,20 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-#import <AttachmentData.h>
+#import <APIBean.h>
 #import <EmailAddress.h>
+#import <EmailAttachmentData.h>
 #import <Foundation/Foundation.h>
 
 /**
 Structure representing the data elements of an email.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
-@interface Email : NSObject
+@interface Email : APIBean
 
-     /**
-        Array of attatchments
-        Array objects must be of AttachmentData type.
-     */
-     @property NSArray *attachmentData;
      /**
         Array of Email Blind Carbon Copy recipients
         Array objects must be of EmailAddress type.
@@ -51,6 +47,11 @@ Structure representing the data elements of an email.
         Array objects must be of EmailAddress type.
      */
      @property NSArray *ccRecipients;
+     /**
+        Array of attatchments
+        Array objects must be of EmailAttachmentData type.
+     */
+     @property NSArray *emailAttachmentData;
      /**
         Message body
      */
@@ -70,7 +71,9 @@ Structure representing the data elements of an email.
      @property NSArray *toRecipients;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
@@ -80,13 +83,13 @@ Structure representing the data elements of an email.
         @param toRecipients        array of recipients
         @param ccRecipients        array of cc recipients
         @param bccRecipients       array of bcc recipients
-        @param attachmentData      array of attatchments
+        @param emailAttachmentData array of attatchments
         @param messageBody         body of the email
         @param messageBodyMimeType mime type of the body
         @param subject             of the email
         @since ARP1.0
      */
-     - (id) initWithToRecipientsCcRecipientsBccRecipientsAttachmentDataMessageBodyMessageBodyMimeTypeSubject:(NSArray*)toRecipients ccRecipients:(NSArray*)ccRecipients bccRecipients:(NSArray*)bccRecipients attachmentData:(NSArray*)attachmentData messageBody:(NSString*)messageBody messageBodyMimeType:(NSString*)messageBodyMimeType subject:(NSString*)subject;
+     - (id) initWithToRecipientsCcRecipientsBccRecipientsEmailAttachmentDataMessageBodyMessageBodyMimeTypeSubject:(NSArray*)toRecipients ccRecipients:(NSArray*)ccRecipients bccRecipients:(NSArray*)bccRecipients emailAttachmentData:(NSArray*)emailAttachmentData messageBody:(NSString*)messageBody messageBodyMimeType:(NSString*)messageBodyMimeType subject:(NSString*)subject;
 
      /**
         Constructor used by the implementation

@@ -26,11 +26,11 @@ Contributors:
 /**
    Represents an instance of a service.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Aryslan
+   @since ARP1.0
    @version 1.0
 */
-public class Service : NSObject {
+public class Service : APIBean {
 
      /**
         The method used
@@ -41,16 +41,18 @@ public class Service : NSObject {
      */
      var type : IServiceType?
      /**
-        Enpoint of the service
-     */
-     var endpoint : Endpoint?
-     /**
         The service name
      */
      var name : String?
+     /**
+        Endpoint of the service
+     */
+     var serviceEndpoint : ServiceEndpoint?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -59,15 +61,15 @@ public class Service : NSObject {
      /**
         Constructor used by the implementation
 
-        @param endpoint
-        @param name
-        @param method
-        @param type
+        @param serviceEndpoint Endpoint of the service
+        @param name            Name of the service
+        @param method          Method of the service
+        @param type            Type of the service
         @since ARP1.0
      */
-     public init(endpoint: Endpoint, name: String, method: IServiceMethod, type: IServiceType) {
+     public init(serviceEndpoint: ServiceEndpoint, name: String, method: IServiceMethod, type: IServiceType) {
           super.init()
-          self.endpoint = endpoint
+          self.serviceEndpoint = serviceEndpoint
           self.name = name
           self.method = method
           self.type = type
@@ -86,7 +88,7 @@ public class Service : NSObject {
      /**
         Set the method
 
-        @param method
+        @param method Method of the service
         @since ARP1.0
      */
      public func setMethod(method: IServiceMethod) {
@@ -106,31 +108,11 @@ public class Service : NSObject {
      /**
         Set the type
 
-        @param type
+        @param type Type of the service
         @since ARP1.0
      */
      public func setType(type: IServiceType) {
           self.type = type
-     }
-
-     /**
-        Returns the endpoint
-
-        @return endpoint
-        @since ARP1.0
-     */
-     public func getEndpoint() -> Endpoint? {
-          return self.endpoint
-     }
-
-     /**
-        Set the endpoint
-
-        @param endpoint
-        @since ARP1.0
-     */
-     public func setEndpoint(endpoint: Endpoint) {
-          self.endpoint = endpoint
      }
 
      /**
@@ -146,11 +128,31 @@ public class Service : NSObject {
      /**
         Set the name
 
-        @param name
+        @param name Name of the service
         @since ARP1.0
      */
      public func setName(name: String) {
           self.name = name
+     }
+
+     /**
+        Returns the serviceEndpoint
+
+        @return serviceEndpoint
+        @since ARP1.0
+     */
+     public func getServiceEndpoint() -> ServiceEndpoint? {
+          return self.serviceEndpoint
+     }
+
+     /**
+        Set the serviceEndpoint
+
+        @param serviceEndpoint Endpoint of the service
+        @since ARP1.0
+     */
+     public func setServiceEndpoint(serviceEndpoint: ServiceEndpoint) {
+          self.serviceEndpoint = serviceEndpoint
      }
 
 

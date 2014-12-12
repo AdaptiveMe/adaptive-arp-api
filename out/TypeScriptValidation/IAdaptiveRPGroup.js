@@ -34,6 +34,7 @@ var Adaptive;
         IAdaptiveRPGroup.prototype.toString = function () {
             return this.value;
         };
+        IAdaptiveRPGroup.Application = new IAdaptiveRPGroup("Application");
         IAdaptiveRPGroup.Commerce = new IAdaptiveRPGroup("Commerce");
         IAdaptiveRPGroup.Communication = new IAdaptiveRPGroup("Communication");
         IAdaptiveRPGroup.Data = new IAdaptiveRPGroup("Data");

@@ -23,16 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Structure representing the basic device information.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
-@interface DeviceInfo : NSObject
+@interface DeviceInfo : APIBean
 
      /**
         Model of device - equivalent to device release or version.
@@ -53,7 +54,9 @@ be unique for a specific instance of an application on a specific device.
      @property NSString *vendor;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
@@ -64,6 +67,7 @@ be unique for a specific instance of an application on a specific device.
         @param model  of the device.
         @param vendor of the device.
         @param uuid   unique* identifier (* platform dependent).
+        @since ARP1.0
      */
      - (id) initWithNameModelVendorUuid:(NSString*)name model:(NSString*)model vendor:(NSString*)vendor uuid:(NSString*)uuid;
 

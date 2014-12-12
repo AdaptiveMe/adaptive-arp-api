@@ -30,6 +30,7 @@ package me.adaptive.arp.api;
 */
 public enum IAdaptiveRPGroup {
 
+     Application,
      Commerce,
      Communication,
      Data,

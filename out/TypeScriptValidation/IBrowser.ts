@@ -29,27 +29,36 @@ Contributors:
 module Adaptive {
 
      /**
-        Definition of IBrowser interface/protocol.
+        Interface for Managing the browser operations
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
      export interface IBrowser extends IBaseUI {
           /**
-             null
+             Method for opening a URL like a link in the native default browser
+             @param url Url to open
+             @return The result of the operation
+             @since ARP1.0
           */
           openExtenalBrowser(url:string) : boolean;
           /**
-             Open a new window showing the url webpage with a title and a close button displaying the desired text
-             @param url            to open
-             @param title          of the new window
-             @param backButtonText text of the close button
-             @return true if the new window opens;false otherwise
+             Method for opening a browser embedded into the application in a modal window
+             @param url            Url to open
+             @param title          Title of the Navigation bar
+             @param backButtonText Title of the Back button bar
+             @return The result of the operation
+             @since ARP1.0
           */
           openInternalBrowserModal(url:string, title:string, backButtonText:string) : boolean;
           /**
-             null
+             Method for opening a browser embedded into the application
+             @param url            Url to open
+             @param title          Title of the Navigation bar
+             @param backButtonText Title of the Back button bar
+             @return The result of the operation
+             @since ARP1.0
           */
           openInternalBrowser(url:string, title:string, backButtonText:string) : boolean;
      }

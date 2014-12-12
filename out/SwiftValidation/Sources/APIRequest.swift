@@ -24,77 +24,117 @@ Contributors:
 */
 
 /**
-   Created by clozano on 05/12/14.
+   Structure representing a HTML5 request to the native API.
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public class APIRequest : NSObject {
 
      /**
-        { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+        String representing the method name to call
      */
      var methodName : String?
+     /**
+        Types of the request parameters
+     */
      var parameterTypes : [String]?
+     /**
+        Parameters of the request
+     */
      var parameters : [AnyObject]?
 
      /**
-        Convenience constructor.
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
      }
 
      /**
-        Gets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+        Constructor with method name. No parameters
 
-        @return methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+        @param methodName Name of the method
+        @since ARP1.0
+     */
+     public init(methodName: String) {
+          super.init()
+          self.methodName = methodName
+     }
+
+     /**
+        Constructor with all the parameters
+
+        @param methodName     Name of the method
+        @param parameters     Array of parameters
+        @param parameterTypes Array of parameters types
+        @since ARP1.0
+     */
+     public init(methodName: String, parameters: [AnyObject], parameterTypes: [String]) {
+          super.init()
+          self.methodName = methodName
+          self.parameters = parameters
+          self.parameterTypes = parameterTypes
+     }
+
+     /**
+        Method name Getter
+
+        @return Method name
+        @since ARP1.0
      */
      public func getMethodName() -> String? {
           return self.methodName
      }
 
      /**
-        Sets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+        Method name Setter
 
-        @param methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+        @param methodName Method name
+        @since ARP1.0
      */
      public func setMethodName(methodName: String) {
           self.methodName = methodName
      }
 
      /**
-        Gets null
+        Parameter types Getter
 
-        @return parameterTypes null
+        @return Parameter types
+        @since ARP1.0
      */
      public func getParameterTypes() -> [String]? {
           return self.parameterTypes
      }
 
      /**
-        Sets null
+        Parameter types setter
 
-        @param parameterTypes null
+        @param parameterTypes Parameter types
+        @since ARP1.0
      */
      public func setParameterTypes(parameterTypes: [String]) {
           self.parameterTypes = parameterTypes
      }
 
      /**
-        Gets null
+        Parameters Getter
 
-        @return parameters null
+        @return Parameters
+        @since ARP1.0
      */
      public func getParameters() -> [AnyObject]? {
           return self.parameters
      }
 
      /**
-        Sets null
+        Parameters Setter
 
-        @param parameters null
+        @param parameters Parameters
+        @since ARP1.0
      */
      public func setParameters(parameters: [AnyObject]) {
           self.parameters = parameters

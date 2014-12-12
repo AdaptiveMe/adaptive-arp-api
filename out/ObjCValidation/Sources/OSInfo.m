@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation OSInfo
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -48,9 +50,10 @@ Contributors:
         @param name    of the OS.
         @param version of the OS.
         @param vendor  of the OS.
+        @since ARP1.0
      */
      - (id) initWithNameVersionVendor:(NSString*)name version:(NSString*)version vendor:(NSString*)vendor {
-          self = [self init];
+          self = [super initWithNameVersionVendor:name, version, vendor];
           if (self) {
                [self setName:name];
                [self setVersion:version];

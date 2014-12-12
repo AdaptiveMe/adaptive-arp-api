@@ -30,10 +30,10 @@ Contributors:
 module Adaptive {
 
      /**
-        Definition of IGeolocation interface/protocol.
+        Interface for Managing the Geolocation operations
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
      export interface IGeolocation extends IBaseSensor {
@@ -45,7 +45,7 @@ module Adaptive {
           addGeolocationListener(listener:IGeolocationListener);
           /**
              De-registers an existing listener from receiving geolocation events.
-             @param listener
+             @param listener to be registered.
              @since ARP1.0
           */
           removeGeolocationListener(listener:IGeolocationListener);

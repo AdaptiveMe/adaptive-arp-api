@@ -23,55 +23,38 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
+
 module Adaptive {
 
      /**
         Structure representing the assigned tags data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     export class ContactTag {
+     export class ContactTag extends APIBean {
 
-          /**
-             The value of the Tag
-          */
-          dataValue : string;
           /**
              The name of the Tag
           */
           name : string;
           /**
+             The value of the Tag
+          */
+          value : string;
+          /**
              Constructor used by the implementation
 
-             @param dataValue
-             @param name
+             @param value Value of the tag
+             @param name  Name of the tag
              @since ARP1.0
           */
-          constructor(name: string, dataValue: string) {
+          constructor(name: string, value: string) {
+               super();
                this.name = name;
-               this.dataValue = dataValue;
-          }
-
-          /**
-             Returns the value of the Tag
-
-             @return value
-             @since ARP1.0
-          */
-          getDataValue() : string {
-               return this.dataValue;
-          }
-
-          /**
-             Set the value of the Tag
-
-             @param dataValue
-             @since ARP1.0
-          */
-          setDataValue(dataValue: string) {
-               this.dataValue = dataValue;
+               this.value = value;
           }
 
           /**
@@ -87,11 +70,31 @@ module Adaptive {
           /**
              Set the name of the Tag
 
-             @param name
+             @param name Name of the tag
              @since ARP1.0
           */
           setName(name: string) {
                this.name = name;
+          }
+
+          /**
+             Returns the value of the Tag
+
+             @return value
+             @since ARP1.0
+          */
+          getValue() : string {
+               return this.value;
+          }
+
+          /**
+             Set the value of the Tag
+
+             @param value Value of the tag
+             @since ARP1.0
+          */
+          setValue(value: string) {
+               this.value = value;
           }
 
 

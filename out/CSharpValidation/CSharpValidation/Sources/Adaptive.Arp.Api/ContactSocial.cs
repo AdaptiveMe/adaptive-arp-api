@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the social data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class ContactSocial
+     public class ContactSocial : APIBean
      {
 
           /**
@@ -47,7 +47,9 @@ namespace Adaptive.Arp.Api
           public string ProfileUrl { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public ContactSocial()  {
           }
@@ -77,7 +79,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the social network
 
-             @param SocialNetwork
+             @param SocialNetwork of the profile
              @since ARP1.0
           */
           public void SetSocialNetwork(ContactSocialNetwork SocialNetwork) {
@@ -97,7 +99,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the profile url of the iser
 
-             @param ProfileUrl
+             @param ProfileUrl of the user
              @since ARP1.0
           */
           public void SetProfileUrl(string ProfileUrl) {

@@ -23,24 +23,25 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-#import <Endpoint.h>
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
+#import <ServiceEndpoint.h>
 
 /**
 Represents an instance of a service.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Aryslan
+@since ARP1.0
 @version 1.0
 */
-@interface Service : NSObject
+@interface Service : APIBean
 
      /**
         The method used
      */
      typedef NS_OPTIONS(NSUInteger, IServiceMethod) {
-          IServiceMethod_POST = 0,
-          IServiceMethod_GET = 1,
+          IServiceMethod_Post = 0,
+          IServiceMethod_Get = 1,
           IServiceMethod_Unknown = 2
      };
 
@@ -49,44 +50,46 @@ Represents an instance of a service.
         The type of the service
      */
      typedef NS_OPTIONS(NSUInteger, IServiceType) {
-          IServiceType_SERVICETYPE_AMF_SERIALIZATION = 0,
-          IServiceType_SERVICETYPE_GWT_RPC = 1,
-          IServiceType_SERVICETYPE_OCTET_BINARY = 2,
-          IServiceType_SERVICETYPE_REMOTING_SERIALIZATION = 3,
-          IServiceType_SERVICETYPE_REST_JSON = 4,
-          IServiceType_SERVICETYPE_REST_XML = 5,
-          IServiceType_SERVICETYPE_SOAP_JSON = 6,
-          IServiceType_SERVICETYPE_SOAP_XML = 7,
-          IServiceType_SERVICETYPE_XMLRPC_JSON = 8,
-          IServiceType_SERVICETYPE_XMLRPC_XML = 9,
+          IServiceType_ServiceTypeAmfSerialization = 0,
+          IServiceType_ServiceTypeGwtRpc = 1,
+          IServiceType_ServiceTypeOctetBinary = 2,
+          IServiceType_ServiceTypeRemotingSerialization = 3,
+          IServiceType_ServiceTypeRestJson = 4,
+          IServiceType_ServiceTypeRestXml = 5,
+          IServiceType_ServiceTypeSoapJson = 6,
+          IServiceType_ServiceTypeSoapXml = 7,
+          IServiceType_ServiceTypeXmlRpcJson = 8,
+          IServiceType_ServiceTypeXmlRpcXml = 9,
           IServiceType_Unknown = 10
      };
 
      @property IServiceType *type;
      /**
-        Enpoint of the service
-     */
-     @property Endpoint *endpoint;
-     /**
         The service name
      */
      @property NSString *name;
+     /**
+        Endpoint of the service
+     */
+     @property ServiceEndpoint *serviceEndpoint;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
      /**
         Constructor used by the implementation
 
-        @param endpoint
-        @param name
-        @param method
-        @param type
+        @param serviceEndpoint Endpoint of the service
+        @param name            Name of the service
+        @param method          Method of the service
+        @param type            Type of the service
         @since ARP1.0
      */
-     - (id) initWithEndpointNameMethodType:(Endpoint*)endpoint name:(NSString*)name method:(IServiceMethod*)method type:(IServiceType*)type;
+     - (id) initWithServiceEndpointNameMethodType:(ServiceEndpoint*)serviceEndpoint name:(NSString*)name method:(IServiceMethod*)method type:(IServiceType*)type;
 
 
 @end

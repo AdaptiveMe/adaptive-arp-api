@@ -28,10 +28,10 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of ILogging interface/protocol.
+        Interface for Managing the Logging operations
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Ferran Vila Conesa
+        @since ARP1.0
         @version 1.0
      */
      public interface ILogging : IBaseUtil {
@@ -40,7 +40,6 @@ namespace Adaptive.Arp.Api
              @param level    Log level
              @param category Category/tag name to identify/filter the log.
              @param message  Message to be logged
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           void Log(ILoggingLogLevel Level, string Category, string Message);
@@ -49,7 +48,6 @@ namespace Adaptive.Arp.Api
              Logs the given message, with the given log level if specified, to the standard platform/environment.
              @param level   Log level
              @param message Message to be logged
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           void Log(ILoggingLogLevel Level, string Message);

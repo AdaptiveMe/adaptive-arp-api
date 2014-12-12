@@ -26,76 +26,116 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Created by clozano on 05/12/14.
+   Structure representing a HTML5 request to the native API.
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public class APIRequest {
 
      /**
-        { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+        String representing the method name to call
      */
      private String methodName;
+     /**
+        Types of the request parameters
+     */
      private String[] parameterTypes;
+     /**
+        Parameters of the request
+     */
      private Object[] parameters;
 
      /**
-        Convenience constructor.
+        Default constructor
+
+        @since ARP1.0
      */
      public APIRequest() {
      }
 
      /**
-        Gets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+        Constructor with method name. No parameters
 
-        @return methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+        @param methodName Name of the method
+        @since ARP1.0
+     */
+     public APIRequest(String methodName) {
+          this();
+          this.methodName = methodName;
+     }
+
+     /**
+        Constructor with all the parameters
+
+        @param methodName     Name of the method
+        @param parameters     Array of parameters
+        @param parameterTypes Array of parameters types
+        @since ARP1.0
+     */
+     public APIRequest(String methodName, Object[] parameters, String[] parameterTypes) {
+          this();
+          this.methodName = methodName;
+          this.parameters = parameters;
+          this.parameterTypes = parameterTypes;
+     }
+
+     /**
+        Method name Getter
+
+        @return Method name
+        @since ARP1.0
      */
      public String getMethodName() {
           return this.methodName;
      }
 
      /**
-        Sets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+        Method name Setter
 
-        @param methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+        @param methodName Method name
+        @since ARP1.0
      */
      public void setMethodName(String methodName) {
           this.methodName = methodName;
      }
 
      /**
-        Gets null
+        Parameter types Getter
 
-        @return parameterTypes null
+        @return Parameter types
+        @since ARP1.0
      */
      public String[] getParameterTypes() {
           return this.parameterTypes;
      }
 
      /**
-        Sets null
+        Parameter types setter
 
-        @param parameterTypes null
+        @param parameterTypes Parameter types
+        @since ARP1.0
      */
      public void setParameterTypes(String[] parameterTypes) {
           this.parameterTypes = parameterTypes;
      }
 
      /**
-        Gets null
+        Parameters Getter
 
-        @return parameters null
+        @return Parameters
+        @since ARP1.0
      */
      public Object[] getParameters() {
           return this.parameters;
      }
 
      /**
-        Sets null
+        Parameters Setter
 
-        @param parameters null
+        @param parameters Parameters
+        @since ARP1.0
      */
      public void setParameters(Object[] parameters) {
           this.parameters = parameters;

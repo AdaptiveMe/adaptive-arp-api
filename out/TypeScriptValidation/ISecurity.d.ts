@@ -1,6 +1,6 @@
 /// <reference path="IAdaptiveRPGroup.d.ts" />
 /// <reference path="IBaseSecurity.d.ts" />
-/// <reference path="ISecureKVResultCallback.d.ts" />
+/// <reference path="ISecurityResultCallback.d.ts" />
 /// <reference path="SecureKeyPair.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -28,10 +28,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of ISecurity interface/protocol.
+       Interface for Managing the Security operations
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Aryslan
+       @since ARP1.0
        @version 1.0
     */
     interface ISecurity extends IBaseSecurity {
@@ -42,7 +42,7 @@ declare module Adaptive {
            @param callback         callback to be executed upon function result.
            @since ARP 1.0
         */
-        deleteSecureKeyValuePairs(keys: string[], publicAccessName: string, callback: ISecureKVResultCallback): any;
+        deleteSecureKeyValuePairs(keys: string[], publicAccessName: string, callback: ISecurityResultCallback): any;
         /**
            Retrieves from the device internal storage the entry/entries containing the specified key names.
            @param keys             Array with the key names to retrieve.
@@ -50,7 +50,7 @@ declare module Adaptive {
            @param callback         callback to be executed upon function result.
            @since ARP 1.0
         */
-        getSecureKeyValuePairs(keys: string[], publicAccessName: string, callback: ISecureKVResultCallback): any;
+        getSecureKeyValuePairs(keys: string[], publicAccessName: string, callback: ISecurityResultCallback): any;
         /**
            Returns if the device has been modified in anyhow
            @return true if the device has been modified; false otherwise
@@ -64,6 +64,6 @@ declare module Adaptive {
            @param callback         callback to be executed upon function result.
            @since ARP 1.0
         */
-        setSecureKeyValuePairs(keyValues: SecureKeyPair[], publicAccessName: string, callback: ISecureKVResultCallback): any;
+        setSecureKeyValuePairs(keyValues: SecureKeyPair[], publicAccessName: string, callback: ISecurityResultCallback): any;
     }
 }

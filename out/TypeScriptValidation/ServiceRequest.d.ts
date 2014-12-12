@@ -1,6 +1,7 @@
-/// <reference path="Header.d.ts" />
+/// <reference path="APIBean.d.ts" />
 /// <reference path="IServiceProtocolVersion.d.ts" />
-/// <reference path="ISession.d.ts" />
+/// <reference path="ServiceHeader.d.ts" />
+/// <reference path="ServiceSession.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -29,11 +30,11 @@ declare module Adaptive {
     /**
        Represents a local or remote service request.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Aryslan
+       @since ARP1.0
        @version 1.0
     */
-    class ServiceRequest {
+    class ServiceRequest extends APIBean {
         /**
            The HTTP procotol version to be used for this request.
         */
@@ -42,6 +43,14 @@ declare module Adaptive {
            Request/Response data content (plain text).
         */
         content: string;
+        /**
+           The byte[] representing the Content field.
+        */
+        contentBinary: number[];
+        /**
+           The length in bytes for the binary Content.
+        */
+        contentBinaryLength: number;
         /**
            Encoding of the binary payload - by default assumed to be UTF8.
         */
@@ -55,36 +64,33 @@ declare module Adaptive {
         */
         contentType: string;
         /**
-           The headers array (name,value pairs) to be included on the I/O service request.
-        */
-        headers: Header[];
-        /**
            The request method
         */
         method: string;
         /**
-           The byte[] representing the Content field.
+           The serviceHeaders array (name,value pairs) to be included on the I/O service request.
         */
-        rawContent: number[];
+        serviceHeaders: ServiceHeader[];
         /**
-           The session context for the Request/Response.
+           Information about the session
         */
-        session: ISession;
+        serviceSession: ServiceSession;
         /**
            Contructor used by the implementation
 
-           @param content
-           @param contentType
-           @param contentLength
-           @param rawContent
-           @param headers
-           @param method
-           @param protocolVersion
-           @param session
-           @param contentEncoding
+           @param content             Request/Response data content (plain text)
+           @param contentType         The request/response content type (MIME TYPE).
+           @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
+           @param contentLength       The length in bytes for the Content field.
+           @param contentBinary       The byte[] representing the Content field.
+           @param contentBinaryLength The length in bytes for the binary Content.
+           @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+           @param method              The request method
+           @param protocolVersion     The HTTP procotol version to be used for this request.
+           @param serviceSession      The element service session
            @since ARP1.0
         */
-        constructor(content: string, contentType: string, contentLength: number, rawContent: number[], headers: Header[], method: string, protocolVersion: IServiceProtocolVersion, session: ISession, contentEncoding: string);
+        constructor(content: string, contentType: string, contentEncoding: string, contentLength: number, contentBinary: number[], contentBinaryLength: number, serviceHeaders: ServiceHeader[], method: string, protocolVersion: IServiceProtocolVersion, serviceSession: ServiceSession);
         /**
            Returns the protocol version
 
@@ -95,7 +101,7 @@ declare module Adaptive {
         /**
            Set the protocol version
 
-           @param protocolVersion
+           @param protocolVersion The HTTP procotol version to be used for this request.
            @since ARP1.0
         */
         setProtocolVersion(protocolVersion: IServiceProtocolVersion): void;
@@ -109,10 +115,38 @@ declare module Adaptive {
         /**
            Set the content
 
-           @param content
+           @param content Request/Response data content (plain text)
            @since ARP1.0
         */
         setContent(content: string): void;
+        /**
+           Returns the byte[] of the content
+
+           @return contentBinary
+           @since ARP1.0
+        */
+        getContentBinary(): number[];
+        /**
+           Set the byte[] of the content
+
+           @param contentBinary The byte[] representing the Content field.
+           @since ARP1.0
+        */
+        setContentBinary(contentBinary: number[]): void;
+        /**
+           Retrusn the binary content length
+
+           @return contentBinaryLength
+           @since ARP1.0
+        */
+        getContentBinaryLength(): number;
+        /**
+           Set the binary content length
+
+           @param contentBinaryLength The length in bytes for the binary Content.
+           @since ARP1.0
+        */
+        setContentBinaryLength(contentBinaryLength: number): void;
         /**
            Returns the content encoding
 
@@ -123,7 +157,7 @@ declare module Adaptive {
         /**
            Set the content encoding
 
-           @param contentEncoding
+           @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
            @since ARP1.0
         */
         setContentEncoding(contentEncoding: string): void;
@@ -137,7 +171,7 @@ declare module Adaptive {
         /**
            Set the content length
 
-           @param contentLength
+           @param contentLength The length in bytes for the Content field.
            @since ARP1.0
         */
         setContentLength(contentLength: number): void;
@@ -151,24 +185,10 @@ declare module Adaptive {
         /**
            Set the content type
 
-           @param contentType
+           @param contentType The request/response content type (MIME TYPE).
            @since ARP1.0
         */
         setContentType(contentType: string): void;
-        /**
-           Returns the array of Header
-
-           @return headers
-           @since ARP1.0
-        */
-        getHeaders(): Header[];
-        /**
-           Set the array of Header
-
-           @param headers
-           @since ARP1.0
-        */
-        setHeaders(headers: Header[]): void;
         /**
            Returns the method
 
@@ -179,37 +199,37 @@ declare module Adaptive {
         /**
            Set the method
 
-           @param method
+           @param method The request method
            @since ARP1.0
         */
         setMethod(method: string): void;
         /**
-           Returns the byte[] of the content
+           Returns the array of ServiceHeader
 
-           @return rawContent
+           @return serviceHeaders
            @since ARP1.0
         */
-        getRawContent(): number[];
+        getServiceHeaders(): ServiceHeader[];
         /**
-           Set the byte[] of the content
+           Set the array of ServiceHeader
 
-           @param rawContent
+           @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
            @since ARP1.0
         */
-        setRawContent(rawContent: number[]): void;
+        setServiceHeaders(serviceHeaders: ServiceHeader[]): void;
         /**
-           Returns the session object
+           Getter for service session
 
-           @return session
+           @return The element service session
            @since ARP1.0
         */
-        getSession(): ISession;
+        getServiceSession(): ServiceSession;
         /**
-           Set the session object
+           Setter for service session
 
-           @param session
+           @param serviceSession The element service session
            @since ARP1.0
         */
-        setSession(session: ISession): void;
+        setServiceSession(serviceSession: ServiceSession): void;
     }
 }

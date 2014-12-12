@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the data elements of an email addressee.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class EmailAddress
+     public class EmailAddress : APIBean
      {
 
           /**
@@ -43,7 +43,9 @@ namespace Adaptive.Arp.Api
           public string Address { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public EmailAddress()  {
           }
@@ -51,7 +53,7 @@ namespace Adaptive.Arp.Api
           /**
              Constructor used by implementation
 
-             @param Address
+             @param Address of the Email
              @since ARP1.0
           */
           public EmailAddress(string Address) : base () {

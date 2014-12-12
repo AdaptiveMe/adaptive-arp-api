@@ -23,19 +23,20 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="Header.ts"/>
-///<reference path="ISession.ts"/>
+///<reference path="APIBean.ts"/>
+///<reference path="ServiceHeader.ts"/>
+///<reference path="ServiceSession.ts"/>
 
 module Adaptive {
 
      /**
         Represents a local or remote service response.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Aryslan
+        @since ARP1.0
         @version 1.0
      */
-     export class ServiceResponse {
+     export class ServiceResponse extends APIBean {
 
           /**
              Request/Response data content (plain text).
@@ -56,41 +57,42 @@ module Adaptive {
           /**
              The length in bytes for the Content field.
           */
-          contentLength : string;
+          contentLength : number;
           /**
              The request/response content type (MIME TYPE).
           */
           contentType : string;
           /**
-             The headers array (name,value pairs) to be included on the I/O service request.
+             The serviceHeaders array (name,value pairs) to be included on the I/O service request.
           */
-          headers : Array<Header>;
+          serviceHeaders : Array<ServiceHeader>;
           /**
-             The session context for the Request/Response.
+             Information about the session
           */
-          session : ISession;
+          serviceSession : ServiceSession;
           /**
-             Constructor used by the implementation
+             Constructor with fields
 
-             @param content
-             @param contentType
-             @param contentLength
-             @param contentBinary
-             @param contentBinaryLength
-             @param headers
-             @param session
-             @param contentEncoding
+             @param content             Request/Response data content (plain text).
+             @param contentType         The request/response content type (MIME TYPE).
+             @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
+             @param contentLength       The length in bytes for the Content field.
+             @param contentBinary       The byte[] representing the binary Content.
+             @param contentBinaryLength The length in bytes for the binary Content.
+             @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+             @param serviceSession      Information about the session
              @since ARP1.0
           */
-          constructor(content: string, contentType: string, contentLength: string, contentBinary: Array<number>, contentBinaryLength: number, headers: Array<Header>, session: ISession, contentEncoding: string) {
+          constructor(content: string, contentType: string, contentEncoding: string, contentLength: number, contentBinary: Array<number>, contentBinaryLength: number, serviceHeaders: Array<ServiceHeader>, serviceSession: ServiceSession) {
+               super();
                this.content = content;
                this.contentType = contentType;
+               this.contentEncoding = contentEncoding;
                this.contentLength = contentLength;
                this.contentBinary = contentBinary;
                this.contentBinaryLength = contentBinaryLength;
-               this.headers = headers;
-               this.session = session;
-               this.contentEncoding = contentEncoding;
+               this.serviceHeaders = serviceHeaders;
+               this.serviceSession = serviceSession;
           }
 
           /**
@@ -106,7 +108,7 @@ module Adaptive {
           /**
              Set the content
 
-             @param content
+             @param content Request/Response data content (plain text).
              @since ARP1.0
           */
           setContent(content: string) {
@@ -126,7 +128,7 @@ module Adaptive {
           /**
              Set the binary content
 
-             @param contentBinary
+             @param contentBinary The byte[] representing the binary Content.
              @since ARP1.0
           */
           setContentBinary(contentBinary: Array<number>) {
@@ -134,7 +136,7 @@ module Adaptive {
           }
 
           /**
-             Retrusn the binary content length
+             Returns the binary content length
 
              @return contentBinaryLength
              @since ARP1.0
@@ -146,7 +148,7 @@ module Adaptive {
           /**
              Set the binary content length
 
-             @param contentBinaryLength
+             @param contentBinaryLength The length in bytes for the binary Content.
              @since ARP1.0
           */
           setContentBinaryLength(contentBinaryLength: number) {
@@ -166,7 +168,7 @@ module Adaptive {
           /**
              Set the content encoding
 
-             @param contentEncoding
+             @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
              @since ARP1.0
           */
           setContentEncoding(contentEncoding: string) {
@@ -179,17 +181,17 @@ module Adaptive {
              @return contentLength
              @since ARP1.0
           */
-          getContentLength() : string {
+          getContentLength() : number {
                return this.contentLength;
           }
 
           /**
              Set the content length
 
-             @param contentLength
+             @param contentLength The length in bytes for the Content field.
              @since ARP1.0
           */
-          setContentLength(contentLength: string) {
+          setContentLength(contentLength: number) {
                this.contentLength = contentLength;
           }
 
@@ -206,7 +208,7 @@ module Adaptive {
           /**
              Set the content type
 
-             @param contentType
+             @param contentType The request/response content type (MIME TYPE).
              @since ARP1.0
           */
           setContentType(contentType: string) {
@@ -214,43 +216,43 @@ module Adaptive {
           }
 
           /**
-             Returns the array of Header
+             Returns the array of ServiceHeader
 
-             @return headers
+             @return serviceHeaders
              @since ARP1.0
           */
-          getHeaders() : Array<Header> {
-               return this.headers;
+          getServiceHeaders() : Array<ServiceHeader> {
+               return this.serviceHeaders;
           }
 
           /**
-             Set the array of Header
+             Set the array of ServiceHeader
 
-             @param headers
+             @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
              @since ARP1.0
           */
-          setHeaders(headers: Array<Header>) {
-               this.headers = headers;
+          setServiceHeaders(serviceHeaders: Array<ServiceHeader>) {
+               this.serviceHeaders = serviceHeaders;
           }
 
           /**
-             Returns the method
+             Getter for service session
 
-             @return method
+             @return The element service session
              @since ARP1.0
           */
-          getSession() : ISession {
-               return this.session;
+          getServiceSession() : ServiceSession {
+               return this.serviceSession;
           }
 
           /**
-             Set the method
+             Setter for service session
 
-             @param session
+             @param serviceSession The element service session
              @since ARP1.0
           */
-          setSession(session: ISession) {
-               this.session = session;
+          setServiceSession(serviceSession: ServiceSession) {
+               this.serviceSession = serviceSession;
           }
 
 

@@ -26,10 +26,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IBaseMedia interface/protocol.
+       Base application for Media purposes
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
     interface IBaseMedia extends IAdaptiveRP {

@@ -26,11 +26,11 @@ Contributors:
 /**
    Structure representing the phone data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactPhone : NSObject {
+public class ContactPhone : APIBean {
 
      /**
         The phone number phoneType
@@ -42,7 +42,9 @@ public class ContactPhone : NSObject {
      var phone : String?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -51,8 +53,8 @@ public class ContactPhone : NSObject {
      /**
         Constructor used by implementation to set the contact Phone
 
-        @param phone
-        @param phoneType
+        @param phone     Phone number
+        @param phoneType Type of Phone number
         @since ARP1.0
      */
      public init(phone: String, phoneType: ContactPhoneType) {
@@ -74,7 +76,7 @@ public class ContactPhone : NSObject {
      /**
         Set the phoneType of the phone number
 
-        @param phoneType
+        @param phoneType Type of Phone number
         @since ARP1.0
      */
      public func setPhoneType(phoneType: ContactPhoneType) {

@@ -30,8 +30,8 @@ package me.adaptive.arp.api;
 */
 public enum IServiceMethod {
 
-     POST,
-     GET,
+     Post,
+     Get,
      Unknown
 
 }

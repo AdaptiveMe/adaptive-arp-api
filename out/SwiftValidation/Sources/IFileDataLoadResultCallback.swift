@@ -24,19 +24,32 @@ Contributors:
 */
 
 /**
-   Created by clozano on 05/12/14.
+   Interface for Managing the File loading callback responses
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
-public protocol IFileDataLoadResultCallback : IFileDataResultCallback {
+public protocol IFileDataLoadResultCallback : IBaseCallback {
+     /**
+        Error processing data retrieval/storage operation.
+        @param error Error condition encountered.
+        @since ARP1.0
+     */
+     func onError(error:IFileDataLoadResultCallbackError)
      /**
         Result of data retrieval operation.
         @param data Data loaded.
         @since ARP1.0
      */
      func onResult(data:[Byte])
+     /**
+        Result with warning of data retrieval/storage operation.
+        @param data    File being loaded.
+        @param warning Warning condition encountered.
+        @since ARP1.0
+     */
+     func onWarning(data:[Byte], warning:IFileDataLoadResultCallbackWarning)
 }
 
 /**

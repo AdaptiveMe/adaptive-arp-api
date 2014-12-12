@@ -30,8 +30,8 @@ package me.adaptive.arp.api;
 */
 public enum IServiceProtocolVersion {
 
-     HTTP_PROTOCOL_VERSION_1_0,
-     HTTP_PROTOCOL_VERSION_1_1,
+     HttpProtocolVersion10,
+     HttpProtocolVersion11,
      Unknown
 
 }

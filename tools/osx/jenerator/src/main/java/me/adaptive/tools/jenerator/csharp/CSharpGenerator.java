@@ -348,14 +348,18 @@ public class CSharpGenerator extends GeneratorBase {
             }
             print(") ");
             if (c.getParameters().length > 0) {
-                if (!clazz.getSuperclass().equals(Object.class)) {
+                if (!clazz.getSuperclass().equals(Object.class) && !clazz.getSuperclass().getSimpleName().equals("APIBean")) {
                     print(": base(");
                     for (int j = 0; j < c.getParameters().length; j++) {
                         Parameter parameter = c.getParameters()[j];
-                        print(camelCase(parameter.getName()));
-                        if (j < c.getParameters().length - 1) {
-                            print(", ");
+
+                        boolean thisField = false;
+                        for (Field field : clazz.getDeclaredFields()) {
+                            if (parameter.getName().equals(field.getName())) {
+                                thisField = true;
+                            }
                         }
+                        if (!thisField) print(camelCase(parameter.getName()));
                     }
                     println(") {");
                 } else {

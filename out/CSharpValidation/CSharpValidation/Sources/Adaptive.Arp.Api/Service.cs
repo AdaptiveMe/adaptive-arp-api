@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Represents an instance of a service.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Aryslan
+        @since ARP1.0
         @version 1.0
      */
-     public class Service
+     public class Service : APIBean
      {
 
           /**
@@ -46,16 +46,18 @@ namespace Adaptive.Arp.Api
           */
           public IServiceType Type { get; set; }
           /**
-             Enpoint of the service
-          */
-          public Endpoint Endpoint { get; set; }
-          /**
              The service name
           */
           public string Name { get; set; }
+          /**
+             Endpoint of the service
+          */
+          public ServiceEndpoint ServiceEndpoint { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public Service()  {
           }
@@ -63,14 +65,14 @@ namespace Adaptive.Arp.Api
           /**
              Constructor used by the implementation
 
-             @param Endpoint
-             @param Name
-             @param Method
-             @param Type
+             @param ServiceEndpoint Endpoint of the service
+             @param Name            Name of the service
+             @param Method          Method of the service
+             @param Type            Type of the service
              @since ARP1.0
           */
-          public Service(Endpoint Endpoint, string Name, IServiceMethod Method, IServiceType Type) : base () {
-               this.Endpoint = Endpoint;
+          public Service(ServiceEndpoint ServiceEndpoint, string Name, IServiceMethod Method, IServiceType Type) : base () {
+               this.ServiceEndpoint = ServiceEndpoint;
                this.Name = Name;
                this.Method = Method;
                this.Type = Type;
@@ -89,7 +91,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the method
 
-             @param Method
+             @param Method Method of the service
              @since ARP1.0
           */
           public void SetMethod(IServiceMethod Method) {
@@ -109,31 +111,11 @@ namespace Adaptive.Arp.Api
           /**
              Set the type
 
-             @param Type
+             @param Type Type of the service
              @since ARP1.0
           */
           public void SetType(IServiceType Type) {
                this.Type = Type;
-          }
-
-          /**
-             Returns the endpoint
-
-             @return Endpoint
-             @since ARP1.0
-          */
-          public Endpoint GetEndpoint() {
-               return this.Endpoint;
-          }
-
-          /**
-             Set the endpoint
-
-             @param Endpoint
-             @since ARP1.0
-          */
-          public void SetEndpoint(Endpoint Endpoint) {
-               this.Endpoint = Endpoint;
           }
 
           /**
@@ -149,11 +131,31 @@ namespace Adaptive.Arp.Api
           /**
              Set the name
 
-             @param Name
+             @param Name Name of the service
              @since ARP1.0
           */
           public void SetName(string Name) {
                this.Name = Name;
+          }
+
+          /**
+             Returns the serviceEndpoint
+
+             @return ServiceEndpoint
+             @since ARP1.0
+          */
+          public ServiceEndpoint GetServiceEndpoint() {
+               return this.ServiceEndpoint;
+          }
+
+          /**
+             Set the serviceEndpoint
+
+             @param ServiceEndpoint Endpoint of the service
+             @since ARP1.0
+          */
+          public void SetServiceEndpoint(ServiceEndpoint ServiceEndpoint) {
+               this.ServiceEndpoint = ServiceEndpoint;
           }
 
 

@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Structure representing the address data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactAddress {
+public class ContactAddress extends APIBean {
 
      /**
         The address type
@@ -44,20 +44,22 @@ public class ContactAddress {
      private String address;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public ContactAddress() {
      }
 
      /**
-        Constructor used by the implementation
+        Constructor with fields
 
         @param address Address data.
         @param type    Address type.
         @since ARP1.0
      */
      public ContactAddress(String address, ContactAddressType type) {
-          this();
+          super();
           this.address = address;
           this.type = type;
      }

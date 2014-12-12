@@ -23,16 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Structure representing a database reference.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Ferran Vila Conesa
+@since ARP1.0
 @version 1.0
 */
-@interface Database : NSObject
+@interface Database : APIBean
 
      /**
         Indicates if database was created or needs to be created as Compressed.
@@ -44,7 +45,9 @@ Structure representing a database reference.
      @property NSString *name;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
@@ -52,7 +55,6 @@ Structure representing a database reference.
         Default constructor. The compress param is setted to false.
 
         @param name Name of the table.
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      - (id) initWithName:(NSString*)name;
@@ -60,9 +62,8 @@ Structure representing a database reference.
      /**
         Constructor using fields.
 
-        @param name     Name of the Table.
-        @param compress Compress enbaled or not.
-        @author Ferran Vila Conesa
+        @param name     Name of the DatabaseTable.
+        @param compress Compression enabled.
         @since ARP1.0
      */
      - (id) initWithNameCompress:(NSString*)name compress:(bool*)compress;

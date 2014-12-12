@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Aryslan
+@since ARP1.0
 @version 1.0
 */
 @implementation Service
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -45,16 +47,16 @@ Contributors:
      /**
         Constructor used by the implementation
 
-        @param endpoint
-        @param name
-        @param method
-        @param type
+        @param serviceEndpoint Endpoint of the service
+        @param name            Name of the service
+        @param method          Method of the service
+        @param type            Type of the service
         @since ARP1.0
      */
-     - (id) initWithEndpointNameMethodType:(Endpoint*)endpoint name:(NSString*)name method:(IServiceMethod*)method type:(IServiceType*)type {
-          self = [self init];
+     - (id) initWithServiceEndpointNameMethodType:(ServiceEndpoint*)serviceEndpoint name:(NSString*)name method:(IServiceMethod*)method type:(IServiceType*)type {
+          self = [super initWithServiceEndpointNameMethodType:serviceEndpoint, name, method, type];
           if (self) {
-               [self setEndpoint:endpoint];
+               [self setServiceEndpoint:serviceEndpoint];
                [self setName:name];
                [self setMethod:method];
                [self setType:type];

@@ -28,16 +28,12 @@ package me.adaptive.arp.api;
 /**
    Structure representing the data elements of an email.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class Email {
+public class Email extends APIBean {
 
-     /**
-        Array of attatchments
-     */
-     private AttachmentData[] attachmentData;
      /**
         Array of Email Blind Carbon Copy recipients
      */
@@ -46,6 +42,10 @@ public class Email {
         Array of Email Carbon Copy recipients
      */
      private EmailAddress[] ccRecipients;
+     /**
+        Array of attatchments
+     */
+     private EmailAttachmentData[] emailAttachmentData;
      /**
         Message body
      */
@@ -64,7 +64,9 @@ public class Email {
      private EmailAddress[] toRecipients;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public Email() {
      }
@@ -75,18 +77,18 @@ public class Email {
         @param toRecipients        array of recipients
         @param ccRecipients        array of cc recipients
         @param bccRecipients       array of bcc recipients
-        @param attachmentData      array of attatchments
+        @param emailAttachmentData array of attatchments
         @param messageBody         body of the email
         @param messageBodyMimeType mime type of the body
         @param subject             of the email
         @since ARP1.0
      */
-     public Email(EmailAddress[] toRecipients, EmailAddress[] ccRecipients, EmailAddress[] bccRecipients, AttachmentData[] attachmentData, String messageBody, String messageBodyMimeType, String subject) {
-          this();
+     public Email(EmailAddress[] toRecipients, EmailAddress[] ccRecipients, EmailAddress[] bccRecipients, EmailAttachmentData[] emailAttachmentData, String messageBody, String messageBodyMimeType, String subject) {
+          super();
           this.toRecipients = toRecipients;
           this.ccRecipients = ccRecipients;
           this.bccRecipients = bccRecipients;
-          this.attachmentData = attachmentData;
+          this.emailAttachmentData = emailAttachmentData;
           this.messageBody = messageBody;
           this.messageBodyMimeType = messageBodyMimeType;
           this.subject = subject;
@@ -101,30 +103,10 @@ public class Email {
         @since ARP1.0
      */
      public Email(EmailAddress[] toRecipients, String subject, String messageBody) {
-          this();
+          super();
           this.toRecipients = toRecipients;
           this.subject = subject;
           this.messageBody = messageBody;
-     }
-
-     /**
-        Returns an array of attachments
-
-        @return attachmentData array with the email attachments
-        @since ARP1.0
-     */
-     public AttachmentData[] getAttachmentData() {
-          return this.attachmentData;
-     }
-
-     /**
-        Set the email attachment data array
-
-        @param attachmentData array of email attatchments
-        @since ARP1.0
-     */
-     public void setAttachmentData(AttachmentData[] attachmentData) {
-          this.attachmentData = attachmentData;
      }
 
      /**
@@ -168,9 +150,30 @@ public class Email {
      }
 
      /**
+        Returns an array of attachments
+
+        @return emailAttachmentData array with the email attachments
+        @since ARP1.0
+     */
+     public EmailAttachmentData[] getEmailAttachmentData() {
+          return this.emailAttachmentData;
+     }
+
+     /**
+        Set the email attachment data array
+
+        @param emailAttachmentData array of email attatchments
+        @since ARP1.0
+     */
+     public void setEmailAttachmentData(EmailAttachmentData[] emailAttachmentData) {
+          this.emailAttachmentData = emailAttachmentData;
+     }
+
+     /**
         Returns the message body of the email
 
         @return message Body string of the email
+        @since ARP1.0
      */
      public String getMessageBody() {
           return this.messageBody;

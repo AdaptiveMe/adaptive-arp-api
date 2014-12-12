@@ -31,10 +31,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IFile interface/protocol.
+       Interface for Managing the File operations
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
     interface IFile {
@@ -89,11 +89,15 @@ deleted if the cascade parameter is set to true.
         */
         getDateModified(): number;
         /**
-           null
+           Returns the file storage type of the file
+           @return Storage Type file
+           @since ARP1.0
         */
         getFileStorageType(): IFileSystemStorageType;
         /**
-           null
+           Returns the file type
+           @return Returns the file type of the file
+           @since ARP1.0
         */
         getFileType(): IFileSystemType;
         /**
@@ -115,7 +119,9 @@ deleted if the cascade parameter is set to true.
         */
         getPathAbsolute(): string;
         /**
-           null
+           Returns the security type of the file
+           @return Security Level of the file
+           @since ARP1.0
         */
         getSecurityType(): IFileSystemSecurity;
         /**

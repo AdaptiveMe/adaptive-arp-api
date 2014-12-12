@@ -23,16 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Structure representing the data a single geolocation reading.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
-@interface Geolocation : NSObject
+@interface Geolocation : APIBean
 
      /**
         The current device altitude (or Z coordinate). Measured in meters.
@@ -47,6 +48,10 @@ Structure representing the data a single geolocation reading.
      */
      @property double *longitude;
      /**
+        Timestamp of the geolocation reading.
+     */
+     @property long *timestamp;
+     /**
         Dilution of precision on the X measurement. Measured in meters.
      */
      @property float *xDoP;
@@ -56,21 +61,34 @@ Structure representing the data a single geolocation reading.
      @property float *yDoP;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
      /**
-        Constructor used by the implementation
+        Constructor with parameters
 
-        @param latitude
-        @param longitude
-        @param altitude
-        @param xDoP
-        @param yDoP
+        @param latitude  Latitude of the measurement
+        @param longitude Longitude of the measurement
+        @param altitude  Altitude of the measurement
+        @param xDoP      Dilution of precision on the X measurement
+        @param yDoP      Dilution of precision on the Y measurement
+        @param timestamp Timestamp of the measurement
         @since ARP1.0
      */
-     - (id) initWithLatitudeLongitudeAltitudeXDoPYDoP:(double*)latitude longitude:(double*)longitude altitude:(double*)altitude xDoP:(float*)xDoP yDoP:(float*)yDoP;
+     - (id) initWithLatitudeLongitudeAltitudeXDoPYDoPTimestamp:(double*)latitude longitude:(double*)longitude altitude:(double*)altitude xDoP:(float*)xDoP yDoP:(float*)yDoP timestamp:(long*)timestamp;
+
+     /**
+        Constructor with parameters
+
+        @param latitude  Latitude of the measurement
+        @param longitude Longitude of the measurement
+        @param timestamp Timestamp of the measurement
+        @since ARP1.0
+     */
+     - (id) initWithLatitudeLongitudeTimestamp:(double*)latitude longitude:(double*)longitude timestamp:(long*)timestamp;
 
 
 @end

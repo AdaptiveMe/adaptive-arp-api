@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of ITimer interface/protocol.
+   Interface for Managing the Timer operations
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public protocol ITimer : IBaseUtil {

@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseCallback.h>
 
 /**
-Created by clozano on 05/09/2014.
+This interface manages the responses of the resource callback
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol IAppResourceCallback <IBaseCallback>

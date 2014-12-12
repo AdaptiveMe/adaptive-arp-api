@@ -24,29 +24,29 @@ Contributors:
 */
 
 /**
-   Created by FRMI on 28/08/2014.
+   Interface for Managing the Network reachability callback result
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public protocol INetworkReachabilityCallback : IBaseCallback {
      /**
         No data received - error condition, not authorized .
-        @param error
+        @param error Error value
         @since ARP1.0
      */
      func onError(error:INetworkReachabilityCallbackError)
      /**
         Correct data received.
-        @param reachable
+        @param reachable Indicates if the host is reachable
         @since ARP1.0
      */
      func onResult(reachable:Bool)
      /**
         Data received with warning - ie Found entries with existing key and values have been overriden
-        @param reachable
-        @param warning
+        @param reachable Indicates if the host is reachable
+        @param warning   Warning value
         @since ARP1.0
      */
      func onWarning(reachable:Bool, warning:INetworkReachabilityCallbackWarning)

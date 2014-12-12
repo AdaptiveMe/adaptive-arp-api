@@ -26,10 +26,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of ITwitter interface/protocol.
+       Interface for Managing the Twitter operations
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
     interface ITwitter extends IBaseSocial {

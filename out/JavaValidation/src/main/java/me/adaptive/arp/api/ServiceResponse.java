@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Represents a local or remote service response.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Aryslan
+   @since ARP1.0
    @version 1.0
 */
-public class ServiceResponse {
+public class ServiceResponse extends APIBean {
 
      /**
         Request/Response data content (plain text).
@@ -53,49 +53,49 @@ public class ServiceResponse {
      /**
         The length in bytes for the Content field.
      */
-     private String contentLength;
+     private int contentLength;
      /**
         The request/response content type (MIME TYPE).
      */
      private String contentType;
      /**
-        The headers array (name,value pairs) to be included on the I/O service request.
+        The serviceHeaders array (name,value pairs) to be included on the I/O service request.
      */
-     private Header[] headers;
+     private ServiceHeader[] serviceHeaders;
      /**
-        The session context for the Request/Response.
+        Information about the session
      */
-     private ISession session;
+     private ServiceSession serviceSession;
 
      /**
-        Constructor used by the implementation
+        Default constructor
      */
      public ServiceResponse() {
      }
 
      /**
-        Constructor used by the implementation
+        Constructor with fields
 
-        @param content
-        @param contentType
-        @param contentLength
-        @param contentBinary
-        @param contentBinaryLength
-        @param headers
-        @param session
-        @param contentEncoding
+        @param content             Request/Response data content (plain text).
+        @param contentType         The request/response content type (MIME TYPE).
+        @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
+        @param contentLength       The length in bytes for the Content field.
+        @param contentBinary       The byte[] representing the binary Content.
+        @param contentBinaryLength The length in bytes for the binary Content.
+        @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+        @param serviceSession      Information about the session
         @since ARP1.0
      */
-     public ServiceResponse(String content, String contentType, String contentLength, byte[] contentBinary, int contentBinaryLength, Header[] headers, ISession session, String contentEncoding) {
-          this();
+     public ServiceResponse(String content, String contentType, String contentEncoding, int contentLength, byte[] contentBinary, int contentBinaryLength, ServiceHeader[] serviceHeaders, ServiceSession serviceSession) {
+          super();
           this.content = content;
           this.contentType = contentType;
+          this.contentEncoding = contentEncoding;
           this.contentLength = contentLength;
           this.contentBinary = contentBinary;
           this.contentBinaryLength = contentBinaryLength;
-          this.headers = headers;
-          this.session = session;
-          this.contentEncoding = contentEncoding;
+          this.serviceHeaders = serviceHeaders;
+          this.serviceSession = serviceSession;
      }
 
      /**
@@ -111,7 +111,7 @@ public class ServiceResponse {
      /**
         Set the content
 
-        @param content
+        @param content Request/Response data content (plain text).
         @since ARP1.0
      */
      public void setContent(String content) {
@@ -131,7 +131,7 @@ public class ServiceResponse {
      /**
         Set the binary content
 
-        @param contentBinary
+        @param contentBinary The byte[] representing the binary Content.
         @since ARP1.0
      */
      public void setContentBinary(byte[] contentBinary) {
@@ -139,7 +139,7 @@ public class ServiceResponse {
      }
 
      /**
-        Retrusn the binary content length
+        Returns the binary content length
 
         @return contentBinaryLength
         @since ARP1.0
@@ -151,7 +151,7 @@ public class ServiceResponse {
      /**
         Set the binary content length
 
-        @param contentBinaryLength
+        @param contentBinaryLength The length in bytes for the binary Content.
         @since ARP1.0
      */
      public void setContentBinaryLength(int contentBinaryLength) {
@@ -171,7 +171,7 @@ public class ServiceResponse {
      /**
         Set the content encoding
 
-        @param contentEncoding
+        @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
         @since ARP1.0
      */
      public void setContentEncoding(String contentEncoding) {
@@ -184,17 +184,17 @@ public class ServiceResponse {
         @return contentLength
         @since ARP1.0
      */
-     public String getContentLength() {
+     public int getContentLength() {
           return this.contentLength;
      }
 
      /**
         Set the content length
 
-        @param contentLength
+        @param contentLength The length in bytes for the Content field.
         @since ARP1.0
      */
-     public void setContentLength(String contentLength) {
+     public void setContentLength(int contentLength) {
           this.contentLength = contentLength;
      }
 
@@ -211,7 +211,7 @@ public class ServiceResponse {
      /**
         Set the content type
 
-        @param contentType
+        @param contentType The request/response content type (MIME TYPE).
         @since ARP1.0
      */
      public void setContentType(String contentType) {
@@ -219,43 +219,43 @@ public class ServiceResponse {
      }
 
      /**
-        Returns the array of Header
+        Returns the array of ServiceHeader
 
-        @return headers
+        @return serviceHeaders
         @since ARP1.0
      */
-     public Header[] getHeaders() {
-          return this.headers;
+     public ServiceHeader[] getServiceHeaders() {
+          return this.serviceHeaders;
      }
 
      /**
-        Set the array of Header
+        Set the array of ServiceHeader
 
-        @param headers
+        @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
         @since ARP1.0
      */
-     public void setHeaders(Header[] headers) {
-          this.headers = headers;
+     public void setServiceHeaders(ServiceHeader[] serviceHeaders) {
+          this.serviceHeaders = serviceHeaders;
      }
 
      /**
-        Returns the method
+        Getter for service session
 
-        @return method
+        @return The element service session
         @since ARP1.0
      */
-     public ISession getSession() {
-          return this.session;
+     public ServiceSession getServiceSession() {
+          return this.serviceSession;
      }
 
      /**
-        Set the method
+        Setter for service session
 
-        @param session
+        @param serviceSession The element service session
         @since ARP1.0
      */
-     public void setSession(ISession session) {
-          this.session = session;
+     public void setServiceSession(ServiceSession serviceSession) {
+          this.serviceSession = serviceSession;
      }
 
 

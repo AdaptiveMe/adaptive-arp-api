@@ -23,21 +23,22 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Structure representing the data of a single acceleration reading.
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
-@interface Acceleration : NSObject
+@interface Acceleration : APIBean
 
      /**
         Timestamp of the acceleration reading.
      */
-     @property long *timeStamp;
+     @property long *timestamp;
      /**
         X-axis component of the acceleration.
      */
@@ -52,20 +53,22 @@ Structure representing the data of a single acceleration reading.
      @property double *z;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
      /**
-        Convenience constructor.
+        Constructor with fields
 
-        @param x X Coordinate
-        @param y Y Coordinate
-        @param z Z Coordinate
-        @author Carlos Lozano Diez
+        @param x         X Coordinate
+        @param y         Y Coordinate
+        @param z         Z Coordinate
+        @param timestamp Timestamp
         @since ARP1.0
      */
-     - (id) initWithXYZTimeStamp:(double*)x y:(double*)y z:(double*)z timeStamp:(long*)timeStamp;
+     - (id) initWithXYZTimestamp:(double*)x y:(double*)y z:(double*)z timestamp:(long*)timestamp;
 
 
 @end

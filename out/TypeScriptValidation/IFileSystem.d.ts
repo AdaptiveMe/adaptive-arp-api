@@ -27,10 +27,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IFileSystem interface/protocol.
+       Interface for Managing the File System operations
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
     interface IFileSystem extends IBaseData {
@@ -38,8 +38,9 @@ declare module Adaptive {
            Creates a new reference to a new or existing location in the filesystem.
 This method does not create the actual file in the specified folder.
            @param parent Parent directory.
-           @param name Name of new file or directory.
+           @param name   Name of new file or directory.
            @return A reference to a new or existing location in the filesystem.
+           @since ARP1.0
         */
         createFileDescriptor(parent: IFile, name: string): IFile;
         /**

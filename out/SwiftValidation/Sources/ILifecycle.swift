@@ -24,16 +24,16 @@ Contributors:
 */
 
 /**
-   Definition of ILifecycle interface/protocol.
+   Interface for Managing the Lifecycle listeners
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public protocol ILifecycle : IBaseApplication {
      /**
         Add the listener for the lifecycle of the app
-        @param listener
+        @param listener Lifecycle listener
         @since ARP1.0
      */
      func addLifecycleListener(listener:ILifecycleListener)
@@ -46,7 +46,7 @@ public protocol ILifecycle : IBaseApplication {
 
      /**
         Un-registers an existing listener from receiving lifecycle events.
-        @param listener
+        @param listener Lifecycle listener
         @since ARP1.0
      */
      func removeLifecycleListener(listener:ILifecycleListener)

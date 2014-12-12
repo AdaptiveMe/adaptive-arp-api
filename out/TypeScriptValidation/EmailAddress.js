@@ -22,23 +22,32 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the data elements of an email addressee.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var EmailAddress = (function () {
+    var EmailAddress = (function (_super) {
+        __extends(EmailAddress, _super);
         /**
            Constructor used by implementation
 
-           @param address
+           @param address of the Email
            @since ARP1.0
         */
         function EmailAddress(address) {
+            _super.call(this);
             this.address = address;
         }
         /**
@@ -60,7 +69,7 @@ var Adaptive;
             this.address = address;
         };
         return EmailAddress;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.EmailAddress = EmailAddress;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=EmailAddress.js.map

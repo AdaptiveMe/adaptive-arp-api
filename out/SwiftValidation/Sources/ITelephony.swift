@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of ITelephony interface/protocol.
+   Interface for Managing the Telephony operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
 public protocol ITelephony : IBaseCommunication {

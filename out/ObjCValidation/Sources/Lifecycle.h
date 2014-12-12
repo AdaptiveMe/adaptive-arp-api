@@ -23,22 +23,23 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Represents a specific application life-cycle stage.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
-@interface Lifecycle : NSObject
+@interface Lifecycle : APIBean
 
      /**
         Represent the state of the app
-
+<p/>
 Possible lifecycle States:
-
+<p/>
 1. Starting    - Before starting.
 2. Started     - Start concluded.
 3. Running     - Accepts user interaction - running in foreground.
@@ -63,14 +64,16 @@ Possible lifecycle States:
      @property LifecycleState *state;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
      /**
         Constructor used by the implementation
 
-        @param state
+        @param state of the app
         @since ARP1.0
      */
      - (id) initWithState:(LifecycleState*)state;

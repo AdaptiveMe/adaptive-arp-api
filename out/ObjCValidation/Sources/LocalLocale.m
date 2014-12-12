@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Aryslan
+@since ARP1.0
 @version 1.0
 */
 @implementation LocalLocale
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -45,12 +47,12 @@ Contributors:
      /**
         Constructor used by the implementation
 
-        @param country
-        @param language
+        @param country  Country of the Locale
+        @param language Language of the Locale
         @since ARP1.0
      */
      - (id) initWithLanguageCountry:(NSString*)language country:(NSString*)country {
-          self = [self init];
+          self = [super initWithLanguageCountry:language, country];
           if (self) {
                [self setLanguage:language];
                [self setCountry:country];

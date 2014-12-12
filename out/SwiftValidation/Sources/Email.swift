@@ -26,16 +26,12 @@ Contributors:
 /**
    Structure representing the data elements of an email.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class Email : NSObject {
+public class Email : APIBean {
 
-     /**
-        Array of attatchments
-     */
-     var attachmentData : [AttachmentData]?
      /**
         Array of Email Blind Carbon Copy recipients
      */
@@ -44,6 +40,10 @@ public class Email : NSObject {
         Array of Email Carbon Copy recipients
      */
      var ccRecipients : [EmailAddress]?
+     /**
+        Array of attatchments
+     */
+     var emailAttachmentData : [EmailAttachmentData]?
      /**
         Message body
      */
@@ -62,7 +62,9 @@ public class Email : NSObject {
      var toRecipients : [EmailAddress]?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -74,18 +76,18 @@ public class Email : NSObject {
         @param toRecipients        array of recipients
         @param ccRecipients        array of cc recipients
         @param bccRecipients       array of bcc recipients
-        @param attachmentData      array of attatchments
+        @param emailAttachmentData array of attatchments
         @param messageBody         body of the email
         @param messageBodyMimeType mime type of the body
         @param subject             of the email
         @since ARP1.0
      */
-     public init(toRecipients: [EmailAddress], ccRecipients: [EmailAddress], bccRecipients: [EmailAddress], attachmentData: [AttachmentData], messageBody: String, messageBodyMimeType: String, subject: String) {
+     public init(toRecipients: [EmailAddress], ccRecipients: [EmailAddress], bccRecipients: [EmailAddress], emailAttachmentData: [EmailAttachmentData], messageBody: String, messageBodyMimeType: String, subject: String) {
           super.init()
           self.toRecipients = toRecipients
           self.ccRecipients = ccRecipients
           self.bccRecipients = bccRecipients
-          self.attachmentData = attachmentData
+          self.emailAttachmentData = emailAttachmentData
           self.messageBody = messageBody
           self.messageBodyMimeType = messageBodyMimeType
           self.subject = subject
@@ -104,26 +106,6 @@ public class Email : NSObject {
           self.toRecipients = toRecipients
           self.subject = subject
           self.messageBody = messageBody
-     }
-
-     /**
-        Returns an array of attachments
-
-        @return attachmentData array with the email attachments
-        @since ARP1.0
-     */
-     public func getAttachmentData() -> [AttachmentData]? {
-          return self.attachmentData
-     }
-
-     /**
-        Set the email attachment data array
-
-        @param attachmentData array of email attatchments
-        @since ARP1.0
-     */
-     public func setAttachmentData(attachmentData: [AttachmentData]) {
-          self.attachmentData = attachmentData
      }
 
      /**
@@ -167,9 +149,30 @@ public class Email : NSObject {
      }
 
      /**
+        Returns an array of attachments
+
+        @return emailAttachmentData array with the email attachments
+        @since ARP1.0
+     */
+     public func getEmailAttachmentData() -> [EmailAttachmentData]? {
+          return self.emailAttachmentData
+     }
+
+     /**
+        Set the email attachment data array
+
+        @param emailAttachmentData array of email attatchments
+        @since ARP1.0
+     */
+     public func setEmailAttachmentData(emailAttachmentData: [EmailAttachmentData]) {
+          self.emailAttachmentData = emailAttachmentData
+     }
+
+     /**
         Returns the message body of the email
 
         @return message Body string of the email
+        @since ARP1.0
      */
      public func getMessageBody() -> String? {
           return self.messageBody

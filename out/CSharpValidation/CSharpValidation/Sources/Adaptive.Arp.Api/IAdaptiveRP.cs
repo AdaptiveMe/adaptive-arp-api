@@ -28,15 +28,17 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of IAdaptiveRP interface/protocol.
+        Master interface for all the Groups and Types of Interfaces os the Project
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      public interface IAdaptiveRP {
           /**
-             null
+             Method that returns the API group of the implementation
+             @return API GRoup
+             @since ARP1.0
           */
           IAdaptiveRPGroup GetAPIGroup();
 

@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Represents a specific user or system locate.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Aryslan
+   @since ARP1.0
    @version 1.0
 */
-public class Locale {
+public class Locale extends APIBean {
 
      /**
         A valid ISO Country Code.
@@ -44,7 +44,9 @@ public class Locale {
      private String language;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public Locale() {
      }
@@ -52,12 +54,12 @@ public class Locale {
      /**
         Constructor used by the implementation
 
-        @param country
-        @param language
+        @param country  Country of the Locale
+        @param language Language of the Locale
         @since ARP1.0
      */
      public Locale(String language, String country) {
-          this();
+          super();
           this.language = language;
           this.country = country;
      }

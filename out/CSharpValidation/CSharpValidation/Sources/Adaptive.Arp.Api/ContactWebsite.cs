@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the website data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class ContactWebsite
+     public class ContactWebsite : APIBean
      {
 
           /**
@@ -43,7 +43,9 @@ namespace Adaptive.Arp.Api
           public string Url { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public ContactWebsite()  {
           }
@@ -51,7 +53,7 @@ namespace Adaptive.Arp.Api
           /**
              Constructor used by the implementation
 
-             @param Url
+             @param Url Url of the website
              @since ARP1.0
           */
           public ContactWebsite(string Url) : base () {
@@ -71,7 +73,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the url of the website
 
-             @param Url
+             @param Url Url of the website
              @since ARP1.0
           */
           public void SetUrl(string Url) {

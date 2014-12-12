@@ -29,10 +29,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IDevice interface/protocol.
+       Interface for Managing the Device operations
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
     interface IDevice extends IBaseSystem {
@@ -45,11 +45,13 @@ declare module Adaptive {
         /**
            Returns the device information for the current device executing the runtime.
            @return DeviceInfo for the current device.
+           @since ARP1.0
         */
         getDeviceInfo(): DeviceInfo;
         /**
            Gets the current Locale for the device.
            @return The current Locale information.
+           @since ARP1.0
         */
         getLocaleCurrent(): Locale;
         /**

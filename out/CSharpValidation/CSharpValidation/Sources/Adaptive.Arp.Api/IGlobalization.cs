@@ -28,10 +28,10 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of IGlobalization interface/protocol.
+        Interface for Managing the Globalization results
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
      public interface IGlobalization : IBaseApplication {
@@ -54,10 +54,10 @@ namespace Adaptive.Arp.Api
           /**
              Gets the full application configured literals (key/message pairs) corresponding to the given locale.
              @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-             @return Localized texts in the form of an object (you could get the value of a keyed literal using resourceLiteralDictionary.MY_KEY or resourceLiteralDictionary["MY_KEY"]).
+             @return Localized texts in the form of an object.
              @since ARP1.0
           */
-          System.Collections.Generic.Dictionary<String,String> GetResourceLiterals(Locale Locale);
+          KeyPair[] GetResourceLiterals(Locale Locale);
 
      }
 }

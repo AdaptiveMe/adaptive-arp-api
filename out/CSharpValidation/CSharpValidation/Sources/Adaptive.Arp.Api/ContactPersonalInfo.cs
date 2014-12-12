@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the personal info data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class ContactPersonalInfo
+     public class ContactPersonalInfo : APIBean
      {
 
           /**
@@ -55,7 +55,9 @@ namespace Adaptive.Arp.Api
           public string Name { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public ContactPersonalInfo()  {
           }
@@ -89,7 +91,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the Title of the Contact
 
-             @param Title
+             @param Title of the Contact
              @since ARP1.0
           */
           public void SetTitle(ContactPersonalInfoTitle Title) {
@@ -109,7 +111,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the last name of the Contact
 
-             @param LastName
+             @param LastName of the Contact
              @since ARP1.0
           */
           public void SetLastName(string LastName) {
@@ -129,7 +131,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the middle name of the Contact
 
-             @param MiddleName
+             @param MiddleName of the Contact
              @since ARP1.0
           */
           public void SetMiddleName(string MiddleName) {
@@ -149,7 +151,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the name of the Contact
 
-             @param Name
+             @param Name of the Contact
              @since ARP1.0
           */
           public void SetName(string Name) {

@@ -22,16 +22,24 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the basic device information.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var DeviceInfo = (function () {
+    var DeviceInfo = (function (_super) {
+        __extends(DeviceInfo, _super);
         /**
            Constructor for the implementation of the platform.
 
@@ -39,8 +47,10 @@ var Adaptive;
            @param model  of the device.
            @param vendor of the device.
            @param uuid   unique* identifier (* platform dependent).
+           @since ARP1.0
         */
         function DeviceInfo(name, model, vendor, uuid) {
+            _super.call(this);
             this.name = name;
             this.model = model;
             this.vendor = vendor;
@@ -50,6 +60,7 @@ var Adaptive;
            Returns the model of the device.
 
            @return String with the model of the device.
+           @since ARP1.0
         */
         DeviceInfo.prototype.getModel = function () {
             return this.model;
@@ -66,6 +77,7 @@ var Adaptive;
            Returns the name of the device.
 
            @return String with device name.
+           @since ARP1.0
         */
         DeviceInfo.prototype.getName = function () {
             return this.name;
@@ -82,6 +94,7 @@ var Adaptive;
            Returns the platform dependent UUID of the device.
 
            @return String with the 128-bit device identifier.
+           @since ARP1.0
         */
         DeviceInfo.prototype.getUuid = function () {
             return this.uuid;
@@ -100,6 +113,7 @@ be unique for a specific instance of an application on a specific device.
            Returns the vendor of the device.
 
            @return String with the vendor name.
+           @since ARP1.0
         */
         DeviceInfo.prototype.getVendor = function () {
             return this.vendor;
@@ -113,7 +127,7 @@ be unique for a specific instance of an application on a specific device.
             this.vendor = vendor;
         };
         return DeviceInfo;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.DeviceInfo = DeviceInfo;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=DeviceInfo.js.map

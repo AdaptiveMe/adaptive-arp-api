@@ -26,11 +26,11 @@ Contributors:
 /**
    Represents a specific user or system locate.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Aryslan
+   @since ARP1.0
    @version 1.0
 */
-public class Locale : NSObject {
+public class Locale : APIBean {
 
      /**
         A valid ISO Country Code.
@@ -42,7 +42,9 @@ public class Locale : NSObject {
      var language : String?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -51,8 +53,8 @@ public class Locale : NSObject {
      /**
         Constructor used by the implementation
 
-        @param country
-        @param language
+        @param country  Country of the Locale
+        @param language Language of the Locale
         @since ARP1.0
      */
      public init(language: String, country: String) {

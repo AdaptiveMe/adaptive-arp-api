@@ -29,10 +29,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IGeolocationListener interface/protocol.
+       Interface for Managing the Geolocation results
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
     interface IGeolocationListener extends IBaseListener {
@@ -43,13 +43,13 @@ declare module Adaptive {
         onError(error: IGeolocationListenerError): any;
         /**
            Correct data received.
-           @param geolocation
+           @param geolocation Geolocation Bean
            @since ARP1.0
         */
         onResult(geolocation: Geolocation): any;
         /**
            Data received with warning - ie. HighDoP
-           @param geolocation
+           @param geolocation Geolocation Bean
            @since ARP1.0
         */
         onWarning(geolocation: Geolocation, warning: IGeolocationListenerWarning): any;

@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -26,11 +27,11 @@ declare module Adaptive {
     /**
        Structure representing a database reference.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Ferran Vila Conesa
+       @since ARP1.0
        @version 1.0
     */
-    class Database {
+    class Database extends APIBean {
         /**
            Indicates if database was created or needs to be created as Compressed.
         */
@@ -42,9 +43,8 @@ declare module Adaptive {
         /**
            Constructor using fields.
 
-           @param name     Name of the Table.
-           @param compress Compress enbaled or not.
-           @author Ferran Vila Conesa
+           @param name     Name of the DatabaseTable.
+           @param compress Compression enabled.
            @since ARP1.0
         */
         constructor(name: string, compress: boolean);
@@ -52,7 +52,6 @@ declare module Adaptive {
            Returns if the table is compressed
 
            @return Compression enabled
-           @author Ferran Vila Conesa
            @since ARP1.0
         */
         getCompress(): boolean;
@@ -60,7 +59,6 @@ declare module Adaptive {
            Sets if the table is compressed or not.
 
            @param compress Compression enabled
-           @author Ferran Vila Conesa
            @since ARP1.0
         */
         setCompress(compress: boolean): void;
@@ -68,7 +66,6 @@ declare module Adaptive {
            Returns the name.
 
            @return The name of the table.
-           @author Ferran Vila Conesa
            @since ARP1.0
         */
         getName(): string;
@@ -76,7 +73,6 @@ declare module Adaptive {
            Sets the name of the table.
 
            @param name The name of the table.
-           @author Ferran Vila Conesa
            @since ARP1.0
         */
         setName(name: string): void;

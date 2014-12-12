@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of IGeolocation interface/protocol.
+   Interface for Managing the Geolocation operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
 public protocol IGeolocation : IBaseSensor {
@@ -39,7 +39,7 @@ public protocol IGeolocation : IBaseSensor {
      func addGeolocationListener(listener:IGeolocationListener)
      /**
         De-registers an existing listener from receiving geolocation events.
-        @param listener
+        @param listener to be registered.
         @since ARP1.0
      */
      func removeGeolocationListener(listener:IGeolocationListener)

@@ -28,19 +28,19 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Created by clozano on 05/09/2014.
+        Interface to retrieve auto-registered service implementation references.
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      public interface IAppRegistry {
           /**
-             Returns a reference to the registered AccelerometerHandler.
+             Returns a reference to the registered AccelerationHandler.
 
-             @return AccelerometerHandler reference or null if a handler of this type is not registered.
+             @return AccelerationHandler reference or null if a handler of this type is not registered.
           */
-          IAccelerometer GetAccelerometerHandler();
+          IAcceleration GetAccelerationHandler();
 
           /**
              Returns a reference to the registered AdsHandler.
@@ -435,13 +435,6 @@ namespace Adaptive.Arp.Api
           IService GetServiceHandler();
 
           /**
-             Returns a reference to the registered SessionHandler.
-
-             @return SessionHandler reference or null if a handler of this type is not registered.
-          */
-          ISession GetSessionHandler();
-
-          /**
              Returns a reference to the registered SettingsHandler.
 
              @return SettingsHandler reference or null if a handler of this type is not registered.
@@ -526,12 +519,16 @@ namespace Adaptive.Arp.Api
           IXML GetXMLHandler();
 
           /**
-             null
+             Returns a reference to the Platform Context
+             @return Reference to the platform context
+             @since ARP1.0
           */
           IAppContext GetPlatformContext();
 
           /**
-             null
+             Returns a reference to the Webview platform context
+             @return Reference to the Webview Context
+             @since ARP1.0
           */
           IAppContextWebview GetPlatformContextWeb();
 

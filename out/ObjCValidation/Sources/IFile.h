@@ -26,10 +26,10 @@ Contributors:
 #import <Foundation/Foundation.h>
 
 /**
-Definition of IFile interface/protocol.
+Interface for Managing the File operations
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol IFile <NSObject>

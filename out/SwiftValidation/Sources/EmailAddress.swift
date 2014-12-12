@@ -26,11 +26,11 @@ Contributors:
 /**
    Structure representing the data elements of an email addressee.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class EmailAddress : NSObject {
+public class EmailAddress : APIBean {
 
      /**
         The Email address
@@ -38,7 +38,9 @@ public class EmailAddress : NSObject {
      var address : String?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -47,7 +49,7 @@ public class EmailAddress : NSObject {
      /**
         Constructor used by implementation
 
-        @param address
+        @param address of the Email
         @since ARP1.0
      */
      public init(address: String) {

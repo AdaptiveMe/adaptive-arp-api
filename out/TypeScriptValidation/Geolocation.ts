@@ -23,16 +23,18 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
+
 module Adaptive {
 
      /**
         Structure representing the data a single geolocation reading.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     export class Geolocation {
+     export class Geolocation extends APIBean {
 
           /**
              The current device altitude (or Z coordinate). Measured in meters.
@@ -47,6 +49,10 @@ module Adaptive {
           */
           longitude : number;
           /**
+             Timestamp of the geolocation reading.
+          */
+          timestamp : number;
+          /**
              Dilution of precision on the X measurement. Measured in meters.
           */
           xDoP : number;
@@ -55,27 +61,30 @@ module Adaptive {
           */
           yDoP : number;
           /**
-             Constructor used by the implementation
+             Constructor with parameters
 
-             @param latitude
-             @param longitude
-             @param altitude
-             @param xDoP
-             @param yDoP
+             @param latitude  Latitude of the measurement
+             @param longitude Longitude of the measurement
+             @param altitude  Altitude of the measurement
+             @param xDoP      Dilution of precision on the X measurement
+             @param yDoP      Dilution of precision on the Y measurement
+             @param timestamp Timestamp of the measurement
              @since ARP1.0
           */
-          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number) {
+          constructor(latitude: number, longitude: number, altitude: number, xDoP: number, yDoP: number, timestamp: number) {
+               super();
                this.latitude = latitude;
                this.longitude = longitude;
                this.altitude = altitude;
                this.xDoP = xDoP;
                this.yDoP = yDoP;
+               this.timestamp = timestamp;
           }
 
           /**
              Returns altitude in meters
 
-             @return altitude
+             @return Altitude of the measurement
              @since ARP1.0
           */
           getAltitude() : number {
@@ -85,7 +94,7 @@ module Adaptive {
           /**
              Set altitude in meters
 
-             @param altitude
+             @param altitude Altitude of the measurement
              @since ARP1.0
           */
           setAltitude(altitude: number) {
@@ -95,7 +104,7 @@ module Adaptive {
           /**
              Returns the latitude in degrees
 
-             @return latitude
+             @return Latitude of the measurement
              @since ARP1.0
           */
           getLatitude() : number {
@@ -105,7 +114,7 @@ module Adaptive {
           /**
              Set the latitude in degrees
 
-             @param latitude
+             @param latitude Latitude of the measurement
              @since ARP1.0
           */
           setLatitude(latitude: number) {
@@ -115,7 +124,7 @@ module Adaptive {
           /**
              Returns the longitude in degrees
 
-             @return longitude
+             @return Longitude of the measurement
              @since ARP1.0
           */
           getLongitude() : number {
@@ -125,7 +134,7 @@ module Adaptive {
           /**
              Returns the latitude in degrees
 
-             @param longitude
+             @param longitude Longitude of the measurement
              @since ARP1.0
           */
           setLongitude(longitude: number) {
@@ -133,10 +142,29 @@ module Adaptive {
           }
 
           /**
-             Returns the Dilution of Position in the X axis (longitude)
+             Timestamp Getter
 
-             @return xDoP
+             @return Timestamp
              @since ARP1.0
+          */
+          getTimestamp() : number {
+               return this.timestamp;
+          }
+
+          /**
+             Timestamp Setter
+
+             @param timestamp Timestamp
+             @since ARP1.0
+          */
+          setTimestamp(timestamp: number) {
+               this.timestamp = timestamp;
+          }
+
+          /**
+             Gets Dilution of precision on the X measurement. Measured in meters.
+
+             @return xDoP Dilution of precision on the X measurement. Measured in meters.
           */
           getXDoP() : number {
                return this.xDoP;
@@ -152,10 +180,9 @@ module Adaptive {
           }
 
           /**
-             Returns the Dilution of Position in the Y axis (latitude)
+             Gets Dilution of precision on the Y measurement. Measured in meters.
 
-             @return yDoP
-             @since ARP1.0
+             @return yDoP Dilution of precision on the Y measurement. Measured in meters.
           */
           getYDoP() : number {
                return this.yDoP;

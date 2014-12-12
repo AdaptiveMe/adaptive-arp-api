@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseMedia.h>
 
 /**
-Definition of IAudio interface/protocol.
+Interface for Audio purposes
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol IAudio <IBaseMedia>

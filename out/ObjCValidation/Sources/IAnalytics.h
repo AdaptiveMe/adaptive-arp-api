@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseApplication.h>
 
 /**
-Definition of IAnalytics interface/protocol.
+Interface for Analytics purposes
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol IAnalytics <IBaseApplication>

@@ -316,14 +316,20 @@ public class JavaGenerator extends GeneratorBase {
             }
             println(") {");
             if (c.getParameters().length > 0) {
-                if (!clazz.getSuperclass().equals(Object.class)) {
+                if (clazz.getSuperclass().getSimpleName().equals("APIBean")) {
+                    println(10, "super();");
+                } else if (!clazz.getSuperclass().equals(Object.class)) {
                     print(10, "super(");
                     for (int j = 0; j < c.getParameters().length; j++) {
                         Parameter parameter = c.getParameters()[j];
-                        print(parameter.getName());
-                        if (j < c.getParameters().length - 1) {
-                            print(", ");
+
+                        boolean thisField = false;
+                        for (Field field : clazz.getDeclaredFields()) {
+                            if (parameter.getName().equals(field.getName())) {
+                                thisField = true;
+                            }
                         }
+                        if (!thisField) print(parameter.getName());
                     }
                     println(");");
                 } else {

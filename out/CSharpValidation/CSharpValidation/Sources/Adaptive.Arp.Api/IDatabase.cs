@@ -28,10 +28,10 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of IDatabase interface/protocol.
+        Interface for Managing the Cloud operations
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Ferran Vila Conesa
+        @since ARP1.0
         @version 1.0
      */
      public interface IDatabase : IBaseData {
@@ -39,39 +39,35 @@ namespace Adaptive.Arp.Api
              Creates a database on default path for every platform.
              @param callback Asynchronous callback
              @param database Database object to create
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           void CreateDatabase(Database Database, IDatabaseResultCallback Callback);
 
           /**
-             Creates a table inside a database for every platform.
-             @param database Database for table creating.
-             @param table    Table object with the name of the table inside.
-             @param callback Table callback with the response
-             @author Ferran Vila Conesa
+             Creates a databaseTable inside a database for every platform.
+             @param database      Database for databaseTable creating.
+             @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+             @param callback      DatabaseTable callback with the response
              @since ARP1.0
           */
-          void CreateTable(Database Database, Table Table, ITableResultCallback Callback);
+          void CreateTable(Database Database, DatabaseTable DatabaseTable, IDatabaseTableResultCallback Callback);
 
           /**
              Deletes a database on default path for every platform.
              @param database Database object to delete
              @param callback Asynchronous callback
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           void DeleteDatabase(Database Database, IDatabaseResultCallback Callback);
 
           /**
-             Deletes a table inside a database for every platform.
-             @param database Database for table removal.
-             @param table    Table object with the name of the table inside.
-             @param callback Table callback with the response
-             @author Ferran Vila Conesa
+             Deletes a databaseTable inside a database for every platform.
+             @param database      Database for databaseTable removal.
+             @param databaseTable DatabaseTable object with the name of the databaseTable inside.
+             @param callback      DatabaseTable callback with the response
              @since ARP1.0
           */
-          void DeleteTable(Database Database, Table Table, ITableResultCallback Callback);
+          void DeleteTable(Database Database, DatabaseTable DatabaseTable, IDatabaseTableResultCallback Callback);
 
           /**
              Executes SQL statement into the given database. The replacements
@@ -79,11 +75,10 @@ should be passed as a parameter
              @param database     The database object reference.
              @param statement    SQL statement.
              @param replacements List of SQL statement replacements.
-             @param callback     Table callback with the response.
-             @author Ferran Vila Conesa
+             @param callback     DatabaseTable callback with the response.
              @since ARP1.0
           */
-          void ExecuteSqlStatement(Database Database, string Statement, string[] Replacements, ITableResultCallback Callback);
+          void ExecuteSqlStatement(Database Database, string Statement, string[] Replacements, IDatabaseTableResultCallback Callback);
 
           /**
              Executes SQL transaction (some statements chain) inside given database.
@@ -91,30 +86,27 @@ should be passed as a parameter
              @param statements   The statements to be executed during transaction.
              @param rollbackFlag Indicates if rollback should be performed when any
                     statement execution fails.
-             @param callback     Table callback with the response.
-             @author Ferran Vila Conesa
+             @param callback     DatabaseTable callback with the response.
              @since ARP1.0
           */
-          void ExecuteSqlTransactions(Database Database, string[] Statements, bool RollbackFlag, ITableResultCallback Callback);
+          void ExecuteSqlTransactions(Database Database, string[] Statements, bool RollbackFlag, IDatabaseTableResultCallback Callback);
 
           /**
              Checks if database exists by given database name.
              @param database Database Object to check if exists
              @return True if exists, false otherwise
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           bool ExistsDatabase(Database Database);
 
           /**
-             Checks if table exists by given database name.
-             @param database Database for table consulting.
-             @param table    Table object with the name of the table inside.
+             Checks if databaseTable exists by given database name.
+             @param database      Database for databaseTable consulting.
+             @param databaseTable DatabaseTable object with the name of the databaseTable inside.
              @return True if exists, false otherwise
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
-          bool ExistsTable(Database Database, Table Table);
+          bool ExistsTable(Database Database, DatabaseTable DatabaseTable);
 
      }
 }

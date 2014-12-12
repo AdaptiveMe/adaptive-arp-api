@@ -26,16 +26,18 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of IAdaptiveRP interface/protocol.
+   Master interface for all the Groups and Types of Interfaces os the Project
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public interface IAdaptiveRP {
      String API_VERSION = "TO_BE_REPLACED";
      /**
-        null
+        Method that returns the API group of the implementation
+        @return API GRoup
+        @since ARP1.0
      */
      IAdaptiveRPGroup getAPIGroup();
 

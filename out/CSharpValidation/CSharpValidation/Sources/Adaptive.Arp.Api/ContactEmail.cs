@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the email data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class ContactEmail
+     public class ContactEmail : APIBean
      {
 
           /**
@@ -51,7 +51,9 @@ namespace Adaptive.Arp.Api
           public bool Primary { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public ContactEmail()  {
           }
@@ -59,9 +61,9 @@ namespace Adaptive.Arp.Api
           /**
              Constructor used by the implementation
 
-             @param Type
-             @param Primary
-             @param Email
+             @param Type    Type of the email
+             @param Primary Is email primary
+             @param Email   Email of the contact
              @since ARP1.0
           */
           public ContactEmail(ContactEmailType Type, bool Primary, string Email) : base () {
@@ -83,7 +85,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the type of the email
 
-             @param Type
+             @param Type Type of the email
              @since ARP1.0
           */
           public void SetType(ContactEmailType Type) {
@@ -103,7 +105,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the email of the Contact
 
-             @param Email
+             @param Email Email of the contact
              @since ARP1.0
           */
           public void SetEmail(string Email) {

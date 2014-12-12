@@ -23,16 +23,18 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
+
 module Adaptive {
 
      /**
         Structure representing a database reference.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Ferran Vila Conesa
+        @since ARP1.0
         @version 1.0
      */
-     export class Database {
+     export class Database extends APIBean {
 
           /**
              Indicates if database was created or needs to be created as Compressed.
@@ -45,12 +47,12 @@ module Adaptive {
           /**
              Constructor using fields.
 
-             @param name     Name of the Table.
-             @param compress Compress enbaled or not.
-             @author Ferran Vila Conesa
+             @param name     Name of the DatabaseTable.
+             @param compress Compression enabled.
              @since ARP1.0
           */
           constructor(name: string, compress: boolean) {
+               super();
                this.name = name;
                this.compress = compress;
           }
@@ -59,7 +61,6 @@ module Adaptive {
              Returns if the table is compressed
 
              @return Compression enabled
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           getCompress() : boolean {
@@ -70,7 +71,6 @@ module Adaptive {
              Sets if the table is compressed or not.
 
              @param compress Compression enabled
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           setCompress(compress: boolean) {
@@ -81,7 +81,6 @@ module Adaptive {
              Returns the name.
 
              @return The name of the table.
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           getName() : string {
@@ -92,7 +91,6 @@ module Adaptive {
              Sets the name of the table.
 
              @param name The name of the table.
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           setName(name: string) {

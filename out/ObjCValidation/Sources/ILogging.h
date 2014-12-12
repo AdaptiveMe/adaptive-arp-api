@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseUtil.h>
 
 /**
-Definition of ILogging interface/protocol.
+Interface for Managing the Logging operations
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Ferran Vila Conesa
+@since ARP1.0
 @version 1.0
 */
 @protocol ILogging <IBaseUtil>

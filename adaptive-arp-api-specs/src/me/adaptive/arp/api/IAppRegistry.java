@@ -41,7 +41,7 @@
 package me.adaptive.arp.api;
 
 /**
- * Interface for webview context management purposes
+ * Interface to retrieve auto-registered service implementation references.
  *
  * @author Carlos Lozano Diez
  * @since ARP1.0

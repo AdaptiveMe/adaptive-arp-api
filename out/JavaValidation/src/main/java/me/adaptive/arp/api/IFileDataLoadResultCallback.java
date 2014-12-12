@@ -26,19 +26,34 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Created by clozano on 05/12/14.
+   Interface for Managing the File loading callback responses
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
-public interface IFileDataLoadResultCallback extends IFileDataResultCallback {
+public interface IFileDataLoadResultCallback extends IBaseCallback {
+     /**
+        Error processing data retrieval/storage operation.
+        @param error Error condition encountered.
+        @since ARP1.0
+     */
+     void onError(IFileDataLoadResultCallbackError error);
+
      /**
         Result of data retrieval operation.
         @param data Data loaded.
         @since ARP1.0
      */
      void onResult(byte[] data);
+
+     /**
+        Result with warning of data retrieval/storage operation.
+        @param data    File being loaded.
+        @param warning Warning condition encountered.
+        @since ARP1.0
+     */
+     void onWarning(byte[] data, IFileDataLoadResultCallbackWarning warning);
 
 }
 

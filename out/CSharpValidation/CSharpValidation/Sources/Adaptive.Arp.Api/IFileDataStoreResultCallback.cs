@@ -28,19 +28,34 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Created by clozano on 05/12/14.
+        Interface for Managing the File store operations callback
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
-     public interface IFileDataStoreResultCallback : IFileDataResultCallback {
+     public interface IFileDataStoreResultCallback : IBaseCallback {
+          /**
+             Error processing data retrieval/storage operation.
+             @param error Error condition encountered.
+             @since ARP1.0
+          */
+          void OnError(IFileDataStoreResultCallbackError Error);
+
           /**
              Result of data storage operation.
              @param file File reference to stored data.
              @since ARP1.0
           */
           void OnResult(IFile File);
+
+          /**
+             Result with warning of data retrieval/storage operation.
+             @param file    File being loaded/stored.
+             @param warning Warning condition encountered.
+             @since ARP1.0
+          */
+          void OnWarning(IFile File, IFileDataStoreResultCallbackWarning Warning);
 
      }
 }

@@ -23,16 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Structure representing the professional info data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
-@interface ContactProfessionalInfo : NSObject
+@interface ContactProfessionalInfo : APIBean
 
      /**
         The company of the job
@@ -48,16 +49,18 @@ Structure representing the professional info data elements of a contact.
      @property NSString *jobTitle;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
      /**
         Constructor used by implementation to set the ContactProfessionalInfo.
 
-        @param jobTitle
-        @param jobDescription
-        @param company
+        @param jobTitle       The job title
+        @param jobDescription The job description
+        @param company        The company of the job
         @since ARP1.0
      */
      - (id) initWithJobTitleJobDescriptionCompany:(NSString*)jobTitle jobDescription:(NSString*)jobDescription company:(NSString*)company;

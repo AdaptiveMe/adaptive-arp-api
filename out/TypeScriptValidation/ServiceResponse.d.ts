@@ -1,5 +1,6 @@
-/// <reference path="Header.d.ts" />
-/// <reference path="ISession.d.ts" />
+/// <reference path="APIBean.d.ts" />
+/// <reference path="ServiceHeader.d.ts" />
+/// <reference path="ServiceSession.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -28,11 +29,11 @@ declare module Adaptive {
     /**
        Represents a local or remote service response.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Aryslan
+       @since ARP1.0
        @version 1.0
     */
-    class ServiceResponse {
+    class ServiceResponse extends APIBean {
         /**
            Request/Response data content (plain text).
         */
@@ -52,33 +53,33 @@ declare module Adaptive {
         /**
            The length in bytes for the Content field.
         */
-        contentLength: string;
+        contentLength: number;
         /**
            The request/response content type (MIME TYPE).
         */
         contentType: string;
         /**
-           The headers array (name,value pairs) to be included on the I/O service request.
+           The serviceHeaders array (name,value pairs) to be included on the I/O service request.
         */
-        headers: Header[];
+        serviceHeaders: ServiceHeader[];
         /**
-           The session context for the Request/Response.
+           Information about the session
         */
-        session: ISession;
+        serviceSession: ServiceSession;
         /**
-           Constructor used by the implementation
+           Constructor with fields
 
-           @param content
-           @param contentType
-           @param contentLength
-           @param contentBinary
-           @param contentBinaryLength
-           @param headers
-           @param session
-           @param contentEncoding
+           @param content             Request/Response data content (plain text).
+           @param contentType         The request/response content type (MIME TYPE).
+           @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
+           @param contentLength       The length in bytes for the Content field.
+           @param contentBinary       The byte[] representing the binary Content.
+           @param contentBinaryLength The length in bytes for the binary Content.
+           @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+           @param serviceSession      Information about the session
            @since ARP1.0
         */
-        constructor(content: string, contentType: string, contentLength: string, contentBinary: number[], contentBinaryLength: number, headers: Header[], session: ISession, contentEncoding: string);
+        constructor(content: string, contentType: string, contentEncoding: string, contentLength: number, contentBinary: number[], contentBinaryLength: number, serviceHeaders: ServiceHeader[], serviceSession: ServiceSession);
         /**
            Returns the content
 
@@ -89,7 +90,7 @@ declare module Adaptive {
         /**
            Set the content
 
-           @param content
+           @param content Request/Response data content (plain text).
            @since ARP1.0
         */
         setContent(content: string): void;
@@ -103,12 +104,12 @@ declare module Adaptive {
         /**
            Set the binary content
 
-           @param contentBinary
+           @param contentBinary The byte[] representing the binary Content.
            @since ARP1.0
         */
         setContentBinary(contentBinary: number[]): void;
         /**
-           Retrusn the binary content length
+           Returns the binary content length
 
            @return contentBinaryLength
            @since ARP1.0
@@ -117,7 +118,7 @@ declare module Adaptive {
         /**
            Set the binary content length
 
-           @param contentBinaryLength
+           @param contentBinaryLength The length in bytes for the binary Content.
            @since ARP1.0
         */
         setContentBinaryLength(contentBinaryLength: number): void;
@@ -131,7 +132,7 @@ declare module Adaptive {
         /**
            Set the content encoding
 
-           @param contentEncoding
+           @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
            @since ARP1.0
         */
         setContentEncoding(contentEncoding: string): void;
@@ -141,14 +142,14 @@ declare module Adaptive {
            @return contentLength
            @since ARP1.0
         */
-        getContentLength(): string;
+        getContentLength(): number;
         /**
            Set the content length
 
-           @param contentLength
+           @param contentLength The length in bytes for the Content field.
            @since ARP1.0
         */
-        setContentLength(contentLength: string): void;
+        setContentLength(contentLength: number): void;
         /**
            Returns the content type
 
@@ -159,37 +160,37 @@ declare module Adaptive {
         /**
            Set the content type
 
-           @param contentType
+           @param contentType The request/response content type (MIME TYPE).
            @since ARP1.0
         */
         setContentType(contentType: string): void;
         /**
-           Returns the array of Header
+           Returns the array of ServiceHeader
 
-           @return headers
+           @return serviceHeaders
            @since ARP1.0
         */
-        getHeaders(): Header[];
+        getServiceHeaders(): ServiceHeader[];
         /**
-           Set the array of Header
+           Set the array of ServiceHeader
 
-           @param headers
+           @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
            @since ARP1.0
         */
-        setHeaders(headers: Header[]): void;
+        setServiceHeaders(serviceHeaders: ServiceHeader[]): void;
         /**
-           Returns the method
+           Getter for service session
 
-           @return method
+           @return The element service session
            @since ARP1.0
         */
-        getSession(): ISession;
+        getServiceSession(): ServiceSession;
         /**
-           Set the method
+           Setter for service session
 
-           @param session
+           @param serviceSession The element service session
            @since ARP1.0
         */
-        setSession(session: ISession): void;
+        setServiceSession(serviceSession: ServiceSession): void;
     }
 }

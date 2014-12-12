@@ -27,10 +27,10 @@ Contributors:
 #import <IBasePIM.h>
 
 /**
-Definition of IMail interface/protocol.
+Interface for Managing the Mail operations
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @protocol IMail <IBasePIM>

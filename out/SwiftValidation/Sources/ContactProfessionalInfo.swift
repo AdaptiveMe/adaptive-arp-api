@@ -26,11 +26,11 @@ Contributors:
 /**
    Structure representing the professional info data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactProfessionalInfo : NSObject {
+public class ContactProfessionalInfo : APIBean {
 
      /**
         The company of the job
@@ -46,7 +46,9 @@ public class ContactProfessionalInfo : NSObject {
      var jobTitle : String?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -55,9 +57,9 @@ public class ContactProfessionalInfo : NSObject {
      /**
         Constructor used by implementation to set the ContactProfessionalInfo.
 
-        @param jobTitle
-        @param jobDescription
-        @param company
+        @param jobTitle       The job title
+        @param jobDescription The job description
+        @param company        The company of the job
         @since ARP1.0
      */
      public init(jobTitle: String, jobDescription: String, company: String) {
@@ -80,7 +82,7 @@ public class ContactProfessionalInfo : NSObject {
      /**
         Set the company of the job
 
-        @param company
+        @param company The company of the job
         @since ARP1.0
      */
      public func setCompany(company: String) {
@@ -100,7 +102,7 @@ public class ContactProfessionalInfo : NSObject {
      /**
         Set the description of the job
 
-        @param jobDescription
+        @param jobDescription The job description
         @since ARP1.0
      */
      public func setJobDescription(jobDescription: String) {
@@ -120,7 +122,7 @@ public class ContactProfessionalInfo : NSObject {
      /**
         Set the title of the job
 
-        @param jobTitle
+        @param jobTitle The job title
         @since ARP1.0
      */
      public func setJobTitle(jobTitle: String) {

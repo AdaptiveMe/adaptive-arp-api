@@ -28,15 +28,17 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Created by clozano on 05/09/2014.
+        This interface manages the operation about the application resources
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      public interface IAppResourceHandler {
           /**
-             null
+             This method manages the queries to the bundle reosurces inside the application
+             @param resourcePath path of the resource
+             @param callback     Callback
           */
           void GetResource(string ResourcePath, IAppResourceCallback Callback);
 

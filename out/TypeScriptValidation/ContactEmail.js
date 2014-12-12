@@ -22,26 +22,35 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 ///<reference path="ContactEmailType.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the email data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var ContactEmail = (function () {
+    var ContactEmail = (function (_super) {
+        __extends(ContactEmail, _super);
         /**
            Constructor used by the implementation
 
-           @param type
-           @param primary
-           @param email
+           @param type    Type of the email
+           @param primary Is email primary
+           @param email   Email of the contact
            @since ARP1.0
         */
         function ContactEmail(type, primary, email) {
+            _super.call(this);
             this.type = type;
             this.primary = primary;
             this.email = email;
@@ -58,7 +67,7 @@ var Adaptive;
         /**
            Set the type of the email
 
-           @param type
+           @param type Type of the email
            @since ARP1.0
         */
         ContactEmail.prototype.setType = function (type) {
@@ -76,7 +85,7 @@ var Adaptive;
         /**
            Set the email of the Contact
 
-           @param email
+           @param email Email of the contact
            @since ARP1.0
         */
         ContactEmail.prototype.setEmail = function (email) {
@@ -101,7 +110,7 @@ var Adaptive;
             this.primary = primary;
         };
         return ContactEmail;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.ContactEmail = ContactEmail;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ContactEmail.js.map

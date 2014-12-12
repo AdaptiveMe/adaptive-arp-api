@@ -26,10 +26,10 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of IDevice interface/protocol.
+   Interface for Managing the Device operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
 public interface IDevice extends IBaseSystem {
@@ -43,12 +43,14 @@ public interface IDevice extends IBaseSystem {
      /**
         Returns the device information for the current device executing the runtime.
         @return DeviceInfo for the current device.
+        @since ARP1.0
      */
      DeviceInfo getDeviceInfo();
 
      /**
         Gets the current Locale for the device.
         @return The current Locale information.
+        @since ARP1.0
      */
      Locale getLocaleCurrent();
 

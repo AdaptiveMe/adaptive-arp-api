@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing a database reference.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Ferran Vila Conesa
+        @since ARP1.0
         @version 1.0
      */
-     public class Database
+     public class Database : APIBean
      {
 
           /**
@@ -47,7 +47,9 @@ namespace Adaptive.Arp.Api
           public string Name { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public Database()  {
           }
@@ -56,7 +58,6 @@ namespace Adaptive.Arp.Api
              Default constructor. The compress param is setted to false.
 
              @param Name Name of the table.
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           public Database(string Name) : base () {
@@ -66,9 +67,8 @@ namespace Adaptive.Arp.Api
           /**
              Constructor using fields.
 
-             @param Name     Name of the Table.
-             @param Compress Compress enbaled or not.
-             @author Ferran Vila Conesa
+             @param Name     Name of the DatabaseTable.
+             @param Compress Compression enabled.
              @since ARP1.0
           */
           public Database(string Name, bool Compress) : base () {
@@ -80,7 +80,6 @@ namespace Adaptive.Arp.Api
              Returns if the table is compressed
 
              @return Compression enabled
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           public bool GetCompress() {
@@ -91,7 +90,6 @@ namespace Adaptive.Arp.Api
              Sets if the table is compressed or not.
 
              @param Compress Compression enabled
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           public void SetCompress(bool Compress) {
@@ -102,7 +100,6 @@ namespace Adaptive.Arp.Api
              Returns the name.
 
              @return The name of the table.
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           public string GetName() {
@@ -113,7 +110,6 @@ namespace Adaptive.Arp.Api
              Sets the name of the table.
 
              @param Name The name of the table.
-             @author Ferran Vila Conesa
              @since ARP1.0
           */
           public void SetName(string Name) {

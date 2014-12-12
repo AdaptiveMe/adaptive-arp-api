@@ -1,5 +1,6 @@
-/// <reference path="AttachmentData.d.ts" />
+/// <reference path="APIBean.d.ts" />
 /// <reference path="EmailAddress.d.ts" />
+/// <reference path="EmailAttachmentData.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -28,15 +29,11 @@ declare module Adaptive {
     /**
        Structure representing the data elements of an email.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    class Email {
-        /**
-           Array of attatchments
-        */
-        attachmentData: AttachmentData[];
+    class Email extends APIBean {
         /**
            Array of Email Blind Carbon Copy recipients
         */
@@ -45,6 +42,10 @@ declare module Adaptive {
            Array of Email Carbon Copy recipients
         */
         ccRecipients: EmailAddress[];
+        /**
+           Array of attatchments
+        */
+        emailAttachmentData: EmailAttachmentData[];
         /**
            Message body
         */
@@ -67,27 +68,13 @@ declare module Adaptive {
            @param toRecipients        array of recipients
            @param ccRecipients        array of cc recipients
            @param bccRecipients       array of bcc recipients
-           @param attachmentData      array of attatchments
+           @param emailAttachmentData array of attatchments
            @param messageBody         body of the email
            @param messageBodyMimeType mime type of the body
            @param subject             of the email
            @since ARP1.0
         */
-        constructor(toRecipients: EmailAddress[], ccRecipients: EmailAddress[], bccRecipients: EmailAddress[], attachmentData: AttachmentData[], messageBody: string, messageBodyMimeType: string, subject: string);
-        /**
-           Returns an array of attachments
-
-           @return attachmentData array with the email attachments
-           @since ARP1.0
-        */
-        getAttachmentData(): AttachmentData[];
-        /**
-           Set the email attachment data array
-
-           @param attachmentData array of email attatchments
-           @since ARP1.0
-        */
-        setAttachmentData(attachmentData: AttachmentData[]): void;
+        constructor(toRecipients: EmailAddress[], ccRecipients: EmailAddress[], bccRecipients: EmailAddress[], emailAttachmentData: EmailAttachmentData[], messageBody: string, messageBodyMimeType: string, subject: string);
         /**
            Returns the array of recipients
 
@@ -117,9 +104,24 @@ declare module Adaptive {
         */
         setCcRecipients(ccRecipients: EmailAddress[]): void;
         /**
+           Returns an array of attachments
+
+           @return emailAttachmentData array with the email attachments
+           @since ARP1.0
+        */
+        getEmailAttachmentData(): EmailAttachmentData[];
+        /**
+           Set the email attachment data array
+
+           @param emailAttachmentData array of email attatchments
+           @since ARP1.0
+        */
+        setEmailAttachmentData(emailAttachmentData: EmailAttachmentData[]): void;
+        /**
            Returns the message body of the email
 
            @return message Body string of the email
+           @since ARP1.0
         */
         getMessageBody(): string;
         /**

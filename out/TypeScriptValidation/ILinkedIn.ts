@@ -29,10 +29,10 @@ Contributors:
 module Adaptive {
 
      /**
-        Definition of ILinkedIn interface/protocol.
+        Interface for Managing the Linkedin operations
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      export interface ILinkedIn extends IBaseSocial {

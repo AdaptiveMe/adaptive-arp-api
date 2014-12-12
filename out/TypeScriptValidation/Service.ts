@@ -23,20 +23,21 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="Endpoint.ts"/>
+///<reference path="APIBean.ts"/>
 ///<reference path="IServiceMethod.ts"/>
 ///<reference path="IServiceType.ts"/>
+///<reference path="ServiceEndpoint.ts"/>
 
 module Adaptive {
 
      /**
         Represents an instance of a service.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Aryslan
+        @since ARP1.0
         @version 1.0
      */
-     export class Service {
+     export class Service extends APIBean {
 
           /**
              The method used
@@ -47,24 +48,25 @@ module Adaptive {
           */
           type : IServiceType;
           /**
-             Enpoint of the service
-          */
-          endpoint : Endpoint;
-          /**
              The service name
           */
           name : string;
           /**
+             Endpoint of the service
+          */
+          serviceEndpoint : ServiceEndpoint;
+          /**
              Constructor used by the implementation
 
-             @param endpoint
-             @param name
-             @param method
-             @param type
+             @param serviceEndpoint Endpoint of the service
+             @param name            Name of the service
+             @param method          Method of the service
+             @param type            Type of the service
              @since ARP1.0
           */
-          constructor(endpoint: Endpoint, name: string, method: IServiceMethod, type: IServiceType) {
-               this.endpoint = endpoint;
+          constructor(serviceEndpoint: ServiceEndpoint, name: string, method: IServiceMethod, type: IServiceType) {
+               super();
+               this.serviceEndpoint = serviceEndpoint;
                this.name = name;
                this.method = method;
                this.type = type;
@@ -83,7 +85,7 @@ module Adaptive {
           /**
              Set the method
 
-             @param method
+             @param method Method of the service
              @since ARP1.0
           */
           setMethod(method: IServiceMethod) {
@@ -103,31 +105,11 @@ module Adaptive {
           /**
              Set the type
 
-             @param type
+             @param type Type of the service
              @since ARP1.0
           */
           setType(type: IServiceType) {
                this.type = type;
-          }
-
-          /**
-             Returns the endpoint
-
-             @return endpoint
-             @since ARP1.0
-          */
-          getEndpoint() : Endpoint {
-               return this.endpoint;
-          }
-
-          /**
-             Set the endpoint
-
-             @param endpoint
-             @since ARP1.0
-          */
-          setEndpoint(endpoint: Endpoint) {
-               this.endpoint = endpoint;
           }
 
           /**
@@ -143,11 +125,31 @@ module Adaptive {
           /**
              Set the name
 
-             @param name
+             @param name Name of the service
              @since ARP1.0
           */
           setName(name: string) {
                this.name = name;
+          }
+
+          /**
+             Returns the serviceEndpoint
+
+             @return serviceEndpoint
+             @since ARP1.0
+          */
+          getServiceEndpoint() : ServiceEndpoint {
+               return this.serviceEndpoint;
+          }
+
+          /**
+             Set the serviceEndpoint
+
+             @param serviceEndpoint Endpoint of the service
+             @since ARP1.0
+          */
+          setServiceEndpoint(serviceEndpoint: ServiceEndpoint) {
+               this.serviceEndpoint = serviceEndpoint;
           }
 
 

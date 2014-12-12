@@ -32,23 +32,30 @@ Contributors:
 module Adaptive {
 
      /**
-        Created by clozano on 05/09/2014.
+        This interface manages the responses of the resource callback
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      export interface IAppResourceCallback extends IBaseCallback {
           /**
-             null
+             Error result of the App resource operation
+             @param error Error fired
+             @since ARP1.0
           */
-          onError(resource:IAppResource, error:IAppResourceCallbackError);
+          onError(error:IAppResourceCallbackError);
           /**
-             null
+             Correct result of the App Resource operation
+             @param resource Resource
+             @since ARP1.0
           */
           onResult(resource:IAppResource);
           /**
-             null
+             Warning result of the App Resource operation
+             @param resource Resource
+             @param warning  Warning fired
+             @since ARP1.0
           */
           onWarning(resource:IAppResource, warning:IAppResourceCallbackWarning);
      }

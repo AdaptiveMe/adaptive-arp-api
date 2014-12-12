@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -26,11 +27,11 @@ declare module Adaptive {
     /**
        Structure representing the professional info data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    class ContactProfessionalInfo {
+    class ContactProfessionalInfo extends APIBean {
         /**
            The company of the job
         */
@@ -46,9 +47,9 @@ declare module Adaptive {
         /**
            Constructor used by implementation to set the ContactProfessionalInfo.
 
-           @param jobTitle
-           @param jobDescription
-           @param company
+           @param jobTitle       The job title
+           @param jobDescription The job description
+           @param company        The company of the job
            @since ARP1.0
         */
         constructor(jobTitle: string, jobDescription: string, company: string);
@@ -62,7 +63,7 @@ declare module Adaptive {
         /**
            Set the company of the job
 
-           @param company
+           @param company The company of the job
            @since ARP1.0
         */
         setCompany(company: string): void;
@@ -76,7 +77,7 @@ declare module Adaptive {
         /**
            Set the description of the job
 
-           @param jobDescription
+           @param jobDescription The job description
            @since ARP1.0
         */
         setJobDescription(jobDescription: string): void;
@@ -90,7 +91,7 @@ declare module Adaptive {
         /**
            Set the title of the job
 
-           @param jobTitle
+           @param jobTitle The job title
            @since ARP1.0
         */
         setJobTitle(jobTitle: string): void;

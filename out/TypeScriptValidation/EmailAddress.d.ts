@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -26,11 +27,11 @@ declare module Adaptive {
     /**
        Structure representing the data elements of an email addressee.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    class EmailAddress {
+    class EmailAddress extends APIBean {
         /**
            The Email address
         */
@@ -38,7 +39,7 @@ declare module Adaptive {
         /**
            Constructor used by implementation
 
-           @param address
+           @param address of the Email
            @since ARP1.0
         */
         constructor(address: string);

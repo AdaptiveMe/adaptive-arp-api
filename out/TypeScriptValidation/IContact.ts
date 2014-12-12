@@ -34,10 +34,10 @@ Contributors:
 module Adaptive {
 
      /**
-        Definition of IContact interface/protocol.
+        Interface for Managing the Contact operations
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
      export interface IContact extends IBasePIM {

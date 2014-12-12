@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation Email
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -48,19 +50,19 @@ Contributors:
         @param toRecipients        array of recipients
         @param ccRecipients        array of cc recipients
         @param bccRecipients       array of bcc recipients
-        @param attachmentData      array of attatchments
+        @param emailAttachmentData array of attatchments
         @param messageBody         body of the email
         @param messageBodyMimeType mime type of the body
         @param subject             of the email
         @since ARP1.0
      */
-     - (id) initWithToRecipientsCcRecipientsBccRecipientsAttachmentDataMessageBodyMessageBodyMimeTypeSubject:(NSArray*)toRecipients ccRecipients:(NSArray*)ccRecipients bccRecipients:(NSArray*)bccRecipients attachmentData:(NSArray*)attachmentData messageBody:(NSString*)messageBody messageBodyMimeType:(NSString*)messageBodyMimeType subject:(NSString*)subject {
-          self = [self init];
+     - (id) initWithToRecipientsCcRecipientsBccRecipientsEmailAttachmentDataMessageBodyMessageBodyMimeTypeSubject:(NSArray*)toRecipients ccRecipients:(NSArray*)ccRecipients bccRecipients:(NSArray*)bccRecipients emailAttachmentData:(NSArray*)emailAttachmentData messageBody:(NSString*)messageBody messageBodyMimeType:(NSString*)messageBodyMimeType subject:(NSString*)subject {
+          self = [super initWithToRecipientsCcRecipientsBccRecipientsEmailAttachmentDataMessageBodyMessageBodyMimeTypeSubject:toRecipients, ccRecipients, bccRecipients, emailAttachmentData, messageBody, messageBodyMimeType, subject];
           if (self) {
                [self setToRecipients:toRecipients];
                [self setCcRecipients:ccRecipients];
                [self setBccRecipients:bccRecipients];
-               [self setAttachmentData:attachmentData];
+               [self setEmailAttachmentData:emailAttachmentData];
                [self setMessageBody:messageBody];
                [self setMessageBodyMimeType:messageBodyMimeType];
                [self setSubject:subject];
@@ -77,7 +79,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithToRecipientsSubjectMessageBody:(NSArray*)toRecipients subject:(NSString*)subject messageBody:(NSString*)messageBody {
-          self = [self init];
+          self = [super initWithToRecipientsSubjectMessageBody:toRecipients, subject, messageBody];
           if (self) {
                [self setToRecipients:toRecipients];
                [self setSubject:subject];

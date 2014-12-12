@@ -34,8 +34,8 @@ var Adaptive;
         IServiceMethod.prototype.toString = function () {
             return this.value;
         };
-        IServiceMethod.POST = new IServiceMethod("POST");
-        IServiceMethod.GET = new IServiceMethod("GET");
+        IServiceMethod.Post = new IServiceMethod("Post");
+        IServiceMethod.Get = new IServiceMethod("Get");
         IServiceMethod.Unknown = new IServiceMethod("Unknown");
         return IServiceMethod;
     })();

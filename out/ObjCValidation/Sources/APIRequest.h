@@ -26,25 +26,53 @@ Contributors:
 #import <Foundation/Foundation.h>
 
 /**
-Created by clozano on 05/12/14.
+Structure representing a HTML5 request to the native API.
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @interface APIRequest : NSObject
 
      /**
-        { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+        String representing the method name to call
      */
      @property NSString *methodName;
+     /**
+        Types of the request parameters
+        Array objects must be of String type.
+     */
      @property NSArray *parameterTypes;
+     /**
+        Parameters of the request
+        Array objects must be of Object type.
+     */
      @property NSArray *parameters;
 
      /**
-        Convenience constructor.
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
+
+     /**
+        Constructor with method name. No parameters
+
+        @param methodName Name of the method
+        @since ARP1.0
+     */
+     - (id) initWithMethodName:(NSString*)methodName;
+
+     /**
+        Constructor with all the parameters
+
+        @param methodName     Name of the method
+        @param parameters     Array of parameters
+        @param parameterTypes Array of parameters types
+        @since ARP1.0
+     */
+     - (id) initWithMethodNameParametersParameterTypes:(NSString*)methodName parameters:(NSArray*)parameters parameterTypes:(NSArray*)parameterTypes;
 
 
 @end

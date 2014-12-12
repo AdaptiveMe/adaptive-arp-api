@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Represents an instance of a service.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Aryslan
+   @since ARP1.0
    @version 1.0
 */
-public class Service {
+public class Service extends APIBean {
 
      /**
         The method used
@@ -43,16 +43,18 @@ public class Service {
      */
      private IServiceType type;
      /**
-        Enpoint of the service
-     */
-     private Endpoint endpoint;
-     /**
         The service name
      */
      private String name;
+     /**
+        Endpoint of the service
+     */
+     private ServiceEndpoint serviceEndpoint;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public Service() {
      }
@@ -60,15 +62,15 @@ public class Service {
      /**
         Constructor used by the implementation
 
-        @param endpoint
-        @param name
-        @param method
-        @param type
+        @param serviceEndpoint Endpoint of the service
+        @param name            Name of the service
+        @param method          Method of the service
+        @param type            Type of the service
         @since ARP1.0
      */
-     public Service(Endpoint endpoint, String name, IServiceMethod method, IServiceType type) {
-          this();
-          this.endpoint = endpoint;
+     public Service(ServiceEndpoint serviceEndpoint, String name, IServiceMethod method, IServiceType type) {
+          super();
+          this.serviceEndpoint = serviceEndpoint;
           this.name = name;
           this.method = method;
           this.type = type;
@@ -87,7 +89,7 @@ public class Service {
      /**
         Set the method
 
-        @param method
+        @param method Method of the service
         @since ARP1.0
      */
      public void setMethod(IServiceMethod method) {
@@ -107,31 +109,11 @@ public class Service {
      /**
         Set the type
 
-        @param type
+        @param type Type of the service
         @since ARP1.0
      */
      public void setType(IServiceType type) {
           this.type = type;
-     }
-
-     /**
-        Returns the endpoint
-
-        @return endpoint
-        @since ARP1.0
-     */
-     public Endpoint getEndpoint() {
-          return this.endpoint;
-     }
-
-     /**
-        Set the endpoint
-
-        @param endpoint
-        @since ARP1.0
-     */
-     public void setEndpoint(Endpoint endpoint) {
-          this.endpoint = endpoint;
      }
 
      /**
@@ -147,11 +129,31 @@ public class Service {
      /**
         Set the name
 
-        @param name
+        @param name Name of the service
         @since ARP1.0
      */
      public void setName(String name) {
           this.name = name;
+     }
+
+     /**
+        Returns the serviceEndpoint
+
+        @return serviceEndpoint
+        @since ARP1.0
+     */
+     public ServiceEndpoint getServiceEndpoint() {
+          return this.serviceEndpoint;
+     }
+
+     /**
+        Set the serviceEndpoint
+
+        @param serviceEndpoint Endpoint of the service
+        @since ARP1.0
+     */
+     public void setServiceEndpoint(ServiceEndpoint serviceEndpoint) {
+          this.serviceEndpoint = serviceEndpoint;
      }
 
 

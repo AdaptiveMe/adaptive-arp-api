@@ -23,6 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
 ///<reference path="ContactPhoneType.ts"/>
 
 module Adaptive {
@@ -30,11 +31,11 @@ module Adaptive {
      /**
         Structure representing the phone data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     export class ContactPhone {
+     export class ContactPhone extends APIBean {
 
           /**
              The phone number phoneType
@@ -47,11 +48,12 @@ module Adaptive {
           /**
              Constructor used by implementation to set the contact Phone
 
-             @param phone
-             @param phoneType
+             @param phone     Phone number
+             @param phoneType Type of Phone number
              @since ARP1.0
           */
           constructor(phone: string, phoneType: ContactPhoneType) {
+               super();
                this.phone = phone;
                this.phoneType = phoneType;
           }
@@ -69,7 +71,7 @@ module Adaptive {
           /**
              Set the phoneType of the phone number
 
-             @param phoneType
+             @param phoneType Type of Phone number
              @since ARP1.0
           */
           setPhoneType(phoneType: ContactPhoneType) {

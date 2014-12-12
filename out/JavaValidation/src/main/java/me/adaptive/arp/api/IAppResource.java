@@ -26,80 +26,108 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Created by clozano on 05/09/2014.
+   This interface manages the application resources on the bundle
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public interface IAppResource {
      /**
-        null
-     */
-     IAppResourcePayload geType();
-
-     /**
-        null
+        Returns the payload of the resource decripted
+        @return Payload
+        @since ARP1.0
      */
      byte[] getData();
 
      /**
-        null
+        Returns the data path of the resource
+        @return The data path of the resource
+        @since ARP1.0
      */
      String getDataPathLinked();
 
      /**
-        null
+        Returns the stored payload of the resource
+        @return Stored payload
+        @since ARP1.0
      */
      byte[] getDataStored();
 
      /**
-        null
+        Returns the format of the resource
+        @return Format of the resource
+        @since ARP1.0
      */
      IAppResourceFormat getFormat();
 
      /**
-        null
+        Returns the MD5 encoding of the resource
+        @return MD5 encoding of the resource
+        @since ARP1.0
      */
      String getMd5();
 
      /**
-        null
+        Returns the Mime-Type of the resource
+        @return The mime-type
+        @since ARP1.0
      */
      String getMimetype();
 
      /**
-        null
+        Returns the name of the resource
+        @return Name of the resource
+        @since ARP1.0
      */
      String getName();
 
      /**
-        null
+        Returns the path of the resource
+        @return Path of the resource
+        @since ARP1.0
      */
      String getPath();
 
      /**
-        null
+        Returns the payload type of the resource
+        @return Payload type
+        @since ARP1.0
+     */
+     IAppResourcePayload getPayloadType();
+
+     /**
+        Returns the size of the resource
+        @return Size of the resource
+        @since ARP1.0
      */
      long getSize();
 
      /**
-        null
+        Returns the Size of the stored resource
+        @return Size of the Stored Resource
+        @since ARP1.0
      */
      long getSizeStored();
 
      /**
-        null
+        Returns the timestamp of the resource
+        @return Timestamp of the resource
+        @since ARP1.0
      */
      long getTimestamp();
 
      /**
-        null
+        Returns the type of the resource
+        @return Type of the resource
+        @since ARP1.0
      */
      IAppResourceType getType();
 
      /**
-        null
+        Returns the unique identifier of the resource
+        @return Unique Identifier
+        @since ARP1.0
      */
      String getUuid();
 

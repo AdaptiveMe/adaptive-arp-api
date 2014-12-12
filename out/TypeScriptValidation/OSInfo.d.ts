@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -26,11 +27,11 @@ declare module Adaptive {
     /**
        Represents the basic information about the operating system.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    class OSInfo {
+    class OSInfo extends APIBean {
         /**
            The name of the operating system.
         */
@@ -49,12 +50,14 @@ declare module Adaptive {
            @param name    of the OS.
            @param version of the OS.
            @param vendor  of the OS.
+           @since ARP1.0
         */
         constructor(name: string, version: string, vendor: string);
         /**
            Returns the name of the operating system.
 
            @return OS name.
+           @since ARP1.0
         */
         getName(): string;
         /**
@@ -67,6 +70,7 @@ declare module Adaptive {
            Returns the vendor of the operating system.
 
            @return OS vendor.
+           @since ARP1.0
         */
         getVendor(): string;
         /**
@@ -79,6 +83,7 @@ declare module Adaptive {
            Returns the version of the operating system.
 
            @return OS version.
+           @since ARP1.0
         */
         getVersion(): string;
         /**

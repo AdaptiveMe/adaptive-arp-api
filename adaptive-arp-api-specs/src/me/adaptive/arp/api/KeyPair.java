@@ -46,7 +46,7 @@ package me.adaptive.arp.api;
  * @author Ferran Vila Conesa
  * @since ARP1.0
  */
-public class KeyPair {
+public class KeyPair extends APIBean {
 
     /**
      * Key of the element

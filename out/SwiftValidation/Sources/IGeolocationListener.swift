@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of IGeolocationListener interface/protocol.
+   Interface for Managing the Geolocation results
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
 public protocol IGeolocationListener : IBaseListener {
@@ -38,13 +38,13 @@ public protocol IGeolocationListener : IBaseListener {
      func onError(error:IGeolocationListenerError)
      /**
         Correct data received.
-        @param geolocation
+        @param geolocation Geolocation Bean
         @since ARP1.0
      */
      func onResult(geolocation:Geolocation)
      /**
         Data received with warning - ie. HighDoP
-        @param geolocation
+        @param geolocation Geolocation Bean
         @since ARP1.0
      */
      func onWarning(geolocation:Geolocation, warning:IGeolocationListenerWarning)

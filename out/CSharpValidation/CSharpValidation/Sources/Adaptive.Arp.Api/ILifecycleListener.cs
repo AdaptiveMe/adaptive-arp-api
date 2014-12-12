@@ -28,10 +28,10 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of ILifecycleListener interface/protocol.
+        Interface for Managing the Lifecycle listeners
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      public interface ILifecycleListener : IBaseListener {
@@ -43,14 +43,14 @@ namespace Adaptive.Arp.Api
 
           /**
              Called when lifecycle changes somehow.
-             @param lifecycle
+             @param lifecycle Lifecycle element
              @since ARP1.0
           */
           void OnResult(Lifecycle Lifecycle);
 
           /**
              Data received with warning
-             @param lifecycle
+             @param lifecycle Lifecycle element
              @since ARP1.0
           */
           void OnWarning(Lifecycle Lifecycle, ILifecycleListenerWarning Warning);

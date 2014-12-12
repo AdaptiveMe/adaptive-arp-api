@@ -23,16 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Structure representing the website data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
-@interface ContactWebsite : NSObject
+@interface ContactWebsite : APIBean
 
      /**
         The url of the website
@@ -40,14 +41,16 @@ Structure representing the website data elements of a contact.
      @property NSString *url;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
      /**
         Constructor used by the implementation
 
-        @param url
+        @param url Url of the website
         @since ARP1.0
      */
      - (id) initWithUrl:(NSString*)url;

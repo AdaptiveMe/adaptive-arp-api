@@ -29,33 +29,30 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IAccelerationListener interface/protocol.
+       Interface defines the response methods of the acceleration operations
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
     interface IAccelerationListener extends IBaseListener {
         /**
            No data received - error condition, not authorized or hardware not available. This will be reported once for the
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
-           @param error
-           @author Carlos Lozano Diez
+           @param error Error fired
            @since ARP1.0
         */
         onError(error: IAccelerationListenerError): any;
         /**
            Correct data received.
-           @param acceleration
-           @author Carlos Lozano Diez
+           @param acceleration Acceleration received
            @since ARP1.0
         */
         onResult(acceleration: Acceleration): any;
         /**
            Data received with warning - ie. Needs calibration.
-           @param acceleration
-           @param warning
-           @author Carlos Lozano Diez
+           @param acceleration Acceleration received
+           @param warning      Warning fired
            @since ARP1.0
         */
         onWarning(acceleration: Acceleration, warning: IAccelerationListenerWarning): any;

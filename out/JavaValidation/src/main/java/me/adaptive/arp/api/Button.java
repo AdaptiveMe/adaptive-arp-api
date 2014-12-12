@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Structure representing the a physical or logical button on a device.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class Button {
+public class Button extends APIBean {
 
      /**
         Button type
@@ -40,19 +40,21 @@ public class Button {
      private ICapabilitiesButton type;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public Button() {
      }
 
      /**
-        Constructor used by the implementation
+        Constructor with fields
 
         @param type Button type.
         @since ARP1.0
      */
      public Button(ICapabilitiesButton type) {
-          this();
+          super();
           this.type = type;
      }
 
@@ -67,9 +69,10 @@ public class Button {
      }
 
      /**
-        Sets Button type
+        Setter for the button type
 
-        @param type Button type
+        @param type Button Type
+        @since ARP1.0
      */
      public void setType(ICapabilitiesButton type) {
           this.type = type;

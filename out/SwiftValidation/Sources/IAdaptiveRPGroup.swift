@@ -28,6 +28,7 @@ Contributors:
 */
 public enum IAdaptiveRPGroup {
 
+     case Application
      case Commerce
      case Communication
      case Data
@@ -48,6 +49,7 @@ public enum IAdaptiveRPGroup {
      */
      public func toString() -> String {
           switch self {
+               case .Application: return "Application"
                case .Commerce: return "Commerce"
                case .Communication: return "Communication"
                case .Data: return "Data"
@@ -71,6 +73,7 @@ public enum IAdaptiveRPGroup {
      public static func toEnum(string:String?) -> IAdaptiveRPGroup {
           if let validString = string {
                switch validString {
+                    case "Application": return .Application
                     case "Commerce": return .Commerce
                     case "Communication": return .Communication
                     case "Data": return .Data

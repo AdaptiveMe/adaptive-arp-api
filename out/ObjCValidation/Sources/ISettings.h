@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseApplication.h>
 
 /**
-Definition of ISettings interface/protocol.
+Interface for Managing the Settings operations
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol ISettings <IBaseApplication>

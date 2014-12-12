@@ -29,15 +29,15 @@ package me.adaptive.arp.api;
    Structure representing the data of a single acceleration reading.
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
-public class Acceleration {
+public class Acceleration extends APIBean {
 
      /**
         Timestamp of the acceleration reading.
      */
-     private long timeStamp;
+     private long timestamp;
      /**
         X-axis component of the acceleration.
      */
@@ -52,95 +52,105 @@ public class Acceleration {
      private double z;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public Acceleration() {
      }
 
      /**
-        Convenience constructor.
+        Constructor with fields
 
-        @param x X Coordinate
-        @param y Y Coordinate
-        @param z Z Coordinate
-        @author Carlos Lozano Diez
+        @param x         X Coordinate
+        @param y         Y Coordinate
+        @param z         Z Coordinate
+        @param timestamp Timestamp
         @since ARP1.0
      */
-     public Acceleration(double x, double y, double z, long timeStamp) {
-          this();
+     public Acceleration(double x, double y, double z, long timestamp) {
+          super();
           this.x = x;
           this.y = y;
           this.z = z;
-          this.timeStamp = timeStamp;
+          this.timestamp = timestamp;
      }
 
      /**
-        Gets Timestamp of the acceleration reading.
+        Timestamp Getter
 
-        @return timeStamp Timestamp of the acceleration reading.
+        @return Timestamp
+        @since ARP1.0
      */
-     public long getTimeStamp() {
-          return this.timeStamp;
+     public long getTimestamp() {
+          return this.timestamp;
      }
 
      /**
-        Sets Timestamp of the acceleration reading.
+        Timestamp Setter
 
-        @param timeStamp Timestamp of the acceleration reading.
+        @param timestamp Timestamp
+        @since ARP1.0
      */
-     public void setTimeStamp(long timeStamp) {
-          this.timeStamp = timeStamp;
+     public void setTimestamp(long timestamp) {
+          this.timestamp = timestamp;
      }
 
      /**
-        Gets X-axis component of the acceleration.
+        X Coordinate Getter
 
-        @return x X-axis component of the acceleration.
+        @return X-axis component of the acceleration.
+        @since ARP1.0
      */
      public double getX() {
           return this.x;
      }
 
      /**
-        Sets X-axis component of the acceleration.
+        X Coordinate Setter
 
         @param x X-axis component of the acceleration.
+        @since ARP1.0
      */
      public void setX(double x) {
           this.x = x;
      }
 
      /**
-        Gets Y-axis component of the acceleration.
+        Y Coordinate Getter
 
-        @return y Y-axis component of the acceleration.
+        @return Y-axis component of the acceleration.
+        @since ARP1.0
      */
      public double getY() {
           return this.y;
      }
 
      /**
-        Sets Y-axis component of the acceleration.
+        Y Coordinate Setter
 
         @param y Y-axis component of the acceleration.
+        @since ARP1.0
      */
      public void setY(double y) {
           this.y = y;
      }
 
      /**
-        Gets Z-axis component of the acceleration.
+        Z Coordinate Getter
 
-        @return z Z-axis component of the acceleration.
+        @return Z-axis component of the acceleration.
+        @since ARP1.0
      */
      public double getZ() {
           return this.z;
      }
 
      /**
-        Sets Z-axis component of the acceleration.
+        Z Coordinate Setter
 
-        @param z Z-axis component of the acceleration.
+        @param z Z Coordinate
+        @since ARP1.0
      */
      public void setZ(double z) {
           this.z = z;

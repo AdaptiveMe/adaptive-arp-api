@@ -32,16 +32,16 @@ namespace Adaptive.Arp.Api
      */
      public enum IServiceType {
 
-          SERVICETYPE_AMF_SERIALIZATION,
-          SERVICETYPE_GWT_RPC,
-          SERVICETYPE_OCTET_BINARY,
-          SERVICETYPE_REMOTING_SERIALIZATION,
-          SERVICETYPE_REST_JSON,
-          SERVICETYPE_REST_XML,
-          SERVICETYPE_SOAP_JSON,
-          SERVICETYPE_SOAP_XML,
-          SERVICETYPE_XMLRPC_JSON,
-          SERVICETYPE_XMLRPC_XML,
+          ServiceTypeAmfSerialization,
+          ServiceTypeGwtRpc,
+          ServiceTypeOctetBinary,
+          ServiceTypeRemotingSerialization,
+          ServiceTypeRestJson,
+          ServiceTypeRestXml,
+          ServiceTypeSoapJson,
+          ServiceTypeSoapXml,
+          ServiceTypeXmlRpcJson,
+          ServiceTypeXmlRpcXml,
           Unknown
 
      }

@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Structure representing the phone data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactPhone {
+public class ContactPhone extends APIBean {
 
      /**
         The phone number phoneType
@@ -44,7 +44,9 @@ public class ContactPhone {
      private String phone;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public ContactPhone() {
      }
@@ -52,12 +54,12 @@ public class ContactPhone {
      /**
         Constructor used by implementation to set the contact Phone
 
-        @param phone
-        @param phoneType
+        @param phone     Phone number
+        @param phoneType Type of Phone number
         @since ARP1.0
      */
      public ContactPhone(String phone, ContactPhoneType phoneType) {
-          this();
+          super();
           this.phone = phone;
           this.phoneType = phoneType;
      }
@@ -75,7 +77,7 @@ public class ContactPhone {
      /**
         Set the phoneType of the phone number
 
-        @param phoneType
+        @param phoneType Type of Phone number
         @since ARP1.0
      */
      public void setPhoneType(ContactPhoneType phoneType) {

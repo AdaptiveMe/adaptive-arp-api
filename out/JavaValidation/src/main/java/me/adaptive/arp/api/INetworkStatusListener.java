@@ -26,10 +26,10 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Created by clozano on 05/12/14.
+   Interface for Managing the Network status listener events
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public interface INetworkStatusListener extends IBaseListener {

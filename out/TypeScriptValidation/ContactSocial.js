@@ -22,17 +22,25 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 ///<reference path="ContactSocialNetwork.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the social data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var ContactSocial = (function () {
+    var ContactSocial = (function (_super) {
+        __extends(ContactSocial, _super);
         /**
            Constructor used by the implementation
 
@@ -41,6 +49,7 @@ var Adaptive;
            @since ARP1.0
         */
         function ContactSocial(socialNetwork, profileUrl) {
+            _super.call(this);
             this.socialNetwork = socialNetwork;
             this.profileUrl = profileUrl;
         }
@@ -56,7 +65,7 @@ var Adaptive;
         /**
            Set the social network
 
-           @param socialNetwork
+           @param socialNetwork of the profile
            @since ARP1.0
         */
         ContactSocial.prototype.setSocialNetwork = function (socialNetwork) {
@@ -74,14 +83,14 @@ var Adaptive;
         /**
            Set the profile url of the iser
 
-           @param profileUrl
+           @param profileUrl of the user
            @since ARP1.0
         */
         ContactSocial.prototype.setProfileUrl = function (profileUrl) {
             this.profileUrl = profileUrl;
         };
         return ContactSocial;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.ContactSocial = ContactSocial;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ContactSocial.js.map

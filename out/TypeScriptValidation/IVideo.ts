@@ -29,16 +29,17 @@ Contributors:
 module Adaptive {
 
      /**
-        Definition of IVideo interface/protocol.
+        Interface for Managing the Video operations
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      export interface IVideo extends IBaseMedia {
           /**
              Play url video stream
              @param url of the video
+             @since ARP1.0
           */
           playStream(url:string);
      }

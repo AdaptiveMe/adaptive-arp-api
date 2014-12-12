@@ -23,16 +23,18 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
+
 module Adaptive {
 
      /**
         Structure representing the basic device information.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     export class DeviceInfo {
+     export class DeviceInfo extends APIBean {
 
           /**
              Model of device - equivalent to device release or version.
@@ -58,8 +60,10 @@ be unique for a specific instance of an application on a specific device.
              @param model  of the device.
              @param vendor of the device.
              @param uuid   unique* identifier (* platform dependent).
+             @since ARP1.0
           */
           constructor(name: string, model: string, vendor: string, uuid: string) {
+               super();
                this.name = name;
                this.model = model;
                this.vendor = vendor;
@@ -70,6 +74,7 @@ be unique for a specific instance of an application on a specific device.
              Returns the model of the device.
 
              @return String with the model of the device.
+             @since ARP1.0
           */
           getModel() : string {
                return this.model;
@@ -88,6 +93,7 @@ be unique for a specific instance of an application on a specific device.
              Returns the name of the device.
 
              @return String with device name.
+             @since ARP1.0
           */
           getName() : string {
                return this.name;
@@ -106,6 +112,7 @@ be unique for a specific instance of an application on a specific device.
              Returns the platform dependent UUID of the device.
 
              @return String with the 128-bit device identifier.
+             @since ARP1.0
           */
           getUuid() : string {
                return this.uuid;
@@ -126,6 +133,7 @@ be unique for a specific instance of an application on a specific device.
              Returns the vendor of the device.
 
              @return String with the vendor name.
+             @since ARP1.0
           */
           getVendor() : string {
                return this.vendor;

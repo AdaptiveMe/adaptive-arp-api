@@ -22,25 +22,33 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing a database reference.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Ferran Vila Conesa
+       @since ARP1.0
        @version 1.0
     */
-    var Database = (function () {
+    var Database = (function (_super) {
+        __extends(Database, _super);
         /**
            Constructor using fields.
 
-           @param name     Name of the Table.
-           @param compress Compress enbaled or not.
-           @author Ferran Vila Conesa
+           @param name     Name of the DatabaseTable.
+           @param compress Compression enabled.
            @since ARP1.0
         */
         function Database(name, compress) {
+            _super.call(this);
             this.name = name;
             this.compress = compress;
         }
@@ -48,7 +56,6 @@ var Adaptive;
            Returns if the table is compressed
 
            @return Compression enabled
-           @author Ferran Vila Conesa
            @since ARP1.0
         */
         Database.prototype.getCompress = function () {
@@ -58,7 +65,6 @@ var Adaptive;
            Sets if the table is compressed or not.
 
            @param compress Compression enabled
-           @author Ferran Vila Conesa
            @since ARP1.0
         */
         Database.prototype.setCompress = function (compress) {
@@ -68,7 +74,6 @@ var Adaptive;
            Returns the name.
 
            @return The name of the table.
-           @author Ferran Vila Conesa
            @since ARP1.0
         */
         Database.prototype.getName = function () {
@@ -78,14 +83,13 @@ var Adaptive;
            Sets the name of the table.
 
            @param name The name of the table.
-           @author Ferran Vila Conesa
            @since ARP1.0
         */
         Database.prototype.setName = function (name) {
             this.name = name;
         };
         return Database;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.Database = Database;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=Database.js.map

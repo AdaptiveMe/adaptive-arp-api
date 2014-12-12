@@ -29,10 +29,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of ILifecycleListener interface/protocol.
+       Interface for Managing the Lifecycle listeners
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
     interface ILifecycleListener extends IBaseListener {
@@ -43,13 +43,13 @@ declare module Adaptive {
         onError(error: ILifecycleListenerError): any;
         /**
            Called when lifecycle changes somehow.
-           @param lifecycle
+           @param lifecycle Lifecycle element
            @since ARP1.0
         */
         onResult(lifecycle: Lifecycle): any;
         /**
            Data received with warning
-           @param lifecycle
+           @param lifecycle Lifecycle element
            @since ARP1.0
         */
         onWarning(lifecycle: Lifecycle, warning: ILifecycleListenerWarning): any;

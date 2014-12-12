@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the address data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class ContactAddress
+     public class ContactAddress : APIBean
      {
 
           /**
@@ -47,13 +47,15 @@ namespace Adaptive.Arp.Api
           public string Address { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public ContactAddress()  {
           }
 
           /**
-             Constructor used by the implementation
+             Constructor with fields
 
              @param Address Address data.
              @param Type    Address type.

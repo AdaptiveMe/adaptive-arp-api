@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation ContactTag
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -45,15 +47,15 @@ Contributors:
      /**
         Constructor used by the implementation
 
-        @param dataValue
-        @param name
+        @param value Value of the tag
+        @param name  Name of the tag
         @since ARP1.0
      */
-     - (id) initWithNameDataValue:(NSString*)name dataValue:(NSString*)dataValue {
-          self = [self init];
+     - (id) initWithNameValue:(NSString*)name value:(NSString*)value {
+          self = [super initWithNameValue:name, value];
           if (self) {
                [self setName:name];
-               [self setDataValue:dataValue];
+               [self setValue:value];
           }
           return self;
      }

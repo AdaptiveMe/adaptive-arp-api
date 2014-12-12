@@ -31,16 +31,16 @@ namespace Adaptive.Arp.Api
         Structure representing the data of a single acceleration reading.
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
-     public class Acceleration
+     public class Acceleration : APIBean
      {
 
           /**
              Timestamp of the acceleration reading.
           */
-          public long TimeStamp { get; set; }
+          public long Timestamp { get; set; }
           /**
              X-axis component of the acceleration.
           */
@@ -55,94 +55,104 @@ namespace Adaptive.Arp.Api
           public double Z { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public Acceleration()  {
           }
 
           /**
-             Convenience constructor.
+             Constructor with fields
 
-             @param X X Coordinate
-             @param Y Y Coordinate
-             @param Z Z Coordinate
-             @author Carlos Lozano Diez
+             @param X         X Coordinate
+             @param Y         Y Coordinate
+             @param Z         Z Coordinate
+             @param Timestamp Timestamp
              @since ARP1.0
           */
-          public Acceleration(double X, double Y, double Z, long TimeStamp) : base () {
+          public Acceleration(double X, double Y, double Z, long Timestamp) : base () {
                this.X = X;
                this.Y = Y;
                this.Z = Z;
-               this.TimeStamp = TimeStamp;
+               this.Timestamp = Timestamp;
           }
 
           /**
-             Gets Timestamp of the acceleration reading.
+             Timestamp Getter
 
-             @return timeStamp Timestamp of the acceleration reading.
+             @return Timestamp
+             @since ARP1.0
           */
-          public long GetTimeStamp() {
-               return this.TimeStamp;
+          public long GetTimestamp() {
+               return this.Timestamp;
           }
 
           /**
-             Sets Timestamp of the acceleration reading.
+             Timestamp Setter
 
-             @param timeStamp Timestamp of the acceleration reading.
+             @param Timestamp Timestamp
+             @since ARP1.0
           */
-          public void SetTimeStamp(long TimeStamp) {
-               this.TimeStamp = TimeStamp;
+          public void SetTimestamp(long Timestamp) {
+               this.Timestamp = Timestamp;
           }
 
           /**
-             Gets X-axis component of the acceleration.
+             X Coordinate Getter
 
-             @return x X-axis component of the acceleration.
+             @return X-axis component of the acceleration.
+             @since ARP1.0
           */
           public double GetX() {
                return this.X;
           }
 
           /**
-             Sets X-axis component of the acceleration.
+             X Coordinate Setter
 
-             @param x X-axis component of the acceleration.
+             @param X X-axis component of the acceleration.
+             @since ARP1.0
           */
           public void SetX(double X) {
                this.X = X;
           }
 
           /**
-             Gets Y-axis component of the acceleration.
+             Y Coordinate Getter
 
-             @return y Y-axis component of the acceleration.
+             @return Y-axis component of the acceleration.
+             @since ARP1.0
           */
           public double GetY() {
                return this.Y;
           }
 
           /**
-             Sets Y-axis component of the acceleration.
+             Y Coordinate Setter
 
-             @param y Y-axis component of the acceleration.
+             @param Y Y-axis component of the acceleration.
+             @since ARP1.0
           */
           public void SetY(double Y) {
                this.Y = Y;
           }
 
           /**
-             Gets Z-axis component of the acceleration.
+             Z Coordinate Getter
 
-             @return z Z-axis component of the acceleration.
+             @return Z-axis component of the acceleration.
+             @since ARP1.0
           */
           public double GetZ() {
                return this.Z;
           }
 
           /**
-             Sets Z-axis component of the acceleration.
+             Z Coordinate Setter
 
-             @param z Z-axis component of the acceleration.
+             @param Z Z Coordinate
+             @since ARP1.0
           */
           public void SetZ(double Z) {
                this.Z = Z;

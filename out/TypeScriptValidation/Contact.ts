@@ -38,8 +38,8 @@ module Adaptive {
      /**
         Structure representing the data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
      export class Contact extends ContactUid {
@@ -77,13 +77,29 @@ module Adaptive {
           */
           professionalInfo : ContactProfessionalInfo;
           /**
-             Constructor used by implementation to set the Contact.
+             Constructor with all the fields
 
-             @param contactId of the Contact
+             @param contactId        Identifier of the contact
+             @param personalInfo     Personal Information
+             @param professionalInfo Professional Information
+             @param contactAddresses Addresses of the contact
+             @param contactPhones    Phones of the contact
+             @param contactEmails    Emails of the contact
+             @param contactWebsites  Websites of the contact
+             @param contactSocials   Social Networks of the contact
+             @param contactTags      Tags of the contact
              @since ARP1.0
           */
-          constructor(contactId: string) {
+          constructor(contactId: string, personalInfo: ContactPersonalInfo, professionalInfo: ContactProfessionalInfo, contactAddresses: Array<ContactAddress>, contactPhones: Array<ContactPhone>, contactEmails: Array<ContactEmail>, contactWebsites: Array<ContactWebsite>, contactSocials: Array<ContactSocial>, contactTags: Array<ContactTag>) {
                super(contactId);
+               this.personalInfo = personalInfo;
+               this.professionalInfo = professionalInfo;
+               this.contactAddresses = contactAddresses;
+               this.contactPhones = contactPhones;
+               this.contactEmails = contactEmails;
+               this.contactWebsites = contactWebsites;
+               this.contactSocials = contactSocials;
+               this.contactTags = contactTags;
           }
 
           /**
@@ -99,7 +115,7 @@ module Adaptive {
           /**
              Set the addresses of the Contact
 
-             @param contactAddresses
+             @param contactAddresses Addresses of the contact
              @since ARP1.0
           */
           setContactAddresses(contactAddresses: Array<ContactAddress>) {
@@ -119,7 +135,7 @@ module Adaptive {
           /**
              Set the emails of the Contact
 
-             @param contactEmails
+             @param contactEmails Emails of the contact
              @since ARP1.0
           */
           setContactEmails(contactEmails: Array<ContactEmail>) {
@@ -139,7 +155,7 @@ module Adaptive {
           /**
              Set the phones of the Contact
 
-             @param contactPhones
+             @param contactPhones Phones of the contact
              @since ARP1.0
           */
           setContactPhones(contactPhones: Array<ContactPhone>) {
@@ -159,7 +175,7 @@ module Adaptive {
           /**
              Set the social network info of the Contact
 
-             @param contactSocials
+             @param contactSocials Social Networks of the contact
              @since ARP1.0
           */
           setContactSocials(contactSocials: Array<ContactSocial>) {
@@ -179,7 +195,7 @@ module Adaptive {
           /**
              Set the additional tags of the Contact
 
-             @param contactTags
+             @param contactTags Tags of the contact
              @since ARP1.0
           */
           setContactTags(contactTags: Array<ContactTag>) {
@@ -199,7 +215,7 @@ module Adaptive {
           /**
              Set the websites of the Contact
 
-             @param contactWebsites
+             @param contactWebsites Websites of the contact
              @since ARP1.0
           */
           setContactWebsites(contactWebsites: Array<ContactWebsite>) {
@@ -219,7 +235,7 @@ module Adaptive {
           /**
              Set the personal info of the Contact
 
-             @param personalInfo
+             @param personalInfo Personal Information
              @since ARP1.0
           */
           setPersonalInfo(personalInfo: ContactPersonalInfo) {
@@ -229,7 +245,7 @@ module Adaptive {
           /**
              Returns the professional info of the Contact
 
-             @return ContactProfessionalInfo[]
+             @return Array of personal info
              @since ARP1.0
           */
           getProfessionalInfo() : ContactProfessionalInfo {
@@ -239,7 +255,7 @@ module Adaptive {
           /**
              Set the professional info of the Contact
 
-             @param professionalInfo
+             @param professionalInfo Professional Information
              @since ARP1.0
           */
           setProfessionalInfo(professionalInfo: ContactProfessionalInfo) {

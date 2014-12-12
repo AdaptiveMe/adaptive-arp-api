@@ -23,16 +23,18 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
+
 module Adaptive {
 
      /**
         Represents the basic information about the operating system.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     export class OSInfo {
+     export class OSInfo extends APIBean {
 
           /**
              The name of the operating system.
@@ -52,8 +54,10 @@ module Adaptive {
              @param name    of the OS.
              @param version of the OS.
              @param vendor  of the OS.
+             @since ARP1.0
           */
           constructor(name: string, version: string, vendor: string) {
+               super();
                this.name = name;
                this.version = version;
                this.vendor = vendor;
@@ -63,6 +67,7 @@ module Adaptive {
              Returns the name of the operating system.
 
              @return OS name.
+             @since ARP1.0
           */
           getName() : string {
                return this.name;
@@ -81,6 +86,7 @@ module Adaptive {
              Returns the vendor of the operating system.
 
              @return OS vendor.
+             @since ARP1.0
           */
           getVendor() : string {
                return this.vendor;
@@ -99,6 +105,7 @@ module Adaptive {
              Returns the version of the operating system.
 
              @return OS version.
+             @since ARP1.0
           */
           getVersion() : string {
                return this.version;

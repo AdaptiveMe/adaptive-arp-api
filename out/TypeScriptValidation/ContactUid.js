@@ -22,16 +22,24 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the internal unique identifier data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var ContactUid = (function () {
+    var ContactUid = (function (_super) {
+        __extends(ContactUid, _super);
         /**
            Constructor used by implementation to set the Contact id.
 
@@ -39,6 +47,7 @@ var Adaptive;
            @since ARP1.0
         */
         function ContactUid(contactId) {
+            _super.call(this);
             this.contactId = contactId;
         }
         /**
@@ -60,7 +69,7 @@ var Adaptive;
             this.contactId = contactId;
         };
         return ContactUid;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.ContactUid = ContactUid;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ContactUid.js.map

@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /// <reference path="ContactEmailType.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -27,11 +28,11 @@ declare module Adaptive {
     /**
        Structure representing the email data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    class ContactEmail {
+    class ContactEmail extends APIBean {
         /**
            The type of the email
         */
@@ -47,9 +48,9 @@ declare module Adaptive {
         /**
            Constructor used by the implementation
 
-           @param type
-           @param primary
-           @param email
+           @param type    Type of the email
+           @param primary Is email primary
+           @param email   Email of the contact
            @since ARP1.0
         */
         constructor(type: ContactEmailType, primary: boolean, email: string);
@@ -63,7 +64,7 @@ declare module Adaptive {
         /**
            Set the type of the email
 
-           @param type
+           @param type Type of the email
            @since ARP1.0
         */
         setType(type: ContactEmailType): void;
@@ -77,7 +78,7 @@ declare module Adaptive {
         /**
            Set the email of the Contact
 
-           @param email
+           @param email Email of the contact
            @since ARP1.0
         */
         setEmail(email: string): void;

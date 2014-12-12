@@ -26,8 +26,8 @@ Contributors:
 /**
    Structure representing the data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
 public class Contact : ContactUid {
@@ -66,7 +66,9 @@ public class Contact : ContactUid {
      var professionalInfo : ContactProfessionalInfo?
 
      /**
-        Constructor used by the implementation
+        Default Constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -83,6 +85,32 @@ public class Contact : ContactUid {
      }
 
      /**
+        Constructor with all the fields
+
+        @param contactId        Identifier of the contact
+        @param personalInfo     Personal Information
+        @param professionalInfo Professional Information
+        @param contactAddresses Addresses of the contact
+        @param contactPhones    Phones of the contact
+        @param contactEmails    Emails of the contact
+        @param contactWebsites  Websites of the contact
+        @param contactSocials   Social Networks of the contact
+        @param contactTags      Tags of the contact
+        @since ARP1.0
+     */
+     public init(contactId: String, personalInfo: ContactPersonalInfo, professionalInfo: ContactProfessionalInfo, contactAddresses: [ContactAddress], contactPhones: [ContactPhone], contactEmails: [ContactEmail], contactWebsites: [ContactWebsite], contactSocials: [ContactSocial], contactTags: [ContactTag]) {
+          super.init(contactId: contactId)
+          self.personalInfo = personalInfo
+          self.professionalInfo = professionalInfo
+          self.contactAddresses = contactAddresses
+          self.contactPhones = contactPhones
+          self.contactEmails = contactEmails
+          self.contactWebsites = contactWebsites
+          self.contactSocials = contactSocials
+          self.contactTags = contactTags
+     }
+
+     /**
         Returns all the addresses of the Contact
 
         @return ContactAddress[]
@@ -95,7 +123,7 @@ public class Contact : ContactUid {
      /**
         Set the addresses of the Contact
 
-        @param contactAddresses
+        @param contactAddresses Addresses of the contact
         @since ARP1.0
      */
      public func setContactAddresses(contactAddresses: [ContactAddress]) {
@@ -115,7 +143,7 @@ public class Contact : ContactUid {
      /**
         Set the emails of the Contact
 
-        @param contactEmails
+        @param contactEmails Emails of the contact
         @since ARP1.0
      */
      public func setContactEmails(contactEmails: [ContactEmail]) {
@@ -135,7 +163,7 @@ public class Contact : ContactUid {
      /**
         Set the phones of the Contact
 
-        @param contactPhones
+        @param contactPhones Phones of the contact
         @since ARP1.0
      */
      public func setContactPhones(contactPhones: [ContactPhone]) {
@@ -155,7 +183,7 @@ public class Contact : ContactUid {
      /**
         Set the social network info of the Contact
 
-        @param contactSocials
+        @param contactSocials Social Networks of the contact
         @since ARP1.0
      */
      public func setContactSocials(contactSocials: [ContactSocial]) {
@@ -175,7 +203,7 @@ public class Contact : ContactUid {
      /**
         Set the additional tags of the Contact
 
-        @param contactTags
+        @param contactTags Tags of the contact
         @since ARP1.0
      */
      public func setContactTags(contactTags: [ContactTag]) {
@@ -195,7 +223,7 @@ public class Contact : ContactUid {
      /**
         Set the websites of the Contact
 
-        @param contactWebsites
+        @param contactWebsites Websites of the contact
         @since ARP1.0
      */
      public func setContactWebsites(contactWebsites: [ContactWebsite]) {
@@ -215,7 +243,7 @@ public class Contact : ContactUid {
      /**
         Set the personal info of the Contact
 
-        @param personalInfo
+        @param personalInfo Personal Information
         @since ARP1.0
      */
      public func setPersonalInfo(personalInfo: ContactPersonalInfo) {
@@ -225,7 +253,7 @@ public class Contact : ContactUid {
      /**
         Returns the professional info of the Contact
 
-        @return ContactProfessionalInfo[]
+        @return Array of personal info
         @since ARP1.0
      */
      public func getProfessionalInfo() -> ContactProfessionalInfo? {
@@ -235,7 +263,7 @@ public class Contact : ContactUid {
      /**
         Set the professional info of the Contact
 
-        @param professionalInfo
+        @param professionalInfo Professional Information
         @since ARP1.0
      */
      public func setProfessionalInfo(professionalInfo: ContactProfessionalInfo) {

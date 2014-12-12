@@ -26,10 +26,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IAlarm interface/protocol.
+       Interface for Alarm purposes
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
     interface IAlarm extends IBaseNotification {

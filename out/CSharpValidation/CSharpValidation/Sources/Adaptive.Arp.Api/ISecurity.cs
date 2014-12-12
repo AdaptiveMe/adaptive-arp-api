@@ -28,10 +28,10 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of ISecurity interface/protocol.
+        Interface for Managing the Security operations
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Aryslan
+        @since ARP1.0
         @version 1.0
      */
      public interface ISecurity : IBaseSecurity {
@@ -42,7 +42,7 @@ namespace Adaptive.Arp.Api
              @param callback         callback to be executed upon function result.
              @since ARP 1.0
           */
-          void DeleteSecureKeyValuePairs(string[] Keys, string PublicAccessName, ISecureKVResultCallback Callback);
+          void DeleteSecureKeyValuePairs(string[] Keys, string PublicAccessName, ISecurityResultCallback Callback);
 
           /**
              Retrieves from the device internal storage the entry/entries containing the specified key names.
@@ -51,7 +51,7 @@ namespace Adaptive.Arp.Api
              @param callback         callback to be executed upon function result.
              @since ARP 1.0
           */
-          void GetSecureKeyValuePairs(string[] Keys, string PublicAccessName, ISecureKVResultCallback Callback);
+          void GetSecureKeyValuePairs(string[] Keys, string PublicAccessName, ISecurityResultCallback Callback);
 
           /**
              Returns if the device has been modified in anyhow
@@ -67,7 +67,7 @@ namespace Adaptive.Arp.Api
              @param callback         callback to be executed upon function result.
              @since ARP 1.0
           */
-          void SetSecureKeyValuePairs(SecureKeyPair[] KeyValues, string PublicAccessName, ISecureKVResultCallback Callback);
+          void SetSecureKeyValuePairs(SecureKeyPair[] KeyValues, string PublicAccessName, ISecurityResultCallback Callback);
 
      }
 }

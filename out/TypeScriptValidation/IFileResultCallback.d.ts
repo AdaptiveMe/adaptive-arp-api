@@ -29,10 +29,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IFileResultCallback interface/protocol.
+       Interface for Managing the File operations callback
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
     interface IFileResultCallback extends IBaseCallback {
@@ -50,8 +50,8 @@ declare module Adaptive {
         onResult(storageFile: IFile): any;
         /**
            On partial result of a file operation, containing a warning.
-           @param file            Reference to the offending file.
-           @param warning         Warning processing the request.
+           @param file    Reference to the offending file.
+           @param warning Warning processing the request.
            @since ARP1.0
         */
         onWarning(file: IFile, warning: IFileResultCallbackWarning): any;

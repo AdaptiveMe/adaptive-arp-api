@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the professional info data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class ContactProfessionalInfo
+     public class ContactProfessionalInfo : APIBean
      {
 
           /**
@@ -51,7 +51,9 @@ namespace Adaptive.Arp.Api
           public string JobTitle { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public ContactProfessionalInfo()  {
           }
@@ -59,9 +61,9 @@ namespace Adaptive.Arp.Api
           /**
              Constructor used by implementation to set the ContactProfessionalInfo.
 
-             @param JobTitle
-             @param JobDescription
-             @param Company
+             @param JobTitle       The job title
+             @param JobDescription The job description
+             @param Company        The company of the job
              @since ARP1.0
           */
           public ContactProfessionalInfo(string JobTitle, string JobDescription, string Company) : base () {
@@ -83,7 +85,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the company of the job
 
-             @param Company
+             @param Company The company of the job
              @since ARP1.0
           */
           public void SetCompany(string Company) {
@@ -103,7 +105,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the description of the job
 
-             @param JobDescription
+             @param JobDescription The job description
              @since ARP1.0
           */
           public void SetJobDescription(string JobDescription) {
@@ -123,7 +125,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the title of the job
 
-             @param JobTitle
+             @param JobTitle The job title
              @since ARP1.0
           */
           public void SetJobTitle(string JobTitle) {

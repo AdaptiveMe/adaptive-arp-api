@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation ContactPhone
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -45,12 +47,12 @@ Contributors:
      /**
         Constructor used by implementation to set the contact Phone
 
-        @param phone
-        @param phoneType
+        @param phone     Phone number
+        @param phoneType Type of Phone number
         @since ARP1.0
      */
      - (id) initWithPhonePhoneType:(NSString*)phone phoneType:(ContactPhoneType*)phoneType {
-          self = [self init];
+          self = [super initWithPhonePhoneType:phone, phoneType];
           if (self) {
                [self setPhone:phone];
                [self setPhoneType:phoneType];

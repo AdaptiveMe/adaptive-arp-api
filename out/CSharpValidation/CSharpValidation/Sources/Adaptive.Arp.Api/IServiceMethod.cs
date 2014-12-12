@@ -32,8 +32,8 @@ namespace Adaptive.Arp.Api
      */
      public enum IServiceMethod {
 
-          POST,
-          GET,
+          Post,
+          Get,
           Unknown
 
      }

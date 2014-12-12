@@ -26,11 +26,11 @@ Contributors:
 /**
    Structure representing a database reference.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Ferran Vila Conesa
+   @since ARP1.0
    @version 1.0
 */
-public class Database : NSObject {
+public class Database : APIBean {
 
      /**
         Indicates if database was created or needs to be created as Compressed.
@@ -42,7 +42,9 @@ public class Database : NSObject {
      var name : String?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -52,7 +54,6 @@ public class Database : NSObject {
         Default constructor. The compress param is setted to false.
 
         @param name Name of the table.
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      public init(name: String) {
@@ -63,9 +64,8 @@ public class Database : NSObject {
      /**
         Constructor using fields.
 
-        @param name     Name of the Table.
-        @param compress Compress enbaled or not.
-        @author Ferran Vila Conesa
+        @param name     Name of the DatabaseTable.
+        @param compress Compression enabled.
         @since ARP1.0
      */
      public init(name: String, compress: Bool) {
@@ -78,7 +78,6 @@ public class Database : NSObject {
         Returns if the table is compressed
 
         @return Compression enabled
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      public func getCompress() -> Bool? {
@@ -89,7 +88,6 @@ public class Database : NSObject {
         Sets if the table is compressed or not.
 
         @param compress Compression enabled
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      public func setCompress(compress: Bool) {
@@ -100,7 +98,6 @@ public class Database : NSObject {
         Returns the name.
 
         @return The name of the table.
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      public func getName() -> String? {
@@ -111,7 +108,6 @@ public class Database : NSObject {
         Sets the name of the table.
 
         @param name The name of the table.
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      public func setName(name: String) {

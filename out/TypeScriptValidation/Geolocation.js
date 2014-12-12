@@ -22,37 +22,48 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the data a single geolocation reading.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var Geolocation = (function () {
+    var Geolocation = (function (_super) {
+        __extends(Geolocation, _super);
         /**
-           Constructor used by the implementation
+           Constructor with parameters
 
-           @param latitude
-           @param longitude
-           @param altitude
-           @param xDoP
-           @param yDoP
+           @param latitude  Latitude of the measurement
+           @param longitude Longitude of the measurement
+           @param altitude  Altitude of the measurement
+           @param xDoP      Dilution of precision on the X measurement
+           @param yDoP      Dilution of precision on the Y measurement
+           @param timestamp Timestamp of the measurement
            @since ARP1.0
         */
-        function Geolocation(latitude, longitude, altitude, xDoP, yDoP) {
+        function Geolocation(latitude, longitude, altitude, xDoP, yDoP, timestamp) {
+            _super.call(this);
             this.latitude = latitude;
             this.longitude = longitude;
             this.altitude = altitude;
             this.xDoP = xDoP;
             this.yDoP = yDoP;
+            this.timestamp = timestamp;
         }
         /**
            Returns altitude in meters
 
-           @return altitude
+           @return Altitude of the measurement
            @since ARP1.0
         */
         Geolocation.prototype.getAltitude = function () {
@@ -61,7 +72,7 @@ var Adaptive;
         /**
            Set altitude in meters
 
-           @param altitude
+           @param altitude Altitude of the measurement
            @since ARP1.0
         */
         Geolocation.prototype.setAltitude = function (altitude) {
@@ -70,7 +81,7 @@ var Adaptive;
         /**
            Returns the latitude in degrees
 
-           @return latitude
+           @return Latitude of the measurement
            @since ARP1.0
         */
         Geolocation.prototype.getLatitude = function () {
@@ -79,7 +90,7 @@ var Adaptive;
         /**
            Set the latitude in degrees
 
-           @param latitude
+           @param latitude Latitude of the measurement
            @since ARP1.0
         */
         Geolocation.prototype.setLatitude = function (latitude) {
@@ -88,7 +99,7 @@ var Adaptive;
         /**
            Returns the longitude in degrees
 
-           @return longitude
+           @return Longitude of the measurement
            @since ARP1.0
         */
         Geolocation.prototype.getLongitude = function () {
@@ -97,17 +108,34 @@ var Adaptive;
         /**
            Returns the latitude in degrees
 
-           @param longitude
+           @param longitude Longitude of the measurement
            @since ARP1.0
         */
         Geolocation.prototype.setLongitude = function (longitude) {
             this.longitude = longitude;
         };
         /**
-           Returns the Dilution of Position in the X axis (longitude)
+           Timestamp Getter
 
-           @return xDoP
+           @return Timestamp
            @since ARP1.0
+        */
+        Geolocation.prototype.getTimestamp = function () {
+            return this.timestamp;
+        };
+        /**
+           Timestamp Setter
+
+           @param timestamp Timestamp
+           @since ARP1.0
+        */
+        Geolocation.prototype.setTimestamp = function (timestamp) {
+            this.timestamp = timestamp;
+        };
+        /**
+           Gets Dilution of precision on the X measurement. Measured in meters.
+
+           @return xDoP Dilution of precision on the X measurement. Measured in meters.
         */
         Geolocation.prototype.getXDoP = function () {
             return this.xDoP;
@@ -121,10 +149,9 @@ var Adaptive;
             this.xDoP = xDoP;
         };
         /**
-           Returns the Dilution of Position in the Y axis (latitude)
+           Gets Dilution of precision on the Y measurement. Measured in meters.
 
-           @return yDoP
-           @since ARP1.0
+           @return yDoP Dilution of precision on the Y measurement. Measured in meters.
         */
         Geolocation.prototype.getYDoP = function () {
             return this.yDoP;
@@ -138,7 +165,7 @@ var Adaptive;
             this.yDoP = yDoP;
         };
         return Geolocation;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.Geolocation = Geolocation;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=Geolocation.js.map

@@ -22,25 +22,34 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 ///<reference path="ContactPhoneType.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the phone data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var ContactPhone = (function () {
+    var ContactPhone = (function (_super) {
+        __extends(ContactPhone, _super);
         /**
            Constructor used by implementation to set the contact Phone
 
-           @param phone
-           @param phoneType
+           @param phone     Phone number
+           @param phoneType Type of Phone number
            @since ARP1.0
         */
         function ContactPhone(phone, phoneType) {
+            _super.call(this);
             this.phone = phone;
             this.phoneType = phoneType;
         }
@@ -56,7 +65,7 @@ var Adaptive;
         /**
            Set the phoneType of the phone number
 
-           @param phoneType
+           @param phoneType Type of Phone number
            @since ARP1.0
         */
         ContactPhone.prototype.setPhoneType = function (phoneType) {
@@ -81,7 +90,7 @@ var Adaptive;
             this.phone = phone;
         };
         return ContactPhone;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.ContactPhone = ContactPhone;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ContactPhone.js.map

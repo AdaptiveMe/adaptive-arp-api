@@ -28,10 +28,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of IMessagingCallback interface/protocol.
+       Interface for Managing the Messaging responses
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
     interface IMessagingCallback extends IBaseCallback {

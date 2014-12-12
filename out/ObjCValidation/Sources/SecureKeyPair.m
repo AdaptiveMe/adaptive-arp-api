@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Aryslan
+@since ARP1.0
 @version 1.0
 */
 @implementation SecureKeyPair
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -50,7 +52,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithSecureKeySecureData:(NSString*)secureKey secureData:(NSString*)secureData {
-          self = [self init];
+          self = [super initWithSecureKeySecureData:secureKey, secureData];
           if (self) {
                [self setSecureKey:secureKey];
                [self setSecureData:secureData];

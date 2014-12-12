@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation ContactUid
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -49,7 +51,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithContactId:(NSString*)contactId {
-          self = [self init];
+          self = [super initWithContactId:contactId];
           if (self) {
                [self setContactId:contactId];
           }

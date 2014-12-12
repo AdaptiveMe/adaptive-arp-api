@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Structure representing the professional info data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactProfessionalInfo {
+public class ContactProfessionalInfo extends APIBean {
 
      /**
         The company of the job
@@ -48,7 +48,9 @@ public class ContactProfessionalInfo {
      private String jobTitle;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public ContactProfessionalInfo() {
      }
@@ -56,13 +58,13 @@ public class ContactProfessionalInfo {
      /**
         Constructor used by implementation to set the ContactProfessionalInfo.
 
-        @param jobTitle
-        @param jobDescription
-        @param company
+        @param jobTitle       The job title
+        @param jobDescription The job description
+        @param company        The company of the job
         @since ARP1.0
      */
      public ContactProfessionalInfo(String jobTitle, String jobDescription, String company) {
-          this();
+          super();
           this.jobTitle = jobTitle;
           this.jobDescription = jobDescription;
           this.company = company;
@@ -81,7 +83,7 @@ public class ContactProfessionalInfo {
      /**
         Set the company of the job
 
-        @param company
+        @param company The company of the job
         @since ARP1.0
      */
      public void setCompany(String company) {
@@ -101,7 +103,7 @@ public class ContactProfessionalInfo {
      /**
         Set the description of the job
 
-        @param jobDescription
+        @param jobDescription The job description
         @since ARP1.0
      */
      public void setJobDescription(String jobDescription) {
@@ -121,7 +123,7 @@ public class ContactProfessionalInfo {
      /**
         Set the title of the job
 
-        @param jobTitle
+        @param jobTitle The job title
         @since ARP1.0
      */
      public void setJobTitle(String jobTitle) {

@@ -28,8 +28,8 @@ Contributors:
 */
 public enum IServiceProtocolVersion {
 
-     case HTTP_PROTOCOL_VERSION_1_0
-     case HTTP_PROTOCOL_VERSION_1_1
+     case HttpProtocolVersion10
+     case HttpProtocolVersion11
      case Unknown
 
      /**
@@ -37,8 +37,8 @@ public enum IServiceProtocolVersion {
      */
      public func toString() -> String {
           switch self {
-               case .HTTP_PROTOCOL_VERSION_1_0: return "HTTP_PROTOCOL_VERSION_1_0"
-               case .HTTP_PROTOCOL_VERSION_1_1: return "HTTP_PROTOCOL_VERSION_1_1"
+               case .HttpProtocolVersion10: return "HttpProtocolVersion10"
+               case .HttpProtocolVersion11: return "HttpProtocolVersion11"
                case .Unknown: return "Unknown"
           }
      }
@@ -49,8 +49,8 @@ public enum IServiceProtocolVersion {
      public static func toEnum(string:String?) -> IServiceProtocolVersion {
           if let validString = string {
                switch validString {
-                    case "HTTP_PROTOCOL_VERSION_1_0": return .HTTP_PROTOCOL_VERSION_1_0
-                    case "HTTP_PROTOCOL_VERSION_1_1": return .HTTP_PROTOCOL_VERSION_1_1
+                    case "HttpProtocolVersion10": return .HttpProtocolVersion10
+                    case "HttpProtocolVersion11": return .HttpProtocolVersion11
                     case "Unknown": return .Unknown
                default: return .Unknown
                }

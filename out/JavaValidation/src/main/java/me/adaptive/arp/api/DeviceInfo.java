@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Structure representing the basic device information.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class DeviceInfo {
+public class DeviceInfo extends APIBean {
 
      /**
         Model of device - equivalent to device release or version.
@@ -53,7 +53,9 @@ be unique for a specific instance of an application on a specific device.
      private String vendor;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public DeviceInfo() {
      }
@@ -65,9 +67,10 @@ be unique for a specific instance of an application on a specific device.
         @param model  of the device.
         @param vendor of the device.
         @param uuid   unique* identifier (* platform dependent).
+        @since ARP1.0
      */
      public DeviceInfo(String name, String model, String vendor, String uuid) {
-          this();
+          super();
           this.name = name;
           this.model = model;
           this.vendor = vendor;
@@ -78,6 +81,7 @@ be unique for a specific instance of an application on a specific device.
         Returns the model of the device.
 
         @return String with the model of the device.
+        @since ARP1.0
      */
      public String getModel() {
           return this.model;
@@ -96,6 +100,7 @@ be unique for a specific instance of an application on a specific device.
         Returns the name of the device.
 
         @return String with device name.
+        @since ARP1.0
      */
      public String getName() {
           return this.name;
@@ -114,6 +119,7 @@ be unique for a specific instance of an application on a specific device.
         Returns the platform dependent UUID of the device.
 
         @return String with the 128-bit device identifier.
+        @since ARP1.0
      */
      public String getUuid() {
           return this.uuid;
@@ -134,6 +140,7 @@ be unique for a specific instance of an application on a specific device.
         Returns the vendor of the device.
 
         @return String with the vendor name.
+        @since ARP1.0
      */
      public String getVendor() {
           return this.vendor;

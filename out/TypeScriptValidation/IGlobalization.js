@@ -22,8 +22,8 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="Dictionary.ts"/>
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseApplication.ts"/>
+///<reference path="KeyPair.ts"/>
 ///<reference path="Locale.ts"/>
 //# sourceMappingURL=IGlobalization.js.map

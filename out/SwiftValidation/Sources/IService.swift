@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of IService interface/protocol.
+   Interface for Managing the Services operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
 public protocol IService : IBaseCommunication {
@@ -35,42 +35,49 @@ public protocol IService : IBaseCommunication {
         Get a reference to a registered service by name.
         @param serviceName Name of service.
         @return A service, if registered, or null of the service does not exist.
+        @since ARP1.0
      */
      func getService(serviceName:String) -> Service
 
      /**
         Request async a service for an Url
-        @param serviceRequest
-        @param service
-        @param callback
+        @param serviceRequest Service Request to invoke
+        @param service        Service to call
+        @param callback       Callback to execute with the result
+        @since ARP1.0
      */
      func invokeService(serviceRequest:ServiceRequest, service:Service, callback:IServiceResultCallback)
      /**
         Check whether a service by the given name is registered.
-        @param serviceName
+        @param serviceName Name of service.
         @return True if the service is registered, false otherwise.
+        @since ARP1.0
      */
      func isRegistered(serviceName:String) -> Bool
 
      /**
         Check whether a service by the given name is registered.
-        @param serviceName
+        @param serviceName Name of service.
         @return True if the service is registered, false otherwise.
+        @since ARP1.0
      */
      func isRegistered(service:Service) -> Bool
 
      /**
         Register a new service
         @param service to register
+        @since ARP1.0
      */
      func registerService(service:Service)
      /**
         Unregister all services.
+        @since ARP1.0
      */
      func unregisterServices()
      /**
         Unregister a service
         @param service to unregister
+        @since ARP1.0
      */
      func unregisterService(service:Service)
 }

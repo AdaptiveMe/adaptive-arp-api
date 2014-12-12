@@ -23,21 +23,23 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
+
 module Adaptive {
 
      /**
         Structure representing the data of a single acceleration reading.
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
-     export class Acceleration {
+     export class Acceleration extends APIBean {
 
           /**
              Timestamp of the acceleration reading.
           */
-          timeStamp : number;
+          timestamp : number;
           /**
              X-axis component of the acceleration.
           */
@@ -51,88 +53,97 @@ module Adaptive {
           */
           z : number;
           /**
-             Constructor.
+             Constructor with fields
 
-             @param x X Coordinate
-             @param y Y Coordinate
-             @param z Z Coordinate
-             @author Carlos Lozano Diez
+             @param x         X Coordinate
+             @param y         Y Coordinate
+             @param z         Z Coordinate
+             @param timestamp Timestamp
              @since ARP1.0
           */
-          constructor(x: number, y: number, z: number, timeStamp: number) {
+          constructor(x: number, y: number, z: number, timestamp: number) {
+               super();
                this.x = x;
                this.y = y;
                this.z = z;
-               this.timeStamp = timeStamp;
+               this.timestamp = timestamp;
           }
 
           /**
-             Gets Timestamp of the acceleration reading.
+             Timestamp Getter
 
-             @return timeStamp Timestamp of the acceleration reading.
+             @return Timestamp
+             @since ARP1.0
           */
-          getTimeStamp() : number {
-               return this.timeStamp;
+          getTimestamp() : number {
+               return this.timestamp;
           }
 
           /**
-             Sets Timestamp of the acceleration reading.
+             Timestamp Setter
 
-             @param timeStamp Timestamp of the acceleration reading.
+             @param timestamp Timestamp
+             @since ARP1.0
           */
-          setTimeStamp(timeStamp: number) {
-               this.timeStamp = timeStamp;
+          setTimestamp(timestamp: number) {
+               this.timestamp = timestamp;
           }
 
           /**
-             Gets X-axis component of the acceleration.
+             X Coordinate Getter
 
-             @return x X-axis component of the acceleration.
+             @return X-axis component of the acceleration.
+             @since ARP1.0
           */
           getX() : number {
                return this.x;
           }
 
           /**
-             Sets X-axis component of the acceleration.
+             X Coordinate Setter
 
              @param x X-axis component of the acceleration.
+             @since ARP1.0
           */
           setX(x: number) {
                this.x = x;
           }
 
           /**
-             Gets Y-axis component of the acceleration.
+             Y Coordinate Getter
 
-             @return y Y-axis component of the acceleration.
+             @return Y-axis component of the acceleration.
+             @since ARP1.0
           */
           getY() : number {
                return this.y;
           }
 
           /**
-             Sets Y-axis component of the acceleration.
+             Y Coordinate Setter
 
              @param y Y-axis component of the acceleration.
+             @since ARP1.0
           */
           setY(y: number) {
                this.y = y;
           }
 
           /**
-             Gets Z-axis component of the acceleration.
+             Z Coordinate Getter
 
-             @return z Z-axis component of the acceleration.
+             @return Z-axis component of the acceleration.
+             @since ARP1.0
           */
           getZ() : number {
                return this.z;
           }
 
           /**
-             Sets Z-axis component of the acceleration.
+             Z Coordinate Setter
 
-             @param z Z-axis component of the acceleration.
+             @param z Z Coordinate
+             @since ARP1.0
           */
           setZ(z: number) {
                this.z = z;

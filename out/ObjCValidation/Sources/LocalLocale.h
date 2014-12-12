@@ -23,16 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Represents a specific user or system locate.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Aryslan
+@since ARP1.0
 @version 1.0
 */
-@interface LocalLocale : NSObject
+@interface LocalLocale : APIBean
 
      /**
         A valid ISO Country Code.
@@ -44,15 +45,17 @@ Represents a specific user or system locate.
      @property NSString *language;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
      /**
         Constructor used by the implementation
 
-        @param country
-        @param language
+        @param country  Country of the Locale
+        @param language Language of the Locale
         @since ARP1.0
      */
      - (id) initWithLanguageCountry:(NSString*)language country:(NSString*)country;

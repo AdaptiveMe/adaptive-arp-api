@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation Button
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -43,13 +45,13 @@ Contributors:
      }
 
      /**
-        Constructor used by the implementation
+        Constructor with fields
 
         @param type Button type.
         @since ARP1.0
      */
      - (id) initWithType:(ICapabilitiesButton*)type {
-          self = [self init];
+          self = [super initWithType:type];
           if (self) {
                [self setType:type];
           }

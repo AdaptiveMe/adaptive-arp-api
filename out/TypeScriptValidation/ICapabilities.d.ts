@@ -33,10 +33,10 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Definition of ICapabilities interface/protocol.
+       Interface for testing the Capabilities operations
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
     interface ICapabilities extends IBaseSystem {
@@ -44,7 +44,6 @@ declare module Adaptive {
            Determines whether a specific hardware button is supported for interaction.
            @param type Type of feature to check.
            @return true is supported, false otherwise.
-           @author Carlos Lozano Diez
            @since ARP1.0
         */
         hasButtonSupport(type: ICapabilitiesButton): boolean;
@@ -53,7 +52,6 @@ declare module Adaptive {
 the device.
            @param type Type of feature to check.
            @return true if supported, false otherwise.
-           @author Carlos Lozano Diez
            @since ARP1.0
         */
         hasCommunicationSupport(type: ICapabilitiesCommunication): boolean;
@@ -61,7 +59,6 @@ the device.
            Determines whether a specific Data capability is supported by the device.
            @param type Type of feature to check.
            @return true if supported, false otherwise.
-           @author Carlos Lozano Diez
            @since ARP1.0
         */
         hasDataSupport(type: ICapabilitiesData): boolean;
@@ -70,7 +67,6 @@ the device.
 device.
            @param type Type of feature to check.
            @return true if supported, false otherwise.
-           @author Carlos Lozano Diez
            @since ARP1.0
         */
         hasMediaSupport(type: ICapabilitiesMedia): boolean;
@@ -78,7 +74,6 @@ device.
            Determines whether a specific Net capability is supported by the device.
            @param type Type of feature to check.
            @return true if supported, false otherwise.
-           @author Carlos Lozano Diez
            @since ARP1.0
         */
         hasNetSupport(type: ICapabilitiesNet): boolean;
@@ -87,7 +82,6 @@ device.
 device.
            @param type Type of feature to check.
            @return true if supported, false otherwise.
-           @author Carlos Lozano Diez
            @since ARP1.0
         */
         hasNotificationSupport(type: ICapabilitiesNotification): boolean;
@@ -96,7 +90,6 @@ device.
 device.
            @param type Type of feature to check.
            @return true if supported, false otherwise.
-           @author Carlos Lozano Diez
            @since ARP1.0
         */
         hasSensorSupport(type: ICapabilitiesSensor): boolean;

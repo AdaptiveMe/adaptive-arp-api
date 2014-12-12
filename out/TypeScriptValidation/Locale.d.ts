@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -26,11 +27,11 @@ declare module Adaptive {
     /**
        Represents a specific user or system locate.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Aryslan
+       @since ARP1.0
        @version 1.0
     */
-    class Locale {
+    class Locale extends APIBean {
         /**
            A valid ISO Country Code.
         */
@@ -42,8 +43,8 @@ declare module Adaptive {
         /**
            Constructor used by the implementation
 
-           @param country
-           @param language
+           @param country  Country of the Locale
+           @param language Language of the Locale
            @since ARP1.0
         */
         constructor(language: string, country: string);

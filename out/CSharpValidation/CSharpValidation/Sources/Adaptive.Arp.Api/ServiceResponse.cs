@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Represents a local or remote service response.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Aryslan
+        @since ARP1.0
         @version 1.0
      */
-     public class ServiceResponse
+     public class ServiceResponse : APIBean
      {
 
           /**
@@ -56,48 +56,48 @@ namespace Adaptive.Arp.Api
           /**
              The length in bytes for the Content field.
           */
-          public string ContentLength { get; set; }
+          public int ContentLength { get; set; }
           /**
              The request/response content type (MIME TYPE).
           */
           public string ContentType { get; set; }
           /**
-             The headers array (name,value pairs) to be included on the I/O service request.
+             The serviceHeaders array (name,value pairs) to be included on the I/O service request.
           */
-          public Header[] Headers { get; set; }
+          public ServiceHeader[] ServiceHeaders { get; set; }
           /**
-             The session context for the Request/Response.
+             Information about the session
           */
-          public ISession Session { get; set; }
+          public ServiceSession ServiceSession { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
           */
           public ServiceResponse()  {
           }
 
           /**
-             Constructor used by the implementation
+             Constructor with fields
 
-             @param Content
-             @param ContentType
-             @param ContentLength
-             @param ContentBinary
-             @param ContentBinaryLength
-             @param Headers
-             @param Session
-             @param ContentEncoding
+             @param Content             Request/Response data content (plain text).
+             @param ContentType         The request/response content type (MIME TYPE).
+             @param ContentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
+             @param ContentLength       The length in bytes for the Content field.
+             @param ContentBinary       The byte[] representing the binary Content.
+             @param ContentBinaryLength The length in bytes for the binary Content.
+             @param ServiceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+             @param ServiceSession      Information about the session
              @since ARP1.0
           */
-          public ServiceResponse(string Content, string ContentType, string ContentLength, byte[] ContentBinary, int ContentBinaryLength, Header[] Headers, ISession Session, string ContentEncoding) : base () {
+          public ServiceResponse(string Content, string ContentType, string ContentEncoding, int ContentLength, byte[] ContentBinary, int ContentBinaryLength, ServiceHeader[] ServiceHeaders, ServiceSession ServiceSession) : base () {
                this.Content = Content;
                this.ContentType = ContentType;
+               this.ContentEncoding = ContentEncoding;
                this.ContentLength = ContentLength;
                this.ContentBinary = ContentBinary;
                this.ContentBinaryLength = ContentBinaryLength;
-               this.Headers = Headers;
-               this.Session = Session;
-               this.ContentEncoding = ContentEncoding;
+               this.ServiceHeaders = ServiceHeaders;
+               this.ServiceSession = ServiceSession;
           }
 
           /**
@@ -113,7 +113,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the content
 
-             @param Content
+             @param Content Request/Response data content (plain text).
              @since ARP1.0
           */
           public void SetContent(string Content) {
@@ -133,7 +133,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the binary content
 
-             @param ContentBinary
+             @param ContentBinary The byte[] representing the binary Content.
              @since ARP1.0
           */
           public void SetContentBinary(byte[] ContentBinary) {
@@ -141,7 +141,7 @@ namespace Adaptive.Arp.Api
           }
 
           /**
-             Retrusn the binary content length
+             Returns the binary content length
 
              @return ContentBinaryLength
              @since ARP1.0
@@ -153,7 +153,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the binary content length
 
-             @param ContentBinaryLength
+             @param ContentBinaryLength The length in bytes for the binary Content.
              @since ARP1.0
           */
           public void SetContentBinaryLength(int ContentBinaryLength) {
@@ -173,7 +173,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the content encoding
 
-             @param ContentEncoding
+             @param ContentEncoding Encoding of the binary payload - by default assumed to be UTF8.
              @since ARP1.0
           */
           public void SetContentEncoding(string ContentEncoding) {
@@ -186,17 +186,17 @@ namespace Adaptive.Arp.Api
              @return ContentLength
              @since ARP1.0
           */
-          public string GetContentLength() {
+          public int GetContentLength() {
                return this.ContentLength;
           }
 
           /**
              Set the content length
 
-             @param ContentLength
+             @param ContentLength The length in bytes for the Content field.
              @since ARP1.0
           */
-          public void SetContentLength(string ContentLength) {
+          public void SetContentLength(int ContentLength) {
                this.ContentLength = ContentLength;
           }
 
@@ -213,7 +213,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the content type
 
-             @param ContentType
+             @param ContentType The request/response content type (MIME TYPE).
              @since ARP1.0
           */
           public void SetContentType(string ContentType) {
@@ -221,43 +221,43 @@ namespace Adaptive.Arp.Api
           }
 
           /**
-             Returns the array of Header
+             Returns the array of ServiceHeader
 
-             @return Headers
+             @return ServiceHeaders
              @since ARP1.0
           */
-          public Header[] GetHeaders() {
-               return this.Headers;
+          public ServiceHeader[] GetServiceHeaders() {
+               return this.ServiceHeaders;
           }
 
           /**
-             Set the array of Header
+             Set the array of ServiceHeader
 
-             @param Headers
+             @param ServiceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
              @since ARP1.0
           */
-          public void SetHeaders(Header[] Headers) {
-               this.Headers = Headers;
+          public void SetServiceHeaders(ServiceHeader[] ServiceHeaders) {
+               this.ServiceHeaders = ServiceHeaders;
           }
 
           /**
-             Returns the method
+             Getter for service session
 
-             @return Method
+             @return The element service session
              @since ARP1.0
           */
-          public ISession GetSession() {
-               return this.Session;
+          public ServiceSession GetServiceSession() {
+               return this.ServiceSession;
           }
 
           /**
-             Set the method
+             Setter for service session
 
-             @param Session
+             @param ServiceSession The element service session
              @since ARP1.0
           */
-          public void SetSession(ISession Session) {
-               this.Session = Session;
+          public void SetServiceSession(ServiceSession ServiceSession) {
+               this.ServiceSession = ServiceSession;
           }
 
 

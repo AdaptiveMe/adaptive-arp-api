@@ -24,16 +24,28 @@ Contributors:
 */
 
 #import <Foundation/Foundation.h>
-#import <IFileDataResultCallback.h>
+#import <IBaseCallback.h>
 
 /**
-Created by clozano on 05/12/14.
+Interface for Managing the File store operations callback
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
-@protocol IFileDataStoreResultCallback <IFileDataResultCallback>
+@protocol IFileDataStoreResultCallback <IBaseCallback>
+
+     typedef NS_OPTIONS(NSUInteger, IFileDataStoreResultCallbackError) {
+          IFileDataStoreResultCallbackError_InexistentFile = 0,
+          IFileDataStoreResultCallbackError_InsufficientSpace = 1,
+          IFileDataStoreResultCallbackError_Unauthorized = 2,
+          IFileDataStoreResultCallbackError_Unknown = 3
+     };
+
+     typedef NS_OPTIONS(NSUInteger, IFileDataStoreResultCallbackWarning) {
+          IFileDataStoreResultCallbackWarning_ExceedMaximumSize = 0,
+          IFileDataStoreResultCallbackWarning_Unknown = 1
+     };
 
 @end
 

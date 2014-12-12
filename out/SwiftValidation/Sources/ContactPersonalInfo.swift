@@ -26,11 +26,11 @@ Contributors:
 /**
    Structure representing the personal info data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactPersonalInfo : NSObject {
+public class ContactPersonalInfo : APIBean {
 
      /**
         The title of the Contact
@@ -50,7 +50,9 @@ public class ContactPersonalInfo : NSObject {
      var name : String?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -86,7 +88,7 @@ public class ContactPersonalInfo : NSObject {
      /**
         Set the Title of the Contact
 
-        @param title
+        @param title of the Contact
         @since ARP1.0
      */
      public func setTitle(title: ContactPersonalInfoTitle) {
@@ -106,7 +108,7 @@ public class ContactPersonalInfo : NSObject {
      /**
         Set the last name of the Contact
 
-        @param lastName
+        @param lastName of the Contact
         @since ARP1.0
      */
      public func setLastName(lastName: String) {
@@ -126,7 +128,7 @@ public class ContactPersonalInfo : NSObject {
      /**
         Set the middle name of the Contact
 
-        @param middleName
+        @param middleName of the Contact
         @since ARP1.0
      */
      public func setMiddleName(middleName: String) {
@@ -146,7 +148,7 @@ public class ContactPersonalInfo : NSObject {
      /**
         Set the name of the Contact
 
-        @param name
+        @param name of the Contact
         @since ARP1.0
      */
      public func setName(name: String) {

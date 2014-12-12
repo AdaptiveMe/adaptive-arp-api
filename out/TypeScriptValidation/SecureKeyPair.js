@@ -22,16 +22,24 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Represents a single secureKey-value pair.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Aryslan
+       @since ARP1.0
        @version 1.0
     */
-    var SecureKeyPair = (function () {
+    var SecureKeyPair = (function (_super) {
+        __extends(SecureKeyPair, _super);
         /**
            Constructor with parameters
 
@@ -40,6 +48,7 @@ var Adaptive;
            @since ARP1.0
         */
         function SecureKeyPair(secureKey, secureData) {
+            _super.call(this);
             this.secureKey = secureKey;
             this.secureData = secureData;
         }
@@ -80,7 +89,7 @@ var Adaptive;
             this.secureKey = secureKey;
         };
         return SecureKeyPair;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.SecureKeyPair = SecureKeyPair;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=SecureKeyPair.js.map

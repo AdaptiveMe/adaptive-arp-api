@@ -30,17 +30,13 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the data elements of an email.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class Email
+     public class Email : APIBean
      {
 
-          /**
-             Array of attatchments
-          */
-          public AttachmentData[] AttachmentData { get; set; }
           /**
              Array of Email Blind Carbon Copy recipients
           */
@@ -49,6 +45,10 @@ namespace Adaptive.Arp.Api
              Array of Email Carbon Copy recipients
           */
           public EmailAddress[] CcRecipients { get; set; }
+          /**
+             Array of attatchments
+          */
+          public EmailAttachmentData[] EmailAttachmentData { get; set; }
           /**
              Message body
           */
@@ -67,7 +67,9 @@ namespace Adaptive.Arp.Api
           public EmailAddress[] ToRecipients { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public Email()  {
           }
@@ -78,17 +80,17 @@ namespace Adaptive.Arp.Api
              @param ToRecipients        array of recipients
              @param CcRecipients        array of cc recipients
              @param BccRecipients       array of bcc recipients
-             @param AttachmentData      array of attatchments
+             @param EmailAttachmentData array of attatchments
              @param MessageBody         body of the email
              @param MessageBodyMimeType mime type of the body
              @param Subject             of the email
              @since ARP1.0
           */
-          public Email(EmailAddress[] ToRecipients, EmailAddress[] CcRecipients, EmailAddress[] BccRecipients, AttachmentData[] AttachmentData, string MessageBody, string MessageBodyMimeType, string Subject) : base () {
+          public Email(EmailAddress[] ToRecipients, EmailAddress[] CcRecipients, EmailAddress[] BccRecipients, EmailAttachmentData[] EmailAttachmentData, string MessageBody, string MessageBodyMimeType, string Subject) : base () {
                this.ToRecipients = ToRecipients;
                this.CcRecipients = CcRecipients;
                this.BccRecipients = BccRecipients;
-               this.AttachmentData = AttachmentData;
+               this.EmailAttachmentData = EmailAttachmentData;
                this.MessageBody = MessageBody;
                this.MessageBodyMimeType = MessageBodyMimeType;
                this.Subject = Subject;
@@ -106,26 +108,6 @@ namespace Adaptive.Arp.Api
                this.ToRecipients = ToRecipients;
                this.Subject = Subject;
                this.MessageBody = MessageBody;
-          }
-
-          /**
-             Returns an array of attachments
-
-             @return AttachmentData array with the email attachments
-             @since ARP1.0
-          */
-          public AttachmentData[] GetAttachmentData() {
-               return this.AttachmentData;
-          }
-
-          /**
-             Set the email attachment data array
-
-             @param AttachmentData array of email attatchments
-             @since ARP1.0
-          */
-          public void SetAttachmentData(AttachmentData[] AttachmentData) {
-               this.AttachmentData = AttachmentData;
           }
 
           /**
@@ -169,9 +151,30 @@ namespace Adaptive.Arp.Api
           }
 
           /**
+             Returns an array of attachments
+
+             @return EmailAttachmentData array with the email attachments
+             @since ARP1.0
+          */
+          public EmailAttachmentData[] GetEmailAttachmentData() {
+               return this.EmailAttachmentData;
+          }
+
+          /**
+             Set the email attachment data array
+
+             @param EmailAttachmentData array of email attatchments
+             @since ARP1.0
+          */
+          public void SetEmailAttachmentData(EmailAttachmentData[] EmailAttachmentData) {
+               this.EmailAttachmentData = EmailAttachmentData;
+          }
+
+          /**
              Returns the message body of the email
 
              @return Message Body string of the email
+             @since ARP1.0
           */
           public string GetMessageBody() {
                return this.MessageBody;

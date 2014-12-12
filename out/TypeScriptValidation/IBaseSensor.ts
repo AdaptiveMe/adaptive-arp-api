@@ -29,10 +29,10 @@ Contributors:
 module Adaptive {
 
      /**
-        Definition of IBaseSensor interface/protocol.
+        Base application for Sensor purposes
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      export interface IBaseSensor extends IAdaptiveRP {

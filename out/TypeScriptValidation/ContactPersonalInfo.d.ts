@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /// <reference path="ContactPersonalInfoTitle.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -27,11 +28,11 @@ declare module Adaptive {
     /**
        Structure representing the personal info data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    class ContactPersonalInfo {
+    class ContactPersonalInfo extends APIBean {
         /**
            The title of the Contact
         */
@@ -68,7 +69,7 @@ declare module Adaptive {
         /**
            Set the Title of the Contact
 
-           @param title
+           @param title of the Contact
            @since ARP1.0
         */
         setTitle(title: ContactPersonalInfoTitle): void;
@@ -82,7 +83,7 @@ declare module Adaptive {
         /**
            Set the last name of the Contact
 
-           @param lastName
+           @param lastName of the Contact
            @since ARP1.0
         */
         setLastName(lastName: string): void;
@@ -96,7 +97,7 @@ declare module Adaptive {
         /**
            Set the middle name of the Contact
 
-           @param middleName
+           @param middleName of the Contact
            @since ARP1.0
         */
         setMiddleName(middleName: string): void;
@@ -110,7 +111,7 @@ declare module Adaptive {
         /**
            Set the name of the Contact
 
-           @param name
+           @param name of the Contact
            @since ARP1.0
         */
         setName(name: string): void;

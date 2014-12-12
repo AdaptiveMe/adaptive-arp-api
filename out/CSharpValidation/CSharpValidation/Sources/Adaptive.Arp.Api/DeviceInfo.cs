@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the basic device information.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class DeviceInfo
+     public class DeviceInfo : APIBean
      {
 
           /**
@@ -56,7 +56,9 @@ be unique for a specific instance of an application on a specific device.
           public string Vendor { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public DeviceInfo()  {
           }
@@ -68,6 +70,7 @@ be unique for a specific instance of an application on a specific device.
              @param Model  of the device.
              @param Vendor of the device.
              @param Uuid   unique* identifier (* platform dependent).
+             @since ARP1.0
           */
           public DeviceInfo(string Name, string Model, string Vendor, string Uuid) : base () {
                this.Name = Name;
@@ -80,6 +83,7 @@ be unique for a specific instance of an application on a specific device.
              Returns the model of the device.
 
              @return String with the model of the device.
+             @since ARP1.0
           */
           public string GetModel() {
                return this.Model;
@@ -98,6 +102,7 @@ be unique for a specific instance of an application on a specific device.
              Returns the name of the device.
 
              @return String with device name.
+             @since ARP1.0
           */
           public string GetName() {
                return this.Name;
@@ -116,6 +121,7 @@ be unique for a specific instance of an application on a specific device.
              Returns the platform dependent UUID of the device.
 
              @return String with the 128-bit device identifier.
+             @since ARP1.0
           */
           public string GetUuid() {
                return this.Uuid;
@@ -136,6 +142,7 @@ be unique for a specific instance of an application on a specific device.
              Returns the vendor of the device.
 
              @return String with the vendor name.
+             @since ARP1.0
           */
           public string GetVendor() {
                return this.Vendor;

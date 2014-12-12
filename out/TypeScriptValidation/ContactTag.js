@@ -22,45 +22,36 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the assigned tags data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var ContactTag = (function () {
+    var ContactTag = (function (_super) {
+        __extends(ContactTag, _super);
         /**
            Constructor used by the implementation
 
-           @param dataValue
-           @param name
+           @param value Value of the tag
+           @param name  Name of the tag
            @since ARP1.0
         */
-        function ContactTag(name, dataValue) {
+        function ContactTag(name, value) {
+            _super.call(this);
             this.name = name;
-            this.dataValue = dataValue;
+            this.value = value;
         }
-        /**
-           Returns the value of the Tag
-
-           @return value
-           @since ARP1.0
-        */
-        ContactTag.prototype.getDataValue = function () {
-            return this.dataValue;
-        };
-        /**
-           Set the value of the Tag
-
-           @param dataValue
-           @since ARP1.0
-        */
-        ContactTag.prototype.setDataValue = function (dataValue) {
-            this.dataValue = dataValue;
-        };
         /**
            Returns the name of the Tag
 
@@ -73,14 +64,32 @@ var Adaptive;
         /**
            Set the name of the Tag
 
-           @param name
+           @param name Name of the tag
            @since ARP1.0
         */
         ContactTag.prototype.setName = function (name) {
             this.name = name;
         };
+        /**
+           Returns the value of the Tag
+
+           @return value
+           @since ARP1.0
+        */
+        ContactTag.prototype.getValue = function () {
+            return this.value;
+        };
+        /**
+           Set the value of the Tag
+
+           @param value Value of the tag
+           @since ARP1.0
+        */
+        ContactTag.prototype.setValue = function (value) {
+            this.value = value;
+        };
         return ContactTag;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.ContactTag = ContactTag;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ContactTag.js.map

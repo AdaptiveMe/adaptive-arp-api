@@ -23,24 +23,21 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-///<reference path="AttachmentData.ts"/>
+///<reference path="APIBean.ts"/>
 ///<reference path="EmailAddress.ts"/>
+///<reference path="EmailAttachmentData.ts"/>
 
 module Adaptive {
 
      /**
         Structure representing the data elements of an email.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     export class Email {
+     export class Email extends APIBean {
 
-          /**
-             Array of attatchments
-          */
-          attachmentData : Array<AttachmentData>;
           /**
              Array of Email Blind Carbon Copy recipients
           */
@@ -49,6 +46,10 @@ module Adaptive {
              Array of Email Carbon Copy recipients
           */
           ccRecipients : Array<EmailAddress>;
+          /**
+             Array of attatchments
+          */
+          emailAttachmentData : Array<EmailAttachmentData>;
           /**
              Message body
           */
@@ -71,40 +72,21 @@ module Adaptive {
              @param toRecipients        array of recipients
              @param ccRecipients        array of cc recipients
              @param bccRecipients       array of bcc recipients
-             @param attachmentData      array of attatchments
+             @param emailAttachmentData array of attatchments
              @param messageBody         body of the email
              @param messageBodyMimeType mime type of the body
              @param subject             of the email
              @since ARP1.0
           */
-          constructor(toRecipients: Array<EmailAddress>, ccRecipients: Array<EmailAddress>, bccRecipients: Array<EmailAddress>, attachmentData: Array<AttachmentData>, messageBody: string, messageBodyMimeType: string, subject: string) {
+          constructor(toRecipients: Array<EmailAddress>, ccRecipients: Array<EmailAddress>, bccRecipients: Array<EmailAddress>, emailAttachmentData: Array<EmailAttachmentData>, messageBody: string, messageBodyMimeType: string, subject: string) {
+               super();
                this.toRecipients = toRecipients;
                this.ccRecipients = ccRecipients;
                this.bccRecipients = bccRecipients;
-               this.attachmentData = attachmentData;
+               this.emailAttachmentData = emailAttachmentData;
                this.messageBody = messageBody;
                this.messageBodyMimeType = messageBodyMimeType;
                this.subject = subject;
-          }
-
-          /**
-             Returns an array of attachments
-
-             @return attachmentData array with the email attachments
-             @since ARP1.0
-          */
-          getAttachmentData() : Array<AttachmentData> {
-               return this.attachmentData;
-          }
-
-          /**
-             Set the email attachment data array
-
-             @param attachmentData array of email attatchments
-             @since ARP1.0
-          */
-          setAttachmentData(attachmentData: Array<AttachmentData>) {
-               this.attachmentData = attachmentData;
           }
 
           /**
@@ -148,9 +130,30 @@ module Adaptive {
           }
 
           /**
+             Returns an array of attachments
+
+             @return emailAttachmentData array with the email attachments
+             @since ARP1.0
+          */
+          getEmailAttachmentData() : Array<EmailAttachmentData> {
+               return this.emailAttachmentData;
+          }
+
+          /**
+             Set the email attachment data array
+
+             @param emailAttachmentData array of email attatchments
+             @since ARP1.0
+          */
+          setEmailAttachmentData(emailAttachmentData: Array<EmailAttachmentData>) {
+               this.emailAttachmentData = emailAttachmentData;
+          }
+
+          /**
              Returns the message body of the email
 
              @return message Body string of the email
+             @since ARP1.0
           */
           getMessageBody() : string {
                return this.messageBody;

@@ -26,17 +26,16 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of IDatabaseResultCallback interface/protocol.
+   Interface for Managing the Cloud operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Ferran Vila Conesa
+   @since ARP1.0
    @version 1.0
 */
 public interface IDatabaseResultCallback extends IBaseCallback {
      /**
         Result callback for error responses
         @param error Returned error
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      void onError(IDatabaseResultCallbackError error);
@@ -44,7 +43,6 @@ public interface IDatabaseResultCallback extends IBaseCallback {
      /**
         Result callback for correct responses
         @param database Returns the database
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      void onResult(Database database);
@@ -53,7 +51,6 @@ public interface IDatabaseResultCallback extends IBaseCallback {
         Result callback for warning responses
         @param database Returns the database
         @param warning  Returned Warning
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      void onWarning(Database database, IDatabaseResultCallbackWarning warning);

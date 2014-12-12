@@ -26,23 +26,25 @@ Contributors:
 /**
    Structure representing the assigned tags data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactTag : NSObject {
+public class ContactTag : APIBean {
 
-     /**
-        The value of the Tag
-     */
-     var dataValue : String?
      /**
         The name of the Tag
      */
      var name : String?
+     /**
+        The value of the Tag
+     */
+     var value : String?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -51,34 +53,14 @@ public class ContactTag : NSObject {
      /**
         Constructor used by the implementation
 
-        @param dataValue
-        @param name
+        @param value Value of the tag
+        @param name  Name of the tag
         @since ARP1.0
      */
-     public init(name: String, dataValue: String) {
+     public init(name: String, value: String) {
           super.init()
           self.name = name
-          self.dataValue = dataValue
-     }
-
-     /**
-        Returns the value of the Tag
-
-        @return value
-        @since ARP1.0
-     */
-     public func getDataValue() -> String? {
-          return self.dataValue
-     }
-
-     /**
-        Set the value of the Tag
-
-        @param dataValue
-        @since ARP1.0
-     */
-     public func setDataValue(dataValue: String) {
-          self.dataValue = dataValue
+          self.value = value
      }
 
      /**
@@ -94,11 +76,31 @@ public class ContactTag : NSObject {
      /**
         Set the name of the Tag
 
-        @param name
+        @param name Name of the tag
         @since ARP1.0
      */
      public func setName(name: String) {
           self.name = name
+     }
+
+     /**
+        Returns the value of the Tag
+
+        @return value
+        @since ARP1.0
+     */
+     public func getValue() -> String? {
+          return self.value
+     }
+
+     /**
+        Set the value of the Tag
+
+        @param value Value of the tag
+        @since ARP1.0
+     */
+     public func setValue(value: String) {
+          self.value = value
      }
 
 

@@ -30,8 +30,8 @@ declare module Adaptive {
         value: string;
         constructor(value: string);
         toString(): string;
-        static HTTP_PROTOCOL_VERSION_1_0: IServiceProtocolVersion;
-        static HTTP_PROTOCOL_VERSION_1_1: IServiceProtocolVersion;
+        static HttpProtocolVersion10: IServiceProtocolVersion;
+        static HttpProtocolVersion11: IServiceProtocolVersion;
         static Unknown: IServiceProtocolVersion;
     }
 }

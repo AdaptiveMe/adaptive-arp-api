@@ -30,8 +30,8 @@ declare module Adaptive {
         value: string;
         constructor(value: string);
         toString(): string;
-        static POST: IServiceMethod;
-        static GET: IServiceMethod;
+        static Post: IServiceMethod;
+        static Get: IServiceMethod;
         static Unknown: IServiceMethod;
     }
 }

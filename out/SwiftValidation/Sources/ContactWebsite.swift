@@ -26,11 +26,11 @@ Contributors:
 /**
    Structure representing the website data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactWebsite : NSObject {
+public class ContactWebsite : APIBean {
 
      /**
         The url of the website
@@ -38,7 +38,9 @@ public class ContactWebsite : NSObject {
      var url : String?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -47,7 +49,7 @@ public class ContactWebsite : NSObject {
      /**
         Constructor used by the implementation
 
-        @param url
+        @param url Url of the website
         @since ARP1.0
      */
      public init(url: String) {
@@ -68,7 +70,7 @@ public class ContactWebsite : NSObject {
      /**
         Set the url of the website
 
-        @param url
+        @param url Url of the website
         @since ARP1.0
      */
      public func setUrl(url: String) {

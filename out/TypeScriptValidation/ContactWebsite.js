@@ -22,23 +22,32 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the website data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var ContactWebsite = (function () {
+    var ContactWebsite = (function (_super) {
+        __extends(ContactWebsite, _super);
         /**
            Constructor used by the implementation
 
-           @param url
+           @param url Url of the website
            @since ARP1.0
         */
         function ContactWebsite(url) {
+            _super.call(this);
             this.url = url;
         }
         /**
@@ -53,14 +62,14 @@ var Adaptive;
         /**
            Set the url of the website
 
-           @param url
+           @param url Url of the website
            @since ARP1.0
         */
         ContactWebsite.prototype.setUrl = function (url) {
             this.url = url;
         };
         return ContactWebsite;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.ContactWebsite = ContactWebsite;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ContactWebsite.js.map

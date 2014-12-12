@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation ContactSocial
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -50,7 +52,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithSocialNetworkProfileUrl:(ContactSocialNetwork*)socialNetwork profileUrl:(NSString*)profileUrl {
-          self = [self init];
+          self = [super initWithSocialNetworkProfileUrl:socialNetwork, profileUrl];
           if (self) {
                [self setSocialNetwork:socialNetwork];
                [self setProfileUrl:profileUrl];

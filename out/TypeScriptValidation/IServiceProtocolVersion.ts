@@ -33,8 +33,8 @@ module Adaptive {
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static HTTP_PROTOCOL_VERSION_1_0 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_0");
-          static HTTP_PROTOCOL_VERSION_1_1 = new IServiceProtocolVersion("HTTP_PROTOCOL_VERSION_1_1");
+          static HttpProtocolVersion10 = new IServiceProtocolVersion("HttpProtocolVersion10");
+          static HttpProtocolVersion11 = new IServiceProtocolVersion("HttpProtocolVersion11");
           static Unknown = new IServiceProtocolVersion("Unknown");
 
      }

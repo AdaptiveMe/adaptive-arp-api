@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseCommerce.h>
 
 /**
-Definition of IAds interface/protocol.
+Interface for Advertising purposes
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol IAds <IBaseCommerce>

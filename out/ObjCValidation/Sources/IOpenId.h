@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseSecurity.h>
 
 /**
-Definition of IOpenId interface/protocol.
+Interface for Managing the OpenID operations
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol IOpenId <IBaseSecurity>

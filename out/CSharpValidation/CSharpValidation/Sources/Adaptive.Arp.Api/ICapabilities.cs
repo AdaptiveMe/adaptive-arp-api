@@ -28,10 +28,10 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of ICapabilities interface/protocol.
+        Interface for testing the Capabilities operations
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      public interface ICapabilities : IBaseSystem {
@@ -39,7 +39,6 @@ namespace Adaptive.Arp.Api
              Determines whether a specific hardware button is supported for interaction.
              @param type Type of feature to check.
              @return true is supported, false otherwise.
-             @author Carlos Lozano Diez
              @since ARP1.0
           */
           bool HasButtonSupport(ICapabilitiesButton Type);
@@ -49,7 +48,6 @@ namespace Adaptive.Arp.Api
 the device.
              @param type Type of feature to check.
              @return true if supported, false otherwise.
-             @author Carlos Lozano Diez
              @since ARP1.0
           */
           bool HasCommunicationSupport(ICapabilitiesCommunication Type);
@@ -58,7 +56,6 @@ the device.
              Determines whether a specific Data capability is supported by the device.
              @param type Type of feature to check.
              @return true if supported, false otherwise.
-             @author Carlos Lozano Diez
              @since ARP1.0
           */
           bool HasDataSupport(ICapabilitiesData Type);
@@ -68,7 +65,6 @@ the device.
 device.
              @param type Type of feature to check.
              @return true if supported, false otherwise.
-             @author Carlos Lozano Diez
              @since ARP1.0
           */
           bool HasMediaSupport(ICapabilitiesMedia Type);
@@ -77,7 +73,6 @@ device.
              Determines whether a specific Net capability is supported by the device.
              @param type Type of feature to check.
              @return true if supported, false otherwise.
-             @author Carlos Lozano Diez
              @since ARP1.0
           */
           bool HasNetSupport(ICapabilitiesNet Type);
@@ -87,7 +82,6 @@ device.
 device.
              @param type Type of feature to check.
              @return true if supported, false otherwise.
-             @author Carlos Lozano Diez
              @since ARP1.0
           */
           bool HasNotificationSupport(ICapabilitiesNotification Type);
@@ -97,7 +91,6 @@ device.
 device.
              @param type Type of feature to check.
              @return true if supported, false otherwise.
-             @author Carlos Lozano Diez
              @since ARP1.0
           */
           bool HasSensorSupport(ICapabilitiesSensor Type);

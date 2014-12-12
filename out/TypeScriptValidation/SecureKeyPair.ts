@@ -23,18 +23,26 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
+
 module Adaptive {
 
      /**
         Represents a single secureKey-value pair.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Aryslan
+        @since ARP1.0
         @version 1.0
      */
-     export class SecureKeyPair {
+     export class SecureKeyPair extends APIBean {
 
+          /**
+             Value of the secured element
+          */
           secureData : string;
+          /**
+             Key of the secured element
+          */
           secureKey : string;
           /**
              Constructor with parameters
@@ -44,6 +52,7 @@ module Adaptive {
              @since ARP1.0
           */
           constructor(secureKey: string, secureData: string) {
+               super();
                this.secureKey = secureKey;
                this.secureData = secureData;
           }

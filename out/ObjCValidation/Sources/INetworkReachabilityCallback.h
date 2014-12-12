@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseCallback.h>
 
 /**
-Created by FRMI on 28/08/2014.
+Interface for Managing the Network reachability callback result
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol INetworkReachabilityCallback <IBaseCallback>

@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation ContactPersonalInfo
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -52,7 +54,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithNameMiddleNameLastNameTitle:(NSString*)name middleName:(NSString*)middleName lastName:(NSString*)lastName title:(ContactPersonalInfoTitle*)title {
-          self = [self init];
+          self = [super initWithNameMiddleNameLastNameTitle:name, middleName, lastName, title];
           if (self) {
                [self setName:name];
                [self setMiddleName:middleName];

@@ -30,24 +30,26 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the assigned tags data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class ContactTag
+     public class ContactTag : APIBean
      {
 
-          /**
-             The value of the Tag
-          */
-          public string DataValue { get; set; }
           /**
              The name of the Tag
           */
           public string Name { get; set; }
+          /**
+             The value of the Tag
+          */
+          public string Value { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public ContactTag()  {
           }
@@ -55,33 +57,13 @@ namespace Adaptive.Arp.Api
           /**
              Constructor used by the implementation
 
-             @param DataValue
-             @param Name
+             @param Value Value of the tag
+             @param Name  Name of the tag
              @since ARP1.0
           */
-          public ContactTag(string Name, string DataValue) : base () {
+          public ContactTag(string Name, string Value) : base () {
                this.Name = Name;
-               this.DataValue = DataValue;
-          }
-
-          /**
-             Returns the value of the Tag
-
-             @return Value
-             @since ARP1.0
-          */
-          public string GetDataValue() {
-               return this.DataValue;
-          }
-
-          /**
-             Set the value of the Tag
-
-             @param DataValue
-             @since ARP1.0
-          */
-          public void SetDataValue(string DataValue) {
-               this.DataValue = DataValue;
+               this.Value = Value;
           }
 
           /**
@@ -97,11 +79,31 @@ namespace Adaptive.Arp.Api
           /**
              Set the name of the Tag
 
-             @param Name
+             @param Name Name of the tag
              @since ARP1.0
           */
           public void SetName(string Name) {
                this.Name = Name;
+          }
+
+          /**
+             Returns the value of the Tag
+
+             @return Value
+             @since ARP1.0
+          */
+          public string GetValue() {
+               return this.Value;
+          }
+
+          /**
+             Set the value of the Tag
+
+             @param Value Value of the tag
+             @since ARP1.0
+          */
+          public void SetValue(string Value) {
+               this.Value = Value;
           }
 
 

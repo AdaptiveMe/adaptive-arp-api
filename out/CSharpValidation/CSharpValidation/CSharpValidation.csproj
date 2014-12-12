@@ -31,11 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\APIBean.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\APIBridge.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\APIRequest.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Acceleration.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\AttachmentData.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Button.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\Column.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Contact.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactAddress.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactAddressType.cs" />
@@ -51,18 +51,19 @@
     <Compile Include="Sources\Adaptive.Arp.Api\ContactTag.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactUid.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ContactWebsite.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\Cookie.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Database.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\DatabaseColumn.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\DatabaseRow.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\DatabaseTable.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\DeviceInfo.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Email.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\EmailAddress.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\Endpoint.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\EmailAttachmentData.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Geolocation.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\Header.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IAcceleration.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAccelerationListener.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAccelerationListenerError.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAccelerationListenerWarning.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\IAccelerometer.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAdaptiveRP.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAdaptiveRPGroup.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAds.cs" />
@@ -70,7 +71,6 @@
     <Compile Include="Sources\Adaptive.Arp.Api\IAmbientLight.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAnalytics.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppContext.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\IAppContextType.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppContextWebview.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppRegistry.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IAppResource.cs" />
@@ -133,16 +133,20 @@
     <Compile Include="Sources\Adaptive.Arp.Api\IDatabaseResultCallback.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IDatabaseResultCallbackError.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IDatabaseResultCallbackWarning.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IDatabaseTableResultCallback.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IDatabaseTableResultCallbackError.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IDatabaseTableResultCallbackWarning.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IDesktop.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IDevice.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IDisplay.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IFacebook.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IFile.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IFileDataLoadResultCallback.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\IFileDataResultCallback.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\IFileDataResultCallbackError.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\IFileDataResultCallbackWarning.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IFileDataLoadResultCallbackError.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IFileDataLoadResultCallbackWarning.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IFileDataStoreResultCallback.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IFileDataStoreResultCallbackError.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IFileDataStoreResultCallbackWarning.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IFileListResultCallback.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IFileListResultCallbackError.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IFileListResultCallbackWarning.cs" />
@@ -193,16 +197,17 @@
     <Compile Include="Sources\Adaptive.Arp.Api\IOAuth.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IOCR.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IOS.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\IOSType.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IOpenId.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IPrinting.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IProximity.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IQRCode.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IRSS.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IRuntime.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\ISecureKVResultCallback.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\ISecureKVResultCallbackError.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\ISecureKVResultCallbackWarning.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ISecurity.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ISecurityResultCallback.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ISecurityResultCallbackError.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ISecurityResultCallbackWarning.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IService.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IServiceMethod.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IServiceProtocolVersion.cs" />
@@ -210,13 +215,9 @@
     <Compile Include="Sources\Adaptive.Arp.Api\IServiceResultCallbackError.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IServiceResultCallbackWarning.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IServiceType.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\ISession.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ISettings.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ISocket.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IStore.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\ITableResultCallback.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\ITableResultCallbackError.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\ITableResultCallbackWarning.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ITelephony.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ITelephonyStatus.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ITimer.cs" />
@@ -227,23 +228,23 @@
     <Compile Include="Sources\Adaptive.Arp.Api\IVideo.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IWallet.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\IXML.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\KeyPair.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Lifecycle.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\LifecycleState.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Locale.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\OSInfo.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\Row.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\SecureKeyPair.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\Service.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ServiceCookie.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ServiceEndpoint.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ServiceHeader.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ServiceRequest.cs" />
     <Compile Include="Sources\Adaptive.Arp.Api\ServiceResponse.cs" />
-    <Compile Include="Sources\Adaptive.Arp.Api\Table.cs" />
+    <Compile Include="Sources\Adaptive.Arp.Api\ServiceSession.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Sources\" />
     <Folder Include="Sources\Adaptive.Arp.Api\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Sources\Adaptive.Arp.Api\.DS_Store" />
   </ItemGroup>
 </Project>

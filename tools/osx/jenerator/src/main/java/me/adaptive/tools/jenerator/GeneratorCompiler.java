@@ -97,6 +97,7 @@ public class GeneratorCompiler {
                     System.out.print(".");
                 }
 
+
                 Collections.sort(allClasses, new Comparator<Class<? extends Object>>() {
                     @Override
                     public int compare(Class<? extends Object> o1, Class<? extends Object> o2) {
@@ -106,9 +107,7 @@ public class GeneratorCompiler {
                         if (c1.equals(c2)) {
                             return 0;
                         }
-                        if (c1.getSuperclass().equals(Object.class) && !c2.getSuperclass().equals(Object.class)) {
-                            return -1;
-                        } else if (c1.isAssignableFrom(c2)) {
+                        if (c1.isAssignableFrom(c2)) {
                             return -1;
                         } else {
                             if (!c2.isAssignableFrom(c2)) {

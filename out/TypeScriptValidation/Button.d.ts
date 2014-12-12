@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /// <reference path="ICapabilitiesButton.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -27,17 +28,17 @@ declare module Adaptive {
     /**
        Structure representing the a physical or logical button on a device.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    class Button {
+    class Button extends APIBean {
         /**
            Button type
         */
         type: ICapabilitiesButton;
         /**
-           Constructor used by the implementation
+           Constructor with fields
 
            @param type Button type.
            @since ARP1.0
@@ -51,9 +52,10 @@ declare module Adaptive {
         */
         getType(): ICapabilitiesButton;
         /**
-           Sets Button type
+           Setter for the button type
 
-           @param type Button type
+           @param type Button Type
+           @since ARP1.0
         */
         setType(type: ICapabilitiesButton): void;
     }

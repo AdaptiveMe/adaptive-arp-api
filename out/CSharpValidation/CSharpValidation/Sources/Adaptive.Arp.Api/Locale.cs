@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Represents a specific user or system locate.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Aryslan
+        @since ARP1.0
         @version 1.0
      */
-     public class Locale
+     public class Locale : APIBean
      {
 
           /**
@@ -47,7 +47,9 @@ namespace Adaptive.Arp.Api
           public string Language { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public Locale()  {
           }
@@ -55,8 +57,8 @@ namespace Adaptive.Arp.Api
           /**
              Constructor used by the implementation
 
-             @param Country
-             @param Language
+             @param Country  Country of the Locale
+             @param Language Language of the Locale
              @since ARP1.0
           */
           public Locale(string Language, string Country) : base () {

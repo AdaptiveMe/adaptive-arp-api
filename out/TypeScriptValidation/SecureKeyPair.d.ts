@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -26,12 +27,18 @@ declare module Adaptive {
     /**
        Represents a single secureKey-value pair.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Aryslan
+       @since ARP1.0
        @version 1.0
     */
-    class SecureKeyPair {
+    class SecureKeyPair extends APIBean {
+        /**
+           Value of the secured element
+        */
         secureData: string;
+        /**
+           Key of the secured element
+        */
         secureKey: string;
         /**
            Constructor with parameters

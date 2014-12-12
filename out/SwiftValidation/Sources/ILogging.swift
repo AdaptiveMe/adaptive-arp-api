@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of ILogging interface/protocol.
+   Interface for Managing the Logging operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Ferran Vila Conesa
+   @since ARP1.0
    @version 1.0
 */
 public protocol ILogging : IBaseUtil {
@@ -36,7 +36,6 @@ public protocol ILogging : IBaseUtil {
         @param level    Log level
         @param category Category/tag name to identify/filter the log.
         @param message  Message to be logged
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      func log(level:ILoggingLogLevel, category:String, message:String)
@@ -44,7 +43,6 @@ public protocol ILogging : IBaseUtil {
         Logs the given message, with the given log level if specified, to the standard platform/environment.
         @param level   Log level
         @param message Message to be logged
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      func log(level:ILoggingLogLevel, message:String)

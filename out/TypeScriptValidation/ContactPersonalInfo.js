@@ -22,17 +22,25 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 ///<reference path="ContactPersonalInfoTitle.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the personal info data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var ContactPersonalInfo = (function () {
+    var ContactPersonalInfo = (function (_super) {
+        __extends(ContactPersonalInfo, _super);
         /**
            The Constructor used by the implementation
 
@@ -43,6 +51,7 @@ var Adaptive;
            @since ARP1.0
         */
         function ContactPersonalInfo(name, middleName, lastName, title) {
+            _super.call(this);
             this.name = name;
             this.middleName = middleName;
             this.lastName = lastName;
@@ -60,7 +69,7 @@ var Adaptive;
         /**
            Set the Title of the Contact
 
-           @param title
+           @param title of the Contact
            @since ARP1.0
         */
         ContactPersonalInfo.prototype.setTitle = function (title) {
@@ -78,7 +87,7 @@ var Adaptive;
         /**
            Set the last name of the Contact
 
-           @param lastName
+           @param lastName of the Contact
            @since ARP1.0
         */
         ContactPersonalInfo.prototype.setLastName = function (lastName) {
@@ -96,7 +105,7 @@ var Adaptive;
         /**
            Set the middle name of the Contact
 
-           @param middleName
+           @param middleName of the Contact
            @since ARP1.0
         */
         ContactPersonalInfo.prototype.setMiddleName = function (middleName) {
@@ -114,14 +123,14 @@ var Adaptive;
         /**
            Set the name of the Contact
 
-           @param name
+           @param name of the Contact
            @since ARP1.0
         */
         ContactPersonalInfo.prototype.setName = function (name) {
             this.name = name;
         };
         return ContactPersonalInfo;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.ContactPersonalInfo = ContactPersonalInfo;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ContactPersonalInfo.js.map

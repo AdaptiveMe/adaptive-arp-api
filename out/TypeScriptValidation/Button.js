@@ -22,24 +22,33 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 ///<reference path="ICapabilitiesButton.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the a physical or logical button on a device.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var Button = (function () {
+    var Button = (function (_super) {
+        __extends(Button, _super);
         /**
-           Constructor used by the implementation
+           Constructor with fields
 
            @param type Button type.
            @since ARP1.0
         */
         function Button(type) {
+            _super.call(this);
             this.type = type;
         }
         /**
@@ -52,15 +61,16 @@ var Adaptive;
             return this.type;
         };
         /**
-           Sets Button type
+           Setter for the button type
 
-           @param type Button type
+           @param type Button Type
+           @since ARP1.0
         */
         Button.prototype.setType = function (type) {
             this.type = type;
         };
         return Button;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.Button = Button;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=Button.js.map

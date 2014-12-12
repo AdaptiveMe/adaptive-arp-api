@@ -1,8 +1,7 @@
 /// <reference path="IAdaptiveRPGroup.d.ts" />
-/// <reference path="IFile.d.ts" />
-/// <reference path="IFileDataResultCallback.d.ts" />
-/// <reference path="IFileDataResultCallbackError.d.ts" />
-/// <reference path="IFileDataResultCallbackWarning.d.ts" />
+/// <reference path="IBaseCallback.d.ts" />
+/// <reference path="IFileDataLoadResultCallbackError.d.ts" />
+/// <reference path="IFileDataLoadResultCallbackWarning.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
 
@@ -29,18 +28,31 @@ Contributors:
 */
 declare module Adaptive {
     /**
-       Created by clozano on 05/12/14.
+       Interface for Managing the File loading callback responses
 
        @author Carlos Lozano Diez
-       @since 1.0
+       @since ARP1.0
        @version 1.0
     */
-    interface IFileDataLoadResultCallback extends IFileDataResultCallback {
+    interface IFileDataLoadResultCallback extends IBaseCallback {
+        /**
+           Error processing data retrieval/storage operation.
+           @param error Error condition encountered.
+           @since ARP1.0
+        */
+        onError(error: IFileDataLoadResultCallbackError): any;
         /**
            Result of data retrieval operation.
            @param data Data loaded.
            @since ARP1.0
         */
         onResult(data: number[]): any;
+        /**
+           Result with warning of data retrieval/storage operation.
+           @param data    File being loaded.
+           @param warning Warning condition encountered.
+           @since ARP1.0
+        */
+        onWarning(data: number[], warning: IFileDataLoadResultCallbackWarning): any;
     }
 }

@@ -26,11 +26,11 @@ Contributors:
 /**
    Represents the basic information about the operating system.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class OSInfo : NSObject {
+public class OSInfo : APIBean {
 
      /**
         The name of the operating system.
@@ -46,7 +46,9 @@ public class OSInfo : NSObject {
      var version : String?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -58,6 +60,7 @@ public class OSInfo : NSObject {
         @param name    of the OS.
         @param version of the OS.
         @param vendor  of the OS.
+        @since ARP1.0
      */
      public init(name: String, version: String, vendor: String) {
           super.init()
@@ -70,6 +73,7 @@ public class OSInfo : NSObject {
         Returns the name of the operating system.
 
         @return OS name.
+        @since ARP1.0
      */
      public func getName() -> String? {
           return self.name
@@ -88,6 +92,7 @@ public class OSInfo : NSObject {
         Returns the vendor of the operating system.
 
         @return OS vendor.
+        @since ARP1.0
      */
      public func getVendor() -> String? {
           return self.vendor
@@ -106,6 +111,7 @@ public class OSInfo : NSObject {
         Returns the version of the operating system.
 
         @return OS version.
+        @since ARP1.0
      */
      public func getVersion() -> String? {
           return self.version

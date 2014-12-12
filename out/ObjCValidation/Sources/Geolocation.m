@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation Geolocation
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -43,23 +45,43 @@ Contributors:
      }
 
      /**
-        Constructor used by the implementation
+        Constructor with parameters
 
-        @param latitude
-        @param longitude
-        @param altitude
-        @param xDoP
-        @param yDoP
+        @param latitude  Latitude of the measurement
+        @param longitude Longitude of the measurement
+        @param altitude  Altitude of the measurement
+        @param xDoP      Dilution of precision on the X measurement
+        @param yDoP      Dilution of precision on the Y measurement
+        @param timestamp Timestamp of the measurement
         @since ARP1.0
      */
-     - (id) initWithLatitudeLongitudeAltitudeXDoPYDoP:(double*)latitude longitude:(double*)longitude altitude:(double*)altitude xDoP:(float*)xDoP yDoP:(float*)yDoP {
-          self = [self init];
+     - (id) initWithLatitudeLongitudeAltitudeXDoPYDoPTimestamp:(double*)latitude longitude:(double*)longitude altitude:(double*)altitude xDoP:(float*)xDoP yDoP:(float*)yDoP timestamp:(long*)timestamp {
+          self = [super initWithLatitudeLongitudeAltitudeXDoPYDoPTimestamp:latitude, longitude, altitude, xDoP, yDoP, timestamp];
           if (self) {
                [self setLatitude:latitude];
                [self setLongitude:longitude];
                [self setAltitude:altitude];
                [self setXDoP:xDoP];
                [self setYDoP:yDoP];
+               [self setTimestamp:timestamp];
+          }
+          return self;
+     }
+
+     /**
+        Constructor with parameters
+
+        @param latitude  Latitude of the measurement
+        @param longitude Longitude of the measurement
+        @param timestamp Timestamp of the measurement
+        @since ARP1.0
+     */
+     - (id) initWithLatitudeLongitudeTimestamp:(double*)latitude longitude:(double*)longitude timestamp:(long*)timestamp {
+          self = [super initWithLatitudeLongitudeTimestamp:latitude, longitude, timestamp];
+          if (self) {
+               [self setLatitude:latitude];
+               [self setLongitude:longitude];
+               [self setTimestamp:timestamp];
           }
           return self;
      }

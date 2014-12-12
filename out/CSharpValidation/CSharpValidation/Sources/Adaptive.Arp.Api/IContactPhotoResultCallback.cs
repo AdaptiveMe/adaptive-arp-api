@@ -28,10 +28,10 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Created by FRMI on 25/08/2014.
+        Interface for Managing the Contact operations
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
      public interface IContactPhotoResultCallback : IBaseCallback {

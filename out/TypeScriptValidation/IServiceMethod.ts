@@ -33,8 +33,8 @@ module Adaptive {
           constructor(public value:string){}
           toString(){return this.value;}
 
-          static POST = new IServiceMethod("POST");
-          static GET = new IServiceMethod("GET");
+          static Post = new IServiceMethod("Post");
+          static Get = new IServiceMethod("Get");
           static Unknown = new IServiceMethod("Unknown");
 
      }

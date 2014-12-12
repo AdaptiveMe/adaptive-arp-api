@@ -23,16 +23,18 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
+
 module Adaptive {
 
      /**
         Structure representing the website data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     export class ContactWebsite {
+     export class ContactWebsite extends APIBean {
 
           /**
              The url of the website
@@ -41,10 +43,11 @@ module Adaptive {
           /**
              Constructor used by the implementation
 
-             @param url
+             @param url Url of the website
              @since ARP1.0
           */
           constructor(url: string) {
+               super();
                this.url = url;
           }
 
@@ -61,7 +64,7 @@ module Adaptive {
           /**
              Set the url of the website
 
-             @param url
+             @param url Url of the website
              @since ARP1.0
           */
           setUrl(url: string) {

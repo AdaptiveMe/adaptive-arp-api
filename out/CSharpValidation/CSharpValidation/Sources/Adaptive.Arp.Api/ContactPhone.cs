@@ -30,11 +30,11 @@ namespace Adaptive.Arp.Api
      /**
         Structure representing the phone data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     public class ContactPhone
+     public class ContactPhone : APIBean
      {
 
           /**
@@ -47,7 +47,9 @@ namespace Adaptive.Arp.Api
           public string Phone { get; set; }
 
           /**
-             Constructor used by the implementation
+             Default constructor
+
+             @since ARP1.0
           */
           public ContactPhone()  {
           }
@@ -55,8 +57,8 @@ namespace Adaptive.Arp.Api
           /**
              Constructor used by implementation to set the contact Phone
 
-             @param Phone
-             @param PhoneType
+             @param Phone     Phone number
+             @param PhoneType Type of Phone number
              @since ARP1.0
           */
           public ContactPhone(string Phone, ContactPhoneType PhoneType) : base () {
@@ -77,7 +79,7 @@ namespace Adaptive.Arp.Api
           /**
              Set the phoneType of the phone number
 
-             @param PhoneType
+             @param PhoneType Type of Phone number
              @since ARP1.0
           */
           public void SetPhoneType(ContactPhoneType PhoneType) {

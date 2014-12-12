@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Structure representing a database reference.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Ferran Vila Conesa
+   @since ARP1.0
    @version 1.0
 */
-public class Database {
+public class Database extends APIBean {
 
      /**
         Indicates if database was created or needs to be created as Compressed.
@@ -44,7 +44,9 @@ public class Database {
      private String name;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public Database() {
      }
@@ -53,24 +55,22 @@ public class Database {
         Default constructor. The compress param is setted to false.
 
         @param name Name of the table.
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      public Database(String name) {
-          this();
+          super();
           this.name = name;
      }
 
      /**
         Constructor using fields.
 
-        @param name     Name of the Table.
-        @param compress Compress enbaled or not.
-        @author Ferran Vila Conesa
+        @param name     Name of the DatabaseTable.
+        @param compress Compression enabled.
         @since ARP1.0
      */
      public Database(String name, boolean compress) {
-          this();
+          super();
           this.name = name;
           this.compress = compress;
      }
@@ -79,7 +79,6 @@ public class Database {
         Returns if the table is compressed
 
         @return Compression enabled
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      public boolean getCompress() {
@@ -90,7 +89,6 @@ public class Database {
         Sets if the table is compressed or not.
 
         @param compress Compression enabled
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      public void setCompress(boolean compress) {
@@ -101,7 +99,6 @@ public class Database {
         Returns the name.
 
         @return The name of the table.
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      public String getName() {
@@ -112,7 +109,6 @@ public class Database {
         Sets the name of the table.
 
         @param name The name of the table.
-        @author Ferran Vila Conesa
         @since ARP1.0
      */
      public void setName(String name) {

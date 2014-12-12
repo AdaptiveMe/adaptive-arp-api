@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseListener.h>
 
 /**
-Definition of IAccelerationListener interface/protocol.
+Interface defines the response methods of the acceleration operations
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol IAccelerationListener <IBaseListener>

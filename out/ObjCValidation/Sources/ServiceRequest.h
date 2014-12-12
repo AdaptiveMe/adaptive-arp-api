@@ -23,25 +23,26 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
-#import <Header.h>
-#import <ISession.h>
+#import <ServiceHeader.h>
+#import <ServiceSession.h>
 
 /**
 Represents a local or remote service request.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Aryslan
+@since ARP1.0
 @version 1.0
 */
-@interface ServiceRequest : NSObject
+@interface ServiceRequest : APIBean
 
      /**
         The HTTP procotol version to be used for this request.
      */
      typedef NS_OPTIONS(NSUInteger, IServiceProtocolVersion) {
-          IServiceProtocolVersion_HTTP_PROTOCOL_VERSION_1_0 = 0,
-          IServiceProtocolVersion_HTTP_PROTOCOL_VERSION_1_1 = 1,
+          IServiceProtocolVersion_HttpProtocolVersion10 = 0,
+          IServiceProtocolVersion_HttpProtocolVersion11 = 1,
           IServiceProtocolVersion_Unknown = 2
      };
 
@@ -50,6 +51,15 @@ Represents a local or remote service request.
         Request/Response data content (plain text).
      */
      @property NSString *content;
+     /**
+        The byte[] representing the Content field.
+        Array objects must be of byte type.
+     */
+     @property NSArray *contentBinary;
+     /**
+        The length in bytes for the binary Content.
+     */
+     @property int *contentBinaryLength;
      /**
         Encoding of the binary payload - by default assumed to be UTF8.
      */
@@ -63,44 +73,42 @@ Represents a local or remote service request.
      */
      @property NSString *contentType;
      /**
-        The headers array (name,value pairs) to be included on the I/O service request.
-        Array objects must be of Header type.
-     */
-     @property NSArray *headers;
-     /**
         The request method
      */
      @property NSString *method;
      /**
-        The byte[] representing the Content field.
-        Array objects must be of byte type.
+        The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+        Array objects must be of ServiceHeader type.
      */
-     @property NSArray *rawContent;
+     @property NSArray *serviceHeaders;
      /**
-        The session context for the Request/Response.
+        Information about the session
      */
-     @property NSObject<ISession> *session;
+     @property ServiceSession *serviceSession;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
      /**
         Contructor used by the implementation
 
-        @param content
-        @param contentType
-        @param contentLength
-        @param rawContent
-        @param headers
-        @param method
-        @param protocolVersion
-        @param session
-        @param contentEncoding
+        @param content             Request/Response data content (plain text)
+        @param contentType         The request/response content type (MIME TYPE).
+        @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
+        @param contentLength       The length in bytes for the Content field.
+        @param contentBinary       The byte[] representing the Content field.
+        @param contentBinaryLength The length in bytes for the binary Content.
+        @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+        @param method              The request method
+        @param protocolVersion     The HTTP procotol version to be used for this request.
+        @param serviceSession      The element service session
         @since ARP1.0
      */
-     - (id) initWithContentContentTypeContentLengthRawContentHeadersMethodProtocolVersionSessionContentEncoding:(NSString*)content contentType:(NSString*)contentType contentLength:(int*)contentLength rawContent:(NSArray*)rawContent headers:(NSArray*)headers method:(NSString*)method protocolVersion:(IServiceProtocolVersion*)protocolVersion session:(NSObject<ISession>*)session contentEncoding:(NSString*)contentEncoding;
+     - (id) initWithContentContentTypeContentEncodingContentLengthContentBinaryContentBinaryLengthServiceHeadersMethodProtocolVersionServiceSession:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength serviceHeaders:(NSArray*)serviceHeaders method:(NSString*)method protocolVersion:(IServiceProtocolVersion*)protocolVersion serviceSession:(ServiceSession*)serviceSession;
 
 
 @end

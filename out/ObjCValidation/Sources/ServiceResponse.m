@@ -27,15 +27,15 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Aryslan
+@since ARP1.0
 @version 1.0
 */
 @implementation ServiceResponse
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
      */
      - (id) init {
           self = [self init];
@@ -43,29 +43,29 @@ Contributors:
      }
 
      /**
-        Constructor used by the implementation
+        Constructor with fields
 
-        @param content
-        @param contentType
-        @param contentLength
-        @param contentBinary
-        @param contentBinaryLength
-        @param headers
-        @param session
-        @param contentEncoding
+        @param content             Request/Response data content (plain text).
+        @param contentType         The request/response content type (MIME TYPE).
+        @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
+        @param contentLength       The length in bytes for the Content field.
+        @param contentBinary       The byte[] representing the binary Content.
+        @param contentBinaryLength The length in bytes for the binary Content.
+        @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+        @param serviceSession      Information about the session
         @since ARP1.0
      */
-     - (id) initWithContentContentTypeContentLengthContentBinaryContentBinaryLengthHeadersSessionContentEncoding:(NSString*)content contentType:(NSString*)contentType contentLength:(NSString*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength headers:(NSArray*)headers session:(NSObject<ISession>*)session contentEncoding:(NSString*)contentEncoding {
-          self = [self init];
+     - (id) initWithContentContentTypeContentEncodingContentLengthContentBinaryContentBinaryLengthServiceHeadersServiceSession:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession {
+          self = [super initWithContentContentTypeContentEncodingContentLengthContentBinaryContentBinaryLengthServiceHeadersServiceSession:content, contentType, contentEncoding, contentLength, contentBinary, contentBinaryLength, serviceHeaders, serviceSession];
           if (self) {
                [self setContent:content];
                [self setContentType:contentType];
+               [self setContentEncoding:contentEncoding];
                [self setContentLength:contentLength];
                [self setContentBinary:contentBinary];
                [self setContentBinaryLength:contentBinaryLength];
-               [self setHeaders:headers];
-               [self setSession:session];
-               [self setContentEncoding:contentEncoding];
+               [self setServiceHeaders:serviceHeaders];
+               [self setServiceSession:serviceSession];
           }
           return self;
      }

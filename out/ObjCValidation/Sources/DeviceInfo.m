@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation DeviceInfo
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -49,9 +51,10 @@ Contributors:
         @param model  of the device.
         @param vendor of the device.
         @param uuid   unique* identifier (* platform dependent).
+        @since ARP1.0
      */
      - (id) initWithNameModelVendorUuid:(NSString*)name model:(NSString*)model vendor:(NSString*)vendor uuid:(NSString*)uuid {
-          self = [self init];
+          self = [super initWithNameModelVendorUuid:name, model, vendor, uuid];
           if (self) {
                [self setName:name];
                [self setModel:model];

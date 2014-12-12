@@ -23,6 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
 ///<reference path="ContactAddressType.ts"/>
 
 module Adaptive {
@@ -30,11 +31,11 @@ module Adaptive {
      /**
         Structure representing the address data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     export class ContactAddress {
+     export class ContactAddress extends APIBean {
 
           /**
              The address type
@@ -45,13 +46,14 @@ module Adaptive {
           */
           address : string;
           /**
-             Constructor used by the implementation
+             Constructor with fields
 
              @param address Address data.
              @param type    Address type.
              @since ARP1.0
           */
           constructor(address: string, type: ContactAddressType) {
+               super();
                this.address = address;
                this.type = type;
           }

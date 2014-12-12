@@ -23,39 +23,42 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Structure representing the assigned tags data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
-@interface ContactTag : NSObject
+@interface ContactTag : APIBean
 
-     /**
-        The value of the Tag
-     */
-     @property NSString *dataValue;
      /**
         The name of the Tag
      */
      @property NSString *name;
+     /**
+        The value of the Tag
+     */
+     @property NSString *value;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
      /**
         Constructor used by the implementation
 
-        @param dataValue
-        @param name
+        @param value Value of the tag
+        @param name  Name of the tag
         @since ARP1.0
      */
-     - (id) initWithNameDataValue:(NSString*)name dataValue:(NSString*)dataValue;
+     - (id) initWithNameValue:(NSString*)name value:(NSString*)value;
 
 
 @end

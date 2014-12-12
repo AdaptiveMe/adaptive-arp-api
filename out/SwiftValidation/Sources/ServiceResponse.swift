@@ -26,11 +26,11 @@ Contributors:
 /**
    Represents a local or remote service response.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Aryslan
+   @since ARP1.0
    @version 1.0
 */
-public class ServiceResponse : NSObject {
+public class ServiceResponse : APIBean {
 
      /**
         Request/Response data content (plain text).
@@ -51,50 +51,50 @@ public class ServiceResponse : NSObject {
      /**
         The length in bytes for the Content field.
      */
-     var contentLength : String?
+     var contentLength : Int?
      /**
         The request/response content type (MIME TYPE).
      */
      var contentType : String?
      /**
-        The headers array (name,value pairs) to be included on the I/O service request.
+        The serviceHeaders array (name,value pairs) to be included on the I/O service request.
      */
-     var headers : [Header]?
+     var serviceHeaders : [ServiceHeader]?
      /**
-        The session context for the Request/Response.
+        Information about the session
      */
-     var session : ISession?
+     var serviceSession : ServiceSession?
 
      /**
-        Constructor used by the implementation
+        Default constructor
      */
      public override init() {
           super.init()
      }
 
      /**
-        Constructor used by the implementation
+        Constructor with fields
 
-        @param content
-        @param contentType
-        @param contentLength
-        @param contentBinary
-        @param contentBinaryLength
-        @param headers
-        @param session
-        @param contentEncoding
+        @param content             Request/Response data content (plain text).
+        @param contentType         The request/response content type (MIME TYPE).
+        @param contentEncoding     Encoding of the binary payload - by default assumed to be UTF8.
+        @param contentLength       The length in bytes for the Content field.
+        @param contentBinary       The byte[] representing the binary Content.
+        @param contentBinaryLength The length in bytes for the binary Content.
+        @param serviceHeaders      The serviceHeaders array (name,value pairs) to be included on the I/O service request.
+        @param serviceSession      Information about the session
         @since ARP1.0
      */
-     public init(content: String, contentType: String, contentLength: String, contentBinary: [Byte], contentBinaryLength: Int, headers: [Header], session: ISession, contentEncoding: String) {
+     public init(content: String, contentType: String, contentEncoding: String, contentLength: Int, contentBinary: [Byte], contentBinaryLength: Int, serviceHeaders: [ServiceHeader], serviceSession: ServiceSession) {
           super.init()
           self.content = content
           self.contentType = contentType
+          self.contentEncoding = contentEncoding
           self.contentLength = contentLength
           self.contentBinary = contentBinary
           self.contentBinaryLength = contentBinaryLength
-          self.headers = headers
-          self.session = session
-          self.contentEncoding = contentEncoding
+          self.serviceHeaders = serviceHeaders
+          self.serviceSession = serviceSession
      }
 
      /**
@@ -110,7 +110,7 @@ public class ServiceResponse : NSObject {
      /**
         Set the content
 
-        @param content
+        @param content Request/Response data content (plain text).
         @since ARP1.0
      */
      public func setContent(content: String) {
@@ -130,7 +130,7 @@ public class ServiceResponse : NSObject {
      /**
         Set the binary content
 
-        @param contentBinary
+        @param contentBinary The byte[] representing the binary Content.
         @since ARP1.0
      */
      public func setContentBinary(contentBinary: [Byte]) {
@@ -138,7 +138,7 @@ public class ServiceResponse : NSObject {
      }
 
      /**
-        Retrusn the binary content length
+        Returns the binary content length
 
         @return contentBinaryLength
         @since ARP1.0
@@ -150,7 +150,7 @@ public class ServiceResponse : NSObject {
      /**
         Set the binary content length
 
-        @param contentBinaryLength
+        @param contentBinaryLength The length in bytes for the binary Content.
         @since ARP1.0
      */
      public func setContentBinaryLength(contentBinaryLength: Int) {
@@ -170,7 +170,7 @@ public class ServiceResponse : NSObject {
      /**
         Set the content encoding
 
-        @param contentEncoding
+        @param contentEncoding Encoding of the binary payload - by default assumed to be UTF8.
         @since ARP1.0
      */
      public func setContentEncoding(contentEncoding: String) {
@@ -183,17 +183,17 @@ public class ServiceResponse : NSObject {
         @return contentLength
         @since ARP1.0
      */
-     public func getContentLength() -> String? {
+     public func getContentLength() -> Int? {
           return self.contentLength
      }
 
      /**
         Set the content length
 
-        @param contentLength
+        @param contentLength The length in bytes for the Content field.
         @since ARP1.0
      */
-     public func setContentLength(contentLength: String) {
+     public func setContentLength(contentLength: Int) {
           self.contentLength = contentLength
      }
 
@@ -210,7 +210,7 @@ public class ServiceResponse : NSObject {
      /**
         Set the content type
 
-        @param contentType
+        @param contentType The request/response content type (MIME TYPE).
         @since ARP1.0
      */
      public func setContentType(contentType: String) {
@@ -218,43 +218,43 @@ public class ServiceResponse : NSObject {
      }
 
      /**
-        Returns the array of Header
+        Returns the array of ServiceHeader
 
-        @return headers
+        @return serviceHeaders
         @since ARP1.0
      */
-     public func getHeaders() -> [Header]? {
-          return self.headers
+     public func getServiceHeaders() -> [ServiceHeader]? {
+          return self.serviceHeaders
      }
 
      /**
-        Set the array of Header
+        Set the array of ServiceHeader
 
-        @param headers
+        @param serviceHeaders The serviceHeaders array (name,value pairs) to be included on the I/O service request.
         @since ARP1.0
      */
-     public func setHeaders(headers: [Header]) {
-          self.headers = headers
+     public func setServiceHeaders(serviceHeaders: [ServiceHeader]) {
+          self.serviceHeaders = serviceHeaders
      }
 
      /**
-        Returns the method
+        Getter for service session
 
-        @return method
+        @return The element service session
         @since ARP1.0
      */
-     public func getSession() -> ISession? {
-          return self.session
+     public func getServiceSession() -> ServiceSession? {
+          return self.serviceSession
      }
 
      /**
-        Set the method
+        Setter for service session
 
-        @param session
+        @param serviceSession The element service session
         @since ARP1.0
      */
-     public func setSession(session: ISession) {
-          self.session = session
+     public func setServiceSession(serviceSession: ServiceSession) {
+          self.serviceSession = serviceSession
      }
 
 

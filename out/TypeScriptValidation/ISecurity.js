@@ -24,6 +24,6 @@ Contributors:
 */
 ///<reference path="IAdaptiveRPGroup.ts"/>
 ///<reference path="IBaseSecurity.ts"/>
-///<reference path="ISecureKVResultCallback.ts"/>
+///<reference path="ISecurityResultCallback.ts"/>
 ///<reference path="SecureKeyPair.ts"/>
 //# sourceMappingURL=ISecurity.js.map

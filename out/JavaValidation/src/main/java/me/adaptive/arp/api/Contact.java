@@ -28,8 +28,8 @@ package me.adaptive.arp.api;
 /**
    Structure representing the data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
 public class Contact extends ContactUid {
@@ -68,7 +68,9 @@ public class Contact extends ContactUid {
      private ContactProfessionalInfo professionalInfo;
 
      /**
-        Constructor used by the implementation
+        Default Constructor
+
+        @since ARP1.0
      */
      public Contact() {
      }
@@ -84,6 +86,32 @@ public class Contact extends ContactUid {
      }
 
      /**
+        Constructor with all the fields
+
+        @param contactId        Identifier of the contact
+        @param personalInfo     Personal Information
+        @param professionalInfo Professional Information
+        @param contactAddresses Addresses of the contact
+        @param contactPhones    Phones of the contact
+        @param contactEmails    Emails of the contact
+        @param contactWebsites  Websites of the contact
+        @param contactSocials   Social Networks of the contact
+        @param contactTags      Tags of the contact
+        @since ARP1.0
+     */
+     public Contact(String contactId, ContactPersonalInfo personalInfo, ContactProfessionalInfo professionalInfo, ContactAddress[] contactAddresses, ContactPhone[] contactPhones, ContactEmail[] contactEmails, ContactWebsite[] contactWebsites, ContactSocial[] contactSocials, ContactTag[] contactTags) {
+          super(contactId);
+          this.personalInfo = personalInfo;
+          this.professionalInfo = professionalInfo;
+          this.contactAddresses = contactAddresses;
+          this.contactPhones = contactPhones;
+          this.contactEmails = contactEmails;
+          this.contactWebsites = contactWebsites;
+          this.contactSocials = contactSocials;
+          this.contactTags = contactTags;
+     }
+
+     /**
         Returns all the addresses of the Contact
 
         @return ContactAddress[]
@@ -96,7 +124,7 @@ public class Contact extends ContactUid {
      /**
         Set the addresses of the Contact
 
-        @param contactAddresses
+        @param contactAddresses Addresses of the contact
         @since ARP1.0
      */
      public void setContactAddresses(ContactAddress[] contactAddresses) {
@@ -116,7 +144,7 @@ public class Contact extends ContactUid {
      /**
         Set the emails of the Contact
 
-        @param contactEmails
+        @param contactEmails Emails of the contact
         @since ARP1.0
      */
      public void setContactEmails(ContactEmail[] contactEmails) {
@@ -136,7 +164,7 @@ public class Contact extends ContactUid {
      /**
         Set the phones of the Contact
 
-        @param contactPhones
+        @param contactPhones Phones of the contact
         @since ARP1.0
      */
      public void setContactPhones(ContactPhone[] contactPhones) {
@@ -156,7 +184,7 @@ public class Contact extends ContactUid {
      /**
         Set the social network info of the Contact
 
-        @param contactSocials
+        @param contactSocials Social Networks of the contact
         @since ARP1.0
      */
      public void setContactSocials(ContactSocial[] contactSocials) {
@@ -176,7 +204,7 @@ public class Contact extends ContactUid {
      /**
         Set the additional tags of the Contact
 
-        @param contactTags
+        @param contactTags Tags of the contact
         @since ARP1.0
      */
      public void setContactTags(ContactTag[] contactTags) {
@@ -196,7 +224,7 @@ public class Contact extends ContactUid {
      /**
         Set the websites of the Contact
 
-        @param contactWebsites
+        @param contactWebsites Websites of the contact
         @since ARP1.0
      */
      public void setContactWebsites(ContactWebsite[] contactWebsites) {
@@ -216,7 +244,7 @@ public class Contact extends ContactUid {
      /**
         Set the personal info of the Contact
 
-        @param personalInfo
+        @param personalInfo Personal Information
         @since ARP1.0
      */
      public void setPersonalInfo(ContactPersonalInfo personalInfo) {
@@ -226,7 +254,7 @@ public class Contact extends ContactUid {
      /**
         Returns the professional info of the Contact
 
-        @return ContactProfessionalInfo[]
+        @return Array of personal info
         @since ARP1.0
      */
      public ContactProfessionalInfo getProfessionalInfo() {
@@ -236,7 +264,7 @@ public class Contact extends ContactUid {
      /**
         Set the professional info of the Contact
 
-        @param professionalInfo
+        @param professionalInfo Professional Information
         @since ARP1.0
      */
      public void setProfessionalInfo(ContactProfessionalInfo professionalInfo) {

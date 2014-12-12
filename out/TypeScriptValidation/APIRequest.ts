@@ -26,75 +26,95 @@ Contributors:
 module Adaptive {
 
      /**
-        Created by clozano on 05/12/14.
+        Structure representing a HTML5 request to the native API.
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      export class APIRequest {
 
           /**
-             { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+             String representing the method name to call
           */
           methodName : string;
+          /**
+             Types of the request parameters
+          */
           parameterTypes : Array<string>;
+          /**
+             Parameters of the request
+          */
           parameters : Array<any>;
           /**
-             Constructor.
+             Constructor with all the parameters
+
+             @param methodName     Name of the method
+             @param parameters     Array of parameters
+             @param parameterTypes Array of parameters types
+             @since ARP1.0
           */
-          constructor() {
+          constructor(methodName: string, parameters: Array<any>, parameterTypes: Array<string>) {
+               this.methodName = methodName;
+               this.parameters = parameters;
+               this.parameterTypes = parameterTypes;
           }
 
           /**
-             Gets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+             Method name Getter
 
-             @return methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+             @return Method name
+             @since ARP1.0
           */
           getMethodName() : string {
                return this.methodName;
           }
 
           /**
-             Sets { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+             Method name Setter
 
-             @param methodName { methodName: "coolMethod", parameterTypes: [{},{},{},{}], parameters: [{},{},{},{}] }
+             @param methodName Method name
+             @since ARP1.0
           */
           setMethodName(methodName: string) {
                this.methodName = methodName;
           }
 
           /**
-             Gets null
+             Parameter types Getter
 
-             @return parameterTypes null
+             @return Parameter types
+             @since ARP1.0
           */
           getParameterTypes() : Array<string> {
                return this.parameterTypes;
           }
 
           /**
-             Sets null
+             Parameter types setter
 
-             @param parameterTypes null
+             @param parameterTypes Parameter types
+             @since ARP1.0
           */
           setParameterTypes(parameterTypes: Array<string>) {
                this.parameterTypes = parameterTypes;
           }
 
           /**
-             Gets null
+             Parameters Getter
 
-             @return parameters null
+             @return Parameters
+             @since ARP1.0
           */
           getParameters() : Array<any> {
                return this.parameters;
           }
 
           /**
-             Sets null
+             Parameters Setter
 
-             @param parameters null
+             @param parameters Parameters
+             @since ARP1.0
           */
           setParameters(parameters: Array<any>) {
                this.parameters = parameters;

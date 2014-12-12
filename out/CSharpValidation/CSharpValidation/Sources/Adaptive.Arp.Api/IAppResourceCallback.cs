@@ -28,25 +28,32 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Created by clozano on 05/09/2014.
+        This interface manages the responses of the resource callback
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      public interface IAppResourceCallback : IBaseCallback {
           /**
-             null
+             Error result of the App resource operation
+             @param error Error fired
+             @since ARP1.0
           */
-          void OnError(IAppResource Resource, IAppResourceCallbackError Error);
+          void OnError(IAppResourceCallbackError Error);
 
           /**
-             null
+             Correct result of the App Resource operation
+             @param resource Resource
+             @since ARP1.0
           */
           void OnResult(IAppResource Resource);
 
           /**
-             null
+             Warning result of the App Resource operation
+             @param resource Resource
+             @param warning  Warning fired
+             @since ARP1.0
           */
           void OnWarning(IAppResource Resource, IAppResourceCallbackWarning Warning);
 

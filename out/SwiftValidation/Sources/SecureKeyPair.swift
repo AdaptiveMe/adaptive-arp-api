@@ -26,17 +26,25 @@ Contributors:
 /**
    Represents a single secureKey-value pair.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Aryslan
+   @since ARP1.0
    @version 1.0
 */
-public class SecureKeyPair : NSObject {
+public class SecureKeyPair : APIBean {
 
+     /**
+        Value of the secured element
+     */
      var secureData : String?
+     /**
+        Key of the secured element
+     */
      var secureKey : String?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()

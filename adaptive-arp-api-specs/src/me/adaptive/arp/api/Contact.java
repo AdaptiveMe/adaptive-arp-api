@@ -119,6 +119,7 @@ public class Contact extends ContactUid {
      * @param contactWebsites  Websites of the contact
      * @param contactSocials   Social Networks of the contact
      * @param contactTags      Tags of the contact
+     * @since ARP1.0
      */
     public Contact(String contactId, ContactPersonalInfo personalInfo, ContactProfessionalInfo professionalInfo, ContactAddress[] contactAddresses, ContactPhone[] contactPhones, ContactEmail[] contactEmails, ContactWebsite[] contactWebsites, ContactSocial[] contactSocials, ContactTag[] contactTags) {
         super(contactId);

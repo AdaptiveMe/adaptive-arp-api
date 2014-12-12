@@ -22,24 +22,34 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Represents the basic information about the operating system.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var OSInfo = (function () {
+    var OSInfo = (function (_super) {
+        __extends(OSInfo, _super);
         /**
            Constructor used by implementation to set the OS information.
 
            @param name    of the OS.
            @param version of the OS.
            @param vendor  of the OS.
+           @since ARP1.0
         */
         function OSInfo(name, version, vendor) {
+            _super.call(this);
             this.name = name;
             this.version = version;
             this.vendor = vendor;
@@ -48,6 +58,7 @@ var Adaptive;
            Returns the name of the operating system.
 
            @return OS name.
+           @since ARP1.0
         */
         OSInfo.prototype.getName = function () {
             return this.name;
@@ -64,6 +75,7 @@ var Adaptive;
            Returns the vendor of the operating system.
 
            @return OS vendor.
+           @since ARP1.0
         */
         OSInfo.prototype.getVendor = function () {
             return this.vendor;
@@ -80,6 +92,7 @@ var Adaptive;
            Returns the version of the operating system.
 
            @return OS version.
+           @since ARP1.0
         */
         OSInfo.prototype.getVersion = function () {
             return this.version;
@@ -93,7 +106,7 @@ var Adaptive;
             this.version = version;
         };
         return OSInfo;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.OSInfo = OSInfo;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=OSInfo.js.map

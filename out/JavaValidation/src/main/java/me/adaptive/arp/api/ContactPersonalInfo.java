@@ -28,11 +28,11 @@ package me.adaptive.arp.api;
 /**
    Structure representing the personal info data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactPersonalInfo {
+public class ContactPersonalInfo extends APIBean {
 
      /**
         The title of the Contact
@@ -52,7 +52,9 @@ public class ContactPersonalInfo {
      private String name;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public ContactPersonalInfo() {
      }
@@ -67,7 +69,7 @@ public class ContactPersonalInfo {
         @since ARP1.0
      */
      public ContactPersonalInfo(String name, String middleName, String lastName, ContactPersonalInfoTitle title) {
-          this();
+          super();
           this.name = name;
           this.middleName = middleName;
           this.lastName = lastName;
@@ -87,7 +89,7 @@ public class ContactPersonalInfo {
      /**
         Set the Title of the Contact
 
-        @param title
+        @param title of the Contact
         @since ARP1.0
      */
      public void setTitle(ContactPersonalInfoTitle title) {
@@ -107,7 +109,7 @@ public class ContactPersonalInfo {
      /**
         Set the last name of the Contact
 
-        @param lastName
+        @param lastName of the Contact
         @since ARP1.0
      */
      public void setLastName(String lastName) {
@@ -127,7 +129,7 @@ public class ContactPersonalInfo {
      /**
         Set the middle name of the Contact
 
-        @param middleName
+        @param middleName of the Contact
         @since ARP1.0
      */
      public void setMiddleName(String middleName) {
@@ -147,7 +149,7 @@ public class ContactPersonalInfo {
      /**
         Set the name of the Contact
 
-        @param name
+        @param name of the Contact
         @since ARP1.0
      */
      public void setName(String name) {

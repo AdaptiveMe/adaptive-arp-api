@@ -22,5 +22,5 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-///<reference path="IAppContextType.ts"/>
+///<reference path="IOSType.ts"/>
 //# sourceMappingURL=IAppContext.js.map

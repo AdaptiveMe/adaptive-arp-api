@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseCommunication.h>
 
 /**
-Definition of INetworkInfo interface/protocol.
+Interface for Managing the Network information operations
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol INetworkInfo <IBaseCommunication>

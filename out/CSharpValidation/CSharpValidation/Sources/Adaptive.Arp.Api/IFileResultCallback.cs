@@ -28,10 +28,10 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of IFileResultCallback interface/protocol.
+        Interface for Managing the File operations callback
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      public interface IFileResultCallback : IBaseCallback {
@@ -51,8 +51,8 @@ namespace Adaptive.Arp.Api
 
           /**
              On partial result of a file operation, containing a warning.
-             @param file            Reference to the offending file.
-             @param warning         Warning processing the request.
+             @param file    Reference to the offending file.
+             @param warning Warning processing the request.
              @since ARP1.0
           */
           void OnWarning(IFile File, IFileResultCallbackWarning Warning);

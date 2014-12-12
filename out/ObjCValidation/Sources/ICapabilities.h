@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseSystem.h>
 
 /**
-Definition of ICapabilities interface/protocol.
+Interface for testing the Capabilities operations
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol ICapabilities <IBaseSystem>

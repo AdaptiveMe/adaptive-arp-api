@@ -1,3 +1,4 @@
+/// <reference path="APIBean.d.ts" />
 /// <reference path="ContactAddressType.d.ts" />
 /**
 --| ADAPTIVE RUNTIME PLATFORM |----------------------------------------------------------------------------------------
@@ -27,11 +28,11 @@ declare module Adaptive {
     /**
        Structure representing the address data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    class ContactAddress {
+    class ContactAddress extends APIBean {
         /**
            The address type
         */
@@ -41,7 +42,7 @@ declare module Adaptive {
         */
         address: string;
         /**
-           Constructor used by the implementation
+           Constructor with fields
 
            @param address Address data.
            @param type    Address type.

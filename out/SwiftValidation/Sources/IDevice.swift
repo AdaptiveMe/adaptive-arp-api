@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of IDevice interface/protocol.
+   Interface for Managing the Device operations
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
 public protocol IDevice : IBaseSystem {
@@ -40,12 +40,14 @@ public protocol IDevice : IBaseSystem {
      /**
         Returns the device information for the current device executing the runtime.
         @return DeviceInfo for the current device.
+        @since ARP1.0
      */
      func getDeviceInfo() -> DeviceInfo
 
      /**
         Gets the current Locale for the device.
         @return The current Locale information.
+        @since ARP1.0
      */
      func getLocaleCurrent() -> Locale
 

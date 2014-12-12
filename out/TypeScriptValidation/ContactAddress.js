@@ -22,25 +22,34 @@ Contributors:
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+///<reference path="APIBean.ts"/>
 ///<reference path="ContactAddressType.ts"/>
 var Adaptive;
 (function (Adaptive) {
     /**
        Structure representing the address data elements of a contact.
 
-       @author Carlos Lozano Diez
-       @since 1.0
+       @author Francisco Javier Martin Bueno
+       @since ARP1.0
        @version 1.0
     */
-    var ContactAddress = (function () {
+    var ContactAddress = (function (_super) {
+        __extends(ContactAddress, _super);
         /**
-           Constructor used by the implementation
+           Constructor with fields
 
            @param address Address data.
            @param type    Address type.
            @since ARP1.0
         */
         function ContactAddress(address, type) {
+            _super.call(this);
             this.address = address;
             this.type = type;
         }
@@ -81,7 +90,7 @@ var Adaptive;
             this.address = address;
         };
         return ContactAddress;
-    })();
+    })(Adaptive.APIBean);
     Adaptive.ContactAddress = ContactAddress;
 })(Adaptive || (Adaptive = {}));
 //# sourceMappingURL=ContactAddress.js.map

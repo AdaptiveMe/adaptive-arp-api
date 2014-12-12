@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation Lifecycle
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -45,11 +47,11 @@ Contributors:
      /**
         Constructor used by the implementation
 
-        @param state
+        @param state of the app
         @since ARP1.0
      */
      - (id) initWithState:(LifecycleState*)state {
-          self = [self init];
+          self = [super initWithState:state];
           if (self) {
                [self setState:state];
           }

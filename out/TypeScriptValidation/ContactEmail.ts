@@ -23,6 +23,7 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+///<reference path="APIBean.ts"/>
 ///<reference path="ContactEmailType.ts"/>
 
 module Adaptive {
@@ -30,11 +31,11 @@ module Adaptive {
      /**
         Structure representing the email data elements of a contact.
 
-        @author Carlos Lozano Diez
-        @since 1.0
+        @author Francisco Javier Martin Bueno
+        @since ARP1.0
         @version 1.0
      */
-     export class ContactEmail {
+     export class ContactEmail extends APIBean {
 
           /**
              The type of the email
@@ -51,12 +52,13 @@ module Adaptive {
           /**
              Constructor used by the implementation
 
-             @param type
-             @param primary
-             @param email
+             @param type    Type of the email
+             @param primary Is email primary
+             @param email   Email of the contact
              @since ARP1.0
           */
           constructor(type: ContactEmailType, primary: boolean, email: string) {
+               super();
                this.type = type;
                this.primary = primary;
                this.email = email;
@@ -75,7 +77,7 @@ module Adaptive {
           /**
              Set the type of the email
 
-             @param type
+             @param type Type of the email
              @since ARP1.0
           */
           setType(type: ContactEmailType) {
@@ -95,7 +97,7 @@ module Adaptive {
           /**
              Set the email of the Contact
 
-             @param email
+             @param email Email of the contact
              @since ARP1.0
           */
           setEmail(email: string) {

@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseSocial.h>
 
 /**
-Definition of IFacebook interface/protocol.
+Interface for Managing the Facebook operations
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @protocol IFacebook <IBaseSocial>

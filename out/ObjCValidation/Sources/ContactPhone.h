@@ -23,16 +23,17 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+#import <APIBean.h>
 #import <Foundation/Foundation.h>
 
 /**
 Structure representing the phone data elements of a contact.
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
-@interface ContactPhone : NSObject
+@interface ContactPhone : APIBean
 
      /**
         The phone number phoneType
@@ -55,15 +56,17 @@ Structure representing the phone data elements of a contact.
      @property NSString *phone;
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init;
 
      /**
         Constructor used by implementation to set the contact Phone
 
-        @param phone
-        @param phoneType
+        @param phone     Phone number
+        @param phoneType Type of Phone number
         @since ARP1.0
      */
      - (id) initWithPhonePhoneType:(NSString*)phone phoneType:(ContactPhoneType*)phoneType;

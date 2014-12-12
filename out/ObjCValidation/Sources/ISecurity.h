@@ -27,10 +27,10 @@ Contributors:
 #import <IBaseSecurity.h>
 
 /**
-Definition of ISecurity interface/protocol.
+Interface for Managing the Security operations
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Aryslan
+@since ARP1.0
 @version 1.0
 */
 @protocol ISecurity <IBaseSecurity>

@@ -28,17 +28,51 @@ Contributors:
 /**
 
 @author Carlos Lozano Diez
-@since 1.0
+@since ARP1.0
 @version 1.0
 */
 @implementation APIRequest
 
 
      /**
-        Convenience constructor.
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
+          return self;
+     }
+
+     /**
+        Constructor with method name. No parameters
+
+        @param methodName Name of the method
+        @since ARP1.0
+     */
+     - (id) initWithMethodName:(NSString*)methodName {
+          self = [self init];
+          if (self) {
+               [self setMethodName:methodName];
+          }
+          return self;
+     }
+
+     /**
+        Constructor with all the parameters
+
+        @param methodName     Name of the method
+        @param parameters     Array of parameters
+        @param parameterTypes Array of parameters types
+        @since ARP1.0
+     */
+     - (id) initWithMethodNameParametersParameterTypes:(NSString*)methodName parameters:(NSArray*)parameters parameterTypes:(NSArray*)parameterTypes {
+          self = [self init];
+          if (self) {
+               [self setMethodName:methodName];
+               [self setParameters:parameters];
+               [self setParameterTypes:parameterTypes];
+          }
           return self;
      }
 

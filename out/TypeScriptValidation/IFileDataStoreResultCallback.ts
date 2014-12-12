@@ -24,27 +24,40 @@ Contributors:
 */
 
 ///<reference path="IAdaptiveRPGroup.ts"/>
+///<reference path="IBaseCallback.ts"/>
 ///<reference path="IFile.ts"/>
-///<reference path="IFileDataResultCallback.ts"/>
-///<reference path="IFileDataResultCallbackError.ts"/>
-///<reference path="IFileDataResultCallbackWarning.ts"/>
+///<reference path="IFileDataStoreResultCallbackError.ts"/>
+///<reference path="IFileDataStoreResultCallbackWarning.ts"/>
 
 module Adaptive {
 
      /**
-        Created by clozano on 05/12/14.
+        Interface for Managing the File store operations callback
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
-     export interface IFileDataStoreResultCallback extends IFileDataResultCallback {
+     export interface IFileDataStoreResultCallback extends IBaseCallback {
+          /**
+             Error processing data retrieval/storage operation.
+             @param error Error condition encountered.
+             @since ARP1.0
+          */
+          onError(error:IFileDataStoreResultCallbackError);
           /**
              Result of data storage operation.
              @param file File reference to stored data.
              @since ARP1.0
           */
           onResult(file:IFile);
+          /**
+             Result with warning of data retrieval/storage operation.
+             @param file    File being loaded/stored.
+             @param warning Warning condition encountered.
+             @since ARP1.0
+          */
+          onWarning(file:IFile, warning:IFileDataStoreResultCallbackWarning);
      }
 }
 

@@ -28,16 +28,16 @@ Contributors:
 */
 public enum IServiceType {
 
-     case SERVICETYPE_AMF_SERIALIZATION
-     case SERVICETYPE_GWT_RPC
-     case SERVICETYPE_OCTET_BINARY
-     case SERVICETYPE_REMOTING_SERIALIZATION
-     case SERVICETYPE_REST_JSON
-     case SERVICETYPE_REST_XML
-     case SERVICETYPE_SOAP_JSON
-     case SERVICETYPE_SOAP_XML
-     case SERVICETYPE_XMLRPC_JSON
-     case SERVICETYPE_XMLRPC_XML
+     case ServiceTypeAmfSerialization
+     case ServiceTypeGwtRpc
+     case ServiceTypeOctetBinary
+     case ServiceTypeRemotingSerialization
+     case ServiceTypeRestJson
+     case ServiceTypeRestXml
+     case ServiceTypeSoapJson
+     case ServiceTypeSoapXml
+     case ServiceTypeXmlRpcJson
+     case ServiceTypeXmlRpcXml
      case Unknown
 
      /**
@@ -45,16 +45,16 @@ public enum IServiceType {
      */
      public func toString() -> String {
           switch self {
-               case .SERVICETYPE_AMF_SERIALIZATION: return "SERVICETYPE_AMF_SERIALIZATION"
-               case .SERVICETYPE_GWT_RPC: return "SERVICETYPE_GWT_RPC"
-               case .SERVICETYPE_OCTET_BINARY: return "SERVICETYPE_OCTET_BINARY"
-               case .SERVICETYPE_REMOTING_SERIALIZATION: return "SERVICETYPE_REMOTING_SERIALIZATION"
-               case .SERVICETYPE_REST_JSON: return "SERVICETYPE_REST_JSON"
-               case .SERVICETYPE_REST_XML: return "SERVICETYPE_REST_XML"
-               case .SERVICETYPE_SOAP_JSON: return "SERVICETYPE_SOAP_JSON"
-               case .SERVICETYPE_SOAP_XML: return "SERVICETYPE_SOAP_XML"
-               case .SERVICETYPE_XMLRPC_JSON: return "SERVICETYPE_XMLRPC_JSON"
-               case .SERVICETYPE_XMLRPC_XML: return "SERVICETYPE_XMLRPC_XML"
+               case .ServiceTypeAmfSerialization: return "ServiceTypeAmfSerialization"
+               case .ServiceTypeGwtRpc: return "ServiceTypeGwtRpc"
+               case .ServiceTypeOctetBinary: return "ServiceTypeOctetBinary"
+               case .ServiceTypeRemotingSerialization: return "ServiceTypeRemotingSerialization"
+               case .ServiceTypeRestJson: return "ServiceTypeRestJson"
+               case .ServiceTypeRestXml: return "ServiceTypeRestXml"
+               case .ServiceTypeSoapJson: return "ServiceTypeSoapJson"
+               case .ServiceTypeSoapXml: return "ServiceTypeSoapXml"
+               case .ServiceTypeXmlRpcJson: return "ServiceTypeXmlRpcJson"
+               case .ServiceTypeXmlRpcXml: return "ServiceTypeXmlRpcXml"
                case .Unknown: return "Unknown"
           }
      }
@@ -65,16 +65,16 @@ public enum IServiceType {
      public static func toEnum(string:String?) -> IServiceType {
           if let validString = string {
                switch validString {
-                    case "SERVICETYPE_AMF_SERIALIZATION": return .SERVICETYPE_AMF_SERIALIZATION
-                    case "SERVICETYPE_GWT_RPC": return .SERVICETYPE_GWT_RPC
-                    case "SERVICETYPE_OCTET_BINARY": return .SERVICETYPE_OCTET_BINARY
-                    case "SERVICETYPE_REMOTING_SERIALIZATION": return .SERVICETYPE_REMOTING_SERIALIZATION
-                    case "SERVICETYPE_REST_JSON": return .SERVICETYPE_REST_JSON
-                    case "SERVICETYPE_REST_XML": return .SERVICETYPE_REST_XML
-                    case "SERVICETYPE_SOAP_JSON": return .SERVICETYPE_SOAP_JSON
-                    case "SERVICETYPE_SOAP_XML": return .SERVICETYPE_SOAP_XML
-                    case "SERVICETYPE_XMLRPC_JSON": return .SERVICETYPE_XMLRPC_JSON
-                    case "SERVICETYPE_XMLRPC_XML": return .SERVICETYPE_XMLRPC_XML
+                    case "ServiceTypeAmfSerialization": return .ServiceTypeAmfSerialization
+                    case "ServiceTypeGwtRpc": return .ServiceTypeGwtRpc
+                    case "ServiceTypeOctetBinary": return .ServiceTypeOctetBinary
+                    case "ServiceTypeRemotingSerialization": return .ServiceTypeRemotingSerialization
+                    case "ServiceTypeRestJson": return .ServiceTypeRestJson
+                    case "ServiceTypeRestXml": return .ServiceTypeRestXml
+                    case "ServiceTypeSoapJson": return .ServiceTypeSoapJson
+                    case "ServiceTypeSoapXml": return .ServiceTypeSoapXml
+                    case "ServiceTypeXmlRpcJson": return .ServiceTypeXmlRpcJson
+                    case "ServiceTypeXmlRpcXml": return .ServiceTypeXmlRpcXml
                     case "Unknown": return .Unknown
                default: return .Unknown
                }

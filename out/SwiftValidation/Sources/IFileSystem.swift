@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of IFileSystem interface/protocol.
+   Interface for Managing the File System operations
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public protocol IFileSystem : IBaseData {
@@ -35,8 +35,9 @@ public protocol IFileSystem : IBaseData {
         Creates a new reference to a new or existing location in the filesystem.
 This method does not create the actual file in the specified folder.
         @param parent Parent directory.
-        @param name Name of new file or directory.
+        @param name   Name of new file or directory.
         @return A reference to a new or existing location in the filesystem.
+        @since ARP1.0
      */
      func createFileDescriptor(parent:IFile, name:String) -> IFile
 

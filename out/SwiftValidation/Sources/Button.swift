@@ -26,11 +26,11 @@ Contributors:
 /**
    Structure representing the a physical or logical button on a device.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class Button : NSObject {
+public class Button : APIBean {
 
      /**
         Button type
@@ -38,14 +38,16 @@ public class Button : NSObject {
      var type : ICapabilitiesButton?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
      }
 
      /**
-        Constructor used by the implementation
+        Constructor with fields
 
         @param type Button type.
         @since ARP1.0
@@ -66,9 +68,10 @@ public class Button : NSObject {
      }
 
      /**
-        Sets Button type
+        Setter for the button type
 
-        @param type Button type
+        @param type Button Type
+        @since ARP1.0
      */
      public func setType(type: ICapabilitiesButton) {
           self.type = type

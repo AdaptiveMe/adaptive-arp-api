@@ -30,16 +30,16 @@ Contributors:
 module Adaptive {
 
      /**
-        Definition of ILifecycle interface/protocol.
+        Interface for Managing the Lifecycle listeners
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      export interface ILifecycle extends IBaseApplication {
           /**
              Add the listener for the lifecycle of the app
-             @param listener
+             @param listener Lifecycle listener
              @since ARP1.0
           */
           addLifecycleListener(listener:ILifecycleListener);
@@ -51,7 +51,7 @@ module Adaptive {
           isBackground() : boolean;
           /**
              Un-registers an existing listener from receiving lifecycle events.
-             @param listener
+             @param listener Lifecycle listener
              @since ARP1.0
           */
           removeLifecycleListener(listener:ILifecycleListener);

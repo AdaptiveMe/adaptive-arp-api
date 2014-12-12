@@ -27,15 +27,17 @@ Contributors:
 
 /**
 
-@author Carlos Lozano Diez
-@since 1.0
+@author Francisco Javier Martin Bueno
+@since ARP1.0
 @version 1.0
 */
 @implementation ContactWebsite
 
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      - (id) init {
           self = [self init];
@@ -45,11 +47,11 @@ Contributors:
      /**
         Constructor used by the implementation
 
-        @param url
+        @param url Url of the website
         @since ARP1.0
      */
      - (id) initWithUrl:(NSString*)url {
-          self = [self init];
+          self = [super initWithUrl:url];
           if (self) {
                [self setUrl:url];
           }

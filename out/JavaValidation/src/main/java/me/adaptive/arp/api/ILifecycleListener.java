@@ -26,10 +26,10 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of ILifecycleListener interface/protocol.
+   Interface for Managing the Lifecycle listeners
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public interface ILifecycleListener extends IBaseListener {
@@ -41,14 +41,14 @@ public interface ILifecycleListener extends IBaseListener {
 
      /**
         Called when lifecycle changes somehow.
-        @param lifecycle
+        @param lifecycle Lifecycle element
         @since ARP1.0
      */
      void onResult(Lifecycle lifecycle);
 
      /**
         Data received with warning
-        @param lifecycle
+        @param lifecycle Lifecycle element
         @since ARP1.0
      */
      void onWarning(Lifecycle lifecycle, ILifecycleListenerWarning warning);

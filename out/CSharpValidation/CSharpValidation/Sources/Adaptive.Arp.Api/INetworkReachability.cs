@@ -28,10 +28,10 @@ using System;
 namespace Adaptive.Arp.Api
 {
      /**
-        Definition of INetworkReachability interface/protocol.
+        Interface for Managing the Network reachability operations
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      public interface INetworkReachability : IBaseCommunication {
@@ -39,6 +39,7 @@ namespace Adaptive.Arp.Api
              Whether there is connectivity to a host, via domain name or ip address, or not.
              @param host     domain name or ip address of host.
              @param callback Callback called at the end.
+             @since ARP1.0
           */
           void IsNetworkReachable(string Host, INetworkReachabilityCallback Callback);
 
@@ -46,6 +47,7 @@ namespace Adaptive.Arp.Api
              Whether there is connectivity to an url of a service or not.
              @param url      to look for
              @param callback Callback called at the end
+             @since ARP1.0
           */
           void IsNetworkServiceReachable(string Url, INetworkReachabilityCallback Callback);
 

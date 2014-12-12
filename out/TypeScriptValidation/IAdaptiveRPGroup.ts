@@ -33,6 +33,7 @@ module Adaptive {
           constructor(public value:string){}
           toString(){return this.value;}
 
+          static Application = new IAdaptiveRPGroup("Application");
           static Commerce = new IAdaptiveRPGroup("Commerce");
           static Communication = new IAdaptiveRPGroup("Communication");
           static Data = new IAdaptiveRPGroup("Data");

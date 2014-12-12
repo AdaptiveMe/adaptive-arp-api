@@ -29,10 +29,10 @@ Contributors:
 module Adaptive {
 
      /**
-        Definition of IRSS interface/protocol.
+        Interface for Managing the RSS operations
 
         @author Carlos Lozano Diez
-        @since 1.0
+        @since ARP1.0
         @version 1.0
      */
      export interface IRSS extends IBaseSocial {

@@ -24,10 +24,10 @@ Contributors:
 */
 
 /**
-   Definition of IBaseSystem interface/protocol.
+   Base application for System purposes
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public protocol IBaseSystem : IAdaptiveRP {

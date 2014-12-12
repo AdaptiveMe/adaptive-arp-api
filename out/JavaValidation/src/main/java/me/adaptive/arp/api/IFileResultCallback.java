@@ -26,10 +26,10 @@ Contributors:
 package me.adaptive.arp.api;
 
 /**
-   Definition of IFileResultCallback interface/protocol.
+   Interface for Managing the File operations callback
 
    @author Carlos Lozano Diez
-   @since 1.0
+   @since ARP1.0
    @version 1.0
 */
 public interface IFileResultCallback extends IBaseCallback {
@@ -49,8 +49,8 @@ public interface IFileResultCallback extends IBaseCallback {
 
      /**
         On partial result of a file operation, containing a warning.
-        @param file            Reference to the offending file.
-        @param warning         Warning processing the request.
+        @param file    Reference to the offending file.
+        @param warning Warning processing the request.
         @since ARP1.0
      */
      void onWarning(IFile file, IFileResultCallbackWarning warning);

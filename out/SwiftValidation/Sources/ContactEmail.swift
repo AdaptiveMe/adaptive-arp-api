@@ -26,11 +26,11 @@ Contributors:
 /**
    Structure representing the email data elements of a contact.
 
-   @author Carlos Lozano Diez
-   @since 1.0
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
    @version 1.0
 */
-public class ContactEmail : NSObject {
+public class ContactEmail : APIBean {
 
      /**
         The type of the email
@@ -46,7 +46,9 @@ public class ContactEmail : NSObject {
      var primary : Bool?
 
      /**
-        Constructor used by the implementation
+        Default constructor
+
+        @since ARP1.0
      */
      public override init() {
           super.init()
@@ -55,9 +57,9 @@ public class ContactEmail : NSObject {
      /**
         Constructor used by the implementation
 
-        @param type
-        @param primary
-        @param email
+        @param type    Type of the email
+        @param primary Is email primary
+        @param email   Email of the contact
         @since ARP1.0
      */
      public init(type: ContactEmailType, primary: Bool, email: String) {
@@ -80,7 +82,7 @@ public class ContactEmail : NSObject {
      /**
         Set the type of the email
 
-        @param type
+        @param type Type of the email
         @since ARP1.0
      */
      public func setType(type: ContactEmailType) {
@@ -100,7 +102,7 @@ public class ContactEmail : NSObject {
      /**
         Set the email of the Contact
 
-        @param email
+        @param email Email of the contact
         @since ARP1.0
      */
      public func setEmail(email: String) {
