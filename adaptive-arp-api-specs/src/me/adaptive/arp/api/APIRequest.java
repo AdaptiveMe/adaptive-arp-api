@@ -64,6 +64,11 @@ public class APIRequest {
     private String[] parameterTypes;
 
     /**
+     * Identifier of callback or listener for async operations.
+     */
+    private long asyncId;
+
+    /**
      * Default constructor
      *
      * @since ARP1.0
@@ -88,12 +93,14 @@ public class APIRequest {
      * @param methodName     Name of the method
      * @param parameters     Array of parameters
      * @param parameterTypes Array of parameters types
+     * @param asyncId        Id of callback or listener or zero if none for synchronous calls.
      * @since ARP1.0
      */
-    public APIRequest(String methodName, Object[] parameters, String[] parameterTypes) {
+    public APIRequest(String methodName, Object[] parameters, String[] parameterTypes, long asyncId) {
         this.methodName = methodName;
         this.parameters = parameters;
         this.parameterTypes = parameterTypes;
+        this.asyncId = asyncId;
     }
 
     /**
@@ -156,5 +163,23 @@ public class APIRequest {
         this.parameterTypes = parameterTypes;
     }
 
+    /**
+     * Returns the callback or listener id assigned to this request OR zero if there is no associated callback or
+     * listener.
+     *
+     * @return long with the unique id of the callback or listener, or zero if there is no associated async event.
+     */
+    public long getAsyncId() {
+        return asyncId;
+    }
+
+    /**
+     * Sets the callback or listener id to the request.
+     *
+     * @param asyncId The unique id of the callback or listener.
+     */
+    public void setAsyncId(long asyncId) {
+        this.asyncId = asyncId;
+    }
 
 }

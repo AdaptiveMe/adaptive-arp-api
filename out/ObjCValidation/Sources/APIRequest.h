@@ -22,7 +22,7 @@ Contributors:
              <http://github.com/fnva>
              <http://twitter.com/ferran_vila>
              <mailto:ferran.vila.conesa@gmail.com>
-             
+
     * See source code files for contributors.
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
@@ -39,6 +39,10 @@ Structure representing a HTML5 request to the native API.
 */
 @interface APIRequest : NSObject
 
+     /**
+        Identifier of callback or listener for async operations.
+     */
+     @property long *asyncId;
      /**
         String representing the method name to call
      */
@@ -75,9 +79,10 @@ Structure representing a HTML5 request to the native API.
         @param methodName     Name of the method
         @param parameters     Array of parameters
         @param parameterTypes Array of parameters types
+        @param asyncId        Id of callback or listener or zero if none for synchronous calls.
         @since ARP1.0
      */
-     - (id) initWithMethodNameParametersParameterTypes:(NSString*)methodName parameters:(NSArray*)parameters parameterTypes:(NSArray*)parameterTypes;
+     - (id) initWithMethodNameParametersParameterTypesAsyncId:(NSString*)methodName parameters:(NSArray*)parameters parameterTypes:(NSArray*)parameterTypes asyncId:(long*)asyncId;
 
 
 @end

@@ -22,7 +22,7 @@ Contributors:
              <http://github.com/fnva>
              <http://twitter.com/ferran_vila>
              <mailto:ferran.vila.conesa@gmail.com>
-             
+
     * See source code files for contributors.
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
@@ -39,6 +39,10 @@ package me.adaptive.arp.api;
 */
 public class APIRequest {
 
+     /**
+        Identifier of callback or listener for async operations.
+     */
+     private long asyncId;
      /**
         String representing the method name to call
      */
@@ -77,13 +81,34 @@ public class APIRequest {
         @param methodName     Name of the method
         @param parameters     Array of parameters
         @param parameterTypes Array of parameters types
+        @param asyncId        Id of callback or listener or zero if none for synchronous calls.
         @since ARP1.0
      */
-     public APIRequest(String methodName, Object[] parameters, String[] parameterTypes) {
+     public APIRequest(String methodName, Object[] parameters, String[] parameterTypes, long asyncId) {
           this();
           this.methodName = methodName;
           this.parameters = parameters;
           this.parameterTypes = parameterTypes;
+          this.asyncId = asyncId;
+     }
+
+     /**
+        Returns the callback or listener id assigned to this request OR zero if there is no associated callback or
+listener.
+
+        @return long with the unique id of the callback or listener, or zero if there is no associated async event.
+     */
+     public long getAsyncId() {
+          return this.asyncId;
+     }
+
+     /**
+        Sets the callback or listener id to the request.
+
+        @param asyncId The unique id of the callback or listener.
+     */
+     public void setAsyncId(long asyncId) {
+          this.asyncId = asyncId;
      }
 
      /**

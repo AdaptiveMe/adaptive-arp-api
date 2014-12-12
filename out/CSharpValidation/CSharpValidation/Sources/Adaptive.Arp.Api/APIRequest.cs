@@ -22,7 +22,7 @@ Contributors:
              <http://github.com/fnva>
              <http://twitter.com/ferran_vila>
              <mailto:ferran.vila.conesa@gmail.com>
-             
+
     * See source code files for contributors.
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
@@ -42,6 +42,10 @@ namespace Adaptive.Arp.Api
      public class APIRequest
      {
 
+          /**
+             Identifier of callback or listener for async operations.
+          */
+          public long AsyncId { get; set; }
           /**
              String representing the method name to call
           */
@@ -79,12 +83,33 @@ namespace Adaptive.Arp.Api
              @param MethodName     Name of the method
              @param Parameters     Array of parameters
              @param ParameterTypes Array of parameters types
+             @param AsyncId        Id of callback or listener or zero if none for synchronous calls.
              @since ARP1.0
           */
-          public APIRequest(string MethodName, Object[] Parameters, string[] ParameterTypes) : base () {
+          public APIRequest(string MethodName, Object[] Parameters, string[] ParameterTypes, long AsyncId) : base () {
                this.MethodName = MethodName;
                this.Parameters = Parameters;
                this.ParameterTypes = ParameterTypes;
+               this.AsyncId = AsyncId;
+          }
+
+          /**
+             Returns the callback or listener id assigned to this request OR zero if there is no associated callback or
+listener.
+
+             @return Long with the unique id of the callback or listener, or zero if there is no associated async event.
+          */
+          public long GetAsyncId() {
+               return this.AsyncId;
+          }
+
+          /**
+             Sets the callback or listener id to the request.
+
+             @param AsyncId The unique id of the callback or listener.
+          */
+          public void SetAsyncId(long AsyncId) {
+               this.AsyncId = AsyncId;
           }
 
           /**

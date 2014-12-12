@@ -22,7 +22,7 @@ Contributors:
              <http://github.com/fnva>
              <http://twitter.com/ferran_vila>
              <mailto:ferran.vila.conesa@gmail.com>
-             
+
     * See source code files for contributors.
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
@@ -69,14 +69,16 @@ Contributors:
         @param methodName     Name of the method
         @param parameters     Array of parameters
         @param parameterTypes Array of parameters types
+        @param asyncId        Id of callback or listener or zero if none for synchronous calls.
         @since ARP1.0
      */
-     - (id) initWithMethodNameParametersParameterTypes:(NSString*)methodName parameters:(NSArray*)parameters parameterTypes:(NSArray*)parameterTypes {
+     - (id) initWithMethodNameParametersParameterTypesAsyncId:(NSString*)methodName parameters:(NSArray*)parameters parameterTypes:(NSArray*)parameterTypes asyncId:(long*)asyncId {
           self = [self init];
           if (self) {
                [self setMethodName:methodName];
                [self setParameters:parameters];
                [self setParameterTypes:parameterTypes];
+               [self setAsyncId:asyncId];
           }
           return self;
      }

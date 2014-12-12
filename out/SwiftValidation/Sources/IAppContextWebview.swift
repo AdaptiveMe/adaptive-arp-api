@@ -22,7 +22,7 @@ Contributors:
              <http://github.com/fnva>
              <http://twitter.com/ferran_vila>
              <mailto:ferran.vila.conesa@gmail.com>
-             
+
     * See source code files for contributors.
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
@@ -45,6 +45,17 @@ not be added using this method.
         @since ARP1.0
      */
      func addWebview(webView:AnyObject)
+     /**
+        Evaluate the specified javascript on the main webview of the application.
+        @param javaScriptText    The javascript expression to execute on the webview.
+     */
+     func executeJavaScript(javaScriptText:String)
+     /**
+        Evaluate the specified javascript on the specified webview of the application.
+        @param javaScriptText    The javascript expression to execute on the webview.
+        @param webViewReference  The target webview on which to execute the expression.
+     */
+     func executeJavaScript(javaScriptText:String, webViewReference:AnyObject)
      /**
         Returns a reference to the main application webview. This is the first application webview and can not be removed
 with the removeWebview method. The object returned should be cast to the platform specific implementation
