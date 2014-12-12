@@ -18,6 +18,11 @@ Original author:
 
 Contributors:
 
+    * Ferran Vila Conesa
+             <http://github.com/fnva>
+             <http://twitter.com/ferran_vila>
+             <mailto:ferran.vila.conesa@gmail.com>
+
     * See source code files for contributors.
 
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
@@ -31,6 +36,10 @@ declare module Adaptive {
        @version 1.0
     */
     class APIRequest {
+        /**
+           Identifier of callback or listener for async operations.
+        */
+        asyncId: number;
         /**
            String representing the method name to call
         */
@@ -49,9 +58,23 @@ declare module Adaptive {
            @param methodName     Name of the method
            @param parameters     Array of parameters
            @param parameterTypes Array of parameters types
+           @param asyncId        Id of callback or listener or zero if none for synchronous calls.
            @since ARP1.0
         */
-        constructor(methodName: string, parameters: any[], parameterTypes: string[]);
+        constructor(methodName: string, parameters: any[], parameterTypes: string[], asyncId: number);
+        /**
+           Returns the callback or listener id assigned to this request OR zero if there is no associated callback or
+listener.
+
+           @return long with the unique id of the callback or listener, or zero if there is no associated async event.
+        */
+        getAsyncId(): number;
+        /**
+           Sets the callback or listener id to the request.
+
+           @param asyncId The unique id of the callback or listener.
+        */
+        setAsyncId(asyncId: number): void;
         /**
            Method name Getter
 
