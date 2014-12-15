@@ -128,14 +128,14 @@ public class JavaGenerator extends GeneratorBase {
         classMethods.sort(new Comparator<Method>() {
             @Override
             public int compare(Method o1, Method o2) {
-                String first = o1.getName()+o1.getParameterCount();
+                String first = o1.getName() + o1.getParameterCount();
                 for (Parameter p : o1.getParameters()) {
-                    first+= p.getName();
+                    first += p.getName();
                 }
 
-                String second = o2.getName()+o2.getParameterCount();
+                String second = o2.getName() + o2.getParameterCount();
                 for (Parameter p : o2.getParameters()) {
-                    second+= p.getName();
+                    second += p.getName();
                 }
                 return first.compareTo(second);
             }
@@ -216,6 +216,8 @@ public class JavaGenerator extends GeneratorBase {
     @Override
     protected void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
         println("package " + clazz.getPackage().getName() + ";");
+        println();
+        println("import com.google.gson.Gson;");
         println();
         startComment(0);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
@@ -311,14 +313,14 @@ public class JavaGenerator extends GeneratorBase {
         classMethods.sort(new Comparator<Method>() {
             @Override
             public int compare(Method o1, Method o2) {
-                String first = o1.getName()+o1.getParameterCount();
+                String first = o1.getName() + o1.getParameterCount();
                 for (Parameter p : o1.getParameters()) {
-                    first+= p.getName();
+                    first += p.getName();
                 }
 
-                String second = o2.getName()+o2.getParameterCount();
+                String second = o2.getName() + o2.getParameterCount();
                 for (Parameter p : o2.getParameters()) {
-                    second+= p.getName();
+                    second += p.getName();
                 }
                 return first.compareTo(second);
             }
@@ -418,6 +420,7 @@ public class JavaGenerator extends GeneratorBase {
         println(8, "@return String with JSON response or a zero length string if the response is asynchronous or null if method not found.");
         endComment(5);
         println(5, "public String invoke(APIRequest request) {");
+        println(10, "Gson gson = new Gson();");
         println(10, "String responseJSON = \"\";");
         println(10, "switch (request.getMethodName()) {");
         List<Method> methodUniqueList = new ArrayList<>();
@@ -439,31 +442,52 @@ public class JavaGenerator extends GeneratorBase {
         int parameterIndex = 0;
         for (Method m : methodUniqueList) {
             println(15, "case \"" + m.getName() + "\":");
-            for (Parameter p: m.getParameters()) {
-                println(20,convertJavaToNativeType(p.getType())+" "+p.getName()+parameterIndex+" = null;");
+            int pIndex = 0;
+            for (Parameter p : m.getParameters()) {
+                print(20, convertJavaToNativeType(p.getType()) + " " + p.getName() + parameterIndex + " = ");
+                if (p.getType().getSimpleName().endsWith("Callback") || p.getType().getSimpleName().endsWith("Listener")) {
+                    print("new " + p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
+                } else {
+                    if (p.getType().isPrimitive()) {
+                        print("gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
+                    } else {
+                        print("gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
+                    }
+                }
+                println(";");
+                pIndex++;
             }
 
             if (m.getReturnType().equals(Void.TYPE)) {
-                print(20,"this.delegate."+m.getName()+"(");
-                for (int i = 0; i < m.getParameterCount();i++) {
+                print(20, "this." + m.getName() + "(");
+                for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(p.getName()+parameterIndex);
-                    if (i<m.getParameterCount()-1) {
+                    print(p.getName() + parameterIndex);
+                    if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
                 }
                 println(");");
             } else {
-                print(20, convertJavaToNativeType(m.getReturnType())+" response"+parameterIndex+" = ");
-                print("this.delegate."+m.getName()+"(");
-                for (int i=0;i<m.getParameterCount();i++) {
+                print(20, convertJavaToNativeType(m.getReturnType()) + " response" + parameterIndex + " = ");
+                print("this." + m.getName() + "(");
+                for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(p.getName()+parameterIndex);
-                    if (i<m.getParameterCount()-1) {
+                    print(p.getName() + parameterIndex);
+                    if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
                 }
                 println(");");
+                if (m.getReturnType().isPrimitive()) {
+                    println(20, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                } else {
+                    println(20, "if (response" + parameterIndex + " != null) {");
+                    println(25, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                    println(20, "} else {");
+                    println(25, "responseJSON = null;");
+                    println(20, "}");
+                }
             }
             println(20, "break;");
             parameterIndex++;
@@ -471,47 +495,67 @@ public class JavaGenerator extends GeneratorBase {
 
         for (Method m : methodOverloadedList) {
             print(15, "case \"" + m.getName());
-            if (m.getParameterCount()==0) {
+            if (m.getParameterCount() == 0) {
                 println("\":");
             } else {
                 print("_");
-                for (int i = 0;i<m.getParameterCount();i++) {
+                for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
                     print(p.getName());
-                    if (i<m.getParameterCount()-1) {
+                    if (i < m.getParameterCount() - 1) {
                         print("_");
                     }
                 }
                 println("\":");
             }
 
-            for (Parameter p: m.getParameters()) {
-                println(20,convertJavaToNativeType(p.getType())+" "+p.getName()+parameterIndex+" = null;");
+            int pIndex = 0;
+            for (Parameter p : m.getParameters()) {
+                print(20, convertJavaToNativeType(p.getType()) + " " + p.getName() + parameterIndex + " = ");
+                if (p.getType().getSimpleName().endsWith("Callback") || p.getType().getSimpleName().endsWith("Listener")) {
+                    print("new " + p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
+                } else {
+                    if (p.getType().isPrimitive()) {
+                        print("gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
+                    } else {
+                        print("gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
+                    }
+                }
+                println(";");
+                pIndex++;
             }
 
             if (m.getReturnType().equals(Void.TYPE)) {
-                print(20,"this.delegate."+m.getName()+"(");
-                for (int i = 0; i < m.getParameterCount();i++) {
+                print(20, "this." + m.getName() + "(");
+                for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(p.getName()+parameterIndex);
-                    if (i<m.getParameterCount()-1) {
+                    print(p.getName() + parameterIndex);
+                    if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
                 }
                 println(");");
             } else {
-                print(20, convertJavaToNativeType(m.getReturnType())+" response"+parameterIndex+" = ");
-                print("this.delegate."+m.getName()+"(");
-                for (int i=0;i<m.getParameterCount();i++) {
+                print(20, convertJavaToNativeType(m.getReturnType()) + " response" + parameterIndex + " = ");
+                print("this." + m.getName() + "(");
+                for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(p.getName()+parameterIndex);
-                    if (i<m.getParameterCount()-1) {
+                    print(p.getName() + parameterIndex);
+                    if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
                 }
                 println(");");
+                if (m.getReturnType().isPrimitive()) {
+                    println(20, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                } else {
+                    println(20, "if (response" + parameterIndex + " != null) {");
+                    println(25, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                    println(20, "} else {");
+                    println(25, "responseJSON = null;");
+                    println(20, "}");
+                }
             }
-            println(20, "// TODO: Implement overloaded method handling.");
             println(20, "break;");
             parameterIndex++;
         }

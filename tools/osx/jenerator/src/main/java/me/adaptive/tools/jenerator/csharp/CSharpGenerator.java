@@ -56,6 +56,32 @@ public class CSharpGenerator extends GeneratorBase {
         super(outRootPath, classList, sourceList);
     }
 
+    private static String camelCase(Package _package) {
+        StringBuffer out = new StringBuffer();
+        boolean capitalize = true;
+        // Strip first part of package name
+        for (char c : _package.getName().substring(_package.getName().indexOf('.') + 1).toCharArray()) {
+            if (capitalize) {
+                out.append(Character.toUpperCase(c));
+                capitalize = false;
+            } else {
+                if (c == '.') {
+                    capitalize = true;
+                }
+                out.append(c);
+            }
+        }
+        return out.toString();
+    }
+
+    private static String camelCase(String name) {
+        if (name != null && name.trim().length() > 0) {
+            return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+        } else {
+            return name;
+        }
+    }
+
     @Override
     protected void createDelegateImplementation(String className, Class clazz, JavaClass javaClass) {
 
@@ -117,11 +143,11 @@ public class CSharpGenerator extends GeneratorBase {
                 });
                 for (Class serviceClass : serviceClasses) {
                     startComment(10);
-                    println(13, "Returns a reference to the registered "+serviceClass.getSimpleName().substring(1)+"Handler.");
+                    println(13, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Handler.");
                     println();
-                    println(13, "@return "+serviceClass.getSimpleName().substring(1)+"Handler reference or null if a handler of this type is not registered.");
+                    println(13, "@return " + serviceClass.getSimpleName().substring(1) + "Handler reference or null if a handler of this type is not registered.");
                     endComment(10);
-                    println(10, serviceClass.getSimpleName()+" Get"+serviceClass.getSimpleName().substring(1)+"Handler();");
+                    println(10, serviceClass.getSimpleName() + " Get" + serviceClass.getSimpleName().substring(1) + "Handler();");
                     println();
                 }
             } else {
@@ -159,32 +185,6 @@ public class CSharpGenerator extends GeneratorBase {
                 println(");");
                 println();
             }
-        }
-    }
-
-    private static String camelCase(Package _package) {
-        StringBuffer out = new StringBuffer();
-        boolean capitalize = true;
-        // Strip first part of package name
-        for (char c : _package.getName().substring(_package.getName().indexOf('.') + 1).toCharArray()) {
-            if (capitalize) {
-                out.append(Character.toUpperCase(c));
-                capitalize = false;
-            } else {
-                if (c == '.') {
-                    capitalize = true;
-                }
-                out.append(c);
-            }
-        }
-        return out.toString();
-    }
-
-    private static String camelCase(String name) {
-        if (name != null && name.trim().length() > 0) {
-            return Character.toUpperCase(name.charAt(0)) + name.substring(1);
-        } else {
-            return name;
         }
     }
 

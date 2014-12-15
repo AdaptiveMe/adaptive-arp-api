@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Cloud operations
    Auto-generated implementation of IDatabase specification.
@@ -267,52 +269,55 @@ should be passed as a parameter
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "createDatabase":
-                    Database database0 = null;
-                    IDatabaseResultCallback callback0 = null;
-                    this.delegate.createDatabase(database0, callback0);
+                    Database database0 = gson.fromJson(request.getParameters()[0], Database.class);
+                    IDatabaseResultCallback callback0 = new DatabaseResultCallbackImpl(request.getAsyncId());
+                    this.createDatabase(database0, callback0);
                     break;
                case "createTable":
-                    Database database1 = null;
-                    DatabaseTable databaseTable1 = null;
-                    IDatabaseTableResultCallback callback1 = null;
-                    this.delegate.createTable(database1, databaseTable1, callback1);
+                    Database database1 = gson.fromJson(request.getParameters()[0], Database.class);
+                    DatabaseTable databaseTable1 = gson.fromJson(request.getParameters()[1], DatabaseTable.class);
+                    IDatabaseTableResultCallback callback1 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
+                    this.createTable(database1, databaseTable1, callback1);
                     break;
                case "deleteDatabase":
-                    Database database2 = null;
-                    IDatabaseResultCallback callback2 = null;
-                    this.delegate.deleteDatabase(database2, callback2);
+                    Database database2 = gson.fromJson(request.getParameters()[0], Database.class);
+                    IDatabaseResultCallback callback2 = new DatabaseResultCallbackImpl(request.getAsyncId());
+                    this.deleteDatabase(database2, callback2);
                     break;
                case "deleteTable":
-                    Database database3 = null;
-                    DatabaseTable databaseTable3 = null;
-                    IDatabaseTableResultCallback callback3 = null;
-                    this.delegate.deleteTable(database3, databaseTable3, callback3);
+                    Database database3 = gson.fromJson(request.getParameters()[0], Database.class);
+                    DatabaseTable databaseTable3 = gson.fromJson(request.getParameters()[1], DatabaseTable.class);
+                    IDatabaseTableResultCallback callback3 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
+                    this.deleteTable(database3, databaseTable3, callback3);
                     break;
                case "executeSqlStatement":
-                    Database database4 = null;
-                    String statement4 = null;
-                    String[] replacements4 = null;
-                    IDatabaseTableResultCallback callback4 = null;
-                    this.delegate.executeSqlStatement(database4, statement4, replacements4, callback4);
+                    Database database4 = gson.fromJson(request.getParameters()[0], Database.class);
+                    String statement4 = gson.fromJson(request.getParameters()[1], String.class);
+                    String[] replacements4 = gson.fromJson(request.getParameters()[2], String[].class);
+                    IDatabaseTableResultCallback callback4 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
+                    this.executeSqlStatement(database4, statement4, replacements4, callback4);
                     break;
                case "executeSqlTransactions":
-                    Database database5 = null;
-                    String[] statements5 = null;
-                    boolean rollbackFlag5 = null;
-                    IDatabaseTableResultCallback callback5 = null;
-                    this.delegate.executeSqlTransactions(database5, statements5, rollbackFlag5, callback5);
+                    Database database5 = gson.fromJson(request.getParameters()[0], Database.class);
+                    String[] statements5 = gson.fromJson(request.getParameters()[1], String[].class);
+                    boolean rollbackFlag5 = gson.fromJson(request.getParameters()[2], boolean.class);
+                    IDatabaseTableResultCallback callback5 = new DatabaseTableResultCallbackImpl(request.getAsyncId());
+                    this.executeSqlTransactions(database5, statements5, rollbackFlag5, callback5);
                     break;
                case "existsDatabase":
-                    Database database6 = null;
-                    boolean response6 = this.delegate.existsDatabase(database6);
+                    Database database6 = gson.fromJson(request.getParameters()[0], Database.class);
+                    boolean response6 = this.existsDatabase(database6);
+                    responseJSON = gson.toJson(response6);
                     break;
                case "existsTable":
-                    Database database7 = null;
-                    DatabaseTable databaseTable7 = null;
-                    boolean response7 = this.delegate.existsTable(database7, databaseTable7);
+                    Database database7 = gson.fromJson(request.getParameters()[0], Database.class);
+                    DatabaseTable databaseTable7 = gson.fromJson(request.getParameters()[1], DatabaseTable.class);
+                    boolean response7 = this.existsTable(database7, databaseTable7);
+                    responseJSON = gson.toJson(response7);
                     break;
                default:
                     // 404 - response null.

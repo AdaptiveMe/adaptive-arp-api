@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Geolocation operations
    Auto-generated implementation of IGeolocation specification.
@@ -137,18 +139,19 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation,
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "addGeolocationListener":
-                    IGeolocationListener listener0 = null;
-                    this.delegate.addGeolocationListener(listener0);
+                    IGeolocationListener listener0 = new GeolocationListenerImpl(request.getAsyncId());
+                    this.addGeolocationListener(listener0);
                     break;
                case "removeGeolocationListener":
-                    IGeolocationListener listener1 = null;
-                    this.delegate.removeGeolocationListener(listener1);
+                    IGeolocationListener listener1 = new GeolocationListenerImpl(request.getAsyncId());
+                    this.removeGeolocationListener(listener1);
                     break;
                case "removeGeolocationListeners":
-                    this.delegate.removeGeolocationListeners();
+                    this.removeGeolocationListeners();
                     break;
                default:
                     // 404 - response null.

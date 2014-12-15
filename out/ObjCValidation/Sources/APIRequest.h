@@ -53,8 +53,8 @@ Structure representing a HTML5 request to the native API.
      */
      @property NSArray *parameterTypes;
      /**
-        Parameters of the request
-        Array objects must be of Object type.
+        Parameters of the request as JSON formatted strings.
+        Array objects must be of String type.
      */
      @property NSArray *parameters;
 
@@ -77,7 +77,7 @@ Structure representing a HTML5 request to the native API.
         Constructor with all the parameters
 
         @param methodName     Name of the method
-        @param parameters     Array of parameters
+        @param parameters     Array of parameters as JSON formatted strings.
         @param parameterTypes Array of parameters types
         @param asyncId        Id of callback or listener or zero if none for synchronous calls.
         @since ARP1.0

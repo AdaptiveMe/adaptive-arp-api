@@ -53,6 +53,18 @@ public class ObjCGenerator extends GeneratorBase {
         super(outRootPath, classList, sourceList);
     }
 
+    private static String filterClassName(String simpleName) {
+        if (simpleName.equals("Locale")) {
+            simpleName = "Local" + simpleName;
+        }
+
+        return simpleName;
+    }
+
+    private static String camelCase(String name) {
+        return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+    }
+
     @Override
     protected void createDelegateImplementation(String className, Class clazz, JavaClass javaClass) {
 
@@ -86,18 +98,6 @@ public class ObjCGenerator extends GeneratorBase {
     @Override
     protected void declareInterfaceMethods(String simpleName, Class clazz, List<Method> interfaceMethods, List<JavaMethod> interfaceMethodsDoc) {
 
-    }
-
-    private static String filterClassName(String simpleName) {
-        if (simpleName.equals("Locale")) {
-            simpleName = "Local" + simpleName;
-        }
-
-        return simpleName;
-    }
-
-    private static String camelCase(String name) {
-        return Character.toUpperCase(name.charAt(0)) + name.substring(1);
     }
 
     @Override

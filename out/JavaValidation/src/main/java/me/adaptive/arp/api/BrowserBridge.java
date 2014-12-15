@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the browser operations
    Auto-generated implementation of IBrowser specification.
@@ -148,23 +150,27 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "openExtenalBrowser":
-                    String url0 = null;
-                    boolean response0 = this.delegate.openExtenalBrowser(url0);
+                    String url0 = gson.fromJson(request.getParameters()[0], String.class);
+                    boolean response0 = this.openExtenalBrowser(url0);
+                    responseJSON = gson.toJson(response0);
                     break;
                case "openInternalBrowser":
-                    String url1 = null;
-                    String title1 = null;
-                    String backButtonText1 = null;
-                    boolean response1 = this.delegate.openInternalBrowser(url1, title1, backButtonText1);
+                    String url1 = gson.fromJson(request.getParameters()[0], String.class);
+                    String title1 = gson.fromJson(request.getParameters()[1], String.class);
+                    String backButtonText1 = gson.fromJson(request.getParameters()[2], String.class);
+                    boolean response1 = this.openInternalBrowser(url1, title1, backButtonText1);
+                    responseJSON = gson.toJson(response1);
                     break;
                case "openInternalBrowserModal":
-                    String url2 = null;
-                    String title2 = null;
-                    String backButtonText2 = null;
-                    boolean response2 = this.delegate.openInternalBrowserModal(url2, title2, backButtonText2);
+                    String url2 = gson.fromJson(request.getParameters()[0], String.class);
+                    String title2 = gson.fromJson(request.getParameters()[1], String.class);
+                    String backButtonText2 = gson.fromJson(request.getParameters()[2], String.class);
+                    boolean response2 = this.openInternalBrowserModal(url2, title2, backButtonText2);
+                    responseJSON = gson.toJson(response2);
                     break;
                default:
                     // 404 - response null.

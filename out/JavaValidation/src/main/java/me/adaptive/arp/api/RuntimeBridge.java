@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Runtime operations
    Auto-generated implementation of IRuntime specification.
@@ -116,13 +118,15 @@ public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBrid
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "dismissApplication":
-                    this.delegate.dismissApplication();
+                    this.dismissApplication();
                     break;
                case "dismissSplashScreen":
-                    boolean response1 = this.delegate.dismissSplashScreen();
+                    boolean response1 = this.dismissSplashScreen();
+                    responseJSON = gson.toJson(response1);
                     break;
                default:
                     // 404 - response null.

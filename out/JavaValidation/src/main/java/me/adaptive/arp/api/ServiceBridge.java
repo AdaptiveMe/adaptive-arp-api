@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Services operations
    Auto-generated implementation of IService specification.
@@ -233,38 +235,44 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "getService":
-                    String serviceName0 = null;
-                    Service response0 = this.delegate.getService(serviceName0);
+                    String serviceName0 = gson.fromJson(request.getParameters()[0], String.class);
+                    Service response0 = this.getService(serviceName0);
+                    if (response0 != null) {
+                         responseJSON = gson.toJson(response0);
+                    } else {
+                         responseJSON = null;
+                    }
                     break;
                case "invokeService":
-                    ServiceRequest serviceRequest1 = null;
-                    Service service1 = null;
-                    IServiceResultCallback callback1 = null;
-                    this.delegate.invokeService(serviceRequest1, service1, callback1);
+                    ServiceRequest serviceRequest1 = gson.fromJson(request.getParameters()[0], ServiceRequest.class);
+                    Service service1 = gson.fromJson(request.getParameters()[1], Service.class);
+                    IServiceResultCallback callback1 = new ServiceResultCallbackImpl(request.getAsyncId());
+                    this.invokeService(serviceRequest1, service1, callback1);
                     break;
                case "registerService":
-                    Service service2 = null;
-                    this.delegate.registerService(service2);
+                    Service service2 = gson.fromJson(request.getParameters()[0], Service.class);
+                    this.registerService(service2);
                     break;
                case "unregisterService":
-                    Service service3 = null;
-                    this.delegate.unregisterService(service3);
+                    Service service3 = gson.fromJson(request.getParameters()[0], Service.class);
+                    this.unregisterService(service3);
                     break;
                case "unregisterServices":
-                    this.delegate.unregisterServices();
+                    this.unregisterServices();
                     break;
                case "isRegistered_service":
-                    Service service5 = null;
-                    boolean response5 = this.delegate.isRegistered(service5);
-                    // TODO: Implement overloaded method handling.
+                    Service service5 = gson.fromJson(request.getParameters()[0], Service.class);
+                    boolean response5 = this.isRegistered(service5);
+                    responseJSON = gson.toJson(response5);
                     break;
                case "isRegistered_serviceName":
-                    String serviceName6 = null;
-                    boolean response6 = this.delegate.isRegistered(serviceName6);
-                    // TODO: Implement overloaded method handling.
+                    String serviceName6 = gson.fromJson(request.getParameters()[0], String.class);
+                    boolean response6 = this.isRegistered(serviceName6);
+                    responseJSON = gson.toJson(response6);
                     break;
                default:
                     // 404 - response null.

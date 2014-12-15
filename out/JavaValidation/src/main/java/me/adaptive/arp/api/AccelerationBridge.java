@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface defining methods about the acceleration sensor
    Auto-generated implementation of IAcceleration specification.
@@ -137,18 +139,19 @@ public class AccelerationBridge extends BaseSensorBridge implements IAcceleratio
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "addAccelerationListener":
-                    IAccelerationListener listener0 = null;
-                    this.delegate.addAccelerationListener(listener0);
+                    IAccelerationListener listener0 = new AccelerationListenerImpl(request.getAsyncId());
+                    this.addAccelerationListener(listener0);
                     break;
                case "removeAccelerationListener":
-                    IAccelerationListener listener1 = null;
-                    this.delegate.removeAccelerationListener(listener1);
+                    IAccelerationListener listener1 = new AccelerationListenerImpl(request.getAsyncId());
+                    this.removeAccelerationListener(listener1);
                     break;
                case "removeAccelerationListeners":
-                    this.delegate.removeAccelerationListeners();
+                    this.removeAccelerationListeners();
                     break;
                default:
                     // 404 - response null.

@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for managinf the Ambient Light
    Auto-generated implementation of IAmbientLight specification.
@@ -72,6 +74,7 @@ public class AmbientLightBridge extends BaseSensorBridge implements IAmbientLigh
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                default:

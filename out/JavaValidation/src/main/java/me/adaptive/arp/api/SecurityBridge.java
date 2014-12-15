@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Security operations
    Auto-generated implementation of ISecurity specification.
@@ -167,28 +169,30 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "deleteSecureKeyValuePairs":
-                    String[] keys0 = null;
-                    String publicAccessName0 = null;
-                    ISecurityResultCallback callback0 = null;
-                    this.delegate.deleteSecureKeyValuePairs(keys0, publicAccessName0, callback0);
+                    String[] keys0 = gson.fromJson(request.getParameters()[0], String[].class);
+                    String publicAccessName0 = gson.fromJson(request.getParameters()[1], String.class);
+                    ISecurityResultCallback callback0 = new SecurityResultCallbackImpl(request.getAsyncId());
+                    this.deleteSecureKeyValuePairs(keys0, publicAccessName0, callback0);
                     break;
                case "getSecureKeyValuePairs":
-                    String[] keys1 = null;
-                    String publicAccessName1 = null;
-                    ISecurityResultCallback callback1 = null;
-                    this.delegate.getSecureKeyValuePairs(keys1, publicAccessName1, callback1);
+                    String[] keys1 = gson.fromJson(request.getParameters()[0], String[].class);
+                    String publicAccessName1 = gson.fromJson(request.getParameters()[1], String.class);
+                    ISecurityResultCallback callback1 = new SecurityResultCallbackImpl(request.getAsyncId());
+                    this.getSecureKeyValuePairs(keys1, publicAccessName1, callback1);
                     break;
                case "isDeviceModified":
-                    boolean response2 = this.delegate.isDeviceModified();
+                    boolean response2 = this.isDeviceModified();
+                    responseJSON = gson.toJson(response2);
                     break;
                case "setSecureKeyValuePairs":
-                    SecureKeyPair[] keyValues3 = null;
-                    String publicAccessName3 = null;
-                    ISecurityResultCallback callback3 = null;
-                    this.delegate.setSecureKeyValuePairs(keyValues3, publicAccessName3, callback3);
+                    SecureKeyPair[] keyValues3 = gson.fromJson(request.getParameters()[0], SecureKeyPair[].class);
+                    String publicAccessName3 = gson.fromJson(request.getParameters()[1], String.class);
+                    ISecurityResultCallback callback3 = new SecurityResultCallbackImpl(request.getAsyncId());
+                    this.setSecureKeyValuePairs(keyValues3, publicAccessName3, callback3);
                     break;
                default:
                     // 404 - response null.

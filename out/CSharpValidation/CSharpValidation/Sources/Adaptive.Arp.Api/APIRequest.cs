@@ -55,9 +55,9 @@ namespace Adaptive.Arp.Api
           */
           public string[] ParameterTypes { get; set; }
           /**
-             Parameters of the request
+             Parameters of the request as JSON formatted strings.
           */
-          public Object[] Parameters { get; set; }
+          public string[] Parameters { get; set; }
 
           /**
              Default constructor
@@ -81,12 +81,12 @@ namespace Adaptive.Arp.Api
              Constructor with all the parameters
 
              @param MethodName     Name of the method
-             @param Parameters     Array of parameters
+             @param Parameters     Array of parameters as JSON formatted strings.
              @param ParameterTypes Array of parameters types
              @param AsyncId        Id of callback or listener or zero if none for synchronous calls.
              @since ARP1.0
           */
-          public APIRequest(string MethodName, Object[] Parameters, string[] ParameterTypes, long AsyncId) : base () {
+          public APIRequest(string MethodName, string[] Parameters, string[] ParameterTypes, long AsyncId) : base () {
                this.MethodName = MethodName;
                this.Parameters = Parameters;
                this.ParameterTypes = ParameterTypes;
@@ -158,17 +158,17 @@ listener.
              @return Parameters
              @since ARP1.0
           */
-          public Object[] GetParameters() {
+          public string[] GetParameters() {
                return this.Parameters;
           }
 
           /**
              Parameters Setter
 
-             @param Parameters Parameters
+             @param Parameters Parameters, JSON formatted strings of objects.
              @since ARP1.0
           */
-          public void SetParameters(Object[] Parameters) {
+          public void SetParameters(string[] Parameters) {
                this.Parameters = Parameters;
           }
 

@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Lifecycle listeners
    Auto-generated implementation of ILifecycle specification.
@@ -160,21 +162,23 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "addLifecycleListener":
-                    ILifecycleListener listener0 = null;
-                    this.delegate.addLifecycleListener(listener0);
+                    ILifecycleListener listener0 = new LifecycleListenerImpl(request.getAsyncId());
+                    this.addLifecycleListener(listener0);
                     break;
                case "isBackground":
-                    boolean response1 = this.delegate.isBackground();
+                    boolean response1 = this.isBackground();
+                    responseJSON = gson.toJson(response1);
                     break;
                case "removeLifecycleListener":
-                    ILifecycleListener listener2 = null;
-                    this.delegate.removeLifecycleListener(listener2);
+                    ILifecycleListener listener2 = new LifecycleListenerImpl(request.getAsyncId());
+                    this.removeLifecycleListener(listener2);
                     break;
                case "removeLifecycleListeners":
-                    this.delegate.removeLifecycleListeners();
+                    this.removeLifecycleListeners();
                     break;
                default:
                     // 404 - response null.

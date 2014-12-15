@@ -50,9 +50,9 @@ public class APIRequest : NSObject {
      */
      var parameterTypes : [String]?
      /**
-        Parameters of the request
+        Parameters of the request as JSON formatted strings.
      */
-     var parameters : [AnyObject]?
+     var parameters : [String]?
 
      /**
         Default constructor
@@ -78,12 +78,12 @@ public class APIRequest : NSObject {
         Constructor with all the parameters
 
         @param methodName     Name of the method
-        @param parameters     Array of parameters
+        @param parameters     Array of parameters as JSON formatted strings.
         @param parameterTypes Array of parameters types
         @param asyncId        Id of callback or listener or zero if none for synchronous calls.
         @since ARP1.0
      */
-     public init(methodName: String, parameters: [AnyObject], parameterTypes: [String], asyncId: Int64) {
+     public init(methodName: String, parameters: [String], parameterTypes: [String], asyncId: Int64) {
           super.init()
           self.methodName = methodName
           self.parameters = parameters
@@ -156,17 +156,17 @@ listener.
         @return Parameters
         @since ARP1.0
      */
-     public func getParameters() -> [AnyObject]? {
+     public func getParameters() -> [String]? {
           return self.parameters
      }
 
      /**
         Parameters Setter
 
-        @param parameters Parameters
+        @param parameters Parameters, JSON formatted strings of objects.
         @since ARP1.0
      */
-     public func setParameters(parameters: [AnyObject]) {
+     public func setParameters(parameters: [String]) {
           self.parameters = parameters
      }
 

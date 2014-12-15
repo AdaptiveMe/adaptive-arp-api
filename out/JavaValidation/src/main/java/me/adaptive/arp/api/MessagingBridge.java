@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Messaging operations
    Auto-generated implementation of IMessaging specification.
@@ -96,13 +98,14 @@ public class MessagingBridge extends BasePIMBridge implements IMessaging, APIBri
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "sendSMS":
-                    String number0 = null;
-                    String text0 = null;
-                    IMessagingCallback callback0 = null;
-                    this.delegate.sendSMS(number0, text0, callback0);
+                    String number0 = gson.fromJson(request.getParameters()[0], String.class);
+                    String text0 = gson.fromJson(request.getParameters()[1], String.class);
+                    IMessagingCallback callback0 = new MessagingCallbackImpl(request.getAsyncId());
+                    this.sendSMS(number0, text0, callback0);
                     break;
                default:
                     // 404 - response null.

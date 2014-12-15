@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Device operations
    Auto-generated implementation of IDevice specification.
@@ -183,24 +185,35 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice, APIBridge
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "addButtonListener":
-                    IButtonListener listener0 = null;
-                    this.delegate.addButtonListener(listener0);
+                    IButtonListener listener0 = new ButtonListenerImpl(request.getAsyncId());
+                    this.addButtonListener(listener0);
                     break;
                case "getDeviceInfo":
-                    DeviceInfo response1 = this.delegate.getDeviceInfo();
+                    DeviceInfo response1 = this.getDeviceInfo();
+                    if (response1 != null) {
+                         responseJSON = gson.toJson(response1);
+                    } else {
+                         responseJSON = null;
+                    }
                     break;
                case "getLocaleCurrent":
-                    Locale response2 = this.delegate.getLocaleCurrent();
+                    Locale response2 = this.getLocaleCurrent();
+                    if (response2 != null) {
+                         responseJSON = gson.toJson(response2);
+                    } else {
+                         responseJSON = null;
+                    }
                     break;
                case "removeButtonListener":
-                    IButtonListener listener3 = null;
-                    this.delegate.removeButtonListener(listener3);
+                    IButtonListener listener3 = new ButtonListenerImpl(request.getAsyncId());
+                    this.removeButtonListener(listener3);
                     break;
                case "removeButtonListeners":
-                    this.delegate.removeButtonListeners();
+                    this.removeButtonListeners();
                     break;
                default:
                     // 404 - response null.

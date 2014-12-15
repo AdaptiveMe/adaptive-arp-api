@@ -353,7 +353,7 @@ public class SwiftGenerator extends GeneratorBase {
                                 thisField = true;
                             }
                         }
-                        if (!thisField) print(parameter.getName()+ ": "+parameter.getName());
+                        if (!thisField) print(parameter.getName() + ": " + parameter.getName());
                     }
                     println(")");
                 } else {

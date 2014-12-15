@@ -590,7 +590,7 @@ public abstract class GeneratorBase {
         }
 
         for (Class clazz : handlerClasses) {
-            if (clazz.getSimpleName().contains("Base") || clazz.getDeclaredMethods().length>0) {
+            if (clazz.getSimpleName().contains("Base") || clazz.getDeclaredMethods().length > 0) {
                 String className = clazz.getSimpleName();
                 if (className.startsWith("I")) className = className.substring(1);
                 className = className + "Delegate";

@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Alarm purposes
    Auto-generated implementation of IAlarm specification.
@@ -72,6 +74,7 @@ public class AlarmBridge extends BaseNotificationBridge implements IAlarm, APIBr
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                default:

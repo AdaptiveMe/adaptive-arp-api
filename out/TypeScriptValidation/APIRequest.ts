@@ -52,19 +52,19 @@ module Adaptive {
           */
           parameterTypes : Array<string>;
           /**
-             Parameters of the request
+             Parameters of the request as JSON formatted strings.
           */
-          parameters : Array<any>;
+          parameters : Array<string>;
           /**
              Constructor with all the parameters
 
              @param methodName     Name of the method
-             @param parameters     Array of parameters
+             @param parameters     Array of parameters as JSON formatted strings.
              @param parameterTypes Array of parameters types
              @param asyncId        Id of callback or listener or zero if none for synchronous calls.
              @since ARP1.0
           */
-          constructor(methodName: string, parameters: Array<any>, parameterTypes: Array<string>, asyncId: number) {
+          constructor(methodName: string, parameters: Array<string>, parameterTypes: Array<string>, asyncId: number) {
                this.methodName = methodName;
                this.parameters = parameters;
                this.parameterTypes = parameterTypes;
@@ -136,17 +136,17 @@ listener.
              @return Parameters
              @since ARP1.0
           */
-          getParameters() : Array<any> {
+          getParameters() : Array<string> {
                return this.parameters;
           }
 
           /**
              Parameters Setter
 
-             @param parameters Parameters
+             @param parameters Parameters, JSON formatted strings of objects.
              @since ARP1.0
           */
-          setParameters(parameters: Array<any>) {
+          setParameters(parameters: Array<string>) {
                this.parameters = parameters;
           }
 

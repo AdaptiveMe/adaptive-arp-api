@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Base application for Notification purposes
    Auto-generated implementation of IBaseNotification specification.
@@ -63,6 +65,7 @@ public class BaseNotificationBridge implements IBaseNotification {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                default:

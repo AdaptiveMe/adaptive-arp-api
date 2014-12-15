@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Logging operations
    Auto-generated implementation of ILogging specification.
@@ -119,20 +121,19 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "log_level_message":
-                    ILoggingLogLevel level0 = null;
-                    String message0 = null;
-                    this.delegate.log(level0, message0);
-                    // TODO: Implement overloaded method handling.
+                    ILoggingLogLevel level0 = gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
+                    String message0 = gson.fromJson(request.getParameters()[1], String.class);
+                    this.log(level0, message0);
                     break;
                case "log_level_category_message":
-                    ILoggingLogLevel level1 = null;
-                    String category1 = null;
-                    String message1 = null;
-                    this.delegate.log(level1, category1, message1);
-                    // TODO: Implement overloaded method handling.
+                    ILoggingLogLevel level1 = gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
+                    String category1 = gson.fromJson(request.getParameters()[1], String.class);
+                    String message1 = gson.fromJson(request.getParameters()[2], String.class);
+                    this.log(level1, category1, message1);
                     break;
                default:
                     // 404 - response null.

@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Network reachability operations
    Auto-generated implementation of INetworkReachability specification.
@@ -118,17 +120,18 @@ public class NetworkReachabilityBridge extends BaseCommunicationBridge implement
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "isNetworkReachable":
-                    String host0 = null;
-                    INetworkReachabilityCallback callback0 = null;
-                    this.delegate.isNetworkReachable(host0, callback0);
+                    String host0 = gson.fromJson(request.getParameters()[0], String.class);
+                    INetworkReachabilityCallback callback0 = new NetworkReachabilityCallbackImpl(request.getAsyncId());
+                    this.isNetworkReachable(host0, callback0);
                     break;
                case "isNetworkServiceReachable":
-                    String url1 = null;
-                    INetworkReachabilityCallback callback1 = null;
-                    this.delegate.isNetworkServiceReachable(url1, callback1);
+                    String url1 = gson.fromJson(request.getParameters()[0], String.class);
+                    INetworkReachabilityCallback callback1 = new NetworkReachabilityCallbackImpl(request.getAsyncId());
+                    this.isNetworkServiceReachable(url1, callback1);
                     break;
                default:
                     // 404 - response null.

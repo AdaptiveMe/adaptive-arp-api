@@ -158,7 +158,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                 print("(");
                 endCommentGlobal(10);
                 printGlobal(10, method.getName());
-                printGlobal(0,"(");
+                printGlobal(0, "(");
                 for (int i = 0; i < method.getParameterCount(); i++) {
                     Parameter p = method.getParameters()[i];
                     print(p.getName());
@@ -182,7 +182,7 @@ public class TypeScriptGenerator extends GeneratorBase {
                     printGlobal(0, convertJavaToNativeType(method.getReturnType()));
                 }
                 println(";");
-                printlnGlobal(0,";");
+                printlnGlobal(0, ";");
             }
         }
     }
