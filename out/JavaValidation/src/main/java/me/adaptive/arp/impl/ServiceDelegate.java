@@ -79,7 +79,7 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
         @return True if the service is registered, false otherwise.
         @since ARP1.0
      */
-     public boolean isRegistered(String serviceName) {
+     public boolean isRegistered(Service service) {
           boolean response;
           // TODO: Not implemented.
           throw new UnsupportedOperationException(this.getClass().getName()+":isRegistered");
@@ -93,7 +93,7 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
         @return True if the service is registered, false otherwise.
         @since ARP1.0
      */
-     public boolean isRegistered(Service service) {
+     public boolean isRegistered(String serviceName) {
           boolean response;
           // TODO: Not implemented.
           throw new UnsupportedOperationException(this.getClass().getName()+":isRegistered");

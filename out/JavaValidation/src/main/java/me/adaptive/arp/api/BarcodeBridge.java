@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Barcode Reading purposes
    Auto-generated implementation of IBarcode specification.
 */
-public class BarcodeBridge extends BaseReaderBridge implements IBarcode {
+public class BarcodeBridge extends BaseReaderBridge implements IBarcode, APIBridge {
 
      /**
         API Delegate.
@@ -65,6 +65,15 @@ public class BarcodeBridge extends BaseReaderBridge implements IBarcode {
           this.delegate = delegate;
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Device operations
    Auto-generated implementation of IDevice specification.
 */
-public class DeviceBridge extends BaseSystemBridge implements IDevice {
+public class DeviceBridge extends BaseSystemBridge implements IDevice, APIBridge {
 
      /**
         API Delegate.
@@ -72,8 +72,18 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice {
         @since ARP1.0
      */
      public void addButtonListener(IButtonListener listener) {
-          // Invoke delegate
-          this.delegate.addButtonListener(listener);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing addButtonListener({"+listener+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.addButtonListener(listener);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'addButtonListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'addButtonListener'.");
+          }
           
      }
 
@@ -84,9 +94,20 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice {
         @since ARP1.0
      */
      public DeviceInfo getDeviceInfo() {
-          // Invoke delegate
-          return this.delegate.getDeviceInfo();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getDeviceInfo.");
+
+          DeviceInfo result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getDeviceInfo();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getDeviceInfo' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getDeviceInfo'.");
+          }
+          return result;          
      }
 
      /**
@@ -96,9 +117,20 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice {
         @since ARP1.0
      */
      public Locale getLocaleCurrent() {
-          // Invoke delegate
-          return this.delegate.getLocaleCurrent();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getLocaleCurrent.");
+
+          Locale result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getLocaleCurrent();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getLocaleCurrent' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getLocaleCurrent'.");
+          }
+          return result;          
      }
 
      /**
@@ -108,8 +140,18 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice {
         @since ARP1.0
      */
      public void removeButtonListener(IButtonListener listener) {
-          // Invoke delegate
-          this.delegate.removeButtonListener(listener);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing removeButtonListener({"+listener+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.removeButtonListener(listener);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'removeButtonListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'removeButtonListener'.");
+          }
           
      }
 
@@ -119,11 +161,30 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice {
         @since ARP1.0
      */
      public void removeButtonListeners() {
-          // Invoke delegate
-          this.delegate.removeButtonListeners();
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing removeButtonListeners.");
+
+          if (this.delegate != null) {
+               this.delegate.removeButtonListeners();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'removeButtonListeners' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'removeButtonListeners'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

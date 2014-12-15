@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the OAuth operations
    Auto-generated implementation of IOAuth specification.
 */
-public class OAuthBridge extends BaseSecurityBridge implements IOAuth {
+public class OAuthBridge extends BaseSecurityBridge implements IOAuth, APIBridge {
 
      /**
         API Delegate.
@@ -65,6 +65,15 @@ public class OAuthBridge extends BaseSecurityBridge implements IOAuth {
           this.delegate = delegate;
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

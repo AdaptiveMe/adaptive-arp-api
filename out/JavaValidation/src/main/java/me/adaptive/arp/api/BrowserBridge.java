@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the browser operations
    Auto-generated implementation of IBrowser specification.
 */
-public class BrowserBridge extends BaseUIBridge implements IBrowser {
+public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
 
      /**
         API Delegate.
@@ -73,9 +73,20 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser {
         @since ARP1.0
      */
      public boolean openExtenalBrowser(String url) {
-          // Invoke delegate
-          return this.delegate.openExtenalBrowser(url);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing openExtenalBrowser({"+url+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.openExtenalBrowser(url);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'openExtenalBrowser' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'openExtenalBrowser'.");
+          }
+          return result;          
      }
 
      /**
@@ -88,9 +99,20 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser {
         @since ARP1.0
      */
      public boolean openInternalBrowser(String url, String title, String backButtonText) {
-          // Invoke delegate
-          return this.delegate.openInternalBrowser(url, title, backButtonText);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing openInternalBrowser({"+url+"},{"+title+"},{"+backButtonText+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.openInternalBrowser(url, title, backButtonText);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'openInternalBrowser' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'openInternalBrowser'.");
+          }
+          return result;          
      }
 
      /**
@@ -103,11 +125,31 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser {
         @since ARP1.0
      */
      public boolean openInternalBrowserModal(String url, String title, String backButtonText) {
-          // Invoke delegate
-          return this.delegate.openInternalBrowserModal(url, title, backButtonText);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing openInternalBrowserModal({"+url+"},{"+title+"},{"+backButtonText+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.openInternalBrowserModal(url, title, backButtonText);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'openInternalBrowserModal' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'openInternalBrowserModal'.");
+          }
+          return result;          
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

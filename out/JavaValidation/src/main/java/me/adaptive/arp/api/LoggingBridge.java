@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Logging operations
    Auto-generated implementation of ILogging specification.
 */
-public class LoggingBridge extends BaseUtilBridge implements ILogging {
+public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge {
 
      /**
         API Delegate.
@@ -73,8 +73,18 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging {
         @since ARP1.0
      */
      public void log(ILoggingLogLevel level, String message) {
-          // Invoke delegate
-          this.delegate.log(level, message);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+message+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.log(level, message);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
+          }
           
      }
 
@@ -87,11 +97,30 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging {
         @since ARP1.0
      */
      public void log(ILoggingLogLevel level, String category, String message) {
-          // Invoke delegate
-          this.delegate.log(level, category, message);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+category+"},{"+message+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.log(level, category, message);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

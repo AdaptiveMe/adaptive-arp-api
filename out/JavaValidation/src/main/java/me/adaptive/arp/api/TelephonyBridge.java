@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Telephony operations
    Auto-generated implementation of ITelephony specification.
 */
-public class TelephonyBridge extends BaseCommunicationBridge implements ITelephony {
+public class TelephonyBridge extends BaseCommunicationBridge implements ITelephony, APIBridge {
 
      /**
         API Delegate.
@@ -73,11 +73,31 @@ public class TelephonyBridge extends BaseCommunicationBridge implements ITelepho
         @since ARP1.0
      */
      public ITelephonyStatus call(String number) {
-          // Invoke delegate
-          return this.delegate.call(number);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing call({"+number+"}).");
+
+          ITelephonyStatus result = null;
+          if (this.delegate != null) {
+               result = this.delegate.call(number);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'call' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'call'.");
+          }
+          return result;          
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

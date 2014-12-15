@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the OS operations
    Auto-generated implementation of IOS specification.
 */
-public class OSBridge extends BaseSystemBridge implements IOS {
+public class OSBridge extends BaseSystemBridge implements IOS, APIBridge {
 
      /**
         API Delegate.
@@ -72,11 +72,31 @@ public class OSBridge extends BaseSystemBridge implements IOS {
         @since ARP1.0
      */
      public OSInfo getOSInfo() {
-          // Invoke delegate
-          return this.delegate.getOSInfo();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getOSInfo.");
+
+          OSInfo result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getOSInfo();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getOSInfo' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getOSInfo'.");
+          }
+          return result;          
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

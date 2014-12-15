@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Geolocation operations
    Auto-generated implementation of IGeolocation specification.
 */
-public class GeolocationBridge extends BaseSensorBridge implements IGeolocation {
+public class GeolocationBridge extends BaseSensorBridge implements IGeolocation, APIBridge {
 
      /**
         API Delegate.
@@ -72,8 +72,18 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation 
         @since ARP1.0
      */
      public void addGeolocationListener(IGeolocationListener listener) {
-          // Invoke delegate
-          this.delegate.addGeolocationListener(listener);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing addGeolocationListener({"+listener+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.addGeolocationListener(listener);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'addGeolocationListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'addGeolocationListener'.");
+          }
           
      }
 
@@ -84,8 +94,18 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation 
         @since ARP1.0
      */
      public void removeGeolocationListener(IGeolocationListener listener) {
-          // Invoke delegate
-          this.delegate.removeGeolocationListener(listener);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing removeGeolocationListener({"+listener+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.removeGeolocationListener(listener);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'removeGeolocationListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'removeGeolocationListener'.");
+          }
           
      }
 
@@ -95,11 +115,30 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation 
         @since ARP1.0
      */
      public void removeGeolocationListeners() {
-          // Invoke delegate
-          this.delegate.removeGeolocationListeners();
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing removeGeolocationListeners.");
+
+          if (this.delegate != null) {
+               this.delegate.removeGeolocationListeners();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'removeGeolocationListeners' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'removeGeolocationListeners'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

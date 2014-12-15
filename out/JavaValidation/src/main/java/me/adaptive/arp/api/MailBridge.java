@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Mail operations
    Auto-generated implementation of IMail specification.
 */
-public class MailBridge extends BasePIMBridge implements IMail {
+public class MailBridge extends BasePIMBridge implements IMail, APIBridge {
 
      /**
         API Delegate.
@@ -73,11 +73,30 @@ public class MailBridge extends BasePIMBridge implements IMail {
         @since ARP1.0
      */
      public void sendEmail(Email data, IMessagingCallback callback) {
-          // Invoke delegate
-          this.delegate.sendEmail(data, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing sendEmail({"+data+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.sendEmail(data, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'sendEmail' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'sendEmail'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

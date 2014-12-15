@@ -59,7 +59,7 @@ public class JavaGenerator extends GeneratorBase {
     protected void createDelegateImplementation(String simpleName, Class clazz, JavaClass javaClass) {
         println("package " + clazz.getPackage().getName().substring(0, clazz.getPackage().getName().lastIndexOf('.')) + ".impl;");
         println();
-        println("import "+clazz.getPackage().getName()+".*;");
+        println("import " + clazz.getPackage().getName() + ".*;");
         println();
         startComment(0);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
@@ -149,11 +149,11 @@ public class JavaGenerator extends GeneratorBase {
                 println(") {");
                 if (m.getReturnType().equals(Void.TYPE)) {
                     println(10, "// TODO: Not implemented.");
-                    println(10, "throw new UnsupportedOperationException(this.getClass().getName()+\":"+m.getName()+"\");");
+                    println(10, "throw new UnsupportedOperationException(this.getClass().getName()+\":" + m.getName() + "\");");
                 } else {
-                    println(10, convertJavaToNativeType(m.getReturnType())+" response;");
+                    println(10, convertJavaToNativeType(m.getReturnType()) + " response;");
                     println(10, "// TODO: Not implemented.");
-                    println(10, "throw new UnsupportedOperationException(this.getClass().getName()+\":"+m.getName()+"\");");
+                    println(10, "throw new UnsupportedOperationException(this.getClass().getName()+\":" + m.getName() + "\");");
                     println(10, "// return response;");
                 }
                 println(5, "}");
@@ -232,7 +232,7 @@ public class JavaGenerator extends GeneratorBase {
             println(10, "return this.apiGroup;");
             println(5, "}");
         } else {
-            println("public class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + " {");
+            println("public class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + ", APIBridge {");
             println();
 
             startComment(5);
@@ -312,11 +312,45 @@ public class JavaGenerator extends GeneratorBase {
                     }
                 }
                 println(") {");
-                println(10, "// Invoke delegate");
+                println(10, "// Start logging elapsed time.");
+                println(10, "long tIn = System.currentTimeMillis();");
+                println(10, "ILogging logger = null; // TODO: Get reference from IAppRegistry.");
+                println();
+                print(10, "if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+\" executing " + m.getName() + "");
+                if (m.getParameterCount() > 0) {
+                    print("(");
+                }
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print("{\"+" + p.getName() + "+\"}");
+                    if (i < m.getParameterCount() - 1) {
+                        print(",");
+                    }
+                }
+                if (m.getParameterCount() > 0) {
+                    print(")");
+                }
+                println(".\");");
+                println();
+                if (!m.getReturnType().equals(Void.TYPE)) {
+                    if (m.getReturnType().isPrimitive()) {
+                        if (m.getReturnType().equals(Boolean.TYPE)) {
+                            println(10, convertJavaToNativeType(m.getReturnType()) + " result = false;");
+                        } else if (m.getReturnType().equals(Character.TYPE)) {
+                            println(10, convertJavaToNativeType(m.getReturnType()) + " result = ' ';");
+                        } else {
+                            println(10, convertJavaToNativeType(m.getReturnType()) + " result = " + m.getReturnType() + ";");
+                        }
+                    } else {
+                        println(10, convertJavaToNativeType(m.getReturnType()) + " result = null;");
+                    }
+                }
+
+                println(10, "if (this.delegate != null) {");
                 if (m.getReturnType().equals(Void.TYPE)) {
-                    print(10, "");
+                    print(15, "");
                 } else {
-                    print(10, "return ");
+                    print(15, "result = ");
                 }
 
                 print("this.delegate." + m.getName() + "(");
@@ -328,11 +362,29 @@ public class JavaGenerator extends GeneratorBase {
                     }
                 }
                 println(");");
+                println(15, "if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+\" executed '" + m.getName() + "' in \"+(System.currentTimeMillis()-tIn)+\"ms.\");");
+                println(10, "} else {");
+                println(15, "if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+\" no delegate for '" + m.getName() + "'.\");");
+                println(10, "}");
+                if (!m.getReturnType().equals(Void.TYPE)) {
+                    print(10, "return result;");
+                }
                 println(10, "");
                 println(5, "}");
                 println();
             }
         }
+        // APIBridge specific
+        startComment(5);
+        println(8, "Invokes the given method specified in the API request object.");
+        println();
+        println(8, "@param request APIRequest object containing method name and parameters.");
+        println(8, "@return String with JSON response or a zero length string is the response is asynchronous.");
+        endComment(5);
+        println(5, "public String invoke(APIRequest request) {");
+        println(10, "return null; // TODO: Implement APIRequest to Params and invoke delegate method.");
+        println(5, "}");
+
         println("}");
     }
 

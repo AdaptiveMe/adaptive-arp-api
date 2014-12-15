@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface defining methods about the acceleration sensor
    Auto-generated implementation of IAcceleration specification.
 */
-public class AccelerationBridge extends BaseSensorBridge implements IAcceleration {
+public class AccelerationBridge extends BaseSensorBridge implements IAcceleration, APIBridge {
 
      /**
         API Delegate.
@@ -72,8 +72,18 @@ public class AccelerationBridge extends BaseSensorBridge implements IAcceleratio
         @since ARP1.0
      */
      public void addAccelerationListener(IAccelerationListener listener) {
-          // Invoke delegate
-          this.delegate.addAccelerationListener(listener);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing addAccelerationListener({"+listener+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.addAccelerationListener(listener);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'addAccelerationListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'addAccelerationListener'.");
+          }
           
      }
 
@@ -84,8 +94,18 @@ public class AccelerationBridge extends BaseSensorBridge implements IAcceleratio
         @since ARP1.0
      */
      public void removeAccelerationListener(IAccelerationListener listener) {
-          // Invoke delegate
-          this.delegate.removeAccelerationListener(listener);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing removeAccelerationListener({"+listener+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.removeAccelerationListener(listener);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'removeAccelerationListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'removeAccelerationListener'.");
+          }
           
      }
 
@@ -95,11 +115,30 @@ public class AccelerationBridge extends BaseSensorBridge implements IAcceleratio
         @since ARP1.0
      */
      public void removeAccelerationListeners() {
-          // Invoke delegate
-          this.delegate.removeAccelerationListeners();
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing removeAccelerationListeners.");
+
+          if (this.delegate != null) {
+               this.delegate.removeAccelerationListeners();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'removeAccelerationListeners' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'removeAccelerationListeners'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Video operations
    Auto-generated implementation of IVideo specification.
 */
-public class VideoBridge extends BaseMediaBridge implements IVideo {
+public class VideoBridge extends BaseMediaBridge implements IVideo, APIBridge {
 
      /**
         API Delegate.
@@ -72,11 +72,30 @@ public class VideoBridge extends BaseMediaBridge implements IVideo {
         @since ARP1.0
      */
      public void playStream(String url) {
-          // Invoke delegate
-          this.delegate.playStream(url);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing playStream({"+url+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.playStream(url);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'playStream' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'playStream'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

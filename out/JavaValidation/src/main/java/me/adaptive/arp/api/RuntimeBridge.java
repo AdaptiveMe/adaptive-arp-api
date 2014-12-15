@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Runtime operations
    Auto-generated implementation of IRuntime specification.
 */
-public class RuntimeBridge extends BaseSystemBridge implements IRuntime {
+public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBridge {
 
      /**
         API Delegate.
@@ -71,8 +71,18 @@ public class RuntimeBridge extends BaseSystemBridge implements IRuntime {
         @since ARP1.0
      */
      public void dismissApplication() {
-          // Invoke delegate
-          this.delegate.dismissApplication();
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing dismissApplication.");
+
+          if (this.delegate != null) {
+               this.delegate.dismissApplication();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'dismissApplication' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'dismissApplication'.");
+          }
           
      }
 
@@ -83,11 +93,31 @@ public class RuntimeBridge extends BaseSystemBridge implements IRuntime {
         @since ARP1.0
      */
      public boolean dismissSplashScreen() {
-          // Invoke delegate
-          return this.delegate.dismissSplashScreen();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing dismissSplashScreen.");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.dismissSplashScreen();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'dismissSplashScreen' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'dismissSplashScreen'.");
+          }
+          return result;          
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

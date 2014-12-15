@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Network reachability operations
    Auto-generated implementation of INetworkReachability specification.
 */
-public class NetworkReachabilityBridge extends BaseCommunicationBridge implements INetworkReachability {
+public class NetworkReachabilityBridge extends BaseCommunicationBridge implements INetworkReachability, APIBridge {
 
      /**
         API Delegate.
@@ -73,8 +73,18 @@ public class NetworkReachabilityBridge extends BaseCommunicationBridge implement
         @since ARP1.0
      */
      public void isNetworkReachable(String host, INetworkReachabilityCallback callback) {
-          // Invoke delegate
-          this.delegate.isNetworkReachable(host, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing isNetworkReachable({"+host+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.isNetworkReachable(host, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'isNetworkReachable' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'isNetworkReachable'.");
+          }
           
      }
 
@@ -86,11 +96,30 @@ public class NetworkReachabilityBridge extends BaseCommunicationBridge implement
         @since ARP1.0
      */
      public void isNetworkServiceReachable(String url, INetworkReachabilityCallback callback) {
-          // Invoke delegate
-          this.delegate.isNetworkServiceReachable(url, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing isNetworkServiceReachable({"+url+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.isNetworkServiceReachable(url, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'isNetworkServiceReachable' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'isNetworkServiceReachable'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

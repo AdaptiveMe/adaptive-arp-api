@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Lifecycle listeners
    Auto-generated implementation of ILifecycle specification.
 */
-public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle {
+public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle, APIBridge {
 
      /**
         API Delegate.
@@ -72,8 +72,18 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
         @since ARP1.0
      */
      public void addLifecycleListener(ILifecycleListener listener) {
-          // Invoke delegate
-          this.delegate.addLifecycleListener(listener);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing addLifecycleListener({"+listener+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.addLifecycleListener(listener);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'addLifecycleListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'addLifecycleListener'.");
+          }
           
      }
 
@@ -84,9 +94,20 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
         @since ARP1.0
      */
      public boolean isBackground() {
-          // Invoke delegate
-          return this.delegate.isBackground();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing isBackground.");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.isBackground();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'isBackground' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'isBackground'.");
+          }
+          return result;          
      }
 
      /**
@@ -96,8 +117,18 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
         @since ARP1.0
      */
      public void removeLifecycleListener(ILifecycleListener listener) {
-          // Invoke delegate
-          this.delegate.removeLifecycleListener(listener);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing removeLifecycleListener({"+listener+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.removeLifecycleListener(listener);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'removeLifecycleListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'removeLifecycleListener'.");
+          }
           
      }
 
@@ -107,11 +138,30 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
         @since ARP1.0
      */
      public void removeLifecycleListeners() {
-          // Invoke delegate
-          this.delegate.removeLifecycleListeners();
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing removeLifecycleListeners.");
+
+          if (this.delegate != null) {
+               this.delegate.removeLifecycleListeners();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'removeLifecycleListeners' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'removeLifecycleListeners'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

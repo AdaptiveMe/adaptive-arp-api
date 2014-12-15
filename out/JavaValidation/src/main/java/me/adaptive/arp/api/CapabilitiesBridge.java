@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for testing the Capabilities operations
    Auto-generated implementation of ICapabilities specification.
 */
-public class CapabilitiesBridge extends BaseSystemBridge implements ICapabilities {
+public class CapabilitiesBridge extends BaseSystemBridge implements ICapabilities, APIBridge {
 
      /**
         API Delegate.
@@ -73,9 +73,20 @@ public class CapabilitiesBridge extends BaseSystemBridge implements ICapabilitie
         @since ARP1.0
      */
      public boolean hasButtonSupport(ICapabilitiesButton type) {
-          // Invoke delegate
-          return this.delegate.hasButtonSupport(type);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing hasButtonSupport({"+type+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.hasButtonSupport(type);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'hasButtonSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'hasButtonSupport'.");
+          }
+          return result;          
      }
 
      /**
@@ -87,9 +98,20 @@ the device.
         @since ARP1.0
      */
      public boolean hasCommunicationSupport(ICapabilitiesCommunication type) {
-          // Invoke delegate
-          return this.delegate.hasCommunicationSupport(type);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing hasCommunicationSupport({"+type+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.hasCommunicationSupport(type);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'hasCommunicationSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'hasCommunicationSupport'.");
+          }
+          return result;          
      }
 
      /**
@@ -100,9 +122,20 @@ the device.
         @since ARP1.0
      */
      public boolean hasDataSupport(ICapabilitiesData type) {
-          // Invoke delegate
-          return this.delegate.hasDataSupport(type);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing hasDataSupport({"+type+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.hasDataSupport(type);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'hasDataSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'hasDataSupport'.");
+          }
+          return result;          
      }
 
      /**
@@ -114,9 +147,20 @@ device.
         @since ARP1.0
      */
      public boolean hasMediaSupport(ICapabilitiesMedia type) {
-          // Invoke delegate
-          return this.delegate.hasMediaSupport(type);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing hasMediaSupport({"+type+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.hasMediaSupport(type);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'hasMediaSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'hasMediaSupport'.");
+          }
+          return result;          
      }
 
      /**
@@ -127,9 +171,20 @@ device.
         @since ARP1.0
      */
      public boolean hasNetSupport(ICapabilitiesNet type) {
-          // Invoke delegate
-          return this.delegate.hasNetSupport(type);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing hasNetSupport({"+type+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.hasNetSupport(type);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'hasNetSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'hasNetSupport'.");
+          }
+          return result;          
      }
 
      /**
@@ -141,9 +196,20 @@ device.
         @since ARP1.0
      */
      public boolean hasNotificationSupport(ICapabilitiesNotification type) {
-          // Invoke delegate
-          return this.delegate.hasNotificationSupport(type);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing hasNotificationSupport({"+type+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.hasNotificationSupport(type);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'hasNotificationSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'hasNotificationSupport'.");
+          }
+          return result;          
      }
 
      /**
@@ -155,11 +221,31 @@ device.
         @since ARP1.0
      */
      public boolean hasSensorSupport(ICapabilitiesSensor type) {
-          // Invoke delegate
-          return this.delegate.hasSensorSupport(type);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing hasSensorSupport({"+type+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.hasSensorSupport(type);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'hasSensorSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'hasSensorSupport'.");
+          }
+          return result;          
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

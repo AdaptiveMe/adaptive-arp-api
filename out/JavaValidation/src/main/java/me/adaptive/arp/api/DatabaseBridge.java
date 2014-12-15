@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Cloud operations
    Auto-generated implementation of IDatabase specification.
 */
-public class DatabaseBridge extends BaseDataBridge implements IDatabase {
+public class DatabaseBridge extends BaseDataBridge implements IDatabase, APIBridge {
 
      /**
         API Delegate.
@@ -73,8 +73,18 @@ public class DatabaseBridge extends BaseDataBridge implements IDatabase {
         @since ARP1.0
      */
      public void createDatabase(Database database, IDatabaseResultCallback callback) {
-          // Invoke delegate
-          this.delegate.createDatabase(database, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing createDatabase({"+database+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.createDatabase(database, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'createDatabase' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'createDatabase'.");
+          }
           
      }
 
@@ -87,8 +97,18 @@ public class DatabaseBridge extends BaseDataBridge implements IDatabase {
         @since ARP1.0
      */
      public void createTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback) {
-          // Invoke delegate
-          this.delegate.createTable(database, databaseTable, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing createTable({"+database+"},{"+databaseTable+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.createTable(database, databaseTable, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'createTable' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'createTable'.");
+          }
           
      }
 
@@ -100,8 +120,18 @@ public class DatabaseBridge extends BaseDataBridge implements IDatabase {
         @since ARP1.0
      */
      public void deleteDatabase(Database database, IDatabaseResultCallback callback) {
-          // Invoke delegate
-          this.delegate.deleteDatabase(database, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing deleteDatabase({"+database+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.deleteDatabase(database, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'deleteDatabase' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'deleteDatabase'.");
+          }
           
      }
 
@@ -114,8 +144,18 @@ public class DatabaseBridge extends BaseDataBridge implements IDatabase {
         @since ARP1.0
      */
      public void deleteTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback) {
-          // Invoke delegate
-          this.delegate.deleteTable(database, databaseTable, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing deleteTable({"+database+"},{"+databaseTable+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.deleteTable(database, databaseTable, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'deleteTable' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'deleteTable'.");
+          }
           
      }
 
@@ -130,8 +170,18 @@ should be passed as a parameter
         @since ARP1.0
      */
      public void executeSqlStatement(Database database, String statement, String[] replacements, IDatabaseTableResultCallback callback) {
-          // Invoke delegate
-          this.delegate.executeSqlStatement(database, statement, replacements, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing executeSqlStatement({"+database+"},{"+statement+"},{"+replacements+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.executeSqlStatement(database, statement, replacements, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'executeSqlStatement' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'executeSqlStatement'.");
+          }
           
      }
 
@@ -146,8 +196,18 @@ should be passed as a parameter
         @since ARP1.0
      */
      public void executeSqlTransactions(Database database, String[] statements, boolean rollbackFlag, IDatabaseTableResultCallback callback) {
-          // Invoke delegate
-          this.delegate.executeSqlTransactions(database, statements, rollbackFlag, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing executeSqlTransactions({"+database+"},{"+statements+"},{"+rollbackFlag+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.executeSqlTransactions(database, statements, rollbackFlag, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'executeSqlTransactions' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'executeSqlTransactions'.");
+          }
           
      }
 
@@ -159,9 +219,20 @@ should be passed as a parameter
         @since ARP1.0
      */
      public boolean existsDatabase(Database database) {
-          // Invoke delegate
-          return this.delegate.existsDatabase(database);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing existsDatabase({"+database+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.existsDatabase(database);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'existsDatabase' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'existsDatabase'.");
+          }
+          return result;          
      }
 
      /**
@@ -173,11 +244,31 @@ should be passed as a parameter
         @since ARP1.0
      */
      public boolean existsTable(Database database, DatabaseTable databaseTable) {
-          // Invoke delegate
-          return this.delegate.existsTable(database, databaseTable);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing existsTable({"+database+"},{"+databaseTable+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.existsTable(database, databaseTable);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'existsTable' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'existsTable'.");
+          }
+          return result;          
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

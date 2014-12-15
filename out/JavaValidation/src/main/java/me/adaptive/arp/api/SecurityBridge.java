@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Security operations
    Auto-generated implementation of ISecurity specification.
 */
-public class SecurityBridge extends BaseSecurityBridge implements ISecurity {
+public class SecurityBridge extends BaseSecurityBridge implements ISecurity, APIBridge {
 
      /**
         API Delegate.
@@ -74,8 +74,18 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity {
         @since ARP 1.0
      */
      public void deleteSecureKeyValuePairs(String[] keys, String publicAccessName, ISecurityResultCallback callback) {
-          // Invoke delegate
-          this.delegate.deleteSecureKeyValuePairs(keys, publicAccessName, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing deleteSecureKeyValuePairs({"+keys+"},{"+publicAccessName+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.deleteSecureKeyValuePairs(keys, publicAccessName, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'deleteSecureKeyValuePairs' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'deleteSecureKeyValuePairs'.");
+          }
           
      }
 
@@ -88,8 +98,18 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity {
         @since ARP 1.0
      */
      public void getSecureKeyValuePairs(String[] keys, String publicAccessName, ISecurityResultCallback callback) {
-          // Invoke delegate
-          this.delegate.getSecureKeyValuePairs(keys, publicAccessName, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getSecureKeyValuePairs({"+keys+"},{"+publicAccessName+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.getSecureKeyValuePairs(keys, publicAccessName, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getSecureKeyValuePairs' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getSecureKeyValuePairs'.");
+          }
           
      }
 
@@ -100,9 +120,20 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity {
         @since ARP1.0
      */
      public boolean isDeviceModified() {
-          // Invoke delegate
-          return this.delegate.isDeviceModified();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing isDeviceModified.");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.isDeviceModified();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'isDeviceModified' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'isDeviceModified'.");
+          }
+          return result;          
      }
 
      /**
@@ -114,11 +145,30 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity {
         @since ARP 1.0
      */
      public void setSecureKeyValuePairs(SecureKeyPair[] keyValues, String publicAccessName, ISecurityResultCallback callback) {
-          // Invoke delegate
-          this.delegate.setSecureKeyValuePairs(keyValues, publicAccessName, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing setSecureKeyValuePairs({"+keyValues+"},{"+publicAccessName+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.setSecureKeyValuePairs(keyValues, publicAccessName, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'setSecureKeyValuePairs' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'setSecureKeyValuePairs'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

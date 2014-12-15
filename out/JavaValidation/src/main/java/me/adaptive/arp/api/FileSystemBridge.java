@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the File System operations
    Auto-generated implementation of IFileSystem specification.
 */
-public class FileSystemBridge extends BaseDataBridge implements IFileSystem {
+public class FileSystemBridge extends BaseDataBridge implements IFileSystem, APIBridge {
 
      /**
         API Delegate.
@@ -75,9 +75,20 @@ This method does not create the actual file in the specified folder.
         @since ARP1.0
      */
      public IFile createFileDescriptor(IFile parent, String name) {
-          // Invoke delegate
-          return this.delegate.createFileDescriptor(parent, name);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing createFileDescriptor({"+parent+"},{"+name+"}).");
+
+          IFile result = null;
+          if (this.delegate != null) {
+               result = this.delegate.createFileDescriptor(parent, name);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'createFileDescriptor' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'createFileDescriptor'.");
+          }
+          return result;          
      }
 
      /**
@@ -89,9 +100,20 @@ This path is volatile and may be cleaned by the OS periodically.
         @since ARP1.0
      */
      public IFile getApplicationCacheFolder() {
-          // Invoke delegate
-          return this.delegate.getApplicationCacheFolder();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getApplicationCacheFolder.");
+
+          IFile result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getApplicationCacheFolder();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getApplicationCacheFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationCacheFolder'.");
+          }
+          return result;          
      }
 
      /**
@@ -102,9 +124,20 @@ This path must always be writable by the current application.
         @since ARP1.0
      */
      public IFile getApplicationCloudFolder() {
-          // Invoke delegate
-          return this.delegate.getApplicationCloudFolder();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getApplicationCloudFolder.");
+
+          IFile result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getApplicationCloudFolder();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getApplicationCloudFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationCloudFolder'.");
+          }
+          return result;          
      }
 
      /**
@@ -115,9 +148,20 @@ This path must always be writable by the current application.
         @since ARP1.0
      */
      public IFile getApplicationDocumentsFolder() {
-          // Invoke delegate
-          return this.delegate.getApplicationDocumentsFolder();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getApplicationDocumentsFolder.");
+
+          IFile result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getApplicationDocumentsFolder();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getApplicationDocumentsFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationDocumentsFolder'.");
+          }
+          return result;          
      }
 
      /**
@@ -128,9 +172,20 @@ This path may or may not be directly readable or writable - it usually contains 
         @since ARP1.0
      */
      public IFile getApplicationFolder() {
-          // Invoke delegate
-          return this.delegate.getApplicationFolder();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getApplicationFolder.");
+
+          IFile result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getApplicationFolder();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getApplicationFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationFolder'.");
+          }
+          return result;          
      }
 
      /**
@@ -141,9 +196,20 @@ This path must always be writable by the current application.
         @since ARP1.0
      */
      public IFile getApplicationProtectedFolder() {
-          // Invoke delegate
-          return this.delegate.getApplicationProtectedFolder();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getApplicationProtectedFolder.");
+
+          IFile result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getApplicationProtectedFolder();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getApplicationProtectedFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationProtectedFolder'.");
+          }
+          return result;          
      }
 
      /**
@@ -153,9 +219,20 @@ This path must always be writable by the current application.
         @since ARP1.0
      */
      public char getSeparator() {
-          // Invoke delegate
-          return this.delegate.getSeparator();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getSeparator.");
+
+          char result = ' ';
+          if (this.delegate != null) {
+               result = this.delegate.getSeparator();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getSeparator' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getSeparator'.");
+          }
+          return result;          
      }
 
      /**
@@ -168,11 +245,31 @@ This path may or may not be writable by the current application.
         @since ARP1.0
      */
      public IFile getSystemExternalFolder() {
-          // Invoke delegate
-          return this.delegate.getSystemExternalFolder();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getSystemExternalFolder.");
+
+          IFile result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getSystemExternalFolder();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getSystemExternalFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getSystemExternalFolder'.");
+          }
+          return result;          
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

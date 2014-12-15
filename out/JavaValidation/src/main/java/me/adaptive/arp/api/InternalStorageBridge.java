@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Internal Storage operations
    Auto-generated implementation of IInternalStorage specification.
 */
-public class InternalStorageBridge extends BaseDataBridge implements IInternalStorage {
+public class InternalStorageBridge extends BaseDataBridge implements IInternalStorage, APIBridge {
 
      /**
         API Delegate.
@@ -65,6 +65,15 @@ public class InternalStorageBridge extends BaseDataBridge implements IInternalSt
           this.delegate = delegate;
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

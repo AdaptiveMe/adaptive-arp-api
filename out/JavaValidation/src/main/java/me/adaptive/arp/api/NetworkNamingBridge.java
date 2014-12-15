@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Network naming operations
    Auto-generated implementation of INetworkNaming specification.
 */
-public class NetworkNamingBridge extends BaseCommunicationBridge implements INetworkNaming {
+public class NetworkNamingBridge extends BaseCommunicationBridge implements INetworkNaming, APIBridge {
 
      /**
         API Delegate.
@@ -65,6 +65,15 @@ public class NetworkNamingBridge extends BaseCommunicationBridge implements INet
           this.delegate = delegate;
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

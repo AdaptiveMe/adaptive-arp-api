@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Contact operations
    Auto-generated implementation of IContact specification.
 */
-public class ContactBridge extends BasePIMBridge implements IContact {
+public class ContactBridge extends BasePIMBridge implements IContact, APIBridge {
 
      /**
         API Delegate.
@@ -73,8 +73,18 @@ public class ContactBridge extends BasePIMBridge implements IContact {
         @since ARP1.0
      */
      public void getContact(ContactUid contact, IContactResultCallback callback) {
-          // Invoke delegate
-          this.delegate.getContact(contact, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getContact({"+contact+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.getContact(contact, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getContact' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getContact'.");
+          }
           
      }
 
@@ -86,8 +96,18 @@ public class ContactBridge extends BasePIMBridge implements IContact {
         @since ARP1.0
      */
      public void getContactPhoto(ContactUid contact, IContactPhotoResultCallback callback) {
-          // Invoke delegate
-          this.delegate.getContactPhoto(contact, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getContactPhoto({"+contact+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.getContactPhoto(contact, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getContactPhoto' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getContactPhoto'.");
+          }
           
      }
 
@@ -98,8 +118,18 @@ public class ContactBridge extends BasePIMBridge implements IContact {
         @since ARP1.0
      */
      public void getContacts(IContactResultCallback callback) {
-          // Invoke delegate
-          this.delegate.getContacts(callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getContacts({"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.getContacts(callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getContacts' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getContacts'.");
+          }
           
      }
 
@@ -111,8 +141,18 @@ public class ContactBridge extends BasePIMBridge implements IContact {
         @since ARP1.0
      */
      public void getContactsForFields(IContactResultCallback callback, IContactFieldGroup[] fields) {
-          // Invoke delegate
-          this.delegate.getContactsForFields(callback, fields);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getContactsForFields({"+callback+"},{"+fields+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.getContactsForFields(callback, fields);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getContactsForFields' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getContactsForFields'.");
+          }
           
      }
 
@@ -125,8 +165,18 @@ public class ContactBridge extends BasePIMBridge implements IContact {
         @since ARP1.0
      */
      public void getContactsWithFilter(IContactResultCallback callback, IContactFieldGroup[] fields, IContactFilter[] filter) {
-          // Invoke delegate
-          this.delegate.getContactsWithFilter(callback, fields, filter);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getContactsWithFilter({"+callback+"},{"+fields+"},{"+filter+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.getContactsWithFilter(callback, fields, filter);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getContactsWithFilter' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getContactsWithFilter'.");
+          }
           
      }
 
@@ -138,8 +188,18 @@ public class ContactBridge extends BasePIMBridge implements IContact {
         @since ARP1.0
      */
      public void searchContacts(String term, IContactResultCallback callback) {
-          // Invoke delegate
-          this.delegate.searchContacts(term, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing searchContacts({"+term+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.searchContacts(term, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'searchContacts' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'searchContacts'.");
+          }
           
      }
 
@@ -152,8 +212,18 @@ public class ContactBridge extends BasePIMBridge implements IContact {
         @since ARP1.0
      */
      public void searchContactsWithFilter(String term, IContactResultCallback callback, IContactFilter[] filter) {
-          // Invoke delegate
-          this.delegate.searchContactsWithFilter(term, callback, filter);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing searchContactsWithFilter({"+term+"},{"+callback+"},{"+filter+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.searchContactsWithFilter(term, callback, filter);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'searchContactsWithFilter' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'searchContactsWithFilter'.");
+          }
           
      }
 
@@ -166,11 +236,31 @@ public class ContactBridge extends BasePIMBridge implements IContact {
         @since ARP1.0
      */
      public boolean setContactPhoto(ContactUid contact, byte[] pngImage) {
-          // Invoke delegate
-          return this.delegate.setContactPhoto(contact, pngImage);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing setContactPhoto({"+contact+"},{"+pngImage+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.setContactPhoto(contact, pngImage);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'setContactPhoto' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'setContactPhoto'.");
+          }
+          return result;          
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

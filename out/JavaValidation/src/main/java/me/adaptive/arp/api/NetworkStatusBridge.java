@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Network status
    Auto-generated implementation of INetworkStatus specification.
 */
-public class NetworkStatusBridge extends BaseCommunicationBridge implements INetworkStatus {
+public class NetworkStatusBridge extends BaseCommunicationBridge implements INetworkStatus, APIBridge {
 
      /**
         API Delegate.
@@ -72,8 +72,18 @@ public class NetworkStatusBridge extends BaseCommunicationBridge implements INet
         @since ARP1.0
      */
      public void addNetworkStatusListener(INetworkStatusListener listener) {
-          // Invoke delegate
-          this.delegate.addNetworkStatusListener(listener);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing addNetworkStatusListener({"+listener+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.addNetworkStatusListener(listener);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'addNetworkStatusListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'addNetworkStatusListener'.");
+          }
           
      }
 
@@ -84,8 +94,18 @@ public class NetworkStatusBridge extends BaseCommunicationBridge implements INet
         @since ARP1.0
      */
      public void removeNetworkStatusListener(INetworkStatusListener listener) {
-          // Invoke delegate
-          this.delegate.removeNetworkStatusListener(listener);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing removeNetworkStatusListener({"+listener+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.removeNetworkStatusListener(listener);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'removeNetworkStatusListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'removeNetworkStatusListener'.");
+          }
           
      }
 
@@ -95,11 +115,30 @@ public class NetworkStatusBridge extends BaseCommunicationBridge implements INet
         @since ARP1.0
      */
      public void removeNetworkStatusListeners() {
-          // Invoke delegate
-          this.delegate.removeNetworkStatusListeners();
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing removeNetworkStatusListeners.");
+
+          if (this.delegate != null) {
+               this.delegate.removeNetworkStatusListeners();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'removeNetworkStatusListeners' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'removeNetworkStatusListeners'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

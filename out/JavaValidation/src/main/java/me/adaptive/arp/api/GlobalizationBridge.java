@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Globalization results
    Auto-generated implementation of IGlobalization specification.
 */
-public class GlobalizationBridge extends BaseApplicationBridge implements IGlobalization {
+public class GlobalizationBridge extends BaseApplicationBridge implements IGlobalization, APIBridge {
 
      /**
         API Delegate.
@@ -72,9 +72,20 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         @since ARP1.0
      */
      public Locale[] getLocaleSupportedDescriptors() {
-          // Invoke delegate
-          return this.delegate.getLocaleSupportedDescriptors();
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getLocaleSupportedDescriptors.");
+
+          Locale[] result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getLocaleSupportedDescriptors();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getLocaleSupportedDescriptors' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getLocaleSupportedDescriptors'.");
+          }
+          return result;          
      }
 
      /**
@@ -86,9 +97,20 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         @since ARP1.0
      */
      public String getResourceLiteral(String key, Locale locale) {
-          // Invoke delegate
-          return this.delegate.getResourceLiteral(key, locale);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getResourceLiteral({"+key+"},{"+locale+"}).");
+
+          String result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getResourceLiteral(key, locale);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getResourceLiteral' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getResourceLiteral'.");
+          }
+          return result;          
      }
 
      /**
@@ -99,11 +121,31 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         @since ARP1.0
      */
      public KeyPair[] getResourceLiterals(Locale locale) {
-          // Invoke delegate
-          return this.delegate.getResourceLiterals(locale);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getResourceLiterals({"+locale+"}).");
+
+          KeyPair[] result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getResourceLiterals(locale);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getResourceLiterals' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getResourceLiterals'.");
+          }
+          return result;          
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

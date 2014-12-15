@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Messaging operations
    Auto-generated implementation of IMessaging specification.
 */
-public class MessagingBridge extends BasePIMBridge implements IMessaging {
+public class MessagingBridge extends BasePIMBridge implements IMessaging, APIBridge {
 
      /**
         API Delegate.
@@ -74,11 +74,30 @@ public class MessagingBridge extends BasePIMBridge implements IMessaging {
         @since ARP1.0
      */
      public void sendSMS(String number, String text, IMessagingCallback callback) {
-          // Invoke delegate
-          this.delegate.sendSMS(number, text, callback);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing sendSMS({"+number+"},{"+text+"},{"+callback+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.sendSMS(number, text, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'sendSMS' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'sendSMS'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

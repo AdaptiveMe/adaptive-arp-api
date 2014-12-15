@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Services operations
    Auto-generated implementation of IService specification.
 */
-public class ServiceBridge extends BaseCommunicationBridge implements IService {
+public class ServiceBridge extends BaseCommunicationBridge implements IService, APIBridge {
 
      /**
         API Delegate.
@@ -73,9 +73,20 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService {
         @since ARP1.0
      */
      public Service getService(String serviceName) {
-          // Invoke delegate
-          return this.delegate.getService(serviceName);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getService({"+serviceName+"}).");
+
+          Service result = null;
+          if (this.delegate != null) {
+               result = this.delegate.getService(serviceName);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getService' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getService'.");
+          }
+          return result;          
      }
 
      /**
@@ -87,21 +98,18 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService {
         @since ARP1.0
      */
      public void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback) {
-          // Invoke delegate
-          this.delegate.invokeService(serviceRequest, service, callback);
-          
-     }
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
 
-     /**
-        Check whether a service by the given service is already registered.
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing invokeService({"+serviceRequest+"},{"+service+"},{"+callback+"}).");
 
-        @param service Service to check
-        @return True if the service is registered, false otherwise.
-        @since ARP1.0
-     */
-     public boolean isRegistered(String serviceName) {
-          // Invoke delegate
-          return this.delegate.isRegistered(serviceName);
+          if (this.delegate != null) {
+               this.delegate.invokeService(serviceRequest, service, callback);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'invokeService' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'invokeService'.");
+          }
           
      }
 
@@ -113,9 +121,44 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService {
         @since ARP1.0
      */
      public boolean isRegistered(Service service) {
-          // Invoke delegate
-          return this.delegate.isRegistered(service);
-          
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing isRegistered({"+service+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.isRegistered(service);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'isRegistered' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'isRegistered'.");
+          }
+          return result;          
+     }
+
+     /**
+        Check whether a service by the given service is already registered.
+
+        @param service Service to check
+        @return True if the service is registered, false otherwise.
+        @since ARP1.0
+     */
+     public boolean isRegistered(String serviceName) {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing isRegistered({"+serviceName+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.isRegistered(serviceName);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'isRegistered' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'isRegistered'.");
+          }
+          return result;          
      }
 
      /**
@@ -125,8 +168,18 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService {
         @since ARP1.0
      */
      public void registerService(Service service) {
-          // Invoke delegate
-          this.delegate.registerService(service);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing registerService({"+service+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.registerService(service);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'registerService' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'registerService'.");
+          }
           
      }
 
@@ -137,8 +190,18 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService {
         @since ARP1.0
      */
      public void unregisterService(Service service) {
-          // Invoke delegate
-          this.delegate.unregisterService(service);
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing unregisterService({"+service+"}).");
+
+          if (this.delegate != null) {
+               this.delegate.unregisterService(service);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'unregisterService' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'unregisterService'.");
+          }
           
      }
 
@@ -148,11 +211,30 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService {
         @since ARP1.0
      */
      public void unregisterServices() {
-          // Invoke delegate
-          this.delegate.unregisterServices();
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing unregisterServices.");
+
+          if (this.delegate != null) {
+               this.delegate.unregisterServices();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'unregisterServices' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'unregisterServices'.");
+          }
           
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

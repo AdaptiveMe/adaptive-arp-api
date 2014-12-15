@@ -34,7 +34,7 @@ package me.adaptive.arp.api;
    Interface for Managing the Magnetometer operations
    Auto-generated implementation of IMagnetometer specification.
 */
-public class MagnetometerBridge extends BaseSensorBridge implements IMagnetometer {
+public class MagnetometerBridge extends BaseSensorBridge implements IMagnetometer, APIBridge {
 
      /**
         API Delegate.
@@ -65,6 +65,15 @@ public class MagnetometerBridge extends BaseSensorBridge implements IMagnetomete
           this.delegate = delegate;
      }
 
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     public String invoke(APIRequest request) {
+          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+     }
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
