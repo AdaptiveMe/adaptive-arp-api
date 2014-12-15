@@ -590,14 +590,16 @@ public abstract class GeneratorBase {
         }
 
         for (Class clazz : handlerClasses) {
-            String className = clazz.getSimpleName();
-            if (className.startsWith("I")) className = className.substring(1);
-            className = className + "Delegate";
+            if (clazz.getSimpleName().contains("Base") || clazz.getDeclaredMethods().length>0) {
+                String className = clazz.getSimpleName();
+                if (className.startsWith("I")) className = className.substring(1);
+                className = className + "Delegate";
 
-            startCustomClass(className, clazz, mapClassSource.get(clazz),true);
-            createDelegateImplementation(className, clazz, mapClassSource.get(clazz));
-            endCustomClass(className, clazz, mapClassSource.get(clazz));
-            callback.onSuccess(this, clazz);
+                startCustomClass(className, clazz, mapClassSource.get(clazz), true);
+                createDelegateImplementation(className, clazz, mapClassSource.get(clazz));
+                endCustomClass(className, clazz, mapClassSource.get(clazz));
+                callback.onSuccess(this, clazz);
+            }
         }
         endGeneration();
         callback.onSuccess(this, this.getClass());
