@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IDatabaseTableResultCallback extends IBaseCallback {
      /**
         Result callback for error responses
+
         @param error Returned error
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface IDatabaseTableResultCallback extends IBaseCallback {
 
      /**
         Result callback for correct responses
+
         @param databaseTable Returns the databaseTable
         @since ARP1.0
      */
@@ -54,6 +56,7 @@ public interface IDatabaseTableResultCallback extends IBaseCallback {
 
      /**
         Result callback for warning responses
+
         @param databaseTable Returns the databaseTable
         @param warning       Returned Warning
         @since ARP1.0

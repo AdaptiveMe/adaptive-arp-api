@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface APIBridge {
      /**
         Invokes the given method specified in the API request object.
+
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string is the response is asynchronous.
      */

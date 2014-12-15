@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IAppResourceHandler {
      /**
         This method manages the queries to the bundle reosurces inside the application
+
         @param resourcePath path of the resource
         @param callback     Callback
      */

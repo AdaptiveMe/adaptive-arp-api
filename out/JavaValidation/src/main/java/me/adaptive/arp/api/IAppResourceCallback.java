@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IAppResourceCallback extends IBaseCallback {
      /**
         Error result of the App resource operation
+
         @param error Error fired
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface IAppResourceCallback extends IBaseCallback {
 
      /**
         Correct result of the App Resource operation
+
         @param resource Resource
         @since ARP1.0
      */
@@ -54,6 +56,7 @@ public interface IAppResourceCallback extends IBaseCallback {
 
      /**
         Warning result of the App Resource operation
+
         @param resource Resource
         @param warning  Warning fired
         @since ARP1.0

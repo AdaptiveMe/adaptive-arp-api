@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IFileDataStoreResultCallback extends IBaseCallback {
      /**
         Error processing data retrieval/storage operation.
+
         @param error Error condition encountered.
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface IFileDataStoreResultCallback extends IBaseCallback {
 
      /**
         Result of data storage operation.
+
         @param file File reference to stored data.
         @since ARP1.0
      */
@@ -54,6 +56,7 @@ public interface IFileDataStoreResultCallback extends IBaseCallback {
 
      /**
         Result with warning of data retrieval/storage operation.
+
         @param file    File being loaded/stored.
         @param warning Warning condition encountered.
         @since ARP1.0

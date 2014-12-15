@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IContact extends IBasePIM {
      /**
         Get the contact photo
+
         @param contact  id to search for
         @param callback called for return
         @since ARP1.0
@@ -48,6 +49,7 @@ public interface IContact extends IBasePIM {
 
      /**
         Get all the details of a contact according to its id
+
         @param contact  id to search for
         @param callback called for return
         @since ARP1.0
@@ -56,6 +58,7 @@ public interface IContact extends IBasePIM {
 
      /**
         Get marked fields of all contacts
+
         @param callback called for return
         @param fields   to get for each Contact
         @since ARP1.0
@@ -64,6 +67,7 @@ public interface IContact extends IBasePIM {
 
      /**
         Get marked fields of all contacts according to a filter
+
         @param callback called for return
         @param fields   to get for each Contact
         @param filter   to search for
@@ -73,6 +77,7 @@ public interface IContact extends IBasePIM {
 
      /**
         Get all contacts
+
         @param callback called for return
         @since ARP1.0
      */
@@ -80,6 +85,7 @@ public interface IContact extends IBasePIM {
 
      /**
         Search contacts according to a term with a filter and send it to the callback
+
         @param term     string to search
         @param callback called for return
         @param filter   to search for
@@ -89,6 +95,7 @@ public interface IContact extends IBasePIM {
 
      /**
         Search contacts according to a term and send it to the callback
+
         @param term     string to search
         @param callback called for return
         @since ARP1.0
@@ -97,6 +104,7 @@ public interface IContact extends IBasePIM {
 
      /**
         Set the contact photo
+
         @param contact  id to assign the photo
         @param pngImage photo as byte array
         @return true if set is successful;false otherwise

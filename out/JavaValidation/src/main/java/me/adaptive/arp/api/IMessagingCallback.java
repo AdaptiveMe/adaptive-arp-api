@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IMessagingCallback extends IBaseCallback {
      /**
         This method is called on Error
+
         @param error returned by the platform
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface IMessagingCallback extends IBaseCallback {
 
      /**
         This method is called on Result
+
         @param success true if sent;false otherwise
         @since ARP1.0
      */
@@ -54,6 +56,7 @@ public interface IMessagingCallback extends IBaseCallback {
 
      /**
         This method is called on Warning
+
         @param success true if sent;false otherwise
         @param warning returned by the platform
         @since ARP1.0

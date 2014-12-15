@@ -40,12 +40,14 @@ package me.adaptive.arp.api;
 public interface IGeolocationListener extends IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available.
+
         @since ARP1.0
      */
      void onError(IGeolocationListenerError error);
 
      /**
         Correct data received.
+
         @param geolocation Geolocation Bean
         @since ARP1.0
      */
@@ -53,6 +55,7 @@ public interface IGeolocationListener extends IBaseListener {
 
      /**
         Data received with warning - ie. HighDoP
+
         @param geolocation Geolocation Bean
         @since ARP1.0
      */

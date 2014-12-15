@@ -40,12 +40,14 @@ package me.adaptive.arp.api;
 public interface ILifecycleListener extends IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available.
+
         @since ARP1.0
      */
      void onError(ILifecycleListenerError error);
 
      /**
         Called when lifecycle changes somehow.
+
         @param lifecycle Lifecycle element
         @since ARP1.0
      */
@@ -53,6 +55,7 @@ public interface ILifecycleListener extends IBaseListener {
 
      /**
         Data received with warning
+
         @param lifecycle Lifecycle element
         @since ARP1.0
      */

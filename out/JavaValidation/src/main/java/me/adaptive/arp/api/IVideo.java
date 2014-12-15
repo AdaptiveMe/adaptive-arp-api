@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IVideo extends IBaseMedia {
      /**
         Play url video stream
+
         @param url of the video
         @since ARP1.0
      */

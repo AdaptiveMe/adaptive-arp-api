@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface INetworkReachabilityCallback extends IBaseCallback {
      /**
         No data received - error condition, not authorized .
+
         @param error Error value
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface INetworkReachabilityCallback extends IBaseCallback {
 
      /**
         Correct data received.
+
         @param reachable Indicates if the host is reachable
         @since ARP1.0
      */
@@ -54,6 +56,7 @@ public interface INetworkReachabilityCallback extends IBaseCallback {
 
      /**
         Data received with warning - ie Found entries with existing key and values have been overriden
+
         @param reachable Indicates if the host is reachable
         @param warning   Warning value
         @since ARP1.0

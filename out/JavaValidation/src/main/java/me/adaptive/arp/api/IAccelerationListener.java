@@ -41,6 +41,7 @@ public interface IAccelerationListener extends IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available. This will be reported once for the
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
+
         @param error Error fired
         @since ARP1.0
      */
@@ -48,6 +49,7 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      /**
         Correct data received.
+
         @param acceleration Acceleration received
         @since ARP1.0
      */
@@ -55,6 +57,7 @@ listener and subsequently, the listener will be deactivated and removed from the
 
      /**
         Data received with warning - ie. Needs calibration.
+
         @param acceleration Acceleration received
         @param warning      Warning fired
         @since ARP1.0

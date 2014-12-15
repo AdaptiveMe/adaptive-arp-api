@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IAcceleration extends IBaseSensor {
      /**
         Register a new listener that will receive acceleration events.
+
         @param listener to be registered.
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface IAcceleration extends IBaseSensor {
 
      /**
         De-registers an existing listener from receiving acceleration events.
+
         @param listener to be registered.
         @since ARP1.0
      */
@@ -54,6 +56,7 @@ public interface IAcceleration extends IBaseSensor {
 
      /**
         Removed all existing listeners from receiving acceleration events.
+
         @since ARP1.0
      */
      void removeAccelerationListeners();

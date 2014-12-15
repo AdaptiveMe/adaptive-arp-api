@@ -43,6 +43,7 @@ public interface IAppContextWebview {
 ARP methods, they must be registered by adding them to the context. When they are added to the context, ARP
 methods are bound to the webview so that they're callable from the HTML application. The primary webview should
 not be added using this method.
+
         @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
         @since ARP1.0
      */
@@ -50,12 +51,14 @@ not be added using this method.
 
      /**
         Evaluate the specified javascript on the main webview of the application.
+
         @param javaScriptText    The javascript expression to execute on the webview.
      */
      void executeJavaScript(String javaScriptText);
 
      /**
         Evaluate the specified javascript on the specified webview of the application.
+
         @param javaScriptText    The javascript expression to execute on the webview.
         @param webViewReference  The target webview on which to execute the expression.
      */
@@ -65,6 +68,7 @@ not be added using this method.
         Returns a reference to the main application webview. This is the first application webview and can not be removed
 with the removeWebview method. The object returned should be cast to the platform specific implementation
 WebView, WKWebView, etc.
+
         @return Object representing the specific and primary webview instance of the application.
         @since ARP1.0
      */
@@ -73,6 +77,7 @@ WebView, WKWebView, etc.
      /**
         Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
 This method will always return at least one element; the primary webview.
+
         @return Array with all the Webview instances being managed by ARP.
         @since ARP1.0
      */
@@ -81,6 +86,7 @@ This method will always return at least one element; the primary webview.
      /**
         When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
 ARP functions and release resources. The primary webview can not be removed.
+
         @param webView The instance of the webview to be removed from the binding.
         @since ARP1.0
      */

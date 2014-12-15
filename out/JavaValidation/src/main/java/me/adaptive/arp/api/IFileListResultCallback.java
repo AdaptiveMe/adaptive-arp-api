@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IFileListResultCallback extends IBaseCallback {
      /**
         On error result of a file operation.
+
         @param error Error processing the request.
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface IFileListResultCallback extends IBaseCallback {
 
      /**
         On correct result of a file operation.
+
         @param files Array of resulting files/folders.
         @since ARP1.0
      */
@@ -54,6 +56,7 @@ public interface IFileListResultCallback extends IBaseCallback {
 
      /**
         On partial result of a file operation, containing a warning.
+
         @param files   Array of resulting files/folders.
         @param warning Warning condition encountered.
         @since ARP1.0

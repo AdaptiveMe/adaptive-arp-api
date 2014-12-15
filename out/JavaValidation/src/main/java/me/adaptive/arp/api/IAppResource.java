@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IAppResource {
      /**
         Returns the payload of the resource decripted
+
         @return Payload
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface IAppResource {
 
      /**
         Returns the data path of the resource
+
         @return The data path of the resource
         @since ARP1.0
      */
@@ -54,6 +56,7 @@ public interface IAppResource {
 
      /**
         Returns the stored payload of the resource
+
         @return Stored payload
         @since ARP1.0
      */
@@ -61,6 +64,7 @@ public interface IAppResource {
 
      /**
         Returns the format of the resource
+
         @return Format of the resource
         @since ARP1.0
      */
@@ -68,6 +72,7 @@ public interface IAppResource {
 
      /**
         Returns the MD5 encoding of the resource
+
         @return MD5 encoding of the resource
         @since ARP1.0
      */
@@ -75,6 +80,7 @@ public interface IAppResource {
 
      /**
         Returns the Mime-Type of the resource
+
         @return The mime-type
         @since ARP1.0
      */
@@ -82,6 +88,7 @@ public interface IAppResource {
 
      /**
         Returns the name of the resource
+
         @return Name of the resource
         @since ARP1.0
      */
@@ -89,6 +96,7 @@ public interface IAppResource {
 
      /**
         Returns the path of the resource
+
         @return Path of the resource
         @since ARP1.0
      */
@@ -96,6 +104,7 @@ public interface IAppResource {
 
      /**
         Returns the payload type of the resource
+
         @return Payload type
         @since ARP1.0
      */
@@ -103,6 +112,7 @@ public interface IAppResource {
 
      /**
         Returns the size of the resource
+
         @return Size of the resource
         @since ARP1.0
      */
@@ -110,6 +120,7 @@ public interface IAppResource {
 
      /**
         Returns the Size of the stored resource
+
         @return Size of the Stored Resource
         @since ARP1.0
      */
@@ -117,6 +128,7 @@ public interface IAppResource {
 
      /**
         Returns the timestamp of the resource
+
         @return Timestamp of the resource
         @since ARP1.0
      */
@@ -124,6 +136,7 @@ public interface IAppResource {
 
      /**
         Returns the type of the resource
+
         @return Type of the resource
         @since ARP1.0
      */
@@ -131,6 +144,7 @@ public interface IAppResource {
 
      /**
         Returns the unique identifier of the resource
+
         @return Unique Identifier
         @since ARP1.0
      */

@@ -41,6 +41,7 @@ public interface IAdaptiveRP {
      String API_VERSION = "TO_BE_REPLACED";
      /**
         Method that returns the API group of the implementation
+
         @return API GRoup
         @since ARP1.0
      */

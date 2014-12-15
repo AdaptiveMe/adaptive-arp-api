@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface ISecurity extends IBaseSecurity {
      /**
         Deletes from the device internal storage the entry/entries containing the specified key names.
+
         @param keys             Array with the key names to delete.
         @param publicAccessName The name of the shared internal storage object (if needed).
         @param callback         callback to be executed upon function result.
@@ -49,6 +50,7 @@ public interface ISecurity extends IBaseSecurity {
 
      /**
         Retrieves from the device internal storage the entry/entries containing the specified key names.
+
         @param keys             Array with the key names to retrieve.
         @param publicAccessName The name of the shared internal storage object (if needed).
         @param callback         callback to be executed upon function result.
@@ -58,6 +60,7 @@ public interface ISecurity extends IBaseSecurity {
 
      /**
         Returns if the device has been modified in anyhow
+
         @return true if the device has been modified; false otherwise
         @since ARP1.0
      */
@@ -65,6 +68,7 @@ public interface ISecurity extends IBaseSecurity {
 
      /**
         Stores in the device internal storage the specified item/s.
+
         @param keyValues        Array containing the items to store on the device internal memory.
         @param publicAccessName The name of the shared internal storage object (if needed).
         @param callback         callback to be executed upon function result.

@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IMail extends IBasePIM {
      /**
         Send an Email
+
         @param data     Payload of the email
         @param callback Result callback of the operation
         @since ARP1.0

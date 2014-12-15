@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IOS extends IBaseSystem {
      /**
         Returns the OSInfo for the current operating system.
+
         @return OSInfo with name, version and vendor of the OS.
         @since ARP1.0
      */

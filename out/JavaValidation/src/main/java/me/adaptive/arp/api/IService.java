@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IService extends IBaseCommunication {
      /**
         Get a reference to a registered service by name.
+
         @param serviceName Name of service.
         @return A service, if registered, or null of the service does not exist.
         @since ARP1.0
@@ -48,6 +49,7 @@ public interface IService extends IBaseCommunication {
 
      /**
         Request async a service for an Url
+
         @param serviceRequest Service Request to invoke
         @param service        Service to call
         @param callback       Callback to execute with the result
@@ -57,6 +59,7 @@ public interface IService extends IBaseCommunication {
 
      /**
         Check whether a service by the given name is registered.
+
         @param serviceName Name of service.
         @return True if the service is registered, false otherwise.
         @since ARP1.0
@@ -65,6 +68,7 @@ public interface IService extends IBaseCommunication {
 
      /**
         Check whether a service by the given name is registered.
+
         @param serviceName Name of service.
         @return True if the service is registered, false otherwise.
         @since ARP1.0
@@ -73,6 +77,7 @@ public interface IService extends IBaseCommunication {
 
      /**
         Register a new service
+
         @param service to register
         @since ARP1.0
      */
@@ -80,12 +85,14 @@ public interface IService extends IBaseCommunication {
 
      /**
         Unregister all services.
+
         @since ARP1.0
      */
      void unregisterServices();
 
      /**
         Unregister a service
+
         @param service to unregister
         @since ARP1.0
      */

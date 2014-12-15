@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface INetworkStatus extends IBaseCommunication {
      /**
         Add the listener for network status changes of the app
+
         @param listener Listener with the result
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface INetworkStatus extends IBaseCommunication {
 
      /**
         Un-registers an existing listener from receiving network status events.
+
         @param listener Listener with the result
         @since ARP1.0
      */
@@ -54,6 +56,7 @@ public interface INetworkStatus extends IBaseCommunication {
 
      /**
         Removes all existing listeners from receiving network status events.
+
         @since ARP1.0
      */
      void removeNetworkStatusListeners();

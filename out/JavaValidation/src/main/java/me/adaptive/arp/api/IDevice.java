@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IDevice extends IBaseSystem {
      /**
         Register a new listener that will receive button events.
+
         @param listener to be registered.
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface IDevice extends IBaseSystem {
 
      /**
         Returns the device information for the current device executing the runtime.
+
         @return DeviceInfo for the current device.
         @since ARP1.0
      */
@@ -54,6 +56,7 @@ public interface IDevice extends IBaseSystem {
 
      /**
         Gets the current Locale for the device.
+
         @return The current Locale information.
         @since ARP1.0
      */
@@ -61,6 +64,7 @@ public interface IDevice extends IBaseSystem {
 
      /**
         De-registers an existing listener from receiving button events.
+
         @param listener
         @since ARP1.0
      */
@@ -68,6 +72,7 @@ public interface IDevice extends IBaseSystem {
 
      /**
         Removed all existing listeners from receiving button events.
+
         @since ARP1.0
      */
      void removeButtonListeners();

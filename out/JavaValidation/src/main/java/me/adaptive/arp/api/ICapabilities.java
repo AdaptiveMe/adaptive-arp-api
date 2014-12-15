@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface ICapabilities extends IBaseSystem {
      /**
         Determines whether a specific hardware button is supported for interaction.
+
         @param type Type of feature to check.
         @return true is supported, false otherwise.
         @since ARP1.0
@@ -49,6 +50,7 @@ public interface ICapabilities extends IBaseSystem {
      /**
         Determines whether a specific Communication capability is supported by
 the device.
+
         @param type Type of feature to check.
         @return true if supported, false otherwise.
         @since ARP1.0
@@ -57,6 +59,7 @@ the device.
 
      /**
         Determines whether a specific Data capability is supported by the device.
+
         @param type Type of feature to check.
         @return true if supported, false otherwise.
         @since ARP1.0
@@ -66,6 +69,7 @@ the device.
      /**
         Determines whether a specific Media capability is supported by the
 device.
+
         @param type Type of feature to check.
         @return true if supported, false otherwise.
         @since ARP1.0
@@ -74,6 +78,7 @@ device.
 
      /**
         Determines whether a specific Net capability is supported by the device.
+
         @param type Type of feature to check.
         @return true if supported, false otherwise.
         @since ARP1.0
@@ -83,6 +88,7 @@ device.
      /**
         Determines whether a specific Notification capability is supported by the
 device.
+
         @param type Type of feature to check.
         @return true if supported, false otherwise.
         @since ARP1.0
@@ -92,6 +98,7 @@ device.
      /**
         Determines whether a specific Sensor capability is supported by the
 device.
+
         @param type Type of feature to check.
         @return true if supported, false otherwise.
         @since ARP1.0

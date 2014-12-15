@@ -834,13 +834,22 @@ public class JavaGenerator extends GeneratorBase {
                 });
                 for (Class serviceClass : serviceClasses) {
                     startComment(5);
-                    println(8, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Handler.");
+                    println(8, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
                     println();
-                    println(8, "@return " + serviceClass.getSimpleName().substring(1) + "Handler reference or null if a handler of this type is not registered.");
+                    println(8, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
                     endComment(5);
-                    println(5, serviceClass.getSimpleName() + " get" + serviceClass.getSimpleName().substring(1) + "Handler();");
+                    println(5, serviceClass.getSimpleName().substring(1) + "Bridge get" + serviceClass.getSimpleName().substring(1) + "Bridge();");
                     println();
                 }
+                // APIBridge specific
+                startComment(5);
+                println(8, "Provides a bridge to handle API calls for the given interface name.");
+                println();
+                println(8, "@param bridgeType String with the interface name required.");
+                println(8, "@return APIBridge That handles calls for the specified interface or null if the given bridge is not registered.");
+                endComment(5);
+                println(5, "APIBridge getBridge(String bridgeType);");
+                println();
             } else {
                 startComment(5);
                 JavaMethod javaMethod = null;
@@ -852,6 +861,7 @@ public class JavaGenerator extends GeneratorBase {
                 }
                 if (javaMethod != null) {
                     println(8, javaMethod.getComment());
+                    println();
                     for (DocletTag tag : javaMethod.getTags()) {
                         println(8, "@" + tag.getName() + " " + tag.getValue());
                     }

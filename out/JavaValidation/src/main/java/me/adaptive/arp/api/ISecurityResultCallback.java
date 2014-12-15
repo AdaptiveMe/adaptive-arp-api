@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface ISecurityResultCallback extends IBaseCallback {
      /**
         No data received - error condition, not authorized .
+
         @param error Error values
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface ISecurityResultCallback extends IBaseCallback {
 
      /**
         Correct data received.
+
         @param keyValues key and values
         @since ARP1.0
      */
@@ -54,6 +56,7 @@ public interface ISecurityResultCallback extends IBaseCallback {
 
      /**
         Data received with warning - ie Found entries with existing key and values have been overriden
+
         @param keyValues key and values
         @param warning   Warning values
         @since ARP1.0

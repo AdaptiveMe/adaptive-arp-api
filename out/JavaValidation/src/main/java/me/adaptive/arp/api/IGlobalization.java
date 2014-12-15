@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IGlobalization extends IBaseApplication {
      /**
         List of supported locales for the application
+
         @return List of locales
         @since ARP1.0
      */
@@ -47,6 +48,7 @@ public interface IGlobalization extends IBaseApplication {
 
      /**
         Gets the text/message corresponding to the given key and locale.
+
         @param key    to match text
         @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
         @return Localized text.
@@ -56,6 +58,7 @@ public interface IGlobalization extends IBaseApplication {
 
      /**
         Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+
         @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
         @return Localized texts in the form of an object.
         @since ARP1.0

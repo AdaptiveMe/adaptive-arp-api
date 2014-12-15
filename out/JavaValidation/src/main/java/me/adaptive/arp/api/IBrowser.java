@@ -40,6 +40,7 @@ package me.adaptive.arp.api;
 public interface IBrowser extends IBaseUI {
      /**
         Method for opening a URL like a link in the native default browser
+
         @param url Url to open
         @return The result of the operation
         @since ARP1.0
@@ -48,6 +49,7 @@ public interface IBrowser extends IBaseUI {
 
      /**
         Method for opening a browser embedded into the application in a modal window
+
         @param url            Url to open
         @param title          Title of the Navigation bar
         @param backButtonText Title of the Back button bar
@@ -58,6 +60,7 @@ public interface IBrowser extends IBaseUI {
 
      /**
         Method for opening a browser embedded into the application
+
         @param url            Url to open
         @param title          Title of the Navigation bar
         @param backButtonText Title of the Back button bar
