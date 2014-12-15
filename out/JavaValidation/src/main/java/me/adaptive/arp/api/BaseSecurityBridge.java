@@ -41,7 +41,7 @@ public class BaseSecurityBridge implements IBaseSecurity {
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     protected IAdaptiveRPGroup apiGroup;
 
      /**
         Default constructor.

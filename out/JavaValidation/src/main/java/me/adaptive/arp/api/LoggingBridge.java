@@ -77,15 +77,15 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
      public void log(ILoggingLogLevel level, String message) {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+message+"}).");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+message+"}).");
 
           if (this.delegate != null) {
                this.delegate.log(level, message);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
           }
           
      }
@@ -101,15 +101,15 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
      public void log(ILoggingLogLevel level, String category, String message) {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+category+"},{"+message+"}).");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+category+"},{"+message+"}).");
 
           if (this.delegate != null) {
                this.delegate.log(level, category, message);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
           }
           
      }

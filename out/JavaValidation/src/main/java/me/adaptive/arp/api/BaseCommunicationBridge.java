@@ -41,7 +41,7 @@ public class BaseCommunicationBridge implements IBaseCommunication {
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     protected IAdaptiveRPGroup apiGroup;
 
      /**
         Default constructor.

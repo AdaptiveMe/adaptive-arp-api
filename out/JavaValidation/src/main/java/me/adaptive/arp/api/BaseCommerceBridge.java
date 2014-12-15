@@ -41,7 +41,7 @@ public class BaseCommerceBridge implements IBaseCommerce {
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     protected IAdaptiveRPGroup apiGroup;
 
      /**
         Default constructor.

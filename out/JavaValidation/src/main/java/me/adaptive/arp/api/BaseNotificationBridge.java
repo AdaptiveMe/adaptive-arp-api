@@ -41,7 +41,7 @@ public class BaseNotificationBridge implements IBaseNotification {
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     protected IAdaptiveRPGroup apiGroup;
 
      /**
         Default constructor.

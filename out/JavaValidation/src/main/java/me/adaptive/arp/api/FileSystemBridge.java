@@ -79,16 +79,16 @@ This method does not create the actual file in the specified folder.
      public IFile createFileDescriptor(IFile parent, String name) {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing createFileDescriptor({"+parent+"},{"+name+"}).");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing createFileDescriptor({"+parent+"},{"+name+"}).");
 
           IFile result = null;
           if (this.delegate != null) {
                result = this.delegate.createFileDescriptor(parent, name);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'createFileDescriptor' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'createFileDescriptor' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'createFileDescriptor'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'createFileDescriptor'.");
           }
           return result;          
      }
@@ -104,16 +104,16 @@ This path is volatile and may be cleaned by the OS periodically.
      public IFile getApplicationCacheFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getApplicationCacheFolder.");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getApplicationCacheFolder.");
 
           IFile result = null;
           if (this.delegate != null) {
                result = this.delegate.getApplicationCacheFolder();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getApplicationCacheFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getApplicationCacheFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationCacheFolder'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationCacheFolder'.");
           }
           return result;          
      }
@@ -128,16 +128,16 @@ This path must always be writable by the current application.
      public IFile getApplicationCloudFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getApplicationCloudFolder.");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getApplicationCloudFolder.");
 
           IFile result = null;
           if (this.delegate != null) {
                result = this.delegate.getApplicationCloudFolder();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getApplicationCloudFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getApplicationCloudFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationCloudFolder'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationCloudFolder'.");
           }
           return result;          
      }
@@ -152,16 +152,16 @@ This path must always be writable by the current application.
      public IFile getApplicationDocumentsFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getApplicationDocumentsFolder.");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getApplicationDocumentsFolder.");
 
           IFile result = null;
           if (this.delegate != null) {
                result = this.delegate.getApplicationDocumentsFolder();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getApplicationDocumentsFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getApplicationDocumentsFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationDocumentsFolder'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationDocumentsFolder'.");
           }
           return result;          
      }
@@ -176,16 +176,16 @@ This path may or may not be directly readable or writable - it usually contains 
      public IFile getApplicationFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getApplicationFolder.");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getApplicationFolder.");
 
           IFile result = null;
           if (this.delegate != null) {
                result = this.delegate.getApplicationFolder();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getApplicationFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getApplicationFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationFolder'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationFolder'.");
           }
           return result;          
      }
@@ -200,16 +200,16 @@ This path must always be writable by the current application.
      public IFile getApplicationProtectedFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getApplicationProtectedFolder.");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getApplicationProtectedFolder.");
 
           IFile result = null;
           if (this.delegate != null) {
                result = this.delegate.getApplicationProtectedFolder();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getApplicationProtectedFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getApplicationProtectedFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationProtectedFolder'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getApplicationProtectedFolder'.");
           }
           return result;          
      }
@@ -223,16 +223,16 @@ This path must always be writable by the current application.
      public char getSeparator() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getSeparator.");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getSeparator.");
 
           char result = ' ';
           if (this.delegate != null) {
                result = this.delegate.getSeparator();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getSeparator' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getSeparator' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getSeparator'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getSeparator'.");
           }
           return result;          
      }
@@ -249,16 +249,16 @@ This path may or may not be writable by the current application.
      public IFile getSystemExternalFolder() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getSystemExternalFolder.");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getSystemExternalFolder.");
 
           IFile result = null;
           if (this.delegate != null) {
                result = this.delegate.getSystemExternalFolder();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getSystemExternalFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getSystemExternalFolder' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getSystemExternalFolder'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getSystemExternalFolder'.");
           }
           return result;          
      }

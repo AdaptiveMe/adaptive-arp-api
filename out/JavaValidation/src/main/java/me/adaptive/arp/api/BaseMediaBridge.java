@@ -41,7 +41,7 @@ public class BaseMediaBridge implements IBaseMedia {
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     protected IAdaptiveRPGroup apiGroup;
 
      /**
         Default constructor.

@@ -52,6 +52,7 @@ module Adaptive {
           static System = new IAdaptiveRPGroup("System");
           static UI = new IAdaptiveRPGroup("UI");
           static Util = new IAdaptiveRPGroup("Util");
+          static Kernel = new IAdaptiveRPGroup("Kernel");
           static Unknown = new IAdaptiveRPGroup("Unknown");
 
      }

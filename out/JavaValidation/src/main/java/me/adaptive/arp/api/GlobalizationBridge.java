@@ -76,16 +76,16 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
      public Locale[] getLocaleSupportedDescriptors() {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getLocaleSupportedDescriptors.");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getLocaleSupportedDescriptors.");
 
           Locale[] result = null;
           if (this.delegate != null) {
                result = this.delegate.getLocaleSupportedDescriptors();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getLocaleSupportedDescriptors' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getLocaleSupportedDescriptors' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getLocaleSupportedDescriptors'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getLocaleSupportedDescriptors'.");
           }
           return result;          
      }
@@ -101,16 +101,16 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
      public String getResourceLiteral(String key, Locale locale) {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getResourceLiteral({"+key+"},{"+locale+"}).");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getResourceLiteral({"+key+"},{"+locale+"}).");
 
           String result = null;
           if (this.delegate != null) {
                result = this.delegate.getResourceLiteral(key, locale);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getResourceLiteral' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getResourceLiteral' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getResourceLiteral'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getResourceLiteral'.");
           }
           return result;          
      }
@@ -125,16 +125,16 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
      public KeyPair[] getResourceLiterals(Locale locale) {
           // Start logging elapsed time.
           long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing getResourceLiterals({"+locale+"}).");
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing getResourceLiterals({"+locale+"}).");
 
           KeyPair[] result = null;
           if (this.delegate != null) {
                result = this.delegate.getResourceLiterals(locale);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'getResourceLiterals' in "+(System.currentTimeMillis()-tIn)+"ms.");
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'getResourceLiterals' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'getResourceLiterals'.");
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'getResourceLiterals'.");
           }
           return result;          
      }

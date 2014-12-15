@@ -41,7 +41,7 @@ public class BaseApplicationBridge implements IBaseApplication {
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     protected IAdaptiveRPGroup apiGroup;
 
      /**
         Default constructor.

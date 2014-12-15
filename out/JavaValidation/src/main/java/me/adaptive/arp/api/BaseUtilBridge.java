@@ -41,7 +41,7 @@ public class BaseUtilBridge implements IBaseUtil {
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     protected IAdaptiveRPGroup apiGroup;
 
      /**
         Default constructor.

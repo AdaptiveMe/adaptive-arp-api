@@ -535,7 +535,7 @@ public interface IAppRegistry {
         @return Reference to the platform context
         @since ARP1.0
      */
-     IAppContext getPlatformContext();
+     AppContextBridge getPlatformContext();
 
      /**
         Returns a reference to the Webview platform context
@@ -543,7 +543,7 @@ public interface IAppRegistry {
         @return Reference to the Webview Context
         @since ARP1.0
      */
-     IAppContextWebview getPlatformContextWeb();
+     AppContextWebviewBridge getPlatformContextWeb();
 
 }
 

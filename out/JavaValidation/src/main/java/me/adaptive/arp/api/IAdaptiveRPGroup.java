@@ -49,6 +49,7 @@ public enum IAdaptiveRPGroup {
      System,
      UI,
      Util,
+     Kernel,
      Unknown
 
 }

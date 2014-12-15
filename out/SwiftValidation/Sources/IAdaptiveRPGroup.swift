@@ -47,6 +47,7 @@ public enum IAdaptiveRPGroup {
      case System
      case UI
      case Util
+     case Kernel
      case Unknown
 
      /**
@@ -68,6 +69,7 @@ public enum IAdaptiveRPGroup {
                case .System: return "System"
                case .UI: return "UI"
                case .Util: return "Util"
+               case .Kernel: return "Kernel"
                case .Unknown: return "Unknown"
           }
      }
@@ -92,6 +94,7 @@ public enum IAdaptiveRPGroup {
                     case "System": return .System
                     case "UI": return .UI
                     case "Util": return .Util
+                    case "Kernel": return .Kernel
                     case "Unknown": return .Unknown
                default: return .Unknown
                }

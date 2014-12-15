@@ -41,7 +41,7 @@ public class BaseUIBridge implements IBaseUI {
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     protected IAdaptiveRPGroup apiGroup;
 
      /**
         Default constructor.

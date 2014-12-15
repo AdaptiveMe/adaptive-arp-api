@@ -28,52 +28,49 @@ Contributors:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
+package me.adaptive.arp.impl;
 
-import com.google.gson.Gson;
+import me.adaptive.arp.api.*;
 
 /**
-   Base application for Sensor purposes
-   Auto-generated implementation of IBaseSensor specification.
+   Interface for context management purposes
+   Auto-generated implementation of IAppContext specification.
 */
-public class BaseSensorBridge implements IBaseSensor {
+public class AppContextDelegate implements IAppContext {
 
      /**
-        Group of API.
+        Default Constructor.
      */
-     protected IAdaptiveRPGroup apiGroup;
-
-     /**
-        Default constructor.
-     */
-     public BaseSensorBridge() {
-          this.apiGroup = IAdaptiveRPGroup.Sensor;
+     public AppContextDelegate() {
+          super();
      }
 
      /**
-        Return the API group for the given interface.
+        The main application context. This should be cast to the platform specific implementation.
+
+        @return Object representing the specific singleton application context provided by the OS.
+        @since ARP1.0
      */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
+     public Object getContext() {
+          Object response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":getContext");
+          // return response;
      }
 
      /**
-        Invokes the given method specified in the API request object.
+        The type of context provided by the getContext method.
 
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @return Type of platform context.
+        @since ARP1.0
      */
-     public String invoke(APIRequest request) {
-          Gson gson = new Gson();
-          String responseJSON = "";
-          switch (request.getMethodName()) {
-               default:
-                    // 404 - response null.
-                    responseJSON = null;
-          }
-          return responseJSON;
+     public IOSType getContextType() {
+          IOSType response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":getContextType");
+          // return response;
      }
+
 }
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

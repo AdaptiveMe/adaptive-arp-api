@@ -576,9 +576,9 @@ public abstract class GeneratorBase {
             callback.onSuccess(this, clazz);
         }
 
-        List<Class> handlerClasses = getHandlers();
-        handlerClasses.sort(new InterfaceComparator());
-        for (Class clazz : handlerClasses) {
+        List<Class> delegateClasses = getDelegates();
+        delegateClasses.sort(new InterfaceComparator());
+        for (Class clazz : delegateClasses) {
             String className = clazz.getSimpleName();
             if (className.startsWith("I")) className = className.substring(1);
             className = className + "Bridge";
@@ -589,7 +589,7 @@ public abstract class GeneratorBase {
             callback.onSuccess(this, clazz);
         }
 
-        for (Class clazz : handlerClasses) {
+        for (Class clazz : delegateClasses) {
             if (clazz.getSimpleName().contains("Base") || clazz.getDeclaredMethods().length > 0) {
                 String className = clazz.getSimpleName();
                 if (className.startsWith("I")) className = className.substring(1);
@@ -600,6 +600,36 @@ public abstract class GeneratorBase {
                 endCustomClass(className, clazz, mapClassSource.get(clazz));
                 callback.onSuccess(this, clazz);
             }
+        }
+        /**
+         * Special delegates
+         */
+        delegateClasses.clear();
+        delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppRegistry"));
+        delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppContext"));
+        delegateClasses.add(Class.forName("me.adaptive.arp.api.IAppContextWebview"));
+        for (Class clazz : delegateClasses) {
+            String className = clazz.getSimpleName();
+            if (className.startsWith("I")) className = className.substring(1);
+            className = className + "Bridge";
+
+            startCustomClass(className, clazz, mapClassSource.get(clazz), false);
+            createHandlerImplementation(className, clazz, mapClassSource.get(clazz));
+            endCustomClass(className, clazz, mapClassSource.get(clazz));
+            callback.onSuccess(this, clazz);
+        }
+        for (Class clazz : delegateClasses) {
+            String className = clazz.getSimpleName();
+            if (className.startsWith("I")) className = className.substring(1);
+            className = className + "Delegate";
+            if (clazz.getSimpleName().equals("IAppRegistry")) {
+                startCustomClass(className, clazz, mapClassSource.get(clazz), false);
+            } else {
+                startCustomClass(className, clazz, mapClassSource.get(clazz), true);
+            }
+            createDelegateImplementation(className, clazz, mapClassSource.get(clazz));
+            endCustomClass(className, clazz, mapClassSource.get(clazz));
+            callback.onSuccess(this, clazz);
         }
         endGeneration();
         callback.onSuccess(this, this.getClass());
@@ -669,7 +699,7 @@ public abstract class GeneratorBase {
 
     protected abstract void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass);
 
-    private List<Class> getHandlers() {
+    private List<Class> getDelegates() {
         Class superInterface = null;
         try {
             superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");

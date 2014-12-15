@@ -41,7 +41,7 @@ public class BaseDataBridge implements IBaseData {
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     protected IAdaptiveRPGroup apiGroup;
 
      /**
         Default constructor.

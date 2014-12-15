@@ -57,10 +57,15 @@ public class JavaGenerator extends GeneratorBase {
 
     @Override
     protected void createDelegateImplementation(String simpleName, Class clazz, JavaClass javaClass) {
-        println("package " + clazz.getPackage().getName().substring(0, clazz.getPackage().getName().lastIndexOf('.')) + ".impl;");
-        println();
-        println("import " + clazz.getPackage().getName() + ".*;");
-        println();
+        if (simpleName.startsWith("AppRegistry")) {
+            println("package " + clazz.getPackage().getName() + ";");
+            println();
+        } else {
+            println("package " + clazz.getPackage().getName().substring(0, clazz.getPackage().getName().lastIndexOf('.')) + ".impl;");
+            println();
+            println("import " + clazz.getPackage().getName() + ".*;");
+            println();
+        }
         startComment(0);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
             println(3, javaClass.getComment());
@@ -94,7 +99,11 @@ public class JavaGenerator extends GeneratorBase {
             println(10, "return this.apiGroup;");
             println(5, "}");
         } else {
-            println("public class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Delegate implements " + clazz.getSimpleName() + " {");
+            if (clazz.getInterfaces().length > 0) {
+                println("public class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Delegate implements " + clazz.getSimpleName() + " {");
+            } else {
+                println("public class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+            }
             println();
 
             startComment(5);
@@ -141,41 +150,136 @@ public class JavaGenerator extends GeneratorBase {
             }
         });
         for (Method m : classMethods) {
-            if (javaMethods.get(m) != null) {
-                startComment(5);
-                println(8, javaMethods.get(m).getComment());
-                println();
-                for (DocletTag tag : javaMethods.get(m).getTags()) {
-                    println(8, "@" + tag.getName() + " " + tag.getValue());
+            if (m.getName().equals("get$Synthetic$")) {
+
+                // getters for all service classes!
+                Class superInterface = null;
+                try {
+                    superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
                 }
-                endComment(5);
-                print(5, "public ");
-                if (m.getReturnType().equals(Void.TYPE)) {
-                    print("void ");
-                } else {
-                    print(convertJavaToNativeType(m.getReturnType()) + " ");
-                }
-                print(m.getName() + "(");
-                for (int i = 0; i < m.getParameterCount(); i++) {
-                    Parameter p = m.getParameters()[i];
-                    print(convertJavaToNativeType(p.getType()) + " ");
-                    print(p.getName());
-                    if (i < m.getParameterCount() - 1) {
-                        print(", ");
+                Reflections reflections = new Reflections(new ConfigurationBuilder()
+                        .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                        .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
+                        .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
+
+                Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
+                List<Class> serviceClasses = new ArrayList<>();
+                for (Class subClass : allClassesSet) {
+                    if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase")) {
+                        serviceClasses.add(subClass);
                     }
                 }
-                println(") {");
-                if (m.getReturnType().equals(Void.TYPE)) {
-                    println(10, "// TODO: Not implemented.");
-                    println(10, "throw new UnsupportedOperationException(this.getClass().getName()+\":" + m.getName() + "\");");
-                } else {
-                    println(10, convertJavaToNativeType(m.getReturnType()) + " response;");
-                    println(10, "// TODO: Not implemented.");
-                    println(10, "throw new UnsupportedOperationException(this.getClass().getName()+\":" + m.getName() + "\");");
-                    println(10, "// return response;");
+                serviceClasses.sort(new Comparator<Class>() {
+                    @Override
+                    public int compare(Class o1, Class o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+                startComment(5);
+                println(8, "Bridge references.");
+                endComment(5);
+                for (Class serviceClass : serviceClasses) {
+                    println(5, "private " + serviceClass.getSimpleName().substring(1) + "Bridge __" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge = null;");
                 }
+                println();
+
+                for (Class serviceClass : serviceClasses) {
+                    startComment(5);
+                    println(8, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
+                    println();
+                    println(8, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
+                    endComment(5);
+                    println(5, "public final " + serviceClass.getSimpleName().substring(1) + "Bridge get" + serviceClass.getSimpleName().substring(1) + "Bridge() {");
+                    println(10, " if(__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge == null) {");
+                    println(15, "__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge = new "+ serviceClass.getSimpleName().substring(1) + "Bridge(null);");
+                    println(10, "}");
+                    println(10, "return __" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge;");
+                    println(5, "}");
+                    println();
+                }
+                // APIBridge specific
+                startComment(5);
+                println(8, "Provides a bridge to handle API calls for the given interface name.");
+                println();
+                println(8, "@param bridgeType String with the interface name required.");
+                println(8, "@return APIBridge That handles calls for the specified interface or null if the given bridge is not registered.");
+                endComment(5);
+                println(5, "public final APIBridge getBridge(String bridgeType) {");
+                println(10, "switch(bridgeType) {");
+                println();
+
+                for (Class serviceClass : serviceClasses) {
+                    println(15, "case \"" + serviceClass.getSimpleName() + "\":");
+                    println(20, "return get" + serviceClass.getSimpleName().substring(1) + "Bridge();");
+                    println();
+                }
+                println(15, "default:");
+                println(20, "return null;");
+                println(10, "}");
                 println(5, "}");
                 println();
+            } else if (javaMethods.get(m) != null) {
+                if (simpleName.startsWith("AppRegistry")) {
+                    startComment(5);
+                    println(8, javaMethods.get(m).getComment());
+                    endComment(5);
+                    println(5,"private "+m.getReturnType().getSimpleName().substring(1)+"Bridge __"+m.getReturnType().getSimpleName().substring(1).toLowerCase()+"Bridge = null;");
+                    println();
+                    startComment(5);
+                    println(8, javaMethods.get(m).getComment());
+                    println();
+                    for (DocletTag tag : javaMethods.get(m).getTags()) {
+                        println(8, "@" + tag.getName() + " " + tag.getValue());
+                    }
+                    endComment(5);
+                    print(5, "public ");
+                    print(m.getReturnType().getSimpleName().substring(1) + "Bridge ");
+                    print(m.getName() + "(");
+                    println(") {");
+                    println(10, " if(__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge == null) {");
+                    println(15, "__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = new "+ m.getReturnType().getSimpleName().substring(1) + "Bridge(null);");
+                    println(10, "}");
+                    println(10, "return __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge;");
+                    println(5, "}");
+                    println();
+                } else {
+                    startComment(5);
+                    println(8, javaMethods.get(m).getComment());
+                    println();
+                    for (DocletTag tag : javaMethods.get(m).getTags()) {
+                        println(8, "@" + tag.getName() + " " + tag.getValue());
+                    }
+                    endComment(5);
+                    print(5, "public ");
+                    if (m.getReturnType().equals(Void.TYPE)) {
+                        print("void ");
+                    } else {
+                        print(convertJavaToNativeType(m.getReturnType()) + " ");
+                    }
+                    print(m.getName() + "(");
+                    for (int i = 0; i < m.getParameterCount(); i++) {
+                        Parameter p = m.getParameters()[i];
+                        print(convertJavaToNativeType(p.getType()) + " ");
+                        print(p.getName());
+                        if (i < m.getParameterCount() - 1) {
+                            print(", ");
+                        }
+                    }
+                    println(") {");
+                    if (m.getReturnType().equals(Void.TYPE)) {
+                        println(10, "// TODO: Not implemented.");
+                        println(10, "throw new UnsupportedOperationException(this.getClass().getName()+\":" + m.getName() + "\");");
+                    } else {
+                        println(10, convertJavaToNativeType(m.getReturnType()) + " response;");
+                        println(10, "// TODO: Not implemented.");
+                        println(10, "throw new UnsupportedOperationException(this.getClass().getName()+\":" + m.getName() + "\");");
+                        println(10, "// return response;");
+                    }
+                    println(5, "}");
+                    println();
+                }
             }
         }
         println("}");
@@ -233,7 +337,7 @@ public class JavaGenerator extends GeneratorBase {
             startComment(5);
             println(8, "Group of API.");
             endComment(5);
-            println(5, "private IAdaptiveRPGroup apiGroup;");
+            println(5, "protected IAdaptiveRPGroup apiGroup;");
             println();
 
             startComment(5);
@@ -252,7 +356,16 @@ public class JavaGenerator extends GeneratorBase {
             println(10, "return this.apiGroup;");
             println(5, "}");
         } else {
-            println("public class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + ", APIBridge {");
+            if (clazz.getInterfaces().length > 0) {
+                println("public class " + simpleName + " extends " + clazz.getInterfaces()[0].getSimpleName().substring(1) + "Bridge implements " + clazz.getSimpleName() + ", APIBridge {");
+            } else {
+                println("public class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+                println();
+                startComment(5);
+                println(8, "Group of API.");
+                endComment(5);
+                println(5, "private IAdaptiveRPGroup apiGroup = IAdaptiveRPGroup.Kernel;");
+            }
             println();
 
             startComment(5);
@@ -326,7 +439,110 @@ public class JavaGenerator extends GeneratorBase {
             }
         });
         for (Method m : classMethods) {
-            if (javaMethods.get(m) != null) {
+            if (m.getName().equals("get$Synthetic$")) {
+
+                startComment(5);
+                println(8, "Singleton instance.");
+                endComment(5);
+                println(5, "private static " + simpleName + " singleton;");
+                println();
+
+                startComment(5);
+                println(8, "Get singleton instance.");
+                println(8, "@return " + simpleName + " singleton instance.");
+                endComment(5);
+                println(5, "public static final " + simpleName + " getInstance() {");
+                println(10, "if (singleton == null) {");
+                println(15, "singleton = new " + simpleName + "(new " + clazz.getSimpleName().substring(1) + "Delegate());");
+                println(10, "}");
+                println(10, "return singleton;");
+                println(5, "}");
+                println();
+
+
+                // getters for all service classes!
+                Class superInterface = null;
+                try {
+                    superInterface = Class.forName("me.adaptive.arp.api.IAdaptiveRP");
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                Reflections reflections = new Reflections(new ConfigurationBuilder()
+                        .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+                        .setUrls(ClasspathHelper.forPackage(superInterface.getPackage().getName()))
+                        .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix(superInterface.getPackage().getName()))));
+
+                Set<Class<? extends Object>> allClassesSet = reflections.getSubTypesOf(superInterface);
+                List<Class> serviceClasses = new ArrayList<>();
+                for (Class subClass : allClassesSet) {
+                    if (!subClass.getName().endsWith("Callback") && !subClass.getName().endsWith("Listener") && !subClass.getSimpleName().startsWith("IBase")) {
+                        serviceClasses.add(subClass);
+                    }
+                }
+                serviceClasses.sort(new Comparator<Class>() {
+                    @Override
+                    public int compare(Class o1, Class o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+                for (Class serviceClass : serviceClasses) {
+                    startComment(5);
+                    println(8, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
+                    println();
+                    println(8, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
+                    endComment(5);
+                    println(5, "public final " + serviceClass.getSimpleName().substring(1) + "Bridge get" + serviceClass.getSimpleName().substring(1) + "Bridge() {");
+                    println(10, "// Start logging elapsed time.");
+                    println(10, "long tIn = System.currentTimeMillis();");
+                    println(10, "ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();");
+                    println(10, serviceClass.getSimpleName().substring(1) + "Bridge result = null;");
+                    println();
+                    println(10, "if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+\" executing get" + serviceClass.getSimpleName().substring(1) + "Bridge().\");");
+
+                    println();
+
+                    println(10, "if (this.delegate != null) {");
+                    println(15, "result = this.delegate.get" + serviceClass.getSimpleName().substring(1) + "Bridge();");
+                    println(15, "if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+\" executed 'get" + serviceClass.getSimpleName().substring(1) + "Bridge' in \"+(System.currentTimeMillis()-tIn)+\"ms.\");");
+                    println(10, "} else {");
+                    println(15, "if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+\" no delegate for 'get" + serviceClass.getSimpleName().substring(1) + "Bridge'.\");");
+                    println(10, "}");
+                    if (!m.getReturnType().equals(Void.TYPE)) {
+                        print(10, "return result;");
+                    }
+                    println(10, "");
+                    println(5, "}");
+                    println();
+                }
+                // APIBridge specific
+                startComment(5);
+                println(8, "Provides a bridge to handle API calls for the given interface name.");
+                println();
+                println(8, "@param bridgeType String with the interface name required.");
+                println(8, "@return APIBridge That handles calls for the specified interface or null if the given bridge is not registered.");
+                endComment(5);
+                println(5, "public final APIBridge getBridge(String bridgeType) {");
+                println(10, "// Start logging elapsed time.");
+                println(10, "long tIn = System.currentTimeMillis();");
+                println(10, "ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();");
+                println(10, "APIBridge result = null;");
+                println();
+                println(10, "if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+\" executing getBridge(\"+bridgeType+\").\");");
+                println();
+
+                println(10, "if (this.delegate != null) {");
+                println(15, "result = this.delegate.getBridge(bridgeType);");
+                println(15, "if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+\" executed 'getBridge' in \"+(System.currentTimeMillis()-tIn)+\"ms.\");");
+                println(10, "} else {");
+                println(15, "if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+\" no delegate for 'getBridge'.\");");
+                println(10, "}");
+                if (!m.getReturnType().equals(Void.TYPE)) {
+                    print(10, "return result;");
+                }
+                println(10, "");
+                println(5, "}");
+                println();
+            } else if (javaMethods.get(m) != null) {
                 startComment(5);
                 println(8, javaMethods.get(m).getComment());
                 println();
@@ -338,7 +554,11 @@ public class JavaGenerator extends GeneratorBase {
                 if (m.getReturnType().equals(Void.TYPE)) {
                     print("void ");
                 } else {
-                    print(convertJavaToNativeType(m.getReturnType()) + " ");
+                    if (simpleName.startsWith("AppRegistry")) {
+                        print(m.getReturnType().getSimpleName().substring(1)+"Bridge ");
+                    } else {
+                        print(convertJavaToNativeType(m.getReturnType()) + " ");
+                    }
                 }
                 print(m.getName() + "(");
                 for (int i = 0; i < m.getParameterCount(); i++) {
@@ -352,9 +572,9 @@ public class JavaGenerator extends GeneratorBase {
                 println(") {");
                 println(10, "// Start logging elapsed time.");
                 println(10, "long tIn = System.currentTimeMillis();");
-                println(10, "ILogging logger = null; // TODO: Get reference from IAppRegistry.");
+                println(10, "ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();");
                 println();
-                print(10, "if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+\" executing " + m.getName() + "");
+                print(10, "if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+\" executing " + m.getName() + "");
                 if (m.getParameterCount() > 0) {
                     print("(");
                 }
@@ -380,7 +600,11 @@ public class JavaGenerator extends GeneratorBase {
                             println(10, convertJavaToNativeType(m.getReturnType()) + " result = " + m.getReturnType() + ";");
                         }
                     } else {
-                        println(10, convertJavaToNativeType(m.getReturnType()) + " result = null;");
+                        if (simpleName.startsWith("AppRegistry")) {
+                            println(10, m.getReturnType().getSimpleName().substring(1)+"Bridge result = null;");
+                        } else {
+                            println(10, convertJavaToNativeType(m.getReturnType()) + " result = null;");
+                        }
                     }
                 }
 
@@ -400,9 +624,9 @@ public class JavaGenerator extends GeneratorBase {
                     }
                 }
                 println(");");
-                println(15, "if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+\" executed '" + m.getName() + "' in \"+(System.currentTimeMillis()-tIn)+\"ms.\");");
+                println(15, "if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+\" executed '" + m.getName() + "' in \"+(System.currentTimeMillis()-tIn)+\"ms.\");");
                 println(10, "} else {");
-                println(15, "if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+\" no delegate for '" + m.getName() + "'.\");");
+                println(15, "if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+\" no delegate for '" + m.getName() + "'.\");");
                 println(10, "}");
                 if (!m.getReturnType().equals(Void.TYPE)) {
                     print(10, "return result;");
@@ -412,160 +636,161 @@ public class JavaGenerator extends GeneratorBase {
                 println();
             }
         }
-        // APIBridge specific
-        startComment(5);
-        println(8, "Invokes the given method specified in the API request object.");
-        println();
-        println(8, "@param request APIRequest object containing method name and parameters.");
-        println(8, "@return String with JSON response or a zero length string if the response is asynchronous or null if method not found.");
-        endComment(5);
-        println(5, "public String invoke(APIRequest request) {");
-        println(10, "Gson gson = new Gson();");
-        println(10, "String responseJSON = \"\";");
-        println(10, "switch (request.getMethodName()) {");
-        List<Method> methodUniqueList = new ArrayList<>();
-        List<Method> methodOverloadedList = new ArrayList<>();
-        for (Method m : classMethods) {
-            int count = 0;
-            for (Method m1 : classMethods) {
-                if (m1.getName().equals(m.getName())) {
-                    count++;
+        if (clazz.getInterfaces().length > 0) {
+            // APIBridge specific
+            startComment(5);
+            println(8, "Invokes the given method specified in the API request object.");
+            println();
+            println(8, "@param request APIRequest object containing method name and parameters.");
+            println(8, "@return String with JSON response or a zero length string if the response is asynchronous or null if method not found.");
+            endComment(5);
+            println(5, "public String invoke(APIRequest request) {");
+            println(10, "Gson gson = new Gson();");
+            println(10, "String responseJSON = \"\";");
+            println(10, "switch (request.getMethodName()) {");
+            List<Method> methodUniqueList = new ArrayList<>();
+            List<Method> methodOverloadedList = new ArrayList<>();
+            for (Method m : classMethods) {
+                int count = 0;
+                for (Method m1 : classMethods) {
+                    if (m1.getName().equals(m.getName())) {
+                        count++;
+                    }
+                }
+                if (count == 1) {
+                    methodUniqueList.add(m);
+                } else {
+                    methodOverloadedList.add(m);
                 }
             }
-            if (count == 1) {
-                methodUniqueList.add(m);
-            } else {
-                methodOverloadedList.add(m);
-            }
-        }
 
-        int parameterIndex = 0;
-        for (Method m : methodUniqueList) {
-            println(15, "case \"" + m.getName() + "\":");
-            int pIndex = 0;
-            for (Parameter p : m.getParameters()) {
-                print(20, convertJavaToNativeType(p.getType()) + " " + p.getName() + parameterIndex + " = ");
-                if (p.getType().getSimpleName().endsWith("Callback") || p.getType().getSimpleName().endsWith("Listener")) {
-                    print("new " + p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
-                } else {
-                    if (p.getType().isPrimitive()) {
-                        print("gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
+            int parameterIndex = 0;
+            for (Method m : methodUniqueList) {
+                println(15, "case \"" + m.getName() + "\":");
+                int pIndex = 0;
+                for (Parameter p : m.getParameters()) {
+                    print(20, convertJavaToNativeType(p.getType()) + " " + p.getName() + parameterIndex + " = ");
+                    if (p.getType().getSimpleName().endsWith("Callback") || p.getType().getSimpleName().endsWith("Listener")) {
+                        print("new " + p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
                     } else {
-                        print("gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
+                        if (p.getType().isPrimitive()) {
+                            print("gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
+                        } else {
+                            print("gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
+                        }
                     }
+                    println(";");
+                    pIndex++;
                 }
-                println(";");
-                pIndex++;
-            }
 
-            if (m.getReturnType().equals(Void.TYPE)) {
-                print(20, "this." + m.getName() + "(");
-                for (int i = 0; i < m.getParameterCount(); i++) {
-                    Parameter p = m.getParameters()[i];
-                    print(p.getName() + parameterIndex);
-                    if (i < m.getParameterCount() - 1) {
-                        print(", ");
+                if (m.getReturnType().equals(Void.TYPE)) {
+                    print(20, "this." + m.getName() + "(");
+                    for (int i = 0; i < m.getParameterCount(); i++) {
+                        Parameter p = m.getParameters()[i];
+                        print(p.getName() + parameterIndex);
+                        if (i < m.getParameterCount() - 1) {
+                            print(", ");
+                        }
                     }
-                }
-                println(");");
-            } else {
-                print(20, convertJavaToNativeType(m.getReturnType()) + " response" + parameterIndex + " = ");
-                print("this." + m.getName() + "(");
-                for (int i = 0; i < m.getParameterCount(); i++) {
-                    Parameter p = m.getParameters()[i];
-                    print(p.getName() + parameterIndex);
-                    if (i < m.getParameterCount() - 1) {
-                        print(", ");
-                    }
-                }
-                println(");");
-                if (m.getReturnType().isPrimitive()) {
-                    println(20, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                    println(");");
                 } else {
-                    println(20, "if (response" + parameterIndex + " != null) {");
-                    println(25, "responseJSON = gson.toJson(response" + parameterIndex + ");");
-                    println(20, "} else {");
-                    println(25, "responseJSON = null;");
-                    println(20, "}");
-                }
-            }
-            println(20, "break;");
-            parameterIndex++;
-        }
-
-        for (Method m : methodOverloadedList) {
-            print(15, "case \"" + m.getName());
-            if (m.getParameterCount() == 0) {
-                println("\":");
-            } else {
-                print("_");
-                for (int i = 0; i < m.getParameterCount(); i++) {
-                    Parameter p = m.getParameters()[i];
-                    print(p.getName());
-                    if (i < m.getParameterCount() - 1) {
-                        print("_");
+                    print(20, convertJavaToNativeType(m.getReturnType()) + " response" + parameterIndex + " = ");
+                    print("this." + m.getName() + "(");
+                    for (int i = 0; i < m.getParameterCount(); i++) {
+                        Parameter p = m.getParameters()[i];
+                        print(p.getName() + parameterIndex);
+                        if (i < m.getParameterCount() - 1) {
+                            print(", ");
+                        }
                     }
-                }
-                println("\":");
-            }
-
-            int pIndex = 0;
-            for (Parameter p : m.getParameters()) {
-                print(20, convertJavaToNativeType(p.getType()) + " " + p.getName() + parameterIndex + " = ");
-                if (p.getType().getSimpleName().endsWith("Callback") || p.getType().getSimpleName().endsWith("Listener")) {
-                    print("new " + p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
-                } else {
-                    if (p.getType().isPrimitive()) {
-                        print("gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
+                    println(");");
+                    if (m.getReturnType().isPrimitive()) {
+                        println(20, "responseJSON = gson.toJson(response" + parameterIndex + ");");
                     } else {
-                        print("gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
+                        println(20, "if (response" + parameterIndex + " != null) {");
+                        println(25, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                        println(20, "} else {");
+                        println(25, "responseJSON = null;");
+                        println(20, "}");
                     }
                 }
-                println(";");
-                pIndex++;
+                println(20, "break;");
+                parameterIndex++;
             }
 
-            if (m.getReturnType().equals(Void.TYPE)) {
-                print(20, "this." + m.getName() + "(");
-                for (int i = 0; i < m.getParameterCount(); i++) {
-                    Parameter p = m.getParameters()[i];
-                    print(p.getName() + parameterIndex);
-                    if (i < m.getParameterCount() - 1) {
-                        print(", ");
-                    }
-                }
-                println(");");
-            } else {
-                print(20, convertJavaToNativeType(m.getReturnType()) + " response" + parameterIndex + " = ");
-                print("this." + m.getName() + "(");
-                for (int i = 0; i < m.getParameterCount(); i++) {
-                    Parameter p = m.getParameters()[i];
-                    print(p.getName() + parameterIndex);
-                    if (i < m.getParameterCount() - 1) {
-                        print(", ");
-                    }
-                }
-                println(");");
-                if (m.getReturnType().isPrimitive()) {
-                    println(20, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+            for (Method m : methodOverloadedList) {
+                print(15, "case \"" + m.getName());
+                if (m.getParameterCount() == 0) {
+                    println("\":");
                 } else {
-                    println(20, "if (response" + parameterIndex + " != null) {");
-                    println(25, "responseJSON = gson.toJson(response" + parameterIndex + ");");
-                    println(20, "} else {");
-                    println(25, "responseJSON = null;");
-                    println(20, "}");
+                    print("_");
+                    for (int i = 0; i < m.getParameterCount(); i++) {
+                        Parameter p = m.getParameters()[i];
+                        print(p.getName());
+                        if (i < m.getParameterCount() - 1) {
+                            print("_");
+                        }
+                    }
+                    println("\":");
                 }
-            }
-            println(20, "break;");
-            parameterIndex++;
-        }
-        println(15, "default:");
-        println(20, "// 404 - response null.");
-        println(20, "responseJSON = null;");
-        println(10, "}");
-        println(10, "return responseJSON;");
-        println(5, "}");
 
+                int pIndex = 0;
+                for (Parameter p : m.getParameters()) {
+                    print(20, convertJavaToNativeType(p.getType()) + " " + p.getName() + parameterIndex + " = ");
+                    if (p.getType().getSimpleName().endsWith("Callback") || p.getType().getSimpleName().endsWith("Listener")) {
+                        print("new " + p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
+                    } else {
+                        if (p.getType().isPrimitive()) {
+                            print("gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
+                        } else {
+                            print("gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
+                        }
+                    }
+                    println(";");
+                    pIndex++;
+                }
+
+                if (m.getReturnType().equals(Void.TYPE)) {
+                    print(20, "this." + m.getName() + "(");
+                    for (int i = 0; i < m.getParameterCount(); i++) {
+                        Parameter p = m.getParameters()[i];
+                        print(p.getName() + parameterIndex);
+                        if (i < m.getParameterCount() - 1) {
+                            print(", ");
+                        }
+                    }
+                    println(");");
+                } else {
+                    print(20, convertJavaToNativeType(m.getReturnType()) + " response" + parameterIndex + " = ");
+                    print("this." + m.getName() + "(");
+                    for (int i = 0; i < m.getParameterCount(); i++) {
+                        Parameter p = m.getParameters()[i];
+                        print(p.getName() + parameterIndex);
+                        if (i < m.getParameterCount() - 1) {
+                            print(", ");
+                        }
+                    }
+                    println(");");
+                    if (m.getReturnType().isPrimitive()) {
+                        println(20, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                    } else {
+                        println(20, "if (response" + parameterIndex + " != null) {");
+                        println(25, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                        println(20, "} else {");
+                        println(25, "responseJSON = null;");
+                        println(20, "}");
+                    }
+                }
+                println(20, "break;");
+                parameterIndex++;
+            }
+            println(15, "default:");
+            println(20, "// 404 - response null.");
+            println(20, "responseJSON = null;");
+            println(10, "}");
+            println(10, "return responseJSON;");
+            println(5, "}");
+        }
         println("}");
     }
 
@@ -870,7 +1095,11 @@ public class JavaGenerator extends GeneratorBase {
                 if (method.getReturnType().equals(Void.TYPE)) {
                     print(5, "void ");
                 } else {
-                    print(5, convertJavaToNativeType(method.getReturnType()) + " ");
+                    if (simpleName.startsWith("IAppRegistry")) {
+                        print(5, method.getReturnType().getSimpleName().substring(1) + "Bridge ");
+                    } else {
+                        print(5, convertJavaToNativeType(method.getReturnType()) + " ");
+                    }
                 }
                 print(method.getName());
                 print("(");

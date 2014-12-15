@@ -79,6 +79,7 @@ public interface IAdaptiveRP {
         System,
         UI,
         Util,
+        Kernel,
         Unknown
     }
 }

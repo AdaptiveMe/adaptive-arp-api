@@ -41,7 +41,7 @@ public class BaseReaderBridge implements IBaseReader {
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     protected IAdaptiveRPGroup apiGroup;
 
      /**
         Default constructor.

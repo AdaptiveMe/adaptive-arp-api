@@ -51,6 +51,7 @@ namespace Adaptive.Arp.Api
           System,
           UI,
           Util,
+          Kernel,
           Unknown
 
      }
