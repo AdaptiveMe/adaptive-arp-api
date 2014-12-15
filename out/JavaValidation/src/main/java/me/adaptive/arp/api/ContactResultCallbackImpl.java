@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Contact operations
    Auto-generated implementation of IContactResultCallback specification.
@@ -52,7 +54,7 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
         @since ARP1.0
      */
      public void onError(IContactResultCallbackError error) {
-          //TODO: Implement callback IContactResultCallback.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
         @since ARP1.0
      */
      public void onResult(Contact[] contacts) {
-          //TODO: Implement callback IContactResultCallback.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(contacts) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
         @since ARP1.0
      */
      public void onWarning(Contact[] contacts, IContactResultCallbackWarning warning) {
-          //TODO: Implement callback IContactResultCallback.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(contacts) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

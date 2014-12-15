@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Network reachability callback result
    Auto-generated implementation of INetworkReachabilityCallback specification.
@@ -52,7 +54,7 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onError(INetworkReachabilityCallbackError error) {
-          //TODO: Implement callback INetworkReachabilityCallback.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onResult(boolean reachable) {
-          //TODO: Implement callback INetworkReachabilityCallback.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(reachable) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onWarning(boolean reachable, INetworkReachabilityCallbackWarning warning) {
-          //TODO: Implement callback INetworkReachabilityCallback.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(reachable) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

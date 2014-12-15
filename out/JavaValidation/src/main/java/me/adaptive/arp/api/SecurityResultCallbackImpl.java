@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Security result callback
    Auto-generated implementation of ISecurityResultCallback specification.
@@ -52,7 +54,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @since ARP1.0
      */
      public void onError(ISecurityResultCallbackError error) {
-          //TODO: Implement callback ISecurityResultCallback.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @since ARP1.0
      */
      public void onResult(SecureKeyPair[] keyValues) {
-          //TODO: Implement callback ISecurityResultCallback.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(keyValues) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @since ARP1.0
      */
      public void onWarning(SecureKeyPair[] keyValues, ISecurityResultCallbackWarning warning) {
-          //TODO: Implement callback ISecurityResultCallback.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(keyValues) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the File result operations
    Auto-generated implementation of IFileListResultCallback specification.
@@ -52,7 +54,7 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         @since ARP1.0
      */
      public void onError(IFileListResultCallbackError error) {
-          //TODO: Implement callback IFileListResultCallback.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         @since ARP1.0
      */
      public void onResult(IFile[] files) {
-          //TODO: Implement callback IFileListResultCallback.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(files) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         @since ARP1.0
      */
      public void onWarning(IFile[] files, IFileListResultCallbackWarning warning) {
-          //TODO: Implement callback IFileListResultCallback.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(files) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Geolocation results
    Auto-generated implementation of IGeolocationListener specification.
@@ -51,7 +53,7 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         @since ARP1.0
      */
      public void onError(IGeolocationListenerError error) {
-          //TODO: Implement listener IGeolocationListener.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleGeolocationListenerError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -61,7 +63,7 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         @since ARP1.0
      */
      public void onResult(Geolocation geolocation) {
-          //TODO: Implement listener IGeolocationListener.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleGeolocationListenerResult( '"+getId()+"', JSON.parse(" + gson.toJson(geolocation) +") )");
      }
 
      /**
@@ -71,7 +73,7 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         @since ARP1.0
      */
      public void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning) {
-          //TODO: Implement listener IGeolocationListener.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleGeolocationListenerWarning( '"+getId()+"', JSON.parse(" + gson.toJson(geolocation) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

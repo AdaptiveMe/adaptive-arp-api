@@ -798,6 +798,8 @@ public class JavaGenerator extends GeneratorBase {
     protected void createCallbackImplementation(String simpleName, Class clazz, JavaClass javaClass) {
         println("package " + clazz.getPackage().getName() + ";");
         println();
+        println("import com.google.gson.Gson;");
+        println();
         startComment(0);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
             println(3, javaClass.getComment());
@@ -822,6 +824,12 @@ public class JavaGenerator extends GeneratorBase {
             println();
 
             startComment(5);
+            println(8, "JSON Serializer.");
+            endComment(5);
+            println(5, "protected Gson gson;");
+            println();
+
+            startComment(5);
             println(8, "Constructor with callback id.");
             println();
             println(8, "@param id  The id of the callback.");
@@ -829,6 +837,7 @@ public class JavaGenerator extends GeneratorBase {
             println(5, "public " + simpleName + "(long id) {");
             println(10, "this.id = id;");
             println(10, "this.apiGroup = IAdaptiveRPGroup.Application;");
+            println(10, "this.gson = new Gson();");
             println(5, "}");
             println();
 
@@ -902,7 +911,15 @@ public class JavaGenerator extends GeneratorBase {
                     }
                 }
                 println(") {");
-                println(10, "//TODO: Implement callback " + m.getDeclaringClass().getSimpleName() + "." + m.getName());
+                print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print("JSON.parse(\" + gson.toJson("+p.getName()+") +\")");
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println(" )\");");
                 println(5, "}");
                 println();
             }
@@ -914,6 +931,8 @@ public class JavaGenerator extends GeneratorBase {
     @Override
     protected void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
         println("package " + clazz.getPackage().getName() + ";");
+        println();
+        println("import com.google.gson.Gson;");
         println();
         startComment(0);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
@@ -939,6 +958,12 @@ public class JavaGenerator extends GeneratorBase {
             println();
 
             startComment(5);
+            println(8, "JSON Serializer.");
+            endComment(5);
+            println(5, "protected Gson gson;");
+            println();
+
+            startComment(5);
             println(8, "Constructor with listener id.");
             println();
             println(8, "@param id  The id of the listener.");
@@ -946,6 +971,7 @@ public class JavaGenerator extends GeneratorBase {
             println(5, "public " + simpleName + "(long id) {");
             println(10, "this.id = id;");
             println(10, "this.apiGroup = IAdaptiveRPGroup.Application;");
+            println(10, "this.gson = new Gson();");
             println(5, "}");
             println();
 
@@ -1019,7 +1045,16 @@ public class JavaGenerator extends GeneratorBase {
                     }
                 }
                 println(") {");
-                println(10, "//TODO: Implement listener " + m.getDeclaringClass().getSimpleName() + "." + m.getName());
+
+                print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
+                for (int i = 0; i < m.getParameterCount(); i++) {
+                    Parameter p = m.getParameters()[i];
+                    print("JSON.parse(\" + gson.toJson("+p.getName()+") +\")");
+                    if (i < m.getParameterCount() - 1) {
+                        print(", ");
+                    }
+                }
+                println(" )\");");
                 println(5, "}");
                 println();
             }

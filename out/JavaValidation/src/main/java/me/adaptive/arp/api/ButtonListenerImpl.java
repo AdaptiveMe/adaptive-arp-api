@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the button  operations
    Auto-generated implementation of IButtonListener specification.
@@ -52,7 +54,7 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         @since ARP1.0
      */
      public void onError(IButtonListenerError error) {
-          //TODO: Implement listener IButtonListener.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         @since ARP1.0
      */
      public void onResult(Button button) {
-          //TODO: Implement listener IButtonListener.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '"+getId()+"', JSON.parse(" + gson.toJson(button) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         @since ARP1.0
      */
      public void onWarning(Button button, IButtonListenerWarning warning) {
-          //TODO: Implement listener IButtonListener.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '"+getId()+"', JSON.parse(" + gson.toJson(button) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

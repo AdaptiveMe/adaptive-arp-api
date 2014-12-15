@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the File loading callback responses
    Auto-generated implementation of IFileDataLoadResultCallback specification.
@@ -52,7 +54,7 @@ public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements 
         @since ARP1.0
      */
      public void onError(IFileDataLoadResultCallbackError error) {
-          //TODO: Implement callback IFileDataLoadResultCallback.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements 
         @since ARP1.0
      */
      public void onResult(byte[] data) {
-          //TODO: Implement callback IFileDataLoadResultCallback.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(data) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements 
         @since ARP1.0
      */
      public void onWarning(byte[] data, IFileDataLoadResultCallbackWarning warning) {
-          //TODO: Implement callback IFileDataLoadResultCallback.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(data) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

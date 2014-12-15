@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Services operations
    Auto-generated implementation of IServiceResultCallback specification.
@@ -52,7 +54,7 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
         @since ARP1.0
      */
      public void onError(IServiceResultCallbackError error) {
-          //TODO: Implement callback IServiceResultCallback.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
         @since ARP1.0
      */
      public void onResult(ServiceResponse response) {
-          //TODO: Implement callback IServiceResultCallback.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(response) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
         @since ARP1.0
      */
      public void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning) {
-          //TODO: Implement callback IServiceResultCallback.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(response) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Cloud operations
    Auto-generated implementation of IDatabaseResultCallback specification.
@@ -52,7 +54,7 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
         @since ARP1.0
      */
      public void onError(IDatabaseResultCallbackError error) {
-          //TODO: Implement callback IDatabaseResultCallback.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
         @since ARP1.0
      */
      public void onResult(Database database) {
-          //TODO: Implement callback IDatabaseResultCallback.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(database) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
         @since ARP1.0
      */
      public void onWarning(Database database, IDatabaseResultCallbackWarning warning) {
-          //TODO: Implement callback IDatabaseResultCallback.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(database) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

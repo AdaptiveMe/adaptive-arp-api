@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Network status listener events
    Auto-generated implementation of INetworkStatusListener specification.
@@ -52,7 +54,7 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @since ARP1.0
      */
      public void onError(INetworkStatusListenerError error) {
-          //TODO: Implement listener INetworkStatusListener.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @since ARP1.0
      */
      public void onResult(ICapabilitiesNet network) {
-          //TODO: Implement listener INetworkStatusListener.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( '"+getId()+"', JSON.parse(" + gson.toJson(network) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @since ARP1.0
      */
      public void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning) {
-          //TODO: Implement listener INetworkStatusListener.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( '"+getId()+"', JSON.parse(" + gson.toJson(network) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

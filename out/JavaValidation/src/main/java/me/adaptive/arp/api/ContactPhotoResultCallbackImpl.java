@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Contact operations
    Auto-generated implementation of IContactPhotoResultCallback specification.
@@ -52,7 +54,7 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         @since ARP1.0
      */
      public void onError(IContactPhotoResultCallbackError error) {
-          //TODO: Implement callback IContactPhotoResultCallback.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         @since ARP1.0
      */
      public void onResult(byte[] contactPhoto) {
-          //TODO: Implement callback IContactPhotoResultCallback.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(contactPhoto) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         @since ARP1.0
      */
      public void onWarning(byte[] contactPhoto, IContactPhotoResultCallbackWarning warning) {
-          //TODO: Implement callback IContactPhotoResultCallback.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(contactPhoto) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

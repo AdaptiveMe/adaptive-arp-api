@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Base application for Listener purposes
    Auto-generated implementation of IBaseListener specification.
@@ -47,6 +49,11 @@ public class BaseListenerImpl implements IBaseListener {
      private IAdaptiveRPGroup apiGroup;
 
      /**
+        JSON Serializer.
+     */
+     protected Gson gson;
+
+     /**
         Constructor with listener id.
 
         @param id  The id of the listener.
@@ -54,6 +61,7 @@ public class BaseListenerImpl implements IBaseListener {
      public BaseListenerImpl(long id) {
           this.id = id;
           this.apiGroup = IAdaptiveRPGroup.Application;
+          this.gson = new Gson();
      }
 
      /**

@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface defines the response methods of the acceleration operations
    Auto-generated implementation of IAccelerationListener specification.
@@ -53,7 +55,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public void onError(IAccelerationListenerError error) {
-          //TODO: Implement listener IAccelerationListener.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -63,7 +65,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public void onResult(Acceleration acceleration) {
-          //TODO: Implement listener IAccelerationListener.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( '"+getId()+"', JSON.parse(" + gson.toJson(acceleration) +") )");
      }
 
      /**
@@ -74,7 +76,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning) {
-          //TODO: Implement listener IAccelerationListener.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( '"+getId()+"', JSON.parse(" + gson.toJson(acceleration) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

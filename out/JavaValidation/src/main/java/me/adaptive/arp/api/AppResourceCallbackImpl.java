@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    This interface manages the responses of the resource callback
    Auto-generated implementation of IAppResourceCallback specification.
@@ -52,7 +54,7 @@ public class AppResourceCallbackImpl extends BaseCallbackImpl implements IAppRes
         @since ARP1.0
      */
      public void onError(IAppResourceCallbackError error) {
-          //TODO: Implement callback IAppResourceCallback.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class AppResourceCallbackImpl extends BaseCallbackImpl implements IAppRes
         @since ARP1.0
      */
      public void onResult(IAppResource resource) {
-          //TODO: Implement callback IAppResourceCallback.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(resource) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class AppResourceCallbackImpl extends BaseCallbackImpl implements IAppRes
         @since ARP1.0
      */
      public void onWarning(IAppResource resource, IAppResourceCallbackWarning warning) {
-          //TODO: Implement callback IAppResourceCallback.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(resource) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

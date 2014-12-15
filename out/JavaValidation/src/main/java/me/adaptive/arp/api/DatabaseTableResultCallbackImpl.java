@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Cloud operations
    Auto-generated implementation of IDatabaseTableResultCallback specification.
@@ -52,7 +54,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onError(IDatabaseTableResultCallbackError error) {
-          //TODO: Implement callback IDatabaseTableResultCallback.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onResult(DatabaseTable databaseTable) {
-          //TODO: Implement callback IDatabaseTableResultCallback.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(databaseTable) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning) {
-          //TODO: Implement callback IDatabaseTableResultCallback.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(databaseTable) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

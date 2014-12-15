@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Interface for Managing the Messaging responses
    Auto-generated implementation of IMessagingCallback specification.
@@ -52,7 +54,7 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         @since ARP1.0
      */
      public void onError(IMessagingCallbackError error) {
-          //TODO: Implement callback IMessagingCallback.onError
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
      }
 
      /**
@@ -62,7 +64,7 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         @since ARP1.0
      */
      public void onResult(boolean success) {
-          //TODO: Implement callback IMessagingCallback.onResult
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(success) +") )");
      }
 
      /**
@@ -73,7 +75,7 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         @since ARP1.0
      */
      public void onWarning(boolean success, IMessagingCallbackWarning warning) {
-          //TODO: Implement callback IMessagingCallback.onWarning
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(success) +"), JSON.parse(" + gson.toJson(warning) +") )");
      }
 
 }

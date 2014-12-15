@@ -30,6 +30,8 @@ Contributors:
 
 package me.adaptive.arp.api;
 
+import com.google.gson.Gson;
+
 /**
    Base application for Callback purposes
    Auto-generated implementation of IBaseCallback specification.
@@ -47,6 +49,11 @@ public class BaseCallbackImpl implements IBaseCallback {
      private IAdaptiveRPGroup apiGroup;
 
      /**
+        JSON Serializer.
+     */
+     protected Gson gson;
+
+     /**
         Constructor with callback id.
 
         @param id  The id of the callback.
@@ -54,6 +61,7 @@ public class BaseCallbackImpl implements IBaseCallback {
      public BaseCallbackImpl(long id) {
           this.id = id;
           this.apiGroup = IAdaptiveRPGroup.Application;
+          this.gson = new Gson();
      }
 
      /**
