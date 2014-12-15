@@ -160,8 +160,8 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          String methodName = request.getMethodName();
-          switch (methodName) {
+          String responseJSON = "";
+          switch (request.getMethodName()) {
                case "addLifecycleListener":
                     break;
                case "isBackground":
@@ -171,9 +171,10 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
                case "removeLifecycleListeners":
                     break;
                default:
-                    // TODO: Nothing to invoke!!!
+                    // 404 - response null.
+                    responseJSON = null;
           }
-          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+          return responseJSON;
      }
 }
 /**

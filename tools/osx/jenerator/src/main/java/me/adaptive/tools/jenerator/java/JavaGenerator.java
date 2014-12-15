@@ -400,8 +400,8 @@ public class JavaGenerator extends GeneratorBase {
         println(8, "@return String with JSON response or a zero length string if the response is asynchronous or null if method not found.");
         endComment(5);
         println(5, "public String invoke(APIRequest request) {");
-        println(10, "String methodName = request.getMethodName();");
-        println(10, "switch (methodName) {");
+        println(10, "String responseJSON = \"\";");
+        println(10, "switch (request.getMethodName()) {");
         List<Method> methodUniqueList = new ArrayList<>();
         List<Method> methodOverloadedList = new ArrayList<>();
         for (Method m : classMethods) {
@@ -422,7 +422,7 @@ public class JavaGenerator extends GeneratorBase {
                 println(15, "case \"" + m.getName() + "\":");
                 println(20, "break;");
         }
-        
+
         boolean first = true;
         for (Method m : methodOverloadedList) {
             if (first) {
@@ -434,9 +434,10 @@ public class JavaGenerator extends GeneratorBase {
             }
         }
         println(15,"default:");
-        println(20,"// TODO: Nothing to invoke!!!");
+        println(20,"// 404 - response null.");
+        println(20,"responseJSON = null;");
         println(10, "}");
-        println(10, "return null; // TODO: Implement APIRequest to Params and invoke delegate method.");
+        println(10, "return responseJSON;");
         println(5, "}");
 
         println("}");

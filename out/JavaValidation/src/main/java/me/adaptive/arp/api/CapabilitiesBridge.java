@@ -244,8 +244,8 @@ device.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          String methodName = request.getMethodName();
-          switch (methodName) {
+          String responseJSON = "";
+          switch (request.getMethodName()) {
                case "hasButtonSupport":
                     break;
                case "hasCommunicationSupport":
@@ -261,9 +261,10 @@ device.
                case "hasSensorSupport":
                     break;
                default:
-                    // TODO: Nothing to invoke!!!
+                    // 404 - response null.
+                    responseJSON = null;
           }
-          return null; // TODO: Implement APIRequest to Params and invoke delegate method.
+          return responseJSON;
      }
 }
 /**
