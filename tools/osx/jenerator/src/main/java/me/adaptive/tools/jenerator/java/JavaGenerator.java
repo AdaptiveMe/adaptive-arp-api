@@ -128,7 +128,16 @@ public class JavaGenerator extends GeneratorBase {
         classMethods.sort(new Comparator<Method>() {
             @Override
             public int compare(Method o1, Method o2) {
-                return (o1.getName() + o1.getParameterCount()).compareTo((o2.getName() + o2.getParameterCount()));
+                String first = o1.getName()+o1.getParameterCount();
+                for (Parameter p : o1.getParameters()) {
+                    first+= p.getName();
+                }
+
+                String second = o2.getName()+o2.getParameterCount();
+                for (Parameter p : o2.getParameters()) {
+                    second+= p.getName();
+                }
+                return first.compareTo(second);
             }
         });
         for (Method m : classMethods) {
@@ -302,7 +311,16 @@ public class JavaGenerator extends GeneratorBase {
         classMethods.sort(new Comparator<Method>() {
             @Override
             public int compare(Method o1, Method o2) {
-                return (o1.getName() + o1.getParameterCount()).compareTo((o2.getName() + o2.getParameterCount()));
+                String first = o1.getName()+o1.getParameterCount();
+                for (Parameter p : o1.getParameters()) {
+                    first+= p.getName();
+                }
+
+                String second = o2.getName()+o2.getParameterCount();
+                for (Parameter p : o2.getParameters()) {
+                    second+= p.getName();
+                }
+                return first.compareTo(second);
             }
         });
         for (Method m : classMethods) {

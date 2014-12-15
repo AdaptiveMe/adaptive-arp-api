@@ -114,30 +114,6 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
      }
 
      /**
-        Check whether a service by the given name is registered.
-
-        @param serviceName Name of service.
-        @return True if the service is registered, false otherwise.
-        @since ARP1.0
-     */
-     public boolean isRegistered(String serviceName) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = null; // TODO: Get reference from IAppRegistry.
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing isRegistered({"+serviceName+"}).");
-
-          boolean result = false;
-          if (this.delegate != null) {
-               result = this.delegate.isRegistered(serviceName);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'isRegistered' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'isRegistered'.");
-          }
-          return result;          
-     }
-
-     /**
         Check whether a service by the given service is already registered.
 
         @param service Service to check
@@ -154,6 +130,30 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
           boolean result = false;
           if (this.delegate != null) {
                result = this.delegate.isRegistered(service);
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'isRegistered' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'isRegistered'.");
+          }
+          return result;          
+     }
+
+     /**
+        Check whether a service by the given name is registered.
+
+        @param serviceName Name of service.
+        @return True if the service is registered, false otherwise.
+        @since ARP1.0
+     */
+     public boolean isRegistered(String serviceName) {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = null; // TODO: Get reference from IAppRegistry.
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executing isRegistered({"+serviceName+"}).");
+
+          boolean result = false;
+          if (this.delegate != null) {
+               result = this.delegate.isRegistered(serviceName);
                if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.getAPIGroup().name(),this.getClass().getSimpleName()+" executed 'isRegistered' in "+(System.currentTimeMillis()-tIn)+"ms.");
           } else {
                if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.getAPIGroup().name(),this.getClass().getSimpleName()+" no delegate for 'isRegistered'.");
@@ -256,14 +256,14 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService, 
                case "unregisterServices":
                     this.delegate.unregisterServices();
                     break;
-               case "isRegistered_serviceName":
-                    String serviceName5 = null;
-                    boolean response5 = this.delegate.isRegistered(serviceName5);
+               case "isRegistered_service":
+                    Service service5 = null;
+                    boolean response5 = this.delegate.isRegistered(service5);
                     // TODO: Implement overloaded method handling.
                     break;
-               case "isRegistered_service":
-                    Service service6 = null;
-                    boolean response6 = this.delegate.isRegistered(service6);
+               case "isRegistered_serviceName":
+                    String serviceName6 = null;
+                    boolean response6 = this.delegate.isRegistered(serviceName6);
                     // TODO: Implement overloaded method handling.
                     break;
                default:
