@@ -186,14 +186,21 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice, APIBridge
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "addButtonListener":
+                    IButtonListener listener0 = null;
+                    this.delegate.addButtonListener(listener0);
                     break;
                case "getDeviceInfo":
+                    DeviceInfo response1 = this.delegate.getDeviceInfo();
                     break;
                case "getLocaleCurrent":
+                    Locale response2 = this.delegate.getLocaleCurrent();
                     break;
                case "removeButtonListener":
+                    IButtonListener listener3 = null;
+                    this.delegate.removeButtonListener(listener3);
                     break;
                case "removeButtonListeners":
+                    this.delegate.removeButtonListeners();
                     break;
                default:
                     // 404 - response null.

@@ -98,6 +98,7 @@ public class OSBridge extends BaseSystemBridge implements IOS, APIBridge {
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "getOSInfo":
+                    OSInfo response0 = this.delegate.getOSInfo();
                     break;
                default:
                     // 404 - response null.

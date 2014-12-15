@@ -97,6 +97,8 @@ public class VideoBridge extends BaseMediaBridge implements IVideo, APIBridge {
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "playStream":
+                    String url0 = null;
+                    this.delegate.playStream(url0);
                     break;
                default:
                     // 404 - response null.

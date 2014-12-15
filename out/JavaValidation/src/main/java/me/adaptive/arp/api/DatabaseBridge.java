@@ -270,20 +270,49 @@ should be passed as a parameter
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "createDatabase":
+                    Database database0 = null;
+                    IDatabaseResultCallback callback0 = null;
+                    this.delegate.createDatabase(database0, callback0);
                     break;
                case "createTable":
+                    Database database1 = null;
+                    DatabaseTable databaseTable1 = null;
+                    IDatabaseTableResultCallback callback1 = null;
+                    this.delegate.createTable(database1, databaseTable1, callback1);
                     break;
                case "deleteDatabase":
+                    Database database2 = null;
+                    IDatabaseResultCallback callback2 = null;
+                    this.delegate.deleteDatabase(database2, callback2);
                     break;
                case "deleteTable":
+                    Database database3 = null;
+                    DatabaseTable databaseTable3 = null;
+                    IDatabaseTableResultCallback callback3 = null;
+                    this.delegate.deleteTable(database3, databaseTable3, callback3);
                     break;
                case "executeSqlStatement":
+                    Database database4 = null;
+                    String statement4 = null;
+                    String[] replacements4 = null;
+                    IDatabaseTableResultCallback callback4 = null;
+                    this.delegate.executeSqlStatement(database4, statement4, replacements4, callback4);
                     break;
                case "executeSqlTransactions":
+                    Database database5 = null;
+                    String[] statements5 = null;
+                    boolean rollbackFlag5 = null;
+                    IDatabaseTableResultCallback callback5 = null;
+                    this.delegate.executeSqlTransactions(database5, statements5, rollbackFlag5, callback5);
                     break;
                case "existsDatabase":
+                    Database database6 = null;
+                    boolean response6 = this.delegate.existsDatabase(database6);
                     break;
                case "existsTable":
+                    Database database7 = null;
+                    DatabaseTable databaseTable7 = null;
+                    boolean response7 = this.delegate.existsTable(database7, databaseTable7);
                     break;
                default:
                     // 404 - response null.

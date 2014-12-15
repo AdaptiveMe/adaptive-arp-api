@@ -98,6 +98,9 @@ public class MailBridge extends BasePIMBridge implements IMail, APIBridge {
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "sendEmail":
+                    Email data0 = null;
+                    IMessagingCallback callback0 = null;
+                    this.delegate.sendEmail(data0, callback0);
                     break;
                default:
                     // 404 - response null.

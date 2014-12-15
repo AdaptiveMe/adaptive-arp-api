@@ -119,8 +119,10 @@ public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBrid
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "dismissApplication":
+                    this.delegate.dismissApplication();
                     break;
                case "dismissSplashScreen":
+                    boolean response1 = this.delegate.dismissSplashScreen();
                     break;
                default:
                     // 404 - response null.

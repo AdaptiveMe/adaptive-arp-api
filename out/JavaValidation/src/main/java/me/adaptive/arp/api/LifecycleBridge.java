@@ -163,12 +163,18 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "addLifecycleListener":
+                    ILifecycleListener listener0 = null;
+                    this.delegate.addLifecycleListener(listener0);
                     break;
                case "isBackground":
+                    boolean response1 = this.delegate.isBackground();
                     break;
                case "removeLifecycleListener":
+                    ILifecycleListener listener2 = null;
+                    this.delegate.removeLifecycleListener(listener2);
                     break;
                case "removeLifecycleListeners":
+                    this.delegate.removeLifecycleListeners();
                     break;
                default:
                     // 404 - response null.

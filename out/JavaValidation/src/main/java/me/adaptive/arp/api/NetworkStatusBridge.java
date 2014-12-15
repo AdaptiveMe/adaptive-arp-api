@@ -140,10 +140,15 @@ public class NetworkStatusBridge extends BaseCommunicationBridge implements INet
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "addNetworkStatusListener":
+                    INetworkStatusListener listener0 = null;
+                    this.delegate.addNetworkStatusListener(listener0);
                     break;
                case "removeNetworkStatusListener":
+                    INetworkStatusListener listener1 = null;
+                    this.delegate.removeNetworkStatusListener(listener1);
                     break;
                case "removeNetworkStatusListeners":
+                    this.delegate.removeNetworkStatusListeners();
                     break;
                default:
                     // 404 - response null.

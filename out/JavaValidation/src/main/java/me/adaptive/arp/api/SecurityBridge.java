@@ -170,12 +170,25 @@ public class SecurityBridge extends BaseSecurityBridge implements ISecurity, API
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "deleteSecureKeyValuePairs":
+                    String[] keys0 = null;
+                    String publicAccessName0 = null;
+                    ISecurityResultCallback callback0 = null;
+                    this.delegate.deleteSecureKeyValuePairs(keys0, publicAccessName0, callback0);
                     break;
                case "getSecureKeyValuePairs":
+                    String[] keys1 = null;
+                    String publicAccessName1 = null;
+                    ISecurityResultCallback callback1 = null;
+                    this.delegate.getSecureKeyValuePairs(keys1, publicAccessName1, callback1);
                     break;
                case "isDeviceModified":
+                    boolean response2 = this.delegate.isDeviceModified();
                     break;
                case "setSecureKeyValuePairs":
+                    SecureKeyPair[] keyValues3 = null;
+                    String publicAccessName3 = null;
+                    ISecurityResultCallback callback3 = null;
+                    this.delegate.setSecureKeyValuePairs(keyValues3, publicAccessName3, callback3);
                     break;
                default:
                     // 404 - response null.

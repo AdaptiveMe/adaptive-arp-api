@@ -140,10 +140,15 @@ public class GeolocationBridge extends BaseSensorBridge implements IGeolocation,
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "addGeolocationListener":
+                    IGeolocationListener listener0 = null;
+                    this.delegate.addGeolocationListener(listener0);
                     break;
                case "removeGeolocationListener":
+                    IGeolocationListener listener1 = null;
+                    this.delegate.removeGeolocationListener(listener1);
                     break;
                case "removeGeolocationListeners":
+                    this.delegate.removeGeolocationListeners();
                     break;
                default:
                     // 404 - response null.

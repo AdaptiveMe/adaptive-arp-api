@@ -262,20 +262,45 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "getContact":
+                    ContactUid contact0 = null;
+                    IContactResultCallback callback0 = null;
+                    this.delegate.getContact(contact0, callback0);
                     break;
                case "getContactPhoto":
+                    ContactUid contact1 = null;
+                    IContactPhotoResultCallback callback1 = null;
+                    this.delegate.getContactPhoto(contact1, callback1);
                     break;
                case "getContacts":
+                    IContactResultCallback callback2 = null;
+                    this.delegate.getContacts(callback2);
                     break;
                case "getContactsForFields":
+                    IContactResultCallback callback3 = null;
+                    IContactFieldGroup[] fields3 = null;
+                    this.delegate.getContactsForFields(callback3, fields3);
                     break;
                case "getContactsWithFilter":
+                    IContactResultCallback callback4 = null;
+                    IContactFieldGroup[] fields4 = null;
+                    IContactFilter[] filter4 = null;
+                    this.delegate.getContactsWithFilter(callback4, fields4, filter4);
                     break;
                case "searchContacts":
+                    String term5 = null;
+                    IContactResultCallback callback5 = null;
+                    this.delegate.searchContacts(term5, callback5);
                     break;
                case "searchContactsWithFilter":
+                    String term6 = null;
+                    IContactResultCallback callback6 = null;
+                    IContactFilter[] filter6 = null;
+                    this.delegate.searchContactsWithFilter(term6, callback6, filter6);
                     break;
                case "setContactPhoto":
+                    ContactUid contact7 = null;
+                    byte[] pngImage7 = null;
+                    boolean response7 = this.delegate.setContactPhoto(contact7, pngImage7);
                     break;
                default:
                     // 404 - response null.

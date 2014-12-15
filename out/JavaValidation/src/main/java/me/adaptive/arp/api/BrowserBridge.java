@@ -151,10 +151,20 @@ public class BrowserBridge extends BaseUIBridge implements IBrowser, APIBridge {
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "openExtenalBrowser":
+                    String url0 = null;
+                    boolean response0 = this.delegate.openExtenalBrowser(url0);
                     break;
                case "openInternalBrowser":
+                    String url1 = null;
+                    String title1 = null;
+                    String backButtonText1 = null;
+                    boolean response1 = this.delegate.openInternalBrowser(url1, title1, backButtonText1);
                     break;
                case "openInternalBrowserModal":
+                    String url2 = null;
+                    String title2 = null;
+                    String backButtonText2 = null;
+                    boolean response2 = this.delegate.openInternalBrowserModal(url2, title2, backButtonText2);
                     break;
                default:
                     // 404 - response null.

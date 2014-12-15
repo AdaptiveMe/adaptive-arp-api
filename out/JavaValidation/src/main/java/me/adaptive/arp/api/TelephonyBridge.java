@@ -99,6 +99,8 @@ public class TelephonyBridge extends BaseCommunicationBridge implements ITelepho
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "call":
+                    String number0 = null;
+                    ITelephonyStatus response0 = this.delegate.call(number0);
                     break;
                default:
                     // 404 - response null.

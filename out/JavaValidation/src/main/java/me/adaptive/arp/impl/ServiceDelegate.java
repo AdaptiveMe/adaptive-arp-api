@@ -73,20 +73,6 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
      }
 
      /**
-        Check whether a service by the given service is already registered.
-
-        @param service Service to check
-        @return True if the service is registered, false otherwise.
-        @since ARP1.0
-     */
-     public boolean isRegistered(Service service) {
-          boolean response;
-          // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":isRegistered");
-          // return response;
-     }
-
-     /**
         Check whether a service by the given name is registered.
 
         @param serviceName Name of service.
@@ -94,6 +80,20 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
         @since ARP1.0
      */
      public boolean isRegistered(String serviceName) {
+          boolean response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":isRegistered");
+          // return response;
+     }
+
+     /**
+        Check whether a service by the given service is already registered.
+
+        @param service Service to check
+        @return True if the service is registered, false otherwise.
+        @since ARP1.0
+     */
+     public boolean isRegistered(Service service) {
           boolean response;
           // TODO: Not implemented.
           throw new UnsupportedOperationException(this.getClass().getName()+":isRegistered");

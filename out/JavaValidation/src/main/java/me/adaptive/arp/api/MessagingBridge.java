@@ -99,6 +99,10 @@ public class MessagingBridge extends BasePIMBridge implements IMessaging, APIBri
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "sendSMS":
+                    String number0 = null;
+                    String text0 = null;
+                    IMessagingCallback callback0 = null;
+                    this.delegate.sendSMS(number0, text0, callback0);
                     break;
                default:
                     // 404 - response null.

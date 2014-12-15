@@ -140,10 +140,15 @@ public class AccelerationBridge extends BaseSensorBridge implements IAcceleratio
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "addAccelerationListener":
+                    IAccelerationListener listener0 = null;
+                    this.delegate.addAccelerationListener(listener0);
                     break;
                case "removeAccelerationListener":
+                    IAccelerationListener listener1 = null;
+                    this.delegate.removeAccelerationListener(listener1);
                     break;
                case "removeAccelerationListeners":
+                    this.delegate.removeAccelerationListeners();
                     break;
                default:
                     // 404 - response null.

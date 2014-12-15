@@ -121,8 +121,14 @@ public class NetworkReachabilityBridge extends BaseCommunicationBridge implement
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "isNetworkReachable":
+                    String host0 = null;
+                    INetworkReachabilityCallback callback0 = null;
+                    this.delegate.isNetworkReachable(host0, callback0);
                     break;
                case "isNetworkServiceReachable":
+                    String url1 = null;
+                    INetworkReachabilityCallback callback1 = null;
+                    this.delegate.isNetworkServiceReachable(url1, callback1);
                     break;
                default:
                     // 404 - response null.

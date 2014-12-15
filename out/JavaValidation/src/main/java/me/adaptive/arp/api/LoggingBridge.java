@@ -121,7 +121,17 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
      public String invoke(APIRequest request) {
           String responseJSON = "";
           switch (request.getMethodName()) {
-               case "log":
+               case "log_level_message":
+                    ILoggingLogLevel level0 = null;
+                    String message0 = null;
+                    this.delegate.log(level0, message0);
+                    // TODO: Implement overloaded method handling.
+                    break;
+               case "log_level_category_message":
+                    ILoggingLogLevel level1 = null;
+                    String category1 = null;
+                    String message1 = null;
+                    this.delegate.log(level1, category1, message1);
                     // TODO: Implement overloaded method handling.
                     break;
                default:

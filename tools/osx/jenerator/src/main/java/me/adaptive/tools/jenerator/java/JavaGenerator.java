@@ -418,24 +418,88 @@ public class JavaGenerator extends GeneratorBase {
             }
         }
 
+        int parameterIndex = 0;
         for (Method m : methodUniqueList) {
-                println(15, "case \"" + m.getName() + "\":");
-                println(20, "break;");
+            println(15, "case \"" + m.getName() + "\":");
+            for (Parameter p: m.getParameters()) {
+                println(20,convertJavaToNativeType(p.getType())+" "+p.getName()+parameterIndex+" = null;");
+            }
+
+            if (m.getReturnType().equals(Void.TYPE)) {
+                print(20,"this.delegate."+m.getName()+"(");
+                for (int i = 0; i < m.getParameterCount();i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName()+parameterIndex);
+                    if (i<m.getParameterCount()-1) {
+                        print(", ");
+                    }
+                }
+                println(");");
+            } else {
+                print(20, convertJavaToNativeType(m.getReturnType())+" response"+parameterIndex+" = ");
+                print("this.delegate."+m.getName()+"(");
+                for (int i=0;i<m.getParameterCount();i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName()+parameterIndex);
+                    if (i<m.getParameterCount()-1) {
+                        print(", ");
+                    }
+                }
+                println(");");
+            }
+            println(20, "break;");
+            parameterIndex++;
         }
 
-        boolean first = true;
         for (Method m : methodOverloadedList) {
-            if (first) {
-                println(15, "case \"" + m.getName() + "\":");
-                first = false;
-                println(20, "// TODO: Implement overloaded method handling.");
+            print(15, "case \"" + m.getName());
+            if (m.getParameterCount()==0) {
+                println("\":");
             } else {
-                println(20, "break;");
+                print("_");
+                for (int i = 0;i<m.getParameterCount();i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName());
+                    if (i<m.getParameterCount()-1) {
+                        print("_");
+                    }
+                }
+                println("\":");
             }
+
+            for (Parameter p: m.getParameters()) {
+                println(20,convertJavaToNativeType(p.getType())+" "+p.getName()+parameterIndex+" = null;");
+            }
+
+            if (m.getReturnType().equals(Void.TYPE)) {
+                print(20,"this.delegate."+m.getName()+"(");
+                for (int i = 0; i < m.getParameterCount();i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName()+parameterIndex);
+                    if (i<m.getParameterCount()-1) {
+                        print(", ");
+                    }
+                }
+                println(");");
+            } else {
+                print(20, convertJavaToNativeType(m.getReturnType())+" response"+parameterIndex+" = ");
+                print("this.delegate."+m.getName()+"(");
+                for (int i=0;i<m.getParameterCount();i++) {
+                    Parameter p = m.getParameters()[i];
+                    print(p.getName()+parameterIndex);
+                    if (i<m.getParameterCount()-1) {
+                        print(", ");
+                    }
+                }
+                println(");");
+            }
+            println(20, "// TODO: Implement overloaded method handling.");
+            println(20, "break;");
+            parameterIndex++;
         }
-        println(15,"default:");
-        println(20,"// 404 - response null.");
-        println(20,"responseJSON = null;");
+        println(15, "default:");
+        println(20, "// 404 - response null.");
+        println(20, "responseJSON = null;");
         println(10, "}");
         println(10, "return responseJSON;");
         println(5, "}");

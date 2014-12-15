@@ -147,10 +147,16 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "getLocaleSupportedDescriptors":
+                    Locale[] response0 = this.delegate.getLocaleSupportedDescriptors();
                     break;
                case "getResourceLiteral":
+                    String key1 = null;
+                    Locale locale1 = null;
+                    String response1 = this.delegate.getResourceLiteral(key1, locale1);
                     break;
                case "getResourceLiterals":
+                    Locale locale2 = null;
+                    KeyPair[] response2 = this.delegate.getResourceLiterals(locale2);
                     break;
                default:
                     // 404 - response null.

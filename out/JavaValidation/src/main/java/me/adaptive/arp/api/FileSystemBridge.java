@@ -271,20 +271,30 @@ This path may or may not be writable by the current application.
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "createFileDescriptor":
+                    IFile parent0 = null;
+                    String name0 = null;
+                    IFile response0 = this.delegate.createFileDescriptor(parent0, name0);
                     break;
                case "getApplicationCacheFolder":
+                    IFile response1 = this.delegate.getApplicationCacheFolder();
                     break;
                case "getApplicationCloudFolder":
+                    IFile response2 = this.delegate.getApplicationCloudFolder();
                     break;
                case "getApplicationDocumentsFolder":
+                    IFile response3 = this.delegate.getApplicationDocumentsFolder();
                     break;
                case "getApplicationFolder":
+                    IFile response4 = this.delegate.getApplicationFolder();
                     break;
                case "getApplicationProtectedFolder":
+                    IFile response5 = this.delegate.getApplicationProtectedFolder();
                     break;
                case "getSeparator":
+                    char response6 = this.delegate.getSeparator();
                     break;
                case "getSystemExternalFolder":
+                    IFile response7 = this.delegate.getSystemExternalFolder();
                     break;
                default:
                     // 404 - response null.
