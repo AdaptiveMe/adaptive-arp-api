@@ -397,9 +397,45 @@ public class JavaGenerator extends GeneratorBase {
         println(8, "Invokes the given method specified in the API request object.");
         println();
         println(8, "@param request APIRequest object containing method name and parameters.");
-        println(8, "@return String with JSON response or a zero length string is the response is asynchronous.");
+        println(8, "@return String with JSON response or a zero length string if the response is asynchronous or null if method not found.");
         endComment(5);
         println(5, "public String invoke(APIRequest request) {");
+        println(10, "String methodName = request.getMethodName();");
+        println(10, "switch (methodName) {");
+        List<Method> methodUniqueList = new ArrayList<>();
+        List<Method> methodOverloadedList = new ArrayList<>();
+        for (Method m : classMethods) {
+            int count = 0;
+            for (Method m1 : classMethods) {
+                if (m1.getName().equals(m.getName())) {
+                    count++;
+                }
+            }
+            if (count == 1) {
+                methodUniqueList.add(m);
+            } else {
+                methodOverloadedList.add(m);
+            }
+        }
+
+        for (Method m : methodUniqueList) {
+                println(15, "case \"" + m.getName() + "\":");
+                println(20, "break;");
+        }
+        
+        boolean first = true;
+        for (Method m : methodOverloadedList) {
+            if (first) {
+                println(15, "case \"" + m.getName() + "\":");
+                first = false;
+                println(20, "// TODO: Implement overloaded method handling.");
+            } else {
+                println(20, "break;");
+            }
+        }
+        println(15,"default:");
+        println(20,"// TODO: Nothing to invoke!!!");
+        println(10, "}");
         println(10, "return null; // TODO: Implement APIRequest to Params and invoke delegate method.");
         println(5, "}");
 

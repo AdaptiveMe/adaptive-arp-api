@@ -264,9 +264,30 @@ should be passed as a parameter
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string is the response is asynchronous.
+        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          String methodName = request.getMethodName();
+          switch (methodName) {
+               case "createDatabase":
+                    break;
+               case "createTable":
+                    break;
+               case "deleteDatabase":
+                    break;
+               case "deleteTable":
+                    break;
+               case "executeSqlStatement":
+                    break;
+               case "executeSqlTransactions":
+                    break;
+               case "existsDatabase":
+                    break;
+               case "existsTable":
+                    break;
+               default:
+                    // TODO: Nothing to invoke!!!
+          }
           return null; // TODO: Implement APIRequest to Params and invoke delegate method.
      }
 }

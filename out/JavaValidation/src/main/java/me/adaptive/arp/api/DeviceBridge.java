@@ -180,9 +180,24 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice, APIBridge
         Invokes the given method specified in the API request object.
 
         @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string is the response is asynchronous.
+        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
+          String methodName = request.getMethodName();
+          switch (methodName) {
+               case "addButtonListener":
+                    break;
+               case "getDeviceInfo":
+                    break;
+               case "getLocaleCurrent":
+                    break;
+               case "removeButtonListener":
+                    break;
+               case "removeButtonListeners":
+                    break;
+               default:
+                    // TODO: Nothing to invoke!!!
+          }
           return null; // TODO: Implement APIRequest to Params and invoke delegate method.
      }
 }
