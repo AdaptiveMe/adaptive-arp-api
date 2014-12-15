@@ -555,7 +555,7 @@ public abstract class GeneratorBase {
         for (Class clazz : listenerClasses) {
             String className = clazz.getSimpleName();
             if (className.startsWith("I")) className = className.substring(1);
-            className = className+"Impl";
+            className = className + "Impl";
 
             startCustomClass(className, clazz, mapClassSource.get(clazz));
             createListenerImplementation(className, clazz, mapClassSource.get(clazz));
@@ -568,21 +568,80 @@ public abstract class GeneratorBase {
         for (Class clazz : callbackClasses) {
             String className = clazz.getSimpleName();
             if (className.startsWith("I")) className = className.substring(1);
-            className = className+"Impl";
+            className = className + "Impl";
 
             startCustomClass(className, clazz, mapClassSource.get(clazz));
             createCallbackImplementation(className, clazz, mapClassSource.get(clazz));
             endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
         }
+
         List<Class> handlerClasses = getHandlers();
         handlerClasses.sort(new InterfaceComparator());
         for (Class clazz : handlerClasses) {
-            createHandlerImplementation(clazz.getSimpleName(), clazz, mapClassSource.get(clazz));
+            String className = clazz.getSimpleName();
+            if (className.startsWith("I")) className = className.substring(1);
+            className = className + "Bridge";
+
+            startCustomClass(className, clazz, mapClassSource.get(clazz));
+            createHandlerImplementation(className, clazz, mapClassSource.get(clazz));
+            endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
         }
         endGeneration();
         callback.onSuccess(this, this.getClass());
+    }
+
+    protected String getInterfaceGroup(Class clazz) {
+        String simpleName = clazz.getSimpleName();
+        String groupName = "Invalid";
+        switch (simpleName) {
+            case "IBaseSensor":
+                groupName = "Sensor";
+                break;
+            case "IBaseNotification":
+                groupName = "Notification";
+                break;
+            case "IBaseSecurity":
+                groupName = "Security";
+                break;
+            case "IBaseApplication":
+                groupName = "Application";
+                break;
+            case "IBaseCommunication":
+                groupName = "Communication";
+                break;
+            case "IBaseData":
+                groupName = "Data";
+                break;
+            case "IBaseUI":
+                groupName = "UI";
+                break;
+            case "IBaseReader":
+                groupName = "Reader";
+                break;
+            case "IBaseSocial":
+                groupName = "Social";
+                break;
+            case "IBasePIM":
+                groupName = "PIM";
+                break;
+            case "IBaseUtil":
+                groupName = "Util";
+                break;
+            case "IBaseMedia":
+                groupName = "Media";
+                break;
+            case "IBaseCommerce":
+                groupName = "Commerce";
+                break;
+            case "IBaseSystem":
+                groupName = "System";
+                break;
+            default:
+                groupName = "Invalid";
+        }
+        return groupName;
     }
 
     protected abstract void endCustomClass(String className, Class clazz, JavaClass javaClass);
