@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class NetworkReachabilityBridge extends BaseCommunicationBridge implements INetworkReachability {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private INetworkReachability delegate;
 

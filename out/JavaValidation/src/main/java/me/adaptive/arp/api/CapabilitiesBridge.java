@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class CapabilitiesBridge extends BaseSystemBridge implements ICapabilities {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ICapabilities delegate;
 

@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class ServiceBridge extends BaseCommunicationBridge implements IService {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IService delegate;
 
@@ -99,9 +99,9 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService {
         @return True if the service is registered, false otherwise.
         @since ARP1.0
      */
-     public boolean isRegistered(Service service) {
+     public boolean isRegistered(String serviceName) {
           // Invoke delegate
-          return this.delegate.isRegistered(service);
+          return this.delegate.isRegistered(serviceName);
           
      }
 
@@ -112,9 +112,9 @@ public class ServiceBridge extends BaseCommunicationBridge implements IService {
         @return True if the service is registered, false otherwise.
         @since ARP1.0
      */
-     public boolean isRegistered(String serviceName) {
+     public boolean isRegistered(Service service) {
           // Invoke delegate
-          return this.delegate.isRegistered(serviceName);
+          return this.delegate.isRegistered(service);
           
      }
 

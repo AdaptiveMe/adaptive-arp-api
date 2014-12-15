@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class CalendarBridge extends BasePIMBridge implements ICalendar {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ICalendar delegate;
 

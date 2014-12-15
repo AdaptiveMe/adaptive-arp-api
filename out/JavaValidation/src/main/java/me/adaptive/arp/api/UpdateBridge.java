@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class UpdateBridge extends BaseApplicationBridge implements IUpdate {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IUpdate delegate;
 

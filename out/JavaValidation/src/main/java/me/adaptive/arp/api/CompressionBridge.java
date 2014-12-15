@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class CompressionBridge extends BaseUtilBridge implements ICompression {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ICompression delegate;
 

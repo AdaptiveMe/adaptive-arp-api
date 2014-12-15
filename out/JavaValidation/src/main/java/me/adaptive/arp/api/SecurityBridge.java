@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class SecurityBridge extends BaseSecurityBridge implements ISecurity {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ISecurity delegate;
 

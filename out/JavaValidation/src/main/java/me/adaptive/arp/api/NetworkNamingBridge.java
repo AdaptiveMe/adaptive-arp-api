@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class NetworkNamingBridge extends BaseCommunicationBridge implements INetworkNaming {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private INetworkNaming delegate;
 

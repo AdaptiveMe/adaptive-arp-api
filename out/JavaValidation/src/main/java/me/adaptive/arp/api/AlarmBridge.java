@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class AlarmBridge extends BaseNotificationBridge implements IAlarm {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IAlarm delegate;
 

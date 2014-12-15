@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class MailBridge extends BasePIMBridge implements IMail {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IMail delegate;
 

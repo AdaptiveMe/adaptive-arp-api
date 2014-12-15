@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class TwitterBridge extends BaseSocialBridge implements ITwitter {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ITwitter delegate;
 

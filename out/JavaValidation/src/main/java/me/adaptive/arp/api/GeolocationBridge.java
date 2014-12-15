@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class GeolocationBridge extends BaseSensorBridge implements IGeolocation {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IGeolocation delegate;
 

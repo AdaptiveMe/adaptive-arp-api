@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class AudioBridge extends BaseMediaBridge implements IAudio {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IAudio delegate;
 

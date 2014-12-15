@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class VideoBridge extends BaseMediaBridge implements IVideo {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IVideo delegate;
 

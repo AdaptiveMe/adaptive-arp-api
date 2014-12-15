@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class DeviceBridge extends BaseSystemBridge implements IDevice {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IDevice delegate;
 

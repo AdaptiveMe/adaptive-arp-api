@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class DataStreamBridge extends BaseDataBridge implements IDataStream {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IDataStream delegate;
 

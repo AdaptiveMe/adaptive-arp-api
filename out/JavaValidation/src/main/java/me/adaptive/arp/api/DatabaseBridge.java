@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class DatabaseBridge extends BaseDataBridge implements IDatabase {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IDatabase delegate;
 

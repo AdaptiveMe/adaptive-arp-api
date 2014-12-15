@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class DisplayBridge extends BaseSystemBridge implements IDisplay {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IDisplay delegate;
 

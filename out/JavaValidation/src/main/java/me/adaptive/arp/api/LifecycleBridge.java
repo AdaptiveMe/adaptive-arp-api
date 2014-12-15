@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ILifecycle delegate;
 

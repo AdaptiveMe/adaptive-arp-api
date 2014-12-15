@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class MapBridge extends BaseUIBridge implements IMap {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IMap delegate;
 

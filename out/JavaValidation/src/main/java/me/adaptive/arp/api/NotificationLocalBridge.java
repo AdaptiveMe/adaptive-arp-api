@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class NotificationLocalBridge extends BaseNotificationBridge implements INotificationLocal {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private INotificationLocal delegate;
 

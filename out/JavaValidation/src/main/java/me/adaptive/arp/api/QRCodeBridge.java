@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class QRCodeBridge extends BaseReaderBridge implements IQRCode {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IQRCode delegate;
 

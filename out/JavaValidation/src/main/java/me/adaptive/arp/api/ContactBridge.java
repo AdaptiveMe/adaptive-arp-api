@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class ContactBridge extends BasePIMBridge implements IContact {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IContact delegate;
 

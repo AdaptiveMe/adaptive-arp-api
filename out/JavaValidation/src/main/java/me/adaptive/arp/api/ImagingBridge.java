@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class ImagingBridge extends BaseMediaBridge implements IImaging {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IImaging delegate;
 

@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class TimerBridge extends BaseUtilBridge implements ITimer {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ITimer delegate;
 

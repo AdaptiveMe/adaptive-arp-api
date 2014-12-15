@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class ManagementBridge extends BaseApplicationBridge implements IManagement {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IManagement delegate;
 

@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class CameraBridge extends BaseMediaBridge implements ICamera {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ICamera delegate;
 

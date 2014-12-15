@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class PrintingBridge extends BaseApplicationBridge implements IPrinting {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IPrinting delegate;
 

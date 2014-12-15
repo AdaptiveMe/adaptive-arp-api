@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class TelephonyBridge extends BaseCommunicationBridge implements ITelephony {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ITelephony delegate;
 

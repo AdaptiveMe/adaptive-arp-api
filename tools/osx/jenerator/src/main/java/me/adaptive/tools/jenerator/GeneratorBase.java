@@ -557,7 +557,7 @@ public abstract class GeneratorBase {
             if (className.startsWith("I")) className = className.substring(1);
             className = className + "Impl";
 
-            startCustomClass(className, clazz, mapClassSource.get(clazz));
+            startCustomClass(className, clazz, mapClassSource.get(clazz), false);
             createListenerImplementation(className, clazz, mapClassSource.get(clazz));
             endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
@@ -570,7 +570,7 @@ public abstract class GeneratorBase {
             if (className.startsWith("I")) className = className.substring(1);
             className = className + "Impl";
 
-            startCustomClass(className, clazz, mapClassSource.get(clazz));
+            startCustomClass(className, clazz, mapClassSource.get(clazz), false);
             createCallbackImplementation(className, clazz, mapClassSource.get(clazz));
             endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
@@ -583,14 +583,27 @@ public abstract class GeneratorBase {
             if (className.startsWith("I")) className = className.substring(1);
             className = className + "Bridge";
 
-            startCustomClass(className, clazz, mapClassSource.get(clazz));
+            startCustomClass(className, clazz, mapClassSource.get(clazz), false);
             createHandlerImplementation(className, clazz, mapClassSource.get(clazz));
+            endCustomClass(className, clazz, mapClassSource.get(clazz));
+            callback.onSuccess(this, clazz);
+        }
+
+        for (Class clazz : handlerClasses) {
+            String className = clazz.getSimpleName();
+            if (className.startsWith("I")) className = className.substring(1);
+            className = className + "Delegate";
+
+            startCustomClass(className, clazz, mapClassSource.get(clazz),true);
+            createDelegateImplementation(className, clazz, mapClassSource.get(clazz));
             endCustomClass(className, clazz, mapClassSource.get(clazz));
             callback.onSuccess(this, clazz);
         }
         endGeneration();
         callback.onSuccess(this, this.getClass());
     }
+
+    protected abstract void createDelegateImplementation(String className, Class clazz, JavaClass javaClass);
 
     protected String getInterfaceGroup(Class clazz) {
         String simpleName = clazz.getSimpleName();
@@ -646,7 +659,7 @@ public abstract class GeneratorBase {
 
     protected abstract void endCustomClass(String className, Class clazz, JavaClass javaClass);
 
-    protected abstract void startCustomClass(String className, Class clazz, JavaClass javaClass);
+    protected abstract void startCustomClass(String className, Class clazz, JavaClass javaClass, boolean implementation);
 
     protected abstract void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass);
 

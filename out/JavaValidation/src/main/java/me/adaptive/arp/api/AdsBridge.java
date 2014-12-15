@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class AdsBridge extends BaseCommerceBridge implements IAds {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IAds delegate;
 

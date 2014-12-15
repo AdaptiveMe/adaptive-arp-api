@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class CloudBridge extends BaseDataBridge implements ICloud {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ICloud delegate;
 

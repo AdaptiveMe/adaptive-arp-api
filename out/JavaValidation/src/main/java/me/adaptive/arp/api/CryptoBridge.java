@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class CryptoBridge extends BaseUtilBridge implements ICrypto {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ICrypto delegate;
 

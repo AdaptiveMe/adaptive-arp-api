@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class FileSystemBridge extends BaseDataBridge implements IFileSystem {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IFileSystem delegate;
 

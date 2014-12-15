@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class SocketBridge extends BaseCommunicationBridge implements ISocket {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ISocket delegate;
 

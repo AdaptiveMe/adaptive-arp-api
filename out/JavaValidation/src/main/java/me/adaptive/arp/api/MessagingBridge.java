@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class MessagingBridge extends BasePIMBridge implements IMessaging {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IMessaging delegate;
 

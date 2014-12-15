@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class OpenIdBridge extends BaseSecurityBridge implements IOpenId {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IOpenId delegate;
 

@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class GlobalizationBridge extends BaseApplicationBridge implements IGlobalization {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IGlobalization delegate;
 

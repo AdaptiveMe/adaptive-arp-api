@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class XMLBridge extends BaseDataBridge implements IXML {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IXML delegate;
 

@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class BrowserBridge extends BaseUIBridge implements IBrowser {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IBrowser delegate;
 

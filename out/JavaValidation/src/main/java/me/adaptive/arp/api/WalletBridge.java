@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class WalletBridge extends BaseCommerceBridge implements IWallet {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IWallet delegate;
 

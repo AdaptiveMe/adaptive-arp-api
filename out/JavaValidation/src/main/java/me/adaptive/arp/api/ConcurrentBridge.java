@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class ConcurrentBridge extends BaseUtilBridge implements IConcurrent {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IConcurrent delegate;
 

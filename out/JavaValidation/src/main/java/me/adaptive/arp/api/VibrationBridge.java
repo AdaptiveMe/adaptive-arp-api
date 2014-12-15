@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class VibrationBridge extends BaseNotificationBridge implements IVibration {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IVibration delegate;
 

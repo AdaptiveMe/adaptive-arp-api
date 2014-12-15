@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class LoggingBridge extends BaseUtilBridge implements ILogging {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ILogging delegate;
 

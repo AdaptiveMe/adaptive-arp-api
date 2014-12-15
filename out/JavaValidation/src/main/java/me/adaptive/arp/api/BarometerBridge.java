@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class BarometerBridge extends BaseSensorBridge implements IBarometer {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IBarometer delegate;
 

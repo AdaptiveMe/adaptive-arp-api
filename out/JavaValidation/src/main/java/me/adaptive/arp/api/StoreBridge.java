@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class StoreBridge extends BaseCommerceBridge implements IStore {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IStore delegate;
 

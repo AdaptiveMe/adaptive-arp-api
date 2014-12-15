@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class OCRBridge extends BaseReaderBridge implements IOCR {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IOCR delegate;
 

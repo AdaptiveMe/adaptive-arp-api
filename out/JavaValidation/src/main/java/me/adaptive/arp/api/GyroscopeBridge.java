@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class GyroscopeBridge extends BaseSensorBridge implements IGyroscope {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IGyroscope delegate;
 

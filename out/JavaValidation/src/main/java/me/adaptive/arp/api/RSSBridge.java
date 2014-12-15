@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class RSSBridge extends BaseSocialBridge implements IRSS {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IRSS delegate;
 

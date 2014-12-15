@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class ProximityBridge extends BaseSensorBridge implements IProximity {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IProximity delegate;
 

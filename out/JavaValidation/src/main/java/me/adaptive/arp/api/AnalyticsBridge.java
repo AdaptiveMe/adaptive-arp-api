@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class AnalyticsBridge extends BaseApplicationBridge implements IAnalytics {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IAnalytics delegate;
 

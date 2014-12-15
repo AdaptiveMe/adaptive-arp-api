@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class NetworkStatusBridge extends BaseCommunicationBridge implements INetworkStatus {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private INetworkStatus delegate;
 

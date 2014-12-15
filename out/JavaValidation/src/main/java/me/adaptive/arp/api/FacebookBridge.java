@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class FacebookBridge extends BaseSocialBridge implements IFacebook {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IFacebook delegate;
 

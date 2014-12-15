@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class MagnetometerBridge extends BaseSensorBridge implements IMagnetometer {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IMagnetometer delegate;
 

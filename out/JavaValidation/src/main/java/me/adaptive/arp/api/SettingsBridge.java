@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class SettingsBridge extends BaseApplicationBridge implements ISettings {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ISettings delegate;
 

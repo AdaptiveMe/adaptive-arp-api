@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class AmbientLightBridge extends BaseSensorBridge implements IAmbientLight {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IAmbientLight delegate;
 

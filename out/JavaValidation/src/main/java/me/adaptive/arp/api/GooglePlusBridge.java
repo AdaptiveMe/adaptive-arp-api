@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class GooglePlusBridge extends BaseSocialBridge implements IGooglePlus {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IGooglePlus delegate;
 

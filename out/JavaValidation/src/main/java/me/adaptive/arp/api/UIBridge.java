@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class UIBridge extends BaseUIBridge implements IUI {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IUI delegate;
 

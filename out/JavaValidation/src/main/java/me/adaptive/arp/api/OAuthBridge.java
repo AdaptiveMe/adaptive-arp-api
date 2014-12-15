@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class OAuthBridge extends BaseSecurityBridge implements IOAuth {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IOAuth delegate;
 

@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class InternalStorageBridge extends BaseDataBridge implements IInternalStorage {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IInternalStorage delegate;
 

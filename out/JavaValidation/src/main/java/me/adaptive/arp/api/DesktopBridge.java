@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class DesktopBridge extends BaseUIBridge implements IDesktop {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IDesktop delegate;
 

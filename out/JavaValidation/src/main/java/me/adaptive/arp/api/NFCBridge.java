@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class NFCBridge extends BaseReaderBridge implements INFC {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private INFC delegate;
 

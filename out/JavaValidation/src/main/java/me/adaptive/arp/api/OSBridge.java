@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class OSBridge extends BaseSystemBridge implements IOS {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IOS delegate;
 

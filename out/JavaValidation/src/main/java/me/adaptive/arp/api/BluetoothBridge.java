@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class BluetoothBridge extends BaseCommunicationBridge implements IBluetooth {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IBluetooth delegate;
 

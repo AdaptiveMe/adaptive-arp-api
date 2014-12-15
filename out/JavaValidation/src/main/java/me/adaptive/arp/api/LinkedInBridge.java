@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class LinkedInBridge extends BaseSocialBridge implements ILinkedIn {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private ILinkedIn delegate;
 

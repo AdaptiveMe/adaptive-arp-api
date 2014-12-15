@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class BarcodeBridge extends BaseReaderBridge implements IBarcode {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IBarcode delegate;
 

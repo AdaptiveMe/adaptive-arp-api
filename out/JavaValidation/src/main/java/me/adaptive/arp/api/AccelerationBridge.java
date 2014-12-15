@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class AccelerationBridge extends BaseSensorBridge implements IAcceleration {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IAcceleration delegate;
 

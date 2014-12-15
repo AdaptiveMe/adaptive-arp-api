@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class NetworkInfoBridge extends BaseCommunicationBridge implements INetworkInfo {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private INetworkInfo delegate;
 

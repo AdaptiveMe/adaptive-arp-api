@@ -37,7 +37,7 @@ package me.adaptive.arp.api;
 public class RuntimeBridge extends BaseSystemBridge implements IRuntime {
 
      /**
-        Group of API.
+        API Delegate.
      */
      private IRuntime delegate;
 
