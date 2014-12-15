@@ -87,9 +87,9 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
      }
 
      /**
-        Check whether a service by the given service is already registered.
+        Check whether a service by the given name is registered.
 
-        @param service Service to check
+        @param serviceName Name of service.
         @return True if the service is registered, false otherwise.
         @since ARP1.0
      */

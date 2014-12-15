@@ -111,8 +111,17 @@ public class JavaGenerator extends GeneratorBase {
         for (Method m : clazz.getDeclaredMethods()) {
             classMethods.add(m);
             for (JavaMethod jm : javaClass.getMethods()) {
-                if (jm.getName().equals(m.getName()) && jm.getParameters().size() == m.getParameterCount()) {
+                if (jm.getName().equals(m.getName()) && m.getParameterCount() == 0) {
                     javaMethods.put(m, jm);
+                } else if (jm.getName().equals(m.getName()) && (jm.getParameters().size() == m.getParameterCount())) {
+                    for (Parameter p : m.getParameters()) {
+                        for (JavaParameter jp : jm.getParameters()) {
+                            if (jp.getName().equals(p.getName())) {
+                                javaMethods.put(m, jm);
+                            }
+                        }
+                    }
+
                 }
             }
         }
@@ -276,8 +285,17 @@ public class JavaGenerator extends GeneratorBase {
         for (Method m : clazz.getDeclaredMethods()) {
             classMethods.add(m);
             for (JavaMethod jm : javaClass.getMethods()) {
-                if (jm.getName().equals(m.getName()) && jm.getParameters().size() == m.getParameterCount()) {
+                if (jm.getName().equals(m.getName()) && m.getParameterCount() == 0) {
                     javaMethods.put(m, jm);
+                } else if (jm.getName().equals(m.getName()) && (jm.getParameters().size() == m.getParameterCount())) {
+                    for (Parameter p : m.getParameters()) {
+                        for (JavaParameter jp : jm.getParameters()) {
+                            if (jp.getName().equals(p.getName())) {
+                                javaMethods.put(m, jm);
+                            }
+                        }
+                    }
+
                 }
             }
         }
