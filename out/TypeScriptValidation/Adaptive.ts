@@ -7317,4 +7317,3 @@ listener.
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */
-var db : Adaptive.Database = new Adaptive.Database("MyDB", true);
