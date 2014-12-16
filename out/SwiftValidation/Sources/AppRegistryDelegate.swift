@@ -49,1129 +49,1129 @@ public class AppRegistryDelegate : IAppRegistry {
      /**
         Bridge references.
      */
-     private AccelerationBridge __accelerationBridge = null;
-     private AdsBridge __adsBridge = null;
-     private AlarmBridge __alarmBridge = null;
-     private AmbientLightBridge __ambientlightBridge = null;
-     private AnalyticsBridge __analyticsBridge = null;
-     private AudioBridge __audioBridge = null;
-     private BarcodeBridge __barcodeBridge = null;
-     private BarometerBridge __barometerBridge = null;
-     private BluetoothBridge __bluetoothBridge = null;
-     private BrowserBridge __browserBridge = null;
-     private CalendarBridge __calendarBridge = null;
-     private CameraBridge __cameraBridge = null;
-     private CapabilitiesBridge __capabilitiesBridge = null;
-     private CloudBridge __cloudBridge = null;
-     private CompressionBridge __compressionBridge = null;
-     private ConcurrentBridge __concurrentBridge = null;
-     private ContactBridge __contactBridge = null;
-     private CryptoBridge __cryptoBridge = null;
-     private DataStreamBridge __datastreamBridge = null;
-     private DatabaseBridge __databaseBridge = null;
-     private DesktopBridge __desktopBridge = null;
-     private DeviceBridge __deviceBridge = null;
-     private DisplayBridge __displayBridge = null;
-     private FacebookBridge __facebookBridge = null;
-     private FileSystemBridge __filesystemBridge = null;
-     private GeolocationBridge __geolocationBridge = null;
-     private GlobalizationBridge __globalizationBridge = null;
-     private GooglePlusBridge __googleplusBridge = null;
-     private GyroscopeBridge __gyroscopeBridge = null;
-     private ImagingBridge __imagingBridge = null;
-     private InternalStorageBridge __internalstorageBridge = null;
-     private LifecycleBridge __lifecycleBridge = null;
-     private LinkedInBridge __linkedinBridge = null;
-     private LoggingBridge __loggingBridge = null;
-     private MagnetometerBridge __magnetometerBridge = null;
-     private MailBridge __mailBridge = null;
-     private ManagementBridge __managementBridge = null;
-     private MapBridge __mapBridge = null;
-     private MessagingBridge __messagingBridge = null;
-     private NFCBridge __nfcBridge = null;
-     private NetworkInfoBridge __networkinfoBridge = null;
-     private NetworkNamingBridge __networknamingBridge = null;
-     private NetworkReachabilityBridge __networkreachabilityBridge = null;
-     private NetworkStatusBridge __networkstatusBridge = null;
-     private NotificationBridge __notificationBridge = null;
-     private NotificationLocalBridge __notificationlocalBridge = null;
-     private OAuthBridge __oauthBridge = null;
-     private OCRBridge __ocrBridge = null;
-     private OSBridge __osBridge = null;
-     private OpenIdBridge __openidBridge = null;
-     private PrintingBridge __printingBridge = null;
-     private ProximityBridge __proximityBridge = null;
-     private QRCodeBridge __qrcodeBridge = null;
-     private RSSBridge __rssBridge = null;
-     private RuntimeBridge __runtimeBridge = null;
-     private SecurityBridge __securityBridge = null;
-     private ServiceBridge __serviceBridge = null;
-     private SettingsBridge __settingsBridge = null;
-     private SocketBridge __socketBridge = null;
-     private StoreBridge __storeBridge = null;
-     private TelephonyBridge __telephonyBridge = null;
-     private TimerBridge __timerBridge = null;
-     private TwitterBridge __twitterBridge = null;
-     private UIBridge __uiBridge = null;
-     private UpdateBridge __updateBridge = null;
-     private VibrationBridge __vibrationBridge = null;
-     private VideoBridge __videoBridge = null;
-     private WalletBridge __walletBridge = null;
-     private XMLBridge __xmlBridge = null;
+     private var __accelerationBridge : AccelerationBridge? = nil
+     private var __adsBridge : AdsBridge? = nil
+     private var __alarmBridge : AlarmBridge? = nil
+     private var __ambientlightBridge : AmbientLightBridge? = nil
+     private var __analyticsBridge : AnalyticsBridge? = nil
+     private var __audioBridge : AudioBridge? = nil
+     private var __barcodeBridge : BarcodeBridge? = nil
+     private var __barometerBridge : BarometerBridge? = nil
+     private var __bluetoothBridge : BluetoothBridge? = nil
+     private var __browserBridge : BrowserBridge? = nil
+     private var __calendarBridge : CalendarBridge? = nil
+     private var __cameraBridge : CameraBridge? = nil
+     private var __capabilitiesBridge : CapabilitiesBridge? = nil
+     private var __cloudBridge : CloudBridge? = nil
+     private var __compressionBridge : CompressionBridge? = nil
+     private var __concurrentBridge : ConcurrentBridge? = nil
+     private var __contactBridge : ContactBridge? = nil
+     private var __cryptoBridge : CryptoBridge? = nil
+     private var __datastreamBridge : DataStreamBridge? = nil
+     private var __databaseBridge : DatabaseBridge? = nil
+     private var __desktopBridge : DesktopBridge? = nil
+     private var __deviceBridge : DeviceBridge? = nil
+     private var __displayBridge : DisplayBridge? = nil
+     private var __facebookBridge : FacebookBridge? = nil
+     private var __filesystemBridge : FileSystemBridge? = nil
+     private var __geolocationBridge : GeolocationBridge? = nil
+     private var __globalizationBridge : GlobalizationBridge? = nil
+     private var __googleplusBridge : GooglePlusBridge? = nil
+     private var __gyroscopeBridge : GyroscopeBridge? = nil
+     private var __imagingBridge : ImagingBridge? = nil
+     private var __internalstorageBridge : InternalStorageBridge? = nil
+     private var __lifecycleBridge : LifecycleBridge? = nil
+     private var __linkedinBridge : LinkedInBridge? = nil
+     private var __loggingBridge : LoggingBridge? = nil
+     private var __magnetometerBridge : MagnetometerBridge? = nil
+     private var __mailBridge : MailBridge? = nil
+     private var __managementBridge : ManagementBridge? = nil
+     private var __mapBridge : MapBridge? = nil
+     private var __messagingBridge : MessagingBridge? = nil
+     private var __nfcBridge : NFCBridge? = nil
+     private var __networkinfoBridge : NetworkInfoBridge? = nil
+     private var __networknamingBridge : NetworkNamingBridge? = nil
+     private var __networkreachabilityBridge : NetworkReachabilityBridge? = nil
+     private var __networkstatusBridge : NetworkStatusBridge? = nil
+     private var __notificationBridge : NotificationBridge? = nil
+     private var __notificationlocalBridge : NotificationLocalBridge? = nil
+     private var __oauthBridge : OAuthBridge? = nil
+     private var __ocrBridge : OCRBridge? = nil
+     private var __osBridge : OSBridge? = nil
+     private var __openidBridge : OpenIdBridge? = nil
+     private var __printingBridge : PrintingBridge? = nil
+     private var __proximityBridge : ProximityBridge? = nil
+     private var __qrcodeBridge : QRCodeBridge? = nil
+     private var __rssBridge : RSSBridge? = nil
+     private var __runtimeBridge : RuntimeBridge? = nil
+     private var __securityBridge : SecurityBridge? = nil
+     private var __serviceBridge : ServiceBridge? = nil
+     private var __settingsBridge : SettingsBridge? = nil
+     private var __socketBridge : SocketBridge? = nil
+     private var __storeBridge : StoreBridge? = nil
+     private var __telephonyBridge : TelephonyBridge? = nil
+     private var __timerBridge : TimerBridge? = nil
+     private var __twitterBridge : TwitterBridge? = nil
+     private var __uiBridge : UIBridge? = nil
+     private var __updateBridge : UpdateBridge? = nil
+     private var __vibrationBridge : VibrationBridge? = nil
+     private var __videoBridge : VideoBridge? = nil
+     private var __walletBridge : WalletBridge? = nil
+     private var __xmlBridge : XMLBridge? = nil
 
      /**
         Returns a reference to the registered AccelerationBridge.
 
-        @return AccelerationBridge reference or null if a bridge of this type is not registered.
+        @return AccelerationBridge reference or nil if a bridge of this type is not registered.
      */
-     public final AccelerationBridge getAccelerationBridge() {
-           if(__accelerationBridge == null) {
-               __accelerationBridge = new AccelerationBridge(null);
+     public final func getAccelerationBridge() -> AccelerationBridge {
+           if(__accelerationBridge == nil) {
+               __accelerationBridge = AccelerationBridge(nil);
           }
-          return __accelerationBridge;
+          return __accelerationBridge
      }
 
      /**
         Returns a reference to the registered AdsBridge.
 
-        @return AdsBridge reference or null if a bridge of this type is not registered.
+        @return AdsBridge reference or nil if a bridge of this type is not registered.
      */
-     public final AdsBridge getAdsBridge() {
-           if(__adsBridge == null) {
-               __adsBridge = new AdsBridge(null);
+     public final func getAdsBridge() -> AdsBridge {
+           if(__adsBridge == nil) {
+               __adsBridge = AdsBridge(nil);
           }
-          return __adsBridge;
+          return __adsBridge
      }
 
      /**
         Returns a reference to the registered AlarmBridge.
 
-        @return AlarmBridge reference or null if a bridge of this type is not registered.
+        @return AlarmBridge reference or nil if a bridge of this type is not registered.
      */
-     public final AlarmBridge getAlarmBridge() {
-           if(__alarmBridge == null) {
-               __alarmBridge = new AlarmBridge(null);
+     public final func getAlarmBridge() -> AlarmBridge {
+           if(__alarmBridge == nil) {
+               __alarmBridge = AlarmBridge(nil);
           }
-          return __alarmBridge;
+          return __alarmBridge
      }
 
      /**
         Returns a reference to the registered AmbientLightBridge.
 
-        @return AmbientLightBridge reference or null if a bridge of this type is not registered.
+        @return AmbientLightBridge reference or nil if a bridge of this type is not registered.
      */
-     public final AmbientLightBridge getAmbientLightBridge() {
-           if(__ambientlightBridge == null) {
-               __ambientlightBridge = new AmbientLightBridge(null);
+     public final func getAmbientLightBridge() -> AmbientLightBridge {
+           if(__ambientlightBridge == nil) {
+               __ambientlightBridge = AmbientLightBridge(nil);
           }
-          return __ambientlightBridge;
+          return __ambientlightBridge
      }
 
      /**
         Returns a reference to the registered AnalyticsBridge.
 
-        @return AnalyticsBridge reference or null if a bridge of this type is not registered.
+        @return AnalyticsBridge reference or nil if a bridge of this type is not registered.
      */
-     public final AnalyticsBridge getAnalyticsBridge() {
-           if(__analyticsBridge == null) {
-               __analyticsBridge = new AnalyticsBridge(null);
+     public final func getAnalyticsBridge() -> AnalyticsBridge {
+           if(__analyticsBridge == nil) {
+               __analyticsBridge = AnalyticsBridge(nil);
           }
-          return __analyticsBridge;
+          return __analyticsBridge
      }
 
      /**
         Returns a reference to the registered AudioBridge.
 
-        @return AudioBridge reference or null if a bridge of this type is not registered.
+        @return AudioBridge reference or nil if a bridge of this type is not registered.
      */
-     public final AudioBridge getAudioBridge() {
-           if(__audioBridge == null) {
-               __audioBridge = new AudioBridge(null);
+     public final func getAudioBridge() -> AudioBridge {
+           if(__audioBridge == nil) {
+               __audioBridge = AudioBridge(nil);
           }
-          return __audioBridge;
+          return __audioBridge
      }
 
      /**
         Returns a reference to the registered BarcodeBridge.
 
-        @return BarcodeBridge reference or null if a bridge of this type is not registered.
+        @return BarcodeBridge reference or nil if a bridge of this type is not registered.
      */
-     public final BarcodeBridge getBarcodeBridge() {
-           if(__barcodeBridge == null) {
-               __barcodeBridge = new BarcodeBridge(null);
+     public final func getBarcodeBridge() -> BarcodeBridge {
+           if(__barcodeBridge == nil) {
+               __barcodeBridge = BarcodeBridge(nil);
           }
-          return __barcodeBridge;
+          return __barcodeBridge
      }
 
      /**
         Returns a reference to the registered BarometerBridge.
 
-        @return BarometerBridge reference or null if a bridge of this type is not registered.
+        @return BarometerBridge reference or nil if a bridge of this type is not registered.
      */
-     public final BarometerBridge getBarometerBridge() {
-           if(__barometerBridge == null) {
-               __barometerBridge = new BarometerBridge(null);
+     public final func getBarometerBridge() -> BarometerBridge {
+           if(__barometerBridge == nil) {
+               __barometerBridge = BarometerBridge(nil);
           }
-          return __barometerBridge;
+          return __barometerBridge
      }
 
      /**
         Returns a reference to the registered BluetoothBridge.
 
-        @return BluetoothBridge reference or null if a bridge of this type is not registered.
+        @return BluetoothBridge reference or nil if a bridge of this type is not registered.
      */
-     public final BluetoothBridge getBluetoothBridge() {
-           if(__bluetoothBridge == null) {
-               __bluetoothBridge = new BluetoothBridge(null);
+     public final func getBluetoothBridge() -> BluetoothBridge {
+           if(__bluetoothBridge == nil) {
+               __bluetoothBridge = BluetoothBridge(nil);
           }
-          return __bluetoothBridge;
+          return __bluetoothBridge
      }
 
      /**
         Returns a reference to the registered BrowserBridge.
 
-        @return BrowserBridge reference or null if a bridge of this type is not registered.
+        @return BrowserBridge reference or nil if a bridge of this type is not registered.
      */
-     public final BrowserBridge getBrowserBridge() {
-           if(__browserBridge == null) {
-               __browserBridge = new BrowserBridge(null);
+     public final func getBrowserBridge() -> BrowserBridge {
+           if(__browserBridge == nil) {
+               __browserBridge = BrowserBridge(nil);
           }
-          return __browserBridge;
+          return __browserBridge
      }
 
      /**
         Returns a reference to the registered CalendarBridge.
 
-        @return CalendarBridge reference or null if a bridge of this type is not registered.
+        @return CalendarBridge reference or nil if a bridge of this type is not registered.
      */
-     public final CalendarBridge getCalendarBridge() {
-           if(__calendarBridge == null) {
-               __calendarBridge = new CalendarBridge(null);
+     public final func getCalendarBridge() -> CalendarBridge {
+           if(__calendarBridge == nil) {
+               __calendarBridge = CalendarBridge(nil);
           }
-          return __calendarBridge;
+          return __calendarBridge
      }
 
      /**
         Returns a reference to the registered CameraBridge.
 
-        @return CameraBridge reference or null if a bridge of this type is not registered.
+        @return CameraBridge reference or nil if a bridge of this type is not registered.
      */
-     public final CameraBridge getCameraBridge() {
-           if(__cameraBridge == null) {
-               __cameraBridge = new CameraBridge(null);
+     public final func getCameraBridge() -> CameraBridge {
+           if(__cameraBridge == nil) {
+               __cameraBridge = CameraBridge(nil);
           }
-          return __cameraBridge;
+          return __cameraBridge
      }
 
      /**
         Returns a reference to the registered CapabilitiesBridge.
 
-        @return CapabilitiesBridge reference or null if a bridge of this type is not registered.
+        @return CapabilitiesBridge reference or nil if a bridge of this type is not registered.
      */
-     public final CapabilitiesBridge getCapabilitiesBridge() {
-           if(__capabilitiesBridge == null) {
-               __capabilitiesBridge = new CapabilitiesBridge(null);
+     public final func getCapabilitiesBridge() -> CapabilitiesBridge {
+           if(__capabilitiesBridge == nil) {
+               __capabilitiesBridge = CapabilitiesBridge(nil);
           }
-          return __capabilitiesBridge;
+          return __capabilitiesBridge
      }
 
      /**
         Returns a reference to the registered CloudBridge.
 
-        @return CloudBridge reference or null if a bridge of this type is not registered.
+        @return CloudBridge reference or nil if a bridge of this type is not registered.
      */
-     public final CloudBridge getCloudBridge() {
-           if(__cloudBridge == null) {
-               __cloudBridge = new CloudBridge(null);
+     public final func getCloudBridge() -> CloudBridge {
+           if(__cloudBridge == nil) {
+               __cloudBridge = CloudBridge(nil);
           }
-          return __cloudBridge;
+          return __cloudBridge
      }
 
      /**
         Returns a reference to the registered CompressionBridge.
 
-        @return CompressionBridge reference or null if a bridge of this type is not registered.
+        @return CompressionBridge reference or nil if a bridge of this type is not registered.
      */
-     public final CompressionBridge getCompressionBridge() {
-           if(__compressionBridge == null) {
-               __compressionBridge = new CompressionBridge(null);
+     public final func getCompressionBridge() -> CompressionBridge {
+           if(__compressionBridge == nil) {
+               __compressionBridge = CompressionBridge(nil);
           }
-          return __compressionBridge;
+          return __compressionBridge
      }
 
      /**
         Returns a reference to the registered ConcurrentBridge.
 
-        @return ConcurrentBridge reference or null if a bridge of this type is not registered.
+        @return ConcurrentBridge reference or nil if a bridge of this type is not registered.
      */
-     public final ConcurrentBridge getConcurrentBridge() {
-           if(__concurrentBridge == null) {
-               __concurrentBridge = new ConcurrentBridge(null);
+     public final func getConcurrentBridge() -> ConcurrentBridge {
+           if(__concurrentBridge == nil) {
+               __concurrentBridge = ConcurrentBridge(nil);
           }
-          return __concurrentBridge;
+          return __concurrentBridge
      }
 
      /**
         Returns a reference to the registered ContactBridge.
 
-        @return ContactBridge reference or null if a bridge of this type is not registered.
+        @return ContactBridge reference or nil if a bridge of this type is not registered.
      */
-     public final ContactBridge getContactBridge() {
-           if(__contactBridge == null) {
-               __contactBridge = new ContactBridge(null);
+     public final func getContactBridge() -> ContactBridge {
+           if(__contactBridge == nil) {
+               __contactBridge = ContactBridge(nil);
           }
-          return __contactBridge;
+          return __contactBridge
      }
 
      /**
         Returns a reference to the registered CryptoBridge.
 
-        @return CryptoBridge reference or null if a bridge of this type is not registered.
+        @return CryptoBridge reference or nil if a bridge of this type is not registered.
      */
-     public final CryptoBridge getCryptoBridge() {
-           if(__cryptoBridge == null) {
-               __cryptoBridge = new CryptoBridge(null);
+     public final func getCryptoBridge() -> CryptoBridge {
+           if(__cryptoBridge == nil) {
+               __cryptoBridge = CryptoBridge(nil);
           }
-          return __cryptoBridge;
+          return __cryptoBridge
      }
 
      /**
         Returns a reference to the registered DataStreamBridge.
 
-        @return DataStreamBridge reference or null if a bridge of this type is not registered.
+        @return DataStreamBridge reference or nil if a bridge of this type is not registered.
      */
-     public final DataStreamBridge getDataStreamBridge() {
-           if(__datastreamBridge == null) {
-               __datastreamBridge = new DataStreamBridge(null);
+     public final func getDataStreamBridge() -> DataStreamBridge {
+           if(__datastreamBridge == nil) {
+               __datastreamBridge = DataStreamBridge(nil);
           }
-          return __datastreamBridge;
+          return __datastreamBridge
      }
 
      /**
         Returns a reference to the registered DatabaseBridge.
 
-        @return DatabaseBridge reference or null if a bridge of this type is not registered.
+        @return DatabaseBridge reference or nil if a bridge of this type is not registered.
      */
-     public final DatabaseBridge getDatabaseBridge() {
-           if(__databaseBridge == null) {
-               __databaseBridge = new DatabaseBridge(null);
+     public final func getDatabaseBridge() -> DatabaseBridge {
+           if(__databaseBridge == nil) {
+               __databaseBridge = DatabaseBridge(nil);
           }
-          return __databaseBridge;
+          return __databaseBridge
      }
 
      /**
         Returns a reference to the registered DesktopBridge.
 
-        @return DesktopBridge reference or null if a bridge of this type is not registered.
+        @return DesktopBridge reference or nil if a bridge of this type is not registered.
      */
-     public final DesktopBridge getDesktopBridge() {
-           if(__desktopBridge == null) {
-               __desktopBridge = new DesktopBridge(null);
+     public final func getDesktopBridge() -> DesktopBridge {
+           if(__desktopBridge == nil) {
+               __desktopBridge = DesktopBridge(nil);
           }
-          return __desktopBridge;
+          return __desktopBridge
      }
 
      /**
         Returns a reference to the registered DeviceBridge.
 
-        @return DeviceBridge reference or null if a bridge of this type is not registered.
+        @return DeviceBridge reference or nil if a bridge of this type is not registered.
      */
-     public final DeviceBridge getDeviceBridge() {
-           if(__deviceBridge == null) {
-               __deviceBridge = new DeviceBridge(null);
+     public final func getDeviceBridge() -> DeviceBridge {
+           if(__deviceBridge == nil) {
+               __deviceBridge = DeviceBridge(nil);
           }
-          return __deviceBridge;
+          return __deviceBridge
      }
 
      /**
         Returns a reference to the registered DisplayBridge.
 
-        @return DisplayBridge reference or null if a bridge of this type is not registered.
+        @return DisplayBridge reference or nil if a bridge of this type is not registered.
      */
-     public final DisplayBridge getDisplayBridge() {
-           if(__displayBridge == null) {
-               __displayBridge = new DisplayBridge(null);
+     public final func getDisplayBridge() -> DisplayBridge {
+           if(__displayBridge == nil) {
+               __displayBridge = DisplayBridge(nil);
           }
-          return __displayBridge;
+          return __displayBridge
      }
 
      /**
         Returns a reference to the registered FacebookBridge.
 
-        @return FacebookBridge reference or null if a bridge of this type is not registered.
+        @return FacebookBridge reference or nil if a bridge of this type is not registered.
      */
-     public final FacebookBridge getFacebookBridge() {
-           if(__facebookBridge == null) {
-               __facebookBridge = new FacebookBridge(null);
+     public final func getFacebookBridge() -> FacebookBridge {
+           if(__facebookBridge == nil) {
+               __facebookBridge = FacebookBridge(nil);
           }
-          return __facebookBridge;
+          return __facebookBridge
      }
 
      /**
         Returns a reference to the registered FileSystemBridge.
 
-        @return FileSystemBridge reference or null if a bridge of this type is not registered.
+        @return FileSystemBridge reference or nil if a bridge of this type is not registered.
      */
-     public final FileSystemBridge getFileSystemBridge() {
-           if(__filesystemBridge == null) {
-               __filesystemBridge = new FileSystemBridge(null);
+     public final func getFileSystemBridge() -> FileSystemBridge {
+           if(__filesystemBridge == nil) {
+               __filesystemBridge = FileSystemBridge(nil);
           }
-          return __filesystemBridge;
+          return __filesystemBridge
      }
 
      /**
         Returns a reference to the registered GeolocationBridge.
 
-        @return GeolocationBridge reference or null if a bridge of this type is not registered.
+        @return GeolocationBridge reference or nil if a bridge of this type is not registered.
      */
-     public final GeolocationBridge getGeolocationBridge() {
-           if(__geolocationBridge == null) {
-               __geolocationBridge = new GeolocationBridge(null);
+     public final func getGeolocationBridge() -> GeolocationBridge {
+           if(__geolocationBridge == nil) {
+               __geolocationBridge = GeolocationBridge(nil);
           }
-          return __geolocationBridge;
+          return __geolocationBridge
      }
 
      /**
         Returns a reference to the registered GlobalizationBridge.
 
-        @return GlobalizationBridge reference or null if a bridge of this type is not registered.
+        @return GlobalizationBridge reference or nil if a bridge of this type is not registered.
      */
-     public final GlobalizationBridge getGlobalizationBridge() {
-           if(__globalizationBridge == null) {
-               __globalizationBridge = new GlobalizationBridge(null);
+     public final func getGlobalizationBridge() -> GlobalizationBridge {
+           if(__globalizationBridge == nil) {
+               __globalizationBridge = GlobalizationBridge(nil);
           }
-          return __globalizationBridge;
+          return __globalizationBridge
      }
 
      /**
         Returns a reference to the registered GooglePlusBridge.
 
-        @return GooglePlusBridge reference or null if a bridge of this type is not registered.
+        @return GooglePlusBridge reference or nil if a bridge of this type is not registered.
      */
-     public final GooglePlusBridge getGooglePlusBridge() {
-           if(__googleplusBridge == null) {
-               __googleplusBridge = new GooglePlusBridge(null);
+     public final func getGooglePlusBridge() -> GooglePlusBridge {
+           if(__googleplusBridge == nil) {
+               __googleplusBridge = GooglePlusBridge(nil);
           }
-          return __googleplusBridge;
+          return __googleplusBridge
      }
 
      /**
         Returns a reference to the registered GyroscopeBridge.
 
-        @return GyroscopeBridge reference or null if a bridge of this type is not registered.
+        @return GyroscopeBridge reference or nil if a bridge of this type is not registered.
      */
-     public final GyroscopeBridge getGyroscopeBridge() {
-           if(__gyroscopeBridge == null) {
-               __gyroscopeBridge = new GyroscopeBridge(null);
+     public final func getGyroscopeBridge() -> GyroscopeBridge {
+           if(__gyroscopeBridge == nil) {
+               __gyroscopeBridge = GyroscopeBridge(nil);
           }
-          return __gyroscopeBridge;
+          return __gyroscopeBridge
      }
 
      /**
         Returns a reference to the registered ImagingBridge.
 
-        @return ImagingBridge reference or null if a bridge of this type is not registered.
+        @return ImagingBridge reference or nil if a bridge of this type is not registered.
      */
-     public final ImagingBridge getImagingBridge() {
-           if(__imagingBridge == null) {
-               __imagingBridge = new ImagingBridge(null);
+     public final func getImagingBridge() -> ImagingBridge {
+           if(__imagingBridge == nil) {
+               __imagingBridge = ImagingBridge(nil);
           }
-          return __imagingBridge;
+          return __imagingBridge
      }
 
      /**
         Returns a reference to the registered InternalStorageBridge.
 
-        @return InternalStorageBridge reference or null if a bridge of this type is not registered.
+        @return InternalStorageBridge reference or nil if a bridge of this type is not registered.
      */
-     public final InternalStorageBridge getInternalStorageBridge() {
-           if(__internalstorageBridge == null) {
-               __internalstorageBridge = new InternalStorageBridge(null);
+     public final func getInternalStorageBridge() -> InternalStorageBridge {
+           if(__internalstorageBridge == nil) {
+               __internalstorageBridge = InternalStorageBridge(nil);
           }
-          return __internalstorageBridge;
+          return __internalstorageBridge
      }
 
      /**
         Returns a reference to the registered LifecycleBridge.
 
-        @return LifecycleBridge reference or null if a bridge of this type is not registered.
+        @return LifecycleBridge reference or nil if a bridge of this type is not registered.
      */
-     public final LifecycleBridge getLifecycleBridge() {
-           if(__lifecycleBridge == null) {
-               __lifecycleBridge = new LifecycleBridge(null);
+     public final func getLifecycleBridge() -> LifecycleBridge {
+           if(__lifecycleBridge == nil) {
+               __lifecycleBridge = LifecycleBridge(nil);
           }
-          return __lifecycleBridge;
+          return __lifecycleBridge
      }
 
      /**
         Returns a reference to the registered LinkedInBridge.
 
-        @return LinkedInBridge reference or null if a bridge of this type is not registered.
+        @return LinkedInBridge reference or nil if a bridge of this type is not registered.
      */
-     public final LinkedInBridge getLinkedInBridge() {
-           if(__linkedinBridge == null) {
-               __linkedinBridge = new LinkedInBridge(null);
+     public final func getLinkedInBridge() -> LinkedInBridge {
+           if(__linkedinBridge == nil) {
+               __linkedinBridge = LinkedInBridge(nil);
           }
-          return __linkedinBridge;
+          return __linkedinBridge
      }
 
      /**
         Returns a reference to the registered LoggingBridge.
 
-        @return LoggingBridge reference or null if a bridge of this type is not registered.
+        @return LoggingBridge reference or nil if a bridge of this type is not registered.
      */
-     public final LoggingBridge getLoggingBridge() {
-           if(__loggingBridge == null) {
-               __loggingBridge = new LoggingBridge(null);
+     public final func getLoggingBridge() -> LoggingBridge {
+           if(__loggingBridge == nil) {
+               __loggingBridge = LoggingBridge(nil);
           }
-          return __loggingBridge;
+          return __loggingBridge
      }
 
      /**
         Returns a reference to the registered MagnetometerBridge.
 
-        @return MagnetometerBridge reference or null if a bridge of this type is not registered.
+        @return MagnetometerBridge reference or nil if a bridge of this type is not registered.
      */
-     public final MagnetometerBridge getMagnetometerBridge() {
-           if(__magnetometerBridge == null) {
-               __magnetometerBridge = new MagnetometerBridge(null);
+     public final func getMagnetometerBridge() -> MagnetometerBridge {
+           if(__magnetometerBridge == nil) {
+               __magnetometerBridge = MagnetometerBridge(nil);
           }
-          return __magnetometerBridge;
+          return __magnetometerBridge
      }
 
      /**
         Returns a reference to the registered MailBridge.
 
-        @return MailBridge reference or null if a bridge of this type is not registered.
+        @return MailBridge reference or nil if a bridge of this type is not registered.
      */
-     public final MailBridge getMailBridge() {
-           if(__mailBridge == null) {
-               __mailBridge = new MailBridge(null);
+     public final func getMailBridge() -> MailBridge {
+           if(__mailBridge == nil) {
+               __mailBridge = MailBridge(nil);
           }
-          return __mailBridge;
+          return __mailBridge
      }
 
      /**
         Returns a reference to the registered ManagementBridge.
 
-        @return ManagementBridge reference or null if a bridge of this type is not registered.
+        @return ManagementBridge reference or nil if a bridge of this type is not registered.
      */
-     public final ManagementBridge getManagementBridge() {
-           if(__managementBridge == null) {
-               __managementBridge = new ManagementBridge(null);
+     public final func getManagementBridge() -> ManagementBridge {
+           if(__managementBridge == nil) {
+               __managementBridge = ManagementBridge(nil);
           }
-          return __managementBridge;
+          return __managementBridge
      }
 
      /**
         Returns a reference to the registered MapBridge.
 
-        @return MapBridge reference or null if a bridge of this type is not registered.
+        @return MapBridge reference or nil if a bridge of this type is not registered.
      */
-     public final MapBridge getMapBridge() {
-           if(__mapBridge == null) {
-               __mapBridge = new MapBridge(null);
+     public final func getMapBridge() -> MapBridge {
+           if(__mapBridge == nil) {
+               __mapBridge = MapBridge(nil);
           }
-          return __mapBridge;
+          return __mapBridge
      }
 
      /**
         Returns a reference to the registered MessagingBridge.
 
-        @return MessagingBridge reference or null if a bridge of this type is not registered.
+        @return MessagingBridge reference or nil if a bridge of this type is not registered.
      */
-     public final MessagingBridge getMessagingBridge() {
-           if(__messagingBridge == null) {
-               __messagingBridge = new MessagingBridge(null);
+     public final func getMessagingBridge() -> MessagingBridge {
+           if(__messagingBridge == nil) {
+               __messagingBridge = MessagingBridge(nil);
           }
-          return __messagingBridge;
+          return __messagingBridge
      }
 
      /**
         Returns a reference to the registered NFCBridge.
 
-        @return NFCBridge reference or null if a bridge of this type is not registered.
+        @return NFCBridge reference or nil if a bridge of this type is not registered.
      */
-     public final NFCBridge getNFCBridge() {
-           if(__nfcBridge == null) {
-               __nfcBridge = new NFCBridge(null);
+     public final func getNFCBridge() -> NFCBridge {
+           if(__nfcBridge == nil) {
+               __nfcBridge = NFCBridge(nil);
           }
-          return __nfcBridge;
+          return __nfcBridge
      }
 
      /**
         Returns a reference to the registered NetworkInfoBridge.
 
-        @return NetworkInfoBridge reference or null if a bridge of this type is not registered.
+        @return NetworkInfoBridge reference or nil if a bridge of this type is not registered.
      */
-     public final NetworkInfoBridge getNetworkInfoBridge() {
-           if(__networkinfoBridge == null) {
-               __networkinfoBridge = new NetworkInfoBridge(null);
+     public final func getNetworkInfoBridge() -> NetworkInfoBridge {
+           if(__networkinfoBridge == nil) {
+               __networkinfoBridge = NetworkInfoBridge(nil);
           }
-          return __networkinfoBridge;
+          return __networkinfoBridge
      }
 
      /**
         Returns a reference to the registered NetworkNamingBridge.
 
-        @return NetworkNamingBridge reference or null if a bridge of this type is not registered.
+        @return NetworkNamingBridge reference or nil if a bridge of this type is not registered.
      */
-     public final NetworkNamingBridge getNetworkNamingBridge() {
-           if(__networknamingBridge == null) {
-               __networknamingBridge = new NetworkNamingBridge(null);
+     public final func getNetworkNamingBridge() -> NetworkNamingBridge {
+           if(__networknamingBridge == nil) {
+               __networknamingBridge = NetworkNamingBridge(nil);
           }
-          return __networknamingBridge;
+          return __networknamingBridge
      }
 
      /**
         Returns a reference to the registered NetworkReachabilityBridge.
 
-        @return NetworkReachabilityBridge reference or null if a bridge of this type is not registered.
+        @return NetworkReachabilityBridge reference or nil if a bridge of this type is not registered.
      */
-     public final NetworkReachabilityBridge getNetworkReachabilityBridge() {
-           if(__networkreachabilityBridge == null) {
-               __networkreachabilityBridge = new NetworkReachabilityBridge(null);
+     public final func getNetworkReachabilityBridge() -> NetworkReachabilityBridge {
+           if(__networkreachabilityBridge == nil) {
+               __networkreachabilityBridge = NetworkReachabilityBridge(nil);
           }
-          return __networkreachabilityBridge;
+          return __networkreachabilityBridge
      }
 
      /**
         Returns a reference to the registered NetworkStatusBridge.
 
-        @return NetworkStatusBridge reference or null if a bridge of this type is not registered.
+        @return NetworkStatusBridge reference or nil if a bridge of this type is not registered.
      */
-     public final NetworkStatusBridge getNetworkStatusBridge() {
-           if(__networkstatusBridge == null) {
-               __networkstatusBridge = new NetworkStatusBridge(null);
+     public final func getNetworkStatusBridge() -> NetworkStatusBridge {
+           if(__networkstatusBridge == nil) {
+               __networkstatusBridge = NetworkStatusBridge(nil);
           }
-          return __networkstatusBridge;
+          return __networkstatusBridge
      }
 
      /**
         Returns a reference to the registered NotificationBridge.
 
-        @return NotificationBridge reference or null if a bridge of this type is not registered.
+        @return NotificationBridge reference or nil if a bridge of this type is not registered.
      */
-     public final NotificationBridge getNotificationBridge() {
-           if(__notificationBridge == null) {
-               __notificationBridge = new NotificationBridge(null);
+     public final func getNotificationBridge() -> NotificationBridge {
+           if(__notificationBridge == nil) {
+               __notificationBridge = NotificationBridge(nil);
           }
-          return __notificationBridge;
+          return __notificationBridge
      }
 
      /**
         Returns a reference to the registered NotificationLocalBridge.
 
-        @return NotificationLocalBridge reference or null if a bridge of this type is not registered.
+        @return NotificationLocalBridge reference or nil if a bridge of this type is not registered.
      */
-     public final NotificationLocalBridge getNotificationLocalBridge() {
-           if(__notificationlocalBridge == null) {
-               __notificationlocalBridge = new NotificationLocalBridge(null);
+     public final func getNotificationLocalBridge() -> NotificationLocalBridge {
+           if(__notificationlocalBridge == nil) {
+               __notificationlocalBridge = NotificationLocalBridge(nil);
           }
-          return __notificationlocalBridge;
+          return __notificationlocalBridge
      }
 
      /**
         Returns a reference to the registered OAuthBridge.
 
-        @return OAuthBridge reference or null if a bridge of this type is not registered.
+        @return OAuthBridge reference or nil if a bridge of this type is not registered.
      */
-     public final OAuthBridge getOAuthBridge() {
-           if(__oauthBridge == null) {
-               __oauthBridge = new OAuthBridge(null);
+     public final func getOAuthBridge() -> OAuthBridge {
+           if(__oauthBridge == nil) {
+               __oauthBridge = OAuthBridge(nil);
           }
-          return __oauthBridge;
+          return __oauthBridge
      }
 
      /**
         Returns a reference to the registered OCRBridge.
 
-        @return OCRBridge reference or null if a bridge of this type is not registered.
+        @return OCRBridge reference or nil if a bridge of this type is not registered.
      */
-     public final OCRBridge getOCRBridge() {
-           if(__ocrBridge == null) {
-               __ocrBridge = new OCRBridge(null);
+     public final func getOCRBridge() -> OCRBridge {
+           if(__ocrBridge == nil) {
+               __ocrBridge = OCRBridge(nil);
           }
-          return __ocrBridge;
+          return __ocrBridge
      }
 
      /**
         Returns a reference to the registered OSBridge.
 
-        @return OSBridge reference or null if a bridge of this type is not registered.
+        @return OSBridge reference or nil if a bridge of this type is not registered.
      */
-     public final OSBridge getOSBridge() {
-           if(__osBridge == null) {
-               __osBridge = new OSBridge(null);
+     public final func getOSBridge() -> OSBridge {
+           if(__osBridge == nil) {
+               __osBridge = OSBridge(nil);
           }
-          return __osBridge;
+          return __osBridge
      }
 
      /**
         Returns a reference to the registered OpenIdBridge.
 
-        @return OpenIdBridge reference or null if a bridge of this type is not registered.
+        @return OpenIdBridge reference or nil if a bridge of this type is not registered.
      */
-     public final OpenIdBridge getOpenIdBridge() {
-           if(__openidBridge == null) {
-               __openidBridge = new OpenIdBridge(null);
+     public final func getOpenIdBridge() -> OpenIdBridge {
+           if(__openidBridge == nil) {
+               __openidBridge = OpenIdBridge(nil);
           }
-          return __openidBridge;
+          return __openidBridge
      }
 
      /**
         Returns a reference to the registered PrintingBridge.
 
-        @return PrintingBridge reference or null if a bridge of this type is not registered.
+        @return PrintingBridge reference or nil if a bridge of this type is not registered.
      */
-     public final PrintingBridge getPrintingBridge() {
-           if(__printingBridge == null) {
-               __printingBridge = new PrintingBridge(null);
+     public final func getPrintingBridge() -> PrintingBridge {
+           if(__printingBridge == nil) {
+               __printingBridge = PrintingBridge(nil);
           }
-          return __printingBridge;
+          return __printingBridge
      }
 
      /**
         Returns a reference to the registered ProximityBridge.
 
-        @return ProximityBridge reference or null if a bridge of this type is not registered.
+        @return ProximityBridge reference or nil if a bridge of this type is not registered.
      */
-     public final ProximityBridge getProximityBridge() {
-           if(__proximityBridge == null) {
-               __proximityBridge = new ProximityBridge(null);
+     public final func getProximityBridge() -> ProximityBridge {
+           if(__proximityBridge == nil) {
+               __proximityBridge = ProximityBridge(nil);
           }
-          return __proximityBridge;
+          return __proximityBridge
      }
 
      /**
         Returns a reference to the registered QRCodeBridge.
 
-        @return QRCodeBridge reference or null if a bridge of this type is not registered.
+        @return QRCodeBridge reference or nil if a bridge of this type is not registered.
      */
-     public final QRCodeBridge getQRCodeBridge() {
-           if(__qrcodeBridge == null) {
-               __qrcodeBridge = new QRCodeBridge(null);
+     public final func getQRCodeBridge() -> QRCodeBridge {
+           if(__qrcodeBridge == nil) {
+               __qrcodeBridge = QRCodeBridge(nil);
           }
-          return __qrcodeBridge;
+          return __qrcodeBridge
      }
 
      /**
         Returns a reference to the registered RSSBridge.
 
-        @return RSSBridge reference or null if a bridge of this type is not registered.
+        @return RSSBridge reference or nil if a bridge of this type is not registered.
      */
-     public final RSSBridge getRSSBridge() {
-           if(__rssBridge == null) {
-               __rssBridge = new RSSBridge(null);
+     public final func getRSSBridge() -> RSSBridge {
+           if(__rssBridge == nil) {
+               __rssBridge = RSSBridge(nil);
           }
-          return __rssBridge;
+          return __rssBridge
      }
 
      /**
         Returns a reference to the registered RuntimeBridge.
 
-        @return RuntimeBridge reference or null if a bridge of this type is not registered.
+        @return RuntimeBridge reference or nil if a bridge of this type is not registered.
      */
-     public final RuntimeBridge getRuntimeBridge() {
-           if(__runtimeBridge == null) {
-               __runtimeBridge = new RuntimeBridge(null);
+     public final func getRuntimeBridge() -> RuntimeBridge {
+           if(__runtimeBridge == nil) {
+               __runtimeBridge = RuntimeBridge(nil);
           }
-          return __runtimeBridge;
+          return __runtimeBridge
      }
 
      /**
         Returns a reference to the registered SecurityBridge.
 
-        @return SecurityBridge reference or null if a bridge of this type is not registered.
+        @return SecurityBridge reference or nil if a bridge of this type is not registered.
      */
-     public final SecurityBridge getSecurityBridge() {
-           if(__securityBridge == null) {
-               __securityBridge = new SecurityBridge(null);
+     public final func getSecurityBridge() -> SecurityBridge {
+           if(__securityBridge == nil) {
+               __securityBridge = SecurityBridge(nil);
           }
-          return __securityBridge;
+          return __securityBridge
      }
 
      /**
         Returns a reference to the registered ServiceBridge.
 
-        @return ServiceBridge reference or null if a bridge of this type is not registered.
+        @return ServiceBridge reference or nil if a bridge of this type is not registered.
      */
-     public final ServiceBridge getServiceBridge() {
-           if(__serviceBridge == null) {
-               __serviceBridge = new ServiceBridge(null);
+     public final func getServiceBridge() -> ServiceBridge {
+           if(__serviceBridge == nil) {
+               __serviceBridge = ServiceBridge(nil);
           }
-          return __serviceBridge;
+          return __serviceBridge
      }
 
      /**
         Returns a reference to the registered SettingsBridge.
 
-        @return SettingsBridge reference or null if a bridge of this type is not registered.
+        @return SettingsBridge reference or nil if a bridge of this type is not registered.
      */
-     public final SettingsBridge getSettingsBridge() {
-           if(__settingsBridge == null) {
-               __settingsBridge = new SettingsBridge(null);
+     public final func getSettingsBridge() -> SettingsBridge {
+           if(__settingsBridge == nil) {
+               __settingsBridge = SettingsBridge(nil);
           }
-          return __settingsBridge;
+          return __settingsBridge
      }
 
      /**
         Returns a reference to the registered SocketBridge.
 
-        @return SocketBridge reference or null if a bridge of this type is not registered.
+        @return SocketBridge reference or nil if a bridge of this type is not registered.
      */
-     public final SocketBridge getSocketBridge() {
-           if(__socketBridge == null) {
-               __socketBridge = new SocketBridge(null);
+     public final func getSocketBridge() -> SocketBridge {
+           if(__socketBridge == nil) {
+               __socketBridge = SocketBridge(nil);
           }
-          return __socketBridge;
+          return __socketBridge
      }
 
      /**
         Returns a reference to the registered StoreBridge.
 
-        @return StoreBridge reference or null if a bridge of this type is not registered.
+        @return StoreBridge reference or nil if a bridge of this type is not registered.
      */
-     public final StoreBridge getStoreBridge() {
-           if(__storeBridge == null) {
-               __storeBridge = new StoreBridge(null);
+     public final func getStoreBridge() -> StoreBridge {
+           if(__storeBridge == nil) {
+               __storeBridge = StoreBridge(nil);
           }
-          return __storeBridge;
+          return __storeBridge
      }
 
      /**
         Returns a reference to the registered TelephonyBridge.
 
-        @return TelephonyBridge reference or null if a bridge of this type is not registered.
+        @return TelephonyBridge reference or nil if a bridge of this type is not registered.
      */
-     public final TelephonyBridge getTelephonyBridge() {
-           if(__telephonyBridge == null) {
-               __telephonyBridge = new TelephonyBridge(null);
+     public final func getTelephonyBridge() -> TelephonyBridge {
+           if(__telephonyBridge == nil) {
+               __telephonyBridge = TelephonyBridge(nil);
           }
-          return __telephonyBridge;
+          return __telephonyBridge
      }
 
      /**
         Returns a reference to the registered TimerBridge.
 
-        @return TimerBridge reference or null if a bridge of this type is not registered.
+        @return TimerBridge reference or nil if a bridge of this type is not registered.
      */
-     public final TimerBridge getTimerBridge() {
-           if(__timerBridge == null) {
-               __timerBridge = new TimerBridge(null);
+     public final func getTimerBridge() -> TimerBridge {
+           if(__timerBridge == nil) {
+               __timerBridge = TimerBridge(nil);
           }
-          return __timerBridge;
+          return __timerBridge
      }
 
      /**
         Returns a reference to the registered TwitterBridge.
 
-        @return TwitterBridge reference or null if a bridge of this type is not registered.
+        @return TwitterBridge reference or nil if a bridge of this type is not registered.
      */
-     public final TwitterBridge getTwitterBridge() {
-           if(__twitterBridge == null) {
-               __twitterBridge = new TwitterBridge(null);
+     public final func getTwitterBridge() -> TwitterBridge {
+           if(__twitterBridge == nil) {
+               __twitterBridge = TwitterBridge(nil);
           }
-          return __twitterBridge;
+          return __twitterBridge
      }
 
      /**
         Returns a reference to the registered UIBridge.
 
-        @return UIBridge reference or null if a bridge of this type is not registered.
+        @return UIBridge reference or nil if a bridge of this type is not registered.
      */
-     public final UIBridge getUIBridge() {
-           if(__uiBridge == null) {
-               __uiBridge = new UIBridge(null);
+     public final func getUIBridge() -> UIBridge {
+           if(__uiBridge == nil) {
+               __uiBridge = UIBridge(nil);
           }
-          return __uiBridge;
+          return __uiBridge
      }
 
      /**
         Returns a reference to the registered UpdateBridge.
 
-        @return UpdateBridge reference or null if a bridge of this type is not registered.
+        @return UpdateBridge reference or nil if a bridge of this type is not registered.
      */
-     public final UpdateBridge getUpdateBridge() {
-           if(__updateBridge == null) {
-               __updateBridge = new UpdateBridge(null);
+     public final func getUpdateBridge() -> UpdateBridge {
+           if(__updateBridge == nil) {
+               __updateBridge = UpdateBridge(nil);
           }
-          return __updateBridge;
+          return __updateBridge
      }
 
      /**
         Returns a reference to the registered VibrationBridge.
 
-        @return VibrationBridge reference or null if a bridge of this type is not registered.
+        @return VibrationBridge reference or nil if a bridge of this type is not registered.
      */
-     public final VibrationBridge getVibrationBridge() {
-           if(__vibrationBridge == null) {
-               __vibrationBridge = new VibrationBridge(null);
+     public final func getVibrationBridge() -> VibrationBridge {
+           if(__vibrationBridge == nil) {
+               __vibrationBridge = VibrationBridge(nil);
           }
-          return __vibrationBridge;
+          return __vibrationBridge
      }
 
      /**
         Returns a reference to the registered VideoBridge.
 
-        @return VideoBridge reference or null if a bridge of this type is not registered.
+        @return VideoBridge reference or nil if a bridge of this type is not registered.
      */
-     public final VideoBridge getVideoBridge() {
-           if(__videoBridge == null) {
-               __videoBridge = new VideoBridge(null);
+     public final func getVideoBridge() -> VideoBridge {
+           if(__videoBridge == nil) {
+               __videoBridge = VideoBridge(nil);
           }
-          return __videoBridge;
+          return __videoBridge
      }
 
      /**
         Returns a reference to the registered WalletBridge.
 
-        @return WalletBridge reference or null if a bridge of this type is not registered.
+        @return WalletBridge reference or nil if a bridge of this type is not registered.
      */
-     public final WalletBridge getWalletBridge() {
-           if(__walletBridge == null) {
-               __walletBridge = new WalletBridge(null);
+     public final func getWalletBridge() -> WalletBridge {
+           if(__walletBridge == nil) {
+               __walletBridge = WalletBridge(nil);
           }
-          return __walletBridge;
+          return __walletBridge
      }
 
      /**
         Returns a reference to the registered XMLBridge.
 
-        @return XMLBridge reference or null if a bridge of this type is not registered.
+        @return XMLBridge reference or nil if a bridge of this type is not registered.
      */
-     public final XMLBridge getXMLBridge() {
-           if(__xmlBridge == null) {
-               __xmlBridge = new XMLBridge(null);
+     public final func getXMLBridge() -> XMLBridge {
+           if(__xmlBridge == nil) {
+               __xmlBridge = XMLBridge(nil);
           }
-          return __xmlBridge;
+          return __xmlBridge
      }
 
      /**
         Provides a bridge to handle API calls for the given interface name.
 
         @param bridgeType String with the interface name required.
-        @return APIBridge That handles calls for the specified interface or null if the given bridge is not registered.
+        @return APIBridge That handles calls for the specified interface or nil if the given bridge is not registered.
      */
-     public final APIBridge getBridge(String bridgeType) {
+     public final func getBridge(String bridgeType) -> APIBridge {
           switch(bridgeType) {
 
                case "IAcceleration":
-                    return getAccelerationBridge();
+                    return getAccelerationBridge()
 
                case "IAds":
-                    return getAdsBridge();
+                    return getAdsBridge()
 
                case "IAlarm":
-                    return getAlarmBridge();
+                    return getAlarmBridge()
 
                case "IAmbientLight":
-                    return getAmbientLightBridge();
+                    return getAmbientLightBridge()
 
                case "IAnalytics":
-                    return getAnalyticsBridge();
+                    return getAnalyticsBridge()
 
                case "IAudio":
-                    return getAudioBridge();
+                    return getAudioBridge()
 
                case "IBarcode":
-                    return getBarcodeBridge();
+                    return getBarcodeBridge()
 
                case "IBarometer":
-                    return getBarometerBridge();
+                    return getBarometerBridge()
 
                case "IBluetooth":
-                    return getBluetoothBridge();
+                    return getBluetoothBridge()
 
                case "IBrowser":
-                    return getBrowserBridge();
+                    return getBrowserBridge()
 
                case "ICalendar":
-                    return getCalendarBridge();
+                    return getCalendarBridge()
 
                case "ICamera":
-                    return getCameraBridge();
+                    return getCameraBridge()
 
                case "ICapabilities":
-                    return getCapabilitiesBridge();
+                    return getCapabilitiesBridge()
 
                case "ICloud":
-                    return getCloudBridge();
+                    return getCloudBridge()
 
                case "ICompression":
-                    return getCompressionBridge();
+                    return getCompressionBridge()
 
                case "IConcurrent":
-                    return getConcurrentBridge();
+                    return getConcurrentBridge()
 
                case "IContact":
-                    return getContactBridge();
+                    return getContactBridge()
 
                case "ICrypto":
-                    return getCryptoBridge();
+                    return getCryptoBridge()
 
                case "IDataStream":
-                    return getDataStreamBridge();
+                    return getDataStreamBridge()
 
                case "IDatabase":
-                    return getDatabaseBridge();
+                    return getDatabaseBridge()
 
                case "IDesktop":
-                    return getDesktopBridge();
+                    return getDesktopBridge()
 
                case "IDevice":
-                    return getDeviceBridge();
+                    return getDeviceBridge()
 
                case "IDisplay":
-                    return getDisplayBridge();
+                    return getDisplayBridge()
 
                case "IFacebook":
-                    return getFacebookBridge();
+                    return getFacebookBridge()
 
                case "IFileSystem":
-                    return getFileSystemBridge();
+                    return getFileSystemBridge()
 
                case "IGeolocation":
-                    return getGeolocationBridge();
+                    return getGeolocationBridge()
 
                case "IGlobalization":
-                    return getGlobalizationBridge();
+                    return getGlobalizationBridge()
 
                case "IGooglePlus":
-                    return getGooglePlusBridge();
+                    return getGooglePlusBridge()
 
                case "IGyroscope":
-                    return getGyroscopeBridge();
+                    return getGyroscopeBridge()
 
                case "IImaging":
-                    return getImagingBridge();
+                    return getImagingBridge()
 
                case "IInternalStorage":
-                    return getInternalStorageBridge();
+                    return getInternalStorageBridge()
 
                case "ILifecycle":
-                    return getLifecycleBridge();
+                    return getLifecycleBridge()
 
                case "ILinkedIn":
-                    return getLinkedInBridge();
+                    return getLinkedInBridge()
 
                case "ILogging":
-                    return getLoggingBridge();
+                    return getLoggingBridge()
 
                case "IMagnetometer":
-                    return getMagnetometerBridge();
+                    return getMagnetometerBridge()
 
                case "IMail":
-                    return getMailBridge();
+                    return getMailBridge()
 
                case "IManagement":
-                    return getManagementBridge();
+                    return getManagementBridge()
 
                case "IMap":
-                    return getMapBridge();
+                    return getMapBridge()
 
                case "IMessaging":
-                    return getMessagingBridge();
+                    return getMessagingBridge()
 
                case "INFC":
-                    return getNFCBridge();
+                    return getNFCBridge()
 
                case "INetworkInfo":
-                    return getNetworkInfoBridge();
+                    return getNetworkInfoBridge()
 
                case "INetworkNaming":
-                    return getNetworkNamingBridge();
+                    return getNetworkNamingBridge()
 
                case "INetworkReachability":
-                    return getNetworkReachabilityBridge();
+                    return getNetworkReachabilityBridge()
 
                case "INetworkStatus":
-                    return getNetworkStatusBridge();
+                    return getNetworkStatusBridge()
 
                case "INotification":
-                    return getNotificationBridge();
+                    return getNotificationBridge()
 
                case "INotificationLocal":
-                    return getNotificationLocalBridge();
+                    return getNotificationLocalBridge()
 
                case "IOAuth":
-                    return getOAuthBridge();
+                    return getOAuthBridge()
 
                case "IOCR":
-                    return getOCRBridge();
+                    return getOCRBridge()
 
                case "IOS":
-                    return getOSBridge();
+                    return getOSBridge()
 
                case "IOpenId":
-                    return getOpenIdBridge();
+                    return getOpenIdBridge()
 
                case "IPrinting":
-                    return getPrintingBridge();
+                    return getPrintingBridge()
 
                case "IProximity":
-                    return getProximityBridge();
+                    return getProximityBridge()
 
                case "IQRCode":
-                    return getQRCodeBridge();
+                    return getQRCodeBridge()
 
                case "IRSS":
-                    return getRSSBridge();
+                    return getRSSBridge()
 
                case "IRuntime":
-                    return getRuntimeBridge();
+                    return getRuntimeBridge()
 
                case "ISecurity":
-                    return getSecurityBridge();
+                    return getSecurityBridge()
 
                case "IService":
-                    return getServiceBridge();
+                    return getServiceBridge()
 
                case "ISettings":
-                    return getSettingsBridge();
+                    return getSettingsBridge()
 
                case "ISocket":
-                    return getSocketBridge();
+                    return getSocketBridge()
 
                case "IStore":
-                    return getStoreBridge();
+                    return getStoreBridge()
 
                case "ITelephony":
-                    return getTelephonyBridge();
+                    return getTelephonyBridge()
 
                case "ITimer":
-                    return getTimerBridge();
+                    return getTimerBridge()
 
                case "ITwitter":
-                    return getTwitterBridge();
+                    return getTwitterBridge()
 
                case "IUI":
-                    return getUIBridge();
+                    return getUIBridge()
 
                case "IUpdate":
-                    return getUpdateBridge();
+                    return getUpdateBridge()
 
                case "IVibration":
-                    return getVibrationBridge();
+                    return getVibrationBridge()
 
                case "IVideo":
-                    return getVideoBridge();
+                    return getVideoBridge()
 
                case "IWallet":
-                    return getWalletBridge();
+                    return getWalletBridge()
 
                case "IXML":
-                    return getXMLBridge();
+                    return getXMLBridge()
 
                default:
-                    return null;
+                    return nil
           }
      }
 
      /**
         Returns a reference to the Platform Context
      */
-     private AppContextBridge __appcontextBridge = null;
+     private var __appcontextBridge : AppContextBridge? = nil
 
      /**
         Returns a reference to the Platform Context
@@ -1179,17 +1179,17 @@ public class AppRegistryDelegate : IAppRegistry {
         @return Reference to the platform context
         @since ARP1.0
      */
-     public AppContextBridge getPlatformContext() {
-           if(__appcontextBridge == null) {
-               __appcontextBridge = new AppContextBridge(null);
+     public func getPlatformContext() -> AppContextBridge {
+           if(__appcontextBridge == nil) {
+               __appcontextBridge = AppContextBridge(nil)
           }
-          return __appcontextBridge;
+          return __appcontextBridge
      }
 
      /**
         Returns a reference to the Webview platform context
      */
-     private AppContextWebviewBridge __appcontextwebviewBridge = null;
+     private var __appcontextwebviewBridge : AppContextWebviewBridge? = nil
 
      /**
         Returns a reference to the Webview platform context
@@ -1197,11 +1197,11 @@ public class AppRegistryDelegate : IAppRegistry {
         @return Reference to the Webview Context
         @since ARP1.0
      */
-     public AppContextWebviewBridge getPlatformContextWeb() {
-           if(__appcontextwebviewBridge == null) {
-               __appcontextwebviewBridge = new AppContextWebviewBridge(null);
+     public func getPlatformContextWeb() -> AppContextWebviewBridge {
+           if(__appcontextwebviewBridge == nil) {
+               __appcontextwebviewBridge = AppContextWebviewBridge(nil)
           }
-          return __appcontextwebviewBridge;
+          return __appcontextwebviewBridge
      }
 
 }

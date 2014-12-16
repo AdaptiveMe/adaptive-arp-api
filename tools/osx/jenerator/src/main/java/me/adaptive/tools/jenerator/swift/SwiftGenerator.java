@@ -184,7 +184,7 @@ public class SwiftGenerator extends GeneratorBase {
                 println(8, "Bridge references.");
                 endComment(5);
                 for (Class serviceClass : serviceClasses) {
-                    println(5, "private " + serviceClass.getSimpleName().substring(1) + "Bridge __" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge = null;");
+                    println(5, "private var __" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge : "+ serviceClass.getSimpleName().substring(1) + "Bridge? = nil");
                 }
                 println();
 
@@ -192,13 +192,13 @@ public class SwiftGenerator extends GeneratorBase {
                     startComment(5);
                     println(8, "Returns a reference to the registered " + serviceClass.getSimpleName().substring(1) + "Bridge.");
                     println();
-                    println(8, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
+                    println(8, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or nil if a bridge of this type is not registered.");
                     endComment(5);
-                    println(5, "public final " + serviceClass.getSimpleName().substring(1) + "Bridge get" + serviceClass.getSimpleName().substring(1) + "Bridge() {");
-                    println(10, " if(__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge == null) {");
-                    println(15, "__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge = new " + serviceClass.getSimpleName().substring(1) + "Bridge(null);");
+                    println(5, "public final func get" + serviceClass.getSimpleName().substring(1) + "Bridge() -> " + serviceClass.getSimpleName().substring(1) + "Bridge {");
+                    println(10, " if(__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge == nil) {");
+                    println(15, "__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge = " + serviceClass.getSimpleName().substring(1) + "Bridge(nil);");
                     println(10, "}");
-                    println(10, "return __" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge;");
+                    println(10, "return __" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge");
                     println(5, "}");
                     println();
                 }
@@ -207,19 +207,19 @@ public class SwiftGenerator extends GeneratorBase {
                 println(8, "Provides a bridge to handle API calls for the given interface name.");
                 println();
                 println(8, "@param bridgeType String with the interface name required.");
-                println(8, "@return APIBridge That handles calls for the specified interface or null if the given bridge is not registered.");
+                println(8, "@return APIBridge That handles calls for the specified interface or nil if the given bridge is not registered.");
                 endComment(5);
-                println(5, "public final APIBridge getBridge(String bridgeType) {");
+                println(5, "public final func getBridge(String bridgeType) -> APIBridge {");
                 println(10, "switch(bridgeType) {");
                 println();
 
                 for (Class serviceClass : serviceClasses) {
                     println(15, "case \"" + serviceClass.getSimpleName() + "\":");
-                    println(20, "return get" + serviceClass.getSimpleName().substring(1) + "Bridge();");
+                    println(20, "return get" + serviceClass.getSimpleName().substring(1) + "Bridge()");
                     println();
                 }
                 println(15, "default:");
-                println(20, "return null;");
+                println(20, "return nil");
                 println(10, "}");
                 println(5, "}");
                 println();
@@ -228,7 +228,7 @@ public class SwiftGenerator extends GeneratorBase {
                     startComment(5);
                     println(8, javaMethods.get(m).getComment());
                     endComment(5);
-                    println(5, "private " + m.getReturnType().getSimpleName().substring(1) + "Bridge __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = null;");
+                    println(5, "private var __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge : " + m.getReturnType().getSimpleName().substring(1) + "Bridge? = nil");
                     println();
                     startComment(5);
                     println(8, javaMethods.get(m).getComment());
@@ -237,14 +237,13 @@ public class SwiftGenerator extends GeneratorBase {
                         println(8, "@" + tag.getName() + " " + tag.getValue());
                     }
                     endComment(5);
-                    print(5, "public ");
-                    print(m.getReturnType().getSimpleName().substring(1) + "Bridge ");
-                    print(m.getName() + "(");
-                    println(") {");
-                    println(10, " if(__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge == null) {");
-                    println(15, "__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = new " + m.getReturnType().getSimpleName().substring(1) + "Bridge(null);");
+                    print(5, "public func ");
+                    print(m.getName() + "()");
+                    println(" -> " +m.getReturnType().getSimpleName().substring(1) + "Bridge {");
+                    println(10, " if(__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge == nil) {");
+                    println(15, "__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = " + m.getReturnType().getSimpleName().substring(1) + "Bridge(nil)");
                     println(10, "}");
-                    println(10, "return __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge;");
+                    println(10, "return __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge");
                     println(5, "}");
                     println();
                 } else {
