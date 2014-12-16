@@ -46,7 +46,7 @@ public protocol IGlobalization : IBaseApplication {
         @return List of locales
         @since ARP1.0
      */
-     [Locale] getLocaleSupportedDescriptors();
+     func getLocaleSupportedDescriptors() -> [Locale] 
 
      /**
         Gets the text/message corresponding to the given key and locale.
@@ -56,7 +56,7 @@ public protocol IGlobalization : IBaseApplication {
         @return Localized text.
         @since ARP1.0
      */
-     String getResourceLiteral(String key, Locale locale);
+     func getResourceLiteral(key : String, locale : Locale) -> String 
 
      /**
         Gets the full application configured literals (key/message pairs) corresponding to the given locale.
@@ -65,7 +65,7 @@ public protocol IGlobalization : IBaseApplication {
         @return Localized texts in the form of an object.
         @since ARP1.0
      */
-     [KeyPair] getResourceLiterals(Locale locale);
+     func getResourceLiterals(locale : Locale) -> [KeyPair] 
 
 }
 

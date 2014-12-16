@@ -46,7 +46,7 @@ public protocol IServiceResultCallback : IBaseCallback {
         @param error returned by the platform
         @since ARP1.0
      */
-     void onError(IServiceResultCallbackError error);
+     func onError(error : IServiceResultCallbackError)
 
      /**
         This method is called on Result
@@ -54,7 +54,7 @@ public protocol IServiceResultCallback : IBaseCallback {
         @param response data
         @since ARP1.0
      */
-     void onResult(ServiceResponse response);
+     func onResult(response : ServiceResponse)
 
      /**
         This method is called on Warning
@@ -63,7 +63,7 @@ public protocol IServiceResultCallback : IBaseCallback {
         @param warning  returned by the platform
         @since ARP1.0
      */
-     void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning);
+     func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning)
 
 }
 

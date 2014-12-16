@@ -32,34 +32,30 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Base application for Security purposes
    Auto-generated implementation of IBaseSecurity specification.
 */
-public class BaseSecurityDelegate implements IBaseSecurity {
+public class BaseSecurityDelegate : IBaseSecurity {
 
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     private var apiGroup : IAdaptiveRPGroup
 
      /**
         Default constructor.
      */
-     public BaseSecurityDelegate() {
-          this.apiGroup = IAdaptiveRPGroup.Security;
+     public init() {
+          self.apiGroup = IAdaptiveRPGroup.Security
      }
 
      /**
         Return the API group for the given interface.
      */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
+     public final func getAPIGroup() -> IAdaptiveRPGroup {
+          return self.apiGroup;
      }
 
 }

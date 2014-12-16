@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Services operations
    Auto-generated implementation of IService specification.
 */
-public class ServiceDelegate extends BaseCommunicationDelegate implements IService {
+public class ServiceDelegate : BaseCommunicationDelegate, IService {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getServiceBridge().setDelegate(new ServiceDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getServiceBridge().setDelegate(new ServiceDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public ServiceDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -63,11 +60,9 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
         @return A service, if registered, or null of the service does not exist.
         @since ARP1.0
      */
-     public Service getService(String serviceName) {
-          Service response;
+     public func getService(serviceName : String) -> Service {
+          var response : Service
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getService");
-          // return response;
      }
 
      /**
@@ -78,9 +73,8 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
         @param callback       Callback to execute with the result
         @since ARP1.0
      */
-     public void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback) {
+     public func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":invokeService");
      }
 
      /**
@@ -90,11 +84,9 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
         @return True if the service is registered, false otherwise.
         @since ARP1.0
      */
-     public Bool isRegistered(Service service) {
-          Bool response;
+     public func isRegistered(service : Service) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":isRegistered");
-          // return response;
      }
 
      /**
@@ -104,11 +96,9 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
         @return True if the service is registered, false otherwise.
         @since ARP1.0
      */
-     public Bool isRegistered(String serviceName) {
-          Bool response;
+     public func isRegistered(serviceName : String) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":isRegistered");
-          // return response;
      }
 
      /**
@@ -117,9 +107,8 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
         @param service to register
         @since ARP1.0
      */
-     public void registerService(Service service) {
+     public func registerService(service : Service) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":registerService");
      }
 
      /**
@@ -128,9 +117,8 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
         @param service to unregister
         @since ARP1.0
      */
-     public void unregisterService(Service service) {
+     public func unregisterService(service : Service) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":unregisterService");
      }
 
      /**
@@ -138,9 +126,8 @@ public class ServiceDelegate extends BaseCommunicationDelegate implements IServi
 
         @since ARP1.0
      */
-     public void unregisterServices() {
+     public func unregisterServices() {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":unregisterServices");
      }
 
 }

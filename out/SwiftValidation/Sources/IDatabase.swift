@@ -47,7 +47,7 @@ public protocol IDatabase : IBaseData {
         @param database Database object to create
         @since ARP1.0
      */
-     void createDatabase(Database database, IDatabaseResultCallback callback);
+     func createDatabase(database : Database, callback : IDatabaseResultCallback)
 
      /**
         Creates a databaseTable inside a database for every platform.
@@ -57,7 +57,7 @@ public protocol IDatabase : IBaseData {
         @param callback      DatabaseTable callback with the response
         @since ARP1.0
      */
-     void createTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback);
+     func createTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback)
 
      /**
         Deletes a database on default path for every platform.
@@ -66,7 +66,7 @@ public protocol IDatabase : IBaseData {
         @param callback Asynchronous callback
         @since ARP1.0
      */
-     void deleteDatabase(Database database, IDatabaseResultCallback callback);
+     func deleteDatabase(database : Database, callback : IDatabaseResultCallback)
 
      /**
         Deletes a databaseTable inside a database for every platform.
@@ -76,7 +76,7 @@ public protocol IDatabase : IBaseData {
         @param callback      DatabaseTable callback with the response
         @since ARP1.0
      */
-     void deleteTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback);
+     func deleteTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback)
 
      /**
         Executes SQL statement into the given database. The replacements
@@ -88,7 +88,7 @@ should be passed as a parameter
         @param callback     DatabaseTable callback with the response.
         @since ARP1.0
      */
-     void executeSqlStatement(Database database, String statement, [String] replacements, IDatabaseTableResultCallback callback);
+     func executeSqlStatement(database : Database, statement : String, replacements : [String], callback : IDatabaseTableResultCallback)
 
      /**
         Executes SQL transaction (some statements chain) inside given database.
@@ -100,7 +100,7 @@ should be passed as a parameter
         @param callback     DatabaseTable callback with the response.
         @since ARP1.0
      */
-     void executeSqlTransactions(Database database, [String] statements, Bool rollbackFlag, IDatabaseTableResultCallback callback);
+     func executeSqlTransactions(database : Database, statements : [String], rollbackFlag : Bool, callback : IDatabaseTableResultCallback)
 
      /**
         Checks if database exists by given database name.
@@ -109,7 +109,7 @@ should be passed as a parameter
         @return True if exists, false otherwise
         @since ARP1.0
      */
-     Bool existsDatabase(Database database);
+     func existsDatabase(database : Database) -> Bool 
 
      /**
         Checks if databaseTable exists by given database name.
@@ -119,7 +119,7 @@ should be passed as a parameter
         @return True if exists, false otherwise
         @since ARP1.0
      */
-     Bool existsTable(Database database, DatabaseTable databaseTable);
+     func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool 
 
 }
 

@@ -46,7 +46,7 @@ public protocol IFileResultCallback : IBaseCallback {
         @param error Error processing the request.
         @since ARP1.0
      */
-     void onError(IFileResultCallbackError error);
+     func onError(error : IFileResultCallbackError)
 
      /**
         On correct result of a file operation.
@@ -54,7 +54,7 @@ public protocol IFileResultCallback : IBaseCallback {
         @param storageFile Reference to the resulting file.
         @since ARP1.0
      */
-     void onResult(IFile storageFile);
+     func onResult(storageFile : IFile)
 
      /**
         On partial result of a file operation, containing a warning.
@@ -63,7 +63,7 @@ public protocol IFileResultCallback : IBaseCallback {
         @param warning Warning processing the request.
         @since ARP1.0
      */
-     void onWarning(IFile file, IFileResultCallbackWarning warning);
+     func onWarning(file : IFile, warning : IFileResultCallbackWarning)
 
 }
 

@@ -47,7 +47,7 @@ public protocol IService : IBaseCommunication {
         @return A service, if registered, or null of the service does not exist.
         @since ARP1.0
      */
-     Service getService(String serviceName);
+     func getService(serviceName : String) -> Service 
 
      /**
         Request async a service for an Url
@@ -57,7 +57,7 @@ public protocol IService : IBaseCommunication {
         @param callback       Callback to execute with the result
         @since ARP1.0
      */
-     void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback);
+     func invokeService(serviceRequest : ServiceRequest, service : Service, callback : IServiceResultCallback)
 
      /**
         Check whether a service by the given name is registered.
@@ -66,7 +66,7 @@ public protocol IService : IBaseCommunication {
         @return True if the service is registered, false otherwise.
         @since ARP1.0
      */
-     Bool isRegistered(String serviceName);
+     func isRegistered(serviceName : String) -> Bool 
 
      /**
         Check whether a service by the given service is already registered.
@@ -75,7 +75,7 @@ public protocol IService : IBaseCommunication {
         @return True if the service is registered, false otherwise.
         @since ARP1.0
      */
-     Bool isRegistered(Service service);
+     func isRegistered(service : Service) -> Bool 
 
      /**
         Register a new service
@@ -83,14 +83,14 @@ public protocol IService : IBaseCommunication {
         @param service to register
         @since ARP1.0
      */
-     void registerService(Service service);
+     func registerService(service : Service)
 
      /**
         Unregister all services.
 
         @since ARP1.0
      */
-     void unregisterServices();
+     func unregisterServices()
 
      /**
         Unregister a service
@@ -98,7 +98,7 @@ public protocol IService : IBaseCommunication {
         @param service to unregister
         @since ARP1.0
      */
-     void unregisterService(Service service);
+     func unregisterService(service : Service)
 
 }
 

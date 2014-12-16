@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Messaging operations
    Auto-generated implementation of IMessaging specification.
 */
-public class MessagingDelegate extends BasePIMDelegate implements IMessaging {
+public class MessagingDelegate : BasePIMDelegate, IMessaging {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getMessagingBridge().setDelegate(new MessagingDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getMessagingBridge().setDelegate(new MessagingDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public MessagingDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -64,9 +61,8 @@ public class MessagingDelegate extends BasePIMDelegate implements IMessaging {
         @param callback with the result
         @since ARP1.0
      */
-     public void sendSMS(String number, String text, IMessagingCallback callback) {
+     public func sendSMS(number : String, text : String, callback : IMessagingCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":sendSMS");
      }
 
 }

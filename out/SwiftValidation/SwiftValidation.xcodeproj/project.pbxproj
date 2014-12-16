@@ -220,6 +220,150 @@
 		4ED6619E1A3AEF0A00D105B3 /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED660CC1A3AEF0A00D105B3 /* ServiceRequest.swift */; };
 		4ED6619F1A3AEF0A00D105B3 /* ServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED660CD1A3AEF0A00D105B3 /* ServiceResponse.swift */; };
 		4ED661A01A3AEF0A00D105B3 /* ServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED660CE1A3AEF0A00D105B3 /* ServiceSession.swift */; };
+		4ED662681A40CC7F00D105B3 /* AccelerationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661D71A40CC7E00D105B3 /* AccelerationBridge.swift */; };
+		4ED662691A40CC7F00D105B3 /* AccelerationListenerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661D81A40CC7E00D105B3 /* AccelerationListenerImpl.swift */; };
+		4ED6626A1A40CC7F00D105B3 /* AdsBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661D91A40CC7E00D105B3 /* AdsBridge.swift */; };
+		4ED6626B1A40CC7F00D105B3 /* AlarmBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661DA1A40CC7E00D105B3 /* AlarmBridge.swift */; };
+		4ED6626C1A40CC7F00D105B3 /* AmbientLightBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661DB1A40CC7E00D105B3 /* AmbientLightBridge.swift */; };
+		4ED6626D1A40CC7F00D105B3 /* AnalyticsBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661DC1A40CC7E00D105B3 /* AnalyticsBridge.swift */; };
+		4ED6626E1A40CC7F00D105B3 /* AppContextBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661DD1A40CC7E00D105B3 /* AppContextBridge.swift */; };
+		4ED6626F1A40CC7F00D105B3 /* AppContextWebviewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661DE1A40CC7E00D105B3 /* AppContextWebviewBridge.swift */; };
+		4ED662701A40CC7F00D105B3 /* AppRegistryBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661DF1A40CC7E00D105B3 /* AppRegistryBridge.swift */; };
+		4ED662711A40CC7F00D105B3 /* AppRegistryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661E01A40CC7E00D105B3 /* AppRegistryDelegate.swift */; };
+		4ED662721A40CC7F00D105B3 /* AppResourceCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661E11A40CC7E00D105B3 /* AppResourceCallbackImpl.swift */; };
+		4ED662731A40CC7F00D105B3 /* AudioBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661E21A40CC7E00D105B3 /* AudioBridge.swift */; };
+		4ED662741A40CC7F00D105B3 /* BarcodeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661E31A40CC7E00D105B3 /* BarcodeBridge.swift */; };
+		4ED662751A40CC7F00D105B3 /* BarometerBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661E41A40CC7E00D105B3 /* BarometerBridge.swift */; };
+		4ED662761A40CC7F00D105B3 /* BaseApplicationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661E51A40CC7E00D105B3 /* BaseApplicationBridge.swift */; };
+		4ED662771A40CC7F00D105B3 /* BaseCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661E61A40CC7E00D105B3 /* BaseCallbackImpl.swift */; };
+		4ED662781A40CC7F00D105B3 /* BaseCommerceBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661E71A40CC7E00D105B3 /* BaseCommerceBridge.swift */; };
+		4ED662791A40CC7F00D105B3 /* BaseCommunicationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661E81A40CC7E00D105B3 /* BaseCommunicationBridge.swift */; };
+		4ED6627A1A40CC7F00D105B3 /* BaseDataBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661E91A40CC7E00D105B3 /* BaseDataBridge.swift */; };
+		4ED6627B1A40CC7F00D105B3 /* BaseListenerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661EA1A40CC7E00D105B3 /* BaseListenerImpl.swift */; };
+		4ED6627C1A40CC7F00D105B3 /* BaseMediaBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661EB1A40CC7E00D105B3 /* BaseMediaBridge.swift */; };
+		4ED6627D1A40CC7F00D105B3 /* BaseNotificationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661EC1A40CC7E00D105B3 /* BaseNotificationBridge.swift */; };
+		4ED6627E1A40CC7F00D105B3 /* BasePIMBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661ED1A40CC7E00D105B3 /* BasePIMBridge.swift */; };
+		4ED6627F1A40CC7F00D105B3 /* BaseReaderBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661EE1A40CC7E00D105B3 /* BaseReaderBridge.swift */; };
+		4ED662801A40CC7F00D105B3 /* BaseSecurityBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661EF1A40CC7E00D105B3 /* BaseSecurityBridge.swift */; };
+		4ED662811A40CC7F00D105B3 /* BaseSensorBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661F01A40CC7E00D105B3 /* BaseSensorBridge.swift */; };
+		4ED662821A40CC7F00D105B3 /* BaseSocialBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661F11A40CC7E00D105B3 /* BaseSocialBridge.swift */; };
+		4ED662831A40CC7F00D105B3 /* BaseSystemBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661F21A40CC7E00D105B3 /* BaseSystemBridge.swift */; };
+		4ED662841A40CC7F00D105B3 /* BaseUIBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661F31A40CC7E00D105B3 /* BaseUIBridge.swift */; };
+		4ED662851A40CC7F00D105B3 /* BaseUtilBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661F41A40CC7E00D105B3 /* BaseUtilBridge.swift */; };
+		4ED662861A40CC7F00D105B3 /* BluetoothBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661F51A40CC7E00D105B3 /* BluetoothBridge.swift */; };
+		4ED662871A40CC7F00D105B3 /* BrowserBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661F61A40CC7E00D105B3 /* BrowserBridge.swift */; };
+		4ED662881A40CC7F00D105B3 /* ButtonListenerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661F71A40CC7E00D105B3 /* ButtonListenerImpl.swift */; };
+		4ED662891A40CC7F00D105B3 /* CalendarBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661F81A40CC7E00D105B3 /* CalendarBridge.swift */; };
+		4ED6628A1A40CC7F00D105B3 /* CameraBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661F91A40CC7E00D105B3 /* CameraBridge.swift */; };
+		4ED6628B1A40CC7F00D105B3 /* CapabilitiesBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661FA1A40CC7E00D105B3 /* CapabilitiesBridge.swift */; };
+		4ED6628C1A40CC7F00D105B3 /* CloudBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661FB1A40CC7E00D105B3 /* CloudBridge.swift */; };
+		4ED6628D1A40CC7F00D105B3 /* CompressionBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661FC1A40CC7E00D105B3 /* CompressionBridge.swift */; };
+		4ED6628E1A40CC7F00D105B3 /* ConcurrentBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661FD1A40CC7E00D105B3 /* ConcurrentBridge.swift */; };
+		4ED6628F1A40CC7F00D105B3 /* ContactBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661FE1A40CC7E00D105B3 /* ContactBridge.swift */; };
+		4ED662901A40CC7F00D105B3 /* ContactPhotoResultCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661FF1A40CC7E00D105B3 /* ContactPhotoResultCallbackImpl.swift */; };
+		4ED662911A40CC7F00D105B3 /* ContactResultCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662001A40CC7E00D105B3 /* ContactResultCallbackImpl.swift */; };
+		4ED662921A40CC7F00D105B3 /* CryptoBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662011A40CC7E00D105B3 /* CryptoBridge.swift */; };
+		4ED662931A40CC7F00D105B3 /* DatabaseBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662021A40CC7E00D105B3 /* DatabaseBridge.swift */; };
+		4ED662941A40CC7F00D105B3 /* DatabaseResultCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662031A40CC7E00D105B3 /* DatabaseResultCallbackImpl.swift */; };
+		4ED662951A40CC7F00D105B3 /* DatabaseTableResultCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662041A40CC7E00D105B3 /* DatabaseTableResultCallbackImpl.swift */; };
+		4ED662961A40CC7F00D105B3 /* DataStreamBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662051A40CC7E00D105B3 /* DataStreamBridge.swift */; };
+		4ED662971A40CC7F00D105B3 /* DesktopBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662061A40CC7E00D105B3 /* DesktopBridge.swift */; };
+		4ED662981A40CC7F00D105B3 /* DeviceBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662071A40CC7E00D105B3 /* DeviceBridge.swift */; };
+		4ED662991A40CC7F00D105B3 /* DisplayBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662081A40CC7E00D105B3 /* DisplayBridge.swift */; };
+		4ED6629A1A40CC7F00D105B3 /* FacebookBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662091A40CC7E00D105B3 /* FacebookBridge.swift */; };
+		4ED6629B1A40CC7F00D105B3 /* FileDataLoadResultCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6620A1A40CC7E00D105B3 /* FileDataLoadResultCallbackImpl.swift */; };
+		4ED6629C1A40CC7F00D105B3 /* FileDataStoreResultCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6620B1A40CC7E00D105B3 /* FileDataStoreResultCallbackImpl.swift */; };
+		4ED6629D1A40CC7F00D105B3 /* FileListResultCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6620C1A40CC7E00D105B3 /* FileListResultCallbackImpl.swift */; };
+		4ED6629E1A40CC7F00D105B3 /* FileResultCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6620D1A40CC7E00D105B3 /* FileResultCallbackImpl.swift */; };
+		4ED6629F1A40CC7F00D105B3 /* FileSystemBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6620E1A40CC7E00D105B3 /* FileSystemBridge.swift */; };
+		4ED662A01A40CC7F00D105B3 /* GeolocationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6620F1A40CC7E00D105B3 /* GeolocationBridge.swift */; };
+		4ED662A11A40CC7F00D105B3 /* GeolocationListenerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662101A40CC7E00D105B3 /* GeolocationListenerImpl.swift */; };
+		4ED662A21A40CC7F00D105B3 /* GlobalizationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662111A40CC7E00D105B3 /* GlobalizationBridge.swift */; };
+		4ED662A31A40CC7F00D105B3 /* GooglePlusBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662121A40CC7E00D105B3 /* GooglePlusBridge.swift */; };
+		4ED662A41A40CC7F00D105B3 /* GyroscopeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662131A40CC7E00D105B3 /* GyroscopeBridge.swift */; };
+		4ED662A51A40CC7F00D105B3 /* ImagingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662141A40CC7E00D105B3 /* ImagingBridge.swift */; };
+		4ED662A61A40CC7F00D105B3 /* AccelerationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662161A40CC7E00D105B3 /* AccelerationDelegate.swift */; };
+		4ED662A71A40CC7F00D105B3 /* AppContextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662171A40CC7E00D105B3 /* AppContextDelegate.swift */; };
+		4ED662A81A40CC7F00D105B3 /* AppContextWebviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662181A40CC7E00D105B3 /* AppContextWebviewDelegate.swift */; };
+		4ED662A91A40CC7F00D105B3 /* BaseApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662191A40CC7E00D105B3 /* BaseApplicationDelegate.swift */; };
+		4ED662AA1A40CC7F00D105B3 /* BaseCommerceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6621A1A40CC7E00D105B3 /* BaseCommerceDelegate.swift */; };
+		4ED662AB1A40CC7F00D105B3 /* BaseCommunicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6621B1A40CC7E00D105B3 /* BaseCommunicationDelegate.swift */; };
+		4ED662AC1A40CC7F00D105B3 /* BaseDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6621C1A40CC7E00D105B3 /* BaseDataDelegate.swift */; };
+		4ED662AD1A40CC7F00D105B3 /* BaseMediaDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6621D1A40CC7E00D105B3 /* BaseMediaDelegate.swift */; };
+		4ED662AE1A40CC7F00D105B3 /* BaseNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6621E1A40CC7E00D105B3 /* BaseNotificationDelegate.swift */; };
+		4ED662AF1A40CC7F00D105B3 /* BasePIMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6621F1A40CC7E00D105B3 /* BasePIMDelegate.swift */; };
+		4ED662B01A40CC7F00D105B3 /* BaseReaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662201A40CC7E00D105B3 /* BaseReaderDelegate.swift */; };
+		4ED662B11A40CC7F00D105B3 /* BaseSecurityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662211A40CC7E00D105B3 /* BaseSecurityDelegate.swift */; };
+		4ED662B21A40CC7F00D105B3 /* BaseSensorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662221A40CC7E00D105B3 /* BaseSensorDelegate.swift */; };
+		4ED662B31A40CC7F00D105B3 /* BaseSocialDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662231A40CC7E00D105B3 /* BaseSocialDelegate.swift */; };
+		4ED662B41A40CC7F00D105B3 /* BaseSystemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662241A40CC7E00D105B3 /* BaseSystemDelegate.swift */; };
+		4ED662B51A40CC7F00D105B3 /* BaseUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662251A40CC7E00D105B3 /* BaseUIDelegate.swift */; };
+		4ED662B61A40CC7F00D105B3 /* BaseUtilDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662261A40CC7E00D105B3 /* BaseUtilDelegate.swift */; };
+		4ED662B71A40CC7F00D105B3 /* BrowserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662271A40CC7E00D105B3 /* BrowserDelegate.swift */; };
+		4ED662B81A40CC7F00D105B3 /* CapabilitiesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662281A40CC7E00D105B3 /* CapabilitiesDelegate.swift */; };
+		4ED662B91A40CC7F00D105B3 /* ContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662291A40CC7E00D105B3 /* ContactDelegate.swift */; };
+		4ED662BA1A40CC7F00D105B3 /* DatabaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6622A1A40CC7E00D105B3 /* DatabaseDelegate.swift */; };
+		4ED662BB1A40CC7F00D105B3 /* DeviceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6622B1A40CC7E00D105B3 /* DeviceDelegate.swift */; };
+		4ED662BC1A40CC7F00D105B3 /* FileSystemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6622C1A40CC7E00D105B3 /* FileSystemDelegate.swift */; };
+		4ED662BD1A40CC7F00D105B3 /* GeolocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6622D1A40CC7E00D105B3 /* GeolocationDelegate.swift */; };
+		4ED662BE1A40CC7F00D105B3 /* GlobalizationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6622E1A40CC7E00D105B3 /* GlobalizationDelegate.swift */; };
+		4ED662BF1A40CC7F00D105B3 /* LifecycleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6622F1A40CC7E00D105B3 /* LifecycleDelegate.swift */; };
+		4ED662C01A40CC7F00D105B3 /* LoggingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662301A40CC7E00D105B3 /* LoggingDelegate.swift */; };
+		4ED662C11A40CC7F00D105B3 /* MailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662311A40CC7E00D105B3 /* MailDelegate.swift */; };
+		4ED662C21A40CC7F00D105B3 /* MessagingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662321A40CC7E00D105B3 /* MessagingDelegate.swift */; };
+		4ED662C31A40CC7F00D105B3 /* NetworkReachabilityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662331A40CC7E00D105B3 /* NetworkReachabilityDelegate.swift */; };
+		4ED662C41A40CC7F00D105B3 /* NetworkStatusDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662341A40CC7E00D105B3 /* NetworkStatusDelegate.swift */; };
+		4ED662C51A40CC7F00D105B3 /* OSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662351A40CC7E00D105B3 /* OSDelegate.swift */; };
+		4ED662C61A40CC7F00D105B3 /* RuntimeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662361A40CC7E00D105B3 /* RuntimeDelegate.swift */; };
+		4ED662C71A40CC7F00D105B3 /* SecurityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662371A40CC7E00D105B3 /* SecurityDelegate.swift */; };
+		4ED662C81A40CC7F00D105B3 /* ServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662381A40CC7E00D105B3 /* ServiceDelegate.swift */; };
+		4ED662C91A40CC7F00D105B3 /* TelephonyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662391A40CC7E00D105B3 /* TelephonyDelegate.swift */; };
+		4ED662CA1A40CC7F00D105B3 /* VideoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6623A1A40CC7E00D105B3 /* VideoDelegate.swift */; };
+		4ED662CB1A40CC7F00D105B3 /* InternalStorageBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6623B1A40CC7E00D105B3 /* InternalStorageBridge.swift */; };
+		4ED662CC1A40CC7F00D105B3 /* LifecycleBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6623C1A40CC7E00D105B3 /* LifecycleBridge.swift */; };
+		4ED662CD1A40CC7F00D105B3 /* LifecycleListenerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6623D1A40CC7E00D105B3 /* LifecycleListenerImpl.swift */; };
+		4ED662CE1A40CC7F00D105B3 /* LinkedInBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6623E1A40CC7E00D105B3 /* LinkedInBridge.swift */; };
+		4ED662CF1A40CC7F00D105B3 /* LoggingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6623F1A40CC7E00D105B3 /* LoggingBridge.swift */; };
+		4ED662D01A40CC7F00D105B3 /* MagnetometerBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662401A40CC7E00D105B3 /* MagnetometerBridge.swift */; };
+		4ED662D11A40CC7F00D105B3 /* MailBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662411A40CC7E00D105B3 /* MailBridge.swift */; };
+		4ED662D21A40CC7F00D105B3 /* ManagementBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662421A40CC7E00D105B3 /* ManagementBridge.swift */; };
+		4ED662D31A40CC7F00D105B3 /* MapBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662431A40CC7E00D105B3 /* MapBridge.swift */; };
+		4ED662D41A40CC7F00D105B3 /* MessagingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662441A40CC7E00D105B3 /* MessagingBridge.swift */; };
+		4ED662D51A40CC7F00D105B3 /* MessagingCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662451A40CC7E00D105B3 /* MessagingCallbackImpl.swift */; };
+		4ED662D61A40CC7F00D105B3 /* NetworkInfoBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662461A40CC7E00D105B3 /* NetworkInfoBridge.swift */; };
+		4ED662D71A40CC7F00D105B3 /* NetworkNamingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662471A40CC7E00D105B3 /* NetworkNamingBridge.swift */; };
+		4ED662D81A40CC7F00D105B3 /* NetworkReachabilityBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662481A40CC7E00D105B3 /* NetworkReachabilityBridge.swift */; };
+		4ED662D91A40CC7F00D105B3 /* NetworkReachabilityCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662491A40CC7E00D105B3 /* NetworkReachabilityCallbackImpl.swift */; };
+		4ED662DA1A40CC7F00D105B3 /* NetworkStatusBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6624A1A40CC7E00D105B3 /* NetworkStatusBridge.swift */; };
+		4ED662DB1A40CC7F00D105B3 /* NetworkStatusListenerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6624B1A40CC7E00D105B3 /* NetworkStatusListenerImpl.swift */; };
+		4ED662DC1A40CC7F00D105B3 /* NFCBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6624C1A40CC7E00D105B3 /* NFCBridge.swift */; };
+		4ED662DD1A40CC7F00D105B3 /* NotificationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6624D1A40CC7E00D105B3 /* NotificationBridge.swift */; };
+		4ED662DE1A40CC7F00D105B3 /* NotificationLocalBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6624E1A40CC7E00D105B3 /* NotificationLocalBridge.swift */; };
+		4ED662DF1A40CC7F00D105B3 /* OAuthBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6624F1A40CC7E00D105B3 /* OAuthBridge.swift */; };
+		4ED662E01A40CC7F00D105B3 /* OCRBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662501A40CC7E00D105B3 /* OCRBridge.swift */; };
+		4ED662E11A40CC7F00D105B3 /* OpenIdBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662511A40CC7E00D105B3 /* OpenIdBridge.swift */; };
+		4ED662E21A40CC7F00D105B3 /* OSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662521A40CC7E00D105B3 /* OSBridge.swift */; };
+		4ED662E31A40CC7F00D105B3 /* PrintingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662531A40CC7E00D105B3 /* PrintingBridge.swift */; };
+		4ED662E41A40CC7F00D105B3 /* ProximityBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662541A40CC7E00D105B3 /* ProximityBridge.swift */; };
+		4ED662E51A40CC7F00D105B3 /* QRCodeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662551A40CC7E00D105B3 /* QRCodeBridge.swift */; };
+		4ED662E61A40CC7F00D105B3 /* RSSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662561A40CC7E00D105B3 /* RSSBridge.swift */; };
+		4ED662E71A40CC7F00D105B3 /* RuntimeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662571A40CC7E00D105B3 /* RuntimeBridge.swift */; };
+		4ED662E81A40CC7F00D105B3 /* SecurityBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662581A40CC7E00D105B3 /* SecurityBridge.swift */; };
+		4ED662E91A40CC7F00D105B3 /* SecurityResultCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662591A40CC7E00D105B3 /* SecurityResultCallbackImpl.swift */; };
+		4ED662EA1A40CC7F00D105B3 /* ServiceBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6625A1A40CC7E00D105B3 /* ServiceBridge.swift */; };
+		4ED662EB1A40CC7F00D105B3 /* ServiceResultCallbackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6625B1A40CC7E00D105B3 /* ServiceResultCallbackImpl.swift */; };
+		4ED662EC1A40CC7F00D105B3 /* SettingsBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6625C1A40CC7E00D105B3 /* SettingsBridge.swift */; };
+		4ED662ED1A40CC7F00D105B3 /* SocketBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6625D1A40CC7E00D105B3 /* SocketBridge.swift */; };
+		4ED662EE1A40CC7F00D105B3 /* StoreBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6625E1A40CC7F00D105B3 /* StoreBridge.swift */; };
+		4ED662EF1A40CC7F00D105B3 /* TelephonyBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6625F1A40CC7F00D105B3 /* TelephonyBridge.swift */; };
+		4ED662F01A40CC7F00D105B3 /* TimerBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662601A40CC7F00D105B3 /* TimerBridge.swift */; };
+		4ED662F11A40CC7F00D105B3 /* TwitterBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662611A40CC7F00D105B3 /* TwitterBridge.swift */; };
+		4ED662F21A40CC7F00D105B3 /* UIBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662621A40CC7F00D105B3 /* UIBridge.swift */; };
+		4ED662F31A40CC7F00D105B3 /* UpdateBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662631A40CC7F00D105B3 /* UpdateBridge.swift */; };
+		4ED662F41A40CC7F00D105B3 /* VibrationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662641A40CC7F00D105B3 /* VibrationBridge.swift */; };
+		4ED662F51A40CC7F00D105B3 /* VideoBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662651A40CC7F00D105B3 /* VideoBridge.swift */; };
+		4ED662F61A40CC7F00D105B3 /* WalletBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662661A40CC7F00D105B3 /* WalletBridge.swift */; };
+		4ED662F71A40CC7F00D105B3 /* XMLBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED662671A40CC7F00D105B3 /* XMLBridge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -449,6 +593,150 @@
 		4ED660CC1A3AEF0A00D105B3 /* ServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
 		4ED660CD1A3AEF0A00D105B3 /* ServiceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceResponse.swift; sourceTree = "<group>"; };
 		4ED660CE1A3AEF0A00D105B3 /* ServiceSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSession.swift; sourceTree = "<group>"; };
+		4ED661D71A40CC7E00D105B3 /* AccelerationBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelerationBridge.swift; sourceTree = "<group>"; };
+		4ED661D81A40CC7E00D105B3 /* AccelerationListenerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelerationListenerImpl.swift; sourceTree = "<group>"; };
+		4ED661D91A40CC7E00D105B3 /* AdsBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsBridge.swift; sourceTree = "<group>"; };
+		4ED661DA1A40CC7E00D105B3 /* AlarmBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmBridge.swift; sourceTree = "<group>"; };
+		4ED661DB1A40CC7E00D105B3 /* AmbientLightBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmbientLightBridge.swift; sourceTree = "<group>"; };
+		4ED661DC1A40CC7E00D105B3 /* AnalyticsBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsBridge.swift; sourceTree = "<group>"; };
+		4ED661DD1A40CC7E00D105B3 /* AppContextBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextBridge.swift; sourceTree = "<group>"; };
+		4ED661DE1A40CC7E00D105B3 /* AppContextWebviewBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextWebviewBridge.swift; sourceTree = "<group>"; };
+		4ED661DF1A40CC7E00D105B3 /* AppRegistryBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegistryBridge.swift; sourceTree = "<group>"; };
+		4ED661E01A40CC7E00D105B3 /* AppRegistryDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegistryDelegate.swift; sourceTree = "<group>"; };
+		4ED661E11A40CC7E00D105B3 /* AppResourceCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResourceCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED661E21A40CC7E00D105B3 /* AudioBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioBridge.swift; sourceTree = "<group>"; };
+		4ED661E31A40CC7E00D105B3 /* BarcodeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeBridge.swift; sourceTree = "<group>"; };
+		4ED661E41A40CC7E00D105B3 /* BarometerBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarometerBridge.swift; sourceTree = "<group>"; };
+		4ED661E51A40CC7E00D105B3 /* BaseApplicationBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseApplicationBridge.swift; sourceTree = "<group>"; };
+		4ED661E61A40CC7E00D105B3 /* BaseCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED661E71A40CC7E00D105B3 /* BaseCommerceBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCommerceBridge.swift; sourceTree = "<group>"; };
+		4ED661E81A40CC7E00D105B3 /* BaseCommunicationBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCommunicationBridge.swift; sourceTree = "<group>"; };
+		4ED661E91A40CC7E00D105B3 /* BaseDataBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataBridge.swift; sourceTree = "<group>"; };
+		4ED661EA1A40CC7E00D105B3 /* BaseListenerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListenerImpl.swift; sourceTree = "<group>"; };
+		4ED661EB1A40CC7E00D105B3 /* BaseMediaBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMediaBridge.swift; sourceTree = "<group>"; };
+		4ED661EC1A40CC7E00D105B3 /* BaseNotificationBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotificationBridge.swift; sourceTree = "<group>"; };
+		4ED661ED1A40CC7E00D105B3 /* BasePIMBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePIMBridge.swift; sourceTree = "<group>"; };
+		4ED661EE1A40CC7E00D105B3 /* BaseReaderBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseReaderBridge.swift; sourceTree = "<group>"; };
+		4ED661EF1A40CC7E00D105B3 /* BaseSecurityBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSecurityBridge.swift; sourceTree = "<group>"; };
+		4ED661F01A40CC7E00D105B3 /* BaseSensorBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSensorBridge.swift; sourceTree = "<group>"; };
+		4ED661F11A40CC7E00D105B3 /* BaseSocialBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSocialBridge.swift; sourceTree = "<group>"; };
+		4ED661F21A40CC7E00D105B3 /* BaseSystemBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSystemBridge.swift; sourceTree = "<group>"; };
+		4ED661F31A40CC7E00D105B3 /* BaseUIBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIBridge.swift; sourceTree = "<group>"; };
+		4ED661F41A40CC7E00D105B3 /* BaseUtilBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUtilBridge.swift; sourceTree = "<group>"; };
+		4ED661F51A40CC7E00D105B3 /* BluetoothBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothBridge.swift; sourceTree = "<group>"; };
+		4ED661F61A40CC7E00D105B3 /* BrowserBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserBridge.swift; sourceTree = "<group>"; };
+		4ED661F71A40CC7E00D105B3 /* ButtonListenerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonListenerImpl.swift; sourceTree = "<group>"; };
+		4ED661F81A40CC7E00D105B3 /* CalendarBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarBridge.swift; sourceTree = "<group>"; };
+		4ED661F91A40CC7E00D105B3 /* CameraBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraBridge.swift; sourceTree = "<group>"; };
+		4ED661FA1A40CC7E00D105B3 /* CapabilitiesBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapabilitiesBridge.swift; sourceTree = "<group>"; };
+		4ED661FB1A40CC7E00D105B3 /* CloudBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudBridge.swift; sourceTree = "<group>"; };
+		4ED661FC1A40CC7E00D105B3 /* CompressionBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompressionBridge.swift; sourceTree = "<group>"; };
+		4ED661FD1A40CC7E00D105B3 /* ConcurrentBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentBridge.swift; sourceTree = "<group>"; };
+		4ED661FE1A40CC7E00D105B3 /* ContactBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactBridge.swift; sourceTree = "<group>"; };
+		4ED661FF1A40CC7E00D105B3 /* ContactPhotoResultCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactPhotoResultCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED662001A40CC7E00D105B3 /* ContactResultCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactResultCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED662011A40CC7E00D105B3 /* CryptoBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoBridge.swift; sourceTree = "<group>"; };
+		4ED662021A40CC7E00D105B3 /* DatabaseBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseBridge.swift; sourceTree = "<group>"; };
+		4ED662031A40CC7E00D105B3 /* DatabaseResultCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseResultCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED662041A40CC7E00D105B3 /* DatabaseTableResultCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseTableResultCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED662051A40CC7E00D105B3 /* DataStreamBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStreamBridge.swift; sourceTree = "<group>"; };
+		4ED662061A40CC7E00D105B3 /* DesktopBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesktopBridge.swift; sourceTree = "<group>"; };
+		4ED662071A40CC7E00D105B3 /* DeviceBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceBridge.swift; sourceTree = "<group>"; };
+		4ED662081A40CC7E00D105B3 /* DisplayBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayBridge.swift; sourceTree = "<group>"; };
+		4ED662091A40CC7E00D105B3 /* FacebookBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookBridge.swift; sourceTree = "<group>"; };
+		4ED6620A1A40CC7E00D105B3 /* FileDataLoadResultCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDataLoadResultCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED6620B1A40CC7E00D105B3 /* FileDataStoreResultCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDataStoreResultCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED6620C1A40CC7E00D105B3 /* FileListResultCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileListResultCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED6620D1A40CC7E00D105B3 /* FileResultCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileResultCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED6620E1A40CC7E00D105B3 /* FileSystemBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemBridge.swift; sourceTree = "<group>"; };
+		4ED6620F1A40CC7E00D105B3 /* GeolocationBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationBridge.swift; sourceTree = "<group>"; };
+		4ED662101A40CC7E00D105B3 /* GeolocationListenerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationListenerImpl.swift; sourceTree = "<group>"; };
+		4ED662111A40CC7E00D105B3 /* GlobalizationBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationBridge.swift; sourceTree = "<group>"; };
+		4ED662121A40CC7E00D105B3 /* GooglePlusBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlusBridge.swift; sourceTree = "<group>"; };
+		4ED662131A40CC7E00D105B3 /* GyroscopeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GyroscopeBridge.swift; sourceTree = "<group>"; };
+		4ED662141A40CC7E00D105B3 /* ImagingBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagingBridge.swift; sourceTree = "<group>"; };
+		4ED662161A40CC7E00D105B3 /* AccelerationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelerationDelegate.swift; sourceTree = "<group>"; };
+		4ED662171A40CC7E00D105B3 /* AppContextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextDelegate.swift; sourceTree = "<group>"; };
+		4ED662181A40CC7E00D105B3 /* AppContextWebviewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContextWebviewDelegate.swift; sourceTree = "<group>"; };
+		4ED662191A40CC7E00D105B3 /* BaseApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseApplicationDelegate.swift; sourceTree = "<group>"; };
+		4ED6621A1A40CC7E00D105B3 /* BaseCommerceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCommerceDelegate.swift; sourceTree = "<group>"; };
+		4ED6621B1A40CC7E00D105B3 /* BaseCommunicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCommunicationDelegate.swift; sourceTree = "<group>"; };
+		4ED6621C1A40CC7E00D105B3 /* BaseDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataDelegate.swift; sourceTree = "<group>"; };
+		4ED6621D1A40CC7E00D105B3 /* BaseMediaDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMediaDelegate.swift; sourceTree = "<group>"; };
+		4ED6621E1A40CC7E00D105B3 /* BaseNotificationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNotificationDelegate.swift; sourceTree = "<group>"; };
+		4ED6621F1A40CC7E00D105B3 /* BasePIMDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePIMDelegate.swift; sourceTree = "<group>"; };
+		4ED662201A40CC7E00D105B3 /* BaseReaderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseReaderDelegate.swift; sourceTree = "<group>"; };
+		4ED662211A40CC7E00D105B3 /* BaseSecurityDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSecurityDelegate.swift; sourceTree = "<group>"; };
+		4ED662221A40CC7E00D105B3 /* BaseSensorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSensorDelegate.swift; sourceTree = "<group>"; };
+		4ED662231A40CC7E00D105B3 /* BaseSocialDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSocialDelegate.swift; sourceTree = "<group>"; };
+		4ED662241A40CC7E00D105B3 /* BaseSystemDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSystemDelegate.swift; sourceTree = "<group>"; };
+		4ED662251A40CC7E00D105B3 /* BaseUIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIDelegate.swift; sourceTree = "<group>"; };
+		4ED662261A40CC7E00D105B3 /* BaseUtilDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUtilDelegate.swift; sourceTree = "<group>"; };
+		4ED662271A40CC7E00D105B3 /* BrowserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserDelegate.swift; sourceTree = "<group>"; };
+		4ED662281A40CC7E00D105B3 /* CapabilitiesDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapabilitiesDelegate.swift; sourceTree = "<group>"; };
+		4ED662291A40CC7E00D105B3 /* ContactDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDelegate.swift; sourceTree = "<group>"; };
+		4ED6622A1A40CC7E00D105B3 /* DatabaseDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseDelegate.swift; sourceTree = "<group>"; };
+		4ED6622B1A40CC7E00D105B3 /* DeviceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDelegate.swift; sourceTree = "<group>"; };
+		4ED6622C1A40CC7E00D105B3 /* FileSystemDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemDelegate.swift; sourceTree = "<group>"; };
+		4ED6622D1A40CC7E00D105B3 /* GeolocationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeolocationDelegate.swift; sourceTree = "<group>"; };
+		4ED6622E1A40CC7E00D105B3 /* GlobalizationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalizationDelegate.swift; sourceTree = "<group>"; };
+		4ED6622F1A40CC7E00D105B3 /* LifecycleDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleDelegate.swift; sourceTree = "<group>"; };
+		4ED662301A40CC7E00D105B3 /* LoggingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingDelegate.swift; sourceTree = "<group>"; };
+		4ED662311A40CC7E00D105B3 /* MailDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailDelegate.swift; sourceTree = "<group>"; };
+		4ED662321A40CC7E00D105B3 /* MessagingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingDelegate.swift; sourceTree = "<group>"; };
+		4ED662331A40CC7E00D105B3 /* NetworkReachabilityDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityDelegate.swift; sourceTree = "<group>"; };
+		4ED662341A40CC7E00D105B3 /* NetworkStatusDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusDelegate.swift; sourceTree = "<group>"; };
+		4ED662351A40CC7E00D105B3 /* OSDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSDelegate.swift; sourceTree = "<group>"; };
+		4ED662361A40CC7E00D105B3 /* RuntimeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeDelegate.swift; sourceTree = "<group>"; };
+		4ED662371A40CC7E00D105B3 /* SecurityDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityDelegate.swift; sourceTree = "<group>"; };
+		4ED662381A40CC7E00D105B3 /* ServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceDelegate.swift; sourceTree = "<group>"; };
+		4ED662391A40CC7E00D105B3 /* TelephonyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyDelegate.swift; sourceTree = "<group>"; };
+		4ED6623A1A40CC7E00D105B3 /* VideoDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDelegate.swift; sourceTree = "<group>"; };
+		4ED6623B1A40CC7E00D105B3 /* InternalStorageBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalStorageBridge.swift; sourceTree = "<group>"; };
+		4ED6623C1A40CC7E00D105B3 /* LifecycleBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleBridge.swift; sourceTree = "<group>"; };
+		4ED6623D1A40CC7E00D105B3 /* LifecycleListenerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleListenerImpl.swift; sourceTree = "<group>"; };
+		4ED6623E1A40CC7E00D105B3 /* LinkedInBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedInBridge.swift; sourceTree = "<group>"; };
+		4ED6623F1A40CC7E00D105B3 /* LoggingBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingBridge.swift; sourceTree = "<group>"; };
+		4ED662401A40CC7E00D105B3 /* MagnetometerBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetometerBridge.swift; sourceTree = "<group>"; };
+		4ED662411A40CC7E00D105B3 /* MailBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailBridge.swift; sourceTree = "<group>"; };
+		4ED662421A40CC7E00D105B3 /* ManagementBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagementBridge.swift; sourceTree = "<group>"; };
+		4ED662431A40CC7E00D105B3 /* MapBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapBridge.swift; sourceTree = "<group>"; };
+		4ED662441A40CC7E00D105B3 /* MessagingBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingBridge.swift; sourceTree = "<group>"; };
+		4ED662451A40CC7E00D105B3 /* MessagingCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED662461A40CC7E00D105B3 /* NetworkInfoBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkInfoBridge.swift; sourceTree = "<group>"; };
+		4ED662471A40CC7E00D105B3 /* NetworkNamingBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkNamingBridge.swift; sourceTree = "<group>"; };
+		4ED662481A40CC7E00D105B3 /* NetworkReachabilityBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityBridge.swift; sourceTree = "<group>"; };
+		4ED662491A40CC7E00D105B3 /* NetworkReachabilityCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED6624A1A40CC7E00D105B3 /* NetworkStatusBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusBridge.swift; sourceTree = "<group>"; };
+		4ED6624B1A40CC7E00D105B3 /* NetworkStatusListenerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusListenerImpl.swift; sourceTree = "<group>"; };
+		4ED6624C1A40CC7E00D105B3 /* NFCBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCBridge.swift; sourceTree = "<group>"; };
+		4ED6624D1A40CC7E00D105B3 /* NotificationBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBridge.swift; sourceTree = "<group>"; };
+		4ED6624E1A40CC7E00D105B3 /* NotificationLocalBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationLocalBridge.swift; sourceTree = "<group>"; };
+		4ED6624F1A40CC7E00D105B3 /* OAuthBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthBridge.swift; sourceTree = "<group>"; };
+		4ED662501A40CC7E00D105B3 /* OCRBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRBridge.swift; sourceTree = "<group>"; };
+		4ED662511A40CC7E00D105B3 /* OpenIdBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenIdBridge.swift; sourceTree = "<group>"; };
+		4ED662521A40CC7E00D105B3 /* OSBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSBridge.swift; sourceTree = "<group>"; };
+		4ED662531A40CC7E00D105B3 /* PrintingBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintingBridge.swift; sourceTree = "<group>"; };
+		4ED662541A40CC7E00D105B3 /* ProximityBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximityBridge.swift; sourceTree = "<group>"; };
+		4ED662551A40CC7E00D105B3 /* QRCodeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeBridge.swift; sourceTree = "<group>"; };
+		4ED662561A40CC7E00D105B3 /* RSSBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSBridge.swift; sourceTree = "<group>"; };
+		4ED662571A40CC7E00D105B3 /* RuntimeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeBridge.swift; sourceTree = "<group>"; };
+		4ED662581A40CC7E00D105B3 /* SecurityBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityBridge.swift; sourceTree = "<group>"; };
+		4ED662591A40CC7E00D105B3 /* SecurityResultCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityResultCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED6625A1A40CC7E00D105B3 /* ServiceBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceBridge.swift; sourceTree = "<group>"; };
+		4ED6625B1A40CC7E00D105B3 /* ServiceResultCallbackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceResultCallbackImpl.swift; sourceTree = "<group>"; };
+		4ED6625C1A40CC7E00D105B3 /* SettingsBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsBridge.swift; sourceTree = "<group>"; };
+		4ED6625D1A40CC7E00D105B3 /* SocketBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketBridge.swift; sourceTree = "<group>"; };
+		4ED6625E1A40CC7F00D105B3 /* StoreBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreBridge.swift; sourceTree = "<group>"; };
+		4ED6625F1A40CC7F00D105B3 /* TelephonyBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelephonyBridge.swift; sourceTree = "<group>"; };
+		4ED662601A40CC7F00D105B3 /* TimerBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerBridge.swift; sourceTree = "<group>"; };
+		4ED662611A40CC7F00D105B3 /* TwitterBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterBridge.swift; sourceTree = "<group>"; };
+		4ED662621A40CC7F00D105B3 /* UIBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBridge.swift; sourceTree = "<group>"; };
+		4ED662631A40CC7F00D105B3 /* UpdateBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBridge.swift; sourceTree = "<group>"; };
+		4ED662641A40CC7F00D105B3 /* VibrationBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrationBridge.swift; sourceTree = "<group>"; };
+		4ED662651A40CC7F00D105B3 /* VideoBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoBridge.swift; sourceTree = "<group>"; };
+		4ED662661A40CC7F00D105B3 /* WalletBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletBridge.swift; sourceTree = "<group>"; };
+		4ED662671A40CC7F00D105B3 /* XMLBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -527,34 +815,95 @@
 			isa = PBXGroup;
 			children = (
 				4ED65FFD1A3AEF0A00D105B3 /* Acceleration.swift */,
+				4ED661D71A40CC7E00D105B3 /* AccelerationBridge.swift */,
+				4ED661D81A40CC7E00D105B3 /* AccelerationListenerImpl.swift */,
+				4ED661D91A40CC7E00D105B3 /* AdsBridge.swift */,
+				4ED661DA1A40CC7E00D105B3 /* AlarmBridge.swift */,
+				4ED661DB1A40CC7E00D105B3 /* AmbientLightBridge.swift */,
+				4ED661DC1A40CC7E00D105B3 /* AnalyticsBridge.swift */,
 				4ED65FFE1A3AEF0A00D105B3 /* APIBean.swift */,
 				4ED65FFF1A3AEF0A00D105B3 /* APIBridge.swift */,
 				4ED660001A3AEF0A00D105B3 /* APIRequest.swift */,
+				4ED661DD1A40CC7E00D105B3 /* AppContextBridge.swift */,
+				4ED661DE1A40CC7E00D105B3 /* AppContextWebviewBridge.swift */,
+				4ED661DF1A40CC7E00D105B3 /* AppRegistryBridge.swift */,
+				4ED661E01A40CC7E00D105B3 /* AppRegistryDelegate.swift */,
+				4ED661E11A40CC7E00D105B3 /* AppResourceCallbackImpl.swift */,
+				4ED661E21A40CC7E00D105B3 /* AudioBridge.swift */,
+				4ED661E31A40CC7E00D105B3 /* BarcodeBridge.swift */,
+				4ED661E41A40CC7E00D105B3 /* BarometerBridge.swift */,
+				4ED661E51A40CC7E00D105B3 /* BaseApplicationBridge.swift */,
+				4ED661E61A40CC7E00D105B3 /* BaseCallbackImpl.swift */,
+				4ED661E71A40CC7E00D105B3 /* BaseCommerceBridge.swift */,
+				4ED661E81A40CC7E00D105B3 /* BaseCommunicationBridge.swift */,
+				4ED661E91A40CC7E00D105B3 /* BaseDataBridge.swift */,
+				4ED661EA1A40CC7E00D105B3 /* BaseListenerImpl.swift */,
+				4ED661EB1A40CC7E00D105B3 /* BaseMediaBridge.swift */,
+				4ED661EC1A40CC7E00D105B3 /* BaseNotificationBridge.swift */,
+				4ED661ED1A40CC7E00D105B3 /* BasePIMBridge.swift */,
+				4ED661EE1A40CC7E00D105B3 /* BaseReaderBridge.swift */,
+				4ED661EF1A40CC7E00D105B3 /* BaseSecurityBridge.swift */,
+				4ED661F01A40CC7E00D105B3 /* BaseSensorBridge.swift */,
+				4ED661F11A40CC7E00D105B3 /* BaseSocialBridge.swift */,
+				4ED661F21A40CC7E00D105B3 /* BaseSystemBridge.swift */,
+				4ED661F31A40CC7E00D105B3 /* BaseUIBridge.swift */,
+				4ED661F41A40CC7E00D105B3 /* BaseUtilBridge.swift */,
+				4ED661F51A40CC7E00D105B3 /* BluetoothBridge.swift */,
+				4ED661F61A40CC7E00D105B3 /* BrowserBridge.swift */,
 				4ED660011A3AEF0A00D105B3 /* Button.swift */,
+				4ED661F71A40CC7E00D105B3 /* ButtonListenerImpl.swift */,
+				4ED661F81A40CC7E00D105B3 /* CalendarBridge.swift */,
+				4ED661F91A40CC7E00D105B3 /* CameraBridge.swift */,
+				4ED661FA1A40CC7E00D105B3 /* CapabilitiesBridge.swift */,
+				4ED661FB1A40CC7E00D105B3 /* CloudBridge.swift */,
+				4ED661FC1A40CC7E00D105B3 /* CompressionBridge.swift */,
+				4ED661FD1A40CC7E00D105B3 /* ConcurrentBridge.swift */,
 				4ED660021A3AEF0A00D105B3 /* Contact.swift */,
 				4ED660031A3AEF0A00D105B3 /* ContactAddress.swift */,
 				4ED660041A3AEF0A00D105B3 /* ContactAddressType.swift */,
+				4ED661FE1A40CC7E00D105B3 /* ContactBridge.swift */,
 				4ED660051A3AEF0A00D105B3 /* ContactEmail.swift */,
 				4ED660061A3AEF0A00D105B3 /* ContactEmailType.swift */,
 				4ED660071A3AEF0A00D105B3 /* ContactPersonalInfo.swift */,
 				4ED660081A3AEF0A00D105B3 /* ContactPersonalInfoTitle.swift */,
 				4ED660091A3AEF0A00D105B3 /* ContactPhone.swift */,
 				4ED6600A1A3AEF0A00D105B3 /* ContactPhoneType.swift */,
+				4ED661FF1A40CC7E00D105B3 /* ContactPhotoResultCallbackImpl.swift */,
 				4ED6600B1A3AEF0A00D105B3 /* ContactProfessionalInfo.swift */,
+				4ED662001A40CC7E00D105B3 /* ContactResultCallbackImpl.swift */,
 				4ED6600C1A3AEF0A00D105B3 /* ContactSocial.swift */,
 				4ED6600D1A3AEF0A00D105B3 /* ContactSocialNetwork.swift */,
 				4ED6600E1A3AEF0A00D105B3 /* ContactTag.swift */,
 				4ED6600F1A3AEF0A00D105B3 /* ContactUid.swift */,
 				4ED660101A3AEF0A00D105B3 /* ContactWebsite.swift */,
+				4ED662011A40CC7E00D105B3 /* CryptoBridge.swift */,
 				4ED660111A3AEF0A00D105B3 /* Database.swift */,
+				4ED662021A40CC7E00D105B3 /* DatabaseBridge.swift */,
 				4ED660121A3AEF0A00D105B3 /* DatabaseColumn.swift */,
+				4ED662031A40CC7E00D105B3 /* DatabaseResultCallbackImpl.swift */,
 				4ED660131A3AEF0A00D105B3 /* DatabaseRow.swift */,
 				4ED660141A3AEF0A00D105B3 /* DatabaseTable.swift */,
+				4ED662041A40CC7E00D105B3 /* DatabaseTableResultCallbackImpl.swift */,
+				4ED662051A40CC7E00D105B3 /* DataStreamBridge.swift */,
+				4ED662061A40CC7E00D105B3 /* DesktopBridge.swift */,
+				4ED662071A40CC7E00D105B3 /* DeviceBridge.swift */,
 				4ED660151A3AEF0A00D105B3 /* DeviceInfo.swift */,
+				4ED662081A40CC7E00D105B3 /* DisplayBridge.swift */,
 				4ED660161A3AEF0A00D105B3 /* Email.swift */,
 				4ED660171A3AEF0A00D105B3 /* EmailAddress.swift */,
 				4ED660181A3AEF0A00D105B3 /* EmailAttachmentData.swift */,
+				4ED662091A40CC7E00D105B3 /* FacebookBridge.swift */,
+				4ED6620A1A40CC7E00D105B3 /* FileDataLoadResultCallbackImpl.swift */,
+				4ED6620B1A40CC7E00D105B3 /* FileDataStoreResultCallbackImpl.swift */,
+				4ED6620C1A40CC7E00D105B3 /* FileListResultCallbackImpl.swift */,
+				4ED6620D1A40CC7E00D105B3 /* FileResultCallbackImpl.swift */,
+				4ED6620E1A40CC7E00D105B3 /* FileSystemBridge.swift */,
 				4ED660191A3AEF0A00D105B3 /* Geolocation.swift */,
+				4ED6620F1A40CC7E00D105B3 /* GeolocationBridge.swift */,
+				4ED662101A40CC7E00D105B3 /* GeolocationListenerImpl.swift */,
+				4ED662111A40CC7E00D105B3 /* GlobalizationBridge.swift */,
+				4ED662121A40CC7E00D105B3 /* GooglePlusBridge.swift */,
+				4ED662131A40CC7E00D105B3 /* GyroscopeBridge.swift */,
 				4ED6601A1A3AEF0A00D105B3 /* IAcceleration.swift */,
 				4ED6601B1A3AEF0A00D105B3 /* IAccelerationListener.swift */,
 				4ED6601C1A3AEF0A00D105B3 /* IAccelerationListenerError.swift */,
@@ -668,6 +1017,7 @@
 				4ED660881A3AEF0A00D105B3 /* ILinkedIn.swift */,
 				4ED660891A3AEF0A00D105B3 /* ILogging.swift */,
 				4ED6608A1A3AEF0A00D105B3 /* ILoggingLogLevel.swift */,
+				4ED662141A40CC7E00D105B3 /* ImagingBridge.swift */,
 				4ED6608B1A3AEF0A00D105B3 /* IMagnetometer.swift */,
 				4ED6608C1A3AEF0A00D105B3 /* IMail.swift */,
 				4ED6608D1A3AEF0A00D105B3 /* IManagement.swift */,
@@ -676,6 +1026,7 @@
 				4ED660901A3AEF0A00D105B3 /* IMessagingCallback.swift */,
 				4ED660911A3AEF0A00D105B3 /* IMessagingCallbackError.swift */,
 				4ED660921A3AEF0A00D105B3 /* IMessagingCallbackWarning.swift */,
+				4ED662151A40CC7E00D105B3 /* impl */,
 				4ED660931A3AEF0A00D105B3 /* INetworkInfo.swift */,
 				4ED660941A3AEF0A00D105B3 /* INetworkNaming.swift */,
 				4ED660951A3AEF0A00D105B3 /* INetworkReachability.swift */,
@@ -689,6 +1040,7 @@
 				4ED6609D1A3AEF0A00D105B3 /* INFC.swift */,
 				4ED6609E1A3AEF0A00D105B3 /* INotification.swift */,
 				4ED6609F1A3AEF0A00D105B3 /* INotificationLocal.swift */,
+				4ED6623B1A40CC7E00D105B3 /* InternalStorageBridge.swift */,
 				4ED660A01A3AEF0A00D105B3 /* IOAuth.swift */,
 				4ED660A11A3AEF0A00D105B3 /* IOCR.swift */,
 				4ED660A21A3AEF0A00D105B3 /* IOpenId.swift */,
@@ -725,19 +1077,107 @@
 				4ED660C11A3AEF0A00D105B3 /* IXML.swift */,
 				4ED660C21A3AEF0A00D105B3 /* KeyPair.swift */,
 				4ED660C31A3AEF0A00D105B3 /* Lifecycle.swift */,
+				4ED6623C1A40CC7E00D105B3 /* LifecycleBridge.swift */,
+				4ED6623D1A40CC7E00D105B3 /* LifecycleListenerImpl.swift */,
 				4ED660C41A3AEF0A00D105B3 /* LifecycleState.swift */,
+				4ED6623E1A40CC7E00D105B3 /* LinkedInBridge.swift */,
 				4ED660C51A3AEF0A00D105B3 /* Locale.swift */,
+				4ED6623F1A40CC7E00D105B3 /* LoggingBridge.swift */,
+				4ED662401A40CC7E00D105B3 /* MagnetometerBridge.swift */,
+				4ED662411A40CC7E00D105B3 /* MailBridge.swift */,
+				4ED662421A40CC7E00D105B3 /* ManagementBridge.swift */,
+				4ED662431A40CC7E00D105B3 /* MapBridge.swift */,
+				4ED662441A40CC7E00D105B3 /* MessagingBridge.swift */,
+				4ED662451A40CC7E00D105B3 /* MessagingCallbackImpl.swift */,
+				4ED662461A40CC7E00D105B3 /* NetworkInfoBridge.swift */,
+				4ED662471A40CC7E00D105B3 /* NetworkNamingBridge.swift */,
+				4ED662481A40CC7E00D105B3 /* NetworkReachabilityBridge.swift */,
+				4ED662491A40CC7E00D105B3 /* NetworkReachabilityCallbackImpl.swift */,
+				4ED6624A1A40CC7E00D105B3 /* NetworkStatusBridge.swift */,
+				4ED6624B1A40CC7E00D105B3 /* NetworkStatusListenerImpl.swift */,
+				4ED6624C1A40CC7E00D105B3 /* NFCBridge.swift */,
+				4ED6624D1A40CC7E00D105B3 /* NotificationBridge.swift */,
+				4ED6624E1A40CC7E00D105B3 /* NotificationLocalBridge.swift */,
+				4ED6624F1A40CC7E00D105B3 /* OAuthBridge.swift */,
+				4ED662501A40CC7E00D105B3 /* OCRBridge.swift */,
+				4ED662511A40CC7E00D105B3 /* OpenIdBridge.swift */,
+				4ED662521A40CC7E00D105B3 /* OSBridge.swift */,
 				4ED660C61A3AEF0A00D105B3 /* OSInfo.swift */,
+				4ED662531A40CC7E00D105B3 /* PrintingBridge.swift */,
+				4ED662541A40CC7E00D105B3 /* ProximityBridge.swift */,
+				4ED662551A40CC7E00D105B3 /* QRCodeBridge.swift */,
+				4ED662561A40CC7E00D105B3 /* RSSBridge.swift */,
+				4ED662571A40CC7E00D105B3 /* RuntimeBridge.swift */,
 				4ED660C71A3AEF0A00D105B3 /* SecureKeyPair.swift */,
+				4ED662581A40CC7E00D105B3 /* SecurityBridge.swift */,
+				4ED662591A40CC7E00D105B3 /* SecurityResultCallbackImpl.swift */,
 				4ED660C81A3AEF0A00D105B3 /* Service.swift */,
+				4ED6625A1A40CC7E00D105B3 /* ServiceBridge.swift */,
 				4ED660C91A3AEF0A00D105B3 /* ServiceCookie.swift */,
 				4ED660CA1A3AEF0A00D105B3 /* ServiceEndpoint.swift */,
 				4ED660CB1A3AEF0A00D105B3 /* ServiceHeader.swift */,
 				4ED660CC1A3AEF0A00D105B3 /* ServiceRequest.swift */,
 				4ED660CD1A3AEF0A00D105B3 /* ServiceResponse.swift */,
+				4ED6625B1A40CC7E00D105B3 /* ServiceResultCallbackImpl.swift */,
 				4ED660CE1A3AEF0A00D105B3 /* ServiceSession.swift */,
+				4ED6625C1A40CC7E00D105B3 /* SettingsBridge.swift */,
+				4ED6625D1A40CC7E00D105B3 /* SocketBridge.swift */,
+				4ED6625E1A40CC7F00D105B3 /* StoreBridge.swift */,
+				4ED6625F1A40CC7F00D105B3 /* TelephonyBridge.swift */,
+				4ED662601A40CC7F00D105B3 /* TimerBridge.swift */,
+				4ED662611A40CC7F00D105B3 /* TwitterBridge.swift */,
+				4ED662621A40CC7F00D105B3 /* UIBridge.swift */,
+				4ED662631A40CC7F00D105B3 /* UpdateBridge.swift */,
+				4ED662641A40CC7F00D105B3 /* VibrationBridge.swift */,
+				4ED662651A40CC7F00D105B3 /* VideoBridge.swift */,
+				4ED662661A40CC7F00D105B3 /* WalletBridge.swift */,
+				4ED662671A40CC7F00D105B3 /* XMLBridge.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		4ED662151A40CC7E00D105B3 /* impl */ = {
+			isa = PBXGroup;
+			children = (
+				4ED662161A40CC7E00D105B3 /* AccelerationDelegate.swift */,
+				4ED662171A40CC7E00D105B3 /* AppContextDelegate.swift */,
+				4ED662181A40CC7E00D105B3 /* AppContextWebviewDelegate.swift */,
+				4ED662191A40CC7E00D105B3 /* BaseApplicationDelegate.swift */,
+				4ED6621A1A40CC7E00D105B3 /* BaseCommerceDelegate.swift */,
+				4ED6621B1A40CC7E00D105B3 /* BaseCommunicationDelegate.swift */,
+				4ED6621C1A40CC7E00D105B3 /* BaseDataDelegate.swift */,
+				4ED6621D1A40CC7E00D105B3 /* BaseMediaDelegate.swift */,
+				4ED6621E1A40CC7E00D105B3 /* BaseNotificationDelegate.swift */,
+				4ED6621F1A40CC7E00D105B3 /* BasePIMDelegate.swift */,
+				4ED662201A40CC7E00D105B3 /* BaseReaderDelegate.swift */,
+				4ED662211A40CC7E00D105B3 /* BaseSecurityDelegate.swift */,
+				4ED662221A40CC7E00D105B3 /* BaseSensorDelegate.swift */,
+				4ED662231A40CC7E00D105B3 /* BaseSocialDelegate.swift */,
+				4ED662241A40CC7E00D105B3 /* BaseSystemDelegate.swift */,
+				4ED662251A40CC7E00D105B3 /* BaseUIDelegate.swift */,
+				4ED662261A40CC7E00D105B3 /* BaseUtilDelegate.swift */,
+				4ED662271A40CC7E00D105B3 /* BrowserDelegate.swift */,
+				4ED662281A40CC7E00D105B3 /* CapabilitiesDelegate.swift */,
+				4ED662291A40CC7E00D105B3 /* ContactDelegate.swift */,
+				4ED6622A1A40CC7E00D105B3 /* DatabaseDelegate.swift */,
+				4ED6622B1A40CC7E00D105B3 /* DeviceDelegate.swift */,
+				4ED6622C1A40CC7E00D105B3 /* FileSystemDelegate.swift */,
+				4ED6622D1A40CC7E00D105B3 /* GeolocationDelegate.swift */,
+				4ED6622E1A40CC7E00D105B3 /* GlobalizationDelegate.swift */,
+				4ED6622F1A40CC7E00D105B3 /* LifecycleDelegate.swift */,
+				4ED662301A40CC7E00D105B3 /* LoggingDelegate.swift */,
+				4ED662311A40CC7E00D105B3 /* MailDelegate.swift */,
+				4ED662321A40CC7E00D105B3 /* MessagingDelegate.swift */,
+				4ED662331A40CC7E00D105B3 /* NetworkReachabilityDelegate.swift */,
+				4ED662341A40CC7E00D105B3 /* NetworkStatusDelegate.swift */,
+				4ED662351A40CC7E00D105B3 /* OSDelegate.swift */,
+				4ED662361A40CC7E00D105B3 /* RuntimeDelegate.swift */,
+				4ED662371A40CC7E00D105B3 /* SecurityDelegate.swift */,
+				4ED662381A40CC7E00D105B3 /* ServiceDelegate.swift */,
+				4ED662391A40CC7E00D105B3 /* TelephonyDelegate.swift */,
+				4ED6623A1A40CC7E00D105B3 /* VideoDelegate.swift */,
+			);
+			path = impl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -848,53 +1288,91 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ED660F11A3AEF0A00D105B3 /* IAdaptiveRPGroup.swift in Sources */,
+				4ED6629A1A40CC7F00D105B3 /* FacebookBridge.swift in Sources */,
 				4ED661861A3AEF0A00D105B3 /* IServiceType.swift in Sources */,
 				4ED661461A3AEF0A00D105B3 /* IFileResultCallback.swift in Sources */,
 				4ED6614B1A3AEF0A00D105B3 /* IFileSystemStorageType.swift in Sources */,
 				4ED661731A3AEF0A00D105B3 /* IOCR.swift in Sources */,
 				4ED661971A3AEF0A00D105B3 /* Locale.swift in Sources */,
 				4ED660D51A3AEF0A00D105B3 /* ContactAddress.swift in Sources */,
+				4ED662E51A40CC7F00D105B3 /* QRCodeBridge.swift in Sources */,
 				4ED661761A3AEF0A00D105B3 /* IOSType.swift in Sources */,
 				4ED661951A3AEF0A00D105B3 /* Lifecycle.swift in Sources */,
 				4ED661211A3AEF0A00D105B3 /* ICapabilitiesNotification.swift in Sources */,
+				4ED662741A40CC7F00D105B3 /* BarcodeBridge.swift in Sources */,
+				4ED662E01A40CC7F00D105B3 /* OCRBridge.swift in Sources */,
 				4ED660D41A3AEF0A00D105B3 /* Contact.swift in Sources */,
+				4ED662A41A40CC7F00D105B3 /* GyroscopeBridge.swift in Sources */,
 				4ED661831A3AEF0A00D105B3 /* IServiceResultCallback.swift in Sources */,
+				4ED6628F1A40CC7F00D105B3 /* ContactBridge.swift in Sources */,
 				4ED660F61A3AEF0A00D105B3 /* IAppContext.swift in Sources */,
 				4ED661811A3AEF0A00D105B3 /* IServiceMethod.swift in Sources */,
 				4ED6614A1A3AEF0A00D105B3 /* IFileSystemSecurity.swift in Sources */,
 				4ED661571A3AEF0A00D105B3 /* ILifecycleListener.swift in Sources */,
+				4ED662D01A40CC7F00D105B3 /* MagnetometerBridge.swift in Sources */,
+				4ED662A31A40CC7F00D105B3 /* GooglePlusBridge.swift in Sources */,
 				4ED6615F1A3AEF0A00D105B3 /* IManagement.swift in Sources */,
 				4ED6613D1A3AEF0A00D105B3 /* IFileDataLoadResultCallback.swift in Sources */,
 				4ED661781A3AEF0A00D105B3 /* IProximity.swift in Sources */,
 				4ED660FE1A3AEF0A00D105B3 /* IAppResourceHandler.swift in Sources */,
+				4ED662F01A40CC7F00D105B3 /* TimerBridge.swift in Sources */,
 				4ED661581A3AEF0A00D105B3 /* ILifecycleListenerError.swift in Sources */,
+				4ED662DC1A40CC7F00D105B3 /* NFCBridge.swift in Sources */,
+				4ED662EA1A40CC7F00D105B3 /* ServiceBridge.swift in Sources */,
 				4ED660FA1A3AEF0A00D105B3 /* IAppResourceCallback.swift in Sources */,
 				4ED6612F1A3AEF0A00D105B3 /* ICrypto.swift in Sources */,
+				4ED662CF1A40CC7F00D105B3 /* LoggingBridge.swift in Sources */,
 				4ED661141A3AEF0A00D105B3 /* IBluetooth.swift in Sources */,
+				4ED662721A40CC7F00D105B3 /* AppResourceCallbackImpl.swift in Sources */,
 				4ED660F71A3AEF0A00D105B3 /* IAppContextWebview.swift in Sources */,
+				4ED662841A40CC7F00D105B3 /* BaseUIBridge.swift in Sources */,
 				4ED661071A3AEF0A00D105B3 /* IBaseCommunication.swift in Sources */,
 				4ED6612B1A3AEF0A00D105B3 /* IContactPhotoResultCallbackWarning.swift in Sources */,
+				4ED662981A40CC7F00D105B3 /* DeviceBridge.swift in Sources */,
 				4ED660D91A3AEF0A00D105B3 /* ContactPersonalInfo.swift in Sources */,
+				4ED662EC1A40CC7F00D105B3 /* SettingsBridge.swift in Sources */,
+				4ED662F71A40CC7F00D105B3 /* XMLBridge.swift in Sources */,
+				4ED6627D1A40CC7F00D105B3 /* BaseNotificationBridge.swift in Sources */,
 				4ED661661A3AEF0A00D105B3 /* INetworkNaming.swift in Sources */,
+				4ED662DB1A40CC7F00D105B3 /* NetworkStatusListenerImpl.swift in Sources */,
 				4ED6611F1A3AEF0A00D105B3 /* ICapabilitiesMedia.swift in Sources */,
+				4ED662F51A40CC7F00D105B3 /* VideoBridge.swift in Sources */,
+				4ED662BA1A40CC7F00D105B3 /* DatabaseDelegate.swift in Sources */,
+				4ED662C61A40CC7F00D105B3 /* RuntimeDelegate.swift in Sources */,
+				4ED662E81A40CC7F00D105B3 /* SecurityBridge.swift in Sources */,
+				4ED662C41A40CC7F00D105B3 /* NetworkStatusDelegate.swift in Sources */,
+				4ED662A51A40CC7F00D105B3 /* ImagingBridge.swift in Sources */,
+				4ED662AD1A40CC7F00D105B3 /* BaseMediaDelegate.swift in Sources */,
+				4ED662B71A40CC7F00D105B3 /* BrowserDelegate.swift in Sources */,
+				4ED662CB1A40CC7F00D105B3 /* InternalStorageBridge.swift in Sources */,
 				4ED661371A3AEF0A00D105B3 /* IDataStream.swift in Sources */,
+				4ED662871A40CC7F00D105B3 /* BrowserBridge.swift in Sources */,
 				4ED661311A3AEF0A00D105B3 /* IDatabaseResultCallback.swift in Sources */,
 				4ED661801A3AEF0A00D105B3 /* IService.swift in Sources */,
 				4ED661151A3AEF0A00D105B3 /* IBrowser.swift in Sources */,
 				4ED6619C1A3AEF0A00D105B3 /* ServiceEndpoint.swift in Sources */,
 				4ED660E61A3AEF0A00D105B3 /* DatabaseTable.swift in Sources */,
+				4ED662811A40CC7F00D105B3 /* BaseSensorBridge.swift in Sources */,
 				4ED6612A1A3AEF0A00D105B3 /* IContactPhotoResultCallbackError.swift in Sources */,
 				4ED6610E1A3AEF0A00D105B3 /* IBaseSecurity.swift in Sources */,
 				4ED661981A3AEF0A00D105B3 /* OSInfo.swift in Sources */,
+				4ED6628E1A40CC7F00D105B3 /* ConcurrentBridge.swift in Sources */,
 				4ED660E51A3AEF0A00D105B3 /* DatabaseRow.swift in Sources */,
+				4ED662DD1A40CC7F00D105B3 /* NotificationBridge.swift in Sources */,
 				4ED661691A3AEF0A00D105B3 /* INetworkReachabilityCallbackError.swift in Sources */,
 				4ED6616D1A3AEF0A00D105B3 /* INetworkStatusListenerError.swift in Sources */,
 				4ED660FF1A3AEF0A00D105B3 /* IAppResourcePayload.swift in Sources */,
+				4ED662A81A40CC7F00D105B3 /* AppContextWebviewDelegate.swift in Sources */,
 				4ED661051A3AEF0A00D105B3 /* IBaseCallback.swift in Sources */,
+				4ED6628B1A40CC7F00D105B3 /* CapabilitiesBridge.swift in Sources */,
+				4ED662931A40CC7F00D105B3 /* DatabaseBridge.swift in Sources */,
 				4ED661511A3AEF0A00D105B3 /* IGlobalization.swift in Sources */,
 				4ED6618F1A3AEF0A00D105B3 /* IUpdate.swift in Sources */,
 				4ED661501A3AEF0A00D105B3 /* IGeolocationListenerWarning.swift in Sources */,
+				4ED662AA1A40CC7F00D105B3 /* BaseCommerceDelegate.swift in Sources */,
+				4ED662F41A40CC7F00D105B3 /* VibrationBridge.swift in Sources */,
 				4ED660F31A3AEF0A00D105B3 /* IAlarm.swift in Sources */,
+				4ED662C71A40CC7F00D105B3 /* SecurityDelegate.swift in Sources */,
 				4ED6611D1A3AEF0A00D105B3 /* ICapabilitiesCommunication.swift in Sources */,
 				4ED660FB1A3AEF0A00D105B3 /* IAppResourceCallbackError.swift in Sources */,
 				4ED661321A3AEF0A00D105B3 /* IDatabaseResultCallbackError.swift in Sources */,
@@ -903,32 +1381,55 @@
 				4ED661261A3AEF0A00D105B3 /* IContact.swift in Sources */,
 				4ED661111A3AEF0A00D105B3 /* IBaseSystem.swift in Sources */,
 				4ED661091A3AEF0A00D105B3 /* IBaseListener.swift in Sources */,
+				4ED662C31A40CC7F00D105B3 /* NetworkReachabilityDelegate.swift in Sources */,
+				4ED662881A40CC7F00D105B3 /* ButtonListenerImpl.swift in Sources */,
+				4ED662971A40CC7F00D105B3 /* DesktopBridge.swift in Sources */,
+				4ED6627C1A40CC7F00D105B3 /* BaseMediaBridge.swift in Sources */,
+				4ED662701A40CC7F00D105B3 /* AppRegistryBridge.swift in Sources */,
 				4ED660EF1A3AEF0A00D105B3 /* IAccelerationListenerWarning.swift in Sources */,
 				4ED661741A3AEF0A00D105B3 /* IOpenId.swift in Sources */,
 				4ED660EB1A3AEF0A00D105B3 /* Geolocation.swift in Sources */,
+				4ED662D91A40CC7F00D105B3 /* NetworkReachabilityCallbackImpl.swift in Sources */,
+				4ED662EF1A40CC7F00D105B3 /* TelephonyBridge.swift in Sources */,
+				4ED662ED1A40CC7F00D105B3 /* SocketBridge.swift in Sources */,
 				4ED6612E1A3AEF0A00D105B3 /* IContactResultCallbackWarning.swift in Sources */,
+				4ED662781A40CC7F00D105B3 /* BaseCommerceBridge.swift in Sources */,
 				4ED660DC1A3AEF0A00D105B3 /* ContactPhoneType.swift in Sources */,
 				4ED660DF1A3AEF0A00D105B3 /* ContactSocialNetwork.swift in Sources */,
+				4ED662B61A40CC7F00D105B3 /* BaseUtilDelegate.swift in Sources */,
+				4ED6629C1A40CC7F00D105B3 /* FileDataStoreResultCallbackImpl.swift in Sources */,
+				4ED6628D1A40CC7F00D105B3 /* CompressionBridge.swift in Sources */,
 				4ED661521A3AEF0A00D105B3 /* IGooglePlus.swift in Sources */,
 				4ED661381A3AEF0A00D105B3 /* IDesktop.swift in Sources */,
+				4ED662D11A40CC7F00D105B3 /* MailBridge.swift in Sources */,
+				4ED6628A1A40CC7F00D105B3 /* CameraBridge.swift in Sources */,
 				4ED661451A3AEF0A00D105B3 /* IFileListResultCallbackWarning.swift in Sources */,
 				4ED661041A3AEF0A00D105B3 /* IBaseApplication.swift in Sources */,
 				4ED660D71A3AEF0A00D105B3 /* ContactEmail.swift in Sources */,
 				4ED661671A3AEF0A00D105B3 /* INetworkReachability.swift in Sources */,
 				4ED661021A3AEF0A00D105B3 /* IBarcode.swift in Sources */,
 				4ED660E41A3AEF0A00D105B3 /* DatabaseColumn.swift in Sources */,
+				4ED6629D1A40CC7F00D105B3 /* FileListResultCallbackImpl.swift in Sources */,
 				4ED661651A3AEF0A00D105B3 /* INetworkInfo.swift in Sources */,
+				4ED662831A40CC7F00D105B3 /* BaseSystemBridge.swift in Sources */,
 				4ED6616E1A3AEF0A00D105B3 /* INetworkStatusListenerWarning.swift in Sources */,
 				4ED661641A3AEF0A00D105B3 /* IMessagingCallbackWarning.swift in Sources */,
 				4ED661771A3AEF0A00D105B3 /* IPrinting.swift in Sources */,
+				4ED662DE1A40CC7F00D105B3 /* NotificationLocalBridge.swift in Sources */,
 				4ED660E21A3AEF0A00D105B3 /* ContactWebsite.swift in Sources */,
+				4ED6629F1A40CC7F00D105B3 /* FileSystemBridge.swift in Sources */,
+				4ED662D51A40CC7F00D105B3 /* MessagingCallbackImpl.swift in Sources */,
+				4ED6629B1A40CC7F00D105B3 /* FileDataLoadResultCallbackImpl.swift in Sources */,
 				4ED661721A3AEF0A00D105B3 /* IOAuth.swift in Sources */,
+				4ED662D41A40CC7F00D105B3 /* MessagingBridge.swift in Sources */,
 				4ED6615D1A3AEF0A00D105B3 /* IMagnetometer.swift in Sources */,
 				4ED6617E1A3AEF0A00D105B3 /* ISecurityResultCallbackError.swift in Sources */,
+				4ED662A91A40CC7F00D105B3 /* BaseApplicationDelegate.swift in Sources */,
 				4ED661271A3AEF0A00D105B3 /* IContactFieldGroup.swift in Sources */,
 				4ED6611C1A3AEF0A00D105B3 /* ICapabilitiesButton.swift in Sources */,
 				4ED6617A1A3AEF0A00D105B3 /* IRSS.swift in Sources */,
 				4ED6613A1A3AEF0A00D105B3 /* IDisplay.swift in Sources */,
+				4ED662921A40CC7F00D105B3 /* CryptoBridge.swift in Sources */,
 				4ED661171A3AEF0A00D105B3 /* IButtonListenerError.swift in Sources */,
 				4ED660E81A3AEF0A00D105B3 /* Email.swift in Sources */,
 				4ED660F21A3AEF0A00D105B3 /* IAds.swift in Sources */,
@@ -937,40 +1438,65 @@
 				4ED6619F1A3AEF0A00D105B3 /* ServiceResponse.swift in Sources */,
 				4ED661181A3AEF0A00D105B3 /* IButtonListenerWarning.swift in Sources */,
 				4ED6616C1A3AEF0A00D105B3 /* INetworkStatusListener.swift in Sources */,
+				4ED662B31A40CC7F00D105B3 /* BaseSocialDelegate.swift in Sources */,
 				4ED6619E1A3AEF0A00D105B3 /* ServiceRequest.swift in Sources */,
 				4ED661331A3AEF0A00D105B3 /* IDatabaseResultCallbackWarning.swift in Sources */,
 				4ED661291A3AEF0A00D105B3 /* IContactPhotoResultCallback.swift in Sources */,
 				4ED660DE1A3AEF0A00D105B3 /* ContactSocial.swift in Sources */,
+				4ED662BE1A40CC7F00D105B3 /* GlobalizationDelegate.swift in Sources */,
+				4ED662F11A40CC7F00D105B3 /* TwitterBridge.swift in Sources */,
+				4ED662B21A40CC7F00D105B3 /* BaseSensorDelegate.swift in Sources */,
 				4ED660F91A3AEF0A00D105B3 /* IAppResource.swift in Sources */,
+				4ED662A11A40CC7F00D105B3 /* GeolocationListenerImpl.swift in Sources */,
 				4ED6612D1A3AEF0A00D105B3 /* IContactResultCallbackError.swift in Sources */,
+				4ED662B51A40CC7F00D105B3 /* BaseUIDelegate.swift in Sources */,
+				4ED6626C1A40CC7F00D105B3 /* AmbientLightBridge.swift in Sources */,
 				4ED6617B1A3AEF0A00D105B3 /* IRuntime.swift in Sources */,
 				4ED661541A3AEF0A00D105B3 /* IImaging.swift in Sources */,
 				4ED661161A3AEF0A00D105B3 /* IButtonListener.swift in Sources */,
+				4ED662CA1A40CC7F00D105B3 /* VideoDelegate.swift in Sources */,
+				4ED662801A40CC7F00D105B3 /* BaseSecurityBridge.swift in Sources */,
 				4ED660D31A3AEF0A00D105B3 /* Button.swift in Sources */,
+				4ED662E31A40CC7F00D105B3 /* PrintingBridge.swift in Sources */,
+				4ED662761A40CC7F00D105B3 /* BaseApplicationBridge.swift in Sources */,
 				4ED661991A3AEF0A00D105B3 /* SecureKeyPair.swift in Sources */,
 				4ED661851A3AEF0A00D105B3 /* IServiceResultCallbackWarning.swift in Sources */,
+				4ED662B01A40CC7F00D105B3 /* BaseReaderDelegate.swift in Sources */,
 				4ED661551A3AEF0A00D105B3 /* IInternalStorage.swift in Sources */,
 				4ED661121A3AEF0A00D105B3 /* IBaseUI.swift in Sources */,
 				4ED661101A3AEF0A00D105B3 /* IBaseSocial.swift in Sources */,
 				4ED661911A3AEF0A00D105B3 /* IVideo.swift in Sources */,
+				4ED662B11A40CC7F00D105B3 /* BaseSecurityDelegate.swift in Sources */,
 				4ED660D01A3AEF0A00D105B3 /* APIBean.swift in Sources */,
+				4ED662DF1A40CC7F00D105B3 /* OAuthBridge.swift in Sources */,
 				4ED660CF1A3AEF0A00D105B3 /* Acceleration.swift in Sources */,
+				4ED662891A40CC7F00D105B3 /* CalendarBridge.swift in Sources */,
 				4ED660E31A3AEF0A00D105B3 /* Database.swift in Sources */,
 				4ED6618A1A3AEF0A00D105B3 /* ITelephony.swift in Sources */,
 				4ED6613C1A3AEF0A00D105B3 /* IFile.swift in Sources */,
 				4ED6614D1A3AEF0A00D105B3 /* IGeolocation.swift in Sources */,
+				4ED662D21A40CC7F00D105B3 /* ManagementBridge.swift in Sources */,
+				4ED662C81A40CC7F00D105B3 /* ServiceDelegate.swift in Sources */,
+				4ED662F31A40CC7F00D105B3 /* UpdateBridge.swift in Sources */,
+				4ED6627E1A40CC7F00D105B3 /* BasePIMBridge.swift in Sources */,
 				4ED661591A3AEF0A00D105B3 /* ILifecycleListenerWarning.swift in Sources */,
 				4ED6610C1A3AEF0A00D105B3 /* IBasePIM.swift in Sources */,
 				4ED661341A3AEF0A00D105B3 /* IDatabaseTableResultCallback.swift in Sources */,
 				4ED661281A3AEF0A00D105B3 /* IContactFilter.swift in Sources */,
 				4ED6619A1A3AEF0A00D105B3 /* Service.swift in Sources */,
+				4ED662BD1A40CC7F00D105B3 /* GeolocationDelegate.swift in Sources */,
 				4ED661891A3AEF0A00D105B3 /* IStore.swift in Sources */,
+				4ED662C01A40CC7F00D105B3 /* LoggingDelegate.swift in Sources */,
 				4ED661441A3AEF0A00D105B3 /* IFileListResultCallbackError.swift in Sources */,
 				4ED661611A3AEF0A00D105B3 /* IMessaging.swift in Sources */,
+				4ED662AC1A40CC7F00D105B3 /* BaseDataDelegate.swift in Sources */,
+				4ED662D61A40CC7F00D105B3 /* NetworkInfoBridge.swift in Sources */,
 				4ED661631A3AEF0A00D105B3 /* IMessagingCallbackError.swift in Sources */,
 				4ED661081A3AEF0A00D105B3 /* IBaseData.swift in Sources */,
 				4ED661201A3AEF0A00D105B3 /* ICapabilitiesNet.swift in Sources */,
+				4ED662AE1A40CC7F00D105B3 /* BaseNotificationDelegate.swift in Sources */,
 				4ED661621A3AEF0A00D105B3 /* IMessagingCallback.swift in Sources */,
+				4ED662C21A40CC7F00D105B3 /* MessagingDelegate.swift in Sources */,
 				4ED660F51A3AEF0A00D105B3 /* IAnalytics.swift in Sources */,
 				4ED661031A3AEF0A00D105B3 /* IBarometer.swift in Sources */,
 				4ED661001A3AEF0A00D105B3 /* IAppResourceType.swift in Sources */,
@@ -980,15 +1506,24 @@
 				4ED6619B1A3AEF0A00D105B3 /* ServiceCookie.swift in Sources */,
 				4ED660DD1A3AEF0A00D105B3 /* ContactProfessionalInfo.swift in Sources */,
 				4ED6616A1A3AEF0A00D105B3 /* INetworkReachabilityCallbackWarning.swift in Sources */,
+				4ED662681A40CC7F00D105B3 /* AccelerationBridge.swift in Sources */,
 				4ED6613E1A3AEF0A00D105B3 /* IFileDataLoadResultCallbackError.swift in Sources */,
 				4ED661431A3AEF0A00D105B3 /* IFileListResultCallback.swift in Sources */,
 				4ED661131A3AEF0A00D105B3 /* IBaseUtil.swift in Sources */,
+				4ED662A61A40CC7F00D105B3 /* AccelerationDelegate.swift in Sources */,
 				4ED661061A3AEF0A00D105B3 /* IBaseCommerce.swift in Sources */,
 				4ED6618B1A3AEF0A00D105B3 /* ITelephonyStatus.swift in Sources */,
+				4ED662A01A40CC7F00D105B3 /* GeolocationBridge.swift in Sources */,
 				4ED6613B1A3AEF0A00D105B3 /* IFacebook.swift in Sources */,
+				4ED662961A40CC7F00D105B3 /* DataStreamBridge.swift in Sources */,
+				4ED6626D1A40CC7F00D105B3 /* AnalyticsBridge.swift in Sources */,
 				4ED6616B1A3AEF0A00D105B3 /* INetworkStatus.swift in Sources */,
+				4ED662E41A40CC7F00D105B3 /* ProximityBridge.swift in Sources */,
+				4ED662E71A40CC7F00D105B3 /* RuntimeBridge.swift in Sources */,
+				4ED662731A40CC7F00D105B3 /* AudioBridge.swift in Sources */,
 				4ED6611B1A3AEF0A00D105B3 /* ICapabilities.swift in Sources */,
 				4ED660D21A3AEF0A00D105B3 /* APIRequest.swift in Sources */,
+				4ED662B91A40CC7F00D105B3 /* ContactDelegate.swift in Sources */,
 				4ED661561A3AEF0A00D105B3 /* ILifecycle.swift in Sources */,
 				4ED661241A3AEF0A00D105B3 /* ICompression.swift in Sources */,
 				4ED6619D1A3AEF0A00D105B3 /* ServiceHeader.swift in Sources */,
@@ -998,65 +1533,114 @@
 				4ED660D61A3AEF0A00D105B3 /* ContactAddressType.swift in Sources */,
 				4ED661821A3AEF0A00D105B3 /* IServiceProtocolVersion.swift in Sources */,
 				4ED6615A1A3AEF0A00D105B3 /* ILinkedIn.swift in Sources */,
+				4ED662751A40CC7F00D105B3 /* BarometerBridge.swift in Sources */,
+				4ED662CC1A40CC7F00D105B3 /* LifecycleBridge.swift in Sources */,
+				4ED662991A40CC7F00D105B3 /* DisplayBridge.swift in Sources */,
+				4ED662BB1A40CC7F00D105B3 /* DeviceDelegate.swift in Sources */,
 				4ED660E91A3AEF0A00D105B3 /* EmailAddress.swift in Sources */,
+				4ED662C51A40CC7F00D105B3 /* OSDelegate.swift in Sources */,
 				4ED6618E1A3AEF0A00D105B3 /* IUI.swift in Sources */,
 				4ED661411A3AEF0A00D105B3 /* IFileDataStoreResultCallbackError.swift in Sources */,
+				4ED662F21A40CC7F00D105B3 /* UIBridge.swift in Sources */,
+				4ED662AF1A40CC7F00D105B3 /* BasePIMDelegate.swift in Sources */,
 				4ED6615B1A3AEF0A00D105B3 /* ILogging.swift in Sources */,
+				4ED6627A1A40CC7F00D105B3 /* BaseDataBridge.swift in Sources */,
+				4ED662DA1A40CC7F00D105B3 /* NetworkStatusBridge.swift in Sources */,
+				4ED662F61A40CC7F00D105B3 /* WalletBridge.swift in Sources */,
 				4ED660DB1A3AEF0A00D105B3 /* ContactPhone.swift in Sources */,
+				4ED662C11A40CC7F00D105B3 /* MailDelegate.swift in Sources */,
+				4ED662B81A40CC7F00D105B3 /* CapabilitiesDelegate.swift in Sources */,
+				4ED662B41A40CC7F00D105B3 /* BaseSystemDelegate.swift in Sources */,
 				4ED660ED1A3AEF0A00D105B3 /* IAccelerationListener.swift in Sources */,
 				4ED661401A3AEF0A00D105B3 /* IFileDataStoreResultCallback.swift in Sources */,
+				4ED662901A40CC7F00D105B3 /* ContactPhotoResultCallbackImpl.swift in Sources */,
+				4ED6627F1A40CC7F00D105B3 /* BaseReaderBridge.swift in Sources */,
 				4ED661681A3AEF0A00D105B3 /* INetworkReachabilityCallback.swift in Sources */,
 				4ED6617C1A3AEF0A00D105B3 /* ISecurity.swift in Sources */,
 				4ED661221A3AEF0A00D105B3 /* ICapabilitiesSensor.swift in Sources */,
 				4ED660EA1A3AEF0A00D105B3 /* EmailAttachmentData.swift in Sources */,
+				4ED662771A40CC7F00D105B3 /* BaseCallbackImpl.swift in Sources */,
 				4ED6611E1A3AEF0A00D105B3 /* ICapabilitiesData.swift in Sources */,
+				4ED662E91A40CC7F00D105B3 /* SecurityResultCallbackImpl.swift in Sources */,
 				4ED661011A3AEF0A00D105B3 /* IAudio.swift in Sources */,
+				4ED662A71A40CC7F00D105B3 /* AppContextDelegate.swift in Sources */,
 				4ED6615E1A3AEF0A00D105B3 /* IMail.swift in Sources */,
 				4ED6618C1A3AEF0A00D105B3 /* ITimer.swift in Sources */,
 				4ED660E01A3AEF0A00D105B3 /* ContactTag.swift in Sources */,
+				4ED6626F1A40CC7F00D105B3 /* AppContextWebviewBridge.swift in Sources */,
 				4ED661791A3AEF0A00D105B3 /* IQRCode.swift in Sources */,
+				4ED6626E1A40CC7F00D105B3 /* AppContextBridge.swift in Sources */,
 				4ED661901A3AEF0A00D105B3 /* IVibration.swift in Sources */,
 				4ED6617D1A3AEF0A00D105B3 /* ISecurityResultCallback.swift in Sources */,
 				4ED661961A3AEF0A00D105B3 /* LifecycleState.swift in Sources */,
 				4ED6611A1A3AEF0A00D105B3 /* ICamera.swift in Sources */,
 				4ED660FC1A3AEF0A00D105B3 /* IAppResourceCallbackWarning.swift in Sources */,
+				4ED6626A1A40CC7F00D105B3 /* AdsBridge.swift in Sources */,
 				4ED6617F1A3AEF0A00D105B3 /* ISecurityResultCallbackWarning.swift in Sources */,
+				4ED662851A40CC7F00D105B3 /* BaseUtilBridge.swift in Sources */,
+				4ED6626B1A40CC7F00D105B3 /* AlarmBridge.swift in Sources */,
+				4ED662EB1A40CC7F00D105B3 /* ServiceResultCallbackImpl.swift in Sources */,
 				4ED661481A3AEF0A00D105B3 /* IFileResultCallbackWarning.swift in Sources */,
+				4ED662C91A40CC7F00D105B3 /* TelephonyDelegate.swift in Sources */,
 				4ED660D81A3AEF0A00D105B3 /* ContactEmailType.swift in Sources */,
+				4ED662941A40CC7F00D105B3 /* DatabaseResultCallbackImpl.swift in Sources */,
 				4ED6613F1A3AEF0A00D105B3 /* IFileDataLoadResultCallbackWarning.swift in Sources */,
+				4ED662711A40CC7F00D105B3 /* AppRegistryDelegate.swift in Sources */,
 				4ED6616F1A3AEF0A00D105B3 /* INFC.swift in Sources */,
+				4ED662E11A40CC7F00D105B3 /* OpenIdBridge.swift in Sources */,
 				4ED660EE1A3AEF0A00D105B3 /* IAccelerationListenerError.swift in Sources */,
+				4ED662BC1A40CC7F00D105B3 /* FileSystemDelegate.swift in Sources */,
 				4ED661191A3AEF0A00D105B3 /* ICalendar.swift in Sources */,
 				4ED6618D1A3AEF0A00D105B3 /* ITwitter.swift in Sources */,
+				4ED662CD1A40CC7F00D105B3 /* LifecycleListenerImpl.swift in Sources */,
 				4ED660DA1A3AEF0A00D105B3 /* ContactPersonalInfoTitle.swift in Sources */,
+				4ED662E21A40CC7F00D105B3 /* OSBridge.swift in Sources */,
+				4ED662791A40CC7F00D105B3 /* BaseCommunicationBridge.swift in Sources */,
+				4ED6627B1A40CC7F00D105B3 /* BaseListenerImpl.swift in Sources */,
 				4ED6614F1A3AEF0A00D105B3 /* IGeolocationListenerError.swift in Sources */,
+				4ED662BF1A40CC7F00D105B3 /* LifecycleDelegate.swift in Sources */,
 				4ED6612C1A3AEF0A00D105B3 /* IContactResultCallback.swift in Sources */,
 				4ED661421A3AEF0A00D105B3 /* IFileDataStoreResultCallbackWarning.swift in Sources */,
+				4ED662D71A40CC7F00D105B3 /* NetworkNamingBridge.swift in Sources */,
+				4ED662AB1A40CC7F00D105B3 /* BaseCommunicationDelegate.swift in Sources */,
 				4ED661881A3AEF0A00D105B3 /* ISocket.swift in Sources */,
+				4ED662CE1A40CC7F00D105B3 /* LinkedInBridge.swift in Sources */,
+				4ED662861A40CC7F00D105B3 /* BluetoothBridge.swift in Sources */,
+				4ED662E61A40CC7F00D105B3 /* RSSBridge.swift in Sources */,
 				4ED661361A3AEF0A00D105B3 /* IDatabaseTableResultCallbackWarning.swift in Sources */,
 				4ED6610D1A3AEF0A00D105B3 /* IBaseReader.swift in Sources */,
 				4ED660F01A3AEF0A00D105B3 /* IAdaptiveRP.swift in Sources */,
 				4ED661491A3AEF0A00D105B3 /* IFileSystem.swift in Sources */,
+				4ED662A21A40CC7F00D105B3 /* GlobalizationBridge.swift in Sources */,
 				4ED661391A3AEF0A00D105B3 /* IDevice.swift in Sources */,
 				4ED661471A3AEF0A00D105B3 /* IFileResultCallbackError.swift in Sources */,
 				4ED661841A3AEF0A00D105B3 /* IServiceResultCallbackError.swift in Sources */,
+				4ED662EE1A40CC7F00D105B3 /* StoreBridge.swift in Sources */,
 				4ED660F81A3AEF0A00D105B3 /* IAppRegistry.swift in Sources */,
 				4ED661251A3AEF0A00D105B3 /* IConcurrent.swift in Sources */,
 				4ED661301A3AEF0A00D105B3 /* IDatabase.swift in Sources */,
+				4ED662D81A40CC7F00D105B3 /* NetworkReachabilityBridge.swift in Sources */,
+				4ED662D31A40CC7F00D105B3 /* MapBridge.swift in Sources */,
 				4ED6614E1A3AEF0A00D105B3 /* IGeolocationListener.swift in Sources */,
 				4ED660E71A3AEF0A00D105B3 /* DeviceInfo.swift in Sources */,
+				4ED662691A40CC7F00D105B3 /* AccelerationListenerImpl.swift in Sources */,
 				4ED661751A3AEF0A00D105B3 /* IOS.swift in Sources */,
 				4ED660EC1A3AEF0A00D105B3 /* IAcceleration.swift in Sources */,
 				4ED661351A3AEF0A00D105B3 /* IDatabaseTableResultCallbackError.swift in Sources */,
+				4ED662911A40CC7F00D105B3 /* ContactResultCallbackImpl.swift in Sources */,
 				4ED661941A3AEF0A00D105B3 /* KeyPair.swift in Sources */,
 				4ED6610B1A3AEF0A00D105B3 /* IBaseNotification.swift in Sources */,
 				4ED661921A3AEF0A00D105B3 /* IWallet.swift in Sources */,
+				4ED6628C1A40CC7F00D105B3 /* CloudBridge.swift in Sources */,
 				4ED660F41A3AEF0A00D105B3 /* IAmbientLight.swift in Sources */,
 				4ED6614C1A3AEF0A00D105B3 /* IFileSystemType.swift in Sources */,
+				4ED662821A40CC7F00D105B3 /* BaseSocialBridge.swift in Sources */,
+				4ED662951A40CC7F00D105B3 /* DatabaseTableResultCallbackImpl.swift in Sources */,
 				4ED661931A3AEF0A00D105B3 /* IXML.swift in Sources */,
 				4ED661601A3AEF0A00D105B3 /* IMap.swift in Sources */,
 				4ED661871A3AEF0A00D105B3 /* ISettings.swift in Sources */,
 				4ED6610A1A3AEF0A00D105B3 /* IBaseMedia.swift in Sources */,
+				4ED6629E1A40CC7F00D105B3 /* FileResultCallbackImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

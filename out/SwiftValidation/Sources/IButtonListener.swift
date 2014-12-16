@@ -46,7 +46,7 @@ public protocol IButtonListener : IBaseListener {
         @param error occurred
         @since ARP1.0
      */
-     void onError(IButtonListenerError error);
+     func onError(error : IButtonListenerError)
 
      /**
         Called on button pressed
@@ -54,7 +54,7 @@ public protocol IButtonListener : IBaseListener {
         @param button pressed
         @since ARP1.0
      */
-     void onResult(Button button);
+     func onResult(button : Button)
 
      /**
         Data received with warning
@@ -63,7 +63,7 @@ public protocol IButtonListener : IBaseListener {
         @param warning happened
         @since ARP1.0
      */
-     void onWarning(Button button, IButtonListenerWarning warning);
+     func onWarning(button : Button, warning : IButtonListenerWarning)
 
 }
 

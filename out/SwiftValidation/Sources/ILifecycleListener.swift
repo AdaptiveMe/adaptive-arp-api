@@ -46,7 +46,7 @@ public protocol ILifecycleListener : IBaseListener {
         @param error Type of error encountered during reading.
         @since ARP1.0
      */
-     void onError(ILifecycleListenerError error);
+     func onError(error : ILifecycleListenerError)
 
      /**
         Called when lifecycle changes somehow.
@@ -54,7 +54,7 @@ public protocol ILifecycleListener : IBaseListener {
         @param lifecycle Lifecycle element
         @since ARP1.0
      */
-     void onResult(Lifecycle lifecycle);
+     func onResult(lifecycle : Lifecycle)
 
      /**
         Data received with warning
@@ -63,7 +63,7 @@ public protocol ILifecycleListener : IBaseListener {
         @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
-     void onWarning(Lifecycle lifecycle, ILifecycleListenerWarning warning);
+     func onWarning(lifecycle : Lifecycle, warning : ILifecycleListenerWarning)
 
 }
 

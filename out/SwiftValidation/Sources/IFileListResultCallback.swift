@@ -46,7 +46,7 @@ public protocol IFileListResultCallback : IBaseCallback {
         @param error Error processing the request.
         @since ARP1.0
      */
-     void onError(IFileListResultCallbackError error);
+     func onError(error : IFileListResultCallbackError)
 
      /**
         On correct result of a file operation.
@@ -54,7 +54,7 @@ public protocol IFileListResultCallback : IBaseCallback {
         @param files Array of resulting files/folders.
         @since ARP1.0
      */
-     void onResult([IFile] files);
+     func onResult(files : [IFile])
 
      /**
         On partial result of a file operation, containing a warning.
@@ -63,7 +63,7 @@ public protocol IFileListResultCallback : IBaseCallback {
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     void onWarning([IFile] files, IFileListResultCallbackWarning warning);
+     func onWarning(files : [IFile], warning : IFileListResultCallbackWarning)
 
 }
 

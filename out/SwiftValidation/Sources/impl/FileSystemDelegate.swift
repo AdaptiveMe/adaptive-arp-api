@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the File System operations
    Auto-generated implementation of IFileSystem specification.
 */
-public class FileSystemDelegate extends BaseDataDelegate implements IFileSystem {
+public class FileSystemDelegate : BaseDataDelegate, IFileSystem {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getFileSystemBridge().setDelegate(new FileSystemDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getFileSystemBridge().setDelegate(new FileSystemDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public FileSystemDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -65,11 +62,9 @@ This method does not create the actual file in the specified folder.
         @return A reference to a new or existing location in the filesystem.
         @since ARP1.0
      */
-     public IFile createFileDescriptor(IFile parent, String name) {
-          IFile response;
+     public func createFileDescriptor(parent : IFile, name : String) -> IFile {
+          var response : IFile
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":createFileDescriptor");
-          // return response;
      }
 
      /**
@@ -80,11 +75,9 @@ This path is volatile and may be cleaned by the OS periodically.
         @return Path to the application's cache folder.
         @since ARP1.0
      */
-     public IFile getApplicationCacheFolder() {
-          IFile response;
+     public func getApplicationCacheFolder() -> IFile {
+          var response : IFile
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getApplicationCacheFolder");
-          // return response;
      }
 
      /**
@@ -94,11 +87,9 @@ This path must always be writable by the current application.
         @return Path to the application's cloud storage folder.
         @since ARP1.0
      */
-     public IFile getApplicationCloudFolder() {
-          IFile response;
+     public func getApplicationCloudFolder() -> IFile {
+          var response : IFile
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getApplicationCloudFolder");
-          // return response;
      }
 
      /**
@@ -108,11 +99,9 @@ This path must always be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     public IFile getApplicationDocumentsFolder() {
-          IFile response;
+     public func getApplicationDocumentsFolder() -> IFile {
+          var response : IFile
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getApplicationDocumentsFolder");
-          // return response;
      }
 
      /**
@@ -122,11 +111,9 @@ This path may or may not be directly readable or writable - it usually contains 
         @return Path to the application folder.
         @since ARP1.0
      */
-     public IFile getApplicationFolder() {
-          IFile response;
+     public func getApplicationFolder() -> IFile {
+          var response : IFile
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getApplicationFolder");
-          // return response;
      }
 
      /**
@@ -136,11 +123,9 @@ This path must always be writable by the current application.
         @return Path to the application's protected storage folder.
         @since ARP1.0
      */
-     public IFile getApplicationProtectedFolder() {
-          IFile response;
+     public func getApplicationProtectedFolder() -> IFile {
+          var response : IFile
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getApplicationProtectedFolder");
-          // return response;
      }
 
      /**
@@ -149,11 +134,9 @@ This path must always be writable by the current application.
         @return char with the directory/file separator.
         @since ARP1.0
      */
-     public Character getSeparator() {
-          Character response;
+     public func getSeparator() -> Character {
+          var response : Character
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getSeparator");
-          // return response;
      }
 
      /**
@@ -165,11 +148,9 @@ This path may or may not be writable by the current application.
         @return Path to the application's documents folder.
         @since ARP1.0
      */
-     public IFile getSystemExternalFolder() {
-          IFile response;
+     public func getSystemExternalFolder() -> IFile {
+          var response : IFile
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getSystemExternalFolder");
-          // return response;
      }
 
 }

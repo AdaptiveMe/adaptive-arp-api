@@ -47,7 +47,7 @@ public protocol IContact : IBasePIM {
         @param callback called for return
         @since ARP1.0
      */
-     void getContactPhoto(ContactUid contact, IContactPhotoResultCallback callback);
+     func getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback)
 
      /**
         Get all the details of a contact according to its id
@@ -56,7 +56,7 @@ public protocol IContact : IBasePIM {
         @param callback called for return
         @since ARP1.0
      */
-     void getContact(ContactUid contact, IContactResultCallback callback);
+     func getContact(contact : ContactUid, callback : IContactResultCallback)
 
      /**
         Get marked fields of all contacts
@@ -65,7 +65,7 @@ public protocol IContact : IBasePIM {
         @param fields   to get for each Contact
         @since ARP1.0
      */
-     void getContactsForFields(IContactResultCallback callback, [IContactFieldGroup] fields);
+     func getContactsForFields(callback : IContactResultCallback, fields : [IContactFieldGroup])
 
      /**
         Get marked fields of all contacts according to a filter
@@ -75,7 +75,7 @@ public protocol IContact : IBasePIM {
         @param filter   to search for
         @since ARP1.0
      */
-     void getContactsWithFilter(IContactResultCallback callback, [IContactFieldGroup] fields, [IContactFilter] filter);
+     func getContactsWithFilter(callback : IContactResultCallback, fields : [IContactFieldGroup], filter : [IContactFilter])
 
      /**
         Get all contacts
@@ -83,7 +83,7 @@ public protocol IContact : IBasePIM {
         @param callback called for return
         @since ARP1.0
      */
-     void getContacts(IContactResultCallback callback);
+     func getContacts(callback : IContactResultCallback)
 
      /**
         Search contacts according to a term with a filter and send it to the callback
@@ -93,7 +93,7 @@ public protocol IContact : IBasePIM {
         @param filter   to search for
         @since ARP1.0
      */
-     void searchContactsWithFilter(String term, IContactResultCallback callback, [IContactFilter] filter);
+     func searchContactsWithFilter(term : String, callback : IContactResultCallback, filter : [IContactFilter])
 
      /**
         Search contacts according to a term and send it to the callback
@@ -102,7 +102,7 @@ public protocol IContact : IBasePIM {
         @param callback called for return
         @since ARP1.0
      */
-     void searchContacts(String term, IContactResultCallback callback);
+     func searchContacts(term : String, callback : IContactResultCallback)
 
      /**
         Set the contact photo
@@ -112,7 +112,7 @@ public protocol IContact : IBasePIM {
         @return true if set is successful;false otherwise
         @since ARP1.0
      */
-     Bool setContactPhoto(ContactUid contact, [Byte] pngImage);
+     func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool 
 
 }
 

@@ -46,7 +46,7 @@ public protocol IMessagingCallback : IBaseCallback {
         @param error returned by the platform
         @since ARP1.0
      */
-     void onError(IMessagingCallbackError error);
+     func onError(error : IMessagingCallbackError)
 
      /**
         This method is called on Result
@@ -54,7 +54,7 @@ public protocol IMessagingCallback : IBaseCallback {
         @param success true if sent;false otherwise
         @since ARP1.0
      */
-     void onResult(Bool success);
+     func onResult(success : Bool)
 
      /**
         This method is called on Warning
@@ -63,7 +63,7 @@ public protocol IMessagingCallback : IBaseCallback {
         @param warning returned by the platform
         @since ARP1.0
      */
-     void onWarning(Bool success, IMessagingCallbackWarning warning);
+     func onWarning(success : Bool, warning : IMessagingCallbackWarning)
 
 }
 

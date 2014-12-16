@@ -32,34 +32,30 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Base application for Sensor purposes
    Auto-generated implementation of IBaseSensor specification.
 */
-public class BaseSensorDelegate implements IBaseSensor {
+public class BaseSensorDelegate : IBaseSensor {
 
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     private var apiGroup : IAdaptiveRPGroup
 
      /**
         Default constructor.
      */
-     public BaseSensorDelegate() {
-          this.apiGroup = IAdaptiveRPGroup.Sensor;
+     public init() {
+          self.apiGroup = IAdaptiveRPGroup.Sensor
      }
 
      /**
         Return the API group for the given interface.
      */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
+     public final func getAPIGroup() -> IAdaptiveRPGroup {
+          return self.apiGroup;
      }
 
 }

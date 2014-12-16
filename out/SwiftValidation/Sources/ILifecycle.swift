@@ -46,7 +46,7 @@ public protocol ILifecycle : IBaseApplication {
         @param listener Lifecycle listener
         @since ARP1.0
      */
-     void addLifecycleListener(ILifecycleListener listener);
+     func addLifecycleListener(listener : ILifecycleListener)
 
      /**
         Whether the application is in background or not
@@ -54,7 +54,7 @@ public protocol ILifecycle : IBaseApplication {
         @return true if the application is in background;false otherwise
         @since ARP1.0
      */
-     Bool isBackground();
+     func isBackground() -> Bool 
 
      /**
         Un-registers an existing listener from receiving lifecycle events.
@@ -62,14 +62,14 @@ public protocol ILifecycle : IBaseApplication {
         @param listener Lifecycle listener
         @since ARP1.0
      */
-     void removeLifecycleListener(ILifecycleListener listener);
+     func removeLifecycleListener(listener : ILifecycleListener)
 
      /**
         Removes all existing listeners from receiving lifecycle events.
 
         @since ARP1.0
      */
-     void removeLifecycleListeners();
+     func removeLifecycleListeners()
 
 }
 

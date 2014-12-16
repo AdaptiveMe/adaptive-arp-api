@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Device operations
    Auto-generated implementation of IDevice specification.
 */
-public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
+public class DeviceDelegate : BaseSystemDelegate, IDevice {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getDeviceBridge().setDelegate(new DeviceDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getDeviceBridge().setDelegate(new DeviceDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public DeviceDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -62,9 +59,8 @@ public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
         @param listener to be registered.
         @since ARP1.0
      */
-     public void addButtonListener(IButtonListener listener) {
+     public func addButtonListener(listener : IButtonListener) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":addButtonListener");
      }
 
      /**
@@ -73,11 +69,9 @@ public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
         @return DeviceInfo for the current device.
         @since ARP1.0
      */
-     public DeviceInfo getDeviceInfo() {
-          DeviceInfo response;
+     public func getDeviceInfo() -> DeviceInfo {
+          var response : DeviceInfo
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getDeviceInfo");
-          // return response;
      }
 
      /**
@@ -86,11 +80,9 @@ public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
         @return The current Locale information.
         @since ARP1.0
      */
-     public Locale getLocaleCurrent() {
-          Locale response;
+     public func getLocaleCurrent() -> Locale {
+          var response : Locale
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getLocaleCurrent");
-          // return response;
      }
 
      /**
@@ -99,9 +91,8 @@ public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
         @param listener to be removed.
         @since ARP1.0
      */
-     public void removeButtonListener(IButtonListener listener) {
+     public func removeButtonListener(listener : IButtonListener) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":removeButtonListener");
      }
 
      /**
@@ -109,9 +100,8 @@ public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
 
         @since ARP1.0
      */
-     public void removeButtonListeners() {
+     public func removeButtonListeners() {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":removeButtonListeners");
      }
 
 }

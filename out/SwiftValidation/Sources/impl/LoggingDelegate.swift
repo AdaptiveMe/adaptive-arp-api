@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Logging operations
    Auto-generated implementation of ILogging specification.
 */
-public class LoggingDelegate extends BaseUtilDelegate implements ILogging {
+public class LoggingDelegate : BaseUtilDelegate, ILogging {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getLoggingBridge().setDelegate(new LoggingDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getLoggingBridge().setDelegate(new LoggingDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public LoggingDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -63,9 +60,8 @@ public class LoggingDelegate extends BaseUtilDelegate implements ILogging {
         @param message Message to be logged
         @since ARP1.0
      */
-     public void log(ILoggingLogLevel level, String message) {
+     public func log(level : ILoggingLogLevel, message : String) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":log");
      }
 
      /**
@@ -76,9 +72,8 @@ public class LoggingDelegate extends BaseUtilDelegate implements ILogging {
         @param message  Message to be logged
         @since ARP1.0
      */
-     public void log(ILoggingLogLevel level, String category, String message) {
+     public func log(level : ILoggingLogLevel, category : String, message : String) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":log");
      }
 
 }

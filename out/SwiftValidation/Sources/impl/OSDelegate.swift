@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the OS operations
    Auto-generated implementation of IOS specification.
 */
-public class OSDelegate extends BaseSystemDelegate implements IOS {
+public class OSDelegate : BaseSystemDelegate, IOS {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getOSBridge().setDelegate(new OSDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getOSBridge().setDelegate(new OSDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public OSDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -62,11 +59,9 @@ public class OSDelegate extends BaseSystemDelegate implements IOS {
         @return OSInfo with name, version and vendor of the OS.
         @since ARP1.0
      */
-     public OSInfo getOSInfo() {
-          OSInfo response;
+     public func getOSInfo() -> OSInfo {
+          var response : OSInfo
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getOSInfo");
-          // return response;
      }
 
 }

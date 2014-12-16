@@ -46,7 +46,7 @@ public protocol IContactPhotoResultCallback : IBaseCallback {
         @param error returned by the platform
         @since ARP1.0
      */
-     void onError(IContactPhotoResultCallbackError error);
+     func onError(error : IContactPhotoResultCallbackError)
 
      /**
         This method is called on Result
@@ -54,7 +54,7 @@ public protocol IContactPhotoResultCallback : IBaseCallback {
         @param contactPhoto returned by the platform
         @since ARP1.0
      */
-     void onResult([Byte] contactPhoto);
+     func onResult(contactPhoto : [Byte])
 
      /**
         This method is called on Warning
@@ -63,7 +63,7 @@ public protocol IContactPhotoResultCallback : IBaseCallback {
         @param warning      returned by the platform
         @since ARP1.0
      */
-     void onWarning([Byte] contactPhoto, IContactPhotoResultCallbackWarning warning);
+     func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning)
 
 }
 

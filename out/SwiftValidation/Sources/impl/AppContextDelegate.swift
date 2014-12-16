@@ -32,21 +32,18 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for context management purposes
    Auto-generated implementation of IAppContext specification.
 */
-public class AppContextDelegate implements IAppContext {
+public class AppContextDelegate : IAppContext {
 
      /**
         Default Constructor.
      */
-     public AppContextDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -55,11 +52,9 @@ public class AppContextDelegate implements IAppContext {
         @return Object representing the specific singleton application context provided by the OS.
         @since ARP1.0
      */
-     public AnyObject getContext() {
-          AnyObject response;
+     public func getContext() -> AnyObject {
+          var response : AnyObject
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getContext");
-          // return response;
      }
 
      /**
@@ -68,11 +63,9 @@ public class AppContextDelegate implements IAppContext {
         @return Type of platform context.
         @since ARP1.0
      */
-     public IOSType getContextType() {
-          IOSType response;
+     public func getContextType() -> IOSType {
+          var response : IOSType
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getContextType");
-          // return response;
      }
 
 }

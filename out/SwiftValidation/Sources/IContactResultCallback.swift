@@ -46,7 +46,7 @@ public protocol IContactResultCallback : IBaseCallback {
         @param error returned by the platform
         @since ARP1.0
      */
-     void onError(IContactResultCallbackError error);
+     func onError(error : IContactResultCallbackError)
 
      /**
         This method is called on Result
@@ -54,7 +54,7 @@ public protocol IContactResultCallback : IBaseCallback {
         @param contacts returned by the platform
         @since ARP1.0
      */
-     void onResult([Contact] contacts);
+     func onResult(contacts : [Contact])
 
      /**
         This method is called on Warning
@@ -63,7 +63,7 @@ public protocol IContactResultCallback : IBaseCallback {
         @param warning  returned by the platform
         @since ARP1.0
      */
-     void onWarning([Contact] contacts, IContactResultCallbackWarning warning);
+     func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning)
 
 }
 

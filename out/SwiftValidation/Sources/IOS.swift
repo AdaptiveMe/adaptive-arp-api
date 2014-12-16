@@ -46,7 +46,7 @@ public protocol IOS : IBaseSystem {
         @return OSInfo with name, version and vendor of the OS.
         @since ARP1.0
      */
-     OSInfo getOSInfo();
+     func getOSInfo() -> OSInfo 
 
 }
 

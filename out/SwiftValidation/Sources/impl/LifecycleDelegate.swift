@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Lifecycle listeners
    Auto-generated implementation of ILifecycle specification.
 */
-public class LifecycleDelegate extends BaseApplicationDelegate implements ILifecycle {
+public class LifecycleDelegate : BaseApplicationDelegate, ILifecycle {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getLifecycleBridge().setDelegate(new LifecycleDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getLifecycleBridge().setDelegate(new LifecycleDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public LifecycleDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -62,9 +59,8 @@ public class LifecycleDelegate extends BaseApplicationDelegate implements ILifec
         @param listener Lifecycle listener
         @since ARP1.0
      */
-     public void addLifecycleListener(ILifecycleListener listener) {
+     public func addLifecycleListener(listener : ILifecycleListener) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":addLifecycleListener");
      }
 
      /**
@@ -73,11 +69,9 @@ public class LifecycleDelegate extends BaseApplicationDelegate implements ILifec
         @return true if the application is in background;false otherwise
         @since ARP1.0
      */
-     public Bool isBackground() {
-          Bool response;
+     public func isBackground() -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":isBackground");
-          // return response;
      }
 
      /**
@@ -86,9 +80,8 @@ public class LifecycleDelegate extends BaseApplicationDelegate implements ILifec
         @param listener Lifecycle listener
         @since ARP1.0
      */
-     public void removeLifecycleListener(ILifecycleListener listener) {
+     public func removeLifecycleListener(listener : ILifecycleListener) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":removeLifecycleListener");
      }
 
      /**
@@ -96,9 +89,8 @@ public class LifecycleDelegate extends BaseApplicationDelegate implements ILifec
 
         @since ARP1.0
      */
-     public void removeLifecycleListeners() {
+     public func removeLifecycleListeners() {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":removeLifecycleListeners");
      }
 
 }

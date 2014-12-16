@@ -46,7 +46,7 @@ public protocol IVideo : IBaseMedia {
         @param url of the video
         @since ARP1.0
      */
-     void playStream(String url);
+     func playStream(url : String)
 
 }
 

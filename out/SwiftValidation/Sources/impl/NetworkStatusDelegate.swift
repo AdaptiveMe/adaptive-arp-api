@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Network status
    Auto-generated implementation of INetworkStatus specification.
 */
-public class NetworkStatusDelegate extends BaseCommunicationDelegate implements INetworkStatus {
+public class NetworkStatusDelegate : BaseCommunicationDelegate, INetworkStatus {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getNetworkStatusBridge().setDelegate(new NetworkStatusDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getNetworkStatusBridge().setDelegate(new NetworkStatusDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public NetworkStatusDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -62,9 +59,8 @@ public class NetworkStatusDelegate extends BaseCommunicationDelegate implements 
         @param listener Listener with the result
         @since ARP1.0
      */
-     public void addNetworkStatusListener(INetworkStatusListener listener) {
+     public func addNetworkStatusListener(listener : INetworkStatusListener) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":addNetworkStatusListener");
      }
 
      /**
@@ -73,9 +69,8 @@ public class NetworkStatusDelegate extends BaseCommunicationDelegate implements 
         @param listener Listener with the result
         @since ARP1.0
      */
-     public void removeNetworkStatusListener(INetworkStatusListener listener) {
+     public func removeNetworkStatusListener(listener : INetworkStatusListener) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":removeNetworkStatusListener");
      }
 
      /**
@@ -83,9 +78,8 @@ public class NetworkStatusDelegate extends BaseCommunicationDelegate implements 
 
         @since ARP1.0
      */
-     public void removeNetworkStatusListeners() {
+     public func removeNetworkStatusListeners() {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":removeNetworkStatusListeners");
      }
 
 }

@@ -32,34 +32,30 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Base application for Commerce purposes
    Auto-generated implementation of IBaseCommerce specification.
 */
-public class BaseCommerceDelegate implements IBaseCommerce {
+public class BaseCommerceDelegate : IBaseCommerce {
 
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     private var apiGroup : IAdaptiveRPGroup
 
      /**
         Default constructor.
      */
-     public BaseCommerceDelegate() {
-          this.apiGroup = IAdaptiveRPGroup.Commerce;
+     public init() {
+          self.apiGroup = IAdaptiveRPGroup.Commerce
      }
 
      /**
         Return the API group for the given interface.
      */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
+     public final func getAPIGroup() -> IAdaptiveRPGroup {
+          return self.apiGroup;
      }
 
 }

@@ -47,7 +47,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @param error Error fired
         @since ARP1.0
      */
-     void onError(IAccelerationListenerError error);
+     func onError(error : IAccelerationListenerError)
 
      /**
         Correct data received.
@@ -55,7 +55,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @param acceleration Acceleration received
         @since ARP1.0
      */
-     void onResult(Acceleration acceleration);
+     func onResult(acceleration : Acceleration)
 
      /**
         Data received with warning - ie. Needs calibration.
@@ -64,7 +64,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @param warning      Warning fired
         @since ARP1.0
      */
-     void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning);
+     func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning)
 
 }
 

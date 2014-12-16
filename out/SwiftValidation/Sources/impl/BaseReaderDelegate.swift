@@ -32,34 +32,30 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Base application for Reader purposes
    Auto-generated implementation of IBaseReader specification.
 */
-public class BaseReaderDelegate implements IBaseReader {
+public class BaseReaderDelegate : IBaseReader {
 
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     private var apiGroup : IAdaptiveRPGroup
 
      /**
         Default constructor.
      */
-     public BaseReaderDelegate() {
-          this.apiGroup = IAdaptiveRPGroup.Reader;
+     public init() {
+          self.apiGroup = IAdaptiveRPGroup.Reader
      }
 
      /**
         Return the API group for the given interface.
      */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
+     public final func getAPIGroup() -> IAdaptiveRPGroup {
+          return self.apiGroup;
      }
 
 }

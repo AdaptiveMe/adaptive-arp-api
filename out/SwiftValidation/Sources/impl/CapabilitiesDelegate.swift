@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for testing the Capabilities operations
    Auto-generated implementation of ICapabilities specification.
 */
-public class CapabilitiesDelegate extends BaseSystemDelegate implements ICapabilities {
+public class CapabilitiesDelegate : BaseSystemDelegate, ICapabilities {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getCapabilitiesBridge().setDelegate(new CapabilitiesDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getCapabilitiesBridge().setDelegate(new CapabilitiesDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public CapabilitiesDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -63,11 +60,9 @@ public class CapabilitiesDelegate extends BaseSystemDelegate implements ICapabil
         @return true is supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasButtonSupport(ICapabilitiesButton type) {
-          Bool response;
+     public func hasButtonSupport(type : ICapabilitiesButton) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":hasButtonSupport");
-          // return response;
      }
 
      /**
@@ -78,11 +73,9 @@ the device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasCommunicationSupport(ICapabilitiesCommunication type) {
-          Bool response;
+     public func hasCommunicationSupport(type : ICapabilitiesCommunication) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":hasCommunicationSupport");
-          // return response;
      }
 
      /**
@@ -92,11 +85,9 @@ the device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasDataSupport(ICapabilitiesData type) {
-          Bool response;
+     public func hasDataSupport(type : ICapabilitiesData) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":hasDataSupport");
-          // return response;
      }
 
      /**
@@ -107,11 +98,9 @@ device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasMediaSupport(ICapabilitiesMedia type) {
-          Bool response;
+     public func hasMediaSupport(type : ICapabilitiesMedia) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":hasMediaSupport");
-          // return response;
      }
 
      /**
@@ -121,11 +110,9 @@ device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasNetSupport(ICapabilitiesNet type) {
-          Bool response;
+     public func hasNetSupport(type : ICapabilitiesNet) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":hasNetSupport");
-          // return response;
      }
 
      /**
@@ -136,11 +123,9 @@ device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasNotificationSupport(ICapabilitiesNotification type) {
-          Bool response;
+     public func hasNotificationSupport(type : ICapabilitiesNotification) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":hasNotificationSupport");
-          // return response;
      }
 
      /**
@@ -151,11 +136,9 @@ device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasSensorSupport(ICapabilitiesSensor type) {
-          Bool response;
+     public func hasSensorSupport(type : ICapabilitiesSensor) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":hasSensorSupport");
-          // return response;
      }
 
 }

@@ -46,7 +46,7 @@ public protocol INetworkStatusListener : IBaseListener {
         @param error Type of error encountered during reading.
         @since ARP1.0
      */
-     void onError(INetworkStatusListenerError error);
+     func onError(error : INetworkStatusListenerError)
 
      /**
         Called when network connection changes somehow.
@@ -54,7 +54,7 @@ public protocol INetworkStatusListener : IBaseListener {
         @param network Change to this network.
         @since ARP1.0
      */
-     void onResult(ICapabilitiesNet network);
+     func onResult(network : ICapabilitiesNet)
 
      /**
         Status received with warning
@@ -63,7 +63,7 @@ public protocol INetworkStatusListener : IBaseListener {
         @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
-     void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning);
+     func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning)
 
 }
 

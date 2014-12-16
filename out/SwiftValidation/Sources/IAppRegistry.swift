@@ -45,483 +45,483 @@ public protocol IAppRegistry : NSObjectProtocol {
 
         @return AccelerationBridge reference or null if a bridge of this type is not registered.
      */
-     AccelerationBridge getAccelerationBridge();
+     func getAccelerationBridge() -> AccelerationBridge
 
      /**
         Returns a reference to the registered AdsBridge.
 
         @return AdsBridge reference or null if a bridge of this type is not registered.
      */
-     AdsBridge getAdsBridge();
+     func getAdsBridge() -> AdsBridge
 
      /**
         Returns a reference to the registered AlarmBridge.
 
         @return AlarmBridge reference or null if a bridge of this type is not registered.
      */
-     AlarmBridge getAlarmBridge();
+     func getAlarmBridge() -> AlarmBridge
 
      /**
         Returns a reference to the registered AmbientLightBridge.
 
         @return AmbientLightBridge reference or null if a bridge of this type is not registered.
      */
-     AmbientLightBridge getAmbientLightBridge();
+     func getAmbientLightBridge() -> AmbientLightBridge
 
      /**
         Returns a reference to the registered AnalyticsBridge.
 
         @return AnalyticsBridge reference or null if a bridge of this type is not registered.
      */
-     AnalyticsBridge getAnalyticsBridge();
+     func getAnalyticsBridge() -> AnalyticsBridge
 
      /**
         Returns a reference to the registered AudioBridge.
 
         @return AudioBridge reference or null if a bridge of this type is not registered.
      */
-     AudioBridge getAudioBridge();
+     func getAudioBridge() -> AudioBridge
 
      /**
         Returns a reference to the registered BarcodeBridge.
 
         @return BarcodeBridge reference or null if a bridge of this type is not registered.
      */
-     BarcodeBridge getBarcodeBridge();
+     func getBarcodeBridge() -> BarcodeBridge
 
      /**
         Returns a reference to the registered BarometerBridge.
 
         @return BarometerBridge reference or null if a bridge of this type is not registered.
      */
-     BarometerBridge getBarometerBridge();
+     func getBarometerBridge() -> BarometerBridge
 
      /**
         Returns a reference to the registered BluetoothBridge.
 
         @return BluetoothBridge reference or null if a bridge of this type is not registered.
      */
-     BluetoothBridge getBluetoothBridge();
+     func getBluetoothBridge() -> BluetoothBridge
 
      /**
         Returns a reference to the registered BrowserBridge.
 
         @return BrowserBridge reference or null if a bridge of this type is not registered.
      */
-     BrowserBridge getBrowserBridge();
+     func getBrowserBridge() -> BrowserBridge
 
      /**
         Returns a reference to the registered CalendarBridge.
 
         @return CalendarBridge reference or null if a bridge of this type is not registered.
      */
-     CalendarBridge getCalendarBridge();
+     func getCalendarBridge() -> CalendarBridge
 
      /**
         Returns a reference to the registered CameraBridge.
 
         @return CameraBridge reference or null if a bridge of this type is not registered.
      */
-     CameraBridge getCameraBridge();
+     func getCameraBridge() -> CameraBridge
 
      /**
         Returns a reference to the registered CapabilitiesBridge.
 
         @return CapabilitiesBridge reference or null if a bridge of this type is not registered.
      */
-     CapabilitiesBridge getCapabilitiesBridge();
+     func getCapabilitiesBridge() -> CapabilitiesBridge
 
      /**
         Returns a reference to the registered CloudBridge.
 
         @return CloudBridge reference or null if a bridge of this type is not registered.
      */
-     CloudBridge getCloudBridge();
+     func getCloudBridge() -> CloudBridge
 
      /**
         Returns a reference to the registered CompressionBridge.
 
         @return CompressionBridge reference or null if a bridge of this type is not registered.
      */
-     CompressionBridge getCompressionBridge();
+     func getCompressionBridge() -> CompressionBridge
 
      /**
         Returns a reference to the registered ConcurrentBridge.
 
         @return ConcurrentBridge reference or null if a bridge of this type is not registered.
      */
-     ConcurrentBridge getConcurrentBridge();
+     func getConcurrentBridge() -> ConcurrentBridge
 
      /**
         Returns a reference to the registered ContactBridge.
 
         @return ContactBridge reference or null if a bridge of this type is not registered.
      */
-     ContactBridge getContactBridge();
+     func getContactBridge() -> ContactBridge
 
      /**
         Returns a reference to the registered CryptoBridge.
 
         @return CryptoBridge reference or null if a bridge of this type is not registered.
      */
-     CryptoBridge getCryptoBridge();
+     func getCryptoBridge() -> CryptoBridge
 
      /**
         Returns a reference to the registered DataStreamBridge.
 
         @return DataStreamBridge reference or null if a bridge of this type is not registered.
      */
-     DataStreamBridge getDataStreamBridge();
+     func getDataStreamBridge() -> DataStreamBridge
 
      /**
         Returns a reference to the registered DatabaseBridge.
 
         @return DatabaseBridge reference or null if a bridge of this type is not registered.
      */
-     DatabaseBridge getDatabaseBridge();
+     func getDatabaseBridge() -> DatabaseBridge
 
      /**
         Returns a reference to the registered DesktopBridge.
 
         @return DesktopBridge reference or null if a bridge of this type is not registered.
      */
-     DesktopBridge getDesktopBridge();
+     func getDesktopBridge() -> DesktopBridge
 
      /**
         Returns a reference to the registered DeviceBridge.
 
         @return DeviceBridge reference or null if a bridge of this type is not registered.
      */
-     DeviceBridge getDeviceBridge();
+     func getDeviceBridge() -> DeviceBridge
 
      /**
         Returns a reference to the registered DisplayBridge.
 
         @return DisplayBridge reference or null if a bridge of this type is not registered.
      */
-     DisplayBridge getDisplayBridge();
+     func getDisplayBridge() -> DisplayBridge
 
      /**
         Returns a reference to the registered FacebookBridge.
 
         @return FacebookBridge reference or null if a bridge of this type is not registered.
      */
-     FacebookBridge getFacebookBridge();
+     func getFacebookBridge() -> FacebookBridge
 
      /**
         Returns a reference to the registered FileSystemBridge.
 
         @return FileSystemBridge reference or null if a bridge of this type is not registered.
      */
-     FileSystemBridge getFileSystemBridge();
+     func getFileSystemBridge() -> FileSystemBridge
 
      /**
         Returns a reference to the registered GeolocationBridge.
 
         @return GeolocationBridge reference or null if a bridge of this type is not registered.
      */
-     GeolocationBridge getGeolocationBridge();
+     func getGeolocationBridge() -> GeolocationBridge
 
      /**
         Returns a reference to the registered GlobalizationBridge.
 
         @return GlobalizationBridge reference or null if a bridge of this type is not registered.
      */
-     GlobalizationBridge getGlobalizationBridge();
+     func getGlobalizationBridge() -> GlobalizationBridge
 
      /**
         Returns a reference to the registered GooglePlusBridge.
 
         @return GooglePlusBridge reference or null if a bridge of this type is not registered.
      */
-     GooglePlusBridge getGooglePlusBridge();
+     func getGooglePlusBridge() -> GooglePlusBridge
 
      /**
         Returns a reference to the registered GyroscopeBridge.
 
         @return GyroscopeBridge reference or null if a bridge of this type is not registered.
      */
-     GyroscopeBridge getGyroscopeBridge();
+     func getGyroscopeBridge() -> GyroscopeBridge
 
      /**
         Returns a reference to the registered ImagingBridge.
 
         @return ImagingBridge reference or null if a bridge of this type is not registered.
      */
-     ImagingBridge getImagingBridge();
+     func getImagingBridge() -> ImagingBridge
 
      /**
         Returns a reference to the registered InternalStorageBridge.
 
         @return InternalStorageBridge reference or null if a bridge of this type is not registered.
      */
-     InternalStorageBridge getInternalStorageBridge();
+     func getInternalStorageBridge() -> InternalStorageBridge
 
      /**
         Returns a reference to the registered LifecycleBridge.
 
         @return LifecycleBridge reference or null if a bridge of this type is not registered.
      */
-     LifecycleBridge getLifecycleBridge();
+     func getLifecycleBridge() -> LifecycleBridge
 
      /**
         Returns a reference to the registered LinkedInBridge.
 
         @return LinkedInBridge reference or null if a bridge of this type is not registered.
      */
-     LinkedInBridge getLinkedInBridge();
+     func getLinkedInBridge() -> LinkedInBridge
 
      /**
         Returns a reference to the registered LoggingBridge.
 
         @return LoggingBridge reference or null if a bridge of this type is not registered.
      */
-     LoggingBridge getLoggingBridge();
+     func getLoggingBridge() -> LoggingBridge
 
      /**
         Returns a reference to the registered MagnetometerBridge.
 
         @return MagnetometerBridge reference or null if a bridge of this type is not registered.
      */
-     MagnetometerBridge getMagnetometerBridge();
+     func getMagnetometerBridge() -> MagnetometerBridge
 
      /**
         Returns a reference to the registered MailBridge.
 
         @return MailBridge reference or null if a bridge of this type is not registered.
      */
-     MailBridge getMailBridge();
+     func getMailBridge() -> MailBridge
 
      /**
         Returns a reference to the registered ManagementBridge.
 
         @return ManagementBridge reference or null if a bridge of this type is not registered.
      */
-     ManagementBridge getManagementBridge();
+     func getManagementBridge() -> ManagementBridge
 
      /**
         Returns a reference to the registered MapBridge.
 
         @return MapBridge reference or null if a bridge of this type is not registered.
      */
-     MapBridge getMapBridge();
+     func getMapBridge() -> MapBridge
 
      /**
         Returns a reference to the registered MessagingBridge.
 
         @return MessagingBridge reference or null if a bridge of this type is not registered.
      */
-     MessagingBridge getMessagingBridge();
+     func getMessagingBridge() -> MessagingBridge
 
      /**
         Returns a reference to the registered NFCBridge.
 
         @return NFCBridge reference or null if a bridge of this type is not registered.
      */
-     NFCBridge getNFCBridge();
+     func getNFCBridge() -> NFCBridge
 
      /**
         Returns a reference to the registered NetworkInfoBridge.
 
         @return NetworkInfoBridge reference or null if a bridge of this type is not registered.
      */
-     NetworkInfoBridge getNetworkInfoBridge();
+     func getNetworkInfoBridge() -> NetworkInfoBridge
 
      /**
         Returns a reference to the registered NetworkNamingBridge.
 
         @return NetworkNamingBridge reference or null if a bridge of this type is not registered.
      */
-     NetworkNamingBridge getNetworkNamingBridge();
+     func getNetworkNamingBridge() -> NetworkNamingBridge
 
      /**
         Returns a reference to the registered NetworkReachabilityBridge.
 
         @return NetworkReachabilityBridge reference or null if a bridge of this type is not registered.
      */
-     NetworkReachabilityBridge getNetworkReachabilityBridge();
+     func getNetworkReachabilityBridge() -> NetworkReachabilityBridge
 
      /**
         Returns a reference to the registered NetworkStatusBridge.
 
         @return NetworkStatusBridge reference or null if a bridge of this type is not registered.
      */
-     NetworkStatusBridge getNetworkStatusBridge();
+     func getNetworkStatusBridge() -> NetworkStatusBridge
 
      /**
         Returns a reference to the registered NotificationBridge.
 
         @return NotificationBridge reference or null if a bridge of this type is not registered.
      */
-     NotificationBridge getNotificationBridge();
+     func getNotificationBridge() -> NotificationBridge
 
      /**
         Returns a reference to the registered NotificationLocalBridge.
 
         @return NotificationLocalBridge reference or null if a bridge of this type is not registered.
      */
-     NotificationLocalBridge getNotificationLocalBridge();
+     func getNotificationLocalBridge() -> NotificationLocalBridge
 
      /**
         Returns a reference to the registered OAuthBridge.
 
         @return OAuthBridge reference or null if a bridge of this type is not registered.
      */
-     OAuthBridge getOAuthBridge();
+     func getOAuthBridge() -> OAuthBridge
 
      /**
         Returns a reference to the registered OCRBridge.
 
         @return OCRBridge reference or null if a bridge of this type is not registered.
      */
-     OCRBridge getOCRBridge();
+     func getOCRBridge() -> OCRBridge
 
      /**
         Returns a reference to the registered OSBridge.
 
         @return OSBridge reference or null if a bridge of this type is not registered.
      */
-     OSBridge getOSBridge();
+     func getOSBridge() -> OSBridge
 
      /**
         Returns a reference to the registered OpenIdBridge.
 
         @return OpenIdBridge reference or null if a bridge of this type is not registered.
      */
-     OpenIdBridge getOpenIdBridge();
+     func getOpenIdBridge() -> OpenIdBridge
 
      /**
         Returns a reference to the registered PrintingBridge.
 
         @return PrintingBridge reference or null if a bridge of this type is not registered.
      */
-     PrintingBridge getPrintingBridge();
+     func getPrintingBridge() -> PrintingBridge
 
      /**
         Returns a reference to the registered ProximityBridge.
 
         @return ProximityBridge reference or null if a bridge of this type is not registered.
      */
-     ProximityBridge getProximityBridge();
+     func getProximityBridge() -> ProximityBridge
 
      /**
         Returns a reference to the registered QRCodeBridge.
 
         @return QRCodeBridge reference or null if a bridge of this type is not registered.
      */
-     QRCodeBridge getQRCodeBridge();
+     func getQRCodeBridge() -> QRCodeBridge
 
      /**
         Returns a reference to the registered RSSBridge.
 
         @return RSSBridge reference or null if a bridge of this type is not registered.
      */
-     RSSBridge getRSSBridge();
+     func getRSSBridge() -> RSSBridge
 
      /**
         Returns a reference to the registered RuntimeBridge.
 
         @return RuntimeBridge reference or null if a bridge of this type is not registered.
      */
-     RuntimeBridge getRuntimeBridge();
+     func getRuntimeBridge() -> RuntimeBridge
 
      /**
         Returns a reference to the registered SecurityBridge.
 
         @return SecurityBridge reference or null if a bridge of this type is not registered.
      */
-     SecurityBridge getSecurityBridge();
+     func getSecurityBridge() -> SecurityBridge
 
      /**
         Returns a reference to the registered ServiceBridge.
 
         @return ServiceBridge reference or null if a bridge of this type is not registered.
      */
-     ServiceBridge getServiceBridge();
+     func getServiceBridge() -> ServiceBridge
 
      /**
         Returns a reference to the registered SettingsBridge.
 
         @return SettingsBridge reference or null if a bridge of this type is not registered.
      */
-     SettingsBridge getSettingsBridge();
+     func getSettingsBridge() -> SettingsBridge
 
      /**
         Returns a reference to the registered SocketBridge.
 
         @return SocketBridge reference or null if a bridge of this type is not registered.
      */
-     SocketBridge getSocketBridge();
+     func getSocketBridge() -> SocketBridge
 
      /**
         Returns a reference to the registered StoreBridge.
 
         @return StoreBridge reference or null if a bridge of this type is not registered.
      */
-     StoreBridge getStoreBridge();
+     func getStoreBridge() -> StoreBridge
 
      /**
         Returns a reference to the registered TelephonyBridge.
 
         @return TelephonyBridge reference or null if a bridge of this type is not registered.
      */
-     TelephonyBridge getTelephonyBridge();
+     func getTelephonyBridge() -> TelephonyBridge
 
      /**
         Returns a reference to the registered TimerBridge.
 
         @return TimerBridge reference or null if a bridge of this type is not registered.
      */
-     TimerBridge getTimerBridge();
+     func getTimerBridge() -> TimerBridge
 
      /**
         Returns a reference to the registered TwitterBridge.
 
         @return TwitterBridge reference or null if a bridge of this type is not registered.
      */
-     TwitterBridge getTwitterBridge();
+     func getTwitterBridge() -> TwitterBridge
 
      /**
         Returns a reference to the registered UIBridge.
 
         @return UIBridge reference or null if a bridge of this type is not registered.
      */
-     UIBridge getUIBridge();
+     func getUIBridge() -> UIBridge
 
      /**
         Returns a reference to the registered UpdateBridge.
 
         @return UpdateBridge reference or null if a bridge of this type is not registered.
      */
-     UpdateBridge getUpdateBridge();
+     func getUpdateBridge() -> UpdateBridge
 
      /**
         Returns a reference to the registered VibrationBridge.
 
         @return VibrationBridge reference or null if a bridge of this type is not registered.
      */
-     VibrationBridge getVibrationBridge();
+     func getVibrationBridge() -> VibrationBridge
 
      /**
         Returns a reference to the registered VideoBridge.
 
         @return VideoBridge reference or null if a bridge of this type is not registered.
      */
-     VideoBridge getVideoBridge();
+     func getVideoBridge() -> VideoBridge
 
      /**
         Returns a reference to the registered WalletBridge.
 
         @return WalletBridge reference or null if a bridge of this type is not registered.
      */
-     WalletBridge getWalletBridge();
+     func getWalletBridge() -> WalletBridge
 
      /**
         Returns a reference to the registered XMLBridge.
 
         @return XMLBridge reference or null if a bridge of this type is not registered.
      */
-     XMLBridge getXMLBridge();
+     func getXMLBridge() -> XMLBridge
 
      /**
         Provides a bridge to handle API calls for the given interface name.
@@ -529,7 +529,7 @@ public protocol IAppRegistry : NSObjectProtocol {
         @param bridgeType String with the interface name required.
         @return APIBridge That handles calls for the specified interface or null if the given bridge is not registered.
      */
-     APIBridge getBridge(String bridgeType);
+     func getBridge(bridgeType : String) -> APIBridge
 
      /**
         Returns a reference to the Platform Context
@@ -537,7 +537,7 @@ public protocol IAppRegistry : NSObjectProtocol {
         @return Reference to the platform context
         @since ARP1.0
      */
-     AppContextBridge getPlatformContext();
+     func getPlatformContext() -> AppContextBridge 
 
      /**
         Returns a reference to the Webview platform context
@@ -545,7 +545,7 @@ public protocol IAppRegistry : NSObjectProtocol {
         @return Reference to the Webview Context
         @since ARP1.0
      */
-     AppContextWebviewBridge getPlatformContextWeb();
+     func getPlatformContextWeb() -> AppContextWebviewBridge 
 
 }
 

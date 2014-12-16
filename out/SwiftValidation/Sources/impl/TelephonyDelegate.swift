@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Telephony operations
    Auto-generated implementation of ITelephony specification.
 */
-public class TelephonyDelegate extends BaseCommunicationDelegate implements ITelephony {
+public class TelephonyDelegate : BaseCommunicationDelegate, ITelephony {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getTelephonyBridge().setDelegate(new TelephonyDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getTelephonyBridge().setDelegate(new TelephonyDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public TelephonyDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -63,11 +60,9 @@ public class TelephonyDelegate extends BaseCommunicationDelegate implements ITel
         @return Status of the call
         @since ARP1.0
      */
-     public ITelephonyStatus call(String number) {
-          ITelephonyStatus response;
+     public func call(number : String) -> ITelephonyStatus {
+          var response : ITelephonyStatus
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":call");
-          // return response;
      }
 
 }

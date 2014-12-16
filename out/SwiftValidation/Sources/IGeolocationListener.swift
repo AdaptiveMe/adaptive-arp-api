@@ -46,7 +46,7 @@ public protocol IGeolocationListener : IBaseListener {
         @param error Type of error encountered during reading.
         @since ARP1.0
      */
-     void onError(IGeolocationListenerError error);
+     func onError(error : IGeolocationListenerError)
 
      /**
         Correct data received.
@@ -54,7 +54,7 @@ public protocol IGeolocationListener : IBaseListener {
         @param geolocation Geolocation Bean
         @since ARP1.0
      */
-     void onResult(Geolocation geolocation);
+     func onResult(geolocation : Geolocation)
 
      /**
         Data received with warning - ie. HighDoP
@@ -63,7 +63,7 @@ public protocol IGeolocationListener : IBaseListener {
         @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
-     void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning);
+     func onWarning(geolocation : Geolocation, warning : IGeolocationListenerWarning)
 
 }
 

@@ -48,7 +48,7 @@ public protocol ILogging : IBaseUtil {
         @param message  Message to be logged
         @since ARP1.0
      */
-     void log(ILoggingLogLevel level, String category, String message);
+     func log(level : ILoggingLogLevel, category : String, message : String)
 
      /**
         Logs the given message, with the given log level if specified, to the standard platform/environment.
@@ -57,7 +57,7 @@ public protocol ILogging : IBaseUtil {
         @param message Message to be logged
         @since ARP1.0
      */
-     void log(ILoggingLogLevel level, String message);
+     func log(level : ILoggingLogLevel, message : String)
 
 }
 

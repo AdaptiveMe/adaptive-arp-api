@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Cloud operations
    Auto-generated implementation of IDatabase specification.
 */
-public class DatabaseDelegate extends BaseDataDelegate implements IDatabase {
+public class DatabaseDelegate : BaseDataDelegate, IDatabase {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getDatabaseBridge().setDelegate(new DatabaseDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getDatabaseBridge().setDelegate(new DatabaseDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public DatabaseDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -63,9 +60,8 @@ public class DatabaseDelegate extends BaseDataDelegate implements IDatabase {
         @param database Database object to create
         @since ARP1.0
      */
-     public void createDatabase(Database database, IDatabaseResultCallback callback) {
+     public func createDatabase(database : Database, callback : IDatabaseResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":createDatabase");
      }
 
      /**
@@ -76,9 +72,8 @@ public class DatabaseDelegate extends BaseDataDelegate implements IDatabase {
         @param callback      DatabaseTable callback with the response
         @since ARP1.0
      */
-     public void createTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback) {
+     public func createTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":createTable");
      }
 
      /**
@@ -88,9 +83,8 @@ public class DatabaseDelegate extends BaseDataDelegate implements IDatabase {
         @param callback Asynchronous callback
         @since ARP1.0
      */
-     public void deleteDatabase(Database database, IDatabaseResultCallback callback) {
+     public func deleteDatabase(database : Database, callback : IDatabaseResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":deleteDatabase");
      }
 
      /**
@@ -101,9 +95,8 @@ public class DatabaseDelegate extends BaseDataDelegate implements IDatabase {
         @param callback      DatabaseTable callback with the response
         @since ARP1.0
      */
-     public void deleteTable(Database database, DatabaseTable databaseTable, IDatabaseTableResultCallback callback) {
+     public func deleteTable(database : Database, databaseTable : DatabaseTable, callback : IDatabaseTableResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":deleteTable");
      }
 
      /**
@@ -116,9 +109,8 @@ should be passed as a parameter
         @param callback     DatabaseTable callback with the response.
         @since ARP1.0
      */
-     public void executeSqlStatement(Database database, String statement, [String] replacements, IDatabaseTableResultCallback callback) {
+     public func executeSqlStatement(database : Database, statement : String, replacements : [String], callback : IDatabaseTableResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":executeSqlStatement");
      }
 
      /**
@@ -131,9 +123,8 @@ should be passed as a parameter
         @param callback     DatabaseTable callback with the response.
         @since ARP1.0
      */
-     public void executeSqlTransactions(Database database, [String] statements, Bool rollbackFlag, IDatabaseTableResultCallback callback) {
+     public func executeSqlTransactions(database : Database, statements : [String], rollbackFlag : Bool, callback : IDatabaseTableResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":executeSqlTransactions");
      }
 
      /**
@@ -143,11 +134,9 @@ should be passed as a parameter
         @return True if exists, false otherwise
         @since ARP1.0
      */
-     public Bool existsDatabase(Database database) {
-          Bool response;
+     public func existsDatabase(database : Database) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":existsDatabase");
-          // return response;
      }
 
      /**
@@ -158,11 +147,9 @@ should be passed as a parameter
         @return True if exists, false otherwise
         @since ARP1.0
      */
-     public Bool existsTable(Database database, DatabaseTable databaseTable) {
-          Bool response;
+     public func existsTable(database : Database, databaseTable : DatabaseTable) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":existsTable");
-          // return response;
      }
 
 }

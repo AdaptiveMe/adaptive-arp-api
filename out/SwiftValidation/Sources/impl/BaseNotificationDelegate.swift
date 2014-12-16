@@ -32,34 +32,30 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Base application for Notification purposes
    Auto-generated implementation of IBaseNotification specification.
 */
-public class BaseNotificationDelegate implements IBaseNotification {
+public class BaseNotificationDelegate : IBaseNotification {
 
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     private var apiGroup : IAdaptiveRPGroup
 
      /**
         Default constructor.
      */
-     public BaseNotificationDelegate() {
-          this.apiGroup = IAdaptiveRPGroup.Notification;
+     public init() {
+          self.apiGroup = IAdaptiveRPGroup.Notification
      }
 
      /**
         Return the API group for the given interface.
      */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
+     public final func getAPIGroup() -> IAdaptiveRPGroup {
+          return self.apiGroup;
      }
 
 }

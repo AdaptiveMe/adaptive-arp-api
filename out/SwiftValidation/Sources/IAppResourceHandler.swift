@@ -46,7 +46,7 @@ public protocol IAppResourceHandler : NSObjectProtocol {
         @param resourcePath path of the resource
         @param callback     Callback
      */
-     void getResource(String resourcePath, IAppResourceCallback callback);
+     func getResource(resourcePath : String, callback : IAppResourceCallback)
 
 }
 
