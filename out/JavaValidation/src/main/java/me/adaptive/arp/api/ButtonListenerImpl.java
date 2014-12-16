@@ -54,7 +54,7 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         @since ARP1.0
      */
      public void onError(IButtonListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
      }
 
      /**
@@ -64,7 +64,7 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         @since ARP1.0
      */
      public void onResult(Button button) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '"+getId()+"', JSON.parse(" + gson.toJson(button) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(button) +") )");
      }
 
      /**
@@ -75,7 +75,7 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         @since ARP1.0
      */
      public void onWarning(Button button, IButtonListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '"+getId()+"', JSON.parse(" + gson.toJson(button) +"), JSON.parse(" + gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(button) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
      }
 
 }

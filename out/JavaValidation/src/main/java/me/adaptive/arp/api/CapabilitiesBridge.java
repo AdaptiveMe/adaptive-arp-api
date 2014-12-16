@@ -246,43 +246,42 @@ device.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "hasButtonSupport":
-                    ICapabilitiesButton type0 = gson.fromJson(request.getParameters()[0], ICapabilitiesButton.class);
+                    ICapabilitiesButton type0 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesButton.class);
                     boolean response0 = this.hasButtonSupport(type0);
-                    responseJSON = gson.toJson(response0);
+                    responseJSON = this.gson.toJson(response0);
                     break;
                case "hasCommunicationSupport":
-                    ICapabilitiesCommunication type1 = gson.fromJson(request.getParameters()[0], ICapabilitiesCommunication.class);
+                    ICapabilitiesCommunication type1 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesCommunication.class);
                     boolean response1 = this.hasCommunicationSupport(type1);
-                    responseJSON = gson.toJson(response1);
+                    responseJSON = this.gson.toJson(response1);
                     break;
                case "hasDataSupport":
-                    ICapabilitiesData type2 = gson.fromJson(request.getParameters()[0], ICapabilitiesData.class);
+                    ICapabilitiesData type2 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesData.class);
                     boolean response2 = this.hasDataSupport(type2);
-                    responseJSON = gson.toJson(response2);
+                    responseJSON = this.gson.toJson(response2);
                     break;
                case "hasMediaSupport":
-                    ICapabilitiesMedia type3 = gson.fromJson(request.getParameters()[0], ICapabilitiesMedia.class);
+                    ICapabilitiesMedia type3 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesMedia.class);
                     boolean response3 = this.hasMediaSupport(type3);
-                    responseJSON = gson.toJson(response3);
+                    responseJSON = this.gson.toJson(response3);
                     break;
                case "hasNetSupport":
-                    ICapabilitiesNet type4 = gson.fromJson(request.getParameters()[0], ICapabilitiesNet.class);
+                    ICapabilitiesNet type4 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNet.class);
                     boolean response4 = this.hasNetSupport(type4);
-                    responseJSON = gson.toJson(response4);
+                    responseJSON = this.gson.toJson(response4);
                     break;
                case "hasNotificationSupport":
-                    ICapabilitiesNotification type5 = gson.fromJson(request.getParameters()[0], ICapabilitiesNotification.class);
+                    ICapabilitiesNotification type5 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNotification.class);
                     boolean response5 = this.hasNotificationSupport(type5);
-                    responseJSON = gson.toJson(response5);
+                    responseJSON = this.gson.toJson(response5);
                     break;
                case "hasSensorSupport":
-                    ICapabilitiesSensor type6 = gson.fromJson(request.getParameters()[0], ICapabilitiesSensor.class);
+                    ICapabilitiesSensor type6 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesSensor.class);
                     boolean response6 = this.hasSensorSupport(type6);
-                    responseJSON = gson.toJson(response6);
+                    responseJSON = this.gson.toJson(response6);
                     break;
                default:
                     // 404 - response null.

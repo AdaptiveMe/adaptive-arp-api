@@ -185,7 +185,6 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice, APIBridge
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "addButtonListener":
@@ -195,7 +194,7 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice, APIBridge
                case "getDeviceInfo":
                     DeviceInfo response1 = this.getDeviceInfo();
                     if (response1 != null) {
-                         responseJSON = gson.toJson(response1);
+                         responseJSON = this.gson.toJson(response1);
                     } else {
                          responseJSON = null;
                     }
@@ -203,7 +202,7 @@ public class DeviceBridge extends BaseSystemBridge implements IDevice, APIBridge
                case "getLocaleCurrent":
                     Locale response2 = this.getLocaleCurrent();
                     if (response2 != null) {
-                         responseJSON = gson.toJson(response2);
+                         responseJSON = this.gson.toJson(response2);
                     } else {
                          responseJSON = null;
                     }

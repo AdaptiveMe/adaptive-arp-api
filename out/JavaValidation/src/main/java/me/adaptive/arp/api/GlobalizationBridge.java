@@ -146,32 +146,31 @@ public class GlobalizationBridge extends BaseApplicationBridge implements IGloba
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "getLocaleSupportedDescriptors":
                     Locale[] response0 = this.getLocaleSupportedDescriptors();
                     if (response0 != null) {
-                         responseJSON = gson.toJson(response0);
+                         responseJSON = this.gson.toJson(response0);
                     } else {
                          responseJSON = null;
                     }
                     break;
                case "getResourceLiteral":
-                    String key1 = gson.fromJson(request.getParameters()[0], String.class);
-                    Locale locale1 = gson.fromJson(request.getParameters()[1], Locale.class);
+                    String key1 = this.gson.fromJson(request.getParameters()[0], String.class);
+                    Locale locale1 = this.gson.fromJson(request.getParameters()[1], Locale.class);
                     String response1 = this.getResourceLiteral(key1, locale1);
                     if (response1 != null) {
-                         responseJSON = gson.toJson(response1);
+                         responseJSON = this.gson.toJson(response1);
                     } else {
                          responseJSON = null;
                     }
                     break;
                case "getResourceLiterals":
-                    Locale locale2 = gson.fromJson(request.getParameters()[0], Locale.class);
+                    Locale locale2 = this.gson.fromJson(request.getParameters()[0], Locale.class);
                     KeyPair[] response2 = this.getResourceLiterals(locale2);
                     if (response2 != null) {
-                         responseJSON = gson.toJson(response2);
+                         responseJSON = this.gson.toJson(response2);
                     } else {
                          responseJSON = null;
                     }

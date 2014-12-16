@@ -55,7 +55,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public void onError(IAccelerationListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
      }
 
      /**
@@ -65,7 +65,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public void onResult(Acceleration acceleration) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( '"+getId()+"', JSON.parse(" + gson.toJson(acceleration) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(acceleration) +") )");
      }
 
      /**
@@ -76,7 +76,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @since ARP1.0
      */
      public void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( '"+getId()+"', JSON.parse(" + gson.toJson(acceleration) +"), JSON.parse(" + gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(acceleration) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
      }
 
 }

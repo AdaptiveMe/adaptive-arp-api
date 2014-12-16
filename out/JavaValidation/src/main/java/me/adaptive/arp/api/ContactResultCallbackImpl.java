@@ -54,7 +54,7 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
         @since ARP1.0
      */
      public void onError(IContactResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
      }
 
      /**
@@ -64,7 +64,7 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
         @since ARP1.0
      */
      public void onResult(Contact[] contacts) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(contacts) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(contacts) +") )");
      }
 
      /**
@@ -75,7 +75,7 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
         @since ARP1.0
      */
      public void onWarning(Contact[] contacts, IContactResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(contacts) +"), JSON.parse(" + gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(contacts) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
      }
 
 }

@@ -54,7 +54,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @since ARP1.0
      */
      public void onError(ISecurityResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
      }
 
      /**
@@ -64,7 +64,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @since ARP1.0
      */
      public void onResult(SecureKeyPair[] keyValues) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(keyValues) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(keyValues) +") )");
      }
 
      /**
@@ -75,7 +75,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @since ARP1.0
      */
      public void onWarning(SecureKeyPair[] keyValues, ISecurityResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(keyValues) +"), JSON.parse(" + gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(keyValues) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
      }
 
 }

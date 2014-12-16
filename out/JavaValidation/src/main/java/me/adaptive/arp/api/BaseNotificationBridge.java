@@ -44,10 +44,16 @@ public class BaseNotificationBridge implements IBaseNotification {
      protected IAdaptiveRPGroup apiGroup;
 
      /**
+        JSON API.
+     */
+     protected Gson gson;
+
+     /**
         Default constructor.
      */
      public BaseNotificationBridge() {
           this.apiGroup = IAdaptiveRPGroup.Notification;
+          this.gson = new Gson();
      }
 
      /**
@@ -57,6 +63,12 @@ public class BaseNotificationBridge implements IBaseNotification {
      public final IAdaptiveRPGroup getAPIGroup() {
           return this.apiGroup;
      }
+     /**
+        Return the JSON serializer.
+     */
+     public final Gson getJSONAPI() {
+          return this.gson;
+     }
 
      /**
         Invokes the given method specified in the API request object.
@@ -65,7 +77,6 @@ public class BaseNotificationBridge implements IBaseNotification {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                default:

@@ -341,10 +341,18 @@ public class JavaGenerator extends GeneratorBase {
             println();
 
             startComment(5);
+            println(8, "JSON API.");
+            endComment(5);
+            println(5, "protected Gson gson;");
+            println();
+
+            startComment(5);
             println(8, "Default constructor.");
             endComment(5);
             println(5, "public " + simpleName + "() {");
             println(10, "this.apiGroup = IAdaptiveRPGroup." + getInterfaceGroup(clazz) + ";");
+            println(10, "this.gson = new Gson();");
+
             println(5, "}");
             println();
 
@@ -354,6 +362,13 @@ public class JavaGenerator extends GeneratorBase {
             println(5, "@Override");
             println(5, "public final IAdaptiveRPGroup getAPIGroup() {");
             println(10, "return this.apiGroup;");
+            println(5, "}");
+
+            startComment(5);
+            println(8, "Return the JSON serializer.");
+            endComment(5);
+            println(5, "public final Gson getJSONAPI() {");
+            println(10, "return this.gson;");
             println(5, "}");
         } else {
             if (clazz.getInterfaces().length > 0) {
@@ -645,7 +660,7 @@ public class JavaGenerator extends GeneratorBase {
             println(8, "@return String with JSON response or a zero length string if the response is asynchronous or null if method not found.");
             endComment(5);
             println(5, "public String invoke(APIRequest request) {");
-            println(10, "Gson gson = new Gson();");
+            //println(10, "Gson gson = new Gson();");
             println(10, "String responseJSON = \"\";");
             println(10, "switch (request.getMethodName()) {");
             List<Method> methodUniqueList = new ArrayList<>();
@@ -674,9 +689,9 @@ public class JavaGenerator extends GeneratorBase {
                         print("new " + p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
                     } else {
                         if (p.getType().isPrimitive()) {
-                            print("gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
+                            print("this.gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
                         } else {
-                            print("gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
+                            print("this.gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
                         }
                     }
                     println(";");
@@ -705,10 +720,10 @@ public class JavaGenerator extends GeneratorBase {
                     }
                     println(");");
                     if (m.getReturnType().isPrimitive()) {
-                        println(20, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                        println(20, "responseJSON = this.gson.toJson(response" + parameterIndex + ");");
                     } else {
                         println(20, "if (response" + parameterIndex + " != null) {");
-                        println(25, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                        println(25, "responseJSON = this.gson.toJson(response" + parameterIndex + ");");
                         println(20, "} else {");
                         println(25, "responseJSON = null;");
                         println(20, "}");
@@ -741,9 +756,9 @@ public class JavaGenerator extends GeneratorBase {
                         print("new " + p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
                     } else {
                         if (p.getType().isPrimitive()) {
-                            print("gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
+                            print("this.gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
                         } else {
-                            print("gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
+                            print("this.gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
                         }
                     }
                     println(";");
@@ -772,10 +787,10 @@ public class JavaGenerator extends GeneratorBase {
                     }
                     println(");");
                     if (m.getReturnType().isPrimitive()) {
-                        println(20, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                        println(20, "responseJSON = this.gson.toJson(response" + parameterIndex + ");");
                     } else {
                         println(20, "if (response" + parameterIndex + " != null) {");
-                        println(25, "responseJSON = gson.toJson(response" + parameterIndex + ");");
+                        println(25, "responseJSON = this.gson.toJson(response" + parameterIndex + ");");
                         println(20, "} else {");
                         println(25, "responseJSON = null;");
                         println(20, "}");
@@ -856,6 +871,13 @@ public class JavaGenerator extends GeneratorBase {
             println(5, "public IAdaptiveRPGroup getAPIGroup() {");
             println(10, "return this.apiGroup;");
             println(5, "}");
+
+            startComment(5);
+            println(8, "Return the JSON serializer.");
+            endComment(5);
+            println(5, "public final Gson getJSONAPI() {");
+            println(10, "return this.gson;");
+            println(5, "}");
         } else {
             println("public class " + simpleName + " extends BaseCallbackImpl implements " + clazz.getSimpleName() + " {");
             println();
@@ -914,7 +936,7 @@ public class JavaGenerator extends GeneratorBase {
                 print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print("JSON.parse(\" + gson.toJson("+p.getName()+") +\")");
+                    print("JSON.parse(\" + this.gson.toJson("+p.getName()+") +\")");
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
@@ -990,6 +1012,13 @@ public class JavaGenerator extends GeneratorBase {
             println(5, "public final IAdaptiveRPGroup getAPIGroup() {");
             println(10, "return this.apiGroup;");
             println(5, "}");
+
+            startComment(5);
+            println(8, "Return the JSON serializer.");
+            endComment(5);
+            println(5, "public final Gson getJSONAPI() {");
+            println(10, "return this.gson;");
+            println(5, "}");
         } else {
             println("public class " + simpleName + " extends BaseListenerImpl implements " + clazz.getSimpleName() + " {");
             println();
@@ -1049,7 +1078,7 @@ public class JavaGenerator extends GeneratorBase {
                 print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print("JSON.parse(\" + gson.toJson("+p.getName()+") +\")");
+                    print("JSON.parse(\" + this.gson.toJson("+p.getName()+") +\")");
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }

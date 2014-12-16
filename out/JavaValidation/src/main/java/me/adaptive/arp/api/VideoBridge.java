@@ -96,11 +96,10 @@ public class VideoBridge extends BaseMediaBridge implements IVideo, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "playStream":
-                    String url0 = gson.fromJson(request.getParameters()[0], String.class);
+                    String url0 = this.gson.fromJson(request.getParameters()[0], String.class);
                     this.playStream(url0);
                     break;
                default:

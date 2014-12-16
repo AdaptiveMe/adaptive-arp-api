@@ -97,13 +97,12 @@ public class OSBridge extends BaseSystemBridge implements IOS, APIBridge {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "getOSInfo":
                     OSInfo response0 = this.getOSInfo();
                     if (response0 != null) {
-                         responseJSON = gson.toJson(response0);
+                         responseJSON = this.gson.toJson(response0);
                     } else {
                          responseJSON = null;
                     }

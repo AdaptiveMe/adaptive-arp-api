@@ -162,7 +162,6 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "addLifecycleListener":
@@ -171,7 +170,7 @@ public class LifecycleBridge extends BaseApplicationBridge implements ILifecycle
                     break;
                case "isBackground":
                     boolean response1 = this.isBackground();
-                    responseJSON = gson.toJson(response1);
+                    responseJSON = this.gson.toJson(response1);
                     break;
                case "removeLifecycleListener":
                     ILifecycleListener listener2 = new LifecycleListenerImpl(request.getAsyncId());

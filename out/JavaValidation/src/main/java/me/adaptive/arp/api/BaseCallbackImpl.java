@@ -78,6 +78,12 @@ public class BaseCallbackImpl implements IBaseCallback {
      public IAdaptiveRPGroup getAPIGroup() {
           return this.apiGroup;
      }
+     /**
+        Return the JSON serializer.
+     */
+     public final Gson getJSONAPI() {
+          return this.gson;
+     }
 
 }
 /**

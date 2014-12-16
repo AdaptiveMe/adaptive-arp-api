@@ -54,7 +54,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onError(IDatabaseTableResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
      }
 
      /**
@@ -64,7 +64,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onResult(DatabaseTable databaseTable) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(databaseTable) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(databaseTable) +") )");
      }
 
      /**
@@ -75,7 +75,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(databaseTable) +"), JSON.parse(" + gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(databaseTable) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
      }
 
 }

@@ -54,7 +54,7 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onError(INetworkReachabilityCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
      }
 
      /**
@@ -64,7 +64,7 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onResult(boolean reachable) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(reachable) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(reachable) +") )");
      }
 
      /**
@@ -75,7 +75,7 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         @since ARP1.0
      */
      public void onWarning(boolean reachable, INetworkReachabilityCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(reachable) +"), JSON.parse(" + gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(reachable) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
      }
 
 }

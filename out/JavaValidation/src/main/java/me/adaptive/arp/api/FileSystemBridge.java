@@ -270,15 +270,14 @@ This path may or may not be writable by the current application.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "createFileDescriptor":
-                    IFile parent0 = gson.fromJson(request.getParameters()[0], IFile.class);
-                    String name0 = gson.fromJson(request.getParameters()[1], String.class);
+                    IFile parent0 = this.gson.fromJson(request.getParameters()[0], IFile.class);
+                    String name0 = this.gson.fromJson(request.getParameters()[1], String.class);
                     IFile response0 = this.createFileDescriptor(parent0, name0);
                     if (response0 != null) {
-                         responseJSON = gson.toJson(response0);
+                         responseJSON = this.gson.toJson(response0);
                     } else {
                          responseJSON = null;
                     }
@@ -286,7 +285,7 @@ This path may or may not be writable by the current application.
                case "getApplicationCacheFolder":
                     IFile response1 = this.getApplicationCacheFolder();
                     if (response1 != null) {
-                         responseJSON = gson.toJson(response1);
+                         responseJSON = this.gson.toJson(response1);
                     } else {
                          responseJSON = null;
                     }
@@ -294,7 +293,7 @@ This path may or may not be writable by the current application.
                case "getApplicationCloudFolder":
                     IFile response2 = this.getApplicationCloudFolder();
                     if (response2 != null) {
-                         responseJSON = gson.toJson(response2);
+                         responseJSON = this.gson.toJson(response2);
                     } else {
                          responseJSON = null;
                     }
@@ -302,7 +301,7 @@ This path may or may not be writable by the current application.
                case "getApplicationDocumentsFolder":
                     IFile response3 = this.getApplicationDocumentsFolder();
                     if (response3 != null) {
-                         responseJSON = gson.toJson(response3);
+                         responseJSON = this.gson.toJson(response3);
                     } else {
                          responseJSON = null;
                     }
@@ -310,7 +309,7 @@ This path may or may not be writable by the current application.
                case "getApplicationFolder":
                     IFile response4 = this.getApplicationFolder();
                     if (response4 != null) {
-                         responseJSON = gson.toJson(response4);
+                         responseJSON = this.gson.toJson(response4);
                     } else {
                          responseJSON = null;
                     }
@@ -318,19 +317,19 @@ This path may or may not be writable by the current application.
                case "getApplicationProtectedFolder":
                     IFile response5 = this.getApplicationProtectedFolder();
                     if (response5 != null) {
-                         responseJSON = gson.toJson(response5);
+                         responseJSON = this.gson.toJson(response5);
                     } else {
                          responseJSON = null;
                     }
                     break;
                case "getSeparator":
                     char response6 = this.getSeparator();
-                    responseJSON = gson.toJson(response6);
+                    responseJSON = this.gson.toJson(response6);
                     break;
                case "getSystemExternalFolder":
                     IFile response7 = this.getSystemExternalFolder();
                     if (response7 != null) {
-                         responseJSON = gson.toJson(response7);
+                         responseJSON = this.gson.toJson(response7);
                     } else {
                          responseJSON = null;
                     }

@@ -121,18 +121,17 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "log_level_message":
-                    ILoggingLogLevel level0 = gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
-                    String message0 = gson.fromJson(request.getParameters()[1], String.class);
+                    ILoggingLogLevel level0 = this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
+                    String message0 = this.gson.fromJson(request.getParameters()[1], String.class);
                     this.log(level0, message0);
                     break;
                case "log_level_category_message":
-                    ILoggingLogLevel level1 = gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
-                    String category1 = gson.fromJson(request.getParameters()[1], String.class);
-                    String message1 = gson.fromJson(request.getParameters()[2], String.class);
+                    ILoggingLogLevel level1 = this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
+                    String category1 = this.gson.fromJson(request.getParameters()[1], String.class);
+                    String message1 = this.gson.fromJson(request.getParameters()[2], String.class);
                     this.log(level1, category1, message1);
                     break;
                default:

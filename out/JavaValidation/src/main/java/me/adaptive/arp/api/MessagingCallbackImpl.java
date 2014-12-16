@@ -54,7 +54,7 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         @since ARP1.0
      */
      public void onError(IMessagingCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
      }
 
      /**
@@ -64,7 +64,7 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         @since ARP1.0
      */
      public void onResult(boolean success) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackResult( '"+getId()+"', JSON.parse(" + gson.toJson(success) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(success) +") )");
      }
 
      /**
@@ -75,7 +75,7 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         @since ARP1.0
      */
      public void onWarning(boolean success, IMessagingCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackWarning( '"+getId()+"', JSON.parse(" + gson.toJson(success) +"), JSON.parse(" + gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(success) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
      }
 
 }

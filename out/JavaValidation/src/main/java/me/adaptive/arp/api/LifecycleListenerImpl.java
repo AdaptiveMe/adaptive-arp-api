@@ -53,7 +53,7 @@ public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycl
         @since ARP1.0
      */
      public void onError(ILifecycleListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerError( '"+getId()+"', JSON.parse(" + gson.toJson(error) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
      }
 
      /**
@@ -63,7 +63,7 @@ public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycl
         @since ARP1.0
      */
      public void onResult(Lifecycle lifecycle) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerResult( '"+getId()+"', JSON.parse(" + gson.toJson(lifecycle) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(lifecycle) +") )");
      }
 
      /**
@@ -73,7 +73,7 @@ public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycl
         @since ARP1.0
      */
      public void onWarning(Lifecycle lifecycle, ILifecycleListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerWarning( '"+getId()+"', JSON.parse(" + gson.toJson(lifecycle) +"), JSON.parse(" + gson.toJson(warning) +") )");
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(lifecycle) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
      }
 
 }

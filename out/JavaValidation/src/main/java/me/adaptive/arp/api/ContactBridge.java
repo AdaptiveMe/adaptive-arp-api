@@ -261,16 +261,15 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "getContact":
-                    ContactUid contact0 = gson.fromJson(request.getParameters()[0], ContactUid.class);
+                    ContactUid contact0 = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
                     IContactResultCallback callback0 = new ContactResultCallbackImpl(request.getAsyncId());
                     this.getContact(contact0, callback0);
                     break;
                case "getContactPhoto":
-                    ContactUid contact1 = gson.fromJson(request.getParameters()[0], ContactUid.class);
+                    ContactUid contact1 = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
                     IContactPhotoResultCallback callback1 = new ContactPhotoResultCallbackImpl(request.getAsyncId());
                     this.getContactPhoto(contact1, callback1);
                     break;
@@ -280,31 +279,31 @@ public class ContactBridge extends BasePIMBridge implements IContact, APIBridge 
                     break;
                case "getContactsForFields":
                     IContactResultCallback callback3 = new ContactResultCallbackImpl(request.getAsyncId());
-                    IContactFieldGroup[] fields3 = gson.fromJson(request.getParameters()[1], IContactFieldGroup[].class);
+                    IContactFieldGroup[] fields3 = this.gson.fromJson(request.getParameters()[1], IContactFieldGroup[].class);
                     this.getContactsForFields(callback3, fields3);
                     break;
                case "getContactsWithFilter":
                     IContactResultCallback callback4 = new ContactResultCallbackImpl(request.getAsyncId());
-                    IContactFieldGroup[] fields4 = gson.fromJson(request.getParameters()[1], IContactFieldGroup[].class);
-                    IContactFilter[] filter4 = gson.fromJson(request.getParameters()[2], IContactFilter[].class);
+                    IContactFieldGroup[] fields4 = this.gson.fromJson(request.getParameters()[1], IContactFieldGroup[].class);
+                    IContactFilter[] filter4 = this.gson.fromJson(request.getParameters()[2], IContactFilter[].class);
                     this.getContactsWithFilter(callback4, fields4, filter4);
                     break;
                case "searchContacts":
-                    String term5 = gson.fromJson(request.getParameters()[0], String.class);
+                    String term5 = this.gson.fromJson(request.getParameters()[0], String.class);
                     IContactResultCallback callback5 = new ContactResultCallbackImpl(request.getAsyncId());
                     this.searchContacts(term5, callback5);
                     break;
                case "searchContactsWithFilter":
-                    String term6 = gson.fromJson(request.getParameters()[0], String.class);
+                    String term6 = this.gson.fromJson(request.getParameters()[0], String.class);
                     IContactResultCallback callback6 = new ContactResultCallbackImpl(request.getAsyncId());
-                    IContactFilter[] filter6 = gson.fromJson(request.getParameters()[2], IContactFilter[].class);
+                    IContactFilter[] filter6 = this.gson.fromJson(request.getParameters()[2], IContactFilter[].class);
                     this.searchContactsWithFilter(term6, callback6, filter6);
                     break;
                case "setContactPhoto":
-                    ContactUid contact7 = gson.fromJson(request.getParameters()[0], ContactUid.class);
-                    byte[] pngImage7 = gson.fromJson(request.getParameters()[1], byte[].class);
+                    ContactUid contact7 = this.gson.fromJson(request.getParameters()[0], ContactUid.class);
+                    byte[] pngImage7 = this.gson.fromJson(request.getParameters()[1], byte[].class);
                     boolean response7 = this.setContactPhoto(contact7, pngImage7);
-                    responseJSON = gson.toJson(response7);
+                    responseJSON = this.gson.toJson(response7);
                     break;
                default:
                     // 404 - response null.

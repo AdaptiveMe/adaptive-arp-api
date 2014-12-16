@@ -78,6 +78,12 @@ public class BaseListenerImpl implements IBaseListener {
      public final IAdaptiveRPGroup getAPIGroup() {
           return this.apiGroup;
      }
+     /**
+        Return the JSON serializer.
+     */
+     public final Gson getJSONAPI() {
+          return this.gson;
+     }
 
 }
 /**

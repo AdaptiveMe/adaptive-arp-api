@@ -98,14 +98,13 @@ public class TelephonyBridge extends BaseCommunicationBridge implements ITelepho
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "call":
-                    String number0 = gson.fromJson(request.getParameters()[0], String.class);
+                    String number0 = this.gson.fromJson(request.getParameters()[0], String.class);
                     ITelephonyStatus response0 = this.call(number0);
                     if (response0 != null) {
-                         responseJSON = gson.toJson(response0);
+                         responseJSON = this.gson.toJson(response0);
                     } else {
                          responseJSON = null;
                     }

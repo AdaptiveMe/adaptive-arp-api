@@ -98,12 +98,11 @@ public class MessagingBridge extends BasePIMBridge implements IMessaging, APIBri
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public String invoke(APIRequest request) {
-          Gson gson = new Gson();
           String responseJSON = "";
           switch (request.getMethodName()) {
                case "sendSMS":
-                    String number0 = gson.fromJson(request.getParameters()[0], String.class);
-                    String text0 = gson.fromJson(request.getParameters()[1], String.class);
+                    String number0 = this.gson.fromJson(request.getParameters()[0], String.class);
+                    String text0 = this.gson.fromJson(request.getParameters()[1], String.class);
                     IMessagingCallback callback0 = new MessagingCallbackImpl(request.getAsyncId());
                     this.sendSMS(number0, text0, callback0);
                     break;
