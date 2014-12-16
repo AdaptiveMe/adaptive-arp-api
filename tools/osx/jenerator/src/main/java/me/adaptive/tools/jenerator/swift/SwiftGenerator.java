@@ -58,32 +58,53 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void createDelegateImplementation(String className, Class clazz, JavaClass javaClass) {
-
+        // TODO: delegate.
     }
 
     @Override
     protected void endCustomClass(String className, Class clazz, JavaClass javaClass) {
-
+        startComment(0);
+        applyClassHeader(clazz, getSourceFooter());
+        endComment(0);
+        indentPrintStream.flush();
+        indentPrintStream.close();
     }
 
     @Override
     protected void startCustomClass(String className, Class clazz, JavaClass javaClass, boolean implementation) {
-
+        if (implementation) {
+            currentFile = new File(getOutputRootDirectory(), "impl"+File.separator+clazz.getSimpleName() + ".swift");
+        } else {
+            currentFile = new File(getOutputRootDirectory(), clazz.getSimpleName() + ".swift");
+        }
+        currentFile.mkdirs();
+        if (currentFile.exists()) {
+            currentFile.delete();
+        }
+        try {
+            indentPrintStream = new IndentPrintStream(new FileOutputStream(currentFile));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        startComment(0);
+        applyClassHeader(clazz, getSourceHeader());
+        endComment(0);
+        println();
     }
 
     @Override
     protected void createHandlerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
-
+        // TODO: handler.
     }
 
     @Override
     protected void createCallbackImplementation(String simpleName, Class clazz, JavaClass javaClass) {
-
+        // TODO: callback.
     }
 
     @Override
     protected void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
-
+        // TODO: listener.
     }
 
     @Override
