@@ -59,7 +59,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithXYZTimestamp:(double*)x y:(double*)y z:(double*)z timestamp:(long*)timestamp {
-          self = [super initWithXYZTimestamp:x, y, z, timestamp];
+          self = [self init];
           if (self) {
                [self setX:x];
                [self setY:y];

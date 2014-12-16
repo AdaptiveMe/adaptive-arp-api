@@ -276,7 +276,10 @@ public class ObjCGenerator extends GeneratorBase {
                 indentPrintStream.println(" {");
                 indentPrintStreamH.println(";");
 
-                if (!clazz.getSuperclass().equals(Object.class)) {
+                if (clazz.getSuperclass().getSimpleName().equals("APIBean")) {
+                    indentPrintStream.println(10, "self = [self init];");
+                    indentPrintStream.println(10, "if (self) {");
+                } else if (!clazz.getSuperclass().equals(Object.class)) {
                     indentPrintStream.print(10, "self = [super initWith");
                     for (int j = 0; j < c.getParameters().length; j++) {
                         Parameter parameter = c.getParameters()[j];
@@ -464,6 +467,7 @@ public class ObjCGenerator extends GeneratorBase {
         for (String reference : referenceList) {
             indentPrintStreamH.println("#import <" + reference + ".h>");
         }
+
 
         indentPrintStreamH.println();
         indentPrintStreamH.println("/**");

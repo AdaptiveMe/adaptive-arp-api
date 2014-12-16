@@ -53,6 +53,7 @@ var Adaptive;
         IAdaptiveRPGroup.System = new IAdaptiveRPGroup("System");
         IAdaptiveRPGroup.UI = new IAdaptiveRPGroup("UI");
         IAdaptiveRPGroup.Util = new IAdaptiveRPGroup("Util");
+        IAdaptiveRPGroup.Kernel = new IAdaptiveRPGroup("Kernel");
         IAdaptiveRPGroup.Unknown = new IAdaptiveRPGroup("Unknown");
         return IAdaptiveRPGroup;
     })();

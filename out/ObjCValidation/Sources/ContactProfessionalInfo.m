@@ -58,7 +58,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithJobTitleJobDescriptionCompany:(NSString*)jobTitle jobDescription:(NSString*)jobDescription company:(NSString*)company {
-          self = [super initWithJobTitleJobDescriptionCompany:jobTitle, jobDescription, company];
+          self = [self init];
           if (self) {
                [self setJobTitle:jobTitle];
                [self setJobDescription:jobDescription];

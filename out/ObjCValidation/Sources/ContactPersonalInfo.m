@@ -59,7 +59,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithNameMiddleNameLastNameTitle:(NSString*)name middleName:(NSString*)middleName lastName:(NSString*)lastName title:(ContactPersonalInfoTitle*)title {
-          self = [super initWithNameMiddleNameLastNameTitle:name, middleName, lastName, title];
+          self = [self init];
           if (self) {
                [self setName:name];
                [self setMiddleName:middleName];

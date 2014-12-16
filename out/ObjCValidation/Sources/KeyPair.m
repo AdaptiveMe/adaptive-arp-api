@@ -57,7 +57,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithKeyValue:(NSString*)key value:(NSString*)value {
-          self = [super initWithKeyValue:key, value];
+          self = [self init];
           if (self) {
                [self setKey:key];
                [self setValue:value];

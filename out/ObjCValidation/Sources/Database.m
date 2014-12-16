@@ -56,7 +56,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithName:(NSString*)name {
-          self = [super initWithName:name];
+          self = [self init];
           if (self) {
                [self setName:name];
           }
@@ -71,7 +71,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithNameCompress:(NSString*)name compress:(bool*)compress {
-          self = [super initWithNameCompress:name, compress];
+          self = [self init];
           if (self) {
                [self setName:name];
                [self setCompress:compress];

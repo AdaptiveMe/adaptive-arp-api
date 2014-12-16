@@ -57,7 +57,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithSocialNetworkProfileUrl:(ContactSocialNetwork*)socialNetwork profileUrl:(NSString*)profileUrl {
-          self = [super initWithSocialNetworkProfileUrl:socialNetwork, profileUrl];
+          self = [self init];
           if (self) {
                [self setSocialNetwork:socialNetwork];
                [self setProfileUrl:profileUrl];

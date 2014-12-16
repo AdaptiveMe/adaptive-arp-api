@@ -56,7 +56,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithName:(NSString*)name {
-          self = [super initWithName:name];
+          self = [self init];
           if (self) {
                [self setName:name];
           }
@@ -74,7 +74,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithNameColumnCountRowCountDatabaseColumnsDatabaseRows:(NSString*)name columnCount:(int*)columnCount rowCount:(int*)rowCount databaseColumns:(NSArray*)databaseColumns databaseRows:(NSArray*)databaseRows {
-          self = [super initWithNameColumnCountRowCountDatabaseColumnsDatabaseRows:name, columnCount, rowCount, databaseColumns, databaseRows];
+          self = [self init];
           if (self) {
                [self setName:name];
                [self setColumnCount:columnCount];

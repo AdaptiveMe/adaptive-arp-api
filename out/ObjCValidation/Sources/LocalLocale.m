@@ -57,7 +57,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithLanguageCountry:(NSString*)language country:(NSString*)country {
-          self = [super initWithLanguageCountry:language, country];
+          self = [self init];
           if (self) {
                [self setLanguage:language];
                [self setCountry:country];

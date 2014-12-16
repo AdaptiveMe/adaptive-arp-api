@@ -58,7 +58,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithTypePrimaryEmail:(ContactEmailType*)type primary:(bool*)primary email:(NSString*)email {
-          self = [super initWithTypePrimaryEmail:type, primary, email];
+          self = [self init];
           if (self) {
                [self setType:type];
                [self setPrimary:primary];

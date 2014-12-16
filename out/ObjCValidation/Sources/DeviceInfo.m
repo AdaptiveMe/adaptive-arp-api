@@ -59,7 +59,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithNameModelVendorUuid:(NSString*)name model:(NSString*)model vendor:(NSString*)vendor uuid:(NSString*)uuid {
-          self = [super initWithNameModelVendorUuid:name, model, vendor, uuid];
+          self = [self init];
           if (self) {
                [self setName:name];
                [self setModel:model];

@@ -56,7 +56,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithAddress:(NSString*)address {
-          self = [super initWithAddress:address];
+          self = [self init];
           if (self) {
                [self setAddress:address];
           }

@@ -61,7 +61,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithContentContentTypeContentEncodingContentLengthContentBinaryContentBinaryLengthServiceHeadersServiceSession:(NSString*)content contentType:(NSString*)contentType contentEncoding:(NSString*)contentEncoding contentLength:(int*)contentLength contentBinary:(NSArray*)contentBinary contentBinaryLength:(int*)contentBinaryLength serviceHeaders:(NSArray*)serviceHeaders serviceSession:(ServiceSession*)serviceSession {
-          self = [super initWithContentContentTypeContentEncodingContentLengthContentBinaryContentBinaryLengthServiceHeadersServiceSession:content, contentType, contentEncoding, contentLength, contentBinary, contentBinaryLength, serviceHeaders, serviceSession];
+          self = [self init];
           if (self) {
                [self setContent:content];
                [self setContentType:contentType];

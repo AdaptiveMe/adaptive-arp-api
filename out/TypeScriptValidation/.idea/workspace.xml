@@ -1,7 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="" />
+    <list default="true" id="f2b62424-c85f-4dbf-8462-3858f1398c98" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIRequest.d.ts" afterPath="$PROJECT_DIR$/APIRequest.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIRequest.js.map" afterPath="$PROJECT_DIR$/APIRequest.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APIRequest.js" afterPath="$PROJECT_DIR$/APIRequest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Acceleration.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Acceleration.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.d.ts" afterPath="$PROJECT_DIR$/Adaptive.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js.map" afterPath="$PROJECT_DIR$/Adaptive.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.js" afterPath="$PROJECT_DIR$/Adaptive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaptive.ts" afterPath="$PROJECT_DIR$/Adaptive.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Button.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Button.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactAddress.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactAddress.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactEmail.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactEmail.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPersonalInfo.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPersonalInfo.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPhone.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactPhone.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactProfessionalInfo.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactProfessionalInfo.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactSocial.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactSocial.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactTag.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactTag.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactUid.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactUid.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactWebsite.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ContactWebsite.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Database.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Database.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/DatabaseColumn.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/DatabaseColumn.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/DatabaseRow.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/DatabaseRow.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/DatabaseTable.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/DatabaseTable.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/DeviceInfo.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/DeviceInfo.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Email.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Email.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/EmailAddress.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/EmailAddress.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/EmailAttachmentData.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/EmailAttachmentData.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Geolocation.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Geolocation.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRPGroup.d.ts" afterPath="$PROJECT_DIR$/IAdaptiveRPGroup.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRPGroup.js.map" afterPath="$PROJECT_DIR$/IAdaptiveRPGroup.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAdaptiveRPGroup.js" afterPath="$PROJECT_DIR$/IAdaptiveRPGroup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/KeyPair.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/KeyPair.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Lifecycle.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Lifecycle.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/LocalLocale.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/LocalLocale.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/OSInfo.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/OSInfo.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/objc/ObjCGenerator.java" afterPath="$PROJECT_DIR$/../../tools/osx/jenerator/src/main/java/me/adaptive/tools/jenerator/objc/ObjCGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/SecureKeyPair.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/SecureKeyPair.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/Service.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/Service.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceCookie.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceCookie.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceEndpoint.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceEndpoint.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceHeader.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceHeader.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceRequest.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceRequest.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceResponse.m" afterPath="$PROJECT_DIR$/../ObjCValidation/Sources/ServiceResponse.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ObjCValidation/ObjCValidation.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../ObjCValidation/ObjCValidation.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="TypeScriptValidation.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +69,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Adaptive.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Adaptive.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="23.749067" vertical-offset="0" max-vertical-offset="109860">
-              <caret line="2120" column="54" selection-start-line="2120" selection-start-column="54" selection-end-line="2120" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="108911" max-vertical-offset="109890">
+              <caret line="7320" column="0" selection-start-line="7320" selection-start-column="0" selection-end-line="7320" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Adaptive.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Adaptive.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="57.276814" vertical-offset="7496" max-vertical-offset="63675">
+              <caret line="4238" column="46" selection-start-line="4238" selection-start-column="46" selection-end-line="4238" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -37,12 +92,59 @@
       <file leaf-file-name="Acceleration.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Acceleration.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="2535">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2535">
               <caret line="82" column="11" selection-start-line="82" selection-start-column="11" selection-end-line="82" selection-end-column="11" />
-              <folding>
-                <marker date="1418382492000" expanded="true" signature="327:1259" placeholder="/**--| ADAPTIVE RUNTIME PLATFORM |---------------------------------------------------------------------------------------- ...*/" />
-                <marker date="1418382492000" expanded="true" signature="1309:4153" placeholder="..." />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Acceleration.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Acceleration.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2175">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactAddress.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ContactAddress.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1770">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactAddressType.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ContactAddressType.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactAddressType.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ContactAddressType.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Adaptive.d.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Adaptive.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="3699.84" vertical-offset="92496" max-vertical-offset="93450">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,10 +154,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1253" max-vertical-offset="4230">
               <caret line="107" column="11" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="11" />
-              <folding>
-                <marker date="1418382492000" expanded="true" signature="327:1259" placeholder="/**--| ADAPTIVE RUNTIME PLATFORM |---------------------------------------------------------------------------------------- ...*/" />
-                <marker date="1418382492000" expanded="true" signature="1645:8753" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,10 +164,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="698" max-vertical-offset="1755">
               <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-              <folding>
-                <marker date="1418382492000" expanded="true" signature="327:1259" placeholder="/**--| ADAPTIVE RUNTIME PLATFORM |---------------------------------------------------------------------------------------- ...*/" />
-                <marker date="1418382492000" expanded="true" signature="1309:2937" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,6 +200,7 @@
         <option value="$PROJECT_DIR$/Locale.ts" />
         <option value="$PROJECT_DIR$/Contact.ts" />
         <option value="$PROJECT_DIR$/Adaptive.ts" />
+        <option value="$PROJECT_DIR$/Adaptive.js" />
       </list>
     </option>
   </component>
@@ -111,10 +208,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2560" />
-    <option name="y" value="-203" />
-    <option name="width" value="2560" />
-    <option name="height" value="1440" />
+    <option name="x" value="1440" />
+    <option name="y" value="-180" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -139,7 +236,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -172,8 +268,23 @@
               <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypeScriptValidation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypeScriptValidation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Acceleration.ts" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -192,10 +303,14 @@
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
     </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -203,10 +318,6 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -252,7 +363,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2560" y="-203" width="2560" height="1440" extended-state="0" />
+    <frame x="1440" y="-180" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -260,19 +371,19 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07851563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1671875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5032919" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5024826" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991952" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -296,47 +407,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Adaptive.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="109245">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Acceleration.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="2460">
-          <caret line="76" column="11" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
-          <folding>
-            <marker date="1418382492000" expanded="true" signature="327:1259" placeholder="/**--| ADAPTIVE RUNTIME PLATFORM |---------------------------------------------------------------------------------------- ...*/" />
-            <marker date="1418382492000" expanded="true" signature="1309:4153" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Contact.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1163" max-vertical-offset="4155">
-          <caret line="101" column="11" selection-start-line="101" selection-start-column="11" selection-end-line="101" selection-end-column="11" />
-          <folding>
-            <marker date="1418382492000" expanded="true" signature="327:1259" placeholder="/**--| ADAPTIVE RUNTIME PLATFORM |---------------------------------------------------------------------------------------- ...*/" />
-            <marker date="1418382492000" expanded="true" signature="1645:8753" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Locale.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="608" max-vertical-offset="1680">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <marker date="1418382492000" expanded="true" signature="327:1259" placeholder="/**--| ADAPTIVE RUNTIME PLATFORM |---------------------------------------------------------------------------------------- ...*/" />
-            <marker date="1418382492000" expanded="true" signature="1309:2937" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="104805">
@@ -378,10 +448,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="3915">
           <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="8" />
-          <folding>
-            <marker date="1418382492000" expanded="true" signature="327:1259" placeholder="/**--| ADAPTIVE RUNTIME PLATFORM |---------------------------------------------------------------------------------------- ...*/" />
-            <marker date="1418382492000" expanded="true" signature="1645:8753" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -389,10 +456,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="695" max-vertical-offset="2295">
           <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
-          <folding>
-            <marker date="1418382492000" expanded="true" signature="327:1259" placeholder="/**--| ADAPTIVE RUNTIME PLATFORM |---------------------------------------------------------------------------------------- ...*/" />
-            <marker date="1418382492000" expanded="true" signature="1309:4153" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -664,21 +728,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="698" max-vertical-offset="1755">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding>
-            <marker date="1418382492000" expanded="true" signature="327:1259" placeholder="/**--| ADAPTIVE RUNTIME PLATFORM |---------------------------------------------------------------------------------------- ...*/" />
-            <marker date="1418382492000" expanded="true" signature="1309:2937" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Acceleration.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="2535">
-          <caret line="82" column="11" selection-start-line="82" selection-start-column="11" selection-end-line="82" selection-end-column="11" />
-          <folding>
-            <marker date="1418382492000" expanded="true" signature="327:1259" placeholder="/**--| ADAPTIVE RUNTIME PLATFORM |---------------------------------------------------------------------------------------- ...*/" />
-            <marker date="1418382492000" expanded="true" signature="1309:4153" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -686,17 +736,70 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1253" max-vertical-offset="4230">
           <caret line="107" column="11" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="11" />
-          <folding>
-            <marker date="1418382492000" expanded="true" signature="327:1259" placeholder="/**--| ADAPTIVE RUNTIME PLATFORM |---------------------------------------------------------------------------------------- ...*/" />
-            <marker date="1418382492000" expanded="true" signature="1645:8753" placeholder="..." />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Acceleration.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="2535">
+          <caret line="82" column="11" selection-start-line="82" selection-start-column="11" selection-end-line="82" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Acceleration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="2175">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ContactAddress.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1770">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ContactAddressType.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="979">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ContactAddressType.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="979">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3699.84" vertical-offset="92496" max-vertical-offset="93450">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Adaptive.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="23.749067" vertical-offset="0" max-vertical-offset="109860">
-          <caret line="2120" column="54" selection-start-line="2120" selection-start-column="54" selection-end-line="2120" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="108911" max-vertical-offset="109890">
+          <caret line="7320" column="0" selection-start-line="7320" selection-start-column="0" selection-end-line="7320" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Adaptive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="57.276814" vertical-offset="7496" max-vertical-offset="63675">
+          <caret line="4238" column="46" selection-start-line="4238" selection-start-column="46" selection-end-line="4238" selection-end-column="46" />
           <folding />
         </state>
       </provider>

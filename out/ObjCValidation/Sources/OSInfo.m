@@ -58,7 +58,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithNameVersionVendor:(NSString*)name version:(NSString*)version vendor:(NSString*)vendor {
-          self = [super initWithNameVersionVendor:name, version, vendor];
+          self = [self init];
           if (self) {
                [self setName:name];
                [self setVersion:version];

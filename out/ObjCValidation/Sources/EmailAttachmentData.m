@@ -60,7 +60,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithDataSizeFileNameMimeTypeReferenceUrl:(NSArray*)data size:(long*)size fileName:(NSString*)fileName mimeType:(NSString*)mimeType referenceUrl:(NSString*)referenceUrl {
-          self = [super initWithDataSizeFileNameMimeTypeReferenceUrl:data, size, fileName, mimeType, referenceUrl];
+          self = [self init];
           if (self) {
                [self setData:data];
                [self setSize:size];

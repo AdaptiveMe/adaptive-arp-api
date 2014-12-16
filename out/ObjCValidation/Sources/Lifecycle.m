@@ -56,7 +56,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithState:(LifecycleState*)state {
-          self = [super initWithState:state];
+          self = [self init];
           if (self) {
                [self setState:state];
           }

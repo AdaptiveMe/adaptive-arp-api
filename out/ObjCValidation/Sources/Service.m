@@ -59,7 +59,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithServiceEndpointNameMethodType:(ServiceEndpoint*)serviceEndpoint name:(NSString*)name method:(IServiceMethod*)method type:(IServiceType*)type {
-          self = [super initWithServiceEndpointNameMethodType:serviceEndpoint, name, method, type];
+          self = [self init];
           if (self) {
                [self setServiceEndpoint:serviceEndpoint];
                [self setName:name];

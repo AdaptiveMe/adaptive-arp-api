@@ -56,7 +56,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithValues:(NSArray*)values {
-          self = [super initWithValues:values];
+          self = [self init];
           if (self) {
                [self setValues:values];
           }

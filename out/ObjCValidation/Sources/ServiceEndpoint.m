@@ -60,7 +60,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithHostPathPortProxyScheme:(NSString*)host path:(NSString*)path port:(int*)port proxy:(NSString*)proxy scheme:(NSString*)scheme {
-          self = [super initWithHostPathPortProxyScheme:host, path, port, proxy, scheme];
+          self = [self init];
           if (self) {
                [self setHost:host];
                [self setPath:path];

@@ -49,6 +49,7 @@ declare module Adaptive {
         static System: IAdaptiveRPGroup;
         static UI: IAdaptiveRPGroup;
         static Util: IAdaptiveRPGroup;
+        static Kernel: IAdaptiveRPGroup;
         static Unknown: IAdaptiveRPGroup;
     }
 }

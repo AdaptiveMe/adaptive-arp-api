@@ -57,7 +57,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithNameValue:(NSString*)name value:(NSString*)value {
-          self = [super initWithNameValue:name, value];
+          self = [self init];
           if (self) {
                [self setName:name];
                [self setValue:value];
@@ -79,7 +79,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithNameValueDomainPathSchemeSecureExpiryCreation:(NSString*)name value:(NSString*)value domain:(NSString*)domain path:(NSString*)path scheme:(NSString*)scheme secure:(bool*)secure expiry:(long*)expiry creation:(long*)creation {
-          self = [super initWithNameValueDomainPathSchemeSecureExpiryCreation:name, value, domain, path, scheme, secure, expiry, creation];
+          self = [self init];
           if (self) {
                [self setName:name];
                [self setValue:value];

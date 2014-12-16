@@ -57,7 +57,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithPhonePhoneType:(NSString*)phone phoneType:(ContactPhoneType*)phoneType {
-          self = [super initWithPhonePhoneType:phone, phoneType];
+          self = [self init];
           if (self) {
                [self setPhone:phone];
                [self setPhoneType:phoneType];

@@ -186,6 +186,30 @@
 		4ED65CB71A36E80D00D105B3 /* ServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65C071A36E80D00D105B3 /* ServiceResponse.m */; };
 		4ED65CB81A36E80D00D105B3 /* Table.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED65C081A36E80D00D105B3 /* Table.h */; };
 		4ED65CB91A36E80D00D105B3 /* Table.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED65C091A36E80D00D105B3 /* Table.m */; };
+		4ED661B91A403A3700D105B3 /* APIBean.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661A11A403A3700D105B3 /* APIBean.h */; };
+		4ED661BA1A403A3700D105B3 /* APIBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661A21A403A3700D105B3 /* APIBean.m */; };
+		4ED661BB1A403A3700D105B3 /* APIBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661A31A403A3700D105B3 /* APIBridge.h */; };
+		4ED661BC1A403A3700D105B3 /* DatabaseColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661A41A403A3700D105B3 /* DatabaseColumn.h */; };
+		4ED661BD1A403A3700D105B3 /* DatabaseColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661A51A403A3700D105B3 /* DatabaseColumn.m */; };
+		4ED661BE1A403A3700D105B3 /* DatabaseRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661A61A403A3700D105B3 /* DatabaseRow.h */; };
+		4ED661BF1A403A3700D105B3 /* DatabaseRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661A71A403A3700D105B3 /* DatabaseRow.m */; };
+		4ED661C01A403A3700D105B3 /* DatabaseTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661A81A403A3700D105B3 /* DatabaseTable.h */; };
+		4ED661C11A403A3700D105B3 /* DatabaseTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661A91A403A3700D105B3 /* DatabaseTable.m */; };
+		4ED661C21A403A3700D105B3 /* EmailAttachmentData.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661AA1A403A3700D105B3 /* EmailAttachmentData.h */; };
+		4ED661C31A403A3700D105B3 /* EmailAttachmentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661AB1A403A3700D105B3 /* EmailAttachmentData.m */; };
+		4ED661C41A403A3700D105B3 /* IAcceleration.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661AC1A403A3700D105B3 /* IAcceleration.h */; };
+		4ED661C51A403A3700D105B3 /* IDatabaseTableResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661AD1A403A3700D105B3 /* IDatabaseTableResultCallback.h */; };
+		4ED661C61A403A3700D105B3 /* ISecurityResultCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661AE1A403A3700D105B3 /* ISecurityResultCallback.h */; };
+		4ED661C71A403A3700D105B3 /* KeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661AF1A403A3700D105B3 /* KeyPair.h */; };
+		4ED661C81A403A3700D105B3 /* KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661B01A403A3700D105B3 /* KeyPair.m */; };
+		4ED661C91A403A3700D105B3 /* ServiceCookie.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661B11A403A3700D105B3 /* ServiceCookie.h */; };
+		4ED661CA1A403A3700D105B3 /* ServiceCookie.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661B21A403A3700D105B3 /* ServiceCookie.m */; };
+		4ED661CB1A403A3700D105B3 /* ServiceEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661B31A403A3700D105B3 /* ServiceEndpoint.h */; };
+		4ED661CC1A403A3700D105B3 /* ServiceEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661B41A403A3700D105B3 /* ServiceEndpoint.m */; };
+		4ED661CD1A403A3700D105B3 /* ServiceHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661B51A403A3700D105B3 /* ServiceHeader.h */; };
+		4ED661CE1A403A3700D105B3 /* ServiceHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661B61A403A3700D105B3 /* ServiceHeader.m */; };
+		4ED661CF1A403A3700D105B3 /* ServiceSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ED661B71A403A3700D105B3 /* ServiceSession.h */; };
+		4ED661D01A403A3700D105B3 /* ServiceSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED661B81A403A3700D105B3 /* ServiceSession.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -381,6 +405,30 @@
 		4ED65C071A36E80D00D105B3 /* ServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceResponse.m; sourceTree = "<group>"; };
 		4ED65C081A36E80D00D105B3 /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		4ED65C091A36E80D00D105B3 /* Table.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Table.m; sourceTree = "<group>"; };
+		4ED661A11A403A3700D105B3 /* APIBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIBean.h; sourceTree = "<group>"; };
+		4ED661A21A403A3700D105B3 /* APIBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIBean.m; sourceTree = "<group>"; };
+		4ED661A31A403A3700D105B3 /* APIBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIBridge.h; sourceTree = "<group>"; };
+		4ED661A41A403A3700D105B3 /* DatabaseColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseColumn.h; sourceTree = "<group>"; };
+		4ED661A51A403A3700D105B3 /* DatabaseColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseColumn.m; sourceTree = "<group>"; };
+		4ED661A61A403A3700D105B3 /* DatabaseRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseRow.h; sourceTree = "<group>"; };
+		4ED661A71A403A3700D105B3 /* DatabaseRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseRow.m; sourceTree = "<group>"; };
+		4ED661A81A403A3700D105B3 /* DatabaseTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseTable.h; sourceTree = "<group>"; };
+		4ED661A91A403A3700D105B3 /* DatabaseTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseTable.m; sourceTree = "<group>"; };
+		4ED661AA1A403A3700D105B3 /* EmailAttachmentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailAttachmentData.h; sourceTree = "<group>"; };
+		4ED661AB1A403A3700D105B3 /* EmailAttachmentData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailAttachmentData.m; sourceTree = "<group>"; };
+		4ED661AC1A403A3700D105B3 /* IAcceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAcceleration.h; sourceTree = "<group>"; };
+		4ED661AD1A403A3700D105B3 /* IDatabaseTableResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDatabaseTableResultCallback.h; sourceTree = "<group>"; };
+		4ED661AE1A403A3700D105B3 /* ISecurityResultCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISecurityResultCallback.h; sourceTree = "<group>"; };
+		4ED661AF1A403A3700D105B3 /* KeyPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyPair.h; sourceTree = "<group>"; };
+		4ED661B01A403A3700D105B3 /* KeyPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyPair.m; sourceTree = "<group>"; };
+		4ED661B11A403A3700D105B3 /* ServiceCookie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceCookie.h; sourceTree = "<group>"; };
+		4ED661B21A403A3700D105B3 /* ServiceCookie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceCookie.m; sourceTree = "<group>"; };
+		4ED661B31A403A3700D105B3 /* ServiceEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceEndpoint.h; sourceTree = "<group>"; };
+		4ED661B41A403A3700D105B3 /* ServiceEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceEndpoint.m; sourceTree = "<group>"; };
+		4ED661B51A403A3700D105B3 /* ServiceHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHeader.h; sourceTree = "<group>"; };
+		4ED661B61A403A3700D105B3 /* ServiceHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceHeader.m; sourceTree = "<group>"; };
+		4ED661B71A403A3700D105B3 /* ServiceSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceSession.h; sourceTree = "<group>"; };
+		4ED661B81A403A3700D105B3 /* ServiceSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceSession.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,6 +508,9 @@
 			children = (
 				4ED65B5A1A36E80D00D105B3 /* Acceleration.h */,
 				4ED65B5B1A36E80D00D105B3 /* Acceleration.m */,
+				4ED661A11A403A3700D105B3 /* APIBean.h */,
+				4ED661A21A403A3700D105B3 /* APIBean.m */,
+				4ED661A31A403A3700D105B3 /* APIBridge.h */,
 				4ED65B5C1A36E80D00D105B3 /* APIRequest.h */,
 				4ED65B5D1A36E80D00D105B3 /* APIRequest.m */,
 				4ED65B5E1A36E80D00D105B3 /* AttachmentData.h */,
@@ -492,18 +543,27 @@
 				4ED65B791A36E80D00D105B3 /* Cookie.m */,
 				4ED65B7A1A36E80D00D105B3 /* Database.h */,
 				4ED65B7B1A36E80D00D105B3 /* Database.m */,
+				4ED661A41A403A3700D105B3 /* DatabaseColumn.h */,
+				4ED661A51A403A3700D105B3 /* DatabaseColumn.m */,
+				4ED661A61A403A3700D105B3 /* DatabaseRow.h */,
+				4ED661A71A403A3700D105B3 /* DatabaseRow.m */,
+				4ED661A81A403A3700D105B3 /* DatabaseTable.h */,
+				4ED661A91A403A3700D105B3 /* DatabaseTable.m */,
 				4ED65B7C1A36E80D00D105B3 /* DeviceInfo.h */,
 				4ED65B7D1A36E80D00D105B3 /* DeviceInfo.m */,
 				4ED65B7E1A36E80D00D105B3 /* Email.h */,
 				4ED65B7F1A36E80D00D105B3 /* Email.m */,
 				4ED65B801A36E80D00D105B3 /* EmailAddress.h */,
 				4ED65B811A36E80D00D105B3 /* EmailAddress.m */,
+				4ED661AA1A403A3700D105B3 /* EmailAttachmentData.h */,
+				4ED661AB1A403A3700D105B3 /* EmailAttachmentData.m */,
 				4ED65B821A36E80D00D105B3 /* Endpoint.h */,
 				4ED65B831A36E80D00D105B3 /* Endpoint.m */,
 				4ED65B841A36E80D00D105B3 /* Geolocation.h */,
 				4ED65B851A36E80D00D105B3 /* Geolocation.m */,
 				4ED65B861A36E80D00D105B3 /* Header.h */,
 				4ED65B871A36E80D00D105B3 /* Header.m */,
+				4ED661AC1A403A3700D105B3 /* IAcceleration.h */,
 				4ED65B881A36E80D00D105B3 /* IAccelerationListener.h */,
 				4ED65B891A36E80D00D105B3 /* IAccelerometer.h */,
 				4ED65B8A1A36E80D00D105B3 /* IAdaptiveRP.h */,
@@ -551,6 +611,7 @@
 				4ED65BB41A36E80D00D105B3 /* ICrypto.h */,
 				4ED65BB51A36E80D00D105B3 /* IDatabase.h */,
 				4ED65BB61A36E80D00D105B3 /* IDatabaseResultCallback.h */,
+				4ED661AD1A403A3700D105B3 /* IDatabaseTableResultCallback.h */,
 				4ED65BB71A36E80D00D105B3 /* IDataStream.h */,
 				4ED65BB81A36E80D00D105B3 /* IDesktop.h */,
 				4ED65BB91A36E80D00D105B3 /* IDevice.h */,
@@ -600,6 +661,7 @@
 				4ED65BE51A36E80D00D105B3 /* IRuntime.h */,
 				4ED65BE61A36E80D00D105B3 /* ISecureKVResultCallback.h */,
 				4ED65BE71A36E80D00D105B3 /* ISecurity.h */,
+				4ED661AE1A403A3700D105B3 /* ISecurityResultCallback.h */,
 				4ED65BE81A36E80D00D105B3 /* IService.h */,
 				4ED65BE91A36E80D00D105B3 /* IServiceResultCallback.h */,
 				4ED65BEA1A36E80D00D105B3 /* ISession.h */,
@@ -616,6 +678,8 @@
 				4ED65BF51A36E80D00D105B3 /* IVideo.h */,
 				4ED65BF61A36E80D00D105B3 /* IWallet.h */,
 				4ED65BF71A36E80D00D105B3 /* IXML.h */,
+				4ED661AF1A403A3700D105B3 /* KeyPair.h */,
+				4ED661B01A403A3700D105B3 /* KeyPair.m */,
 				4ED65BF81A36E80D00D105B3 /* Lifecycle.h */,
 				4ED65BF91A36E80D00D105B3 /* Lifecycle.m */,
 				4ED65BFA1A36E80D00D105B3 /* LocalLocale.h */,
@@ -628,10 +692,18 @@
 				4ED65C011A36E80D00D105B3 /* SecureKeyPair.m */,
 				4ED65C021A36E80D00D105B3 /* Service.h */,
 				4ED65C031A36E80D00D105B3 /* Service.m */,
+				4ED661B11A403A3700D105B3 /* ServiceCookie.h */,
+				4ED661B21A403A3700D105B3 /* ServiceCookie.m */,
+				4ED661B31A403A3700D105B3 /* ServiceEndpoint.h */,
+				4ED661B41A403A3700D105B3 /* ServiceEndpoint.m */,
+				4ED661B51A403A3700D105B3 /* ServiceHeader.h */,
+				4ED661B61A403A3700D105B3 /* ServiceHeader.m */,
 				4ED65C041A36E80D00D105B3 /* ServiceRequest.h */,
 				4ED65C051A36E80D00D105B3 /* ServiceRequest.m */,
 				4ED65C061A36E80D00D105B3 /* ServiceResponse.h */,
 				4ED65C071A36E80D00D105B3 /* ServiceResponse.m */,
+				4ED661B71A403A3700D105B3 /* ServiceSession.h */,
+				4ED661B81A403A3700D105B3 /* ServiceSession.m */,
 				4ED65C081A36E80D00D105B3 /* Table.h */,
 				4ED65C091A36E80D00D105B3 /* Table.m */,
 			);
@@ -645,22 +717,28 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ED661C61A403A3700D105B3 /* ISecurityResultCallback.h in Headers */,
 				4ED65C921A36E80D00D105B3 /* IProximity.h in Headers */,
 				4ED65C6B1A36E80D00D105B3 /* IFacebook.h in Headers */,
 				4ED65C421A36E80D00D105B3 /* IAppResource.h in Headers */,
 				4ED65C6C1A36E80D00D105B3 /* IFile.h in Headers */,
 				4ED65C911A36E80D00D105B3 /* IPrinting.h in Headers */,
+				4ED661BE1A403A3700D105B3 /* DatabaseRow.h in Headers */,
 				4ED65C801A36E80D00D105B3 /* IManagement.h in Headers */,
 				4ED65C791A36E80D00D105B3 /* IInternalStorage.h in Headers */,
+				4ED661CD1A403A3700D105B3 /* ServiceHeader.h in Headers */,
 				4ED65C781A36E80D00D105B3 /* IImaging.h in Headers */,
 				4ED65CB21A36E80D00D105B3 /* Service.h in Headers */,
 				4ED65C301A36E80D00D105B3 /* EmailAddress.h in Headers */,
+				4ED661C71A403A3700D105B3 /* KeyPair.h in Headers */,
 				4ED65C1E1A36E80D00D105B3 /* ContactProfessionalInfo.h in Headers */,
 				4ED65C2E1A36E80D00D105B3 /* Email.h in Headers */,
 				4ED65C381A36E80D00D105B3 /* IAccelerationListener.h in Headers */,
 				4ED65C991A36E80D00D105B3 /* IServiceResultCallback.h in Headers */,
 				4ED65C7F1A36E80D00D105B3 /* IMail.h in Headers */,
+				4ED661C01A403A3700D105B3 /* DatabaseTable.h in Headers */,
 				4ED65CA71A36E80D00D105B3 /* IXML.h in Headers */,
+				4ED661C51A403A3700D105B3 /* IDatabaseTableResultCallback.h in Headers */,
 				4ED65C841A36E80D00D105B3 /* INetworkInfo.h in Headers */,
 				4ED65C811A36E80D00D105B3 /* IMap.h in Headers */,
 				4ED65C871A36E80D00D105B3 /* INetworkReachabilityCallback.h in Headers */,
@@ -675,8 +753,10 @@
 				4ED65C621A36E80D00D105B3 /* IContactPhotoResultCallback.h in Headers */,
 				4ED65CB41A36E80D00D105B3 /* ServiceRequest.h in Headers */,
 				4ED65C771A36E80D00D105B3 /* IGyroscope.h in Headers */,
+				4ED661C41A403A3700D105B3 /* IAcceleration.h in Headers */,
 				4ED65C4E1A36E80D00D105B3 /* IBaseMedia.h in Headers */,
 				4ED65C391A36E80D00D105B3 /* IAccelerometer.h in Headers */,
+				4ED661CB1A403A3700D105B3 /* ServiceEndpoint.h in Headers */,
 				4ED65C8A1A36E80D00D105B3 /* INFC.h in Headers */,
 				4ED65C761A36E80D00D105B3 /* IGooglePlus.h in Headers */,
 				4ED65C2A1A36E80D00D105B3 /* Database.h in Headers */,
@@ -688,6 +768,7 @@
 				4ED65C441A36E80D00D105B3 /* IAppResourceHandler.h in Headers */,
 				4ED65C9F1A36E80D00D105B3 /* ITelephony.h in Headers */,
 				4ED65C671A36E80D00D105B3 /* IDataStream.h in Headers */,
+				4ED661BB1A403A3700D105B3 /* APIBridge.h in Headers */,
 				4ED65C3B1A36E80D00D105B3 /* IAds.h in Headers */,
 				4ED65C6E1A36E80D00D105B3 /* IFileDataResultCallback.h in Headers */,
 				4ED65C951A36E80D00D105B3 /* IRuntime.h in Headers */,
@@ -710,6 +791,7 @@
 				4ED65C521A36E80D00D105B3 /* IBaseSecurity.h in Headers */,
 				4ED65C651A36E80D00D105B3 /* IDatabase.h in Headers */,
 				4ED65C0A1A36E80D00D105B3 /* Acceleration.h in Headers */,
+				4ED661C21A403A3700D105B3 /* EmailAttachmentData.h in Headers */,
 				4ED65C9E1A36E80D00D105B3 /* ITableResultCallback.h in Headers */,
 				4ED65C881A36E80D00D105B3 /* INetworkStatus.h in Headers */,
 				4ED65C471A36E80D00D105B3 /* IBarometer.h in Headers */,
@@ -733,6 +815,7 @@
 				4ED65C9A1A36E80D00D105B3 /* ISession.h in Headers */,
 				4ED65CA11A36E80D00D105B3 /* ITwitter.h in Headers */,
 				4ED65CB61A36E80D00D105B3 /* ServiceResponse.h in Headers */,
+				4ED661C91A403A3700D105B3 /* ServiceCookie.h in Headers */,
 				4ED65CB81A36E80D00D105B3 /* Table.h in Headers */,
 				4ED65C3E1A36E80D00D105B3 /* IAnalytics.h in Headers */,
 				4ED65C8C1A36E80D00D105B3 /* INotificationLocal.h in Headers */,
@@ -746,6 +829,7 @@
 				4ED65C181A36E80D00D105B3 /* ContactEmail.h in Headers */,
 				4ED65C5B1A36E80D00D105B3 /* ICalendar.h in Headers */,
 				4ED65C0E1A36E80D00D105B3 /* AttachmentData.h in Headers */,
+				4ED661CF1A403A3700D105B3 /* ServiceSession.h in Headers */,
 				4ED65C531A36E80D00D105B3 /* IBaseSensor.h in Headers */,
 				4ED65C4C1A36E80D00D105B3 /* IBaseData.h in Headers */,
 				4ED65C4F1A36E80D00D105B3 /* IBaseNotification.h in Headers */,
@@ -770,12 +854,14 @@
 				4ED65C561A36E80D00D105B3 /* IBaseUI.h in Headers */,
 				4ED65C851A36E80D00D105B3 /* INetworkNaming.h in Headers */,
 				4ED65C8B1A36E80D00D105B3 /* INotification.h in Headers */,
+				4ED661B91A403A3700D105B3 /* APIBean.h in Headers */,
 				4ED65C6D1A36E80D00D105B3 /* IFileDataLoadResultCallback.h in Headers */,
 				4ED65CAC1A36E80D00D105B3 /* OSInfo.h in Headers */,
 				4ED65C701A36E80D00D105B3 /* IFileListResultCallback.h in Headers */,
 				4ED65C4B1A36E80D00D105B3 /* IBaseCommunication.h in Headers */,
 				4ED65C611A36E80D00D105B3 /* IContact.h in Headers */,
 				4ED65C7C1A36E80D00D105B3 /* ILinkedIn.h in Headers */,
+				4ED661BC1A403A3700D105B3 /* DatabaseColumn.h in Headers */,
 				4ED65C511A36E80D00D105B3 /* IBaseReader.h in Headers */,
 				4ED65C601A36E80D00D105B3 /* IConcurrent.h in Headers */,
 				4ED65C7A1A36E80D00D105B3 /* ILifecycle.h in Headers */,
@@ -893,31 +979,41 @@
 				4ED65C371A36E80D00D105B3 /* Header.m in Sources */,
 				4ED65C131A36E80D00D105B3 /* Column.m in Sources */,
 				4ED65C2F1A36E80D00D105B3 /* Email.m in Sources */,
+				4ED661BD1A403A3700D105B3 /* DatabaseColumn.m in Sources */,
 				4ED65C171A36E80D00D105B3 /* ContactAddress.m in Sources */,
 				4ED65CB51A36E80D00D105B3 /* ServiceRequest.m in Sources */,
 				4ED65C1B1A36E80D00D105B3 /* ContactPersonalInfo.m in Sources */,
 				4ED65CA91A36E80D00D105B3 /* Lifecycle.m in Sources */,
+				4ED661C31A403A3700D105B3 /* EmailAttachmentData.m in Sources */,
 				4ED65C0D1A36E80D00D105B3 /* APIRequest.m in Sources */,
 				4ED65C211A36E80D00D105B3 /* ContactSocial.m in Sources */,
 				4ED65CB91A36E80D00D105B3 /* Table.m in Sources */,
 				4ED65C2B1A36E80D00D105B3 /* Database.m in Sources */,
 				4ED65C0B1A36E80D00D105B3 /* Acceleration.m in Sources */,
+				4ED661C81A403A3700D105B3 /* KeyPair.m in Sources */,
 				4ED65C251A36E80D00D105B3 /* ContactUid.m in Sources */,
 				4ED65CAB1A36E80D00D105B3 /* LocalLocale.m in Sources */,
 				4ED65CAD1A36E80D00D105B3 /* OSInfo.m in Sources */,
 				4ED65CB11A36E80D00D105B3 /* SecureKeyPair.m in Sources */,
 				4ED65C0F1A36E80D00D105B3 /* AttachmentData.m in Sources */,
 				4ED65CB31A36E80D00D105B3 /* Service.m in Sources */,
+				4ED661CC1A403A3700D105B3 /* ServiceEndpoint.m in Sources */,
 				4ED65C191A36E80D00D105B3 /* ContactEmail.m in Sources */,
 				4ED65C331A36E80D00D105B3 /* Endpoint.m in Sources */,
+				4ED661CA1A403A3700D105B3 /* ServiceCookie.m in Sources */,
+				4ED661D01A403A3700D105B3 /* ServiceSession.m in Sources */,
+				4ED661CE1A403A3700D105B3 /* ServiceHeader.m in Sources */,
 				4ED65C151A36E80D00D105B3 /* Contact.m in Sources */,
 				4ED65CAF1A36E80D00D105B3 /* Row.m in Sources */,
 				4ED65C351A36E80D00D105B3 /* Geolocation.m in Sources */,
 				4ED65C111A36E80D00D105B3 /* Button.m in Sources */,
+				4ED661BA1A403A3700D105B3 /* APIBean.m in Sources */,
 				4ED65C1D1A36E80D00D105B3 /* ContactPhone.m in Sources */,
 				4ED65C291A36E80D00D105B3 /* Cookie.m in Sources */,
 				4ED65C2D1A36E80D00D105B3 /* DeviceInfo.m in Sources */,
 				4ED65C271A36E80D00D105B3 /* ContactWebsite.m in Sources */,
+				4ED661C11A403A3700D105B3 /* DatabaseTable.m in Sources */,
+				4ED661BF1A403A3700D105B3 /* DatabaseRow.m in Sources */,
 				4ED65C231A36E80D00D105B3 /* ContactTag.m in Sources */,
 				4ED65C311A36E80D00D105B3 /* EmailAddress.m in Sources */,
 				4ED65CB71A36E80D00D105B3 /* ServiceResponse.m in Sources */,

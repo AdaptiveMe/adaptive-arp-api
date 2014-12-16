@@ -62,7 +62,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithToRecipientsCcRecipientsBccRecipientsEmailAttachmentDataMessageBodyMessageBodyMimeTypeSubject:(NSArray*)toRecipients ccRecipients:(NSArray*)ccRecipients bccRecipients:(NSArray*)bccRecipients emailAttachmentData:(NSArray*)emailAttachmentData messageBody:(NSString*)messageBody messageBodyMimeType:(NSString*)messageBodyMimeType subject:(NSString*)subject {
-          self = [super initWithToRecipientsCcRecipientsBccRecipientsEmailAttachmentDataMessageBodyMessageBodyMimeTypeSubject:toRecipients, ccRecipients, bccRecipients, emailAttachmentData, messageBody, messageBodyMimeType, subject];
+          self = [self init];
           if (self) {
                [self setToRecipients:toRecipients];
                [self setCcRecipients:ccRecipients];
@@ -84,7 +84,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithToRecipientsSubjectMessageBody:(NSArray*)toRecipients subject:(NSString*)subject messageBody:(NSString*)messageBody {
-          self = [super initWithToRecipientsSubjectMessageBody:toRecipients, subject, messageBody];
+          self = [self init];
           if (self) {
                [self setToRecipients:toRecipients];
                [self setSubject:subject];

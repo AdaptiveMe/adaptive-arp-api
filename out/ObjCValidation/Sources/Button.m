@@ -56,7 +56,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithType:(ICapabilitiesButton*)type {
-          self = [super initWithType:type];
+          self = [self init];
           if (self) {
                [self setType:type];
           }

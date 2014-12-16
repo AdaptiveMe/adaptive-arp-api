@@ -57,7 +57,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithNameData:(NSString*)name data:(NSString*)data {
-          self = [super initWithNameData:name, data];
+          self = [self init];
           if (self) {
                [self setName:name];
                [self setData:data];

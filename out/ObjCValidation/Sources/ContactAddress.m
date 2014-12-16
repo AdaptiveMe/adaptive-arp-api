@@ -57,7 +57,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithAddressType:(NSString*)address type:(ContactAddressType*)type {
-          self = [super initWithAddressType:address, type];
+          self = [self init];
           if (self) {
                [self setAddress:address];
                [self setType:type];

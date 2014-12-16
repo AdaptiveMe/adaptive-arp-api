@@ -61,7 +61,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithLatitudeLongitudeAltitudeXDoPYDoPTimestamp:(double*)latitude longitude:(double*)longitude altitude:(double*)altitude xDoP:(float*)xDoP yDoP:(float*)yDoP timestamp:(long*)timestamp {
-          self = [super initWithLatitudeLongitudeAltitudeXDoPYDoPTimestamp:latitude, longitude, altitude, xDoP, yDoP, timestamp];
+          self = [self init];
           if (self) {
                [self setLatitude:latitude];
                [self setLongitude:longitude];
@@ -82,7 +82,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithLatitudeLongitudeTimestamp:(double*)latitude longitude:(double*)longitude timestamp:(long*)timestamp {
-          self = [super initWithLatitudeLongitudeTimestamp:latitude, longitude, timestamp];
+          self = [self init];
           if (self) {
                [self setLatitude:latitude];
                [self setLongitude:longitude];

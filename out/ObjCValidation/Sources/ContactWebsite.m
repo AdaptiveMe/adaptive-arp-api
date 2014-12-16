@@ -56,7 +56,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithUrl:(NSString*)url {
-          self = [super initWithUrl:url];
+          self = [self init];
           if (self) {
                [self setUrl:url];
           }

@@ -57,7 +57,7 @@ Contributors:
         @since ARP1.0
      */
      - (id) initWithSecureKeySecureData:(NSString*)secureKey secureData:(NSString*)secureData {
-          self = [super initWithSecureKeySecureData:secureKey, secureData];
+          self = [self init];
           if (self) {
                [self setSecureKey:secureKey];
                [self setSecureData:secureData];
