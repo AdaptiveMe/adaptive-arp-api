@@ -46,7 +46,7 @@ public protocol ISecurityResultCallback : IBaseCallback {
         @param error Error values
         @since ARP1.0
      */
-     void onError(ISecurityResultCallbackError error);
+     func onError(error : ISecurityResultCallbackError)
 
      /**
         Correct data received.
@@ -54,7 +54,7 @@ public protocol ISecurityResultCallback : IBaseCallback {
         @param keyValues key and values
         @since ARP1.0
      */
-     void onResult([SecureKeyPair] keyValues);
+     func onResult(keyValues : [SecureKeyPair])
 
      /**
         Data received with warning - ie Found entries with existing key and values have been overriden
@@ -63,7 +63,7 @@ public protocol ISecurityResultCallback : IBaseCallback {
         @param warning   Warning values
         @since ARP1.0
      */
-     void onWarning([SecureKeyPair] keyValues, ISecurityResultCallbackWarning warning);
+     func onWarning(keyValues : [SecureKeyPair], warning : ISecurityResultCallbackWarning)
 
 }
 

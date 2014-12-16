@@ -45,7 +45,7 @@ public protocol IRuntime : IBaseSystem {
 
         @since ARP1.0
      */
-     void dismissApplication();
+     func dismissApplication()
 
      /**
         Whether the application dismiss the splash screen successfully or not
@@ -53,7 +53,7 @@ public protocol IRuntime : IBaseSystem {
         @return true if the application has dismissed the splash screen;false otherwise
         @since ARP1.0
      */
-     Bool dismissSplashScreen();
+     func dismissSplashScreen() -> Bool 
 
 }
 

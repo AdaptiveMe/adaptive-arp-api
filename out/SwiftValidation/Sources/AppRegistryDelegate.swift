@@ -32,19 +32,18 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
 
 /**
    Interface to retrieve auto-registered service implementation references.
    Auto-generated implementation of IAppRegistry specification.
 */
-public class AppRegistryDelegate implements IAppRegistry {
+public class AppRegistryDelegate : IAppRegistry {
 
      /**
         Default Constructor.
      */
-     public AppRegistryDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**

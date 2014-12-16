@@ -46,7 +46,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Payload
         @since ARP1.0
      */
-     [Byte] getData();
+     func getData() -> [Byte] 
 
      /**
         Returns the data path of the resource
@@ -54,7 +54,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return The data path of the resource
         @since ARP1.0
      */
-     String getDataPathLinked();
+     func getDataPathLinked() -> String 
 
      /**
         Returns the stored payload of the resource
@@ -62,7 +62,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Stored payload
         @since ARP1.0
      */
-     [Byte] getDataStored();
+     func getDataStored() -> [Byte] 
 
      /**
         Returns the format of the resource
@@ -70,7 +70,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Format of the resource
         @since ARP1.0
      */
-     IAppResourceFormat getFormat();
+     func getFormat() -> IAppResourceFormat 
 
      /**
         Returns the MD5 encoding of the resource
@@ -78,7 +78,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return MD5 encoding of the resource
         @since ARP1.0
      */
-     String getMd5();
+     func getMd5() -> String 
 
      /**
         Returns the Mime-Type of the resource
@@ -86,7 +86,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return The mime-type
         @since ARP1.0
      */
-     String getMimetype();
+     func getMimetype() -> String 
 
      /**
         Returns the name of the resource
@@ -94,7 +94,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Name of the resource
         @since ARP1.0
      */
-     String getName();
+     func getName() -> String 
 
      /**
         Returns the path of the resource
@@ -102,7 +102,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Path of the resource
         @since ARP1.0
      */
-     String getPath();
+     func getPath() -> String 
 
      /**
         Returns the payload type of the resource
@@ -110,7 +110,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Payload type
         @since ARP1.0
      */
-     IAppResourcePayload getPayloadType();
+     func getPayloadType() -> IAppResourcePayload 
 
      /**
         Returns the size of the resource
@@ -118,7 +118,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Size of the resource
         @since ARP1.0
      */
-     Int64 getSize();
+     func getSize() -> Int64 
 
      /**
         Returns the Size of the stored resource
@@ -126,7 +126,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Size of the Stored Resource
         @since ARP1.0
      */
-     Int64 getSizeStored();
+     func getSizeStored() -> Int64 
 
      /**
         Returns the timestamp of the resource
@@ -134,7 +134,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Timestamp of the resource
         @since ARP1.0
      */
-     Int64 getTimestamp();
+     func getTimestamp() -> Int64 
 
      /**
         Returns the type of the resource
@@ -142,7 +142,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Type of the resource
         @since ARP1.0
      */
-     IAppResourceType getType();
+     func getType() -> IAppResourceType 
 
      /**
         Returns the unique identifier of the resource
@@ -150,7 +150,7 @@ public protocol IAppResource : NSObjectProtocol {
         @return Unique Identifier
         @since ARP1.0
      */
-     String getUuid();
+     func getUuid() -> String 
 
 }
 

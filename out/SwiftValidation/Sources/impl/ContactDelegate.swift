@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Contact operations
    Auto-generated implementation of IContact specification.
 */
-public class ContactDelegate extends BasePIMDelegate implements IContact {
+public class ContactDelegate : BasePIMDelegate, IContact {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getContactBridge().setDelegate(new ContactDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getContactBridge().setDelegate(new ContactDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public ContactDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -63,9 +60,8 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         @param callback called for return
         @since ARP1.0
      */
-     public void getContact(ContactUid contact, IContactResultCallback callback) {
+     public func getContact(contact : ContactUid, callback : IContactResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getContact");
      }
 
      /**
@@ -75,9 +71,8 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         @param callback called for return
         @since ARP1.0
      */
-     public void getContactPhoto(ContactUid contact, IContactPhotoResultCallback callback) {
+     public func getContactPhoto(contact : ContactUid, callback : IContactPhotoResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getContactPhoto");
      }
 
      /**
@@ -86,9 +81,8 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         @param callback called for return
         @since ARP1.0
      */
-     public void getContacts(IContactResultCallback callback) {
+     public func getContacts(callback : IContactResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getContacts");
      }
 
      /**
@@ -98,9 +92,8 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         @param fields   to get for each Contact
         @since ARP1.0
      */
-     public void getContactsForFields(IContactResultCallback callback, [IContactFieldGroup] fields) {
+     public func getContactsForFields(callback : IContactResultCallback, fields : [IContactFieldGroup]) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getContactsForFields");
      }
 
      /**
@@ -111,9 +104,8 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         @param filter   to search for
         @since ARP1.0
      */
-     public void getContactsWithFilter(IContactResultCallback callback, [IContactFieldGroup] fields, [IContactFilter] filter) {
+     public func getContactsWithFilter(callback : IContactResultCallback, fields : [IContactFieldGroup], filter : [IContactFilter]) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getContactsWithFilter");
      }
 
      /**
@@ -123,9 +115,8 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         @param callback called for return
         @since ARP1.0
      */
-     public void searchContacts(String term, IContactResultCallback callback) {
+     public func searchContacts(term : String, callback : IContactResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":searchContacts");
      }
 
      /**
@@ -136,9 +127,8 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         @param filter   to search for
         @since ARP1.0
      */
-     public void searchContactsWithFilter(String term, IContactResultCallback callback, [IContactFilter] filter) {
+     public func searchContactsWithFilter(term : String, callback : IContactResultCallback, filter : [IContactFilter]) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":searchContactsWithFilter");
      }
 
      /**
@@ -149,11 +139,9 @@ public class ContactDelegate extends BasePIMDelegate implements IContact {
         @return true if set is successful;false otherwise
         @since ARP1.0
      */
-     public Bool setContactPhoto(ContactUid contact, [Byte] pngImage) {
-          Bool response;
+     public func setContactPhoto(contact : ContactUid, pngImage : [Byte]) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":setContactPhoto");
-          // return response;
      }
 
 }

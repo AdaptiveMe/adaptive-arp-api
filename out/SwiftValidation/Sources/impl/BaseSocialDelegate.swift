@@ -32,34 +32,30 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Base application for Social purposes
    Auto-generated implementation of IBaseSocial specification.
 */
-public class BaseSocialDelegate implements IBaseSocial {
+public class BaseSocialDelegate : IBaseSocial {
 
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     private var apiGroup : IAdaptiveRPGroup
 
      /**
         Default constructor.
      */
-     public BaseSocialDelegate() {
-          this.apiGroup = IAdaptiveRPGroup.Social;
+     public init() {
+          self.apiGroup = IAdaptiveRPGroup.Social
      }
 
      /**
         Return the API group for the given interface.
      */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
+     public final func getAPIGroup() -> IAdaptiveRPGroup {
+          return self.apiGroup;
      }
 
 }

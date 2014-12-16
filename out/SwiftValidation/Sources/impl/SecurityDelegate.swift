@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Security operations
    Auto-generated implementation of ISecurity specification.
 */
-public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity {
+public class SecurityDelegate : BaseSecurityDelegate, ISecurity {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getSecurityBridge().setDelegate(new SecurityDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getSecurityBridge().setDelegate(new SecurityDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public SecurityDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -64,9 +61,8 @@ public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity 
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     public void deleteSecureKeyValuePairs([String] keys, String publicAccessName, ISecurityResultCallback callback) {
+     public func deleteSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecurityResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":deleteSecureKeyValuePairs");
      }
 
      /**
@@ -77,9 +73,8 @@ public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity 
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     public void getSecureKeyValuePairs([String] keys, String publicAccessName, ISecurityResultCallback callback) {
+     public func getSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecurityResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getSecureKeyValuePairs");
      }
 
      /**
@@ -88,11 +83,9 @@ public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity 
         @return true if the device has been modified; false otherwise
         @since ARP1.0
      */
-     public Bool isDeviceModified() {
-          Bool response;
+     public func isDeviceModified() -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":isDeviceModified");
-          // return response;
      }
 
      /**
@@ -103,9 +96,8 @@ public class SecurityDelegate extends BaseSecurityDelegate implements ISecurity 
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     public void setSecureKeyValuePairs([SecureKeyPair] keyValues, String publicAccessName, ISecurityResultCallback callback) {
+     public func setSecureKeyValuePairs(keyValues : [SecureKeyPair], publicAccessName : String, callback : ISecurityResultCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":setSecureKeyValuePairs");
      }
 
 }

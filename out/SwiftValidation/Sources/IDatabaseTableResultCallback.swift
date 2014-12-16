@@ -46,7 +46,7 @@ public protocol IDatabaseTableResultCallback : IBaseCallback {
         @param error Returned error
         @since ARP1.0
      */
-     void onError(IDatabaseTableResultCallbackError error);
+     func onError(error : IDatabaseTableResultCallbackError)
 
      /**
         Result callback for correct responses
@@ -54,7 +54,7 @@ public protocol IDatabaseTableResultCallback : IBaseCallback {
         @param databaseTable Returns the databaseTable
         @since ARP1.0
      */
-     void onResult(DatabaseTable databaseTable);
+     func onResult(databaseTable : DatabaseTable)
 
      /**
         Result callback for warning responses
@@ -63,7 +63,7 @@ public protocol IDatabaseTableResultCallback : IBaseCallback {
         @param warning       Returned Warning
         @since ARP1.0
      */
-     void onWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning);
+     func onWarning(databaseTable : DatabaseTable, warning : IDatabaseTableResultCallbackWarning)
 
 }
 

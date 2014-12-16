@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Globalization results
    Auto-generated implementation of IGlobalization specification.
 */
-public class GlobalizationDelegate extends BaseApplicationDelegate implements IGlobalization {
+public class GlobalizationDelegate : BaseApplicationDelegate, IGlobalization {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getGlobalizationBridge().setDelegate(new GlobalizationDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getGlobalizationBridge().setDelegate(new GlobalizationDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public GlobalizationDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -62,11 +59,9 @@ public class GlobalizationDelegate extends BaseApplicationDelegate implements IG
         @return List of locales
         @since ARP1.0
      */
-     public [Locale] getLocaleSupportedDescriptors() {
-          [Locale] response;
+     public func getLocaleSupportedDescriptors() -> [Locale] {
+          var response : [Locale]
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getLocaleSupportedDescriptors");
-          // return response;
      }
 
      /**
@@ -77,11 +72,9 @@ public class GlobalizationDelegate extends BaseApplicationDelegate implements IG
         @return Localized text.
         @since ARP1.0
      */
-     public String getResourceLiteral(String key, Locale locale) {
-          String response;
+     public func getResourceLiteral(key : String, locale : Locale) -> String {
+          var response : String
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getResourceLiteral");
-          // return response;
      }
 
      /**
@@ -91,11 +84,9 @@ public class GlobalizationDelegate extends BaseApplicationDelegate implements IG
         @return Localized texts in the form of an object.
         @since ARP1.0
      */
-     public [KeyPair] getResourceLiterals(Locale locale) {
-          [KeyPair] response;
+     public func getResourceLiterals(locale : Locale) -> [KeyPair] {
+          var response : [KeyPair]
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getResourceLiterals");
-          // return response;
      }
 
 }

@@ -48,7 +48,7 @@ public protocol ISecurity : IBaseSecurity {
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     void deleteSecureKeyValuePairs([String] keys, String publicAccessName, ISecurityResultCallback callback);
+     func deleteSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecurityResultCallback)
 
      /**
         Retrieves from the device internal storage the entry/entries containing the specified key names.
@@ -58,7 +58,7 @@ public protocol ISecurity : IBaseSecurity {
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     void getSecureKeyValuePairs([String] keys, String publicAccessName, ISecurityResultCallback callback);
+     func getSecureKeyValuePairs(keys : [String], publicAccessName : String, callback : ISecurityResultCallback)
 
      /**
         Returns if the device has been modified in anyhow
@@ -66,7 +66,7 @@ public protocol ISecurity : IBaseSecurity {
         @return true if the device has been modified; false otherwise
         @since ARP1.0
      */
-     Bool isDeviceModified();
+     func isDeviceModified() -> Bool 
 
      /**
         Stores in the device internal storage the specified item/s.
@@ -76,7 +76,7 @@ public protocol ISecurity : IBaseSecurity {
         @param callback         callback to be executed upon function result.
         @since ARP 1.0
      */
-     void setSecureKeyValuePairs([SecureKeyPair] keyValues, String publicAccessName, ISecurityResultCallback callback);
+     func setSecureKeyValuePairs(keyValues : [SecureKeyPair], publicAccessName : String, callback : ISecurityResultCallback)
 
 }
 

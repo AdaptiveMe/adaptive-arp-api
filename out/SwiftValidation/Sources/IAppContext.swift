@@ -46,7 +46,7 @@ public protocol IAppContext : NSObjectProtocol {
         @return Object representing the specific singleton application context provided by the OS.
         @since ARP1.0
      */
-     AnyObject getContext();
+     func getContext() -> AnyObject 
 
      /**
         The type of context provided by the getContext method.
@@ -54,7 +54,7 @@ public protocol IAppContext : NSObjectProtocol {
         @return Type of platform context.
         @since ARP1.0
      */
-     IOSType getContextType();
+     func getContextType() -> IOSType 
 
 }
 

@@ -48,7 +48,7 @@ public protocol IMessaging : IBasePIM {
         @param callback with the result
         @since ARP1.0
      */
-     void sendSMS(String number, String text, IMessagingCallback callback);
+     func sendSMS(number : String, text : String, callback : IMessagingCallback)
 
 }
 

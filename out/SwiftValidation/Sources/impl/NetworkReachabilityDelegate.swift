@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Network reachability operations
    Auto-generated implementation of INetworkReachability specification.
 */
-public class NetworkReachabilityDelegate extends BaseCommunicationDelegate implements INetworkReachability {
+public class NetworkReachabilityDelegate : BaseCommunicationDelegate, INetworkReachability {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getNetworkReachabilityBridge().setDelegate(new NetworkReachabilityDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getNetworkReachabilityBridge().setDelegate(new NetworkReachabilityDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public NetworkReachabilityDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -63,9 +60,8 @@ public class NetworkReachabilityDelegate extends BaseCommunicationDelegate imple
         @param callback Callback called at the end.
         @since ARP1.0
      */
-     public void isNetworkReachable(String host, INetworkReachabilityCallback callback) {
+     public func isNetworkReachable(host : String, callback : INetworkReachabilityCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":isNetworkReachable");
      }
 
      /**
@@ -75,9 +71,8 @@ public class NetworkReachabilityDelegate extends BaseCommunicationDelegate imple
         @param callback Callback called at the end
         @since ARP1.0
      */
-     public void isNetworkServiceReachable(String url, INetworkReachabilityCallback callback) {
+     public func isNetworkServiceReachable(url : String, callback : INetworkReachabilityCallback) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":isNetworkServiceReachable");
      }
 
 }

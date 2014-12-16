@@ -46,7 +46,7 @@ public protocol IGeolocation : IBaseSensor {
         @param listener to be registered.
         @since ARP1.0
      */
-     void addGeolocationListener(IGeolocationListener listener);
+     func addGeolocationListener(listener : IGeolocationListener)
 
      /**
         De-registers an existing listener from receiving geolocation events.
@@ -54,14 +54,14 @@ public protocol IGeolocation : IBaseSensor {
         @param listener to be registered.
         @since ARP1.0
      */
-     void removeGeolocationListener(IGeolocationListener listener);
+     func removeGeolocationListener(listener : IGeolocationListener)
 
      /**
         Removed all existing listeners from receiving geolocation events.
 
         @since ARP1.0
      */
-     void removeGeolocationListeners();
+     func removeGeolocationListeners()
 
 }
 

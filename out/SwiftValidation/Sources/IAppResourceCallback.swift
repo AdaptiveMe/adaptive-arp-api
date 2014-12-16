@@ -46,7 +46,7 @@ public protocol IAppResourceCallback : IBaseCallback {
         @param error Error fired
         @since ARP1.0
      */
-     void onError(IAppResourceCallbackError error);
+     func onError(error : IAppResourceCallbackError)
 
      /**
         Correct result of the App Resource operation
@@ -54,7 +54,7 @@ public protocol IAppResourceCallback : IBaseCallback {
         @param resource Resource
         @since ARP1.0
      */
-     void onResult(IAppResource resource);
+     func onResult(resource : IAppResource)
 
      /**
         Warning result of the App Resource operation
@@ -63,7 +63,7 @@ public protocol IAppResourceCallback : IBaseCallback {
         @param warning  Warning fired
         @since ARP1.0
      */
-     void onWarning(IAppResource resource, IAppResourceCallbackWarning warning);
+     func onWarning(resource : IAppResource, warning : IAppResourceCallbackWarning)
 
 }
 

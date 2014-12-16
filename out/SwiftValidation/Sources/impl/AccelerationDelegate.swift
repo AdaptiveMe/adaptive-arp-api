@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface defining methods about the acceleration sensor
    Auto-generated implementation of IAcceleration specification.
 */
-public class AccelerationDelegate extends BaseSensorDelegate implements IAcceleration {
+public class AccelerationDelegate : BaseSensorDelegate, IAcceleration {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getAccelerationBridge().setDelegate(new AccelerationDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getAccelerationBridge().setDelegate(new AccelerationDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public AccelerationDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -62,9 +59,8 @@ public class AccelerationDelegate extends BaseSensorDelegate implements IAcceler
         @param listener to be registered.
         @since ARP1.0
      */
-     public void addAccelerationListener(IAccelerationListener listener) {
+     public func addAccelerationListener(listener : IAccelerationListener) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":addAccelerationListener");
      }
 
      /**
@@ -73,9 +69,8 @@ public class AccelerationDelegate extends BaseSensorDelegate implements IAcceler
         @param listener to be registered.
         @since ARP1.0
      */
-     public void removeAccelerationListener(IAccelerationListener listener) {
+     public func removeAccelerationListener(listener : IAccelerationListener) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":removeAccelerationListener");
      }
 
      /**
@@ -83,9 +78,8 @@ public class AccelerationDelegate extends BaseSensorDelegate implements IAcceler
 
         @since ARP1.0
      */
-     public void removeAccelerationListeners() {
+     public func removeAccelerationListeners() {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":removeAccelerationListeners");
      }
 
 }

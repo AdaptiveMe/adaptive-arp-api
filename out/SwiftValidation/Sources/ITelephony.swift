@@ -47,7 +47,7 @@ public protocol ITelephony : IBaseCommunication {
         @return Status of the call
         @since ARP1.0
      */
-     ITelephonyStatus call(String number);
+     func call(number : String) -> ITelephonyStatus 
 
 }
 

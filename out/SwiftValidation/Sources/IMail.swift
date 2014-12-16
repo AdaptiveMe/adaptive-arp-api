@@ -47,7 +47,7 @@ public protocol IMail : IBasePIM {
         @param callback Result callback of the operation
         @since ARP1.0
      */
-     void sendEmail(Email data, IMessagingCallback callback);
+     func sendEmail(data : Email, callback : IMessagingCallback)
 
 }
 

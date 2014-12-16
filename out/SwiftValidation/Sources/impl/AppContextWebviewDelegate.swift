@@ -32,21 +32,18 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for webview context management purposes
    Auto-generated implementation of IAppContextWebview specification.
 */
-public class AppContextWebviewDelegate implements IAppContextWebview {
+public class AppContextWebviewDelegate : IAppContextWebview {
 
      /**
         Default Constructor.
      */
-     public AppContextWebviewDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -58,9 +55,8 @@ not be added using this method.
         @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
         @since ARP1.0
      */
-     public void addWebview(AnyObject webView) {
+     public func addWebview(webView : AnyObject) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":addWebview");
      }
 
      /**
@@ -68,9 +64,8 @@ not be added using this method.
 
         @param javaScriptText    The javascript expression to execute on the webview.
      */
-     public void executeJavaScript(String javaScriptText) {
+     public func executeJavaScript(javaScriptText : String) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":executeJavaScript");
      }
 
      /**
@@ -79,9 +74,8 @@ not be added using this method.
         @param javaScriptText    The javascript expression to execute on the webview.
         @param webViewReference  The target webview on which to execute the expression.
      */
-     public void executeJavaScript(String javaScriptText, AnyObject webViewReference) {
+     public func executeJavaScript(javaScriptText : String, webViewReference : AnyObject) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":executeJavaScript");
      }
 
      /**
@@ -92,11 +86,9 @@ WebView, WKWebView, etc.
         @return Object representing the specific and primary webview instance of the application.
         @since ARP1.0
      */
-     public AnyObject getWebviewPrimary() {
-          AnyObject response;
+     public func getWebviewPrimary() -> AnyObject {
+          var response : AnyObject
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getWebviewPrimary");
-          // return response;
      }
 
      /**
@@ -106,11 +98,9 @@ This method will always return at least one element; the primary webview.
         @return Array with all the Webview instances being managed by ARP.
         @since ARP1.0
      */
-     public [AnyObject] getWebviews() {
-          [AnyObject] response;
+     public func getWebviews() -> [AnyObject] {
+          var response : [AnyObject]
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":getWebviews");
-          // return response;
      }
 
      /**
@@ -120,9 +110,8 @@ ARP functions and release resources. The primary webview can not be removed.
         @param webView The instance of the webview to be removed from the binding.
         @since ARP1.0
      */
-     public void removeWebview(AnyObject webView) {
+     public func removeWebview(webView : AnyObject) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":removeWebview");
      }
 
 }

@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Geolocation operations
    Auto-generated implementation of IGeolocation specification.
 */
-public class GeolocationDelegate extends BaseSensorDelegate implements IGeolocation {
+public class GeolocationDelegate : BaseSensorDelegate, IGeolocation {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getGeolocationBridge().setDelegate(new GeolocationDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getGeolocationBridge().setDelegate(new GeolocationDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public GeolocationDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -62,9 +59,8 @@ public class GeolocationDelegate extends BaseSensorDelegate implements IGeolocat
         @param listener to be registered.
         @since ARP1.0
      */
-     public void addGeolocationListener(IGeolocationListener listener) {
+     public func addGeolocationListener(listener : IGeolocationListener) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":addGeolocationListener");
      }
 
      /**
@@ -73,9 +69,8 @@ public class GeolocationDelegate extends BaseSensorDelegate implements IGeolocat
         @param listener to be registered.
         @since ARP1.0
      */
-     public void removeGeolocationListener(IGeolocationListener listener) {
+     public func removeGeolocationListener(listener : IGeolocationListener) {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":removeGeolocationListener");
      }
 
      /**
@@ -83,9 +78,8 @@ public class GeolocationDelegate extends BaseSensorDelegate implements IGeolocat
 
         @since ARP1.0
      */
-     public void removeGeolocationListeners() {
+     public func removeGeolocationListeners() {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":removeGeolocationListeners");
      }
 
 }

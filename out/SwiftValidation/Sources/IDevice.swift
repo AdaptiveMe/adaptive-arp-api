@@ -46,7 +46,7 @@ public protocol IDevice : IBaseSystem {
         @param listener to be registered.
         @since ARP1.0
      */
-     void addButtonListener(IButtonListener listener);
+     func addButtonListener(listener : IButtonListener)
 
      /**
         Returns the device information for the current device executing the runtime.
@@ -54,7 +54,7 @@ public protocol IDevice : IBaseSystem {
         @return DeviceInfo for the current device.
         @since ARP1.0
      */
-     DeviceInfo getDeviceInfo();
+     func getDeviceInfo() -> DeviceInfo 
 
      /**
         Gets the current Locale for the device.
@@ -62,7 +62,7 @@ public protocol IDevice : IBaseSystem {
         @return The current Locale information.
         @since ARP1.0
      */
-     Locale getLocaleCurrent();
+     func getLocaleCurrent() -> Locale 
 
      /**
         De-registers an existing listener from receiving button events.
@@ -70,14 +70,14 @@ public protocol IDevice : IBaseSystem {
         @param listener to be removed.
         @since ARP1.0
      */
-     void removeButtonListener(IButtonListener listener);
+     func removeButtonListener(listener : IButtonListener)
 
      /**
         Removed all existing listeners from receiving button events.
 
         @since ARP1.0
      */
-     void removeButtonListeners();
+     func removeButtonListeners()
 
 }
 

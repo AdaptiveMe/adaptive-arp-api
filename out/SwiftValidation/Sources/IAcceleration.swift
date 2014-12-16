@@ -46,7 +46,7 @@ public protocol IAcceleration : IBaseSensor {
         @param listener to be registered.
         @since ARP1.0
      */
-     void addAccelerationListener(IAccelerationListener listener);
+     func addAccelerationListener(listener : IAccelerationListener)
 
      /**
         De-registers an existing listener from receiving acceleration events.
@@ -54,14 +54,14 @@ public protocol IAcceleration : IBaseSensor {
         @param listener to be registered.
         @since ARP1.0
      */
-     void removeAccelerationListener(IAccelerationListener listener);
+     func removeAccelerationListener(listener : IAccelerationListener)
 
      /**
         Removed all existing listeners from receiving acceleration events.
 
         @since ARP1.0
      */
-     void removeAccelerationListeners();
+     func removeAccelerationListeners()
 
 }
 

@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the browser operations
    Auto-generated implementation of IBrowser specification.
 */
-public class BrowserDelegate extends BaseUIDelegate implements IBrowser {
+public class BrowserDelegate : BaseUIDelegate, IBrowser {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getBrowserBridge().setDelegate(new BrowserDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getBrowserBridge().setDelegate(new BrowserDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public BrowserDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -63,11 +60,9 @@ public class BrowserDelegate extends BaseUIDelegate implements IBrowser {
         @return The result of the operation
         @since ARP1.0
      */
-     public Bool openExtenalBrowser(String url) {
-          Bool response;
+     public func openExtenalBrowser(url : String) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":openExtenalBrowser");
-          // return response;
      }
 
      /**
@@ -79,11 +74,9 @@ public class BrowserDelegate extends BaseUIDelegate implements IBrowser {
         @return The result of the operation
         @since ARP1.0
      */
-     public Bool openInternalBrowser(String url, String title, String backButtonText) {
-          Bool response;
+     public func openInternalBrowser(url : String, title : String, backButtonText : String) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":openInternalBrowser");
-          // return response;
      }
 
      /**
@@ -95,11 +88,9 @@ public class BrowserDelegate extends BaseUIDelegate implements IBrowser {
         @return The result of the operation
         @since ARP1.0
      */
-     public Bool openInternalBrowserModal(String url, String title, String backButtonText) {
-          Bool response;
+     public func openInternalBrowserModal(url : String, title : String, backButtonText : String) -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":openInternalBrowserModal");
-          // return response;
      }
 
 }

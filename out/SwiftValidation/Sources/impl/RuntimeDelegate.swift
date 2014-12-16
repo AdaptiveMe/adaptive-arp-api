@@ -32,28 +32,25 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Interface for Managing the Runtime operations
    Auto-generated implementation of IRuntime specification.
 */
-public class RuntimeDelegate extends BaseSystemDelegate implements IRuntime {
+public class RuntimeDelegate : BaseSystemDelegate, IRuntime {
 
      /**
         Register delegate with the Application Registry.
      */
-     static {
-          AppRegistryBridge.getInstance().getRuntimeBridge().setDelegate(new RuntimeDelegate());
-     }
+     //static {
+          //AppRegistryBridge.getInstance().getRuntimeBridge().setDelegate(new RuntimeDelegate());
+     //}
 
      /**
         Default Constructor.
      */
-     public RuntimeDelegate() {
-          super();
+     public override init() {
+          super.init()
      }
 
      /**
@@ -61,9 +58,8 @@ public class RuntimeDelegate extends BaseSystemDelegate implements IRuntime {
 
         @since ARP1.0
      */
-     public void dismissApplication() {
+     public func dismissApplication() {
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":dismissApplication");
      }
 
      /**
@@ -72,11 +68,9 @@ public class RuntimeDelegate extends BaseSystemDelegate implements IRuntime {
         @return true if the application has dismissed the splash screen;false otherwise
         @since ARP1.0
      */
-     public Bool dismissSplashScreen() {
-          Bool response;
+     public func dismissSplashScreen() -> Bool {
+          var response : Bool
           // TODO: Not implemented.
-          throw new UnsupportedOperationException(this.getClass().getName()+":dismissSplashScreen");
-          // return response;
      }
 
 }

@@ -47,7 +47,7 @@ public protocol INetworkReachability : IBaseCommunication {
         @param callback Callback called at the end.
         @since ARP1.0
      */
-     void isNetworkReachable(String host, INetworkReachabilityCallback callback);
+     func isNetworkReachable(host : String, callback : INetworkReachabilityCallback)
 
      /**
         Whether there is connectivity to an url of a service or not.
@@ -56,7 +56,7 @@ public protocol INetworkReachability : IBaseCommunication {
         @param callback Callback called at the end
         @since ARP1.0
      */
-     void isNetworkServiceReachable(String url, INetworkReachabilityCallback callback);
+     func isNetworkServiceReachable(url : String, callback : INetworkReachabilityCallback)
 
 }
 

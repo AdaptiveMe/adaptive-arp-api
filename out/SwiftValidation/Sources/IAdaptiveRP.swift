@@ -46,7 +46,7 @@ public protocol IAdaptiveRP : NSObjectProtocol {
         @return API GRoup
         @since ARP1.0
      */
-     IAdaptiveRPGroup getAPIGroup();
+     func getAPIGroup() -> IAdaptiveRPGroup 
 
 }
 

@@ -46,7 +46,7 @@ public protocol INetworkReachabilityCallback : IBaseCallback {
         @param error Error value
         @since ARP1.0
      */
-     void onError(INetworkReachabilityCallbackError error);
+     func onError(error : INetworkReachabilityCallbackError)
 
      /**
         Correct data received.
@@ -54,7 +54,7 @@ public protocol INetworkReachabilityCallback : IBaseCallback {
         @param reachable Indicates if the host is reachable
         @since ARP1.0
      */
-     void onResult(Bool reachable);
+     func onResult(reachable : Bool)
 
      /**
         Data received with warning - ie Found entries with existing key and values have been overriden
@@ -63,7 +63,7 @@ public protocol INetworkReachabilityCallback : IBaseCallback {
         @param warning   Warning value
         @since ARP1.0
      */
-     void onWarning(Bool reachable, INetworkReachabilityCallbackWarning warning);
+     func onWarning(reachable : Bool, warning : INetworkReachabilityCallbackWarning)
 
 }
 

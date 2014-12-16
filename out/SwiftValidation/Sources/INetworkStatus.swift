@@ -46,7 +46,7 @@ public protocol INetworkStatus : IBaseCommunication {
         @param listener Listener with the result
         @since ARP1.0
      */
-     void addNetworkStatusListener(INetworkStatusListener listener);
+     func addNetworkStatusListener(listener : INetworkStatusListener)
 
      /**
         Un-registers an existing listener from receiving network status events.
@@ -54,14 +54,14 @@ public protocol INetworkStatus : IBaseCommunication {
         @param listener Listener with the result
         @since ARP1.0
      */
-     void removeNetworkStatusListener(INetworkStatusListener listener);
+     func removeNetworkStatusListener(listener : INetworkStatusListener)
 
      /**
         Removes all existing listeners from receiving network status events.
 
         @since ARP1.0
      */
-     void removeNetworkStatusListeners();
+     func removeNetworkStatusListeners()
 
 }
 

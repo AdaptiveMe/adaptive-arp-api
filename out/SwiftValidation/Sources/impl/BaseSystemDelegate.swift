@@ -32,34 +32,30 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Base application for System purposes
    Auto-generated implementation of IBaseSystem specification.
 */
-public class BaseSystemDelegate implements IBaseSystem {
+public class BaseSystemDelegate : IBaseSystem {
 
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     private var apiGroup : IAdaptiveRPGroup
 
      /**
         Default constructor.
      */
-     public BaseSystemDelegate() {
-          this.apiGroup = IAdaptiveRPGroup.System;
+     public init() {
+          self.apiGroup = IAdaptiveRPGroup.System
      }
 
      /**
         Return the API group for the given interface.
      */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
+     public final func getAPIGroup() -> IAdaptiveRPGroup {
+          return self.apiGroup;
      }
 
 }

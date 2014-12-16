@@ -46,7 +46,7 @@ public protocol IFileDataLoadResultCallback : IBaseCallback {
         @param error Error condition encountered.
         @since ARP1.0
      */
-     void onError(IFileDataLoadResultCallbackError error);
+     func onError(error : IFileDataLoadResultCallbackError)
 
      /**
         Result of data retrieval operation.
@@ -54,7 +54,7 @@ public protocol IFileDataLoadResultCallback : IBaseCallback {
         @param data Data loaded.
         @since ARP1.0
      */
-     void onResult([Byte] data);
+     func onResult(data : [Byte])
 
      /**
         Result with warning of data retrieval/storage operation.
@@ -63,7 +63,7 @@ public protocol IFileDataLoadResultCallback : IBaseCallback {
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     void onWarning([Byte] data, IFileDataLoadResultCallbackWarning warning);
+     func onWarning(data : [Byte], warning : IFileDataLoadResultCallbackWarning)
 
 }
 

@@ -32,34 +32,30 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.impl;
-
-import me.adaptive.arp.api.*;
 
 /**
    Base application for UI purposes
    Auto-generated implementation of IBaseUI specification.
 */
-public class BaseUIDelegate implements IBaseUI {
+public class BaseUIDelegate : IBaseUI {
 
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     private var apiGroup : IAdaptiveRPGroup
 
      /**
         Default constructor.
      */
-     public BaseUIDelegate() {
-          this.apiGroup = IAdaptiveRPGroup.UI;
+     public init() {
+          self.apiGroup = IAdaptiveRPGroup.UI
      }
 
      /**
         Return the API group for the given interface.
      */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
+     public final func getAPIGroup() -> IAdaptiveRPGroup {
+          return self.apiGroup;
      }
 
 }
