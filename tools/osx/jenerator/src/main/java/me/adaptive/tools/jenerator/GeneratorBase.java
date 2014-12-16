@@ -859,7 +859,10 @@ public abstract class GeneratorBase {
                     byte[] buffer = new byte[p.getInputStream().available()];
                     p.getInputStream().read(buffer);
                     versionString = new String(buffer);
-                    versionString = versionString.substring(0, versionString.indexOf('-'));
+                    if (versionString.indexOf('-')>0) {
+                        versionString = versionString.substring(0, versionString.indexOf('-'));
+                    }
+                    versionString = versionString.trim();
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {

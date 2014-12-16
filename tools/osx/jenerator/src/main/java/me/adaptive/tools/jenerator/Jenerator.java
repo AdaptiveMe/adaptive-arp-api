@@ -32,6 +32,8 @@ import me.adaptive.tools.jenerator.swift.SwiftGenerator;
 import me.adaptive.tools.jenerator.typescript.TypeScriptGenerator;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -45,21 +47,22 @@ public class Jenerator {
         String sourcePath = "/Users/clozano/Github/Runtime/adaptive-arp-api/adaptive-arp-api-specs/src";
         String[] packages = {"me.adaptive.arp.api"};
 
+        /*
         Process p = Runtime.getRuntime().exec("git describe --tags");
         p.waitFor();
         byte[] buffer = new byte[p.getInputStream().available()];
         p.getInputStream().read(buffer);
         String versionString = new String(buffer);
-        versionString = versionString.substring(0, versionString.indexOf('-'));
+        if (versionString.indexOf('-')>0) {
+            versionString = versionString.substring(0, versionString.indexOf('-'));
+        }
+        int minor = Integer.parseInt(versionString.substring(versionString.lastIndexOf('.')+1).trim());
         p.destroy();
 
-        p = Runtime.getRuntime().exec("git tag -a 2.0 -m 'Initial release.'");
+        p = Runtime.getRuntime().exec("git tag -a "+versionString.substring(0,versionString.lastIndexOf('.')+1)+(++minor)+" -m 'Release_"+System.currentTimeMillis()+"'");
         p.waitFor();
-        System.out.println("EXIT: "+p.exitValue());
         p.destroy();
-
-        p = Runtime.getRuntime().exec("git push origin --tags");
-        p.waitFor();
+        */
 
         List<JavaClass> targetSources = GeneratorCompiler.describeSources(new File(sourcePath));
         List<JavaClass> unmodifiableSourceList = Collections.unmodifiableList(targetSources);
@@ -79,5 +82,15 @@ public class Jenerator {
         }
     }
 
-
+    private static String readStream(InputStream is) {
+        String result = "";
+        try {
+            byte[] buffer = new byte[is.available()];
+            is.read(buffer);
+            result = new String(buffer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
