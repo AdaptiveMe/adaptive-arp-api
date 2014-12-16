@@ -40,7 +40,6 @@ module Adaptive {
         @version 1.0
      */
      export interface IAdaptiveRP {
-          API_VERSION : string;
           /**
              Method that returns the API group of the implementation
              @return API GRoup

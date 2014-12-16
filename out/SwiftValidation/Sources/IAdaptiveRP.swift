@@ -36,8 +36,6 @@ Contributors:
    @version 1.0
 */
 public protocol IAdaptiveRP : NSObjectProtocol {
-
-     var API_VERSION : String { get }
      /**
         Method that returns the API group of the implementation
         @return API GRoup

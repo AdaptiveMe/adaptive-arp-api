@@ -49,11 +49,6 @@ package me.adaptive.arp.api;
 public interface IAdaptiveRP {
 
     /**
-     * API Version
-     */
-    String API_VERSION = "X.Y.Z";
-
-    /**
      * Method that returns the API group of the implementation
      *
      * @return API GRoup

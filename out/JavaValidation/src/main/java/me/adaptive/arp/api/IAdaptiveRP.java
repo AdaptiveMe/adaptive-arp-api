@@ -38,7 +38,6 @@ package me.adaptive.arp.api;
    @version 1.0
 */
 public interface IAdaptiveRP {
-     String API_VERSION = "TO_BE_REPLACED";
      /**
         Method that returns the API group of the implementation
 
