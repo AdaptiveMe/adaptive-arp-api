@@ -28,27 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface for Managing the Messaging operations
-
-   @author Francisco Javier Martin Bueno
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol IMessaging : IBasePIM {
-     /**
-        Send text SMS
-        @param number   to send
-        @param text     to send
-        @param callback with the result
-        @since ARP1.0
-     */
-     func sendSMS(number:String, text:String, callback:IMessagingCallback)
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

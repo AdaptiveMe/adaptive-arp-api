@@ -28,38 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface for Managing the Lifecycle listeners
-
-   @author Carlos Lozano Diez
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol ILifecycleListener : IBaseListener {
-     /**
-        No data received - error condition, not authorized or hardware not available.
-        @param error Type of error encountered during reading.
-        @since ARP1.0
-     */
-     func onError(error:ILifecycleListenerError)
-     /**
-        Called when lifecycle changes somehow.
-        @param lifecycle Lifecycle element
-        @since ARP1.0
-     */
-     func onResult(lifecycle:Lifecycle)
-     /**
-        Data received with warning
-        @param lifecycle Lifecycle element
-        @param warning Type of warning encountered during reading.
-        @since ARP1.0
-     */
-     func onWarning(lifecycle:Lifecycle, warning:ILifecycleListenerWarning)
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

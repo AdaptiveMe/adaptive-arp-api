@@ -28,38 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface for Managing the button  operations
-
-   @author Carlos Lozano Diez
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol IButtonListener : IBaseListener {
-     /**
-        No data received
-        @param error occurred
-        @since ARP1.0
-     */
-     func onError(error:IButtonListenerError)
-     /**
-        Called on button pressed
-        @param button pressed
-        @since ARP1.0
-     */
-     func onResult(button:Button)
-     /**
-        Data received with warning
-        @param button  pressed
-        @param warning happened
-        @since ARP1.0
-     */
-     func onWarning(button:Button, warning:IButtonListenerWarning)
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

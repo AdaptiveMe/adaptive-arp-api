@@ -28,19 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface for Managing the Calendar operations
-
-   @author Carlos Lozano Diez
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol ICalendar : IBasePIM {
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

@@ -28,19 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Base application for Application purposes
-
-   @author Carlos Lozano Diez
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol IBaseApplication : IAdaptiveRP {
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

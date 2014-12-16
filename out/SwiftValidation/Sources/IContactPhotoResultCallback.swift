@@ -28,38 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface for Managing the Contact operations
-
-   @author Francisco Javier Martin Bueno
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol IContactPhotoResultCallback : IBaseCallback {
-     /**
-        This method is called on Error
-        @param error returned by the platform
-        @since ARP1.0
-     */
-     func onError(error:IContactPhotoResultCallbackError)
-     /**
-        This method is called on Result
-        @param contactPhoto returned by the platform
-        @since ARP1.0
-     */
-     func onResult(contactPhoto:[Byte])
-     /**
-        This method is called on Warning
-        @param contactPhoto returned by the platform
-        @param warning      returned by the platform
-        @since ARP1.0
-     */
-     func onWarning(contactPhoto:[Byte], warning:IContactPhotoResultCallbackWarning)
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

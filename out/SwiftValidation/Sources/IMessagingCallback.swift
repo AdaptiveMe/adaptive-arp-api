@@ -28,38 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface for Managing the Messaging responses
-
-   @author Francisco Javier Martin Bueno
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol IMessagingCallback : IBaseCallback {
-     /**
-        This method is called on Error
-        @param error returned by the platform
-        @since ARP1.0
-     */
-     func onError(error:IMessagingCallbackError)
-     /**
-        This method is called on Result
-        @param success true if sent;false otherwise
-        @since ARP1.0
-     */
-     func onResult(success:Bool)
-     /**
-        This method is called on Warning
-        @param success true if sent;false otherwise
-        @param warning returned by the platform
-        @since ARP1.0
-     */
-     func onWarning(success:Bool, warning:IMessagingCallbackWarning)
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

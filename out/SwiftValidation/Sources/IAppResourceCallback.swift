@@ -28,38 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   This interface manages the responses of the resource callback
-
-   @author Carlos Lozano Diez
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol IAppResourceCallback : IBaseCallback {
-     /**
-        Error result of the App resource operation
-        @param error Error fired
-        @since ARP1.0
-     */
-     func onError(error:IAppResourceCallbackError)
-     /**
-        Correct result of the App Resource operation
-        @param resource Resource
-        @since ARP1.0
-     */
-     func onResult(resource:IAppResource)
-     /**
-        Warning result of the App Resource operation
-        @param resource Resource
-        @param warning  Warning fired
-        @since ARP1.0
-     */
-     func onWarning(resource:IAppResource, warning:IAppResourceCallbackWarning)
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

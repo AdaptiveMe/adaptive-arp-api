@@ -28,38 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface for Managing the Security result callback
-
-   @author Aryslan
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol ISecurityResultCallback : IBaseCallback {
-     /**
-        No data received - error condition, not authorized .
-        @param error Error values
-        @since ARP1.0
-     */
-     func onError(error:ISecurityResultCallbackError)
-     /**
-        Correct data received.
-        @param keyValues key and values
-        @since ARP1.0
-     */
-     func onResult(keyValues:[SecureKeyPair])
-     /**
-        Data received with warning - ie Found entries with existing key and values have been overriden
-        @param keyValues key and values
-        @param warning   Warning values
-        @since ARP1.0
-     */
-     func onWarning(keyValues:[SecureKeyPair], warning:ISecurityResultCallbackWarning)
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

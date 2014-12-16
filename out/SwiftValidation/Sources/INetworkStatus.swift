@@ -28,36 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface for Managing the Network status
-
-   @author Carlos Lozano Diez
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol INetworkStatus : IBaseCommunication {
-     /**
-        Add the listener for network status changes of the app
-        @param listener Listener with the result
-        @since ARP1.0
-     */
-     func addNetworkStatusListener(listener:INetworkStatusListener)
-     /**
-        Un-registers an existing listener from receiving network status events.
-        @param listener Listener with the result
-        @since ARP1.0
-     */
-     func removeNetworkStatusListener(listener:INetworkStatusListener)
-     /**
-        Removes all existing listeners from receiving network status events.
-        @since ARP1.0
-     */
-     func removeNetworkStatusListeners()
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

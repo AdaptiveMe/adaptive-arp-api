@@ -28,43 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface for Managing the Lifecycle listeners
-
-   @author Carlos Lozano Diez
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol ILifecycle : IBaseApplication {
-     /**
-        Add the listener for the lifecycle of the app
-        @param listener Lifecycle listener
-        @since ARP1.0
-     */
-     func addLifecycleListener(listener:ILifecycleListener)
-     /**
-        Whether the application is in background or not
-        @return true if the application is in background;false otherwise
-        @since ARP1.0
-     */
-     func isBackground() -> Bool
-
-     /**
-        Un-registers an existing listener from receiving lifecycle events.
-        @param listener Lifecycle listener
-        @since ARP1.0
-     */
-     func removeLifecycleListener(listener:ILifecycleListener)
-     /**
-        Removes all existing listeners from receiving lifecycle events.
-        @since ARP1.0
-     */
-     func removeLifecycleListeners()
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

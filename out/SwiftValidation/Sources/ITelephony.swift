@@ -28,27 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface for Managing the Telephony operations
-
-   @author Francisco Javier Martin Bueno
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol ITelephony : IBaseCommunication {
-     /**
-        Invoke a phone call
-        @param number to call
-        @return Status of the call
-        @since ARP1.0
-     */
-     func call(number:String) -> ITelephonyStatus
-
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

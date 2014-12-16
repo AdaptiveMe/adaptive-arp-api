@@ -28,50 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface for Managing the Device operations
-
-   @author Francisco Javier Martin Bueno
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol IDevice : IBaseSystem {
-     /**
-        Register a new listener that will receive button events.
-        @param listener to be registered.
-        @since ARP1.0
-     */
-     func addButtonListener(listener:IButtonListener)
-     /**
-        Returns the device information for the current device executing the runtime.
-        @return DeviceInfo for the current device.
-        @since ARP1.0
-     */
-     func getDeviceInfo() -> DeviceInfo
-
-     /**
-        Gets the current Locale for the device.
-        @return The current Locale information.
-        @since ARP1.0
-     */
-     func getLocaleCurrent() -> Locale
-
-     /**
-        De-registers an existing listener from receiving button events.
-        @param listener to be removed.
-        @since ARP1.0
-     */
-     func removeButtonListener(listener:IButtonListener)
-     /**
-        Removed all existing listeners from receiving button events.
-        @since ARP1.0
-     */
-     func removeButtonListeners()
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------

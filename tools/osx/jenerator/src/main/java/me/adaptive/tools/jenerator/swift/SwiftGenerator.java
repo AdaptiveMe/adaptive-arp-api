@@ -73,7 +73,7 @@ public class SwiftGenerator extends GeneratorBase {
     @Override
     protected void startCustomClass(String className, Class clazz, JavaClass javaClass, boolean implementation) {
         if (implementation) {
-            currentFile = new File(getOutputRootDirectory(), "impl"+File.separator+clazz.getSimpleName() + ".swift");
+            currentFile = new File(getOutputRootDirectory(), "impl"+File.separator+ className + ".swift");
         } else {
             currentFile = new File(getOutputRootDirectory(), clazz.getSimpleName() + ".swift");
         }

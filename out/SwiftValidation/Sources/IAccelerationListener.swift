@@ -28,39 +28,9 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
-
-/**
-   Interface defines the response methods of the acceleration operations
-
-   @author Carlos Lozano Diez
-   @since ARP1.0
-   @version 1.0
-*/
-public protocol IAccelerationListener : IBaseListener {
-     /**
-        No data received - error condition, not authorized or hardware not available. This will be reported once for the
-listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
-        @param error Error fired
-        @since ARP1.0
-     */
-     func onError(error:IAccelerationListenerError)
-     /**
-        Correct data received.
-        @param acceleration Acceleration received
-        @since ARP1.0
-     */
-     func onResult(acceleration:Acceleration)
-     /**
-        Data received with warning - ie. Needs calibration.
-        @param acceleration Acceleration received
-        @param warning      Warning fired
-        @since ARP1.0
-     */
-     func onWarning(acceleration:Acceleration, warning:IAccelerationListenerWarning)
-}
 
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
