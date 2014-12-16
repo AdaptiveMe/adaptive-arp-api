@@ -23,7 +23,7 @@ Maven:
 <dependency>
         <groupId>adaptive-arp-api-java</groupId>
         <artifactId>arp-api-specs</artifactId>
-        <version>1.0.14</version>
+        <version>2.0.0</version>
         <type>jar</type>
 </dependency>
 
@@ -32,9 +32,10 @@ Maven:
 Gradle:
 
 ```
-compile(group: 'adaptive-arp-api-java', name: 'arp-api-specs', version: '1.0.14', ext: 'jar')
+compile(group: 'adaptive-arp-api-java', name: 'arp-api-specs', version: '2.0.0', ext: 'jar')
 ```
 
+[ ![Download](https://api.bintray.com/packages/adaptiveme/arp/arp-api-java/images/download.svg) ](https://bintray.com/adaptiveme/arp/arp-api-java/_latestVersion)
 
 #### adaptive-arp-api-objc
 
@@ -321,4 +322,4 @@ Apache License
    limitations under the License.
 ```
 
-##### Forged with ♥ in Barcelona · © 2013 - 2014 [adaptive.me](http://adaptive.me) / [Carlos Lozano Diez](http://google.com/+CarlosLozano).
+##### Forged with ♥ in Barcelona · © 2013 - 2015 [adaptive.me](http://adaptive.me) / [Carlos Lozano Diez](http://google.com/+CarlosLozano).

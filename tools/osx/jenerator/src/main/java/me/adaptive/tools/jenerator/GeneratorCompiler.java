@@ -97,6 +97,7 @@ public class GeneratorCompiler {
                     System.out.print(".");
                 }
 
+
                 Collections.sort(allClasses, new Comparator<Class<? extends Object>>() {
                     @Override
                     public int compare(Class<? extends Object> o1, Class<? extends Object> o2) {

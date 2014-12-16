@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
@@ -15,6 +15,7 @@
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkProfile>Profile157</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <ReleaseVersion>1.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,7 +25,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,7 +33,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <TargetPlatform Include="Windows Phone, Version=8.1" />
@@ -41,151 +40,6 @@
     <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adaptive\Arp\Api\Acceleration.cs" />
-    <Compile Include="Adaptive\Arp\Api\AttachmentData.cs" />
-    <Compile Include="Adaptive\Arp\Api\Button.cs" />
-    <Compile Include="Adaptive\Arp\Api\Column.cs" />
-    <Compile Include="Adaptive\Arp\Api\Contact.cs" />
-    <Compile Include="Adaptive\Arp\Api\ContactAddress.cs" />
-    <Compile Include="Adaptive\Arp\Api\ContactEmail.cs" />
-    <Compile Include="Adaptive\Arp\Api\ContactPersonalInfo.cs" />
-    <Compile Include="Adaptive\Arp\Api\ContactPhone.cs" />
-    <Compile Include="Adaptive\Arp\Api\ContactProfessionalInfo.cs" />
-    <Compile Include="Adaptive\Arp\Api\ContactSocial.cs" />
-    <Compile Include="Adaptive\Arp\Api\ContactTag.cs" />
-    <Compile Include="Adaptive\Arp\Api\ContactUid.cs" />
-    <Compile Include="Adaptive\Arp\Api\ContactWebsite.cs" />
-    <Compile Include="Adaptive\Arp\Api\Cookie.cs" />
-    <Compile Include="Adaptive\Arp\Api\Database.cs" />
-    <Compile Include="Adaptive\Arp\Api\DeviceInfo.cs" />
-    <Compile Include="Adaptive\Arp\Api\Email.cs" />
-    <Compile Include="Adaptive\Arp\Api\EmailAddress.cs" />
-    <Compile Include="Adaptive\Arp\Api\Endpoint.cs" />
-    <Compile Include="Adaptive\Arp\Api\Geolocation.cs" />
-    <Compile Include="Adaptive\Arp\Api\Header.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAccelerationListener.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAccelerometer.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAdaptiveRP.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAds.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAlarm.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAmbientLight.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAnalytics.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAppContext.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAppContextWebview.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAppRegistry.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAppResource.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAppResourceCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAppResourceHandler.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAppServer.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAppServerListener.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAppServerManager.cs" />
-    <Compile Include="Adaptive\Arp\Api\IAudio.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBarcode.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBarometer.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseApplication.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseCommerce.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseCommunication.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseData.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseListener.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseMedia.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseNotification.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBasePIM.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseReader.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseSecurity.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseSensor.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseSocial.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseSystem.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseUI.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBaseUtil.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBluetooth.cs" />
-    <Compile Include="Adaptive\Arp\Api\IBrowser.cs" />
-    <Compile Include="Adaptive\Arp\Api\IButtonListener.cs" />
-    <Compile Include="Adaptive\Arp\Api\ICalendar.cs" />
-    <Compile Include="Adaptive\Arp\Api\ICamera.cs" />
-    <Compile Include="Adaptive\Arp\Api\ICapabilities.cs" />
-    <Compile Include="Adaptive\Arp\Api\ICloud.cs" />
-    <Compile Include="Adaptive\Arp\Api\ICompression.cs" />
-    <Compile Include="Adaptive\Arp\Api\IConcurrent.cs" />
-    <Compile Include="Adaptive\Arp\Api\IContact.cs" />
-    <Compile Include="Adaptive\Arp\Api\IContactPhotoResultCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\IContactResultCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\ICrypto.cs" />
-    <Compile Include="Adaptive\Arp\Api\IDatabase.cs" />
-    <Compile Include="Adaptive\Arp\Api\IDatabaseResultCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\IDataStream.cs" />
-    <Compile Include="Adaptive\Arp\Api\IDesktop.cs" />
-    <Compile Include="Adaptive\Arp\Api\IDevice.cs" />
-    <Compile Include="Adaptive\Arp\Api\IDisplay.cs" />
-    <Compile Include="Adaptive\Arp\Api\IFacebook.cs" />
-    <Compile Include="Adaptive\Arp\Api\IFile.cs" />
-    <Compile Include="Adaptive\Arp\Api\IFileDataResultCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\IFileListResultCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\IFilePath.cs" />
-    <Compile Include="Adaptive\Arp\Api\IFileResultCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\IFileSystem.cs" />
-    <Compile Include="Adaptive\Arp\Api\IGeolocation.cs" />
-    <Compile Include="Adaptive\Arp\Api\IGeolocationListener.cs" />
-    <Compile Include="Adaptive\Arp\Api\IGlobalization.cs" />
-    <Compile Include="Adaptive\Arp\Api\IGooglePlus.cs" />
-    <Compile Include="Adaptive\Arp\Api\IGyroscope.cs" />
-    <Compile Include="Adaptive\Arp\Api\IImaging.cs" />
-    <Compile Include="Adaptive\Arp\Api\IInternalStorage.cs" />
-    <Compile Include="Adaptive\Arp\Api\ILifecycle.cs" />
-    <Compile Include="Adaptive\Arp\Api\ILifecycleListener.cs" />
-    <Compile Include="Adaptive\Arp\Api\ILinkedIn.cs" />
-    <Compile Include="Adaptive\Arp\Api\ILogging.cs" />
-    <Compile Include="Adaptive\Arp\Api\IMagnetometer.cs" />
-    <Compile Include="Adaptive\Arp\Api\IMail.cs" />
-    <Compile Include="Adaptive\Arp\Api\IManagement.cs" />
-    <Compile Include="Adaptive\Arp\Api\IMap.cs" />
-    <Compile Include="Adaptive\Arp\Api\IMessaging.cs" />
-    <Compile Include="Adaptive\Arp\Api\IMessagingCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\INetworkInfo.cs" />
-    <Compile Include="Adaptive\Arp\Api\INetworkNaming.cs" />
-    <Compile Include="Adaptive\Arp\Api\INetworkReachability.cs" />
-    <Compile Include="Adaptive\Arp\Api\INetworkReachabilityCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\INetworkStatus.cs" />
-    <Compile Include="Adaptive\Arp\Api\INFC.cs" />
-    <Compile Include="Adaptive\Arp\Api\INotification.cs" />
-    <Compile Include="Adaptive\Arp\Api\INotificationLocal.cs" />
-    <Compile Include="Adaptive\Arp\Api\InvalidPathException.cs" />
-    <Compile Include="Adaptive\Arp\Api\IOAuth.cs" />
-    <Compile Include="Adaptive\Arp\Api\IOCR.cs" />
-    <Compile Include="Adaptive\Arp\Api\IOpenId.cs" />
-    <Compile Include="Adaptive\Arp\Api\IOS.cs" />
-    <Compile Include="Adaptive\Arp\Api\IPrinting.cs" />
-    <Compile Include="Adaptive\Arp\Api\IProximity.cs" />
-    <Compile Include="Adaptive\Arp\Api\IQRCode.cs" />
-    <Compile Include="Adaptive\Arp\Api\IRSS.cs" />
-    <Compile Include="Adaptive\Arp\Api\IRuntime.cs" />
-    <Compile Include="Adaptive\Arp\Api\ISecureKVResultCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\ISecurity.cs" />
-    <Compile Include="Adaptive\Arp\Api\IService.cs" />
-    <Compile Include="Adaptive\Arp\Api\IServiceResultCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\ISession.cs" />
-    <Compile Include="Adaptive\Arp\Api\ISettings.cs" />
-    <Compile Include="Adaptive\Arp\Api\ISocket.cs" />
-    <Compile Include="Adaptive\Arp\Api\IStore.cs" />
-    <Compile Include="Adaptive\Arp\Api\ITableResultCallback.cs" />
-    <Compile Include="Adaptive\Arp\Api\ITelephony.cs" />
-    <Compile Include="Adaptive\Arp\Api\ITimer.cs" />
-    <Compile Include="Adaptive\Arp\Api\ITwitter.cs" />
-    <Compile Include="Adaptive\Arp\Api\IUI.cs" />
-    <Compile Include="Adaptive\Arp\Api\IUpdate.cs" />
-    <Compile Include="Adaptive\Arp\Api\IVibration.cs" />
-    <Compile Include="Adaptive\Arp\Api\IVideo.cs" />
-    <Compile Include="Adaptive\Arp\Api\IWallet.cs" />
-    <Compile Include="Adaptive\Arp\Api\IXML.cs" />
-    <Compile Include="Adaptive\Arp\Api\Lifecycle.cs" />
-    <Compile Include="Adaptive\Arp\Api\Locale.cs" />
-    <Compile Include="Adaptive\Arp\Api\OSInfo.cs" />
-    <Compile Include="Adaptive\Arp\Api\Row.cs" />
-    <Compile Include="Adaptive\Arp\Api\SecureKeyPair.cs" />
-    <Compile Include="Adaptive\Arp\Api\Service.cs" />
-    <Compile Include="Adaptive\Arp\Api\ServiceRequest.cs" />
-    <Compile Include="Adaptive\Arp\Api\ServiceResponse.cs" />
-    <Compile Include="Adaptive\Arp\Api\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sharpen.Portable\Sharpen\AbstractCollection.cs" />
     <Compile Include="Sharpen.Portable\Sharpen\AbstractList.cs" />

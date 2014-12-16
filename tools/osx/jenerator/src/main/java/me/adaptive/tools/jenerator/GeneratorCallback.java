@@ -29,9 +29,9 @@ package me.adaptive.tools.jenerator;
  */
 public interface GeneratorCallback {
 
-    void onSuccess(Class clazz);
+    void onSuccess(GeneratorBase source, Class clazz);
 
-    void onWarning(Class clazz, String warning);
+    void onWarning(GeneratorBase source, Class clazz, String warning);
 
-    void onException(Class clazz, Throwable ex);
+    void onException(GeneratorBase source, Class clazz, Throwable ex);
 }
