@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Lifecycle listeners
-   Auto-generated implementation of ILifecycleListener specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycleListener {
-
-     /**
-        Constructor with listener id.
-
-        @param id  The id of the listener.
-     */
-     public LifecycleListenerImpl(long id) {
-          super(id);
-     }
-
+public protocol ILifecycleListener : IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available.
 
         @param error Type of error encountered during reading.
         @since ARP1.0
      */
-     public void onError(ILifecycleListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(ILifecycleListenerError error);
 
      /**
         Called when lifecycle changes somehow.
@@ -67,9 +54,7 @@ public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycl
         @param lifecycle Lifecycle element
         @since ARP1.0
      */
-     public void onResult(Lifecycle lifecycle) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(lifecycle) +") )");
-     }
+     void onResult(Lifecycle lifecycle);
 
      /**
         Data received with warning
@@ -78,11 +63,10 @@ public class LifecycleListenerImpl extends BaseListenerImpl implements ILifecycl
         @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
-     public void onWarning(Lifecycle lifecycle, ILifecycleListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleLifecycleListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(lifecycle) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning(Lifecycle lifecycle, ILifecycleListenerWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

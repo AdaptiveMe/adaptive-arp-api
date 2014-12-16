@@ -32,46 +32,14 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for testing the Capabilities operations
-   Auto-generated implementation of ICapabilities specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class CapabilitiesBridge extends BaseSystemBridge implements ICapabilities, APIBridge {
-
-     /**
-        API Delegate.
-     */
-     private ICapabilities delegate;
-
-     /**
-        Constructor with delegate.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public CapabilitiesBridge(ICapabilities delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return ICapabilities delegate that manages platform specific functions..
-     */
-     public final ICapabilities getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(ICapabilities delegate) {
-          this.delegate = delegate;
-     }
-
+public protocol ICapabilities : IBaseSystem {
      /**
         Determines whether a specific hardware button is supported for interaction.
 
@@ -79,22 +47,7 @@ public class CapabilitiesBridge extends BaseSystemBridge implements ICapabilitie
         @return true is supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasButtonSupport(ICapabilitiesButton type) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing hasButtonSupport({"+type+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.hasButtonSupport(type);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'hasButtonSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'hasButtonSupport'.");
-          }
-          return result;          
-     }
+     Bool hasButtonSupport(ICapabilitiesButton type);
 
      /**
         Determines whether a specific Communication capability is supported by
@@ -104,22 +57,7 @@ the device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasCommunicationSupport(ICapabilitiesCommunication type) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing hasCommunicationSupport({"+type+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.hasCommunicationSupport(type);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'hasCommunicationSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'hasCommunicationSupport'.");
-          }
-          return result;          
-     }
+     Bool hasCommunicationSupport(ICapabilitiesCommunication type);
 
      /**
         Determines whether a specific Data capability is supported by the device.
@@ -128,22 +66,7 @@ the device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasDataSupport(ICapabilitiesData type) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing hasDataSupport({"+type+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.hasDataSupport(type);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'hasDataSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'hasDataSupport'.");
-          }
-          return result;          
-     }
+     Bool hasDataSupport(ICapabilitiesData type);
 
      /**
         Determines whether a specific Media capability is supported by the
@@ -153,22 +76,7 @@ device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasMediaSupport(ICapabilitiesMedia type) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing hasMediaSupport({"+type+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.hasMediaSupport(type);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'hasMediaSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'hasMediaSupport'.");
-          }
-          return result;          
-     }
+     Bool hasMediaSupport(ICapabilitiesMedia type);
 
      /**
         Determines whether a specific Net capability is supported by the device.
@@ -177,22 +85,7 @@ device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasNetSupport(ICapabilitiesNet type) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing hasNetSupport({"+type+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.hasNetSupport(type);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'hasNetSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'hasNetSupport'.");
-          }
-          return result;          
-     }
+     Bool hasNetSupport(ICapabilitiesNet type);
 
      /**
         Determines whether a specific Notification capability is supported by the
@@ -202,22 +95,7 @@ device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasNotificationSupport(ICapabilitiesNotification type) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing hasNotificationSupport({"+type+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.hasNotificationSupport(type);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'hasNotificationSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'hasNotificationSupport'.");
-          }
-          return result;          
-     }
+     Bool hasNotificationSupport(ICapabilitiesNotification type);
 
      /**
         Determines whether a specific Sensor capability is supported by the
@@ -227,74 +105,10 @@ device.
         @return true if supported, false otherwise.
         @since ARP1.0
      */
-     public Bool hasSensorSupport(ICapabilitiesSensor type) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+     Bool hasSensorSupport(ICapabilitiesSensor type);
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing hasSensorSupport({"+type+"}).");
-
-          Bool result = false;
-          if (this.delegate != null) {
-               result = this.delegate.hasSensorSupport(type);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'hasSensorSupport' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'hasSensorSupport'.");
-          }
-          return result;          
-     }
-
-     /**
-        Invokes the given method specified in the API request object.
-
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
-          switch (request.getMethodName()) {
-               case "hasButtonSupport":
-                    ICapabilitiesButton type0 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesButton.class);
-                    Bool response0 = this.hasButtonSupport(type0);
-                    responseJSON = this.gson.toJson(response0);
-                    break;
-               case "hasCommunicationSupport":
-                    ICapabilitiesCommunication type1 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesCommunication.class);
-                    Bool response1 = this.hasCommunicationSupport(type1);
-                    responseJSON = this.gson.toJson(response1);
-                    break;
-               case "hasDataSupport":
-                    ICapabilitiesData type2 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesData.class);
-                    Bool response2 = this.hasDataSupport(type2);
-                    responseJSON = this.gson.toJson(response2);
-                    break;
-               case "hasMediaSupport":
-                    ICapabilitiesMedia type3 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesMedia.class);
-                    Bool response3 = this.hasMediaSupport(type3);
-                    responseJSON = this.gson.toJson(response3);
-                    break;
-               case "hasNetSupport":
-                    ICapabilitiesNet type4 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNet.class);
-                    Bool response4 = this.hasNetSupport(type4);
-                    responseJSON = this.gson.toJson(response4);
-                    break;
-               case "hasNotificationSupport":
-                    ICapabilitiesNotification type5 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNotification.class);
-                    Bool response5 = this.hasNotificationSupport(type5);
-                    responseJSON = this.gson.toJson(response5);
-                    break;
-               case "hasSensorSupport":
-                    ICapabilitiesSensor type6 = this.gson.fromJson(request.getParameters()[0], ICapabilitiesSensor.class);
-                    Bool response6 = this.hasSensorSupport(type6);
-                    responseJSON = this.gson.toJson(response6);
-                    break;
-               default:
-                    // 404 - response null.
-                    responseJSON = null;
-          }
-          return responseJSON;
-     }
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

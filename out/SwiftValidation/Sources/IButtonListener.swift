@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the button  operations
-   Auto-generated implementation of IButtonListener specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
-
-     /**
-        Constructor with listener id.
-
-        @param id  The id of the listener.
-     */
-     public ButtonListenerImpl(long id) {
-          super(id);
-     }
-
+public protocol IButtonListener : IBaseListener {
      /**
         No data received
 
         @param error occurred
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(IButtonListenerError error);
 
      /**
         Called on button pressed
@@ -67,9 +54,7 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         @param button pressed
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(button) +") )");
-     }
+     void onResult(Button button);
 
      /**
         Data received with warning
@@ -78,11 +63,10 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         @param warning happened
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(button) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning(Button button, IButtonListenerWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

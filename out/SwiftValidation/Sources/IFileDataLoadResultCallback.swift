@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the File loading callback responses
-   Auto-generated implementation of IFileDataLoadResultCallback specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
-
-     /**
-        Constructor with callback id.
-
-        @param id  The id of the callback.
-     */
-     public FileDataLoadResultCallbackImpl(long id) {
-          super(id);
-     }
-
+public protocol IFileDataLoadResultCallback : IBaseCallback {
      /**
         Error processing data retrieval/storage operation.
 
         @param error Error condition encountered.
         @since ARP1.0
      */
-     public void onError(IFileDataLoadResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(IFileDataLoadResultCallbackError error);
 
      /**
         Result of data retrieval operation.
@@ -67,9 +54,7 @@ public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements 
         @param data Data loaded.
         @since ARP1.0
      */
-     public void onResult([Byte] data) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(data) +") )");
-     }
+     void onResult([Byte] data);
 
      /**
         Result with warning of data retrieval/storage operation.
@@ -78,11 +63,10 @@ public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements 
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     public void onWarning([Byte] data, IFileDataLoadResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(data) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning([Byte] data, IFileDataLoadResultCallbackWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

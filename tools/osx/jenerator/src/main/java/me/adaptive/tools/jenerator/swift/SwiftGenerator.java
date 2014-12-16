@@ -310,7 +310,7 @@ public class SwiftGenerator extends GeneratorBase {
         if (implementation) {
             currentFile = new File(getOutputRootDirectory(), "impl"+File.separator+ className + ".swift");
         } else {
-            currentFile = new File(getOutputRootDirectory(), clazz.getSimpleName() + ".swift");
+            currentFile = new File(getOutputRootDirectory(), className + ".swift");
         }
         currentFile.mkdirs();
         if (currentFile.exists()) {

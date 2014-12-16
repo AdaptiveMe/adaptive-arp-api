@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Network reachability callback result
-   Auto-generated implementation of INetworkReachabilityCallback specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
-
-     /**
-        Constructor with callback id.
-
-        @param id  The id of the callback.
-     */
-     public NetworkReachabilityCallbackImpl(long id) {
-          super(id);
-     }
-
+public protocol INetworkReachabilityCallback : IBaseCallback {
      /**
         No data received - error condition, not authorized .
 
         @param error Error value
         @since ARP1.0
      */
-     public void onError(INetworkReachabilityCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(INetworkReachabilityCallbackError error);
 
      /**
         Correct data received.
@@ -67,9 +54,7 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         @param reachable Indicates if the host is reachable
         @since ARP1.0
      */
-     public void onResult(Bool reachable) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(reachable) +") )");
-     }
+     void onResult(Bool reachable);
 
      /**
         Data received with warning - ie Found entries with existing key and values have been overriden
@@ -78,11 +63,10 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         @param warning   Warning value
         @since ARP1.0
      */
-     public void onWarning(Bool reachable, INetworkReachabilityCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(reachable) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning(Bool reachable, INetworkReachabilityCallbackWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

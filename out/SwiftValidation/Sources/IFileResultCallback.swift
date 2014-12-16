@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the File operations callback
-   Auto-generated implementation of IFileResultCallback specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class FileResultCallbackImpl extends BaseCallbackImpl implements IFileResultCallback {
-
-     /**
-        Constructor with callback id.
-
-        @param id  The id of the callback.
-     */
-     public FileResultCallbackImpl(long id) {
-          super(id);
-     }
-
+public protocol IFileResultCallback : IBaseCallback {
      /**
         On error result of a file operation.
 
         @param error Error processing the request.
         @since ARP1.0
      */
-     public void onError(IFileResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(IFileResultCallbackError error);
 
      /**
         On correct result of a file operation.
@@ -67,9 +54,7 @@ public class FileResultCallbackImpl extends BaseCallbackImpl implements IFileRes
         @param storageFile Reference to the resulting file.
         @since ARP1.0
      */
-     public void onResult(IFile storageFile) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(storageFile) +") )");
-     }
+     void onResult(IFile storageFile);
 
      /**
         On partial result of a file operation, containing a warning.
@@ -78,11 +63,10 @@ public class FileResultCallbackImpl extends BaseCallbackImpl implements IFileRes
         @param warning Warning processing the request.
         @since ARP1.0
      */
-     public void onWarning(IFile file, IFileResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(file) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning(IFile file, IFileResultCallbackWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

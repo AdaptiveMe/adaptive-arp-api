@@ -32,65 +32,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Base application for Social purposes
-   Auto-generated implementation of IBaseSocial specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class BaseSocialBridge implements IBaseSocial {
-
-     /**
-        Group of API.
-     */
-     protected IAdaptiveRPGroup apiGroup;
-
-     /**
-        JSON API.
-     */
-     protected Gson gson;
-
-     /**
-        Default constructor.
-     */
-     public BaseSocialBridge() {
-          this.apiGroup = IAdaptiveRPGroup.Social;
-          this.gson = new Gson();
-     }
-
-     /**
-        Return the API group for the given interface.
-     */
-     @Override
-     public final IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
-     }
-     /**
-        Return the JSON serializer.
-        @return Current JSON serializer.
-     */
-     public final Gson getJSONAPI() {
-          return this.gson;
-     }
-
-     /**
-        Invokes the given method specified in the API request object.
-
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
-          switch (request.getMethodName()) {
-               default:
-                    // 404 - response null.
-                    responseJSON = null;
-          }
-          return responseJSON;
-     }
+public protocol IBaseSocial : IAdaptiveRP {
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

@@ -32,88 +32,24 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Video operations
-   Auto-generated implementation of IVideo specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class VideoBridge extends BaseMediaBridge implements IVideo, APIBridge {
-
-     /**
-        API Delegate.
-     */
-     private IVideo delegate;
-
-     /**
-        Constructor with delegate.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public VideoBridge(IVideo delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IVideo delegate that manages platform specific functions..
-     */
-     public final IVideo getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IVideo delegate) {
-          this.delegate = delegate;
-     }
-
+public protocol IVideo : IBaseMedia {
      /**
         Play url video stream
 
         @param url of the video
         @since ARP1.0
      */
-     public void playStream(String url) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+     void playStream(String url);
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing playStream({"+url+"}).");
-
-          if (this.delegate != null) {
-               this.delegate.playStream(url);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'playStream' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'playStream'.");
-          }
-          
-     }
-
-     /**
-        Invokes the given method specified in the API request object.
-
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
-          switch (request.getMethodName()) {
-               case "playStream":
-                    String url0 = this.gson.fromJson(request.getParameters()[0], String.class);
-                    this.playStream(url0);
-                    break;
-               default:
-                    // 404 - response null.
-                    responseJSON = null;
-          }
-          return responseJSON;
-     }
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

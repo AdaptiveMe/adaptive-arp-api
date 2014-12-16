@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Geolocation results
-   Auto-generated implementation of IGeolocationListener specification.
+
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
+   @version 1.0
 */
-public class GeolocationListenerImpl extends BaseListenerImpl implements IGeolocationListener {
-
-     /**
-        Constructor with listener id.
-
-        @param id  The id of the listener.
-     */
-     public GeolocationListenerImpl(long id) {
-          super(id);
-     }
-
+public protocol IGeolocationListener : IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available.
 
         @param error Type of error encountered during reading.
         @since ARP1.0
      */
-     public void onError(IGeolocationListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleGeolocationListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(IGeolocationListenerError error);
 
      /**
         Correct data received.
@@ -67,9 +54,7 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         @param geolocation Geolocation Bean
         @since ARP1.0
      */
-     public void onResult(Geolocation geolocation) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleGeolocationListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(geolocation) +") )");
-     }
+     void onResult(Geolocation geolocation);
 
      /**
         Data received with warning - ie. HighDoP
@@ -78,11 +63,10 @@ public class GeolocationListenerImpl extends BaseListenerImpl implements IGeoloc
         @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
-     public void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleGeolocationListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(geolocation) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

@@ -32,69 +32,14 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Logging operations
-   Auto-generated implementation of ILogging specification.
+
+   @author Ferran Vila Conesa
+   @since ARP1.0
+   @version 1.0
 */
-public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge {
-
-     /**
-        API Delegate.
-     */
-     private ILogging delegate;
-
-     /**
-        Constructor with delegate.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public LoggingBridge(ILogging delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return ILogging delegate that manages platform specific functions..
-     */
-     public final ILogging getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(ILogging delegate) {
-          this.delegate = delegate;
-     }
-
-     /**
-        Logs the given message, with the given log level if specified, to the standard platform/environment.
-
-        @param level   Log level
-        @param message Message to be logged
-        @since ARP1.0
-     */
-     public void log(ILoggingLogLevel level, String message) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+message+"}).");
-
-          if (this.delegate != null) {
-               this.delegate.log(level, message);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
-          }
-          
-     }
-
+public protocol ILogging : IBaseUtil {
      /**
         Logs the given message, with the given log level if specified, to the standard platform/environment.
 
@@ -103,49 +48,19 @@ public class LoggingBridge extends BaseUtilBridge implements ILogging, APIBridge
         @param message  Message to be logged
         @since ARP1.0
      */
-     public void log(ILoggingLogLevel level, String category, String message) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing log({"+level+"},{"+category+"},{"+message+"}).");
-
-          if (this.delegate != null) {
-               this.delegate.log(level, category, message);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'log' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'log'.");
-          }
-          
-     }
+     void log(ILoggingLogLevel level, String category, String message);
 
      /**
-        Invokes the given method specified in the API request object.
+        Logs the given message, with the given log level if specified, to the standard platform/environment.
 
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+        @param level   Log level
+        @param message Message to be logged
+        @since ARP1.0
      */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
-          switch (request.getMethodName()) {
-               case "log_level_message":
-                    ILoggingLogLevel level0 = this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
-                    String message0 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    this.log(level0, message0);
-                    break;
-               case "log_level_category_message":
-                    ILoggingLogLevel level1 = this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
-                    String category1 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    String message1 = this.gson.fromJson(request.getParameters()[2], String.class);
-                    this.log(level1, category1, message1);
-                    break;
-               default:
-                    // 404 - response null.
-                    responseJSON = null;
-          }
-          return responseJSON;
-     }
+     void log(ILoggingLogLevel level, String message);
+
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

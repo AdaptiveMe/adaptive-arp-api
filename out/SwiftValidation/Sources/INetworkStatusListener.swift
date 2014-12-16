@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Network status listener events
-   Auto-generated implementation of INetworkStatusListener specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
-
-     /**
-        Constructor with listener id.
-
-        @param id  The id of the listener.
-     */
-     public NetworkStatusListenerImpl(long id) {
-          super(id);
-     }
-
+public protocol INetworkStatusListener : IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available.
 
         @param error Type of error encountered during reading.
         @since ARP1.0
      */
-     public void onError(INetworkStatusListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(INetworkStatusListenerError error);
 
      /**
         Called when network connection changes somehow.
@@ -67,9 +54,7 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @param network Change to this network.
         @since ARP1.0
      */
-     public void onResult(ICapabilitiesNet network) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(network) +") )");
-     }
+     void onResult(ICapabilitiesNet network);
 
      /**
         Status received with warning
@@ -78,11 +63,10 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
-     public void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(network) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

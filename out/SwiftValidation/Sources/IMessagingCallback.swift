@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Messaging responses
-   Auto-generated implementation of IMessagingCallback specification.
+
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
+   @version 1.0
 */
-public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
-
-     /**
-        Constructor with callback id.
-
-        @param id  The id of the callback.
-     */
-     public MessagingCallbackImpl(long id) {
-          super(id);
-     }
-
+public protocol IMessagingCallback : IBaseCallback {
      /**
         This method is called on Error
 
         @param error returned by the platform
         @since ARP1.0
      */
-     public void onError(IMessagingCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(IMessagingCallbackError error);
 
      /**
         This method is called on Result
@@ -67,9 +54,7 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         @param success true if sent;false otherwise
         @since ARP1.0
      */
-     public void onResult(Bool success) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(success) +") )");
-     }
+     void onResult(Bool success);
 
      /**
         This method is called on Warning
@@ -78,11 +63,10 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         @param warning returned by the platform
         @since ARP1.0
      */
-     public void onWarning(Bool success, IMessagingCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(success) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning(Bool success, IMessagingCallbackWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

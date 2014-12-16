@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Cloud operations
-   Auto-generated implementation of IDatabaseTableResultCallback specification.
+
+   @author Ferran Vila Conesa
+   @since ARP1.0
+   @version 1.0
 */
-public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements IDatabaseTableResultCallback {
-
-     /**
-        Constructor with callback id.
-
-        @param id  The id of the callback.
-     */
-     public DatabaseTableResultCallbackImpl(long id) {
-          super(id);
-     }
-
+public protocol IDatabaseTableResultCallback : IBaseCallback {
      /**
         Result callback for error responses
 
         @param error Returned error
         @since ARP1.0
      */
-     public void onError(IDatabaseTableResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(IDatabaseTableResultCallbackError error);
 
      /**
         Result callback for correct responses
@@ -67,9 +54,7 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         @param databaseTable Returns the databaseTable
         @since ARP1.0
      */
-     public void onResult(DatabaseTable databaseTable) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(databaseTable) +") )");
-     }
+     void onResult(DatabaseTable databaseTable);
 
      /**
         Result callback for warning responses
@@ -78,11 +63,10 @@ public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements
         @param warning       Returned Warning
         @since ARP1.0
      */
-     public void onWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(databaseTable) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

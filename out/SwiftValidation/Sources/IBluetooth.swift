@@ -32,62 +32,16 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Bluetooth purposes
-   Auto-generated implementation of IBluetooth specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class BluetoothBridge extends BaseCommunicationBridge implements IBluetooth, APIBridge {
-
-     /**
-        API Delegate.
-     */
-     private IBluetooth delegate;
-
-     /**
-        Constructor with delegate.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public BluetoothBridge(IBluetooth delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IBluetooth delegate that manages platform specific functions..
-     */
-     public final IBluetooth getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IBluetooth delegate) {
-          this.delegate = delegate;
-     }
-
-     /**
-        Invokes the given method specified in the API request object.
-
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
-          switch (request.getMethodName()) {
-               default:
-                    // 404 - response null.
-                    responseJSON = null;
-          }
-          return responseJSON;
-     }
+public protocol IBluetooth : IBaseCommunication {
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

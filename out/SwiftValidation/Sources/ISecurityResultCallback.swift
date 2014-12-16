@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Security result callback
-   Auto-generated implementation of ISecurityResultCallback specification.
+
+   @author Aryslan
+   @since ARP1.0
+   @version 1.0
 */
-public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
-
-     /**
-        Constructor with callback id.
-
-        @param id  The id of the callback.
-     */
-     public SecurityResultCallbackImpl(long id) {
-          super(id);
-     }
-
+public protocol ISecurityResultCallback : IBaseCallback {
      /**
         No data received - error condition, not authorized .
 
         @param error Error values
         @since ARP1.0
      */
-     public void onError(ISecurityResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(ISecurityResultCallbackError error);
 
      /**
         Correct data received.
@@ -67,9 +54,7 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @param keyValues key and values
         @since ARP1.0
      */
-     public void onResult([SecureKeyPair] keyValues) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(keyValues) +") )");
-     }
+     void onResult([SecureKeyPair] keyValues);
 
      /**
         Data received with warning - ie Found entries with existing key and values have been overriden
@@ -78,11 +63,10 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @param warning   Warning values
         @since ARP1.0
      */
-     public void onWarning([SecureKeyPair] keyValues, ISecurityResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(keyValues) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning([SecureKeyPair] keyValues, ISecurityResultCallbackWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

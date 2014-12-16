@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Contact operations
-   Auto-generated implementation of IContactPhotoResultCallback specification.
+
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
+   @version 1.0
 */
-public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
-
-     /**
-        Constructor with callback id.
-
-        @param id  The id of the callback.
-     */
-     public ContactPhotoResultCallbackImpl(long id) {
-          super(id);
-     }
-
+public protocol IContactPhotoResultCallback : IBaseCallback {
      /**
         This method is called on Error
 
         @param error returned by the platform
         @since ARP1.0
      */
-     public void onError(IContactPhotoResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(IContactPhotoResultCallbackError error);
 
      /**
         This method is called on Result
@@ -67,9 +54,7 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         @param contactPhoto returned by the platform
         @since ARP1.0
      */
-     public void onResult([Byte] contactPhoto) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(contactPhoto) +") )");
-     }
+     void onResult([Byte] contactPhoto);
 
      /**
         This method is called on Warning
@@ -78,11 +63,10 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         @param warning      returned by the platform
         @since ARP1.0
      */
-     public void onWarning([Byte] contactPhoto, IContactPhotoResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(contactPhoto) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning([Byte] contactPhoto, IContactPhotoResultCallbackWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

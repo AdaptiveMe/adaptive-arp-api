@@ -32,34 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the File store operations callback
-   Auto-generated implementation of IFileDataStoreResultCallback specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements IFileDataStoreResultCallback {
-
-     /**
-        Constructor with callback id.
-
-        @param id  The id of the callback.
-     */
-     public FileDataStoreResultCallbackImpl(long id) {
-          super(id);
-     }
-
+public protocol IFileDataStoreResultCallback : IBaseCallback {
      /**
         Error processing data retrieval/storage operation.
 
         @param error Error condition encountered.
         @since ARP1.0
      */
-     public void onError(IFileDataStoreResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(IFileDataStoreResultCallbackError error);
 
      /**
         Result of data storage operation.
@@ -67,9 +54,7 @@ public class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements
         @param file File reference to stored data.
         @since ARP1.0
      */
-     public void onResult(IFile file) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(file) +") )");
-     }
+     void onResult(IFile file);
 
      /**
         Result with warning of data retrieval/storage operation.
@@ -78,11 +63,10 @@ public class FileDataStoreResultCallbackImpl extends BaseCallbackImpl implements
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     public void onWarning(IFile file, IFileDataStoreResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataStoreResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(file) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning(IFile file, IFileDataStoreResultCallbackWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

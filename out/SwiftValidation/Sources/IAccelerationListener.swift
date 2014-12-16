@@ -32,25 +32,14 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface defines the response methods of the acceleration operations
-   Auto-generated implementation of IAccelerationListener specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
-
-     /**
-        Constructor with listener id.
-
-        @param id  The id of the listener.
-     */
-     public AccelerationListenerImpl(long id) {
-          super(id);
-     }
-
+public protocol IAccelerationListener : IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available. This will be reported once for the
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
@@ -58,9 +47,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @param error Error fired
         @since ARP1.0
      */
-     public void onError(IAccelerationListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
-     }
+     void onError(IAccelerationListenerError error);
 
      /**
         Correct data received.
@@ -68,9 +55,7 @@ listener and subsequently, the listener will be deactivated and removed from the
         @param acceleration Acceleration received
         @since ARP1.0
      */
-     public void onResult(Acceleration acceleration) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(acceleration) +") )");
-     }
+     void onResult(Acceleration acceleration);
 
      /**
         Data received with warning - ie. Needs calibration.
@@ -79,11 +64,10 @@ listener and subsequently, the listener will be deactivated and removed from the
         @param warning      Warning fired
         @since ARP1.0
      */
-     public void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(acceleration) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
-     }
+     void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning);
 
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

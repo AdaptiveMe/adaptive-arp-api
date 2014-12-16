@@ -32,46 +32,14 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Mail operations
-   Auto-generated implementation of IMail specification.
+
+   @author Francisco Javier Martin Bueno
+   @since ARP1.0
+   @version 1.0
 */
-public class MailBridge extends BasePIMBridge implements IMail, APIBridge {
-
-     /**
-        API Delegate.
-     */
-     private IMail delegate;
-
-     /**
-        Constructor with delegate.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public MailBridge(IMail delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return IMail delegate that manages platform specific functions..
-     */
-     public final IMail getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(IMail delegate) {
-          this.delegate = delegate;
-     }
-
+public protocol IMail : IBasePIM {
      /**
         Send an Email
 
@@ -79,43 +47,10 @@ public class MailBridge extends BasePIMBridge implements IMail, APIBridge {
         @param callback Result callback of the operation
         @since ARP1.0
      */
-     public void sendEmail(Email data, IMessagingCallback callback) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+     void sendEmail(Email data, IMessagingCallback callback);
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing sendEmail({"+data+"},{"+callback+"}).");
-
-          if (this.delegate != null) {
-               this.delegate.sendEmail(data, callback);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'sendEmail' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'sendEmail'.");
-          }
-          
-     }
-
-     /**
-        Invokes the given method specified in the API request object.
-
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
-          switch (request.getMethodName()) {
-               case "sendEmail":
-                    Email data0 = this.gson.fromJson(request.getParameters()[0], Email.class);
-                    IMessagingCallback callback0 = new MessagingCallbackImpl(request.getAsyncId());
-                    this.sendEmail(data0, callback0);
-                    break;
-               default:
-                    // 404 - response null.
-                    responseJSON = null;
-          }
-          return responseJSON;
-     }
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

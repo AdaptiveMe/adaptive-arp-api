@@ -32,67 +32,21 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Network status
-   Auto-generated implementation of INetworkStatus specification.
+
+   @author Carlos Lozano Diez
+   @since ARP1.0
+   @version 1.0
 */
-public class NetworkStatusBridge extends BaseCommunicationBridge implements INetworkStatus, APIBridge {
-
-     /**
-        API Delegate.
-     */
-     private INetworkStatus delegate;
-
-     /**
-        Constructor with delegate.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public NetworkStatusBridge(INetworkStatus delegate) {
-          super();
-          this.delegate = delegate;
-     }
-     /**
-        Get the delegate implementation.
-        @return INetworkStatus delegate that manages platform specific functions..
-     */
-     public final INetworkStatus getDelegate() {
-          return this.delegate;
-     }
-     /**
-        Set the delegate implementation.
-
-        @param delegate The delegate implementing platform specific functions.
-     */
-     public final void setDelegate(INetworkStatus delegate) {
-          this.delegate = delegate;
-     }
-
+public protocol INetworkStatus : IBaseCommunication {
      /**
         Add the listener for network status changes of the app
 
         @param listener Listener with the result
         @since ARP1.0
      */
-     public void addNetworkStatusListener(INetworkStatusListener listener) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing addNetworkStatusListener({"+listener+"}).");
-
-          if (this.delegate != null) {
-               this.delegate.addNetworkStatusListener(listener);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'addNetworkStatusListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'addNetworkStatusListener'.");
-          }
-          
-     }
+     void addNetworkStatusListener(INetworkStatusListener listener);
 
      /**
         Un-registers an existing listener from receiving network status events.
@@ -100,70 +54,17 @@ public class NetworkStatusBridge extends BaseCommunicationBridge implements INet
         @param listener Listener with the result
         @since ARP1.0
      */
-     public void removeNetworkStatusListener(INetworkStatusListener listener) {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
-
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing removeNetworkStatusListener({"+listener+"}).");
-
-          if (this.delegate != null) {
-               this.delegate.removeNetworkStatusListener(listener);
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'removeNetworkStatusListener' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'removeNetworkStatusListener'.");
-          }
-          
-     }
+     void removeNetworkStatusListener(INetworkStatusListener listener);
 
      /**
         Removes all existing listeners from receiving network status events.
 
         @since ARP1.0
      */
-     public void removeNetworkStatusListeners() {
-          // Start logging elapsed time.
-          long tIn = System.currentTimeMillis();
-          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+     void removeNetworkStatusListeners();
 
-          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing removeNetworkStatusListeners.");
-
-          if (this.delegate != null) {
-               this.delegate.removeNetworkStatusListeners();
-               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'removeNetworkStatusListeners' in "+(System.currentTimeMillis()-tIn)+"ms.");
-          } else {
-               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'removeNetworkStatusListeners'.");
-          }
-          
-     }
-
-     /**
-        Invokes the given method specified in the API request object.
-
-        @param request APIRequest object containing method name and parameters.
-        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
-     */
-     public String invoke(APIRequest request) {
-          String responseJSON = "";
-          switch (request.getMethodName()) {
-               case "addNetworkStatusListener":
-                    INetworkStatusListener listener0 = new NetworkStatusListenerImpl(request.getAsyncId());
-                    this.addNetworkStatusListener(listener0);
-                    break;
-               case "removeNetworkStatusListener":
-                    INetworkStatusListener listener1 = new NetworkStatusListenerImpl(request.getAsyncId());
-                    this.removeNetworkStatusListener(listener1);
-                    break;
-               case "removeNetworkStatusListeners":
-                    this.removeNetworkStatusListeners();
-                    break;
-               default:
-                    // 404 - response null.
-                    responseJSON = null;
-          }
-          return responseJSON;
-     }
 }
+
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */
