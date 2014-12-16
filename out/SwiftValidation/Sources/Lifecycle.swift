@@ -25,6 +25,10 @@ Contributors:
 
     * See source code files for contributors.
 
+Release:
+
+    * @version v1.0.45-260-gbb1d381
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 

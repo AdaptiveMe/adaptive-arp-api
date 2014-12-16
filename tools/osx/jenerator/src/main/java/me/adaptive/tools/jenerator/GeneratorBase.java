@@ -845,11 +845,27 @@ public abstract class GeneratorBase {
 
     protected abstract void endClass(Class clazz);
 
+    private String versionString = null;
+
     protected final String getSourceHeader() {
         String result = "Undefined.";
         try {
             InputStream is = getResourceStream("defaultHeader");
             result = streamToStrings(is, 512);
+            if (versionString == null) {
+                try {
+                    Process p = Runtime.getRuntime().exec("git describe --tags");
+                    p.waitFor();
+                    byte[] buffer = new byte[p.getInputStream().available()];
+                    p.getInputStream().read(buffer);
+                    versionString = new String(buffer);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            result = result.replace("$VERSION$", "@version "+versionString);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {
