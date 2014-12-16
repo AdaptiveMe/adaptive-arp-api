@@ -32,6 +32,66 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   Base application for Callback purposes
+   Auto-generated implementation of IBaseCallback specification.
+*/
+public class BaseCallbackImpl implements IBaseCallback {
+
+     /**
+        Unique id of callback.
+     */
+     private long id;
+
+     /**
+        Group of API.
+     */
+     private IAdaptiveRPGroup apiGroup;
+
+     /**
+        JSON Serializer.
+     */
+     protected Gson gson;
+
+     /**
+        Constructor with callback id.
+
+        @param id  The id of the callback.
+     */
+     public BaseCallbackImpl(long id) {
+          this.id = id;
+          this.apiGroup = IAdaptiveRPGroup.Application;
+          this.gson = new Gson();
+     }
+
+     /**
+        Get the callback id.
+        @return long with the identifier of the callback.
+     */
+     public final long getId() {
+          return this.id;
+     }
+
+     /**
+        Return the API group for the given interface.
+     */
+     @Override
+     public IAdaptiveRPGroup getAPIGroup() {
+          return this.apiGroup;
+     }
+     /**
+        Return the JSON serializer.
+        @return Current JSON serializer.
+     */
+     public final Gson getJSONAPI() {
+          return this.gson;
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

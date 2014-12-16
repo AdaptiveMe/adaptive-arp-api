@@ -32,6 +32,57 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   Interface for Managing the Network status listener events
+   Auto-generated implementation of INetworkStatusListener specification.
+*/
+public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
+
+     /**
+        Constructor with listener id.
+
+        @param id  The id of the listener.
+     */
+     public NetworkStatusListenerImpl(long id) {
+          super(id);
+     }
+
+     /**
+        No data received - error condition, not authorized or hardware not available.
+
+        @param error Type of error encountered during reading.
+        @since ARP1.0
+     */
+     public void onError(INetworkStatusListenerError error) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     }
+
+     /**
+        Called when network connection changes somehow.
+
+        @param network Change to this network.
+        @since ARP1.0
+     */
+     public void onResult(ICapabilitiesNet network) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(network) +") )");
+     }
+
+     /**
+        Status received with warning
+
+        @param network Change to this network.
+        @param warning Type of warning encountered during reading.
+        @since ARP1.0
+     */
+     public void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(network) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

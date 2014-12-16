@@ -32,6 +32,57 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   Interface for Managing the Services operations
+   Auto-generated implementation of IServiceResultCallback specification.
+*/
+public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
+
+     /**
+        Constructor with callback id.
+
+        @param id  The id of the callback.
+     */
+     public ServiceResultCallbackImpl(long id) {
+          super(id);
+     }
+
+     /**
+        This method is called on Error
+
+        @param error returned by the platform
+        @since ARP1.0
+     */
+     public void onError(IServiceResultCallbackError error) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     }
+
+     /**
+        This method is called on Result
+
+        @param response data
+        @since ARP1.0
+     */
+     public void onResult(ServiceResponse response) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(response) +") )");
+     }
+
+     /**
+        This method is called on Warning
+
+        @param response data
+        @param warning  returned by the platform
+        @since ARP1.0
+     */
+     public void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(response) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

@@ -32,6 +32,57 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   Interface for Managing the File loading callback responses
+   Auto-generated implementation of IFileDataLoadResultCallback specification.
+*/
+public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
+
+     /**
+        Constructor with callback id.
+
+        @param id  The id of the callback.
+     */
+     public FileDataLoadResultCallbackImpl(long id) {
+          super(id);
+     }
+
+     /**
+        Error processing data retrieval/storage operation.
+
+        @param error Error condition encountered.
+        @since ARP1.0
+     */
+     public void onError(IFileDataLoadResultCallbackError error) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     }
+
+     /**
+        Result of data retrieval operation.
+
+        @param data Data loaded.
+        @since ARP1.0
+     */
+     public void onResult([Byte] data) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(data) +") )");
+     }
+
+     /**
+        Result with warning of data retrieval/storage operation.
+
+        @param data    File being loaded.
+        @param warning Warning condition encountered.
+        @since ARP1.0
+     */
+     public void onWarning([Byte] data, IFileDataLoadResultCallbackWarning warning) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(data) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

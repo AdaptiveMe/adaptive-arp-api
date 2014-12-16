@@ -32,6 +32,50 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Interface for context management purposes
+   Auto-generated implementation of IAppContext specification.
+*/
+public class AppContextDelegate implements IAppContext {
+
+     /**
+        Default Constructor.
+     */
+     public AppContextDelegate() {
+          super();
+     }
+
+     /**
+        The main application context. This should be cast to the platform specific implementation.
+
+        @return Object representing the specific singleton application context provided by the OS.
+        @since ARP1.0
+     */
+     public AnyObject getContext() {
+          AnyObject response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":getContext");
+          // return response;
+     }
+
+     /**
+        The type of context provided by the getContext method.
+
+        @return Type of platform context.
+        @since ARP1.0
+     */
+     public IOSType getContextType() {
+          IOSType response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":getContextType");
+          // return response;
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

@@ -32,6 +32,57 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   This interface manages the responses of the resource callback
+   Auto-generated implementation of IAppResourceCallback specification.
+*/
+public class AppResourceCallbackImpl extends BaseCallbackImpl implements IAppResourceCallback {
+
+     /**
+        Constructor with callback id.
+
+        @param id  The id of the callback.
+     */
+     public AppResourceCallbackImpl(long id) {
+          super(id);
+     }
+
+     /**
+        Error result of the App resource operation
+
+        @param error Error fired
+        @since ARP1.0
+     */
+     public void onError(IAppResourceCallbackError error) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     }
+
+     /**
+        Correct result of the App Resource operation
+
+        @param resource Resource
+        @since ARP1.0
+     */
+     public void onResult(IAppResource resource) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(resource) +") )");
+     }
+
+     /**
+        Warning result of the App Resource operation
+
+        @param resource Resource
+        @param warning  Warning fired
+        @since ARP1.0
+     */
+     public void onWarning(IAppResource resource, IAppResourceCallbackWarning warning) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(resource) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

@@ -32,6 +32,57 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   Interface for Managing the Contact operations
+   Auto-generated implementation of IContactPhotoResultCallback specification.
+*/
+public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
+
+     /**
+        Constructor with callback id.
+
+        @param id  The id of the callback.
+     */
+     public ContactPhotoResultCallbackImpl(long id) {
+          super(id);
+     }
+
+     /**
+        This method is called on Error
+
+        @param error returned by the platform
+        @since ARP1.0
+     */
+     public void onError(IContactPhotoResultCallbackError error) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     }
+
+     /**
+        This method is called on Result
+
+        @param contactPhoto returned by the platform
+        @since ARP1.0
+     */
+     public void onResult([Byte] contactPhoto) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(contactPhoto) +") )");
+     }
+
+     /**
+        This method is called on Warning
+
+        @param contactPhoto returned by the platform
+        @param warning      returned by the platform
+        @since ARP1.0
+     */
+     public void onWarning([Byte] contactPhoto, IContactPhotoResultCallbackWarning warning) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(contactPhoto) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

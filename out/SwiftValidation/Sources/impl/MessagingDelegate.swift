@@ -32,6 +32,44 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Interface for Managing the Messaging operations
+   Auto-generated implementation of IMessaging specification.
+*/
+public class MessagingDelegate extends BasePIMDelegate implements IMessaging {
+
+     /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getMessagingBridge().setDelegate(new MessagingDelegate());
+     }
+
+     /**
+        Default Constructor.
+     */
+     public MessagingDelegate() {
+          super();
+     }
+
+     /**
+        Send text SMS
+
+        @param number   to send
+        @param text     to send
+        @param callback with the result
+        @since ARP1.0
+     */
+     public void sendSMS(String number, String text, IMessagingCallback callback) {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":sendSMS");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

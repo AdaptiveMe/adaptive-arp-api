@@ -32,6 +32,57 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   Interface for Managing the Cloud operations
+   Auto-generated implementation of IDatabaseTableResultCallback specification.
+*/
+public class DatabaseTableResultCallbackImpl extends BaseCallbackImpl implements IDatabaseTableResultCallback {
+
+     /**
+        Constructor with callback id.
+
+        @param id  The id of the callback.
+     */
+     public DatabaseTableResultCallbackImpl(long id) {
+          super(id);
+     }
+
+     /**
+        Result callback for error responses
+
+        @param error Returned error
+        @since ARP1.0
+     */
+     public void onError(IDatabaseTableResultCallbackError error) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     }
+
+     /**
+        Result callback for correct responses
+
+        @param databaseTable Returns the databaseTable
+        @since ARP1.0
+     */
+     public void onResult(DatabaseTable databaseTable) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(databaseTable) +") )");
+     }
+
+     /**
+        Result callback for warning responses
+
+        @param databaseTable Returns the databaseTable
+        @param warning       Returned Warning
+        @since ARP1.0
+     */
+     public void onWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseTableResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(databaseTable) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

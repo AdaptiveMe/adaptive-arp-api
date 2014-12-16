@@ -32,6 +32,37 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Base application for Social purposes
+   Auto-generated implementation of IBaseSocial specification.
+*/
+public class BaseSocialDelegate implements IBaseSocial {
+
+     /**
+        Group of API.
+     */
+     private IAdaptiveRPGroup apiGroup;
+
+     /**
+        Default constructor.
+     */
+     public BaseSocialDelegate() {
+          this.apiGroup = IAdaptiveRPGroup.Social;
+     }
+
+     /**
+        Return the API group for the given interface.
+     */
+     @Override
+     public final IAdaptiveRPGroup getAPIGroup() {
+          return this.apiGroup;
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

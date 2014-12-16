@@ -32,6 +32,77 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Interface for Managing the browser operations
+   Auto-generated implementation of IBrowser specification.
+*/
+public class BrowserDelegate extends BaseUIDelegate implements IBrowser {
+
+     /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getBrowserBridge().setDelegate(new BrowserDelegate());
+     }
+
+     /**
+        Default Constructor.
+     */
+     public BrowserDelegate() {
+          super();
+     }
+
+     /**
+        Method for opening a URL like a link in the native default browser
+
+        @param url Url to open
+        @return The result of the operation
+        @since ARP1.0
+     */
+     public Bool openExtenalBrowser(String url) {
+          Bool response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":openExtenalBrowser");
+          // return response;
+     }
+
+     /**
+        Method for opening a browser embedded into the application
+
+        @param url            Url to open
+        @param title          Title of the Navigation bar
+        @param backButtonText Title of the Back button bar
+        @return The result of the operation
+        @since ARP1.0
+     */
+     public Bool openInternalBrowser(String url, String title, String backButtonText) {
+          Bool response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":openInternalBrowser");
+          // return response;
+     }
+
+     /**
+        Method for opening a browser embedded into the application in a modal window
+
+        @param url            Url to open
+        @param title          Title of the Navigation bar
+        @param backButtonText Title of the Back button bar
+        @return The result of the operation
+        @since ARP1.0
+     */
+     public Bool openInternalBrowserModal(String url, String title, String backButtonText) {
+          Bool response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":openInternalBrowserModal");
+          // return response;
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

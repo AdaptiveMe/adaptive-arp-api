@@ -32,6 +32,76 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Interface for Managing the Lifecycle listeners
+   Auto-generated implementation of ILifecycle specification.
+*/
+public class LifecycleDelegate extends BaseApplicationDelegate implements ILifecycle {
+
+     /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getLifecycleBridge().setDelegate(new LifecycleDelegate());
+     }
+
+     /**
+        Default Constructor.
+     */
+     public LifecycleDelegate() {
+          super();
+     }
+
+     /**
+        Add the listener for the lifecycle of the app
+
+        @param listener Lifecycle listener
+        @since ARP1.0
+     */
+     public void addLifecycleListener(ILifecycleListener listener) {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":addLifecycleListener");
+     }
+
+     /**
+        Whether the application is in background or not
+
+        @return true if the application is in background;false otherwise
+        @since ARP1.0
+     */
+     public Bool isBackground() {
+          Bool response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":isBackground");
+          // return response;
+     }
+
+     /**
+        Un-registers an existing listener from receiving lifecycle events.
+
+        @param listener Lifecycle listener
+        @since ARP1.0
+     */
+     public void removeLifecycleListener(ILifecycleListener listener) {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":removeLifecycleListener");
+     }
+
+     /**
+        Removes all existing listeners from receiving lifecycle events.
+
+        @since ARP1.0
+     */
+     public void removeLifecycleListeners() {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":removeLifecycleListeners");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

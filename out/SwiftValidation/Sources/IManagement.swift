@@ -32,6 +32,62 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   Interface for Managing the Management operations
+   Auto-generated implementation of IManagement specification.
+*/
+public class ManagementBridge extends BaseApplicationBridge implements IManagement, APIBridge {
+
+     /**
+        API Delegate.
+     */
+     private IManagement delegate;
+
+     /**
+        Constructor with delegate.
+
+        @param delegate The delegate implementing platform specific functions.
+     */
+     public ManagementBridge(IManagement delegate) {
+          super();
+          this.delegate = delegate;
+     }
+     /**
+        Get the delegate implementation.
+        @return IManagement delegate that manages platform specific functions..
+     */
+     public final IManagement getDelegate() {
+          return this.delegate;
+     }
+     /**
+        Set the delegate implementation.
+
+        @param delegate The delegate implementing platform specific functions.
+     */
+     public final void setDelegate(IManagement delegate) {
+          this.delegate = delegate;
+     }
+
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+     */
+     public String invoke(APIRequest request) {
+          String responseJSON = "";
+          switch (request.getMethodName()) {
+               default:
+                    // 404 - response null.
+                    responseJSON = null;
+          }
+          return responseJSON;
+     }
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

@@ -32,6 +32,63 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Interface for Managing the Network status
+   Auto-generated implementation of INetworkStatus specification.
+*/
+public class NetworkStatusDelegate extends BaseCommunicationDelegate implements INetworkStatus {
+
+     /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getNetworkStatusBridge().setDelegate(new NetworkStatusDelegate());
+     }
+
+     /**
+        Default Constructor.
+     */
+     public NetworkStatusDelegate() {
+          super();
+     }
+
+     /**
+        Add the listener for network status changes of the app
+
+        @param listener Listener with the result
+        @since ARP1.0
+     */
+     public void addNetworkStatusListener(INetworkStatusListener listener) {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":addNetworkStatusListener");
+     }
+
+     /**
+        Un-registers an existing listener from receiving network status events.
+
+        @param listener Listener with the result
+        @since ARP1.0
+     */
+     public void removeNetworkStatusListener(INetworkStatusListener listener) {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":removeNetworkStatusListener");
+     }
+
+     /**
+        Removes all existing listeners from receiving network status events.
+
+        @since ARP1.0
+     */
+     public void removeNetworkStatusListeners() {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":removeNetworkStatusListeners");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

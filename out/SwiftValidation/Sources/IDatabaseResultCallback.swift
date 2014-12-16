@@ -32,6 +32,57 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   Interface for Managing the Cloud operations
+   Auto-generated implementation of IDatabaseResultCallback specification.
+*/
+public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDatabaseResultCallback {
+
+     /**
+        Constructor with callback id.
+
+        @param id  The id of the callback.
+     */
+     public DatabaseResultCallbackImpl(long id) {
+          super(id);
+     }
+
+     /**
+        Result callback for error responses
+
+        @param error Returned error
+        @since ARP1.0
+     */
+     public void onError(IDatabaseResultCallbackError error) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     }
+
+     /**
+        Result callback for correct responses
+
+        @param database Returns the database
+        @since ARP1.0
+     */
+     public void onResult(Database database) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(database) +") )");
+     }
+
+     /**
+        Result callback for warning responses
+
+        @param database Returns the database
+        @param warning  Returned Warning
+        @since ARP1.0
+     */
+     public void onWarning(Database database, IDatabaseResultCallbackWarning warning) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(database) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

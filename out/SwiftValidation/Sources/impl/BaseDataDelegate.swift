@@ -32,6 +32,37 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Base application for Data purposes
+   Auto-generated implementation of IBaseData specification.
+*/
+public class BaseDataDelegate implements IBaseData {
+
+     /**
+        Group of API.
+     */
+     private IAdaptiveRPGroup apiGroup;
+
+     /**
+        Default constructor.
+     */
+     public BaseDataDelegate() {
+          this.apiGroup = IAdaptiveRPGroup.Data;
+     }
+
+     /**
+        Return the API group for the given interface.
+     */
+     @Override
+     public final IAdaptiveRPGroup getAPIGroup() {
+          return this.apiGroup;
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

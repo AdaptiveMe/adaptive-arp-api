@@ -32,6 +32,89 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Interface for Managing the Device operations
+   Auto-generated implementation of IDevice specification.
+*/
+public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
+
+     /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getDeviceBridge().setDelegate(new DeviceDelegate());
+     }
+
+     /**
+        Default Constructor.
+     */
+     public DeviceDelegate() {
+          super();
+     }
+
+     /**
+        Register a new listener that will receive button events.
+
+        @param listener to be registered.
+        @since ARP1.0
+     */
+     public void addButtonListener(IButtonListener listener) {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":addButtonListener");
+     }
+
+     /**
+        Returns the device information for the current device executing the runtime.
+
+        @return DeviceInfo for the current device.
+        @since ARP1.0
+     */
+     public DeviceInfo getDeviceInfo() {
+          DeviceInfo response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":getDeviceInfo");
+          // return response;
+     }
+
+     /**
+        Gets the current Locale for the device.
+
+        @return The current Locale information.
+        @since ARP1.0
+     */
+     public Locale getLocaleCurrent() {
+          Locale response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":getLocaleCurrent");
+          // return response;
+     }
+
+     /**
+        De-registers an existing listener from receiving button events.
+
+        @param listener to be removed.
+        @since ARP1.0
+     */
+     public void removeButtonListener(IButtonListener listener) {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":removeButtonListener");
+     }
+
+     /**
+        Removed all existing listeners from receiving button events.
+
+        @since ARP1.0
+     */
+     public void removeButtonListeners() {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":removeButtonListeners");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

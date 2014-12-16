@@ -32,6 +32,45 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Interface for Managing the Telephony operations
+   Auto-generated implementation of ITelephony specification.
+*/
+public class TelephonyDelegate extends BaseCommunicationDelegate implements ITelephony {
+
+     /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getTelephonyBridge().setDelegate(new TelephonyDelegate());
+     }
+
+     /**
+        Default Constructor.
+     */
+     public TelephonyDelegate() {
+          super();
+     }
+
+     /**
+        Invoke a phone call
+
+        @param number to call
+        @return Status of the call
+        @since ARP1.0
+     */
+     public ITelephonyStatus call(String number) {
+          ITelephonyStatus response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":call");
+          // return response;
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

@@ -32,6 +32,113 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   Interface for Managing the Runtime operations
+   Auto-generated implementation of IRuntime specification.
+*/
+public class RuntimeBridge extends BaseSystemBridge implements IRuntime, APIBridge {
+
+     /**
+        API Delegate.
+     */
+     private IRuntime delegate;
+
+     /**
+        Constructor with delegate.
+
+        @param delegate The delegate implementing platform specific functions.
+     */
+     public RuntimeBridge(IRuntime delegate) {
+          super();
+          this.delegate = delegate;
+     }
+     /**
+        Get the delegate implementation.
+        @return IRuntime delegate that manages platform specific functions..
+     */
+     public final IRuntime getDelegate() {
+          return this.delegate;
+     }
+     /**
+        Set the delegate implementation.
+
+        @param delegate The delegate implementing platform specific functions.
+     */
+     public final void setDelegate(IRuntime delegate) {
+          this.delegate = delegate;
+     }
+
+     /**
+        Dismiss the current Application
+
+        @since ARP1.0
+     */
+     public void dismissApplication() {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing dismissApplication.");
+
+          if (this.delegate != null) {
+               this.delegate.dismissApplication();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'dismissApplication' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'dismissApplication'.");
+          }
+          
+     }
+
+     /**
+        Whether the application dismiss the splash screen successfully or not
+
+        @return true if the application has dismissed the splash screen;false otherwise
+        @since ARP1.0
+     */
+     public Bool dismissSplashScreen() {
+          // Start logging elapsed time.
+          long tIn = System.currentTimeMillis();
+          ILogging logger = AppRegistryBridge.getInstance().getLoggingBridge();
+
+          if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executing dismissSplashScreen.");
+
+          Bool result = false;
+          if (this.delegate != null) {
+               result = this.delegate.dismissSplashScreen();
+               if (logger!=null) logger.log(ILoggingLogLevel.DEBUG, this.apiGroup.name(),this.getClass().getSimpleName()+" executed 'dismissSplashScreen' in "+(System.currentTimeMillis()-tIn)+"ms.");
+          } else {
+               if (logger!=null) logger.log(ILoggingLogLevel.ERROR, this.apiGroup.name(),this.getClass().getSimpleName()+" no delegate for 'dismissSplashScreen'.");
+          }
+          return result;          
+     }
+
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
+     */
+     public String invoke(APIRequest request) {
+          String responseJSON = "";
+          switch (request.getMethodName()) {
+               case "dismissApplication":
+                    this.dismissApplication();
+                    break;
+               case "dismissSplashScreen":
+                    Bool response1 = this.dismissSplashScreen();
+                    responseJSON = this.gson.toJson(response1);
+                    break;
+               default:
+                    // 404 - response null.
+                    responseJSON = null;
+          }
+          return responseJSON;
+     }
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

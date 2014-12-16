@@ -32,6 +32,63 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Interface for Managing the Geolocation operations
+   Auto-generated implementation of IGeolocation specification.
+*/
+public class GeolocationDelegate extends BaseSensorDelegate implements IGeolocation {
+
+     /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getGeolocationBridge().setDelegate(new GeolocationDelegate());
+     }
+
+     /**
+        Default Constructor.
+     */
+     public GeolocationDelegate() {
+          super();
+     }
+
+     /**
+        Register a new listener that will receive geolocation events.
+
+        @param listener to be registered.
+        @since ARP1.0
+     */
+     public void addGeolocationListener(IGeolocationListener listener) {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":addGeolocationListener");
+     }
+
+     /**
+        De-registers an existing listener from receiving geolocation events.
+
+        @param listener to be registered.
+        @since ARP1.0
+     */
+     public void removeGeolocationListener(IGeolocationListener listener) {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":removeGeolocationListener");
+     }
+
+     /**
+        Removed all existing listeners from receiving geolocation events.
+
+        @since ARP1.0
+     */
+     public void removeGeolocationListeners() {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":removeGeolocationListeners");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

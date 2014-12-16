@@ -32,6 +32,54 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Interface for Managing the Runtime operations
+   Auto-generated implementation of IRuntime specification.
+*/
+public class RuntimeDelegate extends BaseSystemDelegate implements IRuntime {
+
+     /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getRuntimeBridge().setDelegate(new RuntimeDelegate());
+     }
+
+     /**
+        Default Constructor.
+     */
+     public RuntimeDelegate() {
+          super();
+     }
+
+     /**
+        Dismiss the current Application
+
+        @since ARP1.0
+     */
+     public void dismissApplication() {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":dismissApplication");
+     }
+
+     /**
+        Whether the application dismiss the splash screen successfully or not
+
+        @return true if the application has dismissed the splash screen;false otherwise
+        @since ARP1.0
+     */
+     public Bool dismissSplashScreen() {
+          Bool response;
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":dismissSplashScreen");
+          // return response;
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

@@ -32,6 +32,56 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Interface for Managing the Logging operations
+   Auto-generated implementation of ILogging specification.
+*/
+public class LoggingDelegate extends BaseUtilDelegate implements ILogging {
+
+     /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getLoggingBridge().setDelegate(new LoggingDelegate());
+     }
+
+     /**
+        Default Constructor.
+     */
+     public LoggingDelegate() {
+          super();
+     }
+
+     /**
+        Logs the given message, with the given log level if specified, to the standard platform/environment.
+
+        @param level   Log level
+        @param message Message to be logged
+        @since ARP1.0
+     */
+     public void log(ILoggingLogLevel level, String message) {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":log");
+     }
+
+     /**
+        Logs the given message, with the given log level if specified, to the standard platform/environment.
+
+        @param level    Log level
+        @param category Category/tag name to identify/filter the log.
+        @param message  Message to be logged
+        @since ARP1.0
+     */
+     public void log(ILoggingLogLevel level, String category, String message) {
+          // TODO: Not implemented.
+          throw new UnsupportedOperationException(this.getClass().getName()+":log");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

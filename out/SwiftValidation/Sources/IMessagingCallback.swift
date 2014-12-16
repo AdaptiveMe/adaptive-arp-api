@@ -32,6 +32,57 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   Interface for Managing the Messaging responses
+   Auto-generated implementation of IMessagingCallback specification.
+*/
+public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
+
+     /**
+        Constructor with callback id.
+
+        @param id  The id of the callback.
+     */
+     public MessagingCallbackImpl(long id) {
+          super(id);
+     }
+
+     /**
+        This method is called on Error
+
+        @param error returned by the platform
+        @since ARP1.0
+     */
+     public void onError(IMessagingCallbackError error) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     }
+
+     /**
+        This method is called on Result
+
+        @param success true if sent;false otherwise
+        @since ARP1.0
+     */
+     public void onResult(Bool success) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(success) +") )");
+     }
+
+     /**
+        This method is called on Warning
+
+        @param success true if sent;false otherwise
+        @param warning returned by the platform
+        @since ARP1.0
+     */
+     public void onWarning(Bool success, IMessagingCallbackWarning warning) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(success) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

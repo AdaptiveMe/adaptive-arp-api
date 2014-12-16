@@ -32,6 +32,37 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.impl;
+
+import me.adaptive.arp.api.*;
+
+/**
+   Base application for Commerce purposes
+   Auto-generated implementation of IBaseCommerce specification.
+*/
+public class BaseCommerceDelegate implements IBaseCommerce {
+
+     /**
+        Group of API.
+     */
+     private IAdaptiveRPGroup apiGroup;
+
+     /**
+        Default constructor.
+     */
+     public BaseCommerceDelegate() {
+          this.apiGroup = IAdaptiveRPGroup.Commerce;
+     }
+
+     /**
+        Return the API group for the given interface.
+     */
+     @Override
+     public final IAdaptiveRPGroup getAPIGroup() {
+          return this.apiGroup;
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */

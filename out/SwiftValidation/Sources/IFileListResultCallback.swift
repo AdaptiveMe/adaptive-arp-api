@@ -32,6 +32,57 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
+package me.adaptive.arp.api;
+
+import com.google.gson.Gson;
+
+/**
+   Interface for Managing the File result operations
+   Auto-generated implementation of IFileListResultCallback specification.
+*/
+public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
+
+     /**
+        Constructor with callback id.
+
+        @param id  The id of the callback.
+     */
+     public FileListResultCallbackImpl(long id) {
+          super(id);
+     }
+
+     /**
+        On error result of a file operation.
+
+        @param error Error processing the request.
+        @since ARP1.0
+     */
+     public void onError(IFileListResultCallbackError error) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     }
+
+     /**
+        On correct result of a file operation.
+
+        @param files Array of resulting files/folders.
+        @since ARP1.0
+     */
+     public void onResult([IFile] files) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(files) +") )");
+     }
+
+     /**
+        On partial result of a file operation, containing a warning.
+
+        @param files   Array of resulting files/folders.
+        @param warning Warning condition encountered.
+        @since ARP1.0
+     */
+     public void onWarning([IFile] files, IFileListResultCallbackWarning warning) {
+          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(files) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     }
+
+}
 /**
 ------------------------------------| Engineered with ♥ in Barcelona, Catalonia |--------------------------------------
 */
