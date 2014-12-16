@@ -39,6 +39,13 @@ import me.adaptive.arp.api.*;
 public class OSDelegate extends BaseSystemDelegate implements IOS {
 
      /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getOSBridge().setDelegate(new OSDelegate());
+     }
+
+     /**
         Default Constructor.
      */
      public OSDelegate() {

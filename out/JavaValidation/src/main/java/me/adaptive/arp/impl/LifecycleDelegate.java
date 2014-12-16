@@ -39,6 +39,13 @@ import me.adaptive.arp.api.*;
 public class LifecycleDelegate extends BaseApplicationDelegate implements ILifecycle {
 
      /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getLifecycleBridge().setDelegate(new LifecycleDelegate());
+     }
+
+     /**
         Default Constructor.
      */
      public LifecycleDelegate() {

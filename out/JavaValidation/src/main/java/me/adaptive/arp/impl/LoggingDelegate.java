@@ -39,6 +39,13 @@ import me.adaptive.arp.api.*;
 public class LoggingDelegate extends BaseUtilDelegate implements ILogging {
 
      /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getLoggingBridge().setDelegate(new LoggingDelegate());
+     }
+
+     /**
         Default Constructor.
      */
      public LoggingDelegate() {

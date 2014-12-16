@@ -39,6 +39,13 @@ import me.adaptive.arp.api.*;
 public class MailDelegate extends BasePIMDelegate implements IMail {
 
      /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getMailBridge().setDelegate(new MailDelegate());
+     }
+
+     /**
         Default Constructor.
      */
      public MailDelegate() {

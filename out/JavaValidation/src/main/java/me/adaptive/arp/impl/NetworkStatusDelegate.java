@@ -39,6 +39,13 @@ import me.adaptive.arp.api.*;
 public class NetworkStatusDelegate extends BaseCommunicationDelegate implements INetworkStatus {
 
      /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getNetworkStatusBridge().setDelegate(new NetworkStatusDelegate());
+     }
+
+     /**
         Default Constructor.
      */
      public NetworkStatusDelegate() {

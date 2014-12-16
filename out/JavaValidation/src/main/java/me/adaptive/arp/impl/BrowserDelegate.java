@@ -39,6 +39,13 @@ import me.adaptive.arp.api.*;
 public class BrowserDelegate extends BaseUIDelegate implements IBrowser {
 
      /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getBrowserBridge().setDelegate(new BrowserDelegate());
+     }
+
+     /**
         Default Constructor.
      */
      public BrowserDelegate() {

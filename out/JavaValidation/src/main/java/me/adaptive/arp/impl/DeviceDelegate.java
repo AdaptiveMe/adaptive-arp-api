@@ -39,6 +39,13 @@ import me.adaptive.arp.api.*;
 public class DeviceDelegate extends BaseSystemDelegate implements IDevice {
 
      /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getDeviceBridge().setDelegate(new DeviceDelegate());
+     }
+
+     /**
         Default Constructor.
      */
      public DeviceDelegate() {

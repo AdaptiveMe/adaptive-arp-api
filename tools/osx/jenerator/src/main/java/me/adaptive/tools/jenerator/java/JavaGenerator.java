@@ -106,6 +106,16 @@ public class JavaGenerator extends GeneratorBase {
             }
             println();
 
+            if (!simpleName.startsWith("AppRegistry") && !simpleName.startsWith("AppContext")) {
+                startComment(5);
+                println(8, "Register delegate with the Application Registry.");
+                endComment(5);
+                println(5, "static {");
+                println(10, "AppRegistryBridge.getInstance().get" + clazz.getSimpleName().substring(1) + "Bridge().setDelegate(new " + simpleName + "());");
+                println(5, "}");
+                println();
+            }
+
             startComment(5);
             println(8, "Default Constructor.");
             endComment(5);
@@ -193,7 +203,7 @@ public class JavaGenerator extends GeneratorBase {
                     endComment(5);
                     println(5, "public final " + serviceClass.getSimpleName().substring(1) + "Bridge get" + serviceClass.getSimpleName().substring(1) + "Bridge() {");
                     println(10, " if(__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge == null) {");
-                    println(15, "__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge = new "+ serviceClass.getSimpleName().substring(1) + "Bridge(null);");
+                    println(15, "__" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge = new " + serviceClass.getSimpleName().substring(1) + "Bridge(null);");
                     println(10, "}");
                     println(10, "return __" + serviceClass.getSimpleName().substring(1).toLowerCase() + "Bridge;");
                     println(5, "}");
@@ -225,7 +235,7 @@ public class JavaGenerator extends GeneratorBase {
                     startComment(5);
                     println(8, javaMethods.get(m).getComment());
                     endComment(5);
-                    println(5,"private "+m.getReturnType().getSimpleName().substring(1)+"Bridge __"+m.getReturnType().getSimpleName().substring(1).toLowerCase()+"Bridge = null;");
+                    println(5, "private " + m.getReturnType().getSimpleName().substring(1) + "Bridge __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = null;");
                     println();
                     startComment(5);
                     println(8, javaMethods.get(m).getComment());
@@ -239,7 +249,7 @@ public class JavaGenerator extends GeneratorBase {
                     print(m.getName() + "(");
                     println(") {");
                     println(10, " if(__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge == null) {");
-                    println(15, "__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = new "+ m.getReturnType().getSimpleName().substring(1) + "Bridge(null);");
+                    println(15, "__" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge = new " + m.getReturnType().getSimpleName().substring(1) + "Bridge(null);");
                     println(10, "}");
                     println(10, "return __" + m.getReturnType().getSimpleName().substring(1).toLowerCase() + "Bridge;");
                     println(5, "}");
@@ -570,7 +580,7 @@ public class JavaGenerator extends GeneratorBase {
                     print("void ");
                 } else {
                     if (simpleName.startsWith("AppRegistry")) {
-                        print(m.getReturnType().getSimpleName().substring(1)+"Bridge ");
+                        print(m.getReturnType().getSimpleName().substring(1) + "Bridge ");
                     } else {
                         print(convertJavaToNativeType(m.getReturnType()) + " ");
                     }
@@ -616,7 +626,7 @@ public class JavaGenerator extends GeneratorBase {
                         }
                     } else {
                         if (simpleName.startsWith("AppRegistry")) {
-                            println(10, m.getReturnType().getSimpleName().substring(1)+"Bridge result = null;");
+                            println(10, m.getReturnType().getSimpleName().substring(1) + "Bridge result = null;");
                         } else {
                             println(10, convertJavaToNativeType(m.getReturnType()) + " result = null;");
                         }
@@ -936,7 +946,7 @@ public class JavaGenerator extends GeneratorBase {
                 print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print("JSON.parse(\" + this.gson.toJson("+p.getName()+") +\")");
+                    print("JSON.parse(\" + this.gson.toJson(" + p.getName() + ") +\")");
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
@@ -1078,7 +1088,7 @@ public class JavaGenerator extends GeneratorBase {
                 print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print("JSON.parse(\" + this.gson.toJson("+p.getName()+") +\")");
+                    print("JSON.parse(\" + this.gson.toJson(" + p.getName() + ") +\")");
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }

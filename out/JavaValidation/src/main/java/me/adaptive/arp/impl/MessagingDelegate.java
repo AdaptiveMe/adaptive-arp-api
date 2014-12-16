@@ -39,6 +39,13 @@ import me.adaptive.arp.api.*;
 public class MessagingDelegate extends BasePIMDelegate implements IMessaging {
 
      /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getMessagingBridge().setDelegate(new MessagingDelegate());
+     }
+
+     /**
         Default Constructor.
      */
      public MessagingDelegate() {

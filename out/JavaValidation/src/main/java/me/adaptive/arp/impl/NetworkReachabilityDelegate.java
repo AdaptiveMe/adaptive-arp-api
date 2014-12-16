@@ -39,6 +39,13 @@ import me.adaptive.arp.api.*;
 public class NetworkReachabilityDelegate extends BaseCommunicationDelegate implements INetworkReachability {
 
      /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getNetworkReachabilityBridge().setDelegate(new NetworkReachabilityDelegate());
+     }
+
+     /**
         Default Constructor.
      */
      public NetworkReachabilityDelegate() {

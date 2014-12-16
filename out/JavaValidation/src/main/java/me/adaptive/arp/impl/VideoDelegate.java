@@ -39,6 +39,13 @@ import me.adaptive.arp.api.*;
 public class VideoDelegate extends BaseMediaDelegate implements IVideo {
 
      /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getVideoBridge().setDelegate(new VideoDelegate());
+     }
+
+     /**
         Default Constructor.
      */
      public VideoDelegate() {

@@ -39,6 +39,13 @@ import me.adaptive.arp.api.*;
 public class RuntimeDelegate extends BaseSystemDelegate implements IRuntime {
 
      /**
+        Register delegate with the Application Registry.
+     */
+     static {
+          AppRegistryBridge.getInstance().getRuntimeBridge().setDelegate(new RuntimeDelegate());
+     }
+
+     /**
         Default Constructor.
      */
      public RuntimeDelegate() {
