@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IDatabaseResultCallback : IBaseCallback {
-          /**
-             Result callback for error responses
-             @param error Returned error
-             @since ARP1.0
-          */
-          void OnError(IDatabaseResultCallbackError Error);
+     /**
+        Result callback for error responses
 
-          /**
-             Result callback for correct responses
-             @param database Returns the database
-             @since ARP1.0
-          */
-          void OnResult(Database Database);
+        @param error Returned error
+        @since ARP1.0
+     */
+     void onError(IDatabaseResultCallbackError error);
 
-          /**
-             Result callback for warning responses
-             @param database Returns the database
-             @param warning  Returned Warning
-             @since ARP1.0
-          */
-          void OnWarning(Database Database, IDatabaseResultCallbackWarning Warning);
+     /**
+        Result callback for correct responses
+
+        @param database Returns the database
+        @since ARP1.0
+     */
+     void onResult(Database database);
+
+     /**
+        Result callback for warning responses
+
+        @param database Returns the database
+        @param warning  Returned Warning
+        @since ARP1.0
+     */
+     void onWarning(Database database, IDatabaseResultCallbackWarning warning);
 
      }
 }

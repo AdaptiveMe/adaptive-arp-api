@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,12 +44,13 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAppResourceHandler {
-          /**
-             This method manages the queries to the bundle reosurces inside the application
-             @param resourcePath path of the resource
-             @param callback     Callback
-          */
-          void GetResource(string ResourcePath, IAppResourceCallback Callback);
+     /**
+        This method manages the queries to the bundle reosurces inside the application
+
+        @param resourcePath path of the resource
+        @param callback     Callback
+     */
+     void getResource(string resourcePath, IAppResourceCallback callback);
 
      }
 }

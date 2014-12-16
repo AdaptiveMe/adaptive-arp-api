@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IContactPhotoResultCallback : IBaseCallback {
-          /**
-             This method is called on Error
-             @param error returned by the platform
-             @since ARP1.0
-          */
-          void OnError(IContactPhotoResultCallbackError Error);
+     /**
+        This method is called on Error
 
-          /**
-             This method is called on Result
-             @param contactPhoto returned by the platform
-             @since ARP1.0
-          */
-          void OnResult(byte[] ContactPhoto);
+        @param error returned by the platform
+        @since ARP1.0
+     */
+     void onError(IContactPhotoResultCallbackError error);
 
-          /**
-             This method is called on Warning
-             @param contactPhoto returned by the platform
-             @param warning      returned by the platform
-             @since ARP1.0
-          */
-          void OnWarning(byte[] ContactPhoto, IContactPhotoResultCallbackWarning Warning);
+     /**
+        This method is called on Result
+
+        @param contactPhoto returned by the platform
+        @since ARP1.0
+     */
+     void onResult(byte[] contactPhoto);
+
+     /**
+        This method is called on Warning
+
+        @param contactPhoto returned by the platform
+        @param warning      returned by the platform
+        @since ARP1.0
+     */
+     void onWarning(byte[] contactPhoto, IContactPhotoResultCallbackWarning warning);
 
      }
 }

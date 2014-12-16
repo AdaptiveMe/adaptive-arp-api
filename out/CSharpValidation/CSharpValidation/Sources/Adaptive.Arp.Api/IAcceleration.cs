@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,25 +44,28 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAcceleration : IBaseSensor {
-          /**
-             Register a new listener that will receive acceleration events.
-             @param listener to be registered.
-             @since ARP1.0
-          */
-          void AddAccelerationListener(IAccelerationListener Listener);
+     /**
+        Register a new listener that will receive acceleration events.
 
-          /**
-             De-registers an existing listener from receiving acceleration events.
-             @param listener to be registered.
-             @since ARP1.0
-          */
-          void RemoveAccelerationListener(IAccelerationListener Listener);
+        @param listener to be registered.
+        @since ARP1.0
+     */
+     void addAccelerationListener(IAccelerationListener listener);
 
-          /**
-             Removed all existing listeners from receiving acceleration events.
-             @since ARP1.0
-          */
-          void RemoveAccelerationListeners();
+     /**
+        De-registers an existing listener from receiving acceleration events.
+
+        @param listener to be registered.
+        @since ARP1.0
+     */
+     void removeAccelerationListener(IAccelerationListener listener);
+
+     /**
+        Removed all existing listeners from receiving acceleration events.
+
+        @since ARP1.0
+     */
+     void removeAccelerationListeners();
 
      }
 }

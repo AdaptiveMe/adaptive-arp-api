@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,23 +42,29 @@ Release:
 public protocol IGeolocationListener : IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available.
+
         @param error Type of error encountered during reading.
         @since ARP1.0
      */
-     func onError(error:IGeolocationListenerError)
+     void onError(IGeolocationListenerError error);
+
      /**
         Correct data received.
+
         @param geolocation Geolocation Bean
         @since ARP1.0
      */
-     func onResult(geolocation:Geolocation)
+     void onResult(Geolocation geolocation);
+
      /**
         Data received with warning - ie. HighDoP
+
         @param geolocation Geolocation Bean
         @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
-     func onWarning(geolocation:Geolocation, warning:IGeolocationListenerWarning)
+     void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning);
+
 }
 
 /**

@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,21 +42,27 @@ Release:
 public protocol IGeolocation : IBaseSensor {
      /**
         Register a new listener that will receive geolocation events.
+
         @param listener to be registered.
         @since ARP1.0
      */
-     func addGeolocationListener(listener:IGeolocationListener)
+     void addGeolocationListener(IGeolocationListener listener);
+
      /**
         De-registers an existing listener from receiving geolocation events.
+
         @param listener to be registered.
         @since ARP1.0
      */
-     func removeGeolocationListener(listener:IGeolocationListener)
+     void removeGeolocationListener(IGeolocationListener listener);
+
      /**
         Removed all existing listeners from receiving geolocation events.
+
         @since ARP1.0
      */
-     func removeGeolocationListeners()
+     void removeGeolocationListeners();
+
 }
 
 /**

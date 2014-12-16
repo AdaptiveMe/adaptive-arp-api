@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,10 +42,11 @@ Release:
 public protocol IAdaptiveRP : NSObjectProtocol {
      /**
         Method that returns the API group of the implementation
+
         @return API GRoup
         @since ARP1.0
      */
-     func getAPIGroup() -> IAdaptiveRPGroup
+     IAdaptiveRPGroup getAPIGroup();
 
 }
 

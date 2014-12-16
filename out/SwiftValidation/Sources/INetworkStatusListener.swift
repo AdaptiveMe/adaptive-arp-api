@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,23 +42,29 @@ Release:
 public protocol INetworkStatusListener : IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available.
+
         @param error Type of error encountered during reading.
         @since ARP1.0
      */
-     func onError(error:INetworkStatusListenerError)
+     void onError(INetworkStatusListenerError error);
+
      /**
         Called when network connection changes somehow.
+
         @param network Change to this network.
         @since ARP1.0
      */
-     func onResult(network:ICapabilitiesNet)
+     void onResult(ICapabilitiesNet network);
+
      /**
         Status received with warning
+
         @param network Change to this network.
         @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
-     func onWarning(network:ICapabilitiesNet, warning:INetworkStatusListenerWarning)
+     void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning);
+
 }
 
 /**

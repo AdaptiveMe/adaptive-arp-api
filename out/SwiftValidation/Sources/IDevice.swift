@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,35 +42,43 @@ Release:
 public protocol IDevice : IBaseSystem {
      /**
         Register a new listener that will receive button events.
+
         @param listener to be registered.
         @since ARP1.0
      */
-     func addButtonListener(listener:IButtonListener)
+     void addButtonListener(IButtonListener listener);
+
      /**
         Returns the device information for the current device executing the runtime.
+
         @return DeviceInfo for the current device.
         @since ARP1.0
      */
-     func getDeviceInfo() -> DeviceInfo
+     DeviceInfo getDeviceInfo();
 
      /**
         Gets the current Locale for the device.
+
         @return The current Locale information.
         @since ARP1.0
      */
-     func getLocaleCurrent() -> Locale
+     Locale getLocaleCurrent();
 
      /**
         De-registers an existing listener from receiving button events.
+
         @param listener to be removed.
         @since ARP1.0
      */
-     func removeButtonListener(listener:IButtonListener)
+     void removeButtonListener(IButtonListener listener);
+
      /**
         Removed all existing listeners from receiving button events.
+
         @since ARP1.0
      */
-     func removeButtonListeners()
+     void removeButtonListeners();
+
 }
 
 /**

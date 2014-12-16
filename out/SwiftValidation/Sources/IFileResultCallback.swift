@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,23 +42,29 @@ Release:
 public protocol IFileResultCallback : IBaseCallback {
      /**
         On error result of a file operation.
+
         @param error Error processing the request.
         @since ARP1.0
      */
-     func onError(error:IFileResultCallbackError)
+     void onError(IFileResultCallbackError error);
+
      /**
         On correct result of a file operation.
+
         @param storageFile Reference to the resulting file.
         @since ARP1.0
      */
-     func onResult(storageFile:IFile)
+     void onResult(IFile storageFile);
+
      /**
         On partial result of a file operation, containing a warning.
+
         @param file    Reference to the offending file.
         @param warning Warning processing the request.
         @since ARP1.0
      */
-     func onWarning(file:IFile, warning:IFileResultCallbackWarning)
+     void onWarning(IFile file, IFileResultCallbackWarning warning);
+
 }
 
 /**

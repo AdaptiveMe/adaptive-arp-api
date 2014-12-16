@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,11 +42,12 @@ Release:
 public protocol ITelephony : IBaseCommunication {
      /**
         Invoke a phone call
+
         @param number to call
         @return Status of the call
         @since ARP1.0
      */
-     func call(number:String) -> ITelephonyStatus
+     ITelephonyStatus call(String number);
 
 }
 

@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface INetworkReachabilityCallback : IBaseCallback {
-          /**
-             No data received - error condition, not authorized .
-             @param error Error value
-             @since ARP1.0
-          */
-          void OnError(INetworkReachabilityCallbackError Error);
+     /**
+        No data received - error condition, not authorized .
 
-          /**
-             Correct data received.
-             @param reachable Indicates if the host is reachable
-             @since ARP1.0
-          */
-          void OnResult(bool Reachable);
+        @param error Error value
+        @since ARP1.0
+     */
+     void onError(INetworkReachabilityCallbackError error);
 
-          /**
-             Data received with warning - ie Found entries with existing key and values have been overriden
-             @param reachable Indicates if the host is reachable
-             @param warning   Warning value
-             @since ARP1.0
-          */
-          void OnWarning(bool Reachable, INetworkReachabilityCallbackWarning Warning);
+     /**
+        Correct data received.
+
+        @param reachable Indicates if the host is reachable
+        @since ARP1.0
+     */
+     void onResult(bool reachable);
+
+     /**
+        Data received with warning - ie Found entries with existing key and values have been overriden
+
+        @param reachable Indicates if the host is reachable
+        @param warning   Warning value
+        @since ARP1.0
+     */
+     void onWarning(bool reachable, INetworkReachabilityCallbackWarning warning);
 
      }
 }

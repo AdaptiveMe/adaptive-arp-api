@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,21 +42,27 @@ Release:
 public protocol IAcceleration : IBaseSensor {
      /**
         Register a new listener that will receive acceleration events.
+
         @param listener to be registered.
         @since ARP1.0
      */
-     func addAccelerationListener(listener:IAccelerationListener)
+     void addAccelerationListener(IAccelerationListener listener);
+
      /**
         De-registers an existing listener from receiving acceleration events.
+
         @param listener to be registered.
         @since ARP1.0
      */
-     func removeAccelerationListener(listener:IAccelerationListener)
+     void removeAccelerationListener(IAccelerationListener listener);
+
      /**
         Removed all existing listeners from receiving acceleration events.
+
         @since ARP1.0
      */
-     func removeAccelerationListeners()
+     void removeAccelerationListeners();
+
 }
 
 /**

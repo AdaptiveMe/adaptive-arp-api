@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,21 +42,27 @@ Release:
 public protocol INetworkStatus : IBaseCommunication {
      /**
         Add the listener for network status changes of the app
+
         @param listener Listener with the result
         @since ARP1.0
      */
-     func addNetworkStatusListener(listener:INetworkStatusListener)
+     void addNetworkStatusListener(INetworkStatusListener listener);
+
      /**
         Un-registers an existing listener from receiving network status events.
+
         @param listener Listener with the result
         @since ARP1.0
      */
-     func removeNetworkStatusListener(listener:INetworkStatusListener)
+     void removeNetworkStatusListener(INetworkStatusListener listener);
+
      /**
         Removes all existing listeners from receiving network status events.
+
         @since ARP1.0
      */
-     func removeNetworkStatusListeners()
+     void removeNetworkStatusListeners();
+
 }
 
 /**

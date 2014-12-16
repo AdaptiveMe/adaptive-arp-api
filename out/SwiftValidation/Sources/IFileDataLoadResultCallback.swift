@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,23 +42,29 @@ Release:
 public protocol IFileDataLoadResultCallback : IBaseCallback {
      /**
         Error processing data retrieval/storage operation.
+
         @param error Error condition encountered.
         @since ARP1.0
      */
-     func onError(error:IFileDataLoadResultCallbackError)
+     void onError(IFileDataLoadResultCallbackError error);
+
      /**
         Result of data retrieval operation.
+
         @param data Data loaded.
         @since ARP1.0
      */
-     func onResult(data:[Byte])
+     void onResult([Byte] data);
+
      /**
         Result with warning of data retrieval/storage operation.
+
         @param data    File being loaded.
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     func onWarning(data:[Byte], warning:IFileDataLoadResultCallbackWarning)
+     void onWarning([Byte] data, IFileDataLoadResultCallbackWarning warning);
+
 }
 
 /**

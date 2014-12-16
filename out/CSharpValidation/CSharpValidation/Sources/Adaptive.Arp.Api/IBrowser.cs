@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,33 +44,36 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IBrowser : IBaseUI {
-          /**
-             Method for opening a URL like a link in the native default browser
-             @param url Url to open
-             @return The result of the operation
-             @since ARP1.0
-          */
-          bool OpenExtenalBrowser(string Url);
+     /**
+        Method for opening a URL like a link in the native default browser
 
-          /**
-             Method for opening a browser embedded into the application in a modal window
-             @param url            Url to open
-             @param title          Title of the Navigation bar
-             @param backButtonText Title of the Back button bar
-             @return The result of the operation
-             @since ARP1.0
-          */
-          bool OpenInternalBrowserModal(string Url, string Title, string BackButtonText);
+        @param url Url to open
+        @return The result of the operation
+        @since ARP1.0
+     */
+     bool openExtenalBrowser(string url);
 
-          /**
-             Method for opening a browser embedded into the application
-             @param url            Url to open
-             @param title          Title of the Navigation bar
-             @param backButtonText Title of the Back button bar
-             @return The result of the operation
-             @since ARP1.0
-          */
-          bool OpenInternalBrowser(string Url, string Title, string BackButtonText);
+     /**
+        Method for opening a browser embedded into the application in a modal window
+
+        @param url            Url to open
+        @param title          Title of the Navigation bar
+        @param backButtonText Title of the Back button bar
+        @return The result of the operation
+        @since ARP1.0
+     */
+     bool openInternalBrowserModal(string url, string title, string backButtonText);
+
+     /**
+        Method for opening a browser embedded into the application
+
+        @param url            Url to open
+        @param title          Title of the Navigation bar
+        @param backButtonText Title of the Back button bar
+        @return The result of the operation
+        @since ARP1.0
+     */
+     bool openInternalBrowser(string url, string title, string backButtonText);
 
      }
 }

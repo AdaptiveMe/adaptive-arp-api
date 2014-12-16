@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,18 +42,22 @@ Release:
 public protocol INetworkReachability : IBaseCommunication {
      /**
         Whether there is connectivity to a host, via domain name or ip address, or not.
+
         @param host     domain name or ip address of host.
         @param callback Callback called at the end.
         @since ARP1.0
      */
-     func isNetworkReachable(host:String, callback:INetworkReachabilityCallback)
+     void isNetworkReachable(String host, INetworkReachabilityCallback callback);
+
      /**
         Whether there is connectivity to an url of a service or not.
+
         @param url      to look for
         @param callback Callback called at the end
         @since ARP1.0
      */
-     func isNetworkServiceReachable(url:String, callback:INetworkReachabilityCallback)
+     void isNetworkServiceReachable(String url, INetworkReachabilityCallback callback);
+
 }
 
 /**

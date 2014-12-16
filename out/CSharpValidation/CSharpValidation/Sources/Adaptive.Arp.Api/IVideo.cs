@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,12 +44,13 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IVideo : IBaseMedia {
-          /**
-             Play url video stream
-             @param url of the video
-             @since ARP1.0
-          */
-          void PlayStream(string Url);
+     /**
+        Play url video stream
+
+        @param url of the video
+        @since ARP1.0
+     */
+     void playStream(string url);
 
      }
 }

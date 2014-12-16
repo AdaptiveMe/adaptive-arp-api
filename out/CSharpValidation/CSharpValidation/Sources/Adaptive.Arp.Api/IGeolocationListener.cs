@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IGeolocationListener : IBaseListener {
-          /**
-             No data received - error condition, not authorized or hardware not available.
-             @param error Type of error encountered during reading.
-             @since ARP1.0
-          */
-          void OnError(IGeolocationListenerError Error);
+     /**
+        No data received - error condition, not authorized or hardware not available.
 
-          /**
-             Correct data received.
-             @param geolocation Geolocation Bean
-             @since ARP1.0
-          */
-          void OnResult(Geolocation Geolocation);
+        @param error Type of error encountered during reading.
+        @since ARP1.0
+     */
+     void onError(IGeolocationListenerError error);
 
-          /**
-             Data received with warning - ie. HighDoP
-             @param geolocation Geolocation Bean
-             @param warning Type of warning encountered during reading.
-             @since ARP1.0
-          */
-          void OnWarning(Geolocation Geolocation, IGeolocationListenerWarning Warning);
+     /**
+        Correct data received.
+
+        @param geolocation Geolocation Bean
+        @since ARP1.0
+     */
+     void onResult(Geolocation geolocation);
+
+     /**
+        Data received with warning - ie. HighDoP
+
+        @param geolocation Geolocation Bean
+        @param warning Type of warning encountered during reading.
+        @since ARP1.0
+     */
+     void onWarning(Geolocation geolocation, IGeolocationListenerWarning warning);
 
      }
 }

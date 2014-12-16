@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,53 +42,64 @@ Release:
 public protocol IService : IBaseCommunication {
      /**
         Get a reference to a registered service by name.
+
         @param serviceName Name of service.
         @return A service, if registered, or null of the service does not exist.
         @since ARP1.0
      */
-     func getService(serviceName:String) -> Service
+     Service getService(String serviceName);
 
      /**
         Request async a service for an Url
+
         @param serviceRequest Service Request to invoke
         @param service        Service to call
         @param callback       Callback to execute with the result
         @since ARP1.0
      */
-     func invokeService(serviceRequest:ServiceRequest, service:Service, callback:IServiceResultCallback)
-     /**
-        Check whether a service by the given name is registered.
-        @param serviceName Name of service.
-        @return True if the service is registered, false otherwise.
-        @since ARP1.0
-     */
-     func isRegistered(serviceName:String) -> Bool
+     void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback);
 
      /**
         Check whether a service by the given name is registered.
+
         @param serviceName Name of service.
         @return True if the service is registered, false otherwise.
         @since ARP1.0
      */
-     func isRegistered(service:Service) -> Bool
+     Bool isRegistered(String serviceName);
+
+     /**
+        Check whether a service by the given service is already registered.
+
+        @param service Service to check
+        @return True if the service is registered, false otherwise.
+        @since ARP1.0
+     */
+     Bool isRegistered(Service service);
 
      /**
         Register a new service
+
         @param service to register
         @since ARP1.0
      */
-     func registerService(service:Service)
+     void registerService(Service service);
+
      /**
         Unregister all services.
+
         @since ARP1.0
      */
-     func unregisterServices()
+     void unregisterServices();
+
      /**
         Unregister a service
+
         @param service to unregister
         @since ARP1.0
      */
-     func unregisterService(service:Service)
+     void unregisterService(Service service);
+
 }
 
 /**

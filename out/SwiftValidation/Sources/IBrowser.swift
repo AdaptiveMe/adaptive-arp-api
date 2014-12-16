@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,31 +42,34 @@ Release:
 public protocol IBrowser : IBaseUI {
      /**
         Method for opening a URL like a link in the native default browser
+
         @param url Url to open
         @return The result of the operation
         @since ARP1.0
      */
-     func openExtenalBrowser(url:String) -> Bool
+     Bool openExtenalBrowser(String url);
 
      /**
         Method for opening a browser embedded into the application in a modal window
+
         @param url            Url to open
         @param title          Title of the Navigation bar
         @param backButtonText Title of the Back button bar
         @return The result of the operation
         @since ARP1.0
      */
-     func openInternalBrowserModal(url:String, title:String, backButtonText:String) -> Bool
+     Bool openInternalBrowserModal(String url, String title, String backButtonText);
 
      /**
         Method for opening a browser embedded into the application
+
         @param url            Url to open
         @param title          Title of the Navigation bar
         @param backButtonText Title of the Back button bar
         @return The result of the operation
         @since ARP1.0
      */
-     func openInternalBrowser(url:String, title:String, backButtonText:String) -> Bool
+     Bool openInternalBrowser(String url, String title, String backButtonText);
 
 }
 

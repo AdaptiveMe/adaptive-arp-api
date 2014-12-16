@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAppResourceCallback : IBaseCallback {
-          /**
-             Error result of the App resource operation
-             @param error Error fired
-             @since ARP1.0
-          */
-          void OnError(IAppResourceCallbackError Error);
+     /**
+        Error result of the App resource operation
 
-          /**
-             Correct result of the App Resource operation
-             @param resource Resource
-             @since ARP1.0
-          */
-          void OnResult(IAppResource Resource);
+        @param error Error fired
+        @since ARP1.0
+     */
+     void onError(IAppResourceCallbackError error);
 
-          /**
-             Warning result of the App Resource operation
-             @param resource Resource
-             @param warning  Warning fired
-             @since ARP1.0
-          */
-          void OnWarning(IAppResource Resource, IAppResourceCallbackWarning Warning);
+     /**
+        Correct result of the App Resource operation
+
+        @param resource Resource
+        @since ARP1.0
+     */
+     void onResult(IAppResource resource);
+
+     /**
+        Warning result of the App Resource operation
+
+        @param resource Resource
+        @param warning  Warning fired
+        @since ARP1.0
+     */
+     void onWarning(IAppResource resource, IAppResourceCallbackWarning warning);
 
      }
 }

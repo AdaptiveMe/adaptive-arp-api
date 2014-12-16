@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,10 +42,11 @@ Release:
 public protocol IOS : IBaseSystem {
      /**
         Returns the OSInfo for the current operating system.
+
         @return OSInfo with name, version and vendor of the OS.
         @since ARP1.0
      */
-     func getOSInfo() -> OSInfo
+     OSInfo getOSInfo();
 
 }
 

@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,23 +42,29 @@ Release:
 public protocol IDatabaseResultCallback : IBaseCallback {
      /**
         Result callback for error responses
+
         @param error Returned error
         @since ARP1.0
      */
-     func onError(error:IDatabaseResultCallbackError)
+     void onError(IDatabaseResultCallbackError error);
+
      /**
         Result callback for correct responses
+
         @param database Returns the database
         @since ARP1.0
      */
-     func onResult(database:Database)
+     void onResult(Database database);
+
      /**
         Result callback for warning responses
+
         @param database Returns the database
         @param warning  Returned Warning
         @since ARP1.0
      */
-     func onWarning(database:Database, warning:IDatabaseResultCallbackWarning)
+     void onWarning(Database database, IDatabaseResultCallbackWarning warning);
+
 }
 
 /**

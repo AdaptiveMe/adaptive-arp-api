@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,32 +44,36 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface ILifecycle : IBaseApplication {
-          /**
-             Add the listener for the lifecycle of the app
-             @param listener Lifecycle listener
-             @since ARP1.0
-          */
-          void AddLifecycleListener(ILifecycleListener Listener);
+     /**
+        Add the listener for the lifecycle of the app
 
-          /**
-             Whether the application is in background or not
-             @return true if the application is in background;false otherwise
-             @since ARP1.0
-          */
-          bool IsBackground();
+        @param listener Lifecycle listener
+        @since ARP1.0
+     */
+     void addLifecycleListener(ILifecycleListener listener);
 
-          /**
-             Un-registers an existing listener from receiving lifecycle events.
-             @param listener Lifecycle listener
-             @since ARP1.0
-          */
-          void RemoveLifecycleListener(ILifecycleListener Listener);
+     /**
+        Whether the application is in background or not
 
-          /**
-             Removes all existing listeners from receiving lifecycle events.
-             @since ARP1.0
-          */
-          void RemoveLifecycleListeners();
+        @return true if the application is in background;false otherwise
+        @since ARP1.0
+     */
+     bool isBackground();
+
+     /**
+        Un-registers an existing listener from receiving lifecycle events.
+
+        @param listener Lifecycle listener
+        @since ARP1.0
+     */
+     void removeLifecycleListener(ILifecycleListener listener);
+
+     /**
+        Removes all existing listeners from receiving lifecycle events.
+
+        @since ARP1.0
+     */
+     void removeLifecycleListeners();
 
      }
 }

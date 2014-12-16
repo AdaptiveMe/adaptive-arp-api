@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,13 +44,14 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IMail : IBasePIM {
-          /**
-             Send an Email
-             @param data     Payload of the email
-             @param callback Result callback of the operation
-             @since ARP1.0
-          */
-          void SendEmail(Email Data, IMessagingCallback Callback);
+     /**
+        Send an Email
+
+        @param data     Payload of the email
+        @param callback Result callback of the operation
+        @since ARP1.0
+     */
+     void sendEmail(Email data, IMessagingCallback callback);
 
      }
 }

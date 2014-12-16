@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,23 +42,29 @@ Release:
 public protocol IMessagingCallback : IBaseCallback {
      /**
         This method is called on Error
+
         @param error returned by the platform
         @since ARP1.0
      */
-     func onError(error:IMessagingCallbackError)
+     void onError(IMessagingCallbackError error);
+
      /**
         This method is called on Result
+
         @param success true if sent;false otherwise
         @since ARP1.0
      */
-     func onResult(success:Bool)
+     void onResult(Bool success);
+
      /**
         This method is called on Warning
+
         @param success true if sent;false otherwise
         @param warning returned by the platform
         @since ARP1.0
      */
-     func onWarning(success:Bool, warning:IMessagingCallbackWarning)
+     void onWarning(Bool success, IMessagingCallbackWarning warning);
+
 }
 
 /**

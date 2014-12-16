@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,23 +42,29 @@ Release:
 public protocol IServiceResultCallback : IBaseCallback {
      /**
         This method is called on Error
+
         @param error returned by the platform
         @since ARP1.0
      */
-     func onError(error:IServiceResultCallbackError)
+     void onError(IServiceResultCallbackError error);
+
      /**
         This method is called on Result
+
         @param response data
         @since ARP1.0
      */
-     func onResult(response:ServiceResponse)
+     void onResult(ServiceResponse response);
+
      /**
         This method is called on Warning
+
         @param response data
         @param warning  returned by the platform
         @since ARP1.0
      */
-     func onWarning(response:ServiceResponse, warning:IServiceResultCallbackWarning)
+     void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning);
+
 }
 
 /**

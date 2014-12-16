@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,17 +42,19 @@ Release:
 public protocol IAppContext : NSObjectProtocol {
      /**
         The main application context. This should be cast to the platform specific implementation.
+
         @return Object representing the specific singleton application context provided by the OS.
         @since ARP1.0
      */
-     func getContext() -> AnyObject
+     AnyObject getContext();
 
      /**
         The type of context provided by the getContext method.
+
         @return Type of platform context.
         @since ARP1.0
      */
-     func getContextType() -> IOSType
+     IOSType getContextType();
 
 }
 

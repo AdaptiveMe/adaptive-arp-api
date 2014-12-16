@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IButtonListener : IBaseListener {
-          /**
-             No data received
-             @param error occurred
-             @since ARP1.0
-          */
-          void OnError(IButtonListenerError Error);
+     /**
+        No data received
 
-          /**
-             Called on button pressed
-             @param button pressed
-             @since ARP1.0
-          */
-          void OnResult(Button Button);
+        @param error occurred
+        @since ARP1.0
+     */
+     void onError(IButtonListenerError error);
 
-          /**
-             Data received with warning
-             @param button  pressed
-             @param warning happened
-             @since ARP1.0
-          */
-          void OnWarning(Button Button, IButtonListenerWarning Warning);
+     /**
+        Called on button pressed
+
+        @param button pressed
+        @since ARP1.0
+     */
+     void onResult(Button button);
+
+     /**
+        Data received with warning
+
+        @param button  pressed
+        @param warning happened
+        @since ARP1.0
+     */
+     void onWarning(Button button, IButtonListenerWarning warning);
 
      }
 }

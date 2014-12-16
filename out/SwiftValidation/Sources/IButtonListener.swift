@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,23 +42,29 @@ Release:
 public protocol IButtonListener : IBaseListener {
      /**
         No data received
+
         @param error occurred
         @since ARP1.0
      */
-     func onError(error:IButtonListenerError)
+     void onError(IButtonListenerError error);
+
      /**
         Called on button pressed
+
         @param button pressed
         @since ARP1.0
      */
-     func onResult(button:Button)
+     void onResult(Button button);
+
      /**
         Data received with warning
+
         @param button  pressed
         @param warning happened
         @since ARP1.0
      */
-     func onWarning(button:Button, warning:IButtonListenerWarning)
+     void onWarning(Button button, IButtonListenerWarning warning);
+
 }
 
 /**

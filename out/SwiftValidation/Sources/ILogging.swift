@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,19 +42,23 @@ Release:
 public protocol ILogging : IBaseUtil {
      /**
         Logs the given message, with the given log level if specified, to the standard platform/environment.
+
         @param level    Log level
         @param category Category/tag name to identify/filter the log.
         @param message  Message to be logged
         @since ARP1.0
      */
-     func log(level:ILoggingLogLevel, category:String, message:String)
+     void log(ILoggingLogLevel level, String category, String message);
+
      /**
         Logs the given message, with the given log level if specified, to the standard platform/environment.
+
         @param level   Log level
         @param message Message to be logged
         @since ARP1.0
      */
-     func log(level:ILoggingLogLevel, message:String)
+     void log(ILoggingLogLevel level, String message);
+
 }
 
 /**

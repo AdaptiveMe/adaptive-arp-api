@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,10 +42,12 @@ Release:
 public protocol IVideo : IBaseMedia {
      /**
         Play url video stream
+
         @param url of the video
         @since ARP1.0
      */
-     func playStream(url:String)
+     void playStream(String url);
+
 }
 
 /**

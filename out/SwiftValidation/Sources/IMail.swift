@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,11 +42,13 @@ Release:
 public protocol IMail : IBasePIM {
      /**
         Send an Email
+
         @param data     Payload of the email
         @param callback Result callback of the operation
         @since ARP1.0
      */
-     func sendEmail(data:Email, callback:IMessagingCallback)
+     void sendEmail(Email data, IMessagingCallback callback);
+
 }
 
 /**

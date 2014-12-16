@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,23 +42,29 @@ Release:
 public protocol IContactResultCallback : IBaseCallback {
      /**
         This method is called on Error
+
         @param error returned by the platform
         @since ARP1.0
      */
-     func onError(error:IContactResultCallbackError)
+     void onError(IContactResultCallbackError error);
+
      /**
         This method is called on Result
+
         @param contacts returned by the platform
         @since ARP1.0
      */
-     func onResult(contacts:[Contact])
+     void onResult([Contact] contacts);
+
      /**
         This method is called on Warning
+
         @param contacts returned by the platform
         @param warning  returned by the platform
         @since ARP1.0
      */
-     func onWarning(contacts:[Contact], warning:IContactResultCallbackWarning)
+     void onWarning([Contact] contacts, IContactResultCallbackWarning warning);
+
 }
 
 /**

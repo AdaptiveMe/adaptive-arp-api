@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,12 +42,14 @@ Release:
 public protocol IMessaging : IBasePIM {
      /**
         Send text SMS
+
         @param number   to send
         @param text     to send
         @param callback with the result
         @since ARP1.0
      */
-     func sendSMS(number:String, text:String, callback:IMessagingCallback)
+     void sendSMS(String number, String text, IMessagingCallback callback);
+
 }
 
 /**

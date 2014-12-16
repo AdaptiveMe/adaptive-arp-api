@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,23 +42,29 @@ Release:
 public protocol IAppResourceCallback : IBaseCallback {
      /**
         Error result of the App resource operation
+
         @param error Error fired
         @since ARP1.0
      */
-     func onError(error:IAppResourceCallbackError)
+     void onError(IAppResourceCallbackError error);
+
      /**
         Correct result of the App Resource operation
+
         @param resource Resource
         @since ARP1.0
      */
-     func onResult(resource:IAppResource)
+     void onResult(IAppResource resource);
+
      /**
         Warning result of the App Resource operation
+
         @param resource Resource
         @param warning  Warning fired
         @since ARP1.0
      */
-     func onWarning(resource:IAppResource, warning:IAppResourceCallbackWarning)
+     void onWarning(IAppResource resource, IAppResourceCallbackWarning warning);
+
 }
 
 /**

@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -42,23 +42,29 @@ Release:
 public protocol INetworkReachabilityCallback : IBaseCallback {
      /**
         No data received - error condition, not authorized .
+
         @param error Error value
         @since ARP1.0
      */
-     func onError(error:INetworkReachabilityCallbackError)
+     void onError(INetworkReachabilityCallbackError error);
+
      /**
         Correct data received.
+
         @param reachable Indicates if the host is reachable
         @since ARP1.0
      */
-     func onResult(reachable:Bool)
+     void onResult(Bool reachable);
+
      /**
         Data received with warning - ie Found entries with existing key and values have been overriden
+
         @param reachable Indicates if the host is reachable
         @param warning   Warning value
         @since ARP1.0
      */
-     func onWarning(reachable:Bool, warning:INetworkReachabilityCallbackWarning)
+     void onWarning(Bool reachable, INetworkReachabilityCallbackWarning warning);
+
 }
 
 /**

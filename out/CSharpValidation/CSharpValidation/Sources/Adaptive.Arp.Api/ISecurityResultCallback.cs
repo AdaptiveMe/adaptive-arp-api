@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface ISecurityResultCallback : IBaseCallback {
-          /**
-             No data received - error condition, not authorized .
-             @param error Error values
-             @since ARP1.0
-          */
-          void OnError(ISecurityResultCallbackError Error);
+     /**
+        No data received - error condition, not authorized .
 
-          /**
-             Correct data received.
-             @param keyValues key and values
-             @since ARP1.0
-          */
-          void OnResult(SecureKeyPair[] KeyValues);
+        @param error Error values
+        @since ARP1.0
+     */
+     void onError(ISecurityResultCallbackError error);
 
-          /**
-             Data received with warning - ie Found entries with existing key and values have been overriden
-             @param keyValues key and values
-             @param warning   Warning values
-             @since ARP1.0
-          */
-          void OnWarning(SecureKeyPair[] KeyValues, ISecurityResultCallbackWarning Warning);
+     /**
+        Correct data received.
+
+        @param keyValues key and values
+        @since ARP1.0
+     */
+     void onResult(SecureKeyPair[] keyValues);
+
+     /**
+        Data received with warning - ie Found entries with existing key and values have been overriden
+
+        @param keyValues key and values
+        @param warning   Warning values
+        @since ARP1.0
+     */
+     void onWarning(SecureKeyPair[] keyValues, ISecurityResultCallbackWarning warning);
 
      }
 }

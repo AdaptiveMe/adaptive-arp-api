@@ -28,7 +28,7 @@ Contributors:
 Release:
 
     * @version v2.0.2
-    
+
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
@@ -44,29 +44,32 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IGlobalization : IBaseApplication {
-          /**
-             List of supported locales for the application
-             @return List of locales
-             @since ARP1.0
-          */
-          Locale[] GetLocaleSupportedDescriptors();
+     /**
+        List of supported locales for the application
 
-          /**
-             Gets the text/message corresponding to the given key and locale.
-             @param key    to match text
-             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-             @return Localized text.
-             @since ARP1.0
-          */
-          string GetResourceLiteral(string Key, Locale Locale);
+        @return List of locales
+        @since ARP1.0
+     */
+     Locale[] getLocaleSupportedDescriptors();
 
-          /**
-             Gets the full application configured literals (key/message pairs) corresponding to the given locale.
-             @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
-             @return Localized texts in the form of an object.
-             @since ARP1.0
-          */
-          KeyPair[] GetResourceLiterals(Locale Locale);
+     /**
+        Gets the text/message corresponding to the given key and locale.
+
+        @param key    to match text
+        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+        @return Localized text.
+        @since ARP1.0
+     */
+     string getResourceLiteral(string key, Locale locale);
+
+     /**
+        Gets the full application configured literals (key/message pairs) corresponding to the given locale.
+
+        @param locale The locale object to get localized message, or the locale desciptor ("language" or "language-country" two-letters ISO codes.
+        @return Localized texts in the form of an object.
+        @since ARP1.0
+     */
+     KeyPair[] getResourceLiterals(Locale locale);
 
      }
 }
