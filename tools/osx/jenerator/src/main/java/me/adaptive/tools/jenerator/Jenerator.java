@@ -33,6 +33,7 @@ import me.adaptive.tools.jenerator.typescript.TypeScriptGenerator;
 
 import java.io.File;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,6 +45,21 @@ public class Jenerator {
         String sourcePath = "/Users/clozano/Github/Runtime/adaptive-arp-api/adaptive-arp-api-specs/src";
         String[] packages = {"me.adaptive.arp.api"};
 
+        Process p = Runtime.getRuntime().exec("git describe --tags");
+        p.waitFor();
+        byte[] buffer = new byte[p.getInputStream().available()];
+        p.getInputStream().read(buffer);
+        String versionString = new String(buffer);
+        versionString = versionString.substring(0, versionString.indexOf('-'));
+        p.destroy();
+
+        p = Runtime.getRuntime().exec("git tag -a 2.0 -m 'Initial release.'");
+        p.waitFor();
+        System.out.println("EXIT: "+p.exitValue());
+        p.destroy();
+
+        p = Runtime.getRuntime().exec("git push origin --tags");
+        p.waitFor();
 
         List<JavaClass> targetSources = GeneratorCompiler.describeSources(new File(sourcePath));
         List<JavaClass> unmodifiableSourceList = Collections.unmodifiableList(targetSources);
