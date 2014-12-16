@@ -44,25 +44,28 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IGeolocation : IBaseSensor {
-          /**
-             Register a new listener that will receive geolocation events.
-             @param listener to be registered.
-             @since ARP1.0
-          */
-          void AddGeolocationListener(IGeolocationListener Listener);
+     /**
+        Register a new listener that will receive geolocation events.
 
-          /**
-             De-registers an existing listener from receiving geolocation events.
-             @param listener to be registered.
-             @since ARP1.0
-          */
-          void RemoveGeolocationListener(IGeolocationListener Listener);
+        @param listener to be registered.
+        @since ARP1.0
+     */
+     void addGeolocationListener(IGeolocationListener listener);
 
-          /**
-             Removed all existing listeners from receiving geolocation events.
-             @since ARP1.0
-          */
-          void RemoveGeolocationListeners();
+     /**
+        De-registers an existing listener from receiving geolocation events.
+
+        @param listener to be registered.
+        @since ARP1.0
+     */
+     void removeGeolocationListener(IGeolocationListener listener);
+
+     /**
+        Removed all existing listeners from receiving geolocation events.
+
+        @since ARP1.0
+     */
+     void removeGeolocationListeners();
 
      }
 }

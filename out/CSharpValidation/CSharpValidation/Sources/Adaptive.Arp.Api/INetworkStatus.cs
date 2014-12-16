@@ -44,25 +44,28 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface INetworkStatus : IBaseCommunication {
-          /**
-             Add the listener for network status changes of the app
-             @param listener Listener with the result
-             @since ARP1.0
-          */
-          void AddNetworkStatusListener(INetworkStatusListener Listener);
+     /**
+        Add the listener for network status changes of the app
 
-          /**
-             Un-registers an existing listener from receiving network status events.
-             @param listener Listener with the result
-             @since ARP1.0
-          */
-          void RemoveNetworkStatusListener(INetworkStatusListener Listener);
+        @param listener Listener with the result
+        @since ARP1.0
+     */
+     void addNetworkStatusListener(INetworkStatusListener listener);
 
-          /**
-             Removes all existing listeners from receiving network status events.
-             @since ARP1.0
-          */
-          void RemoveNetworkStatusListeners();
+     /**
+        Un-registers an existing listener from receiving network status events.
+
+        @param listener Listener with the result
+        @since ARP1.0
+     */
+     void removeNetworkStatusListener(INetworkStatusListener listener);
+
+     /**
+        Removes all existing listeners from receiving network status events.
+
+        @since ARP1.0
+     */
+     void removeNetworkStatusListeners();
 
      }
 }

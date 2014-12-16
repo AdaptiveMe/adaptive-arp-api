@@ -44,103 +44,117 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAppResource {
-          /**
-             Returns the payload of the resource decripted
-             @return Payload
-             @since ARP1.0
-          */
-          byte[] GetData();
+     /**
+        Returns the payload of the resource decripted
 
-          /**
-             Returns the data path of the resource
-             @return The data path of the resource
-             @since ARP1.0
-          */
-          string GetDataPathLinked();
+        @return Payload
+        @since ARP1.0
+     */
+     byte[] getData();
 
-          /**
-             Returns the stored payload of the resource
-             @return Stored payload
-             @since ARP1.0
-          */
-          byte[] GetDataStored();
+     /**
+        Returns the data path of the resource
 
-          /**
-             Returns the format of the resource
-             @return Format of the resource
-             @since ARP1.0
-          */
-          IAppResourceFormat GetFormat();
+        @return The data path of the resource
+        @since ARP1.0
+     */
+     string getDataPathLinked();
 
-          /**
-             Returns the MD5 encoding of the resource
-             @return MD5 encoding of the resource
-             @since ARP1.0
-          */
-          string GetMd5();
+     /**
+        Returns the stored payload of the resource
 
-          /**
-             Returns the Mime-Type of the resource
-             @return The mime-type
-             @since ARP1.0
-          */
-          string GetMimetype();
+        @return Stored payload
+        @since ARP1.0
+     */
+     byte[] getDataStored();
 
-          /**
-             Returns the name of the resource
-             @return Name of the resource
-             @since ARP1.0
-          */
-          string GetName();
+     /**
+        Returns the format of the resource
 
-          /**
-             Returns the path of the resource
-             @return Path of the resource
-             @since ARP1.0
-          */
-          string GetPath();
+        @return Format of the resource
+        @since ARP1.0
+     */
+     IAppResourceFormat getFormat();
 
-          /**
-             Returns the payload type of the resource
-             @return Payload type
-             @since ARP1.0
-          */
-          IAppResourcePayload GetPayloadType();
+     /**
+        Returns the MD5 encoding of the resource
 
-          /**
-             Returns the size of the resource
-             @return Size of the resource
-             @since ARP1.0
-          */
-          long GetSize();
+        @return MD5 encoding of the resource
+        @since ARP1.0
+     */
+     string getMd5();
 
-          /**
-             Returns the Size of the stored resource
-             @return Size of the Stored Resource
-             @since ARP1.0
-          */
-          long GetSizeStored();
+     /**
+        Returns the Mime-Type of the resource
 
-          /**
-             Returns the timestamp of the resource
-             @return Timestamp of the resource
-             @since ARP1.0
-          */
-          long GetTimestamp();
+        @return The mime-type
+        @since ARP1.0
+     */
+     string getMimetype();
 
-          /**
-             Returns the type of the resource
-             @return Type of the resource
-             @since ARP1.0
-          */
-          IAppResourceType GetType();
+     /**
+        Returns the name of the resource
 
-          /**
-             Returns the unique identifier of the resource
-             @return Unique Identifier
-             @since ARP1.0
-          */
-          string GetUuid();
+        @return Name of the resource
+        @since ARP1.0
+     */
+     string getName();
+
+     /**
+        Returns the path of the resource
+
+        @return Path of the resource
+        @since ARP1.0
+     */
+     string getPath();
+
+     /**
+        Returns the payload type of the resource
+
+        @return Payload type
+        @since ARP1.0
+     */
+     IAppResourcePayload getPayloadType();
+
+     /**
+        Returns the size of the resource
+
+        @return Size of the resource
+        @since ARP1.0
+     */
+     long getSize();
+
+     /**
+        Returns the Size of the stored resource
+
+        @return Size of the Stored Resource
+        @since ARP1.0
+     */
+     long getSizeStored();
+
+     /**
+        Returns the timestamp of the resource
+
+        @return Timestamp of the resource
+        @since ARP1.0
+     */
+     long getTimestamp();
+
+     /**
+        Returns the type of the resource
+
+        @return Type of the resource
+        @since ARP1.0
+     */
+     IAppResourceType getType();
+
+     /**
+        Returns the unique identifier of the resource
+
+        @return Unique Identifier
+        @since ARP1.0
+     */
+     string getUuid();
 
      }
 }

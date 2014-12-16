@@ -44,12 +44,13 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface APIBridge {
-          /**
-             Invokes the given method specified in the API request object.
-             @param request APIRequest object containing method name and parameters.
-             @return String with JSON response or a zero length string is the response is asynchronous.
-          */
-          string Invoke(APIRequest Request);
+     /**
+        Invokes the given method specified in the API request object.
+
+        @param request APIRequest object containing method name and parameters.
+        @return String with JSON response or a zero length string is the response is asynchronous.
+     */
+     string invoke(APIRequest request);
 
      }
 }

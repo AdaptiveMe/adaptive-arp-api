@@ -44,39 +44,44 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IDevice : IBaseSystem {
-          /**
-             Register a new listener that will receive button events.
-             @param listener to be registered.
-             @since ARP1.0
-          */
-          void AddButtonListener(IButtonListener Listener);
+     /**
+        Register a new listener that will receive button events.
 
-          /**
-             Returns the device information for the current device executing the runtime.
-             @return DeviceInfo for the current device.
-             @since ARP1.0
-          */
-          DeviceInfo GetDeviceInfo();
+        @param listener to be registered.
+        @since ARP1.0
+     */
+     void addButtonListener(IButtonListener listener);
 
-          /**
-             Gets the current Locale for the device.
-             @return The current Locale information.
-             @since ARP1.0
-          */
-          Locale GetLocaleCurrent();
+     /**
+        Returns the device information for the current device executing the runtime.
 
-          /**
-             De-registers an existing listener from receiving button events.
-             @param listener to be removed.
-             @since ARP1.0
-          */
-          void RemoveButtonListener(IButtonListener Listener);
+        @return DeviceInfo for the current device.
+        @since ARP1.0
+     */
+     DeviceInfo getDeviceInfo();
 
-          /**
-             Removed all existing listeners from receiving button events.
-             @since ARP1.0
-          */
-          void RemoveButtonListeners();
+     /**
+        Gets the current Locale for the device.
+
+        @return The current Locale information.
+        @since ARP1.0
+     */
+     Locale getLocaleCurrent();
+
+     /**
+        De-registers an existing listener from receiving button events.
+
+        @param listener to be removed.
+        @since ARP1.0
+     */
+     void removeButtonListener(IButtonListener listener);
+
+     /**
+        Removed all existing listeners from receiving button events.
+
+        @since ARP1.0
+     */
+     void removeButtonListeners();
 
      }
 }

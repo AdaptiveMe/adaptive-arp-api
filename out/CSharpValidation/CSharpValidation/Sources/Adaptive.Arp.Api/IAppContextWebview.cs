@@ -44,53 +44,59 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAppContextWebview {
-          /**
-             Additional views may be added to an application - a separate activity - and if these will make calls to the
+     /**
+        Additional views may be added to an application - a separate activity - and if these will make calls to the
 ARP methods, they must be registered by adding them to the context. When they are added to the context, ARP
 methods are bound to the webview so that they're callable from the HTML application. The primary webview should
 not be added using this method.
-             @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
-             @since ARP1.0
-          */
-          void AddWebview(Object WebView);
 
-          /**
-             Evaluate the specified javascript on the main webview of the application.
-             @param javaScriptText    The javascript expression to execute on the webview.
-          */
-          void ExecuteJavaScript(string JavaScriptText);
+        @param webView Platform specific webview reference (WebView, UIWebView, WKWebView,etc.)
+        @since ARP1.0
+     */
+     void addWebview(Object webView);
 
-          /**
-             Evaluate the specified javascript on the specified webview of the application.
-             @param javaScriptText    The javascript expression to execute on the webview.
-             @param webViewReference  The target webview on which to execute the expression.
-          */
-          void ExecuteJavaScript(string JavaScriptText, Object WebViewReference);
+     /**
+        Evaluate the specified javascript on the main webview of the application.
 
-          /**
-             Returns a reference to the main application webview. This is the first application webview and can not be removed
+        @param javaScriptText    The javascript expression to execute on the webview.
+     */
+     void executeJavaScript(string javaScriptText);
+
+     /**
+        Evaluate the specified javascript on the specified webview of the application.
+
+        @param javaScriptText    The javascript expression to execute on the webview.
+        @param webViewReference  The target webview on which to execute the expression.
+     */
+     void executeJavaScript(string javaScriptText, Object webViewReference);
+
+     /**
+        Returns a reference to the main application webview. This is the first application webview and can not be removed
 with the removeWebview method. The object returned should be cast to the platform specific implementation
 WebView, WKWebView, etc.
-             @return Object representing the specific and primary webview instance of the application.
-             @since ARP1.0
-          */
-          Object GetWebviewPrimary();
 
-          /**
-             Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
+        @return Object representing the specific and primary webview instance of the application.
+        @since ARP1.0
+     */
+     Object getWebviewPrimary();
+
+     /**
+        Returns an array of webviews currently managed by the context - composed of primary and the list of those added.
 This method will always return at least one element; the primary webview.
-             @return Array with all the Webview instances being managed by ARP.
-             @since ARP1.0
-          */
-          Object[] GetWebviews();
 
-          /**
-             When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
+        @return Array with all the Webview instances being managed by ARP.
+        @since ARP1.0
+     */
+     Object[] getWebviews();
+
+     /**
+        When a webview is disposed - no longer in use from an external activity - the webview should be removed to unbind
 ARP functions and release resources. The primary webview can not be removed.
-             @param webView The instance of the webview to be removed from the binding.
-             @since ARP1.0
-          */
-          void RemoveWebview(Object WebView);
+
+        @param webView The instance of the webview to be removed from the binding.
+        @since ARP1.0
+     */
+     void removeWebview(Object webView);
 
      }
 }

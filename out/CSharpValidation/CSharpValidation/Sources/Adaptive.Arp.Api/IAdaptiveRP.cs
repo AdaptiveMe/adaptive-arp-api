@@ -44,12 +44,13 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAdaptiveRP {
-          /**
-             Method that returns the API group of the implementation
-             @return API GRoup
-             @since ARP1.0
-          */
-          IAdaptiveRPGroup GetAPIGroup();
+     /**
+        Method that returns the API group of the implementation
+
+        @return API GRoup
+        @since ARP1.0
+     */
+     IAdaptiveRPGroup getAPIGroup();
 
      }
 }

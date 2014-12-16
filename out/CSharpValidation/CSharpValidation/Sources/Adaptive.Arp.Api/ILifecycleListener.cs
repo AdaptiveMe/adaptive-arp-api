@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface ILifecycleListener : IBaseListener {
-          /**
-             No data received - error condition, not authorized or hardware not available.
-             @param error Type of error encountered during reading.
-             @since ARP1.0
-          */
-          void OnError(ILifecycleListenerError Error);
+     /**
+        No data received - error condition, not authorized or hardware not available.
 
-          /**
-             Called when lifecycle changes somehow.
-             @param lifecycle Lifecycle element
-             @since ARP1.0
-          */
-          void OnResult(Lifecycle Lifecycle);
+        @param error Type of error encountered during reading.
+        @since ARP1.0
+     */
+     void onError(ILifecycleListenerError error);
 
-          /**
-             Data received with warning
-             @param lifecycle Lifecycle element
-             @param warning Type of warning encountered during reading.
-             @since ARP1.0
-          */
-          void OnWarning(Lifecycle Lifecycle, ILifecycleListenerWarning Warning);
+     /**
+        Called when lifecycle changes somehow.
+
+        @param lifecycle Lifecycle element
+        @since ARP1.0
+     */
+     void onResult(Lifecycle lifecycle);
+
+     /**
+        Data received with warning
+
+        @param lifecycle Lifecycle element
+        @param warning Type of warning encountered during reading.
+        @since ARP1.0
+     */
+     void onWarning(Lifecycle lifecycle, ILifecycleListenerWarning warning);
 
      }
 }

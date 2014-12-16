@@ -44,19 +44,21 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAppContext {
-          /**
-             The main application context. This should be cast to the platform specific implementation.
-             @return Object representing the specific singleton application context provided by the OS.
-             @since ARP1.0
-          */
-          Object GetContext();
+     /**
+        The main application context. This should be cast to the platform specific implementation.
 
-          /**
-             The type of context provided by the getContext method.
-             @return Type of platform context.
-             @since ARP1.0
-          */
-          IOSType GetContextType();
+        @return Object representing the specific singleton application context provided by the OS.
+        @since ARP1.0
+     */
+     Object getContext();
+
+     /**
+        The type of context provided by the getContext method.
+
+        @return Type of platform context.
+        @since ARP1.0
+     */
+     IOSType getContextType();
 
      }
 }

@@ -44,13 +44,14 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface ITelephony : IBaseCommunication {
-          /**
-             Invoke a phone call
-             @param number to call
-             @return Status of the call
-             @since ARP1.0
-          */
-          ITelephonyStatus Call(string Number);
+     /**
+        Invoke a phone call
+
+        @param number to call
+        @return Status of the call
+        @since ARP1.0
+     */
+     ITelephonyStatus call(string number);
 
      }
 }

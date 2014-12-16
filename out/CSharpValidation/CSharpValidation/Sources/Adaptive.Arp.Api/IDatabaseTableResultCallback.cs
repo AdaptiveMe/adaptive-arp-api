@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IDatabaseTableResultCallback : IBaseCallback {
-          /**
-             Result callback for error responses
-             @param error Returned error
-             @since ARP1.0
-          */
-          void OnError(IDatabaseTableResultCallbackError Error);
+     /**
+        Result callback for error responses
 
-          /**
-             Result callback for correct responses
-             @param databaseTable Returns the databaseTable
-             @since ARP1.0
-          */
-          void OnResult(DatabaseTable DatabaseTable);
+        @param error Returned error
+        @since ARP1.0
+     */
+     void onError(IDatabaseTableResultCallbackError error);
 
-          /**
-             Result callback for warning responses
-             @param databaseTable Returns the databaseTable
-             @param warning       Returned Warning
-             @since ARP1.0
-          */
-          void OnWarning(DatabaseTable DatabaseTable, IDatabaseTableResultCallbackWarning Warning);
+     /**
+        Result callback for correct responses
+
+        @param databaseTable Returns the databaseTable
+        @since ARP1.0
+     */
+     void onResult(DatabaseTable databaseTable);
+
+     /**
+        Result callback for warning responses
+
+        @param databaseTable Returns the databaseTable
+        @param warning       Returned Warning
+        @since ARP1.0
+     */
+     void onWarning(DatabaseTable databaseTable, IDatabaseTableResultCallbackWarning warning);
 
      }
 }

@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IFileDataLoadResultCallback : IBaseCallback {
-          /**
-             Error processing data retrieval/storage operation.
-             @param error Error condition encountered.
-             @since ARP1.0
-          */
-          void OnError(IFileDataLoadResultCallbackError Error);
+     /**
+        Error processing data retrieval/storage operation.
 
-          /**
-             Result of data retrieval operation.
-             @param data Data loaded.
-             @since ARP1.0
-          */
-          void OnResult(byte[] Data);
+        @param error Error condition encountered.
+        @since ARP1.0
+     */
+     void onError(IFileDataLoadResultCallbackError error);
 
-          /**
-             Result with warning of data retrieval/storage operation.
-             @param data    File being loaded.
-             @param warning Warning condition encountered.
-             @since ARP1.0
-          */
-          void OnWarning(byte[] Data, IFileDataLoadResultCallbackWarning Warning);
+     /**
+        Result of data retrieval operation.
+
+        @param data Data loaded.
+        @since ARP1.0
+     */
+     void onResult(byte[] data);
+
+     /**
+        Result with warning of data retrieval/storage operation.
+
+        @param data    File being loaded.
+        @param warning Warning condition encountered.
+        @since ARP1.0
+     */
+     void onWarning(byte[] data, IFileDataLoadResultCallbackWarning warning);
 
      }
 }

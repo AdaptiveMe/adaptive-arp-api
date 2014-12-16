@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IMessagingCallback : IBaseCallback {
-          /**
-             This method is called on Error
-             @param error returned by the platform
-             @since ARP1.0
-          */
-          void OnError(IMessagingCallbackError Error);
+     /**
+        This method is called on Error
 
-          /**
-             This method is called on Result
-             @param success true if sent;false otherwise
-             @since ARP1.0
-          */
-          void OnResult(bool Success);
+        @param error returned by the platform
+        @since ARP1.0
+     */
+     void onError(IMessagingCallbackError error);
 
-          /**
-             This method is called on Warning
-             @param success true if sent;false otherwise
-             @param warning returned by the platform
-             @since ARP1.0
-          */
-          void OnWarning(bool Success, IMessagingCallbackWarning Warning);
+     /**
+        This method is called on Result
+
+        @param success true if sent;false otherwise
+        @since ARP1.0
+     */
+     void onResult(bool success);
+
+     /**
+        This method is called on Warning
+
+        @param success true if sent;false otherwise
+        @param warning returned by the platform
+        @since ARP1.0
+     */
+     void onWarning(bool success, IMessagingCallbackWarning warning);
 
      }
 }

@@ -44,65 +44,72 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface ICapabilities : IBaseSystem {
-          /**
-             Determines whether a specific hardware button is supported for interaction.
-             @param type Type of feature to check.
-             @return true is supported, false otherwise.
-             @since ARP1.0
-          */
-          bool HasButtonSupport(ICapabilitiesButton Type);
+     /**
+        Determines whether a specific hardware button is supported for interaction.
 
-          /**
-             Determines whether a specific Communication capability is supported by
+        @param type Type of feature to check.
+        @return true is supported, false otherwise.
+        @since ARP1.0
+     */
+     bool hasButtonSupport(ICapabilitiesButton type);
+
+     /**
+        Determines whether a specific Communication capability is supported by
 the device.
-             @param type Type of feature to check.
-             @return true if supported, false otherwise.
-             @since ARP1.0
-          */
-          bool HasCommunicationSupport(ICapabilitiesCommunication Type);
 
-          /**
-             Determines whether a specific Data capability is supported by the device.
-             @param type Type of feature to check.
-             @return true if supported, false otherwise.
-             @since ARP1.0
-          */
-          bool HasDataSupport(ICapabilitiesData Type);
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @since ARP1.0
+     */
+     bool hasCommunicationSupport(ICapabilitiesCommunication type);
 
-          /**
-             Determines whether a specific Media capability is supported by the
+     /**
+        Determines whether a specific Data capability is supported by the device.
+
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @since ARP1.0
+     */
+     bool hasDataSupport(ICapabilitiesData type);
+
+     /**
+        Determines whether a specific Media capability is supported by the
 device.
-             @param type Type of feature to check.
-             @return true if supported, false otherwise.
-             @since ARP1.0
-          */
-          bool HasMediaSupport(ICapabilitiesMedia Type);
 
-          /**
-             Determines whether a specific Net capability is supported by the device.
-             @param type Type of feature to check.
-             @return true if supported, false otherwise.
-             @since ARP1.0
-          */
-          bool HasNetSupport(ICapabilitiesNet Type);
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @since ARP1.0
+     */
+     bool hasMediaSupport(ICapabilitiesMedia type);
 
-          /**
-             Determines whether a specific Notification capability is supported by the
+     /**
+        Determines whether a specific Net capability is supported by the device.
+
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @since ARP1.0
+     */
+     bool hasNetSupport(ICapabilitiesNet type);
+
+     /**
+        Determines whether a specific Notification capability is supported by the
 device.
-             @param type Type of feature to check.
-             @return true if supported, false otherwise.
-             @since ARP1.0
-          */
-          bool HasNotificationSupport(ICapabilitiesNotification Type);
 
-          /**
-             Determines whether a specific Sensor capability is supported by the
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @since ARP1.0
+     */
+     bool hasNotificationSupport(ICapabilitiesNotification type);
+
+     /**
+        Determines whether a specific Sensor capability is supported by the
 device.
-             @param type Type of feature to check.
-             @return true if supported, false otherwise.
-             @since ARP1.0
-          */
-          bool HasSensorSupport(ICapabilitiesSensor Type);
+
+        @param type Type of feature to check.
+        @return true if supported, false otherwise.
+        @since ARP1.0
+     */
+     bool hasSensorSupport(ICapabilitiesSensor type);
 
      }
 }

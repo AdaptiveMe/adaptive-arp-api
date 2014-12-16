@@ -44,27 +44,30 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IServiceResultCallback : IBaseCallback {
-          /**
-             This method is called on Error
-             @param error returned by the platform
-             @since ARP1.0
-          */
-          void OnError(IServiceResultCallbackError Error);
+     /**
+        This method is called on Error
 
-          /**
-             This method is called on Result
-             @param response data
-             @since ARP1.0
-          */
-          void OnResult(ServiceResponse Response);
+        @param error returned by the platform
+        @since ARP1.0
+     */
+     void onError(IServiceResultCallbackError error);
 
-          /**
-             This method is called on Warning
-             @param response data
-             @param warning  returned by the platform
-             @since ARP1.0
-          */
-          void OnWarning(ServiceResponse Response, IServiceResultCallbackWarning Warning);
+     /**
+        This method is called on Result
+
+        @param response data
+        @since ARP1.0
+     */
+     void onResult(ServiceResponse response);
+
+     /**
+        This method is called on Warning
+
+        @param response data
+        @param warning  returned by the platform
+        @since ARP1.0
+     */
+     void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning);
 
      }
 }

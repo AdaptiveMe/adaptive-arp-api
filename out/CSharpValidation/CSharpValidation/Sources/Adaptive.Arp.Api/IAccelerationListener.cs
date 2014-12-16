@@ -44,28 +44,31 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IAccelerationListener : IBaseListener {
-          /**
-             No data received - error condition, not authorized or hardware not available. This will be reported once for the
+     /**
+        No data received - error condition, not authorized or hardware not available. This will be reported once for the
 listener and subsequently, the listener will be deactivated and removed from the internal list of listeners.
-             @param error Error fired
-             @since ARP1.0
-          */
-          void OnError(IAccelerationListenerError Error);
 
-          /**
-             Correct data received.
-             @param acceleration Acceleration received
-             @since ARP1.0
-          */
-          void OnResult(Acceleration Acceleration);
+        @param error Error fired
+        @since ARP1.0
+     */
+     void onError(IAccelerationListenerError error);
 
-          /**
-             Data received with warning - ie. Needs calibration.
-             @param acceleration Acceleration received
-             @param warning      Warning fired
-             @since ARP1.0
-          */
-          void OnWarning(Acceleration Acceleration, IAccelerationListenerWarning Warning);
+     /**
+        Correct data received.
+
+        @param acceleration Acceleration received
+        @since ARP1.0
+     */
+     void onResult(Acceleration acceleration);
+
+     /**
+        Data received with warning - ie. Needs calibration.
+
+        @param acceleration Acceleration received
+        @param warning      Warning fired
+        @since ARP1.0
+     */
+     void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning);
 
      }
 }

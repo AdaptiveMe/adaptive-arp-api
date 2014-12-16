@@ -44,71 +44,79 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IContact : IBasePIM {
-          /**
-             Get the contact photo
-             @param contact  id to search for
-             @param callback called for return
-             @since ARP1.0
-          */
-          void GetContactPhoto(ContactUid Contact, IContactPhotoResultCallback Callback);
+     /**
+        Get the contact photo
 
-          /**
-             Get all the details of a contact according to its id
-             @param contact  id to search for
-             @param callback called for return
-             @since ARP1.0
-          */
-          void GetContact(ContactUid Contact, IContactResultCallback Callback);
+        @param contact  id to search for
+        @param callback called for return
+        @since ARP1.0
+     */
+     void getContactPhoto(ContactUid contact, IContactPhotoResultCallback callback);
 
-          /**
-             Get marked fields of all contacts
-             @param callback called for return
-             @param fields   to get for each Contact
-             @since ARP1.0
-          */
-          void GetContactsForFields(IContactResultCallback Callback, IContactFieldGroup[] Fields);
+     /**
+        Get all the details of a contact according to its id
 
-          /**
-             Get marked fields of all contacts according to a filter
-             @param callback called for return
-             @param fields   to get for each Contact
-             @param filter   to search for
-             @since ARP1.0
-          */
-          void GetContactsWithFilter(IContactResultCallback Callback, IContactFieldGroup[] Fields, IContactFilter[] Filter);
+        @param contact  id to search for
+        @param callback called for return
+        @since ARP1.0
+     */
+     void getContact(ContactUid contact, IContactResultCallback callback);
 
-          /**
-             Get all contacts
-             @param callback called for return
-             @since ARP1.0
-          */
-          void GetContacts(IContactResultCallback Callback);
+     /**
+        Get marked fields of all contacts
 
-          /**
-             Search contacts according to a term with a filter and send it to the callback
-             @param term     string to search
-             @param callback called for return
-             @param filter   to search for
-             @since ARP1.0
-          */
-          void SearchContactsWithFilter(string Term, IContactResultCallback Callback, IContactFilter[] Filter);
+        @param callback called for return
+        @param fields   to get for each Contact
+        @since ARP1.0
+     */
+     void getContactsForFields(IContactResultCallback callback, IContactFieldGroup[] fields);
 
-          /**
-             Search contacts according to a term and send it to the callback
-             @param term     string to search
-             @param callback called for return
-             @since ARP1.0
-          */
-          void SearchContacts(string Term, IContactResultCallback Callback);
+     /**
+        Get marked fields of all contacts according to a filter
 
-          /**
-             Set the contact photo
-             @param contact  id to assign the photo
-             @param pngImage photo as byte array
-             @return true if set is successful;false otherwise
-             @since ARP1.0
-          */
-          bool SetContactPhoto(ContactUid Contact, byte[] PngImage);
+        @param callback called for return
+        @param fields   to get for each Contact
+        @param filter   to search for
+        @since ARP1.0
+     */
+     void getContactsWithFilter(IContactResultCallback callback, IContactFieldGroup[] fields, IContactFilter[] filter);
+
+     /**
+        Get all contacts
+
+        @param callback called for return
+        @since ARP1.0
+     */
+     void getContacts(IContactResultCallback callback);
+
+     /**
+        Search contacts according to a term with a filter and send it to the callback
+
+        @param term     string to search
+        @param callback called for return
+        @param filter   to search for
+        @since ARP1.0
+     */
+     void searchContactsWithFilter(string term, IContactResultCallback callback, IContactFilter[] filter);
+
+     /**
+        Search contacts according to a term and send it to the callback
+
+        @param term     string to search
+        @param callback called for return
+        @since ARP1.0
+     */
+     void searchContacts(string term, IContactResultCallback callback);
+
+     /**
+        Set the contact photo
+
+        @param contact  id to assign the photo
+        @param pngImage photo as byte array
+        @return true if set is successful;false otherwise
+        @since ARP1.0
+     */
+     bool setContactPhoto(ContactUid contact, byte[] pngImage);
 
      }
 }

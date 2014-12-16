@@ -44,58 +44,65 @@ namespace Adaptive.Arp.Api
         @version 1.0
      */
      public interface IService : IBaseCommunication {
-          /**
-             Get a reference to a registered service by name.
-             @param serviceName Name of service.
-             @return A service, if registered, or null of the service does not exist.
-             @since ARP1.0
-          */
-          Service GetService(string ServiceName);
+     /**
+        Get a reference to a registered service by name.
 
-          /**
-             Request async a service for an Url
-             @param serviceRequest Service Request to invoke
-             @param service        Service to call
-             @param callback       Callback to execute with the result
-             @since ARP1.0
-          */
-          void InvokeService(ServiceRequest ServiceRequest, Service Service, IServiceResultCallback Callback);
+        @param serviceName Name of service.
+        @return A service, if registered, or null of the service does not exist.
+        @since ARP1.0
+     */
+     Service getService(string serviceName);
 
-          /**
-             Check whether a service by the given name is registered.
-             @param serviceName Name of service.
-             @return True if the service is registered, false otherwise.
-             @since ARP1.0
-          */
-          bool IsRegistered(string ServiceName);
+     /**
+        Request async a service for an Url
 
-          /**
-             Check whether a service by the given name is registered.
-             @param serviceName Name of service.
-             @return True if the service is registered, false otherwise.
-             @since ARP1.0
-          */
-          bool IsRegistered(Service Service);
+        @param serviceRequest Service Request to invoke
+        @param service        Service to call
+        @param callback       Callback to execute with the result
+        @since ARP1.0
+     */
+     void invokeService(ServiceRequest serviceRequest, Service service, IServiceResultCallback callback);
 
-          /**
-             Register a new service
-             @param service to register
-             @since ARP1.0
-          */
-          void RegisterService(Service Service);
+     /**
+        Check whether a service by the given name is registered.
 
-          /**
-             Unregister all services.
-             @since ARP1.0
-          */
-          void UnregisterServices();
+        @param serviceName Name of service.
+        @return True if the service is registered, false otherwise.
+        @since ARP1.0
+     */
+     bool isRegistered(string serviceName);
 
-          /**
-             Unregister a service
-             @param service to unregister
-             @since ARP1.0
-          */
-          void UnregisterService(Service Service);
+     /**
+        Check whether a service by the given service is already registered.
+
+        @param service Service to check
+        @return True if the service is registered, false otherwise.
+        @since ARP1.0
+     */
+     bool isRegistered(Service service);
+
+     /**
+        Register a new service
+
+        @param service to register
+        @since ARP1.0
+     */
+     void registerService(Service service);
+
+     /**
+        Unregister all services.
+
+        @since ARP1.0
+     */
+     void unregisterServices();
+
+     /**
+        Unregister a service
+
+        @param service to unregister
+        @since ARP1.0
+     */
+     void unregisterService(Service service);
 
      }
 }
