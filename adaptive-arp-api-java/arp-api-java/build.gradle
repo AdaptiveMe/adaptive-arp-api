@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile(group: 'com.google.code.gson', name: 'gson', version: '2.3.1', ext: 'jar')
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            name = 'adaptiveme-arp-arp-api-java'
+            repository(id: 'bintray-adaptiveme-arp-arp-api-java', url: 'https://api.bintray.com/maven/adaptiveme/arp/arp-api-java') {
+                authentication(userName: bintrayUser, password: bintrayPassword)
+            }
+        }
+    }
+}

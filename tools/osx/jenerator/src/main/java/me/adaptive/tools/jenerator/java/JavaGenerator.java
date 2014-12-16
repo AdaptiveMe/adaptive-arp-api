@@ -376,6 +376,7 @@ public class JavaGenerator extends GeneratorBase {
 
             startComment(5);
             println(8, "Return the JSON serializer.");
+            println(8, "@return Current JSON serializer.");
             endComment(5);
             println(5, "public final Gson getJSONAPI() {");
             println(10, "return this.gson;");
@@ -411,6 +412,7 @@ public class JavaGenerator extends GeneratorBase {
 
             startComment(5);
             println(8, "Get the delegate implementation.");
+            println(8, "@return " + clazz.getSimpleName() + " delegate that manages platform specific functions..");
             endComment(5);
             println(5, "public final " + clazz.getSimpleName() + " getDelegate() {");
             println(10, "return this.delegate;");
@@ -868,6 +870,7 @@ public class JavaGenerator extends GeneratorBase {
 
             startComment(5);
             println(8, "Get the callback id.");
+            println(8, "@return long with the identifier of the callback.");
             endComment(5);
             println(5, "public final long getId() {");
             println(10, "return this.id;");
@@ -884,6 +887,7 @@ public class JavaGenerator extends GeneratorBase {
 
             startComment(5);
             println(8, "Return the JSON serializer.");
+            println(8, "@return Current JSON serializer.");
             endComment(5);
             println(5, "public final Gson getJSONAPI() {");
             println(10, "return this.gson;");
@@ -1009,6 +1013,7 @@ public class JavaGenerator extends GeneratorBase {
 
             startComment(5);
             println(8, "Get the listener id.");
+            println(8, "@return long with the identifier of the listener.");
             endComment(5);
             println(5, "public final long getId() {");
             println(10, "return this.id;");
@@ -1025,6 +1030,7 @@ public class JavaGenerator extends GeneratorBase {
 
             startComment(5);
             println(8, "Return the JSON serializer.");
+            println(8, "@return Current JSON serializer.");
             endComment(5);
             println(5, "public final Gson getJSONAPI() {");
             println(10, "return this.gson;");
@@ -1152,10 +1158,18 @@ public class JavaGenerator extends GeneratorBase {
             } else {
                 startComment(5);
                 JavaMethod javaMethod = null;
-                for (JavaMethod m : interfaceMethodsDoc) {
-                    if (m.getName().equals(method.getName()) && m.getParameters().size() == method.getParameterCount()) {
-                        javaMethod = m;
-                        break;
+                for (JavaMethod jm : interfaceMethodsDoc) {
+                    if (jm.getName().equals(method.getName()) && method.getParameterCount() == 0) {
+                        javaMethod = jm;
+                    } else if (jm.getName().equals(method.getName()) && (jm.getParameters().size() == method.getParameterCount())) {
+                        for (Parameter p : method.getParameters()) {
+                            for (JavaParameter jp : jm.getParameters()) {
+                                if (jp.getName().equals(p.getName())) {
+                                    javaMethod = jm;
+                                }
+                            }
+                        }
+
                     }
                 }
                 if (javaMethod != null) {

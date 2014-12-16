@@ -42,6 +42,7 @@ Release:
 public protocol ILifecycleListener : IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available.
+        @param error Type of error encountered during reading.
         @since ARP1.0
      */
      func onError(error:ILifecycleListenerError)
@@ -54,6 +55,7 @@ public protocol ILifecycleListener : IBaseListener {
      /**
         Data received with warning
         @param lifecycle Lifecycle element
+        @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
      func onWarning(lifecycle:Lifecycle, warning:ILifecycleListenerWarning)

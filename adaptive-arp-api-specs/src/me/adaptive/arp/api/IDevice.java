@@ -75,7 +75,7 @@ public interface IDevice extends IBaseSystem {
     /**
      * De-registers an existing listener from receiving button events.
      *
-     * @param listener
+     * @param listener to be removed.
      * @since ARP1.0
      */
     void removeButtonListener(IButtonListener listener);

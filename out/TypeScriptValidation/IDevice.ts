@@ -68,7 +68,7 @@ module Adaptive {
           getLocaleCurrent() : Locale;
           /**
              De-registers an existing listener from receiving button events.
-             @param listener
+             @param listener to be removed.
              @since ARP1.0
           */
           removeButtonListener(listener:IButtonListener);

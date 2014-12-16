@@ -81,7 +81,7 @@ namespace Adaptive.Arp.Api
              @param Host   Remote service host
              @param Path   Remote service Path
              @param Port   Remote service Port
-             @param Proxy  Proxy url "http://<IP>:<Port>"
+             @param Proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
              @param Scheme Remote service scheme
              @since ARP1.0
           */

@@ -92,3 +92,6 @@ tools/osx/jenerator/.idea/workspace.xml
 tools/osx/jenerator/.idea/workspace.xml
 
 adaptive-arp-api-specs/.idea/
+
+adaptive-arp-api-java/arp-api-java/build/
+tools/osx/jenerator/out/

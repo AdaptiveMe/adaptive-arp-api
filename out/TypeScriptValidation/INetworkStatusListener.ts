@@ -50,7 +50,7 @@ module Adaptive {
      export interface INetworkStatusListener extends IBaseListener {
           /**
              No data received - error condition, not authorized or hardware not available.
-             @param error
+             @param error Type of error encountered during reading.
              @since ARP1.0
           */
           onError(error:INetworkStatusListenerError);
@@ -63,7 +63,7 @@ module Adaptive {
           /**
              Status received with warning
              @param network Change to this network.
-             @param warning
+             @param warning Type of warning encountered during reading.
              @since ARP1.0
           */
           onWarning(network:ICapabilitiesNet, warning:INetworkStatusListenerWarning);

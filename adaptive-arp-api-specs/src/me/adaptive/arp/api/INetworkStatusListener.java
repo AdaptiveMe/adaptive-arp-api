@@ -60,7 +60,7 @@ public interface INetworkStatusListener extends IBaseListener {
      * Status received with warning
      *
      * @param network Change to this network.
-     * @param warning
+     * @param warning Type of warning encountered during reading.
      * @since ARP1.0
      */
     public void onWarning(ICapabilities.Net network, Warning warning);
@@ -68,7 +68,7 @@ public interface INetworkStatusListener extends IBaseListener {
     /**
      * No data received - error condition, not authorized or hardware not available.
      *
-     * @param error
+     * @param error Type of error encountered during reading.
      * @since ARP1.0
      */
     public void onError(Error error);

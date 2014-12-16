@@ -42,6 +42,7 @@ Release:
 public protocol IGeolocationListener : IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available.
+        @param error Type of error encountered during reading.
         @since ARP1.0
      */
      func onError(error:IGeolocationListenerError)
@@ -54,6 +55,7 @@ public protocol IGeolocationListener : IBaseListener {
      /**
         Data received with warning - ie. HighDoP
         @param geolocation Geolocation Bean
+        @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
      func onWarning(geolocation:Geolocation, warning:IGeolocationListenerWarning)

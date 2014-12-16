@@ -51,6 +51,7 @@ public abstract class GeneratorBase {
     private List<JavaClass> sourceList;
     private File outRootPath;
     private Map<Class, JavaClass> mapClassSource;
+    private String versionString = null;
 
     public GeneratorBase(File outRootPath, List<Class> classList, List<JavaClass> sourceList) {
         this.outRootPath = outRootPath;
@@ -845,8 +846,6 @@ public abstract class GeneratorBase {
 
     protected abstract void endClass(Class clazz);
 
-    private String versionString = null;
-
     protected final String getSourceHeader() {
         String result = "Undefined.";
         try {
@@ -859,7 +858,7 @@ public abstract class GeneratorBase {
                     byte[] buffer = new byte[p.getInputStream().available()];
                     p.getInputStream().read(buffer);
                     versionString = new String(buffer);
-                    if (versionString.indexOf('-')>0) {
+                    if (versionString.indexOf('-') > 0) {
                         versionString = versionString.substring(0, versionString.indexOf('-'));
                     }
                     versionString = versionString.trim();
@@ -869,7 +868,7 @@ public abstract class GeneratorBase {
                     e.printStackTrace();
                 }
             }
-            result = result.replace("$VERSION$", "@version "+versionString);
+            result = result.replace("$VERSION$", "@version " + versionString);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {

@@ -61,6 +61,7 @@ public interface ILifecycleListener extends IBaseListener {
      * Data received with warning
      *
      * @param lifecycle Lifecycle element
+     * @param warning Type of warning encountered during reading.
      * @since ARP1.0
      */
     public void onWarning(Lifecycle lifecycle, Warning warning);
@@ -68,6 +69,7 @@ public interface ILifecycleListener extends IBaseListener {
     /**
      * No data received - error condition, not authorized or hardware not available.
      *
+     * @param error Type of error encountered during reading.
      * @since ARP1.0
      */
     public void onError(Error error);

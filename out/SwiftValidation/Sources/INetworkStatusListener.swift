@@ -42,7 +42,7 @@ Release:
 public protocol INetworkStatusListener : IBaseListener {
      /**
         No data received - error condition, not authorized or hardware not available.
-        @param error
+        @param error Type of error encountered during reading.
         @since ARP1.0
      */
      func onError(error:INetworkStatusListenerError)
@@ -55,7 +55,7 @@ public protocol INetworkStatusListener : IBaseListener {
      /**
         Status received with warning
         @param network Change to this network.
-        @param warning
+        @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
      func onWarning(network:ICapabilitiesNet, warning:INetworkStatusListenerWarning)

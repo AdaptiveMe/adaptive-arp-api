@@ -78,7 +78,7 @@ Structure representing a remote or local service access end-point.
         @param host   Remote service host
         @param path   Remote service Path
         @param port   Remote service Port
-        @param proxy  Proxy url "http://<IP>:<Port>"
+        @param proxy  Proxy url "http://IP_ADDRESS:PORT_NUMBER"
         @param scheme Remote service scheme
         @since ARP1.0
      */
