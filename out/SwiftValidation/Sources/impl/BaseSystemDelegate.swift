@@ -37,7 +37,7 @@ Release:
    Base application for System purposes
    Auto-generated implementation of IBaseSystem specification.
 */
-public class BaseSystemDelegate : IBaseSystem {
+public class BaseSystemDelegate : NSObject, IBaseSystem {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseSystemDelegate : IBaseSystem {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.System
      }
 

@@ -41,7 +41,7 @@ public class VideoBridge : BaseMediaBridge, IVideo, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : IVideo = nil
+     private var delegate : IVideo? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class VideoBridge : BaseMediaBridge, IVideo, APIBridge {
         Get the delegate implementation.
         @return IVideo delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IVideo {
+     public final func getDelegate() -> IVideo? {
           return self.delegate
      }
      /**
@@ -77,20 +77,20 @@ public class VideoBridge : BaseMediaBridge, IVideo, APIBridge {
      public func playStream(url : String ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"VideoBridge executing playStream({"+url+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "VideoBridge executing playStream({\(url)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.playStream(url)
+               self.delegate!.playStream(url)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"VideoBridge executed 'playStream' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "VideoBridge executed 'playStream' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"VideoBridge no delegate for 'playStream'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "VideoBridge no delegate for 'playStream'.")
                }
           }
           
@@ -102,18 +102,18 @@ public class VideoBridge : BaseMediaBridge, IVideo, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "playStream":
-                    var url0 : String = this.gson.fromJson(request.getParameters()[0], String.class);
-                    self.playStream(url0);
-                    break;
+                    var url0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
+                    self.playStream(url0!);
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Messaging responses
    Auto-generated implementation of IMessagingCallback specification.
 */
-public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagingCallback {
+public class MessagingCallbackImpl : BaseCallbackImpl, IMessagingCallback {
 
      /**
         Constructor with callback id.
 
         @param id  The id of the callback.
      */
-     public MessagingCallbackImpl(long id) {
-          super(id);
+     public override init(id : Int64) {
+          super.init(id: id)
      }
 
      /**
@@ -57,8 +53,9 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         @param error returned by the platform
         @since ARP1.0
      */
-     public void onError(IMessagingCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : IMessagingCallbackError) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleMessagingCallbackError( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         @param success true if sent;false otherwise
         @since ARP1.0
      */
-     public void onResult(Bool success) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(success) +") )");
+     public func onResult(success : Bool) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleMessagingCallbackResult( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class MessagingCallbackImpl extends BaseCallbackImpl implements IMessagin
         @param warning returned by the platform
         @since ARP1.0
      */
-     public void onWarning(Bool success, IMessagingCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleMessagingCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(success) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(success : Bool, warning : IMessagingCallbackWarning) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleMessagingCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

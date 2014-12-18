@@ -41,7 +41,7 @@ public class FileSystemBridge : BaseDataBridge, IFileSystem, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : IFileSystem = nil
+     private var delegate : IFileSystem? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class FileSystemBridge : BaseDataBridge, IFileSystem, APIBridge {
         Get the delegate implementation.
         @return IFileSystem delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IFileSystem {
+     public final func getDelegate() -> IFileSystem? {
           return self.delegate
      }
      /**
@@ -80,24 +80,24 @@ This method does not create the actual file in the specified folder.
      public func createFileDescriptor(parent : IFile , name : String ) -> IFile {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executing createFileDescriptor({"+parent+"},{"+name+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing createFileDescriptor({\(parent)},{\(name)}).")
           }
 
-          var result : IFile = nil
+          var result : IFile? = nil
           if (self.delegate != nil) {
-               result = self.delegate.createFileDescriptor(parent, name)
+               result = self.delegate!.createFileDescriptor(parent, name: name)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executed 'createFileDescriptor' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'createFileDescriptor' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"FileSystemBridge no delegate for 'createFileDescriptor'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'createFileDescriptor'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -111,24 +111,24 @@ This path is volatile and may be cleaned by the OS periodically.
      public func getApplicationCacheFolder() -> IFile {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executing getApplicationCacheFolder.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationCacheFolder.")
           }
 
-          var result : IFile = nil
+          var result : IFile? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getApplicationCacheFolder()
+               result = self.delegate!.getApplicationCacheFolder()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executed 'getApplicationCacheFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationCacheFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"FileSystemBridge no delegate for 'getApplicationCacheFolder'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getApplicationCacheFolder'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -141,24 +141,24 @@ This path must always be writable by the current application.
      public func getApplicationCloudFolder() -> IFile {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executing getApplicationCloudFolder.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationCloudFolder.")
           }
 
-          var result : IFile = nil
+          var result : IFile? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getApplicationCloudFolder()
+               result = self.delegate!.getApplicationCloudFolder()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executed 'getApplicationCloudFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationCloudFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"FileSystemBridge no delegate for 'getApplicationCloudFolder'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getApplicationCloudFolder'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -171,24 +171,24 @@ This path must always be writable by the current application.
      public func getApplicationDocumentsFolder() -> IFile {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executing getApplicationDocumentsFolder.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationDocumentsFolder.")
           }
 
-          var result : IFile = nil
+          var result : IFile? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getApplicationDocumentsFolder()
+               result = self.delegate!.getApplicationDocumentsFolder()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executed 'getApplicationDocumentsFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationDocumentsFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"FileSystemBridge no delegate for 'getApplicationDocumentsFolder'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getApplicationDocumentsFolder'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -201,24 +201,24 @@ This path may or may not be directly readable or writable - it usually contains 
      public func getApplicationFolder() -> IFile {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executing getApplicationFolder.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationFolder.")
           }
 
-          var result : IFile = nil
+          var result : IFile? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getApplicationFolder()
+               result = self.delegate!.getApplicationFolder()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executed 'getApplicationFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"FileSystemBridge no delegate for 'getApplicationFolder'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getApplicationFolder'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -231,24 +231,24 @@ This path must always be writable by the current application.
      public func getApplicationProtectedFolder() -> IFile {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executing getApplicationProtectedFolder.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getApplicationProtectedFolder.")
           }
 
-          var result : IFile = nil
+          var result : IFile? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getApplicationProtectedFolder()
+               result = self.delegate!.getApplicationProtectedFolder()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executed 'getApplicationProtectedFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getApplicationProtectedFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"FileSystemBridge no delegate for 'getApplicationProtectedFolder'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getApplicationProtectedFolder'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -260,21 +260,21 @@ This path must always be writable by the current application.
      public func getSeparator() -> Character {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executing getSeparator.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getSeparator.")
           }
 
-          var result : Character = ' '
+          var result : Character = " "
           if (self.delegate != nil) {
-               result = self.delegate.getSeparator()
+               result = self.delegate!.getSeparator()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executed 'getSeparator' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getSeparator' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"FileSystemBridge no delegate for 'getSeparator'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getSeparator'.")
                }
           }
           return result          
@@ -292,24 +292,24 @@ This path may or may not be writable by the current application.
      public func getSystemExternalFolder() -> IFile {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executing getSystemExternalFolder.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executing getSystemExternalFolder.")
           }
 
-          var result : IFile = nil
+          var result : IFile? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getSystemExternalFolder()
+               result = self.delegate!.getSystemExternalFolder()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"FileSystemBridge executed 'getSystemExternalFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "FileSystemBridge executed 'getSystemExternalFolder' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"FileSystemBridge no delegate for 'getSystemExternalFolder'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "FileSystemBridge no delegate for 'getSystemExternalFolder'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -318,76 +318,69 @@ This path may or may not be writable by the current application.
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "createFileDescriptor":
-                    var parent0 : IFile = this.gson.fromJson(request.getParameters()[0], IFile.class);
-                    var name0 : String = this.gson.fromJson(request.getParameters()[1], String.class);
-                    IFile response0 = this.createFileDescriptor(parent0, name0);
-                    if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
+                    var parent0 : IFile? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], IFile.class)
+                    var name0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
+                    var response0 : IFile = self.createFileDescriptor(parent0!, name: name0!)
+                    if (response0 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                case "getApplicationCacheFolder":
-                    IFile response1 = this.getApplicationCacheFolder();
-                    if (response1 != null) {
-                         responseJSON = this.gson.toJson(response1);
+                    var response1 : IFile = self.getApplicationCacheFolder()
+                    if (response1 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                case "getApplicationCloudFolder":
-                    IFile response2 = this.getApplicationCloudFolder();
-                    if (response2 != null) {
-                         responseJSON = this.gson.toJson(response2);
+                    var response2 : IFile = self.getApplicationCloudFolder()
+                    if (response2 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                case "getApplicationDocumentsFolder":
-                    IFile response3 = this.getApplicationDocumentsFolder();
-                    if (response3 != null) {
-                         responseJSON = this.gson.toJson(response3);
+                    var response3 : IFile = self.getApplicationDocumentsFolder()
+                    if (response3 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response3);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                case "getApplicationFolder":
-                    IFile response4 = this.getApplicationFolder();
-                    if (response4 != null) {
-                         responseJSON = this.gson.toJson(response4);
+                    var response4 : IFile = self.getApplicationFolder()
+                    if (response4 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response4);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                case "getApplicationProtectedFolder":
-                    IFile response5 = this.getApplicationProtectedFolder();
-                    if (response5 != null) {
-                         responseJSON = this.gson.toJson(response5);
+                    var response5 : IFile = self.getApplicationProtectedFolder()
+                    if (response5 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response5);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                case "getSeparator":
-                    Character response6 = this.getSeparator();
-                    responseJSON = this.gson.toJson(response6);
-                    break;
+                    var response6 : Character = self.getSeparator()
+                    responseJSON = nil //TODO - Serialize this.gson.toJson(response6);
                case "getSystemExternalFolder":
-                    IFile response7 = this.getSystemExternalFolder();
-                    if (response7 != null) {
-                         responseJSON = this.gson.toJson(response7);
+                    var response7 : IFile = self.getSystemExternalFolder()
+                    if (response7 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response7);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

@@ -67,7 +67,7 @@ public class SwiftGenerator extends GeneratorBase {
         endComment(0);
 
         if (clazz.getSimpleName().startsWith("IBase")) {
-            println("public class " + simpleName + " : " + clazz.getSimpleName() + " {");
+            println("public class " + simpleName + " : NSObject, " + clazz.getSimpleName() + " {");
             println();
 
             startComment(5);
@@ -80,7 +80,7 @@ public class SwiftGenerator extends GeneratorBase {
             println(8, "Default constructor.");
             endComment(5);
             //println(5, "public " + simpleName + "() {");
-            println(5, "public init() {");
+            println(5, "public override init() {");
             println(10, "self.apiGroup = IAdaptiveRPGroup." + getInterfaceGroup(clazz));
             println(5, "}");
             println();
@@ -329,13 +329,13 @@ public class SwiftGenerator extends GeneratorBase {
         endComment(0);
 
         if (clazz.getSimpleName().startsWith("IBase")) {
-            println("public class " + simpleName + " : " + clazz.getSimpleName() + " {");
+            println("public class " + simpleName + " : NSObject, " + clazz.getSimpleName() + " {");
             println();
 
             startComment(5);
             println(8, "Group of API.");
             endComment(5);
-            println(5, "private var apiGroup : IAdaptiveRPGroup = nil;");
+            println(5, "private var apiGroup : IAdaptiveRPGroup = nil");
             println();
 
             startComment(5);
@@ -347,7 +347,7 @@ public class SwiftGenerator extends GeneratorBase {
             startComment(5);
             println(8, "Default constructor.");
             endComment(5);
-            println(5, "public init() {");
+            println(5, "public override init() {");
             println(10, "this.apiGroup = IAdaptiveRPGroup." + getInterfaceGroup(clazz) + ";");
             println(10, "//this.gson = new Gson();");
 
@@ -357,8 +357,7 @@ public class SwiftGenerator extends GeneratorBase {
             startComment(5);
             println(8, "Return the API group for the given interface.");
             endComment(5);
-            println(5, "@Override");
-            println(5, "public final func IAdaptiveRPGroup getAPIGroup() {");
+            println(5, "public final func getAPIGroup() -> IAdaptiveRPGroup {");
             println(10, "return self.apiGroup");
             println(5, "}");
 
@@ -385,7 +384,7 @@ public class SwiftGenerator extends GeneratorBase {
             startComment(5);
             println(8, "API Delegate.");
             endComment(5);
-            println(5, "private var delegate : " + clazz.getSimpleName() + " = nil");
+            println(5, "private var delegate : " + clazz.getSimpleName() + "? = nil");
             println();
 
             startComment(5);
@@ -402,7 +401,7 @@ public class SwiftGenerator extends GeneratorBase {
             println(8, "Get the delegate implementation.");
             println(8, "@return " + clazz.getSimpleName() + " delegate that manages platform specific functions..");
             endComment(5);
-            println(5, "public final func getDelegate() -> " + clazz.getSimpleName() + " {");
+            println(5, "public final func getDelegate() -> " + clazz.getSimpleName() + "? {");
             println(10, "return self.delegate");
             println(5, "}");
 
@@ -499,7 +498,7 @@ public class SwiftGenerator extends GeneratorBase {
                     println();
                     println(8, "@return " + serviceClass.getSimpleName().substring(1) + "Bridge reference or null if a bridge of this type is not registered.");
                     endComment(5);
-                    println(5, "public final func get" + serviceClass.getSimpleName().substring(1) + "Bridge() -> " + serviceClass.getSimpleName().substring(1) + " {");
+                    println(5, "public final func get" + serviceClass.getSimpleName().substring(1) + "Bridge() -> " + serviceClass.getSimpleName().substring(1) + "Bridge {");
                     println(10, "// Start logging elapsed time.");
                     println(10, "var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()");
                     println(10, "var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()");
@@ -540,17 +539,17 @@ public class SwiftGenerator extends GeneratorBase {
                 println(10, "var result : APIBridge = nil");
                 println();
                 println(10, "if (logger != nil) {");
-                println(15, "logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), \"" + simpleName + " executing getBridge(\\(bridgeType)).\")");
+                println(15, "logger.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executing getBridge(\\(bridgeType)).\")");
                 println(10, "}");
                 println();
                 println(10, "if (this.delegate != nil) {");
                 println(15, "result = self.delegate.getBridge(bridgeType)");
                 println(15, "if (logger!=nil) {");
-                println(20, "logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), \"" + simpleName + " executed 'getBridge' in \\(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
+                println(20, "logger.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed 'getBridge' in \\(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
                 println(15, "}");
                 println(10, "} else {");
                 println(15, "if (logger!=nil) {");
-                println(20, "logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), \"" + simpleName + " no delegate for 'getBridge'.\")");
+                println(20, "logger.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: \"" + simpleName + " no delegate for 'getBridge'.\")");
                 println(15, "}");
                 println(10, "}");
                 if (!m.getReturnType().equals(Void.TYPE)) {
@@ -591,16 +590,16 @@ public class SwiftGenerator extends GeneratorBase {
                 println("{");
                 println(10, "// Start logging elapsed time.");
                 println(10, "var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()");
-                println(10, "var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()");
+                println(10, "var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()");
                 println();
-                println(10, "if (logger!=null) {");
-                print(15, "logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),\"" + simpleName + " executing " + m.getName() + "");
+                println(10, "if (logger != nil) {");
+                print(15, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executing " + m.getName() + "");
                 if (m.getParameterCount() > 0) {
                     print("(");
                 }
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print("{\"+" + p.getName() + "+\"}");
+                    print("{\\(" + p.getName() + ")}");
                     if (i < m.getParameterCount() - 1) {
                         print(",");
                     }
@@ -616,7 +615,7 @@ public class SwiftGenerator extends GeneratorBase {
                         if (m.getReturnType().equals(Boolean.TYPE)) {
                             println(10, "var result : " + convertJavaToNativeType(m.getReturnType()) + " = false");
                         } else if (m.getReturnType().equals(Character.TYPE)) {
-                            println(10, "var result : " + convertJavaToNativeType(m.getReturnType()) + " = ' '");
+                            println(10, "var result : " + convertJavaToNativeType(m.getReturnType()) + " = \" \"");
                         } else {
                             println(10, "var result : " + convertJavaToNativeType(m.getReturnType()) + " = " + m.getReturnType());
                         }
@@ -624,7 +623,7 @@ public class SwiftGenerator extends GeneratorBase {
                         if (simpleName.startsWith("AppRegistry")) {
                             println(10, "var result : " + m.getReturnType().getSimpleName().substring(1) + "Bridge = nil");
                         } else {
-                            println(10, "var result : " + convertJavaToNativeType(m.getReturnType()) + " = nil");
+                            println(10, "var result : " + convertJavaToNativeType(m.getReturnType()) + "? = nil");
                         }
                     }
                 }
@@ -636,9 +635,12 @@ public class SwiftGenerator extends GeneratorBase {
                     print(15, "result = ");
                 }
 
-                print("self.delegate." + m.getName() + "(");
+                print("self.delegate!." + m.getName() + "(");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
+                    if (i>0) {
+                        print(p.getName()+": ");
+                    }
                     print(p.getName());
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
@@ -646,15 +648,19 @@ public class SwiftGenerator extends GeneratorBase {
                 }
                 println(")");
                 println(15, "if (logger != nil) {");
-                println(20, "logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),\"" + simpleName + " executed '" + m.getName() + "' in \\(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
+                println(20, "logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: \"" + simpleName + " executed '" + m.getName() + "' in \\(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.\")");
                 println(15, " }");
                 println(10, "} else {");
                 println(15, "if (logger != nil) {");
-                println(20, "logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),\"" + simpleName + " no delegate for '" + m.getName() + "'.\")");
+                println(20, "logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: \"" + simpleName + " no delegate for '" + m.getName() + "'.\")");
                 println(15, "}");
                 println(10, "}");
                 if (!m.getReturnType().equals(Void.TYPE)) {
-                    print(10, "return result");
+                    if (m.getReturnType().isPrimitive()) {
+                        print(10, "return result");
+                    } else {
+                        print(10, "return result!");
+                    }
                 }
                 println(10, "");
                 println(5, "}");
@@ -669,10 +675,14 @@ public class SwiftGenerator extends GeneratorBase {
             println(8, "@param request APIRequest object containing method name and parameters.");
             println(8, "@return String with JSON response or a zero length string if the response is asynchronous or null if method not found.");
             endComment(5);
-            println(5, "public func invoke(request : APIRequest) -> String? {");
-            //println(10, "Gson gson = new Gson();");
-            println(10, "var responseJSON : String = \"\"");
-            println(10, "switch (request.getMethodName()) {");
+            if (!clazz.getInterfaces()[0].getSimpleName().startsWith("IBase")) {
+                println(5, "public func invoke(request : APIRequest) -> String? {");
+            } else {
+                println(5, "public override func invoke(request : APIRequest) -> String? {");
+            }
+                println(10, "//Gson gson = new Gson();");
+            println(10, "var responseJSON : String? = \"\"");
+            println(10, "switch request.getMethodName()! {");
             List<Method> methodUniqueList = new ArrayList<>();
             List<Method> methodOverloadedList = new ArrayList<>();
             for (Method m : classMethods) {
@@ -694,17 +704,17 @@ public class SwiftGenerator extends GeneratorBase {
                 println(15, "case \"" + m.getName() + "\":");
                 int pIndex = 0;
                 for (Parameter p : m.getParameters()) {
-                    print(20, "var " + p.getName() + parameterIndex + " : " + convertJavaToNativeType(p.getType()) + " = ");
+                    print(20, "var " + p.getName() + parameterIndex + " : " + convertJavaToNativeType(p.getType()) + "? = ");
                     if (p.getType().getSimpleName().endsWith("Callback") || p.getType().getSimpleName().endsWith("Listener")) {
-                        print(" " + p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
+                        print(" " + p.getType().getSimpleName().substring(1) + "Impl(id: request.getAsyncId()!)");
                     } else {
                         if (p.getType().isPrimitive()) {
-                            print("this.gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
+                            print("nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
                         } else {
-                            print("this.gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
+                            print("nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
                         }
                     }
-                    println(";");
+                    println("");
                     pIndex++;
                 }
 
@@ -712,34 +722,39 @@ public class SwiftGenerator extends GeneratorBase {
                     print(20, "self." + m.getName() + "(");
                     for (int i = 0; i < m.getParameterCount(); i++) {
                         Parameter p = m.getParameters()[i];
-                        print(p.getName() + parameterIndex);
+                        if(i>0) {
+                            print(p.getName()+": ");
+                        }
+                        print(p.getName() + parameterIndex+"!");
                         if (i < m.getParameterCount() - 1) {
                             print(", ");
                         }
                     }
                     println(");");
                 } else {
-                    print(20, convertJavaToNativeType(m.getReturnType()) + " response" + parameterIndex + " = ");
-                    print("this." + m.getName() + "(");
+                    print(20, "var response"+parameterIndex+" : "+convertJavaToNativeType(m.getReturnType()) +" = ");
+                    print("self." + m.getName() + "(");
                     for (int i = 0; i < m.getParameterCount(); i++) {
                         Parameter p = m.getParameters()[i];
-                        print(p.getName() + parameterIndex);
+                        if(i>0) {
+                            print(p.getName()+": ");
+                        }
+                        print(p.getName() + parameterIndex+"!");
                         if (i < m.getParameterCount() - 1) {
                             print(", ");
                         }
                     }
-                    println(");");
+                    println(")");
                     if (m.getReturnType().isPrimitive()) {
-                        println(20, "responseJSON = this.gson.toJson(response" + parameterIndex + ");");
+                        println(20, "responseJSON = nil //TODO - Serialize this.gson.toJson(response" + parameterIndex + ");");
                     } else {
-                        println(20, "if (response" + parameterIndex + " != null) {");
-                        println(25, "responseJSON = this.gson.toJson(response" + parameterIndex + ");");
+                        println(20, "if (response" + parameterIndex + " != nil) {");
+                        println(25, "responseJSON = nil //TODO - Serialize this.gson.toJson(response" + parameterIndex + ");");
                         println(20, "} else {");
-                        println(25, "responseJSON = nil;");
+                        println(25, "responseJSON = nil");
                         println(20, "}");
                     }
                 }
-                println(20, "break;");
                 parameterIndex++;
             }
 
@@ -761,59 +776,64 @@ public class SwiftGenerator extends GeneratorBase {
 
                 int pIndex = 0;
                 for (Parameter p : m.getParameters()) {
-                    print(20, convertJavaToNativeType(p.getType()) + " " + p.getName() + parameterIndex + " = ");
+                    print(20, "var " + p.getName() + parameterIndex + " : "+convertJavaToNativeType(p.getType())+"? = ");
                     if (p.getType().getSimpleName().endsWith("Callback") || p.getType().getSimpleName().endsWith("Listener")) {
-                        print("new " + p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
+                        print(p.getType().getSimpleName().substring(1) + "Impl(request.getAsyncId())");
                     } else {
                         if (p.getType().isPrimitive()) {
-                            print("this.gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
+                            print("nil //TODO Deserialize this.gson.fromJson(request.getParameters()[" + pIndex + "], " + p.getType().getSimpleName() + ".class)");
                         } else {
-                            print("this.gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
+                            print("nil //TODO Deserialize this.gson.fromJson(request.getParameters()[" + pIndex + "], " + convertJavaToNativeType(p.getType()) + ".class)");
                         }
                     }
-                    println(";");
+                    println("");
                     pIndex++;
                 }
 
                 if (m.getReturnType().equals(Void.TYPE)) {
-                    print(20, "this." + m.getName() + "(");
+                    print(20, "self." + m.getName() + "(");
                     for (int i = 0; i < m.getParameterCount(); i++) {
                         Parameter p = m.getParameters()[i];
-                        print(p.getName() + parameterIndex);
+                        if (i>0) {
+                            print(p.getName()+": ");
+                        }
+                        print(p.getName() + parameterIndex+"!");
                         if (i < m.getParameterCount() - 1) {
                             print(", ");
                         }
                     }
-                    println(");");
+                    println(")");
                 } else {
-                    print(20, convertJavaToNativeType(m.getReturnType()) + " response" + parameterIndex + " = ");
-                    print("this." + m.getName() + "(");
+                    print(20, "var response" + parameterIndex + " : "+convertJavaToNativeType(m.getReturnType())+" = ");
+                    print("self." + m.getName() + "(");
                     for (int i = 0; i < m.getParameterCount(); i++) {
                         Parameter p = m.getParameters()[i];
-                        print(p.getName() + parameterIndex);
+                        if (i>0) {
+                            print(p.getName()+": ");
+                        }
+                        print(p.getName() + parameterIndex+"!");
                         if (i < m.getParameterCount() - 1) {
                             print(", ");
                         }
                     }
-                    println(");");
+                    println(")");
                     if (m.getReturnType().isPrimitive()) {
-                        println(20, "responseJSON = this.gson.toJson(response" + parameterIndex + ");");
+                        println(20, "responseJSON = nil //TODO Serialize this.gson.toJson(response" + parameterIndex + ");");
                     } else {
                         println(20, "if (response" + parameterIndex + " != null) {");
-                        println(25, "responseJSON = this.gson.toJson(response" + parameterIndex + ");");
+                        println(25, "responseJSON = nil //TODO Serialize this.gson.toJson(response" + parameterIndex + ");");
                         println(20, "} else {");
-                        println(25, "responseJSON = nil;");
+                        println(25, "responseJSON = nil");
                         println(20, "}");
                     }
                 }
-                println(20, "break;");
                 parameterIndex++;
             }
             println(15, "default:");
             println(20, "// 404 - response null.");
-            println(20, "responseJSON = nil;");
+            println(20, "responseJSON = nil");
             println(10, "}");
-            println(10, "return responseJSON;");
+            println(10, "return responseJSON");
             println(5, "}");
         }
         println("}");
@@ -821,10 +841,6 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void createCallbackImplementation(String simpleName, Class clazz, JavaClass javaClass) {
-        println("package " + clazz.getPackage().getName() + ";");
-        println();
-        println("import com.google.gson.Gson;");
-        println();
         startComment(0);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
             println(3, javaClass.getComment());
@@ -833,25 +849,25 @@ public class SwiftGenerator extends GeneratorBase {
         endComment(0);
 
         if (clazz.getSimpleName().equals("IBaseCallback")) {
-            println("public class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+            println("public class " + simpleName + " : NSObject, " + clazz.getSimpleName() + " {");
             println();
 
             startComment(5);
             println(8, "Unique id of callback.");
             endComment(5);
-            println(5, "private long id;");
+            println(5, "private var id : Int64");
             println();
 
             startComment(5);
             println(8, "Group of API.");
             endComment(5);
-            println(5, "private IAdaptiveRPGroup apiGroup;");
+            println(5, "private var apiGroup : IAdaptiveRPGroup");
             println();
 
             startComment(5);
             println(8, "JSON Serializer.");
             endComment(5);
-            println(5, "protected Gson gson;");
+            println(5, "//TODO: protected Gson gson;");
             println();
 
             startComment(5);
@@ -859,10 +875,10 @@ public class SwiftGenerator extends GeneratorBase {
             println();
             println(8, "@param id  The id of the callback.");
             endComment(5);
-            println(5, "public " + simpleName + "(long id) {");
-            println(10, "this.id = id;");
-            println(10, "this.apiGroup = IAdaptiveRPGroup.Application;");
-            println(10, "this.gson = new Gson();");
+            println(5, "public init(id : Int64) {");
+            println(10, "self.id = id");
+            println(10, "self.apiGroup = IAdaptiveRPGroup.Application");
+            println(10, "//TODO: this.gson = new Gson();");
             println(5, "}");
             println();
 
@@ -870,36 +886,35 @@ public class SwiftGenerator extends GeneratorBase {
             println(8, "Get the callback id.");
             println(8, "@return long with the identifier of the callback.");
             endComment(5);
-            println(5, "public final long getId() {");
-            println(10, "return this.id;");
+            println(5, "public final func getId() -> Int64 {");
+            println(10, "return self.id");
             println(5, "}");
             println();
 
             startComment(5);
             println(8, "Return the API group for the given interface.");
             endComment(5);
-            println(5, "@Override");
-            println(5, "public IAdaptiveRPGroup getAPIGroup() {");
-            println(10, "return this.apiGroup;");
+            println(5, "public func getAPIGroup() -> IAdaptiveRPGroup {");
+            println(10, "return self.apiGroup");
             println(5, "}");
 
             startComment(5);
             println(8, "Return the JSON serializer.");
             println(8, "@return Current JSON serializer.");
             endComment(5);
-            println(5, "public final Gson getJSONAPI() {");
-            println(10, "return this.gson;");
-            println(5, "}");
+            println(5, "//TODO: public final Gson getJSONAPI() {");
+            println(10, "//return this.gson;");
+            println(5, "//}");
         } else {
-            println("public class " + simpleName + " extends BaseCallbackImpl implements " + clazz.getSimpleName() + " {");
+            println("public class " + simpleName + " : BaseCallbackImpl, " + clazz.getSimpleName() + " {");
             println();
             startComment(5);
             println(8, "Constructor with callback id.");
             println();
             println(8, "@param id  The id of the callback.");
             endComment(5);
-            println(5, "public " + simpleName + "(long id) {");
-            println(10, "super(id);");
+            println(5, "public override init(id : Int64) {");
+            println(10, "super.init(id: id)");
             println(5, "}");
         }
         println();
@@ -929,31 +944,35 @@ public class SwiftGenerator extends GeneratorBase {
                     println(8, "@" + tag.getName() + " " + tag.getValue());
                 }
                 endComment(5);
-                print(5, "public ");
-                if (m.getReturnType().equals(Void.TYPE)) {
-                    print("void ");
-                } else {
-                    print(convertJavaToNativeType(m.getReturnType()) + " ");
-                }
+                print(5, "public func ");
                 print(m.getName() + "(");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(convertJavaToNativeType(p.getType()) + " ");
                     print(p.getName());
+                    print(" : "+convertJavaToNativeType(p.getType()));
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
                 }
-                println(") {");
-                print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
+                print(") ");
+                if (m.getReturnType().equals(Void.TYPE)) {
+                    println("{ ");
+                } else {
+                    println("-> " + convertJavaToNativeType(m.getReturnType()) + " {");
+                }
+
+                print(10, "AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\\(getId())', ");
+                StringBuffer todos = new StringBuffer();
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print("JSON.parse(\" + this.gson.toJson(" + p.getName() + ") +\")");
+                    print("JSON.parse(\\\"\\\")");
+                    todos.append("/** TODO: this.gson.toJson(\" + p.getName() + \")**/ ");
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
                 }
-                println(" )\");");
+                println("\" )");
+                println(10,todos.toString());
                 println(5, "}");
                 println();
             }
@@ -964,10 +983,6 @@ public class SwiftGenerator extends GeneratorBase {
 
     @Override
     protected void createListenerImplementation(String simpleName, Class clazz, JavaClass javaClass) {
-        println("package " + clazz.getPackage().getName() + ";");
-        println();
-        println("import com.google.gson.Gson;");
-        println();
         startComment(0);
         if (javaClass.getComment() != null && javaClass.getComment().length() > 0) {
             println(3, javaClass.getComment());
@@ -976,25 +991,25 @@ public class SwiftGenerator extends GeneratorBase {
         endComment(0);
 
         if (clazz.getSimpleName().equals("IBaseListener")) {
-            println("public class " + simpleName + " implements " + clazz.getSimpleName() + " {");
+            println("public class " + simpleName + " : " + clazz.getSimpleName() + " {");
             println();
 
             startComment(5);
             println(8, "Unique id of listener.");
             endComment(5);
-            println(5, "private long id;");
+            println(5, "private var id : Int64");
             println();
 
             startComment(5);
             println(8, "Group of API.");
             endComment(5);
-            println(5, "private IAdaptiveRPGroup apiGroup;");
+            println(5, "private var apiGroup : IAdaptiveRPGroup");
             println();
 
             startComment(5);
             println(8, "JSON Serializer.");
             endComment(5);
-            println(5, "protected Gson gson;");
+            println(5, "//TODO: protected Gson gson;");
             println();
 
             startComment(5);
@@ -1002,10 +1017,10 @@ public class SwiftGenerator extends GeneratorBase {
             println();
             println(8, "@param id  The id of the listener.");
             endComment(5);
-            println(5, "public " + simpleName + "(long id) {");
-            println(10, "this.id = id;");
-            println(10, "this.apiGroup = IAdaptiveRPGroup.Application;");
-            println(10, "this.gson = new Gson();");
+            println(5, "public init(id : Int64) {");
+            println(10, "self.id = id");
+            println(10, "self.apiGroup = IAdaptiveRPGroup.Application");
+            println(10, "// TODO: this.gson = new Gson();");
             println(5, "}");
             println();
 
@@ -1013,36 +1028,35 @@ public class SwiftGenerator extends GeneratorBase {
             println(8, "Get the listener id.");
             println(8, "@return long with the identifier of the listener.");
             endComment(5);
-            println(5, "public final long getId() {");
-            println(10, "return this.id;");
+            println(5, "public final func getId() -> Int64 {");
+            println(10, "return self.id");
             println(5, "}");
             println();
 
             startComment(5);
             println(8, "Return the API group for the given interface.");
             endComment(5);
-            println(5, "@Override");
-            println(5, "public final IAdaptiveRPGroup getAPIGroup() {");
-            println(10, "return this.apiGroup;");
+            println(5, "public final func getAPIGroup() -> IAdaptiveRPGroup {");
+            println(10, "return self.apiGroup;");
             println(5, "}");
 
             startComment(5);
             println(8, "Return the JSON serializer.");
             println(8, "@return Current JSON serializer.");
             endComment(5);
-            println(5, "public final Gson getJSONAPI() {");
-            println(10, "return this.gson;");
-            println(5, "}");
+            println(5, "//TODO: public final Gson getJSONAPI() {");
+            println(10, "//return this.gson;");
+            println(5, "//}");
         } else {
-            println("public class " + simpleName + " extends BaseListenerImpl implements " + clazz.getSimpleName() + " {");
+            println("public class " + simpleName + " : BaseListenerImpl, " + clazz.getSimpleName() + " {");
             println();
             startComment(5);
             println(8, "Constructor with listener id.");
             println();
             println(8, "@param id  The id of the listener.");
             endComment(5);
-            println(5, "public " + simpleName + "(long id) {");
-            println(10, "super(id);");
+            println(5, "public init(id : Int64) {");
+            println(10, "super.init(id);");
             println(5, "}");
         }
         println();
@@ -1072,32 +1086,37 @@ public class SwiftGenerator extends GeneratorBase {
                     println(8, "@" + tag.getName() + " " + tag.getValue());
                 }
                 endComment(5);
-                print(5, "public ");
-                if (m.getReturnType().equals(Void.TYPE)) {
-                    print("void ");
-                } else {
-                    print(convertJavaToNativeType(m.getReturnType()) + " ");
-                }
+                print(5, "public func ");
+
                 print(m.getName() + "(");
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print(convertJavaToNativeType(p.getType()) + " ");
                     print(p.getName());
+                    print(" : "+convertJavaToNativeType(p.getType()));
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
                 }
-                println(") {");
+                print(") ");
+                if (m.getReturnType().equals(Void.TYPE)) {
+                    println(" {");
+                } else {
+                    print(" -> "+convertJavaToNativeType(m.getReturnType()) + " {");
+                }
 
-                print(10, "AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\"+getId()+\"', ");
+                print(10, "AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript(\"handle" + m.getDeclaringClass().getSimpleName().substring(1) + m.getName().substring(2) + "( '\\(+getId()+)', ");
+
+                StringBuffer todos = new StringBuffer();
                 for (int i = 0; i < m.getParameterCount(); i++) {
                     Parameter p = m.getParameters()[i];
-                    print("JSON.parse(\" + this.gson.toJson(" + p.getName() + ") +\")");
+                    print("JSON.parse(\\\"\\\")");
+                    todos.append("/** TODO: this.gson.toJson(\" + p.getName() + \")**/ ");
                     if (i < m.getParameterCount() - 1) {
                         print(", ");
                     }
                 }
-                println(" )\");");
+                println("\" )");
+                println(10,todos.toString());
                 println(5, "}");
                 println();
             }
@@ -1195,6 +1214,8 @@ public class SwiftGenerator extends GeneratorBase {
                 } else {
                     if (simpleName.startsWith("IAppRegistry")) {
                         println(" -> " + method.getReturnType().getSimpleName().substring(1) + "Bridge ");
+                    } else if (simpleName.equals("APIBridge")) {
+                        println(" -> " + convertJavaToNativeType(method.getReturnType()) + "?");
                     } else {
                         println(" -> " + convertJavaToNativeType(method.getReturnType()) + " ");
                     }

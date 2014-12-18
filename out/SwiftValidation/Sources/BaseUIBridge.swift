@@ -36,12 +36,12 @@ Release:
    Base application for UI purposes
    Auto-generated implementation of IBaseUI specification.
 */
-public class BaseUIBridge : IBaseUI {
+public class BaseUIBridge : NSObject, IBaseUI {
 
      /**
         Group of API.
      */
-     private var apiGroup : IAdaptiveRPGroup = nil;
+     private var apiGroup : IAdaptiveRPGroup = nil
 
      /**
         JSON API.
@@ -51,7 +51,7 @@ public class BaseUIBridge : IBaseUI {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           this.apiGroup = IAdaptiveRPGroup.UI;
           //this.gson = new Gson();
      }
@@ -59,8 +59,7 @@ public class BaseUIBridge : IBaseUI {
      /**
         Return the API group for the given interface.
      */
-     @Override
-     public final func IAdaptiveRPGroup getAPIGroup() {
+     public final func getAPIGroup() -> IAdaptiveRPGroup {
           return self.apiGroup
      }
      /**
@@ -78,13 +77,14 @@ public class BaseUIBridge : IBaseUI {
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
      public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

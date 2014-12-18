@@ -41,7 +41,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : ILifecycle = nil
+     private var delegate : ILifecycle? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         Get the delegate implementation.
         @return ILifecycle delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> ILifecycle {
+     public final func getDelegate() -> ILifecycle? {
           return self.delegate
      }
      /**
@@ -77,20 +77,20 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
      public func addLifecycleListener(listener : ILifecycleListener ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LifecycleBridge executing addLifecycleListener({"+listener+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executing addLifecycleListener({\(listener)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.addLifecycleListener(listener)
+               self.delegate!.addLifecycleListener(listener)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LifecycleBridge executed 'addLifecycleListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'addLifecycleListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"LifecycleBridge no delegate for 'addLifecycleListener'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "LifecycleBridge no delegate for 'addLifecycleListener'.")
                }
           }
           
@@ -105,21 +105,21 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
      public func isBackground() -> Bool {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LifecycleBridge executing isBackground.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executing isBackground.")
           }
 
           var result : Bool = false
           if (self.delegate != nil) {
-               result = self.delegate.isBackground()
+               result = self.delegate!.isBackground()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LifecycleBridge executed 'isBackground' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'isBackground' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"LifecycleBridge no delegate for 'isBackground'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "LifecycleBridge no delegate for 'isBackground'.")
                }
           }
           return result          
@@ -134,20 +134,20 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
      public func removeLifecycleListener(listener : ILifecycleListener ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LifecycleBridge executing removeLifecycleListener({"+listener+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executing removeLifecycleListener({\(listener)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.removeLifecycleListener(listener)
+               self.delegate!.removeLifecycleListener(listener)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LifecycleBridge executed 'removeLifecycleListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'removeLifecycleListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"LifecycleBridge no delegate for 'removeLifecycleListener'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "LifecycleBridge no delegate for 'removeLifecycleListener'.")
                }
           }
           
@@ -161,20 +161,20 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
      public func removeLifecycleListeners() {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LifecycleBridge executing removeLifecycleListeners.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executing removeLifecycleListeners.")
           }
 
           if (self.delegate != nil) {
-               self.delegate.removeLifecycleListeners()
+               self.delegate!.removeLifecycleListeners()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LifecycleBridge executed 'removeLifecycleListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LifecycleBridge executed 'removeLifecycleListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"LifecycleBridge no delegate for 'removeLifecycleListeners'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "LifecycleBridge no delegate for 'removeLifecycleListeners'.")
                }
           }
           
@@ -186,29 +186,26 @@ public class LifecycleBridge : BaseApplicationBridge, ILifecycle, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "addLifecycleListener":
-                    var listener0 : ILifecycleListener =  LifecycleListenerImpl(request.getAsyncId());
-                    self.addLifecycleListener(listener0);
-                    break;
+                    var listener0 : ILifecycleListener? =  LifecycleListenerImpl(id: request.getAsyncId()!)
+                    self.addLifecycleListener(listener0!);
                case "isBackground":
-                    Bool response1 = this.isBackground();
-                    responseJSON = this.gson.toJson(response1);
-                    break;
+                    var response1 : Bool = self.isBackground()
+                    responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                case "removeLifecycleListener":
-                    var listener2 : ILifecycleListener =  LifecycleListenerImpl(request.getAsyncId());
-                    self.removeLifecycleListener(listener2);
-                    break;
+                    var listener2 : ILifecycleListener? =  LifecycleListenerImpl(id: request.getAsyncId()!)
+                    self.removeLifecycleListener(listener2!);
                case "removeLifecycleListeners":
                     self.removeLifecycleListeners();
-                    break;
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

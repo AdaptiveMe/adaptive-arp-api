@@ -37,7 +37,7 @@ Release:
    Base application for Social purposes
    Auto-generated implementation of IBaseSocial specification.
 */
-public class BaseSocialDelegate : IBaseSocial {
+public class BaseSocialDelegate : NSObject, IBaseSocial {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseSocialDelegate : IBaseSocial {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.Social
      }
 

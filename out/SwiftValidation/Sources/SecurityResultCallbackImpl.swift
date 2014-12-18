@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Security result callback
    Auto-generated implementation of ISecurityResultCallback specification.
 */
-public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISecurityResultCallback {
+public class SecurityResultCallbackImpl : BaseCallbackImpl, ISecurityResultCallback {
 
      /**
         Constructor with callback id.
 
         @param id  The id of the callback.
      */
-     public SecurityResultCallbackImpl(long id) {
-          super(id);
+     public override init(id : Int64) {
+          super.init(id: id)
      }
 
      /**
@@ -57,8 +53,9 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @param error Error values
         @since ARP1.0
      */
-     public void onError(ISecurityResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : ISecurityResultCallbackError) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @param keyValues key and values
         @since ARP1.0
      */
-     public void onResult([SecureKeyPair] keyValues) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(keyValues) +") )");
+     public func onResult(keyValues : [SecureKeyPair]) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class SecurityResultCallbackImpl extends BaseCallbackImpl implements ISec
         @param warning   Warning values
         @since ARP1.0
      */
-     public void onWarning([SecureKeyPair] keyValues, ISecurityResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(keyValues) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(keyValues : [SecureKeyPair], warning : ISecurityResultCallbackWarning) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleSecurityResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

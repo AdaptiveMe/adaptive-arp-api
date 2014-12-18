@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the File loading callback responses
    Auto-generated implementation of IFileDataLoadResultCallback specification.
 */
-public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements IFileDataLoadResultCallback {
+public class FileDataLoadResultCallbackImpl : BaseCallbackImpl, IFileDataLoadResultCallback {
 
      /**
         Constructor with callback id.
 
         @param id  The id of the callback.
      */
-     public FileDataLoadResultCallbackImpl(long id) {
-          super(id);
+     public override init(id : Int64) {
+          super.init(id: id)
      }
 
      /**
@@ -57,8 +53,9 @@ public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements 
         @param error Error condition encountered.
         @since ARP1.0
      */
-     public void onError(IFileDataLoadResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : IFileDataLoadResultCallbackError) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements 
         @param data Data loaded.
         @since ARP1.0
      */
-     public void onResult([Byte] data) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(data) +") )");
+     public func onResult(data : [Byte]) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class FileDataLoadResultCallbackImpl extends BaseCallbackImpl implements 
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     public void onWarning([Byte] data, IFileDataLoadResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(data) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(data : [Byte], warning : IFileDataLoadResultCallbackWarning) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileDataLoadResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

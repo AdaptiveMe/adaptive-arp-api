@@ -37,7 +37,7 @@ Release:
    Base application for Security purposes
    Auto-generated implementation of IBaseSecurity specification.
 */
-public class BaseSecurityDelegate : IBaseSecurity {
+public class BaseSecurityDelegate : NSObject, IBaseSecurity {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseSecurityDelegate : IBaseSecurity {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.Security
      }
 

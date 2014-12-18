@@ -41,7 +41,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : IAcceleration = nil
+     private var delegate : IAcceleration? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
         Get the delegate implementation.
         @return IAcceleration delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IAcceleration {
+     public final func getDelegate() -> IAcceleration? {
           return self.delegate
      }
      /**
@@ -77,20 +77,20 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
      public func addAccelerationListener(listener : IAccelerationListener ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AccelerationBridge executing addAccelerationListener({"+listener+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executing addAccelerationListener({\(listener)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.addAccelerationListener(listener)
+               self.delegate!.addAccelerationListener(listener)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AccelerationBridge executed 'addAccelerationListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'addAccelerationListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"AccelerationBridge no delegate for 'addAccelerationListener'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AccelerationBridge no delegate for 'addAccelerationListener'.")
                }
           }
           
@@ -105,20 +105,20 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
      public func removeAccelerationListener(listener : IAccelerationListener ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AccelerationBridge executing removeAccelerationListener({"+listener+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executing removeAccelerationListener({\(listener)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.removeAccelerationListener(listener)
+               self.delegate!.removeAccelerationListener(listener)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AccelerationBridge executed 'removeAccelerationListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'removeAccelerationListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"AccelerationBridge no delegate for 'removeAccelerationListener'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AccelerationBridge no delegate for 'removeAccelerationListener'.")
                }
           }
           
@@ -132,20 +132,20 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
      public func removeAccelerationListeners() {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AccelerationBridge executing removeAccelerationListeners.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executing removeAccelerationListeners.")
           }
 
           if (self.delegate != nil) {
-               self.delegate.removeAccelerationListeners()
+               self.delegate!.removeAccelerationListeners()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AccelerationBridge executed 'removeAccelerationListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AccelerationBridge executed 'removeAccelerationListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"AccelerationBridge no delegate for 'removeAccelerationListeners'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AccelerationBridge no delegate for 'removeAccelerationListeners'.")
                }
           }
           
@@ -157,25 +157,23 @@ public class AccelerationBridge : BaseSensorBridge, IAcceleration, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "addAccelerationListener":
-                    var listener0 : IAccelerationListener =  AccelerationListenerImpl(request.getAsyncId());
-                    self.addAccelerationListener(listener0);
-                    break;
+                    var listener0 : IAccelerationListener? =  AccelerationListenerImpl(id: request.getAsyncId()!)
+                    self.addAccelerationListener(listener0!);
                case "removeAccelerationListener":
-                    var listener1 : IAccelerationListener =  AccelerationListenerImpl(request.getAsyncId());
-                    self.removeAccelerationListener(listener1);
-                    break;
+                    var listener1 : IAccelerationListener? =  AccelerationListenerImpl(id: request.getAsyncId()!)
+                    self.removeAccelerationListener(listener1!);
                case "removeAccelerationListeners":
                     self.removeAccelerationListeners();
-                    break;
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

@@ -41,7 +41,7 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : ILogging = nil
+     private var delegate : ILogging? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
         Get the delegate implementation.
         @return ILogging delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> ILogging {
+     public final func getDelegate() -> ILogging? {
           return self.delegate
      }
      /**
@@ -78,20 +78,20 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
      public func log(level : ILoggingLogLevel , message : String ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LoggingBridge executing log({"+level+"},{"+message+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executing log({\(level)},{\(message)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.log(level, message)
+               self.delegate!.log(level, message: message)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LoggingBridge executed 'log' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executed 'log' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"LoggingBridge no delegate for 'log'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "LoggingBridge no delegate for 'log'.")
                }
           }
           
@@ -108,20 +108,20 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
      public func log(level : ILoggingLogLevel , category : String , message : String ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LoggingBridge executing log({"+level+"},{"+category+"},{"+message+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executing log({\(level)},{\(category)},{\(message)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.log(level, category, message)
+               self.delegate!.log(level, category: category, message: message)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"LoggingBridge executed 'log' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "LoggingBridge executed 'log' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"LoggingBridge no delegate for 'log'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "LoggingBridge no delegate for 'log'.")
                }
           }
           
@@ -133,25 +133,24 @@ public class LoggingBridge : BaseUtilBridge, ILogging, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "log_level_message":
-                    ILoggingLogLevel level0 = this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
-                    String message0 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    this.log(level0, message0);
-                    break;
+                    var level0 : ILoggingLogLevel? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class)
+                    var message0 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[1], String.class)
+                    self.log(level0!, message: message0!)
                case "log_level_category_message":
-                    ILoggingLogLevel level1 = this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class);
-                    String category1 = this.gson.fromJson(request.getParameters()[1], String.class);
-                    String message1 = this.gson.fromJson(request.getParameters()[2], String.class);
-                    this.log(level1, category1, message1);
-                    break;
+                    var level1 : ILoggingLogLevel? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[0], ILoggingLogLevel.class)
+                    var category1 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[1], String.class)
+                    var message1 : String? = nil //TODO Deserialize this.gson.fromJson(request.getParameters()[2], String.class)
+                    self.log(level1!, category: category1!, message: message1!)
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

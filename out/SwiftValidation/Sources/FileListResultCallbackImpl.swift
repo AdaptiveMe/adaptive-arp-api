@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the File result operations
    Auto-generated implementation of IFileListResultCallback specification.
 */
-public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFileListResultCallback {
+public class FileListResultCallbackImpl : BaseCallbackImpl, IFileListResultCallback {
 
      /**
         Constructor with callback id.
 
         @param id  The id of the callback.
      */
-     public FileListResultCallbackImpl(long id) {
-          super(id);
+     public override init(id : Int64) {
+          super.init(id: id)
      }
 
      /**
@@ -57,8 +53,9 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         @param error Error processing the request.
         @since ARP1.0
      */
-     public void onError(IFileListResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : IFileListResultCallbackError) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         @param files Array of resulting files/folders.
         @since ARP1.0
      */
-     public void onResult([IFile] files) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(files) +") )");
+     public func onResult(files : [IFile]) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class FileListResultCallbackImpl extends BaseCallbackImpl implements IFil
         @param warning Warning condition encountered.
         @since ARP1.0
      */
-     public void onWarning([IFile] files, IFileListResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(files) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(files : [IFile], warning : IFileListResultCallbackWarning) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleFileListResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

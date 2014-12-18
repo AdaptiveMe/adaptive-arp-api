@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Network status listener events
    Auto-generated implementation of INetworkStatusListener specification.
 */
-public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetworkStatusListener {
+public class NetworkStatusListenerImpl : BaseListenerImpl, INetworkStatusListener {
 
      /**
         Constructor with listener id.
 
         @param id  The id of the listener.
      */
-     public NetworkStatusListenerImpl(long id) {
-          super(id);
+     public init(id : Int64) {
+          super.init(id);
      }
 
      /**
@@ -57,8 +53,9 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @param error Type of error encountered during reading.
         @since ARP1.0
      */
-     public void onError(INetworkStatusListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : INetworkStatusListenerError)  {
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerError( '\(+getId()+)', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @param network Change to this network.
         @since ARP1.0
      */
-     public void onResult(ICapabilitiesNet network) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(network) +") )");
+     public func onResult(network : ICapabilitiesNet)  {
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerResult( '\(+getId()+)', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class NetworkStatusListenerImpl extends BaseListenerImpl implements INetw
         @param warning Type of warning encountered during reading.
         @since ARP1.0
      */
-     public void onWarning(ICapabilitiesNet network, INetworkStatusListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(network) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(network : ICapabilitiesNet, warning : INetworkStatusListenerWarning)  {
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkStatusListenerWarning( '\(+getId()+)', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface defines the response methods of the acceleration operations
    Auto-generated implementation of IAccelerationListener specification.
 */
-public class AccelerationListenerImpl extends BaseListenerImpl implements IAccelerationListener {
+public class AccelerationListenerImpl : BaseListenerImpl, IAccelerationListener {
 
      /**
         Constructor with listener id.
 
         @param id  The id of the listener.
      */
-     public AccelerationListenerImpl(long id) {
-          super(id);
+     public init(id : Int64) {
+          super.init(id);
      }
 
      /**
@@ -58,8 +54,9 @@ listener and subsequently, the listener will be deactivated and removed from the
         @param error Error fired
         @since ARP1.0
      */
-     public void onError(IAccelerationListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : IAccelerationListenerError)  {
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerError( '\(+getId()+)', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -68,8 +65,9 @@ listener and subsequently, the listener will be deactivated and removed from the
         @param acceleration Acceleration received
         @since ARP1.0
      */
-     public void onResult(Acceleration acceleration) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(acceleration) +") )");
+     public func onResult(acceleration : Acceleration)  {
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerResult( '\(+getId()+)', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -79,8 +77,9 @@ listener and subsequently, the listener will be deactivated and removed from the
         @param warning      Warning fired
         @since ARP1.0
      */
-     public void onWarning(Acceleration acceleration, IAccelerationListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(acceleration) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(acceleration : Acceleration, warning : IAccelerationListenerWarning)  {
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAccelerationListenerWarning( '\(+getId()+)', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

@@ -41,7 +41,7 @@ public class MailBridge : BasePIMBridge, IMail, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : IMail = nil
+     private var delegate : IMail? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class MailBridge : BasePIMBridge, IMail, APIBridge {
         Get the delegate implementation.
         @return IMail delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IMail {
+     public final func getDelegate() -> IMail? {
           return self.delegate
      }
      /**
@@ -78,20 +78,20 @@ public class MailBridge : BasePIMBridge, IMail, APIBridge {
      public func sendEmail(data : Email , callback : IMessagingCallback ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"MailBridge executing sendEmail({"+data+"},{"+callback+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MailBridge executing sendEmail({\(data)},{\(callback)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.sendEmail(data, callback)
+               self.delegate!.sendEmail(data, callback: callback)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"MailBridge executed 'sendEmail' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "MailBridge executed 'sendEmail' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"MailBridge no delegate for 'sendEmail'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "MailBridge no delegate for 'sendEmail'.")
                }
           }
           
@@ -103,19 +103,19 @@ public class MailBridge : BasePIMBridge, IMail, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "sendEmail":
-                    var data0 : Email = this.gson.fromJson(request.getParameters()[0], Email.class);
-                    var callback0 : IMessagingCallback =  MessagingCallbackImpl(request.getAsyncId());
-                    self.sendEmail(data0, callback0);
-                    break;
+                    var data0 : Email? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Email.class)
+                    var callback0 : IMessagingCallback? =  MessagingCallbackImpl(id: request.getAsyncId()!)
+                    self.sendEmail(data0!, callback: callback0!);
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

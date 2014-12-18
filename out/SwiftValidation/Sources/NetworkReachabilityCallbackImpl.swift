@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Network reachability callback result
    Auto-generated implementation of INetworkReachabilityCallback specification.
 */
-public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements INetworkReachabilityCallback {
+public class NetworkReachabilityCallbackImpl : BaseCallbackImpl, INetworkReachabilityCallback {
 
      /**
         Constructor with callback id.
 
         @param id  The id of the callback.
      */
-     public NetworkReachabilityCallbackImpl(long id) {
-          super(id);
+     public override init(id : Int64) {
+          super.init(id: id)
      }
 
      /**
@@ -57,8 +53,9 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         @param error Error value
         @since ARP1.0
      */
-     public void onError(INetworkReachabilityCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : INetworkReachabilityCallbackError) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackError( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         @param reachable Indicates if the host is reachable
         @since ARP1.0
      */
-     public void onResult(Bool reachable) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(reachable) +") )");
+     public func onResult(reachable : Bool) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackResult( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class NetworkReachabilityCallbackImpl extends BaseCallbackImpl implements
         @param warning   Warning value
         @since ARP1.0
      */
-     public void onWarning(Bool reachable, INetworkReachabilityCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(reachable) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(reachable : Bool, warning : INetworkReachabilityCallbackWarning) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleNetworkReachabilityCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

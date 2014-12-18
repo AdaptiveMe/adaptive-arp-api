@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the button  operations
    Auto-generated implementation of IButtonListener specification.
 */
-public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListener {
+public class ButtonListenerImpl : BaseListenerImpl, IButtonListener {
 
      /**
         Constructor with listener id.
 
         @param id  The id of the listener.
      */
-     public ButtonListenerImpl(long id) {
-          super(id);
+     public init(id : Int64) {
+          super.init(id);
      }
 
      /**
@@ -57,8 +53,9 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         @param error occurred
         @since ARP1.0
      */
-     public void onError(IButtonListenerError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : IButtonListenerError)  {
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerError( '\(+getId()+)', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         @param button pressed
         @since ARP1.0
      */
-     public void onResult(Button button) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(button) +") )");
+     public func onResult(button : Button)  {
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerResult( '\(+getId()+)', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class ButtonListenerImpl extends BaseListenerImpl implements IButtonListe
         @param warning happened
         @since ARP1.0
      */
-     public void onWarning(Button button, IButtonListenerWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(button) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(button : Button, warning : IButtonListenerWarning)  {
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleButtonListenerWarning( '\(+getId()+)', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

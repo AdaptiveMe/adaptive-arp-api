@@ -37,7 +37,7 @@ Release:
    Base application for UI purposes
    Auto-generated implementation of IBaseUI specification.
 */
-public class BaseUIDelegate : IBaseUI {
+public class BaseUIDelegate : NSObject, IBaseUI {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseUIDelegate : IBaseUI {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.UI
      }
 

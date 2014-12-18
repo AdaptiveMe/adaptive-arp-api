@@ -37,7 +37,7 @@ Release:
    Base application for Application purposes
    Auto-generated implementation of IBaseApplication specification.
 */
-public class BaseApplicationDelegate : IBaseApplication {
+public class BaseApplicationDelegate : NSObject, IBaseApplication {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseApplicationDelegate : IBaseApplication {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.Application
      }
 

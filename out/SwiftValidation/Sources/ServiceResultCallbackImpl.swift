@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Services operations
    Auto-generated implementation of IServiceResultCallback specification.
 */
-public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServiceResultCallback {
+public class ServiceResultCallbackImpl : BaseCallbackImpl, IServiceResultCallback {
 
      /**
         Constructor with callback id.
 
         @param id  The id of the callback.
      */
-     public ServiceResultCallbackImpl(long id) {
-          super(id);
+     public override init(id : Int64) {
+          super.init(id: id)
      }
 
      /**
@@ -57,8 +53,9 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
         @param error returned by the platform
         @since ARP1.0
      */
-     public void onError(IServiceResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : IServiceResultCallbackError) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
         @param response data
         @since ARP1.0
      */
-     public void onResult(ServiceResponse response) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(response) +") )");
+     public func onResult(response : ServiceResponse) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class ServiceResultCallbackImpl extends BaseCallbackImpl implements IServ
         @param warning  returned by the platform
         @since ARP1.0
      */
-     public void onWarning(ServiceResponse response, IServiceResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(response) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(response : ServiceResponse, warning : IServiceResultCallbackWarning) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleServiceResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

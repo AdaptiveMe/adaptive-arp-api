@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Contact operations
    Auto-generated implementation of IContactPhotoResultCallback specification.
 */
-public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements IContactPhotoResultCallback {
+public class ContactPhotoResultCallbackImpl : BaseCallbackImpl, IContactPhotoResultCallback {
 
      /**
         Constructor with callback id.
 
         @param id  The id of the callback.
      */
-     public ContactPhotoResultCallbackImpl(long id) {
-          super(id);
+     public override init(id : Int64) {
+          super.init(id: id)
      }
 
      /**
@@ -57,8 +53,9 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         @param error returned by the platform
         @since ARP1.0
      */
-     public void onError(IContactPhotoResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : IContactPhotoResultCallbackError) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         @param contactPhoto returned by the platform
         @since ARP1.0
      */
-     public void onResult([Byte] contactPhoto) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(contactPhoto) +") )");
+     public func onResult(contactPhoto : [Byte]) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class ContactPhotoResultCallbackImpl extends BaseCallbackImpl implements 
         @param warning      returned by the platform
         @since ARP1.0
      */
-     public void onWarning([Byte] contactPhoto, IContactPhotoResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(contactPhoto) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(contactPhoto : [Byte], warning : IContactPhotoResultCallbackWarning) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactPhotoResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

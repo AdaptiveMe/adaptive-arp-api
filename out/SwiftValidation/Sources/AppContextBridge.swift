@@ -46,7 +46,7 @@ public class AppContextBridge : IAppContext {
      /**
         API Delegate.
      */
-     private var delegate : IAppContext = nil
+     private var delegate : IAppContext? = nil
 
      /**
         Constructor with delegate.
@@ -61,7 +61,7 @@ public class AppContextBridge : IAppContext {
         Get the delegate implementation.
         @return IAppContext delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IAppContext {
+     public final func getDelegate() -> IAppContext? {
           return self.delegate
      }
      /**
@@ -82,24 +82,24 @@ public class AppContextBridge : IAppContext {
      public func getContext() -> AnyObject {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppContextBridge executing getContext.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextBridge executing getContext.")
           }
 
-          var result : AnyObject = nil
+          var result : AnyObject? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getContext()
+               result = self.delegate!.getContext()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppContextBridge executed 'getContext' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextBridge executed 'getContext' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"AppContextBridge no delegate for 'getContext'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextBridge no delegate for 'getContext'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -111,24 +111,24 @@ public class AppContextBridge : IAppContext {
      public func getContextType() -> IOSType {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppContextBridge executing getContextType.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextBridge executing getContextType.")
           }
 
-          var result : IOSType = nil
+          var result : IOSType? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getContextType()
+               result = self.delegate!.getContextType()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppContextBridge executed 'getContextType' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppContextBridge executed 'getContextType' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"AppContextBridge no delegate for 'getContextType'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppContextBridge no delegate for 'getContextType'.")
                }
           }
-          return result          
+          return result!          
      }
 
 }

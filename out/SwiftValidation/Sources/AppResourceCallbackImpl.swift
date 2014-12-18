@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    This interface manages the responses of the resource callback
    Auto-generated implementation of IAppResourceCallback specification.
 */
-public class AppResourceCallbackImpl extends BaseCallbackImpl implements IAppResourceCallback {
+public class AppResourceCallbackImpl : BaseCallbackImpl, IAppResourceCallback {
 
      /**
         Constructor with callback id.
 
         @param id  The id of the callback.
      */
-     public AppResourceCallbackImpl(long id) {
-          super(id);
+     public override init(id : Int64) {
+          super.init(id: id)
      }
 
      /**
@@ -57,8 +53,9 @@ public class AppResourceCallbackImpl extends BaseCallbackImpl implements IAppRes
         @param error Error fired
         @since ARP1.0
      */
-     public void onError(IAppResourceCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : IAppResourceCallbackError) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackError( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class AppResourceCallbackImpl extends BaseCallbackImpl implements IAppRes
         @param resource Resource
         @since ARP1.0
      */
-     public void onResult(IAppResource resource) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(resource) +") )");
+     public func onResult(resource : IAppResource) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackResult( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class AppResourceCallbackImpl extends BaseCallbackImpl implements IAppRes
         @param warning  Warning fired
         @since ARP1.0
      */
-     public void onWarning(IAppResource resource, IAppResourceCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(resource) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(resource : IAppResource, warning : IAppResourceCallbackWarning) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleAppResourceCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

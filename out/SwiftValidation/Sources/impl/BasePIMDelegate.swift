@@ -37,7 +37,7 @@ Release:
    Base application for PIM purposes
    Auto-generated implementation of IBasePIM specification.
 */
-public class BasePIMDelegate : IBasePIM {
+public class BasePIMDelegate : NSObject, IBasePIM {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BasePIMDelegate : IBasePIM {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.PIM
      }
 

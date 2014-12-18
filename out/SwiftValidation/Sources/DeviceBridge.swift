@@ -41,7 +41,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : IDevice = nil
+     private var delegate : IDevice? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         Get the delegate implementation.
         @return IDevice delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IDevice {
+     public final func getDelegate() -> IDevice? {
           return self.delegate
      }
      /**
@@ -77,20 +77,20 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
      public func addButtonListener(listener : IButtonListener ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DeviceBridge executing addButtonListener({"+listener+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executing addButtonListener({\(listener)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.addButtonListener(listener)
+               self.delegate!.addButtonListener(listener)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DeviceBridge executed 'addButtonListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'addButtonListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DeviceBridge no delegate for 'addButtonListener'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "DeviceBridge no delegate for 'addButtonListener'.")
                }
           }
           
@@ -105,24 +105,24 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
      public func getDeviceInfo() -> DeviceInfo {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DeviceBridge executing getDeviceInfo.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executing getDeviceInfo.")
           }
 
-          var result : DeviceInfo = nil
+          var result : DeviceInfo? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getDeviceInfo()
+               result = self.delegate!.getDeviceInfo()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DeviceBridge executed 'getDeviceInfo' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'getDeviceInfo' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DeviceBridge no delegate for 'getDeviceInfo'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "DeviceBridge no delegate for 'getDeviceInfo'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -134,24 +134,24 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
      public func getLocaleCurrent() -> Locale {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DeviceBridge executing getLocaleCurrent.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executing getLocaleCurrent.")
           }
 
-          var result : Locale = nil
+          var result : Locale? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getLocaleCurrent()
+               result = self.delegate!.getLocaleCurrent()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DeviceBridge executed 'getLocaleCurrent' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'getLocaleCurrent' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DeviceBridge no delegate for 'getLocaleCurrent'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "DeviceBridge no delegate for 'getLocaleCurrent'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -163,20 +163,20 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
      public func removeButtonListener(listener : IButtonListener ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DeviceBridge executing removeButtonListener({"+listener+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executing removeButtonListener({\(listener)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.removeButtonListener(listener)
+               self.delegate!.removeButtonListener(listener)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DeviceBridge executed 'removeButtonListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'removeButtonListener' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DeviceBridge no delegate for 'removeButtonListener'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "DeviceBridge no delegate for 'removeButtonListener'.")
                }
           }
           
@@ -190,20 +190,20 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
      public func removeButtonListeners() {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DeviceBridge executing removeButtonListeners.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executing removeButtonListeners.")
           }
 
           if (self.delegate != nil) {
-               self.delegate.removeButtonListeners()
+               self.delegate!.removeButtonListeners()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"DeviceBridge executed 'removeButtonListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "DeviceBridge executed 'removeButtonListeners' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"DeviceBridge no delegate for 'removeButtonListeners'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "DeviceBridge no delegate for 'removeButtonListeners'.")
                }
           }
           
@@ -215,41 +215,37 @@ public class DeviceBridge : BaseSystemBridge, IDevice, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "addButtonListener":
-                    var listener0 : IButtonListener =  ButtonListenerImpl(request.getAsyncId());
-                    self.addButtonListener(listener0);
-                    break;
+                    var listener0 : IButtonListener? =  ButtonListenerImpl(id: request.getAsyncId()!)
+                    self.addButtonListener(listener0!);
                case "getDeviceInfo":
-                    DeviceInfo response1 = this.getDeviceInfo();
-                    if (response1 != null) {
-                         responseJSON = this.gson.toJson(response1);
+                    var response1 : DeviceInfo = self.getDeviceInfo()
+                    if (response1 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                case "getLocaleCurrent":
-                    Locale response2 = this.getLocaleCurrent();
-                    if (response2 != null) {
-                         responseJSON = this.gson.toJson(response2);
+                    var response2 : Locale = self.getLocaleCurrent()
+                    if (response2 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                case "removeButtonListener":
-                    var listener3 : IButtonListener =  ButtonListenerImpl(request.getAsyncId());
-                    self.removeButtonListener(listener3);
-                    break;
+                    var listener3 : IButtonListener? =  ButtonListenerImpl(id: request.getAsyncId()!)
+                    self.removeButtonListener(listener3!);
                case "removeButtonListeners":
                     self.removeButtonListeners();
-                    break;
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

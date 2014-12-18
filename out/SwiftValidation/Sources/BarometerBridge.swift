@@ -41,7 +41,7 @@ public class BarometerBridge : BaseSensorBridge, IBarometer, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : IBarometer = nil
+     private var delegate : IBarometer? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class BarometerBridge : BaseSensorBridge, IBarometer, APIBridge {
         Get the delegate implementation.
         @return IBarometer delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IBarometer {
+     public final func getDelegate() -> IBarometer? {
           return self.delegate
      }
      /**
@@ -74,14 +74,15 @@ public class BarometerBridge : BaseSensorBridge, IBarometer, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

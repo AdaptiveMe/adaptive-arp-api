@@ -37,7 +37,7 @@ Release:
    Base application for Utility purposes
    Auto-generated implementation of IBaseUtil specification.
 */
-public class BaseUtilDelegate : IBaseUtil {
+public class BaseUtilDelegate : NSObject, IBaseUtil {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseUtilDelegate : IBaseUtil {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.Util
      }
 

@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Contact operations
    Auto-generated implementation of IContactResultCallback specification.
 */
-public class ContactResultCallbackImpl extends BaseCallbackImpl implements IContactResultCallback {
+public class ContactResultCallbackImpl : BaseCallbackImpl, IContactResultCallback {
 
      /**
         Constructor with callback id.
 
         @param id  The id of the callback.
      */
-     public ContactResultCallbackImpl(long id) {
-          super(id);
+     public override init(id : Int64) {
+          super.init(id: id)
      }
 
      /**
@@ -57,8 +53,9 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
         @param error returned by the platform
         @since ARP1.0
      */
-     public void onError(IContactResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : IContactResultCallbackError) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
         @param contacts returned by the platform
         @since ARP1.0
      */
-     public void onResult([Contact] contacts) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(contacts) +") )");
+     public func onResult(contacts : [Contact]) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class ContactResultCallbackImpl extends BaseCallbackImpl implements ICont
         @param warning  returned by the platform
         @since ARP1.0
      */
-     public void onWarning([Contact] contacts, IContactResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleContactResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(contacts) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(contacts : [Contact], warning : IContactResultCallbackWarning) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleContactResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

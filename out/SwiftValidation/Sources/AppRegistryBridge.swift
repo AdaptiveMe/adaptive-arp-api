@@ -46,7 +46,7 @@ public class AppRegistryBridge : IAppRegistry {
      /**
         API Delegate.
      */
-     private var delegate : IAppRegistry = nil
+     private var delegate : IAppRegistry? = nil
 
      /**
         Constructor with delegate.
@@ -61,7 +61,7 @@ public class AppRegistryBridge : IAppRegistry {
         Get the delegate implementation.
         @return IAppRegistry delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IAppRegistry {
+     public final func getDelegate() -> IAppRegistry? {
           return self.delegate
      }
      /**
@@ -88,7 +88,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return AccelerationBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getAccelerationBridge() -> Acceleration {
+     public final func getAccelerationBridge() -> AccelerationBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -116,7 +116,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return AdsBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getAdsBridge() -> Ads {
+     public final func getAdsBridge() -> AdsBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -144,7 +144,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return AlarmBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getAlarmBridge() -> Alarm {
+     public final func getAlarmBridge() -> AlarmBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -172,7 +172,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return AmbientLightBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getAmbientLightBridge() -> AmbientLight {
+     public final func getAmbientLightBridge() -> AmbientLightBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -200,7 +200,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return AnalyticsBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getAnalyticsBridge() -> Analytics {
+     public final func getAnalyticsBridge() -> AnalyticsBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -228,7 +228,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return AudioBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getAudioBridge() -> Audio {
+     public final func getAudioBridge() -> AudioBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -256,7 +256,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return BarcodeBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getBarcodeBridge() -> Barcode {
+     public final func getBarcodeBridge() -> BarcodeBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -284,7 +284,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return BarometerBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getBarometerBridge() -> Barometer {
+     public final func getBarometerBridge() -> BarometerBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -312,7 +312,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return BluetoothBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getBluetoothBridge() -> Bluetooth {
+     public final func getBluetoothBridge() -> BluetoothBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -340,7 +340,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return BrowserBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getBrowserBridge() -> Browser {
+     public final func getBrowserBridge() -> BrowserBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -368,7 +368,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return CalendarBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getCalendarBridge() -> Calendar {
+     public final func getCalendarBridge() -> CalendarBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -396,7 +396,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return CameraBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getCameraBridge() -> Camera {
+     public final func getCameraBridge() -> CameraBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -424,7 +424,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return CapabilitiesBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getCapabilitiesBridge() -> Capabilities {
+     public final func getCapabilitiesBridge() -> CapabilitiesBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -452,7 +452,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return CloudBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getCloudBridge() -> Cloud {
+     public final func getCloudBridge() -> CloudBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -480,7 +480,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return CompressionBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getCompressionBridge() -> Compression {
+     public final func getCompressionBridge() -> CompressionBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -508,7 +508,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return ConcurrentBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getConcurrentBridge() -> Concurrent {
+     public final func getConcurrentBridge() -> ConcurrentBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -536,7 +536,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return ContactBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getContactBridge() -> Contact {
+     public final func getContactBridge() -> ContactBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -564,7 +564,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return CryptoBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getCryptoBridge() -> Crypto {
+     public final func getCryptoBridge() -> CryptoBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -592,7 +592,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return DataStreamBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getDataStreamBridge() -> DataStream {
+     public final func getDataStreamBridge() -> DataStreamBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -620,7 +620,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return DatabaseBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getDatabaseBridge() -> Database {
+     public final func getDatabaseBridge() -> DatabaseBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -648,7 +648,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return DesktopBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getDesktopBridge() -> Desktop {
+     public final func getDesktopBridge() -> DesktopBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -676,7 +676,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return DeviceBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getDeviceBridge() -> Device {
+     public final func getDeviceBridge() -> DeviceBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -704,7 +704,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return DisplayBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getDisplayBridge() -> Display {
+     public final func getDisplayBridge() -> DisplayBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -732,7 +732,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return FacebookBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getFacebookBridge() -> Facebook {
+     public final func getFacebookBridge() -> FacebookBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -760,7 +760,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return FileSystemBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getFileSystemBridge() -> FileSystem {
+     public final func getFileSystemBridge() -> FileSystemBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -788,7 +788,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return GeolocationBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getGeolocationBridge() -> Geolocation {
+     public final func getGeolocationBridge() -> GeolocationBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -816,7 +816,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return GlobalizationBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getGlobalizationBridge() -> Globalization {
+     public final func getGlobalizationBridge() -> GlobalizationBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -844,7 +844,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return GooglePlusBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getGooglePlusBridge() -> GooglePlus {
+     public final func getGooglePlusBridge() -> GooglePlusBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -872,7 +872,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return GyroscopeBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getGyroscopeBridge() -> Gyroscope {
+     public final func getGyroscopeBridge() -> GyroscopeBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -900,7 +900,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return ImagingBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getImagingBridge() -> Imaging {
+     public final func getImagingBridge() -> ImagingBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -928,7 +928,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return InternalStorageBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getInternalStorageBridge() -> InternalStorage {
+     public final func getInternalStorageBridge() -> InternalStorageBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -956,7 +956,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return LifecycleBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getLifecycleBridge() -> Lifecycle {
+     public final func getLifecycleBridge() -> LifecycleBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -984,7 +984,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return LinkedInBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getLinkedInBridge() -> LinkedIn {
+     public final func getLinkedInBridge() -> LinkedInBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1012,7 +1012,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return LoggingBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getLoggingBridge() -> Logging {
+     public final func getLoggingBridge() -> LoggingBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1040,7 +1040,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return MagnetometerBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getMagnetometerBridge() -> Magnetometer {
+     public final func getMagnetometerBridge() -> MagnetometerBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1068,7 +1068,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return MailBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getMailBridge() -> Mail {
+     public final func getMailBridge() -> MailBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1096,7 +1096,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return ManagementBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getManagementBridge() -> Management {
+     public final func getManagementBridge() -> ManagementBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1124,7 +1124,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return MapBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getMapBridge() -> Map {
+     public final func getMapBridge() -> MapBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1152,7 +1152,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return MessagingBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getMessagingBridge() -> Messaging {
+     public final func getMessagingBridge() -> MessagingBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1180,7 +1180,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return NFCBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getNFCBridge() -> NFC {
+     public final func getNFCBridge() -> NFCBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1208,7 +1208,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return NetworkInfoBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getNetworkInfoBridge() -> NetworkInfo {
+     public final func getNetworkInfoBridge() -> NetworkInfoBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1236,7 +1236,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return NetworkNamingBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getNetworkNamingBridge() -> NetworkNaming {
+     public final func getNetworkNamingBridge() -> NetworkNamingBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1264,7 +1264,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return NetworkReachabilityBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getNetworkReachabilityBridge() -> NetworkReachability {
+     public final func getNetworkReachabilityBridge() -> NetworkReachabilityBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1292,7 +1292,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return NetworkStatusBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getNetworkStatusBridge() -> NetworkStatus {
+     public final func getNetworkStatusBridge() -> NetworkStatusBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1320,7 +1320,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return NotificationBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getNotificationBridge() -> Notification {
+     public final func getNotificationBridge() -> NotificationBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1348,7 +1348,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return NotificationLocalBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getNotificationLocalBridge() -> NotificationLocal {
+     public final func getNotificationLocalBridge() -> NotificationLocalBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1376,7 +1376,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return OAuthBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getOAuthBridge() -> OAuth {
+     public final func getOAuthBridge() -> OAuthBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1404,7 +1404,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return OCRBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getOCRBridge() -> OCR {
+     public final func getOCRBridge() -> OCRBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1432,7 +1432,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return OSBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getOSBridge() -> OS {
+     public final func getOSBridge() -> OSBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1460,7 +1460,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return OpenIdBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getOpenIdBridge() -> OpenId {
+     public final func getOpenIdBridge() -> OpenIdBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1488,7 +1488,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return PrintingBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getPrintingBridge() -> Printing {
+     public final func getPrintingBridge() -> PrintingBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1516,7 +1516,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return ProximityBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getProximityBridge() -> Proximity {
+     public final func getProximityBridge() -> ProximityBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1544,7 +1544,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return QRCodeBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getQRCodeBridge() -> QRCode {
+     public final func getQRCodeBridge() -> QRCodeBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1572,7 +1572,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return RSSBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getRSSBridge() -> RSS {
+     public final func getRSSBridge() -> RSSBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1600,7 +1600,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return RuntimeBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getRuntimeBridge() -> Runtime {
+     public final func getRuntimeBridge() -> RuntimeBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1628,7 +1628,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return SecurityBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getSecurityBridge() -> Security {
+     public final func getSecurityBridge() -> SecurityBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1656,7 +1656,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return ServiceBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getServiceBridge() -> Service {
+     public final func getServiceBridge() -> ServiceBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1684,7 +1684,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return SettingsBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getSettingsBridge() -> Settings {
+     public final func getSettingsBridge() -> SettingsBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1712,7 +1712,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return SocketBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getSocketBridge() -> Socket {
+     public final func getSocketBridge() -> SocketBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1740,7 +1740,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return StoreBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getStoreBridge() -> Store {
+     public final func getStoreBridge() -> StoreBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1768,7 +1768,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return TelephonyBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getTelephonyBridge() -> Telephony {
+     public final func getTelephonyBridge() -> TelephonyBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1796,7 +1796,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return TimerBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getTimerBridge() -> Timer {
+     public final func getTimerBridge() -> TimerBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1824,7 +1824,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return TwitterBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getTwitterBridge() -> Twitter {
+     public final func getTwitterBridge() -> TwitterBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1852,7 +1852,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return UIBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getUIBridge() -> UI {
+     public final func getUIBridge() -> UIBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1880,7 +1880,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return UpdateBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getUpdateBridge() -> Update {
+     public final func getUpdateBridge() -> UpdateBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1908,7 +1908,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return VibrationBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getVibrationBridge() -> Vibration {
+     public final func getVibrationBridge() -> VibrationBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1936,7 +1936,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return VideoBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getVideoBridge() -> Video {
+     public final func getVideoBridge() -> VideoBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1964,7 +1964,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return WalletBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getWalletBridge() -> Wallet {
+     public final func getWalletBridge() -> WalletBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -1992,7 +1992,7 @@ public class AppRegistryBridge : IAppRegistry {
 
         @return XMLBridge reference or null if a bridge of this type is not registered.
      */
-     public final func getXMLBridge() -> XML {
+     public final func getXMLBridge() -> XMLBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
           var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
@@ -2028,17 +2028,17 @@ public class AppRegistryBridge : IAppRegistry {
           var result : APIBridge = nil
 
           if (logger != nil) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executing getBridge(\(bridgeType)).")
+               logger.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getBridge(\(bridgeType)).")
           }
 
           if (this.delegate != nil) {
                result = self.delegate.getBridge(bridgeType)
                if (logger!=nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(), "AppRegistryBridge executed 'getBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getBridge' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                }
           } else {
                if (logger!=nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(), "AppRegistryBridge no delegate for 'getBridge'.")
+                    logger.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getBridge'.")
                }
           }
           return result          
@@ -2053,24 +2053,24 @@ public class AppRegistryBridge : IAppRegistry {
      public func getPlatformContext() -> AppContextBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppRegistryBridge executing getPlatformContext.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getPlatformContext.")
           }
 
           var result : AppContextBridge = nil
           if (self.delegate != nil) {
-               result = self.delegate.getPlatformContext()
+               result = self.delegate!.getPlatformContext()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppRegistryBridge executed 'getPlatformContext' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getPlatformContext' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"AppRegistryBridge no delegate for 'getPlatformContext'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getPlatformContext'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -2082,24 +2082,24 @@ public class AppRegistryBridge : IAppRegistry {
      public func getPlatformContextWeb() -> AppContextWebviewBridge {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppRegistryBridge executing getPlatformContextWeb.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executing getPlatformContextWeb.")
           }
 
           var result : AppContextWebviewBridge = nil
           if (self.delegate != nil) {
-               result = self.delegate.getPlatformContextWeb()
+               result = self.delegate!.getPlatformContextWeb()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"AppRegistryBridge executed 'getPlatformContextWeb' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "AppRegistryBridge executed 'getPlatformContextWeb' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"AppRegistryBridge no delegate for 'getPlatformContextWeb'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "AppRegistryBridge no delegate for 'getPlatformContextWeb'.")
                }
           }
-          return result          
+          return result!          
      }
 
 }

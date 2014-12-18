@@ -37,7 +37,7 @@ Release:
    Base application for Notification purposes
    Auto-generated implementation of IBaseNotification specification.
 */
-public class BaseNotificationDelegate : IBaseNotification {
+public class BaseNotificationDelegate : NSObject, IBaseNotification {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseNotificationDelegate : IBaseNotification {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.Notification
      }
 

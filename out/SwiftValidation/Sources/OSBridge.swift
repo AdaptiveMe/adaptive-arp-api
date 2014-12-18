@@ -41,7 +41,7 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : IOS = nil
+     private var delegate : IOS? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
         Get the delegate implementation.
         @return IOS delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IOS {
+     public final func getDelegate() -> IOS? {
           return self.delegate
      }
      /**
@@ -77,24 +77,24 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
      public func getOSInfo() -> OSInfo {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"OSBridge executing getOSInfo.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "OSBridge executing getOSInfo.")
           }
 
-          var result : OSInfo = nil
+          var result : OSInfo? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getOSInfo()
+               result = self.delegate!.getOSInfo()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"OSBridge executed 'getOSInfo' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "OSBridge executed 'getOSInfo' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"OSBridge no delegate for 'getOSInfo'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "OSBridge no delegate for 'getOSInfo'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -103,22 +103,22 @@ public class OSBridge : BaseSystemBridge, IOS, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "getOSInfo":
-                    OSInfo response0 = this.getOSInfo();
-                    if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
+                    var response0 : OSInfo = self.getOSInfo()
+                    if (response0 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

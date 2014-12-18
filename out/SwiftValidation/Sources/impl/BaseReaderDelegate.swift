@@ -37,7 +37,7 @@ Release:
    Base application for Reader purposes
    Auto-generated implementation of IBaseReader specification.
 */
-public class BaseReaderDelegate : IBaseReader {
+public class BaseReaderDelegate : NSObject, IBaseReader {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseReaderDelegate : IBaseReader {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.Reader
      }
 

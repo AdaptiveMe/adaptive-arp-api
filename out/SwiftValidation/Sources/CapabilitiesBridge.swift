@@ -41,7 +41,7 @@ public class CapabilitiesBridge : BaseSystemBridge, ICapabilities, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : ICapabilities = nil
+     private var delegate : ICapabilities? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class CapabilitiesBridge : BaseSystemBridge, ICapabilities, APIBridge {
         Get the delegate implementation.
         @return ICapabilities delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> ICapabilities {
+     public final func getDelegate() -> ICapabilities? {
           return self.delegate
      }
      /**
@@ -78,21 +78,21 @@ public class CapabilitiesBridge : BaseSystemBridge, ICapabilities, APIBridge {
      public func hasButtonSupport(type : ICapabilitiesButton ) -> Bool {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executing hasButtonSupport({"+type+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasButtonSupport({\(type)}).")
           }
 
           var result : Bool = false
           if (self.delegate != nil) {
-               result = self.delegate.hasButtonSupport(type)
+               result = self.delegate!.hasButtonSupport(type)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executed 'hasButtonSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasButtonSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"CapabilitiesBridge no delegate for 'hasButtonSupport'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasButtonSupport'.")
                }
           }
           return result          
@@ -109,21 +109,21 @@ the device.
      public func hasCommunicationSupport(type : ICapabilitiesCommunication ) -> Bool {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executing hasCommunicationSupport({"+type+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasCommunicationSupport({\(type)}).")
           }
 
           var result : Bool = false
           if (self.delegate != nil) {
-               result = self.delegate.hasCommunicationSupport(type)
+               result = self.delegate!.hasCommunicationSupport(type)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executed 'hasCommunicationSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasCommunicationSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"CapabilitiesBridge no delegate for 'hasCommunicationSupport'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasCommunicationSupport'.")
                }
           }
           return result          
@@ -139,21 +139,21 @@ the device.
      public func hasDataSupport(type : ICapabilitiesData ) -> Bool {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executing hasDataSupport({"+type+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasDataSupport({\(type)}).")
           }
 
           var result : Bool = false
           if (self.delegate != nil) {
-               result = self.delegate.hasDataSupport(type)
+               result = self.delegate!.hasDataSupport(type)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executed 'hasDataSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasDataSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"CapabilitiesBridge no delegate for 'hasDataSupport'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasDataSupport'.")
                }
           }
           return result          
@@ -170,21 +170,21 @@ device.
      public func hasMediaSupport(type : ICapabilitiesMedia ) -> Bool {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executing hasMediaSupport({"+type+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasMediaSupport({\(type)}).")
           }
 
           var result : Bool = false
           if (self.delegate != nil) {
-               result = self.delegate.hasMediaSupport(type)
+               result = self.delegate!.hasMediaSupport(type)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executed 'hasMediaSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasMediaSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"CapabilitiesBridge no delegate for 'hasMediaSupport'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasMediaSupport'.")
                }
           }
           return result          
@@ -200,21 +200,21 @@ device.
      public func hasNetSupport(type : ICapabilitiesNet ) -> Bool {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executing hasNetSupport({"+type+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasNetSupport({\(type)}).")
           }
 
           var result : Bool = false
           if (self.delegate != nil) {
-               result = self.delegate.hasNetSupport(type)
+               result = self.delegate!.hasNetSupport(type)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executed 'hasNetSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasNetSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"CapabilitiesBridge no delegate for 'hasNetSupport'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasNetSupport'.")
                }
           }
           return result          
@@ -231,21 +231,21 @@ device.
      public func hasNotificationSupport(type : ICapabilitiesNotification ) -> Bool {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executing hasNotificationSupport({"+type+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasNotificationSupport({\(type)}).")
           }
 
           var result : Bool = false
           if (self.delegate != nil) {
-               result = self.delegate.hasNotificationSupport(type)
+               result = self.delegate!.hasNotificationSupport(type)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executed 'hasNotificationSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasNotificationSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"CapabilitiesBridge no delegate for 'hasNotificationSupport'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasNotificationSupport'.")
                }
           }
           return result          
@@ -262,21 +262,21 @@ device.
      public func hasSensorSupport(type : ICapabilitiesSensor ) -> Bool {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executing hasSensorSupport({"+type+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executing hasSensorSupport({\(type)}).")
           }
 
           var result : Bool = false
           if (self.delegate != nil) {
-               result = self.delegate.hasSensorSupport(type)
+               result = self.delegate!.hasSensorSupport(type)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"CapabilitiesBridge executed 'hasSensorSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "CapabilitiesBridge executed 'hasSensorSupport' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"CapabilitiesBridge no delegate for 'hasSensorSupport'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "CapabilitiesBridge no delegate for 'hasSensorSupport'.")
                }
           }
           return result          
@@ -288,49 +288,43 @@ device.
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "hasButtonSupport":
-                    var type0 : ICapabilitiesButton = this.gson.fromJson(request.getParameters()[0], ICapabilitiesButton.class);
-                    Bool response0 = this.hasButtonSupport(type0);
-                    responseJSON = this.gson.toJson(response0);
-                    break;
+                    var type0 : ICapabilitiesButton? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesButton.class)
+                    var response0 : Bool = self.hasButtonSupport(type0!)
+                    responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                case "hasCommunicationSupport":
-                    var type1 : ICapabilitiesCommunication = this.gson.fromJson(request.getParameters()[0], ICapabilitiesCommunication.class);
-                    Bool response1 = this.hasCommunicationSupport(type1);
-                    responseJSON = this.gson.toJson(response1);
-                    break;
+                    var type1 : ICapabilitiesCommunication? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesCommunication.class)
+                    var response1 : Bool = self.hasCommunicationSupport(type1!)
+                    responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                case "hasDataSupport":
-                    var type2 : ICapabilitiesData = this.gson.fromJson(request.getParameters()[0], ICapabilitiesData.class);
-                    Bool response2 = this.hasDataSupport(type2);
-                    responseJSON = this.gson.toJson(response2);
-                    break;
+                    var type2 : ICapabilitiesData? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesData.class)
+                    var response2 : Bool = self.hasDataSupport(type2!)
+                    responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                case "hasMediaSupport":
-                    var type3 : ICapabilitiesMedia = this.gson.fromJson(request.getParameters()[0], ICapabilitiesMedia.class);
-                    Bool response3 = this.hasMediaSupport(type3);
-                    responseJSON = this.gson.toJson(response3);
-                    break;
+                    var type3 : ICapabilitiesMedia? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesMedia.class)
+                    var response3 : Bool = self.hasMediaSupport(type3!)
+                    responseJSON = nil //TODO - Serialize this.gson.toJson(response3);
                case "hasNetSupport":
-                    var type4 : ICapabilitiesNet = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNet.class);
-                    Bool response4 = this.hasNetSupport(type4);
-                    responseJSON = this.gson.toJson(response4);
-                    break;
+                    var type4 : ICapabilitiesNet? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesNet.class)
+                    var response4 : Bool = self.hasNetSupport(type4!)
+                    responseJSON = nil //TODO - Serialize this.gson.toJson(response4);
                case "hasNotificationSupport":
-                    var type5 : ICapabilitiesNotification = this.gson.fromJson(request.getParameters()[0], ICapabilitiesNotification.class);
-                    Bool response5 = this.hasNotificationSupport(type5);
-                    responseJSON = this.gson.toJson(response5);
-                    break;
+                    var type5 : ICapabilitiesNotification? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesNotification.class)
+                    var response5 : Bool = self.hasNotificationSupport(type5!)
+                    responseJSON = nil //TODO - Serialize this.gson.toJson(response5);
                case "hasSensorSupport":
-                    var type6 : ICapabilitiesSensor = this.gson.fromJson(request.getParameters()[0], ICapabilitiesSensor.class);
-                    Bool response6 = this.hasSensorSupport(type6);
-                    responseJSON = this.gson.toJson(response6);
-                    break;
+                    var type6 : ICapabilitiesSensor? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], ICapabilitiesSensor.class)
+                    var response6 : Bool = self.hasSensorSupport(type6!)
+                    responseJSON = nil //TODO - Serialize this.gson.toJson(response6);
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

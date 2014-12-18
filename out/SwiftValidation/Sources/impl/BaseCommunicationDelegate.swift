@@ -37,7 +37,7 @@ Release:
    Base application for Communication purposes
    Auto-generated implementation of IBaseCommunication specification.
 */
-public class BaseCommunicationDelegate : IBaseCommunication {
+public class BaseCommunicationDelegate : NSObject, IBaseCommunication {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseCommunicationDelegate : IBaseCommunication {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.Communication
      }
 

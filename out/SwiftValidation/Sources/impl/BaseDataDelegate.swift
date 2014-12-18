@@ -37,7 +37,7 @@ Release:
    Base application for Data purposes
    Auto-generated implementation of IBaseData specification.
 */
-public class BaseDataDelegate : IBaseData {
+public class BaseDataDelegate : NSObject, IBaseData {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseDataDelegate : IBaseData {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.Data
      }
 

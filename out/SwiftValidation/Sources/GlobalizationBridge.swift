@@ -41,7 +41,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
      /**
         API Delegate.
      */
-     private var delegate : IGlobalization = nil
+     private var delegate : IGlobalization? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         Get the delegate implementation.
         @return IGlobalization delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IGlobalization {
+     public final func getDelegate() -> IGlobalization? {
           return self.delegate
      }
      /**
@@ -77,24 +77,24 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
      public func getLocaleSupportedDescriptors() -> [Locale] {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executing getLocaleSupportedDescriptors.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executing getLocaleSupportedDescriptors.")
           }
 
-          var result : [Locale] = nil
+          var result : [Locale]? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getLocaleSupportedDescriptors()
+               result = self.delegate!.getLocaleSupportedDescriptors()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executed 'getLocaleSupportedDescriptors' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getLocaleSupportedDescriptors' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"GlobalizationBridge no delegate for 'getLocaleSupportedDescriptors'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "GlobalizationBridge no delegate for 'getLocaleSupportedDescriptors'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -108,24 +108,24 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
      public func getResourceLiteral(key : String , locale : Locale ) -> String {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executing getResourceLiteral({"+key+"},{"+locale+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executing getResourceLiteral({\(key)},{\(locale)}).")
           }
 
-          var result : String = nil
+          var result : String? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getResourceLiteral(key, locale)
+               result = self.delegate!.getResourceLiteral(key, locale: locale)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executed 'getResourceLiteral' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getResourceLiteral' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"GlobalizationBridge no delegate for 'getResourceLiteral'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "GlobalizationBridge no delegate for 'getResourceLiteral'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -138,24 +138,24 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
      public func getResourceLiterals(locale : Locale ) -> [KeyPair] {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executing getResourceLiterals({"+locale+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executing getResourceLiterals({\(locale)}).")
           }
 
-          var result : [KeyPair] = nil
+          var result : [KeyPair]? = nil
           if (self.delegate != nil) {
-               result = self.delegate.getResourceLiterals(locale)
+               result = self.delegate!.getResourceLiterals(locale)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"GlobalizationBridge executed 'getResourceLiterals' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "GlobalizationBridge executed 'getResourceLiterals' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"GlobalizationBridge no delegate for 'getResourceLiterals'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "GlobalizationBridge no delegate for 'getResourceLiterals'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -164,41 +164,39 @@ public class GlobalizationBridge : BaseApplicationBridge, IGlobalization, APIBri
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "getLocaleSupportedDescriptors":
-                    [Locale] response0 = this.getLocaleSupportedDescriptors();
-                    if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
+                    var response0 : [Locale] = self.getLocaleSupportedDescriptors()
+                    if (response0 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                case "getResourceLiteral":
-                    var key1 : String = this.gson.fromJson(request.getParameters()[0], String.class);
-                    var locale1 : Locale = this.gson.fromJson(request.getParameters()[1], Locale.class);
-                    String response1 = this.getResourceLiteral(key1, locale1);
-                    if (response1 != null) {
-                         responseJSON = this.gson.toJson(response1);
+                    var key1 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
+                    var locale1 : Locale? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], Locale.class)
+                    var response1 : String = self.getResourceLiteral(key1!, locale: locale1!)
+                    if (response1 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response1);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                case "getResourceLiterals":
-                    var locale2 : Locale = this.gson.fromJson(request.getParameters()[0], Locale.class);
-                    [KeyPair] response2 = this.getResourceLiterals(locale2);
-                    if (response2 != null) {
-                         responseJSON = this.gson.toJson(response2);
+                    var locale2 : Locale? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], Locale.class)
+                    var response2 : [KeyPair] = self.getResourceLiterals(locale2!)
+                    if (response2 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

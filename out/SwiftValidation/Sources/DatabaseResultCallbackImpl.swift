@@ -32,23 +32,19 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Interface for Managing the Cloud operations
    Auto-generated implementation of IDatabaseResultCallback specification.
 */
-public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDatabaseResultCallback {
+public class DatabaseResultCallbackImpl : BaseCallbackImpl, IDatabaseResultCallback {
 
      /**
         Constructor with callback id.
 
         @param id  The id of the callback.
      */
-     public DatabaseResultCallbackImpl(long id) {
-          super(id);
+     public override init(id : Int64) {
+          super.init(id: id)
      }
 
      /**
@@ -57,8 +53,9 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
         @param error Returned error
         @since ARP1.0
      */
-     public void onError(IDatabaseResultCallbackError error) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackError( '"+getId()+"', JSON.parse(" + this.gson.toJson(error) +") )");
+     public func onError(error : IDatabaseResultCallbackError) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackError( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -67,8 +64,9 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
         @param database Returns the database
         @since ARP1.0
      */
-     public void onResult(Database database) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackResult( '"+getId()+"', JSON.parse(" + this.gson.toJson(database) +") )");
+     public func onResult(database : Database) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackResult( '\(getId())', JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
      /**
@@ -78,8 +76,9 @@ public class DatabaseResultCallbackImpl extends BaseCallbackImpl implements IDat
         @param warning  Returned Warning
         @since ARP1.0
      */
-     public void onWarning(Database database, IDatabaseResultCallbackWarning warning) {
-          AppRegistryBridge.getInstance().getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackWarning( '"+getId()+"', JSON.parse(" + this.gson.toJson(database) +"), JSON.parse(" + this.gson.toJson(warning) +") )");
+     public func onWarning(database : Database, warning : IDatabaseResultCallbackWarning) { 
+          AppRegistryBridge.sharedInstance.getPlatformContextWeb().executeJavaScript("handleDatabaseResultCallbackWarning( '\(getId())', JSON.parse(\"\"), JSON.parse(\"\")" )
+          /** TODO: this.gson.toJson(" + p.getName() + ")**/ /** TODO: this.gson.toJson(" + p.getName() + ")**/ 
      }
 
 }

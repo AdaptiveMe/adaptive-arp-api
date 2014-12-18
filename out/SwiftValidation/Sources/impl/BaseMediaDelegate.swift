@@ -37,7 +37,7 @@ Release:
    Base application for Media purposes
    Auto-generated implementation of IBaseMedia specification.
 */
-public class BaseMediaDelegate : IBaseMedia {
+public class BaseMediaDelegate : NSObject, IBaseMedia {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseMediaDelegate : IBaseMedia {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.Media
      }
 

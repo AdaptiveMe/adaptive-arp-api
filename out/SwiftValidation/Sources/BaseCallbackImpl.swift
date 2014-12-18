@@ -32,64 +32,59 @@ Release:
 -------------------------------------------| aut inveniam viam aut faciam |--------------------------------------------
 */
 
-package me.adaptive.arp.api;
-
-import com.google.gson.Gson;
-
 /**
    Base application for Callback purposes
    Auto-generated implementation of IBaseCallback specification.
 */
-public class BaseCallbackImpl implements IBaseCallback {
+public class BaseCallbackImpl : NSObject, IBaseCallback {
 
      /**
         Unique id of callback.
      */
-     private long id;
+     private var id : Int64
 
      /**
         Group of API.
      */
-     private IAdaptiveRPGroup apiGroup;
+     private var apiGroup : IAdaptiveRPGroup
 
      /**
         JSON Serializer.
      */
-     protected Gson gson;
+     //TODO: protected Gson gson;
 
      /**
         Constructor with callback id.
 
         @param id  The id of the callback.
      */
-     public BaseCallbackImpl(long id) {
-          this.id = id;
-          this.apiGroup = IAdaptiveRPGroup.Application;
-          this.gson = new Gson();
+     public init(id : Int64) {
+          self.id = id
+          self.apiGroup = IAdaptiveRPGroup.Application
+          //TODO: this.gson = new Gson();
      }
 
      /**
         Get the callback id.
         @return long with the identifier of the callback.
      */
-     public final long getId() {
-          return this.id;
+     public final func getId() -> Int64 {
+          return self.id
      }
 
      /**
         Return the API group for the given interface.
      */
-     @Override
-     public IAdaptiveRPGroup getAPIGroup() {
-          return this.apiGroup;
+     public func getAPIGroup() -> IAdaptiveRPGroup {
+          return self.apiGroup
      }
      /**
         Return the JSON serializer.
         @return Current JSON serializer.
      */
-     public final Gson getJSONAPI() {
-          return this.gson;
-     }
+     //TODO: public final Gson getJSONAPI() {
+          //return this.gson;
+     //}
 
 }
 /**

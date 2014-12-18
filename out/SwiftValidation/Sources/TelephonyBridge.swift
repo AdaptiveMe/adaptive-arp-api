@@ -41,7 +41,7 @@ public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : ITelephony = nil
+     private var delegate : ITelephony? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
         Get the delegate implementation.
         @return ITelephony delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> ITelephony {
+     public final func getDelegate() -> ITelephony? {
           return self.delegate
      }
      /**
@@ -78,24 +78,24 @@ public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
      public func call(number : String ) -> ITelephonyStatus {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"TelephonyBridge executing call({"+number+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "TelephonyBridge executing call({\(number)}).")
           }
 
-          var result : ITelephonyStatus = nil
+          var result : ITelephonyStatus? = nil
           if (self.delegate != nil) {
-               result = self.delegate.call(number)
+               result = self.delegate!.call(number)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"TelephonyBridge executed 'call' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "TelephonyBridge executed 'call' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"TelephonyBridge no delegate for 'call'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "TelephonyBridge no delegate for 'call'.")
                }
           }
-          return result          
+          return result!          
      }
 
      /**
@@ -104,23 +104,23 @@ public class TelephonyBridge : BaseCommunicationBridge, ITelephony, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "call":
-                    var number0 : String = this.gson.fromJson(request.getParameters()[0], String.class);
-                    ITelephonyStatus response0 = this.call(number0);
-                    if (response0 != null) {
-                         responseJSON = this.gson.toJson(response0);
+                    var number0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], String.class)
+                    var response0 : ITelephonyStatus = self.call(number0!)
+                    if (response0 != nil) {
+                         responseJSON = nil //TODO - Serialize this.gson.toJson(response0);
                     } else {
-                         responseJSON = nil;
+                         responseJSON = nil
                     }
-                    break;
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

@@ -37,7 +37,7 @@ Release:
    Base application for Sensor purposes
    Auto-generated implementation of IBaseSensor specification.
 */
-public class BaseSensorDelegate : IBaseSensor {
+public class BaseSensorDelegate : NSObject, IBaseSensor {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseSensorDelegate : IBaseSensor {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.Sensor
      }
 

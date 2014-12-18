@@ -41,7 +41,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : ISecurity = nil
+     private var delegate : ISecurity? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
         Get the delegate implementation.
         @return ISecurity delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> ISecurity {
+     public final func getDelegate() -> ISecurity? {
           return self.delegate
      }
      /**
@@ -79,20 +79,20 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
      public func deleteSecureKeyValuePairs(keys : [String] , publicAccessName : String , callback : ISecurityResultCallback ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executing deleteSecureKeyValuePairs({"+keys+"},{"+publicAccessName+"},{"+callback+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executing deleteSecureKeyValuePairs({\(keys)},{\(publicAccessName)},{\(callback)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.deleteSecureKeyValuePairs(keys, publicAccessName, callback)
+               self.delegate!.deleteSecureKeyValuePairs(keys, publicAccessName: publicAccessName, callback: callback)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executed 'deleteSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'deleteSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"SecurityBridge no delegate for 'deleteSecureKeyValuePairs'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "SecurityBridge no delegate for 'deleteSecureKeyValuePairs'.")
                }
           }
           
@@ -109,20 +109,20 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
      public func getSecureKeyValuePairs(keys : [String] , publicAccessName : String , callback : ISecurityResultCallback ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executing getSecureKeyValuePairs({"+keys+"},{"+publicAccessName+"},{"+callback+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executing getSecureKeyValuePairs({\(keys)},{\(publicAccessName)},{\(callback)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.getSecureKeyValuePairs(keys, publicAccessName, callback)
+               self.delegate!.getSecureKeyValuePairs(keys, publicAccessName: publicAccessName, callback: callback)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executed 'getSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'getSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"SecurityBridge no delegate for 'getSecureKeyValuePairs'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "SecurityBridge no delegate for 'getSecureKeyValuePairs'.")
                }
           }
           
@@ -137,21 +137,21 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
      public func isDeviceModified() -> Bool {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executing isDeviceModified.")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executing isDeviceModified.")
           }
 
           var result : Bool = false
           if (self.delegate != nil) {
-               result = self.delegate.isDeviceModified()
+               result = self.delegate!.isDeviceModified()
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executed 'isDeviceModified' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'isDeviceModified' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"SecurityBridge no delegate for 'isDeviceModified'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "SecurityBridge no delegate for 'isDeviceModified'.")
                }
           }
           return result          
@@ -168,20 +168,20 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
      public func setSecureKeyValuePairs(keyValues : [SecureKeyPair] , publicAccessName : String , callback : ISecurityResultCallback ) {
           // Start logging elapsed time.
           var tIn : NSTimeInterval = NSDate.timeIntervalSinceReferenceDate()
-          var logger : ILogging = AppRegistryBridge.sharedInstance.getLoggingBridge()
+          var logger : ILogging? = AppRegistryBridge.sharedInstance.getLoggingBridge()
 
-          if (logger!=null) {
-               logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executing setSecureKeyValuePairs({"+keyValues+"},{"+publicAccessName+"},{"+callback+"}).")
+          if (logger != nil) {
+               logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executing setSecureKeyValuePairs({\(keyValues)},{\(publicAccessName)},{\(callback)}).")
           }
 
           if (self.delegate != nil) {
-               self.delegate.setSecureKeyValuePairs(keyValues, publicAccessName, callback)
+               self.delegate!.setSecureKeyValuePairs(keyValues, publicAccessName: publicAccessName, callback: callback)
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.DEBUG, self.apiGroup.name(),"SecurityBridge executed 'setSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
+                    logger!.log(ILoggingLogLevel.DEBUG, category: getAPIGroup().toString(), message: "SecurityBridge executed 'setSecureKeyValuePairs' in \(UInt64(tIn.distanceTo(NSDate.timeIntervalSinceReferenceDate())*1000)) ms.")
                 }
           } else {
                if (logger != nil) {
-                    logger.log(ILoggingLogLevel.ERROR, self.apiGroup.name(),"SecurityBridge no delegate for 'setSecureKeyValuePairs'.")
+                    logger!.log(ILoggingLogLevel.ERROR, category: getAPIGroup().toString(), message: "SecurityBridge no delegate for 'setSecureKeyValuePairs'.")
                }
           }
           
@@ -193,36 +193,33 @@ public class SecurityBridge : BaseSecurityBridge, ISecurity, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                case "deleteSecureKeyValuePairs":
-                    var keys0 : [String] = this.gson.fromJson(request.getParameters()[0], [String].class);
-                    var publicAccessName0 : String = this.gson.fromJson(request.getParameters()[1], String.class);
-                    var callback0 : ISecurityResultCallback =  SecurityResultCallbackImpl(request.getAsyncId());
-                    self.deleteSecureKeyValuePairs(keys0, publicAccessName0, callback0);
-                    break;
+                    var keys0 : [String]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], [String].class)
+                    var publicAccessName0 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
+                    var callback0 : ISecurityResultCallback? =  SecurityResultCallbackImpl(id: request.getAsyncId()!)
+                    self.deleteSecureKeyValuePairs(keys0!, publicAccessName: publicAccessName0!, callback: callback0!);
                case "getSecureKeyValuePairs":
-                    var keys1 : [String] = this.gson.fromJson(request.getParameters()[0], [String].class);
-                    var publicAccessName1 : String = this.gson.fromJson(request.getParameters()[1], String.class);
-                    var callback1 : ISecurityResultCallback =  SecurityResultCallbackImpl(request.getAsyncId());
-                    self.getSecureKeyValuePairs(keys1, publicAccessName1, callback1);
-                    break;
+                    var keys1 : [String]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], [String].class)
+                    var publicAccessName1 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
+                    var callback1 : ISecurityResultCallback? =  SecurityResultCallbackImpl(id: request.getAsyncId()!)
+                    self.getSecureKeyValuePairs(keys1!, publicAccessName: publicAccessName1!, callback: callback1!);
                case "isDeviceModified":
-                    Bool response2 = this.isDeviceModified();
-                    responseJSON = this.gson.toJson(response2);
-                    break;
+                    var response2 : Bool = self.isDeviceModified()
+                    responseJSON = nil //TODO - Serialize this.gson.toJson(response2);
                case "setSecureKeyValuePairs":
-                    var keyValues3 : [SecureKeyPair] = this.gson.fromJson(request.getParameters()[0], [SecureKeyPair].class);
-                    var publicAccessName3 : String = this.gson.fromJson(request.getParameters()[1], String.class);
-                    var callback3 : ISecurityResultCallback =  SecurityResultCallbackImpl(request.getAsyncId());
-                    self.setSecureKeyValuePairs(keyValues3, publicAccessName3, callback3);
-                    break;
+                    var keyValues3 : [SecureKeyPair]? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[0], [SecureKeyPair].class)
+                    var publicAccessName3 : String? = nil // TODO: Deserialize - this.gson.fromJson(request.getParameters()[1], String.class)
+                    var callback3 : ISecurityResultCallback? =  SecurityResultCallbackImpl(id: request.getAsyncId()!)
+                    self.setSecureKeyValuePairs(keyValues3!, publicAccessName: publicAccessName3!, callback: callback3!);
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

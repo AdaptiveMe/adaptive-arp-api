@@ -41,7 +41,7 @@ public class MapBridge : BaseUIBridge, IMap, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : IMap = nil
+     private var delegate : IMap? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class MapBridge : BaseUIBridge, IMap, APIBridge {
         Get the delegate implementation.
         @return IMap delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IMap {
+     public final func getDelegate() -> IMap? {
           return self.delegate
      }
      /**
@@ -74,14 +74,15 @@ public class MapBridge : BaseUIBridge, IMap, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

@@ -41,7 +41,7 @@ public class StoreBridge : BaseCommerceBridge, IStore, APIBridge {
      /**
         API Delegate.
      */
-     private var delegate : IStore = nil
+     private var delegate : IStore? = nil
 
      /**
         Constructor with delegate.
@@ -56,7 +56,7 @@ public class StoreBridge : BaseCommerceBridge, IStore, APIBridge {
         Get the delegate implementation.
         @return IStore delegate that manages platform specific functions..
      */
-     public final func getDelegate() -> IStore {
+     public final func getDelegate() -> IStore? {
           return self.delegate
      }
      /**
@@ -74,14 +74,15 @@ public class StoreBridge : BaseCommerceBridge, IStore, APIBridge {
         @param request APIRequest object containing method name and parameters.
         @return String with JSON response or a zero length string if the response is asynchronous or null if method not found.
      */
-     public func invoke(request : APIRequest) -> String? {
-          var responseJSON : String = ""
-          switch (request.getMethodName()) {
+     public override func invoke(request : APIRequest) -> String? {
+          //Gson gson = new Gson();
+          var responseJSON : String? = ""
+          switch request.getMethodName()! {
                default:
                     // 404 - response null.
-                    responseJSON = nil;
+                    responseJSON = nil
           }
-          return responseJSON;
+          return responseJSON
      }
 }
 /**

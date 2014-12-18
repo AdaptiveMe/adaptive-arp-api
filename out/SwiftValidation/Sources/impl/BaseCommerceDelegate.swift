@@ -37,7 +37,7 @@ Release:
    Base application for Commerce purposes
    Auto-generated implementation of IBaseCommerce specification.
 */
-public class BaseCommerceDelegate : IBaseCommerce {
+public class BaseCommerceDelegate : NSObject, IBaseCommerce {
 
      /**
         Group of API.
@@ -47,7 +47,7 @@ public class BaseCommerceDelegate : IBaseCommerce {
      /**
         Default constructor.
      */
-     public init() {
+     public override init() {
           self.apiGroup = IAdaptiveRPGroup.Commerce
      }
 
